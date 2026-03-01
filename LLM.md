@@ -30,7 +30,7 @@ These capabilities are designed for building into camera apps, browsers (mobile/
 - `content.js` — Page scanning for `verifiable-text` HTML markers, auto-verify regions
 - `popup/` — Verification history UI with "Show me" feature to locate claims on page
 - `settings/` — Intrusiveness levels, auto-scan options
-- `shared/normalize.js`, `shared/verify.js` — Shared verification logic
+- `shared/` — **Auto-generated** by `scripts/sync-shared.js` from canonical `public/` sources. Do not edit directly.
 
 ### Android App
 `apps/android/` — Native Kotlin Android app for camera-based verification. Uses ML Kit for OCR, CameraX for camera. Key files:
@@ -46,7 +46,7 @@ Target SDK: 35 (Android 15), Min SDK: 26 (Android 8.0). Uses native Kotlin imple
 - `background.js` — Background script handling verification, context menu, notifications
 - `popup/` — Verification history UI
 - `settings/` — Notification level settings
-- `shared/normalize.js`, `shared/verify.js` — Shared verification logic (adapted from browser extension)
+- `shared/` — **Auto-generated** by `scripts/sync-shared.js` from canonical `public/` sources. Do not edit directly.
 
 Minimum version: Thunderbird 102. Uses `messenger.*` APIs for email-specific functionality.
 
@@ -128,7 +128,7 @@ live-verify/
 │   │   ├── content.js               # Page scanning
 │   │   ├── popup/                   # History UI
 │   │   ├── settings/                # Options page
-│   │   ├── shared/                  # normalize.js, verify.js
+│   │   ├── shared/                  # AUTO-GENERATED from public/ via scripts/sync-shared.js
 │   │   ├── icons/                   # Extension icons
 │   │   └── __tests__/               # Jest tests
 │   │
@@ -150,7 +150,7 @@ live-verify/
 │   │   ├── background.js            # Background script
 │   │   ├── popup/                   # History UI
 │   │   ├── settings/                # Options page
-│   │   ├── shared/                  # normalize.js, verify.js
+│   │   ├── shared/                  # AUTO-GENERATED from public/ via scripts/sync-shared.js
 │   │   └── icons/                   # Extension icons
 │   │
 │   └── mailspring-plugin/           # Mailspring plugin
@@ -184,6 +184,10 @@ live-verify/
 │   │   ├── verification-meta.json       # Document normalization rules + OCR settings (optional)
 │   │   └── {hash}/index.html        # Static verification endpoints (200 + "OK")
 │   └── hashes.json                  # Hash database metadata
+│
+├── scripts/
+│   ├── sync-shared.js               # Generates extension shared/ from canonical public/ sources
+│   └── concat-source.py             # Concatenates source files for review
 │
 ├── build-hashes.js                  # Build tool: generates hash database
 ├── generate-training-pages.js       # Build tool: generates training pages

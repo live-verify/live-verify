@@ -1,6 +1,6 @@
 # Building and Testing
 
-This is a **100% client-side static web app**. No backend server, no database, no native bindings.
+The web verification app (`public/`) is **100% client-side static**. No backend server, no database, no native bindings. The repo also contains browser/email extensions, native iOS/Android prototypes, and build scripts.
 
 ## Prerequisites
 
@@ -16,6 +16,7 @@ npm install
 This installs:
 - Jest for unit tests
 - Playwright for E2E tests
+- psl (Public Suffix List) for domain authority extraction
 - Development tools (ESLint, etc.)
 
 **Note:** OpenCV.js and Tesseract.js are loaded from CDN in the browser. No compilation needed.
@@ -31,17 +32,24 @@ npm run test:e2e      # Playwright only (requires local server)
 ### Test Structure
 
 **Unit tests** (`__tests__/` directory):
-- Text normalization
-- SHA-256 hashing
-- URL extraction and validation
-- Canvas rotation
-- Pure functions
+- `ocr-hash.test.js` — Text normalization + SHA-256 hashing
+- `app-logic.test.js` — URL extraction, rotation, endorsement checking
+- `domain-authority.test.js` — PSL-based registrable domain extraction
+- `doc-specific-normalization.test.js` — Document-specific normalization rules
+- `normalize-trailing-artifacts.test.js` — OCR trailing artifact cleanup
+- `cross-platform-hashes.test.js` — Cross-platform hash fixtures from `normalization-hashes/`
+- `browser-extension.test.js` — Browser extension shared module tests
+- `training-pages-integration.test.js` — Training page hash verification
+- `ui-state-machine.test.js` — Camera UI state transitions
+- `cv-geometry.test.js` — OpenCV geometry utilities
 
 **E2E tests** (`e2e/` directory):
 - Registration mark detection (using OpenCV.js in browser)
 - OCR integration (using Tesseract.js in browser)
 - Full verification workflow
 - Screenshot verification with real training pages
+- PSL domain authority in browser context
+- State transitions
 
 ### Running E2E Tests Locally
 
@@ -121,39 +129,107 @@ node generate-training-pages.js
 
 Creates HTML training certificates for testing.
 
+### Sync Shared Extension Code
+
+```bash
+npm run sync-shared
+```
+
+Reads canonical source files from `public/` (`normalize.js`, `app-logic.js`, `domain-authority.js`) and generates platform-specific variants in each extension's `shared/` directory. Also vendors the `psl` UMD library for PSL-based domain extraction.
+
+**Targets:**
+- `apps/browser-extension/shared/` — ES module exports
+- `apps/thunderbird-extension/shared/` — Global scope (no exports)
+
+**Run this after editing any canonical file in `public/`.** The `shared/` files in extensions are auto-generated and should not be edited directly.
+
 ## File Structure
 
 ```
 live-verify/
-├── public/                   # Static files (deploy this to GitHub Pages)
-│   ├── camera-app/index.html # Camera UI
-│   ├── live-verify-app.js        # Main app logic
-│   ├── normalize.js          # Text normalization + SHA-256
-│   ├── app-logic.js          # Pure functions (URL extraction, rotation)
+├── public/                          # Static files (deploy to GitHub Pages)
+│   ├── index.html                   # Landing page
+│   ├── styles.css                   # Responsive design, mobile-first
+│   ├── camera-app/index.html        # Camera UI with registration marks overlay
+│   ├── normalize.js                 # Text normalization + SHA-256 (canonical)
+│   ├── app-logic.js                 # URL extraction, rotation, endorsement (canonical)
+│   ├── domain-authority.js          # PSL-based registrable domain extraction (canonical)
+│   ├── doc-specific-normalization.js# Document-specific normalization rules
+│   ├── ocr-cleanup.js               # OCR artifact cleanup
+│   ├── live-verify-app.js           # Main camera app logic (OCR, verification)
+│   ├── text-selection-verify.js     # Clip verification UI (text selection → hash → verify)
 │   ├── cv/
-│   │   ├── detectSquares.js  # Registration mark detection (uses OpenCV.js)
-│   │   └── geometry.js       # Geometry utilities
-│   ├── training-pages/       # Test certificates
-│   └── c/                    # Verification endpoints
-│       └── {hash}/index.html # Static "OK" responses
+│   │   ├── detectSquares.js         # Registration mark detection (uses OpenCV.js)
+│   │   └── geometry.js              # Geometry utilities
+│   ├── training-pages/              # Test certificates (HTML)
+│   ├── use-cases/                   # ~450 use case documents (Markdown)
+│   ├── examples/                    # Example verification-meta.json
+│   └── c/                           # Verification endpoints
+│       ├── verification-meta.json   # Demo issuer metadata (Unseen University)
+│       └── {hash}/index.html        # Static "OK" responses
 │
-├── __tests__/                # Jest unit tests
-│   ├── ocr-hash.test.js
-│   ├── app-logic.test.js
-│   ├── doc-specific-normalization.test.js
-│   └── ...
+├── apps/
+│   ├── browser-extension/           # Chrome/Edge/Firefox Manifest V3 extension
+│   │   ├── manifest.json
+│   │   ├── background.js            # Service worker
+│   │   ├── content.js               # Page scanning for verifiable-text markers
+│   │   ├── popup/                   # Verification history UI
+│   │   ├── settings/                # Options page
+│   │   ├── shared/                  # AUTO-GENERATED by scripts/sync-shared.js
+│   │   └── icons/
+│   │
+│   ├── thunderbird-extension/       # Thunderbird MailExtension
+│   │   ├── manifest.json
+│   │   ├── background.js
+│   │   ├── popup/                   # Verification history UI
+│   │   ├── settings/                # Options page
+│   │   ├── shared/                  # AUTO-GENERATED by scripts/sync-shared.js
+│   │   └── icons/
+│   │
+│   ├── mailspring-plugin/           # Mailspring email client plugin
+│   │   ├── package.json
+│   │   └── lib/
+│   │       ├── main.js              # Plugin entry point
+│   │       ├── verify-button.jsx    # React toolbar button
+│   │       └── verify.js            # Verification logic (requires canonical public/ files)
+│   │
+│   ├── ios/                         # Native iOS app (Swift)
+│   │   └── LiveVerify/
+│   │
+│   └── android/                     # Native Android app (Kotlin)
+│       └── app/
 │
-├── e2e/                      # Playwright E2E tests
-│   ├── cv-detect.spec.ts
-│   ├── cv-ocr.spec.ts
-│   ├── screenshot-verification.spec.ts
-│   └── ...
+├── native/                          # Native platform data models
+│   ├── ios/LiveVerifyPrototype/     # Swift VerificationMeta, Pipeline
+│   └── android/                     # Kotlin VerificationMeta, data classes
 │
-├── test/fixtures/            # Test images and expected outputs
-│   └── screenshots/          # Training page screenshots
+├── scripts/
+│   ├── sync-shared.js               # Generates extension shared/ from canonical public/ sources
+│   ├── concat-source.py             # Concatenates source files for review
+│   ├── count-and-update-derivations.js # Updates use-case derivation counts
+│   └── generate-use-cases-index.js  # Generates use-cases index page
+│
+├── normalization-hashes/            # Cross-platform test fixtures
+│   └── {sha256}.md                  # Test cases (filename = expected hash)
+│
+├── __tests__/                       # Jest unit tests (10 test files)
+│
+├── e2e/                             # Playwright E2E tests
+│
+├── test/fixtures/                   # Test images
+│   ├── should-detect/               # Images with valid registration marks
+│   ├── should-not-detect/           # Images without marks
+│   ├── mixed/                       # Mixed test cases
+│   └── screenshots/                 # Training page screenshots
+│
+├── docs/                            # Detailed documentation
+│   └── Verification-Response-Format.md
+│
+├── build-hashes.js                  # Build tool: generates hash database
+├── generate-training-pages.js       # Build tool: generates training pages
 │
 └── .github/workflows/
-    └── deploy.yml            # CI/CD pipeline
+    └── deploy.yml                   # CI/CD pipeline
 ```
 
 ## Dependencies Explained
@@ -163,17 +239,20 @@ live-verify/
 - **Tesseract.js v6** - OCR engine (~2MB WASM)
 - **Web Crypto API** - Built-in SHA-256 (no library needed)
 
+### Runtime (npm — used by build scripts and extensions)
+- **psl** - Public Suffix List for extracting registrable domains (e.g., distinguishing `github.io` from `user.github.io`). Vendored into extensions by `sync-shared.js`.
+
 ### Development (npm install)
 - **Jest 29** - Unit testing framework
 - **Playwright** - E2E testing (headless browsers)
 - **jsdom** - DOM environment for Jest tests
 - **ESLint** - Code linting
+- **browserify** - Bundling for extension shared modules
 
 ### NOT Used
 - ~~Native OpenCV bindings~~ (OpenCV.js is pure WASM)
 - ~~Node.js server~~ (static files only)
 - ~~Database~~ (verification URLs point to static files)
-- ~~Build tools~~ (no compilation, no bundling required)
 
 ## Deployment Options
 

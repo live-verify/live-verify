@@ -131,24 +131,39 @@ Organizations can optionally define custom display text so the camera overlay sp
 
 Issuers can declare who endorses them as an authority for the claim type. Unlike `parentAuthorities` (passive URL links), `endorsedBy` is a **verifiable claim** — clients can check the endorsement via the same `verify:` protocol.
 
+`endorsedBy` is a base URL string — the domain IS the endorser's identity. No human-readable name is provided (a trickster could fake that).
+
+**Merkle commitment:** The client hashes the issuer's **entire** `verification-meta.json` (canonicalized via `JSON.stringify(JSON.parse(raw))`), not just the domain. The endorser stores this hash. This binds the endorsement to the exact content of the issuer's self-description — any change to the issuer's file (description, claimType, date bounds) invalidates the hash and requires re-endorsement.
+
+**Date bounds:** `endorsedFrom` and `endorsedTo` fields in the issuer's `verification-meta.json` define the endorsement period. These dates are pinned by the merkle hash — the issuer cannot change them without breaking the endorsement.
+
+**Successor:** When an endorser is sunsetting, it declares a `successor` field pointing to its replacement. Clients display the successor to guide users.
+
 ```json
 {
-  "endorsedBy": {
-    "endorser": "State Medical Board",
-    "verifyUrl": "verify:medicalboard.state.gov/accredited",
-    "claimType": "accredited-medical-school",
-    "description": "State Medical Board recognizes this institution as an accredited medical school"
-  }
+  "endorsedBy": "arb.org.uk/accredited",
+  "endorsedFrom": "2023-01-01",
+  "endorsedTo": "2028-12-31"
 }
 ```
 
 **Client behavior:**
-- Fetch `verification-meta.json`, find `endorsedBy`
-- Perform a `verify:` lookup against `endorsedBy.verifyUrl`
+- Fetch `verification-meta.json`, find `endorsedBy` (a base URL string)
+- Check date bounds (`endorsedFrom`/`endorsedTo`) — if outside bounds, show expired
+- Fetch the raw `verification-meta.json` bytes, canonicalize: `JSON.stringify(JSON.parse(raw))`
+- Hash the canonical JSON, perform a `verify:` lookup at `https://{endorsedBy}/{hash}`
+- Endorser returns `OK` → confirmed; `404` → not confirmed
 - Display endorsement status alongside the primary verification result:
-  - Endorser confirms → "Endorsed by [endorser]"
-  - Endorser returns 404 → "Endorsement not confirmed"
+  - Endorser confirms → "Endorsed by **arb.org.uk** (Architects Registration Board)"
+  - Endorser returns 404 → "Endorsement by arb.org.uk — not confirmed"
   - Endorser unreachable → "Endorsement check unavailable"
+  - Expired → "Endorsement by arb.org.uk — expired"
+
+**Chain walking:** After confirming the primary endorsement, the client fetches the endorser's own `verification-meta.json` to read its `description` and check if it has its own `endorsedBy`. If so, the client walks the chain (max 3 levels deep), displaying the full chain:
+```
+Endorsed by arb.org.uk (Architects Registration Board)
+  Endorsed by gov.uk (UK Government)
+```
 
 ### Real-world example
 Texas has been running Operation Nightingale against fake nursing IDs; the board publishes details at https://www.bon.texas.gov/Operation_Nightingale_Main.asp.html. Use your `verification-meta.json` to return a status like `"LICENSED"` with `"text": "Licensed R.N in Texas and Nurse Compact states (see https://www.bon.texas.gov/Operation_Nightingale_Main.asp.html)"` so frontline staff see the same warning plus the trusted domain that attests to the credential.

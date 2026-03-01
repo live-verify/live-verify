@@ -147,20 +147,35 @@ function renderResultCard(result) {
     // Show endorsement status if available
     if (result.endorsement && result.endorsement.endorser) {
         const e = result.endorsement;
-        let endorseClass, endorseText;
-        if (e.confirmed) {
+        let endorseClass, endorseHtml;
+        if (e.expired) {
+            endorseClass = 'endorsement-expired';
+            endorseHtml = `Endorsement by ${escapeHtml(e.endorser)} \u2014 expired`;
+            if (e.successor) {
+                endorseHtml += `. Successor: ${escapeHtml(e.successor)}`;
+            }
+        } else if (e.confirmed) {
             endorseClass = 'endorsement-confirmed';
-            endorseText = `Endorsed by ${escapeHtml(e.endorser)}`;
+            const desc = e.description ? ` (${escapeHtml(e.description)})` : '';
+            endorseHtml = `Endorsed by ${escapeHtml(e.endorser)}${desc}`;
+            // Show chain entries
+            if (e.chain && e.chain.length > 1) {
+                for (let i = 1; i < e.chain.length; i++) {
+                    const c = e.chain[i];
+                    const cDesc = c.description ? ` (${escapeHtml(c.description)})` : '';
+                    endorseHtml += `<div class="endorsement-chain-entry">Endorsed by ${escapeHtml(c.endorser)}${cDesc}</div>`;
+                }
+            }
         } else if (e.checked) {
             endorseClass = 'endorsement-missing';
-            endorseText = `Endorsement by ${escapeHtml(e.endorser)} \u2014 not confirmed`;
+            endorseHtml = `Endorsement by ${escapeHtml(e.endorser)} \u2014 not confirmed`;
         } else {
             endorseClass = 'endorsement-unavailable';
-            endorseText = `Endorsement by ${escapeHtml(e.endorser)} \u2014 check unavailable`;
+            endorseHtml = `Endorsement by ${escapeHtml(e.endorser)} \u2014 check unavailable`;
         }
         html += `
             <div class="endorsement-row ${endorseClass}">
-                ${endorseText}
+                ${endorseHtml}
             </div>
         `;
     }

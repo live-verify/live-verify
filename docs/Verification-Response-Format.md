@@ -597,51 +597,68 @@ The Authority Chain Headers above are **dynamic** — returned in the HTTP respo
 
 The key difference from `parentAuthorities` (which are passive URL links for human browsing): `endorsedBy` is itself a **verifiable claim** — the endorser's attestation of the issuer can be checked via the same `verify:` protocol.
 
+`endorsedBy` is a **base URL string** — just like the domain in a `verify:` line. The endorser's identity IS the domain; no human-readable name is provided (a trickster could fake that). The verifier reads the domain and decides whether to trust it, exactly as they do for the primary verification.
+
+#### Merkle Commitment
+
+The endorser hashes the issuer's **entire** `verification-meta.json` file, not just the domain. This is a merkle commitment — the endorser attests to the exact content of the issuer's self-description (description, claimType, date bounds, everything). Any change to the issuer's file invalidates the hash and requires re-endorsement.
+
+**Canonicalization:** The client canonicalizes the JSON via `JSON.stringify(JSON.parse(raw))`. JavaScript preserves insertion order for string keys, so parse+re-stringify eliminates whitespace/formatting differences while keeping key order stable. This is simpler than RFC 8785 (JCS) and sufficient since the issuer controls their own JSON.
+
+#### Date Bounds
+
+`endorsedFrom` and `endorsedTo` fields in the issuer's `verification-meta.json` define the endorsement validity period. These dates are pinned by the merkle hash — the issuer cannot change them without breaking the endorsement.
+
+#### Successor Mechanism
+
+When an endorser is sunsetting, the issuer declares a `successor` field pointing to the replacement endorser. Clients display the successor to guide users when an endorsement has expired.
+
 ```json
 {
   "issuer": "Unseen University",
   "claimType": "Academic certification",
-  "endorsedBy": {
-    "endorser": "Ministry of Magic, Ankh-Morpork",
-    "verifyUrl": "verify:gov.uk/verifiers",
-    "claimType": "accredited-academic-institution",
-    "description": "The Ministry of Magic recognizes Unseen University as an accredited degree-granting institution"
-  }
+  "endorsedBy": "gov.uk/verifiers",
+  "endorsedFrom": "2023-01-01",
+  "endorsedTo": "2028-12-31"
 }
 ```
 
-**Fields:**
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `endorser` | string | **Required.** Human-readable name of the endorsing authority |
-| `verifyUrl` | string | **Required.** A `verify:` or `vfy:` URL pointing to the endorser's verification endpoint. The client hashes the issuer's identity claim and looks it up here. |
-| `claimType` | string | **Optional.** The type of endorsement (e.g., `accredited-academic-institution`, `paye-registered-employer`) |
-| `description` | string | **Optional.** Human-readable description of what the endorsement means |
-
 **How it works:**
 
-1. Client fetches `verification-meta.json` and finds `endorsedBy`
-2. Client computes a hash of the issuer's identity (e.g., the issuer's domain or a canonical issuer name — implementation-defined)
-3. Client performs a `verify:` lookup against `endorsedBy.verifyUrl` with that hash
-4. If the endorser's endpoint returns `OK`, the endorsement is confirmed — display "Endorsed by [endorser]"
-5. If the endorser's endpoint returns `404` or is unreachable, the endorsement is **unconfirmed** — display "Endorsement not confirmed" or "Endorsement missing"
+1. Client fetches `verification-meta.json` and finds `endorsedBy` (a base URL string, e.g., `"gov.uk/verifiers"`)
+2. Client checks date bounds (`endorsedFrom`/`endorsedTo`) — if outside bounds, show expired (with `successor` if available)
+3. Client fetches the raw `verification-meta.json` bytes and canonicalizes: `JSON.stringify(JSON.parse(raw))`
+4. Client computes SHA-256 hash of the canonical JSON
+5. Client performs a `verify:` lookup: `https://gov.uk/verifiers/{meta-hash}`
+6. If the endorser's endpoint returns `OK`, the endorsement is confirmed — display "Endorsed by **gov.uk**"
+7. If the endorser's endpoint returns `404`, the endorsement is **unconfirmed** — display "Endorsement by gov.uk — not confirmed"
+
+#### Chain Walking
+
+After confirming the primary endorsement, the client fetches the endorser's own `verification-meta.json` to read its `description` field (e.g., "Architects Registration Board") and check whether it declares its own `endorsedBy`. If so, the client recurses (max depth 3 levels), building a chain:
+
+```
+Endorsed by arb.org.uk (Architects Registration Board)
+  Endorsed by gov.uk (UK Government)
+```
+
+The endorser's identity is the domain from the URL (e.g., `gov.uk`). The verifier decides whether `gov.uk` is a trustworthy endorser for this type of claim — just as they decide whether the primary issuer's domain is trustworthy.
 
 **Relationship to Authority Chain Headers:**
 
 | Mechanism | Where Declared | When Available | Use Case |
 |-----------|---------------|----------------|----------|
 | `parentAuthorities` | `verification-meta.json` | Before verification | Passive URL links for human browsing (e.g., Wikipedia, accreditor website) |
-| `endorsedBy` | `verification-meta.json` | Before verification | Verifiable endorsement — the endorser can be checked via `verify:` protocol |
+| `endorsedBy` | `verification-meta.json` | Before verification | Verifiable endorsement — base URL, checkable via `verify:` protocol, merkle-committed |
 | `X-Verify-Authority-*` | HTTP response headers | After verification | Dynamic authority chain from the verification endpoint itself |
 
-All three can coexist. `parentAuthorities` provides context, `endorsedBy` provides a checkable pre-declared endorsement, and `X-Verify-Authority-*` headers provide the strongest proof (returned by the verification endpoint itself).
+All three can coexist. `parentAuthorities` provides context, `endorsedBy` provides a checkable pre-declared endorsement (pinned by merkle hash), and `X-Verify-Authority-*` headers provide the strongest proof (returned by the verification endpoint itself).
 
 **Example: Missing endorsement (demo)**
 
-The Live Verify demo uses Unseen University (fictional) with `endorsedBy.verifyUrl` pointing to `verify:gov.uk/verifiers`. Since this is a fictional institution, the endorsement lookup returns `404` — the endorser does not recognize the issuer. Client apps display this clearly: "Endorsed by Ministry of Magic, Ankh-Morpork — **not confirmed**".
+The Live Verify demo uses `"endorsedBy": "gov.uk/verifiers"` for the fictional Unseen University. The endorsement lookup returns `404` — `gov.uk` does not recognize this issuer's verification-meta.json hash. Client apps display: "Endorsement by **gov.uk** — not confirmed".
 
-This demonstrates the designed behavior: an issuer can *claim* endorsement, but the verifier independently checks whether the endorser actually confirms it. A fraudulent issuer claiming endorsement by a real authority would be caught when the endorser's endpoint returns `404`.
+This demonstrates the designed behavior: an issuer can *claim* endorsement by any domain, but the verifier independently checks. A fraudulent issuer claiming `"endorsedBy": "gov.uk/verifiers"` would be caught when `gov.uk`'s endpoint returns `404`.
 
 ## Privacy Tiers in Responses
 

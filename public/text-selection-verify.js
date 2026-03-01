@@ -419,17 +419,30 @@
             // Step 9: Check endorsement (if metadata has endorsedBy)
             let endorsement = null;
             if (metadata && metadata.endorsedBy) {
-                console.log('[TSV] Checking endorsement from', metadata.endorsedBy.endorser);
+                console.log('[TSV] Checking endorsement from', metadata.endorsedBy);
+                // Compute metaUrl from baseUrl (same logic as fetchVerificationMeta)
+                let metaUrlForEndorsement = baseUrl;
+                const lowerBase2 = baseUrl.toLowerCase();
+                if (lowerBase2.startsWith('verify:')) {
+                    metaUrlForEndorsement = `https://${baseUrl.substring(7)}`;
+                } else if (lowerBase2.startsWith('vfy:')) {
+                    metaUrlForEndorsement = `https://${baseUrl.substring(4)}`;
+                }
+                metaUrlForEndorsement = `${metaUrlForEndorsement}/verification-meta.json`;
                 try {
-                    endorsement = await checkEndorsement(metadata.endorsedBy, domain);
+                    endorsement = await checkEndorsement(metadata, metaUrlForEndorsement);
                     console.log('[TSV] Endorsement result:', endorsement);
                 } catch (e) {
                     console.log('[TSV] Endorsement check failed:', e.message);
                     endorsement = {
                         checked: false,
                         confirmed: false,
-                        endorser: metadata.endorsedBy.endorser,
-                        error: e.message
+                        endorser: metadata.endorsedBy.split('/')[0],
+                        description: null,
+                        expired: false,
+                        successor: null,
+                        error: e.message,
+                        chain: []
                     };
                 }
             }
@@ -538,19 +551,38 @@
                 // Insert after domain element
                 domainEl.parentNode.insertBefore(endorsementEl, domainEl.nextSibling);
             }
-            if (endorsement.confirmed) {
+            let endorsementHtml = '';
+            if (endorsement.expired) {
+                endorsementEl.style.background = 'rgba(255, 152, 0, 0.2)';
+                endorsementEl.style.color = '#ffb74d';
+                const toDate = endorsement.successor ? '' : '';
+                endorsementHtml = `Endorsement by ${endorsement.endorser} — expired`;
+                if (endorsement.successor) {
+                    endorsementHtml += `. Successor: ${endorsement.successor}`;
+                }
+            } else if (endorsement.confirmed) {
                 endorsementEl.style.background = 'rgba(72, 187, 120, 0.2)';
                 endorsementEl.style.color = '#68d391';
-                endorsementEl.textContent = `Endorsed by ${endorsement.endorser}`;
+                const desc = endorsement.description ? ` (${endorsement.description})` : '';
+                endorsementHtml = `Endorsed by ${endorsement.endorser}${desc}`;
+                // Show chain entries if available
+                if (endorsement.chain && endorsement.chain.length > 1) {
+                    for (let i = 1; i < endorsement.chain.length; i++) {
+                        const c = endorsement.chain[i];
+                        const cDesc = c.description ? ` (${c.description})` : '';
+                        endorsementHtml += `<br>&nbsp;&nbsp;Endorsed by ${c.endorser}${cDesc}`;
+                    }
+                }
             } else if (endorsement.checked) {
                 endorsementEl.style.background = 'rgba(255, 152, 0, 0.2)';
                 endorsementEl.style.color = '#ffb74d';
-                endorsementEl.textContent = `Endorsement by ${endorsement.endorser} — not confirmed`;
+                endorsementHtml = `Endorsement by ${endorsement.endorser} — not confirmed`;
             } else {
                 endorsementEl.style.background = 'rgba(158, 158, 158, 0.2)';
                 endorsementEl.style.color = '#bdbdbd';
-                endorsementEl.textContent = `Endorsement by ${endorsement.endorser} — check unavailable`;
+                endorsementHtml = `Endorsement by ${endorsement.endorser} — check unavailable`;
             }
+            endorsementEl.innerHTML = endorsementHtml;
             endorsementEl.style.display = 'block';
         } else if (endorsementEl) {
             endorsementEl.style.display = 'none';

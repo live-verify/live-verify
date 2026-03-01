@@ -5,7 +5,10 @@ struct VerificationMeta: Decodable, Equatable {
     var issuer: String?
     var claimType: String?
     var parentAuthorities: [String]?
-    var endorsedBy: Endorsement?
+    var endorsedBy: String?
+    var endorsedFrom: String?
+    var endorsedTo: String?
+    var successor: String?
 
     var responseTypes: [String: ResponseType]?
 
@@ -46,11 +49,5 @@ struct VerificationMeta: Decodable, Equatable {
         var description: String?
     }
 
-    struct Endorsement: Decodable, Equatable {
-        var endorser: String?
-        var verifyUrl: String?
-        var claimType: String?
-        var description: String?
-    }
 }
 

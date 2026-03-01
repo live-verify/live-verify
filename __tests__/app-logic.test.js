@@ -47,7 +47,9 @@ const {
     hashMatchesUrl,
     buildVerificationUrl,
     extractDomain,
-    fetchVerificationMeta
+    fetchVerificationMeta,
+    checkEndorsement,
+    walkEndorsementChain
 } = require('../public/app-logic.js');
 
 function extractVerificationUrlOnly(rawText) {
@@ -572,6 +574,254 @@ https://example.com`;
     describe('fetchVerificationMeta', () => {
         it('should be exported as fetchVerificationMeta (not fetchVerificMeta)', () => {
             expect(typeof fetchVerificationMeta).toBe('function');
+        });
+    });
+
+    describe('checkEndorsement', () => {
+        beforeEach(() => {
+            global.fetch = jest.fn();
+        });
+
+        afterEach(() => {
+            delete global.fetch;
+        });
+
+        it('should return checked: false when meta has no endorsedBy', async () => {
+            const result = await checkEndorsement({}, 'https://example.com/verification-meta.json');
+            expect(result.checked).toBe(false);
+            expect(result.confirmed).toBe(false);
+            expect(result.endorser).toBeNull();
+        });
+
+        it('should return checked: false when meta is null', async () => {
+            const result = await checkEndorsement(null, 'https://example.com/verification-meta.json');
+            expect(result.checked).toBe(false);
+        });
+
+        it('should return confirmed: true when endorser returns OK for correct hash', async () => {
+            const meta = {
+                issuer: 'Test Issuer',
+                endorsedBy: 'endorser.com/verifiers'
+            };
+            const metaJson = JSON.stringify(meta);
+            const canonicalJson = JSON.stringify(JSON.parse(metaJson));
+
+            // Mock fetch: first call returns the meta JSON (re-fetch for hashing),
+            // second call returns OK (endorsement confirmation),
+            // third call is the chain walk (endorser's own meta)
+            global.fetch = jest.fn()
+                .mockResolvedValueOnce({
+                    ok: true,
+                    text: () => Promise.resolve(metaJson)
+                })
+                .mockResolvedValueOnce({
+                    ok: true,
+                    status: 200,
+                    text: () => Promise.resolve('OK')
+                })
+                .mockResolvedValueOnce({
+                    ok: true,
+                    json: () => Promise.resolve({ description: 'Test Endorser Org' })
+                });
+
+            const result = await checkEndorsement(meta, 'https://example.com/verification-meta.json');
+            expect(result.checked).toBe(true);
+            expect(result.confirmed).toBe(true);
+            expect(result.endorser).toBe('endorser.com');
+            expect(result.expired).toBe(false);
+        });
+
+        it('should return confirmed: false when endorser returns 404', async () => {
+            const meta = {
+                issuer: 'Test Issuer',
+                endorsedBy: 'endorser.com/verifiers'
+            };
+            const metaJson = JSON.stringify(meta);
+
+            global.fetch = jest.fn()
+                .mockResolvedValueOnce({
+                    ok: true,
+                    text: () => Promise.resolve(metaJson)
+                })
+                .mockResolvedValueOnce({
+                    ok: false,
+                    status: 404
+                })
+                .mockResolvedValueOnce({
+                    ok: true,
+                    json: () => Promise.resolve({ description: 'Test Endorser Org' })
+                });
+
+            const result = await checkEndorsement(meta, 'https://example.com/verification-meta.json');
+            expect(result.checked).toBe(true);
+            expect(result.confirmed).toBe(false);
+        });
+
+        it('should return expired: true when endorsedTo is in the past', async () => {
+            const meta = {
+                issuer: 'Test Issuer',
+                endorsedBy: 'endorser.com/verifiers',
+                endorsedTo: '2020-01-01'
+            };
+
+            const result = await checkEndorsement(meta, 'https://example.com/verification-meta.json');
+            expect(result.checked).toBe(true);
+            expect(result.confirmed).toBe(false);
+            expect(result.expired).toBe(true);
+        });
+
+        it('should return successor when endorsement is expired and successor is set', async () => {
+            const meta = {
+                issuer: 'Test Issuer',
+                endorsedBy: 'old-endorser.com/verifiers',
+                endorsedTo: '2020-01-01',
+                successor: 'new-endorser.com/verifiers'
+            };
+
+            const result = await checkEndorsement(meta, 'https://example.com/verification-meta.json');
+            expect(result.expired).toBe(true);
+            expect(result.successor).toBe('new-endorser.com/verifiers');
+        });
+
+        it('should handle missing endorsedFrom/endorsedTo (open-ended endorsement)', async () => {
+            const meta = {
+                issuer: 'Test Issuer',
+                endorsedBy: 'endorser.com/verifiers'
+            };
+            const metaJson = JSON.stringify(meta);
+
+            global.fetch = jest.fn()
+                .mockResolvedValueOnce({
+                    ok: true,
+                    text: () => Promise.resolve(metaJson)
+                })
+                .mockResolvedValueOnce({
+                    ok: true,
+                    status: 200,
+                    text: () => Promise.resolve('OK')
+                })
+                .mockResolvedValueOnce({
+                    ok: true,
+                    json: () => Promise.resolve({ description: 'Test Endorser Org' })
+                });
+
+            const result = await checkEndorsement(meta, 'https://example.com/verification-meta.json');
+            expect(result.checked).toBe(true);
+            expect(result.confirmed).toBe(true);
+            expect(result.expired).toBe(false);
+        });
+    });
+
+    describe('walkEndorsementChain', () => {
+        beforeEach(() => {
+            global.fetch = jest.fn();
+        });
+
+        afterEach(() => {
+            delete global.fetch;
+        });
+
+        const dummyHashFn = async (text) => 'abc123';
+
+        it('should return single-level chain', async () => {
+            global.fetch = jest.fn().mockResolvedValueOnce({
+                ok: true,
+                json: () => Promise.resolve({ description: 'Test Endorser' })
+            });
+
+            const result = await walkEndorsementChain('endorser.com/verifiers', true, dummyHashFn);
+            expect(result).toHaveLength(1);
+            expect(result[0].endorser).toBe('endorser.com');
+            expect(result[0].description).toBe('Test Endorser');
+            expect(result[0].confirmed).toBe(true);
+        });
+
+        it('should return two-level chain when endorser has endorsedBy', async () => {
+            global.fetch = jest.fn()
+                .mockResolvedValueOnce({
+                    ok: true,
+                    json: () => Promise.resolve({
+                        description: 'ARB',
+                        endorsedBy: 'gov.uk/regulators'
+                    })
+                })
+                .mockResolvedValueOnce({
+                    ok: true,
+                    json: () => Promise.resolve({
+                        description: 'UK Government'
+                    })
+                });
+
+            const result = await walkEndorsementChain('arb.org.uk/accredited', true, dummyHashFn);
+            expect(result).toHaveLength(2);
+            expect(result[0].endorser).toBe('arb.org.uk');
+            expect(result[0].description).toBe('ARB');
+            expect(result[1].endorser).toBe('gov.uk');
+            expect(result[1].description).toBe('UK Government');
+        });
+
+        it('should respect max depth of 3', async () => {
+            global.fetch = jest.fn()
+                .mockResolvedValueOnce({
+                    ok: true,
+                    json: () => Promise.resolve({
+                        description: 'Level 1',
+                        endorsedBy: 'level2.com/v'
+                    })
+                })
+                .mockResolvedValueOnce({
+                    ok: true,
+                    json: () => Promise.resolve({
+                        description: 'Level 2',
+                        endorsedBy: 'level3.com/v'
+                    })
+                })
+                .mockResolvedValueOnce({
+                    ok: true,
+                    json: () => Promise.resolve({
+                        description: 'Level 3',
+                        endorsedBy: 'level4.com/v'
+                    })
+                });
+
+            const result = await walkEndorsementChain('level1.com/v', true, dummyHashFn);
+            expect(result).toHaveLength(3);
+            expect(result[2].endorser).toBe('level3.com');
+        });
+
+        it('should handle failed fetch gracefully', async () => {
+            global.fetch = jest.fn().mockResolvedValueOnce({
+                ok: false,
+                status: 404
+            });
+
+            const result = await walkEndorsementChain('missing.com/v', true, dummyHashFn);
+            expect(result).toHaveLength(1);
+            expect(result[0].endorser).toBe('missing.com');
+            expect(result[0].description).toBeNull();
+            expect(result[0].confirmed).toBe(true);
+        });
+    });
+
+    describe('Canonicalization', () => {
+        it('should produce consistent output regardless of input formatting', () => {
+            const json1 = '{"a": 1, "b": 2}';
+            const json2 = '{"a":1,"b":2}';
+            const json3 = '{\n  "a": 1,\n  "b": 2\n}';
+
+            const canonical1 = JSON.stringify(JSON.parse(json1));
+            const canonical2 = JSON.stringify(JSON.parse(json2));
+            const canonical3 = JSON.stringify(JSON.parse(json3));
+
+            expect(canonical1).toBe(canonical2);
+            expect(canonical2).toBe(canonical3);
+            expect(canonical1).toBe('{"a":1,"b":2}');
+        });
+
+        it('should preserve key order for string keys', () => {
+            const json = '{"z": 1, "a": 2, "m": 3}';
+            const canonical = JSON.stringify(JSON.parse(json));
+            expect(canonical).toBe('{"z":1,"a":2,"m":3}');
         });
     });
 });

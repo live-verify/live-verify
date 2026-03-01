@@ -10,7 +10,10 @@ data class VerificationMeta(
     val issuer: String? = null,
     val claimType: String? = null,
     val parentAuthorities: List<String>? = null,
-    val endorsedBy: Endorsement? = null,
+    val endorsedBy: String? = null,
+    val endorsedFrom: String? = null,
+    val endorsedTo: String? = null,
+    val successor: String? = null,
     val responseTypes: Map<String, ResponseType>? = null,
     val retentionLaws: List<RetentionLaw>? = null,
     val charNormalization: String? = null,
@@ -48,12 +51,5 @@ data class VerificationMeta(
         val description: String? = null,
     )
 
-    @Serializable
-    data class Endorsement(
-        val endorser: String? = null,
-        val verifyUrl: String? = null,
-        val claimType: String? = null,
-        val description: String? = null,
-    )
 }
 

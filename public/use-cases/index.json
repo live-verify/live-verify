@@ -1,7 +1,7 @@
 {
-  "generated": "2026-03-01T11:17:05.492Z",
-  "totalUseCases": 436,
-  "totalFurtherDerivations": 513,
+  "generated": "2026-03-01T20:47:08.903Z",
+  "totalUseCases": 440,
+  "totalFurtherDerivations": 525,
   "categories": {
     "Real Estate & Property": 30,
     "Charitable & Non-Profit": 6,
@@ -25,7 +25,7 @@
     "Business & Commerce": 10,
     "Legal & Court Documents": 8,
     "Banking & Payments": 14,
-    "Financial Compliance": 6,
+    "Financial Compliance": 10,
     "Identity & Civil Records": 2,
     "Investment & Fintech": 11,
     "Site & Equipment Safety": 7,
@@ -5313,6 +5313,51 @@
       ]
     },
     {
+      "slug": "offshore-compliance-audit-reports",
+      "title": "Offshore Compliance Audit Reports",
+      "category": "Financial Compliance",
+      "volume": "Medium",
+      "retention": "7-10 years (regulatory requirements)",
+      "furtherDerivations": 3,
+      "snippet": "Entity name, registration number, audit period, report date, scope of audit, auditor's opinion (clean/qualified/adverse/disclaimer), auditor's name and license number.",
+      "tags": [
+        "compliance-audit",
+        "offshore",
+        "aml",
+        "kyc",
+        "substance-audit",
+        "regulatory-compliance",
+        "fatf",
+        "shell-company",
+        "cayman",
+        "bvi",
+        "money-laundering"
+      ]
+    },
+    {
+      "slug": "offshore-good-standing-certificates",
+      "title": "Offshore Good Standing Certificates",
+      "category": "Financial Compliance",
+      "volume": "Large",
+      "retention": "Duration of entity + 7 years",
+      "furtherDerivations": 3,
+      "snippet": "Company name, company number, date of incorporation, registered agent name, good standing status, date of issue, validity period.",
+      "tags": [
+        "good-standing",
+        "certificate",
+        "offshore",
+        "shell-company",
+        "registry",
+        "cayman",
+        "bvi",
+        "jersey",
+        "bermuda",
+        "banking",
+        "kyc",
+        "de-risking"
+      ]
+    },
+    {
       "slug": "open-banking-consent-forms",
       "title": "Open Banking Consent Forms (PSD2 / Dodd-Frank 1033)",
       "category": "Banking & Payments",
@@ -6460,6 +6505,29 @@
       ]
     },
     {
+      "slug": "registered-agent-letters",
+      "title": "Registered Agent Letters and Corporate Service Provider Confirmations",
+      "category": "Financial Compliance",
+      "volume": "Large",
+      "retention": "Duration of relationship + 5 years",
+      "furtherDerivations": 3,
+      "snippet": "Company name, company number, date of incorporation, entity status, registered agent identity, directors (names and appointment dates), registered office address, date of letter, validity period.",
+      "tags": [
+        "registered-agent",
+        "corporate-service-provider",
+        "csp",
+        "comfort-letter",
+        "offshore",
+        "kyc",
+        "due-diligence",
+        "shell-company",
+        "nominee",
+        "bvi",
+        "cayman",
+        "panama"
+      ]
+    },
+    {
       "slug": "registrar-residency-status-letters",
       "title": "Registrar Residency and Enrollment Letters",
       "category": "Professional & Educational Qualifications",
@@ -7350,6 +7418,28 @@
         "tax-fraud",
         "wage-statement",
         "payroll-audit"
+      ]
+    },
+    {
+      "slug": "tax-haven-substance-declarations",
+      "title": "Tax Haven Economic Substance Declarations",
+      "category": "Financial Compliance",
+      "volume": "Medium",
+      "retention": "7-10 years post-activity",
+      "furtherDerivations": 3,
+      "snippet": "Entity name, registration number, relevant activity type, filing period, employee count (FTE), operating expenditure, premises address, number of board meetings held in jurisdiction, directors residen",
+      "tags": [
+        "economic-substance",
+        "tax-haven",
+        "beps",
+        "oecd",
+        "substance-requirement",
+        "cayman",
+        "bvi",
+        "jersey",
+        "bermuda",
+        "shell-company",
+        "eu-blacklist"
       ]
     },
     {
@@ -8379,6 +8469,10 @@
       "count": 10
     },
     {
+      "name": "Financial Compliance",
+      "count": 10
+    },
+    {
       "name": "Professional Ethics & Compliance",
       "count": 9
     },
@@ -8424,10 +8518,6 @@
     },
     {
       "name": "Sports & Athletics",
-      "count": 6
-    },
-    {
-      "name": "Financial Compliance",
       "count": 6
     },
     {

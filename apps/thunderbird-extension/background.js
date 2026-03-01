@@ -192,10 +192,19 @@ async function verifySelection(selectedText, tab) {
     // Check endorsement if metadata has endorsedBy
     let endorsement = null;
     if (meta && meta.endorsedBy) {
+        // Compute metaUrl from baseUrl
+        let metaHttpsBase = baseUrl;
+        const lowerBase2 = baseUrl.toLowerCase();
+        if (lowerBase2.startsWith('verify:')) {
+            metaHttpsBase = `https://${baseUrl.substring(7)}`;
+        } else if (lowerBase2.startsWith('vfy:')) {
+            metaHttpsBase = `https://${baseUrl.substring(4)}`;
+        }
+        const metaUrl = `${metaHttpsBase}/verification-meta.json`;
         try {
-            endorsement = await checkEndorsement(meta.endorsedBy, domain);
+            endorsement = await checkEndorsement(meta, metaUrl);
         } catch {
-            endorsement = { checked: false, confirmed: false, endorser: meta.endorsedBy.endorser, error: 'Check failed' };
+            endorsement = { checked: false, confirmed: false, endorser: meta.endorsedBy.split('/')[0], description: null, expired: false, successor: null, error: 'Check failed', chain: [] };
         }
     }
 
@@ -379,10 +388,19 @@ async function verifyText(selectedText) {
     // Check endorsement if metadata has endorsedBy
     let endorsement = null;
     if (meta && meta.endorsedBy) {
+        // Compute metaUrl from baseUrl
+        let metaHttpsBase2 = baseUrl;
+        const lowerBase3 = baseUrl.toLowerCase();
+        if (lowerBase3.startsWith('verify:')) {
+            metaHttpsBase2 = `https://${baseUrl.substring(7)}`;
+        } else if (lowerBase3.startsWith('vfy:')) {
+            metaHttpsBase2 = `https://${baseUrl.substring(4)}`;
+        }
+        const metaUrl2 = `${metaHttpsBase2}/verification-meta.json`;
         try {
-            endorsement = await checkEndorsement(meta.endorsedBy, domain);
+            endorsement = await checkEndorsement(meta, metaUrl2);
         } catch {
-            endorsement = { checked: false, confirmed: false, endorser: meta.endorsedBy.endorser, error: 'Check failed' };
+            endorsement = { checked: false, confirmed: false, endorser: meta.endorsedBy.split('/')[0], description: null, expired: false, successor: null, error: 'Check failed', chain: [] };
         }
     }
 
