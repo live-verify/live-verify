@@ -132,7 +132,7 @@
                 color: #aaa;
                 text-align: center;
             ">
-                Simulation of a future feature of browsers
+                Simulation of a future first-class feature of browsers, but a single browser extension today
             </div>
             <div id="tsv-modal-disclaimer" style="
                 display: none;
@@ -362,7 +362,7 @@
         // Step 3: Try to fetch verification-meta.json for document-specific normalization
         let metadata = null;
         try {
-            metadata = await fetchVerificMeta(baseUrl);
+            metadata = await fetchVerificationMeta(baseUrl);
             if (metadata) {
                 console.log('[TSV] Loaded document-specific metadata');
             }
@@ -385,13 +385,22 @@
 
         // Step 7: Extract domain for display
         let domain = '';
+        let registrableDomain = '';
+        let domainNotListed = false;
         try {
             const urlObj = new URL(verificationUrl);
             domain = urlObj.hostname;
 
-            // Use domain authority if available
+            // Use extractDomainAuthority (PSL-based) for registrable domain emphasis
             if (typeof extractDomainAuthority === 'function') {
-                domain = extractDomainAuthority(verificationUrl);
+                registrableDomain = extractDomainAuthority(verificationUrl);
+            }
+            // Check if domain TLD is recognized by PSL
+            if (typeof psl !== 'undefined' && psl.parse) {
+                const parsed = psl.parse(domain);
+                if (!parsed.listed) {
+                    domainNotListed = true;
+                }
             }
         } catch (e) {
             domain = baseUrl;
@@ -415,28 +424,32 @@
 
                 if (trimmedBody === 'OK' || trimmedBody.includes('OK')) {
                     console.log('[TSV] ✓ VERIFICATION SUCCESSFUL - hash matches and endpoint confirmed');
-                    showResult('verified', 'VERIFIED', `by ${domain}`, normalizedText, hash);
+                    showResult('verified', 'VERIFIED', `by ${domain}`, normalizedText, hash,
+                        registrableDomain, domainNotListed);
                 } else {
                     // Show the actual status from the response (e.g., REVOKED)
                     console.log('[TSV] ✗ VERIFICATION FAILED - endpoint returned non-OK status');
                     showResult('denied', trimmedBody || 'UNKNOWN STATUS',
-                        `from ${domain}`, normalizedText, hash);
+                        `from ${domain}`, normalizedText, hash,
+                        registrableDomain, domainNotListed);
                 }
             } else if (response.status === 404) {
                 console.log('[TSV] ✗ VERIFICATION FAILED - hash endpoint not found (404)');
                 showResult('failed', 'NOT FOUND',
                     `Hash not registered at ${domain}`, normalizedText, hash,
-                    domain);
+                    registrableDomain, domainNotListed);
             } else {
                 console.log('[TSV] ✗ VERIFICATION FAILED - unexpected HTTP status');
                 showResult('failed', `HTTP ${response.status}`,
-                    `Unexpected response from ${domain}`, normalizedText, hash);
+                    `Unexpected response from ${domain}`, normalizedText, hash,
+                    registrableDomain, domainNotListed);
             }
         } catch (error) {
             console.error('[TSV] Verification error:', error);
             if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
                 showResult('error', 'CANNOT VERIFY',
-                    `Network error or CORS restriction for ${domain}`, normalizedText, hash);
+                    `Network error or CORS restriction for ${domain}`, normalizedText, hash,
+                    registrableDomain, domainNotListed);
             } else {
                 throw error;
             }
@@ -446,7 +459,7 @@
     /**
      * Show verification result in the modal
      */
-    function showResult(type, status, detail, normalizedText, hash, emphasisDomain) {
+    function showResult(type, status, detail, normalizedText, hash, emphasisDomain, domainNotListed) {
         const statusIcon = resultModal.querySelector('#tsv-status-icon');
         const statusText = resultModal.querySelector('#tsv-status-text');
         const domainEl = resultModal.querySelector('#tsv-domain');
@@ -459,7 +472,7 @@
         // Set content
         statusText.textContent = status;
         if (emphasisDomain && detail.includes(emphasisDomain)) {
-            // Bold the domain within the detail string — presentation-layer concern
+            // Bold only the registrable domain within the full hostname
             const escaped = emphasisDomain.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
             domainEl.innerHTML = detail.replace(
                 new RegExp(escaped),
@@ -467,6 +480,29 @@
             );
         } else {
             domainEl.textContent = detail;
+        }
+
+        // Warn if domain TLD is not in the Public Suffix List
+        let trustWarning = resultModal.querySelector('#tsv-trust-warning');
+        if (domainNotListed) {
+            if (!trustWarning) {
+                trustWarning = document.createElement('div');
+                trustWarning.id = 'tsv-trust-warning';
+                trustWarning.style.cssText = `
+                    padding: 8px 20px;
+                    background: rgba(255, 152, 0, 0.2);
+                    border-bottom: 1px solid #333;
+                    font-size: 12px;
+                    color: #ffb74d;
+                    text-align: center;
+                `;
+                const simNote = resultModal.querySelector('#tsv-modal-simulation-note');
+                simNote.parentNode.insertBefore(trustWarning, simNote.nextSibling);
+            }
+            trustWarning.textContent = 'Domain TLD not recognized — treat this verification with caution';
+            trustWarning.style.display = 'block';
+        } else if (trustWarning) {
+            trustWarning.style.display = 'none';
         }
         normalizedEl.textContent = normalizedText || '';
         hashEl.textContent = hash || '';

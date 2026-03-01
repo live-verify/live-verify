@@ -132,6 +132,7 @@ function buildVerificationUrl(baseUrl, hash, meta) {
 
 /**
  * Extract certification text from raw OCR text (everything before the URL line)
+ * Also strips [ and ] bracket markers used for visual cues
  * @param {string} rawText - Raw OCR text
  * @param {number} urlLineIndex - Index of the URL line
  * @returns {string} - Certification text (lines before URL, trailing blanks removed)
@@ -148,7 +149,14 @@ function extractCertText(rawText, urlLineIndex) {
         certLines.pop();
     }
 
-    return certLines.join('\n');
+    let certText = certLines.join('\n');
+
+    // Strip [ and ] bracket markers (visual cues for users)
+    // These appear at start of verifiable text and end (before verify: line)
+    certText = certText.replace(/^\s*\[\s*/, '');  // Leading [
+    certText = certText.replace(/\s*\]\s*$/, '');  // Trailing ]
+
+    return certText;
 }
 
 /**
@@ -162,11 +170,33 @@ function hashMatchesUrl(claimedUrl, computedHash) {
 }
 
 /**
+ * Extract domain from verification URL
+ * @param {string} baseUrl - Base URL (verify:, vfy:, or https://)
+ * @returns {string} Domain name
+ */
+function extractDomain(baseUrl) {
+    const lowerBase = baseUrl.toLowerCase();
+    let urlPart = baseUrl;
+
+    if (lowerBase.startsWith('verify:')) {
+        urlPart = baseUrl.substring(7);
+    } else if (lowerBase.startsWith('vfy:')) {
+        urlPart = baseUrl.substring(4);
+    } else if (lowerBase.startsWith('https://')) {
+        urlPart = baseUrl.substring(8);
+    }
+
+    // Extract domain (everything before first /)
+    const slashIndex = urlPart.indexOf('/');
+    return slashIndex !== -1 ? urlPart.substring(0, slashIndex) : urlPart;
+}
+
+/**
  * Fetch verification-meta.json from the base URL
  * @param {string} baseUrl - Base URL (verify:, vfy:, or https://)
  * @returns {Promise<Object|null>} - Metadata object or null if not found
  */
-async function fetchVerificMeta(baseUrl) {
+async function fetchVerificationMeta(baseUrl) {
     try {
         // Convert verify: or vfy: to https:// if needed
         let httpsBase = baseUrl;
@@ -192,6 +222,80 @@ async function fetchVerificMeta(baseUrl) {
     }
 }
 
+/**
+ * Verify hash against issuer endpoint
+ * @param {string} verificationUrl - Full verification URL
+ * @param {Object} meta - Optional metadata for response interpretation
+ * @returns {Promise<{success: boolean, status: string, domain: string}>}
+ */
+async function verifyHash(verificationUrl, meta) {
+    const domain = new URL(verificationUrl).hostname;
+
+    try {
+        const response = await fetch(verificationUrl);
+
+        if (!response.ok) {
+            if (response.status === 404) {
+                return { success: false, status: 'Hash not found', domain };
+            }
+            return { success: false, status: `HTTP ${response.status}`, domain };
+        }
+
+        const bodyText = (await response.text()).trim();
+
+        // Check for simple "OK" response
+        if (bodyText === 'OK') {
+            return { success: true, status: 'VERIFIED', domain };
+        }
+
+        // Try to parse as JSON
+        try {
+            const json = JSON.parse(bodyText);
+            if (json.status) {
+                const upperStatus = json.status.toUpperCase();
+                if (upperStatus === 'OK' || upperStatus === 'VERIFIED') {
+                    return { success: true, status: 'VERIFIED', domain };
+                }
+
+                // Check custom responseTypes from meta
+                if (meta?.responseTypes?.[upperStatus]) {
+                    const typeInfo = meta.responseTypes[upperStatus];
+                    if (typeInfo.class === 'affirming') {
+                        return { success: true, status: upperStatus, domain };
+                    } else {
+                        return { success: false, status: typeInfo.text || upperStatus, domain };
+                    }
+                }
+
+                return { success: false, status: upperStatus, domain };
+            }
+        } catch {
+            // Not JSON, check plain text against responseTypes
+            if (meta?.responseTypes) {
+                const upperBody = bodyText.toUpperCase();
+                const typeInfo = meta.responseTypes[upperBody];
+                if (typeInfo) {
+                    if (typeInfo.class === 'affirming') {
+                        return { success: true, status: upperBody, domain };
+                    } else {
+                        return { success: false, status: typeInfo.text || upperBody, domain };
+                    }
+                }
+            }
+        }
+
+        // Default for non-OK body
+        if (bodyText) {
+            return { success: false, status: bodyText.substring(0, 50), domain };
+        }
+
+        return { success: false, status: 'Empty response', domain };
+
+    } catch (error) {
+        return { success: false, status: `Network error: ${error.message}`, domain };
+    }
+}
+
 // Export for Node.js testing (doesn't affect browser usage)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
@@ -200,6 +304,8 @@ if (typeof module !== 'undefined' && module.exports) {
         extractCertText,
         hashMatchesUrl,
         buildVerificationUrl,
-        fetchVerificMeta
+        extractDomain,
+        fetchVerificationMeta,
+        verifyHash
     };
 }

@@ -1,3 +1,6 @@
+// AUTO-GENERATED — do not edit. Source: public/normalize.js
+// Run "npm run sync-shared" to regenerate from canonical source.
+
 /*
     Copyright (C) 2025, Paul Hammant
 
@@ -16,13 +19,13 @@
 */
 
 /**
- * Text normalization and hashing functions
- * Shared logic with public/normalize.js (keep in sync)
- * This file uses ES modules for browser extension compatibility
+ * Shared text normalization and hashing functions
+ * Used by both the main app and test pages
  */
 
 /**
  * Apply document-specific normalization rules from verification-meta.json
+ * This allows document issuers to define character substitutions and regex patterns
  * @param {string} text - Text to normalize
  * @param {Object} metadata - Metadata from verification-meta.json (optional)
  * @returns {string} Normalized text with document-specific rules applied
@@ -67,17 +70,13 @@ function applyDocSpecificNorm(text, metadata) {
     return result;
 }
 
-/**
- * Normalize text according to verification rules
- * @param {string} text - Text to normalize
- * @param {Object} metadata - Optional metadata from verification-meta.json
- * @returns {string} Normalized text
- */
+// Text normalization function (as per the document rules)
 function normalizeText(text, metadata = null) {
-    // Apply document-specific normalization FIRST
+    // Apply document-specific normalization FIRST (before standard normalization)
+    // This ensures user-typed text gets the same treatment as OCR text
     text = applyDocSpecificNorm(text, metadata);
 
-    // Normalize Unicode characters
+    // Normalize Unicode characters that OCR might produce
     text = text.replace(/[\u201C\u201D\u201E]/g, '"');  // Curly double quotes → straight
     text = text.replace(/[\u2018\u2019]/g, "'");        // Curly single quotes → straight
     text = text.replace(/[\u00AB\u00BB]/g, '"');        // Angle quotes → straight double
@@ -89,6 +88,8 @@ function normalizeText(text, metadata = null) {
     const lines = text.split('\n');
 
     // Apply normalization rules to each line
+    // Note: OCR artifact cleanup (border chars, trailing letters) is in ocr-cleanup.js
+    // and should be applied BEFORE this function for OCR'd text
     const normalizedLines = lines.map(line => {
         // Remove leading spaces
         line = line.replace(/^\s+/, '');
@@ -104,11 +105,7 @@ function normalizeText(text, metadata = null) {
     return normalizedLines.join('\n');
 }
 
-/**
- * SHA-256 hash function (browser only - async)
- * @param {string} text - Text to hash
- * @returns {Promise<string>} Hex-encoded hash
- */
+// SHA-256 hash function (browser only - async)
 async function sha256(text) {
     const encoder = new TextEncoder();
     const data = encoder.encode(text);
@@ -117,6 +114,7 @@ async function sha256(text) {
     const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
     return hashHex;
 }
+
 
 // ES module exports (for browser extension)
 export { applyDocSpecificNorm, normalizeText, sha256 };

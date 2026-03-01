@@ -138,7 +138,7 @@ function renderResultCard(result) {
         <div class="result-card">
             <div class="result-header">
                 <span class="status-badge ${badgeClass}">${badgeText}</span>
-                ${result.domain ? `<span class="by-domain">by <strong>${escapeHtml(result.domain)}</strong></span>` : ''}
+                ${result.domain ? `<span class="by-domain">by ${formatDomainEmphasis(result.domain, result.registrableDomain)}</span>` : ''}
                 ${!isVerified && statusText ? `<span class="status-text ${isError ? 'error' : ''}">${escapeHtml(statusText)}</span>` : ''}
                 <div class="result-timestamp">${time}<br>${date}</div>
             </div>
@@ -221,6 +221,19 @@ function getReadableError(error) {
         return 'Server blocked the request (CORS). The issuer may not support browser verification.';
     }
     return error;
+}
+
+function formatDomainEmphasis(domain, registrableDomain) {
+    if (registrableDomain && domain.includes(registrableDomain)) {
+        // Bold only the registrable domain portion within the full hostname
+        const escaped = escapeHtml(domain);
+        const regEscaped = escapeHtml(registrableDomain);
+        return escaped.replace(
+            regEscaped,
+            `<strong>${regEscaped}</strong>`
+        );
+    }
+    return `<strong>${escapeHtml(domain)}</strong>`;
 }
 
 function escapeHtml(text) {

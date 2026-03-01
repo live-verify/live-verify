@@ -19,7 +19,7 @@
     "activeTab"
   ],
   "background": {
-    "scripts": ["shared/normalize.js", "shared/verify.js", "background.js"]
+    "scripts": ["shared/psl.js", "shared/normalize.js", "shared/verify.js", "shared/domain-authority.js", "background.js"]
   },
   "message_display_action": {
     "default_popup": "popup/popup.html",

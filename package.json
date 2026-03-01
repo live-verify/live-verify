@@ -12,6 +12,7 @@
     "generate:saas-leads": "node generate-saas-leads.js",
     "build": "webpack",
     "serve": "cd public && python3 -m http.server 8000",
+    "sync-shared": "node scripts/sync-shared.js",
     "lint": "eslint public/**/*.js __tests__/**/*.js",
     "lint:fix": "eslint --fix public/**/*.js __tests__/**/*.js"
   },

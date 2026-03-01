@@ -29,8 +29,13 @@ const {
     extractVerificationUrl,
     extractCertText,
     buildVerificationUrl,
-    extractDomain
+    extractDomain,
+    fetchVerificationMeta
 } = require('../apps/browser-extension/shared/verify.js');
+
+const {
+    extractDomainAuthority
+} = require('../apps/browser-extension/shared/domain-authority.js');
 
 // =============================================================================
 // normalize.js tests
@@ -340,5 +345,41 @@ verify:example.com/c ]`;
 
         const hash = await sha256(normalized);
         expect(hash).toHaveLength(64);
+    });
+});
+
+// =============================================================================
+// domain-authority.js tests (synced from public/)
+// =============================================================================
+
+describe('Browser Extension: extractDomainAuthority', () => {
+    test('extracts registrable domain from standard URL', () => {
+        expect(extractDomainAuthority('https://www.example.com/path')).toBe('example.com');
+    });
+
+    test('handles country-code TLDs', () => {
+        expect(extractDomainAuthority('https://costa.co.uk/verify')).toBe('costa.co.uk');
+    });
+
+    test('strips subdomains from .ac.uk', () => {
+        expect(extractDomainAuthority('https://degrees.ed.ac.uk/path')).toBe('ed.ac.uk');
+    });
+
+    test('handles GitHub Pages', () => {
+        expect(extractDomainAuthority('https://myproject.github.io/path')).toBe('github.io');
+    });
+
+    test('handles IP addresses', () => {
+        expect(extractDomainAuthority('https://192.168.1.1/path')).toBe('192.168.1.1');
+    });
+});
+
+// =============================================================================
+// verify.js exported function name tests
+// =============================================================================
+
+describe('Browser Extension: fetchVerificationMeta (renamed)', () => {
+    test('fetchVerificationMeta is exported (not fetchVerificMeta)', () => {
+        expect(typeof fetchVerificationMeta).toBe('function');
     });
 });

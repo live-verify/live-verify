@@ -19,10 +19,12 @@
  * Background script for Thunderbird LiveVerify extension
  * Adapted from browser extension for Thunderbird MailExtension APIs
  *
- * Functions from shared/normalize.js and shared/verify.js are available globally:
- * - normalizeText, sha256, applyDocSpecificNorm
+ * Functions from shared/ scripts are available globally:
+ * - normalizeText, sha256, applyDocSpecificNorm (from shared/normalize.js)
  * - extractVerificationUrl, extractCertText, buildVerificationUrl, extractDomain,
- *   fetchVerificationMeta, verifyHash
+ *   fetchVerificationMeta, verifyHash (from shared/verify.js)
+ * - extractDomainAuthority (from shared/domain-authority.js)
+ * - psl (from shared/psl.js)
  */
 
 // Default settings
@@ -172,12 +174,29 @@ async function verifySelection(selectedText, tab) {
     // Verify against endpoint
     const verifyResult = await verifyHash(verificationUrl, meta);
 
+    // Extract registrable domain via PSL for domain emphasis display
+    let registrableDomain = '';
+    let domainNotListed = false;
+    try {
+        registrableDomain = extractDomainAuthority(verificationUrl);
+        if (typeof psl !== 'undefined' && psl.parse) {
+            const parsed = psl.parse(verifyResult.domain);
+            if (!parsed.listed) {
+                domainNotListed = true;
+            }
+        }
+    } catch {
+        // Fall back to simple domain
+    }
+
     const elapsed = Date.now() - startTime;
 
     const result = {
         success: verifyResult.success,
         status: verifyResult.status,
         domain: verifyResult.domain,
+        registrableDomain,
+        domainNotListed,
         hash,
         verificationUrl,
         certText,
@@ -331,12 +350,29 @@ async function verifyText(selectedText) {
     // Verify against endpoint
     const verifyResult = await verifyHash(verificationUrl, meta);
 
+    // Extract registrable domain via PSL
+    let registrableDomain = '';
+    let domainNotListed = false;
+    try {
+        registrableDomain = extractDomainAuthority(verificationUrl);
+        if (typeof psl !== 'undefined' && psl.parse) {
+            const parsed = psl.parse(verifyResult.domain);
+            if (!parsed.listed) {
+                domainNotListed = true;
+            }
+        }
+    } catch {
+        // Fall back to simple domain
+    }
+
     const elapsed = Date.now() - startTime;
 
     const result = {
         success: verifyResult.success,
         status: verifyResult.status,
         domain: verifyResult.domain,
+        registrableDomain,
+        domainNotListed,
         hash,
         verificationUrl,
         certText,

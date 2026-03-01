@@ -89,7 +89,7 @@ async function getVerificMeta(baseUrl) {
     if (metaCache[baseUrl] !== undefined) {
         return metaCache[baseUrl];
     }
-    const meta = await fetchVerificMeta(baseUrl);
+    const meta = await fetchVerificationMeta(baseUrl);
     metaCache[baseUrl] = meta; // Cache even if null (to avoid re-fetching 404s)
     return meta;
 }
@@ -583,7 +583,7 @@ async function processImageCanvas(canvas, captureMethod = 'Unknown') {
         console.log('Got 404, attempting to fetch verification-meta.json for optimized OCR retry...');
         showProcessingOverlay('Retrying...');
 
-        const meta = await fetchVerificMeta(baseUrl);
+        const meta = await fetchVerificationMeta(baseUrl);
 
         if (meta && meta.tesseract) {
             console.log('Found verification-meta.json, retrying OCR with optimized settings:', meta.tesseract);
@@ -720,7 +720,7 @@ captureBtn.addEventListener('click', async () => {
     }
 });
 
-// rotateCanvas(), extractVerificationUrl(), extractCertText(), hashMatchesUrl(), buildVerificationUrl(), fetchVerificMeta() are loaded from app-logic.js
+// rotateCanvas(), extractVerificationUrl(), extractCertText(), hashMatchesUrl(), buildVerificationUrl(), fetchVerificationMeta() are loaded from app-logic.js
 // normalizeText() and sha256() are loaded from normalize.js
 
 // Setup event listeners for manual editing of normalized text (one-time setup)

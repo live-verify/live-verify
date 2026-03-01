@@ -1,3 +1,6 @@
+// AUTO-GENERATED — do not edit. Source: public/domain-authority.js
+// Run "npm run sync-shared" to regenerate from canonical source.
+
 /*
     Copyright (C) 2025, Paul Hammant
 
@@ -77,7 +80,11 @@ function extractDomainAuthority(url) {
     return hostname;
 }
 
-// Export for both Node.js (CommonJS) and browser (bundled)
+
+// ES module exports (for browser extension)
+export { extractDomainAuthority };
+
+// CommonJS exports (for Node.js testing)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { extractDomainAuthority };
 }

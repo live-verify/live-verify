@@ -21,6 +21,7 @@
 // extension becomes obsolete. The native implementations will make their own
 // decisions about storage, history, and UX.
 
+import './shared/psl.js';
 import { normalizeText, sha256 } from './shared/normalize.js';
 import {
     extractVerificationUrl,
@@ -30,6 +31,7 @@ import {
     fetchVerificationMeta,
     verifyHash
 } from './shared/verify.js';
+import { extractDomainAuthority } from './shared/domain-authority.js';
 
 // Default settings
 const DEFAULT_SETTINGS = {
@@ -170,12 +172,31 @@ async function verifySelection(selectedText, tab) {
     // Verify against endpoint
     const verifyResult = await verifyHash(verificationUrl, meta);
 
+    // Extract registrable domain via PSL for domain emphasis display
+    let registrableDomain = '';
+    let domainNotListed = false;
+    try {
+        const authority = extractDomainAuthority(verificationUrl);
+        registrableDomain = authority;
+        // Check if the TLD is in the PSL
+        if (typeof psl !== 'undefined' && psl.parse) {
+            const parsed = psl.parse(verifyResult.domain);
+            if (!parsed.listed) {
+                domainNotListed = true;
+            }
+        }
+    } catch {
+        // Fall back to simple domain
+    }
+
     const elapsed = Date.now() - startTime;
 
     const result = {
         success: verifyResult.success,
         status: verifyResult.status,
         domain: verifyResult.domain,
+        registrableDomain,
+        domainNotListed,
         hash,
         verificationUrl,
         certText,           // Full claim text
@@ -334,12 +355,29 @@ async function verifyText(selectedText) {
     // Verify against endpoint
     const verifyResult = await verifyHash(verificationUrl, meta);
 
+    // Extract registrable domain via PSL
+    let registrableDomain = '';
+    let domainNotListed = false;
+    try {
+        registrableDomain = extractDomainAuthority(verificationUrl);
+        if (typeof psl !== 'undefined' && psl.parse) {
+            const parsed = psl.parse(verifyResult.domain);
+            if (!parsed.listed) {
+                domainNotListed = true;
+            }
+        }
+    } catch {
+        // Fall back to simple domain
+    }
+
     const elapsed = Date.now() - startTime;
 
     const result = {
         success: verifyResult.success,
         status: verifyResult.status,
         domain: verifyResult.domain,
+        registrableDomain,
+        domainNotListed,
         hash,
         verificationUrl,
         certText,

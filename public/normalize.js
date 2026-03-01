@@ -32,17 +32,6 @@ function applyDocSpecificNorm(text, metadata) {
         return text;
     }
 
-    // Import the document-specific normalization module if available
-    if (typeof require !== 'undefined') {
-        try {
-            const docNorm = require('./doc-specific-normalization.js');
-            return docNorm.applyDocumentSpecificNormalization(text, metadata);
-        } catch (e) {
-            // Module not available in browser, fallback to inline implementation
-        }
-    }
-
-    // Browser fallback: inline implementation
     let result = text;
 
     // 1. Apply character normalization (compact notation: "éèêë→e àáâä→a")

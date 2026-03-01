@@ -45,7 +45,9 @@ const {
     extractVerificationUrl,
     extractCertText,
     hashMatchesUrl,
-    buildVerificationUrl
+    buildVerificationUrl,
+    extractDomain,
+    fetchVerificationMeta
 } = require('../public/app-logic.js');
 
 function extractVerificationUrlOnly(rawText) {
@@ -514,6 +516,62 @@ https://example.com`;
             expect(vfyResult).toBe(`https://domain.com/path/${hash}`);
             expect(verifyResult).toBe(`https://domain.com/path/${hash}`);
             expect(vfyResult).toBe(verifyResult);
+        });
+    });
+
+    describe('extractCertText bracket stripping', () => {
+        it('should strip leading bracket marker', () => {
+            const rawText = `[University of Test\nJohn Doe\nverify:example.com/c`;
+            const result = extractCertText(rawText, 2);
+            expect(result).toBe('University of Test\nJohn Doe');
+            expect(result).not.toContain('[');
+        });
+
+        it('should strip trailing bracket marker', () => {
+            const rawText = `University of Test\nJohn Doe ]\nverify:example.com/c`;
+            const result = extractCertText(rawText, 2);
+            expect(result).toBe('University of Test\nJohn Doe');
+            expect(result).not.toContain(']');
+        });
+
+        it('should strip both bracket markers', () => {
+            const rawText = `[ University of Test\nJohn Doe ]\nverify:example.com/c`;
+            const result = extractCertText(rawText, 2);
+            expect(result).toBe('University of Test\nJohn Doe');
+        });
+
+        it('should not strip brackets in the middle of text', () => {
+            const rawText = `Test [inner] text\nverify:example.com/c`;
+            const result = extractCertText(rawText, 1);
+            expect(result).toBe('Test [inner] text');
+        });
+    });
+
+    describe('extractDomain', () => {
+        it('should extract domain from verify: URL', () => {
+            expect(extractDomain('verify:example.com/c')).toBe('example.com');
+        });
+
+        it('should extract domain from vfy: URL', () => {
+            expect(extractDomain('vfy:test.org/path')).toBe('test.org');
+        });
+
+        it('should extract domain from https:// URL', () => {
+            expect(extractDomain('https://secure.example.com/verify')).toBe('secure.example.com');
+        });
+
+        it('should handle URL without path', () => {
+            expect(extractDomain('verify:example.com')).toBe('example.com');
+        });
+
+        it('should handle complex subdomains', () => {
+            expect(extractDomain('verify:sub.domain.example.co.uk/path')).toBe('sub.domain.example.co.uk');
+        });
+    });
+
+    describe('fetchVerificationMeta', () => {
+        it('should be exported as fetchVerificationMeta (not fetchVerificMeta)', () => {
+            expect(typeof fetchVerificationMeta).toBe('function');
         });
     });
 });

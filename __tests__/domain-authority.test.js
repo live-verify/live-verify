@@ -150,6 +150,93 @@ describe('extractDomainAuthority', () => {
         });
     });
 
+    describe('registrable domain emphasis (for text-selection-verify.js bolding)', () => {
+        // These tests verify the psl.parse() behaviour that text-selection-verify.js
+        // relies on to bold only the registrable domain within the full hostname.
+        // e.g. "r." + BOLD("costa.co.uk") — not the whole hostname.
+        const psl = require('psl');
+
+        test('should extract registrable domain from subdomain.co.uk', () => {
+            const parsed = psl.parse('r.costa.co.uk');
+            expect(parsed.domain).toBe('costa.co.uk');
+            expect(parsed.subdomain).toBe('r');
+            expect(parsed.listed).toBe(true);
+        });
+
+        test('should extract registrable domain from hr.hsbc.co.uk', () => {
+            const parsed = psl.parse('hr.hsbc.co.uk');
+            expect(parsed.domain).toBe('hsbc.co.uk');
+            expect(parsed.subdomain).toBe('hr');
+            expect(parsed.listed).toBe(true);
+        });
+
+        test('should treat full github.io hostname as registrable domain', () => {
+            const parsed = psl.parse('live-verify.github.io');
+            expect(parsed.domain).toBe('live-verify.github.io');
+            expect(parsed.subdomain).toBeNull();
+            expect(parsed.listed).toBe(true);
+        });
+
+        test('should extract registrable domain from deep subdomain', () => {
+            const parsed = psl.parse('api.degrees.ed.ac.uk');
+            expect(parsed.domain).toBe('ed.ac.uk');
+            expect(parsed.subdomain).toBe('api.degrees');
+            expect(parsed.listed).toBe(true);
+        });
+
+        test('should handle simple .com with no subdomain', () => {
+            const parsed = psl.parse('intertek.com');
+            expect(parsed.domain).toBe('intertek.com');
+            expect(parsed.subdomain).toBeNull();
+            expect(parsed.listed).toBe(true);
+        });
+
+        test('should flag localhost as not listed', () => {
+            const parsed = psl.parse('localhost');
+            expect(parsed.domain).toBeNull();
+            expect(parsed.listed).toBe(false);
+        });
+
+        test('should produce correct bold HTML for subdomain case', () => {
+            const hostname = 'r.costa.co.uk';
+            const parsed = psl.parse(hostname);
+            const detail = `Hash not registered at ${hostname}`;
+            const emphasisDomain = parsed.domain; // "costa.co.uk"
+            const escaped = emphasisDomain.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const html = detail.replace(
+                new RegExp(escaped),
+                `<strong>${emphasisDomain}</strong>`
+            );
+            expect(html).toBe('Hash not registered at r.<strong>costa.co.uk</strong>');
+        });
+
+        test('should bold entire hostname when registrable domain equals hostname', () => {
+            const hostname = 'intertek.com';
+            const parsed = psl.parse(hostname);
+            const detail = `by ${hostname}`;
+            const emphasisDomain = parsed.domain;
+            const escaped = emphasisDomain.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const html = detail.replace(
+                new RegExp(escaped),
+                `<strong>${emphasisDomain}</strong>`
+            );
+            expect(html).toBe('by <strong>intertek.com</strong>');
+        });
+
+        test('should handle Brazilian ccTLD with subdomain', () => {
+            const hostname = 'api.foobar.com.br';
+            const parsed = psl.parse(hostname);
+            const detail = `Verified by ${hostname}`;
+            const emphasisDomain = parsed.domain;
+            const escaped = emphasisDomain.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const html = detail.replace(
+                new RegExp(escaped),
+                `<strong>${emphasisDomain}</strong>`
+            );
+            expect(html).toBe('Verified by api.<strong>foobar.com.br</strong>');
+        });
+    });
+
     describe('verify: to https:// conversion scenarios', () => {
         test('should handle URL after verify: conversion', () => {
             // After converting "verify:ed.ac.uk/degrees" to "https://ed.ac.uk/degrees/hash"
