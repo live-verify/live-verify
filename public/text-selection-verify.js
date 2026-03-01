@@ -425,7 +425,8 @@
             } else if (response.status === 404) {
                 console.log('[TSV] ✗ VERIFICATION FAILED - hash endpoint not found (404)');
                 showResult('failed', 'NOT FOUND',
-                    `Hash not registered at ${domain}`, normalizedText, hash);
+                    `Hash not registered at ${domain}`, normalizedText, hash,
+                    domain);
             } else {
                 console.log('[TSV] ✗ VERIFICATION FAILED - unexpected HTTP status');
                 showResult('failed', `HTTP ${response.status}`,
@@ -445,7 +446,7 @@
     /**
      * Show verification result in the modal
      */
-    function showResult(type, status, detail, normalizedText, hash) {
+    function showResult(type, status, detail, normalizedText, hash, emphasisDomain) {
         const statusIcon = resultModal.querySelector('#tsv-status-icon');
         const statusText = resultModal.querySelector('#tsv-status-text');
         const domainEl = resultModal.querySelector('#tsv-domain');
@@ -457,7 +458,16 @@
 
         // Set content
         statusText.textContent = status;
-        domainEl.textContent = detail;
+        if (emphasisDomain && detail.includes(emphasisDomain)) {
+            // Bold the domain within the detail string — presentation-layer concern
+            const escaped = emphasisDomain.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            domainEl.innerHTML = detail.replace(
+                new RegExp(escaped),
+                `<strong>${emphasisDomain}</strong>`
+            );
+        } else {
+            domainEl.textContent = detail;
+        }
         normalizedEl.textContent = normalizedText || '';
         hashEl.textContent = hash || '';
 
