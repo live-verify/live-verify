@@ -168,6 +168,27 @@ function renderResultCard(result) {
             </div>
     `;
 
+    // Show endorsement status if available
+    if (result.endorsement && result.endorsement.endorser) {
+        const e = result.endorsement;
+        let endorseClass, endorseText;
+        if (e.confirmed) {
+            endorseClass = 'endorsement-confirmed';
+            endorseText = `Endorsed by ${escapeHtml(e.endorser)}`;
+        } else if (e.checked) {
+            endorseClass = 'endorsement-missing';
+            endorseText = `Endorsement by ${escapeHtml(e.endorser)} \u2014 not confirmed`;
+        } else {
+            endorseClass = 'endorsement-unavailable';
+            endorseText = `Endorsement by ${escapeHtml(e.endorser)} \u2014 check unavailable`;
+        }
+        html += `
+            <div class="endorsement-row ${endorseClass}">
+                ${endorseText}
+            </div>
+        `;
+    }
+
     // Show claim text if available
     if (result.certText) {
         html += `

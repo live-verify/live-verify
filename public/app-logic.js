@@ -296,6 +296,73 @@ async function verifyHash(verificationUrl, meta) {
     }
 }
 
+/**
+ * Check endorsement from verification-meta.json endorsedBy field
+ * Performs a verify: lookup to check if the endorser confirms the issuer
+ * @param {Object} endorsedBy - The endorsedBy object from verification-meta.json
+ * @param {string} issuerDomain - The issuer's domain (used to build the hash)
+ * @returns {Promise<{checked: boolean, confirmed: boolean, endorser: string, error: string|null}>}
+ */
+async function checkEndorsement(endorsedBy, issuerDomain) {
+    if (!endorsedBy || !endorsedBy.verifyUrl || !endorsedBy.endorser) {
+        return { checked: false, confirmed: false, endorser: null, error: null };
+    }
+
+    try {
+        // Hash the issuer domain as the claim text for the endorsement lookup
+        const hashFn = (typeof sha256 === 'function') ? sha256 :
+            (typeof module !== 'undefined' && require) ?
+                require('./normalize.js').sha256 : null;
+
+        if (!hashFn) {
+            return {
+                checked: false,
+                confirmed: false,
+                endorser: endorsedBy.endorser,
+                error: 'Hash function unavailable'
+            };
+        }
+
+        const issuerHash = await hashFn(issuerDomain);
+        const endorsementUrl = buildVerificationUrl(endorsedBy.verifyUrl, issuerHash);
+
+        const response = await fetch(endorsementUrl);
+
+        if (response.ok) {
+            const body = (await response.text()).trim();
+            const confirmed = body === 'OK' || body === '' ||
+                (body.startsWith('{') && JSON.parse(body).status === 'OK');
+            return {
+                checked: true,
+                confirmed,
+                endorser: endorsedBy.endorser,
+                error: null
+            };
+        } else if (response.status === 404) {
+            return {
+                checked: true,
+                confirmed: false,
+                endorser: endorsedBy.endorser,
+                error: null
+            };
+        } else {
+            return {
+                checked: true,
+                confirmed: false,
+                endorser: endorsedBy.endorser,
+                error: `HTTP ${response.status}`
+            };
+        }
+    } catch (error) {
+        return {
+            checked: false,
+            confirmed: false,
+            endorser: endorsedBy.endorser,
+            error: error.message
+        };
+    }
+}
+
 // Export for Node.js testing (doesn't affect browser usage)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
@@ -306,6 +373,7 @@ if (typeof module !== 'undefined' && module.exports) {
         buildVerificationUrl,
         extractDomain,
         fetchVerificationMeta,
-        verifyHash
+        verifyHash,
+        checkEndorsement
     };
 }

@@ -10,6 +10,7 @@ data class VerificationMeta(
     val issuer: String? = null,
     val claimType: String? = null,
     val parentAuthorities: List<String>? = null,
+    val endorsedBy: Endorsement? = null,
     val responseTypes: Map<String, ResponseType>? = null,
     val retentionLaws: List<RetentionLaw>? = null,
     val charNormalization: String? = null,
@@ -44,6 +45,14 @@ data class VerificationMeta(
     data class OCRNormalizationRule(
         val pattern: String? = null,
         val replacement: String? = null,
+        val description: String? = null,
+    )
+
+    @Serializable
+    data class Endorsement(
+        val endorser: String? = null,
+        val verifyUrl: String? = null,
+        val claimType: String? = null,
         val description: String? = null,
     )
 }

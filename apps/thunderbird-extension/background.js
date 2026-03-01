@@ -22,7 +22,7 @@
  * Functions from shared/ scripts are available globally:
  * - normalizeText, sha256, applyDocSpecificNorm (from shared/normalize.js)
  * - extractVerificationUrl, extractCertText, buildVerificationUrl, extractDomain,
- *   fetchVerificationMeta, verifyHash (from shared/verify.js)
+ *   fetchVerificationMeta, verifyHash, checkEndorsement (from shared/verify.js)
  * - extractDomainAuthority (from shared/domain-authority.js)
  * - psl (from shared/psl.js)
  */
@@ -189,6 +189,16 @@ async function verifySelection(selectedText, tab) {
         // Fall back to simple domain
     }
 
+    // Check endorsement if metadata has endorsedBy
+    let endorsement = null;
+    if (meta && meta.endorsedBy) {
+        try {
+            endorsement = await checkEndorsement(meta.endorsedBy, domain);
+        } catch {
+            endorsement = { checked: false, confirmed: false, endorser: meta.endorsedBy.endorser, error: 'Check failed' };
+        }
+    }
+
     const elapsed = Date.now() - startTime;
 
     const result = {
@@ -197,6 +207,7 @@ async function verifySelection(selectedText, tab) {
         domain: verifyResult.domain,
         registrableDomain,
         domainNotListed,
+        endorsement,
         hash,
         verificationUrl,
         certText,
@@ -365,6 +376,16 @@ async function verifyText(selectedText) {
         // Fall back to simple domain
     }
 
+    // Check endorsement if metadata has endorsedBy
+    let endorsement = null;
+    if (meta && meta.endorsedBy) {
+        try {
+            endorsement = await checkEndorsement(meta.endorsedBy, domain);
+        } catch {
+            endorsement = { checked: false, confirmed: false, endorser: meta.endorsedBy.endorser, error: 'Check failed' };
+        }
+    }
+
     const elapsed = Date.now() - startTime;
 
     const result = {
@@ -373,6 +394,7 @@ async function verifyText(selectedText) {
         domain: verifyResult.domain,
         registrableDomain,
         domainNotListed,
+        endorsement,
         hash,
         verificationUrl,
         certText,

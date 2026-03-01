@@ -5,6 +5,7 @@ struct VerificationMeta: Decodable, Equatable {
     var issuer: String?
     var claimType: String?
     var parentAuthorities: [String]?
+    var endorsedBy: Endorsement?
 
     var responseTypes: [String: ResponseType]?
 
@@ -42,6 +43,13 @@ struct VerificationMeta: Decodable, Equatable {
     struct OCRNormalizationRule: Decodable, Equatable {
         var pattern: String?
         var replacement: String?
+        var description: String?
+    }
+
+    struct Endorsement: Decodable, Equatable {
+        var endorser: String?
+        var verifyUrl: String?
+        var claimType: String?
         var description: String?
     }
 }

@@ -416,6 +416,24 @@
 
             console.log('[TSV] Verification endpoint returned HTTP', response.status);
 
+            // Step 9: Check endorsement (if metadata has endorsedBy)
+            let endorsement = null;
+            if (metadata && metadata.endorsedBy) {
+                console.log('[TSV] Checking endorsement from', metadata.endorsedBy.endorser);
+                try {
+                    endorsement = await checkEndorsement(metadata.endorsedBy, domain);
+                    console.log('[TSV] Endorsement result:', endorsement);
+                } catch (e) {
+                    console.log('[TSV] Endorsement check failed:', e.message);
+                    endorsement = {
+                        checked: false,
+                        confirmed: false,
+                        endorser: metadata.endorsedBy.endorser,
+                        error: e.message
+                    };
+                }
+            }
+
             if (response.status === 200) {
                 const body = await response.text();
                 const trimmedBody = body.trim().toUpperCase();
@@ -425,24 +443,24 @@
                 if (trimmedBody === 'OK' || trimmedBody.includes('OK')) {
                     console.log('[TSV] ✓ VERIFICATION SUCCESSFUL - hash matches and endpoint confirmed');
                     showResult('verified', 'VERIFIED', `by ${domain}`, normalizedText, hash,
-                        registrableDomain, domainNotListed);
+                        registrableDomain, domainNotListed, endorsement);
                 } else {
                     // Show the actual status from the response (e.g., REVOKED)
                     console.log('[TSV] ✗ VERIFICATION FAILED - endpoint returned non-OK status');
                     showResult('denied', trimmedBody || 'UNKNOWN STATUS',
                         `from ${domain}`, normalizedText, hash,
-                        registrableDomain, domainNotListed);
+                        registrableDomain, domainNotListed, endorsement);
                 }
             } else if (response.status === 404) {
                 console.log('[TSV] ✗ VERIFICATION FAILED - hash endpoint not found (404)');
                 showResult('failed', 'NOT FOUND',
                     `Hash not registered at ${domain}`, normalizedText, hash,
-                    registrableDomain, domainNotListed);
+                    registrableDomain, domainNotListed, endorsement);
             } else {
                 console.log('[TSV] ✗ VERIFICATION FAILED - unexpected HTTP status');
                 showResult('failed', `HTTP ${response.status}`,
                     `Unexpected response from ${domain}`, normalizedText, hash,
-                    registrableDomain, domainNotListed);
+                    registrableDomain, domainNotListed, endorsement);
             }
         } catch (error) {
             console.error('[TSV] Verification error:', error);
@@ -459,7 +477,7 @@
     /**
      * Show verification result in the modal
      */
-    function showResult(type, status, detail, normalizedText, hash, emphasisDomain, domainNotListed) {
+    function showResult(type, status, detail, normalizedText, hash, emphasisDomain, domainNotListed, endorsement) {
         const statusIcon = resultModal.querySelector('#tsv-status-icon');
         const statusText = resultModal.querySelector('#tsv-status-text');
         const domainEl = resultModal.querySelector('#tsv-domain');
@@ -504,6 +522,40 @@
         } else if (trustWarning) {
             trustWarning.style.display = 'none';
         }
+
+        // Show endorsement status if available
+        let endorsementEl = resultModal.querySelector('#tsv-endorsement');
+        if (endorsement && endorsement.endorser) {
+            if (!endorsementEl) {
+                endorsementEl = document.createElement('div');
+                endorsementEl.id = 'tsv-endorsement';
+                endorsementEl.style.cssText = `
+                    padding: 8px 20px;
+                    border-bottom: 1px solid #333;
+                    font-size: 12px;
+                    text-align: center;
+                `;
+                // Insert after domain element
+                domainEl.parentNode.insertBefore(endorsementEl, domainEl.nextSibling);
+            }
+            if (endorsement.confirmed) {
+                endorsementEl.style.background = 'rgba(72, 187, 120, 0.2)';
+                endorsementEl.style.color = '#68d391';
+                endorsementEl.textContent = `Endorsed by ${endorsement.endorser}`;
+            } else if (endorsement.checked) {
+                endorsementEl.style.background = 'rgba(255, 152, 0, 0.2)';
+                endorsementEl.style.color = '#ffb74d';
+                endorsementEl.textContent = `Endorsement by ${endorsement.endorser} — not confirmed`;
+            } else {
+                endorsementEl.style.background = 'rgba(158, 158, 158, 0.2)';
+                endorsementEl.style.color = '#bdbdbd';
+                endorsementEl.textContent = `Endorsement by ${endorsement.endorser} — check unavailable`;
+            }
+            endorsementEl.style.display = 'block';
+        } else if (endorsementEl) {
+            endorsementEl.style.display = 'none';
+        }
+
         normalizedEl.textContent = normalizedText || '';
         hashEl.textContent = hash || '';
 

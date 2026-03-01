@@ -591,6 +591,58 @@ Clients should cache secondary/tertiary verification results aggressively — an
 
 **Hash independence:** The hash in the `X-Verify-Authority-Attested-By` URL is distinct from the primary claim's hash. It represents the secondary authority's attestation of the issuer (e.g., "HSBC is a PAYE employer"), not the individual claim (e.g., "Jane works at HSBC"). This means one secondary verification can cover all claims from that issuer, and the secondary authority doesn't need to know about individual employees.
 
+### Endorsement via verification-meta.json (`endorsedBy`)
+
+The Authority Chain Headers above are **dynamic** — returned in the HTTP response from the verification endpoint. For simpler deployments (especially static-file hosting where custom headers aren't possible), issuers can declare their endorsing authority **statically** in `verification-meta.json` using the `endorsedBy` field.
+
+The key difference from `parentAuthorities` (which are passive URL links for human browsing): `endorsedBy` is itself a **verifiable claim** — the endorser's attestation of the issuer can be checked via the same `verify:` protocol.
+
+```json
+{
+  "issuer": "Unseen University",
+  "claimType": "Academic certification",
+  "endorsedBy": {
+    "endorser": "Ministry of Magic, Ankh-Morpork",
+    "verifyUrl": "verify:gov.uk/verifiers",
+    "claimType": "accredited-academic-institution",
+    "description": "The Ministry of Magic recognizes Unseen University as an accredited degree-granting institution"
+  }
+}
+```
+
+**Fields:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `endorser` | string | **Required.** Human-readable name of the endorsing authority |
+| `verifyUrl` | string | **Required.** A `verify:` or `vfy:` URL pointing to the endorser's verification endpoint. The client hashes the issuer's identity claim and looks it up here. |
+| `claimType` | string | **Optional.** The type of endorsement (e.g., `accredited-academic-institution`, `paye-registered-employer`) |
+| `description` | string | **Optional.** Human-readable description of what the endorsement means |
+
+**How it works:**
+
+1. Client fetches `verification-meta.json` and finds `endorsedBy`
+2. Client computes a hash of the issuer's identity (e.g., the issuer's domain or a canonical issuer name — implementation-defined)
+3. Client performs a `verify:` lookup against `endorsedBy.verifyUrl` with that hash
+4. If the endorser's endpoint returns `OK`, the endorsement is confirmed — display "Endorsed by [endorser]"
+5. If the endorser's endpoint returns `404` or is unreachable, the endorsement is **unconfirmed** — display "Endorsement not confirmed" or "Endorsement missing"
+
+**Relationship to Authority Chain Headers:**
+
+| Mechanism | Where Declared | When Available | Use Case |
+|-----------|---------------|----------------|----------|
+| `parentAuthorities` | `verification-meta.json` | Before verification | Passive URL links for human browsing (e.g., Wikipedia, accreditor website) |
+| `endorsedBy` | `verification-meta.json` | Before verification | Verifiable endorsement — the endorser can be checked via `verify:` protocol |
+| `X-Verify-Authority-*` | HTTP response headers | After verification | Dynamic authority chain from the verification endpoint itself |
+
+All three can coexist. `parentAuthorities` provides context, `endorsedBy` provides a checkable pre-declared endorsement, and `X-Verify-Authority-*` headers provide the strongest proof (returned by the verification endpoint itself).
+
+**Example: Missing endorsement (demo)**
+
+The Live Verify demo uses Unseen University (fictional) with `endorsedBy.verifyUrl` pointing to `verify:gov.uk/verifiers`. Since this is a fictional institution, the endorsement lookup returns `404` — the endorser does not recognize the issuer. Client apps display this clearly: "Endorsed by Ministry of Magic, Ankh-Morpork — **not confirmed**".
+
+This demonstrates the designed behavior: an issuer can *claim* endorsement, but the verifier independently checks whether the endorser actually confirms it. A fraudulent issuer claiming endorsement by a real authority would be caught when the endorser's endpoint returns `404`.
+
 ## Privacy Tiers in Responses
 
 For identity credentials (badges), endpoints may vary what **actionable context** they return:

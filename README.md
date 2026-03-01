@@ -23,10 +23,12 @@ Known issue for Camera mode: Tesseract.js (via WASM) bug not present in newer na
 
 This technology is built for **human trust first**, enhanced by cryptography.
 
-1.  **Low-Tech:** The human reads the claim (e.g., "First Class Honours") and mentally questions it.
-2.  **Domain Trust:** The human reads the `verify:degrees.ed.ac.uk` line. They recognize `ed.ac.uk` as a trustworthy domain (Edinburgh University) and decide that *if* this domain confirms the claim, it is authentic. (This requires basic digital literacy/training).
-3.  **Tool Trust:** The human already trusts their browser extension (Clip mode) or phone camera app (Camera mode). They use it to select or scan the text.
-4.  **Verification:** The tool performs the hash lookup and displays "Verified by degrees.ed.ac.uk". The human moves from "questioning" to "no longer questioning."
+1.  **Low-Tech:** Someone quickly reads the claim (e.g., "Jimmy has a Masters degree") and mentally questions it.
+2.  **Domain Trust:** They then read the `verify:degrees.ed.ac.uk` line below the claim. They recognize `ed.ac.uk` as a trustworthy domain (Edinburgh University) and decide that *if* this domain confirms the claim, it is authentic. (This requires basic digital literacy/training).
+3.  **Own Tool Trust:** The human already trusts their own browser extension (Clip mode) or phone camera app (Camera mode if we're talking about a printed document). They use it to select or scan the text.  They might not trust someone else's phone/browser for the same verification.
+4.  **Verification:** The tool performs the hash lookup and displays "Verified by degrees.ed.ac.uk which is verified by gov.uk/verifiers". The human moves from "questioning of claim" to "accepting of claim"
+
+Clip mode is a browser extension today, but in time it will be built-in to browsers, Outlook, Adobe, etc. At that time. a hover-over will be sufficient to cause a "verify this claim?" popup.
 
 **The QR Code Challenge:**
 QR codes are popular but introduce a "double-checking" burden.
@@ -66,6 +68,18 @@ Blockchain (Bitcoin, 2008) uses Merkle trees and hash functions as building bloc
 | **Blockchain** | Distributed consensus + Merkle trees + incentives | Complex: nodes, consensus, fees |
 
 Live Verify uses the same cryptographic primitives (SHA-256) without requiring distributed consensus, cryptocurrency, or transaction fees. The trust anchor is the organization's domain (backed by DNS/TLS), not a blockchain.
+
+
+**Endorsement (`endorsedBy`):**                                                                                                                                        
+While `parentAuthorities` provides passive links for humans to browse, `endorsedBy` is a **verifiable claim** — the endorser's attestation of the issuer can be independently checked via the same `verify:` protocol. The client hashes the issuer's identity and looks it up at the endorser's endpoint.                                   
+
+If the endorser returns `OK` → "Endorsed by [endorser]" (green)                                                                                                             
+If the endorser returns `404` → "Endorsement not confirmed" (amber — the issuer claims endorsement, but the endorser doesn't confirm it). 
+
+If the endorser is unreachable → "Endorsement check unavailable" (grey)                                                                                              
+This matters because an issuer can *claim* to be endorsed, but the verifier independently checks. A fraudulent issuer claiming endorsement by a real authority (e.g., `verify:gov.uk/verifiers`) would be caught when the endorser's endpoint returns `404`.                                                                                 
+                                                   
+The demo at `public/c/verification-meta.json` shows this: Unseen University claims endorsement by the "Ministry of Magic, Ankh-Morpork" via `verify:gov.uk/verifiers` but the endorsement lookup fails because the institution is fictional.
 
 **Why This Matters**
 

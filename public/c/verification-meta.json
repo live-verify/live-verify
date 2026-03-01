@@ -5,6 +5,12 @@
     "https://en.wikipedia.org/wiki/Unseen_University",
     "https://unseen-u.discworld/"
   ],
+  "endorsedBy": {
+    "endorser": "Ministry of Magic, Ankh-Morpork",
+    "verifyUrl": "verify:gov.uk/verifiers",
+    "claimType": "accredited-academic-institution",
+    "description": "The Ministry of Magic recognizes Unseen University as an accredited degree-granting institution"
+  },
   "responseTypes": {
     "OK": {
       "class": "affirming",

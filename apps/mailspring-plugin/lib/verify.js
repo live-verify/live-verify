@@ -28,7 +28,8 @@ const {
     buildVerificationUrl,
     extractDomain,
     fetchVerificationMeta,
-    verifyHash
+    verifyHash,
+    checkEndorsement
 } = require(path.resolve(__dirname, '../../../public/app-logic.js'));
 
 /**
@@ -63,12 +64,23 @@ async function verifyText(selectedText) {
     const verificationUrl = buildVerificationUrl(baseUrl, hash, meta);
     const verifyResult = await verifyHash(verificationUrl, meta);
 
+    // Check endorsement if metadata has endorsedBy
+    let endorsement = null;
+    if (meta && meta.endorsedBy) {
+        try {
+            endorsement = await checkEndorsement(meta.endorsedBy, domain);
+        } catch {
+            endorsement = { checked: false, confirmed: false, endorser: meta.endorsedBy.endorser, error: 'Check failed' };
+        }
+    }
+
     const elapsed = Date.now() - startTime;
 
     return {
         success: verifyResult.success,
         status: verifyResult.status,
         domain: verifyResult.domain,
+        endorsement,
         hash,
         verificationUrl,
         certText,

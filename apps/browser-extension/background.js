@@ -29,7 +29,8 @@ import {
     buildVerificationUrl,
     extractDomain,
     fetchVerificationMeta,
-    verifyHash
+    verifyHash,
+    checkEndorsement
 } from './shared/verify.js';
 import { extractDomainAuthority } from './shared/domain-authority.js';
 
@@ -189,6 +190,16 @@ async function verifySelection(selectedText, tab) {
         // Fall back to simple domain
     }
 
+    // Check endorsement if metadata has endorsedBy
+    let endorsement = null;
+    if (meta && meta.endorsedBy) {
+        try {
+            endorsement = await checkEndorsement(meta.endorsedBy, domain);
+        } catch {
+            endorsement = { checked: false, confirmed: false, endorser: meta.endorsedBy.endorser, error: 'Check failed' };
+        }
+    }
+
     const elapsed = Date.now() - startTime;
 
     const result = {
@@ -197,6 +208,7 @@ async function verifySelection(selectedText, tab) {
         domain: verifyResult.domain,
         registrableDomain,
         domainNotListed,
+        endorsement,
         hash,
         verificationUrl,
         certText,           // Full claim text
@@ -370,6 +382,16 @@ async function verifyText(selectedText) {
         // Fall back to simple domain
     }
 
+    // Check endorsement if metadata has endorsedBy
+    let endorsement = null;
+    if (meta && meta.endorsedBy) {
+        try {
+            endorsement = await checkEndorsement(meta.endorsedBy, domain);
+        } catch {
+            endorsement = { checked: false, confirmed: false, endorser: meta.endorsedBy.endorser, error: 'Check failed' };
+        }
+    }
+
     const elapsed = Date.now() - startTime;
 
     const result = {
@@ -378,6 +400,7 @@ async function verifyText(selectedText) {
         domain: verifyResult.domain,
         registrableDomain,
         domainNotListed,
+        endorsement,
         hash,
         verificationUrl,
         certText,

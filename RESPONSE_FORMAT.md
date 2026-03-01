@@ -127,6 +127,29 @@ Organizations can optionally define custom display text so the camera overlay sp
 - `link`: Optional “Learn more” URL for longer explanations.
 - Falls back to the default “Claim Verified”/“Denied” text if the response code is missing.
 
+### 4. Endorsement (`endorsedBy` in verification-meta.json)
+
+Issuers can declare who endorses them as an authority for the claim type. Unlike `parentAuthorities` (passive URL links), `endorsedBy` is a **verifiable claim** — clients can check the endorsement via the same `verify:` protocol.
+
+```json
+{
+  "endorsedBy": {
+    "endorser": "State Medical Board",
+    "verifyUrl": "verify:medicalboard.state.gov/accredited",
+    "claimType": "accredited-medical-school",
+    "description": "State Medical Board recognizes this institution as an accredited medical school"
+  }
+}
+```
+
+**Client behavior:**
+- Fetch `verification-meta.json`, find `endorsedBy`
+- Perform a `verify:` lookup against `endorsedBy.verifyUrl`
+- Display endorsement status alongside the primary verification result:
+  - Endorser confirms → "Endorsed by [endorser]"
+  - Endorser returns 404 → "Endorsement not confirmed"
+  - Endorser unreachable → "Endorsement check unavailable"
+
 ### Real-world example
 Texas has been running Operation Nightingale against fake nursing IDs; the board publishes details at https://www.bon.texas.gov/Operation_Nightingale_Main.asp.html. Use your `verification-meta.json` to return a status like `"LICENSED"` with `"text": "Licensed R.N in Texas and Nurse Compact states (see https://www.bon.texas.gov/Operation_Nightingale_Main.asp.html)"` so frontline staff see the same warning plus the trusted domain that attests to the credential.
 
