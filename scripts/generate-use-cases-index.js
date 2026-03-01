@@ -17,8 +17,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const USE_CASES_DIR = path.join(__dirname, '../public/use-cases/data');
-const INDEX_FILE = path.join(__dirname, '../public/use-cases/data/index.json');
+const USE_CASES_DIR = path.join(__dirname, '../public/use-cases');
+const INDEX_FILE = path.join(__dirname, '../public/use-cases/index.json');
 
 const dryRun = process.argv.includes('--dry-run');
 

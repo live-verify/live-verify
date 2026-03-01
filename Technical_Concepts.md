@@ -345,11 +345,11 @@ In some high-volume use cases (delivery drivers, utility workers, field inspecto
 Static ID cards can be easily photographed or forged. Next-generation worker verification uses **e-Ink badges** that can display a rotating "Salt" or a specific "Session ID" linked to the worker's current task.
 
 **Typical Use Cases:**
-- **[Police Officer Verification](public/use-cases/data/police-officer-verification.md):** Preventing impersonation during traffic stops or home visits.
-- **[Delivery & Courier Verification](public/use-cases/data/delivery-courier-verification.md):** High-volume interactions where route-specific salts protect driver privacy.
-- **[Utility & Field Worker Verification](public/use-cases/data/utility-field-worker-verification.md):** Verifying authorized access for meter readers and repair crews.
-- **[Social Services Worker Verification](public/use-cases/data/social-services-worker-verification.md):** Ensuring the legitimacy of officials conducting sensitive home visits.
-- **[Hotel & Vacation Rental Staff](public/use-cases/data/hotel-staff-verification.md):** Verifying maintenance and room-service workers at the guest's door.
+- **[Police Officer Verification](public/use-cases/police-officer-verification.md):** Preventing impersonation during traffic stops or home visits.
+- **[Delivery & Courier Verification](public/use-cases/delivery-courier-verification.md):** High-volume interactions where route-specific salts protect driver privacy.
+- **[Utility & Field Worker Verification](public/use-cases/utility-field-worker-verification.md):** Verifying authorized access for meter readers and repair crews.
+- **[Social Services Worker Verification](public/use-cases/social-services-worker-verification.md):** Ensuring the legitimacy of officials conducting sensitive home visits.
+- **[Hotel & Vacation Rental Staff](public/use-cases/hotel-staff-verification.md):** Verifying maintenance and room-service workers at the guest's door.
 
 **How it works:**
 1.  **Task Assignment:** A driver starts a delivery shift. Their phone app syncs a unique salt to their e-Ink badge via Bluetooth.
@@ -482,9 +482,38 @@ To ensure cross-platform interoperability, these libraries will likely be valida
 
 ## Deployment Architecture: Air-Gapped Originals, Public Hashes
 
-**Critical principle for organizations:** The hash database should be completely separate from the original credential data.
+### The Protocol Property: Decoupled Security and Availability
+
+Most verification systems force a tradeoff: either the plaintext is accessible (so verification works) or the plaintext is secured (so verification doesn't). Live Verify eliminates this tradeoff. The system holding the original records — names, amounts, diagnoses, criminal histories, classified data — can sit at whatever security posture the jurisdiction, regulator, or organization requires. The verification endpoint only ever sees hashes. **The security posture of the plaintext and the availability of verification are completely independent.**
+
+This is not a deployment recommendation. It is an inherent property of one-way hashing. The hash is the same whether it was generated on an air-gapped machine in a SCIF or on a laptop in a coffee shop. The protocol doesn't care. The verification is always a public GET against a hash.
+
+### The Plaintext Security Spectrum
+
+Organizations choose where their plaintext registry sits based on regulatory requirements, threat model, and operational constraints:
+
+| Level | Network Posture | Hash Transfer | Typical Use |
+|-------|----------------|---------------|-------------|
+| **Air-gapped** | No network connection. Physically isolated. | USB drive, one-way data diode, physical media | Military, intelligence, nuclear, national security |
+| **Network-isolated** | Private network, no internet route | One-way gateway, unidirectional transfer appliance | Government classified systems, central banks, critical infrastructure |
+| **VPC-isolated** | Cloud-hosted, private subnet, no public ingress | Internal pipeline to public-facing bucket/database | Regulated industries, healthcare networks, financial institutions |
+| **VPN-accessible** | On the internet but reachable only via authenticated VPN | Hashes published to a separate public endpoint | Healthcare systems, corporate HR, legal case management |
+| **Access-controlled** | On the internet with authentication/authorization | Hashes on a separate public endpoint | Most commercial deployments, SaaS providers, universities |
+
+Every level produces the same public verification experience: a GET request, a hash lookup, a status response. The person scanning a document in a parking lot has no idea — and no need to know — whether the plaintext registry is in an air-gapped vault or a cloud database.
+
+**Why this matters:**
+
+- **Government mandates:** A jurisdiction can require that criminal record plaintext never touch the internet, while still allowing police clearance certificates to be publicly verifiable. The protocol supports this by design — it doesn't need to be engineered around the mandate.
+- **Regulatory compliance:** HIPAA, GDPR, and financial regulations impose requirements on where and how PII is stored and accessed. The plaintext registry must comply. The hash endpoint doesn't contain PII and operates outside those constraints.
+- **Defense and intelligence:** Classified personnel records, security clearances, and operational authorities can generate verifiable credentials without exposing the classified systems to any network that touches the public internet.
+- **Selling point vs. mandate:** For some organizations, the air-gap is a competitive differentiator — "your data never leaves our secure facility." For others, it's a legal requirement. The protocol accommodates both without any change to the verification mechanism.
+
+**The critical invariant:** Regardless of where on the spectrum the plaintext sits, the flow is always one-way: plaintext → hash generation → hash publication. The public tier never queries back into the private tier. The private tier never receives inbound connections from the verification service. Hashes flow out. Nothing flows in.
 
 ### The Security Model
+
+**Critical principle for organizations:** The hash database should be completely separate from the original credential data.
 
 **What's sensitive (private tier - secure zone):**
 - Original credential records (graduate names, degree details, photos)

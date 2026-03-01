@@ -4,7 +4,7 @@
 
 Copying text from a webpage is straightforward: click, drag to extend selection, Ctrl+C. All major browsers behave identically. But what goes on the clipboard?
 
-By default, plain text. And plain text loses context. When a user copies a verifiable claim (see our [employment reference selection demo](../public/use-cases/data/slides/employment-references-1.html)), the clipboard gets only the characters. The semantic structure—the fact that this is a verifiable block with a `verify:` line—is lost.
+By default, plain text. And plain text loses context. When a user copies a verifiable claim (see our [employment reference selection demo](../public/use-cases/slides/employment-references-1.html)), the clipboard gets only the characters. The semantic structure—the fact that this is a verifiable block with a `verify:` line—is lost.
 
 The good news: browsers already support `text/html` on the clipboard. We just need to use it.
 

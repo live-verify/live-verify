@@ -1,28 +1,29 @@
 {
-  "generated": "2026-01-15T21:24:10.666Z",
-  "totalUseCases": 418,
-  "totalFurtherDerivations": 480,
+  "generated": "2026-02-28T18:34:29.429Z",
+  "totalUseCases": 436,
+  "totalFurtherDerivations": 513,
   "categories": {
     "Real Estate & Property": 30,
     "Charitable & Non-Profit": 6,
     "Novel Document Types": 5,
     "Actuarial & Insurance Mathematics": 10,
-    "Personal Lines Insurance": 12,
-    "Government & Civic Documents": 14,
+    "Personal Lines Insurance": 13,
+    "Government & Civic Documents": 16,
     "Notary Services": 7,
-    "Immigration & Visa Documents": 16,
+    "Immigration & Visa Documents": 17,
     "Financial & Legal Documents": 8,
     "Insurance Claims & Operations": 12,
     "Chain of Custody & Logistics": 15,
     "Travel & Hospitality": 21,
     "Professional & Occupational Licenses": 12,
-    "Identity & Authority Verification": 28,
-    "Professional & Educational Qualifications": 15,
+    "Identity & Authority Verification": 30,
+    "Professional & Educational Qualifications": 19,
     "Art, Media & Publishing": 7,
     "Customs & Trade Compliance": 6,
     "Sports & Athletics": 6,
     "Specialty Insurance": 22,
     "Business & Commerce": 10,
+    "Legal & Court Documents": 8,
     "Banking & Payments": 14,
     "Financial Compliance": 6,
     "Identity & Civil Records": 2,
@@ -32,18 +33,17 @@
     "Product Certifications & Compliance": 11,
     "Professional Ethics & Compliance": 9,
     "Energy & Utilities": 3,
-    "Legal & Court Documents": 4,
     "Civic & Public Safety": 1,
     "Scientific & Research": 7,
     "Warehousing & Inventory": 4,
-    "Government & Regulatory": 5,
+    "Government & Regulatory": 6,
     "Permits & Approvals": 4,
     "Construction & Building": 1,
     "Delegated Authority": 5,
     "Corporate & Legal Documents": 2,
     "Intellectual Property Law": 3,
-    "Banking & Financial Services": 5,
-    "Healthcare & Medical Records": 7,
+    "Banking & Financial Services": 6,
+    "Healthcare & Medical Records": 9,
     "Trade Finance": 5,
     "Environmental Permits & Compliance": 4,
     "Environmental & Safety": 2,
@@ -614,6 +614,25 @@
       ]
     },
     {
+      "slug": "bail-bond-documents",
+      "title": "Bail and Bond Documents",
+      "category": "Legal & Court Documents",
+      "volume": "Large",
+      "retention": "Case life + appeals (5-20 years)",
+      "furtherDerivations": 1,
+      "snippet": "Court name, case number, defendant name, bail amount, bond type (cash/surety/personal recognizance), conditions of release summary, posting date, bondsman name and license number (if surety bond).",
+      "tags": [
+        "bail",
+        "bond",
+        "bail-bond",
+        "surety",
+        "pretrial-release",
+        "conditions-of-release",
+        "court",
+        "criminal-justice"
+      ]
+    },
+    {
       "slug": "ballot-chain-of-custody",
       "title": "Ballot Chain-of-Custody Transfer Forms",
       "category": "Government & Civic Documents",
@@ -1163,6 +1182,26 @@
         "impact",
         "donor-trust",
         "charity-navigator"
+      ]
+    },
+    {
+      "slug": "child-support-alimony-orders",
+      "title": "Child Support and Alimony Orders",
+      "category": "Legal & Court Documents",
+      "volume": "Large",
+      "retention": "Until obligation ends + statute of limitations (5-20 years)",
+      "furtherDerivations": 2,
+      "snippet": "Court name, case number, order type (child support / spousal support / both), petitioner name, respondent name, monthly amount, payment frequency, effective date, income withholding directive (yes/no)",
+      "tags": [
+        "child-support",
+        "alimony",
+        "spousal-support",
+        "maintenance",
+        "family-court",
+        "garnishment",
+        "income-withholding",
+        "enforcement",
+        "custody"
       ]
     },
     {
@@ -1899,6 +1938,26 @@
       ]
     },
     {
+      "slug": "credit-reports-scores",
+      "title": "Credit Reports and Credit Scores",
+      "category": "Banking & Financial Services",
+      "volume": "Very Large",
+      "retention": "7 years (Fair Credit Reporting Act)",
+      "furtherDerivations": 2,
+      "snippet": "Consumer name, report date, credit score, score model (FICO 8, VantageScore 3.0), number of open accounts, total balances, payment history percentage, number of hard inquiries, derogatory marks count.",
+      "tags": [
+        "credit-report",
+        "credit-score",
+        "fico",
+        "equifax",
+        "experian",
+        "transunion",
+        "lending",
+        "rental-application",
+        "employment-screening"
+      ]
+    },
+    {
       "slug": "criminal-background-check-results",
       "title": "Criminal Background Check Results",
       "category": "Legal & Court Documents",
@@ -2235,6 +2294,26 @@
         "income-replacement",
         "long-term-disability",
         "compliance"
+      ]
+    },
+    {
+      "slug": "disability-certification-letters",
+      "title": "Disability Certification Letters",
+      "category": "Healthcare & Medical Records",
+      "volume": "Large",
+      "retention": "Duration of condition + review period (1-5 years)",
+      "furtherDerivations": 2,
+      "snippet": "Patient name, certifying physician name and credentials, certifying organization, certification type (e.g., Reasonable Accommodation — Workplace), functional limitation category (mobility, vision, hea",
+      "tags": [
+        "disability",
+        "ada",
+        "reasonable-accommodation",
+        "disabled-parking",
+        "accessibility",
+        "workplace-accommodation",
+        "esa",
+        "service-animal",
+        "benefits"
       ]
     },
     {
@@ -3084,6 +3163,26 @@
       ]
     },
     {
+      "slug": "foreign-credential-evaluations",
+      "title": "Foreign Credential Evaluations",
+      "category": "Professional & Educational Qualifications",
+      "volume": "Large",
+      "retention": "Permanent (credential equivalency doesn't expire)",
+      "furtherDerivations": 2,
+      "snippet": "Applicant name, evaluation agency, report number, country of education, institution name, credential earned (original), equivalency determination (the critical field), date of evaluation.",
+      "tags": [
+        "credential-evaluation",
+        "wes",
+        "ece",
+        "naces",
+        "foreign-degree",
+        "immigration",
+        "professional-licensing",
+        "university-admission",
+        "equivalency"
+      ]
+    },
+    {
       "slug": "franchise-agreements",
       "title": "Franchise Agreements and Disclosure Documents",
       "category": "Business & Commerce",
@@ -3339,6 +3438,25 @@
         "ghs",
         "emergency-response",
         "product-stewardship"
+      ]
+    },
+    {
+      "slug": "health-insurance-cards",
+      "title": "Health Insurance Cards",
+      "category": "Personal Lines Insurance",
+      "volume": "Very Large",
+      "retention": "Policy term (typically 1 year, renewed)",
+      "furtherDerivations": 2,
+      "snippet": "Member name, member ID, group number, plan type (PPO/HMO/EPO), effective date, insurer name. NOT included in the hash: deductible amounts, out-of-pocket maximums, specific coverage details (those live",
+      "tags": [
+        "health-insurance",
+        "insurance-card",
+        "member-id",
+        "group-number",
+        "copay",
+        "deductible",
+        "provider-network",
+        "eligibility"
       ]
     },
     {
@@ -3713,6 +3831,54 @@
         "uscis",
         "immigration-verification",
         "i-9-compliance"
+      ]
+    },
+    {
+      "slug": "impersonation-scam-verification",
+      "title": "Impersonation Scam Verification",
+      "category": "Identity & Authority Verification",
+      "volume": "Very Large",
+      "retention": "Varies by underlying claim",
+      "furtherDerivations": 2,
+      "snippet": "",
+      "tags": [
+        "impersonation",
+        "scam",
+        "pig-butchering",
+        "phishing",
+        "vishing",
+        "smishing",
+        "romance-scam",
+        "authority-chain",
+        "tech-support-scam",
+        "virtual-kidnapping",
+        "social-engineering",
+        "channel-agnostic",
+        "advance-fee",
+        "419-scam",
+        "lottery-scam"
+      ]
+    },
+    {
+      "slug": "inbound-call-verification",
+      "title": "Inbound Call Verification (Government & Commercial)",
+      "category": "Identity & Authority Verification",
+      "volume": "Very Large",
+      "retention": "Call record + 1-3 years (accountability)",
+      "furtherDerivations": 3,
+      "snippet": "Calling agency, caller name/badge number, subject matter of the call (category, not details), case or reference number (if applicable), date and time of authorization, expiration time, calling phone n",
+      "tags": [
+        "phone-scam",
+        "caller-verification",
+        "sms-verification",
+        "government-call",
+        "commercial-call",
+        "vishing",
+        "impersonation",
+        "real-time-verification",
+        "bank-fraud-call",
+        "debt-collection",
+        "utility-scam"
       ]
     },
     {
@@ -5128,6 +5294,25 @@
       ]
     },
     {
+      "slug": "offer-letters",
+      "title": "Employment Offer Letters",
+      "category": "Professional & Educational Qualifications",
+      "volume": "Large",
+      "retention": "Duration of employment + 2 years",
+      "furtherDerivations": 2,
+      "snippet": "Candidate name, position title, employer name, start date, salary/compensation (base), employment type (full-time/part-time/contract), work location.",
+      "tags": [
+        "offer-letter",
+        "employment-offer",
+        "job-offer",
+        "hiring",
+        "compensation",
+        "visa",
+        "mortgage",
+        "relocation"
+      ]
+    },
+    {
       "slug": "open-banking-consent-forms",
       "title": "Open Banking Consent Forms (PSD2 / Dodd-Frank 1033)",
       "category": "Banking & Payments",
@@ -5327,6 +5512,25 @@
         "privacy",
         "fraud-prevention",
         "clinical-trials"
+      ]
+    },
+    {
+      "slug": "pay-stubs-payslips",
+      "title": "Pay Stubs and Payslips",
+      "category": "Professional & Educational Qualifications",
+      "volume": "Very Large",
+      "retention": "3-7 years (tax + employment disputes)",
+      "furtherDerivations": 2,
+      "snippet": "Employee name, employer name, pay period start and end dates, gross pay, net pay, pay frequency (weekly/bi-weekly/semi-monthly/monthly), employment status (full-time/part-time/contract).",
+      "tags": [
+        "pay-stub",
+        "payslip",
+        "income-verification",
+        "employment",
+        "payroll",
+        "tax",
+        "lending",
+        "rental-application"
       ]
     },
     {
@@ -5579,6 +5783,26 @@
       ]
     },
     {
+      "slug": "police-clearance-certificates",
+      "title": "Police Clearance Certificates",
+      "category": "Government & Civic Documents",
+      "volume": "Large",
+      "retention": "6-12 months (validity period) + immigration file retention",
+      "furtherDerivations": 2,
+      "snippet": "Applicant name, date of birth, nationality/nationalities, issuing authority, country, reference number, date issued, validity period, result (no convictions / convictions found — but NOT the details o",
+      "tags": [
+        "police-clearance",
+        "criminal-record-check",
+        "good-conduct",
+        "immigration",
+        "visa",
+        "background-check",
+        "interpol",
+        "acro",
+        "fbi"
+      ]
+    },
+    {
       "slug": "police-officer-verification",
       "title": "Police officer verification (traffic stops, home visits)",
       "category": "Identity & Authority Verification",
@@ -5667,6 +5891,27 @@
         "accountability",
         "track-record",
         "novel"
+      ]
+    },
+    {
+      "slug": "prescriptions",
+      "title": "Prescriptions",
+      "category": "Healthcare & Medical Records",
+      "volume": "Very Large",
+      "retention": "2-7 years (varies by jurisdiction and substance schedule)",
+      "furtherDerivations": 2,
+      "snippet": "Patient name, prescriber name, prescriber credentials (medical degree, board certification), prescribing organization, medication name, dosage, quantity, date prescribed, number of refills authorized,",
+      "tags": [
+        "prescription",
+        "medication",
+        "pharmacy",
+        "controlled-substance",
+        "opioid",
+        "prescriber",
+        "dea",
+        "gmc",
+        "travel",
+        "schedule-ii"
       ]
     },
     {
@@ -5818,6 +6063,26 @@
         "supply-chain",
         "dispute-resolution",
         "freight-fraud"
+      ]
+    },
+    {
+      "slug": "proof-of-employment",
+      "title": "Proof of Employment (Employee-Held)",
+      "category": "Professional & Educational Qualifications",
+      "volume": "Very Large",
+      "retention": "Duration of employment + 1 year",
+      "furtherDerivations": 2,
+      "snippet": "Employee name, job title, employer name, employment start date, employment status (active/inactive), employment type (full-time/part-time/contract), work location (country/city), date of issuance.",
+      "tags": [
+        "employment",
+        "proof-of-employment",
+        "immigration",
+        "visa",
+        "border-control",
+        "hr",
+        "employer-verification",
+        "authority-chain",
+        "portable-credential"
       ]
     },
     {
@@ -6398,6 +6663,25 @@
       ]
     },
     {
+      "slug": "restraining-orders-protective-orders",
+      "title": "Restraining Orders and Protective Orders",
+      "category": "Legal & Court Documents",
+      "volume": "Large",
+      "retention": "Order duration + enforcement window (1-10 years)",
+      "furtherDerivations": 2,
+      "snippet": "Court name, case number, order type (DVRO, civil harassment, stalking, elder abuse), petitioner name, respondent name, date issued, expiration date, conditions summary (stay-away distance, protected l",
+      "tags": [
+        "restraining-order",
+        "protective-order",
+        "domestic-violence",
+        "stalking",
+        "harassment",
+        "court-order",
+        "law-enforcement",
+        "victim-safety"
+      ]
+    },
+    {
       "slug": "reverse-factoring-supply-chain",
       "title": "Reverse Factoring (Supply Chain Finance) Documentation",
       "category": "Trade Finance",
@@ -6640,6 +6924,24 @@
         "pro-league",
         "integrity-in-sports",
         "scouting-combine"
+      ]
+    },
+    {
+      "slug": "search-warrants",
+      "title": "Search Warrants",
+      "category": "Legal & Court Documents",
+      "volume": "Large",
+      "retention": "Case life + appeals (5-20 years)",
+      "furtherDerivations": 1,
+      "snippet": "Court jurisdiction, case number, issuing judge, address/location authorized for search, items/categories authorized for seizure, date of issuance, expiration date and time, time-of-day restrictions (d",
+      "tags": [
+        "search-warrant",
+        "judicial-authorization",
+        "fourth-amendment",
+        "law-enforcement",
+        "probable-cause",
+        "warrant-return",
+        "evidence-integrity"
       ]
     },
     {
@@ -7048,6 +7350,26 @@
         "tax-fraud",
         "wage-statement",
         "payroll-audit"
+      ]
+    },
+    {
+      "slug": "tax-residency-certificates",
+      "title": "Tax Residency Certificates",
+      "category": "Government & Regulatory",
+      "volume": "Large",
+      "retention": "Tax year + statute of limitations (3-7 years)",
+      "furtherDerivations": 1,
+      "snippet": "Taxpayer name, taxpayer identification number (TIN), country of residence, tax year(s) covered, issuing tax authority, date issued, treaty applicability (which bilateral treaty). NOT included: income ",
+      "tags": [
+        "tax-residency",
+        "certificate-of-residence",
+        "double-taxation",
+        "tax-treaty",
+        "withholding-tax",
+        "hmrc",
+        "irs",
+        "oecd",
+        "form-6166"
       ]
     },
     {
@@ -7626,6 +7948,26 @@
       ]
     },
     {
+      "slug": "vehicle-titles",
+      "title": "Vehicle Titles",
+      "category": "Government & Civic Documents",
+      "volume": "Very Large",
+      "retention": "Permanent (ownership record)",
+      "furtherDerivations": 2,
+      "snippet": "VIN, owner name, title number, state of issuance, title brand (CLEAN / SALVAGE / REBUILT / FLOOD / JUNK), lien holder (if any), odometer reading at title issuance, date issued, year/make/model, body s",
+      "tags": [
+        "vehicle-title",
+        "car-title",
+        "certificate-of-title",
+        "dmv",
+        "dvla",
+        "ownership",
+        "lien",
+        "title-washing",
+        "odometer"
+      ]
+    },
+    {
       "slug": "visa-denial-notices",
       "title": "Visa Denial Notices",
       "category": "Immigration & Visa Documents",
@@ -7911,6 +8253,23 @@
       ]
     },
     {
+      "slug": "work-permits",
+      "title": "Work Permits & Work Visas",
+      "category": "Immigration & Visa Documents",
+      "volume": "Very Large",
+      "retention": "1-5 years (renewal cycle, varies by jurisdiction)",
+      "furtherDerivations": 1,
+      "snippet": "Common elements across jurisdictions: full name, permit/visa number, employer name (if tied), job title or occupation code, validity start date, expiration date, issuing authority and office, national",
+      "tags": [
+        "work-permit",
+        "work-visa",
+        "employment-authorization",
+        "immigration",
+        "labor-mobility",
+        "employer-sponsorship"
+      ]
+    },
+    {
       "slug": "workers-comp-certificates",
       "title": "Workers' Compensation Insurance Certificates",
       "category": "Commercial Lines Insurance",
@@ -7957,7 +8316,7 @@
     },
     {
       "name": "Identity & Authority Verification",
-      "count": 28
+      "count": 30
     },
     {
       "name": "Specialty Insurance",
@@ -7968,7 +8327,15 @@
       "count": 21
     },
     {
+      "name": "Professional & Educational Qualifications",
+      "count": 19
+    },
+    {
       "name": "Immigration & Visa Documents",
+      "count": 17
+    },
+    {
+      "name": "Government & Civic Documents",
       "count": 16
     },
     {
@@ -7976,20 +8343,12 @@
       "count": 15
     },
     {
-      "name": "Professional & Educational Qualifications",
-      "count": 15
-    },
-    {
-      "name": "Government & Civic Documents",
-      "count": 14
-    },
-    {
       "name": "Banking & Payments",
       "count": 14
     },
     {
       "name": "Personal Lines Insurance",
-      "count": 12
+      "count": 13
     },
     {
       "name": "Insurance Claims & Operations",
@@ -8024,7 +8383,15 @@
       "count": 9
     },
     {
+      "name": "Healthcare & Medical Records",
+      "count": 9
+    },
+    {
       "name": "Financial & Legal Documents",
+      "count": 8
+    },
+    {
+      "name": "Legal & Court Documents",
       "count": 8
     },
     {
@@ -8041,10 +8408,6 @@
     },
     {
       "name": "Scientific & Research",
-      "count": 7
-    },
-    {
-      "name": "Healthcare & Medical Records",
       "count": 7
     },
     {
@@ -8068,11 +8431,15 @@
       "count": 6
     },
     {
-      "name": "Novel Document Types",
-      "count": 5
+      "name": "Government & Regulatory",
+      "count": 6
     },
     {
-      "name": "Government & Regulatory",
+      "name": "Banking & Financial Services",
+      "count": 6
+    },
+    {
+      "name": "Novel Document Types",
       "count": 5
     },
     {
@@ -8080,16 +8447,8 @@
       "count": 5
     },
     {
-      "name": "Banking & Financial Services",
-      "count": 5
-    },
-    {
       "name": "Trade Finance",
       "count": 5
-    },
-    {
-      "name": "Legal & Court Documents",
-      "count": 4
     },
     {
       "name": "Warehousing & Inventory",

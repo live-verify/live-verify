@@ -927,14 +927,14 @@ function main() {
   const args = process.argv.slice(2);
   const forceOverwrite = args.includes('--force') || args.includes('-f');
 
-  const dataDir = path.join(process.cwd(), 'public/use-cases/data');
+  const dataDir = path.join(process.cwd(), 'public/use-cases');
 
   // Filter out special files
   const jsonFiles = glob.sync(path.join(dataDir, '*.json'))
     .filter(f => !f.includes('categories-summary.json') && !f.includes('verification-meta.json'));
 
   if (jsonFiles.length === 0) {
-    console.error('No JSON files found in public/use-cases/data/');
+    console.error('No JSON files found in public/use-cases/');
     process.exit(1);
   }
 

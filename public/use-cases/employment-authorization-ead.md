@@ -8,6 +8,8 @@ tags: ["immigration", "ead", "form-i-766", "work-authorization", "uscis", "i-9-c
 furtherDerivations: 1
 ---
 
+*This is the US-specific deep dive. See [Work Permits & Work Visas](work-permits) for the international overview.*
+
 ## What is a Work Permit (EAD)?
 
 An **Employment Authorization Document (EAD)** is the ID card issued by the US government giving a non-citizen the legal right to work.

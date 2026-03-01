@@ -795,7 +795,7 @@
 
         // Load the main index
         async function loadIndex() {
-            const response = await fetch('data/index.json');
+            const response = await fetch('index.json');
             indexData = await response.json();
             return indexData;
         }

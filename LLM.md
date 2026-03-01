@@ -215,7 +215,7 @@ live-verify/
 
 ## Use Cases Content
 
-~450 use case documents in `public/use-cases/data/*.md`. Each has YAML frontmatter:
+~450 use case documents in `public/use-cases/*.md`. Each has YAML frontmatter:
 
 ```yaml
 ---
@@ -229,8 +229,8 @@ retention: "7 years"
 ```
 
 **Key files:**
-- `public/use-cases/data/criteria-template.md` — Template + guidance for writing use cases. Covers: good use case criteria, party definitions (issuer/second/third), fraud patterns, status indications, common objections.
-- `scripts/migrate-use-cases.js` — Regenerates `public/use-cases/data/index.json` from .md frontmatter. Run after adding/editing use cases.
+- `public/use-cases/criteria-template.md` — Template + guidance for writing use cases. Covers: good use case criteria, party definitions (issuer/second/third), fraud patterns, status indications, common objections.
+- `scripts/migrate-use-cases.js` — Regenerates `public/use-cases/index.json` from .md frontmatter. Run after adding/editing use cases.
 - `public/use-cases/view.html` — Client-side markdown viewer. Access via `view.html?doc=slug-name`.
 
 **Workflow:** Edit .md files → run `node scripts/migrate-use-cases.js` → index.json updated.
@@ -959,7 +959,7 @@ More: https://issuer.com/public-profile/{id}
 - Strong actions where power dynamics exist (inspector at door, healthcare worker with vulnerable patient)
 - Light actions where existing infrastructure suffices (bar associations, licensing boards)
 
-**CSV reference:** `public/use-cases/data/post-verification-actions.csv` tracks which use cases have post-verification actions and their descriptions.
+**CSV reference:** `public/use-cases/post-verification-actions.csv` tracks which use cases have post-verification actions and their descriptions.
 
 **Trust assumption:** The domain owner (e.g., `intertek.com`) won't host fake verification endpoints.
 

@@ -314,7 +314,7 @@
 
         // Check if slides exist for this document
         async function checkForSlides(docSlug) {
-            slidesPath = `data/slides/${docSlug}-1.html`;
+            slidesPath = `slides/${docSlug}-1.html`;
             try {
                 const response = await fetch(slidesPath, { method: 'HEAD' });
                 slidesAvailable = response.ok;
@@ -332,7 +332,7 @@
                 '<div class="error">No document specified. Use ?doc=filename</div>';
         } else {
             // Fetch the markdown file
-            fetch(`data/${slug}.md`)
+            fetch(`${slug}.md`)
                 .then(response => {
                     if (!response.ok) throw new Error('Document not found');
                     return response.text();

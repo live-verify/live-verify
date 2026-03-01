@@ -20,7 +20,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const USE_CASES_DIR = path.join(__dirname, '../public/use-cases/data');
+const USE_CASES_DIR = path.join(__dirname, '../public/use-cases');
 const dryRun = process.argv.includes('--dry-run');
 
 /**

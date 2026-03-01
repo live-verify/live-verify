@@ -238,100 +238,99 @@
             <span>Home</span>
 	        </nav>
 	        <div class="badge">LIVE VERIFY</div>
-	        <h1>Verify printed claims from the issuer’s domain.</h1>
+	        <h1>Verify digital and printed claims from the issuer’s domain.</h1>
 	        <p data-slogan-root>
-	            Live Verify: the next logical step up from <span data-slogan-platform>the iPhone's</span> <span data-slogan-term>Live Text</span>.
-	            <button type="button" data-slogan-toggle></button>
+	            Live Verify: the next logical step up from <span data-slogan-platform>the iPhone’s</span> <span data-slogan-term>Live Text</span>.
+	            <button type=”button” data-slogan-toggle></button>
 	        </p>
-	        <p class="lede">
-	            There’s always something on paper (or on screen) that looks official, but may not be authentic. Or it could be out of date or revoked.
-	            "Live Verify" is an enhanced camera app that goes one step beyond iOS "Live Text" and Android's "Lens" text feature to become trust engine: “does the issuer currently attest to the validity of this exact text?”
+	        <p class=”lede”>
+	            There’s always something on screen or on paper that looks official, but may not be authentic. Or it could be out of date or revoked.
+	            Two modes: <strong>Clip</strong> (select text in browser, email, or PDF &mdash; right-click to verify) and <strong>Camera</strong> (point phone at a printed document). Both answer the same question: &ldquo;does the issuer currently attest to the validity of this exact text?&rdquo;
 	        </p>
 
         <div class="cta-row">
-            <a class="cta secondary" href="opportunity.html">Opportunity</a>
+            <a class="cta" href="examples/">Clip Mode Demo</a>
+            <a class="cta" href="camera-app/">Camera Mode Demo</a>
             <a class="cta secondary" href="use-cases/">Use Cases</a>
+            <a class="cta secondary" href="opportunity.html">Opportunity</a>
             <a class="cta secondary" href="privacy_declaration.html">Privacy</a>
-	            <a class="cta" href="camera-app/">Demo web-app</a>
-            <a class="cta secondary" href="examples/">Text Selection</a>
             <a class="cta secondary" href="https://github.com/paul-hammant/live-verify" target="_blank" rel="noreferrer">Source Code</a>
         </div>
 
         <div class="card" id="whyThisMatters">
             <h2>Why this matters</h2>
             <ul>
-                <li><strong>A trust primitive for the physical world:</strong> readable text becomes machine-checkable authenticity, without replacing it with QR codes or forcing closed apps.</li>
+                <li><strong>A trust primitive for digital and physical claims:</strong> readable text becomes machine-checkable authenticity, whether on screen or on paper, without QR codes or closed apps.</li>
                 <li><strong>Sovereign, no gatekeeper:</strong> issuers publish from their own domain; verifiers decide who to trust; there’s no single global registry to control access.</li>
-                <li><strong>Privacy-forward by default:</strong> OCR + hashing stay on-device; the network step is just a hash lookup.</li>
-                <li><strong>Anti-fraud without friction:</strong> reduces forged IDs, credentials, and permits at the point of use (hotels, employers, venues) with a camera UX people already know.</li>
-                <li><strong>Accessible and inclusive:</strong> works with paper, screenshots, and low-end printers; no NFC chips, special ink, or new hardware—just the camera stack most phones already have (screen moiré patterns may require higher-capability OCR).</li>
+                <li><strong>Privacy-forward by default:</strong> text normalization + hashing stay on-device; the network step is just a hash lookup.</li>
+                <li><strong>Anti-fraud without friction:</strong> reduces forged IDs, credentials, and permits at the point of use. Clip mode works in browsers, email clients, and PDFs; Camera mode works at hotels, employers, and venues.</li>
+                <li><strong>Accessible and inclusive:</strong> Clip mode needs no special equipment at all. Camera mode works with paper, screenshots, and low-end printers; no NFC chips, special ink, or new hardware required.</li>
                 <li><strong>Resilient:</strong> hashes can be published cheaply (even static hosting) while sensitive source records remain protected; verification can keep working during partial outages.</li>
                 <li><strong>Commercial:</strong> issuer-side registry/integrations and verifier-side managed app/SDK are both natural SaaS offerings.</li>
             </ul>
         </div>
 
         <div class="story-grid">
-            <div class="card" id="userExperience">
+            <div class=”card” id=”userExperience”>
                 <h2>What the user sees</h2>
-                <p>The camera app keeps the flow simple: “Snap” to capture the document, then it either overlays “Claim Verified” (or synonym) with issuer/domain shown, or Denied/Revoked, or "Not found"  if the hash check fails to match a URL with a 200 response.</p>
-                <ul class="user-list">
-                    <li>Snap—frame the registration marks, tap to capture.</li>
-                    <li>Verified or Denied—an overlay tells you the outcome instantly.</li>
-                </ul>
+                <h3 style=”margin-top: 12px; font-size: 1em; opacity: 0.85;”>Clip mode (digital documents)</h3>
+                <p>Select text containing a claim and its <code>verify:</code> line in any browser, email client, or PDF viewer. Right-click &rarr; “Verify this claim” (or Cmd/Ctrl+Shift+V). The extension shows “Verified by <em>domain</em>” or “Fails verification” instantly. No OCR, no camera &mdash; fast and reliable because the text is already digital.</p>
+                <h3 style=”margin-top: 16px; font-size: 1em; opacity: 0.85;”>Camera mode (printed documents)</h3>
+                <p>Point your phone at a document with registration marks. Snap to capture, and the app overlays “Claim Verified” with the issuer domain shown, or Denied/Revoked, or “Not found” if the hash doesn't match.</p>
                 <img
-                    class="demo-screenshot"
-                    src="screenshots/a_verification_after_the_event.png"
-                    alt="Live Verify prototype showing a successful 'Claim Verified' result"
-                    loading="lazy"
+                    class=”demo-screenshot”
+                    src=”screenshots/a_verification_after_the_event.png”
+                    alt=”Live Verify prototype showing a successful 'Claim Verified' result”
+                    loading=”lazy”
                 />
-                <p class="demo-caption">
-                    Example above is verification result for the
-                    <a href="training-pages/elbonian-source-of-funds.html" target="_blank" rel="noreferrer noopener">Elbonian Source of Funds training page</a>, in the demo web-app (not the Camera app that would need the same technology upgrade). This screenshot is showing debug info too, which would not be there for a production version of the technologies
+                <p class=”demo-caption”>
+                    Camera mode example: verification result for the
+                    <a href=”training-pages/elbonian-source-of-funds.html” target=”_blank” rel=”noreferrer noopener”>Elbonian Source of Funds training page</a>, in the demo web-app. This screenshot shows debug info that would not be present in a production version.
                     <br><br>
-                    In a real deployment, the overlay would show <code>happy.bank.elbonia</code>, rather than <code>paul-hammant.github.io</code> - <code>top level .elbonia</code> is fictional, so nobody at all can buy those domains.
+                    In a real deployment, the overlay would show <code>happy.bank.elbonia</code>, rather than <code>paul-hammant.github.io</code> &mdash; <code>.elbonia</code> is fictional, so nobody can buy those domains.
                 </p>
             </div>
-            <div class="card" id="implementation">
+            <div class=”card” id=”implementation”>
                 <h2>Implementation</h2>
-                <p>Snap → OCR → normalize (rules) → SHA-256 → <code>GET</code> issuer URL → Claim verified or denied.</p>
-                <p class="note">
-                    Documents carry a <code>verify:</code> line pointing at the issuer’s domain, e.g.
-                    <code>verify:issuer.example.com/claims</code><br>
-                    which implies a lookup like<br>
-                    <code>https://issuer.example.com/claims/&lt;sha256&gt;</code>.<br>
-                    You decide upfront whether issuer.example.com is an authority on the claim, then trust the camera app to execute the hash check and surface “Claim Verified” accordingly.
+                <p>Both modes follow the same core pipeline. Documents carry a <code>verify:</code> line pointing at the issuer’s domain, e.g.
+                    <code>verify:issuer.example.com/claims</code>, which implies a lookup like
+                    <code>https://issuer.example.com/claims/&lt;sha256&gt;</code>.
+                    You decide upfront whether the domain is an authority on the claim.</p>
+                <p class=”note” style=”margin-bottom: 14px;”>
+                    <strong>Clip:</strong> Select text → normalize → SHA-256 → <code>GET</code> → Verified or denied.<br>
+                    <strong>Camera:</strong> Snap → OCR → normalize → SHA-256 → <code>GET</code> → Verified or denied.
                 </p>
-                <div class="diagram">
-                    <div class="diagram-step">
-                        <span class="step-number">1</span>
+                <div class=”diagram”>
+                    <div class=”diagram-step”>
+                        <span class=”step-number”>1</span>
                         <div>
-                            <strong>Snap</strong><br>
-                            Capture the framed document.
+                            <strong>Get text</strong><br>
+                            Select (Clip) or snap &amp; OCR (Camera).
                         </div>
                     </div>
-                    <div class="diagram-step">
-                        <span class="step-number">2</span>
+                    <div class=”diagram-step”>
+                        <span class=”step-number”>2</span>
                         <div>
-                            <strong>OCR + normalize</strong><br>
-                            Extract and normalize text locally.
+                            <strong>Normalize</strong><br>
+                            Apply text normalization rules locally.
                         </div>
                     </div>
-                    <div class="diagram-step">
-                        <span class="step-number">3</span>
+                    <div class=”diagram-step”>
+                        <span class=”step-number”>3</span>
                         <div>
                             <strong>SHA-256</strong><br>
                             Hash the normalized text.
                         </div>
                     </div>
-	                    <div class="diagram-step">
-	                        <span class="step-number">4</span>
-	                        <div>
-	                            <strong>Verify</strong><br>
-	                            GET the issuer URL; 404 = not found, 200 = status returned (OK / REVOKED / etc.).
-	                        </div>
-	                    </div>
-	                </div>
-	            </div>
+                    <div class=”diagram-step”>
+                        <span class=”step-number”>4</span>
+                        <div>
+                            <strong>Verify</strong><br>
+                            GET the issuer URL; 404 = not found, 200 = status returned (OK / REVOKED / etc.).
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="card" id="trust">
@@ -351,7 +350,7 @@
 
 	        <div class="card" id="privacy">
 	            <h2>Privacy model</h2>
-	            <p>OCR + normalization + SHA-256 happen on-device, and the only network step is a hash lookup. The science of one-way hashes is explained at
+	            <p>Text normalization + SHA-256 happen on-device (Clip mode never sends your text anywhere; Camera mode runs OCR on-device too). The only network step is a hash lookup. The science of one-way hashes is explained at
 	                <a href="one-way-hash.html" target="_blank" rel="noreferrer noopener">one-way-hash.html</a>, and we go into the rest of the guarantees in the
 	                <a href="privacy_declaration.html">Privacy Declaration</a>.
 	            </p>

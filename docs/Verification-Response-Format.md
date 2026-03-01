@@ -311,6 +311,95 @@ For professions with established public registries, return a link rather than a 
 - **Professional licenses** — Link to licensing board's public registry
 - **Medical licenses** — Link to state medical board lookup
 
+### Pattern 4: Verification-as-Acknowledgment (Retention Headers)
+
+For use cases where the **act of verifying** itself carries legal or business meaning — providing evidence that a device in the recipient's possession engaged with the claim — the response includes retention headers instructing the recipient's device to preserve the verification result.
+
+```json
+{
+  "status": "ACTIVE_CALL",
+  "message": "Court Summons — Case CV-2026-03892",
+  "headers": {
+    "X-Verify-Retain-Until": "2031-02-28T00:00:00Z",
+    "X-Verify-Retain-Reason": "service-of-process",
+    "X-Verify-Case-Ref": "CV-2026-03892"
+  }
+}
+```
+
+**How it works:** The recipient's device performs a GET request against the issuer's verification endpoint. That GET is itself the provable event — the issuer's server logs record the hash was looked up at a specific timestamp, meaning someone in possession of the exact claim text actively verified it. The retention headers tell the recipient's device (or app) to preserve the verification result for the legally relevant period.
+
+**The GET request as evidence:** The hash looked up in the GET could only have been computed by a device possessing the exact claim text. The claim text could only have come from the issuer's delivery (RCS/SMS, email, document). The chain is: issuer delivered claim → recipient's device computed hash → recipient's device performed GET → issuer logged the lookup. This chain constitutes a **point of evidence** of receipt — strong, timestamped, and cryptographically linked to the exact document text — but not irrefutable proof that the named recipient personally read or understood it. A flatmate could have opened the RCS. Software could have auto-verified. The recipient could have been incapacitated. It is analogous to a signed-for delivery receipt: strong presumption, rebuttable in court.
+
+**Retention headers:**
+
+| Header | Purpose | Example |
+|--------|---------|---------|
+| `X-Verify-Retain-Until` | How long the recipient's device should preserve the verification result | `2031-02-28T00:00:00Z` (5 years) |
+| `X-Verify-Retain-Reason` | Machine-readable reason code for retention | `service-of-process`, `loan-disclosure`, `safety-recall`, `informed-consent` |
+| `X-Verify-Retain-Reason-Further-Details` | URL to a human-readable page explaining *why* retention is requested, the legal basis, and the recipient's rights | `https://loandepot.com/verify/retain/tila-respa` |
+| `X-Verify-Case-Ref` | Reference identifier linking to the underlying matter | `CV-2026-03892` |
+
+The `X-Verify-Retain-Reason` stays short and machine-readable — apps and devices can act on it programmatically (e.g., filing the result in a "Legal" folder, setting a calendar reminder for expiry). The `X-Verify-Retain-Reason-Further-Details` URL provides the human context: what law or regulation requires this, what the retention period means, what happens at expiry, and what the recipient's rights are. The issuer hosts this page at their own domain.
+
+**Example: Loan Closing Disclosure**
+
+```
+HTTP/1.1 200 OK
+X-Verify-Status: OK
+X-Verify-Retain-Until: 2056-02-28T00:00:00Z
+X-Verify-Retain-Reason: loan-disclosure
+X-Verify-Retain-Reason-Further-Details: https://loandepot.com/verify/retain/tila-respa
+X-Verify-Case-Ref: LOAN-2026-448891
+```
+
+The URL at `loandepot.com/verify/retain/tila-respa` explains:
+
+> *Federal law (TILA-RESPA Integrated Disclosure Rule) requires you to receive your Closing Disclosure at least 3 business days before your closing date. Your verification of this document provides timestamped evidence of receipt. We recommend retaining this verification result for the life of your loan. [Learn more about your rights under TILA-RESPA...]*
+
+**Example: Service of Process**
+
+```
+HTTP/1.1 200 OK
+X-Verify-Status: ACTIVE_CALL
+X-Verify-Retain-Until: 2031-02-28T00:00:00Z
+X-Verify-Retain-Reason: service-of-process
+X-Verify-Retain-Reason-Further-Details: https://courts.maricopa.gov/verify/retain/service-info
+X-Verify-Case-Ref: CV-2026-03892
+```
+
+The URL at `courts.maricopa.gov/verify/retain/service-info` explains:
+
+> *You have been formally served with a court summons. Your verification of this notice provides timestamped evidence of delivery under Arizona Rules of Civil Procedure. You have [X] days to respond. Failure to respond may result in a default judgment. [Learn more about responding to a summons...]*
+
+This pattern lets issuers provide as much or as little context as appropriate, without bloating the HTTP response itself. The recipient's app can display the further-details link as a "Why am I being asked to keep this?" tap target.
+
+**Use cases where the verification GET carries legal/business meaning:**
+
+| Use Case | What the GET Evidences | Retention Period |
+|----------|----------------------|-----------------|
+| **Service of process** | Document was delivered to recipient's device | Case life + appeals (5-20 years) |
+| **Eviction notice** | Notice was delivered; supports the statutory clock | Notice period + dispute window |
+| **Loan disclosure (TILA/RESPA)** | Disclosure was delivered to and engaged with on borrower's device | Life of loan + 3 years |
+| **Insurance policy delivery** | Policy was delivered to policyholder's device | Policy term + claims tail |
+| **Employment policy acknowledgment** | Policy was delivered to employee's device | Employment + retention period |
+| **Informed consent** | Consent information was delivered to and engaged with on patient's device | Statute of limitations for malpractice |
+| **Product recall notification** | Recall notice was delivered to consumer's device | Product lifetime + liability window |
+| **Data breach notification** | Breach notification was delivered to individual's device | Regulatory retention period |
+| **Restraining order notification** | Order terms were delivered to subject's device | Order duration + enforcement window |
+| **Rate/price lock confirmation** | Lock terms were delivered to customer's device | Transaction completion + dispute window |
+| **Non-compete/NDA delivery** | Restrictive covenant was delivered to employee's device | Covenant term + enforcement window |
+| **Safety violation notice** | Violation notice was delivered to business's system | Compliance period + audit window |
+| **Termination notice** | Termination notice was delivered to employee's device | Employment law retention period |
+| **HOA/lease violation notice** | Violation notice was delivered to homeowner/tenant's device | Dispute/cure period |
+| **Fraud alert acknowledgment** | Fraud alert was delivered to customer's device | Investigation period |
+
+**Dual-record architecture:** Both sides retain independent evidence. The issuer has the server-side verification log (timestamp, hash, IP). The recipient has the retained claim text (in their RCS/SMS history or document) plus the cached verification result with retention headers. Years later, either party can independently demonstrate that delivery occurred and that a device in the recipient's possession engaged with the claim.
+
+**What this evidences vs. what it doesn't:** The GET proves a device possessing the exact document text contacted the verification endpoint at a specific time. It does not prove the named recipient personally read, understood, or acted on the document. This is a strong point of evidence — analogous to signed-for postal delivery or a read receipt — but it is rebuttable. Courts will weigh it alongside other evidence.
+
+**Relationship to witnessing:** The witnessing firm (if retained) also receives the verification event, creating a third independent record. For service of process, this means the court, the recipient, and the witness all have timestamped evidence of the delivery event.
+
 ### When to Use Each Pattern
 
 | Pattern | When Appropriate |
@@ -318,7 +407,189 @@ For professions with established public registries, return a link rather than a 
 | **POST form** | Power dynamic exists; verifier is alone; accountability matters (inspector at door, staff in hotel room) |
 | **Verification ID** | High-stakes interaction; mutual accountability needed (law enforcement, government officials) |
 | **Link only** | Robust complaint/information channels already exist (bar associations, licensing boards) |
+| **Retention headers** | The act of verifying itself is the legally meaningful event; proof of receipt/acknowledgment required |
 | **None** | Simple document verification; no ongoing relationship (proof of funds, employment reference) |
+
+## Authority Chain Verification
+
+When an endpoint confirms a claim — "Jane Worthington works at HSBC" — the relying party knows that HSBC says so. But how does the relying party know that HSBC is a legitimate employer authorized to make that claim? The answer is an **authority chain**: the verification response includes a secondary verification link allowing the relying party to confirm that the issuer is itself a recognized authority for the type of claim being made.
+
+### Authority Chain Headers
+
+The issuer's verification response includes three headers that link to a higher authority:
+
+| Header | Purpose | Example |
+|--------|---------|---------|
+| `X-Verify-Authority-For` | The type of claim the issuer is attesting | `employment-attestation`, `legal-practice`, `medical-practice` |
+| `X-Verify-Authority-Attested-By` | URL of a secondary verification endpoint where a higher authority confirms the issuer's legitimacy | `https://employers.hmrc.gov.uk/v/{hash}` |
+| `X-Verify-Authority-Scope` | The specific capacity in which the issuer is recognized by the higher authority | `paye-registered-employer`, `sra-regulated-firm`, `gmc-registered-practitioner` |
+
+**Example response with authority chain:**
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Verify-Status: OK
+X-Verify-Authority-For: employment-attestation
+X-Verify-Authority-Attested-By: https://employers.hmrc.gov.uk/v/{hash}
+X-Verify-Authority-Scope: paye-registered-employer
+
+{
+  "status": "OK"
+}
+```
+
+The relying party's system can optionally follow the chain by performing a GET against the `X-Verify-Authority-Attested-By` URL. That secondary endpoint confirms that the primary issuer is a recognized authority — and may itself include authority chain headers pointing to a tertiary authority.
+
+### Chain Traversal
+
+Each link in the chain is a standard Live Verify GET request. The secondary endpoint responds with its own status and may include its own authority chain headers:
+
+**Step 1 — Primary verification:**
+```
+GET https://hr.hsbc.co.uk/v/a3f2b8c9...
+→ 200 OK
+→ X-Verify-Authority-Attested-By: https://employers.hmrc.gov.uk/v/b4c5d6e7...
+```
+HSBC confirms the employment claim.
+
+**Step 2 — Secondary verification:**
+```
+GET https://employers.hmrc.gov.uk/v/b4c5d6e7...
+→ 200 OK
+→ X-Verify-Authority-Scope: paye-registered-employer
+```
+HMRC confirms HSBC is a registered PAYE employer. No further `X-Verify-Authority-Attested-By` header — the chain terminates here because HMRC is a statutory authority established by act of Parliament.
+
+### Chain Termination: The Three-Level Maximum
+
+Authority chains have a **maximum depth of three levels**:
+
+| Level | Role | Example |
+|-------|------|---------|
+| **Primary** | Issuer attests the claim | HSBC says Jane works here |
+| **Secondary** | Regulator attests the issuer | FCA says HSBC is authorized |
+| **Tertiary** | Sovereign jurisdiction | UK Parliament established the FCA |
+
+The chain always terminates at a **root authority** — an entity whose legitimacy is axiomatic rather than attested by another verification endpoint. There are two types of root authority:
+
+**Sovereign legislative jurisdictions** — the ~190-195 nations whose authority derives from sovereignty itself. The Bank of England does not need a supranational body to confirm it is a legitimate central bank — Parliament says so. The IRS does not need external confirmation that it collects taxes — Congress says so.
+
+**Treaty-based international organizations** — a finite set of organizations whose authority derives from multilateral treaty rather than from any single national legislature. A WHO staffer deployed to a regional office is not acting on behalf of Switzerland (WHO's host country) — they act under the WHO Constitution, ratified by 194 member states. A UN peacekeeper does not represent the US or France — they represent the Security Council under the UN Charter. These organizations are root authorities in their own right.
+
+| Root Type | Examples | Basis |
+|-----------|---------|-------|
+| **Sovereign** | UK Parliament, US Congress, Bundestag | National sovereignty |
+| **Treaty-based** | UN (Charter, 1945), WHO (Constitution, 1948), World Bank / IMF (Bretton Woods, 1944), ICC (Rome Statute, 1998), IAEA (Statute, 1957) | Multilateral treaty ratified by member states |
+
+**Why three, not four?** Every chain traces back to either a national legislature or an international treaty — and that is where it stops. There is no authority above sovereignty or above the treaty system that established the organization. The three-level model accommodates both:
+
+- **National chain:** Issuer → national regulator → sovereign legislature
+- **International chain:** Field office/mission → organization HQ → founding treaty
+
+**Client implementation:** Clients should traverse a maximum of 3 levels. If a fourth `X-Verify-Authority-Attested-By` header appears, it is an error or misconfiguration — not a deeper chain to follow. The tertiary level must resolve to a recognized root authority.
+
+**Root authority list:** Verifier apps should hard-code two lists:
+
+1. **Sovereign jurisdictions** (~190-195) — UN member states plus a small number of others with independent legal systems
+2. **Treaty-based international organizations** (~20-30) — organizations established by multilateral treaty with operational authority over personnel and missions
+
+These lists are the trust anchors — analogous to browser root certificate stores, but for legislative and treaty authority rather than cryptographic identity. Updated annually at most.
+
+Common root authorities by type:
+
+| Type | Root Authorities | Basis |
+|------|-----------------|-------|
+| **UK** | HMRC (tax/employment), GMC (medical), Legal Services Board (legal), FCA (financial) | Acts of Parliament |
+| **US** | IRS (tax/employment), state licensing boards, SEC, FDIC, state regulators | Federal/state statute |
+| **EU member states** | National tax authorities, national professional regulators | National law (and EU directives transposed into national law) |
+| **Australia** | ATO (tax), AHPRA (health), ASIC (corporate) | Acts of Parliament |
+| **Canada** | CRA (tax), provincial law societies (legal), provincial colleges (medical) | Federal/provincial statute |
+| **Treaty-based** | UN Secretariat, WHO, World Bank, IMF, ICC, IAEA, UNHCR, ICRC | Founding treaties / Geneva Conventions |
+
+### Worked Examples
+
+Most chains are **two levels** — the secondary authority is itself a statutory body (HMRC, GMC, IRS), so the chain terminates there. Three-level chains occur when there is a delegated regulatory structure (e.g., the SRA is regulated by the Legal Services Board, which is established by statute).
+
+**UK Employer → HMRC (two levels):**
+
+| Step | Endpoint | Confirms | Authority Header |
+| :--- | :--- | :--- | :--- |
+| Primary | `hr.hsbc.co.uk/v` | Jane Worthington is VP, Global Markets | `X-Verify-Authority-Attested-By: https://employers.hmrc.gov.uk/v/{hash}` |
+| Secondary | `employers.hmrc.gov.uk/v/{hash}` | HSBC Holdings plc is a registered PAYE employer | *(statutory root — chain terminates)* |
+
+**UK Solicitor → SRA → Legal Services Board (three levels — delegated regulation):**
+
+| Step | Endpoint | Confirms | Authority Header |
+| :--- | :--- | :--- | :--- |
+| Primary | `members.smithandco.co.uk/v` | Sarah Chen is a practising solicitor | `X-Verify-Authority-Attested-By: https://sra.org.uk/v/{hash}` |
+| Secondary | `sra.org.uk/v/{hash}` | Smith & Co is SRA-regulated; Sarah Chen holds a current practising certificate | `X-Verify-Authority-Attested-By: https://legalservicesboard.org.uk/v/{hash}` |
+| Tertiary | `legalservicesboard.org.uk/v/{hash}` | The SRA is an approved regulator under the Legal Services Act 2007 | *(statutory root — chain terminates)* |
+
+**Doctor → GMC (two levels):**
+
+| Step | Endpoint | Confirms | Authority Header |
+| :--- | :--- | :--- | :--- |
+| Primary | `staff.royalfree.nhs.uk/v` | Dr. Patel is a Consultant Cardiologist | `X-Verify-Authority-Attested-By: https://gmc-uk.org/v/{hash}` |
+| Secondary | `gmc-uk.org/v/{hash}` | Dr. Patel holds GMC registration, licence to practise, specialist register entry | *(statutory root — GMC established by Medical Act 1983)* |
+
+**US Bank Employee → IRS (two levels):**
+
+| Step | Endpoint | Confirms | Authority Header |
+| :--- | :--- | :--- | :--- |
+| Primary | `hr.jpmorgan.com/v` | John Smith, Associate, Investment Banking | `X-Verify-Authority-Attested-By: https://employers.irs.gov/v/{hash}` |
+| Secondary | `employers.irs.gov/v/{hash}` | JPMorgan Chase & Co is a registered employer, EIN 13-2624428 | *(statutory root — IRS)* |
+
+**WHO Staffer → WHO HQ (two levels, treaty-based root):**
+
+| Step | Endpoint | Confirms | Authority Header |
+| :--- | :--- | :--- | :--- |
+| Primary | `afro.who.int/v` | Dr. Amara Diallo, Health Policy Adviser, WHO AFRO Regional Office | `X-Verify-Authority-Attested-By: https://who.int/v/{hash}` |
+| Secondary | `who.int/v/{hash}` | WHO confirms Dr. Diallo is current staff | *(treaty root — WHO Constitution, 1948)* |
+
+**UN Peacekeeper → UN DPKO (two levels, treaty-based root):**
+
+| Step | Endpoint | Confirms | Authority Header |
+| :--- | :--- | :--- | :--- |
+| Primary | `minusma.unmissions.org/v` | Major Carlos Reyes, Military Observer, MINUSMA | `X-Verify-Authority-Attested-By: https://peacekeeping.un.org/v/{hash}` |
+| Secondary | `peacekeeping.un.org/v/{hash}` | UN Department of Peace Operations confirms deployment under Security Council Resolution 2640 | *(treaty root — UN Charter, 1945)* |
+
+### Absence of Authority Chain
+
+If a verification response includes no `X-Verify-Authority-Attested-By` header and the issuer is not a recognized root authority, the claim is **self-attested only** — no government or regulatory body has confirmed the issuer's legitimacy for the type of claim being made.
+
+The claim may still be genuine. A newly registered company, a foreign employer not yet in the local registry, or an issuer in a jurisdiction that hasn't adopted authority chain verification would all produce valid primary verifications with no secondary attestation.
+
+**What the absence signals:**
+
+| Scenario | Authority Chain Present? | Interpretation |
+|----------|------------------------|----------------|
+| `hr.hsbc.co.uk` confirms employment | Yes — HMRC attests | High confidence: employer is real, government-verified |
+| `hr.acme-corp.example.com` confirms employment | No | Self-attested only: may be genuine, but warrants additional scrutiny |
+| `gmc-uk.org` confirms medical registration | No (root authority) | Highest confidence: statutory authority, chain terminates by design |
+
+**Client handling:** Verifier apps should display the authority chain status clearly — e.g., a "verified by [authority]" badge when the chain is present, or an "issuer self-attested" indicator when it's absent. The absence is not an error; it's a signal for the relying party to calibrate their trust accordingly.
+
+### Client Traversal Behavior
+
+Authority chain traversal is **optional and progressive**. The relying party chooses how deep to verify based on their risk tolerance, up to the three-level maximum:
+
+| Use Case | Typical Depth | Rationale |
+|----------|--------------|-----------|
+| Immigration counter | Primary + secondary | Officer needs to know the employer is real |
+| Landlord tenant check | Primary only | Low-stakes; employment confirmation is sufficient |
+| Court accepting solicitor credentials | Full chain (all 3 levels) | High-stakes; court needs to know the firm is regulated |
+| Bank KYC | Primary + secondary | Regulatory obligation to verify source of funds |
+
+Clients should cache secondary/tertiary verification results aggressively — an employer's registration status with HMRC changes far less frequently than an individual employee's status. In practice, the sovereign jurisdiction list is static (updated annually at most), secondary authority statuses change on the order of months or years, and only primary claims change frequently.
+
+### Security Considerations
+
+**Chain spoofing:** An issuer could include a fake `X-Verify-Authority-Attested-By` URL pointing to a server they control. The relying party mitigates this by checking that the secondary authority's domain is a known, trusted authority for the claimed scope. A fake HMRC endpoint at `hmrc.scammer.com` is not `hmrc.gov.uk`. Domain authenticity is verified by TLS certificates, the same trust model as the rest of the web.
+
+**Chain availability:** If the secondary authority's endpoint is temporarily unavailable, the primary verification still stands — the relying party simply cannot confirm the issuer's authority at that moment. This is a degradation, not a failure. The relying party may choose to accept the primary verification with a note that authority chain verification was unavailable.
+
+**Hash independence:** The hash in the `X-Verify-Authority-Attested-By` URL is distinct from the primary claim's hash. It represents the secondary authority's attestation of the issuer (e.g., "HSBC is a PAYE employer"), not the individual claim (e.g., "Jane works at HSBC"). This means one secondary verification can cover all claims from that issuer, and the secondary authority doesn't need to know about individual employees.
 
 ## Privacy Tiers in Responses
 

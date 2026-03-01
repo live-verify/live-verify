@@ -181,7 +181,7 @@ Post-verification actions justify premium pricing:
 - Professional tier: Link-based actions
 - Enterprise tier: POST forms with analytics dashboard
 
-See `public/use-cases/data/post-verification-actions.csv` for the full catalog of use cases with defined actions.
+See `public/use-cases/post-verification-actions.csv` for the full catalog of use cases with defined actions.
 
 ## Trust Considerations
 

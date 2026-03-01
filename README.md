@@ -1,12 +1,12 @@
 # Live Verify
 
-**Verify printed and digital claims**
+**Verify digital and printed claims**
 
 ![Jest and Playwright tests, then deploy to GitHub Pages](https://github.com/paul-hammant/live-verify/actions/workflows/deploy.yml/badge.svg)
 ![License](https://img.shields.io/badge/license-AGPL--3.0-blue)
 
-A **proof of concept** for issuer-attested verification of printed/on-screen claims.
-Two modes: **Camera** (phone app: OCR → normalize → hash → verify) and **Clip** (browser/email/PDF: select text → normalize → hash → verify).
+A **proof of concept** for issuer-attested verification of on-screen and printed claims.
+Two modes: **Clip** (browser/email/PDF: select text → normalize → hash → verify) and **Camera** (phone app: OCR → normalize → hash → verify).
 
 **Anyone can verify any document presented to them** — no special equipment, no credentials, no calling during business hours, no issuer relationship required.
 
@@ -16,11 +16,8 @@ The verifier chooses whether the issuer domain is an authority for the claim.
 Built from:
 [OCR-to-Hash: A Simple Audit Trail for Physical Documents](https://paulhammant.com/2023/01/17/ocr-to-hash-simple-audit-trail-for-physical-documents/).
 
-This prototype uses Tesseract.js (OCR) and OpenCV.js (registration marker detection + de-skew) in the browser. Modern phones already ship camera OCR
-(iOS Live Text / Android Camera Text); adding `verify:` recognition + normalization + hashing would make this a natural camera upgrade.
-
-**Project status:** Prototype. Works well for OCR-friendly layouts (receipts, plain-text credentials). Ornate typography and scanning from screens can reduce reliability (including moiré patterns).
-Known issue: Tesseract.js (via WASM) bug not present in newer native versions: [issue #1](https://github.com/paul-hammant/live-verify/issues/1). Production deployments would likely use native on-device OCR (or self-hosted assets) with the same protocol.
+**Project status:** Prototype. The browser extension (Clip mode) works reliably for digital documents. Camera mode works well for OCR-friendly layouts (receipts, plain-text credentials); ornate typography and scanning from screens can reduce reliability (including moiré patterns).
+Known issue for Camera mode: Tesseract.js (via WASM) bug not present in newer native versions: [issue #1](https://github.com/paul-hammant/live-verify/issues/1). Production deployments would likely use native on-device OCR (or self-hosted assets) with the same protocol.
 
 ## Why Live Verify?
 
@@ -28,8 +25,8 @@ This technology is built for **human trust first**, enhanced by cryptography.
 
 1.  **Low-Tech:** The human reads the claim (e.g., "First Class Honours") and mentally questions it.
 2.  **Domain Trust:** The human reads the `verify:degrees.ed.ac.uk` line. They recognize `ed.ac.uk` as a trustworthy domain (Edinburgh University) and decide that *if* this domain confirms the claim, it is authentic. (This requires basic digital literacy/training).
-3.  **Tool Trust:** The human already trusts their iPhone/Android Camera app (Camera mode) or browser extension (Clip mode). They use it to scan or select the text.
-4.  **Verification:** The app performs the hash lookup and displays "Verified by degrees.ed.ac.uk". The human moves from "questioning" to "no longer questioning."
+3.  **Tool Trust:** The human already trusts their browser extension (Clip mode) or phone camera app (Camera mode). They use it to select or scan the text.
+4.  **Verification:** The tool performs the hash lookup and displays "Verified by degrees.ed.ac.uk". The human moves from "questioning" to "no longer questioning."
 
 **The QR Code Challenge:**
 QR codes are popular but introduce a "double-checking" burden.
@@ -38,7 +35,7 @@ QR codes are popular but introduce a "double-checking" burden.
 -   **Authenticity Gap:** After scanning, the user arrives at a webpage. They must then *manually* check the browser's address bar to ensure they are on the real `ed.ac.uk` site and not a spoof.
 -   **Context Mismatch:** QR codes are rarely presented alone; they accompany text. A fake document could have a valid QR code pointing to a real (but unrelated) verification page, or a fake text with a fake QR code.
 
-Live Verify binds the **visible text itself** to the verification. If you change the name on the degree, the hash changes, and verification fails. The human reads the domain *before* scanning, establishing trust anchors early.
+Live Verify binds the **visible text itself** to the verification. If you change the name on the degree, the hash changes, and verification fails. The human reads the domain *before* verifying, establishing trust anchors early.
 
 ## Cryptographic Foundations
 
@@ -74,12 +71,12 @@ Live Verify uses the same cryptographic primitives (SHA-256) without requiring d
 
 This is infrastructure applying **40+ years of peer-reviewed cryptography**, not novel technology requiring new trust assumptions. Organizations already have trusted domains; hash verification is computationally trivial; the protocol is simple enough to implement in an afternoon.
 
-The science is settled. The innovation is applying it to physical documents via OCR.
+The science is settled. The innovation is applying it to digital documents via text selection and to physical documents via OCR.
 
 ## The Problem
 
-**Claims to the authenticity of printed things (or pictures of them) are hard to verify or resolve during disputes:** One example that has a billion+ incidents a day is 
-a **sales receipt** with an implicit **claim** that is genuine rather than fake. Here is one from wikimedia: 
+**Claims in digital documents and printed things are hard to verify or resolve during disputes:** One example that has a billion+ incidents a day is
+a **sales receipt** with an implicit **claim** that is genuine rather than fake. Here is one from wikimedia:
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/ReceiptSwiss.jpg/250px-ReceiptSwiss.jpg). 
 
@@ -94,66 +91,53 @@ So expense fraud and transaction disputes are a real thing, and verifying printe
 - **❌ Fake credentials and altered records** - Forged degrees, photoshopped receipts, and counterfeit certifications cost billions annually and cause endless legal disputes.
 
 **Specific pain points:**
-- **Employers:** Can't verify degrees without calling universities during business hours
+- **Employers/HR:** Can't verify degrees on a CV without calling universities during business hours — right-click verify solves this
 - **Finance teams:** Can't detect photoshopped receipts or verify that a cancelled booking was actually refunded
+- **Consumers:** Can't prove to a bank or insurer that they have a valid cancellation confirmation during a billing dispute
 - **Hospitals:** Can't instantly verify medical licenses at point of care
 - **Customs agents:** Can't verify product safety certifications from foreign suppliers (see MedPro fraud case)
-- **Consumers:** Can't prove to a bank or insurer that they have a valid cancellation confirmation during a billing dispute.
 
 ## The Solution
 
-**Example:** Four colleagues have lunch at In-N-Out Burger. One person pays, scans the receipt with their phone to verify it's authentic (not photoshopped, not altered), then submits it for expense reimbursement. Later, their company's expense system asks: *"Who attended? What percentage is billable to client projects? What percentage is reimbursable vs. company-paid?"* None of that detail concerns In-N-Out Burger - they just confirm: *"Yes, this receipt is authentic. Transaction occurred at this time, this amount, this location."* The receipt's SHA-256 hash has been verified. The company handles attribution, allocation, and approval internally.
+**Example (Clip mode):** An HR manager receives a CV by email claiming "MSc Computer Science, Edinburgh University." The CV includes a `verify:degrees.ed.ac.uk/c` line. The HR manager selects the claim text, right-clicks "Verify this claim," and sees "VERIFIED by degrees.ed.ac.uk" — instant confirmation without calling the university or uploading the CV to a third-party portal.
+
+**Example (Camera mode):** Four colleagues have lunch at In-N-Out Burger. One person pays, scans the receipt with their phone to verify it's authentic (not photoshopped, not altered), then submits it for expense reimbursement. In-N-Out Burger just confirms: *"Yes, this receipt is authentic."* The receipt's SHA-256 hash has been verified.
 
 ![](https://paul-hammant.github.io/live-verify/screenshots/hotel-receipt-scheidegg.png)
 
 See that "verify:" line ... we'll come back to that.
 
-**This is Live Verify:** A protocol that bridges physical and digital claims by normalizing and hashing text for GET-based verification.
+**This is Live Verify:** A protocol that bridges digital and physical claims by normalizing and hashing text for GET-based verification.
 
 **Two verification modes:**
+- **Live Verify - Clip:** Select text from digital documents in browsers, email clients (Outlook, Thunderbird), or PDF viewers (Acrobat). Fast and reliable — no OCR needed. Future: auto-detection of `verify:` claims on page load.
 - **Live Verify - Camera:** Point phone at physical documents (degrees, receipts, permits). OCR extracts text on-device.
-- **Live Verify - Clip:** Select text from digital documents in browsers, email clients (Outlook, Thunderbird), or PDF viewers (Acrobat). Future: auto-detection of `verify:` claims on page load.
 
 **Key benefits:**
 - ✅ **Instant verification** - Seconds, not phone calls or portal uploads
-- ✅ **Privacy-preserving** - Images and text never leave your device, only hash is sent
-- ✅ **Built-in Native Integration** - Designed for future integration into camera apps, browsers, email clients, and messaging systems (iMessage, WhatsApp, Slack).
-- ✅ **On-device by default** - OCR/normalization/hashing can run offline; verification is a single GET-by-hash lookup
+- ✅ **Works where you already work** - Browser extension verifies claims in web pages, emails, and PDFs without leaving the page
+- ✅ **Privacy-preserving** - Text never leaves your device, only the hash is sent
 - ✅ **One protocol for everything** - Degrees, receipts, licenses, certificates, government IDs, chat messages
 - ✅ **Tamper-evident** - Any alteration changes the hash, verification fails
 - ✅ **Revocable** - Issuers can change the response (e.g. REVOKED) or delete the record so verification reflects current standing
-- ✅ **Accessible** - Works with paper, screenshots, and low-end printers; no QR/NFC/special ink required
-- ✅ **No cloud OCR** - No Google/AWS/Azure seeing your personal documents
+- ✅ **Built-in Native Integration** - Designed for future integration into browsers, email clients, messaging systems (iMessage, WhatsApp, Slack), and camera apps
+- ✅ **Accessible** - Works with digital documents, paper, screenshots, and low-end printers; no QR/NFC/special ink required
+- ✅ **No cloud OCR** - Camera mode uses on-device OCR only; no Google/AWS/Azure seeing your personal documents
+- ✅ **Plaintext stays secured** - Original records (names, amounts, diagnoses, criminal histories) can remain in air-gapped, network-isolated, or VPC-secured systems. Only hashes are published. The security of the plaintext and the availability of verification are completely independent — the public can verify without the plaintext ever touching the internet
 - ✅ **Dispute Resolution** - Provides undeniable digital proof for chargebacks, insurance claims, and contract disagreements
 - ✅ **Safe to challenge** - Empowers neighbors, bystanders, and police to challenge suspicious activity because verification gives them a clear answer on the spot
 - ✅ **Post-verification actions** - Beyond "verified/denied", endpoints can offer context-appropriate follow-up actions (report an interaction, link to more info, initiate a claim)
 
-## Commercialization (SaaS)
+## Browser Extension (Chrome, Edge, Firefox) — Clip Mode
 
-This isn’t patent-locked, and the protocol is intentionally simple. The commercial opportunity is execution: issuer adoption, integrations, and operations.
-
-- **Issuer Registry SaaS**: integrate with systems of record, publish hashes, support revocation, provide response-code meaning pages, meet governance/compliance expectations.
-- **Verifier Ops SaaS**: managed app/SDK distribution, device management, allowlists of issuer domains, optional caching and logging/retention controls (where authorized).
-
-## Native Apps & Browser Extension
-
-Beyond the web demo, LiveVerify is available as native apps for real-world use:
-
-### iOS App
-Point your iPhone at any document with a `verify:` line and get instant verification. Uses Apple's Vision framework for OCR - no cloud services, no data leaves your device.
-
-- **App Store:** Coming soon
-- **Source:** `apps/ios/LiveVerify/`
-
-### Browser Extension (Chrome, Edge, Firefox)
-Verify claims directly in your browser - perfect for HR professionals reviewing CVs, finance teams checking receipts, or anyone verifying credentials online.
+The most practical way to use Live Verify today. Verify claims directly in your browser — perfect for HR professionals reviewing CVs, finance teams checking expense reports, or anyone verifying credentials online.
 
 **Features:**
-- **Right-click to verify** - Select text containing a claim + `verify:` URL, right-click → "Verify this claim"
-- **Keyboard shortcut** - Cmd+Shift+V (Mac) / Ctrl+Shift+V (Windows)
-- **Verification history** - See all verifications from your session (cleared when browser closes for privacy)
-- **Auto-detect verifiable regions** - Pages with `verifiable-text` HTML markers show a "Scan" button
-- **"Show me" feature** - Click to scroll back to and highlight the verified claim on the page
+- **Right-click to verify** — Select text containing a claim + `verify:` URL, right-click → "Verify this claim"
+- **Keyboard shortcut** — Cmd+Shift+V (Mac) / Ctrl+Shift+V (Windows)
+- **Verification history** — See all verifications from your session (cleared when browser closes for privacy)
+- **Auto-detect verifiable regions** — Pages with `verifiable-text` HTML markers show a "Scan" button
+- **"Show me" feature** — Click to scroll back to and highlight the verified claim on the page
 
 **Install:**
 1. Download from `apps/browser-extension/`
@@ -161,21 +145,61 @@ Verify claims directly in your browser - perfect for HR professionals reviewing 
 3. Firefox: `about:debugging` → Load Temporary Add-on
 
 **Why a browser extension?**
-HR reviewing a CV with 5 employment claims? Verify each one without leaving the page. Finance checking an expense report PDF? Select the receipt text and verify instantly. The extension brings verification to where you already work.
+HR reviewing a CV with 5 employment claims? Verify each one without leaving the page. Finance checking an expense report PDF? Select the receipt text and verify instantly. The extension brings verification to where you already work. No OCR needed — the text is already digital, so verification is fast and reliable.
+
+**Source:** `apps/browser-extension/`
 
 ## Quick Start
 
-**Try it now:**
+### Clip Mode (Browser Extension)
+
+1. Install the browser extension (see above)
+2. Visit a page with verifiable claims (e.g., a [training page](https://paul-hammant.github.io/live-verify/training-pages/bachelor-thaumatology.html))
+3. Select the claim text including the `verify:` line
+4. Right-click → "Verify this claim" (or press Cmd/Ctrl+Shift+V)
+5. See ✅ **VERIFIED by paul-hammant.github.io** or ❌ **FAILS VERIFICATION**
+
+### Camera Mode (Phone)
+
 1. Visit **[https://paul-hammant.github.io/live-verify/](https://paul-hammant.github.io/live-verify/)** on your phone
 2. Click "Enable Camera"
-3. Print a [training page](public/training-pages/bachelor-thaumatology.html) for the app to snap (or display the same on your computer screen).
-4. Align the black registration marks in your phone's viewfinder
+3. Print a [training page](public/training-pages/bachelor-thaumatology.html) (or display it on your computer screen)
+4. Align the black registration marks in your phone’s viewfinder
 5. Click "Capture & Verify"
 6. See ✅ **VERIFIED by paul-hammant.github.io** or ❌ **FAILS VERIFICATION**
 
-Note: no serious production verification deployment of this technology would rest on `github.io`. I am only doing so 
-because I am demonstrating how this works and GH-P is convenient, free, and static (proving the server-side can be almost absent) 
-You'd see "VERIFIED BY bankofamerica.com" (or similar) for real production deployments.
+Note: no serious production verification deployment of this technology would rest on `github.io`. I am only doing so
+because I am demonstrating how this works and GH-P is convenient, free, and static (proving the server-side can be almost absent).
+You’d see "VERIFIED BY bankofamerica.com" (or similar) for real production deployments.
+
+## Camera Apps — Camera Mode
+
+For verifying physical documents (printed receipts, certificates, licenses), native camera apps provide on-device OCR.
+
+This prototype uses Tesseract.js (OCR) and OpenCV.js (registration marker detection + de-skew) in the browser. Modern phones already ship camera OCR (iOS Live Text / Android Camera Text); adding `verify:` recognition + normalization + hashing would make this a natural camera upgrade.
+
+### iOS App
+Point your iPhone at any document with a `verify:` line and get instant verification. Uses Apple’s Vision framework for OCR — no cloud services, no data leaves your device.
+
+- **App Store:** Coming soon
+- **Source:** `apps/ios/LiveVerify/`
+
+### Android App
+Native Kotlin app using ML Kit for OCR and CameraX for camera capture.
+
+- **Source:** `apps/android/`
+
+### Web Demo
+Browser-based camera verification using Tesseract.js and OpenCV.js — no installation needed.
+
+- **Try it:** [https://paul-hammant.github.io/live-verify/](https://paul-hammant.github.io/live-verify/)
+
+## Commercialization (SaaS)
+
+This isn’t patent-locked, and the protocol is intentionally simple. The commercial opportunity is execution: issuer adoption, integrations, and operations.
+
+- **Issuer Registry SaaS**: integrate with systems of record, publish hashes, support revocation, provide response-code meaning pages, meet governance/compliance expectations.
+- **Verifier Ops SaaS**: managed app/SDK distribution, device management, allowlists of issuer domains, optional caching and logging/retention controls (where authorized).
 
 ## What is a Claim?
 
@@ -193,9 +217,48 @@ Many more use cases are documented in the catalog: https://paul-hammant.github.i
 
 ## How It Works
 
-Is the "verify:" line in the receipt that is the clue to OCR that verification can happen:
+The `verify:` line in a document signals that verification is available. Both modes follow the same core pipeline: **text → normalize → hash → HTTP GET**.
 
-### Verification Pipeline
+### Clip Mode Pipeline (Browser Extension)
+
+```mermaid
+flowchart TD
+    Start([User selects text<br/>in browser/email/PDF]) --> ParseVerify[Parse verify:domain.com/path<br/>from selected text]
+    ParseVerify --> FetchMeta[Fetch https://domain.com/verification-meta.json<br/>for normalization hints]
+    FetchMeta --> Normalize[Normalize text:<br/>- Strip leading/trailing spaces<br/>- Collapse multiple spaces<br/>- Remove verify: line<br/>- Apply domain-specific rules]
+    Normalize --> Hash[Compute SHA-256 hash<br/>of normalized text]
+    Hash --> BuildURL[Build verification URL:<br/>https://domain.com/path/hash]
+
+    MetaURL[("https://domain.com/verification-meta.json<br/>(normalization rules, custom status text)")] -.->|fetched earlier| FetchMeta
+    VerifyURL[("https://domain.com/path/hash<br/>(verification endpoint)")] -.->|HTTP GET| Verify
+
+    BuildURL --> Verify[HTTP GET request to verification URL<br/>static webserver or dynamic endpoint]
+    Verify --> CheckHTTP{HTTP status?}
+    CheckHTTP -->|404 Not Found| ShowNotFound[❌ FAILS VERIFICATION<br/>Hash not in database]
+    CheckHTTP -->|Network Error| ShowError[⚠️ VERIFICATION ERROR<br/>Cannot reach server]
+    CheckHTTP -->|200 OK| CheckBody{Response body?}
+    CheckBody -->|"OK" exact match<br/>or JSON status: OK/VERIFIED| ShowVerified[✅ VERIFIED<br/>by domain.com]
+    CheckBody -->|Plain text or JSON<br/>other status| ShowNotOK[❌ Status from server<br/>REVOKED/SUSPENDED/EXPIRED/etc.]
+    ShowVerified --> End([End])
+    ShowNotFound --> End
+    ShowNotOK --> End
+    ShowError --> End
+
+    style Start fill:#e1f5e1
+    style End fill:#ffe1e1
+    style ShowVerified fill:#90EE90
+    style ShowNotFound fill:#FFB6C1
+    style ShowNotOK fill:#FFB6C1
+    style ShowError fill:#FFD700
+    style Hash fill:#87CEEB
+    style Normalize fill:#DDA0DD
+```
+
+Clip mode is fast and reliable because the text is already digital — no OCR, no camera, no registration marks needed.
+
+### Camera Mode Pipeline (Phone Apps)
+
+Camera mode adds OCR and computer vision to extract text from physical documents:
 
 ```mermaid
 flowchart TD
@@ -333,11 +396,11 @@ Traditional university degrees, professional certifications, and art certificate
 - Integration with handwriting recognition
 - Template-based extraction (if certificate format is known)
 
-**Bottom line:** Camera mode works **extremely well** for business documents, receipts, and plain-text credentials TODAY. For ornate certificates to work, either (a) issuers must design for OCR, or (b) OCR technology must quantum-leap forward. Clip mode sidesteps OCR entirely for digital documents.
+**Bottom line:** For digital documents, use Clip mode (browser extension) — it sidesteps OCR entirely and works reliably today. Camera mode works **extremely well** for physical business documents, receipts, and plain-text credentials. For ornate certificates to work with Camera mode, either (a) issuers must design for OCR, or (b) OCR technology must quantum-leap forward.
 
 ## Privacy-First Architecture: Why Client-Side Processing Matters
 
-**The privacy requirement:** Live Verify **must** use client-side processing. Camera mode must use on-device OCR (not cloud). Clip mode processes selected text locally. Sending document images or text to cloud services would defeat the entire privacy model.
+**The privacy requirement:** Live Verify **must** use client-side processing. Clip mode processes selected text locally in the browser. Camera mode must use on-device OCR (not cloud). Sending document images or text to cloud services would defeat the entire privacy model.
 
 **What gets exposed to cloud services if using traditional OCR APIs:**
 - ❌ Your degree certificate image (name, DOB, honors, university)
@@ -348,10 +411,10 @@ Traditional university degrees, professional certifications, and art certificate
 - ❌ All that PII flowing across networks, stored in cloud API logs, subject to subpoenas
 
 **Live Verify preserves privacy:**
-- ✅ Image **never leaves your phone** - processed entirely on-device
-- ✅ OCR happens locally using Tesseract.js (current) or on-device AI (future)
+- ✅ Selected text (Clip) and captured images (Camera) **never leave your device**
 - ✅ Only the **SHA-256 hash** is computed and sent (one-way, can't reconstruct original text)
 - ✅ Verification URL fetch (`https://example.com/hashes/abc123...`) reveals nothing about document content
+- ✅ Camera OCR happens locally using Tesseract.js (current) or on-device AI (future)
 - ✅ **Zero trust** in cloud providers, API vendors, or network intermediaries
 
 **Current limitation (2025):** We use Tesseract.js because it runs client-side in the browser. It's a traditional computer vision algorithm from 2006 technology - excellent for plain text, struggles with ornate documents.
@@ -438,7 +501,7 @@ Live Verify offers a **fundamentally different privacy model:**
 
 ## When Live Verify Excels (vs QR Codes)
 
-In short, if the claim is aimed at humans reading it and is printed on paper (or shown digitally), it might be a candidate for this **non-blockchain** tech.
+In short, if the claim is aimed at humans reading it — whether shown digitally or printed on paper — it might be a candidate for this **non-blockchain** tech.
 
 **Full use case catalog:** https://paul-hammant.github.io/live-verify/use-cases/ (searchable, issuer/verifier framing).
 
@@ -538,6 +601,13 @@ git push origin main
 
 ## Usage
 
+**Clip mode (browser extension):**
+1. Browse to any page with verifiable claims
+2. Select the claim text (including the `verify:` line)
+3. Right-click → "Verify this claim" (or Cmd/Ctrl+Shift+V)
+4. See ✅ green "VERIFIED" or ❌ red "FAILS VERIFICATION"
+
+**Camera mode (phone):**
 1. Open app on phone, click "Enable Camera"
 2. Position registration marks around document text + URL
 3. Click "Capture & Verify"
@@ -750,6 +820,20 @@ More: https://nycourts.gov/attorneys/profile/saul-goodman
 - **Bar admission** — Link to bar association's public profile (disciplinary history, CLE status, existing complaint channels)
 - **Professional licenses** — Link to licensing board registry
 
+### Verification-as-Acknowledgment (Retention Headers)
+
+For use cases where the **act of verifying** itself carries legal meaning — proving the recipient received and engaged with the claim — the response includes retention headers:
+
+```
+X-Verify-Retain-Until: 2031-02-28T00:00:00Z
+X-Verify-Retain-Reason: service-of-process
+X-Verify-Retain-Reason-Further-Details: https://courts.maricopa.gov/verify/retain/service-info
+```
+
+The recipient's GET request against the verification endpoint *is* the provable event. The issuer's server logs the lookup; the recipient's device retains the result for the specified period. Both sides have independent proof of delivery and acknowledgment.
+
+**Use cases:** Service of process (court summons), loan disclosure acknowledgment, eviction notices, informed consent, product recall notifications, data breach notifications, employment policy acknowledgments. See [Verification Response Format](docs/Verification-Response-Format.md) for the full pattern and header specification.
+
 ### Why This Matters
 
 Post-verification actions transform verification from a yes/no check into an accountability and transparency tool:
@@ -758,6 +842,7 @@ Post-verification actions transform verification from a yes/no check into an acc
 - **Citizen empowerment:** Reporting is never discouraged; every report is logged
 - **Deterrent effect:** Officials know interactions can be easily documented
 - **Evidence creation:** "I recorded every visit" is powerful in disputes
+- **Evidence of receipt:** Verification GET = timestamped evidence that a device in the recipient's possession engaged with a notice (a strong point of evidence, analogous to signed-for delivery — not irrefutable proof of personal receipt)
 
 ## Verification Charges: Free vs Paid
 
@@ -775,26 +860,27 @@ The full searchable catalog (with issuer/verifier framing and per-use-case ratio
 
 - https://paul-hammant.github.io/live-verify/use-cases/
 
-The underlying dataset is in `public/use-cases/data/*.json`.
+The underlying dataset is in `public/use-cases/*.md` with `public/use-cases/index.json` generated from frontmatter.
 
 ## Tech Stack
 
-All verification happens client-side - no PII ever leaves your device.
+All verification happens client-side — no PII ever leaves your device.
 
-**Web Demo:**
+**Browser Extension (Clip mode):**
+- **Manifest V3**: Modern Chrome extension architecture
+- **chrome.scripting API**: Text selection capture
+- **chrome.storage.session**: Privacy-preserving session storage
+- **Web Crypto API**: SHA-256 hashing (built into browsers)
+
+**Web Demo (Camera mode):**
 - **OpenCV.js 4.x**: Computer vision for registration mark detection
 - **Tesseract.js v5**: Client-side OCR engine
 - **Web Crypto API**: SHA-256 hashing (built into browsers)
 
-**iOS App:**
+**iOS App (Camera mode):**
 - **Swift/SwiftUI**: Native iOS development
 - **Vision framework**: Apple's on-device OCR
 - **CryptoKit**: SHA-256 hashing
-
-**Browser Extension:**
-- **Manifest V3**: Modern Chrome extension architecture
-- **chrome.scripting API**: Text selection capture
-- **chrome.storage.session**: Privacy-preserving session storage
 
 **Testing:**
 - **Playwright**: E2E testing framework
@@ -834,13 +920,13 @@ See TESTING.md for details.
 
 See the full [QR Code comparison](#decision-criteria-live-verify-vs-qr-code) for details.
 
-### Why client-side? Why not use cloud OCR APIs?
+### Why client-side? Why not use cloud services?
 
-**Privacy.** Cloud OCR services expose your sensitive documents to third-party servers. See [Privacy-First Architecture](#privacy-first-architecture-why-client-side-processing-matters) for complete details on why images never leave your phone.
+**Privacy.** Clip mode processes text entirely in the browser extension — nothing is uploaded. Camera mode uses on-device OCR, so images never leave your phone. See [Privacy-First Architecture](#privacy-first-architecture-why-client-side-processing-matters) for complete details.
 
 ### Will this work with ornate degree certificates?
 
-**Not yet with Camera mode.** Current OCR struggles with decorative fonts, seals, and embossing on traditional university diplomas. See [Camera Mode: OCR Limitations](#camera-mode-ocr-limitations) for complete details on current limitations and future solutions including short-form claims, on-device AI (2026+), and manual text entry options. Alternatively, use Clip mode on digital representations.
+**Yes, with Clip mode** — if you have a digital representation (CV claim, email, PDF), the browser extension verifies it instantly. **Not yet with Camera mode** — current OCR struggles with decorative fonts, seals, and embossing on traditional university diplomas. See [Camera Mode: OCR Limitations](#camera-mode-ocr-limitations) for details on current limitations and future solutions including short-form claims, on-device AI (2026+), and manual text entry options.
 
 ### How does this prevent fake receipts/degrees/licenses?
 
@@ -883,16 +969,16 @@ While various technologies verify documents, Live Verify combines elements in a 
 **What makes Live Verify different:**
 
 The complete system integration is novel:
-1. **Camera mode:** Registration marks + OCR → Extract text from physical documents on-device
-2. **Clip mode:** Text selection → Works with digital documents in browsers, email, PDFs
+1. **Clip mode:** Text selection → Works with digital documents in browsers, email, PDFs — fast, reliable, no OCR needed
+2. **Camera mode:** Registration marks + OCR → Extract text from physical documents on-device
 3. **Normalization** → Apply consistent text cleanup rules (space removal, etc.)
 4. **Hash** → Compute SHA-256 from normalized text
 5. **`verify:domain.com/path` scheme** → Human-readable pseudo-URL that indicates verification authority
 6. **HTTP verification** → Simple 200/404 response (no blockchain, no fees)
 
-This bridges both physical-to-digital (Camera) and digital-native (Clip) verification while maintaining human readability and privacy. The `verify:` scheme is particularly important - it's visible on the document, readable by humans ("verified by edinburgh.ac.uk"), and parsable by software.
+This bridges both digital-native (Clip) and physical-to-digital (Camera) verification while maintaining human readability and privacy. The `verify:` scheme is particularly important — it's visible on the document, readable by humans ("verified by edinburgh.ac.uk"), and parsable by software.
 
-**No single prior art system does all of this** - especially the dual-mode approach with human-readable verification paths.
+**No single prior art system does all of this** — especially the dual-mode approach with human-readable verification paths.
 
 ### Is this free to use?
 
@@ -1004,15 +1090,14 @@ Best-of-both hybrids
 When to choose what
 - High legal weight/non-repudiation: Use digital signatures (PAdES) and/or VCs; add Live Verify for human inspection and offline fallback.
 - High-volume scanning/operations: Use QR/barcodes; add Live Verify to keep a human-verifiable pathway and reduce redirect spoofing.
-- Field verification with privacy: Live Verify shines—no PII transmission, works with phone camera (Camera mode) or browser (Clip mode), issuer hosts a simple "OK/REVOKED" endpoint.
+- Field verification with privacy: Live Verify shines—no PII transmission, works with browser extension (Clip mode) or phone camera (Camera mode), issuer hosts a simple "OK/REVOKED" endpoint.
 - Anti-clone physical goods: NFC-secured labels or serialized barcodes; optionally pair with printed Live Verify declarations for paperwork.
 
 ## Get Started
 
 **For verifiers (users):**
-- Try the **[live demo](https://paul-hammant.github.io/live-verify/)** now
-- Scan a [training page](public/training-pages/bachelor-thaumatology.html) to see how it works
-- Use your phone browser - no app installation needed
+- Install the **[browser extension](apps/browser-extension/)** and right-click to verify claims on any web page
+- Or try the **[camera demo](https://paul-hammant.github.io/live-verify/)** on your phone with a [training page](public/training-pages/bachelor-thaumatology.html)
 
 **For organizations (issuers):**
 - Read [For Organizations Creating Verifiable Documents](#for-organizations-creating-verifiable-documents)
