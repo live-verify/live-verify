@@ -137,8 +137,8 @@ Thesis: "On the Malleability of L-Space"
 
 The last line of the OCR text is treated as the verification base URL. It can use either:
 
-- **`verify:` scheme** (preferred for printed documents): `verify:paul-hammant.github.io/live-verify/c`
-- **`https://` scheme** (legacy support): `https://paul-hammant.github.io/live-verify/c`
+- **`verify:` scheme** (preferred for printed documents): `verify:live-verify.github.io/live-verify/c`
+- **`https://` scheme** (legacy support): `https://live-verify.github.io/live-verify/c`
 
 The app converts the base URL to a full HTTPS URL with the hash appended:
 ```javascript

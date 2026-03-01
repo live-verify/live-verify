@@ -181,7 +181,7 @@ live-verify/
 1. Push to main/master branch
 2. GitHub Actions runs tests
 3. Deploys `public/` folder automatically
-4. Live at: `https://paul-hammant.github.io/live-verify/`
+4. Live at: `https://live-verify.github.io/live-verify/`
 
 ### Other Static Hosts
 - **Netlify**: Drag & drop `public/` folder

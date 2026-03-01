@@ -1,5 +1,5 @@
-> Use case catalog: https://paul-hammant.github.io/live-verify/use-cases/  
-> Demo (camera app prototype): https://paul-hammant.github.io/live-verify/camera-app/
+> Use case catalog: https://live-verify.github.io/live-verify/use-cases/  
+> Demo (camera app prototype): https://live-verify.github.io/live-verify/camera-app/
 
 ## Point-of-Sale Receipt Case: Preventing Expense Fraud
 
@@ -12,47 +12,47 @@ Key criteria: Business transaction with no privacy expectation. One-off transact
 You can test the verification system with these example receipt mockups (HTML representations of paper receipts):
 
 **UK Receipts:**
-- [UK Coffee Shop](https://paul-hammant.github.io/live-verify/training-pages/uk-coffee-shop.html) - £8.45 coffee and pastry receipt
-- [UK Corner Shop](https://paul-hammant.github.io/live-verify/training-pages/uk-corner-shop.html) - £4.85 convenience store receipt (compact format)
-- [UK Electronics Store](https://paul-hammant.github.io/live-verify/training-pages/uk-electronics-store.html) - £847.99 laptop purchase
+- [UK Coffee Shop](https://live-verify.github.io/live-verify/training-pages/uk-coffee-shop.html) - £8.45 coffee and pastry receipt
+- [UK Corner Shop](https://live-verify.github.io/live-verify/training-pages/uk-corner-shop.html) - £4.85 convenience store receipt (compact format)
+- [UK Electronics Store](https://live-verify.github.io/live-verify/training-pages/uk-electronics-store.html) - £847.99 laptop purchase
 
 **US Receipts:**
-- [US Burrito Shop](https://paul-hammant.github.io/live-verify/training-pages/us-burrito-shop.html) - $15.08 burrito meal
-- [US Home Improvement](https://paul-hammant.github.io/live-verify/training-pages/us-home-improvement.html) - $680.40 building supplies
+- [US Burrito Shop](https://live-verify.github.io/live-verify/training-pages/us-burrito-shop.html) - $15.08 burrito meal
+- [US Home Improvement](https://live-verify.github.io/live-verify/training-pages/us-home-improvement.html) - $680.40 building supplies
 
 **Hotel Receipt:**
-- [Hotel Scheidegg (Switzerland)](https://paul-hammant.github.io/live-verify/training-pages/hotel-receipt-scheidegg.html) - CHF 54.50 restaurant/bar charges
+- [Hotel Scheidegg (Switzerland)](https://live-verify.github.io/live-verify/training-pages/hotel-receipt-scheidegg.html) - CHF 54.50 restaurant/bar charges
 
-**Note:** These are HTML mockups designed to look like printed receipts. They demonstrate the OCR-to-hash verification system with working `verify:` URLs. You can scan these with the [Live Verify web app](https://paul-hammant.github.io/live-verify/) by displaying them on one device and scanning with another, or by printing them.
+**Note:** These are HTML mockups designed to look like printed receipts. They demonstrate the OCR-to-hash verification system with working `verify:` URLs. You can scan these with the [Live Verify web app](https://live-verify.github.io/live-verify/) by displaying them on one device and scanning with another, or by printing them.
 
 **Example receipt screenshots:**
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0;">
   <div>
-    <img src="https://paul-hammant.github.io/live-verify/screenshots/uk-coffee-shop.png" alt="UK Coffee Shop receipt" width="250">
+    <img src="https://live-verify.github.io/live-verify/screenshots/uk-coffee-shop.png" alt="UK Coffee Shop receipt" width="250">
     <p><em>UK Coffee Shop - £8.45</em></p>
   </div>
   <div>
-    <img src="https://paul-hammant.github.io/live-verify/screenshots/us-burrito-shop.png" alt="US Burrito Shop receipt" width="250">
+    <img src="https://live-verify.github.io/live-verify/screenshots/us-burrito-shop.png" alt="US Burrito Shop receipt" width="250">
     <p><em>US Burrito Shop - $15.08</em></p>
   </div>
   <div>
-    <img src="https://paul-hammant.github.io/live-verify/screenshots/hotel-receipt-scheidegg.png" alt="Hotel Scheidegg receipt" width="250">
+    <img src="https://live-verify.github.io/live-verify/screenshots/hotel-receipt-scheidegg.png" alt="Hotel Scheidegg receipt" width="250">
     <p><em>Hotel Scheidegg - CHF 54.50</em></p>
   </div>
 </div>
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0;">
   <div>
-    <img src="https://paul-hammant.github.io/live-verify/screenshots/uk-electronics-store.png" alt="UK Electronics Store receipt" width="250">
+    <img src="https://live-verify.github.io/live-verify/screenshots/uk-electronics-store.png" alt="UK Electronics Store receipt" width="250">
     <p><em>UK Electronics Store - £847.99</em></p>
   </div>
   <div>
-    <img src="https://paul-hammant.github.io/live-verify/screenshots/us-home-improvement.png" alt="US Home Improvement receipt" width="250">
+    <img src="https://live-verify.github.io/live-verify/screenshots/us-home-improvement.png" alt="US Home Improvement receipt" width="250">
     <p><em>US Home Improvement - $680.40</em></p>
   </div>
   <div>
-    <img src="https://paul-hammant.github.io/live-verify/screenshots/uk-corner-shop.png" alt="UK Corner Shop receipt" width="250">
+    <img src="https://live-verify.github.io/live-verify/screenshots/uk-corner-shop.png" alt="UK Corner Shop receipt" width="250">
     <p><em>UK Corner Shop - £4.85</em></p>
   </div>
 </div>

@@ -1,5 +1,5 @@
-> Use case catalog: https://paul-hammant.github.io/live-verify/use-cases/  
-> Demo (camera app prototype): https://paul-hammant.github.io/live-verify/camera-app/
+> Use case catalog: https://live-verify.github.io/live-verify/use-cases/  
+> Demo (camera app prototype): https://live-verify.github.io/live-verify/camera-app/
 
 ## Voting Ballot Proof: Verifiable Vote Counting
 

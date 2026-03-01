@@ -106,7 +106,7 @@ Awarded to: Ponder Stibbons
 Date: Grune 23, A.M. 2024
 Archchancellor: Mustrum Ridcully
 Registrar: Rincewind (Wizzard)
-verify:paul-hammant.github.io/live-verify/c`;
+verify:live-verify.github.io/live-verify/c`;
 
 const urlResult1 = extractVerificationUrl(correctText);
 console.log('✓ Extracted URL:', urlResult1.url);
@@ -125,7 +125,7 @@ console.log('  Match: ' + (hash1 === expectedHash ? '✓ YES' : '✗ NO'));
 
 const verifyUrl1 = buildVerificationUrl(urlResult1.url, hash1);
 console.log('✓ Verification URL:', verifyUrl1);
-console.log('  Expected endpoint exists: https://paul-hammant.github.io/live-verify/c/1cddfbb2adfa13e4562d274b59e56b946f174a0feb566622dd67a4880cf0b223');
+console.log('  Expected endpoint exists: https://live-verify.github.io/live-verify/c/1cddfbb2adfa13e4562d274b59e56b946f174a0feb566622dd67a4880cf0b223');
 
 // Test 2: Incorrect text (missing first U) should fail verification
 console.log('\n[TEST 2] Incorrect Text (Missing First U)');
@@ -138,7 +138,7 @@ Awarded to: Ponder Stibbons
 Date: Grune 23, A.M. 2024
 Archchancellor: Mustrum Ridcully
 Registrar: Rincewind (Wizzard)
-verify:paul-hammant.github.io/live-verify/c`;
+verify:live-verify.github.io/live-verify/c`;
 
 const urlResult2 = extractVerificationUrl(incorrectText);
 const certText2 = extractCertText(incorrectText, urlResult2.urlLineIndex);
@@ -172,7 +172,7 @@ Awarded to: Esk Weatherwax
 Date: Offle 12, A.M. 2024
 Dean of Anthropics: Modo
 Seal of the Eight Orders
-verify:paul-hammant.github.io/live-verify/c`;
+verify:live-verify.github.io/live-verify/c`;
 
 const masterUrl = extractVerificationUrl(masterText);
 const masterCert = extractCertText(masterText, masterUrl.urlLineIndex);

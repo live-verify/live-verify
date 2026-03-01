@@ -61,7 +61,7 @@ For active development with hot-reloading:
    Issued by: Widget Academy
    Certificate ID: WA-2025-001
 
-   verify:paul-hammant.github.io/live-verify/c
+   verify:live-verify.github.io/live-verify/c
    ]
    ```
 

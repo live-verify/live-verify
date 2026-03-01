@@ -89,7 +89,7 @@ See [VERIFICATION-MODES.md](./VERIFICATION-MODES.md) for detailed permutations a
 ### 2. URL-Based Verification (Not Local Database)
 The document itself contains:
 - Certification text within black square registration marks
-- Verification base URL printed below the text (e.g., `verify:paul-hammant.github.io/live-verify/c`)
+- Verification base URL printed below the text (e.g., `verify:live-verify.github.io/live-verify/c`)
 
 The app:
 1. Uses **OpenCV.js** to detect the black square registration marks
@@ -105,7 +105,7 @@ The app:
 
 ### 3. No Hardcoded Hashes in the App
 - We do **NOT** maintain a local database of valid hashes in the app
-- Trust model: The organization that controls the domain (e.g., `paul-hammant.github.io`) is trusted
+- Trust model: The organization that controls the domain (e.g., `live-verify.github.io`) is trusted
 - Hash database is pre-built and deployed to GitHub Pages at `/c/{hash}/index.html`
 - If hash matches URL AND endpoint returns 200 + "OK" → verified
 - If hash doesn't match URL OR endpoint fails → verification fails
@@ -359,8 +359,8 @@ Falls back to canvas capture from video element if ImageCapture not supported.
 **Verification URL schemes: `verify:` and `vfy:`**
 
 Documents should print base URLs using either the long `verify:` scheme or the short `vfy:` alias instead of `https://`:
-- Example (long): `verify:paul-hammant.github.io/live-verify/c`
-- Example (short): `vfy:paul-hammant.github.io/live-verify/c`
+- Example (long): `verify:live-verify.github.io/live-verify/c`
+- Example (short): `vfy:live-verify.github.io/live-verify/c`
 
 The app converts either form to `https://` and appends the computed hash:
 - `verify:example.com/c` → `https://example.com/c/{hash}`
@@ -796,7 +796,7 @@ Creates HTML pages for the three training certificates.
 ### GitHub Pages (Current)
 1. Push to GitHub
 2. GitHub Actions runs tests
-3. Deploys `public/` folder to `https://paul-hammant.github.io/live-verify/`
+3. Deploys `public/` folder to `https://live-verify.github.io/live-verify/`
 
 ### Local Testing
 ```bash

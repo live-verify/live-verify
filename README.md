@@ -103,7 +103,7 @@ So expense fraud and transaction disputes are a real thing, and verifying printe
 
 **Example (Camera mode):** Four colleagues have lunch at In-N-Out Burger. One person pays, scans the receipt with their phone to verify it's authentic (not photoshopped, not altered), then submits it for expense reimbursement. In-N-Out Burger just confirms: *"Yes, this receipt is authentic."* The receipt's SHA-256 hash has been verified.
 
-![](https://paul-hammant.github.io/live-verify/screenshots/hotel-receipt-scheidegg.png)
+![](https://live-verify.github.io/live-verify/screenshots/hotel-receipt-scheidegg.png)
 
 See that "verify:" line ... we'll come back to that.
 
@@ -154,19 +154,19 @@ HR reviewing a CV with 5 employment claims? Verify each one without leaving the 
 ### Clip Mode (Browser Extension)
 
 1. Install the browser extension (see above)
-2. Visit a page with verifiable claims (e.g., a [training page](https://paul-hammant.github.io/live-verify/training-pages/bachelor-thaumatology.html))
+2. Visit a page with verifiable claims (e.g., a [training page](https://live-verify.github.io/live-verify/training-pages/bachelor-thaumatology.html))
 3. Select the claim text including the `verify:` line
 4. Right-click → "Verify this claim" (or press Cmd/Ctrl+Shift+V)
-5. See ✅ **VERIFIED by paul-hammant.github.io** or ❌ **FAILS VERIFICATION**
+5. See ✅ **VERIFIED by live-verify.github.io** or ❌ **FAILS VERIFICATION**
 
 ### Camera Mode (Phone)
 
-1. Visit **[https://paul-hammant.github.io/live-verify/](https://paul-hammant.github.io/live-verify/)** on your phone
+1. Visit **[https://live-verify.github.io/live-verify/](https://live-verify.github.io/live-verify/)** on your phone
 2. Click "Enable Camera"
 3. Print a [training page](public/training-pages/bachelor-thaumatology.html) (or display it on your computer screen)
 4. Align the black registration marks in your phone’s viewfinder
 5. Click "Capture & Verify"
-6. See ✅ **VERIFIED by paul-hammant.github.io** or ❌ **FAILS VERIFICATION**
+6. See ✅ **VERIFIED by live-verify.github.io** or ❌ **FAILS VERIFICATION**
 
 Note: no serious production verification deployment of this technology would rest on `github.io`. I am only doing so
 because I am demonstrating how this works and GH-P is convenient, free, and static (proving the server-side can be almost absent).
@@ -192,7 +192,7 @@ Native Kotlin app using ML Kit for OCR and CameraX for camera capture.
 ### Web Demo
 Browser-based camera verification using Tesseract.js and OpenCV.js — no installation needed.
 
-- **Try it:** [https://paul-hammant.github.io/live-verify/](https://paul-hammant.github.io/live-verify/)
+- **Try it:** [https://live-verify.github.io/live-verify/](https://live-verify.github.io/live-verify/)
 
 ## Commercialization (SaaS)
 
@@ -213,7 +213,7 @@ A **claim** is any assertion that could be forged, altered, or disputed:
 - **Medical licenses** - Authorization to practice (or revocation - critical for patient safety)
 - **Government IDs** - Identity verification (fake IDs for fraud, underage access)
 
-Many more use cases are documented in the catalog: https://paul-hammant.github.io/live-verify/use-cases/
+Many more use cases are documented in the catalog: https://live-verify.github.io/live-verify/use-cases/
 
 ## How It Works
 
@@ -503,23 +503,23 @@ Live Verify offers a **fundamentally different privacy model:**
 
 In short, if the claim is aimed at humans reading it — whether shown digitally or printed on paper — it might be a candidate for this **non-blockchain** tech.
 
-**Full use case catalog:** https://paul-hammant.github.io/live-verify/use-cases/ (searchable, issuer/verifier framing).
+**Full use case catalog:** https://live-verify.github.io/live-verify/use-cases/ (searchable, issuer/verifier framing).
 
 **Deep-dive essays (GitHub docs):** The following six scenarios demonstrate specific advantages of Live Verify in real-world applications:
 
 1. **[Education Credentials](deep-dives/Educational_Degrees.md)** - degree/etc verification with privacy-preserving public registries
-   <img src="https://paul-hammant.github.io/live-verify/screenshots/bachelor-thaumatology.png" width="200"> <img src="https://paul-hammant.github.io/live-verify/screenshots/master-applied-anthropics.png" width="200"> <img src="https://paul-hammant.github.io/live-verify/screenshots/doctorate-high-energy-magic.png" width="200">
+   <img src="https://live-verify.github.io/live-verify/screenshots/bachelor-thaumatology.png" width="200"> <img src="https://live-verify.github.io/live-verify/screenshots/master-applied-anthropics.png" width="200"> <img src="https://live-verify.github.io/live-verify/screenshots/doctorate-high-energy-magic.png" width="200">
 
 2. **[B2B Product Certifications](deep-dives/Product_Labeling.md)** - Preventing supplier impersonation fraud (MedPro/Intertek case)
 
 3. **[Receipt Verification](deep-dives/Sales_Receipts.md)** - Eliminating duplicate expense claims across employers
-   <img src="https://paul-hammant.github.io/live-verify/screenshots/uk-coffee-shop.png" width="150"> <img src="https://paul-hammant.github.io/live-verify/screenshots/us-burrito-shop.png" width="150"> <img src="https://paul-hammant.github.io/live-verify/screenshots/hotel-receipt-scheidegg.png" width="150"> <img src="https://paul-hammant.github.io/live-verify/screenshots/us-home-improvement.png" width="150">
+   <img src="https://live-verify.github.io/live-verify/screenshots/uk-coffee-shop.png" width="150"> <img src="https://live-verify.github.io/live-verify/screenshots/us-burrito-shop.png" width="150"> <img src="https://live-verify.github.io/live-verify/screenshots/hotel-receipt-scheidegg.png" width="150"> <img src="https://live-verify.github.io/live-verify/screenshots/us-home-improvement.png" width="150">
 
 4. **[Medical Licenses](deep-dives/Medical_License.md)** - Revocable credentials with domain-binding security
-   <img src="https://paul-hammant.github.io/live-verify/screenshots/medical-license-revoked.png" width="200">
+   <img src="https://live-verify.github.io/live-verify/screenshots/medical-license-revoked.png" width="200">
 
 5. **[Government ID Verification](deep-dives/Government_IDs.md)** - Cryptographic checks on plain text aspects (hotel checkin, traffic stop, entering a pub/bar)
-   <img src="https://paul-hammant.github.io/live-verify/screenshots/driving-license-nordia-svg.png" width="250">
+   <img src="https://live-verify.github.io/live-verify/screenshots/driving-license-nordia-svg.png" width="250">
 
 6. **[Voting Ballot Proof](deep-dives/Voting_Proof.md)** - Verifiable vote counting with independent auditor confirmation
 
@@ -858,7 +858,7 @@ For detailed analysis of pricing models, implementation costs, the Bloomberg-sty
 
 The full searchable catalog (with issuer/verifier framing and per-use-case rationale) lives on GitHub Pages:
 
-- https://paul-hammant.github.io/live-verify/use-cases/
+- https://live-verify.github.io/live-verify/use-cases/
 
 The underlying dataset is in `public/use-cases/*.md` with `public/use-cases/index.json` generated from frontmatter.
 
@@ -1097,7 +1097,7 @@ When to choose what
 
 **For verifiers (users):**
 - Install the **[browser extension](apps/browser-extension/)** and right-click to verify claims on any web page
-- Or try the **[camera demo](https://paul-hammant.github.io/live-verify/)** on your phone with a [training page](public/training-pages/bachelor-thaumatology.html)
+- Or try the **[camera demo](https://live-verify.github.io/live-verify/)** on your phone with a [training page](public/training-pages/bachelor-thaumatology.html)
 
 **For organizations (issuers):**
 - Read [For Organizations Creating Verifiable Documents](#for-organizations-creating-verifiable-documents)

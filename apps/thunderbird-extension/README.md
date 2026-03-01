@@ -51,7 +51,7 @@ The extension will be loaded temporarily and will be removed when Thunderbird cl
    Issued by: Widget Academy
    Certificate ID: WA-2025-001
 
-   verify:paul-hammant.github.io/live-verify/c
+   verify:live-verify.github.io/live-verify/c
    ]
    ```
 

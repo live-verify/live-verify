@@ -7,7 +7,7 @@
   "homepage_url": "https://github.com/paul-hammant/live-verify",
   "browser_specific_settings": {
     "gecko": {
-      "id": "liveverify@paul-hammant.github.io",
+      "id": "liveverify@live-verify.github.io",
       "strict_min_version": "102.0"
     }
   },

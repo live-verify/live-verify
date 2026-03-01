@@ -130,10 +130,10 @@ http://example.com`;
 
         it('should accept verify: URLs', () => {
             const rawText = `Certification text
-verify:paul-hammant.github.io/live-verify/c`;
+verify:live-verify.github.io/live-verify/c`;
 
             const result = extractVerificationUrl(rawText);
-            expect(result.url).toBe('verify:paul-hammant.github.io/live-verify/c');
+            expect(result.url).toBe('verify:live-verify.github.io/live-verify/c');
             expect(result.urlLineIndex).toBe(1);
         });
 
@@ -163,21 +163,21 @@ Awarded to: Ponder Stibbons
 Date: Grune 23, A.M. 2024
 Archchancellor: Mustrum Ridcully
 Registrar: Rincewind (Wizzard)
-verify:paul-hammant.github.io/live-verify/c
+verify:live-verify.github.io/live-verify/c
 ee a SE AA i Aa A A Re Xe NE Ne ea`;
 
             const result = extractVerificationUrl(rawText);
-            expect(result.url).toBe('verify:paul-hammant.github.io/live-verify/c');
+            expect(result.url).toBe('verify:live-verify.github.io/live-verify/c');
             expect(result.urlLineIndex).toBe(7);
         });
 
         // vfy: prefix tests (shortened alternative to verify:)
         it('should accept vfy: URLs', () => {
             const rawText = `Certification text
-vfy:paul-hammant.github.io/live-verify/c`;
+vfy:live-verify.github.io/live-verify/c`;
 
             const result = extractVerificationUrl(rawText);
-            expect(result.url).toBe('vfy:paul-hammant.github.io/live-verify/c');
+            expect(result.url).toBe('vfy:live-verify.github.io/live-verify/c');
             expect(result.urlLineIndex).toBe(1);
         });
 
@@ -212,11 +212,11 @@ VfY:example.com/path`;
             const rawText = `Unseen University
 Bachelor of Thaumatology
 Awarded to: Ponder Stibbons
-vfy:paul-hammant.github.io/live-verify/c
+vfy:live-verify.github.io/live-verify/c
 random OCR garbage text`;
 
             const result = extractVerificationUrl(rawText);
-            expect(result.url).toBe('vfy:paul-hammant.github.io/live-verify/c');
+            expect(result.url).toBe('vfy:live-verify.github.io/live-verify/c');
             expect(result.urlLineIndex).toBe(3);
         });
 
@@ -441,9 +441,9 @@ https://example.com`;
         const hash = '09d1e6765c2dbd833e5a1f4770d9f0c9368224f7b1aed34de7a3bd5bf4d1f031';
 
         it('should convert verify: to https:// and append hash', () => {
-            const baseUrl = 'verify:paul-hammant.github.io/live-verify/c';
+            const baseUrl = 'verify:live-verify.github.io/live-verify/c';
             const result = buildVerificationUrl(baseUrl, hash);
-            expect(result).toBe(`https://paul-hammant.github.io/live-verify/c/${hash}`);
+            expect(result).toBe(`https://live-verify.github.io/live-verify/c/${hash}`);
         });
 
 
@@ -473,9 +473,9 @@ https://example.com`;
 
         // vfy: prefix tests
         it('should convert vfy: to https:// and append hash', () => {
-            const baseUrl = 'vfy:paul-hammant.github.io/live-verify/c';
+            const baseUrl = 'vfy:live-verify.github.io/live-verify/c';
             const result = buildVerificationUrl(baseUrl, hash);
-            expect(result).toBe(`https://paul-hammant.github.io/live-verify/c/${hash}`);
+            expect(result).toBe(`https://live-verify.github.io/live-verify/c/${hash}`);
         });
 
         it('should handle VFY: in uppercase', () => {

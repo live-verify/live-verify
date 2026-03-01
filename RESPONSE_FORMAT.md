@@ -150,7 +150,7 @@ HTTP 200 OK received
 
 ### Example 1: Static File (GitHub Pages)
 
-**File:** `https://paul-hammant.github.io/live-verify/c/1cddfbb2adfa13e4562d274b59e56b946f174a0feb566622dd67a4880cf0b223`
+**File:** `https://live-verify.github.io/live-verify/c/1cddfbb2adfa13e4562d274b59e56b946f174a0feb566622dd67a4880cf0b223`
 
 **Content:**
 ```
@@ -159,7 +159,7 @@ OK
 
 **MIME type:** `text/plain` (any MIME type works - body content is what matters)
 
-As it happens on GitHub-Pages, example 1 is really [https://paul-hammant.github.io/live-verify/c/1cddfbb2adfa13e4562d274b59e56b946f174a0feb566622dd67a4880cf0b223/index.html](https://paul-hammant.github.io/live-verify/c/1cddfbb2adfa13e4562d274b59e56b946f174a0feb566622dd67a4880cf0b223/index.html) in order to get served and visible in a browser by a human. That has a `text/html` mime type but is really just plain text content (a hack).
+As it happens on GitHub-Pages, example 1 is really [https://live-verify.github.io/live-verify/c/1cddfbb2adfa13e4562d274b59e56b946f174a0feb566622dd67a4880cf0b223/index.html](https://live-verify.github.io/live-verify/c/1cddfbb2adfa13e4562d274b59e56b946f174a0feb566622dd67a4880cf0b223/index.html) in order to get served and visible in a browser by a human. That has a `text/html` mime type but is really just plain text content (a hack).
 
 ### Example 2: Serverless Function (Cloudflare Workers)
 
