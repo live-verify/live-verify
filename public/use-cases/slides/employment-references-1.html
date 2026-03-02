@@ -106,18 +106,6 @@
             background: #bfdbfe;
             border-radius: 2px;
         }
-        .cursor {
-            display: inline-block;
-            width: 2px;
-            height: 1.2em;
-            background: #3b82f6;
-            animation: blink 1s infinite;
-            vertical-align: text-bottom;
-        }
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
         .explanation {
             margin-top: 20px;
             padding: 7px;
@@ -128,6 +116,42 @@
         .highlight {
             color: #dc2626;
             font-weight: bold;
+        }
+        .context-menu {
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #fff;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+            padding: 4px 0;
+            min-width: 180px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 13px;
+            color: #333;
+            z-index: 10;
+        }
+        .context-menu-item {
+            padding: 6px 14px;
+            cursor: default;
+            white-space: nowrap;
+        }
+        .context-menu-item:hover {
+            background: #f3f4f6;
+        }
+        .context-menu-item.verify {
+            color: #2563eb;
+            font-weight: 600;
+        }
+        .context-menu-item.verify:hover {
+            background: #eff6ff;
+        }
+        .context-menu-separator {
+            height: 1px;
+            background: #e5e7eb;
+            margin: 4px 0;
         }
         .mode-toggle {
             display: flex;
@@ -243,12 +267,20 @@ John D. Smith<br>
 Senior Software Engineer<br>
 March 2020 &#8212; October 2025<br><br>
 Eligible for Rehire<br><br>
-verify:acme-corp.com/staff</span><span class="clip-bracket" style="color: #dc2626; font-weight: bold;">]</span><span class="cursor"></span>
+verify:acme-corp.com/staff</span><span class="clip-bracket" style="color: #dc2626; font-weight: bold;">]</span>
+
+                    <div class="context-menu">
+                        <div class="context-menu-item">Cut</div>
+                        <div class="context-menu-item">Copy</div>
+                        <div class="context-menu-item">Paste</div>
+                        <div class="context-menu-separator"></div>
+                        <div class="context-menu-item verify">Verify</div>
+                    </div>
                 </div>
                 <p style="color: grey">Let me know if you need anything else.</p>
 
                 <div class="explanation">
-                    <strong>What's happening:</strong> The user sees a reference in an email or document and selects the text from the company name through the <code>verify:</code> line. The DOM provides the exact text. Word wrap doesn't matter—the browser knows the actual characters.
+                    <strong>What's happening:</strong> The user sees a reference in an email or document and selects the text from the company name through the <code>verify:</code> line. Right-click reveals a <strong style="color: #2563eb;">Verify</strong> action in the context menu. The DOM provides the exact text. Word wrap doesn't matter—the browser knows the actual characters.
                 </div>
 
                 <div class="explanation" style="background: #fef3c7; border-color: #f59e0b;">

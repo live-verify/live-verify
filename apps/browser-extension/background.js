@@ -34,6 +34,8 @@ import {
 } from './shared/verify.js';
 import { extractDomainAuthority } from './shared/domain-authority.js';
 
+console.log('[LiveVerify] Service worker started');
+
 // Default settings
 const DEFAULT_SETTINGS = {
     intrusiveness: 'maximum', // 'maximum', 'standard', 'minimal'
@@ -52,6 +54,7 @@ let verificationHistory = [];
 chrome.storage.session.get('verificationHistory').then(result => {
     if (result.verificationHistory) {
         verificationHistory = result.verificationHistory;
+        console.log('[LiveVerify] Loaded', verificationHistory.length, 'history items from session storage');
     }
 });
 
@@ -63,10 +66,12 @@ chrome.contextMenus.removeAll().then(() => {
         type: 'normal',
         contexts: ['selection']
     });
+    console.log('[LiveVerify] Context menu created');
 });
 
 // Handle context menu click
 chrome.contextMenus.onClicked.addListener(async (info, tab) => {
+    console.log('[LiveVerify] Context menu clicked:', info.menuItemId);
     if (info.menuItemId === 'verify-selection') {
         try {
             // Use scripting to get selection with preserved newlines
@@ -76,6 +81,8 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
                 func: () => window.getSelection().toString()
             });
 
+            console.log('[LiveVerify] Selected text length:', selectedText?.length || 0);
+
             if (!selectedText) {
                 const result = {
                     success: false,
@@ -83,7 +90,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
                     timestamp: new Date().toISOString()
                 };
                 addToHistory(result);
-                await showResult(result);
+                await showResult(result, tab);
                 return;
             }
 
@@ -95,7 +102,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
                 timestamp: new Date().toISOString()
             };
             addToHistory(result);
-            await showResult(result);
+            await showResult(result, tab);
         }
     }
 });
@@ -123,10 +130,12 @@ chrome.commands.onCommand.addListener(async (command) => {
 
 // Main verification function
 async function verifySelection(selectedText, tab) {
+    console.log('[LiveVerify] verifySelection started');
     const startTime = Date.now();
 
     // Extract verification URL
     const { url: baseUrl, urlLineIndex } = extractVerificationUrl(selectedText);
+    console.log('[LiveVerify] Extracted URL:', baseUrl, 'at line', urlLineIndex);
 
     if (!baseUrl) {
         const result = {
@@ -135,7 +144,7 @@ async function verifySelection(selectedText, tab) {
             timestamp: new Date().toISOString()
         };
         addToHistory(result);
-        await showResult(result);
+        await showResult(result, tab);
         return;
     }
 
@@ -154,24 +163,28 @@ async function verifySelection(selectedText, tab) {
             timestamp: new Date().toISOString()
         };
         addToHistory(result);
-        await showResult(result);
+        await showResult(result, tab);
         return;
     }
 
     // Fetch verification meta (optional)
     const meta = await fetchVerificationMeta(baseUrl);
+    console.log('[LiveVerify] Meta:', meta ? 'loaded' : 'none', meta?.endorsedBy ? `(endorsedBy: ${meta.endorsedBy})` : '');
 
     // Normalize text
     const normalizedText = normalizeText(certText, meta);
 
     // Compute hash
     const hash = await sha256(normalizedText);
+    console.log('[LiveVerify] Hash:', hash.substring(0, 16) + '...');
 
     // Build verification URL
     const verificationUrl = buildVerificationUrl(baseUrl, hash, meta);
+    console.log('[LiveVerify] Verification URL:', verificationUrl);
 
     // Verify against endpoint
     const verifyResult = await verifyHash(verificationUrl, meta);
+    console.log('[LiveVerify] Verify result:', verifyResult.success ? 'SUCCESS' : 'FAILED', verifyResult.status);
 
     // Extract registrable domain via PSL for domain emphasis display
     let registrableDomain = '';
@@ -193,6 +206,7 @@ async function verifySelection(selectedText, tab) {
     // Check endorsement if metadata has endorsedBy
     let endorsement = null;
     if (meta && meta.endorsedBy) {
+        console.log('[LiveVerify] Checking endorsement from', meta.endorsedBy);
         // Compute metaUrl from baseUrl
         let metaHttpsBase = baseUrl;
         const lowerBase2 = baseUrl.toLowerCase();
@@ -204,12 +218,15 @@ async function verifySelection(selectedText, tab) {
         const metaUrl = `${metaHttpsBase}/verification-meta.json`;
         try {
             endorsement = await checkEndorsement(meta, metaUrl);
-        } catch {
+            console.log('[LiveVerify] Endorsement result:', JSON.stringify(endorsement));
+        } catch (e) {
+            console.error('[LiveVerify] Endorsement check failed:', e.message);
             endorsement = { checked: false, confirmed: false, endorser: meta.endorsedBy.split('/')[0], description: null, expired: false, successor: null, error: 'Check failed', chain: [] };
         }
     }
 
     const elapsed = Date.now() - startTime;
+    console.log('[LiveVerify] Verification complete in', elapsed, 'ms');
 
     const result = {
         success: verifyResult.success,
@@ -227,7 +244,7 @@ async function verifySelection(selectedText, tab) {
     };
 
     addToHistory(result);
-    await showResult(result);
+    await showResult(result, tab);
 }
 
 // Add result to history (session storage for privacy - cleared on browser close)
@@ -241,10 +258,8 @@ function addToHistory(result) {
     chrome.storage.session.set({ verificationHistory });
 }
 
-// Show result based on intrusiveness setting
-async function showResult(result) {
-    const settings = await getSettings();
-
+// Show result — inject a banner into the active tab so the user always sees it
+async function showResult(result, tab) {
     // Update badge
     await chrome.action.setBadgeText({
         text: result.success ? '✓' : '✗'
@@ -258,39 +273,145 @@ async function showResult(result) {
         await chrome.action.setBadgeText({ text: '' });
     }, 30000);
 
-    if (settings.intrusiveness === 'minimal') {
-        // Badge only - user clicks to see details
-        return;
+    // Inject result banner into the active tab
+    if (tab?.id) {
+        try {
+            await chrome.scripting.executeScript({
+                target: { tabId: tab.id },
+                func: showResultBanner,
+                args: [result]
+            });
+        } catch (error) {
+            console.error('[LiveVerify] Failed to inject result banner:', error);
+        }
     }
+}
 
-    // Build notification message
-    let message;
-    if (result.success) {
-        message = `Verified by ${result.domain}`;
-    } else if (result.error) {
-        message = result.error;
+// This function is injected into the page — it must be self-contained
+function showResultBanner(result) {
+    // Remove any existing banner
+    const existing = document.getElementById('liveverify-result-banner');
+    if (existing) existing.remove();
+
+    const isVerified = result.success;
+    const isError = result.error && !result.domain;
+
+    // Build status text
+    let statusText, statusDetail;
+    if (isVerified) {
+        statusText = 'VERIFIED';
+        statusDetail = `by ${result.domain}`;
+    } else if (isError) {
+        statusText = 'ERROR';
+        statusDetail = result.error;
     } else {
-        message = `${result.status} (${result.domain})`;
+        statusText = result.status || 'NOT VERIFIED';
+        statusDetail = result.domain ? `${result.domain} does not verify this claim` : (result.error || '');
     }
 
-    // Show notification for standard and maximum
-    const notificationOptions = {
-        type: 'basic',
-        iconUrl: result.success ? 'icons/icon-verified-128.png' : 'icons/icon-failed-128.png',
-        title: result.success ? 'Verified' : 'Not Verified',
-        message,
-        priority: 2
-    };
-
-    if (settings.intrusiveness === 'maximum') {
-        notificationOptions.requireInteraction = true;
+    // Colours
+    let bgGradient, iconChar;
+    if (isVerified) {
+        bgGradient = 'linear-gradient(135deg, #48bb78 0%, #38a169 100%)';
+        iconChar = '\u2713';
+    } else if (isError) {
+        bgGradient = 'linear-gradient(135deg, #f57c00 0%, #e65100 100%)';
+        iconChar = '\u26A0';
+    } else {
+        bgGradient = 'linear-gradient(135deg, #d32f2f 0%, #c62828 100%)';
+        iconChar = '\u2717';
     }
 
-    try {
-        await chrome.notifications.create('verification-result', notificationOptions);
-    } catch (error) {
-        console.error('Failed to show notification:', error);
+    // Create banner
+    const banner = document.createElement('div');
+    banner.id = 'liveverify-result-banner';
+    banner.style.cssText = `
+        position: fixed; top: 0; left: 0; right: 0; z-index: 2147483647;
+        background: ${bgGradient};
+        color: white; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        animation: liveverify-slide-in 0.3s ease-out;
+    `;
+
+    // Build endorsement HTML
+    let endorsementHtml = '';
+    if (result.endorsement && result.endorsement.endorser) {
+        const e = result.endorsement;
+        let eColor, eText;
+        if (e.expired) {
+            eColor = '#ffb74d';
+            eText = `Endorsement by ${e.endorser} \u2014 expired`;
+            if (e.successor) eText += `. Successor: ${e.successor}`;
+        } else if (e.confirmed) {
+            eColor = '#c8e6c9';
+            eText = `Endorsed by ${e.endorser}`;
+            if (e.description) eText += ` (${e.description})`;
+            if (e.chain && e.chain.length > 1) {
+                for (let i = 1; i < e.chain.length; i++) {
+                    const c = e.chain[i];
+                    eText += ` \u2190 ${c.endorser}`;
+                    if (c.description) eText += ` (${c.description})`;
+                }
+            }
+        } else if (e.checked) {
+            eColor = '#ffb74d';
+            eText = `Endorsement by ${e.endorser} \u2014 not confirmed`;
+        } else {
+            eColor = '#ffb74d';
+            eText = `Claims endorsement by ${e.endorser} \u2014 missing`;
+        }
+        endorsementHtml = `<div style="font-size: 12px; color: ${eColor}; margin-top: 2px;">${eText}</div>`;
     }
+
+    banner.innerHTML = `
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 20px;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+                <span style="font-size: 32px; line-height: 1;">${iconChar}</span>
+                <div>
+                    <div style="font-weight: 700; font-size: 18px; letter-spacing: 0.5px;">${statusText}</div>
+                    <div style="font-size: 13px; opacity: 0.9;">${statusDetail}</div>
+                    ${endorsementHtml}
+                </div>
+            </div>
+            <button id="liveverify-close-btn" style="
+                background: none; border: none; color: white; font-size: 24px;
+                cursor: pointer; padding: 4px 8px; opacity: 0.7; line-height: 1;
+            ">&times;</button>
+        </div>
+        <div style="padding: 4px 20px 6px; background: rgba(0,0,0,0.15); font-size: 11px; opacity: 0.8; text-align: center;">
+            LiveVerify browser extension \u2014 screencaps of this are not proof of anything
+        </div>
+    `;
+
+    // Add animation keyframes
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes liveverify-slide-in {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+    `;
+    banner.appendChild(style);
+
+    document.body.appendChild(banner);
+
+    // Close button
+    banner.querySelector('#liveverify-close-btn').addEventListener('click', () => {
+        banner.style.animation = 'none';
+        banner.style.transition = 'transform 0.2s ease-in';
+        banner.style.transform = 'translateY(-100%)';
+        setTimeout(() => banner.remove(), 200);
+    });
+
+    // Auto-dismiss after 8 seconds for success, 15 for failures
+    const dismissTime = isVerified ? 8000 : 15000;
+    setTimeout(() => {
+        if (document.getElementById('liveverify-result-banner')) {
+            banner.style.transition = 'opacity 0.5s ease-out';
+            banner.style.opacity = '0';
+            setTimeout(() => banner.remove(), 500);
+        }
+    }, dismissTime);
 }
 
 // Get settings from storage

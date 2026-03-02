@@ -1,6 +1,8 @@
 // AUTO-GENERATED — do not edit. Source: public/app-logic.js
 // Run "npm run sync-shared" to regenerate from canonical source.
 
+import { sha256 } from './normalize.js';
+
 /*
     Copyright (C) 2025, Paul Hammant
 
