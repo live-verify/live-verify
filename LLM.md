@@ -51,22 +51,12 @@ Target SDK: 35 (Android 15), Min SDK: 26 (Android 8.0). Uses native Kotlin imple
 
 Minimum version: Thunderbird 102. Uses `messenger.*` APIs for email-specific functionality.
 
-### Mailspring Plugin (Email Client)
-`apps/mailspring-plugin/` — Mailspring plugin for verifying claims in emails. Key files:
-- `lib/main.js` — Plugin entry point, component registration
-- `lib/verify-button.jsx` — React toolbar button component
-- `lib/verify.js` — Verification logic (Node.js crypto for SHA-256)
-- `stylesheets/liveverify.less` — Plugin styles
-
-Minimum version: Mailspring 1.10.0. Uses Mailspring's ComponentRegistry for UI integration.
-
-**CRITICAL - Keep normalization in sync:** Text normalization is implemented in SIX places that must match:
+**CRITICAL - Keep normalization in sync:** Text normalization is implemented in FIVE places that must match:
 1. `public/normalize.js` (JavaScript, web app)
 2. `apps/browser-extension/shared/normalize.js` (JavaScript ES modules, browser extension)
 3. `apps/ios/LiveVerify/` uses JSBridge to run normalize.js directly
 4. `apps/android/app/src/main/java/com/liveverify/app/TextNormalizer.kt` (Kotlin, Android app)
 5. `apps/thunderbird-extension/shared/normalize.js` (JavaScript, Thunderbird extension)
-6. `apps/mailspring-plugin/lib/verify.js` (JavaScript/Node.js, Mailspring plugin)
 
 If you change normalization logic, update ALL implementations. The web app version also has `public/ocr-cleanup.js` for OCR-specific artifact removal (not needed by Clip mode).
 
@@ -154,13 +144,6 @@ live-verify/
 │   │   ├── shared/                  # AUTO-GENERATED from public/ via scripts/sync-shared.js
 │   │   └── icons/                   # Extension icons
 │   │
-│   └── mailspring-plugin/           # Mailspring plugin
-│       ├── package.json             # Plugin manifest
-│       ├── lib/
-│       │   ├── main.js              # Plugin entry point
-│       │   ├── verify-button.jsx    # React UI component
-│       │   └── verify.js            # Verification logic
-│       └── stylesheets/             # Plugin styles
 │
 ├── normalization-hashes/            # Cross-platform test fixtures
 │   ├── README.md                    # Format documentation

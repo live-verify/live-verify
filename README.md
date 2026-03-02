@@ -16,6 +16,18 @@ The verifier chooses whether the issuer domain is an authority for the claim.
 Built from:
 [OCR-to-Hash: A Simple Audit Trail for Physical Documents](https://paulhammant.com/2023/01/17/ocr-to-hash-simple-audit-trail-for-physical-documents/).
 
+| Tool | Mode | Status | Source |
+|------|------|--------|--------|
+| **Browser extension** (Chrome, Edge, Firefox) | Clip | Working prototype | [`apps/browser-extension/`](apps/browser-extension/) |
+| **iOS app** | Camera | Working prototype | [`apps/ios/LiveVerify/`](apps/ios/LiveVerify/) |
+| **Android app** | Camera | Working prototype | [`apps/android/`](apps/android/) |
+| **Web demo** | Camera | Working prototype | [Try it](https://live-verify.github.io/live-verify/) |
+| **Examples page** | Clip (in-page) | Working prototype | [Try it](https://live-verify.github.io/live-verify/examples/) |
+| Apple (iOS/macOS native) | Clip + Camera | Not started | OS-level `verify:` recognition in rendered text and images (Live Text) |
+| Google (Android native) | Clip + Camera | Not started | OS-level `verify:` recognition in rendered text and images (Lens) |
+| Microsoft (Windows native) | Clip + Camera | Not started | OS-level `verify:` recognition in rendered text and images |
+| Adobe (Acrobat, Reader) | Clip | Not started | Verify claims in PDFs |
+
 **Project status:** Prototype. The browser extension (Clip mode) works reliably for digital documents. Camera mode works well for OCR-friendly layouts (receipts, plain-text credentials); ornate typography and scanning from screens can reduce reliability (including moiré patterns).
 Known issue for Camera mode: Tesseract.js (via WASM) bug not present in newer native versions: [issue #1](https://github.com/paul-hammant/live-verify/issues/1). Production deployments would likely use native on-device OCR (or self-hosted assets) with the same protocol.
 
