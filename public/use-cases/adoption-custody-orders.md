@@ -4,6 +4,7 @@ category: "Government & Civic Documents"
 volume: "Very Small"
 retention: "Permanent (legal guardianship)"
 slug: "adoption-custody-orders"
+verificationMode: "clip"
 tags: ["adoption", "custody", "orders", "court", "family", "law"]
 furtherDerivations: 1
 ---

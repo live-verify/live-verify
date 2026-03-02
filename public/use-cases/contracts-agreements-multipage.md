@@ -4,6 +4,7 @@ category: "Corporate & Legal Documents"
 volume: "Very Large"
 retention: "Contract term + 6-10 years"
 slug: "contracts-agreements-multipage"
+verificationMode: "clip"
 tags: ["contract", "agreement", "multi-page", "signature", "terms", "legal", "page-substitution"]
 ---
 

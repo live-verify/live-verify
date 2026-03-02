@@ -379,6 +379,10 @@
                         html += '<div class="meta">';
                         if (meta.category) html += `<span><strong>Category:</strong> ${meta.category}</span>`;
                         if (meta.volume) html += `<span><strong>Volume:</strong> ${meta.volume}</span>`;
+                        if (meta.verificationMode) {
+                            const modeLabels = { clip: 'Clip', camera: 'Camera', both: 'Both' };
+                            html += `<span><strong>Mode:</strong> ${modeLabels[meta.verificationMode] || meta.verificationMode}</span>`;
+                        }
                         html += '</div>';
                     }
 

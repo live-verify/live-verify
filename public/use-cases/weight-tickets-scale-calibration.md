@@ -4,6 +4,7 @@ category: "Warehousing & Inventory"
 volume: "Large"
 retention: "Shipment + 3-7 years (tax/audit/dispute)"
 slug: "weight-tickets-scale-calibration"
+verificationMode: "clip"
 tags: ["logistics", "shipping", "weight-ticket", "scale-ticket", "dot-compliance", "freight-fraud", "trade-measurement", "bulk-commodities"]
 furtherDerivations: 1
 ---

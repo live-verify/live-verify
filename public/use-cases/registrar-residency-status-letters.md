@@ -4,6 +4,7 @@ category: "Professional & Educational Qualifications"
 volume: "Medium"
 retention: "Academic term + 4 years (audit cycle)"
 slug: "registrar-residency-status-letters"
+verificationMode: "clip"
 tags: ["higher-education", "registrar", "enrollment-verification", "residency-status", "tuition-fraud", "student-benefits", "academic-integrity", "insurance-eligibility"]
 furtherDerivations: 1
 ---

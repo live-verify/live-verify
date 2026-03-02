@@ -4,6 +4,7 @@ category: "Environmental Permits & Compliance"
 volume: "Tiny"
 retention: "Permit term + permanent"
 slug: "endangered-species-take-permits"
+verificationMode: "clip"
 tags: ["endangered-species", "wildlife-protection", "fws", "noaa", "incidental-take", "habitat-conservation", "environmental-compliance"]
 furtherDerivations: 1
 ---

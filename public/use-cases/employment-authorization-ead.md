@@ -4,6 +4,7 @@ category: "Immigration & Visa Documents"
 volume: "Medium"
 retention: "1-2 years (renewal cycle)"
 slug: "employment-authorization-ead"
+verificationMode: "clip"
 tags: ["immigration", "ead", "form-i-766", "work-authorization", "uscis", "i-9-compliance", "employment-eligibility"]
 furtherDerivations: 1
 ---

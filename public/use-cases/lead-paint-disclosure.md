@@ -4,6 +4,7 @@ category: "Real Estate & Property"
 volume: "Very Large"
 retention: "3-7 years (EPA requirement)"
 slug: "lead-paint-disclosure"
+verificationMode: "clip"
 tags: ["lead-paint", "epa-disclosure", "real-estate-closing", "tenant-rights", "environmental-compliance", "public-health", "property-management"]
 furtherDerivations: 1
 ---

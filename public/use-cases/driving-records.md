@@ -4,6 +4,7 @@ category: "Government & Civic Documents"
 volume: "Very Large"
 retention: "Point-in-time (re-verify periodically)"
 slug: "driving-records"
+verificationMode: "clip"
 tags: ["driving", "licence", "dvla", "dmv", "points", "endorsements", "fleet", "employment"]
 furtherDerivations: 0
 ---

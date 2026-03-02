@@ -4,6 +4,7 @@ category: "Financial & Legal Documents"
 volume: "Very Large"
 retention: "7-10 years (audit statute / social security lifecycle)"
 slug: "tax-forms-receipts"
+verificationMode: "clip"
 tags: ["tax", "w-2", "1099", "irs", "income-verification", "mortgage-underwriting", "tax-fraud", "wage-statement", "payroll-audit"]
 furtherDerivations: 1
 ---

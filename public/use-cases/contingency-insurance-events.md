@@ -4,6 +4,7 @@ category: "Specialty Insurance"
 volume: "Small"
 retention: "Event + 7 years"
 slug: "contingency-insurance-events"
+verificationMode: "clip"
 tags: ["contingency-insurance", "event-cancellation", "non-appearance", "special-events", "lloyds", "risk-management"]
 furtherDerivations: 1
 ---

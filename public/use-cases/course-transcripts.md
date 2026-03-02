@@ -4,6 +4,7 @@ category: "Professional & Educational Qualifications"
 volume: "Small"
 retention: "Permanent (academic records)"
 slug: "course-transcripts"
+verificationMode: "clip"
 tags: ["academic-transcript", "grades", "registrar", "university-transfer", "educational-verification", "higher-education"]
 furtherDerivations: 1
 ---

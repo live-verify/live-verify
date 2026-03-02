@@ -4,6 +4,7 @@ category: "Art, Media & Publishing"
 volume: "Very Small"
 retention: "5-10 years (publication records)"
 slug: "manuscript-versions-edit-history"
+verificationMode: "clip"
 tags: ["manuscript", "version-control", "publishing-integrity", "author-attestation", "literary-fraud", "copyright-protection", "editorial-workflow"]
 furtherDerivations: 1
 ---

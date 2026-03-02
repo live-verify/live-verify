@@ -4,6 +4,7 @@ category: "Commerce & Consumer"
 volume: "High"
 retention: "Account lifetime + regulatory requirements"
 slug: "marketplace-pseudonymous-reputation"
+verificationMode: "clip"
 tags: ["identity-escrow", "marketplace", "reputation", "pseudonymous", "seller", "freelancer", "content-creator", "portable-reputation"]
 furtherDerivations: 4
 ---

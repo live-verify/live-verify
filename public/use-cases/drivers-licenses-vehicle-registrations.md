@@ -4,6 +4,7 @@ category: "Government & Civic Documents"
 volume: "Medium-Large"
 retention: "5-10 years (renewal cycles)"
 slug: "drivers-licenses-vehicle-registrations"
+verificationMode: "camera"
 tags: ["dmv", "drivers-license", "vehicle-registration", "real-id", "identity-verification", "public-safety", "law-enforcement"]
 furtherDerivations: 1
 ---

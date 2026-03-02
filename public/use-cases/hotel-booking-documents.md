@@ -4,6 +4,7 @@ category: "Travel & Hospitality"
 volume: "Very Large"
 retention: "Cancellation Date + 3-7 years"
 slug: "hotel-booking-documents"
+verificationMode: "clip"
 tags: ["booking-dispute", "expense-fraud", "hilton-honors", "hospitality", "hospitality-finance", "hospitality-management", "hotel-cancellation", "hotel-loyalty", "hotel-upgrade", "loyalty-perks", "marriott-bonvoy", "point-balance", "refund-receipt", "room-upgrade", "status-match", "suite-upgrade", "travel-expense", "travel-insurance", "travel-perks", "wealth-verification"]
 furtherDerivations: 3
 ---

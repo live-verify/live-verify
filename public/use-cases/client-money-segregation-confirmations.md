@@ -4,6 +4,7 @@ category: "Professional Ethics & Compliance"
 volume: "Small"
 retention: "7-10 years (CASS audit / legal statute)"
 slug: "client-money-segregation-confirmations"
+verificationMode: "clip"
 tags: ["client-money", "segregation", "cass-compliance", "investor-protection", "ring-fencing", "custody-audit", "financial-solvency", "brokerage-safety"]
 furtherDerivations: 1
 ---

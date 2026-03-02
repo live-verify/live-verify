@@ -4,6 +4,7 @@ category: "Sports & Athletics"
 volume: "Very Small"
 retention: "5-10 years (certification validity)"
 slug: "coaching-certifications"
+verificationMode: "clip"
 tags: ["sports-coaching", "certification", "youth-safety", "us-soccer", "safesport", "professional-qualification"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Financial & Legal Documents"
 volume: "Medium"
 retention: "Loan term + 7-10 years (statute of limitations)"
 slug: "promissory-notes"
+verificationMode: "clip"
 tags: ["finance", "lending", "promissory-note", "negotiable-instrument", "loan-agreement", "ucc-article-3", "debt-verification", "secondary-market"]
 furtherDerivations: 1
 ---

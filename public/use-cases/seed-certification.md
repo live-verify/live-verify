@@ -4,6 +4,7 @@ category: "Agriculture & Food"
 volume: "Very Small"
 retention: "5-20 years (variety tracking / IP lifecycle)"
 slug: "seed-certification"
+verificationMode: "clip"
 tags: ["agriculture", "seed-certification", "aosca", "variety-registration", "plant-ip", "germination-metrics", "farming-integrity", "supply-chain-fraud"]
 furtherDerivations: 1
 ---

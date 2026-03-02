@@ -4,6 +4,7 @@ category: "Chain of Custody & Logistics"
 volume: "Large"
 retention: "Delivery + 3-7 years"
 slug: "delivery-orders-cargo-release"
+verificationMode: "clip"
 tags: ["logistics", "shipping", "port-authority", "cargo-release", "delivery-order", "warehousing", "terminal-operations"]
 furtherDerivations: 1
 ---

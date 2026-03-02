@@ -4,6 +4,7 @@ category: "Agriculture & Food"
 volume: "Small"
 retention: "7-10 years (government audit)"
 slug: "farm-subsidy-documentation"
+verificationMode: "clip"
 tags: ["agriculture", "farm-subsidy", "usda-fsa", "payment-eligibility", "conservation-program", "rural-finance", "audit-trail"]
 furtherDerivations: 1
 ---

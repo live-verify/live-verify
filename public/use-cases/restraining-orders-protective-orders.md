@@ -4,6 +4,7 @@ category: "Legal & Court Documents"
 volume: "Large"
 retention: "Order duration + enforcement window (1-10 years)"
 slug: "restraining-orders-protective-orders"
+verificationMode: "clip"
 tags: ["restraining-order", "protective-order", "domestic-violence", "stalking", "harassment", "court-order", "law-enforcement", "victim-safety"]
 furtherDerivations: 2
 ---

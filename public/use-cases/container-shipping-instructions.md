@@ -4,6 +4,7 @@ category: "Chain of Custody & Logistics"
 volume: "Large"
 retention: "Shipment + 3-7 years"
 slug: "container-shipping-instructions"
+verificationMode: "clip"
 tags: ["container", "shipping", "instructions", "logistics", "transportation", "booking-confirmation"]
 furtherDerivations: 1
 ---

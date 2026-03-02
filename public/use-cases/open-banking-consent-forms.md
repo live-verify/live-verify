@@ -4,6 +4,7 @@ category: "Banking & Payments"
 volume: "Very Large"
 retention: "Consent term + 3-7 years (audit)"
 slug: "open-banking-consent-forms"
+verificationMode: "clip"
 tags: ["open-banking", "psd2", "consent-management", "data-privacy", "financial-data", "third-party-provider", "consumer-rights"]
 furtherDerivations: 1
 ---

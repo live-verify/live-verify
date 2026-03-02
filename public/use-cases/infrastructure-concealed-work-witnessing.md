@@ -4,6 +4,7 @@ category: "Infrastructure & Engineering"
 volume: "Medium"
 retention: "Design life of structure (50-100+ years)"
 slug: "infrastructure-concealed-work-witnessing"
+verificationMode: "camera"
 tags: ["infrastructure", "bridges", "tunnels", "dams", "pipelines", "wind-turbines", "concealment", "delayed-discovery", "engineering"]
 furtherDerivations: 5
 ---

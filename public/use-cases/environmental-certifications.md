@@ -4,6 +4,7 @@ category: "Product Certifications & Compliance"
 volume: "Very Small"
 retention: "5-10 years (certification validity)"
 slug: "environmental-certifications"
+verificationMode: "clip"
 tags: ["leed", "breeam", "well-certified", "green-building", "sustainability-audit", "real-estate-valuation"]
 furtherDerivations: 1
 ---

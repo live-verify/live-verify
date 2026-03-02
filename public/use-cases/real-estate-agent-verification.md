@@ -4,6 +4,7 @@ category: "Identity & Authority Verification"
 volume: "Medium"
 retention: "Showing + 1-3 years (safety/liability record)"
 slug: "real-estate-agent-verification"
+verificationMode: "camera"
 tags: ["real-estate", "realtor-safety", "agent-verification", "property-showing", "background-check", "licensing-board", "home-security", "consumer-protection"]
 furtherDerivations: 1
 ---

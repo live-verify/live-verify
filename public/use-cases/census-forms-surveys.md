@@ -4,6 +4,7 @@ category: "Government & Civic Documents"
 volume: "Medium-Small (census decade)"
 retention: "Permanent (historical records)"
 slug: "census-forms-surveys"
+verificationMode: "clip"
 tags: ["census", "demographics", "government-survey", "data-integrity", "vital-records", "genealogy"]
 furtherDerivations: 1
 ---

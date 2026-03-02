@@ -4,6 +4,7 @@ category: "Actuarial & Insurance Mathematics"
 volume: "Very Small"
 retention: "7-15 years (professional standards)"
 slug: "actuarial-audit-opinions"
+verificationMode: "clip"
 tags: ["actuarial", "audit", "opinion", "insurance", "solvency", "reserves"]
 furtherDerivations: 1
 ---

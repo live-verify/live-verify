@@ -4,6 +4,7 @@ category: "Real Estate & Property"
 volume: "Very Small"
 retention: "10-20 years (warranty period)"
 slug: "builder-warranties"
+verificationMode: "clip"
 tags: ["real-estate", "home-warranty", "new-construction", "structural-warranty", "builder", "homeowner"]
 furtherDerivations: 1
 ---

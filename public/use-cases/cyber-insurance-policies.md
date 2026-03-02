@@ -4,6 +4,7 @@ category: "Commercial Lines Insurance"
 volume: "Small"
 retention: "Policy term + 10 years (claims)"
 slug: "cyber-insurance-policies"
+verificationMode: "clip"
 tags: ["cyber-insurance", "breach-response", "forensic-investigation", "privacy-liability", "incident-response", "risk-management", "security-compliance"]
 furtherDerivations: 1
 ---

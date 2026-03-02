@@ -4,6 +4,7 @@ category: "Investment & Fintech"
 volume: "Very Small"
 retention: "Permanent (may show REVOKED status)"
 slug: "investment-advisor-certifications"
+verificationMode: "clip"
 tags: ["ria", "iar", "investment-advisor", "sec-registered", "fiduciary", "wealth-management", "compliance-audit", "iapd"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Civic & Public Safety"
 volume: "High"
 retention: "Varies by jurisdiction (1-7 years)"
 slug: "citizen-evidence-submission"
+verificationMode: "clip"
 tags: ["evidence", "citizen-reporting", "dashcam", "police", "tip", "witness", "public-safety", "accountability"]
 furtherDerivations: 4
 ---

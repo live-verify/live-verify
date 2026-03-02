@@ -4,6 +4,7 @@ category: "Identity & Authority Verification"
 volume: "High"
 retention: "Duration of relationship + 2 years"
 slug: "recurring-home-access-escrow"
+verificationMode: "clip"
 tags: ["identity-escrow", "home-access", "recurring-service", "cleaner", "dog-walker", "babysitter", "elder-care", "informal-employment"]
 furtherDerivations: 5
 ---

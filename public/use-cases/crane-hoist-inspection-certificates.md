@@ -4,6 +4,7 @@ category: "Site & Equipment Safety"
 volume: "Small"
 retention: "1 year (annual inspection)"
 slug: "crane-hoist-inspection-certificates"
+verificationMode: "clip"
 tags: ["crane-safety", "hoist-inspection", "construction-safety", "osha-compliance", "lifting-equipment", "heavy-machinery"]
 furtherDerivations: 1
 ---

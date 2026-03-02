@@ -4,6 +4,7 @@ category: "Notary Services"
 volume: "Small"
 retention: "7-10 years (corporate records)"
 slug: "corporate-resolutions-board-minutes"
+verificationMode: "clip"
 tags: ["corporate-governance", "board-minutes", "resolution", "secretary-certificate", "legal-authority", "notary", "m-and-a", "authority-to-sign"]
 furtherDerivations: 1
 ---

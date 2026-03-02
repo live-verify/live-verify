@@ -4,6 +4,7 @@ category: "Healthcare & Medical Records"
 volume: "Large"
 retention: "Duration of condition + review period (1-5 years)"
 slug: "disability-certification-letters"
+verificationMode: "clip"
 tags: ["disability", "ada", "reasonable-accommodation", "disabled-parking", "accessibility", "workplace-accommodation", "esa", "service-animal", "benefits"]
 furtherDerivations: 2
 ---

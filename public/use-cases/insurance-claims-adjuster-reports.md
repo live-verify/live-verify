@@ -4,6 +4,7 @@ category: "Insurance Claims & Operations"
 volume: "Medium"
 retention: "Claim term + 10 years"
 slug: "insurance-claims-adjuster-reports"
+verificationMode: "clip"
 tags: ["claims-adjudication", "damage-assessment", "insurance-adjuster", "claims-audit", "liability-report", "settlement-evidence", "xactimate-verified"]
 furtherDerivations: 1
 ---

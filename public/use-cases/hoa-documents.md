@@ -4,6 +4,7 @@ category: "Real Estate & Property"
 volume: "Tiny"
 retention: "Permanent (governance)"
 slug: "hoa-documents"
+verificationMode: "clip"
 tags: ["bylaws", "cc-and-rs", "condo-association", "governance", "hoa", "legal-authority", "legal-contract", "property-rules", "real-estate", "title-clearance"]
 furtherDerivations: 2
 ---

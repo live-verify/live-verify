@@ -4,6 +4,7 @@ category: "Scientific & Research"
 volume: "Very Small (per trial, thousands globally)"
 retention: "25-30 years (FDA regulatory requirement)"
 slug: "clinical-trial-documents"
+verificationMode: "clip"
 tags: ["clinical-trial", "informed-consent", "fda", "research-ethics", "patient-privacy", "gcp-compliance"]
 furtherDerivations: 1
 ---

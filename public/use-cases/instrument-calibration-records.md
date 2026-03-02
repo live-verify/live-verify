@@ -4,6 +4,7 @@ category: "Scientific & Research"
 volume: "Very Small"
 retention: "5-10 years (data validity)"
 slug: "instrument-calibration-records"
+verificationMode: "clip"
 tags: ["metrology", "scientific-instruments", "laboratory-compliance", "calibration-log", "glp-compliance", "data-integrity", "research-quality"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Government & Regulatory"
 volume: "Large"
 retention: "Tax year + statute of limitations (3-7 years)"
 slug: "tax-residency-certificates"
+verificationMode: "clip"
 tags: ["tax-residency", "certificate-of-residence", "double-taxation", "tax-treaty", "withholding-tax", "hmrc", "irs", "oecd", "form-6166"]
 furtherDerivations: 1
 ---

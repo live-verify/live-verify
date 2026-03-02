@@ -4,6 +4,7 @@ category: "Professional & Educational Qualifications"
 volume: "Large"
 retention: "Permanent (academic record)"
 slug: "university-degrees"
+verificationMode: "clip"
 tags: ["education", "degrees", "diploma", "transcripts", "hiring", "background-check", "diploma-mill", "university-registrar"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Investment & Fintech"
 volume: "Very Small"
 retention: "Permanent (securities holding)"
 slug: "equity-crowdfunding-certificates"
+verificationMode: "clip"
 tags: ["equity-crowdfunding", "startengine", "wefunder", "republic", "securities", "shareholder-certificate", "regulation-cf", "cap-table"]
 furtherDerivations: 1
 ---

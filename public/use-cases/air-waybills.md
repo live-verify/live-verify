@@ -4,6 +4,7 @@ category: "Chain of Custody & Logistics"
 volume: "Large"
 retention: "7-10 years (proof of shipment)"
 slug: "air-waybills"
+verificationMode: "clip"
 tags: ["air", "air-freight", "awb", "cargo", "cargo-security", "freight", "freight-forwarding", "hawb", "iata", "logistics", "supply-chain", "trade-finance", "waybill"]
 furtherDerivations: 2
 ---

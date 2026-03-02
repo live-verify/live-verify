@@ -4,6 +4,7 @@ category: "Novel Document Types"
 volume: "Very Large (emerging)"
 retention: "Permanent (career records)"
 slug: "micro-credentials"
+verificationMode: "clip"
 tags: ["skills", "credentials", "training", "competency", "badges", "peer-attestation", "novel"]
 ---
 

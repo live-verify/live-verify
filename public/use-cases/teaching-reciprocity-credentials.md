@@ -4,6 +4,7 @@ category: "Professional & Educational Qualifications"
 volume: "Very Small"
 retention: "License term (3-10 years)"
 slug: "teaching-reciprocity-credentials"
+verificationMode: "clip"
 tags: ["teaching-license", "education-reciprocity", "interstate-compact", "teacher-credentialing", "background-check", "academic-integrity", "school-district-hiring", "nasdtec"]
 furtherDerivations: 1
 ---

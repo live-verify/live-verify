@@ -4,6 +4,7 @@ category: "Healthcare & Medical Records"
 volume: "Very Small"
 retention: "Permanent (end-of-life care)"
 slug: "living-wills-advance-directives"
+verificationMode: "clip"
 tags: ["advance-directive", "living-will", "healthcare-proxy", "end-of-life-care", "medical-ethics", "patient-rights", "palliative-care", "legal-document"]
 furtherDerivations: 1
 ---

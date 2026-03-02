@@ -4,6 +4,7 @@ category: "Professional & Educational Qualifications"
 volume: "Very Large"
 retention: "3-7 years (tax + employment disputes)"
 slug: "pay-stubs-payslips"
+verificationMode: "clip"
 tags: ["pay-stub", "payslip", "income-verification", "employment", "payroll", "tax", "lending", "rental-application"]
 furtherDerivations: 2
 ---

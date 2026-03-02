@@ -4,6 +4,7 @@ category: "Professional & Occupational Licenses"
 volume: "Medium"
 retention: "License term (1-3 years)"
 slug: "towing-vehicle-recovery-permits"
+verificationMode: "clip"
 tags: ["towing", "vehicle-recovery", "municipal-permit", "police-rotation", "predatory-towing", "consumer-protection", "roadside-safety", "enforcement"]
 furtherDerivations: 1
 ---

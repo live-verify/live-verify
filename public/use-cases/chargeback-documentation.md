@@ -4,6 +4,7 @@ category: "Banking & Payments"
 volume: "Small"
 retention: "3-7 years (dispute resolution)"
 slug: "chargeback-documentation"
+verificationMode: "clip"
 tags: ["chargeback", "payment-dispute", "visa", "mastercard", "ecommerce-fraud", "merchant-protection"]
 furtherDerivations: 1
 ---

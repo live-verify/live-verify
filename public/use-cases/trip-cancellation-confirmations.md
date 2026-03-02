@@ -4,6 +4,7 @@ category: "Travel & Hospitality"
 volume: "Large"
 retention: "Cancellation + 3-7 years (insurance/tax audit)"
 slug: "trip-cancellation-confirmations"
+verificationMode: "clip"
 tags: ["trip-cancellation", "travel-insurance", "refund-confirmation", "travel-credit", "claims-evidence", "travel-fraud", "airline-refund"]
 furtherDerivations: 1
 ---

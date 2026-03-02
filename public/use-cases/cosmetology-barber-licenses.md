@@ -4,6 +4,7 @@ category: "Professional & Occupational Licenses"
 volume: "Large"
 retention: "1-2 years (renewal)"
 slug: "cosmetology-barber-licenses"
+verificationMode: "clip"
 tags: ["cosmetology", "barber", "hair-stylist", "esthetician", "professional-license", "public-health", "sanitation-compliance"]
 furtherDerivations: 1
 ---

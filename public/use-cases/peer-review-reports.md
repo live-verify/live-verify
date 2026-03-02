@@ -4,6 +4,7 @@ category: "Scientific & Research"
 volume: "Very Small"
 retention: "Permanent (publication history / career integrity)"
 slug: "peer-review-reports"
+verificationMode: "clip"
 tags: ["scientific-publishing", "peer-review", "academic-integrity", "journal-submission", "research-vetting", "scholarly-record", "publication-fraud", "tenure-review"]
 furtherDerivations: 1
 ---

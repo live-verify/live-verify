@@ -4,6 +4,7 @@ category: "Professional & Occupational Licenses"
 volume: "Medium"
 retention: "License term (1-3 years)"
 slug: "pest-control-operator-licenses"
+verificationMode: "clip"
 tags: ["pest-control", "occupational-license", "pesticide-safety", "structural-pest", "exterminator-vetting", "public-health", "consumer-protection", "background-check"]
 furtherDerivations: 1
 ---

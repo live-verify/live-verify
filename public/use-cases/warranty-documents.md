@@ -4,6 +4,7 @@ category: "Business & Commerce"
 volume: "Very Large"
 retention: "Product lifetime + 3-10 years (liability/recall period)"
 slug: "warranty-documents"
+verificationMode: "clip"
 tags: ["retail", "warranty", "consumer-protection", "product-registration", "service-contract", "extended-warranty", "after-sales", "repair-eligibility"]
 furtherDerivations: 1
 ---

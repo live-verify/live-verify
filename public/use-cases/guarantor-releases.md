@@ -4,6 +4,7 @@ category: "Banking & Financial Services"
 volume: "Medium"
 retention: "7-10 years (credit reporting cycle)"
 slug: "guarantor-releases"
+verificationMode: "clip"
 tags: ["guarantor", "co-signer", "release", "loan", "lease", "personal-guarantee"]
 ---
 

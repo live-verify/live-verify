@@ -4,6 +4,7 @@ category: "Real Estate & Property"
 volume: "Large"
 retention: "Policy term + 7 years (claims, mortgage audits)"
 slug: "homeowners-renters-insurance"
+verificationMode: "clip"
 tags: ["adjuster-report", "condo-insurance", "damage-estimate", "dec-page", "dwelling-coverage", "escrow-audit", "fraud-prevention", "hazard-insurance", "homeowners-insurance", "mortgage-compliance", "property-casualty", "property-claim", "real-estate-closing", "renters-insurance", "restoration-audit", "risk-management"]
 furtherDerivations: 3
 ---

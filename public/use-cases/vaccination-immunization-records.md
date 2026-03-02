@@ -4,6 +4,7 @@ category: "Healthcare & Medical Records"
 volume: "Very Large"
 retention: "Lifetime (health & public safety history)"
 slug: "vaccination-immunization-records"
+verificationMode: "both"
 tags: ["healthcare", "immunization", "vaccination-card", "cdc-white-card", "public-health", "travel-requirements", "school-enrollment", "medical-fraud", "phi-security"]
 furtherDerivations: 1
 ---

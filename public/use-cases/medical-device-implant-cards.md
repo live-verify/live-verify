@@ -4,6 +4,7 @@ category: "Healthcare & Medical Records"
 volume: "Small"
 retention: "Lifetime (device tracking)"
 slug: "medical-device-implant-cards"
+verificationMode: "both"
 tags: ["medical-implant", "pacemaker-card", "joint-replacement", "udi-tracking", "patient-safety", "surgical-history", "healthcare-logistics"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Professional Ethics & Compliance"
 volume: "Large"
 retention: "7-10 years (regulatory, litigation)"
 slug: "investment-suitability-reports"
+verificationMode: "clip"
 tags: ["suitability", "investment-advice", "mifid", "reg-bi", "financial-advice", "know-your-client"]
 furtherDerivations: 0
 ---

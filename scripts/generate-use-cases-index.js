@@ -123,6 +123,7 @@ async function main() {
             category: metadata.category || 'Uncategorized',
             volume: metadata.volume || 'Unknown',
             retention: metadata.retention || 'Unknown',
+            verificationMode: metadata.verificationMode || 'clip',
             furtherDerivations: furtherDerivations,
             snippet: snippet,
             tags: metadata.tags || []

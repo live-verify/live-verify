@@ -4,6 +4,7 @@ category: "Art, Media & Publishing"
 volume: "Very Small"
 retention: "3-10 years (journalistic integrity)"
 slug: "fact-checking-verification"
+verificationMode: "clip"
 tags: ["fact-checking", "journalism", "misinformation", "trust-in-media", "news-integrity", "source-verification", "editorial-standards"]
 furtherDerivations: 1
 ---

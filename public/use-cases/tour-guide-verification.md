@@ -4,6 +4,7 @@ category: "Identity & Authority Verification"
 volume: "Large"
 retention: "Tour + 1-3 years (safety/liability record)"
 slug: "tour-guide-verification"
+verificationMode: "camera"
 tags: ["tourism", "tour-guide", "travel-safety", "solo-travel", "official-license", "background-check", "vetted-services", "destination-security"]
 furtherDerivations: 1
 ---

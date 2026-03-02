@@ -4,6 +4,7 @@ category: "Chain of Custody & Logistics"
 volume: "Medium"
 retention: "Variable (Case duration to Permanent)"
 slug: "chain-of-custody-forms"
+verificationMode: "clip"
 tags: ["forensics", "evidence", "legal-authority", "logistics", "audit-trail", "criminal-justice"]
 furtherDerivations: 1
 ---

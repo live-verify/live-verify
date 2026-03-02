@@ -4,6 +4,7 @@ category: "Insurance & Bonds"
 volume: "Medium"
 retention: "7 years (project completion + warranty)"
 slug: "surety-bond-releases"
+verificationMode: "clip"
 tags: ["surety", "bond", "release", "construction", "performance", "collateral"]
 ---
 

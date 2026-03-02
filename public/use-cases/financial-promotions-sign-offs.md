@@ -4,6 +4,7 @@ category: "Professional Ethics & Compliance"
 volume: "Very Large"
 retention: "7 years (FCA/FINRA regulatory requirement)"
 slug: "financial-promotions-sign-offs"
+verificationMode: "clip"
 tags: ["financial-promotion", "marketing-compliance", "s21-sign-off", "fair-clear-misleading", "ad-verification", "investor-protection", "advertising-standards", "regulatory-vetting"]
 furtherDerivations: 1
 ---

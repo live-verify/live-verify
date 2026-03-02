@@ -4,6 +4,7 @@ category: "Commercial Lines Insurance"
 volume: "Very Small"
 retention: "Policy term + 20 years (claims tail)"
 slug: "directors-statutory-liability-pension"
+verificationMode: "clip"
 tags: ["pension-trustee", "erisa-liability", "fiduciary-insurance", "pension-fund-governance", "statutory-liability", "risk-management"]
 furtherDerivations: 1
 ---

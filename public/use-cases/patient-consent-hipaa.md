@@ -4,6 +4,7 @@ category: "Healthcare & Medical Records"
 volume: "Very Large"
 retention: "7-10 years post-treatment (regulatory, legal liability)"
 slug: "patient-consent-hipaa"
+verificationMode: "clip"
 tags: ["patient", "consent", "hipaa", "healthcare", "medical", "records", "privacy", "fraud-prevention", "clinical-trials"]
 furtherDerivations: 1
 ---

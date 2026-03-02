@@ -4,6 +4,7 @@ category: "Government & Civic Documents"
 volume: "Small (per certificate, but billions exist globally)"
 retention: "Permanent (vital records)"
 slug: "birth-death-certificates"
+verificationMode: "clip"
 tags: ["birth-certificate", "death-certificate", "vital-records", "identity", "probate", "ancestry"]
 furtherDerivations: 1
 ---

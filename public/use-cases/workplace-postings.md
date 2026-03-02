@@ -4,6 +4,7 @@ category: "Professional & Occupational Licenses"
 type: "use-case"
 slug: "workplace-postings"
 beneficiary: "Employees"
+verificationMode: "camera"
 tags: ["workplace", "labor-law", "safety", "mandatory", "employees", "osha", "fmla", "eeoc", "nlra"]
 furtherDerivations: 1
 ---

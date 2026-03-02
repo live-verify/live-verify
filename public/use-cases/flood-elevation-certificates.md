@@ -4,6 +4,7 @@ category: "Real Estate & Property"
 volume: "Very Small"
 retention: "Permanent (flood insurance)"
 slug: "flood-elevation-certificates"
+verificationMode: "clip"
 tags: ["real-estate", "flood-insurance", "nfip", "fema-elevation-certificate", "surveyor", "flood-zone", "coastal-resiliency"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Travel & Hospitality"
 volume: "Medium"
 retention: "Travel + 3-7 years (statute of limitations / tax)"
 slug: "travel-package-bookings"
+verificationMode: "clip"
 tags: ["travel-package", "all-inclusive", "tour-operator", "booking-confirmation", "vacation-voucher", "travel-fraud", "resort-access"]
 furtherDerivations: 1
 ---

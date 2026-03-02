@@ -4,6 +4,7 @@ category: "Immigration & Visa Documents"
 volume: "Very Large"
 retention: "Appointment Date + 1-2 years (financial audit)"
 slug: "visa-fee-receipts"
+verificationMode: "clip"
 tags: ["immigration", "visa-fee", "mrv-receipt", "consular-fees", "travel-fraud", "expense-reimbursement", "appointment-booking", "identity-theft"]
 furtherDerivations: 1
 ---

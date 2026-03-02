@@ -4,6 +4,7 @@ category: "Business & Commerce"
 volume: "Huge"
 retention: "Lifetime of product"
 slug: "open-source-license-notices"
+verificationMode: "clip"
 tags: ["open-source", "license", "gpl", "mit", "compliance", "supply-chain", "sbom"]
 furtherDerivations: 1
 ---

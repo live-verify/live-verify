@@ -4,6 +4,7 @@ category: "Banking & Payments"
 volume: "Very Large"
 retention: "7-10 years (tax / financial audit lifecycle)"
 slug: "payment-processor-merchant-statements"
+verificationMode: "clip"
 tags: ["stripe", "paypal", "square", "merchant-statement", "payment-processing", "ecommerce-fraud", "business-lending", "revenue-verification"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Notary Services"
 volume: "Medium"
 retention: "Translation purpose + 7-10 years"
 slug: "certified-translations"
+verificationMode: "clip"
 tags: ["translation", "notary", "certified-translation", "ata", "immigration", "legal-docs"]
 furtherDerivations: 1
 ---

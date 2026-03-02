@@ -4,6 +4,7 @@ category: "Novel Document Types"
 volume: "Very Large (emerging)"
 retention: "Permanent (legal protection)"
 slug: "consent-records"
+verificationMode: "clip"
 tags: ["consent", "gdpr", "hipaa", "privacy", "medical", "data-rights", "novel"]
 ---
 

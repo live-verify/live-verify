@@ -4,6 +4,7 @@ category: "Product Certifications & Compliance"
 volume: "Small"
 retention: "Release lifecycle + 3-7 years (security compliance)"
 slug: "sbom-attestation-pages"
+verificationMode: "clip"
 tags: ["sbom", "software-security", "supply-chain", "cybersecurity", "compliance", "software-bill-of-materials", "executive-order-14028"]
 furtherDerivations: 1
 ---

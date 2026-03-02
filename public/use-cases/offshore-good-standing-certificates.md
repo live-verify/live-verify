@@ -4,6 +4,7 @@ category: "Financial Compliance"
 volume: "Large"
 retention: "Duration of entity + 7 years"
 slug: "offshore-good-standing-certificates"
+verificationMode: "clip"
 tags: ["good-standing", "certificate", "offshore", "shell-company", "registry", "cayman", "bvi", "jersey", "bermuda", "banking", "kyc", "de-risking"]
 furtherDerivations: 3
 ---

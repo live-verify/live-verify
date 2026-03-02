@@ -4,6 +4,7 @@ category: "Sports & Athletics"
 volume: "Small"
 retention: "Permanent (sports history and records)"
 slug: "athletic-records-timing-results"
+verificationMode: "clip"
 tags: ["sports", "athletics", "timing", "records", "ratification", "olympics"]
 furtherDerivations: 1
 ---

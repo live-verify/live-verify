@@ -4,6 +4,7 @@ category: "Banking & Payments"
 volume: "Large"
 retention: "3-7 years (tax/disputes)"
 slug: "mobile-money-receipts"
+verificationMode: "clip"
 tags: ["m-pesa", "gcash", "bkash", "remittance", "mobile-money", "p2p-payment", "financial-inclusion", "unbanked-finance"]
 furtherDerivations: 1
 ---

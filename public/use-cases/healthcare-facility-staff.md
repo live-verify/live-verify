@@ -4,6 +4,7 @@ category: "Identity & Authority Verification"
 volume: "Large"
 retention: "2-7 years (security & incident records)"
 slug: "healthcare-facility-staff"
+verificationMode: "camera"
 tags: ["hospital-safety", "patient-safety", "healthcare-security", "staff-verification", "credential-verification", "medical-facility-security", "doctor-verification", "nurse-verification"]
 furtherDerivations: 0
 ---

@@ -4,6 +4,7 @@ category: "Identity & Authority Verification"
 volume: "Large"
 retention: "Stay + 1-3 years (incident records)"
 slug: "hotel-staff-verification"
+verificationMode: "camera"
 tags: ["hotel-safety", "staff-verification", "personal-safety", "airbnb-host-verification", "room-service-security", "hospitality-security", "home-security", "ungated-facilities", "mobile-staff"]
 furtherDerivations: 3
 ---

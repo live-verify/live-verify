@@ -4,6 +4,7 @@ category: "Immigration & Visa Documents"
 volume: "Medium"
 retention: "Appointment + 5 years"
 slug: "immigration-interview-notices"
+verificationMode: "clip"
 tags: ["immigration", "uscis", "interview-notice", "green-card", "naturalization", "form-i-797", "adjustment-of-status", "visa-appointment"]
 furtherDerivations: 1
 ---

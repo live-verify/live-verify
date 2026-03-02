@@ -4,6 +4,7 @@ category: "Professional & Occupational Licenses"
 volume: "Medium"
 retention: "Permit validity (1-5 years)"
 slug: "concealed-carry-permits"
+verificationMode: "camera"
 tags: ["ccw", "firearms-permit", "public-safety", "second-amendment", "law-enforcement", "concealed-carry", "identity-verification"]
 furtherDerivations: 1
 ---

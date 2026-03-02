@@ -4,6 +4,7 @@ category: "Identity & Authority Verification"
 volume: "Medium"
 retention: "Encounter + 1-3 years"
 slug: "immigration-officer-verification"
+verificationMode: "camera"
 tags: ["immigration-enforcement", "ice-officer", "cbp-officer", "officer-badge", "public-safety", "enforcement-integrity", "home-security"]
 furtherDerivations: 1
 ---

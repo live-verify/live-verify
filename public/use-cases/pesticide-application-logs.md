@@ -4,6 +4,7 @@ category: "Agriculture & Food"
 volume: "Small"
 retention: "5-10 years (environmental compliance / supply chain audit)"
 slug: "pesticide-application-logs"
+verificationMode: "clip"
 tags: ["agriculture", "pesticide-safety", "environmental-compliance", "epa-regulations", "food-traceability", "organic-verification", "farm-audit", "chemical-application"]
 furtherDerivations: 1
 ---

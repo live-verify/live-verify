@@ -4,6 +4,7 @@ category: "Professional Ethics & Compliance"
 volume: "Medium-Large"
 retention: "7 years (regulatory), permanent (litigation)"
 slug: "compensation-conflict-disclosures"
+verificationMode: "clip"
 tags: ["conflict-of-interest", "fiduciary", "commission", "compensation", "disclosure", "fee-only", "kickback", "transparency", "attestation"]
 furtherDerivations: 0
 ---

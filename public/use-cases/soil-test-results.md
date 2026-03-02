@@ -4,6 +4,7 @@ category: "Agriculture & Food"
 volume: "Small"
 retention: "5-10 years (nutrient management / carbon credits)"
 slug: "soil-test-results"
+verificationMode: "clip"
 tags: ["agriculture", "soil-science", "agronomy", "nutrient-management", "carbon-sequestration", "land-valuation", "farming-audit"]
 furtherDerivations: 1
 ---

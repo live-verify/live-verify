@@ -4,6 +4,7 @@ category: "Novel Document Types"
 volume: "Large (emerging)"
 retention: "Varies by type"
 slug: "absence-certificates"
+verificationMode: "clip"
 tags: ["negative-proof", "absence", "no-claims", "clear-record", "due-diligence", "novel"]
 ---
 

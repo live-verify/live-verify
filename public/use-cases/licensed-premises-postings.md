@@ -4,6 +4,7 @@ category: "Professional & Occupational Licenses"
 type: "use-case"
 slug: "licensed-premises-postings"
 beneficiary: "Customers/Regulators"
+verificationMode: "camera"
 tags: ["alcohol-license", "liquor-license", "occupancy", "operating-hours", "compliance", "public-safety"]
 furtherDerivations: 1
 ---

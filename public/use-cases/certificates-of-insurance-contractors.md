@@ -4,6 +4,7 @@ category: "Commercial Lines Insurance"
 volume: "Large"
 retention: "Contract term + 3-7 years"
 slug: "certificates-of-insurance-contractors"
+verificationMode: "clip"
 tags: ["insurance", "coi", "acord-25", "contractor", "liability", "compliance", "construction"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Insurance Claims & Operations"
 volume: "Small"
 retention: "Policy term + 7 years"
 slug: "cyber-extortion-ransomware"
+verificationMode: "clip"
 tags: ["cyber-insurance", "ransomware", "extortion", "incident-response", "breach-notification", "bitcoin-payment", "risk-management"]
 furtherDerivations: 1
 ---

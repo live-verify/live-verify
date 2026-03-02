@@ -4,6 +4,7 @@ category: "Notary Services"
 volume: "Small"
 retention: "Permanent (end-of-life care)"
 slug: "advance-healthcare-directives"
+verificationMode: "clip"
 tags: ["advance", "healthcare", "directives", "living", "will", "medical", "power", "attorney"]
 furtherDerivations: 1
 ---

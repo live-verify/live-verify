@@ -4,6 +4,7 @@ category: "Specialty Insurance"
 volume: "Very Small"
 retention: "Horse lifetime (15-25 years)"
 slug: "bloodstock-insurance"
+verificationMode: "clip"
 tags: ["horse-racing", "bloodstock", "insurance", "lloyds", "mortality", "breeding", "livestock"]
 furtherDerivations: 1
 ---

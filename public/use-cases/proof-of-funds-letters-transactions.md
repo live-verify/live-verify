@@ -4,6 +4,7 @@ category: "Real Estate & Property"
 volume: "Medium"
 retention: "Transaction period (3-6 months / point-in-time)"
 slug: "proof-of-funds-letters-transactions"
+verificationMode: "clip"
 tags: ["real-estate", "banking", "pof", "proof-of-funds", "cash-buyer", "financial-vetting", "escrow-funding", "mergers-and-acquisitions"]
 furtherDerivations: 1
 ---
@@ -15,7 +16,7 @@ A **Proof of Funds (POF)** letter is a document issued by a bank or financial in
 Because a POF is the difference between an offer being accepted or rejected, it is a primary target for fraud. Scammers use "Inspect Element" on their online banking to turn a $1,000 balance into $1,000,000, or they buy fake "Bank Letters" from illegal dark-web services. Verified hashes bind the **Available Balance, Account Holder Name, and Issuing Officer** to the bank's domain (e.g., `chase.com` or `goldmansachs.com`).
 
 <div style="max-width: 650px; margin: 24px auto; font-family: 'Times New Roman', serif; border: 1px solid #ccc; background: #fff; padding: 50px 60px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); position: relative;">
-  <a href="data/slides/proof-of-funds-letters-transactions-1.html" style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%); background: #e0e0e0; border: 1px solid #999; border-radius: 4px; padding: 6px 8px; font-size: 0.75em; line-height: 1.2; cursor: pointer; color: #333; text-decoration: none; font-family: sans-serif;">show<br>me</a>
+  <a href="slides/proof-of-funds-letters-transactions-1.html" style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%); background: #e0e0e0; border: 1px solid #999; border-radius: 4px; padding: 6px 8px; font-size: 0.75em; line-height: 1.2; cursor: pointer; color: #333; text-decoration: none; font-family: sans-serif;">show<br>me</a>
 
   <!-- Bank Logo -->
   <div style="text-align: center; margin-bottom: 5px;">

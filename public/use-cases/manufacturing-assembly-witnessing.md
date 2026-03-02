@@ -4,6 +4,7 @@ category: "Manufacturing & Production"
 volume: "High"
 retention: "Product lifetime + liability period"
 slug: "manufacturing-assembly-witnessing"
+verificationMode: "camera"
 tags: ["manufacturing", "aircraft", "automotive", "shipbuilding", "assembly", "quality", "concealment", "product-liability"]
 furtherDerivations: 4
 ---

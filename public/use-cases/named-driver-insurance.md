@@ -4,6 +4,7 @@ category: "Personal Lines Insurance"
 volume: "Medium"
 retention: "Policy term (1 year typical)"
 slug: "named-driver-insurance"
+verificationMode: "clip"
 tags: ["car-insurance", "named-driver", "policy-endorsement", "additional-driver", "telematics-insurance", "uninsured-motorist", "insurance-fraud"]
 furtherDerivations: 1
 ---

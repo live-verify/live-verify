@@ -4,6 +4,7 @@ category: "Product Certifications & Compliance"
 volume: "Very Large"
 retention: "Product lifetime (10-30 years / liability lifecycle)"
 slug: "safety-certifications"
+verificationMode: "clip"
 tags: ["product-safety", "ul-listing", "ce-mark", "electrical-safety", "intertek-etl", "manufacturing-compliance", "safety-fraud", "customs-vetting", "consumer-protection"]
 furtherDerivations: 1
 ---

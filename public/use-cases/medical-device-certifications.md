@@ -4,6 +4,7 @@ category: "Product Certifications & Compliance"
 volume: "Very Large"
 retention: "10-30 years (product liability)"
 slug: "medical-device-certifications"
+verificationMode: "clip"
 tags: ["medical-device", "fda-510k", "ce-marking", "iso-13485", "medpro", "patient-safety", "regulatory-compliance", "eumed"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Real Estate & Property"
 volume: "Very Small"
 retention: "Permanent (chain of title)"
 slug: "title-insurance-policies"
+verificationMode: "clip"
 tags: ["title", "insurance", "policies", "real", "estate", "property", "title-clearance", "closing-docs"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Commercial Lines Insurance"
 volume: "Very Large"
 retention: "Policy term + 30-50 years (medical/disability lifecycle)"
 slug: "workers-comp-certificates"
+verificationMode: "clip"
 tags: ["commercial-insurance", "workers-comp", "coi-verification", "payroll-audit", "workplace-safety", "sub-contractor-vetting", "insurance-fraud", "statutory-coverage"]
 furtherDerivations: 1
 ---

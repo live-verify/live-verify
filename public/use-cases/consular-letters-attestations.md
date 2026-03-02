@@ -4,6 +4,7 @@ category: "Immigration & Visa Documents"
 volume: "Small"
 retention: "Case + 5-10 years"
 slug: "consular-letters-attestations"
+verificationMode: "clip"
 tags: ["embassy", "consulate", "consular-letter", "attestation", "diplomatic-mission", "visa-support", "legalization"]
 furtherDerivations: 1
 ---

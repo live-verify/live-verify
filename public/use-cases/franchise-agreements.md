@@ -4,6 +4,7 @@ category: "Business & Commerce"
 volume: "Small"
 retention: "Term plus 7+ years"
 slug: "franchise-agreements"
+verificationMode: "clip"
 tags: ["franchise-agreement", "fdd", "item-19", "business-opportunity", "corporate-compliance", "ftc-rule", "franchisor-verification"]
 furtherDerivations: 1
 ---

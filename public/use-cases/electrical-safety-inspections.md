@@ -4,6 +4,7 @@ category: "Site & Equipment Safety"
 volume: "Large"
 retention: "3-5 years (commercial wiring cycle)"
 slug: "electrical-safety-inspections"
+verificationMode: "clip"
 tags: ["electrical-safety", "eawr", "nfpa-70e", "fixed-wire-test", "panel-inspection", "fire-prevention", "electrical-code"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Commercial Lines Insurance"
 volume: "Large"
 retention: "Policy term + 10 years"
 slug: "commercial-general-liability"
+verificationMode: "clip"
 tags: ["cgl", "insurance-policy", "liability", "contractor-insurance", "risk-management", "commercial-insurance"]
 furtherDerivations: 1
 ---

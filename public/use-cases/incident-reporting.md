@@ -4,6 +4,7 @@ category: "Safety & Compliance"
 volume: "Very Large"
 retention: "Permanent (safety records)"
 slug: "incident-reporting"
+verificationMode: "clip"
 tags: ["incidents", "safety", "near-miss", "blameless", "healthcare", "aviation", "nuclear", "construction", "maritime", "rail", "OSHA", "disclosure", "novel"]
 ---
 

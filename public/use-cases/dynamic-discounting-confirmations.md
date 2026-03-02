@@ -4,6 +4,7 @@ category: "Trade Finance"
 volume: "Small"
 retention: "3-7 years (payment disputes)"
 slug: "dynamic-discounting-confirmations"
+verificationMode: "clip"
 tags: ["trade-finance", "dynamic-discounting", "early-payment", "supply-chain-finance", "accounts-payable", "fintech", "cash-flow"]
 furtherDerivations: 1
 ---

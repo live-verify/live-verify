@@ -4,6 +4,7 @@ category: "Commercial Lines Insurance"
 volume: "Medium"
 retention: "Policy term + 7 years"
 slug: "commercial-auto-insurance"
+verificationMode: "clip"
 tags: ["commercial-auto", "fleet-insurance", "logistics", "dot-compliance", "trucking", "hired-non-owned"]
 furtherDerivations: 1
 ---

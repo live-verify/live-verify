@@ -4,6 +4,7 @@ category: "Vehicle & Transportation"
 volume: "Very Large"
 retention: "License term (1-3 years)"
 slug: "vehicle-display-postings"
+verificationMode: "camera"
 tags: ["taxi-license", "rideshare-permit", "tlc-medallion", "vehicle-safety", "public-transport", "municipal-permit", "driver-verification", "passenger-safety"]
 furtherDerivations: 1
 ---

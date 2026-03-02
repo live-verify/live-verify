@@ -4,6 +4,7 @@ category: "Identity & Authority Verification"
 volume: "Medium"
 retention: "Care period + 3-7 years"
 slug: "childcare-provider-verification"
+verificationMode: "camera"
 tags: ["childcare", "nanny", "babysitter", "background-check", "first-aid", "personal-safety", "home-security"]
 furtherDerivations: 1
 ---

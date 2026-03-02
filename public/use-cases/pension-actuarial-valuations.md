@@ -4,6 +4,7 @@ category: "Financial Compliance"
 volume: "Very Small"
 retention: "Permanent (pension plan lifecycle)"
 slug: "pension-actuarial-valuations"
+verificationMode: "clip"
 tags: ["actuarial", "pension-funding", "retirement-security", "erisa-compliance", "pbgc", "benefit-verification", "financial-solvency", "audit-trail"]
 furtherDerivations: 1
 ---

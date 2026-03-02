@@ -4,6 +4,7 @@ category: "Legal & Court Documents"
 volume: "Medium"
 retention: "Permanent (legal status)"
 slug: "conviction-expungement-certificates"
+verificationMode: "clip"
 tags: ["expungement", "sealing", "conviction", "criminal-record", "court-order", "clean-slate"]
 ---
 

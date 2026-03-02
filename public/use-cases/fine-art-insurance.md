@@ -4,6 +4,7 @@ category: "Specialty Insurance"
 volume: "Small"
 retention: "Policy term / exhibition + 10 years"
 slug: "fine-art-insurance"
+verificationMode: "clip"
 tags: ["fine-art", "museum-insurance", "nail-to-nail", "lloyds", "art-theft", "exhibition-coverage", "risk-management"]
 furtherDerivations: 1
 ---

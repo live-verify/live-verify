@@ -4,6 +4,7 @@ category: "Specialty Insurance"
 volume: "Small"
 retention: "Mortgage term (15-30 years)"
 slug: "mortgage-indemnity-insurance"
+verificationMode: "clip"
 tags: ["lenders-mortgage-insurance", "lmi", "mortgage-insurance", "high-ltv-loan", "pmi-certificate", "mortgage-finance", "risk-mitigation"]
 furtherDerivations: 1
 ---

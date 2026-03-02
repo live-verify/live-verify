@@ -4,6 +4,7 @@ category: "Governance & Voting"
 volume: "High"
 retention: "Vote records: 3-7 years; Eligibility: ongoing"
 slug: "recurring-organizational-votes"
+verificationMode: "clip"
 tags: ["identity-escrow", "voting", "union", "hoa", "employee-surveys", "secret-ballot", "eligibility-verification", "anonymous-voting"]
 furtherDerivations: 4
 ---

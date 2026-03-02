@@ -4,6 +4,7 @@ category: "Specialty Insurance"
 volume: "Very Small"
 retention: "Voyage + 10 years (claims / audit)"
 slug: "war-risk-piracy-insurance"
+verificationMode: "clip"
 tags: ["specialty-insurance", "war-risk", "piracy-coverage", "maritime-security", "high-risk-transit", "vessel-protection", "marine-finance", "armed-guard-verification"]
 furtherDerivations: 1
 ---

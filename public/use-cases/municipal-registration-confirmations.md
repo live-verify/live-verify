@@ -4,6 +4,7 @@ category: "Government & Regulatory"
 volume: "Very Large"
 retention: "1-5 years (renewal cycles)"
 slug: "municipal-registration-confirmations"
+verificationMode: "clip"
 tags: ["municipal", "local", "registration", "business-license", "permit", "city", "county"]
 ---
 

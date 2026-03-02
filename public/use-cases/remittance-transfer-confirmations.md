@@ -4,6 +4,7 @@ category: "Banking & Payments"
 volume: "Very Large"
 retention: "5-7 years (financial audit / AML lifecycle)"
 slug: "remittance-transfer-confirmations"
+verificationMode: "clip"
 tags: ["remittance", "western-union", "money-transfer", "cross-border-payment", "mtcn", "fintech-fraud", "money-laundering", "immigrant-services"]
 furtherDerivations: 1
 ---

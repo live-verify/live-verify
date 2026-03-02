@@ -4,6 +4,7 @@ category: "Actuarial & Insurance Mathematics"
 volume: "Very Small"
 retention: "7-30 years (policy lifetime)"
 slug: "insurance-reserve-certifications"
+verificationMode: "clip"
 tags: ["actuarial-audit", "actuarial-certification", "actuarial-opinion", "claims-management", "financial-reporting", "insurance-liability", "insurance-regulation", "lapse-rates", "life-insurance-liabilities", "loss-reserves", "ltc-insurance", "morbidity-assumptions", "naic-compliance", "pension-protection", "pension-reserves", "risk-audit", "self-insurance", "solvency-audit", "solvency-compliance", "workers-comp"]
 furtherDerivations: 3
 ---

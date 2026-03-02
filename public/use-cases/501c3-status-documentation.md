@@ -4,6 +4,7 @@ category: "Charitable & Non-Profit"
 volume: "Tiny"
 retention: "Permanent (legal status)"
 slug: "501c3-status-documentation"
+verificationMode: "clip"
 tags: ["501c3", "status", "documentation", "charitable", "non-profit", "IRS"]
 furtherDerivations: 1
 ---

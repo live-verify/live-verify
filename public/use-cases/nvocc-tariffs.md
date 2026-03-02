@@ -4,6 +4,7 @@ category: "Chain of Custody & Logistics"
 volume: "Medium"
 retention: "Tariff validity + 7 years (FMC compliance)"
 slug: "nvocc-tariffs"
+verificationMode: "clip"
 tags: ["shipping", "logistics", "nvocc", "fmc-compliance", "freight-rates", "tariff-filing", "maritime-regulation", "trade-integrity"]
 furtherDerivations: 1
 ---

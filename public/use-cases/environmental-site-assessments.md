@@ -4,6 +4,7 @@ category: "Real Estate & Property"
 volume: "Medium"
 retention: "7-20 years (CERCLA liability protection)"
 slug: "environmental-site-assessments"
+verificationMode: "clip"
 tags: ["environmental", "site-assessment", "esa", "real-estate", "phase-i-esa", "phase-ii-esa", "contamination", "due-diligence"]
 furtherDerivations: 1
 ---

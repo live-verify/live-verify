@@ -4,6 +4,7 @@ category: "Real Estate & Property"
 volume: "Very Small"
 retention: "Permanent (clear title)"
 slug: "mortgage-satisfaction-lien-release"
+verificationMode: "clip"
 tags: ["mortgage-satisfaction", "lien-release", "clear-title", "reconveyance", "real-estate-closing", "deed-of-trust", "county-recorder"]
 furtherDerivations: 1
 ---

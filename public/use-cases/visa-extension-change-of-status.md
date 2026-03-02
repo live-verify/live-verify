@@ -4,6 +4,7 @@ category: "Immigration & Visa Documents"
 volume: "Medium"
 retention: "New status validity + 7 years"
 slug: "visa-extension-change-of-status"
+verificationMode: "clip"
 tags: ["immigration", "visa-extension", "change-of-status", "i-797", "uscis", "h1b-extension", "work-authorization", "legal-stay"]
 furtherDerivations: 1
 ---

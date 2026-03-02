@@ -4,6 +4,7 @@ category: "Specialty Insurance"
 volume: "Small"
 retention: "Policy term + 10 years"
 slug: "jewelers-block-insurance"
+verificationMode: "clip"
 tags: ["jewelers-block", "diamond-trade", "luxury-goods-insurance", "vault-security", "stock-insurance", "transit-coverage", "lloyds"]
 furtherDerivations: 1
 ---

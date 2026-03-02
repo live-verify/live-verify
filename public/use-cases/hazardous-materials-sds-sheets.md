@@ -4,6 +4,7 @@ category: "Product Certifications & Compliance"
 volume: "Medium"
 retention: "Active use + 30 years"
 slug: "hazardous-materials-sds-sheets"
+verificationMode: "clip"
 tags: ["hazmat", "sds", "osha-compliance", "chemical-safety", "ghs", "emergency-response", "product-stewardship"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Professional & Educational Qualifications"
 volume: "Very Large"
 retention: "Permanent (license lifecycle)"
 slug: "professional-licenses"
+verificationMode: "both"
 tags: ["professional-licensing", "medical-license", "legal-bar", "occupational-license", "practitioner-vetting", "credentialing", "public-safety", "consumer-protection"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Government & Civic Documents"
 volume: "Small"
 retention: "Election cycle + 2-4 years"
 slug: "ballot-chain-of-custody"
+verificationMode: "clip"
 tags: ["election", "voting", "ballots", "chain-of-custody", "integrity", "democracy"]
 furtherDerivations: 1
 ---

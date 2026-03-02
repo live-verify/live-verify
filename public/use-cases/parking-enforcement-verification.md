@@ -4,6 +4,7 @@ category: "Identity & Authority Verification"
 volume: "Large"
 retention: "Encounter + 1-3 years (dispute period)"
 slug: "parking-enforcement-verification"
+verificationMode: "camera"
 tags: ["parking", "enforcement", "verification", "personal", "safety", "service", "municipal-fraud", "ticket-verification"]
 furtherDerivations: 1
 ---

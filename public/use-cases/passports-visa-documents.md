@@ -4,6 +4,7 @@ category: "Government & Civic Documents"
 volume: "Medium-Small"
 retention: "10-20 years (security requirements)"
 slug: "passports-visa-documents"
+verificationMode: "clip"
 tags: ["passports", "visa", "identity-verification", "kyc", "border-security", "international-travel", "real-id", "consular-services"]
 furtherDerivations: 1
 ---

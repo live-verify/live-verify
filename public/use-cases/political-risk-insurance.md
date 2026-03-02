@@ -4,6 +4,7 @@ category: "Specialty Insurance"
 volume: "Very Small"
 retention: "Policy term + 20 years (long-term investment lifecycle)"
 slug: "political-risk-insurance"
+verificationMode: "clip"
 tags: ["specialty-insurance", "political-risk", "sovereign-guarantee", "expropriation-coverage", "infrastructure-finance", "miga", "sovereign-fraud", "investment-protection"]
 furtherDerivations: 1
 ---

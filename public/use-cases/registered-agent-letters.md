@@ -4,6 +4,7 @@ category: "Financial Compliance"
 volume: "Large"
 retention: "Duration of relationship + 5 years"
 slug: "registered-agent-letters"
+verificationMode: "clip"
 tags: ["registered-agent", "corporate-service-provider", "csp", "comfort-letter", "offshore", "kyc", "due-diligence", "shell-company", "nominee", "bvi", "cayman", "panama"]
 furtherDerivations: 3
 ---

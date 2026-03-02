@@ -4,6 +4,7 @@ category: "Banking & Payments"
 volume: "Very Large"
 retention: "3-7 years (tax / dispute period)"
 slug: "p2p-payment-receipts"
+verificationMode: "clip"
 tags: ["venmo", "zelle", "cash-app", "p2p-payments", "transaction-receipt", "screenshot-scam", "instant-payment", "payment-verification"]
 furtherDerivations: 1
 ---

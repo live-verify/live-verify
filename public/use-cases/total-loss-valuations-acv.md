@@ -4,6 +4,7 @@ category: "Insurance Claims & Operations"
 volume: "Large"
 retention: "Claim term + 7-10 years (audit / total-loss history)"
 slug: "total-loss-valuations-acv"
+verificationMode: "clip"
 tags: ["insurance-claims", "total-loss", "acv", "actual-cash-value", "vehicle-valuation", "ccc-one", "claims-audit", "settlement-dispute", "vehicle-history"]
 furtherDerivations: 1
 ---

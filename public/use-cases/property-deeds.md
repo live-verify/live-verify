@@ -4,6 +4,7 @@ category: "Real Estate & Property"
 volume: "Medium"
 retention: "Permanent (public record)"
 slug: "property-deeds"
+verificationMode: "clip"
 tags: ["deeds", "real-estate", "title", "ownership", "property", "recording"]
 furtherDerivations: 1
 ---

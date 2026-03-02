@@ -4,6 +4,7 @@ category: "Bonds & Sureties"
 volume: "Small"
 retention: "Policy term + 10 years"
 slug: "fidelity-bonds"
+verificationMode: "clip"
 tags: ["fidelity-bond", "employee-dishonesty", "erisa-bond", "crime-insurance", "commercial-surety", "fiduciary-responsibility", "theft-protection"]
 furtherDerivations: 1
 ---

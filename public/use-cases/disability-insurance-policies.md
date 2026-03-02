@@ -4,6 +4,7 @@ category: "Personal Lines Insurance"
 volume: "Small"
 retention: "Policy lifetime + 10 years"
 slug: "disability-insurance-policies"
+verificationMode: "clip"
 tags: ["disability-insurance", "income-protection", "own-occupation", "financial-planning", "risk-management", "insurance-policy"]
 furtherDerivations: 1
 ---

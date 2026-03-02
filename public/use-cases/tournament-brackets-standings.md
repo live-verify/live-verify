@@ -4,6 +4,7 @@ category: "Sports & Athletics"
 volume: "Small"
 retention: "Permanent (historical records / career stats)"
 slug: "tournament-brackets-standings"
+verificationMode: "clip"
 tags: ["sports", "tournament", "brackets", "official-results", "career-stats", "athletic-integrity", "competitive-gaming", "esports"]
 furtherDerivations: 1
 ---

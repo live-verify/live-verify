@@ -4,6 +4,7 @@ category: "Insurance Claims & Operations"
 volume: "Small"
 retention: "Policy term + 10 years"
 slug: "aggregate-deductible-retrospective"
+verificationMode: "clip"
 tags: ["aggregate", "deductible", "retrospective", "insurance", "risk", "management", "premium"]
 furtherDerivations: 1
 ---

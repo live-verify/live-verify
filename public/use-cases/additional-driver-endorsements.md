@@ -4,6 +4,7 @@ category: "Personal Lines Insurance"
 volume: "Medium"
 retention: "Endorsement validity period + 7 years (claims lifecycle)"
 slug: "additional-driver-endorsements"
+verificationMode: "clip"
 tags: ["insurance", "driver", "endorsement", "auto", "policy", "coverage", "roadside-verification", "borrowed-vehicle", "travel-fraud"]
 furtherDerivations: 1
 ---

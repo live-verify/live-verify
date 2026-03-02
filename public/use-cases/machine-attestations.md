@@ -4,6 +4,7 @@ category: "Novel Document Types"
 volume: "Very Large (emerging)"
 retention: "Varies by application"
 slug: "machine-attestations"
+verificationMode: "clip"
 tags: ["iot", "sensors", "telemetry", "cold-chain", "smart-meter", "vehicle", "novel", "machine-generated"]
 ---
 

@@ -4,6 +4,7 @@ category: "Identity & Authority Verification"
 volume: "Very Large"
 retention: "Call record + 1-3 years (accountability)"
 slug: "inbound-call-verification"
+verificationMode: "clip"
 tags: ["phone-scam", "caller-verification", "sms-verification", "government-call", "commercial-call", "vishing", "impersonation", "real-time-verification", "bank-fraud-call", "debt-collection", "utility-scam"]
 furtherDerivations: 3
 ---

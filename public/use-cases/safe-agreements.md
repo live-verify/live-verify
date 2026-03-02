@@ -4,6 +4,7 @@ category: "Investment & Fintech"
 volume: "Small"
 retention: "Permanent (convertible security lifecycle)"
 slug: "safe-agreements"
+verificationMode: "clip"
 tags: ["venture-capital", "startup-funding", "safe-agreement", "y-combinator", "convertible-equity", "cap-table-integrity", "investment-fraud", "equity-financing"]
 furtherDerivations: 1
 ---

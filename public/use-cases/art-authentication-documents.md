@@ -4,6 +4,7 @@ category: "Art, Media & Publishing"
 volume: "Small"
 retention: "5-10 years (insurance/tax)"
 slug: "art-authentication-documents"
+verificationMode: "clip"
 tags: ["appraisal", "art", "art-market", "artist", "auction", "authenticity", "coa", "collectibles", "connoisseurship", "edition", "gallery", "history", "insurance", "ownership", "print", "provenance", "sculpture", "signature", "stamp", "tax", "title", "uspap", "valuation"]
 furtherDerivations: 5
 ---

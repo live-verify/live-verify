@@ -4,6 +4,7 @@ category: "Banking & Payments"
 volume: "Very Large"
 retention: "Draw Date + 1-2 years"
 slug: "lottery-and-gaming-payouts"
+verificationMode: "clip"
 tags: ["lottery", "gaming", "gambling", "jackpot", "payout-fraud", "mega-millions", "powerball", "independent-witness", "conflict-of-interest"]
 furtherDerivations: 1
 ---

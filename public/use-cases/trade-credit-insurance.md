@@ -4,6 +4,7 @@ category: "Specialty Insurance"
 volume: "Medium"
 retention: "Policy term + 7 years (audit / claims lifecycle)"
 slug: "trade-credit-insurance"
+verificationMode: "clip"
 tags: ["trade-credit", "ar-insurance", "credit-limit", "euler-hermes", "atradius", "coface", "invoice-financing", "insolvency-protection", "b2b-fraud"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Real Estate & Property"
 volume: "Large"
 retention: "7 years (tax records), life of loan"
 slug: "escrow-documents"
+verificationMode: "clip"
 tags: ["closing-disclosure", "closing-integrity", "closing-packet", "corporate-finance", "disbursement-authorization", "dispute-resolution", "escrow", "escrow-analysis", "escrow-instructions", "financial-crime", "financial-transparency", "hazard-insurance", "legal-authority", "mergers-and-acquisitions", "mortgage-servicing", "pmi", "property-tax-payment", "real-estate-closing", "respa-compliance", "settlement-statement", "trid-compliance", "wire-fraud", "wire-fraud-prevention"]
 furtherDerivations: 4
 ---

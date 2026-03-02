@@ -4,6 +4,7 @@ category: "Business & Commerce"
 volume: "Small"
 retention: "Permanent"
 slug: "board-resolutions-written-consents"
+verificationMode: "clip"
 tags: ["corporate-governance", "board-of-directors", "resolution", "written-consent", "legal-authority", "m-and-a"]
 furtherDerivations: 1
 ---

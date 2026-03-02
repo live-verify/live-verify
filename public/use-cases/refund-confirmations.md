@@ -4,6 +4,7 @@ category: "Banking & Financial Services"
 volume: "Very Large"
 retention: "3-7 years (tax and warranty)"
 slug: "refund-confirmations"
+verificationMode: "clip"
 tags: ["refund", "reimbursement", "return", "chargeback", "credit", "warranty"]
 ---
 

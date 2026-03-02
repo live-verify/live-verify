@@ -4,6 +4,7 @@ category: "Insurance Claims & Operations"
 volume: "Medium-Large"
 retention: "Policy term + 7-10 years"
 slug: "commercial-insurance-policy-documents"
+verificationMode: "clip"
 tags: ["commercial-insurance", "policy-declarations", "endorsements", "certificate-of-insurance", "coi-verification", "risk-management", "compliance-audit"]
 furtherDerivations: 1
 ---

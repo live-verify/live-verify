@@ -4,6 +4,7 @@ category: "Healthcare & Medical Records"
 volume: "Medium"
 retention: "10-30 years (diagnostic history)"
 slug: "medical-imaging-reports"
+verificationMode: "clip"
 tags: ["radiology-report", "mri-scan", "ct-scan", "x-ray-findings", "diagnostic-imaging", "medical-verification", "patient-safety", "radiologist-attestation"]
 furtherDerivations: 1
 ---

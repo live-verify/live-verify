@@ -4,6 +4,7 @@ category: "Professional & Occupational Licenses"
 volume: "Small"
 retention: "2-5 years (license term)"
 slug: "private-security-guard-licenses"
+verificationMode: "clip"
 tags: ["private", "security", "guard", "licenses", "professional", "occupational", "guard-card", "armed-guard", "law-enforcement"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Government & Regulatory"
 volume: "Very Large"
 retention: "Varies by filing type (1 year - permanent)"
 slug: "filing-completion-receipts"
+verificationMode: "clip"
 tags: ["filing", "receipt", "submission", "deadline", "compliance", "registration", "government"]
 ---
 

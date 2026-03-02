@@ -4,6 +4,7 @@ category: "Consumer & Commercial Transactions"
 volume: "Very Large"
 retention: "7 years (tax records)"
 slug: "trade-services-receipts"
+verificationMode: "clip"
 tags: ["trades", "plumber", "electrician", "builder", "contractor", "receipt", "tax-compliance", "cash-economy", "consumer-protection", "B2C"]
 ---
 

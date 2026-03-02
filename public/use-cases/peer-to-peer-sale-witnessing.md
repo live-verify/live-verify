@@ -4,6 +4,7 @@ category: "Consumer & Personal"
 volume: "High"
 retention: "2-5 years"
 slug: "peer-to-peer-sale-witnessing"
+verificationMode: "camera"
 tags: ["p2p", "private-sale", "used-goods", "identity-escrow", "stolen-property", "craigslist", "facebook-marketplace", "notary"]
 furtherDerivations: 1
 ---

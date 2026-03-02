@@ -4,6 +4,7 @@ category: "Financial & Legal Documents"
 volume: "Small"
 retention: "Permanent (estate records)"
 slug: "wills-estate-documents"
+verificationMode: "clip"
 tags: ["wills", "estate", "documents", "financial", "legal", "last-will", "testamentary", "inheritance-fraud", "probate"]
 furtherDerivations: 1
 ---

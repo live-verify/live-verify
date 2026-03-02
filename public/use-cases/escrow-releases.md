@@ -4,6 +4,7 @@ category: "Banking & Financial Services"
 volume: "Large"
 retention: "7 years (transaction records)"
 slug: "escrow-releases"
+verificationMode: "clip"
 tags: ["escrow", "release", "real-estate", "closing", "holdback", "disbursement"]
 ---
 

@@ -4,6 +4,7 @@ category: "Real Estate & Property"
 volume: "Very Large"
 retention: "7-10 years (tax appeals / audit lifecycle)"
 slug: "property-tax-assessments"
+verificationMode: "clip"
 tags: ["real-estate", "property-tax", "tax-assessment", "county-assessor", "ad-valorem", "mortgage-underwriting", "tax-fraud", "property-valuation"]
 furtherDerivations: 1
 ---

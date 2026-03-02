@@ -4,6 +4,7 @@ category: "Identity & Authority Verification"
 volume: "Very Large"
 retention: "Event + 30 days (chargebacks/disputes)"
 slug: "event-ticketing"
+verificationMode: "both"
 tags: ["tickets", "concerts", "sports", "theater", "festivals", "scalping", "counterfeit", "admission", "entertainment"]
 furtherDerivations: 10
 ---

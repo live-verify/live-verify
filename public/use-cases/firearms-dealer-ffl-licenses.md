@@ -4,6 +4,7 @@ category: "Professional & Occupational Licenses"
 volume: "Small"
 retention: "3 years (license term)"
 slug: "firearms-dealer-ffl-licenses"
+verificationMode: "clip"
 tags: ["ffl", "atf", "gun-shop-license", "firearms-dealer", "second-amendment", "public-safety", "compliance", "federal-firearms-license"]
 furtherDerivations: 1
 ---

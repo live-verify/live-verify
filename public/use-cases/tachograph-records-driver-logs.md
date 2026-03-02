@@ -4,6 +4,7 @@ category: "Chain of Custody & Logistics"
 volume: "Very Large"
 retention: "6 months - 3 years (DOT/FMCSA compliance)"
 slug: "tachograph-records-driver-logs"
+verificationMode: "clip"
 tags: ["logistics", "trucking", "hos", "eld", "tachograph", "driver-safety", "fmcsa-compliance", "roadside-inspection", "fatigue-management"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Real Estate & Property"
 volume: "Very Small"
 retention: "20-30 years (building lifetime / structural liability)"
 slug: "soil-geotechnical-reports"
+verificationMode: "clip"
 tags: ["engineering", "geotechnical-report", "soil-testing", "structural-safety", "land-development", "building-permits", "liquefaction-risk", "geology-audit"]
 furtherDerivations: 1
 ---

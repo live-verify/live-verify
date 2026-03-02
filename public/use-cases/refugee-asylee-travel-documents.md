@@ -4,6 +4,7 @@ category: "Immigration & Visa Documents"
 volume: "Small"
 retention: "Document validity + 7 years (immigration lifecycle)"
 slug: "refugee-asylee-travel-documents"
+verificationMode: "clip"
 tags: ["immigration", "refugee", "asylee", "i-571", "travel-document", "uscis", "border-security", "international-travel", "un-refugee-convention"]
 furtherDerivations: 1
 ---

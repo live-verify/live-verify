@@ -4,6 +4,7 @@ category: "Charitable & Non-Profit"
 volume: "Small"
 retention: "3-7 years (academic/employment/court cycles)"
 slug: "volunteer-hours-verification"
+verificationMode: "clip"
 tags: ["volunteer", "non-profit", "community-service", "academic-credit", "court-ordered", "charity-audit", "reputation-management"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Agriculture & Food"
 type: "use-case"
 slug: "food-hygiene-postings"
 beneficiary: "Customers"
+verificationMode: "camera"
 tags: ["food-safety", "hygiene", "ratings", "restaurants", "public-health", "customers", "health-grades", "food-handler"]
 furtherDerivations: 1
 ---

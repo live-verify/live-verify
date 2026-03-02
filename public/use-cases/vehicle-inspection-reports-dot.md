@@ -4,6 +4,7 @@ category: "Vehicle & Transportation"
 volume: "Large"
 retention: "5-10 years (regulatory compliance / liability)"
 slug: "vehicle-inspection-reports-dot"
+verificationMode: "clip"
 tags: ["transportation", "dot-inspection", "fmcsr", "fleet-safety", "commercial-vehicle", "logistics", "trucking-audit", "roadside-enforcement", "mot", "tuv", "roadworthy", "emissions", "personal-vehicle", "used-car"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Energy & Utilities"
 volume: "Very Small"
 retention: "20-30 years (solar system lifetime)"
 slug: "solar-panel-efficiency-certificates"
+verificationMode: "clip"
 tags: ["solar-energy", "photovoltaic", "panel-efficiency", "stc-rating", "solar-fraud", "green-energy-finance", "panel-warranty", "tier-1-solar"]
 furtherDerivations: 1
 ---

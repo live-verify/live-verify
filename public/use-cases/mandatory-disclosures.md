@@ -4,6 +4,7 @@ category: "Safety & Compliance"
 volume: "Large"
 retention: "Permanent (legal records)"
 slug: "mandatory-disclosures"
+verificationMode: "clip"
 tags: ["disclosure", "breach", "recall", "material-event", "SEC", "FDA", "FTC", "GDPR", "privacy", "cybersecurity", "consumer-protection", "novel"]
 ---
 

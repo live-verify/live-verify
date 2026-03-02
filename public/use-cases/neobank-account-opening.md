@@ -4,6 +4,7 @@ category: "Banking & Payments"
 volume: "Medium"
 retention: "5-10 years (customer relationship)"
 slug: "neobank-account-opening"
+verificationMode: "clip"
 tags: ["neobank", "account", "opening", "banking", "financial", "kyc", "monzo", "revolut", "chime"]
 furtherDerivations: 1
 ---

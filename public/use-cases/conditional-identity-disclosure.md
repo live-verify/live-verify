@@ -4,6 +4,7 @@ category: "Identity & Authority Verification"
 volume: "Low-Medium"
 retention: "Decades (lifetime records)"
 slug: "conditional-identity-disclosure"
+verificationMode: "clip"
 tags: ["identity-escrow", "donor-identity", "adoption", "reunion-registry", "conditional-release", "right-to-know", "genetic-identity"]
 furtherDerivations: 3
 ---

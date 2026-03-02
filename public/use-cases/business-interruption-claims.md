@@ -4,6 +4,7 @@ category: "Commercial Lines Insurance"
 volume: "Small"
 retention: "Claim term + 10 years"
 slug: "business-interruption-claims"
+verificationMode: "clip"
 tags: ["business-interruption", "commercial-insurance", "claims", "lost-revenue", "forensic-accounting", "disaster-recovery"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Environmental Permits & Compliance"
 volume: "Large"
 retention: "5-10 years (regulatory cycle / property lifecycle)"
 slug: "environmental-and-vicinity-postings"
+verificationMode: "camera"
 tags: ["environmental", "epc", "air-quality", "emissions", "greenwashing", "energy-efficiency", "public-health", "vicinity-notices"]
 furtherDerivations: 1
 ---

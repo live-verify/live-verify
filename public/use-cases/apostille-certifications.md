@@ -4,6 +4,7 @@ category: "Notary Services"
 volume: "Small"
 retention: "Document lifetime + permanent"
 slug: "apostille-certifications"
+verificationMode: "clip"
 tags: ["apostille", "hague", "international", "notary", "legalization", "authentication"]
 furtherDerivations: 1
 ---

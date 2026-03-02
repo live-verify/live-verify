@@ -4,6 +4,7 @@ category: "Professional & Educational Qualifications"
 volume: "Very Small"
 retention: "7-10 years (employment verification)"
 slug: "apprenticeship-internship-completion"
+verificationMode: "clip"
 tags: ["apprenticeship", "internship", "completion", "trade", "skill", "certificate"]
 furtherDerivations: 1
 ---

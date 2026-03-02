@@ -4,6 +4,7 @@ category: "Product Certifications & Compliance"
 volume: "Very Small"
 retention: "3-7 years (audit cycles)"
 slug: "fair-trade-certifications"
+verificationMode: "clip"
 tags: ["fair-trade", "ethical-sourcing", "sustainability", "supply-chain-integrity", "fairtrade-international", "esg", "consumer-trust"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Identity & Authority Verification"
 volume: "Medium"
 retention: "Training period + 1-3 years (certification cycle)"
 slug: "personal-trainer-verification"
+verificationMode: "camera"
 tags: ["fitness", "personal-trainer", "nasm", "ace", "professional-certification", "gym-safety", "background-check", "service-vetting", "wellness"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Corporate & Legal Documents"
 volume: "Very Large"
 retention: "Permanent (corporate records)"
 slug: "meeting-minutes-resolutions"
+verificationMode: "clip"
 tags: ["minutes", "resolutions", "board", "shareholders", "AGM", "corporate-governance", "multi-page"]
 ---
 

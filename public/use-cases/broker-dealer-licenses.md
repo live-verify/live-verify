@@ -4,6 +4,7 @@ category: "Investment & Fintech"
 volume: "Very Small"
 retention: "Permanent (may show REVOKED status)"
 slug: "broker-dealer-licenses"
+verificationMode: "clip"
 tags: ["finra", "sec", "broker-dealer", "investment-advisor", "series-7", "brokercheck", "compliance"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Real Estate & Property"
 volume: "Small"
 retention: "3-7 years (payment disputes)"
 slug: "cashiers-checks-money-orders"
+verificationMode: "clip"
 tags: ["banking", "payment", "cashiers-check", "money-order", "fraud-prevention", "real-estate-closing", "guaranteed-funds"]
 furtherDerivations: 1
 ---

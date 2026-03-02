@@ -4,6 +4,7 @@ category: "Specialty Insurance"
 volume: "Small"
 retention: "Construction period + 7-10 years"
 slug: "builders-risk-insurance"
+verificationMode: "clip"
 tags: ["construction", "insurance", "builders-risk", "contractor", "real-estate-development", "risk-management"]
 furtherDerivations: 1
 ---

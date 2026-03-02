@@ -4,6 +4,7 @@ category: "Insurance Claims & Operations"
 volume: "Large"
 retention: "Claim term + 7-10 years"
 slug: "insurance-claims-processing"
+verificationMode: "clip"
 tags: ["adjuster-notes", "audit-trail", "bad-faith", "claims", "claims-diary", "compliance", "eob", "full-and-final", "healthcare-billing", "insurance", "insurance-claims", "legal-contract", "liability", "loss-reserves", "provider-dispute", "reinsurance-audit", "release", "settlement"]
 furtherDerivations: 3
 ---

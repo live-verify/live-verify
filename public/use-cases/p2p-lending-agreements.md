@@ -4,6 +4,7 @@ category: "Investment & Fintech"
 volume: "Small"
 retention: "Loan term + 7-10 years"
 slug: "p2p-lending-agreements"
+verificationMode: "clip"
 tags: ["p2p-lending", "promissory-note", "fintech", "lendingclub", "prosper", "loan-agreement", "alternative-finance", "private-credit"]
 furtherDerivations: 1
 ---

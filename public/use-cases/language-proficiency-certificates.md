@@ -4,6 +4,7 @@ category: "Professional & Educational Qualifications"
 volume: "Very Small"
 retention: "2-5 years (test validity)"
 slug: "language-proficiency-certificates"
+verificationMode: "clip"
 tags: ["toefl", "ielts", "english-proficiency", "higher-education", "immigration-visa", "test-scores", "academic-credential", "ets"]
 furtherDerivations: 1
 ---

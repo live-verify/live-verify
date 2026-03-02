@@ -4,6 +4,7 @@ category: "Business & Commerce"
 volume: "Small"
 retention: "3-5 years (contract term)"
 slug: "network-coverage-maps"
+verificationMode: "clip"
 tags: ["network", "coverage", "maps", "telecommunications", "SLA", "5G"]
 furtherDerivations: 1
 ---

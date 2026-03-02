@@ -4,6 +4,7 @@ category: "Warehousing & Inventory"
 volume: "Medium-Small"
 retention: "7-10 years (financial audit, loan lifecycle)"
 slug: "warehouse-receipts"
+verificationMode: "clip"
 tags: ["asset-verification", "collateral-fraud", "commodities", "fraud-prevention", "inventory-management", "logistics", "supply-chain", "trade-finance", "warehouse", "warehousing"]
 furtherDerivations: 1
 ---

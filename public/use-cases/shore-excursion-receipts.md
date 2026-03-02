@@ -4,6 +4,7 @@ category: "Travel & Hospitality"
 volume: "Large"
 retention: "Excursion + 1-3 years (claims / liability)"
 slug: "shore-excursion-receipts"
+verificationMode: "both"
 tags: ["cruise-travel", "shore-excursion", "tour-ticket", "travel-fraud", "liability-release", "vacation-planning", "maritime-hospitality"]
 furtherDerivations: 1
 ---

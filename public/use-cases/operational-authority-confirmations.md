@@ -4,6 +4,7 @@ category: "Delegated Authority"
 volume: "Very Large"
 retention: "Project duration + 6 years"
 slug: "operational-authority-confirmations"
+verificationMode: "clip"
 tags: ["operational-authority", "project-approval", "vendor-selection", "sla", "delegation", "business-operations"]
 furtherDerivations: 0
 ---

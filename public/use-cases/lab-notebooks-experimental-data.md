@@ -4,6 +4,7 @@ category: "Scientific & Research"
 volume: "Small"
 retention: "7-30 years (research integrity)"
 slug: "lab-notebooks-experimental-data"
+verificationMode: "clip"
 tags: ["scientific-integrity", "lab-notebook", "glp-compliance", "patent-evidence", "reproducibility", "r-and-d", "academic-fraud-prevention"]
 furtherDerivations: 1
 ---

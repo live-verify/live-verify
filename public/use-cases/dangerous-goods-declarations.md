@@ -4,6 +4,7 @@ category: "Customs & Trade Compliance"
 volume: "Small"
 retention: "7-30 years (safety/liability)"
 slug: "dangerous-goods-declarations"
+verificationMode: "clip"
 tags: ["adr", "air-cargo", "aviation-safety", "cargo-security", "container-shipping", "dangerous-goods", "dot-hazmat", "hazmat", "hazmat-declaration", "highway-safety", "iata-dgr", "imdg-code", "imo-dgd", "logistics", "maritime-safety", "road-transport", "safety-data-sheet", "shipper-declaration"]
 furtherDerivations: 3
 ---

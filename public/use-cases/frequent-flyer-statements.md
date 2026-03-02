@@ -4,6 +4,7 @@ category: "Travel & Hospitality"
 volume: "Medium"
 retention: "Statement period + 3-7 years"
 slug: "frequent-flyer-statements"
+verificationMode: "clip"
 tags: ["airline-loyalty", "mileage-balance", "frequent-flyer", "status-match", "travel-perks", "award-travel", "american-advantage", "delta-skymiles"]
 furtherDerivations: 1
 ---

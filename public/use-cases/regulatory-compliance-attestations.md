@@ -4,6 +4,7 @@ category: "Government & Regulatory"
 volume: "Large"
 retention: "5-10 years (regulatory cycles)"
 slug: "regulatory-compliance-attestations"
+verificationMode: "clip"
 tags: ["compliance", "attestation", "audit", "regulation", "certification", "inspection"]
 ---
 

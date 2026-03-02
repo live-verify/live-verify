@@ -4,6 +4,7 @@ category: "Government & Civic Documents"
 volume: "Very Large"
 retention: "Permanent (tax/legal records)"
 slug: "social-security-benefit-statements"
+verificationMode: "clip"
 tags: ["ssa", "social-security", "retirement-benefits", "income-verification", "ssa-1099", "government-benefits", "pension"]
 furtherDerivations: 1
 ---

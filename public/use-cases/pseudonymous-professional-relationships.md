@@ -4,6 +4,7 @@ category: "Identity & Authority Verification"
 volume: "Medium"
 retention: "Duration of relationship + professional retention requirements"
 slug: "pseudonymous-professional-relationships"
+verificationMode: "clip"
 tags: ["identity-escrow", "therapy", "legal", "medical", "financial", "privacy", "professional-services", "pseudonymous"]
 furtherDerivations: 4
 ---

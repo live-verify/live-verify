@@ -4,6 +4,7 @@ category: "Identity & Authority Verification"
 volume: "Medium"
 retention: "Duration of participation + 1 year"
 slug: "anonymous-group-participation"
+verificationMode: "clip"
 tags: ["identity-escrow", "support-groups", "aa", "therapy", "anonymous", "safe-space", "group-accountability"]
 furtherDerivations: 4
 ---

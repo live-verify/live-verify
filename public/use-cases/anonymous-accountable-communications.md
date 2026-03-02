@@ -4,6 +4,7 @@ category: "Identity & Authority Verification"
 volume: "Medium"
 retention: "Varies by type (1-10 years)"
 slug: "anonymous-accountable-communications"
+verificationMode: "clip"
 tags: ["identity-escrow", "whistleblowing", "anonymous-tips", "source-protection", "journalism", "reviews", "accountability"]
 furtherDerivations: 4
 ---

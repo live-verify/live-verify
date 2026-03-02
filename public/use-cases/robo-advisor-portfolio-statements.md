@@ -4,6 +4,7 @@ category: "Investment & Fintech"
 volume: "Small"
 retention: "7-10 years (SEC/FINRA regulatory requirement)"
 slug: "robo-advisor-portfolio-statements"
+verificationMode: "clip"
 tags: ["fintech", "robo-advisor", "investment-statement", "wealthfront", "betterment", "wealth-verification", "financial-transparency", "asset-allocation"]
 furtherDerivations: 1
 ---

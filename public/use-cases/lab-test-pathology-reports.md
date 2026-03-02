@@ -4,6 +4,7 @@ category: "Healthcare & Medical Records"
 volume: "Medium"
 retention: "10-30 years (medical necessity)"
 slug: "lab-test-pathology-reports"
+verificationMode: "clip"
 tags: ["medical-diagnostics", "pathology-report", "lab-results", "cancer-screening", "biopsy-verification", "healthcare-data-integrity", "labcorp", "quest-diagnostics"]
 furtherDerivations: 1
 ---

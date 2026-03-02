@@ -4,6 +4,7 @@ category: "Insurance Claims & Operations"
 volume: "Small"
 retention: "Litigation lifecycle plus 10-20 years"
 slug: "expert-witness-reports"
+verificationMode: "clip"
 tags: ["expert-witness", "forensic-report", "legal-testimony", "expert-opinion", "litigation-support", "court-evidence", "professional-liability"]
 furtherDerivations: 1
 ---

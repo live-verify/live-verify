@@ -4,6 +4,7 @@ category: "Professional & Occupational Licenses"
 volume: "Small"
 retention: "1-3 years (license term)"
 slug: "locksmith-licenses"
+verificationMode: "clip"
 tags: ["locksmith", "professional-license", "physical-security", "public-safety", "background-check", "licensing-board", "consumer-protection", "home-security"]
 furtherDerivations: 1
 ---

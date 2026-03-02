@@ -5,6 +5,7 @@ type: "use-case"
 volume: "Medium"
 retention: "20 years (utility/plant), 15 years (design)"
 slug: "patents"
+verificationMode: "clip"
 tags: ["patent", "intellectual-property", "USPTO", "EPO", "invention"]
 furtherDerivations: 1
 ---

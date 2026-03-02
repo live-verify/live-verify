@@ -4,6 +4,7 @@ category: "Product Certifications & Compliance"
 volume: "Medium"
 retention: "Product lifecycle (5-15 years)"
 slug: "manufacturer-declarations-of-conformity"
+verificationMode: "clip"
 tags: ["ce-marking", "fcc-compliance", "declaration-of-conformity", "product-safety", "iso-standards", "manufacturing-compliance", "european-union-doc"]
 furtherDerivations: 1
 ---

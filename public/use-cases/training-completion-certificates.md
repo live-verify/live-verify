@@ -4,6 +4,7 @@ category: "Professional & Educational Qualifications"
 volume: "Large"
 retention: "5-10 years (OSHA / regulatory requirement)"
 slug: "training-completion-certificates"
+verificationMode: "clip"
 tags: ["vocational-training", "safety-compliance", "osha-certification", "skills-verification", "professional-development", "employee-onboarding", "workplace-safety", "credential-fraud"]
 furtherDerivations: 1
 ---

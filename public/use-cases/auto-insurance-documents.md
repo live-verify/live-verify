@@ -4,6 +4,7 @@ category: "Personal Lines Insurance"
 volume: "Medium"
 retention: "Claim term + 7 years"
 slug: "auto-insurance-documents"
+verificationMode: "clip"
 tags: ["auto", "bill-of-lading", "body-shop", "car-shipping", "card", "claim", "compliance", "damage", "dec-page", "estimate", "fraud", "inspection", "insurance", "lines", "logistics", "personal", "policies", "proof-of-insurance", "real-id", "repair", "transport"]
 furtherDerivations: 4
 ---

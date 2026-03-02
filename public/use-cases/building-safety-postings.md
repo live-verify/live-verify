@@ -4,6 +4,7 @@ category: "Site & Equipment Safety"
 type: "use-case"
 slug: "building-safety-postings"
 beneficiary: "Occupants/Public"
+verificationMode: "camera"
 tags: ["building-safety", "inspection", "certificates", "elevator", "fire-safety", "evacuation", "public-safety", "occupants"]
 furtherDerivations: 1
 ---

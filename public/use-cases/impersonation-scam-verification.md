@@ -4,6 +4,7 @@ category: "Identity & Authority Verification"
 volume: "Very Large"
 retention: "Varies by underlying claim"
 slug: "impersonation-scam-verification"
+verificationMode: "clip"
 tags: ["impersonation", "scam", "pig-butchering", "phishing", "vishing", "smishing", "romance-scam", "authority-chain", "tech-support-scam", "virtual-kidnapping", "social-engineering", "channel-agnostic", "advance-fee", "419-scam", "lottery-scam"]
 furtherDerivations: 2
 ---

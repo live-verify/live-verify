@@ -4,6 +4,7 @@ category: "Real Estate & Property"
 volume: "Very Small"
 retention: "20-30 years (permit term / development history)"
 slug: "wetlands-delineation-reports"
+verificationMode: "clip"
 tags: ["environmental", "wetlands-delineation", "clean-water-act", "section-404-permit", "land-development", "environmental-survey", "usace", "real-estate-fraud"]
 furtherDerivations: 1
 ---

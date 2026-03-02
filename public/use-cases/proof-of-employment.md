@@ -4,6 +4,7 @@ category: "Professional & Educational Qualifications"
 volume: "Very Large"
 retention: "Duration of employment + 1 year"
 slug: "proof-of-employment"
+verificationMode: "clip"
 tags: ["employment", "proof-of-employment", "immigration", "visa", "border-control", "hr", "employer-verification", "authority-chain", "portable-credential"]
 furtherDerivations: 2
 ---

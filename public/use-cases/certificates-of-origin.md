@@ -4,6 +4,7 @@ category: "Customs & Trade Compliance"
 volume: "Medium"
 retention: "7-10 years (customs audit, shipment records)"
 slug: "certificates-of-origin"
+verificationMode: "clip"
 tags: ["trade-compliance", "customs", "export", "import", "logistics", "tariff-benefits", "origin-verification", "chamber-of-commerce", "international-trade"]
 furtherDerivations: 1
 ---

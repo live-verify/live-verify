@@ -4,6 +4,7 @@ category: "Financial & Legal Documents"
 volume: "Small"
 retention: "Permanent (ownership records)"
 slug: "stock-certificates"
+verificationMode: "clip"
 tags: ["stock", "certificates", "financial", "legal", "documents"]
 furtherDerivations: 1
 ---

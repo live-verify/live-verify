@@ -4,6 +4,7 @@ category: "Chain of Custody & Logistics"
 volume: "Small"
 retention: "Policy term + 10 years"
 slug: "freight-demurrage-defense"
+verificationMode: "clip"
 tags: ["maritime-insurance", "p-and-i-club", "fd-and-d", "charterparty-dispute", "demurrage-claim", "legal-defense-insurance", "shipping-law"]
 furtherDerivations: 1
 ---

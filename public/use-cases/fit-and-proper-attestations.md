@@ -4,6 +4,7 @@ category: "Professional Ethics & Compliance"
 volume: "Medium"
 retention: "Duration of employment + 7 years"
 slug: "fit-and-proper-attestations"
+verificationMode: "clip"
 tags: ["fit-proper", "smcr", "certification", "conduct", "regulatory", "hr", "compliance"]
 furtherDerivations: 0
 ---

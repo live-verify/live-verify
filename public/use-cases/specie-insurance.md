@@ -4,6 +4,7 @@ category: "Specialty Insurance"
 volume: "Very Small"
 retention: "Transit period + 10 years (claims / audit)"
 slug: "specie-insurance"
+verificationMode: "clip"
 tags: ["specialty-insurance", "specie-risk", "fine-art-insurance", "bullion-transit", "jewelry-insurance", "high-value-logistics", "armored-transport", "vault-security"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Immigration & Visa Documents"
 volume: "Medium (aggregate)"
 retention: "Varies (visa validity to permanent)"
 slug: "immigration-status-documents"
+verificationMode: "clip"
 tags: ["green-card", "i-551", "naturalization-certificate", "visa-status", "uscis", "immigration-verification", "i-9-compliance"]
 furtherDerivations: 1
 ---

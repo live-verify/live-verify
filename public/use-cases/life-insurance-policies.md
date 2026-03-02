@@ -4,6 +4,7 @@ category: "Personal Lines Insurance"
 volume: "Small"
 retention: "Policy lifetime (50+ years)"
 slug: "life-insurance-policies"
+verificationMode: "clip"
 tags: ["life-insurance", "whole-life", "term-life", "beneficiary-designation", "cash-value", "financial-planning", "estate-asset", "insurance-policy"]
 furtherDerivations: 1
 ---

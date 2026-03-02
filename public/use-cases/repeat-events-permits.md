@@ -4,6 +4,7 @@ category: "Permits & Approvals"
 volume: "Medium"
 retention: "Season + 1-3 years (permit cycle / audit)"
 slug: "repeat-events-permits"
+verificationMode: "clip"
 tags: ["farmers-market", "street-vending", "seasonal-permit", "vendor-verification", "certified-producer", "sidewalk-dining", "market-integrity", "public-safety"]
 furtherDerivations: 1
 ---

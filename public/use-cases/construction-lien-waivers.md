@@ -4,6 +4,7 @@ category: "Real Estate & Property"
 volume: "Very Large"
 retention: "Statute of Repose (10+ years)"
 slug: "construction-lien-waivers"
+verificationMode: "clip"
 tags: ["construction", "lien-waiver", "payment-draw", "title-clearance", "contractor-payment", "real-estate-closing"]
 furtherDerivations: 1
 ---

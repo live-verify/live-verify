@@ -4,6 +4,7 @@ category: "Warehousing & Inventory"
 volume: "Medium"
 retention: "Shipment + 7-10 years"
 slug: "cold-storage-temperature-records"
+verificationMode: "clip"
 tags: ["cold-chain", "logistics", "food-safety", "pharmaceutical-logistics", "temperature-monitoring", "gdp-compliance"]
 furtherDerivations: 1
 ---

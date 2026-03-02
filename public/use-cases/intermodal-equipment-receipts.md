@@ -4,6 +4,7 @@ category: "Chain of Custody & Logistics"
 volume: "Very Large"
 retention: "Equipment return + 7 years"
 slug: "intermodal-equipment-receipts"
+verificationMode: "clip"
 tags: ["logistics", "intermodal", "chassis-inspection", "container-damage", "terminal-operations", "eir", "liability-transfer", "port-logistics"]
 furtherDerivations: 1
 ---

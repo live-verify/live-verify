@@ -4,6 +4,7 @@ category: "Professional & Occupational Licenses"
 volume: "Small"
 retention: "1-3 years (license term)"
 slug: "alarm-installer-monitoring-licenses"
+verificationMode: "clip"
 tags: ["alarm", "license", "installer", "security", "monitoring", "contractor"]
 furtherDerivations: 1
 ---

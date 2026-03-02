@@ -4,6 +4,7 @@ category: "Art, Media & Publishing"
 volume: "Very Small"
 retention: "Permanent (artwork care)"
 slug: "conservation-reports"
+verificationMode: "clip"
 tags: ["art-conservation", "restoration", "condition-report", "provenance", "museum-standards", "art-history"]
 furtherDerivations: 1
 ---

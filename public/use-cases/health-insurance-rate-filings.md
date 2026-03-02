@@ -4,6 +4,7 @@ category: "Actuarial & Insurance Mathematics"
 volume: "Very Small"
 retention: "5-10 years (rate approval)"
 slug: "health-insurance-rate-filings"
+verificationMode: "clip"
 tags: ["actuarial-certification", "health-insurance-rates", "medical-loss-ratio", "rate-filing", "insurance-regulation", "solvency-compliance"]
 furtherDerivations: 1
 ---

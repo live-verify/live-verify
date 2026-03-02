@@ -4,6 +4,7 @@ category: "Professional & Educational Qualifications"
 volume: "Small"
 retention: "3-10 years (renewal cycles)"
 slug: "industry-certifications"
+verificationMode: "clip"
 tags: ["pmp-certification", "cfa-charter", "aws-certified", "cissp", "osha-30", "professional-development", "credential-verification", "resume-integrity"]
 furtherDerivations: 1
 ---

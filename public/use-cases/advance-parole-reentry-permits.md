@@ -4,6 +4,7 @@ category: "Immigration & Visa Documents"
 volume: "Medium"
 retention: "Permit validity + 7 years"
 slug: "advance-parole-reentry-permits"
+verificationMode: "clip"
 tags: ["advance", "parole", "reentry", "permits", "immigration", "visa", "uscis"]
 furtherDerivations: 1
 ---

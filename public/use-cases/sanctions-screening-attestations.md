@@ -4,6 +4,7 @@ category: "Financial Compliance"
 volume: "Very Large"
 retention: "5-7 years (OFAC / AML regulatory requirement)"
 slug: "sanctions-screening-attestations"
+verificationMode: "clip"
 tags: ["sanctions-screening", "ofac-compliance", "kyc", "aml", "restricted-party", "export-compliance", "trade-integrity", "compliance-audit"]
 furtherDerivations: 1
 ---

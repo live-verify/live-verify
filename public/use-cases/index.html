@@ -849,6 +849,15 @@
             });
         }
 
+        // Human-friendly labels for verificationMode
+        function modeLabel(mode) {
+            switch (mode) {
+                case 'camera': return 'Camera';
+                case 'both': return 'Both';
+                default: return 'Clip';
+            }
+        }
+
         // Render a single use case item (summary card with link to Jekyll page)
         function renderUseCaseCard(useCase) {
             return `
@@ -862,6 +871,10 @@
                         <div class="meta-item">
                             <span class="meta-label">Retention</span>
                             <span class="meta-value">${useCase.retention || 'Not specified'}</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Mode</span>
+                            <span class="meta-value">${modeLabel(useCase.verificationMode)}</span>
                         </div>
                     </div>
                     ${useCase.snippet ? `<p class="use-case-snippet">${useCase.snippet}</p>` : ''}

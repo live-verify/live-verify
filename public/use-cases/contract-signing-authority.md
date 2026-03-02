@@ -4,6 +4,7 @@ category: "Delegated Authority"
 volume: "Large"
 retention: "Duration of contract + 6 years"
 slug: "contract-signing-authority"
+verificationMode: "clip"
 tags: ["signing-authority", "contracts", "nda", "legal", "delegation", "corporate-governance"]
 furtherDerivations: 0
 ---

@@ -4,6 +4,7 @@ category: "Bonds & Sureties"
 volume: "Very Small"
 retention: "Film lifecycle + 10 years"
 slug: "film-completion-bonds"
+verificationMode: "clip"
 tags: ["film-finance", "completion-guarantee", "production-insurance", "film-completion-bond", "entertainment-law", "investor-protection"]
 furtherDerivations: 1
 ---

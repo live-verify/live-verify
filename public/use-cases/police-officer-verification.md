@@ -4,6 +4,7 @@ category: "Identity & Authority Verification"
 volume: "Very Large"
 retention: "Encounter + 1-3 years (accountability)"
 slug: "police-officer-verification"
+verificationMode: "camera"
 tags: ["police", "officer", "verification", "personal", "safety", "service", "public-safety", "accountability"]
 furtherDerivations: 2
 ---

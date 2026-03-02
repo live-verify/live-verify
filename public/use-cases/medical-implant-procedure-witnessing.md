@@ -4,6 +4,7 @@ category: "Healthcare & Medical"
 volume: "High"
 retention: "Patient lifetime + statute of limitations"
 slug: "medical-implant-procedure-witnessing"
+verificationMode: "camera"
 tags: ["medical", "implant", "surgery", "dental", "concealment", "delayed-discovery", "malpractice", "product-liability"]
 furtherDerivations: 4
 ---

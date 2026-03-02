@@ -4,6 +4,7 @@ category: "Legal & Court Documents"
 volume: "Large"
 retention: "Case life + appeals (5-20 years)"
 slug: "bail-bond-documents"
+verificationMode: "clip"
 tags: ["bail", "bond", "bail-bond", "surety", "pretrial-release", "conditions-of-release", "court", "criminal-justice"]
 furtherDerivations: 1
 ---

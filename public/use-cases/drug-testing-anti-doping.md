@@ -4,6 +4,7 @@ category: "Sports & Athletics"
 volume: "Very Small"
 retention: "10-20 years (WADA requirements)"
 slug: "drug-testing-anti-doping"
+verificationMode: "clip"
 tags: ["anti-doping", "wada", "drug-test", "clean-sport", "athlete-integrity", "doping-control", "forensic-lab"]
 furtherDerivations: 1
 ---

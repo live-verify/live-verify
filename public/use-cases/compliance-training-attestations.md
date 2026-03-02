@@ -4,6 +4,7 @@ category: "Professional & Educational Qualifications"
 volume: "Very High"
 retention: "Employment duration + statute of limitations"
 slug: "compliance-training-attestations"
+verificationMode: "clip"
 tags: ["compliance-training", "anti-harassment", "data-privacy", "GDPR", "security-awareness", "anti-bribery", "FCPA", "employee-training", "contractor-onboarding", "LMS", "portable-credentials"]
 furtherDerivations: 5
 ---

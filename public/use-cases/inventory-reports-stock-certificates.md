@@ -4,6 +4,7 @@ category: "Warehousing & Inventory"
 volume: "Medium"
 retention: "Reporting period + 7 years"
 slug: "inventory-reports-stock-certificates"
+verificationMode: "clip"
 tags: ["warehousing", "inventory-audit", "warehouse-receipt", "collateral-verification", "supply-chain-finance", "stock-certificate", "logistics"]
 furtherDerivations: 1
 ---

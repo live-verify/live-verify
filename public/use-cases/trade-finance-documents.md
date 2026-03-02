@@ -4,6 +4,7 @@ category: "Trade Finance"
 volume: "Very Large"
 retention: "7-10 years (statute of limitations / loan term)"
 slug: "trade-finance-documents"
+verificationMode: "clip"
 tags: ["anti-dumping", "bank-collateral", "bill-of-lading", "cargo-fraud", "certificate-of-origin", "chamber-of-commerce", "commercial-invoice", "customs-duty", "customs-valuation", "documentary-collection", "export-billing", "fta-preferential-origin", "incoterms", "letter-of-credit", "maritime-title", "money-laundering", "tariff-evasion", "tbml", "trade-compliance", "trade-finance", "ucc-article-7"]
 furtherDerivations: 3
 ---

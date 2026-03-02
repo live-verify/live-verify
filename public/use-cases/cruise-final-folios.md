@@ -4,6 +4,7 @@ category: "Travel & Hospitality"
 volume: "Large"
 retention: "Voyage + 3-7 years (expense)"
 slug: "cruise-final-folios"
+verificationMode: "clip"
 tags: ["cruise", "folio", "onboard-account", "travel-expense", "vacation-receipt", "carnival", "royal-caribbean"]
 furtherDerivations: 1
 ---

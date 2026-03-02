@@ -4,6 +4,7 @@ category: "Identity & Authority Verification"
 volume: "High"
 retention: "1-5 years"
 slug: "identity-escrow-personal-safety"
+verificationMode: "clip"
 tags: ["identity-escrow", "personal-safety", "dating-safety", "roommate-verification", "custody-exchange", "stranger-meetups", "notary"]
 furtherDerivations: 4
 ---

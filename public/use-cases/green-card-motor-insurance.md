@@ -4,6 +4,7 @@ category: "Personal Lines Insurance"
 volume: "Small"
 retention: "Trip duration + 1 year"
 slug: "green-card-motor-insurance"
+verificationMode: "clip"
 tags: ["green-card", "international-motor-insurance", "cross-border-travel", "eu-driving", "third-party-liability", "border-control", "car-insurance"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Legal & Court Documents"
 volume: "Large"
 retention: "Case life + appeals (5-20 years)"
 slug: "search-warrants"
+verificationMode: "clip"
 tags: ["search-warrant", "judicial-authorization", "fourth-amendment", "law-enforcement", "probable-cause", "warrant-return", "evidence-integrity"]
 furtherDerivations: 1
 ---

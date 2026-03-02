@@ -4,6 +4,7 @@ category: "Product Certifications & Compliance"
 volume: "Medium"
 retention: "3-10 years (audit cycles, regulatory requirements, re-calibration cycles)"
 slug: "calibration-certificates"
+verificationMode: "clip"
 tags: ["calibration", "metrology", "quality-assurance", "quality-control", "iso-17025", "nist", "traceability", "compliance", "testing-equipment"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Trade Finance"
 volume: "Small"
 retention: "Invoice term + 7-10 years"
 slug: "invoice-financing-factoring"
+verificationMode: "clip"
 tags: ["factoring", "invoice-financing", "accounts-receivable", "supply-chain-finance", "working-capital", "fraud-prevention", "credit-risk"]
 furtherDerivations: 1
 ---

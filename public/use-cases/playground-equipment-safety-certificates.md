@@ -4,6 +4,7 @@ category: "Site & Equipment Safety"
 volume: "Medium"
 retention: "1 year (annual inspection cycle)"
 slug: "playground-equipment-safety-certificates"
+verificationMode: "clip"
 tags: ["playground-safety", "cpsi-inspection", "astm-f1487", "cpsc-compliance", "public-safety", "child-protection", "impact-attenuation", "park-audit"]
 furtherDerivations: 1
 ---

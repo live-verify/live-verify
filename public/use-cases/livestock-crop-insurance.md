@@ -4,6 +4,7 @@ category: "Specialty Insurance"
 volume: "Small"
 retention: "Policy term + 7-10 years"
 slug: "livestock-crop-insurance"
+verificationMode: "clip"
 tags: ["agriculture", "crop-insurance", "livestock-insurance", "rma", "usda", "risk-management", "rural-finance", "agribusiness"]
 furtherDerivations: 1
 ---

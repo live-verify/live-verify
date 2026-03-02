@@ -4,6 +4,7 @@ category: "Notary Services"
 volume: "Small"
 retention: "Permanent (estate records)"
 slug: "notary-documents"
+verificationMode: "clip"
 tags: ["acknowledgment", "apostille", "civil-law", "commission-fraud", "digital-notarization", "document-authentication", "e-signing", "estate-planning", "identity-verification", "jurat", "legal-authority", "legal-witness", "legalization", "mortgage-closing", "notarial-act", "notary", "ron", "succession", "sworn-statement", "wills", "witnessing"]
 furtherDerivations: 3
 ---

@@ -4,6 +4,7 @@ category: "Government & Regulatory"
 volume: "Very Large"
 retention: "Permanent (entity records)"
 slug: "commercial-registry-filings"
+verificationMode: "clip"
 tags: ["commercial-registry", "company-house", "secretary-of-state", "incorporation", "UCC", "trademark"]
 ---
 

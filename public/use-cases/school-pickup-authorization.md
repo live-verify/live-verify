@@ -4,6 +4,7 @@ category: "Identity & Authority Verification"
 volume: "Very Large"
 retention: "School year + 1 year"
 slug: "school-pickup-authorization"
+verificationMode: "clip"
 tags: ["school", "pickup", "child-safety", "custody", "authorization", "guardianship", "parental-consent", "education"]
 furtherDerivations: 0
 ---

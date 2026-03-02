@@ -4,6 +4,7 @@ category: "Specialty Insurance"
 volume: "Tiny"
 retention: "Policy term + 10 years"
 slug: "kidnap-ransom-insurance"
+verificationMode: "clip"
 tags: ["k-and-r", "crisis-response", "extortion-insurance", "executive-protection", "high-risk-travel", "corporate-security", "lloyds"]
 furtherDerivations: 1
 ---

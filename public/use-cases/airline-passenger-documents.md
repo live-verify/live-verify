@@ -4,6 +4,7 @@ category: "Travel & Hospitality"
 volume: "Very Large"
 retention: "Flight + 1-3 years"
 slug: "airline-passenger-documents"
+verificationMode: "both"
 tags: ["airline", "airport", "amex", "ancillary", "audit", "baggage", "business-class", "cancellation", "compensation", "credit", "delay", "eu261", "expense", "finance", "insurance", "lounge", "memo", "priority-pass", "receipt", "refund", "seat", "travel", "upgrade", "wifi"]
 furtherDerivations: 5
 ---

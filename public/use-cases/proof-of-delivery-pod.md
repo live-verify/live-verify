@@ -4,6 +4,7 @@ category: "Chain of Custody & Logistics"
 volume: "Very Large"
 retention: "Delivery + 3-7 years (statute of limitations)"
 slug: "proof-of-delivery-pod"
+verificationMode: "clip"
 tags: ["logistics", "shipping", "pod", "delivery-receipt", "supply-chain", "dispute-resolution", "freight-fraud"]
 furtherDerivations: 1
 ---

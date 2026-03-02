@@ -4,6 +4,7 @@ category: "Personal Lines Insurance"
 volume: "Small"
 retention: "7-10 years post-claim"
 slug: "life-insurance-claims"
+verificationMode: "clip"
 tags: ["life-insurance", "death-benefit", "beneficiary-claim", "probate-finance", "estate-settlement", "insurance-fraud", "mortality-verification"]
 furtherDerivations: 1
 ---

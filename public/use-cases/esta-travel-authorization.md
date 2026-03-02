@@ -4,6 +4,7 @@ category: "Immigration & Visa Documents"
 volume: "Very Large"
 retention: "2 years (ESTA validity)"
 slug: "esta-travel-authorization"
+verificationMode: "clip"
 tags: ["immigration", "esta", "visa-waiver-program", "cbp", "travel-authorization", "international-travel", "border-security"]
 furtherDerivations: 1
 ---

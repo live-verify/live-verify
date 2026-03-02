@@ -4,6 +4,7 @@ category: "Government & Civic Documents"
 volume: "Very Large"
 retention: "Election cycle + 4 years"
 slug: "voter-registration"
+verificationMode: "clip"
 tags: ["elections", "voter-id", "registration-card", "civic-duty", "voter-integrity", "government-records", "poll-worker-vetting", "democracy"]
 furtherDerivations: 1
 ---

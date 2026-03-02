@@ -4,6 +4,7 @@ category: "Specialty Insurance"
 volume: "Very Small"
 retention: "Contest period + 7 years (claims / audit)"
 slug: "prize-indemnity-insurance"
+verificationMode: "clip"
 tags: ["specialty-insurance", "prize-indemnity", "hole-in-one-insurance", "sweepstakes", "marketing-risk", "contest-fraud", "insurance-payout", "event-marketing"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Specialty Insurance"
 volume: "Small"
 retention: "Transit period + 7-10 years"
 slug: "marine-insurance"
+verificationMode: "clip"
 tags: ["cargo-security", "certificate-of-insurance", "certificates", "club", "h-and-m", "hull-and-machinery", "icc-a-clauses", "imo-vessel", "international-trade-finance", "lloyds", "logistics", "marine-cargo", "marine-insurance", "maritime-safety", "ocean-freight-insurance", "risk-management", "ship-finance", "transportation", "vessel-valuation"]
 furtherDerivations: 3
 ---

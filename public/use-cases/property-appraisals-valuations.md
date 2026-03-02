@@ -4,6 +4,7 @@ category: "Real Estate & Property"
 volume: "Medium"
 retention: "5-10 years (financing cycle / tax audit)"
 slug: "property-appraisals-valuations"
+verificationMode: "clip"
 tags: ["real-estate", "property-appraisal", "home-valuation", "uspap-compliance", "mortgage-underwriting", "valuation-fraud", "property-tax-audit", "certified-appraiser"]
 furtherDerivations: 1
 ---

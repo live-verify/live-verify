@@ -4,6 +4,7 @@ category: "Banking & Payments"
 volume: "Medium"
 retention: "5-7 years (compliance/disputes)"
 slug: "cross-border-payment-receipts"
+verificationMode: "clip"
 tags: ["remittance", "cross-border-payment", "wise", "remitly", "swif", "currency-exchange", "financial-transparency"]
 furtherDerivations: 1
 ---

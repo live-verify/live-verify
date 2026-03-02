@@ -4,6 +4,7 @@ category: "Real Estate & Property"
 volume: "Large"
 retention: "7-10 years (statute of limitations / transaction disputes)"
 slug: "property-condition-disclosures"
+verificationMode: "clip"
 tags: ["real-estate", "property-disclosure", "seller-liability", "home-inspection", "material-defects", "real-estate-fraud", "buyer-protection", "closing-documents"]
 furtherDerivations: 1
 ---

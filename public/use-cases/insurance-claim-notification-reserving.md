@@ -4,6 +4,7 @@ category: "Actuarial & Insurance Mathematics"
 volume: "Very Large"
 retention: "Policy Period + 10-20 years (Statute of Limitations)"
 slug: "insurance-claim-notification-reserving"
+verificationMode: "clip"
 tags: ["insurance-fraud", "reserving-fraud", "actuarial-integrity", "ibnr", "claim-notification", "independent-witness", "insolvency-prevention"]
 furtherDerivations: 1
 ---

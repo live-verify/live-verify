@@ -4,6 +4,7 @@ category: "Personal Lines Insurance"
 volume: "Medium"
 retention: "Policy term + 7 years"
 slug: "health-insurance-policies-sbc"
+verificationMode: "clip"
 tags: ["health-insurance", "sbc", "aca-compliance", "summary-of-benefits", "coverage-verification", "healthcare-reform", "medical-policy"]
 furtherDerivations: 1
 ---

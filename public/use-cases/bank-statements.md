@@ -4,6 +4,7 @@ category: "Banking & Payments"
 volume: "Medium"
 retention: "7-10 years (loan term + disputes)"
 slug: "bank-statements"
+verificationMode: "clip"
 tags: ["bank", "statement", "finance", "mortgage", "kyc", "aml"]
 furtherDerivations: 1
 ---

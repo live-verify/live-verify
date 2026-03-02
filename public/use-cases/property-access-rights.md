@@ -4,6 +4,7 @@ category: "Real Estate & Property"
 volume: "Large"
 retention: "Duration of right + 1 year"
 slug: "property-access-rights"
+verificationMode: "clip"
 tags: ["property", "ownership", "tenancy", "access", "locksmith", "on-demand", "verification"]
 furtherDerivations: 0
 ---

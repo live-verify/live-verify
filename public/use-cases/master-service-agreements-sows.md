@@ -4,6 +4,7 @@ category: "Business & Commerce"
 volume: "Medium"
 retention: "Contract term + 7-10 years"
 slug: "master-service-agreements-sows"
+verificationMode: "clip"
 tags: ["msa", "sow", "corporate-contract", "legal-operations", "procurement", "service-agreement", "change-order", "liability-limit"]
 furtherDerivations: 1
 ---

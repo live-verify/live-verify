@@ -4,6 +4,7 @@ category: "Identity & Authority Verification"
 volume: "Very Large"
 retention: "Employment period + badge validity"
 slug: "cold-caller-credentials"
+verificationMode: "camera"
 tags: ["doorstep", "cold-caller", "distraction-burglary", "utility-worker", "charity-collector", "consumer-protection", "elderly-protection"]
 furtherDerivations: 2
 ---

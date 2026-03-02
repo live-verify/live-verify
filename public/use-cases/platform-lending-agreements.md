@@ -4,6 +4,7 @@ category: "Investment & Fintech"
 volume: "Medium"
 retention: "Loan term + 7-10 years (financial audit / tax)"
 slug: "platform-lending-agreements"
+verificationMode: "clip"
 tags: ["fintech", "shopify-capital", "amazon-lending", "merchant-cash-advance", "revenue-based-financing", "mca-fraud", "business-lending", "ecommerce-finance"]
 furtherDerivations: 1
 ---

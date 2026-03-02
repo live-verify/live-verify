@@ -4,6 +4,7 @@ category: "Identity & Authority Verification"
 volume: "Medium"
 retention: "1-3 years (security & liability logs)"
 slug: "event-venue-staff"
+verificationMode: "camera"
 tags: ["event-security", "contractor-verification", "venue-security", "temporary-staff-verification", "equipment-protection", "backstage-access"]
 furtherDerivations: 0
 ---

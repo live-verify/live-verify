@@ -4,6 +4,7 @@ category: "Insurance Claims & Operations"
 volume: "Medium"
 retention: "Subrogation case + 7-10 years (audit/legal)"
 slug: "salvage-subrogation-documentation"
+verificationMode: "clip"
 tags: ["insurance-claims", "subrogation", "salvage-title", "total-loss", "vehicle-fraud", "recovery-audit", "claims-settlement", "auto-insurance"]
 furtherDerivations: 1
 ---

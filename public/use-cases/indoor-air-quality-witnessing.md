@@ -4,6 +4,7 @@ category: "Environmental & Safety"
 volume: "Very High"
 retention: "Building lifetime + liability period"
 slug: "indoor-air-quality-witnessing"
+verificationMode: "camera"
 tags: ["air-quality", "ventilation", "HVAC", "COVID-19", "airborne", "public-health", "ongoing-monitoring", "compliance"]
 furtherDerivations: 5
 ---

@@ -4,6 +4,7 @@ category: "Construction & Building"
 volume: "High"
 retention: "Life of structure + liability period (10-15 years typical)"
 slug: "construction-trade-witnessing"
+verificationMode: "camera"
 tags: ["construction", "building", "trades", "inspection", "concealment", "defects", "attestation", "new-build", "housing"]
 furtherDerivations: 7
 ---

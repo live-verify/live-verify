@@ -4,6 +4,7 @@ category: "Art, Media & Publishing"
 volume: "Very Small"
 retention: "Permanent (price history)"
 slug: "auction-records-sale-documents"
+verificationMode: "clip"
 tags: ["auction", "price-history", "hammer-price", "provenance", "collectibles", "sales-receipt"]
 furtherDerivations: 1
 ---

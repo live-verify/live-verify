@@ -4,6 +4,7 @@ category: "Specialty Insurance"
 volume: "Small"
 retention: "Policy term + 10-20 years"
 slug: "aviation-insurance"
+verificationMode: "clip"
 tags: ["aviation", "aircraft", "insurance", "hull", "liability", "compliance", "faa"]
 furtherDerivations: 1
 ---

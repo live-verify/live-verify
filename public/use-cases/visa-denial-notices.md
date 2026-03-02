@@ -4,6 +4,7 @@ category: "Immigration & Visa Documents"
 volume: "Large"
 retention: "Denial + 10 years (reapplication lifecycle)"
 slug: "visa-denial-notices"
+verificationMode: "clip"
 tags: ["immigration", "visa-denial", "214b", "consular-processing", "travel-fraud", "embassy-verification", "visa-reapplication", "admissibility"]
 furtherDerivations: 1
 ---

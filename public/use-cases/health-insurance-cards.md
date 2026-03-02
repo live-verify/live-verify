@@ -4,6 +4,7 @@ category: "Personal Lines Insurance"
 volume: "Very Large"
 retention: "Policy term (typically 1 year, renewed)"
 slug: "health-insurance-cards"
+verificationMode: "both"
 tags: ["health-insurance", "insurance-card", "member-id", "group-number", "copay", "deductible", "provider-network", "eligibility"]
 furtherDerivations: 2
 ---

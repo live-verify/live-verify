@@ -4,6 +4,7 @@ category: "Immigration & Visa Documents"
 volume: "Very Large"
 retention: "Permanent (license lifecycle)"
 slug: "permanent-residence-cards"
+verificationMode: "clip"
 tags: ["immigration", "green-card", "i-551", "uscis", "permanent-residence", "work-authorization", "identity-verification", "border-security", "i-9-compliance"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Immigration & Visa Documents"
 volume: "Very Large"
 retention: "1-5 years (renewal cycle, varies by jurisdiction)"
 slug: "work-permits"
+verificationMode: "clip"
 tags: ["work-permit", "work-visa", "employment-authorization", "immigration", "labor-mobility", "employer-sponsorship"]
 furtherDerivations: 1
 ---

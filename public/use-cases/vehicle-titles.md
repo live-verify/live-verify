@@ -4,6 +4,7 @@ category: "Government & Civic Documents"
 volume: "Very Large"
 retention: "Permanent (ownership record)"
 slug: "vehicle-titles"
+verificationMode: "clip"
 tags: ["vehicle-title", "car-title", "certificate-of-title", "dmv", "dvla", "ownership", "lien", "title-washing", "odometer"]
 furtherDerivations: 2
 ---

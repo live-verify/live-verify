@@ -4,6 +4,7 @@ category: "Commercial Lines Insurance"
 volume: "Small"
 retention: "Policy term + 20-30 years (long-tail claims lifecycle)"
 slug: "product-liability-insurance"
+verificationMode: "clip"
 tags: ["commercial-insurance", "product-liability", "manufacturing-risk", "claims-made", "retroactive-date", "supply-chain-insurance", "retailer-compliance", "product-recall"]
 furtherDerivations: 1
 ---

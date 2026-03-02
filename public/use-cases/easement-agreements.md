@@ -4,6 +4,7 @@ category: "Real Estate & Property"
 volume: "Tiny"
 retention: "Permanent (property encumbrance)"
 slug: "easement-agreements"
+verificationMode: "clip"
 tags: ["real-estate", "property-rights", "easement-grant", "utility-access", "land-use", "title-search", "legal-description"]
 furtherDerivations: 1
 ---

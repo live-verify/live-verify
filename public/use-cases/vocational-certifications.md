@@ -4,6 +4,7 @@ category: "Professional & Educational Qualifications"
 volume: "Very Large"
 retention: "Permanent (career skills record)"
 slug: "vocational-certifications"
+verificationMode: "clip"
 tags: ["trade-skills", "vocational-training", "welding-cert", "hvac-license", "skilled-trades", "job-readiness", "credential-fraud", "industrial-safety"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Environmental & Safety"
 volume: "Medium"
 retention: "Perpetuity (some contamination)"
 slug: "environmental-remediation-witnessing"
+verificationMode: "camera"
 tags: ["environmental", "asbestos", "contamination", "remediation", "buried-waste", "tank-lining", "groundwater", "concealment"]
 furtherDerivations: 4
 ---

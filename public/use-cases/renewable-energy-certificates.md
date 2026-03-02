@@ -4,6 +4,7 @@ category: "Energy & Utilities"
 volume: "Medium"
 retention: "3-7 years (compliance / carbon audit)"
 slug: "renewable-energy-certificates"
+verificationMode: "clip"
 tags: ["renewable-energy", "rec", "green-power", "carbon-offset", "esg-reporting", "energy-trading", "sustainability-audit", "greenwashing-prevention"]
 furtherDerivations: 1
 ---

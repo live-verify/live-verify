@@ -4,6 +4,7 @@ category: "Intellectual Property Law"
 volume: "Medium"
 retention: "Permanent with renewal (10-year cycles)"
 slug: "trademarks"
+verificationMode: "clip"
 tags: ["intellectual-property", "trademark", "brand-protection", "uspto", "copyright-fraud", "e-commerce-vetting", "licensing-integrity", "design-mark"]
 furtherDerivations: 1
 ---

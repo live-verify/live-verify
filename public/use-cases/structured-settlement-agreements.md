@@ -4,6 +4,7 @@ category: "Insurance Claims & Operations"
 volume: "Very Small"
 retention: "Claimant lifetime (50-70+ years / permanent)"
 slug: "structured-settlement-agreements"
+verificationMode: "clip"
 tags: ["structured-settlement", "annuity-contract", "personal-injury", "insurance-payout", "factoring-fraud", "financial-planning", "legal-judgment", "long-term-care"]
 furtherDerivations: 1
 ---

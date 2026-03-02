@@ -4,6 +4,7 @@ category: "Travel & Hospitality"
 volume: "Large"
 retention: "Tour + 1-3 years"
 slug: "guided-tour-receipts"
+verificationMode: "both"
 tags: ["guided-tour", "booking-confirmation", "travel-expense", "activity-voucher", "tourism-logistics", "viator", "getyourguide"]
 furtherDerivations: 1
 ---

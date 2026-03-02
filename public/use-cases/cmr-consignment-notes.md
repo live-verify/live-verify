@@ -4,6 +4,7 @@ category: "Chain of Custody & Logistics"
 volume: "Large"
 retention: "7-10 years (carrier liability)"
 slug: "cmr-consignment-notes"
+verificationMode: "clip"
 tags: ["logistics", "trucking", "cmr", "road-freight", "cargo", "international-trade", "bill-of-lading"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Chain of Custody & Logistics"
 volume: "Large"
 retention: "7-10 years (payment/audit)"
 slug: "freight-bills-carrier-invoices"
+verificationMode: "clip"
 tags: ["logistics", "transportation", "freight-bill", "carrier-invoice", "accounts-payable", "audit-trail", "supply-chain-finance"]
 furtherDerivations: 1
 ---

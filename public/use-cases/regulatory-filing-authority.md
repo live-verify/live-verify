@@ -4,6 +4,7 @@ category: "Delegated Authority"
 volume: "Medium"
 retention: "Statutory period (varies by filing type)"
 slug: "regulatory-filing-authority"
+verificationMode: "clip"
 tags: ["regulatory-filings", "companies-house", "tax-authority", "compliance", "statutory", "delegation"]
 furtherDerivations: 0
 ---

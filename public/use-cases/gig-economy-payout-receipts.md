@@ -4,6 +4,7 @@ category: "Banking & Payments"
 volume: "Large"
 retention: "3-7 years (tax reporting)"
 slug: "gig-economy-payout-receipts"
+verificationMode: "clip"
 tags: ["uber", "lyft", "doordash", "gig-economy", "payout-receipt", "income-verification", "independent-contractor", "tax-compliance"]
 furtherDerivations: 1
 ---

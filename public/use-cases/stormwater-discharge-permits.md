@@ -4,6 +4,7 @@ category: "Environmental Permits & Compliance"
 volume: "Small"
 retention: "5 years (permit term / statutory audit)"
 slug: "stormwater-discharge-permits"
+verificationMode: "clip"
 tags: ["environmental", "npdes", "stormwater-permit", "clean-water-act", "epa-compliance", "industrial-runoff", "pollution-control", "environmental-audit"]
 furtherDerivations: 1
 ---

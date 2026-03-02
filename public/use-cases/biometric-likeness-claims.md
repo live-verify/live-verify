@@ -4,6 +4,7 @@ category: "Identity & Civil Records"
 volume: "High (potentially every identity verification interaction)"
 retention: "Ephemeral (salt expires in minutes); photo validity 1 year"
 slug: "biometric-likeness-claims"
+verificationMode: "clip"
 tags: ["identity", "biometric", "photo", "kyc", "face-verification", "state-issued", "ephemeral", "anti-fraud"]
 furtherDerivations: 1
 ---

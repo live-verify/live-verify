@@ -4,6 +4,7 @@ category: "Financial & Legal Documents"
 volume: "Small"
 retention: "7-10 years (regulatory requirements)"
 slug: "audit-reports-financial-statements"
+verificationMode: "clip"
 tags: ["audit", "financial-statements", "opinion", "cpa", "pcaob", "compliance", "fraud-prevention", "accounting"]
 furtherDerivations: 1
 ---

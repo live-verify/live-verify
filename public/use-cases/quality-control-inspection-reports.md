@@ -4,6 +4,7 @@ category: "Product Certifications & Compliance"
 volume: "Medium"
 retention: "5-15 years (warranty/liability period)"
 slug: "quality-control-inspection-reports"
+verificationMode: "clip"
 tags: ["manufacturing", "qc", "inspection-report", "product-safety", "iso-compliance", "batch-traceability", "engineering-audit"]
 furtherDerivations: 1
 ---

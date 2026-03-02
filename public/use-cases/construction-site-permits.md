@@ -4,6 +4,7 @@ category: "Permits & Approvals"
 type: "use-case"
 slug: "construction-site-permits"
 beneficiary: "Neighbors/Public"
+verificationMode: "camera"
 tags: ["construction", "permits", "building", "demolition", "electrical", "plumbing", "grading", "public-safety"]
 furtherDerivations: 1
 ---

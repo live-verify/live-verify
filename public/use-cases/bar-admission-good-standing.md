@@ -4,6 +4,7 @@ category: "Professional & Educational Qualifications"
 volume: "Very Small"
 retention: "Current + 2-5 years"
 slug: "bar-admission-good-standing"
+verificationMode: "clip"
 tags: ["legal", "attorney", "bar-association", "good-standing", "license", "professional"]
 furtherDerivations: 1
 ---

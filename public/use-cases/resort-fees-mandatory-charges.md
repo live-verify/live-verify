@@ -4,6 +4,7 @@ category: "Travel & Hospitality"
 volume: "Large"
 retention: "Stay + 3-7 years (statute of limitations / tax)"
 slug: "resort-fees-mandatory-charges"
+verificationMode: "clip"
 tags: ["hospitality", "hotel", "resort-fee", "consumer-protection", "ftc-compliance", "drip-pricing", "travel-fraud"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Personal Lines Insurance"
 volume: "Large"
 retention: "7-10 years (tax/audit)"
 slug: "health-insurance-eobs"
+verificationMode: "clip"
 tags: ["health-insurance", "eob", "medical-billing", "hsa-fsa-compliance", "tax-deduction", "patient-responsibility", "insurance-fraud"]
 furtherDerivations: 1
 ---

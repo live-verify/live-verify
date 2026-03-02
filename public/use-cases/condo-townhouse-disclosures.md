@@ -4,6 +4,7 @@ category: "Real Estate & Property"
 volume: "Very Small"
 retention: "7-10 years (transaction records)"
 slug: "condo-townhouse-disclosures"
+verificationMode: "clip"
 tags: ["real-estate", "hoa", "condo-disclosure", "resale-certificate", "property-management", "special-assessment"]
 furtherDerivations: 1
 ---

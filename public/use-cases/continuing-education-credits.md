@@ -4,6 +4,7 @@ category: "Professional & Educational Qualifications"
 volume: "Large"
 retention: "3-7 years (renewal cycles)"
 slug: "continuing-education-credits"
+verificationMode: "clip"
 tags: ["professional-education", "cle", "cme", "cpe", "licensing", "compliance", "training-certificate"]
 furtherDerivations: 1
 ---

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-01T20:47:08.903Z",
+  "generated": "2026-03-02T12:30:39.018Z",
   "totalUseCases": 440,
   "totalFurtherDerivations": 525,
   "categories": {
@@ -68,6 +68,7 @@
       "category": "Real Estate & Property",
       "volume": "Very Small",
       "retention": "7-10 years (IRS audit)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Exchanger name, relinquished property address, date of transfer, identified replacement properties (addresses and fair market values), identification date, Qualified Intermediary (QI) name and license",
       "tags": [
@@ -86,6 +87,7 @@
       "category": "Charitable & Non-Profit",
       "volume": "Tiny",
       "retention": "Permanent (legal status)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Organization name, EIN (Employer Identification Number), effective date of exemption, public charity status classification, address at time of issuance.",
       "tags": [
@@ -103,6 +105,7 @@
       "category": "Novel Document Types",
       "volume": "Large (emerging)",
       "retention": "Varies by type",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Registry authority, subject identifier (person, property, entity, product), search period, categories searched, negative result confirmation, certificate timestamp.",
       "tags": [
@@ -120,6 +123,7 @@
       "category": "Actuarial & Insurance Mathematics",
       "volume": "Very Small",
       "retention": "7-15 years (professional standards)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Appointed actuary name, qualifications (FCAS/MAAA), valuation date, company subject to opinion, opinion type (Reasonable, Redundant, Excessive, Qualified, No Opinion), ASOP compliance statement.",
       "tags": [
@@ -137,6 +141,7 @@
       "category": "Personal Lines Insurance",
       "volume": "Medium",
       "retention": "Endorsement validity period + 7 years (claims lifecycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Policy number, policyholder name, additional driver full name, driver's license number (masked), vehicle license plate, effective start date/time, expiration date/time",
       "tags": [
@@ -157,6 +162,7 @@
       "category": "Government & Civic Documents",
       "volume": "Very Small",
       "retention": "Permanent (legal guardianship)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Child's name, parents' names, court jurisdiction, case number, judge name, order type (custody, adoption, visitation), effective date, key restrictions (e.g., \"no international travel\").",
       "tags": [
@@ -174,6 +180,7 @@
       "category": "Notary Services",
       "volume": "Small",
       "retention": "Permanent (end-of-life care)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Patient name, date of birth, designated healthcare agent (proxy) and alternates, specific life-sustaining treatment wishes (DNR/DNI), organ donation preference, notary/witness attestation, date of exe",
       "tags": [
@@ -193,6 +200,7 @@
       "category": "Immigration & Visa Documents",
       "volume": "Medium",
       "retention": "Permit validity + 7 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Full name, Alien Registration Number (A-Number), date of birth, country of birth, permit type (Advance Parole vs Re-Entry Permit), validity dates, photograph (via hash of photo data or photo ID), rest",
       "tags": [
@@ -211,6 +219,7 @@
       "category": "Financial & Legal Documents",
       "volume": "Small",
       "retention": "10-30 years (legal proceedings)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Affiant name, sworn facts (digest), date of execution, jurisdiction (State/County), notary name and commission number, type of notarial act (Jurat vs Acknowledgment).",
       "tags": [
@@ -229,6 +238,7 @@
       "category": "Insurance Claims & Operations",
       "volume": "Small",
       "retention": "Policy term + 10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Insured name, policy number, adjustment period (1st, 2nd, 3rd, etc.), incurred loss amount, total retrospective premium, amount due/returned, aggregate limit status.",
       "tags": [
@@ -247,6 +257,7 @@
       "category": "Chain of Custody & Logistics",
       "volume": "Large",
       "retention": "7-10 years (proof of shipment)",
+      "verificationMode": "clip",
       "furtherDerivations": 2,
       "snippet": "AWB Number (Master or House), shipper, consignee, pieces, weight, nature of goods, flight details, execution date, carrier signature.",
       "tags": [
@@ -271,6 +282,7 @@
       "category": "Travel & Hospitality",
       "volume": "Very Large",
       "retention": "Flight + 1-3 years",
+      "verificationMode": "both",
       "furtherDerivations": 5,
       "snippet": "Passenger name, ticket number, flight details, specific service types (baggage, seat, wifi, meal), fee amounts, total paid, payment method (last 4 digits).",
       "tags": [
@@ -306,6 +318,7 @@
       "category": "Professional & Occupational Licenses",
       "volume": "Small",
       "retention": "1-3 years (license term)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Licensee name, photo (hash), license number, company affiliation, expiration date, endorsements (fire, burglary, access control), issuing state agency.",
       "tags": [
@@ -323,6 +336,7 @@
       "category": "Actuarial & Insurance Mathematics",
       "volume": "Very Small",
       "retention": "7-30 years (contract lifetime)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Certifying actuary name/qualifications, product name/series, guaranteed interest rates, mortality table version, filing date, jurisdiction of approval.",
       "tags": [
@@ -340,6 +354,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Medium",
       "retention": "Varies by type (1-10 years)",
+      "verificationMode": "clip",
       "furtherDerivations": 4,
       "snippet": "",
       "tags": [
@@ -358,6 +373,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Medium",
       "retention": "Duration of participation + 1 year",
+      "verificationMode": "clip",
       "furtherDerivations": 4,
       "snippet": "",
       "tags": [
@@ -376,6 +392,7 @@
       "category": "Notary Services",
       "volume": "Small",
       "retention": "Document lifetime + permanent",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Signer name, capacity of signer (Notary/Judge/Clerk), seal/stamp identification, location of issuance, date of issuance, certificate number (Apostille ID), issuing authority (Secretary of State).",
       "tags": [
@@ -393,6 +410,7 @@
       "category": "Professional & Educational Qualifications",
       "volume": "Very Small",
       "retention": "7-10 years (employment verification)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Intern/Apprentice name, sponsor organization, specific program name (e.g., \"Journeyman Electrician\"), start/end dates, total hours completed, supervisor name, issuing date.",
       "tags": [
@@ -410,6 +428,7 @@
       "category": "Art, Media & Publishing",
       "volume": "Small",
       "retention": "5-10 years (insurance/tax)",
+      "verificationMode": "clip",
       "furtherDerivations": 5,
       "snippet": "Appraiser name/credentials (AAA/ISA), client name, artwork details (Artist, Title, Medium), effective date of valuation, Purpose (Insurance/Tax/Collateral), Fair Market Value (FMV) or Replacement Valu",
       "tags": [
@@ -444,6 +463,7 @@
       "category": "Customs & Trade Compliance",
       "volume": "Small",
       "retention": "Carnet validity + 7 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Carnet number, holder name, total items, value of goods, countries of transit, expiration date, intended use (Commercial Samples, Professional Equipment, Fair/Exhibition).",
       "tags": [
@@ -462,6 +482,7 @@
       "category": "Sports & Athletics",
       "volume": "Small",
       "retention": "Permanent (sports history and records)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Athlete name, event discipline (e.g., 100m, Marathon), time/distance achieved (to 1/1000th precision), wind speed, reaction time, venue, date of performance, timing system used (FAT vs Chip), ratifica",
       "tags": [
@@ -479,6 +500,7 @@
       "category": "Art, Media & Publishing",
       "volume": "Very Small",
       "retention": "Permanent (price history)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Auction house name, sale ID, lot number, artwork title/artist, hammer price, buyer's premium, total price, bidder ID (redacted/partial), date of sale, payment status.",
       "tags": [
@@ -496,6 +518,7 @@
       "category": "Financial & Legal Documents",
       "volume": "Small",
       "retention": "7-10 years (regulatory requirements)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Company name, fiscal year-end date, audit opinion type (Unqualified, Qualified, Adverse, Disclaimer), Lead Partner name, audit firm office, material findings summary, consolidated totals (Revenue, Net",
       "tags": [
@@ -515,6 +538,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Large",
       "retention": "Varies by action type",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Agent identity, firm/license details, authorizing party, authorization reference, scope of authorization (which property/vehicle/action), time window, ground truth verification performed (Land Registr",
       "tags": [
@@ -534,6 +558,7 @@
       "category": "Personal Lines Insurance",
       "volume": "Medium",
       "retention": "Claim term + 7 years",
+      "verificationMode": "clip",
       "furtherDerivations": 4,
       "snippet": "Insured name, vehicle VIN, Claim ID, repair estimate total, parts/labor breakdown, body shop name, adjuster name, date of estimate.",
       "tags": [
@@ -566,6 +591,7 @@
       "category": "Specialty Insurance",
       "volume": "Small",
       "retention": "Policy term + 10-20 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Insured name, aircraft registration (N-number), hull value, liability limits (CSL), policy effective/expiration dates, war risk inclusion, primary/excess carrier identification.",
       "tags": [
@@ -584,6 +610,7 @@
       "category": "Business & Commerce",
       "volume": "Very Large",
       "retention": "Duration of trading relationship + 6 years",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Authorized person name, company name, company registration number, role/title, specific authority limits (monetary, category, duration), excluded authorities, issuing officer, issue date, expiry date.",
       "tags": [
@@ -601,6 +628,7 @@
       "category": "Travel & Hospitality",
       "volume": "Large",
       "retention": "Claim resolution + 3-7 years",
+      "verificationMode": "both",
       "furtherDerivations": 1,
       "snippet": "Passenger name, Property Irregularity Report (PIR) reference, flight details, baggage tag numbers, damage description or delay status, authorization amount for expenses, date of report.",
       "tags": [
@@ -619,6 +647,7 @@
       "category": "Legal & Court Documents",
       "volume": "Large",
       "retention": "Case life + appeals (5-20 years)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Court name, case number, defendant name, bail amount, bond type (cash/surety/personal recognizance), conditions of release summary, posting date, bondsman name and license number (if surety bond).",
       "tags": [
@@ -638,6 +667,7 @@
       "category": "Government & Civic Documents",
       "volume": "Small",
       "retention": "Election cycle + 2-4 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Precinct number, Container ID, Seal Number (unique plastic/wire seal), ballot count (from machine or hand count), names of two bipartisan witnesses/custodians, precise timestamp, transfer location.",
       "tags": [
@@ -655,6 +685,7 @@
       "category": "Banking & Payments",
       "volume": "Medium",
       "retention": "7-10 years (loan term + disputes)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Account holder name, account number (masked), ending balance, total deposits, total withdrawals, statement date range, issuing branch/entity.",
       "tags": [
@@ -672,6 +703,7 @@
       "category": "Professional & Educational Qualifications",
       "volume": "Very Small",
       "retention": "Current + 2-5 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Attorney name, bar registration number, admission date, current status (Good Standing, Suspended, Disbarred), disciplinary history summary, issuing court/department, date of letter.",
       "tags": [
@@ -689,6 +721,7 @@
       "category": "Financial Compliance",
       "volume": "Small",
       "retention": "5-10 years post-relationship",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Reporting company name, Tax ID (EIN), Beneficial Owner names, ownership percentages, control relationships, identifying document numbers (redacted), date of filing.",
       "tags": [
@@ -706,6 +739,7 @@
       "category": "Identity & Civil Records",
       "volume": "High (potentially every identity verification interaction)",
       "retention": "Ephemeral (salt expires in minutes); photo validity 1 year",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "The claim itself contains: name, date of birth, photo, photo date, verification URL with single-use salt.",
       "tags": [
@@ -725,6 +759,7 @@
       "category": "Government & Civic Documents",
       "volume": "Small (per certificate, but billions exist globally)",
       "retention": "Permanent (vital records)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Full name at birth, date of birth, place of birth (City/County/State), parents' full names (including maiden), sex, file/registration number, date of registration, date of issuance.",
       "tags": [
@@ -742,6 +777,7 @@
       "category": "Specialty Insurance",
       "volume": "Very Small",
       "retention": "Horse lifetime (15-25 years)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Horse name, pedigree (Sire/Dam), registration number (Weatherbys/Jockey Club), insured value, coverage type (Mortality, AS&I - Accident, Sickness & Infertility), effective dates, syndicate identificat",
       "tags": [
@@ -760,6 +796,7 @@
       "category": "Investment & Fintech",
       "volume": "Small",
       "retention": "3-7 years (merchant relationship)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Merchant legal name, business URL, BNPL provider (Klarna/Affirm/Afterpay), partnership tier, authorization date, last vetting date, allowed products (Pay-in-4, monthly financing).",
       "tags": [
@@ -778,6 +815,7 @@
       "category": "Investment & Fintech",
       "volume": "Medium-Large",
       "retention": "Purchase term + 3-7 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Borrower name, merchant name, loan ID, total amount financed, Annual Percentage Rate (APR), payment schedule (e.g., 12 months), monthly payment amount, date of agreement.",
       "tags": [
@@ -796,6 +834,7 @@
       "category": "Business & Commerce",
       "volume": "Small",
       "retention": "Permanent",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Corporate name, resolution text (digest), date of action, names of directors/officers signing, type of action (Unanimous Written Consent vs. Meeting Minutes), jurisdiction of incorporation.",
       "tags": [
@@ -813,6 +852,7 @@
       "category": "Customs & Trade Compliance",
       "volume": "Medium",
       "retention": "7-10 years (customs compliance)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Importer name, Customs Entry Number, Warehouse Receipt Number, Class of Warehouse (1-11), inventory description, gross weight, declared value, bond reference, admission date, duty deferral status.",
       "tags": [
@@ -830,6 +870,7 @@
       "category": "Immigration & Visa Documents",
       "volume": "Large",
       "retention": "Travel + 5-10 years (immigration)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Admission (I-94) Record Number, full name, date of birth, passport number, country of issuance, class of admission (e.g., B-1, F-1, H-1B), date of entry, \"Admit Until\" date.",
       "tags": [
@@ -848,6 +889,7 @@
       "category": "Investment & Fintech",
       "volume": "Very Small",
       "retention": "Permanent (may show REVOKED status)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Representative name, CRD (Central Registration Depository) number, current firm affiliation, registration status (Active/Suspended/Barred), examination history (Series 7, 63, 24), disciplinary disclos",
       "tags": [
@@ -866,6 +908,7 @@
       "category": "Real Estate & Property",
       "volume": "Very Small",
       "retention": "10-20 years (warranty period)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Property address, homeowner name (initial), builder name/registration, warranty certificate number, coverage types (Workmanship/Systems/Structural), effective date, expiration date, issuing warranty c",
       "tags": [
@@ -883,6 +926,7 @@
       "category": "Specialty Insurance",
       "volume": "Small",
       "retention": "Construction period + 7-10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Project name, exact site address, General Contractor (GC) name, project owner name, Total Completed Value (TCV), construction start/end dates, specific peril sub-limits (Theft, Flood, Transit), issuin",
       "tags": [
@@ -900,6 +944,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Medium",
       "retention": "Inspection + 3-7 years (compliance)",
+      "verificationMode": "camera",
       "furtherDerivations": 1,
       "snippet": "Inspector name, photo (hash), badge number, department/division (Electrical, Plumbing, Fire), authority statute, employment status (Active/Retired/Suspended), jurisdiction.",
       "tags": [
@@ -918,6 +963,7 @@
       "category": "Site & Equipment Safety",
       "volume": "Unknown",
       "retention": "Unknown",
+      "verificationMode": "camera",
       "furtherDerivations": 1,
       "snippet": "Equipment ID (Serial Number), building address, capacity/rating, inspector name/license, date of inspection, expiration date, safety code version (e.g., ASME A17.1), maintenance company name.",
       "tags": [
@@ -937,6 +983,7 @@
       "category": "Commercial Lines Insurance",
       "volume": "Small",
       "retention": "Claim term + 10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Insured entity name, incident date, period of restoration (days), adjusted lost net income, adjusted continuing expenses, extra expenses authorized, total claim payout, forensic accounting firm name, ",
       "tags": [
@@ -954,6 +1001,7 @@
       "category": "Product Certifications & Compliance",
       "volume": "Medium",
       "retention": "3-10 years (audit cycles, regulatory requirements, re-calibration cycles)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Instrument description, make/model/serial number, calibration date, expiration (due) date, as-found/as-left status, measurement data (test points and uncertainty), accreditation status (ISO 17025), re",
       "tags": [
@@ -974,6 +1022,7 @@
       "category": "Professional Ethics & Compliance",
       "volume": "Small",
       "retention": "7-10 years (regulatory audit lifecycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Firm name, regulatory ID (FRN/CRD), attestation date (quarterly), CET1 Ratio, Tier 1 Capital Ratio, Total Capital Ratio, LCR (Liquidity Coverage Ratio), buffer compliance status, CFO name/signature, e",
       "tags": [
@@ -993,6 +1042,7 @@
       "category": "Energy & Utilities",
       "volume": "Very Small (but rapidly growing)",
       "retention": "7-20 years (carbon accounting)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Credit holder (beneficiary), project name/ID, vintage year, quantity (tonnes CO2e), serial number range, date of retirement, certification standard (VCS, Gold Standard), verification body (e.g., SCS G",
       "tags": [
@@ -1012,6 +1062,7 @@
       "category": "Real Estate & Property",
       "volume": "Small",
       "retention": "3-7 years (payment disputes)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Payee name, dollar amount (numerical and text), check/serial number, issuing bank routing number, date of issuance, purchaser name (remitter), memo/reference details.",
       "tags": [
@@ -1030,6 +1081,7 @@
       "category": "Insurance Claims & Operations",
       "volume": "Small",
       "retention": "CAT event + 10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Catastrophe code (PCS/ISO), regional boundaries (Zip/County), batch ID, claim count, total paid losses, total reserves, incident date range, carrier ID, audit timestamp.",
       "tags": [
@@ -1047,6 +1099,7 @@
       "category": "Actuarial & Insurance Mathematics",
       "volume": "Very Small",
       "retention": "5-10 years (capital planning)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Modeling firm name, model version (e.g., RMS RiskLink 21), portfolio ID, number of locations, specific return period estimates (100yr, 250yr, 500yr PML), average annual loss (AAL), date of run, certif",
       "tags": [
@@ -1066,6 +1119,7 @@
       "category": "Government & Civic Documents",
       "volume": "Medium-Small (census decade)",
       "retention": "Permanent (historical records)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Census year, household confirmation number, geographic area (Census Tract), household count, date of submission, enumerator ID (if applicable), completion status.",
       "tags": [
@@ -1083,6 +1137,7 @@
       "category": "Commercial Lines Insurance",
       "volume": "Large",
       "retention": "Contract term + 3-7 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Insured name, policy numbers (GL, Auto, Umbrella, WC), coverage limits, effective/expiration dates, certificate holder name, producer/broker ID, issuing carrier (NAIC code).",
       "tags": [
@@ -1101,6 +1156,7 @@
       "category": "Customs & Trade Compliance",
       "volume": "Medium",
       "retention": "7-10 years (customs audit, shipment records)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Exporter name and location, Consignee name and location, specific Country of Origin, detailed description of goods, Harmonized System (HS) Codes, quantity/weight, Certificate ID number, certifying aut",
       "tags": [
@@ -1121,6 +1177,7 @@
       "category": "Notary Services",
       "volume": "Medium",
       "retention": "Translation purpose + 7-10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Translator name, credentials (e.g., ATA certification #), source language, target language, title of original document, subject name, number of pages, date of certification, notary name/commission (if",
       "tags": [
@@ -1138,6 +1195,7 @@
       "category": "Chain of Custody & Logistics",
       "volume": "Medium",
       "retention": "Variable (Case duration to Permanent)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Case number, item ID/description, container seal number (unique ID), relinquishing party name/ID, receiving party name/ID, handoff timestamp (to the second), physical location, purpose of transfer.",
       "tags": [
@@ -1155,6 +1213,7 @@
       "category": "Banking & Payments",
       "volume": "Small",
       "retention": "3-7 years (dispute resolution)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Merchant name, Case ID, disputed amount, transaction date, reason code (Visa/MC standard), evidence summary (Tracking #, IP, AVS match), final resolution status, date of resolution.",
       "tags": [
@@ -1172,6 +1231,7 @@
       "category": "Charitable & Non-Profit",
       "volume": "Tiny",
       "retention": "3-5 years (rating validity)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Non-profit legal name, EIN, rating score (e.g., 4-stars), numerical efficiency percentage, governance pass/fail, reporting compliance, issue date, expiration date.",
       "tags": [
@@ -1190,6 +1250,7 @@
       "category": "Legal & Court Documents",
       "volume": "Large",
       "retention": "Until obligation ends + statute of limitations (5-20 years)",
+      "verificationMode": "clip",
       "furtherDerivations": 2,
       "snippet": "Court name, case number, order type (child support / spousal support / both), petitioner name, respondent name, monthly amount, payment frequency, effective date, income withholding directive (yes/no)",
       "tags": [
@@ -1210,6 +1271,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Medium",
       "retention": "Care period + 3-7 years",
+      "verificationMode": "camera",
       "furtherDerivations": 1,
       "snippet": "Provider name, photo (hash), background check status (Clear/Fail), background check date, first aid/CPR certification, childcare training (e.g., CDA), state registry ID, reference count.",
       "tags": [
@@ -1228,6 +1290,7 @@
       "category": "Legal & Court Documents",
       "volume": "Very Large",
       "retention": "3-7 years (DMV/court records)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Issuing authority, citation/ticket number, defendant/violator name, violation type and code, citation date, dismissal date, reason for dismissal, any residual obligations.",
       "tags": [
@@ -1245,6 +1308,7 @@
       "category": "Civic & Public Safety",
       "volume": "High",
       "retention": "Varies by jurisdiction (1-7 years)",
+      "verificationMode": "clip",
       "furtherDerivations": 4,
       "snippet": "",
       "tags": [
@@ -1264,6 +1328,7 @@
       "category": "Professional Ethics & Compliance",
       "volume": "Small",
       "retention": "7-10 years (CASS audit / legal statute)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Firm name, regulatory ID (FRN), confirmation date, segregation status (Pass/Fail), account designation type, reconciliation frequency, shortfall amount (if any), CASS oversight officer name, external ",
       "tags": [
@@ -1283,6 +1348,7 @@
       "category": "Scientific & Research",
       "volume": "Very Small (per trial, thousands globally)",
       "retention": "25-30 years (FDA regulatory requirement)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Participant ID (coded/pseudonymized), trial NCT/Protocol number, Informed Consent Form (ICF) version number, date of consent, investigator name, site location, HIPAA authorization status, withdrawal s",
       "tags": [
@@ -1300,6 +1366,7 @@
       "category": "Chain of Custody & Logistics",
       "volume": "Large",
       "retention": "7-10 years (carrier liability)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Consignment number, Sender name, Consignee name, Pickup/Delivery locations, cargo description, number of packages, gross weight, Carrier ID, date of taking over, specialized instructions (e.g., \"Keep ",
       "tags": [
@@ -1318,6 +1385,7 @@
       "category": "Sports & Athletics",
       "volume": "Very Small",
       "retention": "5-10 years (certification validity)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Coach name, photo (hash), license level (Grassroots, D, C, B, A, PRO), issuing federation, effective date, expiration date, SafeSport compliance status, background check clearance status.",
       "tags": [
@@ -1335,6 +1403,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Very Large",
       "retention": "Employment period + badge validity",
+      "verificationMode": "camera",
       "furtherDerivations": 2,
       "snippet": "Employee name, photo, employee ID, employing organization, role/job title, authorized activities, geographic region, badge validity dates, DBS/background check status (where relevant).",
       "tags": [
@@ -1353,6 +1422,7 @@
       "category": "Warehousing & Inventory",
       "volume": "Medium",
       "retention": "Shipment + 7-10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Shipment ID, product description, required temperature range, actual Mean Kinetic Temperature (MKT), maximum/minimum temperature recorded, excursion duration (if any), monitoring device ID, download t",
       "tags": [
@@ -1370,6 +1440,7 @@
       "category": "Commercial Lines Insurance",
       "volume": "Medium",
       "retention": "Policy term + 7 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Business name, DOT number, specific vehicle VINs, combined single limit (CSL), cargo liability, effective/expiration dates, MCS-90 status, hired/non-owned auto inclusion.",
       "tags": [
@@ -1387,6 +1458,7 @@
       "category": "Commercial Lines Insurance",
       "volume": "Large",
       "retention": "Policy term + 10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Named insured, business description (Class Code), coverage limits (Occurrence/Aggregate), policy number, effective/expiration dates, deductible amount, issuing carrier.",
       "tags": [
@@ -1404,6 +1476,7 @@
       "category": "Insurance Claims & Operations",
       "volume": "Medium-Large",
       "retention": "Policy term + 7-10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Insured name, policy numbers across multiple lines (GL, WC, Auto, Cyber), individual coverage limits, effective/expiration dates per line, deductible structures, endorsement presence (e.g., Additional",
       "tags": [
@@ -1422,6 +1495,7 @@
       "category": "Customs & Trade Compliance",
       "volume": "Very Large",
       "retention": "7-10 years (customs audit cycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Exporter/Seller name, Importer/Buyer name, Invoice number, Line-item descriptions, HS Codes, Unit/Total values, Currency (e.g., USD), Incoterms, Country of Origin, Date of issuance, Container/Referenc",
       "tags": [
@@ -1440,6 +1514,7 @@
       "category": "Government & Regulatory",
       "volume": "Very Large",
       "retention": "Permanent (entity records)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Registry authority, entity name, file/registration number, entity type, formation/registration date, current status, registered agent, key dates (renewal, expiration). For directors: name, appointment",
       "tags": [
@@ -1457,6 +1532,7 @@
       "category": "Professional Ethics & Compliance",
       "volume": "Medium-Large",
       "retention": "7 years (regulatory), permanent (litigation)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Advisor Name, Firm Name, Disclosure Date, Fee Structure (AUM, flat, hourly), Revenue Sharing Arrangements, Commissions by Product Type, Referral Fees, Soft Dollar Arrangements.",
       "tags": [
@@ -1477,6 +1553,7 @@
       "category": "Professional & Educational Qualifications",
       "volume": "Very High",
       "retention": "Employment duration + statute of limitations",
+      "verificationMode": "clip",
       "furtherDerivations": 5,
       "snippet": "",
       "tags": [
@@ -1499,6 +1576,7 @@
       "category": "Professional & Occupational Licenses",
       "volume": "Medium",
       "retention": "Permit validity (1-5 years)",
+      "verificationMode": "camera",
       "furtherDerivations": 1,
       "snippet": "Permit holder name, photo (hash), date of birth, physical descriptors (height/weight), permit number, issuing county/agency, expiration date, restrictions (e.g., \"Handgun only\"), training completion s",
       "tags": [
@@ -1517,6 +1595,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Low-Medium",
       "retention": "Decades (lifetime records)",
+      "verificationMode": "clip",
       "furtherDerivations": 3,
       "snippet": "",
       "tags": [
@@ -1535,6 +1614,7 @@
       "category": "Real Estate & Property",
       "volume": "Very Small",
       "retention": "7-10 years (transaction records)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "HOA name, property unit address, current monthly dues, special assessment amounts/dates, reserve fund balance, violation status, rental restrictions (if any), management firm ID, date of issuance.",
       "tags": [
@@ -1552,6 +1632,7 @@
       "category": "Novel Document Types",
       "volume": "Very Large (emerging)",
       "retention": "Permanent (legal protection)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Consenting party (or hash), receiving party, scope of consent (what's being consented to), version of terms/disclosures, timestamp, method of consent, witness (if applicable).",
       "tags": [
@@ -1570,6 +1651,7 @@
       "category": "Art, Media & Publishing",
       "volume": "Very Small",
       "retention": "Permanent (artwork care)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Object title/artist, owner name, detailed treatment description, chemical materials used (solvents/resins), completion date, lead conservator credentials, laboratory/institution ID, condition status p",
       "tags": [
@@ -1587,6 +1669,7 @@
       "category": "Real Estate & Property",
       "volume": "Very Large",
       "retention": "Statute of Repose (10+ years)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Claimant (Subcontractor), Customer (GC), Job address, Payment amount (numerical/text), \"Through Date\" (liability cutoff), Waiver type (Conditional/Unconditional), payment reference (Check/Wire #), sig",
       "tags": [
@@ -1604,6 +1687,7 @@
       "category": "Permits & Approvals",
       "volume": "Unknown",
       "retention": "Unknown",
+      "verificationMode": "camera",
       "furtherDerivations": 1,
       "snippet": "Permit number, project address, description of work (scope), contractor name/license, owner name, issue date, expiration date, required inspection list, plan version hash.",
       "tags": [
@@ -1623,6 +1707,7 @@
       "category": "Construction & Building",
       "volume": "High",
       "retention": "Life of structure + liability period (10-15 years typical)",
+      "verificationMode": "camera",
       "furtherDerivations": 7,
       "snippet": "",
       "tags": [
@@ -1643,6 +1728,7 @@
       "category": "Immigration & Visa Documents",
       "volume": "Small",
       "retention": "Case + 5-10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Applicant name, passport number (partial), attestation reference number, consular officer name/rank, embassy/consulate location, date of issuance, specific fact being attested (e.g., residency, signat",
       "tags": [
@@ -1661,6 +1747,7 @@
       "category": "Immigration & Visa Documents",
       "volume": "Medium",
       "retention": "Appointment + 5 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Applicant name, NVC/Consular Case Number, Appointment Date/Time, Consulate location (City/Country), Visa Category (e.g., CR-1, IR-1, EB-3), number of derivative applicants, date of issuance.",
       "tags": [
@@ -1679,6 +1766,7 @@
       "category": "Chain of Custody & Logistics",
       "volume": "Large",
       "retention": "Shipment + 7 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Container ID, Seal ID, Booking number, Verified Gross Mass (VGM) in KG/LB, weighing method (Method 1 vs Method 2), shipper name, scale operator ID, scale certification status, date of weighing.",
       "tags": [
@@ -1697,6 +1785,7 @@
       "category": "Chain of Custody & Logistics",
       "volume": "Large",
       "retention": "Shipment + 3-7 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Shipper name, Booking number, Vessel name, Voyage number, Cargo description, HS Codes, Weight, Destination port.",
       "tags": [
@@ -1714,6 +1803,7 @@
       "category": "Specialty Insurance",
       "volume": "Small",
       "retention": "Event + 7 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Insured entity name, event name/ID, coverage limits (Cancellation/Abandonment/Non-Appearance), specific \"Key Artist\" inclusions, date range of the event, geographic territory, primary endorsements (e.",
       "tags": [
@@ -1731,6 +1821,7 @@
       "category": "Professional & Educational Qualifications",
       "volume": "Large",
       "retention": "3-7 years (renewal cycles)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Professional name, license number (optional), course title, education provider name, credit hours (by category: Ethics, Tech, General), date of completion, provider accreditation number, certificate s",
       "tags": [
@@ -1749,6 +1840,7 @@
       "category": "Delegated Authority",
       "volume": "Large",
       "retention": "Duration of contract + 6 years",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Authorized person name, company name, company registration, role/title, contract types authorized, monetary limits, duration limits, specific exclusions, delegating authority (board resolution referen",
       "tags": [
@@ -1766,6 +1858,7 @@
       "category": "Professional & Occupational Licenses",
       "volume": "Medium",
       "retention": "License term + 7 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Business name, qualifying individual, license number, classification (e.g., General Building, Electrical, Plumbing), bond amount, surety company ID, expiration date, workers' comp status, disciplinary",
       "tags": [
@@ -1784,6 +1877,7 @@
       "category": "Corporate & Legal Documents",
       "volume": "Very Large",
       "retention": "Contract term + 6-10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Parties, effective date, key terms (compensation, term, obligations), signatures, page sequence integrity, exhibit references.",
       "tags": [
@@ -1802,6 +1896,7 @@
       "category": "Legal & Court Documents",
       "volume": "Medium",
       "retention": "Permanent (legal status)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Court/issuing authority, case number, petitioner/defendant name, original offense(s), conviction date, type of relief (expungement/sealing/pardon), grant date, scope of relief, any exceptions or limit",
       "tags": [
@@ -1819,6 +1914,7 @@
       "category": "Intellectual Property Law",
       "volume": "Medium",
       "retention": "Life + 70 years (individual), 95 years (work for hire)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Registration number, title of work, author name, claimant (owner) name, type of work (Literary, Visual, Sound), date of creation, date of publication, SHA-256 hash of the \"Deposit Copy\" (the actual fi",
       "tags": [
@@ -1836,6 +1932,7 @@
       "category": "Notary Services",
       "volume": "Small",
       "retention": "7-10 years (corporate records)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Corporation name, Date of board action, Specific resolution text (digest), Authorized signatories, Dollar amounts (if financial), Secretary's name, Notary name/commission, Date of certification, Law f",
       "tags": [
@@ -1855,6 +1952,7 @@
       "category": "Professional & Occupational Licenses",
       "volume": "Large",
       "retention": "1-2 years (renewal)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Licensee name, photo (hash), license number, license type (Cosmetologist, Barber, Esthetician, Manicurist), expiration date, disciplinary history flag, issuing state board.",
       "tags": [
@@ -1873,6 +1971,7 @@
       "category": "Professional & Educational Qualifications",
       "volume": "Small",
       "retention": "Permanent (academic records)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Student name, student ID, specific course codes/titles, individual grades (A-F), credit hours per course, cumulative GPA, degree program, enrollment dates, date of transcript issuance.",
       "tags": [
@@ -1890,6 +1989,7 @@
       "category": "Government & Civic Documents",
       "volume": "Small",
       "retention": "Permanent (legal precedent, enforcement)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Case Number, Court Jurisdiction, Judge Name, Names of Parties, Verdict/Amount (numerical and text), Date of Filing, Clerk ID, specific conditions (e.g., \"Effective Immediately\").",
       "tags": [
@@ -1908,6 +2008,7 @@
       "category": "Site & Equipment Safety",
       "volume": "Small",
       "retention": "1 year (annual inspection)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Equipment serial number, manufacturer/model, owner name, maximum lift capacity, boom/jib configuration, load test results, inspector name/NCCCO number, date of inspection, expiration date.",
       "tags": [
@@ -1925,6 +2026,7 @@
       "category": "Travel & Hospitality",
       "volume": "Small",
       "retention": "Trip + 3-7 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Cardholder name, account last 4 digits, specific benefit type (CDW, Trip Delay, Baggage Insurance), coverage limits, geographic exclusions/inclusions, benefit status (Active/Suspended), date of confir",
       "tags": [
@@ -1943,6 +2045,7 @@
       "category": "Banking & Financial Services",
       "volume": "Very Large",
       "retention": "7 years (Fair Credit Reporting Act)",
+      "verificationMode": "clip",
       "furtherDerivations": 2,
       "snippet": "Consumer name, report date, credit score, score model (FICO 8, VantageScore 3.0), number of open accounts, total balances, payment history percentage, number of hard inquiries, derogatory marks count.",
       "tags": [
@@ -1963,6 +2066,7 @@
       "category": "Legal & Court Documents",
       "volume": "Very Large",
       "retention": "1-7 years (varies by use)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Issuing agency, request/reference number, subject name, date of birth (or other identifiers), search scope, result (no record/records found), search date, validity period.",
       "tags": [
@@ -1980,6 +2084,7 @@
       "category": "Specialty Insurance",
       "volume": "Small",
       "retention": "Growing season + 7 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Insured name, farm location (Section/Township/Range), specific crop types, acreage per crop, limit of insurance per acre, total policy liability, effective date (emergence), expiration date (harvest),",
       "tags": [
@@ -1997,6 +2102,7 @@
       "category": "Banking & Payments",
       "volume": "Medium",
       "retention": "5-7 years (compliance/disputes)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Sender name, Recipient name/Bank details, Transfer ID, amount sent (currency A), amount received (currency B), exchange rate, transaction fees, timestamp of completion, issuing money transmitter.",
       "tags": [
@@ -2015,6 +2121,7 @@
       "category": "Investment & Fintech",
       "volume": "Small",
       "retention": "3-7 years (fulfillment disputes)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Backer name, project title, pledge amount, reward tier description, estimated delivery date, project creator name, transaction date, unique pledge ID.",
       "tags": [
@@ -2033,6 +2140,7 @@
       "category": "Travel & Hospitality",
       "volume": "Large",
       "retention": "Voyage + 3-7 years (expense)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Passenger name, reservation ID, ship name, voyage dates, stateroom number, itemized charges (Internet, Gratuities, Drinks, Excursions), total settled amount, payment method (last 4 digits).",
       "tags": [
@@ -2051,6 +2159,7 @@
       "category": "Financial Compliance",
       "volume": "Small",
       "retention": "5 years (IRS/FinCEN requirement)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Customer name, SSN/TIN (redacted), identifying document number, financial institution name/branch, cash-in/cash-out amount, account number (masked), date of transaction, FinCEN filing reference ID.",
       "tags": [
@@ -2069,6 +2178,7 @@
       "category": "Customs & Trade Compliance",
       "volume": "Large",
       "retention": "7-10 years (customs audit)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Entry Number, Importer name, Broker ID, Entry Type (e.g., Consumption, Bonded, FTZ), Port of Entry, HS Code classification, merchandise value, duty amount paid, liquidation date, release status.",
       "tags": [
@@ -2087,6 +2197,7 @@
       "category": "Insurance Claims & Operations",
       "volume": "Small",
       "retention": "Policy term + 7 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Insured name, incident ID, threat actor name (if known), ransomware strain, approved payment ceiling, authorized negotiator firm, OFAC/Sanctions clearance status, date of authorization, underwriter ID",
       "tags": [
@@ -2105,6 +2216,7 @@
       "category": "Commercial Lines Insurance",
       "volume": "Small",
       "retention": "Policy term + 10 years (claims)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Named insured, industry class code, specific coverage module limits (Liability, Response, Extortion), business interruption daily limit, effective/expiration dates, security warrants (e.g., \"MFA activ",
       "tags": [
@@ -2123,6 +2235,7 @@
       "category": "Customs & Trade Compliance",
       "volume": "Small",
       "retention": "7-30 years (safety/liability)",
+      "verificationMode": "clip",
       "furtherDerivations": 3,
       "snippet": "Shipper name, Air Waybill (AWB) number, UN Number (e.g., UN3480), Proper Shipping Name, Hazard Class (1-9), Packing Group (I, II, III), Net Quantity per package, emergency contact number, signatory na",
       "tags": [
@@ -2152,6 +2265,7 @@
       "category": "Scientific & Research",
       "volume": "Very Small",
       "retention": "7-20 years (IP/legal)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Provider institution name, Recipient institution name, Dataset ID/Title, specific Authorized Use (Scope), execution date, termination/expiration date, data protection status (e.g., GDPR compliant), au",
       "tags": [
@@ -2170,6 +2284,7 @@
       "category": "Banking & Financial Services",
       "volume": "Very Large",
       "retention": "7-10 years (credit reporting cycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Lender name, loan/account number, borrower name, original loan amount, property/collateral description (if secured), payoff date, final payment amount, lien release status, any remaining obligations.",
       "tags": [
@@ -2188,6 +2303,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Very Large",
       "retention": "Delivery + 30 days",
+      "verificationMode": "camera",
       "furtherDerivations": 2,
       "snippet": "Courier name, employee ID, company division (Express/Ground/Freight), hub location, photograph (via hash), expiration date, background check status.",
       "tags": [
@@ -2211,6 +2327,7 @@
       "category": "Chain of Custody & Logistics",
       "volume": "Large",
       "retention": "Delivery + 3-7 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Delivery Order (DO) number, Consignee name, Trucking company (if specified), Container ID, Bill of Lading (B/L) number, Port Terminal ID, freight payment status, customs clearance status, expiration d",
       "tags": [
@@ -2229,6 +2346,7 @@
       "category": "Banking & Payments",
       "volume": "Unknown",
       "retention": "Unknown",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "",
       "tags": [
@@ -2249,6 +2367,7 @@
       "category": "Commercial Lines Insurance",
       "volume": "Small",
       "retention": "Policy term + 10-20 years (claims)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Insured company name, specific coverage limits (Side A/B/C), retention (deductible) amounts, policy period, retroactive date (critical for prior acts), exclusion endorsements (e.g., \"Pending Litigatio",
       "tags": [
@@ -2267,6 +2386,7 @@
       "category": "Commercial Lines Insurance",
       "volume": "Very Small",
       "retention": "Policy term + 20 years (claims tail)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Pension scheme name, individual trustee names, coverage limits (Indemnity), retention amount, ERISA/Statutory compliance status, retroactive date, issuing carrier, policy expiration.",
       "tags": [
@@ -2284,6 +2404,7 @@
       "category": "Actuarial & Insurance Mathematics",
       "volume": "Small",
       "retention": "Policy term + 7 years (claims)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Insured name, monthly benefit amount, pre-disability earnings base, benefit percentage, offsets applied (SSDI, Workers Comp), elimination period duration, max benefit age, claim status, certifying act",
       "tags": [
@@ -2302,6 +2423,7 @@
       "category": "Healthcare & Medical Records",
       "volume": "Large",
       "retention": "Duration of condition + review period (1-5 years)",
+      "verificationMode": "clip",
       "furtherDerivations": 2,
       "snippet": "Patient name, certifying physician name and credentials, certifying organization, certification type (e.g., Reasonable Accommodation — Workplace), functional limitation category (mobility, vision, hea",
       "tags": [
@@ -2322,6 +2444,7 @@
       "category": "Personal Lines Insurance",
       "volume": "Small",
       "retention": "Policy lifetime + 10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Insured name, specific occupation class, monthly benefit amount, elimination period (waiting time), benefit period (duration), COLA (Cost of Living Adjustment) riders, effective date, issuing carrier.",
       "tags": [
@@ -2339,6 +2462,7 @@
       "category": "Healthcare & Medical Records",
       "volume": "Small",
       "retention": "10-30 years (medical records)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Patient name, MRN (Medical Record Number), admission/discharge dates, primary diagnosis, list of new medications (dose/frequency), follow-up requirements, attending physician name, facility ID.",
       "tags": [
@@ -2356,6 +2480,7 @@
       "category": "Charitable & Non-Profit",
       "volume": "Medium",
       "retention": "7-10 years (tax audit)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Donor name, donation amount, date received, charity Tax ID (EIN), charity name, donation type (Cash/Stock/In-Kind), 501(c)(3) status statement, receipt serial number.",
       "tags": [
@@ -2373,6 +2498,7 @@
       "category": "Government & Civic Documents",
       "volume": "Medium-Large",
       "retention": "5-10 years (renewal cycles)",
+      "verificationMode": "camera",
       "furtherDerivations": 1,
       "snippet": "Full name, date of birth, physical descriptors (Height/Eye Color), license number, license class (A/B/C), endorsements (Motorcycle/Hazmat), expiration date, REAL ID compliance status, organ donor stat",
       "tags": [
@@ -2391,6 +2517,7 @@
       "category": "Government & Civic Documents",
       "volume": "Very Large",
       "retention": "Point-in-time (re-verify periodically)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Licence holder name, licence number, record date/time, penalty points total, endorsement codes and dates, disqualification status, licence categories held, category validity dates.",
       "tags": [
@@ -2410,6 +2537,7 @@
       "category": "Sports & Athletics",
       "volume": "Very Small",
       "retention": "10-20 years (WADA requirements)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Athlete identifier (masked), Sample ID number, type of sample (Urine/Blood), date/time of collection, test result (Negative/Adverse Finding), testing lab accreditation, Doping Control Officer (DCO) ID",
       "tags": [
@@ -2428,6 +2556,7 @@
       "category": "Trade Finance",
       "volume": "Small",
       "retention": "3-7 years (payment disputes)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Supplier name, Buyer name, Invoice number, Gross amount, Discount percentage (APR equivalent), Net payment amount, Target payment date, original due date, clearing platform ID.",
       "tags": [
@@ -2446,6 +2575,7 @@
       "category": "Real Estate & Property",
       "volume": "Tiny",
       "retention": "Permanent (property encumbrance)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Grantor name, Grantee name, legal property description (Lot/Block/Plat), easement purpose (Utility, Ingress/Egress, Conservation), width/dimensions, date of grant, Liber/Page/Document reference number",
       "tags": [
@@ -2464,6 +2594,7 @@
       "category": "Professional & Educational Qualifications",
       "volume": "Tiny",
       "retention": "Permanent (institutional status)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Institution name, Accrediting body ID, Accreditation status, Date of last review, Date of next evaluation, Level of accreditation (Regional/National), Specific campus locations included, Regulatory re",
       "tags": [
@@ -2482,6 +2613,7 @@
       "category": "Government & Civic Documents",
       "volume": "Medium",
       "retention": "Permanent (historical record)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Election date and type, jurisdiction, office/contest, candidate names, vote counts, total ballots, turnout percentage, certification date, certifying officials, any recount/audit notes.",
       "tags": [
@@ -2500,6 +2632,7 @@
       "category": "Site & Equipment Safety",
       "volume": "Large",
       "retention": "3-5 years (commercial wiring cycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Panel ID, Circuit number, test date, insulation resistance (MΩ), earth loop impedance (Ω), test result (Satisfactory/Unsatisfactory), electrician name/license, next inspection date, regulation referen",
       "tags": [
@@ -2518,6 +2651,7 @@
       "category": "Delegated Authority",
       "volume": "Large",
       "retention": "Duration of employment + 6 years",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Authorized person, company, authority type (hiring/termination/compensation), scope (departments, grades, salary bands), limits (monetary, seniority), exclusions, escalation requirements, delegating o",
       "tags": [
@@ -2535,6 +2669,7 @@
       "category": "Immigration & Visa Documents",
       "volume": "Medium",
       "retention": "1-2 years (renewal cycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Full name, USCIS number (A-Number), Category code (e.g., C03, C08, C09), Card serial number, effective date, expiration date, photograph (via hash), fingerprint status (hash), issuing office.",
       "tags": [
@@ -2553,6 +2688,7 @@
       "category": "Professional & Educational Qualifications",
       "volume": "Very Large",
       "retention": "1-7 years (hiring cycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Employee name, legal employer name, job title/role, start date, end date (or \"Present\"), rehire eligibility status, reason for departure (voluntary/involuntary), salary (optional/linked hash), HRIS re",
       "tags": [
@@ -2570,6 +2706,7 @@
       "category": "Environmental Permits & Compliance",
       "volume": "Tiny",
       "retention": "Permit term + permanent",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Permittee name, project location, authorized species (Latin/Common name), take limit (numerical), mitigation requirements, effective/expiration dates, HCP (Habitat Conservation Plan) reference, issuin",
       "tags": [
@@ -2588,6 +2725,7 @@
       "category": "Environmental Permits & Compliance",
       "volume": "Large",
       "retention": "5-10 years (regulatory cycle / property lifecycle)",
+      "verificationMode": "camera",
       "furtherDerivations": 1,
       "snippet": "Report Reference Number (RRN), property address, energy efficiency score (0-100), energy band (A-G), carbon emissions (tonnes/year), auditor name/ID, inspection date, expiration date, recommended impr",
       "tags": [
@@ -2607,6 +2745,7 @@
       "category": "Product Certifications & Compliance",
       "volume": "Very Small",
       "retention": "5-10 years (certification validity)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Project name, owner, certification level (Certified, Silver, Gold, Platinum), rating system version, verified point total, certification date, geographic location, project ID.",
       "tags": [
@@ -2624,6 +2763,7 @@
       "category": "Commercial Lines Insurance",
       "volume": "Small",
       "retention": "Policy term + 30+ years (claims)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Named insured, specific covered site address, cleanup cost limits, 3rd party liability limits, \"Sudden vs Gradual\" release status, retroactive date, policy term (often 10+ years), issuing carrier (NAI",
       "tags": [
@@ -2642,6 +2782,7 @@
       "category": "Environmental & Safety",
       "volume": "Medium",
       "retention": "Perpetuity (some contamination)",
+      "verificationMode": "camera",
       "furtherDerivations": 4,
       "snippet": "",
       "tags": [
@@ -2661,6 +2802,7 @@
       "category": "Real Estate & Property",
       "volume": "Medium",
       "retention": "7-20 years (CERCLA liability protection)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Property address, assessment type (Phase I/II), ASTM standard version, primary findings (e.g., \"No RECs identified\"), lead assessor name/license, client name, report date, report ID.",
       "tags": [
@@ -2680,6 +2822,7 @@
       "category": "Investment & Fintech",
       "volume": "Very Small",
       "retention": "Permanent (securities holding)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Shareholder name, company name, number of shares, share class (Common/Preferred), issuance date, certificate number, regulation type (Reg CF, Reg A+), valuation at time of issuance (optional), platfor",
       "tags": [
@@ -2699,6 +2842,7 @@
       "category": "Actuarial & Insurance Mathematics",
       "volume": "Very Small",
       "retention": "7-10 years (DOL audit)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Plan sponsor name, plan year, audit opinion type (Unqualified/Qualified/Adverse), funding percentage, Enrolled Actuary (EA) name/license, Form 5500 filing date, material findings summary, date of audi",
       "tags": [
@@ -2717,6 +2861,7 @@
       "category": "Real Estate & Property",
       "volume": "Large",
       "retention": "7 years (tax records), life of loan",
+      "verificationMode": "clip",
       "furtherDerivations": 4,
       "snippet": "Loan number, property address, homeowner name, total disbursements (Taxes/Insurance), beginning/ending balance, projected payment change, next year's cushion amount, date of analysis, servicer ID.",
       "tags": [
@@ -2751,6 +2896,7 @@
       "category": "Banking & Financial Services",
       "volume": "Large",
       "retention": "7 years (transaction records)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Escrow agent name, file/agreement number, parties (buyer/seller, depositor/beneficiary), property or materials description, escrow amount, release conditions, release date, recipient of disbursement.",
       "tags": [
@@ -2768,6 +2914,7 @@
       "category": "Immigration & Visa Documents",
       "volume": "Very Large",
       "retention": "2 years (ESTA validity)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Application number, full name, date of birth, passport number, country of citizenship, authorization status (Approved/Pending), issuance date, expiration date.",
       "tags": [
@@ -2786,6 +2933,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Medium",
       "retention": "7 years post-clearance",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "",
       "tags": [
@@ -2803,6 +2951,7 @@
       "category": "Scientific & Research",
       "volume": "Very Small",
       "retention": "7-30 years (regulatory compliance)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Protocol ID, Principal Investigator (PI) name, study title (digest), IRB/IACUC committee ID, risk level classification, approval date, expiration date, number of subjects authorized, specific interven",
       "tags": [
@@ -2821,6 +2970,7 @@
       "category": "Specialty Insurance",
       "volume": "Very Small",
       "retention": "Event date + 7 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Event name, exact location, coverage limit, specific weather triggers (e.g., rainfall depth, wind speed), monitoring station ID (e.g., NOAA station), time-window for triggers, event start/end dates, i",
       "tags": [
@@ -2838,6 +2988,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Very Large",
       "retention": "Event + 30 days (chargebacks/disputes)",
+      "verificationMode": "both",
       "furtherDerivations": 10,
       "snippet": "Event name, venue, date/time, section/row/seat, ticket holder name, photo hash (if bound), transfer status, resale policy, price paid, purchase timestamp.",
       "tags": [
@@ -2858,6 +3009,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Medium",
       "retention": "1-3 years (security & liability logs)",
+      "verificationMode": "camera",
       "furtherDerivations": 0,
       "snippet": "Staff or contractor name, photo (hash), company affiliation, role/position (Setup Crew, Security, AV Tech, Vendor, Catering, Talent Handler, etc.), assigned area/zone access (Backstage, VIP, Equipment",
       "tags": [
@@ -2875,6 +3027,7 @@
       "category": "Permits & Approvals",
       "volume": "Unknown",
       "retention": "Unknown",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Permit number, event name, organizer name, authorized dates/times, specific street boundaries, authorized activities (e.g., Amplified Sound, Alcohol), security requirements, max occupancy, city depart",
       "tags": [
@@ -2895,6 +3048,7 @@
       "category": "Insurance Claims & Operations",
       "volume": "Small",
       "retention": "Litigation lifecycle plus 10-20 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Expert name/credentials (PE, MD, Ph.D.), retaining law firm, case caption/number, specific subject of opinion, final damage estimate (numerical), date of report, methodology used (e.g., ASTM standards",
       "tags": [
@@ -2913,6 +3067,7 @@
       "category": "Art, Media & Publishing",
       "volume": "Very Small",
       "retention": "3-10 years (journalistic integrity)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Full published text (digest), author name, date of publication, fact-checker organization, list of verified sources (anonymized or linked), presence of corrections/retractions, primary source timestam",
       "tags": [
@@ -2931,6 +3086,7 @@
       "category": "Product Certifications & Compliance",
       "volume": "Very Small",
       "retention": "3-7 years (audit cycles)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Producer cooperative name, Fairtrade ID (FLO ID), specific product certified (e.g., Coffee, Cocoa, Cotton), region of origin, latest audit date, compliance status, certification body (e.g., FLOCERT), ",
       "tags": [
@@ -2949,6 +3105,7 @@
       "category": "Agriculture & Food",
       "volume": "Small",
       "retention": "7-10 years (government audit)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Producer name, business TIN (redacted), program type (ARC, PLC, CRP), plan year, eligibility status, total payment limit, AGI (Adjusted Gross Income) compliance status, county office ID, date of appro",
       "tags": [
@@ -2967,6 +3124,7 @@
       "category": "Bonds & Sureties",
       "volume": "Small",
       "retention": "Policy term + 10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Principal name (Company), bond amount, coverage type (Blanket/Position), ERISA compliance flag, effective/expiration dates, surety company name, specific exclusions (e.g., \"Owners excluded\"), date of ",
       "tags": [
@@ -2985,6 +3143,7 @@
       "category": "Government & Regulatory",
       "volume": "Very Large",
       "retention": "Varies by filing type (1 year - permanent)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Receiving authority, filing type, filer name/entity, filing date and time, confirmation number, acceptance status, any fees paid.",
       "tags": [
@@ -3003,6 +3162,7 @@
       "category": "Bonds & Sureties",
       "volume": "Very Small",
       "retention": "Film lifecycle + 10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Film title, production company name, total guaranteed budget, bond ID number, guarantor name, beneficiary (lender) name, effective date, anticipated delivery date, issuing office location.",
       "tags": [
@@ -3020,6 +3180,7 @@
       "category": "Professional Ethics & Compliance",
       "volume": "Very Large",
       "retention": "7 years (FCA/FINRA regulatory requirement)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Promotion ID, campaign name, approved media channels, date of approval, expiration date of sign-off, name of authorized firm (and FRN), name/ID of the approving individual, specific risk-warning text ",
       "tags": [
@@ -3039,6 +3200,7 @@
       "category": "Specialty Insurance",
       "volume": "Small",
       "retention": "Policy term / exhibition + 10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Owner name, specific artwork title/artist, \"Agreed Value\" amount, coverage type (Nail-to-Nail), exhibition location(s), transit route, approved packing company ID, effective dates, issuing specialist ",
       "tags": [
@@ -3057,6 +3219,7 @@
       "category": "Notary Services",
       "volume": "Large",
       "retention": "Background check + 3-7 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Applicant name, date of birth, fingerprint card serial number (e.g., FD-258 ID), purpose of check (FBI, FINRA, State), date of fingerprinting, notary name/commission number, jurisdiction (State/County",
       "tags": [
@@ -3075,6 +3238,7 @@
       "category": "Professional & Occupational Licenses",
       "volume": "Small",
       "retention": "3 years (license term)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Licensee name, trade name (DBA), premises address, mailing address, FFL number (full 15-digit), license type (01-11), expiration date, responsible person ID, issuing ATF region.",
       "tags": [
@@ -3094,6 +3258,7 @@
       "category": "Professional Ethics & Compliance",
       "volume": "Medium",
       "retention": "Duration of employment + 7 years",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Employee name, role/function, firm name, assessment date, certification period, competencies confirmed, certifying officers, next renewal date.",
       "tags": [
@@ -3112,6 +3277,7 @@
       "category": "Real Estate & Property",
       "volume": "Very Small",
       "retention": "Permanent (flood insurance)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Property address, FEMA Flood Zone (e.g., AE, V, X), Base Flood Elevation (BFE), Lowest Floor Elevation (LFE), datum used (NAVD 88), surveyor name/license, date of survey, building diagram type (1-9), ",
       "tags": [
@@ -3130,6 +3296,7 @@
       "category": "Agriculture & Food",
       "volume": "Unknown",
       "retention": "Unknown",
+      "verificationMode": "camera",
       "furtherDerivations": 1,
       "snippet": "Business name, establishment address, hygiene rating (0-5 or A/B/C), inspection date, inspector ID, specific violations found (optional linked hash), next inspection window.",
       "tags": [
@@ -3149,6 +3316,7 @@
       "category": "Product Certifications & Compliance",
       "volume": "Small",
       "retention": "2-7 years (audit cycles)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Facility name, premises address, certification standard (e.g., SQF, BRCGS, HACCP), audit score/rating, scope of certification (e.g., \"Dairy\" vs \"Dry Goods\"), certification body name, issuance date, ex",
       "tags": [
@@ -3168,6 +3336,7 @@
       "category": "Professional & Educational Qualifications",
       "volume": "Large",
       "retention": "Permanent (credential equivalency doesn't expire)",
+      "verificationMode": "clip",
       "furtherDerivations": 2,
       "snippet": "Applicant name, evaluation agency, report number, country of education, institution name, credential earned (original), equivalency determination (the critical field), date of evaluation.",
       "tags": [
@@ -3188,6 +3357,7 @@
       "category": "Business & Commerce",
       "volume": "Small",
       "retention": "Term plus 7+ years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Franchisor legal name, Franchisee candidate name, proposed location/territory, FDD fiscal year/version, Item 19 earnings claims (numerical), initial fees, royalty rates, date of disclosure receipt (st",
       "tags": [
@@ -3206,6 +3376,7 @@
       "category": "Chain of Custody & Logistics",
       "volume": "Large",
       "retention": "7-10 years (payment/audit)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Invoice number, Carrier name, Shipper name, Bill of Lading (B/L) reference, total freight charge, line-item breakdown (Linehaul, Fuel, Accessorials), payment terms, date of issuance, delivery confirma",
       "tags": [
@@ -3224,6 +3395,7 @@
       "category": "Chain of Custody & Logistics",
       "volume": "Small",
       "retention": "Policy term + 10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Vessel name, IMO number, Member name, coverage class (FD&D), legal cost limits, effective dates, P&I Club ID, specific exclusions (if any), date of certificate issuance.",
       "tags": [
@@ -3242,6 +3414,7 @@
       "category": "Specialty Insurance",
       "volume": "Medium",
       "retention": "Shipment + 7-10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Member name, region of operation, cargo liability limit, E&O (Errors & Omissions) limit, 3rd party liability limit, effective/expiration dates, member ID, issuing specialist underwriter.",
       "tags": [
@@ -3260,6 +3433,7 @@
       "category": "Travel & Hospitality",
       "volume": "Medium",
       "retention": "Statement period + 3-7 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Member name, loyalty ID number, current mileage balance (Award Miles), status tier level (e.g., Platinum/Diamond), lifetime miles, expiration date of miles, recent high-value transaction ID, date of s",
       "tags": [
@@ -3279,6 +3453,7 @@
       "category": "Investment & Fintech",
       "volume": "Medium",
       "retention": "7-10 years (tax, audit, dispute resolution)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Fund name, investor name, account ID, period end date, Net Asset Value (NAV) per share, total units/shares held, ending capital balance, management/performance fees deducted, monthly/yearly performanc",
       "tags": [
@@ -3303,6 +3478,7 @@
       "category": "Banking & Financial Services",
       "volume": "Very Large",
       "retention": "1-3 years (consumer protection)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Issuer name, card/voucher number (masked), original value, transaction details, amount used, remaining balance, redemption date, card status.",
       "tags": [
@@ -3320,6 +3496,7 @@
       "category": "Banking & Payments",
       "volume": "Large",
       "retention": "3-7 years (tax reporting)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Driver name, Partner ID, payout period (dates), gross trip earnings, total tips, promotions/bonuses, service fees deducted, net payout amount, total trip count, date of payment.",
       "tags": [
@@ -3339,6 +3516,7 @@
       "category": "Immigration & Visa Documents",
       "volume": "Medium",
       "retention": "5 years (membership validity)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Member name, PASSID (Membership #), program type (Global Entry, NEXUS, SENTRI, TSA PreCheck), status (Approved/Conditional/Revoked), Known Traveler Number (KTN), effective date, expiration date, issui",
       "tags": [
@@ -3357,6 +3535,7 @@
       "category": "Personal Lines Insurance",
       "volume": "Small",
       "retention": "Trip duration + 1 year",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Policyholder name, vehicle registration number (Plate), make/model, vehicle category, policy effective/expiration dates, country of issuance, covered countries (Green Card Bureau members), issuing car",
       "tags": [
@@ -3375,6 +3554,7 @@
       "category": "Banking & Financial Services",
       "volume": "Medium",
       "retention": "7-10 years (credit reporting cycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Creditor/landlord name, loan/lease identifier, primary obligor name, guarantor name, original guarantee amount or terms, release date, release reason, any continuing obligations.",
       "tags": [
@@ -3392,6 +3572,7 @@
       "category": "Travel & Hospitality",
       "volume": "Large",
       "retention": "Tour + 1-3 years",
+      "verificationMode": "both",
       "furtherDerivations": 1,
       "snippet": "Lead participant name, booking reference ID, activity title, meeting point address/coordinates, start date/time, total price paid, number of participants, operator name, liability waiver status.",
       "tags": [
@@ -3410,6 +3591,7 @@
       "category": "Agriculture & Food",
       "volume": "Medium",
       "retention": "5-10 years (crop insurance/audit)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Producer name, field GPS boundaries, crop type, total weight/volume, average moisture content, calculated yield per acre (Bushels/Acre), equipment ID, operator ID, harvest timestamp, calibration statu",
       "tags": [
@@ -3428,6 +3610,7 @@
       "category": "Product Certifications & Compliance",
       "volume": "Medium",
       "retention": "Active use + 30 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Product name, CAS number, manufacturer name, GHS hazard classifications (1-4), signal word (Danger/Warning), pictograms, emergency contact info, revision date, specific hazardous ingredient percentage",
       "tags": [
@@ -3446,6 +3629,7 @@
       "category": "Personal Lines Insurance",
       "volume": "Very Large",
       "retention": "Policy term (typically 1 year, renewed)",
+      "verificationMode": "both",
       "furtherDerivations": 2,
       "snippet": "Member name, member ID, group number, plan type (PPO/HMO/EPO), effective date, insurer name. NOT included in the hash: deductible amounts, out-of-pocket maximums, specific coverage details (those live",
       "tags": [
@@ -3465,6 +3649,7 @@
       "category": "Personal Lines Insurance",
       "volume": "Large",
       "retention": "7-10 years (tax/audit)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Patient name, member ID (partial), provider name, service date, CPT codes (procedures), billed amount, contracted discount, insurance payment, patient responsibility (copay/deductible), date of EOB is",
       "tags": [
@@ -3483,6 +3668,7 @@
       "category": "Personal Lines Insurance",
       "volume": "Medium",
       "retention": "Policy term + 7 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Plan name, network ID, individual/family deductibles, out-of-pocket maximums, primary care copay, specialist copay, emergency room fees, pharmacy tiers, policy effective/expiration dates, state of fil",
       "tags": [
@@ -3501,6 +3687,7 @@
       "category": "Actuarial & Insurance Mathematics",
       "volume": "Very Small",
       "retention": "5-10 years (rate approval)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Certifying actuary name/qualifications, insurer name, specific plan portfolio (e.g., \"2027 Individual PPO\"), proposed % increase, medical loss ratio (MLR) projection, medical cost trend assumptions, f",
       "tags": [
@@ -3518,6 +3705,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Large",
       "retention": "2-7 years (security & incident records)",
+      "verificationMode": "camera",
       "furtherDerivations": 0,
       "snippet": "For all staff:",
       "tags": [
@@ -3537,6 +3725,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Medium",
       "retention": "Visit + 3-7 years (care records)",
+      "verificationMode": "camera",
       "furtherDerivations": 1,
       "snippet": "Worker name, photo (hash), professional license type (RN, LPN, CNA), state license number, agency name, scheduled visit ID, background check clearance date, current duty status (Active/Off-Duty).",
       "tags": [
@@ -3555,6 +3744,7 @@
       "category": "Occupational Health & Safety",
       "volume": "Very High",
       "retention": "Variable by control type",
+      "verificationMode": "camera",
       "furtherDerivations": 5,
       "snippet": "",
       "tags": [
@@ -3576,6 +3766,7 @@
       "category": "Real Estate & Property",
       "volume": "Tiny",
       "retention": "Permanent (governance)",
+      "verificationMode": "clip",
       "furtherDerivations": 2,
       "snippet": "HOA legal name, document title (Bylaws/CC&Rs), adoption date, revision version, total page count, Secretary's name, county recording reference number, principal office address.",
       "tags": [
@@ -3597,6 +3788,7 @@
       "category": "Real Estate & Property",
       "volume": "Small",
       "retention": "5-10 years (transaction records)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Property address, inspection date, client name, inspector name/license, summary of \"Major Deficiencies,\" structural integrity status, roof age estimate, electrical panel status, total report page coun",
       "tags": [
@@ -3615,6 +3807,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Large",
       "retention": "Service + 3-7 years (liability/tax)",
+      "verificationMode": "camera",
       "furtherDerivations": 1,
       "snippet": "Tradesperson name, photo (hash), professional license type (Master/Journeyman), license number, company name, insurance status (Liability/WC), background check date, issuing state board.",
       "tags": [
@@ -3633,6 +3826,7 @@
       "category": "Real Estate & Property",
       "volume": "Large",
       "retention": "Policy term + 7 years (claims, mortgage audits)",
+      "verificationMode": "clip",
       "furtherDerivations": 3,
       "snippet": "Named insured, property address, dwelling limit (Coverage A), personal property limit (Coverage C), liability limit, deductible amount, policy form (HO-3/HO-5), effective/expiration dates, Mortgagee C",
       "tags": [
@@ -3660,6 +3854,7 @@
       "category": "Travel & Hospitality",
       "volume": "Very Large",
       "retention": "Cancellation Date + 3-7 years",
+      "verificationMode": "clip",
       "furtherDerivations": 3,
       "snippet": "Guest name, booking reference ID, original stay dates, cancellation timestamp, refund amount, refund method, cancellation fee (if any), policy terms (Non-refundable vs Free), issuing hotel/OTA name.",
       "tags": [
@@ -3691,6 +3886,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Large",
       "retention": "Stay + 1-3 years (incident records)",
+      "verificationMode": "camera",
       "furtherDerivations": 3,
       "snippet": "Staff name, photo (hash), employee ID, job role (e.g., Housekeeping, Maintenance, Room Service), property affiliation, current duty status (Active/Off-Duty), background check clearance date (hash).",
       "tags": [
@@ -3711,6 +3907,7 @@
       "category": "Site & Equipment Safety",
       "volume": "Medium",
       "retention": "14 months - 5 years (COSHH / OSHA cycles)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "System ID, facility address, test date, face velocity / flow rate (m/s or fpm), filter type/status, hood number, inspector name, next test due date, regulation reference (COSHH / OSHA).",
       "tags": [
@@ -3729,6 +3926,7 @@
       "category": "Travel & Hospitality",
       "volume": "Small",
       "retention": "Statement period + 7 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Agency name, IATA Numeric Code (8-digit), ASTA membership number, physical address, accreditation status (Full/GoLite/GoStandard), financial security status (e.g., Bonded/Verified Assets), authorized ",
       "tags": [
@@ -3747,6 +3945,7 @@
       "category": "Identity & Authority Verification",
       "volume": "High",
       "retention": "1-5 years",
+      "verificationMode": "clip",
       "furtherDerivations": 4,
       "snippet": "",
       "tags": [
@@ -3765,6 +3964,7 @@
       "category": "Immigration & Visa Documents",
       "volume": "Medium",
       "retention": "Appointment + 5 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Applicant name, USCIS Receipt Number, Appointment Date/Time, Field Office location, Form Type (e.g., I-485, N-400), Case Category, date of notice issuance, security access code.",
       "tags": [
@@ -3784,6 +3984,7 @@
       "category": "Immigration & Visa Documents",
       "volume": "Medium",
       "retention": "Application + 7 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Applicant name, Alien Registration Number (A-Number), Date of birth, Civil Surgeon name/ID, Clinic location, Date of medical examination, Vaccination status (Complete/Waiver), presence of Class A/B me",
       "tags": [
@@ -3803,6 +4004,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Medium",
       "retention": "Encounter + 1-3 years",
+      "verificationMode": "camera",
       "furtherDerivations": 1,
       "snippet": "Officer name, photo (hash), badge number, agency (ICE, CBP), unit (ERO, HSI), employment status (Active/Retired), jurisdiction, date of credential issuance.",
       "tags": [
@@ -3821,6 +4023,7 @@
       "category": "Immigration & Visa Documents",
       "volume": "Medium (aggregate)",
       "retention": "Varies (visa validity to permanent)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Full name, Alien Registration Number (A-Number), Date of birth, Country of birth, Resident Since date, Card expiration date, Visa Category (e.g., IR1, EB2), Photo (via hash), Fingerprint status (hash)",
       "tags": [
@@ -3839,6 +4042,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Very Large",
       "retention": "Varies by underlying claim",
+      "verificationMode": "clip",
       "furtherDerivations": 2,
       "snippet": "",
       "tags": [
@@ -3865,6 +4069,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Very Large",
       "retention": "Call record + 1-3 years (accountability)",
+      "verificationMode": "clip",
       "furtherDerivations": 3,
       "snippet": "Calling agency, caller name/badge number, subject matter of the call (category, not details), case or reference number (if applicable), date and time of authorization, expiration time, calling phone n",
       "tags": [
@@ -3887,6 +4092,7 @@
       "category": "Safety & Compliance",
       "volume": "Very Large",
       "retention": "Permanent (safety records)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Reporting organization, incident category, date/time, severity classification, immediate cause, contributing factors, injuries/damage/releases, corrective actions, regulatory notification timestamps, ",
       "tags": [
@@ -3911,6 +4117,7 @@
       "category": "Insurance Claims & Operations",
       "volume": "Medium",
       "retention": "Claim term + 10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Adjuster name, IA (Independent Adjuster) license number, hiring carrier name, Claim ID, property address, inspection date, estimated RCV (Replacement Cost Value), cause of loss code, primary scope of ",
       "tags": [
@@ -3930,6 +4137,7 @@
       "category": "Environmental & Safety",
       "volume": "Very High",
       "retention": "Building lifetime + liability period",
+      "verificationMode": "camera",
       "furtherDerivations": 5,
       "snippet": "",
       "tags": [
@@ -3949,6 +4157,7 @@
       "category": "Professional & Educational Qualifications",
       "volume": "Small",
       "retention": "3-10 years (renewal cycles)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Certified individual name, certification title (e.g., PMP, CISSP, AWS Architect), unique credential ID, issuing organization name, specialization/domain, effective date, expiration date, PDU (Professi",
       "tags": [
@@ -3968,6 +4177,7 @@
       "category": "Infrastructure & Engineering",
       "volume": "Medium",
       "retention": "Design life of structure (50-100+ years)",
+      "verificationMode": "camera",
       "furtherDerivations": 5,
       "snippet": "",
       "tags": [
@@ -3988,6 +4198,7 @@
       "category": "Scientific & Research",
       "volume": "Very Small",
       "retention": "5-10 years (data validity)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Instrument model/serial number, Asset ID, calibration date, technician name/Ph.D., reference standards used (NIST traceability), environmental conditions during test, PASS/FAIL status, specific drift ",
       "tags": [
@@ -4006,6 +4217,7 @@
       "category": "Actuarial & Insurance Mathematics",
       "volume": "Very Large",
       "retention": "Policy Period + 10-20 years (Statute of Limitations)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Claim reference number, policy number, name of insured, date of loss, timestamp of reporting, claim type (e.g., motor, liability), status (Registered/Reserved).",
       "tags": [
@@ -4024,6 +4236,7 @@
       "category": "Insurance Claims & Operations",
       "volume": "Medium",
       "retention": "Claim term + 10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Insured name, policy number, Claim ID, adjusted loss amount (ACV/RCV), deductible amount, net settlement estimate, adjuster name/ID, inspection date, cause of loss code, issuance timestamp.",
       "tags": [
@@ -4042,6 +4255,7 @@
       "category": "Insurance Claims & Operations",
       "volume": "Large",
       "retention": "Claim term + 7-10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 3,
       "snippet": "Patient name, member ID (partial), provider name, service date, claim number, billed amount, allowed amount, plan paid amount, patient responsibility (deductible/copay), adjustment reason codes.",
       "tags": [
@@ -4071,6 +4285,7 @@
       "category": "Personal Lines Insurance",
       "volume": "Large",
       "retention": "5-7 years (claims history)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Insurer name, policy number, policyholder name, coverage type, claims-free years earned, last claim date (if any), policy period, protection status, certificate issue date.",
       "tags": [
@@ -4091,6 +4306,7 @@
       "category": "Actuarial & Insurance Mathematics",
       "volume": "Very Small",
       "retention": "7-30 years (policy lifetime)",
+      "verificationMode": "clip",
       "furtherDerivations": 3,
       "snippet": "Certifying actuary name/qualifications (FSA/MAAA), insurer name, specific business unit/portfolio, aggregate reserve amount (USD), valuation date (e.g., Year-End 2025), compliance standards (e.g., VM-",
       "tags": [
@@ -4122,6 +4338,7 @@
       "category": "Chain of Custody & Logistics",
       "volume": "Very Large",
       "retention": "Equipment return + 7 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Container ID, Chassis ID, Trucking company name, Driver ID (hash), Outgate/Ingate status, detailed damage codes (e.g., SC-1, DT-4), seal integrity status, terminal location ID, precise timestamp, issu",
       "tags": [
@@ -4141,6 +4358,7 @@
       "category": "Government & Regulatory",
       "volume": "Large",
       "retention": "Permanent (benefit entitlement)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Taxpayer/worker identity, issuing authority, treaty/agreement referenced, coverage period, applicable country, exemption type, certificate number, issue date, expiration.",
       "tags": [
@@ -4161,6 +4379,7 @@
       "category": "Specialty Insurance",
       "volume": "Very Small",
       "retention": "Permanent (chain of title)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Insured name, property address, Cadastral/Parcel reference ID, country of jurisdiction, Amount of Insurance (USD/local), policy number, effective date, issuing underwriter, specific risk endorsements ",
       "tags": [
@@ -4179,6 +4398,7 @@
       "category": "Warehousing & Inventory",
       "volume": "Medium",
       "retention": "Reporting period + 7 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Depositor name, warehouse location ID, itemized lot numbers, product descriptions, current quantity on hand (units/pallets), total certified valuation, last audit timestamp, warehouse manager ID.",
       "tags": [
@@ -4197,6 +4417,7 @@
       "category": "Investment & Fintech",
       "volume": "Very Small",
       "retention": "Permanent (may show REVOKED status)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Representative name, photo (hash), Individual CRD number, Firm CRD number, registration status (Registered/Suspended/Barred), jurisdictions of authority, ADV Part 2B (Brochure Supplement) status, date",
       "tags": [
@@ -4216,6 +4437,7 @@
       "category": "Professional Ethics & Compliance",
       "volume": "Large",
       "retention": "7-10 years (regulatory, litigation)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Client name, advisor name/credentials, firm name, report date, client profile summary (risk tolerance, objectives, experience), recommendation details, suitability rationale.",
       "tags": [
@@ -4233,6 +4455,7 @@
       "category": "Trade Finance",
       "volume": "Small",
       "retention": "Invoice term + 7-10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Seller (client) name, Buyer (debtor) name, Invoice number, total invoice amount, advance rate %, cash advance amount, factor fee structure, date of purchase, notice of assignment (remit-to) bank detai",
       "tags": [
@@ -4251,6 +4474,7 @@
       "category": "Specialty Insurance",
       "volume": "Small",
       "retention": "Policy term + 10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Insured name, premises address, stock-on-hand limit (USD), transit/shipping limits, specific vault/safe classification (UL Class), alarm monitoring status, trade show exhibition limits, memo/consignme",
       "tags": [
@@ -4269,6 +4493,7 @@
       "category": "Specialty Insurance",
       "volume": "Tiny",
       "retention": "Policy term + 10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Insured entity name, aggregate ransom limit, individual sub-limits, crisis response firm name (e.g., Control Risks, NYA), effective/expiration dates, covered individuals (Class/Title), territory inclu",
       "tags": [
@@ -4287,6 +4512,7 @@
       "category": "Financial Compliance",
       "volume": "Medium",
       "retention": "5-10 years post-relationship",
+      "verificationMode": "clip",
       "furtherDerivations": 2,
       "snippet": "Full name, date of birth, residential address, primary ID number (Passport/SSN), nationality, PEP (Politically Exposed Person) status, adverse media flag, sanctions list status (OFAC/EU), biometric li",
       "tags": [
@@ -4308,6 +4534,7 @@
       "category": "Scientific & Research",
       "volume": "Small",
       "retention": "7-30 years (research integrity)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Notebook ID, page number, researcher name, principal investigator (PI) name, witness name, timestamp (to the second), experiment title/ID, summary of findings (digest), checksum of attached raw data f",
       "tags": [
@@ -4326,6 +4553,7 @@
       "category": "Healthcare & Medical Records",
       "volume": "Medium",
       "retention": "10-30 years (medical necessity)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Patient name, MRN/Accession number, specimen type (e.g., Blood/Tissue), specific test names, numerical results (e.g., TSH levels), qualitative diagnosis (e.g., \"Malignant\"), reference ranges, patholog",
       "tags": [
@@ -4345,6 +4573,7 @@
       "category": "Real Estate & Property",
       "volume": "Very Small",
       "retention": "Permanent (property records)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Property Lot/Block, Metes and Bounds strings, Specific Encroachment descriptions (e.g., \"1.2' West\"), Monument types (Iron Rod, Brass Cap), Surveyor license number, Elevation data (if included), Certi",
       "tags": [
@@ -4370,6 +4599,7 @@
       "category": "Professional & Educational Qualifications",
       "volume": "Very Small",
       "retention": "2-5 years (test validity)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Test taker name, registration/appointment ID, test type (iBT/Paper), test date, individual section scores (0-30 scale), total aggregate score, test center ID (or \"Home Edition\"), date of report issuan",
       "tags": [
@@ -4389,6 +4619,7 @@
       "category": "Real Estate & Property",
       "volume": "Very Large",
       "retention": "3-7 years (EPA requirement)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Property address, Seller/Lessor name, Buyer/Lessee name, specific disclosure checkboxes (Known vs Unknown), list of attached reports (if any), presence of \"Protect Your Family from Lead\" pamphlet, dat",
       "tags": [
@@ -4407,6 +4638,7 @@
       "category": "Identity & Civil Records",
       "volume": "Medium",
       "retention": "Permanent (lifetime identity document)",
+      "verificationMode": "clip",
       "furtherDerivations": 2,
       "snippet": "Previous full name, new full name, date of name change, date of enrolment/registration, enrolment/certificate number, issuing authority, jurisdiction.",
       "tags": [
@@ -4425,6 +4657,7 @@
       "category": "Trade Finance",
       "volume": "Small (but high-value)",
       "retention": "7-10 years (transaction lifecycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "L/C Number, Issuing Bank name, Beneficiary name, Applicant name, Currency and exact amount (numerical/text), Expiry date, Port of Loading/Discharge, Goods description (digest), UCP version (e.g., UCP ",
       "tags": [
@@ -4443,6 +4676,7 @@
       "category": "Professional & Occupational Licenses",
       "volume": "Unknown",
       "retention": "Unknown",
+      "verificationMode": "camera",
       "furtherDerivations": 1,
       "snippet": "License number, license type (e.g., Type 47 - Restaurant), business name, DBA name, premises address, expiration date, specific operating conditions (curfews, sound limits), maximum occupancy count, p",
       "tags": [
@@ -4460,6 +4694,7 @@
       "category": "Personal Lines Insurance",
       "volume": "Small",
       "retention": "7-10 years post-claim",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Deceased name, policy number, beneficiary name(s), total death benefit amount, date of death (verified), death certificate reference, claim approval date, issuing carrier, payment method (wire/check).",
       "tags": [
@@ -4478,6 +4713,7 @@
       "category": "Personal Lines Insurance",
       "volume": "Small",
       "retention": "Policy lifetime (50+ years)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Insured name, policy number, face amount (Death Benefit), policy type (Whole/Term/Universal), cash value accumulation (if applicable), primary/contingent beneficiaries, base premium, effective date, i",
       "tags": [
@@ -4497,6 +4733,7 @@
       "category": "Specialty Insurance",
       "volume": "Small",
       "retention": "Policy term + 7-10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Insured name, FIPS county code, specific crop types/livestock categories, total acreage/head count, coverage level % (e.g., 85%), total policy liability, effective/expiration dates, underwriter ID, RM",
       "tags": [
@@ -4516,6 +4753,7 @@
       "category": "Agriculture & Food",
       "volume": "Small",
       "retention": "Animal lifetime + 5-10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Animal unique ID (Microchip/Tag), Consignor/Consignee names, Species/Breed, Gender, Age, specific disease test results (e.g., Coggins for horses, TB for cattle), vaccination history, accredited veteri",
       "tags": [
@@ -4535,6 +4773,7 @@
       "category": "Healthcare & Medical Records",
       "volume": "Very Small",
       "retention": "Permanent (end-of-life care)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Declarant name, date of birth, appointed Health Care Agent (Proxy) name, specific life-sustaining treatment choices (Yes/No), comfort care directives, organ donor status, date of execution, witness na",
       "tags": [
@@ -4554,6 +4793,7 @@
       "category": "Professional & Occupational Licenses",
       "volume": "Small",
       "retention": "1-3 years (license term)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Licensee name, photo (hash), license number, business DBA name, expiration date, bonding status ($2,500 minimum typically), background check clearance date, issuing state bureau.",
       "tags": [
@@ -4573,6 +4813,7 @@
       "category": "Actuarial & Insurance Mathematics",
       "volume": "Very Small",
       "retention": "7-15 years (claims settlement)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Certifying actuary name/qualifications (FCAS/ACAS), insurer name, specific line of business (e.g., Workers Comp, Auto, GL), total reserve amount (USD), valuation date, NAIC Annual Statement reference,",
       "tags": [
@@ -4591,6 +4832,7 @@
       "category": "Banking & Payments",
       "volume": "Very Large",
       "retention": "Draw Date + 1-2 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Win amount, draw name, draw date, ticket serial number, terminal ID, timestamp of verification, player ID (if registered).",
       "tags": [
@@ -4611,6 +4853,7 @@
       "category": "Novel Document Types",
       "volume": "Very Large (emerging)",
       "retention": "Varies by application",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Sensor/device ID, reading timestamp, measurement values, units, acceptable ranges, excursion flags, chain of custody identifiers.",
       "tags": [
@@ -4630,6 +4873,7 @@
       "category": "Safety & Compliance",
       "volume": "Large",
       "retention": "Permanent (legal records)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Disclosing organization, disclosure type, regulatory authority, discovery date, notification date, deadline compliance, scope/impact, affected parties, remediation status.",
       "tags": [
@@ -4653,6 +4897,7 @@
       "category": "Product Certifications & Compliance",
       "volume": "Medium",
       "retention": "Product lifecycle (5-15 years)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Manufacturer name, premises address, product model/part number, serial number range, list of applicable EU Directives/Standards (e.g., LVD, EMC, RoHS), authorized signatory name/title, date of issuanc",
       "tags": [
@@ -4671,6 +4916,7 @@
       "category": "Manufacturing & Production",
       "volume": "High",
       "retention": "Product lifetime + liability period",
+      "verificationMode": "camera",
       "furtherDerivations": 4,
       "snippet": "",
       "tags": [
@@ -4690,6 +4936,7 @@
       "category": "Art, Media & Publishing",
       "volume": "Very Small",
       "retention": "5-10 years (publication records)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Author name, editor name, manuscript title, version ID (e.g., v2.4), SHA-256 hash of the submitted digital file, submission timestamp (to the second), total word count, copyright registration status, ",
       "tags": [
@@ -4708,6 +4955,7 @@
       "category": "Specialty Insurance",
       "volume": "Small",
       "retention": "Transit period + 7-10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 3,
       "snippet": "Assured name, Loss Payee (Bank), Certificate number, Vessel name, Voyage route (Port-to-Port), cargo description, total amount insured (usually 110% of CIF), coverage clauses (e.g., ICC A), issuing br",
       "tags": [
@@ -4738,6 +4986,7 @@
       "category": "Commerce & Consumer",
       "volume": "High",
       "retention": "Account lifetime + regulatory requirements",
+      "verificationMode": "clip",
       "furtherDerivations": 4,
       "snippet": "",
       "tags": [
@@ -4757,6 +5006,7 @@
       "category": "Government & Civic Documents",
       "volume": "Small",
       "retention": "Permanent (legal status)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Spouse full names, dates of birth, marriage date, license number, certificate serial number, officiant name, location of ceremony, county of issuance, date of recording.",
       "tags": [
@@ -4776,6 +5026,7 @@
       "category": "Professional & Occupational Licenses",
       "volume": "Medium",
       "retention": "1-2 years (renewal)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Licensee name, photo (hash), license number (MA), business establishment ID (if applicable), board certification status (e.g., NCBTMB), background check clearance date, disciplinary history status, ex",
       "tags": [
@@ -4795,6 +5046,7 @@
       "category": "Business & Commerce",
       "volume": "Medium",
       "retention": "Contract term + 7-10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Client name, Provider name, Agreement ID, execution date, specific liability limit amount, termination notice period, governing law jurisdiction, authorized signatories, page count of full contract.",
       "tags": [
@@ -4814,6 +5066,7 @@
       "category": "Product Certifications & Compliance",
       "volume": "Small",
       "retention": "10-30 years (structural integrity)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Manufacturer name (the Mill), Heat Number (unique batch ID), material grade (e.g., ASTM A36), chemical composition (% of C, Mn, P, S), mechanical properties (Yield Strength, Tensile Strength, Elongati",
       "tags": [
@@ -4833,6 +5086,7 @@
       "category": "Product Certifications & Compliance",
       "volume": "Very Large",
       "retention": "10-30 years (product liability)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Manufacturer legal name, facility location, Notified Body ID (e.g., 0086), Certificate number, Device classification (I, IIa, IIb, III), specific model numbers, ISO standards met, issue date, expirati",
       "tags": [
@@ -4852,6 +5106,7 @@
       "category": "Healthcare & Medical Records",
       "volume": "Small",
       "retention": "Lifetime (device tracking)",
+      "verificationMode": "both",
       "furtherDerivations": 1,
       "snippet": "Patient name, date of birth, device serial number, UDI (Unique Device Identifier), implanting surgeon name, hospital/facility ID, date of implantation, MRI safety status (e.g., \"MRI Conditional\"), iss",
       "tags": [
@@ -4870,6 +5125,7 @@
       "category": "Healthcare & Medical Records",
       "volume": "Medium",
       "retention": "10-30 years (diagnostic history)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Patient name, MRN/Accession number, study type (e.g., MRI, CT), anatomical region, radiologist \"Impression\" (digest), clinical indication, study date, report date, radiologist credentials, facility ID",
       "tags": [
@@ -4889,6 +5145,7 @@
       "category": "Healthcare & Medical",
       "volume": "High",
       "retention": "Patient lifetime + statute of limitations",
+      "verificationMode": "camera",
       "furtherDerivations": 4,
       "snippet": "",
       "tags": [
@@ -4908,6 +5165,7 @@
       "category": "Corporate & Legal Documents",
       "volume": "Very Large",
       "retention": "Permanent (corporate records)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Meeting date/time/location, attendees (present/absent), quorum status, agenda items, motions and seconds, resolutions passed, vote counts, signatures, page sequence integrity.",
       "tags": [
@@ -4926,6 +5184,7 @@
       "category": "Charitable & Non-Profit",
       "volume": "Unknown",
       "retention": "Unknown",
+      "verificationMode": "both",
       "furtherDerivations": 0,
       "snippet": "Member Name, Member Number, Membership Tier (Basic, Plus, Premier), Valid Through Date, Home Club (regional affiliate), Covered Vehicles (if listed), Household Members (if applicable).",
       "tags": [
@@ -4947,6 +5206,7 @@
       "category": "Novel Document Types",
       "volume": "Very Large (emerging)",
       "retention": "Permanent (career records)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Issuing organization, holder identifier, credential name/code, level, assessment method, score/result, completion date, assessor (if applicable), expiration (if applicable).",
       "tags": [
@@ -4965,6 +5225,7 @@
       "category": "Banking & Payments",
       "volume": "Large",
       "retention": "3-7 years (tax/disputes)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Transaction ID (Reference #), Sender phone/name, Recipient phone/name, exact amount (local currency), service fees, timestamp (to the second), current account balance (optional/linked), agent ID (for ",
       "tags": [
@@ -4984,6 +5245,7 @@
       "category": "Actuarial & Insurance Mathematics",
       "volume": "Tiny",
       "retention": "Permanent (industry standards)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Table name (e.g., 2026 CSO), version ID, population basis (e.g., U.S. Group Life), date of certification, lead actuary name/FSA ID, specific data segments (Age/Sex/Smoker), issuing standards body, eff",
       "tags": [
@@ -5002,6 +5264,7 @@
       "category": "Specialty Insurance",
       "volume": "Small",
       "retention": "Mortgage term (15-30 years)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Lender name, borrower name, loan ID, original loan amount, Loan-to-Value (LTV) ratio, insurance coverage percentage (e.g., 25-30%), monthly premium amount, effective date, issuing carrier (e.g., Arch,",
       "tags": [
@@ -5020,6 +5283,7 @@
       "category": "Real Estate & Property",
       "volume": "Very Small",
       "retention": "Permanent (clear title)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Mortgagor (Borrower) name, Mortgagee (Lender) name, original loan account number (masked), original mortgage date, original recording reference (Liber/Page/Doc #), property address, satisfaction date,",
       "tags": [
@@ -5038,6 +5302,7 @@
       "category": "Real Estate & Property",
       "volume": "Small",
       "retention": "7-10 years (loan term + disputes)",
+      "verificationMode": "clip",
       "furtherDerivations": 2,
       "snippet": "Employee name, legal employer name, current job title, employment status (Active/On-Leave), start date, base salary amount, bonus/commission history (linked hash), total annual income, issuing HR offi",
       "tags": [
@@ -5060,6 +5325,7 @@
       "category": "Government & Regulatory",
       "volume": "Very Large",
       "retention": "1-5 years (renewal cycles)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Issuing municipality, registration type, registrant name, registration number, validity period, any conditions or restrictions, fees paid.",
       "tags": [
@@ -5078,6 +5344,7 @@
       "category": "Personal Lines Insurance",
       "volume": "Medium",
       "retention": "Policy term (1 year typical)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Policyholder name, specific Named Driver names, driver's license numbers (redacted), vehicle registration (License Plate), policy number, effective/expiration dates, coverage type (Comprehensive/3rd P",
       "tags": [
@@ -5096,6 +5363,7 @@
       "category": "Government & Civic Documents",
       "volume": "Very Large",
       "retention": "5-10 years (renewal cycles)",
+      "verificationMode": "camera",
       "furtherDerivations": 1,
       "snippet": "Full name, date of birth, residential address, unique ID number, sex, physical descriptors (Height/Eye Color), photo (via hash), document serial number, issuing authority, effective/expiration dates.",
       "tags": [
@@ -5115,6 +5383,7 @@
       "category": "Banking & Payments",
       "volume": "Medium",
       "retention": "5-10 years (customer relationship)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Customer Name, Address (if verified), Account Number, Routing/Sort Code, IBAN, Account Status, Date of Opening.",
       "tags": [
@@ -5135,6 +5404,7 @@
       "category": "Business & Commerce",
       "volume": "Small",
       "retention": "3-5 years (contract term)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Location coordinates, guaranteed signal metrics (dBm, throughput tier), timestamp, provider commitment.",
       "tags": [
@@ -5152,6 +5422,7 @@
       "category": "Legal & Court Documents",
       "volume": "Large",
       "retention": "1-3 years (application cycles)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Issuing authority, applicant/holder name, certificate/license number, scope of certification, specific disqualifying categories checked, certification date, validity period.",
       "tags": [
@@ -5168,6 +5439,7 @@
       "category": "Financial & Legal Documents",
       "volume": "Very Large",
       "retention": "Duration of agreement + 5-10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Party names, Effective date, Agreement ID, Page number (e.g., \"Page 1 of 8\"), Specific Scope of Confidentiality, Governing Law, Signature IDs, Law firm or Corporate Legal ID.",
       "tags": [
@@ -5186,6 +5458,7 @@
       "category": "Charitable & Non-Profit",
       "volume": "Small",
       "retention": "7 years (IRS audit)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Recipient organization, grant amount, grant purpose (restricted vs. unrestricted), award date, authorized signatory.",
       "tags": [
@@ -5203,6 +5476,7 @@
       "category": "Notary Services",
       "volume": "Small",
       "retention": "Permanent (estate records)",
+      "verificationMode": "clip",
       "furtherDerivations": 3,
       "snippet": "Testator name, Notary name, Commission Number, Date of Act, Witness names, Archive Reference ID, Succession location, Liquidator/Executor name, Specific bequests (digest).",
       "tags": [
@@ -5235,6 +5509,7 @@
       "category": "Business & Commerce",
       "volume": "Very Large",
       "retention": "3-7 years (regulatory compliance / dispute resolution)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Authorized signer name, telephone number(s) to be ported, losing carrier name, winning carrier name, account number (masked), service address zip code, date of authorization, porting PIN status, inter",
       "tags": [
@@ -5253,6 +5528,7 @@
       "category": "Chain of Custody & Logistics",
       "volume": "Medium",
       "retention": "Tariff validity + 7 years (FMC compliance)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Tariff number, FMC license number, route (Origin/Destination ports), container type (e.g., 40' HC), commodity description, effective date, expiration date, base freight rate, individual surcharge amou",
       "tags": [
@@ -5272,6 +5548,7 @@
       "category": "Chain of Custody & Logistics",
       "volume": "Large",
       "retention": "Shipment completion plus 7-10 years (disputes, customs audits)",
+      "verificationMode": "clip",
       "furtherDerivations": 3,
       "snippet": "B/L Number, shipper, consignee, vessel name, voyage number, port of loading/discharge, container numbers, seal numbers, cargo description, gross weight, date of loading (shipped on board).",
       "tags": [
@@ -5299,6 +5576,7 @@
       "category": "Professional & Educational Qualifications",
       "volume": "Large",
       "retention": "Duration of employment + 2 years",
+      "verificationMode": "clip",
       "furtherDerivations": 2,
       "snippet": "Candidate name, position title, employer name, start date, salary/compensation (base), employment type (full-time/part-time/contract), work location.",
       "tags": [
@@ -5318,6 +5596,7 @@
       "category": "Financial Compliance",
       "volume": "Medium",
       "retention": "7-10 years (regulatory requirements)",
+      "verificationMode": "clip",
       "furtherDerivations": 3,
       "snippet": "Entity name, registration number, audit period, report date, scope of audit, auditor's opinion (clean/qualified/adverse/disclaimer), auditor's name and license number.",
       "tags": [
@@ -5340,6 +5619,7 @@
       "category": "Financial Compliance",
       "volume": "Large",
       "retention": "Duration of entity + 7 years",
+      "verificationMode": "clip",
       "furtherDerivations": 3,
       "snippet": "Company name, company number, date of incorporation, registered agent name, good standing status, date of issue, validity period.",
       "tags": [
@@ -5363,6 +5643,7 @@
       "category": "Banking & Payments",
       "volume": "Very Large",
       "retention": "Consent term + 3-7 years (audit)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Customer ID (masked), Third-Party Provider (TPP) name, Authorization ID, Access Scope (AIS/PIS), Specific accounts shared, Transaction history depth (e.g., \"90 days\"), Consent timestamp, Expiry timest",
       "tags": [
@@ -5381,6 +5662,7 @@
       "category": "Business & Commerce",
       "volume": "Huge",
       "retention": "Lifetime of product",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Product model, firmware version, list of included packages/licenses, validity of the \"Written Offer\".",
       "tags": [
@@ -5399,6 +5681,7 @@
       "category": "Delegated Authority",
       "volume": "Very Large",
       "retention": "Project duration + 6 years",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Authorized person, company, authority type (vendor/project/SLA/exception), scope (regions, departments, customer tiers), limits (monetary, duration, parameters), escalation triggers, delegating office",
       "tags": [
@@ -5416,6 +5699,7 @@
       "category": "Travel & Hospitality",
       "volume": "Very Large",
       "retention": "Travel + 1-3 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Passenger/Guest name, OTA Confirmation Number, Supplier Reference (PNR/Hotel ID), Total Price, Currency, Dates of travel, Class of Service (e.g., \"Economy\" vs \"Business\"), Cancellation policy terms, I",
       "tags": [
@@ -5434,6 +5718,7 @@
       "category": "Investment & Fintech",
       "volume": "Small",
       "retention": "Loan term + 7-10 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Borrower name, Loan ID, Principal amount, Fixed/Variable APR, Monthly payment amount, Loan Term (months), Origination date, Maturity date, Platform ID.",
       "tags": [
@@ -5453,6 +5738,7 @@
       "category": "Banking & Payments",
       "volume": "Very Large",
       "retention": "3-7 years (tax / dispute period)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Transaction ID, platform name (Venmo/Zelle/CashApp), sender name/@handle, receiver name/@handle, payment amount, date/time of transfer, payment status (Completed/Pending), note/memo text, payment meth",
       "tags": [
@@ -5472,6 +5758,7 @@
       "category": "Chain of Custody & Logistics",
       "volume": "Very Large",
       "retention": "7-10 years (customs/legal)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Shipper/Consignee names, Manifest Number, Container ID, Seal Number, Line-item SKUs and quantities, Unit/Total Weights, HS Codes (Harmonized System), Origin/Destination ports, Date of loading.",
       "tags": [
@@ -5491,6 +5778,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Large",
       "retention": "Encounter + 1-3 years (dispute period)",
+      "verificationMode": "camera",
       "furtherDerivations": 1,
       "snippet": "Officer name, badge ID, department/agency, photograph (via hash), current duty status, jurisdiction boundaries, citation authority level.",
       "tags": [
@@ -5510,6 +5798,7 @@
       "category": "Government & Civic Documents",
       "volume": "Medium-Small",
       "retention": "10-20 years (security requirements)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Full name, Nationality, Date of Birth, Passport Number, Document Serial Number, Issuing Authority ID, Place of Birth, Expiration Date, MRZ (Machine Readable Zone) checksums, Photo (via secure hash).",
       "tags": [
@@ -5529,6 +5818,7 @@
       "category": "Intellectual Property Law",
       "volume": "Medium",
       "retention": "20 years (utility/plant), 15 years (design)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Patent number, title of invention, inventor name(s), assignee/owner (may differ from inventor), application date, issue date, patent type (utility, design, plant), jurisdiction, expiration date, maint",
       "tags": [
@@ -5545,6 +5835,7 @@
       "category": "Healthcare & Medical Records",
       "volume": "Very Large",
       "retention": "7-10 years post-treatment (regulatory, legal liability)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Patient Name, Date of Birth, Specific Procedure/Treatment/Disclosure Scope, Ordering/Treating Physician Name, Consent Form Version and Date, Patient Signature Status (present/witnessed), Witness Name ",
       "tags": [
@@ -5565,6 +5856,7 @@
       "category": "Professional & Educational Qualifications",
       "volume": "Very Large",
       "retention": "3-7 years (tax + employment disputes)",
+      "verificationMode": "clip",
       "furtherDerivations": 2,
       "snippet": "Employee name, employer name, pay period start and end dates, gross pay, net pay, pay frequency (weekly/bi-weekly/semi-monthly/monthly), employment status (full-time/part-time/contract).",
       "tags": [
@@ -5584,6 +5876,7 @@
       "category": "Banking & Payments",
       "volume": "Very Large",
       "retention": "7-10 years (tax / financial audit lifecycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Merchant ID, business legal name, statement ID, period date range, total gross sales, total net payouts, processing fee totals, chargeback/dispute count and dollar amount, refund volume, issuing bank ",
       "tags": [
@@ -5603,6 +5896,7 @@
       "category": "Scientific & Research",
       "volume": "Very Small",
       "retention": "Permanent (publication history / career integrity)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Manuscript ID number, journal name, article title, author name(s), reviewer verdict (Accept/Reject/Revise), date of decision, lead editor name, reviewer IDs (masked), summary of findings hash.",
       "tags": [
@@ -5622,6 +5916,7 @@
       "category": "Consumer & Personal",
       "volume": "High",
       "retention": "2-5 years",
+      "verificationMode": "camera",
       "furtherDerivations": 1,
       "snippet": "Transaction ID, date/time, location, seller identity reference, buyer identity reference, item description, serial number, condition, sale price.",
       "tags": [
@@ -5641,6 +5936,7 @@
       "category": "Financial Compliance",
       "volume": "Very Small",
       "retention": "Permanent (pension plan lifecycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Plan ID number, plan name, valuation date, total accrued liability, net actuarial assets, funded status percentage, discount rate (interest rate) assumption, Enrolled Actuary ID, date of signature, si",
       "tags": [
@@ -5660,6 +5956,7 @@
       "category": "Professional Ethics & Compliance",
       "volume": "Medium",
       "retention": "5-10 years post-relationship (AML requirement)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Individual name, date of birth (masked), PEP classification (Yes/No), specific public role/title, country of influence, relationship type (e.g., Self, Family, Close Associate), source of wealth summar",
       "tags": [
@@ -5679,6 +5976,7 @@
       "category": "Immigration & Visa Documents",
       "volume": "Very Large",
       "retention": "Permanent (license lifecycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "USCIS Alien Registration Number (A-Number), full name, category code (e.g., CR1, E11, RE8), card serial number, date of birth, country of birth, resident-since date, card expiration date, photograph (",
       "tags": [
@@ -5699,6 +5997,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Medium",
       "retention": "Training period + 1-3 years (certification cycle)",
+      "verificationMode": "camera",
       "furtherDerivations": 1,
       "snippet": "Trainer name, certification ID number, credential type (CPT, Nutrition, etc.), expiration date, issuing body (NASM, ACE, ISSA), liability insurance status, background check timestamp, CPR/AED certific",
       "tags": [
@@ -5719,6 +6018,7 @@
       "category": "Professional & Occupational Licenses",
       "volume": "Medium",
       "retention": "License term (1-3 years)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "License number, licensee full name, photograph (via hash), company name (DBA), license categories (e.g., Structural, Lawn, Termite), expiration date, background check timestamp, insurance policy ID, i",
       "tags": [
@@ -5738,6 +6038,7 @@
       "category": "Real Estate & Property",
       "volume": "Large",
       "retention": "3-7 years (statute of limitations / warranty period)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Report ID, property address, owner name (optional/masked), buyer name, inspection date, active infestation status (Yes/No), previous damage location/severity, treatment recommendations, inspector name",
       "tags": [
@@ -5757,6 +6058,7 @@
       "category": "Agriculture & Food",
       "volume": "Small",
       "retention": "5-10 years (environmental compliance / supply chain audit)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Log number, farm name, field/parcel ID, crop type, applicator name/license, chemical product name, EPA registration number, active ingredient percentage, application rate (per acre), total volume appl",
       "tags": [
@@ -5776,6 +6078,7 @@
       "category": "Art, Media & Publishing",
       "volume": "Small",
       "retention": "5-20 years (license term / copyright lifecycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "License number, image ID (Asset ID), licensee name, photographer name, agency name, usage type (Commercial/Editorial/Personal), geographic scope (Regional/Worldwide), duration (start/end dates), resol",
       "tags": [
@@ -5795,6 +6098,7 @@
       "category": "Investment & Fintech",
       "volume": "Medium",
       "retention": "Loan term + 7-10 years (financial audit / tax)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Merchant ID, business legal name, advance ID, funding date, amount advanced (net), total repayment amount (gross), daily remittance percentage, platform name, primary bank account ID (for sweeping), d",
       "tags": [
@@ -5814,6 +6118,7 @@
       "category": "Site & Equipment Safety",
       "volume": "Medium",
       "retention": "1 year (annual inspection cycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Equipment serial number, site/park name, specific structure name (e.g., \"The Castle\"), surface type (e.g., Poured Rubber, Woodchips), HIC (Head Injury Criterion) score, ASTM F1487 status, CPSI (Certif",
       "tags": [
@@ -5833,6 +6138,7 @@
       "category": "Government & Civic Documents",
       "volume": "Large",
       "retention": "6-12 months (validity period) + immigration file retention",
+      "verificationMode": "clip",
       "furtherDerivations": 2,
       "snippet": "Applicant name, date of birth, nationality/nationalities, issuing authority, country, reference number, date issued, validity period, result (no convictions / convictions found — but NOT the details o",
       "tags": [
@@ -5853,6 +6159,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Very Large",
       "retention": "Encounter + 1-3 years (accountability)",
+      "verificationMode": "camera",
       "furtherDerivations": 2,
       "snippet": "",
       "tags": [
@@ -5872,6 +6179,7 @@
       "category": "Specialty Insurance",
       "volume": "Very Small",
       "retention": "Policy term + 20 years (long-term investment lifecycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Policy number, insurer name, insured entity name, host country, project name/ID, total limit of liability, sub-limits per risk type (Expropriation, PV, etc.), policy term, premium payment status, prim",
       "tags": [
@@ -5891,6 +6199,7 @@
       "category": "Government & Civic Documents",
       "volume": "Large (Election Cycles)",
       "retention": "Election cycle + 2-4 years (audit requirement)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Worker name, employee/volunteer ID, election jurisdiction (County/City), precinct/ward assignment, specific role (Judge, Clerk, Inspector), training completion date, background check status, photograp",
       "tags": [
@@ -5910,6 +6219,7 @@
       "category": "Notary Services",
       "volume": "Small",
       "retention": "Permanent (life of principal)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Principal name, Agent name, Specific Granted Powers (e.g., \"Real Estate Only\"), Effective Date, Durable vs. Springing status, Notary name/commission, Witness names, Law firm ID.",
       "tags": [
@@ -5927,6 +6237,7 @@
       "category": "Novel Document Types",
       "volume": "Medium (emerging)",
       "retention": "Permanent (reputation records)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Forecaster identity, prediction question/scope, predicted value or probability, commitment timestamp, resolution criteria, resolution date, outcome (when resolved), accuracy metrics.",
       "tags": [
@@ -5944,6 +6255,7 @@
       "category": "Healthcare & Medical Records",
       "volume": "Very Large",
       "retention": "2-7 years (varies by jurisdiction and substance schedule)",
+      "verificationMode": "both",
       "furtherDerivations": 2,
       "snippet": "Patient name, prescriber name, prescriber credentials (medical degree, board certification), prescribing organization, medication name, dosage, quantity, date prescribed, number of refills authorized,",
       "tags": [
@@ -5965,6 +6277,7 @@
       "category": "Professional & Occupational Licenses",
       "volume": "Small",
       "retention": "2-5 years (license term)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Licensee Name, Date of Birth (partial), License Number, Registration Type (Armed/Unarmed), Specific Qualifications (Firearms, Baton, Pepper Spray), Expiration Date, Background Check Status, Training R",
       "tags": [
@@ -5985,6 +6298,7 @@
       "category": "Specialty Insurance",
       "volume": "Very Small",
       "retention": "Contest period + 7 years (claims / audit)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Policy number, insurer name, sponsor name, event name/location, event date, prize amount, specific contest rules (e.g., yardage, target size), mandatory witness requirements, video surveillance requir",
       "tags": [
@@ -6004,6 +6318,7 @@
       "category": "Financial & Legal Documents",
       "volume": "Small",
       "retention": "Permanent (estate records)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Deceased name, Case ID number, Executor/Administrator name, Court Jurisdiction (County/State), Date of Appointment, Expiration Date (if applicable), Judge name, Clerk ID, specific limitations (e.g., \"",
       "tags": [
@@ -6023,6 +6338,7 @@
       "category": "Commercial Lines Insurance",
       "volume": "Small",
       "retention": "Policy term + 20-30 years (long-tail claims lifecycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Policy number, insurer name (NAIC code), insured name, address, per-occurrence limit, general aggregate limit, products/completed operations aggregate, covered product category list, retroactive date ",
       "tags": [
@@ -6042,6 +6358,7 @@
       "category": "Commercial Lines Insurance",
       "volume": "Medium",
       "retention": "Policy term + 10-20 years (claims-made tail)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Named Insured (Firm/Professional), Policy Number, Coverage Limits (Per-Claim/Aggregate), Deductible Amount, Retroactive Date (Archival work start), Extended Reporting Period (Tail), Issuing Carrier (N",
       "tags": [
@@ -6060,6 +6377,7 @@
       "category": "Professional & Educational Qualifications",
       "volume": "Very Large",
       "retention": "Permanent (license lifecycle)",
+      "verificationMode": "both",
       "furtherDerivations": 1,
       "snippet": "Licensee name, license number, profession (e.g., Physician, Attorney, PE), primary specialty, issuing jurisdiction (State/Board), date of initial licensure, expiration date, photograph (via hash), dis",
       "tags": [
@@ -6079,6 +6397,7 @@
       "category": "Financial & Legal Documents",
       "volume": "Medium",
       "retention": "Loan term + 7-10 years (statute of limitations)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Principal amount (numerical and text), interest rate (fixed/variable), borrower name, lender name, payment frequency, installment amount, maturity date, collateral reference, late fee terms, date of e",
       "tags": [
@@ -6098,6 +6417,7 @@
       "category": "Chain of Custody & Logistics",
       "volume": "Very Large",
       "retention": "Delivery + 3-7 years (statute of limitations)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Waybill/Tracking number, carrier ID, consignee name, delivery address, quantity of items, condition status (Intact/Damaged), recipient signature (via hash), delivery photo (via hash), GPS coordinates ",
       "tags": [
@@ -6116,6 +6436,7 @@
       "category": "Professional & Educational Qualifications",
       "volume": "Very Large",
       "retention": "Duration of employment + 1 year",
+      "verificationMode": "clip",
       "furtherDerivations": 2,
       "snippet": "Employee name, job title, employer name, employment start date, employment status (active/inactive), employment type (full-time/part-time/contract), work location (country/city), date of issuance.",
       "tags": [
@@ -6136,6 +6457,7 @@
       "category": "Real Estate & Property",
       "volume": "Medium",
       "retention": "Transaction period (3-6 months / point-in-time)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Account holder name, available liquid balance, currency type, account type (e.g., Savings/Money Market), date of issuance, issuing bank/branch, bank officer name/title, specific purpose (e.g., \"Real E",
       "tags": [
@@ -6155,6 +6477,7 @@
       "category": "Insurance Claims & Operations",
       "volume": "Medium",
       "retention": "Claim term + 7-10 years (statute of limitations)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Claim number, policy number, insured name, property address, date of loss, time of loss, cause of loss description, replacement cost value (RCV), actual cash value (ACV), deductible, net amount claime",
       "tags": [
@@ -6174,6 +6497,7 @@
       "category": "Real Estate & Property",
       "volume": "Large",
       "retention": "Duration of right + 1 year",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Property address, right holder name, type of right (owner/tenant/guest/keyholder), validity period, any restrictions, issuing authority (Land Registry, landlord, owner).",
       "tags": [
@@ -6192,6 +6516,7 @@
       "category": "Real Estate & Property",
       "volume": "Medium",
       "retention": "5-10 years (financing cycle / tax audit)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Appraisal reference number, property address, appraiser name/license, opinion of value (numerical and text), effective date of valuation, overall property condition rating (e.g., C1-C6), square footag",
       "tags": [
@@ -6211,6 +6536,7 @@
       "category": "Real Estate & Property",
       "volume": "Large",
       "retention": "7-10 years (statute of limitations / transaction disputes)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Property address, seller name(s), disclosure date, itemized defect list (Roof, Basement, HVAC, etc.), specific \"YES/NO\" answers for 20+ safety categories, seller signature timestamp, realtor ID, platf",
       "tags": [
@@ -6230,6 +6556,7 @@
       "category": "Real Estate & Property",
       "volume": "Medium",
       "retention": "Permanent (public record)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Grantor name, Grantee name, Full Legal Description (Metes and Bounds or Lot/Block), Tax Parcel ID (APN), Consideration amount, Notary name/commission, Recording timestamp, Instrument Number.",
       "tags": [
@@ -6247,6 +6574,7 @@
       "category": "Real Estate & Property",
       "volume": "Very Large",
       "retention": "7-10 years (tax appeals / audit lifecycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "PIN/Parcel ID number, property owner name, property address, tax year, market value (appraised), assessed value, taxable value (net of exemptions), property class (e.g., Residential/Commercial), towns",
       "tags": [
@@ -6266,6 +6594,7 @@
       "category": "Specialty Insurance",
       "volume": "Very Small",
       "retention": "Policy term + 10-20 years (maritime claims lifecycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "IMO number, vessel name, gross tonnage, call sign, member (owner) name, certificate number, policy year, coverage limits (Oil, Bunkers, Wreck), \"Blue Card\" status (CLC/Bunker conventions), P&I club na",
       "tags": [
@@ -6285,6 +6614,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Medium",
       "retention": "Duration of relationship + professional retention requirements",
+      "verificationMode": "clip",
       "furtherDerivations": 4,
       "snippet": "",
       "tags": [
@@ -6304,6 +6634,7 @@
       "category": "Permits & Approvals",
       "volume": "Large",
       "retention": "Project lifecycle + 5-10 years (appeal / legal record)",
+      "verificationMode": "camera",
       "furtherDerivations": 1,
       "snippet": "Application number, property address, owner/developer name, proposed action description, zoning class, consultation end date (appeal deadline), hearing date/time, municipal department ID, notice issue",
       "tags": [
@@ -6323,6 +6654,7 @@
       "category": "Art, Media & Publishing",
       "volume": "Very Small",
       "retention": "7-20 years (contract term + disputes)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Author/Artist name, publisher name, project title (ISBN/ISRC), royalty period, itemized sales units (by format), royalty rates (percentages), gross earnings, net payout, statement ID, issue date.",
       "tags": [
@@ -6341,6 +6673,7 @@
       "category": "Business & Commerce",
       "volume": "Large",
       "retention": "Fiscal year + 7 years (tax/audit requirements)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "PO/Order number, buyer name, vendor name, item descriptions (SKUs), quantities, unit prices, total order value, ship-to address, delivery date, authorization signature ID.",
       "tags": [
@@ -6360,6 +6693,7 @@
       "category": "Product Certifications & Compliance",
       "volume": "Medium",
       "retention": "5-15 years (warranty/liability period)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Batch/Lot number, product description, inspection date, inspector name/ID, test parameters (tensile, tolerance, chemical composition), pass/fail status, quantity inspected, customer name, facility ID.",
       "tags": [
@@ -6378,6 +6712,7 @@
       "category": "Chain of Custody & Logistics",
       "volume": "Medium-Large",
       "retention": "7-10 years (proof of shipment / statute of limitations)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Waybill number, railroad name, shipper name, consignee name, origin city/state, destination city/state, railcar ID, STCC (Standard Transportation Commodity Code), gross weight, tare weight, net weight",
       "tags": [
@@ -6397,6 +6732,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Medium",
       "retention": "Showing + 1-3 years (safety/liability record)",
+      "verificationMode": "camera",
       "furtherDerivations": 1,
       "snippet": "Agent name, license number, state of jurisdiction, brokerage name, photograph (via hash), expiration date, disciplinary status (Clear/Flagged), background check timestamp, NAR (National Association of",
       "tags": [
@@ -6416,6 +6752,7 @@
       "category": "Real Estate & Property",
       "volume": "Medium",
       "retention": "Permanent (public land records)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Instrument number, book/page reference, recording date and precise time, document type (e.g., Quitclaim Deed, Release of Mortgage), grantor name, grantee name, parcel ID (PIN), legal description snipp",
       "tags": [
@@ -6435,6 +6772,7 @@
       "category": "Identity & Authority Verification",
       "volume": "High",
       "retention": "Duration of relationship + 2 years",
+      "verificationMode": "clip",
       "furtherDerivations": 5,
       "snippet": "",
       "tags": [
@@ -6454,6 +6792,7 @@
       "category": "Governance & Voting",
       "volume": "High",
       "retention": "Vote records: 3-7 years; Eligibility: ongoing",
+      "verificationMode": "clip",
       "furtherDerivations": 4,
       "snippet": "",
       "tags": [
@@ -6473,6 +6812,7 @@
       "category": "Immigration & Visa Documents",
       "volume": "Small",
       "retention": "Document validity + 7 years (immigration lifecycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Document number (RT prefix), holder's full name, date of birth, country of birth, sex, date of issuance, date of expiration, photograph (via hash), USCIS alien registration number (A-Number), issuing ",
       "tags": [
@@ -6493,6 +6833,7 @@
       "category": "Banking & Financial Services",
       "volume": "Very Large",
       "retention": "3-7 years (tax and warranty)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Issuer name, transaction/claim number, recipient name, original purchase or claim details, refund amount, refund method, processing date, receiving account (masked).",
       "tags": [
@@ -6510,6 +6851,7 @@
       "category": "Financial Compliance",
       "volume": "Large",
       "retention": "Duration of relationship + 5 years",
+      "verificationMode": "clip",
       "furtherDerivations": 3,
       "snippet": "Company name, company number, date of incorporation, entity status, registered agent identity, directors (names and appointment dates), registered office address, date of letter, validity period.",
       "tags": [
@@ -6533,6 +6875,7 @@
       "category": "Professional & Educational Qualifications",
       "volume": "Medium",
       "retention": "Academic term + 4 years (audit cycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Student name, Student ID, academic level (e.g., Freshman/Graduate), enrollment status (Full/Part Time), specific unit count, legal residency classification (In-State/Out-of-State), academic term (star",
       "tags": [
@@ -6552,6 +6895,7 @@
       "category": "Government & Regulatory",
       "volume": "Large",
       "retention": "5-10 years (regulatory cycles)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Regulatory authority, entity name, site/facility identifier, inspection/audit date, result (pass/fail/conditional), scope of compliance, validity period, inspector/auditor identification.",
       "tags": [
@@ -6569,6 +6913,7 @@
       "category": "Delegated Authority",
       "volume": "Medium",
       "retention": "Statutory period (varies by filing type)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Authorized person, company, registration number, filing types authorized, authority source (board resolution, delegation), portal credentials held (if applicable), excluded filings, validity period.",
       "tags": [
@@ -6586,6 +6931,7 @@
       "category": "Banking & Payments",
       "volume": "Very Large",
       "retention": "5-7 years (financial audit / AML lifecycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "MTCN (Money Transfer Control Number), sender name, receiver name, origin country, destination country, transfer amount (USD), exchange rate, payout amount (local currency), fees paid, date/time of tra",
       "tags": [
@@ -6605,6 +6951,7 @@
       "category": "Energy & Utilities",
       "volume": "Medium",
       "retention": "3-7 years (compliance / carbon audit)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Certificate ID, facility name, facility ID, fuel type (Solar/Wind/etc.), balancing authority (e.g., CAISO), vintage month/year, total MWh quantity, purchaser name (if retired), date of generation, dat",
       "tags": [
@@ -6624,6 +6971,7 @@
       "category": "Travel & Hospitality",
       "volume": "Very Large",
       "retention": "Rental period + 3-10 years (liability / dispute period)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Rental Agreement (RA) number, renter name, vehicle VIN/Plate, unit number, pickup location/time, return location/time, starting odometer, fuel/charge level, accepted coverage options (LDW, PAI, SLI), ",
       "tags": [
@@ -6644,6 +6992,7 @@
       "category": "Real Estate & Property",
       "volume": "Very Large",
       "retention": "7-10 years post-termination",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Landlord/Entity name, Tenant name(s), Premises Address (including Unit #), Monthly Rent amount, Security Deposit amount, Lease Start/End dates, Utility responsibility (e.g., \"Water Included\"), Signato",
       "tags": [
@@ -6663,6 +7012,7 @@
       "category": "Permits & Approvals",
       "volume": "Medium",
       "retention": "Season + 1-3 years (permit cycle / audit)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Vendor name, farm/business location, stall assignment ID, seasonal validity dates, list of authorized products, certification level (e.g., Organic/Sustainable), market manager ID, permit fee status, b",
       "tags": [
@@ -6682,6 +7032,7 @@
       "category": "Scientific & Research",
       "volume": "Very Small",
       "retention": "7-10 years (federal audit / financial lifecycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Award number, agency name, PI name, co-investigator names, host institution, project title, total budget amount, start date, end date, federal program code (e.g., CFDA #).",
       "tags": [
@@ -6701,6 +7052,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Medium",
       "retention": "2-5 years (building security logs)",
+      "verificationMode": "camera",
       "furtherDerivations": 0,
       "snippet": "Staff or contractor name, photo (hash), license/credential number (for licensed trades), company affiliation, license status (Active/Expired/Suspended), assigned property and unit(s), work order numbe",
       "tags": [
@@ -6718,6 +7070,7 @@
       "category": "Travel & Hospitality",
       "volume": "Large",
       "retention": "Stay + 3-7 years (statute of limitations / tax)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Guest name, confirmation number, room type, stay dates, itemized mandatory fee amounts, total mandatory charge, disclosure timestamp, hotel ID.",
       "tags": [
@@ -6736,6 +7089,7 @@
       "category": "Legal & Court Documents",
       "volume": "Large",
       "retention": "Order duration + enforcement window (1-10 years)",
+      "verificationMode": "clip",
       "furtherDerivations": 2,
       "snippet": "Court name, case number, order type (DVRO, civil harassment, stalking, elder abuse), petitioner name, respondent name, date issued, expiration date, conditions summary (stay-away distance, protected l",
       "tags": [
@@ -6755,6 +7109,7 @@
       "category": "Trade Finance",
       "volume": "Small",
       "retention": "7-10 years (audit trail / financial cycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Batch ID, funding bank name, buyer name, supplier name, itemized invoice numbers, gross invoice amounts, early payment date, maturity date (when buyer pays), discount rate (APR/Fees), net payout amoun",
       "tags": [
@@ -6774,6 +7129,7 @@
       "category": "Travel & Hospitality",
       "volume": "Very Large",
       "retention": "Ride + 1-3 years (expense/tax audit)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Trip ID, platform name, rider name, driver name (optional/masked), vehicle license plate, pickup address, drop-off address, date/time, itemized fare, tip amount, total price, payment method (last 4).",
       "tags": [
@@ -6793,6 +7149,7 @@
       "category": "Investment & Fintech",
       "volume": "Small",
       "retention": "7-10 years (SEC/FINRA regulatory requirement)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Client name, account number (masked), net portfolio value, asset allocation mix (Stocks/Bonds/Cash), time-weighted performance (TWR), dividend income, tax-loss harvesting amount, advisor CRD/SEC ID, d",
       "tags": [
@@ -6812,6 +7169,7 @@
       "category": "Investment & Fintech",
       "volume": "Small",
       "retention": "Permanent (convertible security lifecycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Purchase amount, valuation cap (post-money or pre-money), discount rate, investor name, company name (jurisdiction), date of issuance, series ID, side letter status (Yes/No), board authorization ID, l",
       "tags": [
@@ -6831,6 +7189,7 @@
       "category": "Banking & Payments",
       "volume": "Small",
       "retention": "Access + 10-20 years (estate lifecycle / statute of limitations)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Box number, branch ID, holder name, authorized signer name, identification method (e.g., ID verified), date of access, precise entry/exit timestamps, bank officer name/ID, witness signature (via hash)",
       "tags": [
@@ -6850,6 +7209,7 @@
       "category": "Product Certifications & Compliance",
       "volume": "Very Large",
       "retention": "Product lifetime (10-30 years / liability lifecycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Certificate number, manufacturer name, factory location ID, product model name/number, specific safety standards met (e.g., UL 60950), date of issuance, expiration date (if applicable), testing lab ID",
       "tags": [
@@ -6870,6 +7230,7 @@
       "category": "Insurance Claims & Operations",
       "volume": "Medium",
       "retention": "Subrogation case + 7-10 years (audit/legal)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "VIN (Vehicle Identification Number), Claim ID, insurer name (NAIC), insured name (masked), salvage lot number, date of total loss declaration, actual cash value (ACV), repair estimate amount, salvage ",
       "tags": [
@@ -6889,6 +7250,7 @@
       "category": "Financial Compliance",
       "volume": "Very Large",
       "retention": "5-7 years (OFAC / AML regulatory requirement)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Screening ID, subject name (individual or entity), aliases checked, date of birth / registration #, datasets searched (e.g., OFAC, UN), match threshold (percentage), screening date/timestamp, dataset ",
       "tags": [
@@ -6908,6 +7270,7 @@
       "category": "Professional Ethics & Compliance",
       "volume": "Large",
       "retention": "7-10 years (regulatory audit)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Screened party name, screening timestamp, reference number, lists checked (with versions), result (no match / potential match / confirmed match), screening provider, compliance officer sign-off.",
       "tags": [
@@ -6925,6 +7288,7 @@
       "category": "Specialty Insurance",
       "volume": "Tiny",
       "retention": "Satellite lifetime (15-20 years / orbital lifecycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Policy number, insurer name, operator name, satellite name/serial, COSPAR ID (if assigned), launch vehicle type, launch site location, launch window dates, in-orbit insured value, third-party liabilit",
       "tags": [
@@ -6944,6 +7308,7 @@
       "category": "Product Certifications & Compliance",
       "volume": "Small",
       "retention": "Release lifecycle + 3-7 years (security compliance)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Product name, version string, release date, build ID, SBOM format (SPDX/CycloneDX), core component versions, component cryptographic hashes, vulnerability scan status (CVE count), SSDF compliance ID, ",
       "tags": [
@@ -6962,6 +7327,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Very Large",
       "retention": "School year + 1 year",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Authorized person's name, photo (hash), relationship to child, child's name/grade, designating parent's name, authorization date, expiration date, any restrictions (e.g., \"Fridays only,\" \"after 3pm on",
       "tags": [
@@ -6981,6 +7347,7 @@
       "category": "Sports & Athletics",
       "volume": "Very Small",
       "retention": "5-15 years (recruitment / career lifecycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Player name, date of birth, graduation class, primary position, height/weight, physical metrics (e.g., speed, strength), performance stats (e.g., GPA, PPG), scout name/ID, scouting organization, date ",
       "tags": [
@@ -7000,6 +7367,7 @@
       "category": "Legal & Court Documents",
       "volume": "Large",
       "retention": "Case life + appeals (5-20 years)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Court jurisdiction, case number, issuing judge, address/location authorized for search, items/categories authorized for seizure, date of issuance, expiration date and time, time-of-day restrictions (d",
       "tags": [
@@ -7018,6 +7386,7 @@
       "category": "Delegated Authority",
       "volume": "Medium",
       "retention": "Duration of engagement + 6 years",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Client name, tester/firm name, engagement ID, scope (in-scope systems, out-of-scope exclusions), testing window (dates and times), authorizing officer, authorization date.",
       "tags": [
@@ -7035,6 +7404,7 @@
       "category": "Agriculture & Food",
       "volume": "Very Small",
       "retention": "5-20 years (variety tracking / IP lifecycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Lot number, tag ID, crop name, variety name (e.g., \"Golden-Harvest 42\"), class of seed (Foundation/Registered/Certified), germination percentage, pure seed percentage, inert matter percentage, weed se",
       "tags": [
@@ -7054,6 +7424,7 @@
       "category": "Real Estate & Property",
       "volume": "Very Large",
       "retention": "Permanent (tax/legal / mortgage lifecycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Escrow/File number, property address, buyer name, seller name, lender name, sale price, loan amount, individual fee amounts (title, escrow, recording), tax prorations, net cash to buyer/seller, settle",
       "tags": [
@@ -7074,6 +7445,7 @@
       "category": "Travel & Hospitality",
       "volume": "Large",
       "retention": "Excursion + 1-3 years (claims / liability)",
+      "verificationMode": "both",
       "furtherDerivations": 1,
       "snippet": "Excursion name, port of call, date, guest name, cabin number, booking reference, price, meeting time, tour operator name, waiver status (linked hash).",
       "tags": [
@@ -7092,6 +7464,7 @@
       "category": "Government & Civic Documents",
       "volume": "Very Large",
       "retention": "Permanent (tax/legal records)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Beneficiary name, SSN (last 4), Monthly benefit amount (Gross/Net), Type of benefit (Retirement/Disability/SSI), Date of birth, Effective date of last COLA (Cost of Living Adjustment), Residential add",
       "tags": [
@@ -7110,6 +7483,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Medium",
       "retention": "Visit + 3-7 years (case management / accountability)",
+      "verificationMode": "camera",
       "furtherDerivations": 1,
       "snippet": "Worker name, employee ID number, agency name, photograph (via hash), role/title, supervisor name, office location, expiration date, background check status.",
       "tags": [
@@ -7129,6 +7503,7 @@
       "category": "Real Estate & Property",
       "volume": "Very Small",
       "retention": "20-30 years (building lifetime / structural liability)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Project number, site address, parcel ID (APN), client name, engineering firm name, borehole count/depth, allowable soil bearing pressure (PSF), seismic site classification (A-F), liquefaction risk sta",
       "tags": [
@@ -7148,6 +7523,7 @@
       "category": "Agriculture & Food",
       "volume": "Small",
       "retention": "5-10 years (nutrient management / carbon credits)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Field ID (APN/Parcel), client name, lab name, sample date, chemical metrics (pH, N, P, K, Carbon), organic matter percentage, lab tech ID, analysis method, recommendation summary.",
       "tags": [
@@ -7166,6 +7542,7 @@
       "category": "Energy & Utilities",
       "volume": "Very Small",
       "retention": "20-30 years (solar system lifetime)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Panel serial number, model name/number, testing date, peak wattage (Pmax), module efficiency percentage, open-circuit voltage (Voc), short-circuit current (Isc), fill factor, testing lab ID, IEC/UL ce",
       "tags": [
@@ -7185,6 +7562,7 @@
       "category": "Professional Ethics & Compliance",
       "volume": "Medium",
       "retention": "5-10 years post-relationship",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Client name, transaction/account reference, declaration date, source description, amount, supporting document references, signatory confirmation.",
       "tags": [
@@ -7202,6 +7580,7 @@
       "category": "Specialty Insurance",
       "volume": "Very Small",
       "retention": "Transit period + 10 years (claims / audit)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Policy number, insurer name, insured name, itemized asset list (with serials/ID), total insured value, transit route (Origin/Destination), approved carrier name, security protocol level (e.g., Armored",
       "tags": [
@@ -7221,6 +7600,7 @@
       "category": "Immigration & Visa Documents",
       "volume": "Medium",
       "retention": "Permanent (until citizenship or 10 years of work)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Sponsor name, beneficiary name, household size, most recent tax-year income, total assets (if used for qualification), date of signature, sponsor's citizenship status, case receipt number.",
       "tags": [
@@ -7240,6 +7620,7 @@
       "category": "Sports & Athletics",
       "volume": "Very Small",
       "retention": "Product lifetime (5-15 years / liability period)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Manufacturer name, model number, unique serial number (shell ID), safety standard ID, certification body (SEI/NOCSAE), test date, expiration of certification, reconditioning history (linked hash), imp",
       "tags": [
@@ -7259,6 +7640,7 @@
       "category": "Financial & Legal Documents",
       "volume": "Small",
       "retention": "Permanent (ownership records)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "",
       "tags": [
@@ -7275,6 +7657,7 @@
       "category": "Environmental Permits & Compliance",
       "volume": "Small",
       "retention": "5 years (permit term / statutory audit)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Permit number (NPDES), permittee name, facility address, facility ID, industrial SIC/NAICS code, authorized outfall IDs, pollutant concentration limits (TSS, pH, Oil), monitoring frequency, effective/",
       "tags": [
@@ -7294,6 +7677,7 @@
       "category": "Insurance Claims & Operations",
       "volume": "Very Small",
       "retention": "Claimant lifetime (50-70+ years / permanent)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Contract number, annuity issuer name, claimant name, beneficiary name, payment frequency, individual payment amounts, escalation rates (COLA), total guaranteed value, total expected value, effective d",
       "tags": [
@@ -7313,6 +7697,7 @@
       "category": "Insurance & Bonds",
       "volume": "Medium",
       "retention": "7 years (project completion + warranty)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Surety company name, bond number, principal (contractor/licensee), obligee (protected party), bond type, bond amount, project or license description, release date, reason for release, any continuing o",
       "tags": [
@@ -7330,6 +7715,7 @@
       "category": "Bonds & Sureties",
       "volume": "Small",
       "retention": "Bond term plus 10 years (claims, disputes)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Principal (Contractor) name, Obligee (Owner) name, Surety Company name, Bond Number, Penal Sum (numerical and text), Project Name/Contract Number, Effective Date, Expiration/Maintenance Term, Agent na",
       "tags": [
@@ -7348,6 +7734,7 @@
       "category": "Financial Compliance",
       "volume": "Very Small",
       "retention": "5-7 years (BSA/AML regulatory requirement)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Internal SAR tracking ID, FinCEN E-Filing ID, filing date, institution name, branch ID, primary subject name (or account hash), summary of suspicion (hash), filing officer ID, regulatory agency ID.",
       "tags": [
@@ -7367,6 +7754,7 @@
       "category": "Chain of Custody & Logistics",
       "volume": "Very Large",
       "retention": "6 months - 3 years (DOT/FMCSA compliance)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Driver name, driver ID, carrier name, USDOT number, vehicle ID, trailer numbers, date, 24-hour duty status log (Off-Duty, Sleeper, Driving, On-Duty), total miles, GPS coordinates of status changes, EL",
       "tags": [
@@ -7387,6 +7775,7 @@
       "category": "Site & Equipment Safety",
       "volume": "Medium",
       "retention": "1-5 years (EPA/state regulatory requirement)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "EPA Facility ID, owner/operator name, facility address, tank counts and IDs, tank capacity/contents, leak detection method (e.g., SIR, ATG), test results (pass/fail/inconclusive), cathodic protection ",
       "tags": [
@@ -7406,6 +7795,7 @@
       "category": "Financial & Legal Documents",
       "volume": "Very Large",
       "retention": "7-10 years (audit statute / social security lifecycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Employer EIN, employer name, employee SSN (masked), employee name, tax year, total wages/tips, federal tax withheld, state tax withheld, Medicare/Social Security wages, control number, payroll provide",
       "tags": [
@@ -7426,6 +7816,7 @@
       "category": "Financial Compliance",
       "volume": "Medium",
       "retention": "7-10 years post-activity",
+      "verificationMode": "clip",
       "furtherDerivations": 3,
       "snippet": "Entity name, registration number, relevant activity type, filing period, employee count (FTE), operating expenditure, premises address, number of board meetings held in jurisdiction, directors residen",
       "tags": [
@@ -7448,6 +7839,7 @@
       "category": "Government & Regulatory",
       "volume": "Large",
       "retention": "Tax year + statute of limitations (3-7 years)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Taxpayer name, taxpayer identification number (TIN), country of residence, tax year(s) covered, issuing tax authority, date issued, treaty applicability (which bilateral treaty). NOT included: income ",
       "tags": [
@@ -7468,6 +7860,7 @@
       "category": "Professional & Educational Qualifications",
       "volume": "Very Small",
       "retention": "License term (3-10 years)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Teacher name, primary state of licensure, license ID number, license type (e.g., Professional/Initial), expiration date, certified subject endorsements, disciplinary status (Clear/Flagged), background",
       "tags": [
@@ -7487,6 +7880,7 @@
       "category": "Business & Commerce",
       "volume": "Medium",
       "retention": "7-10 years (contract lifecycle / statute of limitations)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Contract reference number, account number, customer name, service type (Fiber/MPLS/Cloud), availability percentage (uptime), latency/jitter targets, MTTR (repair time), credit formula, effective date,",
       "tags": [
@@ -7505,6 +7899,7 @@
       "category": "Personal Lines Insurance",
       "volume": "Medium-Large",
       "retention": "Coverage period + 5-10 years (claims lifecycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Policy ID, driver name, driver license number, vehicle VIN, vehicle license plate, precise start date/time (to the second), precise end date/time, liability limits, collision/comprehensive status, ins",
       "tags": [
@@ -7524,6 +7919,7 @@
       "category": "Specialty Insurance",
       "volume": "Small",
       "retention": "Policy term + 10 years (long-term liability)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Policy number, insurer name, insured entity name, property address, TRIPRA certified act limit, non-certified act limit (if any), premium attributable to terrorism, policy effective/expiration dates, ",
       "tags": [
@@ -7543,6 +7939,7 @@
       "category": "Real Estate & Property",
       "volume": "Medium",
       "retention": "5-10 years (loan term / financial audit)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Subject name, SSN (masked), employer name, job title, employment status (Active/Inactive), date of hire, base salary, bonus/commission data, total year-to-date earnings, verifier ID, date of report.",
       "tags": [
@@ -7563,6 +7960,7 @@
       "category": "Real Estate & Property",
       "volume": "Very Small",
       "retention": "Permanent (chain of title)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Policy Number, Named Insured (Owner/Lender), Amount of Insurance, Property Address/Parcel ID, Effective Date, Specific Schedule B Exceptions (e.g., \"Easement 14\"), Underwriter ID, Issuing Agency.",
       "tags": [
@@ -7582,6 +7980,7 @@
       "category": "Travel & Hospitality",
       "volume": "Very Large",
       "retention": "3-7 years (tax/audit requirements)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Transaction ID, account number (masked), transponder ID, license plate, date/time of crossing, plaza/location name, toll amount, vehicle class (e.g., 2-axle), payment status.",
       "tags": [
@@ -7601,6 +8000,7 @@
       "category": "Insurance Claims & Operations",
       "volume": "Large",
       "retention": "Claim term + 7-10 years (audit / total-loss history)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Report number, VIN, mileage at time of loss, Actual Cash Value (ACV) amount, vehicle options/packages, comparable vehicle prices (Avg), condition adjustments (e.g., prior damage), date of valuation, a",
       "tags": [
@@ -7621,6 +8021,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Large",
       "retention": "Tour + 1-3 years (safety/liability record)",
+      "verificationMode": "camera",
       "furtherDerivations": 1,
       "snippet": "Guide name, license ID, issuing tourism board, photograph (via hash), languages spoken, first aid certification status, insurance policy ID, expiration date, background check timestamp, specialized si",
       "tags": [
@@ -7640,6 +8041,7 @@
       "category": "Sports & Athletics",
       "volume": "Small",
       "retention": "Permanent (historical records / career stats)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Tournament name, division/tier, season/date, participant/team names, seeds/rankings, individual match scores, final placement (Champion/Runner-up), head official name, protest status.",
       "tags": [
@@ -7659,6 +8061,7 @@
       "category": "Professional & Occupational Licenses",
       "volume": "Medium",
       "retention": "License term (1-3 years)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "License number, operator name, company name, truck unit number, vehicle license plate (linked), photograph (via hash), expiration date, background check status, insurance policy ID, police rotation zo",
       "tags": [
@@ -7678,6 +8081,7 @@
       "category": "Specialty Insurance",
       "volume": "Medium",
       "retention": "Policy term + 7 years (audit / claims lifecycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Policy number, insurer name, insured name, buyer name, buyer tax ID (DUNS/EIN), approved credit limit amount, maximum payment terms (e.g., 60 days), effective date, notice expiration date, currency, c",
       "tags": [
@@ -7698,6 +8102,7 @@
       "category": "Trade Finance",
       "volume": "Very Large",
       "retention": "7-10 years (statute of limitations / loan term)",
+      "verificationMode": "clip",
       "furtherDerivations": 3,
       "snippet": "B/L number, carrier name, shipper name, consignee name (The Bank), notify party, vessel name, IMO number, on-board date, port of loading, description of goods (HS Code), total package count, weight/vo",
       "tags": [
@@ -7730,6 +8135,7 @@
       "category": "Consumer & Commercial Transactions",
       "volume": "Very Large",
       "retention": "7 years (tax records)",
+      "verificationMode": "clip",
       "furtherDerivations": 0,
       "snippet": "Tradesperson name/business, tax registration number (UTR, ABN, EIN), trade license number, insurance reference, customer address (hashed for privacy), service description, itemized costs, tax amounts,",
       "tags": [
@@ -7751,6 +8157,7 @@
       "category": "Intellectual Property Law",
       "volume": "Medium",
       "retention": "Permanent with renewal (10-year cycles)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Registration number, mark type (Word/Design/Combined), mark text (for word marks), design file hash (for logos), owner name, goods/services classification (Nice Classes), registration date, first use ",
       "tags": [
@@ -7770,6 +8177,7 @@
       "category": "Professional & Educational Qualifications",
       "volume": "Large",
       "retention": "5-10 years (OSHA / regulatory requirement)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Trainee name, employer name, course title, course ID, training date, expiration/recertification date, credit hours (CEU), instructor name/ID, academy accreditation number, certificate serial number.",
       "tags": [
@@ -7789,6 +8197,7 @@
       "category": "Travel & Hospitality",
       "volume": "Large",
       "retention": "Travel + 3-7 years (statute of limitations / liability)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Invoice number, agency name, traveler name, destination, trip dates, itemized itinerary (flights/hotels), total price, payment status (Paid/Deposit/Pending), IATA/ARC number, agent ID.",
       "tags": [
@@ -7807,6 +8216,7 @@
       "category": "Travel & Hospitality",
       "volume": "Very Large (aggregate)",
       "retention": "Varies by document type (1-10 years)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Booking reference number (PNR), traveler name, company name, trip dates, flight numbers/classes, hotel names/room types, itemized costs, total trip price, booking source (e.g., Concur vs. Personal), c",
       "tags": [
@@ -7826,6 +8236,7 @@
       "category": "Travel & Hospitality",
       "volume": "Medium",
       "retention": "Claim + 7-10 years (statute of limitations / audit)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Claim ID, policy number, claimant name, loss category (e.g., Medical, Cancellation, Baggage), date of loss, itemized payout amounts, deductible applied, net settlement value, currency, paid date, issu",
       "tags": [
@@ -7845,6 +8256,7 @@
       "category": "Travel & Hospitality",
       "volume": "Medium",
       "retention": "Travel + 3-7 years (statute of limitations / tax)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Booking reference number, operator name, traveler names, destination, resort name, stay dates, room category, itemized inclusions (e.g., beverage tier, credits), payment status, cancellation policy ha",
       "tags": [
@@ -7863,6 +8275,7 @@
       "category": "Travel & Hospitality",
       "volume": "Large",
       "retention": "Expiration date + 3-7 years (financial audit)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Voucher code, issuer name, original passenger name, current remaining balance, expiration date, issuing reason (e.g., Refund), transferability flag (Yes/No), date of issuance.",
       "tags": [
@@ -7882,6 +8295,7 @@
       "category": "Travel & Hospitality",
       "volume": "Large",
       "retention": "Cancellation + 3-7 years (insurance/tax audit)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Booking reference (PNR), passenger name, flight/itinerary details, cancellation timestamp, reason for cancellation (e.g., Illness, Weather), itemized refund amounts (taxes vs. fare), future travel cre",
       "tags": [
@@ -7900,6 +8314,7 @@
       "category": "Personal Lines Insurance",
       "volume": "Small",
       "retention": "Policy term + 10-20 years (liability lifecycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Policy number, insurer name, policyholder name, residential address, excess liability limit (per occurrence and aggregate), underlying policy numbers and limits (Auto/Home/Watercraft), policy term, wo",
       "tags": [
@@ -7919,6 +8334,7 @@
       "category": "Professional & Educational Qualifications",
       "volume": "Large",
       "retention": "Permanent (academic record)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Student name, University name, Degree title (e.g., MSc, PhD), Major/Major field of study, Date of graduation, Classification/Honors (e.g., Class I, Summa Cum Laude), Unique Student ID, Registrar signa",
       "tags": [
@@ -7938,6 +8354,7 @@
       "category": "Identity & Authority Verification",
       "volume": "Large",
       "retention": "Service + 1-3 years (access records)",
+      "verificationMode": "camera",
       "furtherDerivations": 2,
       "snippet": "Worker name, employee ID, company name, service specialization (Gas/Electric/Steam), photograph (via hash), expiration date, background check status, vehicle fleet number.",
       "tags": [
@@ -7961,6 +8378,7 @@
       "category": "Travel & Hospitality",
       "volume": "Large",
       "retention": "Stay + 3-7 years (tax/dispute period)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Reservation reference number, property address, host name, guest name, stay dates, itemized fees (nightly, cleaning, taxes), total price paid, house rules hash, cancellation policy tier, local occupan",
       "tags": [
@@ -7979,6 +8397,7 @@
       "category": "Healthcare & Medical Records",
       "volume": "Very Large",
       "retention": "Lifetime (health & public safety history)",
+      "verificationMode": "both",
       "furtherDerivations": 1,
       "snippet": "Patient full name, date of birth, vaccine type/manufacturer (e.g., Pfizer/Moderna), lot number, dose number (1st/2nd/Booster), administration date, healthcare provider name/facility ID, state immuniza",
       "tags": [
@@ -7999,6 +8418,7 @@
       "category": "Vehicle & Transportation",
       "volume": "Very Large",
       "retention": "License term (1-3 years)",
+      "verificationMode": "camera",
       "furtherDerivations": 1,
       "snippet": "License number, driver name, vehicle license plate (linked), vehicle VIN, photograph (via hash), expiration date, background check status, insurance policy ID, carrier/company name (e.g., Yellow Cab #",
       "tags": [
@@ -8018,6 +8438,7 @@
       "category": "Vehicle & Transportation",
       "volume": "Large",
       "retention": "5-10 years (regulatory compliance / liability)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "VIN (Vehicle Identification Number), USDOT number, carrier name, unit number, plate number, inspection date, inspector name/license, facility ID, pass/fail status for 13+ safety categories (Brakes, St",
       "tags": [
@@ -8043,6 +8464,7 @@
       "category": "Government & Civic Documents",
       "volume": "Very Large",
       "retention": "Permanent (ownership record)",
+      "verificationMode": "clip",
       "furtherDerivations": 2,
       "snippet": "VIN, owner name, title number, state of issuance, title brand (CLEAN / SALVAGE / REBUILT / FLOOD / JUNK), lien holder (if any), odometer reading at title issuance, date issued, year/make/model, body s",
       "tags": [
@@ -8063,6 +8485,7 @@
       "category": "Immigration & Visa Documents",
       "volume": "Large",
       "retention": "Denial + 10 years (reapplication lifecycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Case number, applicant full name, date of birth, nationality, denial section code (e.g., 214b, 212a6C), denial date, consular post location, issuing officer ID, waiver eligibility status.",
       "tags": [
@@ -8082,6 +8505,7 @@
       "category": "Immigration & Visa Documents",
       "volume": "Medium",
       "retention": "New status validity + 7 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Receipt number (e.g., WAC/LIN/EAC), petitioner/employer name, beneficiary name, case type (I-129/I-539), notice date, approval dates (start/end), new visa class (e.g., H-1B, O-1, L-1), I-94 number (li",
       "tags": [
@@ -8101,6 +8525,7 @@
       "category": "Immigration & Visa Documents",
       "volume": "Very Large",
       "retention": "Appointment Date + 1-2 years (financial audit)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Receipt number (CGI Ref), applicant name, passport number (masked), fee amount (USD), equivalent in local currency, payment date/time, consular post location, visa type (e.g., B1/B2), payment method (",
       "tags": [
@@ -8120,6 +8545,7 @@
       "category": "Professional & Educational Qualifications",
       "volume": "Very Large",
       "retention": "Permanent (career skills record)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Student name, school ID, trade specialization, specific technical codes (e.g., AWS D1.1, EPA 608), date of completion, credit hours, instructor name/ID, school accreditation number, certificate serial",
       "tags": [
@@ -8139,6 +8565,7 @@
       "category": "Charitable & Non-Profit",
       "volume": "Small",
       "retention": "3-7 years (academic/employment/court cycles)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Volunteer name, organization name, EIN (Tax ID), project description, total hours, service date range, supervisor name/title, internal volunteer ID.",
       "tags": [
@@ -8157,6 +8584,7 @@
       "category": "Government & Civic Documents",
       "volume": "Very Large",
       "retention": "Election cycle + 4 years",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Voter ID number, voter name, residential address, party affiliation, precinct/ward ID, polling place location, registration date, status (Active/Inactive), date of last ballot cast (hash), issuing boa",
       "tags": [
@@ -8176,6 +8604,7 @@
       "category": "Specialty Insurance",
       "volume": "Very Small",
       "retention": "Voyage + 10 years (claims / audit)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "IMO number, vessel name, insurer name, insured owner name, voyage dates, specific HRA zones (e.g., Red Sea, Indian Ocean), hull value limit, TPL (Third-Party Liability) limit, kidnap & ransom (K&R) su",
       "tags": [
@@ -8195,6 +8624,7 @@
       "category": "Warehousing & Inventory",
       "volume": "Medium-Small",
       "retention": "7-10 years (financial audit, loan lifecycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Warehouse Operator (Issuer), Depositor (Current Owner), Commodity Details (Grade, Brand, Crop Year), Weights (Gross/Net), Storage Location (Specific Shed/Bay), Warrant Number, Rent/Storage Paid To Dat",
       "tags": [
@@ -8216,6 +8646,7 @@
       "category": "Business & Commerce",
       "volume": "Very Large",
       "retention": "Product lifetime + 3-10 years (liability/recall period)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Product serial number, model/SKU, purchase date, retailer ID, owner name (optional/masked), warranty tier (Standard/Extended), expiration date, registration timestamp, manufacturer ID.",
       "tags": [
@@ -8235,6 +8666,7 @@
       "category": "Warehousing & Inventory",
       "volume": "Large",
       "retention": "Shipment + 3-7 years (tax/audit/dispute)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Ticket number, scale ID, facility location, date/time, vehicle plate/VIN, gross weight, tare weight, net weight, weighmaster name/ID, calibration expiration date.",
       "tags": [
@@ -8254,6 +8686,7 @@
       "category": "Real Estate & Property",
       "volume": "Very Small",
       "retention": "20-30 years (permit term / development history)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Report number, site name, parcel ID (APN), property address, total acreage surveyed, verified wetland acreage, wetland classification (e.g., Emergent, Forested, Scrub-Shrub), USACE jurisdictional stat",
       "tags": [
@@ -8273,6 +8706,7 @@
       "category": "Environmental Permits & Compliance",
       "volume": "Very Small",
       "retention": "Project lifecycle + 20 years (environmental liability)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Permit ID, permittee name, project name, total authorized fill acreage, temporary impact acreage, required mitigation credits, name of mitigation bank, credit retirement ID, effective date, expiration",
       "tags": [
@@ -8292,6 +8726,7 @@
       "category": "Financial & Legal Documents",
       "volume": "Small",
       "retention": "Permanent (estate records)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Testator name, Date of Execution, Witness names, Executor/Personal Representative name, Page Number (e.g., \"Page 1 of 12\"), Revision ID, Law firm/Attorney ID, Drafting date.",
       "tags": [
@@ -8312,6 +8747,7 @@
       "category": "Banking & Payments",
       "volume": "Medium-Small",
       "retention": "7-10 years (audit trail / regulatory requirement)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "IMAD/OMAD number (Fedwire), TRN (SWIFT), UETR (Unique End-to-End Transaction Ref), originator name, beneficiary name, beneficiary bank (BIC/Swift Code), beneficiary account number (masked), transactio",
       "tags": [
@@ -8331,6 +8767,7 @@
       "category": "Site & Equipment Safety",
       "volume": "Large",
       "retention": "1-3 years (inspection cycle)",
+      "verificationMode": "camera",
       "furtherDerivations": 1,
       "snippet": "Machine ID/Serial, facility location, last inspection date, inspection result (Pass/Fail), inspector ID, next inspection due date, regulation reference (e.g., PUWER Reg 6).",
       "tags": [
@@ -8348,6 +8785,7 @@
       "category": "Immigration & Visa Documents",
       "volume": "Very Large",
       "retention": "1-5 years (renewal cycle, varies by jurisdiction)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Common elements across jurisdictions: full name, permit/visa number, employer name (if tied), job title or occupation code, validity start date, expiration date, issuing authority and office, national",
       "tags": [
@@ -8365,6 +8803,7 @@
       "category": "Commercial Lines Insurance",
       "volume": "Very Large",
       "retention": "Policy term + 30-50 years (medical/disability lifecycle)",
+      "verificationMode": "clip",
       "furtherDerivations": 1,
       "snippet": "Policy number, insurer name (NAIC), insured name, FEIN, policy effective/expiration dates, statutory limit status, employers liability limits (per accident/disease), payroll class codes (e.g., 5445 - ",
       "tags": [
@@ -8384,6 +8823,7 @@
       "category": "Professional & Occupational Licenses",
       "volume": "Unknown",
       "retention": "Unknown",
+      "verificationMode": "camera",
       "furtherDerivations": 1,
       "snippet": "",
       "tags": [

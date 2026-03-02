@@ -4,6 +4,7 @@ category: "Business & Commerce"
 volume: "Very Large"
 retention: "3-7 years (regulatory compliance / dispute resolution)"
 slug: "number-portability-authorizations"
+verificationMode: "clip"
 tags: ["telecom", "number-porting", "loa", "sim-swap-fraud", "identity-verification", "porting-authority", "consumer-protection"]
 furtherDerivations: 1
 ---

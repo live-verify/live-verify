@@ -4,6 +4,7 @@ category: "Insurance Claims & Operations"
 volume: "Medium"
 retention: "Claim term + 10 years"
 slug: "independent-adjuster-reports"
+verificationMode: "clip"
 tags: ["independent-adjuster", "field-inspection", "damage-assessment", "insurance-claims", "property-claim", "auto-claim", "restoration-audit", "ia-report"]
 furtherDerivations: 1
 ---

@@ -4,6 +4,7 @@ category: "Actuarial & Insurance Mathematics"
 volume: "Small"
 retention: "Policy term + 7 years (claims)"
 slug: "disability-benefit-calculations"
+verificationMode: "clip"
 tags: ["disability-insurance", "benefit-calculation", "actuarial", "claims-adjudication", "income-replacement", "long-term-disability", "compliance"]
 furtherDerivations: 1
 ---

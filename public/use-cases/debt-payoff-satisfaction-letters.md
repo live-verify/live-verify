@@ -4,6 +4,7 @@ category: "Banking & Financial Services"
 volume: "Very Large"
 retention: "7-10 years (credit reporting cycle)"
 slug: "debt-payoff-satisfaction-letters"
+verificationMode: "clip"
 tags: ["debt", "payoff", "satisfaction", "mortgage", "loan", "credit", "lien-release"]
 ---
 

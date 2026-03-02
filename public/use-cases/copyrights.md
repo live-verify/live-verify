@@ -5,6 +5,7 @@ type: "use-case"
 volume: "Medium"
 retention: "Life + 70 years (individual), 95 years (work for hire)"
 slug: "copyrights"
+verificationMode: "clip"
 tags: ["copyright", "intellectual-property", "us-copyright-office", "creative-works", "licensing", "dmca"]
 furtherDerivations: 1
 ---

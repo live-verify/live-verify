@@ -4,6 +4,7 @@ category: "Identity & Authority Verification"
 volume: "Medium"
 retention: "Visit + 3-7 years (case management / accountability)"
 slug: "social-services-worker-verification"
+verificationMode: "camera"
 tags: ["social-services", "cps", "home-visit", "child-welfare", "personal-safety", "government-id", "public-trust", "vulnerable-populations"]
 furtherDerivations: 1
 ---

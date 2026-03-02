@@ -4,6 +4,7 @@ category: "Notary Services"
 volume: "Large"
 retention: "Background check + 3-7 years"
 slug: "fingerprint-certifications"
+verificationMode: "clip"
 tags: ["fingerprint-background-check", "fbi-background-check", "notary-certification", "identity-verification", "employment-vetting", "livescan", "biometric-verification"]
 furtherDerivations: 1
 ---

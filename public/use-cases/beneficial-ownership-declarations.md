@@ -4,6 +4,7 @@ category: "Financial Compliance"
 volume: "Small"
 retention: "5-10 years post-relationship"
 slug: "beneficial-ownership-declarations"
+verificationMode: "clip"
 tags: ["aml", "kyc", "fincen", "ubo", "beneficial-ownership", "corporate-transparency"]
 furtherDerivations: 1
 ---

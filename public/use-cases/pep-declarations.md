@@ -4,6 +4,7 @@ category: "Professional Ethics & Compliance"
 volume: "Medium"
 retention: "5-10 years post-relationship (AML requirement)"
 slug: "pep-declarations"
+verificationMode: "clip"
 tags: ["aml", "kyc", "pep", "politically-exposed", "enhanced-due-diligence", "corruption-prevention", "onboarding-compliance", "financial-crime"]
 furtherDerivations: 1
 ---

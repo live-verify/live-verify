@@ -4,6 +4,7 @@ category: "Professional & Occupational Licenses"
 volume: "Medium"
 retention: "1-2 years (renewal)"
 slug: "massage-therapy-licenses"
+verificationMode: "clip"
 tags: ["massage-therapy", "professional-license", "public-health", "background-check", "licensing-board", "human-trafficking-prevention", "wellness-industry", "home-security"]
 furtherDerivations: 1
 ---

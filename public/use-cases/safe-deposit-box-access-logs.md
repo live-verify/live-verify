@@ -4,6 +4,7 @@ category: "Banking & Payments"
 volume: "Small"
 retention: "Access + 10-20 years (estate lifecycle / statute of limitations)"
 slug: "safe-deposit-box-access-logs"
+verificationMode: "clip"
 tags: ["banking", "safe-deposit-box", "access-log", "probate", "estate-dispute", "audit-trail", "physical-security", "bank-officer"]
 furtherDerivations: 1
 ---

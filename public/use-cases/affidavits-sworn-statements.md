@@ -4,6 +4,7 @@ category: "Financial & Legal Documents"
 volume: "Small"
 retention: "10-30 years (legal proceedings)"
 slug: "affidavits-sworn-statements"
+verificationMode: "clip"
 tags: ["affidavits", "sworn", "statements", "financial", "legal", "notary", "court"]
 furtherDerivations: 1
 ---

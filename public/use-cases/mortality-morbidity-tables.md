@@ -4,6 +4,7 @@ category: "Actuarial & Insurance Mathematics"
 volume: "Tiny"
 retention: "Permanent (industry standards)"
 slug: "mortality-morbidity-tables"
+verificationMode: "clip"
 tags: ["actuarial-standards", "mortality-table", "soa", "life-insurance-pricing", "valuation-manual", "actuarial-certification", "risk-modeling"]
 furtherDerivations: 1
 ---

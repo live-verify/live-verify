@@ -4,6 +4,7 @@ category: "Government & Regulatory"
 volume: "Large"
 retention: "Permanent (benefit entitlement)"
 slug: "international-tax-treaties"
+verificationMode: "clip"
 tags: ["tax-treaty", "totalization", "social-security", "expat", "foreign-tax-credit", "double-taxation", "pension", "cross-border", "residency"]
 ---
 

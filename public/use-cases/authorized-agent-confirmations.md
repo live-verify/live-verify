@@ -4,6 +4,7 @@ category: "Identity & Authority Verification"
 volume: "Large"
 retention: "Varies by action type"
 slug: "authorized-agent-confirmations"
+verificationMode: "clip"
 tags: ["repo", "bailiff", "locksmith", "tow", "demolition", "authorization", "agent", "indemnification"]
 furtherDerivations: 0
 ---

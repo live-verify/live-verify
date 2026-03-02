@@ -4,6 +4,7 @@ category: "Environmental Permits & Compliance"
 volume: "Very Small"
 retention: "Project lifecycle + 20 years (environmental liability)"
 slug: "wetlands-fill-mitigation-permits"
+verificationMode: "clip"
 tags: ["environmental", "section-404-permit", "wetlands-fill", "mitigation-banking", "usace", "clean-water-act", "land-development", "habitat-restoration"]
 furtherDerivations: 1
 ---

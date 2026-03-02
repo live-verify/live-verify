@@ -4,6 +4,7 @@ category: "Personal Lines Insurance"
 volume: "Small"
 retention: "Policy term + 10-20 years (liability lifecycle)"
 slug: "umbrella-liability-policies"
+verificationMode: "clip"
 tags: ["personal-insurance", "umbrella-policy", "excess-liability", "asset-protection", "high-net-worth", "catastrophic-coverage", "insurance-fraud", "liability-limit"]
 furtherDerivations: 1
 ---

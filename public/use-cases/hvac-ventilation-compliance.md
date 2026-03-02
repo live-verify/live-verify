@@ -4,6 +4,7 @@ category: "Site & Equipment Safety"
 volume: "Medium"
 retention: "14 months - 5 years (COSHH / OSHA cycles)"
 slug: "hvac-ventilation-compliance"
+verificationMode: "clip"
 tags: ["hvac", "lev", "coshh", "air-quality", "ventilation-safety", "osha-1910-94", "industrial-hygiene"]
 furtherDerivations: 1
 ---

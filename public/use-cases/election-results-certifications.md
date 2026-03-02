@@ -4,6 +4,7 @@ category: "Government & Civic Documents"
 volume: "Medium"
 retention: "Permanent (historical record)"
 slug: "election-results-certifications"
+verificationMode: "clip"
 tags: ["election", "voting", "results", "certification", "canvass", "democracy", "tally"]
 ---
 

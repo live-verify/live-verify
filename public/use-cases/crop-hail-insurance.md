@@ -4,6 +4,7 @@ category: "Specialty Insurance"
 volume: "Small"
 retention: "Growing season + 7 years"
 slug: "crop-hail-insurance"
+verificationMode: "clip"
 tags: ["agriculture", "crop-insurance", "hail-damage", "farming", "risk-management", "harvest-records"]
 furtherDerivations: 1
 ---

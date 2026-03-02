@@ -4,6 +4,7 @@ category: "Government & Civic Documents"
 volume: "Large"
 retention: "6-12 months (validity period) + immigration file retention"
 slug: "police-clearance-certificates"
+verificationMode: "clip"
 tags: ["police-clearance", "criminal-record-check", "good-conduct", "immigration", "visa", "background-check", "interpol", "acro", "fbi"]
 furtherDerivations: 2
 ---

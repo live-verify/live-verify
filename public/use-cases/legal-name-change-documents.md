@@ -4,6 +4,7 @@ category: "Identity & Civil Records"
 volume: "Medium"
 retention: "Permanent (lifetime identity document)"
 slug: "legal-name-change-documents"
+verificationMode: "clip"
 tags: ["identity", "name-change", "deed-poll", "court-order", "civil-records", "fraud-prevention", "kyc"]
 furtherDerivations: 2
 ---

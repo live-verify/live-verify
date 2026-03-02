@@ -4,6 +4,7 @@ category: "Banking & Financial Services"
 volume: "Very Large"
 retention: "1-3 years (consumer protection)"
 slug: "gift-card-redemption-receipts"
+verificationMode: "clip"
 tags: ["gift-card", "stored-value", "redemption", "balance", "prepaid", "voucher"]
 ---
 

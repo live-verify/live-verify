@@ -4,6 +4,7 @@ category: "Agriculture & Food"
 volume: "Small"
 retention: "Animal lifetime + 5-10 years"
 slug: "livestock-health-certificates"
+verificationMode: "clip"
 tags: ["livestock-health", "cvi-certificate", "veterinary-inspection", "usda-aphis", "breed-pedigree", "horse-racing", "cattle-trade", "animal-welfare"]
 furtherDerivations: 1
 ---

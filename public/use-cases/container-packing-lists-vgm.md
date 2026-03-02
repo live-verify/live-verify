@@ -4,6 +4,7 @@ category: "Chain of Custody & Logistics"
 volume: "Large"
 retention: "Shipment + 7 years"
 slug: "container-packing-lists-vgm"
+verificationMode: "clip"
 tags: ["shipping", "logistics", "vgm", "solas", "container", "maritime-safety", "packing-list"]
 furtherDerivations: 1
 ---

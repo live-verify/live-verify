@@ -4,6 +4,7 @@ category: "Immigration & Visa Documents"
 volume: "Medium"
 retention: "Appointment + 5 years"
 slug: "consular-processing-appointments"
+verificationMode: "clip"
 tags: ["immigration", "visa-interview", "nvc", "embassy", "consular-processing", "travel-logistics", "visa-appointment"]
 furtherDerivations: 1
 ---

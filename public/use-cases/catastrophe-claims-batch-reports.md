@@ -4,6 +4,7 @@ category: "Insurance Claims & Operations"
 volume: "Small"
 retention: "CAT event + 10 years"
 slug: "catastrophe-claims-batch-reports"
+verificationMode: "clip"
 tags: ["catastrophe", "insurance-claims", "reinsurance", "cat-code", "disaster-response", "claims-audit"]
 furtherDerivations: 1
 ---

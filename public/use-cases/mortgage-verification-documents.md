@@ -4,6 +4,7 @@ category: "Real Estate & Property"
 volume: "Small"
 retention: "7-10 years (loan term + disputes)"
 slug: "mortgage-verification-documents"
+verificationMode: "clip"
 tags: ["employment-verification", "fannie-mae-compliance", "fraud-prevention", "income-verification", "loan-approval", "mortgage-underwriting", "paystub", "real-estate-finance", "salary-verification", "voe", "w-2"]
 furtherDerivations: 2
 ---

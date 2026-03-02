@@ -77,6 +77,29 @@ Systematic recipients often receive hashes in merkle trees or batch submissions,
 
 ## Template Structure
 
+Each use case document includes YAML frontmatter with these fields:
+
+```yaml
+---
+title: "Document Type Name"
+category: "Category Name"
+volume: "Medium"
+retention: "7-10 years (reason)"
+slug: "document-type-name"
+verificationMode: "clip"
+tags: ["tag1", "tag2"]
+furtherDerivations: 0
+---
+```
+
+### verificationMode
+
+How the *verifier* typically encounters the document — far from the portal that originated it:
+
+- **`"clip"`** — The verifier has the document on screen (a forwarded PDF, an emailed attachment, a screenshot) and selects the verification text. This is the default for most use cases.
+- **`"camera"`** — The verifier is looking at a physical document in front of them (a badge, a posted sign, a card, a printed receipt) and uses the device camera with OCR.
+- **`"both"`** — The document surfaces both ways depending on context (e.g., professional licenses: wallet card shown in person = camera, PDF forwarded from a state registry = clip).
+
 Each use case document should include:
 
 ```markdown

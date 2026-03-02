@@ -4,6 +4,7 @@ category: "Specialty Insurance"
 volume: "Medium"
 retention: "Shipment + 7-10 years"
 slug: "freight-forwarder-insurance"
+verificationMode: "clip"
 tags: ["logistics", "freight-forwarding", "cargo-liability", "errors-and-omissions", "marine-insurance", "tt-club", "risk-management"]
 furtherDerivations: 1
 ---

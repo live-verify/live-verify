@@ -4,6 +4,7 @@ category: "Government & Civic Documents"
 volume: "Small"
 retention: "Permanent (legal status)"
 slug: "marriage-divorce-documents"
+verificationMode: "clip"
 tags: ["marriage-certificate", "divorce-decree", "civil-status", "family-law", "vital-records", "name-change", "probate-documents", "immigration-proof"]
 furtherDerivations: 1
 ---
