@@ -423,7 +423,7 @@ verifyAnotherBtn.addEventListener('click', () => {
 });
 
 // Core processing function - extracted for testability
-// Processes a canvas through the full OCR-to-hash verification pipeline
+// Processes a canvas through the full scan-and-verify pipeline
 async function processImageCanvas(canvas, captureMethod = 'Unknown') {
     // Update capture diagnostics visible to user
     captureInfo.style.display = 'block';

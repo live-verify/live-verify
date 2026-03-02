@@ -3,11 +3,11 @@
 
 ## Voting Ballot Proof: Verifiable Vote Counting
 
-Election integrity depends on voters being able to confirm their vote was counted. OCR-to-hash enables individual vote verification through independent auditors without compromising ballot secrecy.
+Election integrity depends on voters being able to confirm their vote was counted. Live Verify enables individual vote verification through independent auditors without compromising ballot secrecy.
 
 Key criteria: Democratic process requiring voter confidence. One-off transaction per election. Needs verification by voter and independent auditors. Privacy-preserving (no public registry of who voted what). Tamper-evident audit trail.
 
-### The Ballot Proof Chit: Where OCR-to-Hash Enables Trust
+### The Ballot Proof Chit: Where Live Verify Enables Trust
 
 **What's printed on the proof chit (given to voter after casting ballot):**
 
@@ -77,7 +77,7 @@ that's E&Y again.
 - Easy to overlook domain spoofing (`election-verify-ey.com` vs `ey.com`) during verification
 - Voter cannot verify chit authenticity without smartphone (QR is meaningless without device)
 
-**OCR-to-hash solution:**
+**Live Verify solution:**
 - Chit is human-readable first (voter reads: election name, date, polling station, vote cast)
 - Text IS the verification (no separate machine-only encoding)
 - Verification is secondary (optional check confirms vote counted)
@@ -95,7 +95,7 @@ that's E&Y again.
 - Auditor sees: one ballot, one verification (no red flag)
 - **No cryptographic binding between printed vote choice and QR code**
 
-**OCR-to-hash solution:**
+**Live Verify solution:**
 - Printed text includes vote cast: "Vote cast for: Newsome/AOC"
 - Changing text to "Trump/Vance" changes hash
 - New hash → verification fails (404 from auditor)
@@ -111,7 +111,7 @@ that's E&Y again.
 - Hard to spot domain spoofing in quick scan (voter expects verification, gets fake confirmation)
 - Voter believes vote was counted, but it wasn't (or was changed)
 
-**OCR-to-hash solution:**
+**Live Verify solution:**
 - Text determines domain: "verify:election-50.ey.com" printed on chit
 - App displays: **"VERIFIED by election-50.ey.com"** (shows actual verifying domain)
 - Voter sees immediately which auditor verified (E&Y, not fake domain)
@@ -128,14 +128,14 @@ that's E&Y again.
 - QR verifies "OK" (ballot exists in system)
 - **Voter never discovers vote was changed** (text on chit doesn't match actual counted ballot)
 
-**OCR-to-hash solution:**
+**Live Verify solution:**
 - Chit text includes: "Vote cast for: Newsome/AOC"
 - Hash computed from: election + polling station + timestamp + ballot ID + **vote choices**
 - If actual counted vote was "Trump/Vance", hash would be different
 - Voter verifies chit → 404 (hash doesn't match any ballot in auditor database)
 - **Voter discovers vote tampering immediately** (verification fails)
 
-**Note:** OCR-to-hash ballot proof chit reveals vote choices to the voter (printed on chit). Ballot secrecy is maintained by voter keeping chit private (like a receipt). This differs from anonymous voting systems where voter never sees proof of their vote - OCR-to-hash optimizes for voter confidence and verifiability over perfect anonymity.
+**Note:** Live Verify ballot proof chit reveals vote choices to the voter (printed on chit). Ballot secrecy is maintained by voter keeping chit private (like a receipt). This differs from anonymous voting systems where voter never sees proof of their vote - Live Verify optimizes for voter confidence and verifiability over perfect anonymity.
 
 #### Other Benefits
 
@@ -305,21 +305,21 @@ that's E&Y again.
 **Example: 2020 US Election:**
 - $14 billion spent on campaigns (Presidential + Congressional)
 - Post-election legal challenges: $100M+ (Trump lawsuits, recounts)
-- With OCR-to-hash verification: Voters verify → disputes reduced → legal costs saved
+- With Live Verify verification: Voters verify → disputes reduced → legal costs saved
 - **Campaign ROI:** Even saving $10M in legal fees = 100x government investment
 
-### Cost Comparison: OCR-to-Hash vs Traditional Election Auditing
+### Cost Comparison: Live Verify vs Traditional Election Auditing
 
 | Audit Method | Coverage | Cost | Voter Confidence |
 |--------------|----------|------|------------------|
 | **Hand recount** | 1-5% of ballots | $1M-5M per state | Low (only samples audited) |
 | **Risk-limiting audit** | Statistical sample | $500K-2M per state | Medium (requires statistical literacy) |
 | **No audit (trust official tally)** | 0% | $0 | Very low (post-2020 US) |
-| **OCR-to-hash (this system)** | 100% (voters verify individually) | $10M-20M national | High (every voter can verify) |
+| **Live Verify (this system)** | 100% (voters verify individually) | $10M-20M national | High (every voter can verify) |
 
 **Voter perspective:**
 - Traditional audit: "Experts say election was secure" (trust required)
-- OCR-to-hash: "I personally verified my vote was counted" (direct confirmation)
+- Live Verify: "I personally verified my vote was counted" (direct confirmation)
 - **Result:** Dramatically higher voter confidence in election integrity
 
 ### Real-World Precedents
@@ -343,7 +343,7 @@ that's E&Y again.
 - Coverage: 1-5% of ballots
 - **Result:** Expert-verified, but limited public understanding/confidence
 
-**OCR-to-hash advantage over existing systems:**
+**Live Verify advantage over existing systems:**
 1. **Lower cost:** $0.07-0.13 per voter vs $1-10 for i-voting
 2. **Universal verification:** Every voter verifies vs statistical samples
 3. **Simpler:** Scan paper chit vs complex cryptographic protocols
@@ -352,7 +352,7 @@ that's E&Y again.
 ### Government ROI Calculation
 
 **US Presidential Election scenario:**
-- **Investment:** $10M-20M for OCR-to-hash verification infrastructure
+- **Investment:** $10M-20M for Live Verify verification infrastructure
 - **Benefits:**
   1. **Reduced recounts:** Fewer disputed results = $50M-100M saved (Florida 2000 recount cost $10M)
   2. **Higher turnout:** 2-5% increase = 3M-7.5M additional voters (legitimacy boost)
@@ -364,7 +364,7 @@ that's E&Y again.
 
 **Comparison to election administration budget:**
 - US federal elections: $3-5 billion per cycle (FEC, state/local costs)
-- OCR-to-hash verification: $10M-20M (0.2-0.4% of total election budget)
+- Live Verify verification: $10M-20M (0.2-0.4% of total election budget)
 - **Decision:** Near-zero marginal cost for massive legitimacy improvement
 
 ### Deployment Timeline
@@ -378,7 +378,7 @@ that's E&Y again.
 - Metrics: 60-80% voter verification rate, 99%+ accuracy
 
 **Phase 2: Multi-State Rollout - Years 2-3**
-- 10-15 states adopt OCR-to-hash verification
+- 10-15 states adopt Live Verify verification
 - 50 million voters
 - Multiple auditors (E&Y, Deloitte, PwC for different states)
 - Cost: $50M (amortized infrastructure + auditor contracts)
@@ -469,7 +469,7 @@ that's E&Y again.
 1. **Avoid thermal printing for ballot chits:** Use laser/inkjet printers at polling stations
 2. **Immediate scanning encouraged:** App prompts voter to scan chit before leaving polling station
 3. **Photograph archival:** App saves high-resolution photo of chit (backup if thermal text fades)
-4. **QR code hybrid:** Print QR code alongside OCR-to-hash text (QR contains ballot ID for long-term access)
+4. **QR code hybrid:** Print QR code alongside Live Verify text (QR contains ballot ID for long-term access)
 5. **Government database:** Auditor stores ballot ID mapping (voter can look up by ballot ID if chit fades)
 
 **Cost comparison:**

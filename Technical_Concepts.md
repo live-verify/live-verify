@@ -1,6 +1,6 @@
-# Technical Concepts: OCR-to-Hash Verification
+# Technical Concepts: Live Verify
 
-This document explains technical concepts referenced across multiple use case documents. Read this first to understand how OCR-to-hash verification works under the hood.
+This document explains technical concepts referenced across multiple use case documents. Read this first to understand how Live Verify works under the hood.
 
 ## Table of Contents
 
@@ -427,7 +427,7 @@ Tot  : $  .67      ← Partial readability
 ```
 
 **Solutions:**
-1. **Hybrid approach** - Print both OCR-to-hash text AND QR code with same hash
+1. **Hybrid approach** - Print both verifiable text AND QR code with same hash
 2. **Immediate scanning** - Scan receipt when issued (before fading)
 3. **Photo archive** - Store high-resolution photo alongside hash
 4. **Longer retention** - Restaurant keeps hash valid for 7+ years even if receipt fades

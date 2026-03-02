@@ -1,7 +1,7 @@
 {
   "name": "ocr-hash-verifier",
   "version": "1.0.0",
-  "description": "OCR-to-Hash verification system for physical documents",
+  "description": "Live Verify: select claims on screen, or scan them on paper — both with quick mathematical verification",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

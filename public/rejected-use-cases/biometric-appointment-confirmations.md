@@ -133,4 +133,4 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | **Guards/Staff** | **Authorized.** Can verify without seeing applicant's private portal. | **Impossible.** Guards cannot ask for applicant's login. | **Weak.** Trusted visually only. |
 | **Trust** | **Cryptographic.** Bound to `uscis.gov`. | **High.** Direct from DB. | **Low.** Easily faked. |
 
-**Why OCR wins here:** The "Security Guard Scenario." A guard at a federal building cannot and should not log into an applicant's private USCIS account. OCR-to-hash allows the guard to verify the **authenticity of the physical paper** in front of them without accessing the applicant's private files.
+**Why OCR wins here:** The "Security Guard Scenario." A guard at a federal building cannot and should not log into an applicant's private USCIS account. Live Verify allows the guard to verify the **authenticity of the physical paper** in front of them without accessing the applicant's private files.

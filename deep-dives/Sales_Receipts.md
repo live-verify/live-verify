@@ -3,7 +3,7 @@
 
 ## Point-of-Sale Receipt Case: Preventing Expense Fraud
 
-Expense fraud costs UK businesses [£1.3 billion annually](https://www.expensein.com/blog/expense-fraud/). Common fraud types include duplicate claims, receipt tampering (amount inflation), complete forgery, and tax manipulation. OCR-to-hash prevents all these by making each receipt's text cryptographically verifiable, tamper-evident, and uniquely identifiable.
+Expense fraud costs UK businesses [£1.3 billion annually](https://www.expensein.com/blog/expense-fraud/). Common fraud types include duplicate claims, receipt tampering (amount inflation), complete forgery, and tax manipulation. Live Verify prevents all these by making each receipt's text cryptographically verifiable, tamper-evident, and uniquely identifiable.
 
 Key criteria: Business transaction with no privacy expectation. One-off transaction. Needs verifiable for tax/audit period (7 years). Hash must be unique to prevent duplicate claims.
 
@@ -23,7 +23,7 @@ You can test the verification system with these example receipt mockups (HTML re
 **Hotel Receipt:**
 - [Hotel Scheidegg (Switzerland)](https://live-verify.github.io/live-verify/training-pages/hotel-receipt-scheidegg.html) - CHF 54.50 restaurant/bar charges
 
-**Note:** These are HTML mockups designed to look like printed receipts. They demonstrate the OCR-to-hash verification system with working `verify:` URLs. You can scan these with the [Live Verify web app](https://live-verify.github.io/live-verify/) by displaying them on one device and scanning with another, or by printing them.
+**Note:** These are HTML mockups designed to look like printed receipts. They demonstrate the Live Verify verification system with working `verify:` URLs. You can scan these with the [Live Verify web app](https://live-verify.github.io/live-verify/) by displaying them on one device and scanning with another, or by printing them.
 
 **Example receipt screenshots:**
 
@@ -57,14 +57,14 @@ You can test the verification system with these example receipt mockups (HTML re
   </div>
 </div>
 
-### The Receipt: Where OCR-to-Hash Prevents Fraud
+### The Receipt: Where Live Verify Prevents Fraud
 
 **What's printed on a receipt (typical elements):**
 - Merchant name, location, date/time
 - Itemized purchases with prices
 - Subtotal, tax (VAT/sales tax), total
 - Transaction ID or receipt number
-- **verify:domain.com/path** URL (OCR-to-hash verification line)
+- **verify:domain.com/path** URL (Live Verify verification line)
 
 All these elements (except the verify: line itself) contribute to the hash, making each receipt cryptographically unique.
 
@@ -142,21 +142,21 @@ The simple GET verification above only confirms the receipt exists. To prevent d
 - QR encodes transaction ref `STB-EDI-45829`
 - Anyone scanning QR can query: items purchased, location, time
 - Employee's purchase history potentially accessible
-- With OCR-to-hash: hash reveals nothing about transaction content
+- With Live Verify: hash reveals nothing about transaction content
 
 **3. Forgery Risk**
 
 - Print fake receipt + QR pointing to attacker-controlled server
 - Server responds "Valid receipt ✓"
 - Finance department fooled unless they manually check domain
-- OCR-to-hash: receipt text must verify against claimed merchant's domain
+- Live Verify: receipt text must verify against claimed merchant's domain
 
 **4. Receipt Tampering Undetected**
 
 - Change "£7.50" to "£75.00" on printed receipt
 - QR still points to original transaction verification
 - QR verifies "OK" despite altered amount
-- OCR-to-hash: altered text → different hash → verification fails
+- Live Verify: altered text → different hash → verification fails
 
 ### The Thermal Receipt Problem: QR as Supplement
 
@@ -174,7 +174,7 @@ The simple GET verification above only confirms the receipt exists. To prevent d
 └─────────────────────────────┘
 ```
 
-- **OCR-to-hash section:** Verify immediately after purchase (while text readable)
+- **Live Verify section:** Verify immediately after purchase (while text readable)
 - **QR code:** Links to permanent PDF archive of receipt (for warranty/returns)
 - **Best practice:** Employee scans for expense verification before receipt fades
 - **QR benefit:** Long-term proof of purchase even after thermal text degrades
@@ -197,7 +197,7 @@ The simple GET verification above only confirms the receipt exists. To prevent d
 
 ### Deployment Models for Receipt Verification
 
-The basic OCR-to-hash verification (GET request confirms receipt exists) is straightforward, but **preventing duplicate expense claims** requires additional infrastructure. Three practical deployment models:
+The basic Live Verify verification (GET request confirms receipt exists) is straightforward, but **preventing duplicate expense claims** requires additional infrastructure. Three practical deployment models:
 
 **Model A: Employer-Only Tracking**
 - Employer's expense system maintains internal database of claimed receipt hashes
@@ -318,7 +318,7 @@ The basic OCR-to-hash verification (GET request confirms receipt exists) is stra
 **ROI calculation (500-person company):**
 - 500 employees × 10 receipts/month = 5,000 receipts/month
 - Traditional manual audit: 10% spot-check × $15 labor = $7,500/month
-- OCR-to-hash paid tier: $500/month unlimited verifications
+- Live Verify paid tier: $500/month unlimited verifications
 - **Savings:** $7,000/month ($84,000/year)
 - Plus: Detects duplicate claims that manual audit misses (additional savings)
 
@@ -375,19 +375,19 @@ The basic OCR-to-hash verification (GET request confirms receipt exists) is stra
 - Even recovering 1% of tax gap (£100M/year) = 100x ROI
 - Plus: Reduces expense fraud (£1.3bn/year) across UK economy
 
-### Cost Comparison: OCR-to-Hash vs Traditional Methods
+### Cost Comparison: Live Verify vs Traditional Methods
 
 | Verification Method | Time | Cost (Employer) | Fraud Detection Rate |
 |---------------------|------|-----------------|----------------------|
 | **Manual spot check (10%)** | 5 min/receipt | $15-30 (staff time) | 60% (only checks sampled receipts) |
 | **Full manual audit** | 5 min/receipt | $15-30 per receipt | 85% (time-consuming, misses duplicates across employees) |
 | **No verification (trust employees)** | 0 sec | $0 | 0% (expense fraud = £1.3bn/year UK) |
-| **OCR-to-hash (this system)** | 10 sec/receipt | $0 (free tier) / $0.01 (paid tier) | 99%+ (cryptographic, detects duplicates instantly) |
+| **Live Verify (this system)** | 10 sec/receipt | $0 (free tier) / $0.01 (paid tier) | 99%+ (cryptographic, detects duplicates instantly) |
 
 **Employer perspective:**
 - 500 employees × 10 receipts/month = 5,000 receipts/month
 - Manual audit cost: 10% × 500 receipts × $20 = $10,000/month
-- OCR-to-hash cost: $500/month (paid tier) = **$9,500/month savings**
+- Live Verify cost: $500/month (paid tier) = **$9,500/month savings**
 - Plus: Detects cross-employee duplicate claims that manual audit misses
 
 ### Revenue Model Options for Clearinghouses

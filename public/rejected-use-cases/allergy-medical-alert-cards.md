@@ -58,7 +58,7 @@ From `public/use-cases/qualifying_criteria.md`:
 
   Allergies rarely change. There's no meaningful revocation scenario.
 
-- **§5 Privacy model:** The privacy protections of OCR-to-hash (minimal disclosure, no content echo) are irrelevant here—people share allergy information freely. There's nothing to protect.
+- **§5 Privacy model:** The privacy protections of Live Verify (minimal disclosure, no content echo) are irrelevant here—people share allergy information freely. There's nothing to protect.
 
 ## The Right Solution
 

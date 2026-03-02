@@ -28,7 +28,7 @@ Desktop apps like Word still place [many formats on the clipboard](https://learn
 
 ## What We'd Want for Verifiable Documents
 
-For OCR-to-hash verification, we need richer clipboard options:
+For Live Verify, we need richer clipboard options:
 
 ### 1. Integral HTML Structure
 

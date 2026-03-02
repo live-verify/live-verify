@@ -193,7 +193,7 @@ GET https://mbc.ca.gov/licenses/fake_hash_value...
 - Scraper could download entire state's physician database with photos
 - HIPAA violation risk (bulk access to physician personal data)
 
-**OCR-to-hash solution:**
+**Live Verify solution:**
 - Only someone with physical license can compute hash
 - No enumeration vector (hash is not sequential or guessable)
 - Privacy-preserving for physicians
@@ -206,7 +206,7 @@ GET https://mbc.ca.gov/licenses/fake_hash_value...
 - QR verifies "OK" because it points to real physician's record
 - No cryptographic binding between text/photo and QR code
 
-**OCR-to-hash solution:**
+**Live Verify solution:**
 - Changing photo changes the text ("Jane Smith" → "John Doe")
 - Different text → different hash → verification fails
 - Cryptographic binding between printed text and verification endpoint
@@ -218,7 +218,7 @@ GET https://mbc.ca.gov/licenses/fake_hash_value...
 - HR manager scans QR, sees "License Valid" on attacker's server
 - Hard to spot domain spoofing during quick verification
 
-**OCR-to-hash solution:**
+**Live Verify solution:**
 - Text determines domain ("CALIFORNIA MEDICAL BOARD" → `mbc.ca.gov`)
 - App displays: "VERIFIED by mbc.ca.gov" (not fake domain)
 - User sees immediately which authority verified the claim
@@ -230,7 +230,7 @@ GET https://mbc.ca.gov/licenses/fake_hash_value...
 - Adding QR code clutters small format (3.5" × 2.5")
 - Unprofessional appearance for medical credential
 
-**OCR-to-hash solution:**
+**Live Verify solution:**
 - Just one small line: `verify:mbc.ca.gov/licenses`
 - Clean, professional appearance
 - Text is the verification (no machine-only QR code)

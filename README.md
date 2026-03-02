@@ -6,7 +6,7 @@
 ![License](https://img.shields.io/badge/license-AGPL--3.0-blue)
 
 A **proof of concept** for issuer-attested verification of on-screen and printed claims.
-Two modes: **Clip** (browser/email/PDF: select text → normalize → hash → verify) and **Camera** (phone app: OCR → normalize → hash → verify).
+Live Verify works two ways: **select** claims on screen, or **scan** them on paper — both with quick mathematical verification.
 
 **Anyone can verify any document presented to them** — no special equipment, no credentials, no calling during business hours, no issuer relationship required.
 

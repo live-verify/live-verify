@@ -1,6 +1,6 @@
 # Verification Modes: Text-to-Hash Applications
 
-While often called "OCR-to-hash," the system is actually a more fine-grained **Text-to-Hash** pipeline with multiple input permutations. The core process is `Input -> normalized-text -> hash -> GET`.
+Live Verify is a **text-to-hash** pipeline with multiple input permutations. The core process is `Input -> normalized-text -> hash -> GET`.
 
 ## Input Permutations
 

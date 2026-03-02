@@ -675,7 +675,7 @@ function generateVerificationArchitecture(category, title, docType) {
   }
 
   content += fraudPatterns.join('\n') + '\n\n';
-  content += `OCR-to-hash verification addresses fake and altered documents. Domain binding confirms the claimed issuer actually issued the document.\n\n`;
+  content += `Live Verify addresses fake and altered documents. Domain binding confirms the claimed issuer actually issued the document.\n\n`;
 
   // Issuer section
   content += `**Issuer Types**\n\n`;

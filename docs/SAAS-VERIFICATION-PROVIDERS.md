@@ -2,7 +2,7 @@
 
 ## The Opportunity
 
-OCR-to-hash verification requires someone to operate a verification endpoint at a trusted domain. Large organizations (banks, governments, corporations) can host their own, but vast categories of issuers cannot:
+Live Verify requires someone to operate a verification endpoint at a trusted domain. Large organizations (banks, governments, corporations) can host their own, but vast categories of issuers cannot:
 
 - Individuals (freelancers, landlords, private sellers)
 - Small businesses without IT resources
@@ -222,7 +222,7 @@ This space is nascent. Potential entrants include:
 - Notary platforms (Notarize, NotaryCam)
 - Legal tech companies
 - Blockchain/timestamping services pivoting to simpler models
-- New startups purpose-built for OCR-to-hash
+- New startups purpose-built for Live Verify
 
 The key differentiator will be **simplicity** - making it trivially easy for a sole proprietor or small organization to get verification endpoints operational.
 

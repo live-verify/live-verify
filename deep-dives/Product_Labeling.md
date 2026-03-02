@@ -3,11 +3,11 @@
 
 ## The MedPro PPE Case: Anti-Tampering for B2B Certifications
 
-The MedPro fraud case (£122m UK government PPE contract, fake Intertek certification) demonstrates OCR-to-hash's strength in **preventing issuer impersonation** rather than protecting privacy.
+The MedPro fraud case (£122m UK government PPE contract, fake Intertek certification) demonstrates Live Verify's strength in **preventing issuer impersonation** rather than protecting privacy.
 
 Key criteria: Produce/company have no expectation of privacy. Many thousands in production run. Certification ahead of bulk shipment - that needs to be verifiable for years.
 
-### The Bulk Shipment Certificate: Where OCR-to-Hash Excels
+### The Bulk Shipment Certificate: Where Live Verify Excels
 
 **What's printed on the certificate:**
 
@@ -69,13 +69,13 @@ Key criteria: Produce/company have no expectation of privacy. Many thousands in 
 
 - Could change "ISO 13485" to "ISO 9001" on printed cert
 - QR code verification still succeeds (points to attacker server)
-- OCR-to-hash would detect text change → different hash → verification fails
+- Live Verify would detect text change → different hash → verification fails
 
 **4. No Offline Verification**
 
 - Can't read certification details from QR code
 - Must trust the scanned URL destination
-- OCR-to-hash shows human-readable claim before verification
+- Live Verify shows human-readable claim before verification
 
 ### The Three-Document Reality: A Hybrid Approach
 
@@ -92,7 +92,7 @@ Key criteria: Produce/company have no expectation of privacy. Many thousands in 
     └──────────────────────────────┘
   ```
 - **Current limitation:** Registration marks too large for tiny labels
-- **Future OCR-to-hash:** **User-guided framing** could enable verification
+- **Future Live Verify:** **User-guided framing** could enable verification
     - App shows rectangle overlay on viewfinder
     - User positions label within frame
     - App crops to frame boundaries, applies OCR
@@ -105,13 +105,13 @@ Key criteria: Produce/company have no expectation of privacy. Many thousands in 
 - **Format:** Formal certificate on letterhead
 - **Verifier:** Government procurement officer with physical certificate
 - **Privacy needed:** No (B2B transaction)
-- **Verdict:** **OCR-to-hash WINS** - prevents issuer impersonation, human-readable, forgery-resistant
+- **Verdict:** **Live Verify WINS** - prevents issuer impersonation, human-readable, forgery-resistant
 
 **3. Consumer Pamphlet (inside packaging)**
 - **Format:** Paper insert, A5 size, plenty of space
 - **Verifier:** Healthcare worker or consumer
 - **Verdict:** **Use BOTH** - they serve different purposes
-    - **OCR-to-hash section:** Cryptographic verification of certification claim
+    - **Live Verify section:** Cryptographic verification of certification claim
       ```
       ┌────────────────────────────┐
       │ Medical gowm 2020-18b      │
@@ -130,14 +130,14 @@ Key criteria: Produce/company have no expectation of privacy. Many thousands in 
         - Product specifications
         - Manufacturer contact info
         - Safety data sheets
-- **Why both:** OCR-to-hash proves authenticity, QR provides convenience and live updates
+- **Why both:** Live Verify proves authenticity, QR provides convenience and live updates
 - **User choice:** Scan verification rectangle for trust, scan QR for information
 
 ### Anti-Impersonation: The Hidden Criterion
 
 The MedPro case reveals a criterion not about privacy:
 
-**OCR-to-hash prevents certification fraud by:**
+**Live Verify prevents certification fraud by:**
 - Binding the issuer name (in text) to the verification domain
 - Making text tampering detectable (hash changes)
 - Forcing verification against the claimed issuer's actual domain
@@ -207,7 +207,7 @@ The MedPro case reveals a criterion not about privacy:
 
 **Example: MedPro (legitimate version):**
 - Pays Intertek $3,000 for PPE gown testing + certification
-- Gets certificate with OCR-to-hash verification included
+- Gets certificate with Live Verify verification included
 - UK Government verifies in 10 seconds during procurement
 - **Result:** £122M contract proceeds without fraud concerns
 
@@ -234,8 +234,8 @@ The MedPro case reveals a criterion not about privacy:
 - Cost is negligible compared to procurement budget (£1M+ contracts)
 
 **UK Government ROI (MedPro scenario):**
-- **Without OCR-to-hash:** £122M fraud, months of investigation, contracts canceled, public trust damaged
-- **With OCR-to-hash:** Fake certificate scanned, returns 404, shipment rejected in 10 seconds
+- **Without Live Verify:** £122M fraud, months of investigation, contracts canceled, public trust damaged
+- **With Live Verify:** Fake certificate scanned, returns 404, shipment rejected in 10 seconds
 - **Cost:** $1,000/year for unlimited verifications across all procurement
 - **Savings:** Prevents one $10M+ fraud = 10,000x ROI
 
@@ -277,14 +277,14 @@ The MedPro case reveals a criterion not about privacy:
 - Electrician verifying cable certifications (fire safety)
 - Homeowner verifying smoke detector certifications (life safety)
 
-### Cost Comparison: OCR-to-Hash vs Traditional Methods
+### Cost Comparison: Live Verify vs Traditional Methods
 
 | Verification Method | Time | Cost | Accuracy |
 |---------------------|------|------|----------|
 | **Phone call to testing lab** | 30-60 min | $15-30 (staff time) | 85% (verbal confirmation, transcription errors) |
 | **Email to testing lab** | 1-3 days | $10-20 | 90% (depends on lab response time) |
 | **No verification (trust certificate)** | 0 sec | $0 | 0% (MedPro fraud = £122M loss) |
-| **OCR-to-hash (this system)** | 10-15 sec | $0 (free tier) / $0.10 (paid tier) | 99%+ (cryptographic) |
+| **Live Verify (this system)** | 10-15 sec | $0 (free tier) / $0.10 (paid tier) | 99%+ (cryptographic) |
 
 **Procurement officer perspective:**
 - Processing $10M PPE order
@@ -319,7 +319,7 @@ The MedPro case reveals a criterion not about privacy:
 - Current verification: Visual inspection of mark + certificate (no cryptographic verification)
 - **Fraud:** Common problem (fake CE marks, counterfeit certificates)
 
-**OCR-to-hash advantages over current CE system:**
+**Live Verify advantages over current CE system:**
 1. **Cryptographic verification:** Cannot forge certificate that verifies against notified body's domain
 2. **Instant verification:** Customs officers verify in 10 seconds (no phone calls)
 3. **No central database:** Each notified body hosts own verification endpoint (decentralized)
@@ -327,7 +327,7 @@ The MedPro case reveals a criterion not about privacy:
 5. **Human-readable:** Inspector reads certification details, not just scanning mark
 
 **EU adoption path:**
-- Notified bodies implement OCR-to-hash verification endpoints
+- Notified bodies implement Live Verify verification endpoints
 - New CE certificates include `verify:` URLs
 - Customs systems integrate API verification
 - Fake CE certificates become immediately detectable
@@ -384,7 +384,7 @@ The MedPro case reveals a criterion not about privacy:
 **Target:** Government-mandated verification for regulated industries
 
 **Regulatory changes:**
-- **EU:** Notified bodies must offer OCR-to-hash verification for CE certificates
+- **EU:** Notified bodies must offer Live Verify verification for CE certificates
 - **US FDA:** Medical device manufacturers must include verifiable certification on labels
 - **UK:** Government procurement requires verifiable certifications for PPE, medical supplies
 - **ISO standards:** ISO 17025 (testing lab accreditation) updated to include verification endpoints
@@ -539,7 +539,7 @@ async function handleRequest(request) {
 ### Backwards Compatibility
 
 **Old certifications without verification:**
-- Issued before OCR-to-hash adoption (pre-pilot)
+- Issued before Live Verify adoption (pre-pilot)
 - Testing labs can retroactively generate hashes for existing certificates (if requested)
 - Phone/email verification remains fallback for non-participating labs
 
@@ -584,17 +584,17 @@ async function handleRequest(request) {
 ### Fraud Deterrence Impact
 
 **MedPro case (£122M fraud):**
-- **Without OCR-to-hash:** Fake Intertek certificate accepted, months of fraud, £122M loss, public inquiry
-- **With OCR-to-hash:** Fake certificate scanned, returns 404 from intertek.com, shipment rejected in 10 seconds
+- **Without Live Verify:** Fake Intertek certificate accepted, months of fraud, £122M loss, public inquiry
+- **With Live Verify:** Fake certificate scanned, returns 404 from intertek.com, shipment rejected in 10 seconds
 
 **Counterfeit CE marks:**
 - **Current problem:** 1,000+ instances/year in EU (fake certificates, unverified marks)
-- **With OCR-to-hash:** Customs officers scan certificates at border, fake marks detected instantly
+- **With Live Verify:** Customs officers scan certificates at border, fake marks detected instantly
 - **Result:** Counterfeiters must spoof legitimate testing lab domains (harder, illegal, traceable)
 
 **Construction materials fraud:**
 - **Real-world case:** Grenfell Tower fire (UK, 2017) - Fake fire safety certifications on cladding, 72 deaths
-- **With OCR-to-hash:** Building inspectors scan certification during construction, fake certs detected before installation
+- **With Live Verify:** Building inspectors scan certification during construction, fake certs detected before installation
 - **Result:** Lives saved, buildings safe, criminal liability for fraud
 
 ---
@@ -655,13 +655,13 @@ async function handleRequest(request) {
 **UK Government perspective (National Audit Office):**
 - £12B annual procurement spending on medical supplies, PPE, pharmaceuticals
 - Fraud detection prevents 0.5-2% losses (£60M-240M/year)
-- OCR-to-hash infrastructure cost: £50K/year (verification app, API integration)
+- Live Verify infrastructure cost: £50K/year (verification app, API integration)
 - **ROI:** 1,000-5,000x return (preventing one £10M fraud pays for 200 years of service)
 
 **Customs efficiency:**
 - US CBP processes 30M shipments/year
 - Manual certificate verification: 15 minutes/shipment (high-risk categories)
-- Automated OCR-to-hash verification: 10 seconds/shipment
+- Automated Live Verify verification: 10 seconds/shipment
 - **Time saved:** 7.5M hours/year (reallocated to security screening, drug interdiction)
 - **Cost savings:** $150M/year (staff time at $20/hour)
 
@@ -678,14 +678,14 @@ async function handleRequest(request) {
 - 100,000 suppliers globally
 - Each requires 1-5 certifications (PPE, food safety, toy safety, electrical)
 - Traditional verification: $15-30 × 200,000 certifications = $3M-6M/year
-- OCR-to-hash: $5,000/year enterprise license
+- Live Verify: $5,000/year enterprise license
 - **Savings:** $3M-6M/year + faster supplier onboarding (weeks → minutes)
 
 **Amazon Business:**
 - 1M business sellers
 - Requires certifications for medical supplies, electrical equipment, children's products
 - Current problem: 10-20% of certifications are fake or unverifiable (manual spot checks)
-- With OCR-to-hash: Automated verification at supplier onboarding, fake certifications rejected instantly
+- With Live Verify: Automated verification at supplier onboarding, fake certifications rejected instantly
 - **Impact:** Safer marketplace, reduced legal liability, higher customer trust
 
 ### Consumers
@@ -738,7 +738,7 @@ async function handleRequest(request) {
 - $100M building project
 - Uses $10M of certified materials (structural steel, fire-rated materials)
 - Risk: Fake certifications discovered after construction → $50M demolition/replacement cost
-- OCR-to-hash verification: $0 (inspector scans for free)
+- Live Verify verification: $0 (inspector scans for free)
 - **ROI:** Prevents one $50M failure = infinite ROI
 
 ### Insurance Industry
@@ -754,7 +754,7 @@ async function handleRequest(request) {
 - Manufacturer seeks $10M product liability coverage
 - Insurer verifies product safety certifications during underwriting
 - Traditional: Request certificates, call testing labs (3-7 days, $500 underwriting cost)
-- OCR-to-hash: Scan certificates instantly, verify authenticity (10 seconds, $0 cost)
+- Live Verify: Scan certificates instantly, verify authenticity (10 seconds, $0 cost)
 - **Result:** Faster policy issuance, lower premiums (verifiable certifications = lower risk)
 
 **Claims investigation:**
@@ -778,14 +778,14 @@ async function handleRequest(request) {
 - 200,000 registered medical devices in US market
 - FDA inspects 10,000 facilities/year (5% spot check rate)
 - Current limitation: Can't verify all certifications during inspections (phone calls take 30-60 minutes)
-- With OCR-to-hash: Inspectors scan all certificates during facility inspection (10 seconds each)
+- With Live Verify: Inspectors scan all certificates during facility inspection (10 seconds each)
 - **Impact:** 100% certification verification rate (vs 5% today), fake medical devices removed from market
 
 **EU market surveillance (CE marking):**
 - 1M+ products CE marked annually
 - Customs inspects 1% of shipments (manual certificate verification)
 - Fake CE marks: Estimated 10-20% of inspected shipments (100K-200K/year)
-- With OCR-to-hash: Automated scanning at all borders (100% verification rate)
+- With Live Verify: Automated scanning at all borders (100% verification rate)
 - **Impact:** Fake CE marks detected immediately, counterfeiters lose access to EU market
 
 ---

@@ -1,6 +1,6 @@
 # Verification Response Format Standard
 
-This document defines the standard response formats for OCR-to-hash verification endpoints.
+This document defines the standard response formats for Live Verify verification endpoints.
 
 ## Overview
 

@@ -130,4 +130,4 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | **Detail** | **High.** Explains the *reason* (Rebalancing/TLH). | **Low.** Just shows Cost Basis and Proceeds. | **Medium.** |
 | **Trust** | **Cryptographic.** Binds to the firm's domain. | **High.** Official tax document. | **Medium.** Easily forged. |
 
-**Why OCR wins here:** Rebalancing happens all year round. Waiting for a 1099-B to prove a strategy is risky. OCR-to-hash allows for **intra-year verification** of tax strategies, which is crucial for high-net-worth individuals doing complex planning or responding to "Mid-Year" tax inquiries.
+**Why OCR wins here:** Rebalancing happens all year round. Waiting for a 1099-B to prove a strategy is risky. Live Verify allows for **intra-year verification** of tax strategies, which is crucial for high-net-worth individuals doing complex planning or responding to "Mid-Year" tax inquiries.

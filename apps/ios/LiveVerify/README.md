@@ -1,6 +1,6 @@
 # Live Verify iOS App
 
-SwiftUI iOS app for OCR-to-hash document verification using iOS Live Text (Vision framework).
+SwiftUI iOS app for camera-based document verification — scan claims on paper using iOS Live Text (Vision framework).
 
 ## Features
 

@@ -11,7 +11,7 @@ Key criteria: Government-issued credential with photo. Needs verification by non
 
 ### Driver's Licenses and Passports: Real-World Verification Gap
 
-Both driver's licenses and passports share the same verification workflow and challenges. Here's how OCR-to-hash solves the non-government verification gap:
+Both driver's licenses and passports share the same verification workflow and challenges. Here's how Live Verify solves the non-government verification gap:
 
 **Driver's License Example:**
 
@@ -145,30 +145,30 @@ GET https://dmv.ca.gov/dl/{computed_hash}
 - QR code might contain: `https://dmv.ca.gov/verify?id=A1234567`
 - Anyone can try sequential IDs: `A1234566`, `A1234567`, `A1234568`...
 - Scraper could download entire DMV photo database
-- With OCR-to-hash: Only someone with physical license can compute hash → no enumeration vector
+- With Live Verify: Only someone with physical license can compute hash → no enumeration vector
 
 **2. Cloning attack**
 - Thief steals license, makes photocopy with their own photo
 - Copies the QR code from real license
 - QR verifies "OK" because it points to real license record
 - No cryptographic binding between printed text/photo and QR code
-- With OCR-to-hash: Changing photo changes the hash → verification fails
+- With Live Verify: Changing photo changes the hash → verification fails
 
 **3. Domain spoofing**
 - Fake license prints QR pointing to `https://dmv-california.com/verify` (lookalike domain)
 - Clerk scans QR, sees "Valid" on attacker's server
 - Hard to spot domain spoofing in quick interaction
-- With OCR-to-hash: Text determines domain ("STATE OF CALIFORNIA" → `dmv.ca.gov`)
+- With Live Verify: Text determines domain ("STATE OF CALIFORNIA" → `dmv.ca.gov`)
 
 **4. Doesn't solve government-to-non-government gap**
 - Machine-readable zone on passports works for border control (government-to-government)
 - But hotel clerk has no access to government passport database
 - QR code alone doesn't provide cryptographic verification
-- OCR-to-hash enables non-government entities to verify authentically
+- Live Verify enables non-government entities to verify authentically
 
 **Coexistence with machine-readable zones (passports):**
 - **Machine-readable zone:** For government border control (biometric chips, facial recognition at automated gates)
-- **OCR-to-hash verification:** For non-government entities (hotels, car rentals, banks)
+- **Live Verify verification:** For non-government entities (hotels, car rentals, banks)
 - **Both use same document:** MRZ at bottom, verification URL at top
 - **Complementary, not competing:** Different use cases, different verifiers
 - **GeoIP possibilities:** "Our citizen is elsewhere, call local police" if someone tries to use a passport that's simultaneously being used in another country
@@ -256,7 +256,7 @@ GET https://dmv.ca.gov/dl/{computed_hash}
 - 8,000 properties worldwide
 - 500M guest check-ins/year
 - Traditional ID verification: Visual inspection (90% accuracy, no fraud detection)
-- OCR-to-hash verification: $500,000/year (unlimited API access across all properties)
+- Live Verify verification: $500,000/year (unlimited API access across all properties)
 - **Benefit:** Detects stolen passports, fake IDs, reduces identity fraud ($millions in prevented losses)
 - **ROI:** Preventing 100 fraud cases/year at $10K average loss = $1M saved = 200x ROI
 
@@ -281,7 +281,7 @@ GET https://dmv.ca.gov/dl/{computed_hash}
 - 30,000 officers
 - 1M+ traffic stops/year
 - Traditional: Radio call to dispatch (5 min/stop) = 83,000 staff hours/year
-- OCR-to-hash: 10 seconds/stop = 2,800 staff hours/year
+- Live Verify: 10 seconds/stop = 2,800 staff hours/year
 - **Savings:** 80,000 staff hours/year at £30/hour = £2.4M/year
 - Plus: Detect stolen IDs instantly (reduces identity theft crime)
 
@@ -306,23 +306,23 @@ GET https://dmv.ca.gov/dl/{computed_hash}
 - 66 million customers
 - 5M new accounts opened/year
 - Traditional KYC: Manual document upload + review ($10-20 per customer)
-- OCR-to-hash: $10,000/year unlimited API access = $0.002 per verification
+- Live Verify: $10,000/year unlimited API access = $0.002 per verification
 - **Savings:** $50M-100M/year in KYC costs
 - Plus: Faster account opening (minutes vs days), better customer experience
 
-### Cost Comparison: OCR-to-Hash vs Traditional ID Verification
+### Cost Comparison: Live Verify vs Traditional ID Verification
 
 | Verification Method | Time | Cost | Accuracy |
 |---------------------|------|------|----------|
 | **Visual inspection** | 30 sec | $0 | 70% (trained staff) / 40% (untrained) |
 | **ID scanner device** | 10 sec | $5,000 device + $1/scan | 85% (detects some fake IDs, not stolen) |
 | **Phone call to DMV** | 5-10 min | $20-50 (staff time) | 95% (but slow, not real-time) |
-| **OCR-to-hash (this system)** | 10 sec | $0 (free tier) / $0.10 (paid tier) | 99%+ (cryptographic + photo match) |
+| **Live Verify (this system)** | 10 sec | $0 (free tier) / $0.10 (paid tier) | 99%+ (cryptographic + photo match) |
 
 **Hotel front desk perspective:**
 - 200 check-ins/day
 - Visual inspection: 0% fraud detection (fake IDs look real)
-- OCR-to-hash: Detects stolen passports, fake IDs, expired documents
+- Live Verify: Detects stolen passports, fake IDs, expired documents
 - Cost: FREE (under 100 verifications/month threshold)
 - **ROI:** Preventing one $5K identity fraud case pays for... nothing (it's free)
 
@@ -453,7 +453,7 @@ GET https://dmv.ca.gov/dl/{computed_hash}
 
 **Photo opt-out (transition period):**
 - During first few decades of rollout, ID holder can specify "no photo in verification response"
-- Allows privacy-conscious individuals to adopt OCR-to-hash verification without photo sharing
+- Allows privacy-conscious individuals to adopt Live Verify verification without photo sharing
 - Response includes `"photo_included": false` flag to indicate holder's preference
 - Verifier relies on physical ID photo comparison only (traditional visual verification)
 - After widespread adoption (20-30 years), photo inclusion becomes mandatory for security
@@ -471,7 +471,7 @@ GET https://dmv.ca.gov/dl/{computed_hash}
 - Each country hosts their own passport verification endpoints
 - `verify:gov.uk/passports`, `verify:state.gov/passports` (US), etc.
 - No international coordination needed (each sovereign nation controls own data)
-- Hotels can verify any nationality's passport (same OCR-to-hash workflow)
+- Hotels can verify any nationality's passport (same Live Verify workflow)
 
 **Backwards compatibility:**
 - New IDs printed with `verify:` URL + registration marks

@@ -5,8 +5,9 @@
 Proof-of-concept implementations demonstrating **Live Verify** verification for resolving fraud or disputes. The pipeline is `Input -> normalization -> hash -> GET`.
 
 ### Two Verification Modes:
+Live Verify works two ways: **select** claims on screen, or **scan** them on paper — both with quick mathematical verification.
+- **Live Verify - Clip:** Select text from digital document (browser, email client, PDF reader) -> normalization -> hash -> GET. Best for administrative/remote verification. This is the primary mode.
 - **Live Verify - Camera:** Point phone at physical document -> OCR -> normalized-text -> hash -> GET. Best for in-person verification (doorstep, front desk, roadside).
-- **Live Verify - Clip:** Select text from digital document (browser, email client, PDF reader) -> normalization -> hash -> GET. Best for administrative/remote verification.
 
 ### Integration Vision
 These capabilities are designed for building into camera apps, browsers (mobile/desktop), email clients, PDF viewers, messaging systems (SMS, WhatsApp, iMessage), and collaboration tools (Slack, Discord).

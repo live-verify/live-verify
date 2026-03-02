@@ -1,6 +1,6 @@
 # Data Classification for Use Cases
 
-This document explains how to classify information when documenting OCR-to-hash verification use cases.
+This document explains how to classify information when documenting Live Verify use cases.
 
 Some use cases are personal, some professional, and some are not about an individual at all.
 
@@ -39,8 +39,8 @@ see is ✅/❌. And if the former, a photo that matches the one of the card itse
 But, if the person the Green Card was presented was a US govement employee (or contractor) authorized to see more, there could be a link to another website. One they would 
 have to log in to and then be authorized to the data within it. The prospective employer and the bouncer may see then link but they can't successfully navigate to it.
 
-It could be the US govenment official has a different app for OCR-to-hash and they get the extra information straight away. It could be they don't use 
-OCR-to-hash  at all, and have a QR code or NFC chip to get to the same.
+It could be the US govenment official has a different app for Live Verify and they get the extra information straight away. It could be they don't use
+Live Verify at all, and have a QR code or NFC chip to get to the same.
 
 Say the green card is shown to a prospective employer or bouncer, it might show revoked date, a surrendered date, or a date it was stolen. Maybe a superseded date, 
 but no link to the superseding document would be provided.

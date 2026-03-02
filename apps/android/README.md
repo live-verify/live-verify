@@ -1,6 +1,6 @@
 # Live Verify Android App
 
-Native Android app for camera-based document verification using OCR-to-hash verification.
+Native Android app for camera-based document verification — scan claims on paper with quick mathematical verification.
 
 ![Live Verify Android Screenshot](screencap.jpg)
 

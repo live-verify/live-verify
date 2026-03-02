@@ -3,7 +3,7 @@
 
 ## Claimed degrees and certs on CV/Resume
 
-Employment and education verification on a CV/resume are an ideal use case for OCR-to-hash. Here's why:
+Employment and education verification on a CV/resume are an ideal use case for Live Verify. Here's why:
 
 Key criteria: Personal claim with an expectation of privacy in the public record. Each is one-off. A need to be cheaply verifiable for decades.
 
@@ -61,7 +61,7 @@ Note ebe51417c7a506ee09763e055590858568b841f238cb6462818709cfbfebbdca is the SHA
 - Interviewer can't read "Edinburgh University First Class Honours" by looking at a QR code
 - Need both QR code AND text → redundant, cluttered
 
-**OCR-to-hash solution:**
+**Live Verify solution:**
 - Just one small `verify:` URL per claim
 - Text IS the certification (human-readable)
 - Clean, professional appearance
@@ -80,7 +80,7 @@ Note ebe51417c7a506ee09763e055590858568b841f238cb6462818709cfbfebbdca is the SHA
     - Still scrapeable from public photos of CVs
     - Privacy violation (graduation records become public)
 
-**OCR-to-hash solution:**
+**Live Verify solution:**
 - Hash not printed (only base URL)
 - No enumeration vector (can't scrape all graduates)
 - Only someone with physical CV can compute hash
@@ -94,7 +94,7 @@ Note ebe51417c7a506ee09763e055590858568b841f238cb6462818709cfbfebbdca is the SHA
 - Interviewer must scan each QR separately
 - Hard to distinguish which QR verifies which claim
 
-**OCR-to-hash solution:**
+**Live Verify solution:**
 - Each claim is self-contained text block
 - Interviewer reads claim, then optionally verifies
 - Verification is secondary (readability primary)
@@ -108,7 +108,7 @@ Note ebe51417c7a506ee09763e055590858568b841f238cb6462818709cfbfebbdca is the SHA
 - Hard to spot domain spoofing in quick interaction
 - No cryptographic binding between printed university name and QR URL
 
-**OCR-to-hash solution:**
+**Live Verify solution:**
 - Text determines domain ("Edinburgh University" → `degrees.ed.ac.uk`)
 - App displays: **"VERIFIED by degrees.ed.ac.uk"** (not fake domain)
 - Domain binding (see [Technical_Concepts.md: Domain Binding](Technical_Concepts.md#domain-binding))
@@ -217,14 +217,14 @@ All share the key criteria: personal claims with privacy expectations, one-off d
 - Instant cryptographic verification reduces turnaround time from days to seconds
 - Improves accuracy (eliminates transcription errors from phone calls)
 
-### Cost Comparison: OCR-to-Hash vs Traditional Methods
+### Cost Comparison: Live Verify vs Traditional Methods
 
 | Verification Method | Time | Cost | Accuracy |
 |---------------------|------|------|----------|
 | **Phone call to university** | 30-60 min | $15-30 (HR time) | 85% (transcription errors) |
 | **Email to registrar** | 3-7 days | $10-20 (back-and-forth) | 90% |
 | **Third-party service (Clearinghouse)** | 1-3 days | $10-25 per verification | 95% |
-| **OCR-to-hash (this system)** | 10-15 sec | $0.10 (paid tier) / FREE (free tier) | 99%+ (cryptographic) |
+| **Live Verify (this system)** | 10-15 sec | $0.10 (paid tier) / FREE (free tier) | 99%+ (cryptographic) |
 
 **Employer perspective:**
 - Hiring a software engineer at $100K salary
@@ -261,14 +261,14 @@ All share the key criteria: personal claims with privacy expectations, one-off d
 - Employers pay $8-12 per verification
 - Students/universities provide data for free
 
-**OCR-to-hash advantages over Clearinghouse model:**
+**Live Verify advantages over Clearinghouse model:**
 1. **Privacy-preserving:** No central database of who has what degree (Clearinghouse stores all records)
 2. **Lower cost:** $0.10 vs $8-12 per verification (100x cheaper)
 3. **Instant:** 10 seconds vs 1-3 days turnaround
 4. **Cryptographic proof:** Cannot be faked (Clearinghouse relies on institutional data uploads)
 5. **Graduate control:** Hash on CV gives graduate agency (Clearinghouse requires employer-initiated request)
 
-**Clearinghouse could adopt OCR-to-hash:**
+**Clearinghouse could adopt Live Verify:**
 - Universities generate hashes when issuing degrees
 - Clearinghouse hosts verification endpoints (infrastructure already exists)
 - Pricing drops from $8 to $0.10-0.50 (marginal cost decreases)
@@ -291,7 +291,7 @@ All share the key criteria: personal claims with privacy expectations, one-off d
 - 100+ universities join (top research universities, national flagships)
 - Standards consortium formed (hash algorithms, normalization rules, response formats)
 - Integration with existing HR systems (Workday, SAP SuccessFactors, Greenhouse)
-- Background check companies add OCR-to-hash to verification services
+- Background check companies add Live Verify to verification services
 - Word-of-mouth adoption among graduates (competitive advantage in job market)
 
 **Phase 3: Mainstream Adoption (Years 4-7)**
@@ -302,7 +302,7 @@ All share the key criteria: personal claims with privacy expectations, one-off d
 - Mobile apps widely available (iOS, Android)
 
 **Phase 4: Near-Universal Coverage (Years 8-15)**
-- Most accredited universities support OCR-to-hash verification
+- Most accredited universities support Live Verify verification
 - Older degrees still valid (phone verification as fallback)
 - Diploma mills face extinction (employers can instantly spot unverified claims)
 - Integration with LinkedIn, Indeed, other job platforms (auto-verify degrees)
@@ -429,7 +429,7 @@ https://alumni.ed.ac.uk/verify-credentials
 ### Backwards Compatibility
 
 **Old degrees without verification:**
-- Issued before OCR-to-hash adoption (pre-2025)
+- Issued before Live Verify adoption (pre-2025)
 - Universities can retroactively generate hashes for alumni (Phase 2)
 - Alumni portal allows graduates of any year to request hash generation
 - Phone/email verification remains fallback for non-participating universities
@@ -449,7 +449,7 @@ https://alumni.ed.ac.uk/verify-credentials
 ### Integration with Existing Systems
 
 **Applicant Tracking Systems (ATS):**
-- Workday, Greenhouse, Lever, Taleo add OCR-to-hash verification
+- Workday, Greenhouse, Lever, Taleo add Live Verify verification
 - One-click "Verify Degrees" button in candidate profiles
 - Auto-flags fake degrees in applicant pool
 - Audit trail for compliance (EEOC, GDPR)
@@ -461,7 +461,7 @@ https://alumni.ed.ac.uk/verify-credentials
 - Increases profile visibility in recruiter searches
 
 **Background Check Services:**
-- Sterling, HireRight, Checkr integrate OCR-to-hash
+- Sterling, HireRight, Checkr integrate Live Verify
 - Instant degree verification bundled with criminal checks, employment history
 - Reduces turnaround time from 3-5 days to 1-2 days
 - Lowers cost (eliminates manual university calls)
@@ -479,7 +479,7 @@ https://alumni.ed.ac.uk/verify-credentials
 - Rely on employers not verifying (phone verification is slow, expensive)
 - Operate in gray areas (fake accreditation, offshore domains)
 
-**With OCR-to-hash adoption:**
+**With Live Verify adoption:**
 - Fake degrees fail instant verification (❌ **FAILS VERIFICATION**)
 - Employers can verify in 10 seconds (no excuse not to check)
 - Diploma mills must spoof legitimate university domains (harder, illegal)
@@ -489,7 +489,7 @@ https://alumni.ed.ac.uk/verify-credentials
 - Company sold 215,000+ fake degrees from fake universities
 - US clients paid $50M+ for unaccredited credentials
 - Took years to uncover (slow manual verification)
-- With OCR-to-hash: Would be detected in seconds (domains not from real universities)
+- With Live Verify: Would be detected in seconds (domains not from real universities)
 
 ### Privacy & GDPR Compliance
 
@@ -532,7 +532,7 @@ https://alumni.ed.ac.uk/verify-credentials
 - Large state university with 50,000 graduates
 - Receives 2,000 verification requests/year
 - Current cost: 500 staff hours/year at $30/hour = $15,000/year
-- OCR-to-hash infrastructure: $3,000/year (serverless hosting)
+- Live Verify infrastructure: $3,000/year (serverless hosting)
 - **Net savings: $12,000/year** while improving verification speed and accuracy
 
 ### Job Seekers & Graduates
@@ -546,7 +546,7 @@ https://alumni.ed.ac.uk/verify-credentials
 
 **User experience:**
 - **Traditional:** Apply for job → upload transcript → wait 3-7 days for background check → hope for call back
-- **OCR-to-hash:** Include verifiable claim on CV → employer verifies in 10 seconds during initial screening → faster callback
+- **Live Verify:** Include verifiable claim on CV → employer verifies in 10 seconds during initial screening → faster callback
 
 **Career impact:**
 - **International graduates:** Proving foreign degrees to US/UK employers is notoriously slow (weeks). Instant verification removes friction.
@@ -570,12 +570,12 @@ https://alumni.ed.ac.uk/verify-credentials
 
 **ROI calculation (100-person company hiring 20 people/year):**
 - **Traditional verification:** 20 checks × $15 (phone time) = $300/year
-- **OCR-to-hash (paid tier):** $300/year unlimited verifications
+- **Live Verify (paid tier):** $300/year unlimited verifications
 - **Savings:** $0/year but **massive risk reduction** (prevents 1 bad hire = $50K+ in wasted training/severance)
 
 **Large enterprise (10,000 employees, 500 hires/year):**
 - **Traditional:** 500 × $25 (background check service) = $12,500/year
-- **OCR-to-hash:** $3,000/year (enterprise license) = **$9,500/year savings**
+- **Live Verify:** $3,000/year (enterprise license) = **$9,500/year savings**
 - Plus: Faster hiring (competitive advantage in tight labor markets)
 
 ### Recruitment Agencies & Headhunters
@@ -590,7 +590,7 @@ https://alumni.ed.ac.uk/verify-credentials
 **Business model impact:**
 - Recruitment agencies charge 15-25% of first-year salary (e.g., $20K fee for $100K hire)
 - Risk: Fake degree discovered after placement → client demands fee refund, agency reputation damaged
-- OCR-to-hash: Instant verification during candidate vetting → near-zero risk of credential fraud
+- Live Verify: Instant verification during candidate vetting → near-zero risk of credential fraud
 - **Value:** Protecting one $20K placement fee pays for 5+ years of verification service
 
 ### Background Check Companies
@@ -605,13 +605,13 @@ https://alumni.ed.ac.uk/verify-credentials
 **Integration value:**
 - Background checks bundle: Criminal history + employment + education + credit
 - Education verification currently slowest component (3-7 days)
-- With OCR-to-hash: Education done instantly, only criminal/employment take time
+- With Live Verify: Education done instantly, only criminal/employment take time
 - **Result:** Faster overall turnaround, happier customers, ability to take on more volume
 
 **Competitive positioning:**
 - Market leaders (Sterling, HireRight) charge $30-100 per background check
 - Education verification is $8-12 of that cost
-- Early adopter of OCR-to-hash can drop price to $25-80 (cost advantage) or keep price same (margin expansion)
+- Early adopter of Live Verify can drop price to $25-80 (cost advantage) or keep price same (margin expansion)
 
 ### Educational Credentialing Bodies
 
@@ -656,14 +656,14 @@ https://alumni.ed.ac.uk/verify-credentials
 **Public policy implications:**
 - Government licensing (teachers, engineers, lawyers) requires degree verification
 - Current system: Slow, manual, expensive phone calls to universities
-- OCR-to-hash: Instant verification at near-zero cost
+- Live Verify: Instant verification at near-zero cost
 - **Result:** Faster licensure, lower administrative burden, more people able to work in licensed professions
 
 **Example: Teacher certification (US):**
 - 50 states each maintain separate teacher licensure systems
 - Each requires degree verification from accredited programs
 - Current cost: $10-25 per verification × 200,000 new teachers/year = $2-5M/year
-- OCR-to-hash: Near-zero marginal cost (states host verification endpoints)
+- Live Verify: Near-zero marginal cost (states host verification endpoints)
 - **Savings:** $2-5M/year redirected to education programs
 
 ### International Credential Recognition
@@ -680,7 +680,7 @@ https://alumni.ed.ac.uk/verify-credentials
 **Real-world scenario:**
 - Indian graduate with BTech from IIT applies for US job
 - Traditional: Upload transcript → wait for evaluation service (Educational Credential Evaluators) → 4-6 weeks, $200 fee
-- OCR-to-hash: Include verifiable claim on CV → US employer verifies in 10 seconds via IIT's endpoint
+- Live Verify: Include verifiable claim on CV → US employer verifies in 10 seconds via IIT's endpoint
 - **Result:** Weeks saved, $200 saved, immediate trust established
 
 **Refugee/asylum seekers:**
