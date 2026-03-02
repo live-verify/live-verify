@@ -578,8 +578,8 @@
                 endorsementEl.style.color = '#ffb74d';
                 endorsementHtml = `Endorsement by ${endorsement.endorser} — not confirmed`;
             } else {
-                endorsementEl.style.background = 'rgba(158, 158, 158, 0.2)';
-                endorsementEl.style.color = '#bdbdbd';
+                endorsementEl.style.background = 'rgba(255, 152, 0, 0.2)';
+                endorsementEl.style.color = '#ffb74d';
                 endorsementHtml = `${emphasisDomain || 'Issuer'} claims endorsement by ${endorsement.endorser} but that endorsement is missing`;
             }
             endorsementEl.innerHTML = endorsementHtml;
