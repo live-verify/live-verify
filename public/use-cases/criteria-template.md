@@ -223,6 +223,61 @@ For workers with frequent, brief public interactions (50+ per day), full name ex
 
 The principle: photo match + verified current assignment + employer domain is what builds trust. Surnames are rarely necessary and create unnecessary exposure.
 
+### Photo in Verification Responses
+
+Some use cases return a photo of the subject in the 200 response — worker badges, ID cards, professional licences verified in person. The photo is central to trust: the verifier compares the face in front of them to the face on screen. But whose photo is it, and who controls when it appears?
+
+#### Why server-authoritative photos
+
+A photo printed or displayed on a physical card can be forged. Print a fake card with a stranger's photo but a real verification code, and the verifier sees a "valid" result next to a face that matches the card — but not the real holder. The card is lying; the server is not.
+
+When the photo comes back in the verification response, it is controlled by the issuer. The verifier trusts the server, not the artifact. This is the difference between card-authoritative and server-authoritative identity binding: the card says "this is what the holder looks like", but only the server can prove it.
+
+#### Four photo availability models
+
+**1. Always-on** — every successful hash lookup returns the photo. Simplest to implement, no coordination required. Appropriate for worker credentials where the employer controls the endpoint and the worker is on duty. Risk: a stolen card or leaked hash allows unlimited photo lookups until the credential is revoked.
+
+**2. Consent-gated** — the photo is only available during a short window that the subject explicitly opens. Two mechanisms achieve this:
+
+- **Phone-app gating:** the subject opens the issuer's app and presses "allow verification", making the photo available for a short window (e.g. 2 minutes). Requires the subject to have a working phone. Works with any card — even static plastic.
+- **Rotating-salt gating:** the card has an active display (e-Ink or screen) showing a salt that rotates periodically or per-session. The hash changes with the salt, so only the currently-displayed code resolves to a photo. The subject doesn't need to tap an app — but the display's microcontroller still needs to learn the current salt, either via its own cellular/NFC radio or by Bluetooth-syncing from the subject's phone. The phone interaction moves from "press allow" to "be nearby with Bluetooth on", which is less friction but not zero dependency.
+
+Both achieve the same goal: the photo is only retrievable when the subject is present and has initiated the verification. Outside that window, the endpoint returns status but no photo. Appropriate for personal ID where the subject should control when their face is exposed.
+
+**3. Guardian-gated** — the subject cannot self-authorise (children, dependants), so a guardian provides the consent action. The child carries a physical card with a hashable code; verification requires a parent or teacher to approve.
+
+Two flows depending on context:
+
+- **Device enrolment:** a child gets a new device (Mac, Chromebook, tablet). The child presents their card to the OS account-setup wizard, which reads the verification line (via camera OCR or typed input), computes the hash locally, and calls the school's live-verify endpoint. The parent receives a push notification or approval prompt and hits "approve" — the photo and status are released to the setup flow, binding the device account to the verified child. The parent is the consent gate, not the child.
+- **In-person check-in:** the child presents their card at a school gate, library terminal, or activity check-in. The system reads the verification text, hashes it, and sends an approval request to the parent's or teacher's device. Photo is released only after the guardian approves. The consent action stays with the adult.
+
+The key distinction from model 2: the person carrying the card and the person authorising photo release are different people. The child's card is always hashable, but the photo is gated behind a guardian's device, not the child's.
+
+**4. Hybrid** — status is always returned (VALID / EXPIRED / REVOKED), but the photo only appears during a consent window (phone-app, rotating-salt, or guardian approval). The verifier always learns whether the card is genuine; they only see the face match when the holder (or their guardian) has activated it. This separates document authenticity from identity binding.
+
+#### When each model fits
+
+| Model | Fits when | Examples |
+|-------|-----------|----------|
+| Always-on | Employer is the issuer, worker is on duty, verifier is a member of the public | Delivery drivers, hotel staff, field workers, meter readers |
+| Consent-gated (phone) | Subject is a private individual, has a phone, card is static plastic | Age verification at venues, professional licences shown in person |
+| Consent-gated (rotating salt) | Subject is a private individual, card has active display (e-Ink/screen) with connectivity or phone sync | Personal ID cards with e-Ink, next-gen professional credentials |
+| Guardian-gated | Subject cannot self-authorise (child, dependant), guardian provides consent | School credentials, child device enrolment, youth activity check-in |
+| Hybrid | Status matters independently of identity binding | Any case where "is this card genuine?" and "does this person match?" are separable questions |
+
+#### Screenshot prevention
+
+A verification app that displays a photo response should prevent screenshots and screen recording. Without this, a verifier (e.g. a bouncer carding 500 people per night) could systematically harvest photos — creating a face database the subjects never consented to.
+
+Platform APIs: iOS `UIScreen.isCaptured` (detect and hide content), Android `FLAG_SECURE` (block capture at the window level). These are not bulletproof — a second camera defeats any software measure — but they raise the bar from trivial to deliberate, which matters for policy enforcement.
+
+#### When photo responses are appropriate
+
+Photo responses belong in **camera-mode** verification, where a human is comparing the face in front of them to the face on screen. They are not appropriate for:
+
+- **Clip-mode** verification — the verifier is looking at a document on screen, not a person. There is no face to compare.
+- **Batch / systematic** verification — regulators checking hashes against a list don't need photos. Returning photos in bulk would be a privacy violation with no security benefit.
+
 ### Real-Time vs. Batch Verification
 Some use cases require real-time verification (insurance at point of claim, credentials at security checkpoint). Others can tolerate batch processing (regulatory audits, periodic compliance checks). Note timing requirements where relevant.
 
@@ -502,3 +557,7 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
 3. **Public blockchain** — Decentralized trust anchor via rollup inclusion
+
+---
+
+> **A note on competing technologies:** This system is built on text-to-hash — human-readable text, captured by camera or clipped, normalised and hashed. NFC and QR codes may be better solutions for many of these use cases, and are at the least competitive. We don't integrate with either; we operate in the low-fi layer where the credential is printable text and the verifier needs nothing more than a camera or a keyboard.
