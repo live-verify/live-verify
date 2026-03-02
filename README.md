@@ -77,7 +77,7 @@ Date bounds (`endorsedFrom`/`endorsedTo`) define the endorsement period, pinned 
 
 If the endorser returns `OK` → "Endorsed by [endorser] (description)" (green)
 If the endorser returns `404` → "Endorsement not confirmed" (amber — the issuer claims endorsement, but the endorser doesn't confirm it)
-If the endorser is unreachable → "Endorsement check unavailable" (grey)
+If the endorser is unreachable → "{issuerDomain} claims endorsement by {endorser} but that endorsement is missing" (grey)
 If endorsement has expired → "Endorsement expired" (amber), with successor if declared
 
 This matters because an issuer can *claim* to be endorsed, but the verifier independently checks. A fraudulent issuer claiming endorsement by a real authority (e.g., `verify:gov.uk/verifiers`) would be caught when the endorser's endpoint returns `404`.

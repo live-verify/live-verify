@@ -51,7 +51,7 @@ The merkle endorsement chain avoids this entirely because:
 
 ### Edge Cases
 
-**Endorser's domain goes dark entirely.** If ARB's domain becomes unreachable, the client can't fetch ARB's `verification-meta.json` to walk the chain. Smith & Partners' endorsement check shows "endorsement check unavailable." This is correct — if your endorser ceases to exist, your endorsement is meaningfully degraded.
+**Endorser's domain goes dark entirely.** If ARB's domain becomes unreachable, the client can't fetch ARB's `verification-meta.json` to walk the chain. Smith & Partners' endorsement check shows "smithandpartners.co.uk claims endorsement by arb.org.uk but that endorsement is missing." This is correct — if your endorser ceases to exist, your endorsement is meaningfully degraded.
 
 **Endorser is sunsetting (planned transition).** ARB declares a `successor` field in its `verification-meta.json` pointing to `architects-board.org.uk`. Clients display: "Endorsement by arb.org.uk — expired. Successor: architects-board.org.uk". The successor is a courtesy to the user, not a transaction. Smith & Partners would need to get re-endorsed by the new body.
 

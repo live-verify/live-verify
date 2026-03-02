@@ -467,7 +467,7 @@
             } else if (response.status === 404) {
                 console.log('[TSV] ✗ VERIFICATION FAILED - hash endpoint not found (404)');
                 showResult('failed', 'NOT FOUND',
-                    `Hash not registered at ${domain}`, normalizedText, hash,
+                    `${domain} does not verify this claim`, normalizedText, hash,
                     registrableDomain, domainNotListed, endorsement);
             } else {
                 console.log('[TSV] ✗ VERIFICATION FAILED - unexpected HTTP status');
@@ -580,7 +580,7 @@
             } else {
                 endorsementEl.style.background = 'rgba(158, 158, 158, 0.2)';
                 endorsementEl.style.color = '#bdbdbd';
-                endorsementHtml = `Endorsement by ${endorsement.endorser} — check unavailable`;
+                endorsementHtml = `${emphasisDomain || 'Issuer'} claims endorsement by ${endorsement.endorser} but that endorsement is missing`;
             }
             endorsementEl.innerHTML = endorsementHtml;
             endorsementEl.style.display = 'block';

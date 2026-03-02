@@ -156,7 +156,7 @@ Issuers can declare who endorses them as an authority for the claim type. Unlike
 - Display endorsement status alongside the primary verification result:
   - Endorser confirms → "Endorsed by **arb.org.uk** (Architects Registration Board)"
   - Endorser returns 404 → "Endorsement by arb.org.uk — not confirmed"
-  - Endorser unreachable → "Endorsement check unavailable"
+  - Endorser unreachable → "{issuerDomain} claims endorsement by {endorser} but that endorsement is missing"
   - Expired → "Endorsement by arb.org.uk — expired"
 
 **Chain walking:** After confirming the primary endorsement, the client fetches the endorser's own `verification-meta.json` to read its `description` and check if it has its own `endorsedBy`. If so, the client walks the chain (max 3 levels deep), displaying the full chain:

@@ -200,14 +200,14 @@ describe('extractDomainAuthority', () => {
         test('should produce correct bold HTML for subdomain case', () => {
             const hostname = 'r.costa.co.uk';
             const parsed = psl.parse(hostname);
-            const detail = `Hash not registered at ${hostname}`;
             const emphasisDomain = parsed.domain; // "costa.co.uk"
+            const detail = `${hostname} does not verify this claim`;
             const escaped = emphasisDomain.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
             const html = detail.replace(
                 new RegExp(escaped),
                 `<strong>${emphasisDomain}</strong>`
             );
-            expect(html).toBe('Hash not registered at r.<strong>costa.co.uk</strong>');
+            expect(html).toBe('r.<strong>costa.co.uk</strong> does not verify this claim');
         });
 
         test('should bold entire hostname when registrable domain equals hostname', () => {

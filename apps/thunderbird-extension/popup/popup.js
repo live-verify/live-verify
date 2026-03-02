@@ -171,7 +171,8 @@ function renderResultCard(result) {
             endorseHtml = `Endorsement by ${escapeHtml(e.endorser)} \u2014 not confirmed`;
         } else {
             endorseClass = 'endorsement-unavailable';
-            endorseHtml = `Endorsement by ${escapeHtml(e.endorser)} \u2014 check unavailable`;
+            const issuerDomain = result.registrableDomain || result.domain || 'Issuer';
+            endorseHtml = `${escapeHtml(issuerDomain)} claims endorsement by ${escapeHtml(e.endorser)} but that endorsement is missing`;
         }
         html += `
             <div class="endorsement-row ${endorseClass}">

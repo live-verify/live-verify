@@ -200,7 +200,7 @@ async function verifyHash(verificationUrl, meta) {
 
         if (!response.ok) {
             if (response.status === 404) {
-                return { success: false, status: 'Hash not found', domain };
+                return { success: false, status: `${domain} does not verify this claim`, domain };
             }
             return { success: false, status: `HTTP ${response.status}`, domain };
         }
