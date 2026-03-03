@@ -30,11 +30,15 @@ import {
     extractDomain,
     fetchVerificationMeta,
     verifyHash,
-    checkEndorsement
+    checkAuthorization
 } from './shared/verify.js';
 import { extractDomainAuthority } from './shared/domain-authority.js';
 
 console.log('[LiveVerify] Service worker started');
+
+// Hard-coded switch: 'banner' shows an in-page slide-down banner,
+// 'notification' uses OS-level system notifications (can be silently suppressed)
+const RESULT_DISPLAY = 'banner'; // 'banner' or 'notification'
 
 // Default settings
 const DEFAULT_SETTINGS = {
@@ -169,7 +173,7 @@ async function verifySelection(selectedText, tab) {
 
     // Fetch verification meta (optional)
     const meta = await fetchVerificationMeta(baseUrl);
-    console.log('[LiveVerify] Meta:', meta ? 'loaded' : 'none', meta?.endorsedBy ? `(endorsedBy: ${meta.endorsedBy})` : '');
+    console.log('[LiveVerify] Meta:', meta ? 'loaded' : 'none', meta?.endorsedBy ? `(authorizedBy: ${meta.endorsedBy})` : '');
 
     // Normalize text
     const normalizedText = normalizeText(certText, meta);
@@ -203,10 +207,10 @@ async function verifySelection(selectedText, tab) {
         // Fall back to simple domain
     }
 
-    // Check endorsement if metadata has endorsedBy
-    let endorsement = null;
+    // Check authorization if metadata has endorsedBy
+    let authorization = null;
     if (meta && meta.endorsedBy) {
-        console.log('[LiveVerify] Checking endorsement from', meta.endorsedBy);
+        console.log('[LiveVerify] Checking authorization from', meta.endorsedBy);
         // Compute metaUrl from baseUrl
         let metaHttpsBase = baseUrl;
         const lowerBase2 = baseUrl.toLowerCase();
@@ -217,11 +221,11 @@ async function verifySelection(selectedText, tab) {
         }
         const metaUrl = `${metaHttpsBase}/verification-meta.json`;
         try {
-            endorsement = await checkEndorsement(meta, metaUrl);
-            console.log('[LiveVerify] Endorsement result:', JSON.stringify(endorsement));
+            authorization = await checkAuthorization(meta, metaUrl, verificationUrl);
+            console.log('[LiveVerify] Authorization result:', JSON.stringify(authorization));
         } catch (e) {
-            console.error('[LiveVerify] Endorsement check failed:', e.message);
-            endorsement = { checked: false, confirmed: false, endorser: meta.endorsedBy.split('/')[0], description: null, expired: false, successor: null, error: 'Check failed', chain: [] };
+            console.error('[LiveVerify] Authorization check failed:', e.message);
+            authorization = { checked: false, confirmed: false, authorizer: meta.endorsedBy.split('/')[0], description: null, expired: false, successor: null, error: 'Check failed', chain: [] };
         }
     }
 
@@ -234,7 +238,7 @@ async function verifySelection(selectedText, tab) {
         domain: verifyResult.domain,
         registrableDomain,
         domainNotListed,
-        endorsement,
+        authorization,
         hash,
         verificationUrl,
         certText,           // Full claim text
@@ -273,16 +277,50 @@ async function showResult(result, tab) {
         await chrome.action.setBadgeText({ text: '' });
     }, 30000);
 
-    // Inject result banner into the active tab
-    if (tab?.id) {
+    if (RESULT_DISPLAY === 'banner') {
+        // Inject result banner into the active tab
+        if (tab?.id) {
+            try {
+                await chrome.scripting.executeScript({
+                    target: { tabId: tab.id },
+                    func: showResultBanner,
+                    args: [result]
+                });
+            } catch (error) {
+                console.error('[LiveVerify] Failed to inject result banner:', error);
+            }
+        }
+    } else {
+        // OS-level system notification
+        const settings = await getSettings();
+
+        if (settings.intrusiveness === 'minimal') return;
+
+        let message;
+        if (result.success) {
+            message = `Verified by ${result.domain}`;
+        } else if (result.error) {
+            message = result.error;
+        } else {
+            message = `${result.status} (${result.domain})`;
+        }
+
+        const notificationOptions = {
+            type: 'basic',
+            iconUrl: result.success ? 'icons/icon-verified-128.png' : 'icons/icon-failed-128.png',
+            title: result.success ? 'Verified' : 'Not Verified',
+            message,
+            priority: 2
+        };
+
+        if (settings.intrusiveness === 'maximum') {
+            notificationOptions.requireInteraction = true;
+        }
+
         try {
-            await chrome.scripting.executeScript({
-                target: { tabId: tab.id },
-                func: showResultBanner,
-                args: [result]
-            });
+            await chrome.notifications.create('verification-result', notificationOptions);
         } catch (error) {
-            console.error('[LiveVerify] Failed to inject result banner:', error);
+            console.error('[LiveVerify] Failed to show notification:', error);
         }
     }
 }
@@ -296,17 +334,26 @@ function showResultBanner(result) {
     const isVerified = result.success;
     const isError = result.error && !result.domain;
 
+    // Format domain with registrable part bolded: verify.<b>acme-corp.com</b>
+    function emph(domain) {
+        const reg = result.registrableDomain;
+        if (reg && domain && domain.includes(reg)) {
+            return domain.replace(reg, `<strong>${reg}</strong>`);
+        }
+        return domain ? `<strong>${domain}</strong>` : '';
+    }
+
     // Build status text
     let statusText, statusDetail;
     if (isVerified) {
         statusText = 'VERIFIED';
-        statusDetail = `by ${result.domain}`;
+        statusDetail = `by ${emph(result.domain)}`;
     } else if (isError) {
         statusText = 'ERROR';
         statusDetail = result.error;
     } else {
         statusText = result.status || 'NOT VERIFIED';
-        statusDetail = result.domain ? `${result.domain} does not verify this claim` : (result.error || '');
+        statusDetail = result.domain ? `${emph(result.domain)} does not verify this claim` : (result.error || '');
     }
 
     // Colours
@@ -333,34 +380,35 @@ function showResultBanner(result) {
         animation: liveverify-slide-in 0.3s ease-out;
     `;
 
-    // Build endorsement HTML
-    let endorsementHtml = '';
-    if (result.endorsement && result.endorsement.endorser) {
-        const e = result.endorsement;
-        let eColor, eText;
-        if (e.expired) {
-            eColor = '#ffb74d';
-            eText = `Endorsement by ${e.endorser} \u2014 expired`;
-            if (e.successor) eText += `. Successor: ${e.successor}`;
-        } else if (e.confirmed) {
-            eColor = '#c8e6c9';
-            eText = `Endorsed by ${e.endorser}`;
-            if (e.description) eText += ` (${e.description})`;
-            if (e.chain && e.chain.length > 1) {
-                for (let i = 1; i < e.chain.length; i++) {
-                    const c = e.chain[i];
-                    eText += ` \u2190 ${c.endorser}`;
-                    if (c.description) eText += ` (${c.description})`;
+    // Build authorization HTML
+    let authorizationHtml = '';
+    if (result.authorization && result.authorization.authorizer) {
+        const a = result.authorization;
+        const authorizerBold = `<strong>${a.authorizer}</strong>`;
+        let aColor, aText;
+        if (a.expired) {
+            aColor = '#ffb74d';
+            aText = `Verification authorization by ${authorizerBold} \u2014 expired`;
+            if (a.successor) aText += `. Successor: ${a.successor}`;
+        } else if (a.confirmed) {
+            aColor = '#c8e6c9';
+            aText = `Verification authorized by ${authorizerBold}`;
+            if (a.description) aText += ` (${a.description})`;
+            if (a.chain && a.chain.length > 1) {
+                for (let i = 1; i < a.chain.length; i++) {
+                    const c = a.chain[i];
+                    aText += ` \u2190 <strong>${c.authorizer}</strong>`;
+                    if (c.description) aText += ` (${c.description})`;
                 }
             }
-        } else if (e.checked) {
-            eColor = '#ffb74d';
-            eText = `Endorsement by ${e.endorser} \u2014 not confirmed`;
+        } else if (a.checked) {
+            aColor = '#ffb74d';
+            aText = `Verification authorization by ${authorizerBold} \u2014 not confirmed`;
         } else {
-            eColor = '#ffb74d';
-            eText = `Claims endorsement by ${e.endorser} \u2014 missing`;
+            aColor = '#ffb74d';
+            aText = `${emph(result.domain) || 'Issuer'} claims verification authorization by ${authorizerBold} \u2014 missing`;
         }
-        endorsementHtml = `<div style="font-size: 12px; color: ${eColor}; margin-top: 2px;">${eText}</div>`;
+        authorizationHtml = `<div style="font-size: 12px; color: ${aColor}; margin-top: 2px;">${aText}</div>`;
     }
 
     banner.innerHTML = `
@@ -370,7 +418,7 @@ function showResultBanner(result) {
                 <div>
                     <div style="font-weight: 700; font-size: 18px; letter-spacing: 0.5px;">${statusText}</div>
                     <div style="font-size: 13px; opacity: 0.9;">${statusDetail}</div>
-                    ${endorsementHtml}
+                    ${authorizationHtml}
                 </div>
             </div>
             <button id="liveverify-close-btn" style="
@@ -512,8 +560,8 @@ async function verifyText(selectedText) {
         // Fall back to simple domain
     }
 
-    // Check endorsement if metadata has endorsedBy
-    let endorsement = null;
+    // Check authorization if metadata has endorsedBy
+    let authorization = null;
     if (meta && meta.endorsedBy) {
         // Compute metaUrl from baseUrl
         let metaHttpsBase2 = baseUrl;
@@ -525,9 +573,9 @@ async function verifyText(selectedText) {
         }
         const metaUrl2 = `${metaHttpsBase2}/verification-meta.json`;
         try {
-            endorsement = await checkEndorsement(meta, metaUrl2);
+            authorization = await checkAuthorization(meta, metaUrl2, verificationUrl);
         } catch {
-            endorsement = { checked: false, confirmed: false, endorser: meta.endorsedBy.split('/')[0], description: null, expired: false, successor: null, error: 'Check failed', chain: [] };
+            authorization = { checked: false, confirmed: false, authorizer: meta.endorsedBy.split('/')[0], description: null, expired: false, successor: null, error: 'Check failed', chain: [] };
         }
     }
 
@@ -539,7 +587,7 @@ async function verifyText(selectedText) {
         domain: verifyResult.domain,
         registrableDomain,
         domainNotListed,
-        endorsement,
+        authorization,
         hash,
         verificationUrl,
         certText,

@@ -22,7 +22,7 @@
  * Functions from shared/ scripts are available globally:
  * - normalizeText, sha256, applyDocSpecificNorm (from shared/normalize.js)
  * - extractVerificationUrl, extractCertText, buildVerificationUrl, extractDomain,
- *   fetchVerificationMeta, verifyHash, checkEndorsement (from shared/verify.js)
+ *   fetchVerificationMeta, verifyHash, checkAuthorization (from shared/verify.js)
  * - extractDomainAuthority (from shared/domain-authority.js)
  * - psl (from shared/psl.js)
  */
@@ -189,8 +189,8 @@ async function verifySelection(selectedText, tab) {
         // Fall back to simple domain
     }
 
-    // Check endorsement if metadata has endorsedBy
-    let endorsement = null;
+    // Check authorization if metadata has endorsedBy
+    let authorization = null;
     if (meta && meta.endorsedBy) {
         // Compute metaUrl from baseUrl
         let metaHttpsBase = baseUrl;
@@ -202,9 +202,9 @@ async function verifySelection(selectedText, tab) {
         }
         const metaUrl = `${metaHttpsBase}/verification-meta.json`;
         try {
-            endorsement = await checkEndorsement(meta, metaUrl);
+            authorization = await checkAuthorization(meta, metaUrl, verificationUrl);
         } catch {
-            endorsement = { checked: false, confirmed: false, endorser: meta.endorsedBy.split('/')[0], description: null, expired: false, successor: null, error: 'Check failed', chain: [] };
+            authorization = { checked: false, confirmed: false, authorizer: meta.endorsedBy.split('/')[0], description: null, expired: false, successor: null, error: 'Check failed', chain: [] };
         }
     }
 
@@ -216,7 +216,7 @@ async function verifySelection(selectedText, tab) {
         domain: verifyResult.domain,
         registrableDomain,
         domainNotListed,
-        endorsement,
+        authorization,
         hash,
         verificationUrl,
         certText,
@@ -385,8 +385,8 @@ async function verifyText(selectedText) {
         // Fall back to simple domain
     }
 
-    // Check endorsement if metadata has endorsedBy
-    let endorsement = null;
+    // Check authorization if metadata has endorsedBy
+    let authorization = null;
     if (meta && meta.endorsedBy) {
         // Compute metaUrl from baseUrl
         let metaHttpsBase2 = baseUrl;
@@ -398,9 +398,9 @@ async function verifyText(selectedText) {
         }
         const metaUrl2 = `${metaHttpsBase2}/verification-meta.json`;
         try {
-            endorsement = await checkEndorsement(meta, metaUrl2);
+            authorization = await checkAuthorization(meta, metaUrl2, verificationUrl);
         } catch {
-            endorsement = { checked: false, confirmed: false, endorser: meta.endorsedBy.split('/')[0], description: null, expired: false, successor: null, error: 'Check failed', chain: [] };
+            authorization = { checked: false, confirmed: false, authorizer: meta.endorsedBy.split('/')[0], description: null, expired: false, successor: null, error: 'Check failed', chain: [] };
         }
     }
 
@@ -412,7 +412,7 @@ async function verifyText(selectedText) {
         domain: verifyResult.domain,
         registrableDomain,
         domainNotListed,
-        endorsement,
+        authorization,
         hash,
         verificationUrl,
         certText,

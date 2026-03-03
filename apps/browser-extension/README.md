@@ -46,19 +46,9 @@ Until browsers adopt this pattern, the extension demonstrates the verification f
    Or use keyboard: `Cmd+Shift+V` (Mac) / `Ctrl+Shift+V` (Windows/Linux)
 
 3. Check the result:
+   - **In-page banner** slides down from the top of the page showing verified/not-verified status, the issuer domain, and endorsement chain (if present)
    - **Badge** on extension icon (green ✓ or red ✗)
-   - **Notification** (depending on settings)
-   - **Click icon** for full details
-
-## Settings
-
-Click the extension icon → **Settings** to choose notification level:
-
-| Level | Behavior |
-|-------|----------|
-| **Maximum** | System notification (persistent) + badge |
-| **Standard** | System notification (auto-dismiss) + badge |
-| **Minimal** | Badge only |
+   - **Click icon** for verification history with full details
 
 ## Testing Locally
 

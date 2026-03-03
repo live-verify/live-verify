@@ -48,8 +48,8 @@ const {
     buildVerificationUrl,
     extractDomain,
     fetchVerificationMeta,
-    checkEndorsement,
-    walkEndorsementChain
+    checkAuthorization,
+    walkAuthorizationChain
 } = require('../public/app-logic.js');
 
 function extractVerificationUrlOnly(rawText) {
@@ -577,7 +577,7 @@ https://example.com`;
         });
     });
 
-    describe('checkEndorsement', () => {
+    describe('checkAuthorization', () => {
         beforeEach(() => {
             global.fetch = jest.fn();
         });
@@ -587,18 +587,18 @@ https://example.com`;
         });
 
         it('should return checked: false when meta has no endorsedBy', async () => {
-            const result = await checkEndorsement({}, 'https://example.com/verification-meta.json');
+            const result = await checkAuthorization({}, 'https://example.com/verification-meta.json');
             expect(result.checked).toBe(false);
             expect(result.confirmed).toBe(false);
-            expect(result.endorser).toBeNull();
+            expect(result.authorizer).toBeNull();
         });
 
         it('should return checked: false when meta is null', async () => {
-            const result = await checkEndorsement(null, 'https://example.com/verification-meta.json');
+            const result = await checkAuthorization(null, 'https://example.com/verification-meta.json');
             expect(result.checked).toBe(false);
         });
 
-        it('should return confirmed: true when endorser returns OK for correct hash', async () => {
+        it('should return confirmed: true when authorizer returns OK for correct hash', async () => {
             const meta = {
                 issuer: 'Test Issuer',
                 endorsedBy: 'endorser.com/verifiers'
@@ -607,8 +607,8 @@ https://example.com`;
             const canonicalJson = JSON.stringify(JSON.parse(metaJson));
 
             // Mock fetch: first call returns the meta JSON (re-fetch for hashing),
-            // second call returns OK (endorsement confirmation),
-            // third call is the chain walk (endorser's own meta)
+            // second call returns OK (authorization confirmation),
+            // third call is the chain walk (authorizer's own meta)
             global.fetch = jest.fn()
                 .mockResolvedValueOnce({
                     ok: true,
@@ -621,17 +621,17 @@ https://example.com`;
                 })
                 .mockResolvedValueOnce({
                     ok: true,
-                    json: () => Promise.resolve({ description: 'Test Endorser Org' })
+                    json: () => Promise.resolve({ description: 'Test Authorizer Org' })
                 });
 
-            const result = await checkEndorsement(meta, 'https://example.com/verification-meta.json');
+            const result = await checkAuthorization(meta, 'https://example.com/verification-meta.json');
             expect(result.checked).toBe(true);
             expect(result.confirmed).toBe(true);
-            expect(result.endorser).toBe('endorser.com');
+            expect(result.authorizer).toBe('endorser.com');
             expect(result.expired).toBe(false);
         });
 
-        it('should return confirmed: false when endorser returns 404', async () => {
+        it('should return confirmed: false when authorizer returns 404', async () => {
             const meta = {
                 issuer: 'Test Issuer',
                 endorsedBy: 'endorser.com/verifiers'
@@ -649,10 +649,10 @@ https://example.com`;
                 })
                 .mockResolvedValueOnce({
                     ok: true,
-                    json: () => Promise.resolve({ description: 'Test Endorser Org' })
+                    json: () => Promise.resolve({ description: 'Test Authorizer Org' })
                 });
 
-            const result = await checkEndorsement(meta, 'https://example.com/verification-meta.json');
+            const result = await checkAuthorization(meta, 'https://example.com/verification-meta.json');
             expect(result.checked).toBe(true);
             expect(result.confirmed).toBe(false);
         });
@@ -664,13 +664,13 @@ https://example.com`;
                 endorsedTo: '2020-01-01'
             };
 
-            const result = await checkEndorsement(meta, 'https://example.com/verification-meta.json');
+            const result = await checkAuthorization(meta, 'https://example.com/verification-meta.json');
             expect(result.checked).toBe(true);
             expect(result.confirmed).toBe(false);
             expect(result.expired).toBe(true);
         });
 
-        it('should return successor when endorsement is expired and successor is set', async () => {
+        it('should return successor when authorization is expired and successor is set', async () => {
             const meta = {
                 issuer: 'Test Issuer',
                 endorsedBy: 'old-endorser.com/verifiers',
@@ -678,12 +678,12 @@ https://example.com`;
                 successor: 'new-endorser.com/verifiers'
             };
 
-            const result = await checkEndorsement(meta, 'https://example.com/verification-meta.json');
+            const result = await checkAuthorization(meta, 'https://example.com/verification-meta.json');
             expect(result.expired).toBe(true);
             expect(result.successor).toBe('new-endorser.com/verifiers');
         });
 
-        it('should handle missing endorsedFrom/endorsedTo (open-ended endorsement)', async () => {
+        it('should handle missing endorsedFrom/endorsedTo (open-ended authorization)', async () => {
             const meta = {
                 issuer: 'Test Issuer',
                 endorsedBy: 'endorser.com/verifiers'
@@ -702,17 +702,17 @@ https://example.com`;
                 })
                 .mockResolvedValueOnce({
                     ok: true,
-                    json: () => Promise.resolve({ description: 'Test Endorser Org' })
+                    json: () => Promise.resolve({ description: 'Test Authorizer Org' })
                 });
 
-            const result = await checkEndorsement(meta, 'https://example.com/verification-meta.json');
+            const result = await checkAuthorization(meta, 'https://example.com/verification-meta.json');
             expect(result.checked).toBe(true);
             expect(result.confirmed).toBe(true);
             expect(result.expired).toBe(false);
         });
     });
 
-    describe('walkEndorsementChain', () => {
+    describe('walkAuthorizationChain', () => {
         beforeEach(() => {
             global.fetch = jest.fn();
         });
@@ -726,17 +726,17 @@ https://example.com`;
         it('should return single-level chain', async () => {
             global.fetch = jest.fn().mockResolvedValueOnce({
                 ok: true,
-                json: () => Promise.resolve({ description: 'Test Endorser' })
+                json: () => Promise.resolve({ description: 'Test Authorizer' })
             });
 
-            const result = await walkEndorsementChain('endorser.com/verifiers', true, dummyHashFn);
+            const result = await walkAuthorizationChain('endorser.com/verifiers', true, dummyHashFn);
             expect(result).toHaveLength(1);
-            expect(result[0].endorser).toBe('endorser.com');
-            expect(result[0].description).toBe('Test Endorser');
+            expect(result[0].authorizer).toBe('endorser.com');
+            expect(result[0].description).toBe('Test Authorizer');
             expect(result[0].confirmed).toBe(true);
         });
 
-        it('should return two-level chain when endorser has endorsedBy', async () => {
+        it('should return two-level chain when authorizer has endorsedBy', async () => {
             global.fetch = jest.fn()
                 .mockResolvedValueOnce({
                     ok: true,
@@ -752,11 +752,11 @@ https://example.com`;
                     })
                 });
 
-            const result = await walkEndorsementChain('arb.org.uk/accredited', true, dummyHashFn);
+            const result = await walkAuthorizationChain('arb.org.uk/accredited', true, dummyHashFn);
             expect(result).toHaveLength(2);
-            expect(result[0].endorser).toBe('arb.org.uk');
+            expect(result[0].authorizer).toBe('arb.org.uk');
             expect(result[0].description).toBe('ARB');
-            expect(result[1].endorser).toBe('gov.uk');
+            expect(result[1].authorizer).toBe('gov.uk');
             expect(result[1].description).toBe('UK Government');
         });
 
@@ -784,9 +784,9 @@ https://example.com`;
                     })
                 });
 
-            const result = await walkEndorsementChain('level1.com/v', true, dummyHashFn);
+            const result = await walkAuthorizationChain('level1.com/v', true, dummyHashFn);
             expect(result).toHaveLength(3);
-            expect(result[2].endorser).toBe('level3.com');
+            expect(result[2].authorizer).toBe('level3.com');
         });
 
         it('should handle failed fetch gracefully', async () => {
@@ -795,9 +795,9 @@ https://example.com`;
                 status: 404
             });
 
-            const result = await walkEndorsementChain('missing.com/v', true, dummyHashFn);
+            const result = await walkAuthorizationChain('missing.com/v', true, dummyHashFn);
             expect(result).toHaveLength(1);
-            expect(result[0].endorser).toBe('missing.com');
+            expect(result[0].authorizer).toBe('missing.com');
             expect(result[0].description).toBeNull();
             expect(result[0].confirmed).toBe(true);
         });

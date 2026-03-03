@@ -297,34 +297,35 @@ async function verifyHash(verificationUrl, meta) {
 }
 
 /**
- * Check endorsement from verification-meta.json using merkle commitment.
- * The endorser hashes the issuer's entire verification-meta.json (canonicalized),
- * not just the domain. This binds the endorsement to the exact content of the
+ * Check authorization from verification-meta.json using merkle commitment.
+ * The authorizer hashes the issuer's entire verification-meta.json (canonicalized),
+ * not just the domain. This binds the authorization to the exact content of the
  * issuer's self-description (claimType, date bounds, everything).
  *
  * @param {Object} meta - The issuer's full verification-meta.json object
  * @param {string} metaUrl - The URL from which verification-meta.json was fetched (for re-fetch)
- * @returns {Promise<{checked: boolean, confirmed: boolean, endorser: string, description: string|null, expired: boolean, successor: string|null, error: string|null, chain: Array}>}
+ * @param {string} [originUrl] - The original verification URL that triggered this chain walk
+ * @returns {Promise<{checked: boolean, confirmed: boolean, authorizer: string, description: string|null, expired: boolean, successor: string|null, error: string|null, chain: Array}>}
  */
-async function checkEndorsement(meta, metaUrl) {
+async function checkAuthorization(meta, metaUrl, originUrl) {
     if (!meta || !meta.endorsedBy || typeof meta.endorsedBy !== 'string') {
-        return { checked: false, confirmed: false, endorser: null, description: null, expired: false, successor: null, error: null, chain: [] };
+        return { checked: false, confirmed: false, authorizer: null, description: null, expired: false, successor: null, error: null, chain: [] };
     }
 
-    const endorser = meta.endorsedBy.split('/')[0];
+    const authorizer = meta.endorsedBy.split('/')[0];
 
     // Check date bounds
     const now = new Date();
     if (meta.endorsedFrom) {
         const from = new Date(meta.endorsedFrom);
         if (now < from) {
-            return { checked: true, confirmed: false, endorser, description: null, expired: false, successor: null, error: 'Endorsement period has not started yet', chain: [] };
+            return { checked: true, confirmed: false, authorizer, description: null, expired: false, successor: null, error: 'Authorization period has not started yet', chain: [] };
         }
     }
     if (meta.endorsedTo) {
         const to = new Date(meta.endorsedTo);
         if (now > to) {
-            return { checked: true, confirmed: false, endorser, description: null, expired: true, successor: meta.successor || null, error: null, chain: [] };
+            return { checked: true, confirmed: false, authorizer, description: null, expired: true, successor: meta.successor || null, error: null, chain: [] };
         }
     }
 
@@ -335,7 +336,7 @@ async function checkEndorsement(meta, metaUrl) {
                 require('./normalize.js').sha256 : null;
 
         if (!hashFn) {
-            return { checked: false, confirmed: false, endorser, description: null, expired: false, successor: null, error: 'Hash function unavailable', chain: [] };
+            return { checked: false, confirmed: false, authorizer, description: null, expired: false, successor: null, error: 'Hash function unavailable', chain: [] };
         }
 
         // Fetch raw verification-meta.json bytes for hashing
@@ -343,24 +344,25 @@ async function checkEndorsement(meta, metaUrl) {
         try {
             const rawResponse = await fetch(metaUrl);
             if (!rawResponse.ok) {
-                return { checked: false, confirmed: false, endorser, description: null, expired: false, successor: null, error: `Could not re-fetch meta: HTTP ${rawResponse.status}`, chain: [] };
+                return { checked: false, confirmed: false, authorizer, description: null, expired: false, successor: null, error: `Could not re-fetch meta: HTTP ${rawResponse.status}`, chain: [] };
             }
             const rawBytes = await rawResponse.text();
             // Canonicalize: parse then re-stringify to eliminate formatting differences
             canonicalJson = JSON.stringify(JSON.parse(rawBytes));
         } catch (e) {
-            return { checked: false, confirmed: false, endorser, description: null, expired: false, successor: null, error: `Canonicalization failed: ${e.message}`, chain: [] };
+            return { checked: false, confirmed: false, authorizer, description: null, expired: false, successor: null, error: `Canonicalization failed: ${e.message}`, chain: [] };
         }
 
         // Hash the canonical JSON
         const metaHash = await hashFn(canonicalJson);
 
-        // Build endorsement URL: verify:{endorsedBy}/{hash}
+        // Build authorization URL: verify:{endorsedBy}/{hash}
         const verifyUrl = meta.endorsedBy.startsWith('verify:') || meta.endorsedBy.startsWith('vfy:')
             ? meta.endorsedBy : `verify:${meta.endorsedBy}`;
-        const endorsementUrl = buildVerificationUrl(verifyUrl, metaHash);
+        const authorizationUrl = buildVerificationUrl(verifyUrl, metaHash);
 
-        const response = await fetch(endorsementUrl);
+        const fetchOpts = originUrl ? { headers: { 'X-Verification-URL': originUrl } } : {};
+        const response = await fetch(authorizationUrl, fetchOpts);
 
         let confirmed = false;
         if (response.ok) {
@@ -368,16 +370,16 @@ async function checkEndorsement(meta, metaUrl) {
             confirmed = body === 'OK' || body === '' ||
                 (body.startsWith('{') && JSON.parse(body).status === 'OK');
         } else if (response.status !== 404) {
-            return { checked: true, confirmed: false, endorser, description: null, expired: false, successor: null, error: `HTTP ${response.status}`, chain: [] };
+            return { checked: true, confirmed: false, authorizer, description: null, expired: false, successor: null, error: `HTTP ${response.status}`, chain: [] };
         }
 
-        // Walk the endorsement chain
-        const chain = await walkEndorsementChain(meta.endorsedBy, confirmed, hashFn);
+        // Walk the authorization chain
+        const chain = await walkAuthorizationChain(meta.endorsedBy, confirmed, hashFn, 0, originUrl);
 
         return {
             checked: true,
             confirmed,
-            endorser,
+            authorizer,
             description: chain.length > 0 ? chain[0].description : null,
             expired: false,
             successor: null,
@@ -385,27 +387,28 @@ async function checkEndorsement(meta, metaUrl) {
             chain
         };
     } catch (error) {
-        return { checked: false, confirmed: false, endorser, description: null, expired: false, successor: null, error: error.message, chain: [] };
+        return { checked: false, confirmed: false, authorizer, description: null, expired: false, successor: null, error: error.message, chain: [] };
     }
 }
 
 /**
- * Walk the endorsement chain by fetching each endorser's verification-meta.json.
- * Returns an array of chain entries with endorser domain, description, and confirmation status.
+ * Walk the authorization chain by fetching each authorizer's verification-meta.json.
+ * Returns an array of chain entries with authorizer domain, description, and confirmation status.
  * Max depth: 3 levels.
  *
- * @param {string} endorsedByUrl - The endorser's base URL
- * @param {boolean} primaryConfirmed - Whether the primary endorsement was confirmed
+ * @param {string} endorsedByUrl - The authorizer's base URL (from endorsedBy field in meta)
+ * @param {boolean} primaryConfirmed - Whether the primary authorization was confirmed
  * @param {Function} hashFn - SHA-256 hash function
  * @param {number} [depth=0] - Current recursion depth
- * @returns {Promise<Array<{endorser: string, description: string|null, confirmed: boolean}>>}
+ * @param {string} [originUrl] - The original verification URL that triggered this chain walk
+ * @returns {Promise<Array<{authorizer: string, description: string|null, confirmed: boolean}>>}
  */
-async function walkEndorsementChain(endorsedByUrl, primaryConfirmed, hashFn, depth) {
+async function walkAuthorizationChain(endorsedByUrl, primaryConfirmed, hashFn, depth, originUrl) {
     if (depth === undefined) depth = 0;
     const MAX_DEPTH = 3;
     if (depth >= MAX_DEPTH) return [];
 
-    const endorser = endorsedByUrl.split('/')[0];
+    const authorizer = endorsedByUrl.split('/')[0];
 
     try {
         // Convert endorsedBy to https URL for fetching meta
@@ -413,27 +416,28 @@ async function walkEndorsementChain(endorsedByUrl, primaryConfirmed, hashFn, dep
         if (!httpsBase.startsWith('https://')) {
             httpsBase = `https://${endorsedByUrl}`;
         }
-        const endorserMetaUrl = `${httpsBase}/verification-meta.json`;
+        const authorizerMetaUrl = `${httpsBase}/verification-meta.json`;
 
-        const response = await fetch(endorserMetaUrl);
+        const fetchOpts = originUrl ? { headers: { 'X-Verification-URL': originUrl } } : {};
+        const response = await fetch(authorizerMetaUrl, fetchOpts);
         if (!response.ok) {
-            return [{ endorser, description: null, confirmed: primaryConfirmed }];
+            return [{ authorizer, description: null, confirmed: primaryConfirmed }];
         }
 
-        const endorserMeta = await response.json();
-        const description = endorserMeta.description || endorserMeta.issuer || null;
+        const authorizerMeta = await response.json();
+        const description = authorizerMeta.description || authorizerMeta.issuer || null;
 
-        const entry = { endorser, description, confirmed: primaryConfirmed };
+        const entry = { authorizer, description, confirmed: primaryConfirmed };
 
-        // If endorser itself has endorsedBy, recurse
-        if (endorserMeta.endorsedBy) {
-            const subChain = await walkEndorsementChain(endorserMeta.endorsedBy, true, hashFn, depth + 1);
+        // If authorizer itself has endorsedBy, recurse
+        if (authorizerMeta.endorsedBy) {
+            const subChain = await walkAuthorizationChain(authorizerMeta.endorsedBy, true, hashFn, depth + 1, originUrl);
             return [entry, ...subChain];
         }
 
         return [entry];
     } catch {
-        return [{ endorser, description: null, confirmed: primaryConfirmed }];
+        return [{ authorizer, description: null, confirmed: primaryConfirmed }];
     }
 }
 
@@ -448,7 +452,7 @@ if (typeof module !== 'undefined' && module.exports) {
         extractDomain,
         fetchVerificationMeta,
         verifyHash,
-        checkEndorsement,
-        walkEndorsementChain
+        checkAuthorization,
+        walkAuthorizationChain
     };
 }

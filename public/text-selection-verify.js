@@ -416,28 +416,28 @@
 
             console.log('[TSV] Verification endpoint returned HTTP', response.status);
 
-            // Step 9: Check endorsement (if metadata has endorsedBy)
-            let endorsement = null;
+            // Step 9: Check authorization (if metadata has endorsedBy)
+            let authorization = null;
             if (metadata && metadata.endorsedBy) {
-                console.log('[TSV] Checking endorsement from', metadata.endorsedBy);
+                console.log('[TSV] Checking authorization from', metadata.endorsedBy);
                 // Compute metaUrl from baseUrl (same logic as fetchVerificationMeta)
-                let metaUrlForEndorsement = baseUrl;
+                let metaUrlForAuthorization = baseUrl;
                 const lowerBase2 = baseUrl.toLowerCase();
                 if (lowerBase2.startsWith('verify:')) {
-                    metaUrlForEndorsement = `https://${baseUrl.substring(7)}`;
+                    metaUrlForAuthorization = `https://${baseUrl.substring(7)}`;
                 } else if (lowerBase2.startsWith('vfy:')) {
-                    metaUrlForEndorsement = `https://${baseUrl.substring(4)}`;
+                    metaUrlForAuthorization = `https://${baseUrl.substring(4)}`;
                 }
-                metaUrlForEndorsement = `${metaUrlForEndorsement}/verification-meta.json`;
+                metaUrlForAuthorization = `${metaUrlForAuthorization}/verification-meta.json`;
                 try {
-                    endorsement = await checkEndorsement(metadata, metaUrlForEndorsement);
-                    console.log('[TSV] Endorsement result:', endorsement);
+                    authorization = await checkAuthorization(metadata, metaUrlForAuthorization, verificationUrl);
+                    console.log('[TSV] Authorization result:', authorization);
                 } catch (e) {
-                    console.log('[TSV] Endorsement check failed:', e.message);
-                    endorsement = {
+                    console.log('[TSV] Authorization check failed:', e.message);
+                    authorization = {
                         checked: false,
                         confirmed: false,
-                        endorser: metadata.endorsedBy.split('/')[0],
+                        authorizer: metadata.endorsedBy.split('/')[0],
                         description: null,
                         expired: false,
                         successor: null,
@@ -456,24 +456,24 @@
                 if (trimmedBody === 'OK' || trimmedBody.includes('OK')) {
                     console.log('[TSV] ✓ VERIFICATION SUCCESSFUL - hash matches and endpoint confirmed');
                     showResult('verified', 'VERIFIED', `by ${domain}`, normalizedText, hash,
-                        registrableDomain, domainNotListed, endorsement);
+                        registrableDomain, domainNotListed, authorization, domain);
                 } else {
                     // Show the actual status from the response (e.g., REVOKED)
                     console.log('[TSV] ✗ VERIFICATION FAILED - endpoint returned non-OK status');
                     showResult('denied', trimmedBody || 'UNKNOWN STATUS',
                         `from ${domain}`, normalizedText, hash,
-                        registrableDomain, domainNotListed, endorsement);
+                        registrableDomain, domainNotListed, authorization, domain);
                 }
             } else if (response.status === 404) {
                 console.log('[TSV] ✗ VERIFICATION FAILED - hash endpoint not found (404)');
                 showResult('failed', 'NOT FOUND',
                     `${domain} does not verify this claim`, normalizedText, hash,
-                    registrableDomain, domainNotListed, endorsement);
+                    registrableDomain, domainNotListed, authorization, domain);
             } else {
                 console.log('[TSV] ✗ VERIFICATION FAILED - unexpected HTTP status');
                 showResult('failed', `HTTP ${response.status}`,
                     `Unexpected response from ${domain}`, normalizedText, hash,
-                    registrableDomain, domainNotListed, endorsement);
+                    registrableDomain, domainNotListed, authorization, domain);
             }
         } catch (error) {
             console.error('[TSV] Verification error:', error);
@@ -490,7 +490,7 @@
     /**
      * Show verification result in the modal
      */
-    function showResult(type, status, detail, normalizedText, hash, emphasisDomain, domainNotListed, endorsement) {
+    function showResult(type, status, detail, normalizedText, hash, emphasisDomain, domainNotListed, authorization, fullDomain) {
         const statusIcon = resultModal.querySelector('#tsv-status-icon');
         const statusText = resultModal.querySelector('#tsv-status-text');
         const domainEl = resultModal.querySelector('#tsv-domain');
@@ -536,56 +536,62 @@
             trustWarning.style.display = 'none';
         }
 
-        // Show endorsement status if available
-        let endorsementEl = resultModal.querySelector('#tsv-endorsement');
-        if (endorsement && endorsement.endorser) {
-            if (!endorsementEl) {
-                endorsementEl = document.createElement('div');
-                endorsementEl.id = 'tsv-endorsement';
-                endorsementEl.style.cssText = `
+        // Show authorization status if available
+        let authorizationEl = resultModal.querySelector('#tsv-authorization');
+        if (authorization && authorization.authorizer) {
+            if (!authorizationEl) {
+                authorizationEl = document.createElement('div');
+                authorizationEl.id = 'tsv-authorization';
+                authorizationEl.style.cssText = `
                     padding: 8px 20px;
                     border-bottom: 1px solid #333;
                     font-size: 12px;
                     text-align: center;
                 `;
                 // Insert after domain element
-                domainEl.parentNode.insertBefore(endorsementEl, domainEl.nextSibling);
+                domainEl.parentNode.insertBefore(authorizationEl, domainEl.nextSibling);
             }
-            let endorsementHtml = '';
-            if (endorsement.expired) {
-                endorsementEl.style.background = 'rgba(255, 152, 0, 0.2)';
-                endorsementEl.style.color = '#ffb74d';
-                const toDate = endorsement.successor ? '' : '';
-                endorsementHtml = `Endorsement by ${endorsement.endorser} — expired`;
-                if (endorsement.successor) {
-                    endorsementHtml += `. Successor: ${endorsement.successor}`;
+            let authorizationHtml = '';
+            if (authorization.expired) {
+                authorizationEl.style.background = 'rgba(255, 152, 0, 0.2)';
+                authorizationEl.style.color = '#ffb74d';
+                authorizationHtml = `Verification authorization by <strong>${authorization.authorizer}</strong> — expired`;
+                if (authorization.successor) {
+                    authorizationHtml += `. Successor: ${authorization.successor}`;
                 }
-            } else if (endorsement.confirmed) {
-                endorsementEl.style.background = 'rgba(72, 187, 120, 0.2)';
-                endorsementEl.style.color = '#68d391';
-                const desc = endorsement.description ? ` (${endorsement.description})` : '';
-                endorsementHtml = `Endorsed by ${endorsement.endorser}${desc}`;
+            } else if (authorization.confirmed) {
+                authorizationEl.style.background = 'rgba(72, 187, 120, 0.2)';
+                authorizationEl.style.color = '#68d391';
+                const desc = authorization.description ? ` (${authorization.description})` : '';
+                authorizationHtml = `Verification authorized by <strong>${authorization.authorizer}</strong>${desc}`;
                 // Show chain entries if available
-                if (endorsement.chain && endorsement.chain.length > 1) {
-                    for (let i = 1; i < endorsement.chain.length; i++) {
-                        const c = endorsement.chain[i];
+                if (authorization.chain && authorization.chain.length > 1) {
+                    for (let i = 1; i < authorization.chain.length; i++) {
+                        const c = authorization.chain[i];
                         const cDesc = c.description ? ` (${c.description})` : '';
-                        endorsementHtml += `<br>&nbsp;&nbsp;Endorsed by ${c.endorser}${cDesc}`;
+                        authorizationHtml += `<br>&nbsp;&nbsp;Authorized by <strong>${c.authorizer}</strong>${cDesc}`;
                     }
                 }
-            } else if (endorsement.checked) {
-                endorsementEl.style.background = 'rgba(255, 152, 0, 0.2)';
-                endorsementEl.style.color = '#ffb74d';
-                endorsementHtml = `Endorsement by ${endorsement.endorser} — not confirmed`;
+            } else if (authorization.checked) {
+                authorizationEl.style.background = 'rgba(255, 152, 0, 0.2)';
+                authorizationEl.style.color = '#ffb74d';
+                authorizationHtml = `Verification authorization by <strong>${authorization.authorizer}</strong> — not confirmed`;
             } else {
-                endorsementEl.style.background = 'rgba(255, 152, 0, 0.2)';
-                endorsementEl.style.color = '#ffb74d';
-                endorsementHtml = `${emphasisDomain || 'Issuer'} claims endorsement by ${endorsement.endorser} but that endorsement is missing`;
+                authorizationEl.style.background = 'rgba(255, 152, 0, 0.2)';
+                authorizationEl.style.color = '#ffb74d';
+                // Show full domain with registrable part bolded
+                let issuerDisplay = 'Issuer';
+                if (fullDomain && emphasisDomain && fullDomain.includes(emphasisDomain)) {
+                    issuerDisplay = fullDomain.replace(emphasisDomain, `<strong>${emphasisDomain}</strong>`);
+                } else if (fullDomain) {
+                    issuerDisplay = `<strong>${fullDomain}</strong>`;
+                }
+                authorizationHtml = `${issuerDisplay} claims verification authorization by <strong>${authorization.authorizer}</strong> — missing`;
             }
-            endorsementEl.innerHTML = endorsementHtml;
-            endorsementEl.style.display = 'block';
-        } else if (endorsementEl) {
-            endorsementEl.style.display = 'none';
+            authorizationEl.innerHTML = authorizationHtml;
+            authorizationEl.style.display = 'block';
+        } else if (authorizationEl) {
+            authorizationEl.style.display = 'none';
         }
 
         normalizedEl.textContent = normalizedText || '';

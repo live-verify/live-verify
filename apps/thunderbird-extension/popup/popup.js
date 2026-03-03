@@ -144,39 +144,38 @@ function renderResultCard(result) {
             </div>
     `;
 
-    // Show endorsement status if available
-    if (result.endorsement && result.endorsement.endorser) {
-        const e = result.endorsement;
-        let endorseClass, endorseHtml;
-        if (e.expired) {
-            endorseClass = 'endorsement-expired';
-            endorseHtml = `Endorsement by ${escapeHtml(e.endorser)} \u2014 expired`;
-            if (e.successor) {
-                endorseHtml += `. Successor: ${escapeHtml(e.successor)}`;
+    // Show authorization status if available
+    if (result.authorization && result.authorization.authorizer) {
+        const a = result.authorization;
+        let authClass, authHtml;
+        if (a.expired) {
+            authClass = 'authorization-expired';
+            authHtml = `Verification authorization by <strong>${escapeHtml(a.authorizer)}</strong> \u2014 expired`;
+            if (a.successor) {
+                authHtml += `. Successor: ${escapeHtml(a.successor)}`;
             }
-        } else if (e.confirmed) {
-            endorseClass = 'endorsement-confirmed';
-            const desc = e.description ? ` (${escapeHtml(e.description)})` : '';
-            endorseHtml = `Endorsed by ${escapeHtml(e.endorser)}${desc}`;
+        } else if (a.confirmed) {
+            authClass = 'authorization-confirmed';
+            const desc = a.description ? ` (${escapeHtml(a.description)})` : '';
+            authHtml = `Verification authorized by <strong>${escapeHtml(a.authorizer)}</strong>${desc}`;
             // Show chain entries
-            if (e.chain && e.chain.length > 1) {
-                for (let i = 1; i < e.chain.length; i++) {
-                    const c = e.chain[i];
+            if (a.chain && a.chain.length > 1) {
+                for (let i = 1; i < a.chain.length; i++) {
+                    const c = a.chain[i];
                     const cDesc = c.description ? ` (${escapeHtml(c.description)})` : '';
-                    endorseHtml += `<div class="endorsement-chain-entry">Endorsed by ${escapeHtml(c.endorser)}${cDesc}</div>`;
+                    authHtml += `<div class="authorization-chain-entry">Authorized by <strong>${escapeHtml(c.authorizer)}</strong>${cDesc}</div>`;
                 }
             }
-        } else if (e.checked) {
-            endorseClass = 'endorsement-missing';
-            endorseHtml = `Endorsement by ${escapeHtml(e.endorser)} \u2014 not confirmed`;
+        } else if (a.checked) {
+            authClass = 'authorization-missing';
+            authHtml = `Verification authorization by <strong>${escapeHtml(a.authorizer)}</strong> \u2014 not confirmed`;
         } else {
-            endorseClass = 'endorsement-unavailable';
-            const issuerDomain = result.registrableDomain || result.domain || 'Issuer';
-            endorseHtml = `${escapeHtml(issuerDomain)} claims endorsement by ${escapeHtml(e.endorser)} but that endorsement is missing`;
+            authClass = 'authorization-unavailable';
+            authHtml = `${formatDomainEmphasis(result.domain, result.registrableDomain) || 'Issuer'} claims verification authorization by <strong>${escapeHtml(a.authorizer)}</strong> \u2014 missing`;
         }
         html += `
-            <div class="endorsement-row ${endorseClass}">
-                ${endorseHtml}
+            <div class="authorization-row ${authClass}">
+                ${authHtml}
             </div>
         `;
     }

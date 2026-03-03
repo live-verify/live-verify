@@ -111,7 +111,7 @@ function transformAppLogic(source, target) {
 
     // For ES module targets, import sha256 from normalize.js.
     // In the canonical source sha256 is a global (loaded via <script>), but in
-    // ES modules checkEndorsement's `typeof sha256 === 'function'` check fails
+    // ES modules checkAuthorization's `typeof sha256 === 'function'` check fails
     // because sha256 is not in scope. Adding the import fixes this.
     if (target.exports === 'es') {
         source = `import { sha256 } from './normalize.js';\n\n` + source;
