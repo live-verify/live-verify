@@ -416,10 +416,10 @@
 
             console.log('[TSV] Verification endpoint returned HTTP', response.status);
 
-            // Step 9: Check authorization (if metadata has endorsedBy)
+            // Step 9: Check authorization (if metadata has authorizedBy)
             let authorization = null;
-            if (metadata && metadata.endorsedBy) {
-                console.log('[TSV] Checking authorization from', metadata.endorsedBy);
+            if (metadata && metadata.authorizedBy) {
+                console.log('[TSV] Checking authorization from', metadata.authorizedBy);
                 // Compute metaUrl from baseUrl (same logic as fetchVerificationMeta)
                 let metaUrlForAuthorization = baseUrl;
                 const lowerBase2 = baseUrl.toLowerCase();
@@ -437,7 +437,7 @@
                     authorization = {
                         checked: false,
                         confirmed: false,
-                        authorizer: metadata.endorsedBy.split('/')[0],
+                        authorizer: metadata.authorizedBy.split('/')[0],
                         description: null,
                         expired: false,
                         successor: null,

@@ -82,10 +82,10 @@ Blockchain (Bitcoin, 2008) uses Merkle trees and hash functions as building bloc
 Live Verify uses the same cryptographic primitives (SHA-256) without requiring distributed consensus, cryptocurrency, or transaction fees. The trust anchor is the organization's domain (backed by DNS/TLS), not a blockchain.
 
 
-**Endorsement (`endorsedBy`) — Merkle Commitment:**
-While `parentAuthorities` provides passive links for humans to browse, `endorsedBy` is a **verifiable claim** — the endorser's attestation of the issuer can be independently checked via the same `verify:` protocol. The client hashes the issuer's **entire** `verification-meta.json` (canonicalized), not just the domain. This binds the endorsement to the exact content of the issuer's self-description — any change invalidates the hash and requires re-endorsement.
+**Endorsement (`authorizedBy`) — Merkle Commitment:**
+While `parentAuthorities` provides passive links for humans to browse, `authorizedBy` is a **verifiable claim** — the endorser's attestation of the issuer can be independently checked via the same `verify:` protocol. The client hashes the issuer's **entire** `verification-meta.json` (canonicalized), not just the domain. This binds the endorsement to the exact content of the issuer's self-description — any change invalidates the hash and requires re-endorsement.
 
-Date bounds (`endorsedFrom`/`endorsedTo`) define the endorsement period, pinned by the merkle hash. Chain walking: the endorser's own `verification-meta.json` can declare `endorsedBy`, forming chains (max 3 levels deep). Clients display the full chain with descriptions.
+Date bounds (`authorizedFrom`/`authorizedTo`) define the endorsement period, pinned by the merkle hash. Chain walking: the endorser's own `verification-meta.json` can declare `authorizedBy`, forming chains (max 3 levels deep). Clients display the full chain with descriptions.
 
 If the endorser returns `OK` → "Endorsed by [endorser] (description)" (green)
 If the endorser returns `404` → "Endorsement not confirmed" (amber — the issuer claims endorsement, but the endorser doesn't confirm it)

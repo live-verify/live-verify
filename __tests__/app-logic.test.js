@@ -586,7 +586,7 @@ https://example.com`;
             delete global.fetch;
         });
 
-        it('should return checked: false when meta has no endorsedBy', async () => {
+        it('should return checked: false when meta has no authorizedBy', async () => {
             const result = await checkAuthorization({}, 'https://example.com/verification-meta.json');
             expect(result.checked).toBe(false);
             expect(result.confirmed).toBe(false);
@@ -601,7 +601,7 @@ https://example.com`;
         it('should return confirmed: true when authorizer returns OK for correct hash', async () => {
             const meta = {
                 issuer: 'Test Issuer',
-                endorsedBy: 'endorser.com/verifiers'
+                authorizedBy: 'endorser.com/verifiers'
             };
             const metaJson = JSON.stringify(meta);
             const canonicalJson = JSON.stringify(JSON.parse(metaJson));
@@ -634,7 +634,7 @@ https://example.com`;
         it('should return confirmed: false when authorizer returns 404', async () => {
             const meta = {
                 issuer: 'Test Issuer',
-                endorsedBy: 'endorser.com/verifiers'
+                authorizedBy: 'endorser.com/verifiers'
             };
             const metaJson = JSON.stringify(meta);
 
@@ -657,11 +657,11 @@ https://example.com`;
             expect(result.confirmed).toBe(false);
         });
 
-        it('should return expired: true when endorsedTo is in the past', async () => {
+        it('should return expired: true when authorizedTo is in the past', async () => {
             const meta = {
                 issuer: 'Test Issuer',
-                endorsedBy: 'endorser.com/verifiers',
-                endorsedTo: '2020-01-01'
+                authorizedBy: 'endorser.com/verifiers',
+                authorizedTo: '2020-01-01'
             };
 
             const result = await checkAuthorization(meta, 'https://example.com/verification-meta.json');
@@ -673,8 +673,8 @@ https://example.com`;
         it('should return successor when authorization is expired and successor is set', async () => {
             const meta = {
                 issuer: 'Test Issuer',
-                endorsedBy: 'old-endorser.com/verifiers',
-                endorsedTo: '2020-01-01',
+                authorizedBy: 'old-endorser.com/verifiers',
+                authorizedTo: '2020-01-01',
                 successor: 'new-endorser.com/verifiers'
             };
 
@@ -683,10 +683,10 @@ https://example.com`;
             expect(result.successor).toBe('new-endorser.com/verifiers');
         });
 
-        it('should handle missing endorsedFrom/endorsedTo (open-ended authorization)', async () => {
+        it('should handle missing authorizedFrom/authorizedTo (open-ended authorization)', async () => {
             const meta = {
                 issuer: 'Test Issuer',
-                endorsedBy: 'endorser.com/verifiers'
+                authorizedBy: 'endorser.com/verifiers'
             };
             const metaJson = JSON.stringify(meta);
 
@@ -736,13 +736,13 @@ https://example.com`;
             expect(result[0].confirmed).toBe(true);
         });
 
-        it('should return two-level chain when authorizer has endorsedBy', async () => {
+        it('should return two-level chain when authorizer has authorizedBy', async () => {
             global.fetch = jest.fn()
                 .mockResolvedValueOnce({
                     ok: true,
                     json: () => Promise.resolve({
                         description: 'ARB',
-                        endorsedBy: 'gov.uk/regulators'
+                        authorizedBy: 'gov.uk/regulators'
                     })
                 })
                 .mockResolvedValueOnce({
@@ -766,21 +766,21 @@ https://example.com`;
                     ok: true,
                     json: () => Promise.resolve({
                         description: 'Level 1',
-                        endorsedBy: 'level2.com/v'
+                        authorizedBy: 'level2.com/v'
                     })
                 })
                 .mockResolvedValueOnce({
                     ok: true,
                     json: () => Promise.resolve({
                         description: 'Level 2',
-                        endorsedBy: 'level3.com/v'
+                        authorizedBy: 'level3.com/v'
                     })
                 })
                 .mockResolvedValueOnce({
                     ok: true,
                     json: () => Promise.resolve({
                         description: 'Level 3',
-                        endorsedBy: 'level4.com/v'
+                        authorizedBy: 'level4.com/v'
                     })
                 });
 

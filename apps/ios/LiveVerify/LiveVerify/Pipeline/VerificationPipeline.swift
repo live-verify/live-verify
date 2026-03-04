@@ -161,6 +161,7 @@ struct VerificationResult {
     let hash: String?
     let verificationURL: String?
     let baseURL: String?
+    var authorization: AuthorizationResult?
 }
 
 /// Pipeline error types
@@ -268,7 +269,7 @@ class VerificationPipeline: ObservableObject {
             currentStep = "Detecting registration marks..."
         }
 
-        // Step 0: Detect and crop to registration rectangle (using OpenCV contour detection)
+        // Step 0: Detect and crop to registration rectangle (using Vision framework)
         let croppedImage: UIImage
         do {
             croppedImage = try await contourDetector.detectAndCrop(image: orientedImage)
@@ -388,6 +389,19 @@ class VerificationPipeline: ObservableObject {
         // Step 8: Verify against issuer endpoint
         let outcome = await verificationClient.verify(verificationURL: verificationURL, meta: meta)
 
+        // Check authorization chain if meta has authorizedBy
+        var authorization: AuthorizationResult?
+        if let meta = meta, meta["authorizedBy"] != nil {
+            await MainActor.run {
+                currentStep = "Checking authorization..."
+            }
+            let httpsBase = baseURL.lowercased().hasPrefix("verify:") ? "https://" + String(baseURL.dropFirst(7)) :
+                baseURL.lowercased().hasPrefix("vfy:") ? "https://" + String(baseURL.dropFirst(4)) :
+                baseURL.lowercased().hasPrefix("https://") ? baseURL : "https://" + baseURL
+            let metaUrl = "\(httpsBase)/verification-meta.json"
+            authorization = await verificationClient.checkAuthorization(meta: meta, metaUrl: metaUrl)
+        }
+
         await MainActor.run {
             isProcessing = false
             currentStep = ""
@@ -399,7 +413,8 @@ class VerificationPipeline: ObservableObject {
             normalizedText: normalizedText,
             hash: hash,
             verificationURL: verificationURL,
-            baseURL: baseURL
+            baseURL: baseURL,
+            authorization: authorization
         )
     }
 
@@ -495,6 +510,19 @@ class VerificationPipeline: ObservableObject {
         // Verify against issuer endpoint
         let outcome = await verificationClient.verify(verificationURL: verificationURL, meta: meta)
 
+        // Check authorization chain if meta has authorizedBy
+        var authorization: AuthorizationResult?
+        if let meta = meta, meta["authorizedBy"] != nil {
+            await MainActor.run {
+                currentStep = "Checking authorization..."
+            }
+            let httpsBase = baseURL.lowercased().hasPrefix("verify:") ? "https://" + String(baseURL.dropFirst(7)) :
+                baseURL.lowercased().hasPrefix("vfy:") ? "https://" + String(baseURL.dropFirst(4)) :
+                baseURL.lowercased().hasPrefix("https://") ? baseURL : "https://" + baseURL
+            let metaUrl = "\(httpsBase)/verification-meta.json"
+            authorization = await verificationClient.checkAuthorization(meta: meta, metaUrl: metaUrl)
+        }
+
         await MainActor.run {
             isProcessing = false
             currentStep = ""
@@ -506,7 +534,8 @@ class VerificationPipeline: ObservableObject {
             normalizedText: normalizedText,
             hash: hash,
             verificationURL: verificationURL,
-            baseURL: baseURL
+            baseURL: baseURL,
+            authorization: authorization
         )
     }
 
@@ -550,6 +579,16 @@ class VerificationPipeline: ObservableObject {
         // Verify
         let outcome = await verificationClient.verify(verificationURL: verificationURL, meta: meta)
 
+        // Check authorization chain
+        var authorization: AuthorizationResult?
+        if let meta = meta, meta["authorizedBy"] != nil {
+            let httpsBase = baseURL.lowercased().hasPrefix("verify:") ? "https://" + String(baseURL.dropFirst(7)) :
+                baseURL.lowercased().hasPrefix("vfy:") ? "https://" + String(baseURL.dropFirst(4)) :
+                baseURL.lowercased().hasPrefix("https://") ? baseURL : "https://" + baseURL
+            let metaUrl = "\(httpsBase)/verification-meta.json"
+            authorization = await verificationClient.checkAuthorization(meta: meta, metaUrl: metaUrl)
+        }
+
         await MainActor.run {
             isProcessing = false
             currentStep = ""
@@ -561,7 +600,8 @@ class VerificationPipeline: ObservableObject {
             normalizedText: normalizedText,
             hash: hash,
             verificationURL: verificationURL,
-            baseURL: baseURL
+            baseURL: baseURL,
+            authorization: authorization
         )
     }
 }

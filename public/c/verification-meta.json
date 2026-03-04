@@ -5,9 +5,9 @@
     "https://en.wikipedia.org/wiki/Unseen_University",
     "https://unseen-u.discworld/"
   ],
-  "endorsedBy": "gov.uk/verifiers",
-  "endorsedFrom": "2023-01-01",
-  "endorsedTo": "2028-12-31",
+  "authorizedBy": "gov.uk/verifiers",
+  "authorizedFrom": "2023-01-01",
+  "authorizedTo": "2028-12-31",
   "responseTypes": {
     "OK": {
       "class": "affirming",

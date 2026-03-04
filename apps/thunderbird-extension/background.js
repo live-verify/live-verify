@@ -189,9 +189,9 @@ async function verifySelection(selectedText, tab) {
         // Fall back to simple domain
     }
 
-    // Check authorization if metadata has endorsedBy
+    // Check authorization if metadata has authorizedBy
     let authorization = null;
-    if (meta && meta.endorsedBy) {
+    if (meta && meta.authorizedBy) {
         // Compute metaUrl from baseUrl
         let metaHttpsBase = baseUrl;
         const lowerBase2 = baseUrl.toLowerCase();
@@ -204,7 +204,7 @@ async function verifySelection(selectedText, tab) {
         try {
             authorization = await checkAuthorization(meta, metaUrl, verificationUrl);
         } catch {
-            authorization = { checked: false, confirmed: false, authorizer: meta.endorsedBy.split('/')[0], description: null, expired: false, successor: null, error: 'Check failed', chain: [] };
+            authorization = { checked: false, confirmed: false, authorizer: meta.authorizedBy.split('/')[0], description: null, expired: false, successor: null, error: 'Check failed', chain: [] };
         }
     }
 
@@ -385,9 +385,9 @@ async function verifyText(selectedText) {
         // Fall back to simple domain
     }
 
-    // Check authorization if metadata has endorsedBy
+    // Check authorization if metadata has authorizedBy
     let authorization = null;
-    if (meta && meta.endorsedBy) {
+    if (meta && meta.authorizedBy) {
         // Compute metaUrl from baseUrl
         let metaHttpsBase2 = baseUrl;
         const lowerBase3 = baseUrl.toLowerCase();
@@ -400,7 +400,7 @@ async function verifyText(selectedText) {
         try {
             authorization = await checkAuthorization(meta, metaUrl2, verificationUrl);
         } catch {
-            authorization = { checked: false, confirmed: false, authorizer: meta.endorsedBy.split('/')[0], description: null, expired: false, successor: null, error: 'Check failed', chain: [] };
+            authorization = { checked: false, confirmed: false, authorizer: meta.authorizedBy.split('/')[0], description: null, expired: false, successor: null, error: 'Check failed', chain: [] };
         }
     }
 

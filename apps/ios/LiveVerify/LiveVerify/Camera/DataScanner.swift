@@ -26,6 +26,7 @@ struct DataScanner: UIViewControllerRepresentable {
 
     @Binding var isScanning: Bool
     @Binding var scannedText: String
+    @Binding var capturedImage: UIImage?
 
     func makeUIViewController(context: Context) -> DataScannerViewController {
         let controller = DataScannerViewController(
@@ -130,6 +131,7 @@ struct DataScanner: UIViewControllerRepresentable {
                     Log.d("DataScanner", "Recognized text:\n\(text)")
 
                     await MainActor.run {
+                        self.parent.capturedImage = croppedImage
                         self.parent.scannedText = text
                     }
                 } catch {
@@ -226,23 +228,59 @@ struct DataScanner: UIViewControllerRepresentable {
 
                     Log.d("DataScanner", "VNRecognizeTextRequest found \(observations.count) lines")
 
-                    // Extract text with both X and Y for sorting
-                    var lines: [(text: String, x: CGFloat, y: CGFloat)] = []
+                    // Extract observations with bounding box info
+                    struct TextObs {
+                        let text: String
+                        let centerX: CGFloat
+                        let centerY: CGFloat
+                        let height: CGFloat
+                    }
+
+                    var obs: [TextObs] = []
                     for observation in observations {
                         if let candidate = observation.topCandidates(1).first {
-                            let centerX = (observation.boundingBox.minX + observation.boundingBox.maxX) / 2
-                            let centerY = (observation.boundingBox.minY + observation.boundingBox.maxY) / 2
-                            Log.d("DataScanner", "  Line: '\(candidate.string.prefix(20))...' x=\(centerX) y=\(centerY)")
-                            lines.append((text: candidate.string, x: centerX, y: centerY))
+                            let box = observation.boundingBox
+                            let o = TextObs(
+                                text: candidate.string,
+                                centerX: box.midX,
+                                centerY: box.midY,
+                                height: box.height
+                            )
+                            Log.d("DataScanner", "  Obs: '\(o.text.prefix(30))' x=\(o.centerX) y=\(o.centerY) h=\(o.height)")
+                            obs.append(o)
                         }
                     }
 
-                    // Sort by reading order: top-to-bottom (descending Y), then left-to-right (ascending X)
-                    // But image orientation varies, so try: ascending X first (for landscape)
-                    lines.sort { $0.x > $1.x }
+                    // Group observations into lines by Y overlap.
+                    // Two observations are on the same line if their Y centers differ
+                    // by less than half the average height of their bounding boxes.
+                    var lineGroups: [[TextObs]] = []
+                    for o in obs {
+                        var merged = false
+                        for i in 0..<lineGroups.count {
+                            let representative = lineGroups[i][0]
+                            let threshold = max(o.height, representative.height) * 0.5
+                            if abs(o.centerY - representative.centerY) < threshold {
+                                lineGroups[i].append(o)
+                                merged = true
+                                break
+                            }
+                        }
+                        if !merged {
+                            lineGroups.append([o])
+                        }
+                    }
 
-                    // Join lines and normalize verify:/vfy: lines (strip spurious spaces from OCR)
-                    var resultLines = lines.map { $0.text }
+                    // Sort groups top-to-bottom (descending Y), then sort within each group left-to-right
+                    lineGroups.sort { $0[0].centerY > $1[0].centerY }
+                    for i in 0..<lineGroups.count {
+                        lineGroups[i].sort { $0.centerX < $1.centerX }
+                    }
+
+                    // Join observations within each line group with spaces, then join lines with newlines
+                    var resultLines = lineGroups.map { group in
+                        group.map { $0.text }.joined(separator: " ")
+                    }
 
                     // Fix verify:/vfy: lines - remove ALL spaces from the URL portion
                     for i in 0..<resultLines.count {

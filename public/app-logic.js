@@ -308,22 +308,22 @@ async function verifyHash(verificationUrl, meta) {
  * @returns {Promise<{checked: boolean, confirmed: boolean, authorizer: string, description: string|null, expired: boolean, successor: string|null, error: string|null, chain: Array}>}
  */
 async function checkAuthorization(meta, metaUrl, originUrl) {
-    if (!meta || !meta.endorsedBy || typeof meta.endorsedBy !== 'string') {
+    if (!meta || !meta.authorizedBy || typeof meta.authorizedBy !== 'string') {
         return { checked: false, confirmed: false, authorizer: null, description: null, expired: false, successor: null, error: null, chain: [] };
     }
 
-    const authorizer = meta.endorsedBy.split('/')[0];
+    const authorizer = meta.authorizedBy.split('/')[0];
 
     // Check date bounds
     const now = new Date();
-    if (meta.endorsedFrom) {
-        const from = new Date(meta.endorsedFrom);
+    if (meta.authorizedFrom) {
+        const from = new Date(meta.authorizedFrom);
         if (now < from) {
             return { checked: true, confirmed: false, authorizer, description: null, expired: false, successor: null, error: 'Authorization period has not started yet', chain: [] };
         }
     }
-    if (meta.endorsedTo) {
-        const to = new Date(meta.endorsedTo);
+    if (meta.authorizedTo) {
+        const to = new Date(meta.authorizedTo);
         if (now > to) {
             return { checked: true, confirmed: false, authorizer, description: null, expired: true, successor: meta.successor || null, error: null, chain: [] };
         }
@@ -356,9 +356,9 @@ async function checkAuthorization(meta, metaUrl, originUrl) {
         // Hash the canonical JSON
         const metaHash = await hashFn(canonicalJson);
 
-        // Build authorization URL: verify:{endorsedBy}/{hash}
-        const verifyUrl = meta.endorsedBy.startsWith('verify:') || meta.endorsedBy.startsWith('vfy:')
-            ? meta.endorsedBy : `verify:${meta.endorsedBy}`;
+        // Build authorization URL: verify:{authorizedBy}/{hash}
+        const verifyUrl = meta.authorizedBy.startsWith('verify:') || meta.authorizedBy.startsWith('vfy:')
+            ? meta.authorizedBy : `verify:${meta.authorizedBy}`;
         const authorizationUrl = buildVerificationUrl(verifyUrl, metaHash);
 
         const fetchOpts = originUrl ? { headers: { 'X-Verification-URL': originUrl } } : {};
@@ -374,7 +374,7 @@ async function checkAuthorization(meta, metaUrl, originUrl) {
         }
 
         // Walk the authorization chain
-        const chain = await walkAuthorizationChain(meta.endorsedBy, confirmed, hashFn, 0, originUrl);
+        const chain = await walkAuthorizationChain(meta.authorizedBy, confirmed, hashFn, 0, originUrl);
 
         return {
             checked: true,
@@ -396,25 +396,25 @@ async function checkAuthorization(meta, metaUrl, originUrl) {
  * Returns an array of chain entries with authorizer domain, description, and confirmation status.
  * Max depth: 3 levels.
  *
- * @param {string} endorsedByUrl - The authorizer's base URL (from endorsedBy field in meta)
+ * @param {string} authorizedByUrl - The authorizer's base URL (from authorizedBy field in meta)
  * @param {boolean} primaryConfirmed - Whether the primary authorization was confirmed
  * @param {Function} hashFn - SHA-256 hash function
  * @param {number} [depth=0] - Current recursion depth
  * @param {string} [originUrl] - The original verification URL that triggered this chain walk
  * @returns {Promise<Array<{authorizer: string, description: string|null, confirmed: boolean}>>}
  */
-async function walkAuthorizationChain(endorsedByUrl, primaryConfirmed, hashFn, depth, originUrl) {
+async function walkAuthorizationChain(authorizedByUrl, primaryConfirmed, hashFn, depth, originUrl) {
     if (depth === undefined) depth = 0;
     const MAX_DEPTH = 3;
     if (depth >= MAX_DEPTH) return [];
 
-    const authorizer = endorsedByUrl.split('/')[0];
+    const authorizer = authorizedByUrl.split('/')[0];
 
     try {
-        // Convert endorsedBy to https URL for fetching meta
-        let httpsBase = endorsedByUrl;
+        // Convert authorizedBy to https URL for fetching meta
+        let httpsBase = authorizedByUrl;
         if (!httpsBase.startsWith('https://')) {
-            httpsBase = `https://${endorsedByUrl}`;
+            httpsBase = `https://${authorizedByUrl}`;
         }
         const authorizerMetaUrl = `${httpsBase}/verification-meta.json`;
 
@@ -429,9 +429,9 @@ async function walkAuthorizationChain(endorsedByUrl, primaryConfirmed, hashFn, d
 
         const entry = { authorizer, description, confirmed: primaryConfirmed };
 
-        // If authorizer itself has endorsedBy, recurse
-        if (authorizerMeta.endorsedBy) {
-            const subChain = await walkAuthorizationChain(authorizerMeta.endorsedBy, true, hashFn, depth + 1, originUrl);
+        // If authorizer itself has authorizedBy, recurse
+        if (authorizerMeta.authorizedBy) {
+            const subChain = await walkAuthorizationChain(authorizerMeta.authorizedBy, true, hashFn, depth + 1, originUrl);
             return [entry, ...subChain];
         }
 

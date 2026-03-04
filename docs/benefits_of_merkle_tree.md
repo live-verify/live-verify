@@ -67,7 +67,7 @@ If ARB's `verification-meta.json` says `"claimType": "architect-registration"` a
 
 ### Pins Date Bounds
 
-The `endorsedFrom` and `endorsedTo` fields live in the issuer's `verification-meta.json`, not the endorser's response. Because the endorser's hash covers the entire file, these dates are pinned — the issuer can't extend its own endorsement period without breaking the hash and requiring re-endorsement.
+The `authorizedFrom` and `authorizedTo` fields live in the issuer's `verification-meta.json`, not the endorser's response. Because the endorser's hash covers the entire file, these dates are pinned — the issuer can't extend its own endorsement period without breaking the hash and requiring re-endorsement.
 
 ### Immutable Self-Description
 
@@ -116,17 +116,17 @@ An attacker who wants to fake an endorsement needs to insert a hash into the end
 
 **What it takes:** Present a credible-looking `verification-meta.json` to the endorser and persuade them to hash it and publish the hash. "We're a new architecture firm, here's our registration, please endorse us."
 
-**Why the merkle design helps:** The endorser hashes the *entire* `verification-meta.json`. If the endorser reads it before hashing, they'll see the issuer's `description`, `claimType`, `endorsedFrom`, `endorsedTo`, and everything else. The endorsement is an explicit, auditable act — not a rubber stamp.
+**Why the merkle design helps:** The endorser hashes the *entire* `verification-meta.json`. If the endorser reads it before hashing, they'll see the issuer's `description`, `claimType`, `authorizedFrom`, `authorizedTo`, and everything else. The endorsement is an explicit, auditable act — not a rubber stamp.
 
 **Why this is still a risk:** If the endorser's endorsement process is sloppy — hash the file without reading it, automate endorsements without review — social engineering succeeds. This is an operational risk, not a protocol risk.
 
-### Attack 5: Rogue Issuer Claims False `endorsedBy`
+### Attack 5: Rogue Issuer Claims False `authorizedBy`
 
-**Goal:** A rogue issuer sets `"endorsedBy": "arb.org.uk"` in their `verification-meta.json` without actually being endorsed.
+**Goal:** A rogue issuer sets `"authorizedBy": "arb.org.uk"` in their `verification-meta.json` without actually being endorsed.
 
 **What happens:** The client hashes the rogue issuer's `verification-meta.json` and checks `https://arb.org.uk/{hash}`. ARB never endorsed this file, so the hash isn't there. The endorser returns 404. The client displays "Endorsement by arb.org.uk — not confirmed."
 
-**This attack fails by design.** Claiming `endorsedBy` is free — anyone can write it in their JSON. But *confirming* it requires the endorser to have the hash. The rogue issuer's claim is immediately exposed as unconfirmed.
+**This attack fails by design.** Claiming `authorizedBy` is free — anyone can write it in their JSON. But *confirming* it requires the endorser to have the hash. The rogue issuer's claim is immediately exposed as unconfirmed.
 
 ### Attack Summary
 
@@ -136,7 +136,7 @@ An attacker who wants to fake an endorsement needs to insert a hash into the end
 | Compromise build pipeline | Medium (supply chain) | Yes (witnessing, git logs) | Same as above |
 | DNS/BGP hijack | High, temporary | Yes (CT logs, DNSSEC) | Standard web defenses apply |
 | Social engineering endorser | Medium (operational) | Depends on endorser's process | Full file is visible before hashing |
-| False `endorsedBy` claim | Trivial to attempt | **Instant** (returns 404) | Fails by design — claim without hash is meaningless |
+| False `authorizedBy` claim | Trivial to attempt | **Instant** (returns 404) | Fails by design — claim without hash is meaningless |
 
 The bottom line: the most dangerous attack is #2 (build pipeline compromise), because it's the most likely to go unnoticed. Jurisdictional witnessing is the primary defense — it creates an independent record that the endorser can audit against.
 
@@ -186,7 +186,7 @@ Even in the bad-faith issuer scenario, the endorsement chain provides informatio
 
 - **Which domain issued this?** A border agent sees `verify:immigration.gov.my` — they know exactly which authority is attesting to this passport.
 - **Is that authority endorsed?** If Malaysia's immigration authority is endorsed by an ICAO member body or an international treaty organization, the chain shows it. If it isn't, the absence is visible.
-- **Is the endorsement current?** Date bounds (`endorsedFrom`/`endorsedTo`) show whether the endorsement was active when the document was issued.
+- **Is the endorsement current?** Date bounds (`authorizedFrom`/`authorizedTo`) show whether the endorsement was active when the document was issued.
 
 None of this catches the Peter Franks scenario in real time. But it shifts the question from "is this document real?" (which Live Verify answers: yes) to "do I trust the issuer?" (which the verifier must answer for themselves). Making the issuer's identity and endorsement status explicit is an improvement over the current world, where a convincing forgery and a corrupt issuance look identical.
 

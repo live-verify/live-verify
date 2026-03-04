@@ -23,7 +23,6 @@
 		A100000D /* app-logic.js in Resources */ = {isa = PBXBuildFile; fileRef = A200000D /* app-logic.js */; };
 		A100000F /* ContourDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000F /* ContourDetector.swift */; };
 		A1000010 /* LiveVerifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000010 /* LiveVerifyTests.swift */; };
-		A1000011 /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = A2000011 /* OpenCVWrapper.mm */; };
 		A1000020 /* LiveVerifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000020 /* LiveVerifyUITests.swift */; };
 		A1000021 /* DataScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000021 /* DataScanner.swift */; };
 		B06F5DA1239A80903EFC4689 /* CrossPlatformImageHashTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A968EFF8277A4E87212C1DED /* CrossPlatformImageHashTest.swift */; };
@@ -63,9 +62,6 @@
 		A200000E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A200000F /* ContourDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContourDetector.swift; sourceTree = "<group>"; };
 		A2000010 /* LiveVerifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveVerifyTests.swift; sourceTree = "<group>"; };
-		A2000011 /* OpenCVWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
-		A2000012 /* OpenCVWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVWrapper.h; sourceTree = "<group>"; };
-		A2000013 /* LiveVerify-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LiveVerify-Bridging-Header.h"; sourceTree = "<group>"; };
 		A2000020 /* LiveVerifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveVerifyUITests.swift; sourceTree = "<group>"; };
 		A2000021 /* DataScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataScanner.swift; sourceTree = "<group>"; };
 		A6000001 /* LiveVerify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveVerify.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,7 +114,6 @@
 				A8000005 /* Pipeline */,
 				A8000006 /* Views */,
 				A8000007 /* Resources */,
-				A2000013 /* LiveVerify-Bridging-Header.h */,
 			);
 			path = LiveVerify;
 			sourceTree = "<group>";
@@ -147,8 +142,6 @@
 			children = (
 				A200000F /* ContourDetector.swift */,
 				A2000005 /* JSBridge.swift */,
-				A2000012 /* OpenCVWrapper.h */,
-				A2000011 /* OpenCVWrapper.mm */,
 				A2000006 /* SHA256Hasher.swift */,
 				A2000007 /* TextRecognizer.swift */,
 				A2000008 /* VerificationClient.swift */,
@@ -228,9 +221,6 @@
 			dependencies = (
 			);
 			name = LiveVerify;
-			packageProductDependencies = (
-				AF000001 /* OpenCV */,
-			);
 			productName = LiveVerify;
 			productReference = A6000001 /* LiveVerify.app */;
 			productType = "com.apple.product-type.application";
@@ -303,9 +293,6 @@
 				Base,
 			);
 			mainGroup = A8000001;
-			packageReferences = (
-				AE000001 /* XCRemoteSwiftPackageReference "opencv-spm" */,
-			);
 			productRefGroup = A800000A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -355,7 +342,6 @@
 				A1000021 /* DataScanner.swift in Sources */,
 				A100000F /* ContourDetector.swift in Sources */,
 				A1000005 /* JSBridge.swift in Sources */,
-				A1000011 /* OpenCVWrapper.mm in Sources */,
 				A1000006 /* SHA256Hasher.swift in Sources */,
 				A1000007 /* TextRecognizer.swift in Sources */,
 				A1000008 /* VerificationClient.swift in Sources */,
@@ -542,7 +528,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.liveverify.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "LiveVerify/LiveVerify-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -572,7 +557,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.liveverify.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "LiveVerify/LiveVerify-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -690,25 +674,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		AE000001 /* XCRemoteSwiftPackageReference "opencv-spm" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/yeatse/opencv-spm.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		AF000001 /* OpenCV */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AE000001 /* XCRemoteSwiftPackageReference "opencv-spm" */;
-			productName = OpenCV;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A4000001 /* Project object */;
 }

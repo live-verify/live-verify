@@ -39,6 +39,7 @@ struct ContentView: View {
     @State private var appState: AppState = .scanning
     @State private var isScanning = false
     @State private var scannedText = ""
+    @State private var capturedImage: UIImage?
     @State private var errorMessage: String?
 
     var body: some View {
@@ -54,7 +55,7 @@ struct ContentView: View {
             case .result(let result):
                 ResultView(
                     result: result,
-                    capturedImage: nil,
+                    capturedImage: capturedImage,
                     onReVerify: reVerify,
                     onVerifyAnother: resetToScanning
                 )
@@ -78,7 +79,7 @@ struct ContentView: View {
                 unavailableView
             } else {
                 // DataScanner camera view
-                DataScanner(isScanning: $isScanning, scannedText: $scannedText)
+                DataScanner(isScanning: $isScanning, scannedText: $scannedText, capturedImage: $capturedImage)
                     .ignoresSafeArea()
                     .overlay(alignment: .top) {
                         Text("Build: \(buildTimestamp)")
@@ -283,6 +284,7 @@ struct ContentView: View {
 
     private func resetToScanning() {
         scannedText = ""
+        capturedImage = nil
         appState = .scanning
         isScanning = true
     }

@@ -78,26 +78,112 @@ struct ResultView: View {
     // MARK: - Status Banner
 
     private var statusBanner: some View {
-        HStack {
-            Image(systemName: statusIcon)
-                .font(.title2)
+        VStack(alignment: .leading, spacing: 4) {
+            HStack {
+                Image(systemName: statusIcon)
+                    .font(.title2)
 
-            VStack(alignment: .leading) {
-                Text(statusTitle)
-                    .font(.headline)
+                VStack(alignment: .leading) {
+                    Text(statusTitle)
+                        .font(.headline)
 
-                if let domain = statusDomain {
-                    Text("by \(domain)")
-                        .font(.caption)
-                        .opacity(0.8)
+                    if let domain = statusDomain {
+                        Text("by \(domain)")
+                            .font(.caption)
+                            .opacity(0.8)
+                    }
                 }
+
+                Spacer()
             }
 
-            Spacer()
+            // Authorization chain or "no authority" warning
+            if let auth = result.authorization {
+                authorizationView(auth)
+            } else if let domain = statusDomain, isAffirming {
+                noAuthorityView(domain: domain)
+            }
         }
         .padding()
         .foregroundColor(.white)
         .background(statusColor)
+    }
+
+    @ViewBuilder
+    private func authorizationView(_ auth: AuthorizationResult) -> some View {
+        if auth.expired {
+            HStack(spacing: 4) {
+                Image(systemName: "clock.badge.exclamationmark")
+                    .font(.caption)
+                Text("Authorization by \(auth.authorizer ?? "unknown") — expired")
+                    .font(.caption)
+                if let successor = auth.successor {
+                    Text("Successor: \(successor)")
+                        .font(.caption2)
+                }
+            }
+            .padding(.vertical, 2)
+            .padding(.horizontal, 8)
+            .background(Color.orange.opacity(0.3))
+            .cornerRadius(4)
+        } else if auth.confirmed {
+            VStack(alignment: .leading, spacing: 2) {
+                HStack(spacing: 4) {
+                    Image(systemName: "checkmark.seal.fill")
+                        .font(.caption)
+                    let desc = auth.chain.first?.description.map { " (\($0))" } ?? ""
+                    Text("Authorized by \(auth.authorizer ?? "unknown")\(desc)")
+                        .font(.caption)
+                }
+
+                // Show chain entries beyond the first
+                if auth.chain.count > 1 {
+                    ForEach(Array(auth.chain.dropFirst().enumerated()), id: \.offset) { _, entry in
+                        HStack(spacing: 4) {
+                            Image(systemName: "arrow.left")
+                                .font(.caption2)
+                            let entryDesc = entry.description.map { " (\($0))" } ?? ""
+                            Text("\(entry.authorizer)\(entryDesc)")
+                                .font(.caption2)
+                        }
+                        .padding(.leading, 20)
+                    }
+                }
+            }
+            .padding(.vertical, 2)
+            .padding(.horizontal, 8)
+            .background(Color.green.opacity(0.3))
+            .cornerRadius(4)
+        } else if auth.checked {
+            HStack(spacing: 4) {
+                Image(systemName: "exclamationmark.triangle")
+                    .font(.caption)
+                Text("Authorization by \(auth.authorizer ?? "unknown") — not confirmed")
+                    .font(.caption)
+            }
+            .padding(.vertical, 2)
+            .padding(.horizontal, 8)
+            .background(Color.orange.opacity(0.3))
+            .cornerRadius(4)
+        }
+    }
+
+    private func noAuthorityView(domain: String) -> some View {
+        HStack(spacing: 4) {
+            Image(systemName: "exclamationmark.triangle")
+                .font(.caption)
+            Text("\(domain) has no authority to verify")
+                .font(.caption)
+        }
+        .padding(.vertical, 2)
+        .padding(.horizontal, 8)
+        .background(Color.orange.opacity(0.3))
+        .cornerRadius(4)
+    }
+
+    private var isAffirming: Bool {
+        if case .affirming = result.outcome { return true }
+        return false
     }
 
     private var statusIcon: String {
@@ -140,6 +226,13 @@ struct ResultView: View {
     private var statusColor: Color {
         switch result.outcome {
         case .affirming:
+            // Orange if verified but no authority backing it
+            if result.authorization == nil {
+                return .orange
+            }
+            if let auth = result.authorization, !auth.confirmed {
+                return .orange
+            }
             return .green
         case .denying, .noVerifyURL:
             return .red
@@ -290,7 +383,14 @@ struct ResultView: View {
             normalizedText: "Test University\nJohn Doe\nFirst Class Honours",
             hash: "abc123def456...",
             verificationURL: "https://example.com/c/abc123",
-            baseURL: "verify:example.com/c"
+            baseURL: "verify:example.com/c",
+            authorization: AuthorizationResult(
+                checked: true, confirmed: true, authorizer: "gov.uk",
+                description: "UK Government", expired: false, successor: nil, error: nil,
+                chain: [
+                    AuthorizationChainEntry(authorizer: "gov.uk", description: "UK Government", confirmed: true)
+                ]
+            )
         ),
         capturedImage: nil,
         onReVerify: { _ in },

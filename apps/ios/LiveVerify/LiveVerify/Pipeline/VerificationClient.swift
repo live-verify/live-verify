@@ -47,6 +47,30 @@ enum VerificationError: Error, LocalizedError {
     }
 }
 
+/// Entry in the authorization chain
+struct AuthorizationChainEntry {
+    let authorizer: String
+    let description: String?
+    let confirmed: Bool
+}
+
+/// Result of an authorization check
+struct AuthorizationResult {
+    let checked: Bool
+    let confirmed: Bool
+    let authorizer: String?
+    let description: String?
+    let expired: Bool
+    let successor: String?
+    let error: String?
+    let chain: [AuthorizationChainEntry]
+
+    static let unchecked = AuthorizationResult(
+        checked: false, confirmed: false, authorizer: nil, description: nil,
+        expired: false, successor: nil, error: nil, chain: []
+    )
+}
+
 /// Client for fetching verification-meta.json and verifying hashes
 class VerificationClient {
     private let session: URLSession
@@ -176,6 +200,147 @@ class VerificationClient {
         } catch {
             return .networkError(error)
         }
+    }
+
+    /// Check authorization chain from verification-meta.json using merkle commitment
+    /// - Parameters:
+    ///   - meta: The issuer's verification-meta.json
+    ///   - metaUrl: URL from which meta was fetched (for re-fetch and canonicalization)
+    /// - Returns: AuthorizationResult with chain
+    func checkAuthorization(meta: [String: Any], metaUrl: String) async -> AuthorizationResult {
+        guard let authorizedBy = meta["authorizedBy"] as? String, !authorizedBy.isEmpty else {
+            return .unchecked
+        }
+
+        let authorizer = authorizedBy.components(separatedBy: "/").first ?? authorizedBy
+
+        // Check date bounds
+        let now = Date()
+        if let fromStr = meta["authorizedFrom"] as? String,
+           let from = ISO8601DateFormatter().date(from: fromStr) ?? parseSimpleDate(fromStr) {
+            if now < from {
+                return AuthorizationResult(
+                    checked: true, confirmed: false, authorizer: authorizer, description: nil,
+                    expired: false, successor: nil, error: "Authorization period has not started yet", chain: []
+                )
+            }
+        }
+        if let toStr = meta["authorizedTo"] as? String,
+           let to = ISO8601DateFormatter().date(from: toStr) ?? parseSimpleDate(toStr) {
+            if now > to {
+                return AuthorizationResult(
+                    checked: true, confirmed: false, authorizer: authorizer, description: nil,
+                    expired: true, successor: meta["successor"] as? String, error: nil, chain: []
+                )
+            }
+        }
+
+        do {
+            // Re-fetch verification-meta.json for canonical hashing
+            let metaURL = URL(string: metaUrl)!
+            let (data, response) = try await session.data(from: metaURL)
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                return AuthorizationResult(
+                    checked: false, confirmed: false, authorizer: authorizer, description: nil,
+                    expired: false, successor: nil, error: "Could not re-fetch meta", chain: []
+                )
+            }
+
+            // Canonicalize: parse then re-serialize
+            let parsed = try JSONSerialization.jsonObject(with: data)
+            let canonicalData = try JSONSerialization.data(withJSONObject: parsed, options: [.sortedKeys])
+            let canonicalJson = String(data: canonicalData, encoding: .utf8) ?? ""
+
+            // Hash the canonical JSON
+            let metaHash = SHA256Hasher.hashHex(canonicalJson)
+
+            // Build authorization URL
+            let verifyPrefix = authorizedBy.lowercased().hasPrefix("verify:") || authorizedBy.lowercased().hasPrefix("vfy:")
+                ? authorizedBy : "verify:\(authorizedBy)"
+            let httpsBase = convertToHTTPS(verifyPrefix)
+            let authorizationUrl = "\(httpsBase)/\(metaHash)"
+
+            Log.d("Verify", "Authorization URL: \(authorizationUrl)")
+
+            // Fetch authorization endpoint
+            var confirmed = false
+            if let authURL = URL(string: authorizationUrl) {
+                let (authData, authResponse) = try await session.data(from: authURL)
+                if let httpAuth = authResponse as? HTTPURLResponse {
+                    if (200...299).contains(httpAuth.statusCode) {
+                        let body = String(data: authData, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+                        confirmed = body == "OK" || body.isEmpty ||
+                            (body.hasPrefix("{") && ((try? JSONSerialization.jsonObject(with: authData) as? [String: Any])?["status"] as? String) == "OK")
+                    }
+                }
+            }
+
+            // Walk the authorization chain
+            let chain = await walkAuthorizationChain(authorizedByUrl: authorizedBy, primaryConfirmed: confirmed, depth: 0)
+
+            return AuthorizationResult(
+                checked: true,
+                confirmed: confirmed,
+                authorizer: authorizer,
+                description: chain.first?.description,
+                expired: false,
+                successor: nil,
+                error: nil,
+                chain: chain
+            )
+        } catch {
+            return AuthorizationResult(
+                checked: false, confirmed: false, authorizer: authorizer, description: nil,
+                expired: false, successor: nil, error: error.localizedDescription, chain: []
+            )
+        }
+    }
+
+    /// Walk the authorization chain recursively (max 3 levels)
+    private func walkAuthorizationChain(authorizedByUrl: String, primaryConfirmed: Bool, depth: Int) async -> [AuthorizationChainEntry] {
+        let maxDepth = 3
+        guard depth < maxDepth else { return [] }
+
+        let authorizer = authorizedByUrl.components(separatedBy: "/").first ?? authorizedByUrl
+
+        do {
+            let httpsBase = authorizedByUrl.lowercased().hasPrefix("https://") ? authorizedByUrl : "https://\(authorizedByUrl)"
+            let authorizerMetaUrl = "\(httpsBase)/verification-meta.json"
+
+            guard let url = URL(string: authorizerMetaUrl) else {
+                return [AuthorizationChainEntry(authorizer: authorizer, description: nil, confirmed: primaryConfirmed)]
+            }
+
+            let (data, response) = try await session.data(from: url)
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                return [AuthorizationChainEntry(authorizer: authorizer, description: nil, confirmed: primaryConfirmed)]
+            }
+
+            guard let authorizerMeta = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+                return [AuthorizationChainEntry(authorizer: authorizer, description: nil, confirmed: primaryConfirmed)]
+            }
+
+            let description = authorizerMeta["description"] as? String ?? authorizerMeta["issuer"] as? String
+            let entry = AuthorizationChainEntry(authorizer: authorizer, description: description, confirmed: primaryConfirmed)
+
+            // If authorizer itself has authorizedBy, recurse
+            if let subEndorsedBy = authorizerMeta["authorizedBy"] as? String, !subEndorsedBy.isEmpty {
+                let subChain = await walkAuthorizationChain(authorizedByUrl: subEndorsedBy, primaryConfirmed: true, depth: depth + 1)
+                return [entry] + subChain
+            }
+
+            return [entry]
+        } catch {
+            return [AuthorizationChainEntry(authorizer: authorizer, description: nil, confirmed: primaryConfirmed)]
+        }
+    }
+
+    /// Parse simple date string like "2023-01-01"
+    private func parseSimpleDate(_ str: String) -> Date? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        return formatter.date(from: str)
     }
 
     /// Convert verify: or vfy: URL to https://

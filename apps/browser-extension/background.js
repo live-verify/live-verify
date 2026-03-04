@@ -173,7 +173,7 @@ async function verifySelection(selectedText, tab) {
 
     // Fetch verification meta (optional)
     const meta = await fetchVerificationMeta(baseUrl);
-    console.log('[LiveVerify] Meta:', meta ? 'loaded' : 'none', meta?.endorsedBy ? `(authorizedBy: ${meta.endorsedBy})` : '');
+    console.log('[LiveVerify] Meta:', meta ? 'loaded' : 'none', meta?.authorizedBy ? `(authorizedBy: ${meta.authorizedBy})` : '');
 
     // Normalize text
     const normalizedText = normalizeText(certText, meta);
@@ -207,10 +207,10 @@ async function verifySelection(selectedText, tab) {
         // Fall back to simple domain
     }
 
-    // Check authorization if metadata has endorsedBy
+    // Check authorization if metadata has authorizedBy
     let authorization = null;
-    if (meta && meta.endorsedBy) {
-        console.log('[LiveVerify] Checking authorization from', meta.endorsedBy);
+    if (meta && meta.authorizedBy) {
+        console.log('[LiveVerify] Checking authorization from', meta.authorizedBy);
         // Compute metaUrl from baseUrl
         let metaHttpsBase = baseUrl;
         const lowerBase2 = baseUrl.toLowerCase();
@@ -225,7 +225,7 @@ async function verifySelection(selectedText, tab) {
             console.log('[LiveVerify] Authorization result:', JSON.stringify(authorization));
         } catch (e) {
             console.error('[LiveVerify] Authorization check failed:', e.message);
-            authorization = { checked: false, confirmed: false, authorizer: meta.endorsedBy.split('/')[0], description: null, expired: false, successor: null, error: 'Check failed', chain: [] };
+            authorization = { checked: false, confirmed: false, authorizer: meta.authorizedBy.split('/')[0], description: null, expired: false, successor: null, error: 'Check failed', chain: [] };
         }
     }
 
@@ -560,9 +560,9 @@ async function verifyText(selectedText) {
         // Fall back to simple domain
     }
 
-    // Check authorization if metadata has endorsedBy
+    // Check authorization if metadata has authorizedBy
     let authorization = null;
-    if (meta && meta.endorsedBy) {
+    if (meta && meta.authorizedBy) {
         // Compute metaUrl from baseUrl
         let metaHttpsBase2 = baseUrl;
         const lowerBase3 = baseUrl.toLowerCase();
@@ -575,7 +575,7 @@ async function verifyText(selectedText) {
         try {
             authorization = await checkAuthorization(meta, metaUrl2, verificationUrl);
         } catch {
-            authorization = { checked: false, confirmed: false, authorizer: meta.endorsedBy.split('/')[0], description: null, expired: false, successor: null, error: 'Check failed', chain: [] };
+            authorization = { checked: false, confirmed: false, authorizer: meta.authorizedBy.split('/')[0], description: null, expired: false, successor: null, error: 'Check failed', chain: [] };
         }
     }
 
