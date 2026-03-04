@@ -18,7 +18,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/controlsContainer"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -110,6 +110,38 @@
 
         </LinearLayout>
 
+        <!-- Authorization info -->
+        <LinearLayout
+            android:id="@+id/authorizationInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="4dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/authorizationText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:drawablePadding="4dp"
+                android:padding="6dp" />
+
+            <TextView
+                android:id="@+id/authorizationChainText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:textColor="@color/white"
+                android:alpha="0.9"
+                android:paddingStart="24dp"
+                android:paddingEnd="6dp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
         <!-- Diagnostic tabs -->
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/diagnosticTabs"
@@ -129,39 +161,6 @@
 
     </LinearLayout>
 
-    <!-- Controls container -->
-    <LinearLayout
-        android:id="@+id/controlsContainer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:background="@color/surface"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <!-- Capture button -->
-        <Button
-            android:id="@+id/captureBtn"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="@string/capture_verify"
-            android:textSize="16sp"
-            android:enabled="false" />
-
-        <!-- Instructions -->
-        <TextView
-            android:id="@+id/instructionsText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/instructions"
-            android:textColor="@color/text_secondary"
-            android:textSize="12sp"
-            android:gravity="center" />
-
-    </LinearLayout>
 
     <!-- Processing indicator -->
     <ProgressBar

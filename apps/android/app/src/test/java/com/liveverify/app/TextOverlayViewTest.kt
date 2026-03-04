@@ -171,6 +171,110 @@ class TextOverlayViewTest {
         assertEquals(1000f, result.right, 0.01f)
     }
 
+    // sortLinesInReadingOrder tests — uses the real companion function
+
+    @Test
+    fun `sort portrait lines by top ascending`() {
+        val lines = listOf(
+            TextOverlayView.TextLine("line 3", top = 300f, left = 100f),
+            TextOverlayView.TextLine("line 1", top = 100f, left = 100f),
+            TextOverlayView.TextLine("line 2", top = 200f, left = 100f),
+            TextOverlayView.TextLine("verify:example.com", top = 400f, left = 100f)
+        )
+        val sorted = TextOverlayView.sortLinesInReadingOrder(lines)
+        assertEquals("line 1", sorted[0].text)
+        assertEquals("line 2", sorted[1].text)
+        assertEquals("line 3", sorted[2].text)
+        assertEquals("verify:example.com", sorted[3].text)
+    }
+
+    @Test
+    fun `sort landscape lines with verify at low-left descending`() {
+        // Phone rotated CW (ROTATION_90): top values similar, left values vary
+        // verify: at lowest left = reading order is descending left
+        val lines = listOf(
+            TextOverlayView.TextLine("verify:example.com", top = 140f, left = 163f),
+            TextOverlayView.TextLine("in 2015 and 2016", top = 141f, left = 206f),
+            TextOverlayView.TextLine("his role as CIO", top = 142f, left = 233f),
+            TextOverlayView.TextLine("I, Paul Hammant, worked for Kevin Behr in", top = 143f, left = 268f)
+        )
+        val sorted = TextOverlayView.sortLinesInReadingOrder(lines)
+        assertEquals("I, Paul Hammant, worked for Kevin Behr in", sorted[0].text)
+        assertEquals("his role as CIO", sorted[1].text)
+        assertEquals("in 2015 and 2016", sorted[2].text)
+        assertEquals("verify:example.com", sorted[3].text)
+    }
+
+    @Test
+    fun `sort landscape lines with verify at high-left ascending`() {
+        // Phone rotated CCW (ROTATION_270): verify: at highest left
+        val lines = listOf(
+            TextOverlayView.TextLine("I, Paul Hammant", top = 140f, left = 100f),
+            TextOverlayView.TextLine("his role as CIO", top = 141f, left = 130f),
+            TextOverlayView.TextLine("in 2015 and 2016", top = 142f, left = 160f),
+            TextOverlayView.TextLine("verify:example.com", top = 143f, left = 200f)
+        )
+        val sorted = TextOverlayView.sortLinesInReadingOrder(lines)
+        assertEquals("I, Paul Hammant", sorted[0].text)
+        assertEquals("his role as CIO", sorted[1].text)
+        assertEquals("in 2015 and 2016", sorted[2].text)
+        assertEquals("verify:example.com", sorted[3].text)
+    }
+
+    @Test
+    fun `sort single line returns as-is`() {
+        val lines = listOf(TextOverlayView.TextLine("only line", top = 100f, left = 100f))
+        val sorted = TextOverlayView.sortLinesInReadingOrder(lines)
+        assertEquals(1, sorted.size)
+        assertEquals("only line", sorted[0].text)
+    }
+
+    @Test
+    fun `sort empty list returns empty`() {
+        val sorted = TextOverlayView.sortLinesInReadingOrder(emptyList())
+        assertTrue(sorted.isEmpty())
+    }
+
+    @Test
+    fun `sort landscape with vfy prefix`() {
+        val lines = listOf(
+            TextOverlayView.TextLine("vfy:example.com", top = 100f, left = 50f),
+            TextOverlayView.TextLine("cert line 1", top = 101f, left = 200f),
+            TextOverlayView.TextLine("cert line 2", top = 102f, left = 150f)
+        )
+        val sorted = TextOverlayView.sortLinesInReadingOrder(lines)
+        assertEquals("cert line 1", sorted[0].text)
+        assertEquals("cert line 2", sorted[1].text)
+        assertEquals("vfy:example.com", sorted[2].text)
+    }
+
+    @Test
+    fun `sort portrait with no verify line still sorts by top`() {
+        val lines = listOf(
+            TextOverlayView.TextLine("line C", top = 300f, left = 100f),
+            TextOverlayView.TextLine("line A", top = 100f, left = 105f),
+            TextOverlayView.TextLine("line B", top = 200f, left = 95f)
+        )
+        val sorted = TextOverlayView.sortLinesInReadingOrder(lines)
+        assertEquals("line A", sorted[0].text)
+        assertEquals("line B", sorted[1].text)
+        assertEquals("line C", sorted[2].text)
+    }
+
+    @Test
+    fun `sort landscape with no verify line defaults to ascending left`() {
+        // No verify: line, leftRange >> topRange, defaults to ascending left
+        val lines = listOf(
+            TextOverlayView.TextLine("line C", top = 100f, left = 300f),
+            TextOverlayView.TextLine("line A", top = 101f, left = 100f),
+            TextOverlayView.TextLine("line B", top = 102f, left = 200f)
+        )
+        val sorted = TextOverlayView.sortLinesInReadingOrder(lines)
+        assertEquals("line A", sorted[0].text)
+        assertEquals("line B", sorted[1].text)
+        assertEquals("line C", sorted[2].text)
+    }
+
     // Coordinate transformation tests
 
     @Test

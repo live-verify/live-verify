@@ -10,5 +10,8 @@
     <color name="white">#FFFFFF</color>
     <color name="verified_green">#10B981</color>
     <color name="not_verified_red">#EF4444</color>
+    <color name="unauthorized_orange">#F57C00</color>
+    <color name="auth_confirmed_bg">#30388E3C</color>
+    <color name="auth_warning_bg">#30F57C00</color>
     <color name="status_background">#80000000</color>
 </resources>

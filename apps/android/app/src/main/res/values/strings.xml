@@ -17,4 +17,10 @@
     <string name="tab_captured">Captured</string>
     <string name="tab_extracted">Extracted</string>
     <string name="tab_normalized">Normalized</string>
+    <string name="status_checking_authorization">Checking authorization…</string>
+    <string name="auth_authorized_by">Authorized by %1$s</string>
+    <string name="auth_authorized_by_desc">Authorized by %1$s (%2$s)</string>
+    <string name="auth_not_confirmed">Authorization by %1$s — not confirmed</string>
+    <string name="auth_expired">Authorization by %1$s — expired</string>
+    <string name="auth_no_authority">%1$s has no authority to verify</string>
 </resources>

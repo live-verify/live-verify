@@ -19,8 +19,8 @@ package com.liveverify.app
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.content.res.Configuration
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.graphics.RectF
 import android.os.Bundle
@@ -33,18 +33,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ExperimentalGetImage
 import androidx.camera.core.ImageAnalysis
-import androidx.camera.core.ImageCapture
-import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.ImageProxy
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.google.mlkit.vision.common.InputImage
-import com.google.mlkit.vision.text.Text
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.liveverify.app.databinding.ActivityMainBinding
 import kotlinx.coroutines.launch
@@ -54,7 +50,6 @@ import java.util.concurrent.Executors
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private var imageCapture: ImageCapture? = null
     private var imageAnalysis: ImageAnalysis? = null
     private lateinit var cameraExecutor: ExecutorService
     private val textRecognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
@@ -65,15 +60,14 @@ class MainActivity : AppCompatActivity() {
     private var normalizedText: String = ""
     private var computedHash: String = ""
 
-    // Whether blocks are currently selected
-    private var hasSelection: Boolean = false
-
-    // Saved selection bounds (in image coordinates) - captured before clearing overlay
-    private var savedSelectionBounds: RectF? = null
-
-    // Analysis image dimensions (stored but not currently used for scaling)
+    // Analysis image dimensions for coordinate scaling
     private var analysisWidth: Int = 0
     private var analysisHeight: Int = 0
+
+    // Last analysis frame (raw sensor orientation) for the "Captured" tab
+    private var lastAnalysisFrame: Bitmap? = null
+    // rotationDegrees from CameraX for the last analysis frame
+    private var lastAnalysisRotationDegrees: Int = 0
 
     // Diagnostic adapter for ViewPager2
     private lateinit var diagnosticAdapter: DiagnosticAdapter
@@ -100,25 +94,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupUI() {
-        binding.captureBtn.setOnClickListener {
-            captureAndVerify()
-        }
-
         binding.dismissResultBtn.setOnClickListener {
             hideResult()
         }
 
         // Handle tap selection on text overlay
         binding.textOverlay.onBlocksSelected = { blocks ->
-            hasSelection = blocks.isNotEmpty()
-            if (hasSelection) {
+            if (blocks.isNotEmpty()) {
                 val blockCount = blocks.size
                 val hasVerifyUrl = blocks.any {
                     it.text.lowercase().contains("verify:") ||
                     it.text.lowercase().contains("vfy:")
                 }
                 val status = if (hasVerifyUrl) {
-                    "Tap shutter to verify $blockCount block(s)"
+                    "Verifying $blockCount block(s)..."
                 } else {
                     "Selected $blockCount block(s) - no verify URL"
                 }
@@ -173,11 +162,10 @@ class MainActivity : AppCompatActivity() {
                     it.setSurfaceProvider(binding.cameraPreview.surfaceProvider)
                 }
 
-            imageCapture = ImageCapture.Builder()
-                .setCaptureMode(ImageCapture.CAPTURE_MODE_MAXIMIZE_QUALITY)
-                .build()
-
-            // Add image analysis for live text detection
+            // ImageAnalysis: leave targetRotation at default (ROTATION_0 = portrait).
+            // This keeps ML Kit bounding boxes in a stable coordinate space.
+            // Bitmap rotation and line ordering are determined from the ML Kit
+            // text coordinate spread at capture time.
             imageAnalysis = ImageAnalysis.Builder()
                 .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
                 .build()
@@ -195,10 +183,8 @@ class MainActivity : AppCompatActivity() {
                     this,
                     cameraSelector,
                     preview,
-                    imageCapture,
                     imageAnalysis
                 )
-                binding.captureBtn.isEnabled = true
                 updateStatus(getString(R.string.status_ready))
             } catch (e: Exception) {
                 Log.e(TAG, "Camera binding failed", e)
@@ -220,17 +206,23 @@ class MainActivity : AppCompatActivity() {
         )
 
         // ML Kit returns bounding boxes in rotated coordinate space
-        // So we need to pass the rotated dimensions
         val rotationDegrees = imageProxy.imageInfo.rotationDegrees
         val isRotated = rotationDegrees == 90 || rotationDegrees == 270
         val analysisWidth = if (isRotated) imageProxy.height else imageProxy.width
         val analysisHeight = if (isRotated) imageProxy.width else imageProxy.height
 
+        // Store raw sensor bitmap — rotation is determined at capture time
+        // based on ML Kit text coordinate spread
+        try {
+            lastAnalysisFrame = imageProxy.toBitmap()
+            lastAnalysisRotationDegrees = rotationDegrees
+        } catch (e: Exception) {
+            Log.d(TAG, "Could not convert analysis frame to bitmap: ${e.message}")
+        }
+
         textRecognizer.process(inputImage)
             .addOnSuccessListener { visionText ->
-                // Update overlay on main thread
                 runOnUiThread {
-                    // Store analysis dimensions for later scaling to capture resolution
                     this.analysisWidth = analysisWidth
                     this.analysisHeight = analysisHeight
 
@@ -253,6 +245,7 @@ class MainActivity : AppCompatActivity() {
     /**
      * Capture from selected blocks - uses the text already detected by ML Kit.
      * No need to re-run OCR since we already have the text.
+     * Grabs the current analysis frame as a bitmap for the diagnostic "Captured" tab.
      */
     private fun captureFromAnalysisFrame() {
         val selectedBlocks = binding.textOverlay.getSelectedBlocks()
@@ -261,147 +254,72 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
+        // Rotate raw sensor frame to portrait (matching ML Kit coordinate space) for cropping
+        val rawBitmap = lastAnalysisFrame
+        val portraitBitmap = if (rawBitmap != null && lastAnalysisRotationDegrees != 0) {
+            val matrix = Matrix()
+            matrix.postRotate(lastAnalysisRotationDegrees.toFloat())
+            Bitmap.createBitmap(rawBitmap, 0, 0, rawBitmap.width, rawBitmap.height, matrix, true)
+        } else {
+            rawBitmap
+        }
+
         showProcessing(true)
         updateStatus(getString(R.string.status_processing))
 
-        // Collect all lines from selected blocks and sort by Y position
-        // This ensures correct ordering even when text has varying horizontal alignment
-        // (e.g., centered content above left-aligned verify: URL)
+        // Collect lines from selected blocks, sorted in reading order.
+        // ML Kit bounding boxes are always in portrait coordinate space (targetRotation=ROTATION_0).
+        // Determine sort axis from coordinate spread — no reliance on orientation sensor.
+        // Portrait text: Y (top) values vary, X (left) similar → sort by top ascending
+        // Landscape text: X (left) values vary, Y (top) similar → sort by left
+        // Use the verify: line as anchor: it's always last in reading order.
         val allLines = selectedBlocks.flatMap { it.lines }
-        val sortedLines = allLines.sortedBy { it.top }
+        val sortedLines = TextOverlayView.sortLinesInReadingOrder(allLines)
         val combinedText = sortedLines.joinToString("\n") { it.text }
 
-        Log.d(TAG, "Using ${sortedLines.size} lines from ${selectedBlocks.size} selected blocks:")
-        Log.d(TAG, combinedText)
+        val topRange = allLines.maxOf { it.top } - allLines.minOf { it.top }
+        val leftRange = allLines.maxOf { it.left } - allLines.minOf { it.left }
+        val isLandscape = leftRange > topRange * 2
+
+        Log.d(TAG, "Capture: ${sortedLines.size} lines from ${selectedBlocks.size} blocks (topRange=$topRange, leftRange=$leftRange, landscape=$isLandscape)")
+
+        // Save selection bounds before clearing
+        val selectionBounds = binding.textOverlay.getSelectedBounds()
 
         // Clear the overlay
         binding.textOverlay.clearBlocks()
 
-        // Store for diagnostics (no image in this mode)
-        capturedBitmap = null
+        // Crop portrait bitmap to selected region for diagnostic display
+        capturedBitmap = if (portraitBitmap != null && selectionBounds != null) {
+            val scaleX = portraitBitmap.width.toFloat() / analysisWidth.coerceAtLeast(1)
+            val scaleY = portraitBitmap.height.toFloat() / analysisHeight.coerceAtLeast(1)
+            val scaledBounds = RectF(
+                selectionBounds.left * scaleX,
+                selectionBounds.top * scaleY,
+                selectionBounds.right * scaleX,
+                selectionBounds.bottom * scaleY
+            )
+            var cropped = cropBitmap(portraitBitmap, scaledBounds)
+            // If landscape text, rotate cropped image so text reads horizontally
+            if (isLandscape) {
+                val verifyLine = allLines.find { line ->
+                    line.text.lowercase().let { it.contains("verify:") || it.contains("vfy:") }
+                }
+                // verify: at low-left = phone rotated CW → rotate CCW to fix
+                // verify: at high-left = phone rotated CCW → rotate CW to fix
+                val rotateDeg = if (verifyLine != null && verifyLine.left < allLines.map { it.left }.average()) -90f else 90f
+                val m = Matrix()
+                m.postRotate(rotateDeg)
+                cropped = Bitmap.createBitmap(cropped, 0, 0, cropped.width, cropped.height, m, true)
+            }
+            cropped
+        } else {
+            portraitBitmap
+        }
         rawOcrText = combinedText
 
         // Process the combined text
         processRecognizedText(combinedText)
-    }
-
-    private fun captureAndVerify() {
-        val imageCapture = imageCapture ?: return
-
-        binding.captureBtn.isEnabled = false
-        showProcessing(true)
-        updateStatus(getString(R.string.status_processing))
-
-        // Save selection bounds BEFORE clearing the overlay
-        savedSelectionBounds = binding.textOverlay.getSelectedBounds()
-
-        // Clear overlay during capture
-        binding.textOverlay.clearBlocks()
-
-        imageCapture.takePicture(
-            ContextCompat.getMainExecutor(this),
-            object : ImageCapture.OnImageCapturedCallback() {
-                override fun onCaptureSuccess(image: ImageProxy) {
-                    processImage(image)
-                }
-
-                override fun onError(exception: ImageCaptureException) {
-                    Log.e(TAG, "Capture failed", exception)
-                    showProcessing(false)
-                    binding.captureBtn.isEnabled = true
-                    showError("Capture failed: ${exception.message}")
-                }
-            }
-        )
-    }
-
-    @OptIn(ExperimentalGetImage::class)
-    private fun processImage(imageProxy: ImageProxy) {
-        updateStatus(getString(R.string.status_recognizing))
-
-        val mediaImage = imageProxy.image
-        if (mediaImage == null) {
-            imageProxy.close()
-            showError("Failed to get image")
-            return
-        }
-
-        // Convert to bitmap for storage and potential cropping
-        val buffer = imageProxy.planes[0].buffer
-        val bytes = ByteArray(buffer.remaining())
-        buffer.get(bytes)
-        var bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
-
-        // Apply rotation if needed
-        if (imageProxy.imageInfo.rotationDegrees != 0) {
-            val matrix = Matrix()
-            matrix.postRotate(imageProxy.imageInfo.rotationDegrees.toFloat())
-            bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
-        }
-
-        // Crop to selected region if blocks were selected (using saved bounds)
-        val selectionBounds = savedSelectionBounds
-        if (selectionBounds != null) {
-            // Scale from analysis resolution to capture resolution
-            val scaledBounds = scaleBoundsToCapture(selectionBounds, bitmap.width, bitmap.height)
-
-            // Add padding in capture coordinates
-            val padX = scaledBounds.width() * 0.2f
-            val padY = scaledBounds.height() * 0.2f
-            val paddedBounds = RectF(
-                (scaledBounds.left - padX).coerceAtLeast(0f),
-                (scaledBounds.top - padY).coerceAtLeast(0f),
-                (scaledBounds.right + padX).coerceAtMost(bitmap.width.toFloat()),
-                (scaledBounds.bottom + padY).coerceAtMost(bitmap.height.toFloat())
-            )
-
-            bitmap = cropBitmap(bitmap, paddedBounds)
-        }
-
-        // Store for diagnostic display
-        capturedBitmap = bitmap
-
-        val inputImage = InputImage.fromMediaImage(
-            mediaImage,
-            imageProxy.imageInfo.rotationDegrees
-        )
-
-        // If we have selected blocks, OCR the cropped bitmap instead
-        val imageToProcess = if (selectionBounds != null && capturedBitmap != null) {
-            InputImage.fromBitmap(capturedBitmap!!, 0)
-        } else {
-            inputImage
-        }
-
-        textRecognizer.process(imageToProcess)
-            .addOnSuccessListener { visionText ->
-                imageProxy.close()
-                processRecognizedText(visionText.text)
-            }
-            .addOnFailureListener { e ->
-                imageProxy.close()
-                Log.e(TAG, "Text recognition failed", e)
-                showError("Text recognition failed: ${e.message}")
-            }
-    }
-
-    /**
-     * Scale bounds from analysis resolution to capture resolution.
-     */
-    private fun scaleBoundsToCapture(bounds: RectF, captureWidth: Int, captureHeight: Int): RectF {
-        if (analysisWidth == 0 || analysisHeight == 0) {
-            return bounds
-        }
-
-        val scaleX = captureWidth.toFloat() / analysisWidth
-        val scaleY = captureHeight.toFloat() / analysisHeight
-
-        return RectF(
-            bounds.left * scaleX,
-            bounds.top * scaleY,
-            bounds.right * scaleX,
-            bounds.bottom * scaleY
-        )
     }
 
     private fun cropBitmap(bitmap: Bitmap, bounds: RectF): Bitmap {
@@ -414,11 +332,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun processRecognizedText(rawText: String) {
-        // Store raw OCR text for diagnostic display
         this.rawOcrText = rawText
         Log.d(TAG, "OCR Text:\n$rawText")
 
-        // Extract verification URL
         val urlResult = VerificationLogic.extractVerificationUrl(rawText)
         if (urlResult.url == null) {
             showError("No verification URL found in image")
@@ -427,21 +343,17 @@ class MainActivity : AppCompatActivity() {
 
         Log.d(TAG, "Found URL: ${urlResult.url} at line ${urlResult.urlLineIndex}")
 
-        // Extract certification text
         val certText = VerificationLogic.extractCertText(rawText, urlResult.urlLineIndex)
         Log.d(TAG, "Cert text:\n$certText")
 
-        // Normalize and hash
         normalizedText = TextNormalizer.normalizeText(certText)
         computedHash = TextNormalizer.sha256(normalizedText)
         Log.d(TAG, "Hash: $computedHash")
 
         updateStatus(getString(R.string.status_verifying))
 
-        // Build verification URL and verify
         lifecycleScope.launch {
             try {
-                // Fetch meta for suffix
                 val meta = VerificationLogic.fetchVerificationMeta(urlResult.url)
                 val suffix = meta?.optString("appendToHashFileName") ?: ""
 
@@ -453,7 +365,22 @@ class MainActivity : AppCompatActivity() {
                 Log.d(TAG, "Verification URL: $verificationUrl")
 
                 val result = VerificationLogic.verifyHash(verificationUrl)
-                showResult(result)
+
+                // Check authorization chain if meta has authorizedBy
+                var authorization: AuthorizationResult? = null
+                if (meta != null && meta.has("authorizedBy")) {
+                    updateStatus(getString(R.string.status_checking_authorization))
+                    val httpsBase = when {
+                        urlResult.url.lowercase().startsWith("verify:") -> "https://${urlResult.url.substring(7)}"
+                        urlResult.url.lowercase().startsWith("vfy:") -> "https://${urlResult.url.substring(4)}"
+                        else -> urlResult.url
+                    }
+                    val metaUrl = "$httpsBase/verification-meta.json"
+                    authorization = VerificationLogic.checkAuthorization(meta, metaUrl)
+                    Log.d(TAG, "Authorization: checked=${authorization.checked}, confirmed=${authorization.confirmed}, authorizer=${authorization.authorizer}")
+                }
+
+                showResult(result, authorization)
             } catch (e: Exception) {
                 Log.e(TAG, "Verification failed", e)
                 showError("Verification failed: ${e.message}")
@@ -461,14 +388,21 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun showResult(result: VerificationResult) {
+    private fun showResult(result: VerificationResult, authorization: AuthorizationResult? = null) {
         showProcessing(false)
 
         when (result) {
             is VerificationResult.Verified -> {
+                val isAuthorized = authorization?.confirmed == true
+                val color = if (isAuthorized) {
+                    getColor(R.color.verified_green)
+                } else {
+                    getColor(R.color.unauthorized_orange)
+                }
                 binding.resultIcon.text = "✓"
-                binding.resultIcon.setTextColor(getColor(R.color.verified_green))
+                binding.resultIcon.setTextColor(color)
                 binding.resultText.text = getString(R.string.result_verified)
+                binding.resultText.setTextColor(color)
                 binding.resultDomain.text = result.domain
                 binding.resultDomain.visibility = View.VISIBLE
             }
@@ -476,33 +410,84 @@ class MainActivity : AppCompatActivity() {
                 binding.resultIcon.text = "✗"
                 binding.resultIcon.setTextColor(getColor(R.color.not_verified_red))
                 binding.resultText.text = getString(R.string.result_not_verified)
-                binding.resultDomain.text = result.reason
+                binding.resultDomain.text = "${result.domain} — ${result.reason}"
                 binding.resultDomain.visibility = View.VISIBLE
             }
             is VerificationResult.Error -> {
                 binding.resultIcon.text = "!"
-                binding.resultIcon.setTextColor(getColor(R.color.not_verified_red))
+                binding.resultIcon.setTextColor(getColor(R.color.unauthorized_orange))
                 binding.resultText.text = getString(R.string.result_error)
                 binding.resultDomain.text = result.message
                 binding.resultDomain.visibility = View.VISIBLE
             }
         }
 
-        binding.resultOverlay.visibility = View.VISIBLE
+        showAuthorizationInfo(result, authorization)
 
-        // Show diagnostic info
+        binding.resultOverlay.visibility = View.VISIBLE
         showDiagnosticInfo()
     }
 
+    private fun showAuthorizationInfo(result: VerificationResult, authorization: AuthorizationResult?) {
+        val domain = when (result) {
+            is VerificationResult.Verified -> result.domain
+            is VerificationResult.NotVerified -> result.domain
+            else -> null
+        }
+
+        if (authorization != null && authorization.checked) {
+            binding.authorizationInfo.visibility = View.VISIBLE
+
+            when {
+                authorization.expired -> {
+                    binding.authorizationText.text = getString(R.string.auth_expired, authorization.authorizer ?: "unknown")
+                    binding.authorizationText.setBackgroundColor(getColor(R.color.auth_warning_bg))
+                    binding.authorizationText.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, 0, 0)
+                }
+                authorization.confirmed -> {
+                    val firstEntry = authorization.chain.firstOrNull()
+                    val desc = firstEntry?.description
+                    val text = if (desc != null) {
+                        getString(R.string.auth_authorized_by_desc, authorization.authorizer ?: "unknown", desc)
+                    } else {
+                        getString(R.string.auth_authorized_by, authorization.authorizer ?: "unknown")
+                    }
+                    binding.authorizationText.text = "✓ $text"
+                    binding.authorizationText.setBackgroundColor(getColor(R.color.auth_confirmed_bg))
+
+                    if (authorization.chain.size > 1) {
+                        val chainText = authorization.chain.drop(1).joinToString("\n") { entry ->
+                            val entryDesc = entry.description?.let { " ($it)" } ?: ""
+                            "← ${entry.authorizer}$entryDesc"
+                        }
+                        binding.authorizationChainText.text = chainText
+                        binding.authorizationChainText.visibility = View.VISIBLE
+                    } else {
+                        binding.authorizationChainText.visibility = View.GONE
+                    }
+                }
+                else -> {
+                    binding.authorizationText.text = "⚠ " + getString(R.string.auth_not_confirmed, authorization.authorizer ?: "unknown")
+                    binding.authorizationText.setBackgroundColor(getColor(R.color.auth_warning_bg))
+                }
+            }
+        } else if (domain != null) {
+            binding.authorizationInfo.visibility = View.VISIBLE
+            binding.authorizationText.text = "⚠ " + getString(R.string.auth_no_authority, domain)
+            binding.authorizationText.setBackgroundColor(getColor(R.color.auth_warning_bg))
+            binding.authorizationChainText.visibility = View.GONE
+        } else {
+            binding.authorizationInfo.visibility = View.GONE
+        }
+    }
+
     private fun showDiagnosticInfo() {
-        // Log diagnostic info
         Log.d(TAG, "=== DIAGNOSTIC INFO ===")
         Log.d(TAG, "Raw OCR text with return symbols:\n${DiagnosticHelper.withReturnSymbols(rawOcrText)}")
         Log.d(TAG, "Normalized text:\n$normalizedText")
         Log.d(TAG, "Hash: $computedHash")
         Log.d(TAG, "=======================")
 
-        // Populate diagnostic tabs
         diagnosticAdapter.capturedImage = capturedBitmap
         diagnosticAdapter.extractedText = rawOcrText
         diagnosticAdapter.normalizedText = normalizedText
@@ -511,13 +496,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun hideResult() {
         binding.resultOverlay.visibility = View.GONE
-        binding.captureBtn.isEnabled = true
-        binding.captureBtn.text = getString(R.string.capture_verify)
-        hasSelection = false
-        savedSelectionBounds = null
+        binding.authorizationInfo.visibility = View.GONE
+        binding.authorizationChainText.visibility = View.GONE
         updateStatus(getString(R.string.status_ready))
 
-        // Clear diagnostic data
         capturedBitmap = null
         rawOcrText = ""
         normalizedText = ""
@@ -527,7 +509,6 @@ class MainActivity : AppCompatActivity() {
     private fun showError(message: String) {
         showProcessing(false)
 
-        // Show error in result overlay so user can see diagnostic tabs
         binding.resultIcon.text = "!"
         binding.resultIcon.setTextColor(getColor(R.color.not_verified_red))
         binding.resultText.text = getString(R.string.result_error)
@@ -535,7 +516,6 @@ class MainActivity : AppCompatActivity() {
         binding.resultDomain.visibility = View.VISIBLE
         binding.resultOverlay.visibility = View.VISIBLE
 
-        // Show diagnostic info in tabs
         showDiagnosticInfo()
     }
 
@@ -545,6 +525,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateStatus(status: String) {
         binding.statusText.text = status
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        startCamera()
     }
 
     override fun onDestroy() {

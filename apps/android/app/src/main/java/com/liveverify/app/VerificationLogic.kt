@@ -22,6 +22,9 @@ import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONObject
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 /**
  * Pure functions for verification logic matching public/app-logic.js
@@ -165,7 +168,7 @@ object VerificationLogic {
             val response = client.newCall(request).execute()
             when (response.code) {
                 200 -> VerificationResult.Verified(getDomainFromUrl(verificationUrl))
-                404 -> VerificationResult.NotVerified("Hash not found on server")
+                404 -> VerificationResult.NotVerified(getDomainFromUrl(verificationUrl), "Hash not found on server")
                 else -> VerificationResult.Error("Server returned ${response.code}")
             }
         } catch (e: Exception) {
@@ -173,13 +176,205 @@ object VerificationLogic {
         }
     }
 
-    private fun getDomainFromUrl(url: String): String {
+    fun getDomainFromUrl(url: String): String {
         return try {
             val withoutProtocol = url.removePrefix("https://").removePrefix("http://")
             withoutProtocol.substringBefore("/")
         } catch (e: Exception) {
             url
         }
+    }
+
+    /**
+     * Convert verify: or vfy: URL to https://
+     */
+    private fun convertToHttps(url: String): String {
+        val lower = url.lowercase()
+        return when {
+            lower.startsWith("verify:") -> "https://${url.substring(7)}"
+            lower.startsWith("vfy:") -> "https://${url.substring(4)}"
+            lower.startsWith("https://") -> url
+            else -> "https://$url"
+        }
+    }
+
+    /**
+     * Check authorization chain from verification-meta.json using merkle commitment.
+     * The authorizer hashes the issuer's entire verification-meta.json (canonicalized),
+     * not just the domain. This binds the authorization to the exact content of the
+     * issuer's self-description (claimType, date bounds, everything).
+     *
+     * @param meta The issuer's full verification-meta.json object
+     * @param metaUrl The URL from which verification-meta.json was fetched (for re-fetch)
+     * @return AuthorizationResult with chain
+     */
+    suspend fun checkAuthorization(meta: JSONObject, metaUrl: String): AuthorizationResult = withContext(Dispatchers.IO) {
+        val authorizedBy = meta.optString("authorizedBy", "")
+        if (authorizedBy.isEmpty()) {
+            return@withContext AuthorizationResult.unchecked
+        }
+
+        val authorizer = authorizedBy.split("/").first()
+
+        // Check date bounds
+        val now = Date()
+        val isoFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US)
+        val simpleFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)
+
+        meta.optString("authorizedFrom", "").takeIf { it.isNotEmpty() }?.let { fromStr ->
+            val from = try { isoFormat.parse(fromStr) } catch (_: Exception) {
+                try { simpleFormat.parse(fromStr) } catch (_: Exception) { null }
+            }
+            if (from != null && now.before(from)) {
+                return@withContext AuthorizationResult(
+                    checked = true, confirmed = false, authorizer = authorizer, description = null,
+                    expired = false, successor = null, error = "Authorization period has not started yet", chain = emptyList()
+                )
+            }
+        }
+
+        meta.optString("authorizedTo", "").takeIf { it.isNotEmpty() }?.let { toStr ->
+            val to = try { isoFormat.parse(toStr) } catch (_: Exception) {
+                try { simpleFormat.parse(toStr) } catch (_: Exception) { null }
+            }
+            if (to != null && now.after(to)) {
+                return@withContext AuthorizationResult(
+                    checked = true, confirmed = false, authorizer = authorizer, description = null,
+                    expired = true, successor = meta.optString("successor", "").takeIf { it.isNotEmpty() }, error = null, chain = emptyList()
+                )
+            }
+        }
+
+        try {
+            // Re-fetch verification-meta.json for canonical hashing
+            val request = Request.Builder().url(metaUrl).build()
+            val response = client.newCall(request).execute()
+            if (!response.isSuccessful) {
+                return@withContext AuthorizationResult(
+                    checked = false, confirmed = false, authorizer = authorizer, description = null,
+                    expired = false, successor = null, error = "Could not re-fetch meta: HTTP ${response.code}", chain = emptyList()
+                )
+            }
+
+            val rawBytes = response.body?.string() ?: ""
+            // Canonicalize: parse then re-stringify to eliminate formatting differences
+            val canonicalJson = JSONObject(rawBytes).toString()
+
+            // Hash the canonical JSON
+            val metaHash = TextNormalizer.sha256(canonicalJson)
+
+            // Build authorization URL: verify:{authorizedBy}/{hash}
+            val verifyPrefix = if (authorizedBy.lowercase().startsWith("verify:") || authorizedBy.lowercase().startsWith("vfy:"))
+                authorizedBy else "verify:$authorizedBy"
+            val authorizationUrl = buildVerificationUrl(verifyPrefix, metaHash)
+
+            // Fetch authorization endpoint
+            var confirmed = false
+            try {
+                val authRequest = Request.Builder().url(authorizationUrl).build()
+                val authResponse = client.newCall(authRequest).execute()
+                if (authResponse.isSuccessful) {
+                    val body = authResponse.body?.string()?.trim() ?: ""
+                    confirmed = body == "OK" || body.isEmpty() ||
+                        (body.startsWith("{") && try { JSONObject(body).optString("status") == "OK" } catch (_: Exception) { false })
+                }
+            } catch (_: Exception) {
+                // Authorization fetch failed - not confirmed
+            }
+
+            // Walk the authorization chain
+            val chain = walkAuthorizationChain(authorizedBy, confirmed, 0)
+
+            AuthorizationResult(
+                checked = true,
+                confirmed = confirmed,
+                authorizer = authorizer,
+                description = chain.firstOrNull()?.description,
+                expired = false,
+                successor = null,
+                error = null,
+                chain = chain
+            )
+        } catch (e: Exception) {
+            AuthorizationResult(
+                checked = false, confirmed = false, authorizer = authorizer, description = null,
+                expired = false, successor = null, error = e.message, chain = emptyList()
+            )
+        }
+    }
+
+    /**
+     * Walk the authorization chain by fetching each authorizer's verification-meta.json.
+     * Returns a list of chain entries with authorizer domain, description, and confirmation status.
+     * Max depth: 3 levels.
+     */
+    private suspend fun walkAuthorizationChain(
+        authorizedByUrl: String,
+        primaryConfirmed: Boolean,
+        depth: Int
+    ): List<AuthorizationChainEntry> {
+        val maxDepth = 3
+        if (depth >= maxDepth) return emptyList()
+
+        val authorizer = authorizedByUrl.split("/").first()
+
+        return try {
+            val httpsBase = convertToHttps(authorizedByUrl)
+            val authorizerMetaUrl = "$httpsBase/verification-meta.json"
+
+            val request = Request.Builder().url(authorizerMetaUrl).build()
+            val response = client.newCall(request).execute()
+            if (!response.isSuccessful) {
+                return listOf(AuthorizationChainEntry(authorizer, null, primaryConfirmed))
+            }
+
+            val authorizerMeta = JSONObject(response.body?.string() ?: "{}")
+            val description = authorizerMeta.optString("description", "").takeIf { it.isNotEmpty() }
+                ?: authorizerMeta.optString("issuer", "").takeIf { it.isNotEmpty() }
+
+            val entry = AuthorizationChainEntry(authorizer, description, primaryConfirmed)
+
+            // If authorizer itself has authorizedBy, recurse
+            val subAuthorizedBy = authorizerMeta.optString("authorizedBy", "")
+            if (subAuthorizedBy.isNotEmpty()) {
+                val subChain = walkAuthorizationChain(subAuthorizedBy, true, depth + 1)
+                listOf(entry) + subChain
+            } else {
+                listOf(entry)
+            }
+        } catch (_: Exception) {
+            listOf(AuthorizationChainEntry(authorizer, null, primaryConfirmed))
+        }
+    }
+}
+
+/**
+ * Entry in the authorization chain
+ */
+data class AuthorizationChainEntry(
+    val authorizer: String,
+    val description: String?,
+    val confirmed: Boolean
+)
+
+/**
+ * Result of an authorization check
+ */
+data class AuthorizationResult(
+    val checked: Boolean,
+    val confirmed: Boolean,
+    val authorizer: String?,
+    val description: String?,
+    val expired: Boolean,
+    val successor: String?,
+    val error: String?,
+    val chain: List<AuthorizationChainEntry>
+) {
+    companion object {
+        val unchecked = AuthorizationResult(
+            checked = false, confirmed = false, authorizer = null, description = null,
+            expired = false, successor = null, error = null, chain = emptyList()
+        )
     }
 }
 
@@ -188,6 +383,6 @@ object VerificationLogic {
  */
 sealed class VerificationResult {
     data class Verified(val domain: String) : VerificationResult()
-    data class NotVerified(val reason: String) : VerificationResult()
+    data class NotVerified(val domain: String, val reason: String) : VerificationResult()
     data class Error(val message: String) : VerificationResult()
 }

@@ -43,7 +43,8 @@ class TextOverlayView @JvmOverloads constructor(
      */
     data class TextLine(
         val text: String,
-        val top: Float  // Y position (top of bounding box) in image coordinates
+        val top: Float,  // Y position (top of bounding box) in image coordinates
+        val left: Float  // X position (left of bounding box) in image coordinates
     )
 
     /**
@@ -56,9 +57,9 @@ class TextOverlayView @JvmOverloads constructor(
         val lines: List<TextLine>,
         val originalBounds: RectF // Bounds in image coordinates
     ) {
-        // Convenience property to get text sorted by vertical position
+        // Text in ML Kit's reading order (already correct within each block)
         val text: String
-            get() = lines.sortedBy { it.top }.joinToString("\n") { it.text }
+            get() = lines.joinToString("\n") { it.text }
     }
 
     private val textBlocks = mutableListOf<TextBlock>()
@@ -67,6 +68,34 @@ class TextOverlayView @JvmOverloads constructor(
     companion object {
         // Maximum vertical gap between blocks to consider them part of the same region
         private const val VERTICAL_GAP_THRESHOLD = 50f // pixels in image coordinates
+
+        /**
+         * Sort lines in reading order based on ML Kit coordinate spread.
+         * ML Kit always returns bounding boxes in portrait coordinate space.
+         * Portrait text: Y (top) varies → sort by top ascending.
+         * Landscape text: X (left) varies → sort by left, direction determined
+         * by verify: line position (it's always last in reading order).
+         */
+        fun sortLinesInReadingOrder(lines: List<TextLine>): List<TextLine> {
+            if (lines.size <= 1) return lines
+
+            val topRange = lines.maxOf { it.top } - lines.minOf { it.top }
+            val leftRange = lines.maxOf { it.left } - lines.minOf { it.left }
+
+            return if (leftRange > topRange * 2) {
+                // Landscape: use verify: line as anchor for direction
+                val verifyLine = lines.find { line ->
+                    line.text.lowercase().let { it.contains("verify:") || it.contains("vfy:") }
+                }
+                if (verifyLine != null && verifyLine.left < lines.map { it.left }.average()) {
+                    lines.sortedByDescending { it.left }
+                } else {
+                    lines.sortedBy { it.left }
+                }
+            } else {
+                lines.sortedBy { it.top }
+            }
+        }
     }
 
     // Image dimensions for coordinate transformation
@@ -150,7 +179,8 @@ class TextOverlayView @JvmOverloads constructor(
                     line.boundingBox?.let { lineBox ->
                         blockLines.add(TextLine(
                             text = line.text,
-                            top = lineBox.top.toFloat()
+                            top = lineBox.top.toFloat(),
+                            left = lineBox.left.toFloat()
                         ))
                     }
                 }
@@ -257,13 +287,22 @@ class TextOverlayView @JvmOverloads constructor(
             canvas.drawRect(block.bounds, if (isSelected) selectedPaint else boxPaint)
         }
 
-        // Draw capture button if blocks are selected
-        if (selectedBlocks.isNotEmpty()) {
-            // Position button at center-right of the combined selection bounds
+        // Draw capture button only if blocks are selected but NO verify: URL
+        // (auto-capture handles the verify: case, so no button needed)
+        val hasVerifyUrl = selectedBlocks.any { containsVerifyUrl(it.text) }
+        if (selectedBlocks.isNotEmpty() && !hasVerifyUrl) {
+            // Position button to the right of the selection, vertically centered (matches iOS)
             val combinedBounds = getSelectedViewBounds()
             if (combinedBounds != null) {
-                val cx = combinedBounds.right + captureButtonRadius + 20f
-                val cy = combinedBounds.centerY()
+                val margin = captureButtonRadius + 20f
+                var cx = combinedBounds.right + margin
+                var cy = combinedBounds.centerY()
+
+                // If button would be off-screen to the right, place it below-right
+                if (cx + captureButtonRadius > width) {
+                    cx = combinedBounds.right - margin
+                    cy = combinedBounds.bottom + margin
+                }
 
                 // Keep button on screen
                 val adjustedCx = cx.coerceIn(captureButtonRadius + 10f, width - captureButtonRadius - 10f)
@@ -323,20 +362,29 @@ class TextOverlayView @JvmOverloads constructor(
             val tappedBlock = findBlockAt(event.x, event.y)
             if (tappedBlock != null) {
                 selectBlockAndExtendToVerifyLine(tappedBlock)
+                onBlocksSelected?.invoke(selectedBlocks.toList())
+                invalidate()
+
+                // Auto-capture if selection includes a verify: URL
+                val hasVerifyUrl = selectedBlocks.any { containsVerifyUrl(it.text) }
+                if (hasVerifyUrl) {
+                    onCaptureRequested?.invoke()
+                }
             } else {
                 selectedBlocks.clear()
+                onBlocksSelected?.invoke(selectedBlocks.toList())
+                invalidate()
             }
-            onBlocksSelected?.invoke(selectedBlocks.toList())
-            invalidate()
             return true
         }
         return true
     }
 
     /**
-     * Select a block and find the nearest verify: block.
-     * Simply finds the closest verify: block regardless of direction,
-     * since phone orientation can make "below" mean different things.
+     * Select a block, find the nearest verify: block, and also select all blocks
+     * that form a contiguous group with them. ML Kit often splits what is visually
+     * one region into multiple blocks, so we grow the selection to include
+     * vertically adjacent blocks (above and below the tapped block).
      */
     private fun selectBlockAndExtendToVerifyLine(startBlock: TextBlock) {
         selectedBlocks.clear()
@@ -370,6 +418,35 @@ class TextOverlayView @JvmOverloads constructor(
 
         if (nearestVerifyBlock != null) {
             selectedBlocks.add(nearestVerifyBlock)
+
+            // Grow selection iteratively: include any block that is vertically
+            // adjacent to the current selection. This catches blocks ABOVE the
+            // tapped block that ML Kit split into separate blocks.
+            // Use half the tapped block's height as the adjacency margin.
+            val margin = startBlock.originalBounds.height() * 0.5f
+
+            var prevSize = 0
+            while (selectedBlocks.size != prevSize) {
+                prevSize = selectedBlocks.size
+
+                val currentTop = selectedBlocks.minOf { it.originalBounds.top }
+                val currentBottom = selectedBlocks.maxOf { it.originalBounds.bottom }
+                val currentLeft = selectedBlocks.minOf { it.originalBounds.left }
+                val currentRight = selectedBlocks.maxOf { it.originalBounds.right }
+
+                for (block in textBlocks) {
+                    if (block in selectedBlocks) continue
+                    // Block is vertically adjacent/overlapping with current selection
+                    // and horizontally overlapping
+                    val verticallyAdjacent = block.originalBounds.bottom >= currentTop - margin &&
+                            block.originalBounds.top <= currentBottom + margin
+                    val horizontallyOverlapping = block.originalBounds.right >= currentLeft &&
+                            block.originalBounds.left <= currentRight
+                    if (verticallyAdjacent && horizontallyOverlapping) {
+                        selectedBlocks.add(block)
+                    }
+                }
+            }
         }
     }
 

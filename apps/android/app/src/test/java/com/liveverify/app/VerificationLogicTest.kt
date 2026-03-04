@@ -112,9 +112,9 @@ verify : example.com/path"""
     }
 
     @Test
-    fun `should strip trailing garbage after space in URL`() {
+    fun `should remove all spaces from URL as OCR artifacts`() {
         val rawText = """Text
-verify:example.com/path garbage"""
+verify:example .com/path"""
 
         val result = VerificationLogic.extractVerificationUrl(rawText)
         assertEquals("verify:example.com/path", result.url)
@@ -210,6 +210,38 @@ verify:paul-hammant.github.io/live-verify/c"""
         assertTrue(certText.contains("Unseen University"))
         assertTrue(certText.contains("Ponder Stibbons"))
         assertFalse(certText.contains("verify:"))
+    }
+
+    // ==================== getDomainFromUrl Tests ====================
+
+    @Test
+    fun `should extract domain from https URL`() {
+        assertEquals("example.com", VerificationLogic.getDomainFromUrl("https://example.com/path/hash"))
+    }
+
+    @Test
+    fun `should extract domain from URL with subdirectory`() {
+        assertEquals("paulhammant.com", VerificationLogic.getDomainFromUrl("https://paulhammant.com/refs/abc123.json"))
+    }
+
+    @Test
+    fun `should extract domain from URL with port`() {
+        assertEquals("example.com:8443", VerificationLogic.getDomainFromUrl("https://example.com:8443/path"))
+    }
+
+    @Test
+    fun `should handle URL with no path`() {
+        assertEquals("example.com", VerificationLogic.getDomainFromUrl("https://example.com"))
+    }
+
+    @Test
+    fun `should handle http URL`() {
+        assertEquals("example.com", VerificationLogic.getDomainFromUrl("http://example.com/path"))
+    }
+
+    @Test
+    fun `should handle bare string with no protocol`() {
+        assertEquals("example.com", VerificationLogic.getDomainFromUrl("example.com/path"))
     }
 
     // ==================== Integration Test ====================

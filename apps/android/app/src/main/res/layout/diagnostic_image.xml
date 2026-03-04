@@ -8,21 +8,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
+    <ImageView
+        android:id="@+id/diagnosticImage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
-
-        <ImageView
-            android:id="@+id/diagnosticImage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            android:padding="8dp"
-            android:contentDescription="@string/tab_captured" />
-
-    </ScrollView>
+        android:scaleType="fitCenter"
+        android:padding="8dp"
+        android:contentDescription="@string/tab_captured" />
 
     <TextView
         android:id="@+id/noImageText"
