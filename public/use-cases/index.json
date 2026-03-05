@@ -1,7 +1,7 @@
 {
-  "generated": "2026-03-05T17:47:09.423Z",
-  "totalUseCases": 450,
-  "totalFurtherDerivations": 538,
+  "generated": "2026-03-05T19:59:52.807Z",
+  "totalUseCases": 457,
+  "totalFurtherDerivations": 544,
   "categories": {
     "Real Estate & Property": 31,
     "Charitable & Non-Profit": 7,
@@ -13,9 +13,9 @@
     "Immigration & Visa Documents": 17,
     "Financial & Legal Documents": 8,
     "Insurance Claims & Operations": 15,
-    "Chain of Custody & Logistics": 17,
+    "Chain of Custody & Logistics": 18,
     "Travel & Hospitality": 21,
-    "Professional & Occupational Licenses": 12,
+    "Professional & Occupational Licenses": 13,
     "Identity & Authority Verification": 33,
     "Healthcare & Medical Records": 12,
     "Professional & Educational Qualifications": 19,
@@ -23,16 +23,16 @@
     "Customs & Trade Compliance": 6,
     "Sports & Athletics": 6,
     "Specialty Insurance": 23,
-    "Business & Commerce": 13,
+    "Business & Commerce": 14,
     "Legal & Court Documents": 14,
     "Banking & Payments": 15,
-    "Financial Compliance": 12,
+    "Financial Compliance": 15,
     "Investment & Fintech": 11,
     "Site & Equipment Safety": 11,
     "Commercial Lines Insurance": 11,
     "Product Certifications & Compliance": 12,
     "Professional Ethics & Compliance": 9,
-    "Environmental Permits & Compliance": 9,
+    "Environmental Permits & Compliance": 10,
     "Scientific & Research": 7,
     "Warehousing & Inventory": 4,
     "Government & Regulatory": 6,
@@ -255,6 +255,35 @@
         "supply-chain",
         "trade-finance",
         "waybill"
+      ]
+    },
+    {
+      "slug": "aircraft-parts-traceability",
+      "title": "Aircraft & Safety-Critical Parts Traceability",
+      "category": "Chain of Custody & Logistics",
+      "volume": "Large",
+      "retention": "Permanent (life of part + airframe retirement)",
+      "verificationMode": "camera",
+      "furtherDerivations": 1,
+      "snippet": "Manufacturer name, part number, serial number, manufacture date, verification domain. The etching is minimal — identity only. The rich data (installation history, cycle counts, overhaul records, airwo",
+      "tags": [
+        "aviation",
+        "aircraft-parts",
+        "counterfeit",
+        "faa",
+        "easa",
+        "8130-3",
+        "bogus-parts",
+        "mro",
+        "airworthiness",
+        "mode-s",
+        "laser-etching",
+        "safety-critical",
+        "turbine",
+        "marine",
+        "rail",
+        "nuclear",
+        "medical-device"
       ]
     },
     {
@@ -1097,6 +1126,26 @@
       ]
     },
     {
+      "slug": "casino-gaming-session-records",
+      "title": "Casino Gaming Session Records",
+      "category": "Financial Compliance",
+      "volume": "Large",
+      "retention": "5-7 years (BSA/AML compliance)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Casino/property name, patron name, player card number (masked), session start/end times, buy-in amount and method (cash/credit/wire), table/machine assignment, cash-out amount and method, net result, ",
+      "tags": [
+        "casino",
+        "gaming",
+        "aml",
+        "money-laundering",
+        "structuring",
+        "ctrc",
+        "chip-redemption",
+        "financial-crime"
+      ]
+    },
+    {
       "slug": "catastrophe-claims-batch-reports",
       "title": "Catastrophe Claims Batch Reports",
       "category": "Insurance Claims & Operations",
@@ -1323,6 +1372,26 @@
         "first-aid",
         "personal-safety",
         "home-security"
+      ]
+    },
+    {
+      "slug": "cifas-fraud-prevention-markers",
+      "title": "CIFAS Fraud Prevention Markers & Status Certificates",
+      "category": "Financial Compliance",
+      "volume": "Medium",
+      "retention": "6 years (marker duration) + appeal records",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Subject name, date of birth, certificate date, certificate reference number, marker status (none/protective/fraud), marker type (if present), filing date, expiry date, filing member (anonymised or nam",
+      "tags": [
+        "cifas",
+        "fraud-marker",
+        "protective-registration",
+        "identity-fraud",
+        "uk",
+        "financial-crime",
+        "banking",
+        "unbanked"
       ]
     },
     {
@@ -2109,14 +2178,19 @@
       "retention": "1-7 years (varies by use)",
       "verificationMode": "clip",
       "furtherDerivations": 0,
-      "snippet": "Issuing agency, request/reference number, subject name, date of birth (or other identifiers), search scope, result (no record/records found), search date, validity period.",
+      "snippet": "Issuing agency, request/reference number, subject name, date of birth (or other identifiers), search scope, result (no record/records found), search date, validity period. For UK DBS: certificate numb",
       "tags": [
         "background-check",
         "criminal-history",
         "clearance",
         "NCIC",
         "fingerprint",
-        "police-check"
+        "police-check",
+        "dbs",
+        "disclosure-and-barring",
+        "safeguarding",
+        "enhanced-dbs",
+        "uk"
       ]
     },
     {
@@ -2543,14 +2617,17 @@
       "retention": "7-10 years (tax audit)",
       "verificationMode": "clip",
       "furtherDerivations": 1,
-      "snippet": "Donor name, donation amount, date received, charity Tax ID (EIN), charity name, donation type (Cash/Stock/In-Kind), 501(c)(3) status statement, receipt serial number.",
+      "snippet": "Donor name, donation amount, date received, charity registration (US: EIN / UK: Charity Commission number), charity name, donation type (Cash/Stock/In-Kind), tax status statement (US: 501(c)(3) / UK: ",
       "tags": [
         "non-profit",
         "donation-receipt",
         "irs-compliance",
         "tax-deduction",
         "charity-fraud",
-        "philanthropy"
+        "philanthropy",
+        "gift-aid",
+        "hmrc",
+        "uk"
       ]
     },
     {
@@ -3531,6 +3608,30 @@
         "variable-annuity",
         "interval-fund",
         "bdc"
+      ]
+    },
+    {
+      "slug": "gas-safe-regulated-trade-cards",
+      "title": "Gas Safe & Regulated Trade ID Cards",
+      "category": "Professional & Occupational Licenses",
+      "volume": "Large",
+      "retention": "Registration period + renewal",
+      "verificationMode": "camera",
+      "furtherDerivations": 1,
+      "snippet": "Engineer's full name, registration number, registration body (Gas Safe, NICEIC, OFTEC, HETAS), employer/company name, expiry date, specific qualification categories (appliance types for gas, scope of ",
+      "tags": [
+        "gas-safe",
+        "corgi",
+        "niceic",
+        "oftec",
+        "hetas",
+        "tradesperson",
+        "regulated-trade",
+        "uk",
+        "doorstep",
+        "consumer-protection",
+        "photo-verification",
+        "credential-stack"
       ]
     },
     {
@@ -5951,6 +6052,26 @@
       ]
     },
     {
+      "slug": "pawnbroker-secondhand-dealer-records",
+      "title": "Pawnbroker & Second-Hand Dealer Transaction Records",
+      "category": "Financial Compliance",
+      "volume": "Large",
+      "retention": "3-7 years (varies by jurisdiction)",
+      "verificationMode": "both",
+      "furtherDerivations": 1,
+      "snippet": "Dealer name and license number, item description (category, material, weight, distinguishing marks), serial number (if present), amount paid, payment method, seller ID type and masked number, transact",
+      "tags": [
+        "pawnbroker",
+        "second-hand",
+        "stolen-goods",
+        "money-laundering",
+        "structuring",
+        "cash-economy",
+        "police",
+        "financial-crime"
+      ]
+    },
+    {
       "slug": "pay-stubs-payslips",
       "title": "Pay Stubs and Payslips",
       "category": "Professional & Educational Qualifications",
@@ -8310,6 +8431,28 @@
       ]
     },
     {
+      "slug": "trader-tax-status-certificates",
+      "title": "Trader Tax Status Certificates",
+      "category": "Business & Commerce",
+      "volume": "Large",
+      "retention": "Rolling (current status)",
+      "verificationMode": "both",
+      "furtherDerivations": 0,
+      "snippet": "Business name, masked UTR (Unique Taxpayer Reference), VAT registration number (if registered), VAT registration status, registration date, Making Tax Digital compliance status, Self Assessment filing",
+      "tags": [
+        "vat",
+        "tax-status",
+        "cash-economy",
+        "hmrc",
+        "making-tax-digital",
+        "tradesperson",
+        "consumer-protection",
+        "uk",
+        "eu",
+        "cash-limit"
+      ]
+    },
+    {
       "slug": "training-completion-certificates",
       "title": "Training Completion Certificates",
       "category": "Professional & Educational Qualifications",
@@ -8835,6 +8978,27 @@
       ]
     },
     {
+      "slug": "waste-carrier-licences",
+      "title": "Waste Carrier Licences & Duty of Care Documentation",
+      "category": "Environmental Permits & Compliance",
+      "volume": "Large",
+      "retention": "3 years (waste transfer notes) / licence duration + renewal",
+      "verificationMode": "camera",
+      "furtherDerivations": 1,
+      "snippet": "Licence: Carrier name, registration number, tier (Upper/Lower), registration date, renewal date, authorised waste types, registered address, company number or sole trader details.",
+      "tags": [
+        "waste-carrier",
+        "fly-tipping",
+        "environment-agency",
+        "duty-of-care",
+        "waste-transfer-note",
+        "illegal-dumping",
+        "uk",
+        "householder-liability",
+        "environmental-crime"
+      ]
+    },
+    {
       "slug": "weight-tickets-scale-calibration",
       "title": "Weight Tickets and Scale Calibration",
       "category": "Warehousing & Inventory",
@@ -9039,11 +9203,11 @@
       "count": 19
     },
     {
-      "name": "Immigration & Visa Documents",
-      "count": 17
+      "name": "Chain of Custody & Logistics",
+      "count": 18
     },
     {
-      "name": "Chain of Custody & Logistics",
+      "name": "Immigration & Visa Documents",
       "count": 17
     },
     {
@@ -9055,7 +9219,15 @@
       "count": 15
     },
     {
+      "name": "Financial Compliance",
+      "count": 15
+    },
+    {
       "name": "Personal Lines Insurance",
+      "count": 14
+    },
+    {
+      "name": "Business & Commerce",
       "count": 14
     },
     {
@@ -9063,19 +9235,11 @@
       "count": 14
     },
     {
-      "name": "Business & Commerce",
+      "name": "Professional & Occupational Licenses",
       "count": 13
     },
     {
-      "name": "Professional & Occupational Licenses",
-      "count": 12
-    },
-    {
       "name": "Healthcare & Medical Records",
-      "count": 12
-    },
-    {
-      "name": "Financial Compliance",
       "count": 12
     },
     {
@@ -9099,11 +9263,11 @@
       "count": 10
     },
     {
-      "name": "Professional Ethics & Compliance",
-      "count": 9
+      "name": "Environmental Permits & Compliance",
+      "count": 10
     },
     {
-      "name": "Environmental Permits & Compliance",
+      "name": "Professional Ethics & Compliance",
       "count": 9
     },
     {
