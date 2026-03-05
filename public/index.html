@@ -226,40 +226,37 @@
             color: white;
             text-decoration: underline;
         }
-        .scenario-card {
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 16px;
+        }
+        .category-tile {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.18);
-            border-radius: 12px;
-            padding: 18px 20px;
-        }
-        .scenario-card h3 {
-            font-size: 1em;
-            margin-bottom: 8px;
-            opacity: 0.85;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .scenario-card p {
-            line-height: 1.7;
-            opacity: 0.95;
-        }
-        .scenario-card .outcome {
-            margin-top: 8px;
-            font-weight: 700;
-            opacity: 1;
-        }
-        .category-tags {
+            border-radius: 10px;
+            padding: 12px 14px;
+            text-decoration: none;
+            color: white;
+            transition: background 0.15s ease;
             display: flex;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
             gap: 8px;
-            margin-top: 14px;
         }
-        .category-tags span {
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            padding: 5px 12px;
-            border-radius: 999px;
-            font-size: 0.85em;
+        .category-tile:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .category-tile .cat-name {
+            font-size: 0.9em;
+            line-height: 1.3;
+        }
+        .category-tile .cat-count {
+            font-weight: 800;
+            font-size: 1.1em;
+            opacity: 0.9;
+            flex-shrink: 0;
         }
         .stats-row {
             display: flex;
@@ -304,35 +301,16 @@
             <a class="cta secondary" href="https://github.com/paul-hammant/live-verify" target="_blank" rel="noreferrer">Source Code</a>
         </div>
 
-        <!-- Scenario cards: real-world stories -->
-        <div class="card" id="whatProblemsDoesThisSolve">
+        <!-- Use case categories grid -->
+        <div class="card" id="useCases">
             <h2>What problems does this solve?</h2>
-
-            <div class="story-grid">
-                <div class="scenario-card">
-                    <h3>At your front door</h3>
-                    <p>A man knocks claiming to be from the gas company. He flashes a Gas Safe card. Is it real? Is he qualified for <em>your</em> boiler type?</p>
-                    <p class="outcome">Scan the card &rarr; photo match &rarr; green. Three seconds, no phone calls.</p>
-                </div>
-
-                <div class="scenario-card">
-                    <h3>In your inbox</h3>
-                    <p>A job applicant attaches a degree certificate. Is it genuine? You could ring the university and wait on hold, or fill in a verification portal &mdash; or:</p>
-                    <p class="outcome">Select the text &rarr; right-click &rarr; "Verified by <code>mit.edu</code>." Done.</p>
-                </div>
-
-                <div class="scenario-card">
-                    <h3>At an MRO hangar</h3>
-                    <p>A turbine blade arrives from a broker. Counterfeit aviation parts can kill. The paperwork looks right, but is it?</p>
-                    <p class="outcome">Scan the laser-etched text &rarr; <code>rolls-royce.com</code> confirms it's genuine and shows which engine it belongs in.</p>
-                </div>
-
-                <div class="scenario-card">
-                    <h3>At a school reception desk</h3>
-                    <p>A new teaching assistant presents their DBS certificate. It was valid when issued &mdash; but has anything changed since?</p>
-                    <p class="outcome">Scan it &rarr; <code>gov.uk/dbs</code> confirms no new findings. Current as of today.</p>
-                </div>
+            <div class="stats-row">
+                <div class="stat"><strong id="useCaseCount">...</strong> use cases</div>
+                <div class="stat">across <strong id="categoryCount">...</strong> categories</div>
             </div>
+            <p>Document fraud touches every sector. We've mapped the landscape:</p>
+            <div class="category-grid" id="categoryGrid"></div>
+            <p style="margin-top: 14px;"><a href="use-cases/" style="color: white; text-decoration: underline; font-weight: 700;">Browse all use cases &rarr;</a></p>
         </div>
 
         <!-- How it works: pipeline diagram -->
@@ -389,18 +367,6 @@
             </p>
         </div>
 
-        <!-- The scale: dynamic stats from index.json -->
-        <div class="card" id="scale">
-            <h2>The scale of the problem</h2>
-            <div class="stats-row">
-                <div class="stat"><strong id="useCaseCount">...</strong> use cases</div>
-                <div class="stat">across <strong id="categoryCount">...</strong> categories</div>
-            </div>
-            <p>From identity fraud to counterfeit aircraft parts, forged DBS checks to fake insurance certificates &mdash; document fraud touches every sector. We've mapped the landscape:</p>
-            <div class="category-tags" id="categoryTags"></div>
-            <p style="margin-top: 14px;"><a href="use-cases/" style="color: white; text-decoration: underline; font-weight: 700;">Browse all use cases &rarr;</a></p>
-        </div>
-
         <!-- What the user sees: screenshot -->
         <div class="card" id="userExperience">
             <h2>What the user sees</h2>
@@ -438,7 +404,7 @@
             .then(data => {
                 const ucEl = document.getElementById('useCaseCount');
                 const catEl = document.getElementById('categoryCount');
-                const tagsEl = document.getElementById('categoryTags');
+                const gridEl = document.getElementById('categoryGrid');
 
                 if (ucEl) ucEl.textContent = data.totalUseCases;
                 if (catEl) {
@@ -448,12 +414,15 @@
                     catEl.textContent = catCount;
                 }
 
-                if (tagsEl && data.categoriesList) {
-                    // Show top 10 categories as tags
-                    data.categoriesList.slice(0, 10).forEach(cat => {
-                        const span = document.createElement('span');
-                        span.textContent = cat.name;
-                        tagsEl.appendChild(span);
+                if (gridEl && data.categoriesList) {
+                    data.categoriesList.forEach(cat => {
+                        const a = document.createElement('a');
+                        a.className = 'category-tile';
+                        a.href = 'use-cases/#' + encodeURIComponent(cat.name);
+                        a.innerHTML =
+                            '<span class="cat-name">' + cat.name + '</span>' +
+                            '<span class="cat-count">' + cat.count + '</span>';
+                        gridEl.appendChild(a);
                     });
                 }
             })
