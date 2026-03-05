@@ -3,17 +3,12 @@
     if (!roots.length) return;
 
     const straplines = [
-        'A path to removing massive fraud and waste from document workflows.',
-        'Reduce point‑of‑use document fraud—without QR codes or upload portals.',
-        'Select text in any browser, email client, or PDF viewer—verify without leaving the page.',
+        'No phone calls. No upload portals. Just select, right-click, verified.',
         'Right-click to verify: degrees, receipts, licenses, employment letters.',
         'Turn camera OCR into instant anti‑fraud checks.',
-        'A small amount of digital, for the world of paper.',
         'Just enough digital to make paper verifiable.',
-        'A thin digital layer over printed claims.',
-        'No phone calls. No upload portals. Just select, right-click, verified.',
-        'Paper-first, with a verifiable edge.',
-        'Printed claims, digitally checkable.'
+        'Reduce point‑of‑use document fraud—without QR codes or upload portals.',
+        'A path to removing massive fraud and waste from document workflows.'
     ];
 
     if (!document.getElementById('slogan-style')) {
