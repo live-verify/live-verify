@@ -1,6 +1,6 @@
 ---
 title: "Legal Name Change Documents"
-category: "Identity & Civil Records"
+category: "Identity & Authority Verification"
 volume: "Medium"
 retention: "Permanent (lifetime identity document)"
 slug: "legal-name-change-documents"

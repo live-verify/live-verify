@@ -156,6 +156,14 @@ and fast-paced, prioritize Camera tooling. If it's remote/administrative, Clip m
 - Are there multiple distinct 3rd party types who would verify it?
 - Would someone want to verify this document days, months, or years later? (Ongoing value)
 
+## 13) Verification of Omission or “Clear” States (The Canary Pattern)
+
+- Strong use cases include proving the **absence** of a negative state (e.g., “No sanctions matches
+  found,” “No suspicious activity flagged,” “No prior criminal record”).
+- This requires the issuer to stand behind a “Negative Attestation” at a specific point in time.
+- These claims are highly valuable for financial crime elimination but require **Timestamp Proof** and
+  **Witnessing Firms** to prevent “omission-by-deletion” fraud.
+
 ## Common reflex objections (and the short answer)
 
 - “Why not QR codes?” → QR is great when machine reading is primary; Live Verify is for documents that must stay

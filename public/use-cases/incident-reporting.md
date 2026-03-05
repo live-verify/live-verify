@@ -1,6 +1,6 @@
 ---
 title: "Incident Reporting (All Industries)"
-category: "Safety & Compliance"
+category: "Site & Equipment Safety"
 volume: "Very Large"
 retention: "Permanent (safety records)"
 slug: "incident-reporting"

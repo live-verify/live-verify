@@ -1,6 +1,6 @@
 ---
 title: "Meeting Minutes & Resolutions"
-category: "Corporate & Legal Documents"
+category: "Legal & Court Documents"
 volume: "Very Large"
 retention: "Permanent (corporate records)"
 slug: "meeting-minutes-resolutions"

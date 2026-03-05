@@ -1,6 +1,6 @@
 ---
 title: "Peer-to-Peer Sale Witnessing"
-category: "Consumer & Personal"
+category: "Business & Commerce"
 volume: "High"
 retention: "2-5 years"
 slug: "peer-to-peer-sale-witnessing"

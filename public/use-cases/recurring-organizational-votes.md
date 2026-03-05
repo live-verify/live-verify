@@ -1,6 +1,6 @@
 ---
 title: "Recurring Organizational Votes"
-category: "Governance & Voting"
+category: "Government & Civic Documents"
 volume: "High"
 retention: "Vote records: 3-7 years; Eligibility: ongoing"
 slug: "recurring-organizational-votes"

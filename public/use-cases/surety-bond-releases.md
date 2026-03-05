@@ -1,6 +1,6 @@
 ---
 title: "Surety Bond Releases"
-category: "Insurance & Bonds"
+category: "Insurance Claims & Operations"
 volume: "Medium"
 retention: "7 years (project completion + warranty)"
 slug: "surety-bond-releases"

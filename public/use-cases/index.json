@@ -1,65 +1,46 @@
 {
-  "generated": "2026-03-02T12:30:39.018Z",
-  "totalUseCases": 440,
-  "totalFurtherDerivations": 525,
+  "generated": "2026-03-05T17:47:09.423Z",
+  "totalUseCases": 450,
+  "totalFurtherDerivations": 538,
   "categories": {
-    "Real Estate & Property": 30,
-    "Charitable & Non-Profit": 6,
+    "Real Estate & Property": 31,
+    "Charitable & Non-Profit": 7,
     "Novel Document Types": 5,
     "Actuarial & Insurance Mathematics": 10,
-    "Personal Lines Insurance": 13,
-    "Government & Civic Documents": 16,
+    "Personal Lines Insurance": 14,
+    "Government & Civic Documents": 19,
     "Notary Services": 7,
     "Immigration & Visa Documents": 17,
     "Financial & Legal Documents": 8,
-    "Insurance Claims & Operations": 12,
-    "Chain of Custody & Logistics": 15,
+    "Insurance Claims & Operations": 15,
+    "Chain of Custody & Logistics": 17,
     "Travel & Hospitality": 21,
     "Professional & Occupational Licenses": 12,
-    "Identity & Authority Verification": 30,
+    "Identity & Authority Verification": 33,
+    "Healthcare & Medical Records": 12,
     "Professional & Educational Qualifications": 19,
     "Art, Media & Publishing": 7,
     "Customs & Trade Compliance": 6,
     "Sports & Athletics": 6,
-    "Specialty Insurance": 22,
-    "Business & Commerce": 10,
-    "Legal & Court Documents": 8,
-    "Banking & Payments": 14,
-    "Financial Compliance": 10,
-    "Identity & Civil Records": 2,
+    "Specialty Insurance": 23,
+    "Business & Commerce": 13,
+    "Legal & Court Documents": 14,
+    "Banking & Payments": 15,
+    "Financial Compliance": 12,
     "Investment & Fintech": 11,
-    "Site & Equipment Safety": 7,
+    "Site & Equipment Safety": 11,
     "Commercial Lines Insurance": 11,
-    "Product Certifications & Compliance": 11,
+    "Product Certifications & Compliance": 12,
     "Professional Ethics & Compliance": 9,
-    "Energy & Utilities": 3,
-    "Civic & Public Safety": 1,
+    "Environmental Permits & Compliance": 9,
     "Scientific & Research": 7,
     "Warehousing & Inventory": 4,
     "Government & Regulatory": 6,
     "Permits & Approvals": 4,
-    "Construction & Building": 1,
     "Delegated Authority": 5,
-    "Corporate & Legal Documents": 2,
-    "Intellectual Property Law": 3,
     "Banking & Financial Services": 6,
-    "Healthcare & Medical Records": 9,
     "Trade Finance": 5,
-    "Environmental Permits & Compliance": 4,
-    "Environmental & Safety": 2,
-    "Agriculture & Food": 7,
-    "Bonds & Sureties": 3,
-    "Occupational Health & Safety": 1,
-    "Safety & Compliance": 2,
-    "Infrastructure & Engineering": 1,
-    "Manufacturing & Production": 1,
-    "Commerce & Consumer": 1,
-    "Healthcare & Medical": 1,
-    "Consumer & Personal": 1,
-    "Governance & Voting": 1,
-    "Insurance & Bonds": 1,
-    "Consumer & Commercial Transactions": 1,
-    "Vehicle & Transportation": 2
+    "Agriculture & Food": 7
   },
   "useCases": [
     {
@@ -405,6 +386,28 @@
       ]
     },
     {
+      "slug": "appointment-summons-confirmations",
+      "title": "Appointment & Summons Confirmations",
+      "category": "Healthcare & Medical Records",
+      "volume": "Very Large",
+      "retention": "1-6 months (appointment); years (legal summons)",
+      "verificationMode": "clip",
+      "furtherDerivations": 3,
+      "snippet": "Institution name and type, patient/recipient name, appointment or hearing date, appointment time, department or court (not the medical reason or legal case details), issuing officer or clerk, referenc",
+      "tags": [
+        "appointment",
+        "summons",
+        "jury-duty",
+        "court-date",
+        "hospital",
+        "dental",
+        "absence",
+        "employer",
+        "school",
+        "obligation"
+      ]
+    },
+    {
       "slug": "apprenticeship-internship-completion",
       "title": "Apprenticeship and Internship Completion",
       "category": "Professional & Educational Qualifications",
@@ -734,9 +737,27 @@
       ]
     },
     {
+      "slug": "beneficiary-change-confirmation",
+      "title": "Beneficiary Change Confirmation",
+      "category": "Personal Lines Insurance",
+      "volume": "Large",
+      "retention": "Permanent (policy duration)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Insurer name, policy number, policyholder name, new beneficiary name, relationship, update timestamp, reference number.",
+      "tags": [
+        "insurance",
+        "pensions",
+        "beneficiary",
+        "fraud-prevention",
+        "ghost-redirection",
+        "financial-crime"
+      ]
+    },
+    {
       "slug": "biometric-likeness-claims",
       "title": "Biometric Likeness Claims",
-      "category": "Identity & Civil Records",
+      "category": "Identity & Authority Verification",
       "volume": "High (potentially every identity verification interaction)",
       "retention": "Ephemeral (salt expires in minutes); photo validity 1 year",
       "verificationMode": "clip",
@@ -1039,7 +1060,7 @@
     {
       "slug": "carbon-credits-offset-certificates",
       "title": "Carbon Credits and Offset Certificates",
-      "category": "Energy & Utilities",
+      "category": "Environmental Permits & Compliance",
       "volume": "Very Small (but rapidly growing)",
       "retention": "7-20 years (carbon accounting)",
       "verificationMode": "clip",
@@ -1226,6 +1247,26 @@
       ]
     },
     {
+      "slug": "charity-disbursement-proof",
+      "title": "Charity Disbursement Proof",
+      "category": "Charitable & Non-Profit",
+      "volume": "Medium",
+      "retention": "Permanent (donor transparency)",
+      "verificationMode": "both",
+      "furtherDerivations": 1,
+      "snippet": "NGO name, project ID, impact location, impact date, local witness name/title, itemized materials/funds, reference number.",
+      "tags": [
+        "charity",
+        "ngo",
+        "aid",
+        "disbursement",
+        "impact",
+        "embezzlement",
+        "donor-transparency",
+        "financial-crime"
+      ]
+    },
+    {
       "slug": "charity-rating-certificates",
       "title": "Charity Rating Certificates",
       "category": "Charitable & Non-Profit",
@@ -1305,7 +1346,7 @@
     {
       "slug": "citizen-evidence-submission",
       "title": "Citizen Evidence Submission",
-      "category": "Civic & Public Safety",
+      "category": "Government & Civic Documents",
       "volume": "High",
       "retention": "Varies by jurisdiction (1-7 years)",
       "verificationMode": "clip",
@@ -1704,7 +1745,7 @@
     {
       "slug": "construction-trade-witnessing",
       "title": "Construction Trade Witnessing",
-      "category": "Construction & Building",
+      "category": "Site & Equipment Safety",
       "volume": "High",
       "retention": "Life of structure + liability period (10-15 years typical)",
       "verificationMode": "camera",
@@ -1874,7 +1915,7 @@
     {
       "slug": "contracts-agreements-multipage",
       "title": "Contracts & Agreements (Multi-Page)",
-      "category": "Corporate & Legal Documents",
+      "category": "Legal & Court Documents",
       "volume": "Very Large",
       "retention": "Contract term + 6-10 years",
       "verificationMode": "clip",
@@ -1911,7 +1952,7 @@
     {
       "slug": "copyrights",
       "title": "Copyright Registrations",
-      "category": "Intellectual Property Law",
+      "category": "Legal & Court Documents",
       "volume": "Medium",
       "retention": "Life + 70 years (individual), 95 years (work for hire)",
       "verificationMode": "clip",
@@ -2475,6 +2516,26 @@
       ]
     },
     {
+      "slug": "doctors-notes",
+      "title": "Doctor's Notes / Fit Notes",
+      "category": "Healthcare & Medical Records",
+      "volume": "Very Large",
+      "retention": "1-3 years (employment/education records)",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Patient name, doctor name, doctor credentials (medical license, registration number), practice name and address, date of assessment, fitness determination (fit / not fit / may be fit with adjustments)",
+      "tags": [
+        "doctors-note",
+        "sick-note",
+        "fit-note",
+        "medical-certificate",
+        "absence",
+        "school",
+        "employer",
+        "fitness-to-work"
+      ]
+    },
+    {
       "slug": "donation-receipts-tax-deductions",
       "title": "Donation Receipts for Tax Deductions",
       "category": "Charitable & Non-Profit",
@@ -2779,7 +2840,7 @@
     {
       "slug": "environmental-remediation-witnessing",
       "title": "Environmental Remediation Concealed Work Witnessing",
-      "category": "Environmental & Safety",
+      "category": "Environmental Permits & Compliance",
       "volume": "Medium",
       "retention": "Perpetuity (some contamination)",
       "verificationMode": "camera",
@@ -3121,7 +3182,7 @@
     {
       "slug": "fidelity-bonds",
       "title": "Fidelity Bonds and Employee Dishonesty",
-      "category": "Bonds & Sureties",
+      "category": "Insurance Claims & Operations",
       "volume": "Small",
       "retention": "Policy term + 10 years",
       "verificationMode": "clip",
@@ -3159,7 +3220,7 @@
     {
       "slug": "film-completion-bonds",
       "title": "Film Completion Bonds",
-      "category": "Bonds & Sureties",
+      "category": "Specialty Insurance",
       "volume": "Very Small",
       "retention": "Film lifecycle + 10 years",
       "verificationMode": "clip",
@@ -3741,7 +3802,7 @@
     {
       "slug": "hierarchy-of-controls-witnessing",
       "title": "Hierarchy of Controls - Inspection & Witnessing Framework",
-      "category": "Occupational Health & Safety",
+      "category": "Site & Equipment Safety",
       "volume": "Very High",
       "retention": "Variable by control type",
       "verificationMode": "camera",
@@ -3758,6 +3819,26 @@
         "inspection",
         "OSHA",
         "HSE"
+      ]
+    },
+    {
+      "slug": "high-value-in-person-authorization",
+      "title": "High-Value In-Person Authorization",
+      "category": "Banking & Payments",
+      "volume": "Medium",
+      "retention": "Transaction + 7 years",
+      "verificationMode": "camera",
+      "furtherDerivations": 1,
+      "snippet": "Issuing bank name, cardholder name (masked), merchant identifier, transaction amount, item description (optional), liveness check success token, timestamp (precise to the second), one-time salt, valid",
+      "tags": [
+        "payments",
+        "chargeback-fraud",
+        "friendly-fraud",
+        "luxury-retail",
+        "authorization",
+        "intent-proof",
+        "single-use-claim",
+        "financial-crime"
       ]
     },
     {
@@ -3959,6 +4040,25 @@
       ]
     },
     {
+      "slug": "identity-theft-protective-certificates",
+      "title": "Identity Theft Protective Certificates",
+      "category": "Identity & Authority Verification",
+      "volume": "Medium",
+      "retention": "1-3 years (recovery period)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Issuing agency name, victim name, date of report, case reference number, protective status duration, recommended action for financial institutions.",
+      "tags": [
+        "identity-theft",
+        "fraud-victim",
+        "recovery",
+        "financial-crime",
+        "kyc",
+        "edd",
+        "safe-harbor"
+      ]
+    },
+    {
       "slug": "immigration-interview-notices",
       "title": "Immigration Interview Appointment Notices",
       "category": "Immigration & Visa Documents",
@@ -4089,7 +4189,7 @@
     {
       "slug": "incident-reporting",
       "title": "Incident Reporting (All Industries)",
-      "category": "Safety & Compliance",
+      "category": "Site & Equipment Safety",
       "volume": "Very Large",
       "retention": "Permanent (safety records)",
       "verificationMode": "clip",
@@ -4134,7 +4234,7 @@
     {
       "slug": "indoor-air-quality-witnessing",
       "title": "Indoor Air Quality Monitoring & Witnessing",
-      "category": "Environmental & Safety",
+      "category": "Environmental Permits & Compliance",
       "volume": "Very High",
       "retention": "Building lifetime + liability period",
       "verificationMode": "camera",
@@ -4174,7 +4274,7 @@
     {
       "slug": "infrastructure-concealed-work-witnessing",
       "title": "Infrastructure Concealed Work Witnessing",
-      "category": "Infrastructure & Engineering",
+      "category": "Site & Equipment Safety",
       "volume": "Medium",
       "retention": "Design life of structure (50-100+ years)",
       "verificationMode": "camera",
@@ -4635,7 +4735,7 @@
     {
       "slug": "legal-name-change-documents",
       "title": "Legal Name Change Documents",
-      "category": "Identity & Civil Records",
+      "category": "Identity & Authority Verification",
       "volume": "Medium",
       "retention": "Permanent (lifetime identity document)",
       "verificationMode": "clip",
@@ -4870,7 +4970,7 @@
     {
       "slug": "mandatory-disclosures",
       "title": "Mandatory Disclosures (Breaches, Recalls, Material Events)",
-      "category": "Safety & Compliance",
+      "category": "Financial Compliance",
       "volume": "Large",
       "retention": "Permanent (legal records)",
       "verificationMode": "clip",
@@ -4913,7 +5013,7 @@
     {
       "slug": "manufacturing-assembly-witnessing",
       "title": "Manufacturing & Assembly Concealed Work Witnessing",
-      "category": "Manufacturing & Production",
+      "category": "Product Certifications & Compliance",
       "volume": "High",
       "retention": "Product lifetime + liability period",
       "verificationMode": "camera",
@@ -4983,7 +5083,7 @@
     {
       "slug": "marketplace-pseudonymous-reputation",
       "title": "Marketplace Pseudonymous Reputation",
-      "category": "Commerce & Consumer",
+      "category": "Business & Commerce",
       "volume": "High",
       "retention": "Account lifetime + regulatory requirements",
       "verificationMode": "clip",
@@ -5142,7 +5242,7 @@
     {
       "slug": "medical-implant-procedure-witnessing",
       "title": "Medical Implant & Procedure Witnessing",
-      "category": "Healthcare & Medical",
+      "category": "Healthcare & Medical Records",
       "volume": "High",
       "retention": "Patient lifetime + statute of limitations",
       "verificationMode": "camera",
@@ -5162,7 +5262,7 @@
     {
       "slug": "meeting-minutes-resolutions",
       "title": "Meeting Minutes & Resolutions",
-      "category": "Corporate & Legal Documents",
+      "category": "Legal & Court Documents",
       "volume": "Very Large",
       "retention": "Permanent (corporate records)",
       "verificationMode": "clip",
@@ -5815,7 +5915,7 @@
     {
       "slug": "patents",
       "title": "Patent Registrations",
-      "category": "Intellectual Property Law",
+      "category": "Legal & Court Documents",
       "volume": "Medium",
       "retention": "20 years (utility/plant), 15 years (design)",
       "verificationMode": "clip",
@@ -5913,7 +6013,7 @@
     {
       "slug": "peer-to-peer-sale-witnessing",
       "title": "Peer-to-Peer Sale Witnessing",
-      "category": "Consumer & Personal",
+      "category": "Business & Commerce",
       "volume": "High",
       "retention": "2-5 years",
       "verificationMode": "camera",
@@ -6747,6 +6847,25 @@
       ]
     },
     {
+      "slug": "real-estate-proof-of-deposit",
+      "title": "Real Estate Proof of Deposit",
+      "category": "Real Estate & Property",
+      "volume": "Medium",
+      "retention": "7 years (transaction records)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Issuing bank name, buyer name, deposit amount, verified source (e.g., sale, savings, inheritance), holding period, AML compliance officer ID, reference number.",
+      "tags": [
+        "real-estate",
+        "aml",
+        "source-of-funds",
+        "kyc",
+        "property-fraud",
+        "money-laundering",
+        "financial-crime"
+      ]
+    },
+    {
       "slug": "recording-page-abstracts",
       "title": "Recording Page Abstracts (Short-Form)",
       "category": "Real Estate & Property",
@@ -6789,7 +6908,7 @@
     {
       "slug": "recurring-organizational-votes",
       "title": "Recurring Organizational Votes",
-      "category": "Governance & Voting",
+      "category": "Government & Civic Documents",
       "volume": "High",
       "retention": "Vote records: 3-7 years; Eligibility: ongoing",
       "verificationMode": "clip",
@@ -6948,7 +7067,7 @@
     {
       "slug": "renewable-energy-certificates",
       "title": "Renewable Energy Certificates (RECs)",
-      "category": "Energy & Utilities",
+      "category": "Environmental Permits & Compliance",
       "volume": "Medium",
       "retention": "3-7 years (compliance / carbon audit)",
       "verificationMode": "clip",
@@ -7539,7 +7658,7 @@
     {
       "slug": "solar-panel-efficiency-certificates",
       "title": "Solar Panel Efficiency Certificates",
-      "category": "Energy & Utilities",
+      "category": "Environmental Permits & Compliance",
       "volume": "Very Small",
       "retention": "20-30 years (solar system lifetime)",
       "verificationMode": "clip",
@@ -7592,6 +7711,25 @@
         "high-value-logistics",
         "armored-transport",
         "vault-security"
+      ]
+    },
+    {
+      "slug": "specific-transaction-poa",
+      "title": "Specific Transaction Power of Attorney (ST-POA)",
+      "category": "Legal & Court Documents",
+      "volume": "Medium",
+      "retention": "Permanent (transaction record)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Principal name, agent name, specific transaction description, dollar amount (if applicable), valid date/time, purpose, issuing notary/lawyer ID, reference number.",
+      "tags": [
+        "poa",
+        "power-of-attorney",
+        "elder-abuse",
+        "legal",
+        "limited-poa",
+        "financial-crime",
+        "least-privilege"
       ]
     },
     {
@@ -7694,7 +7832,7 @@
     {
       "slug": "surety-bond-releases",
       "title": "Surety Bond Releases",
-      "category": "Insurance & Bonds",
+      "category": "Insurance Claims & Operations",
       "volume": "Medium",
       "retention": "7 years (project completion + warranty)",
       "verificationMode": "clip",
@@ -7712,7 +7850,7 @@
     {
       "slug": "surety-bonds",
       "title": "Surety Bonds and Performance Guarantees",
-      "category": "Bonds & Sureties",
+      "category": "Insurance Claims & Operations",
       "volume": "Small",
       "retention": "Bond term plus 10 years (claims, disputes)",
       "verificationMode": "clip",
@@ -8132,7 +8270,7 @@
     {
       "slug": "trade-services-receipts",
       "title": "Trade Services Receipts",
-      "category": "Consumer & Commercial Transactions",
+      "category": "Business & Commerce",
       "volume": "Very Large",
       "retention": "7 years (tax records)",
       "verificationMode": "clip",
@@ -8154,7 +8292,7 @@
     {
       "slug": "trademarks",
       "title": "Trademark Registrations",
-      "category": "Intellectual Property Law",
+      "category": "Legal & Court Documents",
       "volume": "Medium",
       "retention": "Permanent with renewal (10-year cycles)",
       "verificationMode": "clip",
@@ -8309,6 +8447,24 @@
       ]
     },
     {
+      "slug": "uk-driving-licence-check-codes",
+      "title": "UK Driving Licence Check Codes",
+      "category": "Government & Civic Documents",
+      "volume": "Large",
+      "retention": "21 days (DVLA expiry)",
+      "verificationMode": "both",
+      "furtherDerivations": 1,
+      "snippet": "The 8-character case-sensitive share code, the last 8 digits of the driving licence number (to bind the code to the specific driver), generation timestamp, and expiry date.",
+      "tags": [
+        "dvla",
+        "driving-licence",
+        "car-hire",
+        "insurance-repair",
+        "share-code",
+        "government"
+      ]
+    },
+    {
       "slug": "umbrella-liability-policies",
       "title": "Umbrella and Excess Liability Policies",
       "category": "Personal Lines Insurance",
@@ -8415,7 +8571,7 @@
     {
       "slug": "vehicle-display-postings",
       "title": "Vehicle Display Postings (Taxi, TNC, Permits)",
-      "category": "Vehicle & Transportation",
+      "category": "Chain of Custody & Logistics",
       "volume": "Very Large",
       "retention": "License term (1-3 years)",
       "verificationMode": "camera",
@@ -8435,7 +8591,7 @@
     {
       "slug": "vehicle-inspection-reports-dot",
       "title": "Vehicle Inspection Reports (DOT, MOT, TÜV)",
-      "category": "Vehicle & Transportation",
+      "category": "Chain of Custody & Logistics",
       "volume": "Large",
       "retention": "5-10 years (regulatory compliance / liability)",
       "verificationMode": "clip",
@@ -8477,6 +8633,24 @@
         "lien",
         "title-washing",
         "odometer"
+      ]
+    },
+    {
+      "slug": "vendor-bank-account-verification",
+      "title": "Vendor Bank Account Verification",
+      "category": "Financial Compliance",
+      "volume": "Large",
+      "retention": "7 years (audit trail)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Issuing bank name, certified entity name, account number (full or masked), account type, owner Tax ID/EIN, certificate issuance date, reference number.",
+      "tags": [
+        "invoice-fraud",
+        "bec",
+        "business-email-compromise",
+        "vendor-management",
+        "bank-account-verification",
+        "financial-crime"
       ]
     },
     {
@@ -8841,20 +9015,24 @@
   ],
   "categoriesList": [
     {
-      "name": "Real Estate & Property",
-      "count": 30
+      "name": "Identity & Authority Verification",
+      "count": 33
     },
     {
-      "name": "Identity & Authority Verification",
-      "count": 30
+      "name": "Real Estate & Property",
+      "count": 31
     },
     {
       "name": "Specialty Insurance",
-      "count": 22
+      "count": 23
     },
     {
       "name": "Travel & Hospitality",
       "count": 21
+    },
+    {
+      "name": "Government & Civic Documents",
+      "count": 19
     },
     {
       "name": "Professional & Educational Qualifications",
@@ -8865,27 +9043,43 @@
       "count": 17
     },
     {
-      "name": "Government & Civic Documents",
-      "count": 16
+      "name": "Chain of Custody & Logistics",
+      "count": 17
     },
     {
-      "name": "Chain of Custody & Logistics",
+      "name": "Insurance Claims & Operations",
       "count": 15
     },
     {
       "name": "Banking & Payments",
-      "count": 14
+      "count": 15
     },
     {
       "name": "Personal Lines Insurance",
+      "count": 14
+    },
+    {
+      "name": "Legal & Court Documents",
+      "count": 14
+    },
+    {
+      "name": "Business & Commerce",
       "count": 13
     },
     {
-      "name": "Insurance Claims & Operations",
+      "name": "Professional & Occupational Licenses",
       "count": 12
     },
     {
-      "name": "Professional & Occupational Licenses",
+      "name": "Healthcare & Medical Records",
+      "count": 12
+    },
+    {
+      "name": "Financial Compliance",
+      "count": 12
+    },
+    {
+      "name": "Product Certifications & Compliance",
       "count": 12
     },
     {
@@ -8893,11 +9087,11 @@
       "count": 11
     },
     {
-      "name": "Commercial Lines Insurance",
+      "name": "Site & Equipment Safety",
       "count": 11
     },
     {
-      "name": "Product Certifications & Compliance",
+      "name": "Commercial Lines Insurance",
       "count": 11
     },
     {
@@ -8905,19 +9099,11 @@
       "count": 10
     },
     {
-      "name": "Business & Commerce",
-      "count": 10
-    },
-    {
-      "name": "Financial Compliance",
-      "count": 10
-    },
-    {
       "name": "Professional Ethics & Compliance",
       "count": 9
     },
     {
-      "name": "Healthcare & Medical Records",
+      "name": "Environmental Permits & Compliance",
       "count": 9
     },
     {
@@ -8925,8 +9111,8 @@
       "count": 8
     },
     {
-      "name": "Legal & Court Documents",
-      "count": 8
+      "name": "Charitable & Non-Profit",
+      "count": 7
     },
     {
       "name": "Notary Services",
@@ -8937,20 +9123,12 @@
       "count": 7
     },
     {
-      "name": "Site & Equipment Safety",
-      "count": 7
-    },
-    {
       "name": "Scientific & Research",
       "count": 7
     },
     {
       "name": "Agriculture & Food",
       "count": 7
-    },
-    {
-      "name": "Charitable & Non-Profit",
-      "count": 6
     },
     {
       "name": "Customs & Trade Compliance",
@@ -8987,87 +9165,7 @@
     {
       "name": "Permits & Approvals",
       "count": 4
-    },
-    {
-      "name": "Environmental Permits & Compliance",
-      "count": 4
-    },
-    {
-      "name": "Energy & Utilities",
-      "count": 3
-    },
-    {
-      "name": "Intellectual Property Law",
-      "count": 3
-    },
-    {
-      "name": "Bonds & Sureties",
-      "count": 3
-    },
-    {
-      "name": "Identity & Civil Records",
-      "count": 2
-    },
-    {
-      "name": "Corporate & Legal Documents",
-      "count": 2
-    },
-    {
-      "name": "Environmental & Safety",
-      "count": 2
-    },
-    {
-      "name": "Safety & Compliance",
-      "count": 2
-    },
-    {
-      "name": "Vehicle & Transportation",
-      "count": 2
-    },
-    {
-      "name": "Civic & Public Safety",
-      "count": 1
-    },
-    {
-      "name": "Construction & Building",
-      "count": 1
-    },
-    {
-      "name": "Occupational Health & Safety",
-      "count": 1
-    },
-    {
-      "name": "Infrastructure & Engineering",
-      "count": 1
-    },
-    {
-      "name": "Manufacturing & Production",
-      "count": 1
-    },
-    {
-      "name": "Commerce & Consumer",
-      "count": 1
-    },
-    {
-      "name": "Healthcare & Medical",
-      "count": 1
-    },
-    {
-      "name": "Consumer & Personal",
-      "count": 1
-    },
-    {
-      "name": "Governance & Voting",
-      "count": 1
-    },
-    {
-      "name": "Insurance & Bonds",
-      "count": 1
-    },
-    {
-      "name": "Consumer & Commercial Transactions",
-      "count": 1
     }
   ],
-  "totalCategories": 57
+  "totalCategories": 38
 }

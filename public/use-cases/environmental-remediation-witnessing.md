@@ -1,6 +1,6 @@
 ---
 title: "Environmental Remediation Concealed Work Witnessing"
-category: "Environmental & Safety"
+category: "Environmental Permits & Compliance"
 volume: "Medium"
 retention: "Perpetuity (some contamination)"
 slug: "environmental-remediation-witnessing"

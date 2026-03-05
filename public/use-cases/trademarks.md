@@ -1,6 +1,6 @@
 ---
 title: "Trademark Registrations"
-category: "Intellectual Property Law"
+category: "Legal & Court Documents"
 volume: "Medium"
 retention: "Permanent with renewal (10-year cycles)"
 slug: "trademarks"

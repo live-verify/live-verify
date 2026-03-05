@@ -1,6 +1,6 @@
 ---
 title: "Fidelity Bonds and Employee Dishonesty"
-category: "Bonds & Sureties"
+category: "Insurance Claims & Operations"
 volume: "Small"
 retention: "Policy term + 10 years"
 slug: "fidelity-bonds"

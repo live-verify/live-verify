@@ -1,6 +1,6 @@
 ---
 title: "Infrastructure Concealed Work Witnessing"
-category: "Infrastructure & Engineering"
+category: "Site & Equipment Safety"
 volume: "Medium"
 retention: "Design life of structure (50-100+ years)"
 slug: "infrastructure-concealed-work-witnessing"

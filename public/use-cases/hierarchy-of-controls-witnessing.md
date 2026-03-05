@@ -1,6 +1,6 @@
 ---
 title: "Hierarchy of Controls - Inspection & Witnessing Framework"
-category: "Occupational Health & Safety"
+category: "Site & Equipment Safety"
 volume: "Very High"
 retention: "Variable by control type"
 slug: "hierarchy-of-controls-witnessing"

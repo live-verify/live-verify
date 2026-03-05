@@ -1,6 +1,6 @@
 ---
 title: "Citizen Evidence Submission"
-category: "Civic & Public Safety"
+category: "Government & Civic Documents"
 volume: "High"
 retention: "Varies by jurisdiction (1-7 years)"
 slug: "citizen-evidence-submission"

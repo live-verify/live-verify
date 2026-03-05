@@ -1,6 +1,6 @@
 ---
 title: "Patent Registrations"
-category: "Intellectual Property Law"
+category: "Legal & Court Documents"
 type: "use-case"
 volume: "Medium"
 retention: "20 years (utility/plant), 15 years (design)"

@@ -1,6 +1,6 @@
 ---
 title: "Biometric Likeness Claims"
-category: "Identity & Civil Records"
+category: "Identity & Authority Verification"
 volume: "High (potentially every identity verification interaction)"
 retention: "Ephemeral (salt expires in minutes); photo validity 1 year"
 slug: "biometric-likeness-claims"

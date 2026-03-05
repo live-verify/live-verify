@@ -1,6 +1,6 @@
 ---
 title: "Marketplace Pseudonymous Reputation"
-category: "Commerce & Consumer"
+category: "Business & Commerce"
 volume: "High"
 retention: "Account lifetime + regulatory requirements"
 slug: "marketplace-pseudonymous-reputation"

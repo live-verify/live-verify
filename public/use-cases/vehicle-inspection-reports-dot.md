@@ -1,6 +1,6 @@
 ---
 title: "Vehicle Inspection Reports (DOT, MOT, TÜV)"
-category: "Vehicle & Transportation"
+category: "Chain of Custody & Logistics"
 volume: "Large"
 retention: "5-10 years (regulatory compliance / liability)"
 slug: "vehicle-inspection-reports-dot"

@@ -1,6 +1,6 @@
 ---
 title: "Film Completion Bonds"
-category: "Bonds & Sureties"
+category: "Specialty Insurance"
 volume: "Very Small"
 retention: "Film lifecycle + 10 years"
 slug: "film-completion-bonds"

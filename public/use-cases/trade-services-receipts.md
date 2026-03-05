@@ -1,6 +1,6 @@
 ---
 title: "Trade Services Receipts"
-category: "Consumer & Commercial Transactions"
+category: "Business & Commerce"
 volume: "Very Large"
 retention: "7 years (tax records)"
 slug: "trade-services-receipts"

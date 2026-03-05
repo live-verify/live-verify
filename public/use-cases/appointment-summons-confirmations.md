@@ -1,6 +1,6 @@
 ---
 title: "Appointment & Summons Confirmations"
-category: "Employment & Absence Justification"
+category: "Healthcare & Medical Records"
 volume: "Very Large"
 retention: "1-6 months (appointment); years (legal summons)"
 slug: "appointment-summons-confirmations"

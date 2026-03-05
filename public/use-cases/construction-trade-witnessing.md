@@ -1,6 +1,6 @@
 ---
 title: "Construction Trade Witnessing"
-category: "Construction & Building"
+category: "Site & Equipment Safety"
 volume: "High"
 retention: "Life of structure + liability period (10-15 years typical)"
 slug: "construction-trade-witnessing"

@@ -1,6 +1,6 @@
 ---
 title: "Solar Panel Efficiency Certificates"
-category: "Energy & Utilities"
+category: "Environmental Permits & Compliance"
 volume: "Very Small"
 retention: "20-30 years (solar system lifetime)"
 slug: "solar-panel-efficiency-certificates"

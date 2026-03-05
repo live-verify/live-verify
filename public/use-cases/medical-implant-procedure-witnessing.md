@@ -1,6 +1,6 @@
 ---
 title: "Medical Implant & Procedure Witnessing"
-category: "Healthcare & Medical"
+category: "Healthcare & Medical Records"
 volume: "High"
 retention: "Patient lifetime + statute of limitations"
 slug: "medical-implant-procedure-witnessing"

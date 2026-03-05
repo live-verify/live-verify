@@ -1,6 +1,6 @@
 ---
 title: "Contracts & Agreements (Multi-Page)"
-category: "Corporate & Legal Documents"
+category: "Legal & Court Documents"
 volume: "Very Large"
 retention: "Contract term + 6-10 years"
 slug: "contracts-agreements-multipage"

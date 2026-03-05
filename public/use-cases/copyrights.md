@@ -1,6 +1,6 @@
 ---
 title: "Copyright Registrations"
-category: "Intellectual Property Law"
+category: "Legal & Court Documents"
 type: "use-case"
 volume: "Medium"
 retention: "Life + 70 years (individual), 95 years (work for hire)"

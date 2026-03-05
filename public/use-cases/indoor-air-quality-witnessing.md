@@ -1,6 +1,6 @@
 ---
 title: "Indoor Air Quality Monitoring & Witnessing"
-category: "Environmental & Safety"
+category: "Environmental Permits & Compliance"
 volume: "Very High"
 retention: "Building lifetime + liability period"
 slug: "indoor-air-quality-witnessing"

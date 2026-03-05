@@ -1,6 +1,6 @@
 ---
 title: "Renewable Energy Certificates (RECs)"
-category: "Energy & Utilities"
+category: "Environmental Permits & Compliance"
 volume: "Medium"
 retention: "3-7 years (compliance / carbon audit)"
 slug: "renewable-energy-certificates"

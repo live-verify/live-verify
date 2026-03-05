@@ -1,6 +1,6 @@
 ---
 title: "Mandatory Disclosures (Breaches, Recalls, Material Events)"
-category: "Safety & Compliance"
+category: "Financial Compliance"
 volume: "Large"
 retention: "Permanent (legal records)"
 slug: "mandatory-disclosures"

@@ -1,6 +1,6 @@
 ---
 title: "Manufacturing & Assembly Concealed Work Witnessing"
-category: "Manufacturing & Production"
+category: "Product Certifications & Compliance"
 volume: "High"
 retention: "Product lifetime + liability period"
 slug: "manufacturing-assembly-witnessing"

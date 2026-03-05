@@ -1,6 +1,6 @@
 ---
 title: "Carbon Credits and Offset Certificates"
-category: "Energy & Utilities"
+category: "Environmental Permits & Compliance"
 volume: "Very Small (but rapidly growing)"
 retention: "7-20 years (carbon accounting)"
 slug: "carbon-credits-offset-certificates"
