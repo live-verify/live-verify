@@ -1,0 +1,52 @@
+services:
+  tier3:
+    build: ./tier3-vault
+    command:
+      - --db-path=/data/badger
+      - --listen=:9090
+    volumes:
+      - badger-data:/data/badger
+    networks:
+      - dmz2
+
+  tier2:
+    build: ./tier2-inspector
+    command:
+      - --read-port=8080
+      - --write-port=8081
+      - --upstream=http://tier3:9090
+    depends_on:
+      - tier3
+    ports:
+      - "8081:8081"
+    networks:
+      - dmz1
+      - dmz2
+      - mgmt
+
+  tier1:
+    build: ./tier1-edge
+    command:
+      - --listen=:8080
+      - --upstream=http://tier2:8080
+      - --rate-limit=600
+    depends_on:
+      - tier2
+    ports:
+      - "8080:8080"
+    networks:
+      - dmz1
+      - public
+
+volumes:
+  badger-data:
+
+networks:
+  public:
+    driver: bridge
+  dmz1:
+    internal: true
+  dmz2:
+    internal: true
+  mgmt:
+    driver: bridge

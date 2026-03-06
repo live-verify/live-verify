@@ -15,3 +15,14 @@ all_source*.txt
 apps/ios/LiveVerify/DerivedDataLocal
 dist/
 tmp/
+
+# Backend
+backend/certs/dev/
+*.pem
+*.key
+!backend/certs/generate-dev-certs.sh
+target/
+*.db
+.terraform/
+terraform.tfstate*
+*.tfvars
