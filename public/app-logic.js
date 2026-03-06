@@ -305,7 +305,7 @@ async function verifyHash(verificationUrl, meta) {
  * @param {Object} meta - The issuer's full verification-meta.json object
  * @param {string} metaUrl - The URL from which verification-meta.json was fetched (for re-fetch)
  * @param {string} [originUrl] - The original verification URL that triggered this chain walk
- * @returns {Promise<{checked: boolean, confirmed: boolean, authorizer: string, description: string|null, expired: boolean, successor: string|null, error: string|null, chain: Array}>}
+ * @returns {Promise<{checked: boolean, confirmed: boolean, authorizer: string, description: string|null, authorityBasis: string|null, expired: boolean, successor: string|null, error: string|null, chain: Array}>}
  */
 async function checkAuthorization(meta, metaUrl, originUrl) {
     if (!meta || !meta.authorizedBy || typeof meta.authorizedBy !== 'string') {
@@ -376,11 +376,19 @@ async function checkAuthorization(meta, metaUrl, originUrl) {
         // Walk the authorization chain
         const chain = await walkAuthorizationChain(meta.authorizedBy, confirmed, hashFn, 0, originUrl);
 
+        // The issuer's authority basis from their verification-meta.json.
+        // A short statement of what kind of authority backs this verification.
+        // Since the authorizer hashes the entire meta, they have implicitly
+        // endorsed this statement. The authorizer can require specific
+        // wording as a condition of endorsement.
+        const authorityBasis = meta.authorityBasis || null;
+
         return {
             checked: true,
             confirmed,
             authorizer,
             description: chain.length > 0 ? chain[0].description : null,
+            authorityBasis,
             expired: false,
             successor: null,
             error: null,
