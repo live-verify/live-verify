@@ -1,0 +1,103 @@
+# Multi-pod compose: 2 complete pods (6 containers) for integration testing.
+# Pod A on ports 8080/8081, Pod B on ports 8180/8181.
+
+services:
+  # ── Pod A ──────────────────────────────────────────────────────────────
+  tier3-a:
+    build: ./tier3-vault
+    command:
+      - --db-path=/data/badger
+      - --listen=:9090
+    volumes:
+      - badger-data-a:/data/badger
+    networks:
+      - pod-a-dmz2
+
+  tier2-a:
+    build: ./tier2-inspector
+    command:
+      - --read-port=8080
+      - --write-port=8081
+      - --upstream=http://tier3-a:9090
+    depends_on:
+      - tier3-a
+    ports:
+      - "8081:8081"
+    networks:
+      - pod-a-dmz1
+      - pod-a-dmz2
+      - pod-a-mgmt
+
+  tier1-a:
+    build: ./tier1-edge
+    command:
+      - --listen=:8080
+      - --upstream=http://tier2-a:8080
+      - --rate-limit=600
+    depends_on:
+      - tier2-a
+    ports:
+      - "8080:8080"
+    networks:
+      - pod-a-dmz1
+      - public
+
+  # ── Pod B ──────────────────────────────────────────────────────────────
+  tier3-b:
+    build: ./tier3-vault
+    command:
+      - --db-path=/data/badger
+      - --listen=:9090
+    volumes:
+      - badger-data-b:/data/badger
+    networks:
+      - pod-b-dmz2
+
+  tier2-b:
+    build: ./tier2-inspector
+    command:
+      - --read-port=8080
+      - --write-port=8081
+      - --upstream=http://tier3-b:9090
+    depends_on:
+      - tier3-b
+    ports:
+      - "8181:8081"
+    networks:
+      - pod-b-dmz1
+      - pod-b-dmz2
+      - pod-b-mgmt
+
+  tier1-b:
+    build: ./tier1-edge
+    command:
+      - --listen=:8080
+      - --upstream=http://tier2-b:8080
+      - --rate-limit=600
+    depends_on:
+      - tier2-b
+    ports:
+      - "8180:8080"
+    networks:
+      - pod-b-dmz1
+      - public
+
+volumes:
+  badger-data-a:
+  badger-data-b:
+
+networks:
+  public:
+    driver: bridge
+  pod-a-dmz1:
+    internal: true
+  pod-a-dmz2:
+    internal: true
+  pod-a-mgmt:
+    driver: bridge
+  pod-b-dmz1:
+    internal: true
+  pod-b-dmz2:
+    internal: true
+  pod-b-mgmt:
+    driver: bridge

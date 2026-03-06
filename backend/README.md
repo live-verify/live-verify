@@ -109,30 +109,51 @@ The client also fetches `{basePath}/verification-meta.json` for issuer metadata
 
 ```
 backend/
-  tier1-edge/           # Go — public read gateway
-  tier2-inspector/      # Rust/Axum — security air-lock
-  tier3-vault/          # Go + BadgerDB — storage
-    internal/store/     # VaultStore (shared by server + seed tool)
-    seed/               # Import tool for public/c/ static files
-  certs/                # Dev certificate generator
-  integration-tests/    # End-to-end test scripts
+  docker-compose.yml              # Single-pod (3 containers)
+  docker-compose.multi-pod.yml    # Two pods (6 containers) for integration tests
+  tier1-edge/                     # Go — public read gateway
+  tier2-inspector/                # Rust/Axum — security air-lock
+  tier3-vault/                    # Go + BadgerDB — storage
+    internal/store/               # VaultStore (shared by server + seed tool)
+    seed/                         # Import tool for public/c/ static files
+  certs/                          # Dev certificate generator
+  integration-tests/              # End-to-end test scripts
   infra/
-    terraform/          # Single-pod AWS deployment
-    zfs-sync/           # Cross-pod replication script
+    terraform/                    # Single-pod AWS deployment
+    zfs-sync/                     # Cross-pod replication script
 ```
 
 ## Quick start (Docker)
 
 ```sh
-# Generate dev certificates
+# Generate dev certificates (includes multi-pod SANs)
 cd backend/certs && bash generate-dev-certs.sh && cd ..
 
-# Start all 3 tiers
+# Start all 3 tiers (single pod)
 docker compose up --build -d
 
 # Seed demo hashes and verify
 cd integration-tests && bash seed_and_verify.sh
 ```
+
+### Multi-pod testing
+
+```sh
+# Start 2 complete pods (6 containers)
+cd backend && docker compose -f docker-compose.multi-pod.yml up --build -d
+
+# Run multi-pod tests (replication, conflicts, network isolation)
+cd integration-tests && bash multi_pod_test.sh
+
+# Run failover tests (stops/starts containers — destructive)
+bash multi_pod_failover_test.sh
+
+# Tear down
+cd .. && docker compose -f docker-compose.multi-pod.yml down -v
+```
+
+Pod A exposes `8080` (read) and `8081` (write). Pod B exposes `8180` (read) and
+`8181` (write). Each pod has its own isolated DMZ networks and BadgerDB volume.
 
 ## Testing
 
@@ -146,11 +167,15 @@ cd backend/tier3-vault && go test ./...
 # Tier 2 build check
 cd backend/tier2-inspector && cargo check
 
-# Integration tests (requires docker compose up)
+# Integration tests — single pod (requires docker compose up)
 cd backend/integration-tests
 bash seed_and_verify.sh      # Read path end-to-end
 bash write_path_test.sh      # Write path + idempotency + conflicts
 bash latency_bench.sh        # Seed 10k, measure p50/p95/p99
+
+# Integration tests — multi-pod (requires docker-compose.multi-pod.yml up)
+bash multi_pod_test.sh            # Replication, conflicts, network isolation
+bash multi_pod_failover_test.sh   # Tier failure and recovery
 ```
 
 ## Scaling and replication

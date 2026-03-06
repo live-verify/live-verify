@@ -3,6 +3,7 @@ WORKDIR /build
 COPY go.mod go.sum ./
 RUN go mod download
 COPY *.go ./
+COPY internal/ ./internal/
 COPY seed/ ./seed/
 RUN CGO_ENABLED=0 go build -o /tier3-vault .
 

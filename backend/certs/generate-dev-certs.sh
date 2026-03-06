@@ -53,13 +53,13 @@ generate_cert() {
 }
 
 # Tier 1 - Edge (Linux/Go)
-generate_cert tier1 localhost tier1 127.0.0.1
+generate_cert tier1 localhost tier1 tier1-a tier1-b 127.0.0.1
 
 # Tier 2 - Inspector (Rust/Axum)
-generate_cert tier2 localhost tier2 127.0.0.1
+generate_cert tier2 localhost tier2 tier2-a tier2-b 127.0.0.1
 
 # Tier 3 - Vault (Go + BadgerDB)
-generate_cert tier3 localhost tier3 127.0.0.1
+generate_cert tier3 localhost tier3 tier3-a tier3-b 127.0.0.1
 
 # Demo issuer client cert (for write path testing)
 generate_cert demo-issuer localhost demo-issuer 127.0.0.1
