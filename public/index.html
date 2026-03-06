@@ -308,7 +308,7 @@
                 <div class="stat"><strong id="useCaseCount">...</strong> use cases</div>
                 <div class="stat">across <strong id="categoryCount">...</strong> categories</div>
             </div>
-            <p>Document fraud touches every sector. We've mapped the landscape:</p>
+            <p>Fraud, safety, security, compliance, authenticity &mdash; unverified documents cause harm across every sector. We've mapped the landscape:</p>
             <div class="category-grid" id="categoryGrid"></div>
             <p style="margin-top: 14px;"><a href="use-cases/" style="color: white; text-decoration: underline; font-weight: 700;">Browse all use cases &rarr;</a></p>
         </div>
@@ -355,7 +355,7 @@
         <div class="card" id="trust">
             <h2>What "Verified" means (and doesn't)</h2>
             <ul>
-                <li><strong>Verified</strong> means: the domain in the <code>verify:</code> line currently attests to the hash for the extracted text.</li>
+                <li><strong>Verified</strong> means: the domain in the <code>verify:</code> line currently attests to the hash for the extracted text above it.</li>
                 <li>It is <strong>not</strong> "ground truth": the issuer can be wrong, malicious, or out-of-date.</li>
                 <li>The human decides whether that domain is an authority for the claim in question.</li>
                 <li>Look out for lookalike/typosquatted domains: while much of verification is automated <strong>the domain should be shown prominently</strong> for humans to judge or not as part of a "trust or don't trust" decision.</li>
@@ -398,6 +398,48 @@
         </div>
     </div>
     <script>
+        // Per-category concern descriptions for hover tooltips
+        var categoryConcerns = {
+            'Identity & Authority Verification': 'Mostly anti-fraud; some safety and security (e.g. verifying someone is who they claim before granting access)',
+            'Real Estate & Property': 'Mostly anti-fraud (forged title deeds, fake tenancy agreements)',
+            'Specialty Insurance': 'Anti-fraud (fake policies, inflated claims)',
+            'Travel & Hospitality': 'Anti-fraud (forged bookings, fake visas); some security',
+            'Government & Civic Documents': 'Anti-fraud and authenticity (forged permits, fake licences)',
+            'Professional & Educational Qualifications': 'Authenticity (forged degrees, fake professional certifications)',
+            'Chain of Custody & Logistics': 'Anti-fraud and security (counterfeit goods, cargo theft via fake paperwork)',
+            'Immigration & Visa Documents': 'Anti-fraud (forged visas, fake work permits)',
+            'Insurance Claims & Operations': 'Anti-fraud (staged claims, inflated losses)',
+            'Banking & Payments': 'Anti-fraud (forged cheques, fake payment confirmations)',
+            'Financial Compliance': 'Compliance (KYC/AML document verification)',
+            'Personal Lines Insurance': 'Anti-fraud (fake no-claims histories, forged policy documents)',
+            'Business & Commerce': 'Anti-fraud and authenticity (fake invoices, forged contracts)',
+            'Legal & Court Documents': 'Anti-fraud and authenticity (forged court orders, fake legal notices)',
+            'Professional & Occupational Licenses': 'Safety and authenticity (is this gas fitter, electrician, or pilot actually qualified?)',
+            'Healthcare & Medical Records': 'Safety and anti-fraud (forged prescriptions, fake medical certificates)',
+            'Product Certifications & Compliance': 'Safety and compliance (counterfeit CE marks, fake safety certificates)',
+            'Site & Equipment Safety': 'Safety (forged inspection certificates, fake equipment compliance)',
+            'Investment & Fintech': 'Anti-fraud (fake prospectuses, forged fund statements)',
+            'Commercial Lines Insurance': 'Anti-fraud (fake certificates of insurance, forged endorsements)',
+            'Actuarial & Insurance Mathematics': 'Anti-fraud and compliance (forged actuarial reports)',
+            'Environmental Permits & Compliance': 'Compliance (forged environmental permits, fake waste transfer notes)',
+            'Professional Ethics & Compliance': 'Compliance and authenticity (fake practising certificates, forged disciplinary clearances)',
+            'Financial & Legal Documents': 'Anti-fraud (forged financial statements, fake legal documents)',
+            'Charitable & Non-Profit': 'Anti-fraud (fake charity registrations, forged tax-exempt status)',
+            'Notary Services': 'Anti-fraud and authenticity (forged notarisations)',
+            'Art, Media & Publishing': 'Authenticity (forged provenance, fake certificates of authenticity)',
+            'Agriculture & Food': 'Safety and compliance (fake organic certifications, forged food safety certificates)',
+            'Scientific & Research': 'Authenticity (forged peer-review confirmations, fake ethics approvals)',
+            'Customs & Trade Compliance': 'Compliance and anti-fraud (forged customs declarations, fake certificates of origin)',
+            'Sports & Athletics': 'Authenticity (fake doping clearances, forged coaching qualifications)',
+            'Government & Regulatory': 'Compliance (forged regulatory approvals, fake government authorisations)',
+            'Banking & Financial Services': 'Anti-fraud (forged bank statements, fake credit approvals)',
+            'Novel Document Types': 'Mixed — emerging use cases across fraud, safety, and authenticity',
+            'Trade Finance': 'Anti-fraud (forged letters of credit, fake bills of lading)',
+            'Delegated Authority': 'Anti-fraud and compliance (forged powers of attorney, fake delegated signing authority)',
+            'Warehousing & Inventory': 'Anti-fraud and security (forged warehouse receipts, fake inventory records)',
+            'Permits & Approvals': 'Compliance and safety (forged building permits, fake planning approvals)'
+        };
+
         // Fetch use case stats from index.json
         fetch('use-cases/index.json')
             .then(r => r.json())
@@ -419,6 +461,9 @@
                         const a = document.createElement('a');
                         a.className = 'category-tile';
                         a.href = 'use-cases/#' + encodeURIComponent(cat.name);
+                        if (categoryConcerns[cat.name]) {
+                            a.title = categoryConcerns[cat.name];
+                        }
                         a.innerHTML =
                             '<span class="cat-name">' + cat.name + '</span>' +
                             '<span class="cat-count">' + cat.count + '</span>';
