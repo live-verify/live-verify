@@ -157,25 +157,39 @@ Pod A exposes `8080` (read) and `8081` (write). Pod B exposes `8180` (read) and
 
 ## Testing
 
+### Unit tests
+
 ```sh
-# Unit tests — Tier 1
 cd backend/tier1-edge && go test ./...
-
-# Unit tests — Tier 3
 cd backend/tier3-vault && go test ./...
-
-# Tier 2 build check
 cd backend/tier2-inspector && cargo check
+```
 
-# Integration tests — single pod (requires docker compose up)
+**Tier 1** (7 tests): method filtering, hash validation, upstream forwarding, path-agnostic routing, rate limiting, healthz.
+
+**Tier 3** (11 tests): store get/put/idempotent/conflict/invalid-hash (5), HTTP handlers for healthz, GET, PUT+GET round-trip, conflict 409, bad hash, empty payload (6).
+
+**Tier 2**: cargo check only — thin proxy validated by integration tests.
+
+### Integration tests — single pod
+
+Require `docker compose up --build -d`.
+
+```sh
 cd backend/integration-tests
-bash seed_and_verify.sh      # Read path end-to-end
-bash write_path_test.sh      # Write path + idempotency + conflicts
-bash latency_bench.sh        # Seed 10k, measure p50/p95/p99
+bash seed_and_verify.sh      # Seed 8 demo hashes, full read chain, 404/400/405, path-agnostic
+bash write_path_test.sh      # PUT/GET round-trip, idempotent PUT, conflict 409
+bash latency_bench.sh        # 10k hashes, 1k GETs, assert p99 < 300ms
+```
 
-# Integration tests — multi-pod (requires docker-compose.multi-pod.yml up)
-bash multi_pod_test.sh            # Replication, conflicts, network isolation
-bash multi_pod_failover_test.sh   # Tier failure and recovery
+### Integration tests — multi-pod
+
+Require `docker compose -f docker-compose.multi-pod.yml up --build -d`.
+
+```sh
+cd backend/integration-tests
+bash multi_pod_test.sh           # Replication convergence, conflict 409, read-only enforcement
+bash multi_pod_failover_test.sh  # Tier 3 down → 502 + recovery, Tier 1 down → Pod B unaffected
 ```
 
 ## Scaling and replication
