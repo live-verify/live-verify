@@ -1,0 +1,5 @@
+{
+  "issuer": "State of New York",
+  "description": "Root authorization for New York State credentials",
+  "claimType": "RootAuthority"
+}

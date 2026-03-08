@@ -53,3 +53,38 @@ gov.uk {
 		reverse_proxy tier1:8080
 	}
 }
+
+ids.nypd.nyc.gov {
+	tls internal
+
+	# Verification metadata
+	handle /2026/verification-meta.json {
+		root * /srv/meta/ids.nypd.nyc.gov
+		file_server
+	}
+
+	# Hash lookups → backend
+	handle /2026/* {
+		reverse_proxy tier1:8080
+	}
+
+	# Fixture pages (warrant card demo)
+	handle /warrant/* {
+		root * /srv/fixtures
+		uri strip_prefix /warrant
+		file_server
+	}
+}
+
+ny.gov {
+	tls internal
+
+	handle /verified/verification-meta.json {
+		root * /srv/meta/ny.gov
+		file_server
+	}
+
+	handle /verified/* {
+		reverse_proxy tier1:8080
+	}
+}

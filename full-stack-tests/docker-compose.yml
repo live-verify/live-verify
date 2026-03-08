@@ -65,6 +65,8 @@ services:
           - midsomer.police.uk
           - policing.gov.uk
           - gov.uk
+          - ids.nypd.nyc.gov
+          - ny.gov
 
 
 volumes:

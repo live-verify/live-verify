@@ -1,0 +1,6 @@
+{
+  "issuer": "New York City Police Department",
+  "description": "NYPD officer warrant cards and credentials",
+  "claimType": "PoliceWarrant",
+  "authorizedBy": "ny.gov/verified"
+}

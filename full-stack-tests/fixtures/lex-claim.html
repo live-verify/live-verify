@@ -1,16 +1,18 @@
-<!DOCTYPE html>
+!DOCTYPE html>
+<html>
 
 <!--
 
-Background: https://www.freepik.com/free-photo/business-woman-holding-showing-empty-business-card-name-card_4550537.htm
+background image attribution
 
-Pics from Midsomer Murders screen clips.
+https://www.freepik.com/free-photo/close-up-businessperson-s-hand-showing-blank-visiting-card_3100608.htm#fromView=keyword&page=1&position=46&uuid=13ff64ab-2600-4c6a-918b-162ab5c2fbbf&query=Hand+holding+id
+
+NyPC badge from wikipedia: https://commons.wikimedia.org/wiki/File:Patch_of_the_New_York_City_Police_Department.svg
 
 -->
 
-<html>
 <head>
-    <title>Detective Gina Coulby - Verification</title>
+    <title>Detective Lex Luthor- Verification</title>
     <style>
         body { 
             margin: 0; 
@@ -26,15 +28,15 @@ Pics from Midsomer Murders screen clips.
             width: 1000px;
             height: 667px;
             position: relative;
-            background: url('bg.jpg') no-repeat;
+            background: url('bg2.jpg') no-repeat;
             background-size: cover;
             background-color: #fff;
         }
         
         .scan-area {
             position: absolute;
-            top: 250px;
-            left: 395px;
+            top: 160px;
+            left: 455px;
             width: 420px;
             height: 210px;
             display: flex;
@@ -49,7 +51,8 @@ Pics from Midsomer Murders screen clips.
             flex-direction: column;
             width: 90px;
             flex-shrink: 0;
-            margin-right: 20px;
+            margin-left: -10px;
+            margin-right: 30px;
             background: rgba(255,255,255,0.5);
             padding: 5px;
             border-radius: 5px;
@@ -64,6 +67,7 @@ Pics from Midsomer Murders screen clips.
             display: flex;
             flex-direction: column;
             justify-content: center;
+            margin-left: -25px;
         }
 
         .details {
@@ -85,26 +89,28 @@ Pics from Midsomer Murders screen clips.
         <div class="scan-area">
             <!-- LHS Logo -->
             <div class="logo-container">
-                <img src="logo_top.jpg" alt="Crown">
-                <img src="logo_bottom.jpg" alt="Midsomer">
+                <img src="nypd-patch.png">
             </div>
 
             <!-- RHS Details -->
             <div class="details-column">
                 <div class="details">
-                    <span class="marker" verifiable-text="start" data-for="police">[</span><span style="display:block; line-height:22px">MIDSOMER CONSTABULARY<br>
-                    <span style="font-size: 1.1em;">POLICE OFFICER</span><br>
-                    DETECTIVE GINA COULBY<br>
-                    Salt: 7k3m9x2p</span><span class="marker" verifiable-text="end" data-for="police">]</span>
-                </div>
-                <div class="details" style="margin-top: 2px;">
-                    <span data-verify-line="police">verify:midsomer.police.uk/id</span>
+                    <span class="marker" verifiable-text="start" data-for="police">[</span>
+<span style="display:block; line-height:22px">
+NEW YORK POLICE DEPARTMENT<br>
+DETECTIVE<br>
+LEX LUTHOR<br>
+Badge: 84729
+</span>
+<span class="marker" verifiable-text="end" data-for="police">]</span>
+
+<span data-verify-line="police">verify:ids.nypd.nyc.gov/2026</span>
                 </div>
             </div>
         </div>
     </div>
     <!-- Test locators -->
-    <div class="name" style="display:none">DETECTIVE GINA COULBY</div>
-    <div class="force" style="display:none">MIDSOMER CONSTABULARY</div>
+    <div class="name" style="display:none">LEX LUTHOR</div>
+    <div class="force" style="display:none">NYPD</div>
 </body>
 </html>
