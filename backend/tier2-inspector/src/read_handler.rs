@@ -12,7 +12,7 @@ use crate::AppState;
 pub fn router(state: Arc<AppState>) -> Router {
     Router::new()
         .route("/healthz", get(healthz))
-        .route("/v/{hash}", get(get_hash))
+        .route("/v/:hash", get(get_hash))
         .with_state(state)
 }
 

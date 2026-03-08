@@ -13,7 +13,7 @@ use crate::AppState;
 pub fn router(state: Arc<AppState>) -> Router {
     Router::new()
         .route("/healthz", axum::routing::get(healthz))
-        .route("/v/{hash}", put(put_hash))
+        .route("/v/:hash", put(put_hash))
         .with_state(state)
 }
 

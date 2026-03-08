@@ -1,0 +1,5 @@
+{
+  "issuer": "HM Government",
+  "description": "Root authorization for government digital identities",
+  "claimType": "RootAuthority"
+}

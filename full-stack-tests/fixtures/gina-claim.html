@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detective Gina Coulby - Verification</title>
+    <style>
+        body { 
+            margin: 0; 
+            padding: 0; 
+            background: #222; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh;
+            font-family: sans-serif;
+        }
+        .container {
+            width: 1000px;
+            height: 667px;
+            position: relative;
+            background: url('bg.jpg') no-repeat;
+            background-size: cover;
+            background-color: #fff;
+        }
+        
+        .scan-area {
+            position: absolute;
+            top: 250px;
+            left: 395px;
+            width: 420px;
+            height: 210px;
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            box-sizing: border-box;
+            background: transparent;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            width: 90px;
+            flex-shrink: 0;
+            margin-right: 20px;
+            background: rgba(255,255,255,0.5);
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .logo-container img {
+            width: 100%;
+            height: auto;
+        }
+
+        .details-column {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .details {
+            line-height: 20px;
+            font-size: 14px;
+            color: #000;
+            font-weight: bold;
+        }
+        
+        .marker { 
+            color: rgba(0,0,0,0.05); 
+            font-size: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="scan-area">
+            <!-- LHS Logo -->
+            <div class="logo-container">
+                <img src="logo_top.jpg" alt="Crown">
+                <img src="logo_bottom.jpg" alt="Midsomer">
+            </div>
+
+            <!-- RHS Details -->
+            <div class="details-column">
+                <div class="details">
+                    <span class="marker" verifiable-text="start" data-for="police">[</span><span style="display:block; line-height:22px">MIDSOMER CONSTABULARY<br>
+                    <span style="font-size: 1.1em;">POLICE OFFICER</span><br>
+                    DETECTIVE GINA COULBY<br>
+                    Salt: 7k3m9x2p</span><span class="marker" verifiable-text="end" data-for="police">]</span>
+                </div>
+                <div class="details" style="margin-top: 2px;">
+                    <span data-verify-line="police">verify:midsomer.police.uk/id</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Test locators -->
+    <div class="name" style="display:none">DETECTIVE GINA COULBY</div>
+    <div class="force" style="display:none">MIDSOMER CONSTABULARY</div>
+</body>
+</html>

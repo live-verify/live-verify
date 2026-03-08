@@ -90,16 +90,18 @@ function buildVerificationUrl(baseUrl, hash, meta) {
     // Field name is "appendToHashFileName" in verification-meta.json
     const suffix = (meta && meta.appendToHashFileName) ? meta.appendToHashFileName : '';
 
-    // If it starts with verify:, convert to https://
+    // If it starts with verify:, convert to https:// (or http:// for local test)
     if (lowerBase.startsWith('verify:')) {
         const withoutPrefix = baseUrl.substring(7); // Remove "verify:"
-        return `https://${withoutPrefix}/${hash}${suffix}`;
+        const protocol = (withoutPrefix.includes('localhost') || withoutPrefix.includes('127.0.0.1')) ? 'http' : 'https';
+        return `${protocol}://${withoutPrefix}/${hash}${suffix}`;
     }
 
     // If it starts with vfy:, convert to https://
     if (lowerBase.startsWith('vfy:')) {
         const withoutPrefix = baseUrl.substring(4); // Remove "vfy:"
-        return `https://${withoutPrefix}/${hash}${suffix}`;
+        const protocol = (withoutPrefix.includes('localhost') || withoutPrefix.includes('127.0.0.1')) ? 'http' : 'https';
+        return `${protocol}://${withoutPrefix}/${hash}${suffix}`;
     }
 
     // This should not be reached if extractVerificationUrl is working correctly
@@ -158,24 +160,38 @@ function extractDomain(baseUrl) {
 }
 
 /**
+ * Build verification-meta.json URL from base URL
+ * @param {string} baseUrl - Base URL (verify:, vfy:, or https://)
+ * @returns {string} - Full URL to verification-meta.json
+ */
+function buildMetaUrl(baseUrl) {
+    let httpsBase = baseUrl;
+    const lowerBase = baseUrl.toLowerCase();
+
+    if (lowerBase.startsWith('verify:')) {
+        const withoutPrefix = baseUrl.substring(7);
+        const protocol = (withoutPrefix.includes('localhost') || withoutPrefix.includes('127.0.0.1')) ? 'http' : 'https';
+        httpsBase = `${protocol}://${withoutPrefix}`;
+    } else if (lowerBase.startsWith('vfy:')) {
+        const withoutPrefix = baseUrl.substring(4);
+        const protocol = (withoutPrefix.includes('localhost') || withoutPrefix.includes('127.0.0.1')) ? 'http' : 'https';
+        httpsBase = `${protocol}://${withoutPrefix}`;
+    } else if (!lowerBase.startsWith('http')) {
+        httpsBase = `https://${baseUrl}`;
+    }
+
+    // Strip trailing slash if present
+    return `${httpsBase.replace(/\/$/, '')}/verification-meta.json`;
+}
+
+/**
  * Fetch verification-meta.json from the base URL
  * @param {string} baseUrl - Base URL (verify:, vfy:, or https://)
  * @returns {Promise<Object|null>} - Metadata object or null if not found
  */
 async function fetchVerificationMeta(baseUrl) {
     try {
-        // Convert verify: or vfy: to https:// if needed
-        let httpsBase = baseUrl;
-        const lowerBase = baseUrl.toLowerCase();
-
-        if (lowerBase.startsWith('verify:')) {
-            httpsBase = `https://${baseUrl.substring(7)}`;
-        } else if (lowerBase.startsWith('vfy:')) {
-            httpsBase = `https://${baseUrl.substring(4)}`;
-        }
-
-        // Fetch verification-meta.json
-        const metaUrl = `${httpsBase}/verification-meta.json`;
+        const metaUrl = buildMetaUrl(baseUrl);
         const response = await fetch(metaUrl);
 
         if (response.status === 200) {
@@ -220,14 +236,14 @@ async function verifyHash(verificationUrl, meta) {
             if (json.status) {
                 const upperStatus = json.status.toUpperCase();
                 if (upperStatus === 'OK' || upperStatus === 'VERIFIED') {
-                    return { success: true, status: 'VERIFIED', domain };
+                    return { success: true, status: 'VERIFIED', domain, payload: json };
                 }
 
                 // Check custom responseTypes from meta
                 if (meta?.responseTypes?.[upperStatus]) {
                     const typeInfo = meta.responseTypes[upperStatus];
                     if (typeInfo.class === 'affirming') {
-                        return { success: true, status: upperStatus, domain };
+                        return { success: true, status: upperStatus, domain, payload: json };
                     } else {
                         return { success: false, status: typeInfo.text || upperStatus, domain };
                     }
@@ -271,7 +287,7 @@ async function verifyHash(verificationUrl, meta) {
  * @param {Object} meta - The issuer's full verification-meta.json object
  * @param {string} metaUrl - The URL from which verification-meta.json was fetched (for re-fetch)
  * @param {string} [originUrl] - The original verification URL that triggered this chain walk
- * @returns {Promise<{checked: boolean, confirmed: boolean, authorizer: string, description: string|null, expired: boolean, successor: string|null, error: string|null, chain: Array}>}
+ * @returns {Promise<{checked: boolean, confirmed: boolean, authorizer: string, description: string|null, authorityBasis: string|null, expired: boolean, successor: string|null, error: string|null, chain: Array}>}
  */
 async function checkAuthorization(meta, metaUrl, originUrl) {
     if (!meta || !meta.authorizedBy || typeof meta.authorizedBy !== 'string') {
@@ -342,11 +358,19 @@ async function checkAuthorization(meta, metaUrl, originUrl) {
         // Walk the authorization chain
         const chain = await walkAuthorizationChain(meta.authorizedBy, confirmed, hashFn, 0, originUrl);
 
+        // The issuer's authority basis from their verification-meta.json.
+        // A short statement of what kind of authority backs this verification.
+        // Since the authorizer hashes the entire meta, they have implicitly
+        // endorsed this statement. The authorizer can require specific
+        // wording as a condition of endorsement.
+        const authorityBasis = meta.authorityBasis || null;
+
         return {
             checked: true,
             confirmed,
             authorizer,
             description: chain.length > 0 ? chain[0].description : null,
+            authorityBasis,
             expired: false,
             successor: null,
             error: null,
@@ -409,9 +433,9 @@ async function walkAuthorizationChain(authorizedByUrl, primaryConfirmed, hashFn,
 
 
 // ES module exports (for browser extension)
-export { extractVerificationUrl, buildVerificationUrl, extractCertText, extractDomain, fetchVerificationMeta, verifyHash, checkAuthorization, walkAuthorizationChain };
+export { extractVerificationUrl, buildVerificationUrl, extractCertText, extractDomain, buildMetaUrl, fetchVerificationMeta, verifyHash, checkAuthorization, walkAuthorizationChain };
 
 // CommonJS exports (for Node.js testing)
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { extractVerificationUrl, buildVerificationUrl, extractCertText, extractDomain, fetchVerificationMeta, verifyHash, checkAuthorization, walkAuthorizationChain };
+    module.exports = { extractVerificationUrl, buildVerificationUrl, extractCertText, extractDomain, buildMetaUrl, fetchVerificationMeta, verifyHash, checkAuthorization, walkAuthorizationChain };
 }

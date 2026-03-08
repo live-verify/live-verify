@@ -1,0 +1,55 @@
+# TLS terminator and domain router for full-stack tests.
+# Serves verification-meta.json per domain, proxies hash lookups to tier1.
+
+{
+	local_certs
+	auto_https disable_redirects
+}
+
+midsomer.police.uk {
+	tls internal
+
+	# Verification metadata
+	handle /id/verification-meta.json {
+		root * /srv/meta/midsomer.police.uk
+		file_server
+	}
+
+	# Hash lookups → backend
+	handle /id/* {
+		reverse_proxy tier1:8080
+	}
+
+	# Fixture pages (warrant card demo)
+	handle /warrant/* {
+		root * /srv/fixtures
+		uri strip_prefix /warrant
+		file_server
+	}
+}
+
+policing.gov.uk {
+	tls internal
+
+	handle /v1/verification-meta.json {
+		root * /srv/meta/policing.gov.uk
+		file_server
+	}
+
+	handle /v1/* {
+		reverse_proxy tier1:8080
+	}
+}
+
+gov.uk {
+	tls internal
+
+	handle /v1/verification-meta.json {
+		root * /srv/meta/gov.uk
+		file_server
+	}
+
+	handle /v1/* {
+		reverse_proxy tier1:8080
+	}
+}

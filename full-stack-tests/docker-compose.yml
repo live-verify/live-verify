@@ -1,0 +1,79 @@
+# Full-stack test: 3-tier backend + Caddy TLS terminator with real domain names.
+#
+# Caddy serves TLS on 443 for midsomer.police.uk, policing.gov.uk, gov.uk.
+# Playwright runs on the host with --host-resolver-rules pointing domains to 127.0.0.1.
+#
+# Usage:
+#   docker compose up --build -d
+#   docker compose run --rm seeder
+#   npx playwright test  (from host)
+#   docker compose down -v
+
+services:
+  tier3:
+    build: ../backend/tier3-vault
+    command:
+      - --db-path=/data/badger
+      - --listen=:9090
+    volumes:
+      - badger-data:/data/badger
+    networks:
+      - backend
+
+  tier2:
+    build: ../backend/tier2-inspector
+    command:
+      - --read-port=8080
+      - --write-port=8081
+      - --upstream=http://tier3:9090
+    environment:
+      - RUST_LOG=debug
+    depends_on:
+      - tier3
+    ports:
+      - "8081:8081"
+    networks:
+      - backend
+
+  tier1:
+    build: ../backend/tier1-edge
+    command:
+      - --listen=:8080
+      - --upstream=http://tier2:8080
+      - --rate-limit=600
+    depends_on:
+      - tier2
+    networks:
+      - backend
+      - frontend
+
+  caddy:
+    image: docker.io/library/caddy:2-alpine
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./meta:/srv/meta:ro
+      - ./fixtures:/srv/fixtures:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    ports:
+      - "443:443"
+    depends_on:
+      - tier1
+    networks:
+      frontend:
+        aliases:
+          - midsomer.police.uk
+          - policing.gov.uk
+          - gov.uk
+
+
+volumes:
+  badger-data:
+  caddy_data:
+  caddy_config:
+
+networks:
+  backend:
+    internal: true
+  frontend:
+    driver: bridge

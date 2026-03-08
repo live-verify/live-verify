@@ -1,0 +1,31 @@
+{
+  "govMeta": {
+    "issuer": "HM Government",
+    "description": "Root authorization for government digital identities",
+    "claimType": "RootAuthority"
+  },
+  "hmicfrsMeta": {
+    "issuer": "HMICFRS",
+    "description": "Her Majesty's Inspectorate of Constabulary and Fire & Rescue Services",
+    "claimType": "IntermediateAuthority",
+    "authorizedBy": "127.0.0.1:8002/authorized"
+  },
+  "midsomerMeta": {
+    "issuer": "Midsomer Constabulary",
+    "description": "Police force for the county of Midsomer",
+    "claimType": "PoliceWarrant",
+    "authorizedBy": "127.0.0.1:8002/auth"
+  },
+  "govMetaHash": "49170167f7436c73af19a59290d4d255ffc5768849da9befcf925c40b0de222e",
+  "hmicfrsMetaHash": "bc92a774cbe756a95a9169e46f686b06d8e5266fe10c86836007e108d5847437",
+  "midsomerMetaHash": "98a713e6f980d3bd88070711c84b4926d3f0252c675179355b90d35502d51a4a",
+  "claimHash": "186c94b42cec2881efcbcdd471b5dad1af7583e6ed85afb688efd342fff587aa",
+  "claimText": "MIDSOMER CONSTABULARY\nPOLICE OFFICER\nDETECTIVE GINA COULBY\nSalt: 7k3m9x2p",
+  "normalizedClaim": "MIDSOMER CONSTABULARY\nPOLICE OFFICER\nDETECTIVE GINA COULBY\nSalt: 7k3m9x2p",
+  "seed": {
+    "49170167f7436c73af19a59290d4d255ffc5768849da9befcf925c40b0de222e": "OK",
+    "bc92a774cbe756a95a9169e46f686b06d8e5266fe10c86836007e108d5847437": "OK",
+    "98a713e6f980d3bd88070711c84b4926d3f0252c675179355b90d35502d51a4a": "OK",
+    "186c94b42cec2881efcbcdd471b5dad1af7583e6ed85afb688efd342fff587aa": "{\"status\":\"OK\",\"message\":\"Active Detective, Midsomer Constabulary\",\"headshot\":\"data:image/jpeg;base64,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\"}"
+  }
+}

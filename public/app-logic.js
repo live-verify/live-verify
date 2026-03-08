@@ -114,16 +114,18 @@ function buildVerificationUrl(baseUrl, hash, meta) {
     // Field name is "appendToHashFileName" in verification-meta.json
     const suffix = (meta && meta.appendToHashFileName) ? meta.appendToHashFileName : '';
 
-    // If it starts with verify:, convert to https://
+    // If it starts with verify:, convert to https:// (or http:// for local test)
     if (lowerBase.startsWith('verify:')) {
         const withoutPrefix = baseUrl.substring(7); // Remove "verify:"
-        return `https://${withoutPrefix}/${hash}${suffix}`;
+        const protocol = (withoutPrefix.includes('localhost') || withoutPrefix.includes('127.0.0.1')) ? 'http' : 'https';
+        return `${protocol}://${withoutPrefix}/${hash}${suffix}`;
     }
 
     // If it starts with vfy:, convert to https://
     if (lowerBase.startsWith('vfy:')) {
         const withoutPrefix = baseUrl.substring(4); // Remove "vfy:"
-        return `https://${withoutPrefix}/${hash}${suffix}`;
+        const protocol = (withoutPrefix.includes('localhost') || withoutPrefix.includes('127.0.0.1')) ? 'http' : 'https';
+        return `${protocol}://${withoutPrefix}/${hash}${suffix}`;
     }
 
     // This should not be reached if extractVerificationUrl is working correctly
@@ -192,24 +194,38 @@ function extractDomain(baseUrl) {
 }
 
 /**
+ * Build verification-meta.json URL from base URL
+ * @param {string} baseUrl - Base URL (verify:, vfy:, or https://)
+ * @returns {string} - Full URL to verification-meta.json
+ */
+function buildMetaUrl(baseUrl) {
+    let httpsBase = baseUrl;
+    const lowerBase = baseUrl.toLowerCase();
+
+    if (lowerBase.startsWith('verify:')) {
+        const withoutPrefix = baseUrl.substring(7);
+        const protocol = (withoutPrefix.includes('localhost') || withoutPrefix.includes('127.0.0.1')) ? 'http' : 'https';
+        httpsBase = `${protocol}://${withoutPrefix}`;
+    } else if (lowerBase.startsWith('vfy:')) {
+        const withoutPrefix = baseUrl.substring(4);
+        const protocol = (withoutPrefix.includes('localhost') || withoutPrefix.includes('127.0.0.1')) ? 'http' : 'https';
+        httpsBase = `${protocol}://${withoutPrefix}`;
+    } else if (!lowerBase.startsWith('http')) {
+        httpsBase = `https://${baseUrl}`;
+    }
+
+    // Strip trailing slash if present
+    return `${httpsBase.replace(/\/$/, '')}/verification-meta.json`;
+}
+
+/**
  * Fetch verification-meta.json from the base URL
  * @param {string} baseUrl - Base URL (verify:, vfy:, or https://)
  * @returns {Promise<Object|null>} - Metadata object or null if not found
  */
 async function fetchVerificationMeta(baseUrl) {
     try {
-        // Convert verify: or vfy: to https:// if needed
-        let httpsBase = baseUrl;
-        const lowerBase = baseUrl.toLowerCase();
-
-        if (lowerBase.startsWith('verify:')) {
-            httpsBase = `https://${baseUrl.substring(7)}`;
-        } else if (lowerBase.startsWith('vfy:')) {
-            httpsBase = `https://${baseUrl.substring(4)}`;
-        }
-
-        // Fetch verification-meta.json
-        const metaUrl = `${httpsBase}/verification-meta.json`;
+        const metaUrl = buildMetaUrl(baseUrl);
         const response = await fetch(metaUrl);
 
         if (response.status === 200) {
@@ -254,14 +270,14 @@ async function verifyHash(verificationUrl, meta) {
             if (json.status) {
                 const upperStatus = json.status.toUpperCase();
                 if (upperStatus === 'OK' || upperStatus === 'VERIFIED') {
-                    return { success: true, status: 'VERIFIED', domain };
+                    return { success: true, status: 'VERIFIED', domain, payload: json };
                 }
 
                 // Check custom responseTypes from meta
                 if (meta?.responseTypes?.[upperStatus]) {
                     const typeInfo = meta.responseTypes[upperStatus];
                     if (typeInfo.class === 'affirming') {
-                        return { success: true, status: upperStatus, domain };
+                        return { success: true, status: upperStatus, domain, payload: json };
                     } else {
                         return { success: false, status: typeInfo.text || upperStatus, domain };
                     }
@@ -457,6 +473,7 @@ if (typeof module !== 'undefined' && module.exports) {
         extractCertText,
         hashMatchesUrl,
         buildVerificationUrl,
+        buildMetaUrl,
         extractDomain,
         fetchVerificationMeta,
         verifyHash,

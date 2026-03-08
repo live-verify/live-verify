@@ -1,0 +1,6 @@
+{
+  "issuer": "Midsomer Constabulary",
+  "description": "Police force for the county of Midsomer",
+  "claimType": "PoliceWarrant",
+  "authorizedBy": "policing.gov.uk/v1"
+}

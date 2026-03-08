@@ -168,6 +168,19 @@ function renderResultCard(result) {
             </div>
     `;
 
+    // Show headshot from payload if available
+    if (result.payload && result.payload.headshot) {
+        html += `
+            <div style="display: flex; gap: 15px; margin-bottom: 12px; align-items: center; background: #f0f7ff; padding: 10px; border-radius: 8px; border: 1px solid #d0e7ff;">
+                <img src="${result.payload.headshot}" style="width: 60px; height: 75px; object-fit: cover; border-radius: 4px; border: 1px solid #accbee;">
+                <div>
+                    <div style="font-weight: 600; color: #002d62;">Verification Result</div>
+                    <div style="font-size: 12px; color: #444;">${escapeHtml(result.payload.message || 'Authenticated')}</div>
+                </div>
+            </div>
+        `;
+    }
+
     // Show authorization status if available
     if (result.authorization && result.authorization.authorizer) {
         const a = result.authorization;

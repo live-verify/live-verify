@@ -27,6 +27,7 @@ import {
     extractVerificationUrl,
     extractCertText,
     buildVerificationUrl,
+    buildMetaUrl,
     extractDomain,
     fetchVerificationMeta,
     verifyHash,
@@ -211,15 +212,7 @@ async function verifySelection(selectedText, tab) {
     let authorization = null;
     if (meta && meta.authorizedBy) {
         console.log('[LiveVerify] Checking authorization from', meta.authorizedBy);
-        // Compute metaUrl from baseUrl
-        let metaHttpsBase = baseUrl;
-        const lowerBase2 = baseUrl.toLowerCase();
-        if (lowerBase2.startsWith('verify:')) {
-            metaHttpsBase = `https://${baseUrl.substring(7)}`;
-        } else if (lowerBase2.startsWith('vfy:')) {
-            metaHttpsBase = `https://${baseUrl.substring(4)}`;
-        }
-        const metaUrl = `${metaHttpsBase}/verification-meta.json`;
+        const metaUrl = buildMetaUrl(baseUrl);
         try {
             authorization = await checkAuthorization(meta, metaUrl, verificationUrl);
             console.log('[LiveVerify] Authorization result:', JSON.stringify(authorization));
@@ -236,6 +229,7 @@ async function verifySelection(selectedText, tab) {
         success: verifyResult.success,
         status: verifyResult.status,
         domain: verifyResult.domain,
+        payload: verifyResult.payload,
         registrableDomain,
         domainNotListed,
         authorization,
@@ -563,15 +557,7 @@ async function verifyText(selectedText) {
     // Check authorization if metadata has authorizedBy
     let authorization = null;
     if (meta && meta.authorizedBy) {
-        // Compute metaUrl from baseUrl
-        let metaHttpsBase2 = baseUrl;
-        const lowerBase3 = baseUrl.toLowerCase();
-        if (lowerBase3.startsWith('verify:')) {
-            metaHttpsBase2 = `https://${baseUrl.substring(7)}`;
-        } else if (lowerBase3.startsWith('vfy:')) {
-            metaHttpsBase2 = `https://${baseUrl.substring(4)}`;
-        }
-        const metaUrl2 = `${metaHttpsBase2}/verification-meta.json`;
+        const metaUrl2 = buildMetaUrl(baseUrl);
         try {
             authorization = await checkAuthorization(meta, metaUrl2, verificationUrl);
         } catch {
@@ -585,6 +571,7 @@ async function verifyText(selectedText) {
         success: verifyResult.success,
         status: verifyResult.status,
         domain: verifyResult.domain,
+        payload: verifyResult.payload,
         registrableDomain,
         domainNotListed,
         authorization,
