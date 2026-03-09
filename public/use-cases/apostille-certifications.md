@@ -104,6 +104,19 @@ The **Document Holder** (e.g., expat, international student) benefits from verif
 **U.S. Department of State:** For federal documents.
 **Competent Authorities:** National ministries in foreign countries.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+The UK Foreign, Commonwealth & Development Office legalises and authenticates documents for use abroad under the Hague Apostille Convention 1961.
+
+```
+✓ legalisation.fcdo.gov.uk/verify — UK Foreign Office document legalisation service
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

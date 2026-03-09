@@ -101,6 +101,20 @@ The **Plan Sponsor (Employer)** benefits from verification.
 **Specialist CPA Firms:** (ERISA audit specialists).
 **Department of Labor:** (Hosting the official filing hashes).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Independent auditors conduct ERISA compliance audits required by the US Department of Labor.
+
+```
+✓ erisa.example-auditors.com — Audits ERISA pension plan compliance
+  ✓ dol.gov — Enforces US pension and labor regulations
+    ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

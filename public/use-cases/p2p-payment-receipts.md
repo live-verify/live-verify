@@ -93,6 +93,20 @@ The **Seller / Recipient** benefits from verification.
 
 **Privacy Salt:** Highly Critical. P2P handles and payment amounts are highly sensitive social and financial data. The hash MUST be salted to prevent "Mass Payment Harvesting" by data scrapers.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+P2P payment platforms are regulated money transmitters that issue digital receipts verifying completed transactions.
+
+```
+✓ venmo.com/receipt/verify — Licensed P2P payment platform
+  ✓ fincen.gov — Administers US anti-money-laundering regulations
+    ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 P2P payments are the "Cash of the Mobile Age." By turning digital receipts into verifiable digital bridges, we protect the informal economy from the multi-billion dollar cost of "Screenshot Scams" and ensure that "Sent" means "Spent."

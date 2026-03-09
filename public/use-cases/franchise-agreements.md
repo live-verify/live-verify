@@ -101,6 +101,20 @@ The **Franchisee (Investor)** benefits from verification.
 **Franchise Law Firms:** (Hosting verified hashes for their clients).
 **State Securities Regulators:** (In "Registration States" like NY or CA).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Franchisors disclose franchise agreements under UK and US franchise regulations.
+
+```
+✓ franchise.mcdonalds.co.uk — Discloses franchise agreements
+  ✓ bfa.org.uk — Registers UK franchise disclosures
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

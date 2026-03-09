@@ -89,6 +89,20 @@ The **Vehicle Owner (Claimant)** benefits from verification.
 
 **Privacy Salt:** Essential. VINs and settlement amounts are private financial data. The hash must be salted to prevent "Wealth Mapping" of accident victims.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Insurers and valuation providers issue total loss valuations and are regulated by the UK Financial Conduct Authority under the UK insurance framework.
+
+```
+✓ totalloss.example-insurer.co.uk/verify — Insurance carrier issuing total loss valuations and ACV reports
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Total loss is the "Financial Death" of a vehicle. By turning valuation reports into verifiable digital bridges, we ensure that the multi-billion dollar claims market is based on the digital truth of the audit, protecting both the insurance pool and the secondary car market.

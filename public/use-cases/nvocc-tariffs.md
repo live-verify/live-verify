@@ -92,6 +92,20 @@ The **Shipper (Exporters / Importers)** benefits from verification.
 
 **Privacy Salt:** Essential. Specific customer names and trade volumes are sensitive business secrets. The hash must be salted to prevent competitors from mapping a rival's cargo flow.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+NVOCCs publish tariffs under Federal Maritime Commission regulations.
+
+```
+✓ tariff.example-nvocc.com — Publishes shipping tariffs
+  ✓ fmc.gov — Regulates ocean freight carriers
+    ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 NVOCC tariffs are the "Rules of the Road" for global trade. By turning static price sheets into verifiable digital bridges, we ensure that the transparency required by law is backed by cryptographic proof, protecting shippers and fair competition.

@@ -106,6 +106,19 @@ The **Poll Worker (Citizen)** benefits from verification.
 
 **Privacy Salt:** Critical. Poll worker names and home addresses (often linked to voter rolls) are sensitive. The hash must be salted to prevent "Political Targeting" or harassment of election officials.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Appoints and trains poll workers for election administration.
+
+```
+✓ elections.virginia.gov/pollworker/verify — Appoints and trains poll workers for election administration
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Election integrity is the "North Star" of democracy. By turning poll worker badges into verifiable digital bridges, we ensure that the "Guardians of the Vote" are as authentic as the process they protect, building public trust in every ballot cast.

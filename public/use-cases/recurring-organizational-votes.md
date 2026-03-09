@@ -289,6 +289,20 @@ The gold standard is that voters cannot prove how they voted:
 
 Some implementations allow voters to verify their own vote was counted (without proving to others), using techniques like receipt-free voting or deniable receipts.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Organizations conducting member votes (unions, HOAs, co-ops, employee surveys) are themselves the source of authority for electoral integrity.
+
+```
+✓ electoralreform.co.uk/verify — Organization conducting the vote
+```
+
+Self-authorized — this is a sovereign body (organization) whose authority derives from statute or membership agreement.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Recurring Vote Patterns
 
 **Why Recurring Matters:**

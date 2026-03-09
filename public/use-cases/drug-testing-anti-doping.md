@@ -111,6 +111,19 @@ The **Athlete** benefits from verification.
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. Doping data is highly sensitive health info. The hash MUST be salted to prevent "Guess-and-Check" searches for famous athletes to see their test results.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+WADA-accredited laboratories conduct drug tests according to international anti-doping protocols.
+
+```
+✓ testing.ukad.org.uk — Conducts WADA-accredited doping tests
+  ✓ wada-ama.org — Sets global anti-doping standards
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

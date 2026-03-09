@@ -108,6 +108,19 @@ The **Creator / Rights Holder** benefits from verification.
 **Rights Management Orgs (PROs):** (ASCAP, BMI, PRS - for music).
 **Collective Management Orgs (CMOs).**
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Registers and administers US copyright protections.
+
+```
+✓ copyright.gov/verify — Registers and administers US copyright protections
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

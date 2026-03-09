@@ -115,6 +115,20 @@ The **Attorney-in-Fact (Agent)** benefits from verification.
 **Online Notary Platforms:** (e.g., Notarize, Proof - hosting the session hashes).
 **State Notary Registries.**
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Powers of attorney are drafted by legal professionals and overseen by the UK public guardian authority.
+
+```
+✓ opg.service.justice.gov.uk/verify — Issues durable powers of attorney and notary certifications
+  ✓ publicguardian.gov.uk — Oversees UK powers of attorney and deputies
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

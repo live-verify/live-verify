@@ -91,6 +91,20 @@ The **Homeowner / System Owner** benefits from verification.
 
 **Privacy Salt:** Low. Solar performance is generally public business data. However, individual homeowner names associated with specific panels should be salted to protect consumer privacy.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+MCS certifies solar panel installations and manufacturers under UK microgeneration standards.
+
+```
+✓ mcs.org.uk/cert — Issues solar efficiency certificates
+  ✓ mcs.org.uk — Certifies UK microgeneration installations
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Solar is a "25-Year Investment." By turning static certificates into verifiable digital bridges, we protect the billions of dollars in green capital and ensure that the "Clean Energy" on the roof is backed by the professional truth of the factory.

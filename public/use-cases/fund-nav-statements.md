@@ -115,6 +115,20 @@ The investor (second party) may hand the verified document to various third part
 
 **Privacy Salt:** Required. Unlike documents with many unpredictable variables, NAV statements often contain enumerable values—round dollar amounts, standard fund names, predictable quarterly reporting dates, and publicly known performance tiers. A competitor or malicious actor could feasibly enumerate combinations to reverse-engineer investor positions, fund sizes, or institutional allocations. Salt protects this sensitive financial intelligence from systematic discovery.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Vanguard UK, a regulated investment manager, is authorized by the FCA to issue verified fund net asset value statements to investors.
+
+```
+✓ statements.vanguard.co.uk/verify — Issues verified fund net asset value statements
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require fund administrators to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

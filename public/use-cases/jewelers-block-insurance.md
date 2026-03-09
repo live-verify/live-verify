@@ -93,6 +93,20 @@ The **Jeweler (Store Owner)** benefits from verification.
 **Lloyd's Syndicates.**
 **Security Auditing Firms:** (Hosting the verified vault hashes).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Chubb, a regulated specialty insurer, is authorized by the FCA to issue verified jewelers block insurance policies for stock and transit coverage.
+
+```
+✓ jewelers.chubb.com/verify — Issues verified jewelers block insurance policies
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

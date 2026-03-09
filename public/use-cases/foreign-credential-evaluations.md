@@ -128,9 +128,17 @@ Moderate. Education credentials are semi-public — people list degrees on CVs, 
 
 ## Authority Chain
 
-Evaluation agency (WES, ECE) → accrediting body (NACES, AICE in the US; NARIC in the UK/EU) → education ministry / statute.
+**Pattern:** Regulated
 
-The authority chain is critical here because fake evaluation agencies exist. A report from `globalcredentials-eval.com` with no accreditation chain is a red flag. A report from `wes.org` with accreditation attested by NACES is trustworthy. The domain in the `verify:` line points to the evaluation agency; the authority chain from that agency leads to NACES or AICE; and NACES/AICE membership is publicly verifiable. If the chain breaks at any point — the agency isn't accredited, or the accrediting body doesn't recognize them — the evaluation is suspect.
+Foreign credential evaluations are performed by accredited agencies that are recognized and regulated by the Office for Students in the UK, ensuring only legitimate equivalency determinations are issued.
+
+```
+✓ evaluations.enic-naric.net/verify — Issues credential equivalency evaluations
+  ✓ officeforstudents.org.uk — Regulates English higher education providers
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
 ## Competition vs. Existing Verification
 

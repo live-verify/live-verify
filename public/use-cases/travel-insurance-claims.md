@@ -92,6 +92,20 @@ The **Traveler (Claimant)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Medical loss data and payout amounts are sensitive PII. The hash must be salted and access restricted to authorized financial partners.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Travel insurers like Aviva issue claim settlements and are regulated by the UK Financial Conduct Authority under the UK insurance and financial services framework.
+
+```
+✓ claims.aviva.co.uk/travel/verify — Travel insurance provider issuing claim settlements and payouts
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Travel insurance is the "Global Safety Net." By turning settlement letters into verifiable digital bridges, we protect the integrity of the claims process and ensure that payouts are based on the professional truth of the audit, not the creative editing of a claimant.

@@ -113,6 +113,20 @@ The **Cruise Passenger** benefits from verification.
 
 **Privacy Salt:** Essential. Cabin numbers and passenger names are private travel data. The hash must be salted to prevent "Passenger Tracking" by data scrapers at the port.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Issues shore excursion booking receipts
+
+```
+✓ excursion.pocruises.com/verify — Issues shore excursion booking receipts
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Shore excursions are high-risk "Off-Ship" events. By turning tickets into verifiable digital bridges, we create a "Shield of Trust" that protects passengers from scams and ensures that operators are held to the safety standards of the cruise brand.

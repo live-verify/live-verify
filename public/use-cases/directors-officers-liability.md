@@ -108,6 +108,20 @@ The director/officer (second party) may hand the verified document to various th
 
 **Privacy Salt:** Required. D&O policies often contain enumerable values—round dollar limits ($10M, $25M, $50M), standard retroactive dates, and publicly known company names. A competitor or plaintiff's attorney could feasibly enumerate combinations to reverse-engineer a company's insurance coverage strategy and historical risk profile, gaining unfair advantage in litigation or M&A negotiations. Salt protects these sensitive strategic details.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+AIG underwrites directors and officers liability insurance for UK companies.
+
+```
+✓ dno.aig.co.uk/verify — Underwrites directors and officers liability insurance
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require D&O insurers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

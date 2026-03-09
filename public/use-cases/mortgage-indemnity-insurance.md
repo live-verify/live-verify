@@ -96,6 +96,20 @@ The **Mortgage Lender (Insured)** benefits from verification.
 **FHA / VA Government Agencies:** (Hosting hashes for federal guarantees).
 **National LMI Bureaus:** (In international markets like Australia/UK).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Genworth, a regulated mortgage insurance provider, is authorized by the FCA to issue verified lenders mortgage insurance certificates.
+
+```
+✓ lmi.genworth.co.uk/verify — Issues verified mortgage indemnity insurance certificates
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

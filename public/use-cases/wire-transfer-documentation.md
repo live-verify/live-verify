@@ -111,6 +111,20 @@ The **Originator (Sender)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Individual wire amounts and beneficiary names are extremely sensitive financial PII. The hash must be salted and access restricted to authorized trading partners.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+HSBC and other transaction banks issue wire transfer confirmations and are regulated by the UK Financial Conduct Authority under the Payment Services Regulations 2017.
+
+```
+✓ swift.hsbc.co.uk/transfer/verify — Bank issuing SWIFT and wire transfer confirmations
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Wire transfers are the "Hard Currency" of global trade. By turning static confirmations into verifiable digital bridges, we protect the entire commercial system from the devastating cost of BEC scams and ensure that "Sent" means "Spent" with cryptographic certainty.

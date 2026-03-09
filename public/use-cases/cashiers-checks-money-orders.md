@@ -104,6 +104,20 @@ The **Remitter** (Purchaser) benefits from verification.
 **Postal Services:** (USPS Money Orders).
 **Payment Networks:** (Western Union, MoneyGram).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Banks are regulated depository institutions that guarantee cashier's checks with their own funds.
+
+```
+✓ chase.com/cashiers-check — Issues guaranteed bank checks
+  ✓ occ.treas.gov — Regulates US national banks
+    ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

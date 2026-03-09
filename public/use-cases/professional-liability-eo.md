@@ -105,6 +105,20 @@ The professional firm (second party) may hand the verified document to various t
 
 **Privacy Salt:** Required. Unlike documents with many unpredictable variables, E&O certificates often contain enumerable values—standard coverage limits ($1M, $2M, $5M per claim), common aggregate limits, round deductibles ($10k, $25k, $50k), and predictable retroactive dates (often January 1st of common years). A competitor could feasibly enumerate combinations to reverse-engineer a firm's insurance profile and client risk exposure. Salt protects this competitive intelligence.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Hiscox issues professional liability and E&O insurance and is regulated by the UK Financial Conduct Authority under the UK insurance framework and professional body requirements.
+
+```
+✓ eo.hiscox.co.uk/verify — Professional liability and errors and omissions insurer
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require insurance carriers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -142,9 +142,16 @@ High sensitivity. Family court matters are private. The existence of a child sup
 
 ## Authority Chain
 
-Family court → state judicial system → statute (state family code / domestic relations law). Each state's family code establishes the court's authority to order support, set guidelines for calculating amounts, and enforce through income withholding. Federal law (42 U.S.C. § 666) requires all states to have income withholding procedures.
+**Pattern:** Sovereign
 
-See [Authority Chain specification](/specs/authority-chain) for the full technical detail.
+UK family courts administer child support and alimony orders under the Child Support Act 1991 and family law statutes.
+
+```
+✓ csa.gov.uk/orders/verify — UK Child Support Agency order enforcement service
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
 ## Competition vs. Existing Systems
 

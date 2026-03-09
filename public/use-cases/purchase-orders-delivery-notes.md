@@ -94,6 +94,20 @@ The **Vendor (Seller)** benefits from verification.
 
 **Privacy Salt:** High. Corporate trade volumes and pricing are highly sensitive "Trade Secrets." The hash must be salted to prevent competitors from mapping a company's supply chain or pricing strategy.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Issues purchase orders and delivery notes
+
+```
+✓ procurement.example-corp.com/po/verify — Issues purchase orders and delivery notes
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 B2B commerce relies on "Document Chains." By turning each link in the chain (PO → Delivery → Invoice) into a verifiable digital bridge, we eliminate the friction and fraud that currently plague global supply chains.

@@ -104,6 +104,19 @@ The **Permit Holder** benefits from verification.
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. Firearms data is highly sensitive and politicized. The hash MUST be salted to prevent "Guess-and-Check" searches of the entire county population to see who owns a gun.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Issues concealed carry weapons permits after background checks.
+
+```
+✓ sheriff.county.gov/ccw/verify — Issues concealed carry weapons permits after background checks
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

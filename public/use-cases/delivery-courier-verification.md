@@ -281,6 +281,20 @@ The delivery driver (second party) may hand the verified credential to various t
 
 *Salt rotates every 10 mins or per-delivery. See [E-Ink ID Cards](../e-ink-id-cards.md) for how rotating salts prevent cloning and protect driver privacy.*
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Delivery platforms issue courier verification documents to confirm that drivers are currently authorized to make deliveries. Self-authorized by their platform membership and real-time vetting authority.
+
+```
+✓ drivers.deliveroo.co.uk/verify — Issues delivery courier verification and driver credentials
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Competition vs. In-App Notifications
 
 | Feature | Live Verify | App Notification (Amazon App) | Uniform / Physical Badge |

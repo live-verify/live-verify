@@ -93,6 +93,20 @@ The **Farmer / Farm Manager** benefits from verification.
 
 **Privacy Salt:** Essential. Specific field coordinates and chemical formulations are sensitive business data. The hash must be salted to prevent "Yield Mapping" by competitors or chemical-sales data mining.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Farmers must maintain verified pesticide application logs regulated by health and safety authorities to ensure chemical use complies with safety windows and food safety standards throughout the supply chain.
+
+```
+✓ logs.example-farm.co.uk/pesticide/verify — Records verified pesticide applications
+  ✓ hse.gov.uk — Regulates UK workplace health and safety
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Pesticide logs are the "Moral Compass" of farming. By turning mandatory records into verifiable digital bridges, we protect the consumer's health and the farmworker's safety, ensuring that the "Food we Trust" is actually the "Food we were Promised."

@@ -102,6 +102,19 @@ The homeowner / taxpayer (second party) may hand the verified document to variou
 
 **Privacy Salt:** Not required for standard assessments. Property tax assessments contain many unpredictable variables: unique PIN/parcel numbers (typically long alphanumeric strings), owner names, specific property addresses, exact market values (not round numbers), and tax year combinations. While tax values are public record, the combination of these unique identifiers makes brute-force enumeration infeasible without salt. However, individual exemptions (e.g., Disability/Hardship) should use salted hashes to protect sensitive taxpayer privacy.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+The Valuation Office Agency assesses property values and issues rating notices under the Local Government Finance Act 1992.
+
+```
+✓ voa.gov.uk/verify — Valuation Office Agency property assessment and rating service
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require county assessors to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

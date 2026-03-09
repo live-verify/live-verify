@@ -110,6 +110,20 @@ The **Sender / Receiver** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Remittance data is sensitive financial PII. The hash must be salted to prevent "MTCN Harvesting" or tracking the wealth-flow of individual immigrant families.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Western Union is a licensed money transfer provider regulated by the UK Financial Conduct Authority under the Payment Services Regulations 2017.
+
+```
+✓ westernunion.com/transfer/verify — Money transfer provider processing cross-border remittances
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Remittance is the "Invisible Economy." By turning paper receipts into verifiable digital bridges, we protect the most vulnerable participants in the global financial system from the multi-billion dollar cost of fraud and predatory scams.

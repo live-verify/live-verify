@@ -220,6 +220,19 @@ Driving records are **point-in-time**. Driver could:
 - Self-declarations prove nothing
 - Third-party scrapers are unreliable and may violate terms
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+The licensing authority issues the official record of a driver's current penalty points and endorsements.
+
+```
+✓ dvla.gov.uk/driving-record/verify — UK driver licensing authority
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## See Also
 
 - [National/State/Province ID Cards](view.html?slug=national-state-province-id-cards) — Identity verification with photo return

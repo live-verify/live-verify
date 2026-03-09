@@ -105,6 +105,20 @@ The **Museum Curator** or **Art Collector** benefits from verification.
 **Private Conservation Firms:** (AIC / ICON members).
 **Art Institutes:** (Handling specialized material science).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Conservators document restoration work and assess heritage preservation needs.
+
+```
+✓ conservation.example-conservator.co.uk/verify — Documents conservation and restoration work
+  ✓ icon.org.uk — Sets conservation and heritage standards
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

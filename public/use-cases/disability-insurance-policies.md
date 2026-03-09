@@ -106,6 +106,20 @@ The policyholder (second party) may hand the verified document to various third 
 
 **Privacy Salt:** Required. Disability insurance policies contain a mix of enumerable and unique values—round dollar benefit amounts ($5K, $10K, $15K per month), standard occupation classes, and publicly known professions. A competitor or adversary in divorce proceedings could feasibly enumerate combinations to reverse-engineer a professional's income protection strategy. More critically, salt prevents unauthorized parties from discovering someone's disability insurance status, which could be used for discrimination or targeting. Salt protects both financial privacy and personal medical information.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Unum underwrites disability income insurance policies for UK individuals and employers.
+
+```
+✓ disability.unum.co.uk/verify — Underwrites disability income insurance policies
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require disability insurers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

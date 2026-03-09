@@ -330,6 +330,20 @@ A fake attestation won't hash to the registry. And the registry only issues afte
 
 ---
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Example Advisors issues conflict of interest disclosures for UK financial advisors.
+
+```
+✓ disclosures.example-advisors.co.uk/verify — Issues conflict of interest disclosures for advisors
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Type 3: Role-Scoped Negative Attestations ("I Have No Conflicts in My Capacity As...")
 
 Types 1 and 2 cover individuals disclosing what they earn or attesting they earn nothing.

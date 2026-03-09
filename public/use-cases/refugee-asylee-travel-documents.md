@@ -90,6 +90,19 @@ The **Refugee / Asylee (Traveler)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Refugee data is subject to extreme privacy protections due to the risk of "Transnational Repression" by their home countries. The hash must be salted and access restricted to authorized port-of-entry partners.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Issues refugee and asylee travel documents for international travel.
+
+```
+✓ uscis.gov/refugee-travel/verify — Issues refugee and asylee travel documents for international travel
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Refugee travel is "High-Stakes Mobility." By turning travel booklets into verifiable digital bridges, we protect the most vulnerable travelers from administrative errors and ensure that "Freedom of Movement" is backed by cryptographic proof.

@@ -280,6 +280,20 @@ These differ from incident-based identity escrow:
 - **Open standards:** Non-proprietary data formats
 - **Legal trust structures:** Escrow held by legal entities with succession plans
 
+## Authority Chain
+
+**Pattern:** Personal
+
+Escrow platforms verify and hold identity information on behalf of individuals who have consented to conditional disclosure. Authority derives from individual consent and data protection compliance.
+
+```
+✓ escrow.example-platform.com/conditional/verify — Manages identity escrow and conditional disclosure services
+```
+
+Personal issuer — individual attestation, no regulatory chain.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Considerations
 
 **Donor Identity:**

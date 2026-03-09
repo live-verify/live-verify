@@ -107,6 +107,20 @@ The **Event Promoter** benefits from verification.
 **Lloyd's Syndicates:** (Primary market for contingency).
 **MGA Specialists:** (e.g., HCC Specialty).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Lloyd's of London underwrites contingency and event cancellation insurance globally.
+
+```
+✓ contingency.lloyds.com/verify — Underwrites contingency and event cancellation insurance
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

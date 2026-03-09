@@ -192,6 +192,20 @@ Browser extension allows verification of digital contracts page-by-page with aut
 Amendments reference the original contract and modify specific terms. Each amendment is verified separately, with the amendment hash chain linked to the original contract hash.
 
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Parties to contracts issue digitally signed agreements. Self-authorized by their authority to enter into contractual relationships under contract law.
+
+```
+✓ docusign.example-corp.com/verify — Issues signed contracts and multipage agreements
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -60,6 +60,20 @@ The **Industrial Hygienist / Safety Manager** benefits from verification.
 - **Incident Investigation:** Verifying the historical airflow logs after an reported exposure event to see if the system was in-spec on that date.
 
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Accredited HVAC engineers certify ventilation systems meet building code standards.
+
+```
+✓ hvac.example-engineer.co.uk — Inspects HVAC compliance
+  ✓ cibse.org — Certifies building services engineers in UK
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -89,6 +89,20 @@ The **Merchant / Store Owner** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Merchant trade volumes and customer dispute ratios are extremely sensitive competitive data. The hash MUST be salted and access restricted to authorized financial partners.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Stripe, a regulated payment processor, is authorized by the FCA to issue verified merchant statements and revenue settlement records.
+
+```
+✓ business.stripe.com/statement/verify — Issues verified payment processor merchant statements
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Merchant statements are the "Vital Signs" of a business. By turning static summaries into verifiable digital bridges, we protect the lending and acquisition markets from the multi-billion dollar cost of revenue fraud and ensure that "Success" is a cryptographic fact.

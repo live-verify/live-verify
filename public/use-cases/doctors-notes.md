@@ -143,7 +143,27 @@ Recommended but less critical than for prescriptions. Doctor's notes contain the
 
 ## Authority Chain
 
-Medical practice domain (e.g., `riversidefp.nhs.uk`) &rarr; medical licensing body (GMC in UK, state medical board in US) &rarr; statute (Medical Act 1983 in UK, state medical practice acts in US). For NHS Fit Notes specifically: NHS England provides the statutory framework. See [Authority Chain Specification](/specs/authority-chain) for the full protocol.
+**Pattern:** Regulated
+
+The medical practice is regulated by the medical licensing body, which chains to the government root.
+
+UK chain (practice → GMC → Medical Act 1983):
+
+```
+✓ riversidefp.nhs.uk/fit — Issues fit notes and medical certificates in England
+  ✓ gmc-uk.org/register — Registers and regulates UK medical doctors
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+US chain (practice → state medical board → state government):
+
+```
+✓ maplegrovepeds.com/notes — Issues medical excuses in Illinois
+  ✓ idfpr.illinois.gov/medical — Licenses physicians in Illinois
+    ✓ illinois.gov — Illinois state government
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
 ## Competition
 

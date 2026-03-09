@@ -93,6 +93,20 @@ The **Employee (Trainee)** benefits from verification.
 
 **Privacy Salt:** Low to Medium. While training status is a professional credential, individual exam scores and employee IDs should be salted to protect worker privacy.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Issues training completion certificates
+
+```
+✓ training.example-corp.com/cert/verify — Issues training completion certificates
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Training is the "Code of the Workforce." By turning certificates into verifiable digital bridges, we ensure that "Job Readiness" is backed by cryptographic proof, protecting workers from danger and companies from the high cost of un-vetted labor.

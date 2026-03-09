@@ -90,6 +90,20 @@ The **Homeowner (Ex-Borrower)** benefits from verification.
 **Mortgage Servicers:** (e.g., Mr. Cooper, Cenlar).
 **Title Underwriters:** (Hosting verified hashes for historical closings).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Nationwide Building Society, a regulated lender, is authorized by the FCA to issue verified mortgage satisfaction and lien release documents.
+
+```
+✓ mortgage.nationwide.co.uk/release/verify — Issues verified mortgage satisfaction records
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

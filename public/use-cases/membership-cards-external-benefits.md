@@ -306,6 +306,20 @@ Veterans organization discount programs (hotels, car rentals, retailers). Vendor
 
 ---
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Membership organizations issue membership credentials verifying status for external benefit providers. The issuer is self-authorized as the membership authority.
+
+```
+✓ membership.nationaltrust.org.uk/verify — Verifies membership status and benefit eligibility
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Common Verification Scenarios
 
 | Scenario | Verifier | What They Need to Confirm |

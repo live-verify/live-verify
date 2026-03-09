@@ -327,6 +327,20 @@ Historical certificates may verify as "Cancelled - Historical interest only."
 
 
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Transfer agents and company registrars issue stock certificates and are regulated by the UK Financial Conduct Authority under the UK companies and securities framework.
+
+```
+✓ registrars.linkgroup.com/verify — Transfer agent and registrar maintaining share records and certificates
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -101,6 +101,20 @@ The **Lottery Player (Winner)** benefits from verification.
 
 **Privacy Salt:** High. Lottery wins are highly sensitive and often attract unwanted attention. The hash must be salted to ensure that only the winner (with the physical/digital receipt) can prove the win.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Lottery win notifications are issued by licensed operators and regulated by the UK gambling authority.
+
+```
+✓ national-lottery.co.uk/winner/verify — Issues lottery win notifications and payout confirmations
+  ✓ gamblingcommission.gov.uk — Regulates gambling in Great Britain
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Lottery payouts are the ultimate test of "Issuer Integrity." When the issuer is also the payor of half a billion dollars, trust must be externalized. Independent witnessing turns a "Notification of Win" into an undeniable legal fact, protecting the player's life-changing moment from system failures or human greed.

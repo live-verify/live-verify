@@ -96,6 +96,20 @@ The **Driver / Fleet Manager** benefits from verification.
 
 **Privacy Salt:** Critical. Driver locations and work schedules are highly sensitive. The hash must be salted to prevent "Driver Stalking" or competitor analysis of carrier routes.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Tachograph and ELD records are issued by carriers and regulated by the UK driving and vehicle standards authority.
+
+```
+✓ tachograph.example-haulier.co.uk/verify — Issues electronic logging device records and driver logbooks
+  ✓ dvsa.gov.uk — Enforces UK driving and vehicle standards
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Hours of Service compliance is the "Safety Foundation" of the trucking industry. By turning logs into verifiable digital bridges, we ensure that the "Truth of the Road" is backed by cryptographic proof, protecting both drivers from exploitation and the public from fatigued driving.

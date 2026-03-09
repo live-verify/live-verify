@@ -111,6 +111,20 @@ The **Internal Compliance Department** benefits from verification.
 
 **Privacy Salt:** EXTREMELY CRITICAL. SAR data is governed by strict non-disclosure laws (Tipping Off). The hash must be salted and the verification URL restricted to authorized regulatory IP ranges.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Banks issue internal suspicious activity reports and are regulated by the UK Financial Conduct Authority under the UK anti-money laundering and proceeds of crime framework.
+
+```
+✓ compliance.example-bank.co.uk/sar/verify — Bank compliance unit maintaining internal SAR filing records
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 SARs are the "Police Reports" of the financial system. By turning internal records into verifiable digital bridges, we ensure that the "Chain of Compliance" is unbreakable, making it impossible for banks to hide dirty money from their regulators.

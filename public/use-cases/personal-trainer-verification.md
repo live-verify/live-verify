@@ -101,6 +101,20 @@ The **Client / Gym Member** benefits from verification.
 
 **Privacy Salt:** Medium. While certification status is public, individual background check details are private. The hash must be salted to prevent "Stalking" or harassment of individual trainers.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+CIMSPA certifies personal trainers and fitness professionals in the UK.
+
+```
+✓ trainer.cimspa.co.uk — Issues personal trainer certifications
+  ✓ cimspa.co.uk — Accredits UK fitness professionals
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Personal training is a "High-Touch, Low-Oversight" service. By turning professional badges into verifiable digital bridges, we create a "Shield of Safety" that protects clients and rewards the dedicated professionals who maintain their standards.

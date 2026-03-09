@@ -95,6 +95,20 @@ The **Athlete** benefits from verification.
 **Timing Companies:** (Omega, Seiko, Swiss Timing).
 **Race Platforms:** (Athletic.net, RunSignUp).
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+World Athletics and other sport governing bodies are the sole custodians of official records. Their authority to ratify results derives from universal adoption of their competition rules and timing standards.
+
+```
+✓ results.worldathletics.org/verify — Ratifies official athletic records and timing results
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

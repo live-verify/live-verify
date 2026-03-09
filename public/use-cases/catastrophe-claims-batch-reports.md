@@ -93,6 +93,20 @@ The **Carrier Management** benefits from verification.
 **Forensic Audit Firms:** (Providing 3rd party verification).
 **Industry Data Bodies:** (ISO / Property Claim Services - PCS).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Crawford & Company issues batch claims reports for catastrophic events and disasters.
+
+```
+✓ cat-claims.crawco.co.uk/verify — Issues batch claims reports for catastrophic events
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

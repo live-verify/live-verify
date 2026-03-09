@@ -126,6 +126,20 @@ When you're about to sign a major deal, you need to know: does the person across
 
 **Integration with legal tech:** E-signature platforms could require verification URL before accepting signature on contracts above certain thresholds.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Companies issue signing authority confirmations to verify that specific individuals have been delegated contract execution authority. Self-authorized by company governance and employment law.
+
+```
+✓ authority.example-corp.com/signing/verify — Issues contract signing authority confirmations
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## See Also
 
 Other delegated authority confirmations:

@@ -151,6 +151,19 @@ This is infrastructure the building department must implement; Live Verify assum
 
 **Privacy Salt:** Low. Building safety info is generally public record. However, equipment IDs should be salted to prevent competitors from mapping a city's entire infrastructure density.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+The Health and Safety Executive regulates building equipment safety certifications under the Building Safety Act 2022 and Health and Safety at Work Act 1974.
+
+```
+✓ safety.hse.gov.uk/posting/verify — UK Health and Safety Executive equipment certification service
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Building safety is about "Passive Trust." By turning every safety placard into a live, verifiable bridge to the regulator, we empower the public to enforce the codes that protect their lives.

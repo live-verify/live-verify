@@ -214,6 +214,20 @@ Every impersonation scam exploits the same gap: there is no practical way for a 
 
 Live Verify fills this gap with a single, channel-agnostic mechanism: a verifiable claim bound to the organization's domain.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Any real organization can issue a verifiable claim from their domain, which immediately exposes a scammer's inability to do so.
+
+```
+✓ {organizationalDomain} — Organization the scammer claims to represent
+```
+
+Commercial issuer — the real organization's domain reputation is the trust anchor. Scammers cannot create verifiable claims bound to domains they don't control.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Privacy Salt
 
 Where impersonation verification involves case numbers, account references, or other predictable data, the issuer should include a random salt to prevent enumeration. This is particularly important for sealed legal matters and law enforcement cases where the existence of the investigation itself is sensitive.

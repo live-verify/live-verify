@@ -91,6 +91,20 @@ The **Corporation** benefits from verification.
 **Law Firms:** (e.g., WSGR, Fenwick, Cooley - hosting on behalf of clients).
 **Equity Platforms:** (e.g., Carta, Pulley - who manage the cap table and resolutions).
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Corporations issue board resolutions and written consents to document their own internal governance decisions. Self-authorized by company bylaws and corporate law.
+
+```
+✓ corporate.example-corp.com/resolution/verify — Issues board resolutions and written consents
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

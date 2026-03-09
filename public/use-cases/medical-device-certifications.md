@@ -110,6 +110,20 @@ The **Medical Device Manufacturer** benefits from verification.
 **Regulatory Agencies:** (FDA, EMA, MHRA).
 **Accredited Testing Labs:** (ISO 17025 labs).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Notified bodies issue medical device certifications under healthcare products regulator authority (MHRA in the UK).
+
+```
+✓ devices.bsigroup.com/verify — Issues medical device certifications
+  ✓ mhra.gov.uk — Regulates UK medicines and medical devices
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

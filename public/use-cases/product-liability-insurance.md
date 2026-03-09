@@ -92,6 +92,20 @@ The **Manufacturer / Distributor** benefits from verification.
 
 **Privacy Salt:** Essential. Client lists and specific coverage limits are sensitive competitive data. The hash must be salted to prevent "Policy Harvesting" by rivals.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Zurich issues product liability insurance and is regulated by the UK Financial Conduct Authority under the UK insurance framework and consumer protection laws.
+
+```
+✓ product-liability.zurich.co.uk/verify — Commercial general and product liability insurer
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Product liability is the "Long-Tail Risk" of the global economy. By turning static COIs into verifiable digital bridges, we ensure that the "Chain of Accountability" from factory to shelf is backed by cryptographic proof, protecting both consumers and commerce.

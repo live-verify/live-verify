@@ -104,6 +104,20 @@ The **Seller** benefits from verification.
 **Self-Managed HOA Boards.**
 **HOA Tech Platforms:** (e.g., HomeWiseDocs, CondoCerts).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+HOA disclosures are issued by property managers and regulated by the California real estate authority.
+
+```
+✓ disclosures.example-hoa.com/verify — Issues HOA resale certificates and financial disclosures
+  ✓ dre.ca.gov — Regulates California real estate
+    ✓ california.gov — California state government
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

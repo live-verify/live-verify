@@ -100,6 +100,20 @@ The **Insurer's Compliance Officer** benefits from verification.
 **Actuarial Consulting Firms:** (Milliman, Mercer, Oliver Wyman).
 **State Departments of Insurance (DOI):** (As the ultimate approving authority).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Actuaries and insurers issue rate filings under federal insurance regulator authority (CMS in the US).
+
+```
+✓ ratefiling.example-insurer.com/verify — Issues actuarial rate certifications
+  ✓ cms.gov — Administers US Medicare and Medicaid programs
+    ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

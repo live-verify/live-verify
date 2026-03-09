@@ -99,6 +99,19 @@ The **Property Owner (Grantee)** benefits from verification.
 **County Recorders / Registrars of Deeds:** (The primary source of truth).
 **Title Insurance Underwriters:** (e.g., First American, Old Republic - who host "Verified Title" mirror hashes).
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+HM Land Registry maintains the UK property register and issues property deed registrations under the Land Registration Act 2002.
+
+```
+✓ landregistry.gov.uk/verify — HM Land Registry property deed registration service
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

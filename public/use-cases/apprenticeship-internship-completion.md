@@ -101,6 +101,20 @@ The **Intern** or **Apprentice** benefits from verification.
 **Trade Unions:** (IBEW, UA, Teamsters).
 **Government Depts:** (Department of Labor Apprenticeship office).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Apprenticeships are regulated in the UK through the Office of Qualifications and Examinations Regulation (Ofqual).
+
+```
+✓ apprenticeships.education.gov.uk/verify — Issues apprenticeship completion certificates
+  ✓ ofqual.gov.uk — Regulates qualifications and exams in England
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

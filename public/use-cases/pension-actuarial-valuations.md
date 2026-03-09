@@ -100,6 +100,20 @@ The **Plan Trustees / CFO** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Pension plan asset details and actuarial math are sensitive financial data. The hash must be salted and access restricted to authorized plan participants and regulators.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Actuaries calculate pension fund obligations at a specific valuation date.
+
+```
+✓ actuary.example-consultants.co.uk/pension/verify — Values pension fund obligations
+  ✓ frc.org.uk/actuaries — Regulates UK actuarial standards and practice
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Pensions are the "Lifetime Promises" of the economy. By turning technical valuations into verifiable digital bridges, we protect the retirement security of millions and ensure that "Solvency" is based on the digital truth of the math, not the creative editing of a trustee.

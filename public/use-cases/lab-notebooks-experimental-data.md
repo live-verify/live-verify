@@ -97,6 +97,20 @@ The **Lead Researcher / PI** benefits from verification.
 
 **Privacy Salt:** Highly critical. Experimental results are proprietary IP. The hash MUST be salted to prevent "IP Poaching" where competitors try to guess findings before they are patented.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Research institutions issue verified lab notebook records certifying experimental data and witnessing. The issuer is self-authorized as the institutional authority responsible for research integrity.
+
+```
+✓ lab.example-university.ac.uk/notebook/verify — Certifies lab notebook entries with witness signatures and timestamps
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

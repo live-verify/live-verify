@@ -96,6 +96,20 @@ The **Passenger** benefits from verification.
 **Airlines:** (Air France, BA, United, etc.)
 **Ground Handlers:** (Swissport, Menzies) who often issue the PIRs on behalf of airlines.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Airlines and ground handlers issue Property Irregularity Reports (PIRs) as the sole authorized custodians of baggage claim records. Self-authorized by their operational responsibility for baggage handling.
+
+```
+✓ baggage.ba.com/claim/verify — Issues baggage claim receipts and property irregularity reports
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

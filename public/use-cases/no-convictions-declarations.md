@@ -139,6 +139,19 @@ Some clearances (e.g., FINRA, TSA PreCheck) involve continuous monitoring. The v
 Different clearances check different things. A childcare clearance checks specific offenses related to child welfare. A driving certification checks driving-related offenses. Verified clearances should clearly indicate their scope so verifiers understand what was and wasn't checked.
 
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+The UK Disclosure and Barring Service issues basic disclosure certificates with no convictions declarations under the Police Act 1997.
+
+```
+✓ disclosure.dbs.gov.uk/basic/verify — UK DBS basic disclosure and no convictions certificates
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

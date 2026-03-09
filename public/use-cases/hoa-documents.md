@@ -231,6 +231,20 @@ The **Homeowner (Member)** benefits from verification.
 **HOA Secretary / Boards.**
 **County Recorders:** (If the bylaws are officially filed).
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+HOA boards issue bylaws and governing documents under state law authority. The issuer is self-authorized as the legal entity governing the property.
+
+```
+✓ docs.example-hoa.com/verify — Publishes verified HOA bylaws, rules, and amendments
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -97,6 +97,20 @@ The **Author / Artist / Creator** benefits from verification.
 
 **Privacy Salt:** High. Royalty earnings and specific sales volumes are highly sensitive private financial data. The hash must be salted to prevent competitors from mapping a rival's entire bestseller list.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Issues publishing contracts and royalty statements
+
+```
+✓ royalties.penguinrandomhouse.co.uk/verify — Issues publishing contracts and royalty statements
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Royalty accounting is famously opaque. By turning statements into verifiable digital bridges, we create a transparent "Chain of Value" that ensures creators are paid exactly what they are owed according to the agreed-upon contract.

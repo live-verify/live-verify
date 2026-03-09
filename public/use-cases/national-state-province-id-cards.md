@@ -95,6 +95,20 @@ The **Named Individual** benefits from verification.
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. National identity data is the most sensitive data a government holds. The hash MUST be salted to prevent "Mass Mapping" of the population by hackers or foreign intelligence.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+National and state governments hold statutory authority under identity legislation to issue identity cards and verify citizen identity.
+
+```
+✓ gov.uk/identity/verify — Issues and verifies national identity cards
+```
+
+Self-authorized — this is a sovereign body whose authority derives from statute.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Photo Return: Defeating Sibling Lending and High-Grade Clones
 
 Verification responses can include the **issuer's authoritative photo** of the credential holder — not just "valid/invalid" but the actual face on file.

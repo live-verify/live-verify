@@ -95,6 +95,20 @@ In a corporate acquisition, the buyer needs to know if the target company has a 
 
 **Privacy Salt:** Required. Retrospective premium adjustments contain enumerable values—round dollar amounts for standard premiums, predictable loss conversion factors (1.10, 1.15), and common policy periods. A competitor could feasibly enumerate combinations to reverse-engineer a company's risk profile and undercut their renewal pricing. Salt protects these competitive insurance positions.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Zurich issues retrospective premium adjustments for UK commercial insurance policies.
+
+```
+✓ retro.zurich.co.uk/verify — Issues retrospective premium adjustments for commercial insurance
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require insurance carriers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -102,6 +102,20 @@ The **Art Owner (Collector / Museum)** benefits from verification.
 **Lloyd's Syndicates.**
 **Art-Specific MGAs.**
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+AXA Art, a specialist insurer, is regulated by the FCA to provide fine art coverage and accepts cryptographic proofs of insurance policies.
+
+```
+✓ fineart.axa-art.co.uk/verify — Issues and verifies fine art insurance policies
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

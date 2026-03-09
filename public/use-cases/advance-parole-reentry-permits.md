@@ -103,6 +103,19 @@ The **Applicant** (traveler) benefits from verification.
 
 **Privacy Salt:** Critical for immigration documents. The hash must be salted to prevent enumeration of A-Numbers.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Issues immigration travel permits for temporary protection.
+
+```
+✓ uscis.gov/ap/verify — Issues immigration travel permits for temporary protection
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -141,6 +141,19 @@ Filing deadlines are often strict to the minute. Verified receipts should includ
 Original filings may be amended. Verified receipts should indicate whether the filing is original or an amendment, and link to prior versions.
 
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Companies House issues filing receipts and completion confirmations under the Companies Act 2006.
+
+```
+✓ companieshouse.gov.uk/filing/verify — Companies House filing receipt and completion service
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

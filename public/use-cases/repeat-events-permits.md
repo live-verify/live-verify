@@ -114,6 +114,19 @@ The **Vendor / Farmer** benefits from verification.
 
 **Privacy Salt:** Low. These are public commercial permits. However, individual farmer home addresses should be salted to protect family privacy.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Local authorities issue repeat events and farmers market permits under the Licensing Act 2003 and local licensing authority powers.
+
+```
+✓ events.localauthority.gov.uk/repeat/verify — Local authority repeat events and farmers market permits
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Repeat events are the "Street Life" of the city. By turning static placards into live digital bridges, we ensure that the transparency required for public trust is backed by cryptographic proof, protecting real farmers and the safety of the community.

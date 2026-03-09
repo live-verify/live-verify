@@ -124,6 +124,20 @@ Retailers could include verification hashes on refund receipts. When customers f
 IRS refund notices are frequently spoofed in phishing attacks. Verified refund confirmations would let taxpayers confirm communications are genuine.
 
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Issues order refund confirmations
+
+```
+✓ returns.amazon.co.uk/refund/verify — Issues order refund confirmations
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -93,6 +93,19 @@ The **Shipper (Exporter)** benefits from verification.
 **Public Scale Facilities:** (Using Method 1 - weighing the whole truck).
 **Logistics Platforms:** (INTTRA, GTNexus - who aggregate VGM data).
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Ocean carriers and port operators issue VGM declarations required by international maritime safety conventions.
+
+```
+✓ vgm.maersk.com — Declares verified container gross mass
+  ✓ imo.org — Sets global maritime safety standards
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

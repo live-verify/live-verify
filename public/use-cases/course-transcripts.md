@@ -104,6 +104,20 @@ The student (second party) may hand the verified document to various third parti
 
 **Privacy Salt:** Required. Academic records are highly private (FERPA in the USA). Unlike documents with many unpredictable variables, transcripts combine student ID numbers, course codes, and specific grades that could theoretically be enumerated. More critically, the hash must be salted to prevent "Guess-and-Check" searches for individual student grades—a significant privacy violation that could enable unauthorized academic background checks.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+University registrars are governed by the Office for Students in the UK, which sets standards for higher education institutions and regulates their operations.
+
+```
+✓ transcripts.cam.ac.uk/verify — Issues official academic transcripts
+  ✓ officeforstudents.org.uk — Regulates English higher education providers
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require universities to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

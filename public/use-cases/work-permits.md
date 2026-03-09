@@ -157,6 +157,20 @@ Work permits are issued exclusively by government authorities:
 
 **Privacy Salt:** Absolutely critical. Immigration data is among the most sensitive personal information. Hash enumeration attacks could be used to identify undocumented workers, map employer-employee relationships, or target vulnerable populations. All work permit hashes must include issuer-generated random salt.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Immigration and labour authorities hold statutory power to grant work permits and employment authorizations.
+
+```
+✓ gov.uk/check-work-permit/verify — Issues work permits and employment authorizations
+```
+
+Self-authorized — this is a sovereign body whose authority derives from statute.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Competition vs. Existing Systems
 
 | Feature | Live Verify | Government Portals (E-Verify, VEVO, Share Code) | Physical Document Inspection |

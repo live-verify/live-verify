@@ -128,7 +128,29 @@ Critical. Medical prescriptions are among the most sensitive documents in existe
 
 ## Authority Chain
 
-Prescriber's practice domain (e.g., `elmstreetmedical.nhs.uk`) &rarr; medical licensing body (GMC in UK, state medical board in US) &rarr; statute (Medical Act 1983 in UK, state medical practice acts in US). For controlled substances: additional chain through DEA registration (US) or Home Office licensing (UK). See [Authority Chain Specification](/specs/authority-chain) for the full protocol.
+**Pattern:** Regulated
+
+The prescribing practice is regulated by the medical licensing body, which chains to the government root.
+
+UK chain (practice → GMC → Medical Act 1983):
+
+```
+✓ elmstreetmedical.nhs.uk/rx/v — Prescribes medication in England
+  ✓ gmc-uk.org/register — Registers and regulates UK medical doctors
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+US chain (practice → state medical board → state government):
+
+```
+✓ maplegrovepeds.com/rx/v — Prescribes medication in Illinois
+  ✓ idfpr.illinois.gov/medical — Licenses physicians in Illinois
+    ✓ illinois.gov — Illinois state government
+```
+
+For controlled substances, an additional chain applies: DEA registration (US) or Home Office licensing (UK).
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
 ## Competition
 

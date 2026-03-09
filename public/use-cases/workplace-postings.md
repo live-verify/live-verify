@@ -80,6 +80,19 @@ Live Verify allows an employee to scan the poster to verify: **"Is this the curr
 **State Departments of Labor.**
 **Municipal Labor Standards Offices.**
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+The Health and Safety Executive regulates workplace safety and issues official poster requirements under the Health and Safety at Work Act 1974.
+
+```
+✓ hse.gov.uk/workplace/verify — HSE workplace health and safety posting service
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Workplace postings are the "Bill of Rights" for the breakroom. By turning them into verifiable digital bridges, we ensure that employees are informed by the digital truth of the law, not the creative editing of a manager.

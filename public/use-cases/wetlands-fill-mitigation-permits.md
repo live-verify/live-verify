@@ -93,6 +93,20 @@ The **Developer / Construction Firm** benefits from verification.
 
 **Privacy Salt:** Essential. Development plans and mitigation costs are sensitive business data. The hash must be salted to prevent "Site Mapping" by rival developers or data brokers.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+The U.S. Army Corps of Engineers holds statutory authority under the Clean Water Act to issue wetlands fill permits and conservation authorizations.
+
+```
+✓ permits.usace.army.mil/wetlands/verify — Issues Section 404 wetlands fill permits
+```
+
+Self-authorized — this is a sovereign body whose authority derives from statute.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Wetland fill is a "Point of No Return" for an ecosystem. By turning static permits into verifiable digital bridges, we ensure that every shovel of dirt moved is authorized by the digital truth of the law, protecting the planet's watersheds from the high cost of documentary deception.

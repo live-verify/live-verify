@@ -106,6 +106,19 @@ State Attorneys General can verify the federal status of organizations solicitin
 
 **Privacy Salt:** Not required. The determination letter contains highly unpredictable variables—unique EIN (Employer Identification Number), organization legal name variations, specific determination dates, and DLN (Document Locator Number). These elements combined provide sufficient entropy that enumeration attacks are infeasible. Adding salt would provide no additional security benefit.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Administers federal tax exemptions for charitable organizations.
+
+```
+✓ irs.gov/charities/verify — Administers federal tax exemptions for charitable organizations
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the IRS (or state-level equivalents) to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

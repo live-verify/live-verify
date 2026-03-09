@@ -95,6 +95,17 @@ The **Named Individual** benefits from verification.
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. Immigration data is a high-value target for hackers and activists. The hash MUST be salted to prevent "Guess-and-Check" attacks to map the entire immigrant population.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+```
+✓ uscis.gov/status/verify — Administers US immigration and naturalization
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

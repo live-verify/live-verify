@@ -107,6 +107,19 @@ The **Brand Owner / IP Attorney** benefits from verification.
 
 **Privacy Salt:** Low. Trademark records are public by law. However, individual attorney contact IDs should be salted to protect professional privacy.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+The UK Intellectual Property Office issues trademark registrations and grants under the Trade Marks Act 1994.
+
+```
+✓ ipo.gov.uk/trademark/verify — UK Intellectual Property Office trademark registration and grant service
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Trademarks are the "Identity of Commerce." By turning static certificates into verifiable digital bridges, we protect the global brand economy from the multi-billion dollar cost of counterfeiting and ensures that "Ownership" is a cryptographic fact, not a Photoshop trick.

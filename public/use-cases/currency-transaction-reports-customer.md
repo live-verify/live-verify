@@ -97,6 +97,20 @@ The **Bank Customer** benefits from verification.
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. CTRs contain SSNs and large dollar amounts. The hash must be salted to prevent "Guess-and-Check" searches for people making large cash moves.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Barclays issues currency transaction reports for regulatory and compliance purposes.
+
+```
+✓ compliance.barclays.co.uk/ctr/verify — Issues currency transaction reports for compliance
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

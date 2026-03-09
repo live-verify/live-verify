@@ -98,6 +98,20 @@ The **Retaining Attorney** benefits from verification.
 **Forensic Accountants:** (Big 4 Forensic units).
 **University Departments:** (Hosting for faculty experts).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Expert witnesses are accredited professionals qualified to provide testimony in litigation.
+
+```
+✓ expert.example-forensic.co.uk — Prepares expert witness reports
+  ✓ cii.co.uk — Accredits UK forensic and expert witnesses
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

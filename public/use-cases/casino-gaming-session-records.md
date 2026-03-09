@@ -145,6 +145,20 @@ The classic casino launder has several variants, all exploiting the same gap —
 
 **Privacy Salt:** Critical. Gaming records contain financial and behavioural data. The hash must be salted to prevent enumeration of patron activity.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Casino gaming records are issued by licensed operators and regulated by the UK gambling authority.
+
+```
+✓ mgmgrand.com/gaming/verify — Issues casino gaming session records and player activity logs
+  ✓ gamblingcommission.gov.uk — Regulates gambling in Great Britain
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Casino laundering persists because the money enters a black box and exits looking clean. The cage records exist but are locked inside the casino's systems — the bank receiving the cheque has no visibility into what happened between buy-in and cash-out. Verifiable session records don't prevent someone from walking into a casino with dirty cash, but they make the walk-through visible: session duration, play patterns, and buy-in/cash-out ratios become auditable facts rather than the casino's private data. The launderer's edge — "you can't see what I did inside" — disappears.

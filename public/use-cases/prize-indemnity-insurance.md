@@ -92,6 +92,20 @@ The **Winner / Participant** benefits from verification.
 
 **Privacy Salt:** Low to Medium. While event names are public, the specific payout terms and premium costs are sensitive business data.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+SportsCover issues prize indemnity insurance and is regulated by the UK Financial Conduct Authority under the UK insurance framework.
+
+```
+✓ prize.sportscover.com/verify — Prize and contingency specialist insurer
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Prize indemnity is the "Trust of the Big Win." By turning certificates into verifiable digital bridges, we ensure that "Once-in-a-Lifetime" moments are backed by cryptographic certainty, protecting the winner's life-changing event from corporate deception.

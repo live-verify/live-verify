@@ -119,6 +119,20 @@ The **Marketing Team / Unauthorized Firm** benefits from verification.
 
 **Privacy Salt:** Low to Medium. While ad-copy is public, internal compliance officer IDs should be salted to protect individual privacy.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Authorized financial firms issue compliance sign-offs confirming that marketing materials are fair, clear, and not misleading.
+
+```
+✓ compliance.example-bank.co.uk/s21/verify — Authorized financial firm's compliance office
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Financial promotions are the "Front Line of Consumer Risk." By turning sign-offs into verifiable digital bridges, we protect the public from predatory marketing and ensure that "Investor Trust" is backed by the cryptographic truth of the compliance office.

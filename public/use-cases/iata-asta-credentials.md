@@ -92,6 +92,19 @@ The **Travel Agency Owner** benefits from verification.
 **American Society of Travel Advisors (ASTA).**
 **National Travel Associations:** (e.g., ABTA in the UK).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+IATA accredits travel agents to sell airline tickets under international standards.
+
+```
+✓ agents.iata.org — Registers IATA-accredited travel agents
+  ✓ iata.org — Sets global air transport industry standards
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

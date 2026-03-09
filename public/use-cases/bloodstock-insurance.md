@@ -106,6 +106,20 @@ The **Horse Owner** or **Syndicate Manager** benefits from verification.
 **Managing General Agents (MGAs):** (e.g., Markel, Great American).
 **Equine Registries:** (Weatherbys, The Jockey Club).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Lycetts underwrites insurance for thoroughbred and bloodstock animals globally.
+
+```
+✓ bloodstock.lycetts.co.uk/verify — Underwrites insurance for thoroughbred and bloodstock animals
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

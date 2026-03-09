@@ -96,6 +96,19 @@ The **Immigration Officer** benefits from verification.
 
 **Privacy Salt:** Highly critical. Officer names and photos are high-value targets for harassment. The hash MUST be salted to prevent "Doxxing" attacks where people try to map all agent identities.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Credentials immigration enforcement officers for federal authority.
+
+```
+✓ ice.gov/officer/verify — Credentials immigration enforcement officers for federal authority
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -91,6 +91,20 @@ The **Certified Professional** benefits from verification.
 **Tech Vendors:** (Amazon/AWS, Microsoft, Google, Cisco).
 **Safety Organizations:** (OSHA, Red Cross).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Accredited bodies issue professional certifications validated against ISO/IEC 17024 standards.
+
+```
+✓ certifications.comptia.org — Issues industry-recognized professional certifications
+  ✓ ukas.com — Accredits UK testing, calibration, and inspection bodies
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -103,6 +103,20 @@ The **Film Producer** benefits from verification.
 **Specialty Brokers:** (e.g., Gallagher, Marsh).
 **Entertainment Law Firms:** (Managing the escrow/bond nexus).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Film Finances underwrites film and media production completion bonds globally.
+
+```
+✓ completion.filmfinances.com/verify — Underwrites film and media production completion bonds
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

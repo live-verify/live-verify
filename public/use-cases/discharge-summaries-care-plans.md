@@ -113,6 +113,20 @@ The **Patient / Caregiver** benefits from verification.
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. Medical data is highly sensitive (HIPAA/GDPR). The hash MUST be salted to prevent "Guess-and-Check" attacks to find specific patient diagnoses.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Hospitals issue discharge summaries under healthcare regulator authority (CQC in the UK).
+
+```
+✓ discharge.nhs.uk/verify — Issues discharge summaries and care plans
+  ✓ cqc.org.uk — Regulates health and social care services in England
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

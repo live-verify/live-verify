@@ -98,6 +98,20 @@ The **Account Holder (Consumer)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Telephone numbers and account data are the keys to a person's life. The hash MUST be salted to prevent "Mass Phone Mapping" by hackers or marketers.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Porting authorizations are issued by mobile carriers and regulated by the UK communications authority.
+
+```
+✓ porting.bt.com/verify — Issues porting letters of agency and authorization confirmations
+  ✓ ofcom.org.uk — Regulates UK communications services
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Number porting is the "Identity Pivot" of the modern world. By turning authorizations into verifiable digital bridges, we protect the consumer's digital life from the multi-billion dollar cost of SIM-Swap fraud and ensure that "Permission to Move" is a cryptographic fact.

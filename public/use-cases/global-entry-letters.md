@@ -102,6 +102,19 @@ The **Trusted Traveler** benefits from verification.
 
 **Privacy Salt:** Critical. PASSIDs and names are highly sensitive. The hash must be salted to prevent "Guess-and-Check" searches of the traveler database.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Enrolls and verifies trusted traveler program members.
+
+```
+✓ ttp.cbp.dhs.gov/verify — Enrolls and verifies trusted traveler program members
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

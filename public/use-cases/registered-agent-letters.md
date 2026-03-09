@@ -139,20 +139,17 @@ Live Verify doesn't change the trust hierarchy — it just makes the existing tr
 
 ## Authority Chain
 
-Registered agents derive their authority from licensing by the jurisdiction's financial services regulator:
+**Pattern:** Regulated
+
+Registered agents are licensed by offshore financial services regulators to issue corporate confirmation letters.
 
 ```
-Harneys (BVI) → Licensed by BVI FSC → BVI Government
-Maples (Cayman) → Licensed by CIMA → Cayman Islands Government
-Conyers (Bermuda) → Licensed by BMA → Bermuda Government
+✓ harneys.com — Issues registered agent confirmation letters
+  ✓ bvifsc.vg — Licenses offshore corporate service providers
+    ✓ bvi.gov.vg — British Virgin Islands government root namespace
 ```
 
-This is notably different from registry-issued certificates — the agent is a regulated private entity, not the government itself. The endorsement chain could reflect this:
-
-```
-verify:harneys.com/letters
-  endorsed by bvifsc.vg (BVI Financial Services Commission)
-```
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
 ## Competition
 

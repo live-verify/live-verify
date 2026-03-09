@@ -96,6 +96,20 @@ The **Shipper (The Exporter)** benefits from verification.
 
 **Privacy Salt:** Essential. Specific customer names and trade volumes are sensitive business data. The hash must be salted to prevent "Commodity Forecasting" by speculators.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Issues railway consignment waybills
+
+```
+✓ waybill.networkrail.co.uk/verify — Issues railway consignment waybills
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Rail freight is the "Heavy Industry" of the supply chain. By turning waybills into verifiable digital bridges, we protect the integrity of bulk trade and ensure that "Safety on the Rails" is backed by cryptographic proof.

@@ -153,6 +153,20 @@ This is faster than text selection and provides the critical photo-matching step
 
 **Privacy Salt:** Critical. Child names + school names are highly sensitive. Hash must be salted to prevent enumeration attacks ("Which children attend Lincoln Elementary?").
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Issues pupil pickup authorization records
+
+```
+✓ pickup.example-school.co.uk/verify — Issues pupil pickup authorization records
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -361,3 +361,17 @@ Blockchain anchoring provides:
 Witnessing technology will advance far beyond photos and text attestations—embedded sensors in aircraft structures, continuous weld quality monitoring via machine learning, digital twins of entire production lines, automated X-ray analysis of every joint. Insurance requirements will drive adoption.
 
 See `construction-trade-witnessing.md` → "Future: Witnessing Technology Evolution" for detailed analysis of the technology trajectory and insurance-legislation feedback loop. The same dynamics apply to manufacturing: insurers mandate → technology develops → costs drop → requirements increase.
+
+## Authority Chain
+
+**Pattern:** Regulated
+
+Lloyd's Register witnesses manufacturing assembly and verifies quality to ISO 9001 standards.
+
+```
+✓ witness.lloydsregister.com — Witnesses manufacturing and assembly work for quality assurance
+  ✓ ukas.com — Accredits UK testing, calibration, and inspection bodies
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.

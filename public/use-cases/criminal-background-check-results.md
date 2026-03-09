@@ -200,6 +200,19 @@ No single background check covers all jurisdictions. FBI checks only include fin
 Background check results contain sensitive information. The verification hash confirms the document is genuine without requiring the verifier to transmit the contents to the issuing agency.
 
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+The UK Disclosure and Barring Service issues criminal background check results under the Police Act 1997 Part V and Safeguarding Vulnerable Groups Act 2006.
+
+```
+✓ disclosure.dbs.gov.uk/verify — UK Disclosure and Barring Service background check results
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

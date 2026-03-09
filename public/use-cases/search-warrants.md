@@ -160,6 +160,19 @@ This transforms the power dynamic at the most coercive moment in civilian-govern
 - **Specialized Courts** — FISA Court (sealed warrants with SEALED status), military courts
 - **International equivalents** — UK Magistrates' Courts, Canadian Provincial Courts, EU member state courts issuing European Investigation Orders
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+UK courts issue search warrants and authorizations under the Police and Criminal Evidence Act 1984.
+
+```
+✓ courts.gov.uk/warrants/verify — UK courts search warrants and investigative authorizations
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Privacy Salt
 
 **Critical for this use case.** Sealed warrants are common in drug investigations, terrorism cases, child exploitation cases, and organized crime. The hash must not leak the existence of sealed warrants through enumeration attacks.

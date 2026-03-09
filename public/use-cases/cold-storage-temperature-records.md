@@ -97,6 +97,20 @@ The **Freight Forwarder** or **Consignee** benefits from verification.
 **Sensor Vendors:** (Sensitech, TempTale, Tive - hosting the secure data logs).
 **Third-Party Auditors.**
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Cold chain logistics providers are regulated by food safety authorities to ensure pharmaceutical and food products maintain required temperatures throughout transport.
+
+```
+✓ coldchain.lineagelogistics.com/verify — Records verified temperature monitoring data
+  ✓ food.gov.uk — Regulates food safety in England and Wales
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

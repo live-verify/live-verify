@@ -215,6 +215,20 @@ The **Bank Customer / Tenant** benefits from verification.
 
 **Privacy Salt:** Critical. Addresses are PII. The hash must be salted to prevent "Mass Mapping" of a city's residents by scanning the utility domain.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Barclays Bank, a regulated financial institution, is authorized by the FCA to issue verified KYC identity verification and customer onboarding documents.
+
+```
+✓ kyc.barclays.co.uk/verify — Issues verified KYC identity verification documents
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Competition vs. Address Verification APIs (Experian)
 
 | Feature | Live Verify | Address API (Experian/Loqate) | Scanned PDF / Paper |

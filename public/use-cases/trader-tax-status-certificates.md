@@ -199,6 +199,19 @@ The UK has no cash limit yet but HMRC's Making Tax Digital programme is building
 
 **Privacy Salt:** Important. The certificate shows the trader's business name and masked UTR — enough to identify the trader for the transaction, not enough to enumerate HMRC's database.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+HMRC issues trader tax status and VAT registration certificates under the Value Added Tax Act 1994.
+
+```
+✓ hmrc.gov.uk/trader/verify — HMRC trader tax status and VAT registration verification service
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 The genius of this use case is the incentive flip. Currently, the only party with interest in tax compliance is HMRC, and they're resource-constrained. The customer has no incentive to check — and in the "cash discount" scenario, active incentive not to. A trader tax status certificate, especially combined with joint-liability regulation, turns every customer into a compliance checkpoint. The trader can't hide their status; the customer can't claim ignorance. The verification is the mechanism that aligns incentives between the tax authority, the trader, and the customer.

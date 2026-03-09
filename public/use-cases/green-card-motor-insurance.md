@@ -104,6 +104,20 @@ The **Driver (Traveler)** benefits from verification.
 **Global Insurance Carriers:** (Allianz, AXA, Generali).
 **Frontier Insurance Vendors.**
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+The Motor Insurer's Bureau (MIB), regulated by the FCA, issues verified international motor insurance cards for cross-border European travel.
+
+```
+✓ greencard.mib.org.uk/verify — Issues international motor insurance green cards
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

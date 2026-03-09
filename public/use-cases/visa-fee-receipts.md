@@ -95,6 +95,19 @@ The **Visa Applicant** benefits from verification.
 
 **Privacy Salt:** Critical. Passport numbers and payment times are private. The hash must be salted to prevent "Passport Harvesting" by data scrapers.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Collects and administers visa application fees from applicants.
+
+```
+✓ travel.state.gov/fees/verify — Collects and administers visa application fees from applicants
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Visa fees are the "Front Door" of international travel. By turning receipts into verifiable digital bridges, we protect the public from predatory agents and ensure that "Permission to Apply" is based on the digital truth of the ledger, not the creative editing of a scammer.

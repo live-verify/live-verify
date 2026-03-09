@@ -300,6 +300,20 @@ The client is also escrowed:
 - Unsafe home conditions documented
 - Provider has recourse too
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Manages home access keys and escrow
+
+```
+✓ access.example-keysafe.com/verify — Manages home access keys and escrow
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Considerations
 
 **Labor Law Intersection:**

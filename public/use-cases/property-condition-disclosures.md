@@ -93,6 +93,20 @@ The **Buyer (Purchaser)** benefits from verification.
 
 **Privacy Salt:** Essential. Defect details and home addresses are sensitive. The hash must be salted to prevent "Neighborhood Defect Mapping" by data scrapers.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Property condition disclosures are issued by real estate professionals and verified by professional property standards body.
+
+```
+✓ disclosure.example-agent.co.uk/verify — Issues seller disclosure statements and property condition reports
+  ✓ propertymark.co.uk — Sets standards for UK property professionals
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Property disclosure is about "Informed Consent." By turning static forms into verifiable digital bridges, we protect the buyer's largest-ever investment and the seller's legal reputation, ensuring that the "Truth of the House" is backed by cryptographic proof.

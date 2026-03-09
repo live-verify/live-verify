@@ -173,6 +173,20 @@ The **Building Staff Member or Contractor** benefits from verification.
 
 **Privacy Salt:** Important. Contractor schedules and unit locations are sensitive information. Hashes must be salted to prevent tracking which units are vacant or which residents are out of town based on work order patterns.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Issues staff safety certifications
+
+```
+✓ staff.example-management.co.uk/verify — Issues staff safety certifications
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

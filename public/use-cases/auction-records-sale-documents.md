@@ -95,6 +95,20 @@ Verifying that "record-breaking prices" reported in the media are authentic and 
 
 **Privacy Salt:** Not required. Auction purchase statements contain highly unpredictable variables—unique lot numbers, specific sale IDs with dates, buyer/bidder IDs, artwork titles and years, precise hammer prices, and calculated premiums with exact tax percentages. These elements combined provide sufficient entropy that enumeration attacks are infeasible. Adding salt would provide no additional security benefit.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Auction houses are self-authorized to issue purchase statements and hammer price confirmations. They hold both the buyer and seller contract, making them the definitive source for sale records and payment terms.
+
+```
+✓ sales.sothebys.com/verify — Issues auction purchase statements and price confirmations
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require auction houses to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

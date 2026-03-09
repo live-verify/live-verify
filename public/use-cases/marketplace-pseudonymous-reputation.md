@@ -303,6 +303,20 @@ Users can still:
 | Credentials | Direct verification with issuing body |
 | Tenure | Account creation dates |
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Marketplace platforms and escrow providers verify seller identities and aggregate reputation across platforms. The issuer is self-authorized as the identity custodian for pseudonymous reputation.
+
+```
+✓ reputation.ebay.co.uk/verify — Verifies seller identity and cross-platform reputation aggregation
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Privacy and Safety
 
 **Why Pseudonymous Reputation Matters:**

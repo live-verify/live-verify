@@ -140,9 +140,46 @@ Critical. Criminal record data is among the most sensitive personal data. In man
 
 ## Authority Chain
 
-National police/criminal records authority -> national government -> sovereignty. Each country's authority is a root authority for its own criminal records. There is no supranational police clearance authority — Interpol coordinates but does not issue clearance certificates. ACRO is the root for UK criminal records. The FBI is the root for US criminal records. The Casier Judiciaire is the root for French criminal records. The authority chain is short and sovereign: the police force answers to its national government, and that's it.
+**Pattern:** Sovereign
 
-See the [authority chain spec](/specs/authority-chain) for the full model.
+Each country's police/criminal records authority is sovereign — the chain terminates at the national government. There is no supranational police clearance authority; Interpol coordinates but does not issue certificates.
+
+UK (ACRO → Home Office → gov.uk):
+
+```
+✓ acro.police.uk/pcc/v — Issues UK police clearance certificates
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+US (FBI → usa.gov):
+
+```
+✓ fbi.gov/background-checks/v — Issues US criminal background checks
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+France (Casier Judiciaire → gouv.fr):
+
+```
+✓ casier-judiciaire.justice.gouv.fr/v — Délivre les extraits de casier judiciaire (issues criminal record extracts)
+  ✓ gouv.fr — Portail du gouvernement français (French government root namespace)
+```
+
+Germany (BKA → bund.de):
+
+```
+✓ bka.de/fuehrungszeugnis/v — Stellt polizeiliche Führungszeugnisse aus (issues police clearance certificates)
+  ✓ bund.de — Bundesregierung (German federal government root namespace)
+```
+
+Australia (AFP → gov.au):
+
+```
+✓ afp.gov.au/police-checks/v — Issues Australian police clearance certificates
+  ✓ gov.au — Australian government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
 ## Competition vs. Existing Verification Methods
 

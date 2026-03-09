@@ -104,6 +104,20 @@ The **Bank Customer** benefits from verification.
 **TPPs (Third Party Providers):** (Wise, Curve, Klarna).
 **Consent Managers:** (e.g., Plaid, Tink, Truelayer - hosting the session hashes).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Barclays Bank, a regulated financial institution, is authorized by the FCA to issue verified open banking consent forms for PSD2 data sharing.
+
+```
+✓ openbanking.barclays.co.uk/consent/verify — Issues verified open banking consent records
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

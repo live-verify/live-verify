@@ -359,6 +359,20 @@ The **Truck Driver / Carrier** benefits from verification.
 **Transport Carriers.**
 **Hazmat Compliance Platforms:** (e.g., Labelmaster, DGOffice).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Dangerous goods declarations are issued by certified shippers and packers, regulated by UK civil aviation authority.
+
+```
+✓ dg.example-shipper.com/verify — Issues dangerous goods declarations and safety certifications
+  ✓ caa.co.uk — Regulates UK civil aviation
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

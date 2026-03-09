@@ -89,6 +89,19 @@ The **Employee (Beneficiary)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Case numbers and names are protected under the Privacy Act. The hash must be salted to prevent "Case Scraping" by unauthorized data brokers.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Approves visa extensions and changes of immigration status.
+
+```
+✓ uscis.gov/extension/verify — Approves visa extensions and changes of immigration status
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Visa extensions are the "Oxygen of Legal Presence." By turning notices into verifiable digital bridges, we protect the US labor market from fraud and ensure that legal residents can live and work without unfair administrative delays.

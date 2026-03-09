@@ -94,6 +94,20 @@ The **Applicant** benefits from verification.
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. I-693s contain highly sensitive medical diagnoses. The hash MUST be salted to prevent "Guess-and-Check" searches for people with specific diseases.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Civil surgeons and panel physicians issue I-693 medical exam results under US immigration health regulator authority (CDC in the US).
+
+```
+✓ panelphysician.example.com/verify — Issues immigration medical examination results
+  ✓ cdc.gov/immigrant-refugee-health — Administers US immigration health screening
+    ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

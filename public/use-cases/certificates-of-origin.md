@@ -123,6 +123,20 @@ The **Exporter** benefits from verification.
 - **Government Trade Ministries:** Some nations issue COs directly via trade/commerce departments.
 - **Customs Agencies:** Export/Import authorities that certify origin (CBP, HMRC).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Chambers of commerce issue origin certificates that customs agencies rely upon for tariff classification.
+
+```
+✓ origin.londonchamber.co.uk — Certifies country of product origin
+  ✓ hmrc.gov.uk — Administers UK customs and excise
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

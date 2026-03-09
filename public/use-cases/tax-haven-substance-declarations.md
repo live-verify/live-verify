@@ -148,20 +148,17 @@ The declarations are standardized enough across jurisdictions that the same veri
 
 ## Authority Chain
 
-Offshore registrars derive their authority from domestic legislation, which in turn responds to international frameworks:
+**Pattern:** Regulated
+
+Economic substance declarations are filed with offshore registrars and endorsed by the Cayman Islands financial authority.
 
 ```
-DITC (Cayman) → Cayman Islands Government → UK Crown Dependency
-BVI FSC → BVI Government → UK Overseas Territory
-JFSC (Jersey) → States of Jersey → UK Crown Dependency
-Bermuda Registrar → Bermuda Government → UK Overseas Territory
+✓ substance.example-entity.ky/verify — Issues economic substance declarations
+  ✓ cima.ky — Regulates Cayman Islands financial services
+    ✓ gov.ky — Cayman Islands government
 ```
 
-For EU member states with substance requirements:
-```
-Revenue Commissioners (Ireland) → Irish Government → EU Member State
-Administration des contributions (Luxembourg) → Luxembourg Government → EU Member State
-```
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
 ## Competition
 

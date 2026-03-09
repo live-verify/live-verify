@@ -97,6 +97,20 @@ The **Cardholder (Traveler)** benefits from verification.
 **Issuing Banks:** (Chase, Citi, BofA).
 **Third-Party Benefit Managers:** (e.g., Allianz Global Assistance, AIG - who handle the actual claims).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+American Express issues credit card travel insurance benefits for cardholders.
+
+```
+✓ benefits.amex.co.uk/verify — Issues credit card travel insurance benefits
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -112,6 +112,20 @@ The **Client / Declarant** benefits from verification.
 
 **Privacy Salt:** Highly Critical. PEP status and wealth data are extremely sensitive legal data. The hash must be salted and access restricted to authorized compliance and regulatory IP ranges.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Regulated financial institutions maintain verified PEP declarations under FCA oversight for anti-money laundering compliance and enhanced due diligence.
+
+```
+✓ compliance.example-bank.co.uk/pep/verify — Issues verified PEP declarations
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 PEP compliance is the "First Line of Defense" against global corruption. By turning declarations into verifiable digital bridges, we ensure that the "Gatekeepers of Wealth" are held to the digital truth of the disclosure, protecting the financial system from the multi-billion dollar cost of hidden political risk.

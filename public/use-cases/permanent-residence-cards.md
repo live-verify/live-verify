@@ -103,6 +103,19 @@ The **Permanent Resident (Holder)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Green Card data is subject to the Privacy Act. The hash must be salted to prevent "Enumeration" of the US non-citizen population.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Issues permanent resident cards for non-citizens authorized to live.
+
+```
+✓ uscis.gov/greencard/verify — Issues permanent resident cards for non-citizens authorized to live
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 The Green Card is the "Gold Standard" of identity. By turning it into a verifiable digital bridge, we protect the US labor market and the banking system from the multi-billion dollar cost of high-grade identity fraud.

@@ -93,6 +93,20 @@ The **Beneficiary (Survivor)** benefits from verification.
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. Death benefits involve grieving families and large sums of money. The hash MUST be salted to prevent "Guess-and-Check" searches for people who have recently died or inherited wealth.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Aviva, a regulated life insurance provider, is authorized by the FCA to issue verified life insurance claim notifications and death benefit records.
+
+```
+✓ claims.aviva.co.uk/life/verify — Issues verified life insurance claim records
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -119,6 +119,20 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 **Reinsurance Carriers.**
 **Lloyd's Syndicates.**
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Lloyd's of London, the world's leading insurance market, is regulated by the FCA and issues verified claim notification receipts and reserve statements.
+
+```
+✓ reserving.lloyds.com/verify — Issues verified insurance claim notification and reserving records
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Insurance is a "Business of Promises." The value of an insurance policy is entirely dependent on the insurer's ability to pay future claims. By externalizing the "First Notice of Loss" via witnessed hashes, we move from a model of "Trusting management's data" to "Verifying the public's claims," ensuring that the book growth never hides a hollow reserve.

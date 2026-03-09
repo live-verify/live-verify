@@ -120,6 +120,19 @@ The **Custodial Parent** or **Adoptive Parent** benefits from verification.
 **Circuit/Family Courts:** The primary issuers.
 **Probate Courts:** For guardianships.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Custody and adoption orders are issued by UK family courts authorized under the Children Act 1989 and Adoption and Children Act 2002.
+
+```
+✓ courts.gov.uk/family/verify — Issues UK custody and adoption orders
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

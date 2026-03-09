@@ -96,6 +96,20 @@ The **Professional** (Attorney/Doctor/CPA) benefits from verification.
 **Universities:** (Law/Medical schools).
 **Commercial Providers:** (e.g., Practising Law Institute - PLI).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Education providers issue continuing education certificates under medical regulator authority (GMC in the UK).
+
+```
+✓ cme.bma.org.uk/verify — Issues continuing education credits
+  ✓ gmc-uk.org/register — Registers and regulates UK medical doctors
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

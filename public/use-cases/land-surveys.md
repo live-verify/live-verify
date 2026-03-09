@@ -229,6 +229,20 @@ The **Property Owner / Developer** benefits from verification.
 **Civil Engineering & Surveying Firms.**
 **County Surveyors / Recorders.**
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Surveyors measure land boundaries and create official survey documents.
+
+```
+✓ survey.example-surveyor.co.uk/verify — Conducts professional land surveys
+  ✓ rics.org — Regulates UK chartered surveyors and valuers
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

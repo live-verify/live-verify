@@ -224,6 +224,20 @@ AWS Cloud Practitioner (foundation)
 
 Verification shows the complete stack.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Training platforms, professional bodies, and employers issue micro-credentials certifying skill mastery. The issuer is self-authorized as the credential provider.
+
+```
+✓ credentials.coursera.org/verify — Certifies skill module completions with assessment scores
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Novel Applications
 
 **Skills-Based Hiring**

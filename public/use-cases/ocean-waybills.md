@@ -344,6 +344,20 @@ The **Importer (Buyer) / Notify Party** benefits from verification.
 
 **Privacy Salt:** Essential. Specific buyer names and high-value cargo weights are sensitive trade secrets. The hash must be salted to prevent "Trade Lane Mapping" by competitors.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Ocean carriers issue bills of lading and sea waybills certifying cargo receipt and carriage. The issuer is self-authorized as the carrier responsible for goods in transit.
+
+```
+✓ bl.maersk.com/verify — Issues verified bills of lading, sea waybills, and cargo manifests
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Sea Waybills are the "High-Speed Rail" of maritime paper. By turning static receipts into verifiable digital bridges, we ensure that the "Trust" required for express shipping is backed by cryptographic proof, protecting the global supply chain from the high cost of manual auditing.

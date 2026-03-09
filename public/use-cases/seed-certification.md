@@ -98,6 +98,20 @@ A dealer receiving 500 bags of seed scans the verified hashes to ensure the lot 
 
 **Privacy Salt:** Required. While variety names are public, specific grower field locations and total purchase volumes are sensitive business secrets. The combination of lot numbers, tag IDs, and precise quality metrics (99.85% purity, 94.00% germination) provides some entropy, but the risk that competitors could use enumeration for "market-share mapping"—tracking which farmers are buying which varieties and in what volumes—means salt is essential. Salt protects both farmer privacy and seed company competitive intelligence.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Seed certifying agencies are regulated by animal and plant health authorities to verify seed genetic purity, germination rates, and freedom from noxious weeds protecting crop integrity.
+
+```
+✓ seed.apha.gov.uk/verify — Issues verified seed certifications
+  ✓ apha.gov.uk — Administers UK animal and plant health controls
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require seed certifying agencies to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

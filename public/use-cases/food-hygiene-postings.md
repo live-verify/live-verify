@@ -101,6 +101,19 @@ The **Restaurant Owner / Manager** benefits from verification.
 
 **Privacy Salt:** Low. Food hygiene ratings are almost always public record. However, employee IDs for individual food handlers should be salted to protect worker privacy.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Local authorities issue food hygiene certificates and ratings under the Food Safety Act 1990 and Food Hygiene Rating Act.
+
+```
+✓ ratings.food.gov.uk/verify — UK Food Standards Agency and local authority food hygiene ratings
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Food safety is a "High-Frequency, Low-Trust" domain. By allowing the public to instantly verify the truth behind the window sticker, we create a powerful incentive for restaurant owners to maintain consistent standards between inspections.

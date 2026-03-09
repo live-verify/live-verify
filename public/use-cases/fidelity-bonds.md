@@ -104,6 +104,20 @@ The **Business Owner** benefits from verification.
 **Specialist MGAs.**
 **Broker Platforms:** (e.g., BondExchange, Propeller).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Travelers underwrites employee fidelity bonds and crime insurance for employers.
+
+```
+✓ fidelity.travelers.com/verify — Underwrites employee fidelity bonds and crime insurance
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

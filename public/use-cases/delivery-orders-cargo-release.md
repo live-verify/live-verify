@@ -115,6 +115,20 @@ Shows the issuer domain (the Customs Broker or Carrier) and the release standing
 **Steamship Lines:** (e.g., Maersk, MSC).
 **Terminal Operating Systems (TOS).**
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Port terminals and customs brokers issue delivery orders and cargo release documents. Self-authorized by their custodianship of cargo and authority to effect release on behalf of vessel and consignees.
+
+```
+✓ release.dpworld.com/verify — Issues delivery orders and cargo release authorization
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

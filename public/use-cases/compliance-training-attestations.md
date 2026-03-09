@@ -463,6 +463,20 @@ An attestation from a rigorous provider (KnowBe4 with phishing simulation data, 
 
 ---
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Employers and training providers issue compliance training attestations to certify that individuals have completed required courses. Self-authorized by their operational control of training systems and employment authority.
+
+```
+✓ training.example-corp.com/compliance/verify — Issues compliance training attestations and completion certificates
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Considerations
 
 **US:**

@@ -107,6 +107,20 @@ The business owner (second party) may hand the verified document to various thir
 
 **Privacy Salt:** Not required. Business interruption adjustment summaries contain many unpredictable variables: unique claim IDs, business names, specific incident dates and locations, exact calculated amounts (lost income, continuing expenses, extra expenses), forensic accountant names, and unique adjustment periods. The combination of these claim-specific details creates sufficient entropy to prevent hash enumeration attacks.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Zurich processes business interruption insurance claims and loss calculations.
+
+```
+✓ claims.zurich.co.uk/bi/verify — Processes business interruption insurance claims
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require insurance carriers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

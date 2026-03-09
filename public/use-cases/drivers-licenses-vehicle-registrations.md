@@ -115,6 +115,19 @@ The **Named Individual** benefits from verification.
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. Identity data is the ultimate target for hackers. The hash MUST be salted to prevent "Dictionary Attacks" using voter rolls to find specific people's license numbers.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+The DVLA issues UK driving licenses and vehicle registrations under the Road Traffic Act 1988 and Vehicle Excise and Registration Act 1994.
+
+```
+✓ dvla.gov.uk/verify — DVLA driving licenses and vehicle registration service
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Photo Return: Defeating Sibling Lending and High-Grade Clones
 
 Verification responses can include the **DMV's authoritative photo** of the license holder — not just status, but the actual face on file.

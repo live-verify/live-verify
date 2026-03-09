@@ -111,6 +111,20 @@ The **Policyholder (Insured)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Private loss details and personal inventories are sensitive. The hash must be salted to prevent "Home Inventory Mapping" by data scrapers or thieves.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+UK insurance carriers issue proof of loss forms and are regulated by the UK Financial Conduct Authority under the UK insurance framework.
+
+```
+✓ pol.example-insurer.co.uk/verify — Insurance carrier processing proof of loss claims
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Proof of Loss is the "Point of No Return" in a claim. By turning sworn statements into verifiable digital bridges, we protect the insurance pool from the $80 billion annual cost of fraud and ensure that honest policyholders are paid accurately and quickly.

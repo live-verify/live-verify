@@ -102,6 +102,20 @@ The **Shipowner / Member** benefits from verification.
 **Specialist Legal Defense Underwriters.**
 **Maritime Law Firms.**
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+The UK P&I Club, a mutual insurance association, is regulated by the FCA and issues verified legal defense insurance certificates for maritime disputes.
+
+```
+✓ fdd.ukpandi.com/verify — Issues freight, demurrage & defense insurance certificates
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

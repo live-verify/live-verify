@@ -108,6 +108,20 @@ When a startup opens a bank account after a $5M seed raise, they provide verifie
 
 **Privacy Salt:** Required. Investment amounts and valuation caps are sensitive "Trade Secrets." While each SAFE contains unique combinations of dollar amounts, valuation caps, and investor names that provide some entropy, the strategic importance of these terms—and the risk that competitors could use enumeration to reverse-engineer funding rounds—means salt is essential. Salt protects both the startup's capital structure from market intelligence gathering and the investor's portfolio strategy from competitive analysis.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Issues SAFE investment documents
+
+```
+✓ legal.example-startup.com/safe/verify — Issues SAFE investment documents
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require startups raising capital to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

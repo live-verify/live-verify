@@ -97,6 +97,20 @@ The **Traveler (Client)** benefits from verification.
 
 **Privacy Salt:** Essential. Traveler names and destinations are highly sensitive. The hash must be salted to prevent "Paparazzi" or data scrapers from tracking high-net-worth travelers.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Travel agencies are licensed by ABTA to issue itineraries and invoices under UK travel regulations.
+
+```
+✓ invoice.trailfinders.com — Issues travel agency invoices and itineraries
+  ✓ abta.com — Regulates UK travel agents
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Travel itineraries are "Soft Contracts." By turning them into verifiable digital bridges, we protect both the traveler's mobility (visas) and the employer's capital (expenses), ensuring that "The Plan" matches "The Reality."

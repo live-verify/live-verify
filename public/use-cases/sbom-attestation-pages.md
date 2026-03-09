@@ -118,6 +118,20 @@ The **Software Buyer / CISO** benefits from verification.
 
 **Privacy Salt:** Low to Medium. While SBOMs are increasingly becoming public requirements, the specific build paths and internal component structures can be sensitive.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Issues software bill of materials attestations
+
+```
+✓ sbom.example-vendor.com/verify — Issues software bill of materials attestations
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 SBOMs are the "Digital Defense" of the modern world. By turning these complex datasets into verifiable digital bridges, we ensure that the software we trust with our data is built with the ingredients we were promised.

@@ -103,6 +103,20 @@ The **Farmer (Producer)** benefits from verification.
 **Ag-Tech Platforms:** (Climate FieldView, Trimble, Granular).
 **Grain Elevators:** (Issuing the "Final Truth" scale tickets).
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Farms and agricultural technology platforms issue harvest records and yield data documenting crop production. Self-authorized by their direct measurement of harvest results and sensor data collection.
+
+```
+✓ yield.example-farm.co.uk/verify — Issues harvest records and crop yield data attestations
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

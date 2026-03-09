@@ -105,6 +105,20 @@ The **Athlete / Parent** benefits from verification.
 
 **Privacy Salt:** Low. Equipment safety data is generally public safety information. However, individual athlete names associated with specific helmets should be salted to protect minor privacy.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Sports equipment certifiers are accredited by product safety authorities to verify protective gear meets performance standards and prevents life-threatening injuries during athletic competition.
+
+```
+✓ equipment.bsigroup.com/verify — Issues verified sports equipment safety certifications
+  ✓ opss.gov.uk — Enforces UK product safety standards
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Sports safety is a "No-Failure" zone. By turning equipment labels into verifiable digital bridges, we create a transparent "Shield of Safety" that ensures athletes are protected by the engineering they were promised.

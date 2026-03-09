@@ -143,6 +143,19 @@ Courts could submit dismissal hashes to DMV along with case dispositions. When d
 Insurance companies could query court verification endpoints when violations appear on MVR, automatically excluding dismissed citations from rating.
 
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Adjudicates citation dismissals and violation records.
+
+```
+✓ courts.ca.gov/dismissal/verify — Adjudicates citation dismissals and violation records
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

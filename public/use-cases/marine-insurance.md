@@ -412,6 +412,20 @@ Verification integrates with relevant systems:
 
 **Third-Party Platforms:** Industry portals and platforms enable verification access.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Lloyd's of London, the world's leading marine insurance market, is regulated by the FCA and issues verified cargo and hull insurance certificates.
+
+```
+✓ marine.lloyds.com/verify — Issues verified marine cargo insurance certificates
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Prevents fake P&I certificates. Domain binding verifies International Group P&I club. Extremely high limits ($1bn+ pollution/collision liability). Port state control verification. Oil Pollution Act (OPA 90) compliance. Long claims tail.

@@ -99,6 +99,20 @@ The **Vendor (Business Entity)** benefits from verification.
 
 **Privacy Salt:** Critical. Account numbers are sensitive. The hash must include a random salt to prevent enumeration.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Banks issue vendor account ownership certificates and are regulated by the UK Financial Conduct Authority under the Payment Services Regulations 2017 and Confirmation of Payee scheme.
+
+```
+✓ payments.example-corp.com/vendor/verify — Bank issuing account ownership verification certificates
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Invoice fraud relies on the customer's inability to verify a "remit to" instruction in real time. By binding the account number to the bank's domain, we turn a passive PDF line into a verifiable cryptographic bridge.

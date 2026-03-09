@@ -698,3 +698,17 @@ INTEGRATED ATTESTATION:
 ```
 
 See `construction-trade-witnessing.md` → "Future: Witnessing Technology Evolution" for the insurance-legislation feedback loop. The same dynamics apply across all hierarchy levels: insurers mandate → technology develops → costs drop → requirements increase.
+
+## Authority Chain
+
+**Pattern:** Regulated
+
+Safety control implementation and inspection are regulated by health and safety authorities to ensure workplaces systematically eliminate, substitute, engineer, administer, or protect against hazards in order of effectiveness.
+
+```
+✓ hoc.example-safety.co.uk/verify — Witnesses implementation of hierarchy of controls
+  ✓ hse.gov.uk — Regulates UK workplace health and safety
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.

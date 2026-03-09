@@ -133,6 +133,20 @@ NCB earned in one country may be recognized by insurers in another. Verified cer
 NCB typically expires if not used within 2 years of policy end. Certificates should indicate both the earning period and the expiry date of the NCB entitlement.
 
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Admiral Group, a regulated motor insurer, is authorized by the FCA to issue verified no claims bonus certificates and claims-free history records.
+
+```
+✓ noclaims.admiral.co.uk/verify — Issues verified no claims bonus certificates
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

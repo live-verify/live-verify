@@ -95,6 +95,20 @@ The test taker (second party) may hand the verified document to various third pa
 
 **Privacy Salt:** Required. While test reports contain unique registration IDs, they also include enumerable values—score ranges (0-30, bands 1-9), standard test dates, common names, and predictable section breakdowns. A malicious actor, predatory recruiter, or competitor could feasibly enumerate combinations to reverse-engineer test taker performance, map student populations by institution, or target specific demographics. Salt protects this sensitive educational and personal information.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Language proficiency tests like IELTS are accredited and regulated by Ofqual in the UK, which ensures consistent standards across all test administrations and results.
+
+```
+✓ results.britishcouncil.org/ielts/verify — Issues language proficiency test scores
+  ✓ ofqual.gov.uk — Regulates qualifications and exams in England
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require testing organizations to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

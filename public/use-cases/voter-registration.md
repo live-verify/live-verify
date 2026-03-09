@@ -86,6 +86,20 @@ The **Voter (Citizen)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Voter PII and party affiliation are sensitive democratic data. The hash must be salted to prevent "Mass Roster Scraping" or political targeting by bad actors.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Electoral commissions and boards hold statutory authority under election law to maintain voter registries and issue registration confirmations.
+
+```
+✓ electoralcommission.org.uk/registration/verify — Issues voter registration confirmations
+```
+
+Self-authorized — this is a sovereign body whose authority derives from statute.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Voter registration is the "Trust Link" of democracy. By turning registration cards into verifiable digital bridges, we ensure that "One Person, One Vote" is backed by cryptographic proof, protecting the integrity of the ballot box and building public trust in elections.

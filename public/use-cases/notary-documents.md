@@ -501,6 +501,20 @@ The **Signer (Consumer)** benefits from verification.
 
 **Privacy Salt:** Essential. Signer names and session IDs are sensitive legal data. The hash must be salted to prevent "Journal Scraping" by unauthorized parties.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Notaries authenticate public documents and certify notarial acts.
+
+```
+✓ notary.example-firm.co.uk/verify — Authenticates notary acts and public documents
+  ✓ facultyoffice.org.uk — Regulates notaries public in England and Wales
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 RON verification solves the "Digital-to-Physical" trust gap. By turning an electronic seal into a verifiable digital bridge, it ensures that "Remote" trust is just as strong as "In-Person" trust.

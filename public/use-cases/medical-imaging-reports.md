@@ -100,6 +100,20 @@ The **Patient** benefits from verification.
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. Imaging reports contain highly sensitive clinical data. The hash MUST be salted to prevent "Mass Mapping" of patients with specific neurological or cardiac conditions.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Radiology departments issue medical imaging reports under health professional regulator authority (HCPC in the UK).
+
+```
+✓ radiology.nhs.uk/imaging/verify — Issues medical imaging reports
+  ✓ hcpc-uk.org — Regulates health and care professionals in the UK
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

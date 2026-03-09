@@ -106,6 +106,20 @@ The **Vehicle Owner / Driver** benefits from verification.
 
 **Privacy Salt:** Essential. Driver names and truck locations are private employment data. The hash must be salted to prevent "Mass Fleet Scraping" by predatory competitors.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Towing operator permits are issued by local authorities that administer towing and vehicle recovery services.
+
+```
+✓ tfl.gov.uk/towing/verify — Issues towing operator permits and rotation authorizations
+  ✓ localauthority.gov.uk — Administers local licensing and permits
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Towing is a "Coercive Service." By turning static cards into live digital bridges, we ensure that "Authority to Seize" is backed by the cryptographic truth of the city vault, protecting citizens from theft and the legitimate industry from bandit competition.

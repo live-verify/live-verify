@@ -96,6 +96,20 @@ The **Cardholder / Customer** benefits from verification.
 
 **Privacy Salt:** Highly critical. Transaction data is extremely sensitive. The hash must be salted and the verification URL should ideally be restricted to authorized merchant POS networks.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Barclays Bank, a regulated financial institution, is authorized by the FCA to issue verified high-value in-person transaction authorizations and payment tokens.
+
+```
+✓ branch.barclays.co.uk/authorize/verify — Issues verified in-person transaction authorization tokens
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 High-value fraud costs the retail industry billions annually. By turning payment authorizations into verifiable digital bridges, we bring "Active Witnessing" to the transaction, making fraud expensive and disputes easy to resolve.

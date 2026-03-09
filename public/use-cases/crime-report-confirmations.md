@@ -147,6 +147,20 @@ The issuer is always a law enforcement or statutory reporting body. In the UK th
 
 **Privacy Salt:** Important. Crime reports contain sensitive information about victims and alleged perpetrators. The hash must be salted to prevent enumeration of who has reported crimes. Without salt, an attacker who knows a person's name and approximate date could guess-and-check to determine whether they have an active crime report — potentially useful for witness intimidation or stalking.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Police forces and crime reporting bodies hold statutory authority to issue crime reference numbers and confirmations under police and evidence legislation.
+
+```
+✓ police.uk/reference/verify — Issues crime report confirmations and reference numbers
+```
+
+Self-authorized — this is a sovereign body whose authority derives from statute.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

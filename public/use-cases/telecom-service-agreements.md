@@ -95,6 +95,20 @@ The **Enterprise IT Manager (Customer)** benefits from verification.
 
 **Privacy Salt:** High. Contract pricing and network locations are highly sensitive. The hash must be salted to prevent "Contract Harvesting" by competitors.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Telecom service agreements are issued by regulated carriers and SLAs are enforced by the UK communications authority.
+
+```
+✓ contract.bt.com/verify — Issues telecom service agreements and SLA documents
+  ✓ ofcom.org.uk — Regulates UK communications services
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 SLAs are the "Insurance Policy" of the digital age. By turning complex legal terms into verifiable digital bridges, we ensure that both providers and customers are held to the exact standard they agreed to at the moment of signing.

@@ -272,6 +272,19 @@ UK employer hires US worker
 
 No phone calls, no faxes, no weeks of waiting—instant cross-border verification.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+HMRC administers international tax treaty certificates and totalization agreements under the Taxation (International and Other Provisions) Act 2010.
+
+```
+✓ hmrc.gov.uk/treaty/verify — HMRC international tax treaty and totalization certificate service
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## The Retirement Scenario
 
 **Without Totalization:**

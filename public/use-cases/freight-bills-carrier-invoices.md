@@ -96,6 +96,20 @@ The **Shipper (Customer)** benefits from verification.
 **3PL Brokers:** (C.H. Robinson, TQL).
 **Supply Chain Platforms:** (e.g., Project44, FourKites).
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Freight carriers issue freight bills and invoices as the record of carriage and pricing. Self-authorized by their status as licensed carriers under transportation law.
+
+```
+✓ invoice.fedex.com/freight/verify — Issues freight bills and carrier invoices
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

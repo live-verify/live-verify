@@ -104,6 +104,20 @@ During a money laundering investigation, police receive verified access logs sho
 
 **Privacy Salt:** Required. Vault access is extremely private. While each log contains unique combinations of precise timestamps, box numbers, officer IDs, and customer names that provide significant entropy, the sensitive nature of this data—and the risk that bad actors could track high-net-worth individuals' vault visit patterns—means salt is essential. Salt prevents "box number harvesting" and protects customers from being targeted based on their vault access frequency.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Barclays maintains safe deposit boxes and vault access logs and is regulated by the UK Financial Conduct Authority under the Financial Services and Markets Act 2000.
+
+```
+✓ vault.barclays.co.uk/access/verify — Bank vault operator maintaining access logs and security
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require banks offering safe deposit boxes to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

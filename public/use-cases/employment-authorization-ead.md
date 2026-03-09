@@ -117,6 +117,19 @@ The **Employee (Authorized Worker)** benefits from verification.
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. Immigration data is a high-value target for identity theft. The hash MUST be salted to prevent "Guess-and-Check" attacks to find specific immigrants.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Issues employment authorization documents for non-citizens.
+
+```
+✓ uscis.gov/ead/verify — Issues employment authorization documents for non-citizens
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -105,6 +105,20 @@ The merchant submits verified agreements as part of a regulatory complaint about
 
 **Privacy Salt:** Required. Unlike documents with many unpredictable variables, platform lending agreements contain enumerable values—round dollar amounts, standard percentage tiers (5%, 10%, 15%), and publicly known merchant storefronts. A competitor could feasibly enumerate combinations to reverse-engineer a rival's debt position and gain unfair market intelligence. Salt protects these trade secrets.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Regulated platform lenders provide verified financing agreements and revenue-based lending confirmations under FCA oversight for merchant lending.
+
+```
+✓ lending.example-platform.co.uk/verify — Issues verified platform lending agreements
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require platforms offering merchant financing to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -157,6 +157,20 @@ Camera-based OCR is impractical for multi-page meeting minutes due to:
 Browser extension verification allows page-by-page scanning of digital documents with automatic rollup verification.
 
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Corporate secretaries and board governance platforms issue meeting minutes certifying board decisions and resolutions. The issuer is self-authorized as the corporate officer responsible for governance records.
+
+```
+✓ legal.example-corp.com/minutes/verify — Certifies board meeting minutes with attendance, motions, and vote tallies
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

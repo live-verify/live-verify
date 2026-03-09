@@ -96,6 +96,19 @@ The **Applicant (Petitioner)** benefits from verification.
 
 **Privacy Salt:** Critical. Case numbers and names are highly sensitive PII. The hash must be salted to prevent "Guess-and-Check" searches of the entire immigration backlog.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Schedules and administers USCIS immigration interviews.
+
+```
+✓ uscis.gov/interview/verify — Schedules and administers USCIS immigration interviews
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

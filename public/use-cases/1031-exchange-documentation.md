@@ -109,6 +109,20 @@ Closing agents must follow strict instructions from the QI. Verifying the exchan
 
 **Privacy Salt:** Required. Unlike documents with many unpredictable variables, 1031 identification forms contain enumerable values—standard property addresses, round dollar fair market values, and publicly recorded real estate transactions. A competitor or tax authority could feasibly enumerate combinations to reverse-engineer a taxpayer's investment strategy. Salt protects the privacy of the specific properties being considered.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Qualified Intermediaries are licensed third-party custodians required by the IRS to hold 1031 exchange funds.
+
+```
+✓ exchange.ipx1031.com — Holds and manages 1031 exchange funds
+  ✓ irs.gov — Administers US federal tax code
+    ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require Qualified Intermediaries to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -103,6 +103,20 @@ The **Local Recipient / Project Witness** benefits from verification.
 
 **Privacy Salt:** Recommended. Project details may be sensitive in certain conflict zones.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Charities verify that donated funds are properly distributed to beneficiaries.
+
+```
+✓ disbursement.redcross.org.uk/verify — Verifies charitable fund disbursements
+  ✓ charitycommission.gov.uk — Regulates charities in England and Wales
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Charity fraud thrives on the "Fog of Aid"—the distance between the donor and the recipient. By turning local witness receipts into verifiable digital bridges, we bring "Last Mile" accountability to the entire philanthropy ecosystem.

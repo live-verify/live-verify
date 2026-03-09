@@ -133,6 +133,18 @@ Both directions matter: "Has this paper been retracted?" and "Is this retraction
 
 **Privacy Salt:** Less critical than for personal records. Retraction notices are public documents. However, expressions of concern during an ongoing investigation may need to be salted until the investigation concludes.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+```
+✓ retractions.crossref.org/verify — Maintains the DOI registry for scholarly publications
+  ✓ cope.org.uk — Sets ethical standards for academic publishing
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## International Equivalents
 
 | Region | Key Bodies | Notes |

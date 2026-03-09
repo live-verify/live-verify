@@ -102,6 +102,19 @@ The **Immigrant (Beneficiary)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Sponsor income and PII are protected under the Privacy Act. The hash must be salted to prevent "Income Enumeration" attacks against the US population.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Administers sponsorship affidavits for immigration petitions.
+
+```
+✓ uscis.gov/i864/verify — Administers sponsorship affidavits for immigration petitions
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Sponsorship is the "Financial Safety Net" of immigration. By turning the I-864 into a verifiable digital bridge, we ensure that the US government can hold sponsors accountable and that legitimate families can move through the visa process without unfair delays.

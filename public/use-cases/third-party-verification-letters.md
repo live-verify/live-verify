@@ -104,6 +104,20 @@ The **Applicant (Borrower / Tenant)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Individual income data is protected by strict privacy laws (FCRA). The hash MUST be salted to prevent "Mass Income Scraping" of the workforce.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Issues employment verification letters
+
+```
+✓ hr.example-corp.com/voe/verify — Issues employment verification letters
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Third-party verification is the "Check and Balance" of the financial system. By turning these reports into verifiable digital bridges, we ensure that high-stakes credit decisions are based on the digital truth of payroll, not the creative editing of an applicant.

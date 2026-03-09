@@ -189,6 +189,20 @@ Verification (or sealed code word) confirms: "This is an authorized exercise, no
 4. Verification confirms: authorized, in scope, within window
 5. No police involvement, testing continues
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Issues penetration test authorizations
+
+```
+✓ pentest.example-corp.com/authorize/verify — Issues penetration test authorizations
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## See Also
 
 Other delegated authority confirmations:

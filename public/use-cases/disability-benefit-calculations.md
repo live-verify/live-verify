@@ -96,6 +96,20 @@ The **Policyholder** benefits from verification.
 **Individual Income Protection Firms:** (Unum, Guardian).
 **Actuarial Audit Firms:** (Providing 3rd party certification).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Actuaries calculate individual disability benefit entitlements based on earnings.
+
+```
+✓ benefit.unum.co.uk/calc/verify — Calculates disability benefit entitlements
+  ✓ frc.org.uk/actuaries — Regulates UK actuarial standards and practice
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

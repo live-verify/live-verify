@@ -192,6 +192,20 @@ Fields:
 
 **Privacy Salt:** Essential. Driver names and license numbers are sensitive PII. The hash must be salted to prevent "Driver Roster Scraping" by data brokers or competitors.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Direct Line underwrites additional driver endorsements for UK auto insurance policies.
+
+```
+✓ endorsement.directline.co.uk/verify — Underwrites additional driver endorsements for auto insurance
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Driver endorsements are the "Permission Slips" of the sharing economy. By turning static amendments into verifiable digital bridges, we ensure that "Responsibility for the Road" is backed by cryptographic proof, protecting owners and rewarding safe, insured drivers.

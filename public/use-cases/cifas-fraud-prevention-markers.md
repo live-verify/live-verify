@@ -189,6 +189,20 @@ CIFAS markers are uniquely destructive because of three properties:
 
 **Privacy Salt:** Critical. CIFAS status data is extremely sensitive. A fraud marker can destroy someone's financial life. The hash must be salted to prevent enumeration of who has markers filed against them.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Anti-fraud agencies issue markers showing fraud risk or identity theft status.
+
+```
+✓ cifas.org.uk/status/verify — Reports fraud prevention and identity status
+  ✓ ico.org.uk — Regulates UK data protection and information rights
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 CIFAS is one of the most powerful fraud prevention tools in the UK — and one of the least transparent to the individuals it affects. The system works well for its members (banks catching fraud) but poorly for individuals (no portable proof of status, no notification when markers are filed, no way to quickly demonstrate a clean record or a successful appeal). A verified status certificate doesn't change how CIFAS works internally — it gives the individual a portable, cryptographically verifiable document that makes their status visible to anyone, not just CIFAS members.

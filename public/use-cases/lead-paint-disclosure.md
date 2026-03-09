@@ -94,6 +94,19 @@ The **Seller / Landlord** benefits from verification.
 **Title Companies:** (Hosting verified hashes for closings).
 **Property Management Platforms:** (e.g., AppFolio, RealPage).
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Regulates lead paint disclosure in residential properties.
+
+```
+✓ epa.gov/lead/disclosure/verify — Regulates lead paint disclosure in residential properties
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

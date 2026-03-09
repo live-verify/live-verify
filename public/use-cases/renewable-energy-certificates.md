@@ -89,6 +89,20 @@ The **Energy Buyer (Corporation)** benefits from verification.
 
 **Privacy Salt:** Essential. Specific trade volumes and prices are sensitive business data. The hash must be salted to prevent "Market-Volume Mapping" by competitors.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Renewable energy certificates are issued by accredited generators and tracked by the UK energy regulator.
+
+```
+✓ recs.ofgem.gov.uk/verify — Issues and tracks renewable energy certificates
+  ✓ ofgem.gov.uk — Regulates UK energy markets
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 RECs are the "Digital Integrity" of the green economy. By turning static certificates into verifiable digital bridges, we protect the multibilion-dollar transition to clean power and ensure that "100% Green" is a cryptographic fact, not a marketing gimmick.

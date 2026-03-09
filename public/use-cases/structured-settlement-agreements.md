@@ -95,6 +95,20 @@ The **Annuitant (Claimant)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. These contracts contain lifetime income data and medical-linked identifiers. The hash must be salted to prevent "Wealth Mapping" of injured individuals.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Life insurance companies issue structured settlement annuity contracts and are regulated by the UK Financial Conduct Authority under the UK insurance framework.
+
+```
+✓ settlement.jmfin.com/verify — Life insurance company issuing structured settlement annuities
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Structured settlements are "Financial Anchors" for the most vulnerable. By turning contracts into verifiable digital bridges, we protect the claimant's long-term security from the "Information Asymmetry" that predatory firms use to exploit them.

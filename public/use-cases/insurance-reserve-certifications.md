@@ -304,6 +304,20 @@ The insured company (second party) may hand the verified document to various thi
 
 **Privacy Salt:** Required. Reserve certifications contain highly sensitive financial data that includes enumerable values—round dollar reserve amounts, standard claim categories, predictable date ranges, and publicly known company names. A competitor, plaintiff's attorney, or malicious actor could feasibly enumerate combinations to reverse-engineer a company's claim exposure, identify vulnerable self-insured employers, or discover patterns in reserve adequacy. Salt protects this critically sensitive financial and medical information.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Actuaries certify the adequacy of insurance reserves under regulatory standards.
+
+```
+✓ reserves.prudential.co.uk/verify — Certifies insurance reserve adequacy
+  ✓ frc.org.uk/actuaries — Regulates UK actuarial standards and practice
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require insurers and actuarial firms to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

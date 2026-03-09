@@ -120,6 +120,19 @@ The **Building Owner / Industrial Operator** benefits from verification.
 
 **Privacy Salt:** Low. Environmental ratings are generally public safety information. However, individual auditor IDs should be salted to protect professional privacy.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Administers environmental and emissions permits for facilities.
+
+```
+✓ epa.gov/postings/verify — Administers environmental and emissions permits for facilities
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Environmental safety is about "Vicinity Trust." By turning static certificates into live digital bridges, we empower the community to verify the invisible impacts of the buildings and factories they live near.

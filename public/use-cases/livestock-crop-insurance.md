@@ -87,6 +87,20 @@ The **Farmer (Producer)** benefits from verification.
 **USDA Risk Management Agency.**
 **Ag-Fintech Platforms:** (e.g., Indigo, Farmers Business Network - hosting the hashes).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+NFU Mutual, a regulated agricultural insurer, is authorized by the FCA to issue verified livestock and crop insurance policies.
+
+```
+✓ livestock.nfu-mutual.co.uk/verify — Issues verified livestock and crop insurance policies
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

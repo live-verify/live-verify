@@ -92,6 +92,20 @@ The **Appointed Actuary (at an Insurer)** benefits from verification.
 **American Academy of Actuaries (AAA).**
 **National Association of Insurance Commissioners (NAIC).**
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Actuaries publish statistical tables used to calculate insurance premiums and pension liabilities.
+
+```
+✓ tables.ifoa.org.uk/verify — Publishes actuarial mortality and morbidity tables
+  ✓ frc.org.uk/actuaries — Regulates UK actuarial standards and practice
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

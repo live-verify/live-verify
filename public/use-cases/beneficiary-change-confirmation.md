@@ -100,6 +100,20 @@ The **Policyholder / Account Owner** benefits from verification.
 
 **Privacy Salt:** Highly critical. Beneficiary data is extremely sensitive. The hash must be salted to prevent "guessing" names of beneficiaries.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Prudential processes beneficiary changes for UK life insurance and pension policies.
+
+```
+✓ beneficiary.prudential.co.uk/verify — Processes beneficiary changes for life insurance policies
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Insurance and pensions are often the largest assets in an estate. By turning beneficiary records into verifiable digital bridges, we protect the "Final Intent" of the policyholder and prevent billions in "Ghost" fraud.

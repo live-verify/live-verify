@@ -107,6 +107,20 @@ The **Voucher Holder (Traveler)** benefits from verification.
 
 **Privacy Salt:** Essential. Voucher codes are essentially passwords to money. The hash must be salted to prevent "Code Guessing" (Brute-Force) attacks to find valid vouchers.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Issues travel vouchers and credits
+
+```
+✓ voucher.ba.com/verify — Issues travel vouchers and credits
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Travel vouchers are "Digital Gold." By turning them into verifiable digital bridges, we protect the secondary market from scams and ensure that travel credits retain their value as a trusted alternative to cash refunds.

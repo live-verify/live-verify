@@ -107,6 +107,19 @@ The **Event Organizer** benefits from verification.
 
 **Privacy Salt:** Low. These are public permits by law. However, individual organizer phone numbers should be salted to protect privacy.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Local authorities issue events permits and temporary closure authorizations under the Licensing Act 2003 and related local authority licensing powers.
+
+```
+✓ events.localauthority.gov.uk/permit/verify — Local authority events and street closure permits
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Events permits are the "Contract with the Neighborhood." By turning static cards into live digital bridges, we ensure that the public's right to peace and safety is protected by the digital truth of the city vault.

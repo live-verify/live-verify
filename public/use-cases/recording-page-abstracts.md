@@ -104,6 +104,19 @@ The **Property Owner (Grantee)** benefits from verification.
 
 **Privacy Salt:** Essential. While land records are public, the ability to "Mass-Harvest" property transfers is a target for predatory data brokers. The hash must be salted to prevent unauthorized bulk scraping.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Records and administers property deed and land title records.
+
+```
+✓ recorder.county.gov/abstract/verify — Records and administers property deed and land title records
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Property records are the "Physical Registry of Wealth." By turning recording stamps into verifiable digital bridges, we protect the stability of the housing market and ensure that "Ownership" is based on the digital truth of the county vault.

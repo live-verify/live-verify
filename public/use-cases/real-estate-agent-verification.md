@@ -104,6 +104,20 @@ The **Real Estate Professional (Agent)** benefits from verification.
 
 **Privacy Salt:** Critical. Agent schedules and client lists are sensitive. The hash must be salted to prevent "Harvesting" of an agent's active lead list by competitors.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Real estate agent licenses are issued by professional standards bodies and regulated authorities.
+
+```
+✓ agent.propertymark.co.uk/verify — Issues agent licenses and verifies professional standing
+  ✓ propertymark.co.uk — Sets standards for UK property professionals
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Real estate is a "Trust-Heavy" industry. By turning agent IDs into verifiable digital bridges, we protect the safety of buyers and the security of homes, ensuring that the "Keys to the House" are only held by verified professionals.

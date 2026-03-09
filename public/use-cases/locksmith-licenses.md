@@ -97,6 +97,20 @@ The **Locksmith (Practitioner)** benefits from verification.
 
 **Privacy Salt:** Critical. Locksmith names and locations are sensitive. The hash must be salted to prevent "Stalking" attacks where someone tries to track a specific technician's daily route.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Locksmith licensing bodies issue credentials to qualified security professionals.
+
+```
+✓ mla.com — Issues Master Locksmiths Association credentials
+  ✓ mla.com — UK locksmith professional body
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

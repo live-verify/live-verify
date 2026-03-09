@@ -495,6 +495,19 @@ Fraudulent UCC filings have been used to harass individuals and cloud titles. Ve
 New FinCEN requirements mandate beneficial ownership disclosure. Verified BOI filings prove compliance with these anti-money-laundering requirements.
 
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Companies House maintains the UK's official company register and issues incorporation and filing records under the Companies Act 2006.
+
+```
+✓ find-and-update.company-information.service.gov.uk/verify — Companies House UK company registration service
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

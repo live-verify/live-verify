@@ -206,6 +206,20 @@ Some attestations combine multiple sensors:
 - GPS + accelerometer = verified delivery (arrived at location, no drops)
 - Temperature + humidity + door sensor = cold chain integrity
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+IoT device manufacturers and sensor networks issue attestations summarizing continuous machine-generated data. The issuer is self-authorized as the device operator responsible for data integrity.
+
+```
+✓ iot.example-manufacturer.com/attest/verify — Attests machine readings (temperature, location, performance) with calibration status
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Novel Applications
 
 **Predictive Maintenance Proof**

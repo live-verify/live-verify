@@ -198,6 +198,20 @@ The **Healthcare Staff Member** benefits from verification.
 
 **Privacy Salt:** Critical. Healthcare staff locations, shift schedules, and patient assignments are sensitive. Hashes must be salted to prevent "Stalking" attacks where someone tries to track a specific staff member's daily movements or patient assignments.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+NHS hospitals issue staff badges under healthcare regulator authority (CQC in the UK).
+
+```
+✓ staff.guysandstthomas.nhs.uk/verify — Issues healthcare staff ID badges
+  ✓ cqc.org.uk — Regulates health and social care services in England
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -312,6 +312,20 @@ Must be:
 - Clear on emergency disclosure rules
 - Potentially licensed/regulated depending on services
 
+## Authority Chain
+
+**Pattern:** Personal
+
+An individual professional maintains pseudonymous engagement history on a platform. The platform provides verified attestation of completed work and reputation.
+
+```
+✓ professional.example-platform.com/verify — Records pseudonymous professional engagements and reputation
+```
+
+Personal issuer — individual attestation, no regulatory chain.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Payment Architecture
 
 **Breaking the Payment-Identity Link:**

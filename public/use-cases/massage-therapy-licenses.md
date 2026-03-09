@@ -97,6 +97,20 @@ The **Massage Therapist (Practitioner)** benefits from verification.
 
 **Privacy Salt:** Highly critical. Therapist names and photos are sensitive. The hash MUST be salted to prevent "Mass Scraping" of the practitioner database by predatory recruiters or harassers.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Massage therapy boards issue professional licenses under occupational regulator authority (GCMT in the UK).
+
+```
+✓ gcmt.org.uk/register/verify — Issues massage therapy licenses
+  ✓ gcmt.org.uk — Registers massage therapists in the UK
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

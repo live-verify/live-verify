@@ -116,6 +116,20 @@ The **Investor (Client)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Investment balances and specific holdings are sensitive financial secrets. The hash must be salted to prevent "Wealth Mapping" of the population by data brokers or hackers.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Nutmeg issues robo-advisor portfolio statements and is regulated by the UK Financial Conduct Authority under the Financial Services and Markets Act 2000 and investment adviser rules.
+
+```
+✓ portfolio.nutmeg.com/verify — Robo-advisor platform issuing portfolio statements and statements
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Robo-advisors are the "Modern Bank." By turning digital statements into verifiable digital bridges, we protect the stability of the consumer credit market and ensure that "Wealth" is based on the digital truth of the market, not the creative editing of a smartphone user.

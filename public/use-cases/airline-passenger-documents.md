@@ -488,6 +488,20 @@ The **Business Traveler** benefits from verification.
 **Airlines:** (Admirals Club, SkyClub, United Club)
 **Credit Cards:** (Amex Centurion)
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Airlines issue passenger receipts and compensation determinations as part of their standard operating authority. Self-authorized by their air carrier licenses and regulatory compliance obligations.
+
+```
+✓ receipts.ba.com/verify — Issues airline passenger receipts and ancillary fee confirmations
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Competition vs. Credit Card Statements
 
 | Feature | Live Verify | Credit Card Statement |

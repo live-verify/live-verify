@@ -111,6 +111,20 @@ The **Buyer / Offeror** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Individual wealth data is extremely sensitive. The hash must be salted to prevent "Wealth Mapping" or the targeting of high-net-worth individuals by scammers.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Barclays issues proof of funds letters and is regulated by the UK Financial Conduct Authority under the UK money laundering and financial services framework.
+
+```
+✓ pof.barclays.co.uk/verify — Bank issuing proof of funds verification letters
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Proof of Funds is the "Ticket to the Game" in high-value commerce. By turning bank letters into verifiable digital bridges, we protect the marketplace from "Phantom Buyers" and ensure that "Proof of Wealth" is backed by the digital truth of the ledger.

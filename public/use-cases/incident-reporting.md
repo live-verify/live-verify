@@ -364,6 +364,20 @@ Reporting organization, incident category, date/time, severity classification, i
 
 **Communities:** Right-to-know about environmental releases and industrial incidents
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Organizations must report workplace incidents and near-misses to health and safety authorities within mandatory timeframes to identify systemic safety problems and prevent recurring harm.
+
+```
+✓ incident.example-corp.co.uk/report/verify — Records timestamped incident reports
+  ✓ hse.gov.uk — Regulates UK workplace health and safety
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Novel Applications
 
 **Real-Time Safety Dashboards**

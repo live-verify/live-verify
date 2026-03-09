@@ -105,6 +105,20 @@ The insured business (second party) may hand the verified document to various th
 
 **Privacy Salt:** Required. Cyber insurance policies often contain enumerable values—round dollar coverage limits ($1M, $5M, $10M), standard retention amounts, and publicly known company names. A competitor could feasibly enumerate combinations to reverse-engineer a company's cyber risk profile and coverage strategy, gaining unfair market intelligence. Salt protects these strategic business decisions.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Beazley underwrites cyber liability and data breach insurance for global enterprises.
+
+```
+✓ cyber.beazley.com/verify — Underwrites cyber liability and data breach insurance
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require cyber insurers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

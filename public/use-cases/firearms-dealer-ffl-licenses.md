@@ -107,6 +107,19 @@ The **FFL Holder (Gun Shop Owner)** benefits from verification.
 
 **Privacy Salt:** Highly critical. FFL data is protected by various federal laws (e.g., Tiahrt Amendment). The hash must be salted to prevent "Mass Mapping" of all gun shops in a state by bad actors.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Issues federal firearms dealer licenses for lawful commerce.
+
+```
+✓ atf.gov/ffl/verify — Issues federal firearms dealer licenses for lawful commerce
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

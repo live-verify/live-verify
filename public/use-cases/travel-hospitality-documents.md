@@ -115,6 +115,20 @@ The **Business Traveler** benefits from verification.
 
 **Privacy Salt:** Essential. Itineraries reveal locations and habits. The hash must be salted to prevent "Stalking" or "Executive Tracking" by unauthorized parties.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Issues hotel bookings and confirmations
+
+```
+✓ booking.example-hotel.co.uk/verify — Issues hotel bookings and confirmations
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Travel documentation is the "High-Volume Friction" of global business. By turning itineraries into verifiable digital bridges, we eliminate the friction of manual auditing and protect the multibillion-dollar travel budget from the high cost of "Small-Ticket" fraud.

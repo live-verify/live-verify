@@ -457,6 +457,20 @@ Enables abuse            Deters abuse              Chills speech
 - Allow bulk disclosure
 - Become a surveillance tool
 
+## Authority Chain
+
+**Pattern:** Personal
+
+Individuals submit verified anonymous tips, reports, or reviews, with identity escrowed but not verified through a government regulatory chain.
+
+```
+✓ anon.example-platform.com/verify — Witness platform accepting anonymous reports
+```
+
+Personal issuer — individual attestation, no regulatory chain.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 Different use cases have different legal frameworks:

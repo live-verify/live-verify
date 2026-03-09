@@ -97,6 +97,20 @@ The **Animal Owner / Shipper** benefits from verification.
 
 **Privacy Salt:** Critical. Livestock owner names and farm locations are sensitive. The hash must be salted to prevent "Cattle Rustling" groups from mapping high-value herds.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Veterinarians issue livestock health certificates under veterinary regulator authority (RCVS in the UK).
+
+```
+✓ vet.apha.gov.uk/health-cert/verify — Issues livestock health certificates
+  ✓ rcvs.org.uk — Regulates veterinary surgeons in the UK
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

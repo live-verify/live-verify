@@ -96,6 +96,20 @@ The **Property Owner** benefits from verification.
 **State Title Guaranty Funds:** (In jurisdictions like Iowa).
 **Real Estate Data Mirror Sites:** (e.g., DataTrace - hosting verified policy hashes).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Title underwriters must be licensed by state insurance regulators to issue title insurance policies.
+
+```
+✓ title.firstam.com/verify — Issues title insurance policies
+  ✓ insurance.ca.gov — Regulates insurance companies in California
+    ✓ california.gov — California state government
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

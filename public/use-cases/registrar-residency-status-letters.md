@@ -108,6 +108,20 @@ The **Student (Subject)** benefits from verification.
 
 **Privacy Salt:** Critical. Student enrollment and residency are protected under FERPA (in the US). The hash must be salted to prevent "Student List Scraping" by data brokers or credit card marketers.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+University registrars are regulated by the Office for Students, which sets standards and oversight for all higher education institutions issuing official enrollment and residency documents.
+
+```
+✓ registrar.cam.ac.uk/status/verify — Issues enrollment and residency verification letters
+  ✓ officeforstudents.org.uk — Regulates English higher education providers
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 University registrar letters are the "Keys to Subsidies." By turning static letters into verifiable digital bridges, we protect the financial integrity of state university systems and ensure that benefits go to the legitimate students who truly meet the residency rules.

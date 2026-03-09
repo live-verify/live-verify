@@ -294,6 +294,20 @@ The **Exporter (Seller)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Invoice pricing and buyer lists are sensitive business secrets. The hash must be salted and access restricted to authorized customs and banking IPs.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Standard Chartered and other trade finance banks issue bills of lading and are regulated by the UK Financial Conduct Authority under the UK Carriage of Goods by Sea and financial services framework.
+
+```
+✓ tradefinance.standardchartered.com/bl/verify — Trade finance bank issuing bills of lading and letters of credit
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 The commercial invoice is the "DNA of Global Wealth." By turning static bills into verifiable digital bridges, we protect the global tax base and the banking system from the multi-billion dollar cost of trade-based fraud.

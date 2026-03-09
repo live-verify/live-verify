@@ -107,6 +107,19 @@ The **Homeowner / Contractor** benefits from verification.
 
 **Privacy Salt:** Essential. Project descriptions and owner names are sensitive. The hash must be salted to prevent "Data Mining" of all local renovation budgets.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Local authorities issue construction site permits authorized by the Town and Country Planning Act 1990 and Building Regulations 2010.
+
+```
+✓ planning.localauthority.gov.uk/permit/verify — Local authority construction and building permits
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Construction permits are about "Community Trust." By allowing the public to instantly verify the legality of a construction project, we transform the permit from a passive piece of paper into a live, transparent contract between the builder and the city.

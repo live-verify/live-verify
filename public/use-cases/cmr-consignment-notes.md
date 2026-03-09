@@ -95,6 +95,20 @@ The **Sender (Shipper)** benefits from verification.
 **Logistics Marketplaces:** (Sennder, Uber Freight).
 **National Road Transport Assocs:** (e.g., IRU - International Road Transport Union).
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Freight carriers issue CMR consignment notes as the primary shipper-carrier contract. Self-authorized by their legal status as international road transport operators under CMR convention.
+
+```
+✓ transport.dhl.com/cmr/verify — Issues CMR consignment notes and freight documentation
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

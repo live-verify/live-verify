@@ -101,6 +101,19 @@ The **Farmer (Producer)** benefits from verification.
 **Natural Resources Conservation Service (NRCS).**
 **State Departments of Agriculture.**
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+The RPA administers UK farm subsidy payments and eligibility certifications under the Agriculture Act 2020.
+
+```
+✓ rpa.defra.gov.uk/subsidy/verify — RPA farm subsidy and payment eligibility service
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

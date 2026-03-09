@@ -164,6 +164,20 @@ When a vendor is told "you've been selected," or a customer is promised an SLA, 
 
 **Integration with operational systems:** Project management systems require authority verification before budget release. Vendor management systems check authority before adding new vendors. CRM validates SLA commitments against authority limits.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Companies issue operational authority confirmations delegating vendor selection, project approval, and SLA commitment authority. The issuer is self-authorized through corporate governance.
+
+```
+✓ authority.example-corp.com/ops/verify — Confirms delegation of operational authority with scope and limits
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## See Also
 
 Other delegated authority confirmations:

@@ -100,6 +100,20 @@ The **Property Buyer** benefits from verification.
 
 **Privacy Salt:** Highly critical. Wealth data is extremely sensitive. The hash must be salted to prevent "guessing" wealth levels or sources.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Solicitors certify source of funds for real estate transactions and AML compliance.
+
+```
+✓ escrow.example-solicitors.co.uk/deposit/verify — Certifies source of funds for property transactions
+  ✓ sra.org.uk/solicitors — Regulates solicitors in England and Wales
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Property is the ultimate destination for laundered money. By turning fund origin attestations into verifiable digital bridges, we close the gap between the bank's private records and the real estate closing process — not by asking banks to certify cleanliness (they won't), but by letting them confirm provenance (they already do this internally).

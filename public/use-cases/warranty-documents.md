@@ -89,6 +89,18 @@ The **Consumer / Product Owner** benefits from verification.
 
 **Privacy Salt:** Medium. Serial numbers and purchase dates are sensitive for theft tracking and consumer privacy. The hash must be salted to prevent "Serial Harvesting" by thieves.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+```
+✓ warranty.dyson.co.uk/verify — Manufactures appliances and honours product warranties
+```
+
+No regulatory chain. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Warranties are "Value Protectors." By turning certificates into verifiable digital bridges, we protect the consumer's investment and the manufacturer's brand, ensuring that "Peace of Mind" is backed by cryptographic proof.

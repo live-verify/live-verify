@@ -101,6 +101,20 @@ The **Principal (Individual Granting Authority)** benefits from verification.
 
 **Privacy Salt:** Highly critical. Legal and financial details are sensitive. The hash must be salted to prevent "guessing" the names or transaction amounts.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Solicitors authorize limited power of attorney for specific transactions only.
+
+```
+✓ solicitors.example-firm.co.uk/poa/verify — Authorizes limited power of attorney actions
+  ✓ sra.org.uk/solicitors — Regulates solicitors in England and Wales
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Power of Attorney is currently "Binary": you either have none or you have it all. By turning specific authorities into verifiable digital bridges, we bring the security principle of "Least Privilege" to the legal system, protecting the vulnerable from financial exploitation.

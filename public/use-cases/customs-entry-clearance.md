@@ -96,6 +96,19 @@ The **Importer** or **Customs Broker** benefits from verification.
 **Authorized Customs Brokers.**
 **Trade Platforms:** (e.g., Flexport, Expeditors).
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+HMRC administers customs entry clearance and import duty collection under the Customs and Excise Management Act 1979.
+
+```
+✓ customs.hmrc.gov.uk/clearance/verify — HMRC customs entry and import clearance service
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

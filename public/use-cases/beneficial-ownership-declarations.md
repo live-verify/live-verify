@@ -105,6 +105,20 @@ The **Business Owner** benefits from verification.
 
 **Privacy Salt:** Highly critical. Declarations contain sensitive PII. The hash must be salted to prevent "guessing" names of owners.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Companies House maintains the registry of beneficial ownership declarations filed under UK company law.
+
+```
+✓ psc.companieshouse.gov.uk — Records beneficial ownership declarations
+  ✓ companieshouse.gov.uk — Registers UK companies
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

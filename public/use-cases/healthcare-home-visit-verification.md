@@ -157,6 +157,20 @@ The **Home Visit Worker (Nurse/Aide)** benefits from verification.
 
 **Privacy Salt:** Highly critical. Worker and patient association data is sensitive. The hash MUST be salted to prevent "Stalking" attacks where someone tries to track a nurse's daily route.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Home health agencies issue care professional badges under healthcare regulator authority (CQC in the UK).
+
+```
+✓ homevisit.nhs.uk/verify — Issues home visit worker identification
+  ✓ cqc.org.uk — Regulates health and social care services in England
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

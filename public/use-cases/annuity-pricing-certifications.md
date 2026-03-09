@@ -110,6 +110,20 @@ The **Annuity Purchaser** (retiree) benefits from verification.
 **Life Insurance Companies:** (Prudential, MetLife, Allianz, etc.)
 **State Departments of Insurance (DOI):** (As the ultimate approving authority).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Legal & General certifies actuarial pricing for UK annuity products.
+
+```
+✓ annuity.legalandgeneral.co.uk/pricing/verify — Certifies actuarial pricing for annuity products
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

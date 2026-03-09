@@ -89,6 +89,20 @@ The **Policyholder (Insured)** benefits from verification.
 
 **Privacy Salt:** Highly critical. Life insurance involves family health and massive wealth. The hash MUST be salted to prevent "Guess-and-Check" searches for people with high-value policies.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Aviva, a regulated life insurance provider, is authorized by the FCA to issue verified life insurance policies and coverage confirmation.
+
+```
+✓ policy.aviva.co.uk/life/verify — Issues verified life insurance policies
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

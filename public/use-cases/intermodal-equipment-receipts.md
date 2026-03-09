@@ -98,6 +98,20 @@ The **Trucking Company / Driver** benefits from verification.
 **Port Authorities.**
 **Intermodal Platforms:** (e.g., Advent eModal, IAS).
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Port terminal operators issue Equipment Interchange Receipts when containers and chassis change hands. The issuer is self-authorized as the terminal operator recording condition and custody.
+
+```
+✓ eir.maersk.com/verify — Issues verified equipment interchange receipts with damage notations and seal integrity
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

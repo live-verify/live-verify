@@ -115,6 +115,20 @@ Agencies (e.g., USAID, NIH) verify that non-profits have passed their mandatory 
 
 **Privacy Salt:** Not required. Audit reports contain highly unpredictable variables—unique company names, specific fiscal year-end dates, precise revenue and net income figures with many digits, partner names, engagement numbers, and PCAOB registration details. These elements combined provide sufficient entropy that enumeration attacks are infeasible. Adding salt would provide no additional security benefit.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+CPAs certify that financial statements accurately represent a company's financial position.
+
+```
+✓ audit.deloitte.co.uk/verify — Issues audit opinions on financial statements
+  ✓ frc.org.uk/auditors — Regulates UK audit and accounting standards
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require audit firms to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

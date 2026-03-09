@@ -105,6 +105,19 @@ The **Homeowner** benefits from verification.
 **National Builders:** (Toll Brothers, Lennar, D.R. Horton).
 **Insurance Carriers:** (Who backstop the builder's promises).
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+NHBC administers warranty programs that protect homebuyers against structural defects.
+
+```
+✓ warranty.nhbc.co.uk — Issues new-build home warranties
+  ✓ nhbc.co.uk — Warranties new-build homes in the UK
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

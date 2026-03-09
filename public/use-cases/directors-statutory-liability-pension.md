@@ -103,6 +103,20 @@ The **Pension Trustee** benefits from verification.
 **Fiduciary Benefit Managers.**
 **Specialist PTL Brokers.**
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+AIG underwrites directors liability insurance for pension plan fiduciaries.
+
+```
+✓ directors.aig.co.uk/pension-liability/verify — Underwrites directors liability for pension issues
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

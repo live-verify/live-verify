@@ -94,6 +94,20 @@ Because neo-bank documents are *born digital* (PDFs), they are trivial to edit b
 - **Neo-banks:** (Chime, Current, Varo, Monzo, Revolut, N26, Starling).
 - **Fintech Wallets:** (PayPal, Venmo, Cash App - for balance letters).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Monzo Bank, a regulated neo-bank, is authorized by the FCA to issue verified bank account confirmation and customer onboarding documents.
+
+```
+✓ monzo.com/account/verify — Issues verified bank account confirmation documents
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

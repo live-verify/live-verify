@@ -97,6 +97,20 @@ The **Investment Advisor (IAR)** benefits from verification.
 
 **Privacy Salt:** Critical. CRD numbers and names are public, but the hash must be salted to prevent "Mass Scraping" of the advisor database by marketers or scammers.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+The SEC registers investment advisors and maintains certification records.
+
+```
+✓ adviserinfo.sec.gov — Registers US investment advisors
+  ✓ sec.gov — Regulates US securities markets
+    ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

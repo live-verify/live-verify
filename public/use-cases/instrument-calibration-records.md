@@ -96,6 +96,20 @@ The lab manager (second party) may hand the verified document to various third p
 
 **Privacy Salt:** Not required. Calibration records contain many unpredictable variables that combine to create sufficient entropy—instrument serial number (unique alphanumeric), specific drift measurements (continuous values with multiple decimal places), environmental conditions (temperature/humidity to precise decimals), technician credentials (non-enumerable names and IDs), reference standard batch numbers, and precise calibration dates/times. The combination makes reverse-engineering a specific calibration record computationally infeasible without already knowing all the details.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Accredited calibration labs provide NIST-traceable calibrations following ISO/IEC 17025 standards.
+
+```
+✓ calibration.npl.co.uk — Calibrates scientific instruments against NIST standards
+  ✓ ukas.com — Accredits UK testing, calibration, and inspection bodies
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require calibration laboratories to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

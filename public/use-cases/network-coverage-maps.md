@@ -83,6 +83,20 @@ The **Enterprise Customer** benefits from verification.
 - **Satellite Providers:** Starlink, Iridium (guaranteeing view of sky).
 - **IoT Network Providers:** Sigfox, LoRaWAN operators.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Network coverage guarantees are issued by telecom providers and regulated by the UK communications authority.
+
+```
+✓ coverage.ee.co.uk/verify — Issues verified network coverage and SLA certifications
+  ✓ ofcom.org.uk — Regulates UK communications services
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

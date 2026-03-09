@@ -366,3 +366,17 @@ For records that must survive generations:
 Witnessing technology will advance far beyond photos and text attestations—continuous soil vapor monitoring, groundwater sensor networks, drone-based thermal imaging for landfill caps, AI analysis of remediation effectiveness. Insurance requirements will drive adoption.
 
 See `construction-trade-witnessing.md` → "Future: Witnessing Technology Evolution" for detailed analysis of the technology trajectory and insurance-legislation feedback loop. The same dynamics apply to environmental remediation: insurers mandate → technology develops → costs drop → requirements increase.
+
+## Authority Chain
+
+**Pattern:** Regulated
+
+Environmental remediation contractors are regulated by environmental protection agencies to ensure contaminated sites are properly cleaned and future exposure is prevented.
+
+```
+✓ remediation.example-environmental.co.uk/verify — Witnesses concealed environmental remediation work
+  ✓ environment-agency.gov.uk — Regulates environmental protection in England
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.

@@ -98,6 +98,20 @@ The **Business Owner / Licensee** benefits from verification.
 
 **Privacy Salt:** Low. These licenses are typically public information. However, the hashes should be salted to prevent competitors from scraping the entire city's licensing schedule.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Licensed premises operate under permits issued by local authorities overseeing licensing and public safety.
+
+```
+✓ licensing.localauthority.gov.uk/verify — Issues liquor licenses and occupancy permits
+  ✓ localauthority.gov.uk — Administers local licensing and permits
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Licensed premises are the "Living Room" of the city. By turning static placards into live digital bridges, we create a safer, more transparent environment for patrons, neighbors, and regulators alike.

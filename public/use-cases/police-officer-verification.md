@@ -271,3 +271,17 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
 3. **Public blockchain** — Decentralized trust anchor via rollup inclusion
+
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Police forces hold statutory authority under police law to issue warrant cards and verify active officer status.
+
+```
+✓ warrant.police.uk/verify — Issues warrant cards and verifies officer authority
+```
+
+Self-authorized — this is a sovereign body whose authority derives from statute.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.

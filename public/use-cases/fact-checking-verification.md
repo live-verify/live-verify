@@ -96,6 +96,20 @@ The **News Organization / Journalist** benefits from verification.
 
 **Privacy Salt:** Critical for "Anonymous Source" protection. The hash must be salted to ensure that searching for a source doesn't inadvertently reveal their identity through pattern matching.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Fact-checking organizations and editorial outlets issue fact-check verdicts and corrections. Self-authorized by their journalistic standards and editorial independence.
+
+```
+✓ factcheck.reuters.com/verify — Issues fact-checking verdicts and editorial corrections
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

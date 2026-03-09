@@ -90,6 +90,19 @@ The **Importer** benefits from verification.
 **Foreign Trade Zone (FTZ) Operators.**
 **Customs Brokers.**
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+HMRC administers bonded warehouse duty deferral and inventory control under the Customs and Excise Management Act 1979.
+
+```
+✓ customs.hmrc.gov.uk/bonded/verify — HMRC bonded warehouse duty deferral service
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

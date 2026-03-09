@@ -130,20 +130,17 @@ When writing Directors & Officers or Errors & Omissions policies for offshore en
 
 ## Authority Chain
 
-Compliance auditors derive their authority from licensing by the jurisdiction's financial services regulator:
+**Pattern:** Regulated
+
+Offshore compliance audit reports are issued by licensed auditors and endorsed by the Cayman Islands financial authority.
 
 ```
-Compliance Firm (Cayman) → Licensed by CIMA → Cayman Islands Government
-Compliance Firm (BVI) → Licensed by BVI FSC → BVI Government
-Compliance Firm (Jersey) → Licensed by JFSC → States of Jersey
+✓ audit.example-offshore.ky/verify — Issues offshore compliance audit reports
+  ✓ cima.ky — Regulates Cayman Islands financial services
+    ✓ gov.ky — Cayman Islands government
 ```
 
-The endorsement chain naturally reflects this:
-
-```
-verify:cicompliance.ky/reports
-  endorsed by cima.ky (Cayman Islands Monetary Authority)
-```
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
 ## Competition
 

@@ -247,6 +247,18 @@ Investigate counterfeit ticket operations. Verified records show which tickets w
 **Artists/Promoters:** (Live Nation, AEG) controlling ticket policies
 **Sports Leagues:** (NFL, Premier League) issuing season tickets
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+```
+✓ tickets.livenation.co.uk/verify — Sells and distributes event tickets
+```
+
+No regulatory chain. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Privacy Considerations
 
 Photo binding creates privacy implications:

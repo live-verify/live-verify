@@ -95,6 +95,20 @@ The **Property Owner / Developer** benefits from verification.
 
 **Privacy Salt:** Essential. Specific property boundaries and development plans are sensitive competitive data. The hash must be salted to prevent "Pipeline Mapping" by rival developers.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Wetlands delineations are verified by certified scientists and regulated by environmental protection agencies to identify protected waters and ensure development compliance with Clean Water Act requirements.
+
+```
+✓ wetlands.example-environmental.com/verify — Issues verified wetlands delineation reports
+  ✓ epa.gov — Administers US environmental protection regulations
+    ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Wetlands are the "Filter of the Planet." By turning technical surveys into verifiable digital bridges, we ensure that land development is based on the digital truth of the ecosystem, protecting the environment and the multi-billion dollar real estate market from the high cost of scientific deception.

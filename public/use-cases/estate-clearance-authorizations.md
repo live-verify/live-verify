@@ -365,6 +365,19 @@ Each link is an institution with reputation at stake and regulatory oversight.
 
 **Community verification:** The site notice transforms every neighbor into a potential fraud detector. Criminals can't operate in daylight when anyone with a phone can verify legitimacy in seconds.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Solicitors (regulated professionals) issue executor authorizations to licensed clearance firms, with the probate court verifying the underlying grant.
+
+```
+✓ probate.example-solicitors.co.uk/clearance/verify — Solicitor authorized to handle probate
+  ✓ sra.org.uk/solicitors — Regulates solicitors in England and Wales
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## See Also
 
 Other authorized agent confirmations:

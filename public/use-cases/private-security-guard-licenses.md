@@ -105,6 +105,20 @@ The **Security Professional (Guard)** benefits from verification.
 **State Bureaus of Security and Investigative Services (BSIS).**
 **National Security Accreditation Bodies.**
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Security guard licenses are issued and monitored by the UK private security regulator.
+
+```
+✓ sia.homeoffice.gov.uk/licence/verify — Issues armed and unarmed guard licenses and firearms qualifications
+  ✓ sia.homeoffice.gov.uk — Regulates the UK private security industry
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

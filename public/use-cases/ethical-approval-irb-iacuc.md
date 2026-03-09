@@ -106,6 +106,20 @@ The **Principal Investigator (PI)** benefits from verification.
 
 **Privacy Salt:** Critical. Study titles can reveal sensitive disease research or vulnerable populations. The hash must be salted to prevent "Guessing" which PIs are working on specific sensitive topics.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Research ethics committees issue approval letters under healthcare research regulator authority (HRA in the UK).
+
+```
+✓ ethics.hra.nhs.uk/verify — Issues research ethics approvals
+  ✓ hra.nhs.uk — Oversees research ethics in the UK health service
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -93,6 +93,20 @@ The **Satellite Operator (Startups / Telcos)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Satellite frequencies, orbits, and technical specs are high-value trade secrets. The hash must be salted and access restricted to authorized aerospace partners.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Atrium Underwriters issues satellite and space insurance policies and is regulated by the UK Financial Conduct Authority under the UK insurance framework and outer space regulations.
+
+```
+✓ satellite.atrium-uw.com/verify — Speciality space and satellite insurer
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Space is the "Final Frontier of Risk." By turning specialty policies into verifiable digital bridges, we protect the billions of dollars flowing into the new space economy and ensure that "Mission Success" is backed by the professional truth of the insurer.

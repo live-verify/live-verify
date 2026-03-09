@@ -88,6 +88,20 @@ The **Broker / Representative** benefits from verification.
 **SEC:** (Federal oversight).
 **State Securities Regulators:** (e.g., NASAA members).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+FINRA registers broker-dealers and representatives authorized to sell securities.
+
+```
+✓ brokercheck.finra.org — Registers securities representatives
+  ✓ finra.org — Regulates US broker-dealers and investment advisers
+    ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

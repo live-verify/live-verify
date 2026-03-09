@@ -66,60 +66,55 @@ The endpoint returns current employment status:
 - **NOT_EMPLOYED** — No longer employed by this organization.
 - **404** — No matching record. The letter is forged, or the details don't match.
 
-## Authority Chain Verification
+## Authority Chain
 
-When an immigration officer verifies a proof-of-employment letter from `hr.hsbc.co.uk`, they know HSBC says this person works there. But how does the officer know that `hr.hsbc.co.uk` is a legitimate employer authorized to attest employment?
+**Pattern:** Regulated
 
-The verification response includes an **authority chain** — a secondary verification link allowing the relying party to confirm that the issuer is itself a recognized authority for the type of claim being made:
+The employer is a registered entity with the tax authority, which chains to the government root. An immigration officer sees not just that the employer vouches for the employee, but that the government vouches for the employer.
+
+UK employment (employer → HMRC → gov.uk):
 
 ```
-HTTP/1.1 200 OK
-X-Verify-Status: OK
-X-Verify-Authority-For: employment-attestation
-X-Verify-Authority-Attested-By: https://employers.hmrc.gov.uk/v/{hash}
-X-Verify-Authority-Scope: paye-registered-employer
+✓ hr.hsbc.co.uk/employment/v — Lists currently employed UK staff
+  ✓ hmrc.gov.uk — Governs UK salary/wage tax collection
+    ✓ gov.uk/verifiers — UK government root namespace
 ```
 
-The immigration officer's system can optionally follow this chain:
+US employment (employer → IRS → usa.gov):
 
-**Step 1 — Primary verification:** `hr.hsbc.co.uk` confirms Jane Worthington is employed as VP, Global Markets.
+```
+✓ hr.jpmorgan.com/v — Lists currently employed US staff
+  ✓ irs.gov — Governs US federal payroll tax collection
+    ✓ usa.gov/verifiers — US federal government root namespace
+```
 
-**Step 2 — Secondary verification:** `employers.hmrc.gov.uk` confirms that HSBC Holdings plc (domain: `hr.hsbc.co.uk`) is a registered PAYE employer. HMRC is the UK tax authority — every legitimate UK employer must be PAYE-registered. This is the government attesting that the employer is real and authorized to employ people.
+**What the chain proves:**
+1. Jane works at HSBC (employer attests)
+2. HSBC is a real, registered employer (HMRC attests)
+3. HMRC is a statutory tax authority (gov.uk root)
 
-**Step 3 (optional) — Tertiary verification:** HMRC's own authority is statutory — established by act of Parliament. The chain terminates at a root authority that derives its legitimacy from law, not from another verification endpoint.
+**What the absence of a chain means:** If `hr.acme-corp.example.com` confirms employment but has no `authorizedBy` link, the claim is self-attested only — no government body has confirmed this is a legitimate employer. The claim may still be genuine (new company, foreign employer), but the absence warrants additional scrutiny.
 
-**What the authority chain proves:**
-1. Jane works at HSBC (primary — employer attests)
-2. HSBC is a real, registered employer (secondary — HMRC attests)
-3. HMRC is a statutory tax authority (tertiary — the law)
-
-**What the absence of an authority chain means:** If a verification response from `hr.acme-corp.example.com` confirms employment but includes no `X-Verify-Authority-Attested-By` header, the relying party knows the claim is self-attested only — no government or regulatory body has confirmed this is a legitimate employer. The claim may still be genuine (a newly registered company, a foreign employer not yet in the local registry), but the absence is a signal that warrants additional scrutiny.
-
-See [Verification Response Format: Authority Chains](../../docs/Verification-Response-Format.md#authority-chain-verification) for the full specification.
-
-### Worked Examples
+### Other Employment Chain Examples
 
 **UK Solicitor at Court:**
 
-| Step | Endpoint | Confirms | Authority Header |
-| :--- | :--- | :--- | :--- |
-| Primary | `members.smithandco.co.uk/v` | Sarah Chen is a practising solicitor at Smith & Co | `X-Verify-Authority-Attested-By: https://sra.org.uk/v/{hash}` |
-| Secondary | `sra.org.uk/v/{hash}` | Smith & Co is an SRA-regulated firm; Sarah Chen holds a current practising certificate | `X-Verify-Authority-Attested-By: https://legalservicesboard.org.uk/v/{hash}` |
-| Tertiary | `legalservicesboard.org.uk/v/{hash}` | The SRA is an approved regulator under the Legal Services Act 2007 | *(statutory root — chain terminates)* |
+```
+✓ members.smithandco.co.uk/v — Employs practising solicitors in England
+  ✓ sra.org.uk — Regulates solicitors in England and Wales
+    ✓ legalservicesboard.org.uk — Oversees approved legal regulators
+      ✓ gov.uk/verifiers — UK government root namespace
+```
 
 **Doctor in Emergency Department:**
 
-| Step | Endpoint | Confirms | Authority Header |
-| :--- | :--- | :--- | :--- |
-| Primary | `staff.royalfree.nhs.uk/v` | Dr. Patel is a Consultant Cardiologist | `X-Verify-Authority-Attested-By: https://gmc-uk.org/v/{hash}` |
-| Secondary | `gmc-uk.org/v/{hash}` | Dr. Patel holds GMC registration, licence to practise, specialist register entry | *(statutory root — GMC established by Medical Act 1983)* |
+```
+✓ staff.royalfree.nhs.uk/v — Employs medical staff at the Royal Free Hospital
+  ✓ gmc-uk.org/register — Registers and regulates UK medical doctors
+    ✓ gov.uk/verifiers — UK government root namespace
+```
 
-**US Bank Employee at Immigration:**
-
-| Step | Endpoint | Confirms | Authority Header |
-| :--- | :--- | :--- | :--- |
-| Primary | `hr.jpmorgan.com/v` | John Smith, Associate, Investment Banking | `X-Verify-Authority-Attested-By: https://employers.irs.gov/v/{hash}` |
-| Secondary | `employers.irs.gov/v/{hash}` | JPMorgan Chase & Co is a registered employer, EIN 13-2624428 | *(statutory root — IRS)* |
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
 ## Second-Party Use
 

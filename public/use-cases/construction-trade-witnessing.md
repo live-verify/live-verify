@@ -626,3 +626,16 @@ The attestation examples shown here (photos, sign-offs, hash verification) are t
 - `home-inspection-reports.md` - Pre-purchase inspections
 - `construction-lien-waivers.md` - Payment/lien documentation
 - `warranty-documents.md` - Warranty registration and claims
+
+## Authority Chain
+
+**Pattern:** Regulated
+
+Licensed tradespeople attest to their work being code-compliant, with their professional credentials and certification verified at attestation.
+
+```
+✓ witness.example-inspector.co.uk/verify — Licensed tradesperson or inspector
+  ✓ ukas.com — Accredits UK testing, calibration, and inspection bodies
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.

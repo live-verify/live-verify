@@ -92,6 +92,20 @@ The **Seller (Small Business)** benefits from verification.
 **Commercial Banks.**
 **UCC-1 Registries:** (Hosting the verified lien hashes).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Close Brothers, a regulated financial services firm, is authorized by the FCA to issue verified invoice financing and factoring agreements.
+
+```
+✓ factoring.closebrothers.co.uk/verify — Issues verified invoice financing and factoring confirmations
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

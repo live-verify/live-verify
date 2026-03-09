@@ -106,6 +106,20 @@ The **Permittee (Developer / Researcher)** benefits from verification.
 
 **Privacy Salt:** Critical. Permit locations can pinpoint rare species locations, attracting illegal poachers. The hash must be salted to prevent "Species Mapping" attacks.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Fish and wildlife agencies hold statutory authority under endangered species law to issue take permits and conservation authorizations.
+
+```
+✓ permits.naturalengland.org.uk/verify — Issues incidental take permits and wildlife authorizations
+```
+
+Self-authorized — this is a sovereign body whose authority derives from statute.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

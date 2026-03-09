@@ -104,6 +104,20 @@ The **Home Buyer (Client)** benefits from verification.
 **Independent PEs / Architects.**
 **Reporting Platforms:** (e.g., Spectora, HomeGauge - hosting the hashes).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Surveyors conduct detailed inspections of residential properties.
+
+```
+✓ report.example-inspector.com/verify — Conducts professional home inspection reports
+  ✓ rics.org — Regulates UK chartered surveyors and valuers
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

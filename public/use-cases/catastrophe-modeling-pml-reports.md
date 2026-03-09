@@ -100,6 +100,20 @@ The broker or REIT manager (second party) may hand the verified document to vari
 
 **Privacy Salt:** Required. Catastrophe modeling reports often contain enumerable values—round dollar amounts for PML estimates, standard return periods (100yr, 250yr, 500yr), publicly known portfolios, and model version numbers that are industry-wide. A competitor could feasibly enumerate combinations to reverse-engineer a rival's risk profile and gain unfair market intelligence. Salt protects these strategic risk assessments.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Actuaries model potential loss from natural disasters to quantify insurance risk.
+
+```
+✓ catmodel.rms.com/verify — Models catastrophe risk and insurance pricing
+  ✓ frc.org.uk/actuaries — Regulates UK actuarial standards and practice
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require catastrophe modeling firms to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

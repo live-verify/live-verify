@@ -97,6 +97,20 @@ The **Property Developer / Owner** benefits from verification.
 
 **Privacy Salt:** Essential. Borehole data and project budgets are sensitive competitive information. The hash must be salted to prevent "Project Mapping" by rival developers.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Engineers analyze soil and geotechnical conditions for construction projects.
+
+```
+✓ geotech.example-engineers.co.uk/verify — Conducts geotechnical and soil analysis
+  ✓ engc.org.uk — Registers professional engineers in the UK
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Geotechnical reports are the "First Link" in the chain of structural safety. By turning technical summaries into verifiable digital bridges, we ensure that the buildings where we live and work are standing on the digital truth of the earth, not the creative editing of a developer.

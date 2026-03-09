@@ -85,11 +85,17 @@ The endpoint returns the stub's authenticity and current employment status:
 
 ## Authority Chain
 
-The authority chain applies to pay stubs the same way it applies to proof of employment. The employer's payroll domain is the primary authority. The secondary authority is the tax agency — HMRC (UK), IRS (US), CRA (Canada) — which confirms the employer is a registered entity that files payroll taxes. The chain terminates at statute.
+**Pattern:** Commercial
 
-A stub from `payroll.pinnacle-eng.com` gets its credibility reinforced when the IRS confirms Pinnacle Engineering Group is a registered employer filing quarterly 941s. A stub from a shell company with no tax filings breaks at the second link.
+Payroll providers and employers issue pay stubs certifying employee earnings and deductions. The issuer is self-authorized as the payroll service provider or employer.
 
-See [Proof of Employment](view.html?doc=proof-of-employment) for the full authority chain discussion with worked examples.
+```
+✓ payroll.pinnacle-eng.com/stubs/v — Issues verified pay stubs with earnings, deductions, and net pay
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
 ## Second-Party Use
 

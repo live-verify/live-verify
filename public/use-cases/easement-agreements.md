@@ -97,6 +97,20 @@ The **Property Owner** benefits from verification.
 **Utility Companies:** (Hosting their own "Active Rights" database).
 **Title Platforms:** (e.g., Simplifile, DataTrace).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Solicitors authenticate easement agreements and property access rights.
+
+```
+✓ conveyancing.example-solicitors.co.uk/easement/verify — Authorizes easement rights for property use
+  ✓ sra.org.uk/solicitors — Regulates solicitors in England and Wales
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -122,9 +122,16 @@ Moderate. VINs are semi-public — they're visible through the windshield on the
 
 ## Authority Chain
 
-State DMV &rarr; state government &rarr; sovereignty. Each state is its own issuing authority for vehicle titles within its jurisdiction. Interstate verification means the buyer's app needs to recognize approximately 50 state DMV domains (US), plus DVLA (UK), Transport Canada, and equivalent agencies in other countries. The authority chain confirms that `dmv.texas.gov` is in fact the Texas DMV and is authorized to issue vehicle titles — not a lookalike domain.
+**Pattern:** Sovereign
 
-See [Verification Response Format: Authority Chains](../../docs/Verification-Response-Format.md#authority-chain-verification) for the full specification.
+The DVLA issues UK vehicle titles and registration certificates under the Vehicle Excise and Registration Act 1994.
+
+```
+✓ dvla.gov.uk/v5c/verify — DVLA vehicle title and registration certificate service
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
 ## Competition vs. Existing Title Verification Methods
 

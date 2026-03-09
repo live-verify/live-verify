@@ -100,6 +100,19 @@ The **Visa Applicant** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Visa data is extremely sensitive. The hash must be salted and the verification URL restricted to authorized diplomatic and law enforcement IPs.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Issues visa denials and administers consular refusal records.
+
+```
+✓ travel.state.gov/denial/verify — Issues visa denials and administers consular refusal records
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Visa denials are the "Permanent Record" of global mobility. By turning notices into verifiable digital bridges, we protect the integrity of borders and ensure that "Travel History" is based on the digital truth of the consulate, not the creative editing of an applicant.

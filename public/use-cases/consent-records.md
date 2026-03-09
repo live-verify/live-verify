@@ -242,6 +242,20 @@ Some consents are layered:
 
 Each level is independently verifiable.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Organizations document and verify that individuals have consented to data processing.
+
+```
+✓ consent.example-corp.com/verify — Records and verifies data processing consent
+  ✓ ico.org.uk — Regulates UK data protection and information rights
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Novel Applications
 
 **Consent Management Platforms**

@@ -106,6 +106,20 @@ The borrower (second party) may hand the verified document to various third part
 
 **Privacy Salt:** Required. Unlike documents with many unpredictable variables, P2P lending agreements often contain enumerable values—round dollar amounts ($5k, $10k, $25k), standard APR tiers (6.99%, 8.42%, 12.99%), and common loan terms (36, 60 months). A competitor could feasibly enumerate combinations to reverse-engineer platform lending patterns and borrower risk profiles. Salt protects this sensitive financial intelligence.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Funding Circle, a regulated P2P lending platform, is authorized by the FCA to issue verified peer-to-peer lending agreements and loan confirmations.
+
+```
+✓ loans.fundingcircle.com/verify — Issues verified peer-to-peer lending agreements
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require P2P lending platforms to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

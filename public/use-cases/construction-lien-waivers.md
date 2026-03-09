@@ -93,6 +93,20 @@ The **General Contractor (GC)** benefits from verification.
 **Payment Platforms:** (e.g., Procore, Textura, Oracle Aconex).
 **Accounting Software:** (e.g., QuickBooks, Sage).
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Contractors issue lien waivers to document their release of mechanic's lien rights on construction projects. Self-authorized by their position as entitled lienholders under construction law.
+
+```
+✓ lien.example-contractor.com/verify — Issues construction lien waivers and release documents
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

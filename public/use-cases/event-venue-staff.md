@@ -133,6 +133,20 @@ The **Event Staff Member or Contractor** benefits from verification.
 
 **Privacy Salt:** Important. Knowing which crew members were backstage with which artists could enable stalking or unauthorized photography. Hashes must be salted to prevent inference of access patterns.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Event venues and promoters issue staff verification credentials to confirm that workers are currently authorized to be present in restricted event areas. Self-authorized by their operational control of the event and venue licensing.
+
+```
+✓ staff.aeg-presents.co.uk/verify — Issues event venue staff credentials and access authorizations
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

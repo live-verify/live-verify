@@ -100,6 +100,20 @@ UK wealth managers typically require SOW for all private banking clients; US has
 **The chain:** Client declares source → Supporting doc from third party (e.g., employer's salary confirmation) verified against employer's domain → Firm's acceptance of declaration verified against firm's domain. Multiple verification points make fabrication much harder.
 
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Solicitors verify source of funds documentation for AML and KYC compliance.
+
+```
+✓ compliance.example-solicitors.co.uk/sof/verify — Verifies source of funds documentation
+  ✓ sra.org.uk/solicitors — Regulates solicitors in England and Wales
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

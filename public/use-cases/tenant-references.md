@@ -117,6 +117,18 @@ Live Verify stops all of these because the hash resolves against the letting age
 
 **Privacy Salt:** Important. Tenancy data is sensitive (address, rent amount, departure reasons). The hash must be salted to prevent enumeration — you shouldn't be able to guess tenant names against a landlord's endpoint to discover who lives where.
 
+## Authority Chain
+
+**Pattern:** Personal
+
+```
+✓ landlord.example.com/refs — Provides tenant references from personal experience as landlord
+```
+
+No regulatory chain. Trust rests on the individual's domain.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## International Equivalents
 
 | Country | Issuer | Notes |

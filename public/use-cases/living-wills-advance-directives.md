@@ -93,6 +93,20 @@ The **Patient (Declarant)** benefits from verification.
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. End-of-life wishes are the most private data imaginable. The hash MUST be salted to prevent "Guess-and-Check" attacks to find someone's medical directives.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Solicitors validate living will directives and end-of-life care instructions.
+
+```
+✓ solicitors.example-firm.co.uk/directive/verify — Drafts and validates living will directives
+  ✓ sra.org.uk/solicitors — Regulates solicitors in England and Wales
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

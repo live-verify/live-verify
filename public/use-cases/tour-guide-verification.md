@@ -142,6 +142,20 @@ The **Solo Traveler (Guest)** benefits from verification.
 
 **Privacy Salt:** Critical. Guide schedules and locations are sensitive. The hash must be salted to prevent "Guide Stalking" or harassment by bad actors.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Issues tour guide certifications
+
+```
+✓ guides.example-tours.co.uk/verify — Issues tour guide certifications
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Tourism is a "Reputation Export." By turning guide badges into verifiable digital bridges, we protect the safety of global travelers and the brand of the destination, ensuring that "Local Hospitality" is backed by cryptographic proof.

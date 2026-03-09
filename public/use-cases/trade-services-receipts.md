@@ -182,6 +182,20 @@ Each step is timestamped. If a tradesperson tries to skip registration, they can
 
 Customer addresses are hashed. The verification confirms "this receipt is valid" without exposing the customer's identity or location to third parties.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Issues trade services invoices
+
+```
+✓ receipt.example-plumber.co.uk/verify — Issues trade services invoices
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## International Variations
 
 **United Kingdom:** HMRC integration via Making Tax Digital (MTD) APIs. Gas Safe and NICEIC for regulated trades.

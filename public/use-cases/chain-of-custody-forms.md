@@ -98,6 +98,20 @@ The **Receiver** (e.g., Lab Tech or Court Clerk) benefits from verification.
 
 **Privacy Salt:** Critical. Evidence logs contain sensitive case/medical data. The hash must be salted to prevent "Guessing" case involvement.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Law enforcement and forensic laboratories are statutory bodies with direct authority under evidence legislation to issue chain of custody confirmations.
+
+```
+✓ evidence.police.uk/chain/verify — Issues and verifies evidence transfer logs
+```
+
+Self-authorized — this is a sovereign body whose authority derives from statute.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

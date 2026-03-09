@@ -99,6 +99,20 @@ The **Importer (Buyer)** benefits from verification.
 **Customs Brokers:** (Managing verification for their clients).
 **Trade Platforms:** (e.g., Flexport, Tradeshift, SAP Ariba).
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Exporters issue commercial invoices as the source of truth for international trade. Self-authorized by their sale of goods and obligation to declare accurate values to customs authorities.
+
+```
+✓ trade.example-exporter.co.uk/invoice/verify — Issues commercial invoices and customs declarations
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

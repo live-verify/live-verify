@@ -111,6 +111,20 @@ The **Fleet Manager / Owner-Operator** benefits from verification.
 
 **Privacy Salt:** Low. Commercial vehicle safety is mostly public record. However, the inspector's individual license number should be salted to protect professional privacy.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Vehicle inspection reports are issued by certified testing stations and regulated by the UK driving and vehicle standards authority.
+
+```
+✓ mot.dvsa.gov.uk/verify — Issues MOT certificates and vehicle safety inspection reports
+  ✓ dvsa.gov.uk — Enforces UK driving and vehicle standards
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Truck safety is a "Life-and-Death" domain. By turning annual reports into verifiable digital bridges, we ensure that the "Chain of Safety" is backed by cryptographic proof, keeping dangerous vehicles off the highway and rewarding safe carriers.

@@ -221,6 +221,19 @@ This binds to the exact granted document—specification, claims, and drawings. 
 
 **Integration:** Patent databases (Espacenet, Google Patents) could cross-reference verification endpoints.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+The UK Intellectual Property Office issues patent grants and certificates under the Patents Act 1977.
+
+```
+✓ ipo.gov.uk/verify — UK Intellectual Property Office patent registration and grant service
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Priority Date Timestamping
 
 Patent applications remain secret during examination (typically 18 months). This creates a different problem than verification: proving when an application was filed without revealing its contents.

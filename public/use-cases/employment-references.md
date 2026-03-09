@@ -150,6 +150,18 @@ The verify URL points to the *referee's* domain, not the employer's. This reflec
 
 **Privacy Salt:** Critical. Employment data is sensitive. The hash must be salted to prevent "Guessing" names of employees to see their departure reasons.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+```
+✓ hr.example-corp.com/references/verify — Provides employment references for current and former staff
+```
+
+No regulatory chain. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

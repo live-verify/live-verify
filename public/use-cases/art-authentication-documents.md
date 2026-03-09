@@ -692,6 +692,20 @@ The **Current Owner** (Seller) benefits from verification.
 **Artist Foundations:** (Managing the official archive of the artist).
 **Galleries:** (Primary dealers who handle the "first sale").
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Expert appraisals authenticate artworks and determine fair market value.
+
+```
+✓ auth.christies.com/verify — Authenticates and values art and collectibles
+  ✓ rics.org — Regulates UK chartered surveyors and valuers
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

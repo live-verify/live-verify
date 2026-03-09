@@ -97,6 +97,20 @@ The **Patient (Implant Recipient)** benefits from verification.
 
 **Privacy Salt:** Critical. Implant data is highly sensitive health info. The hash MUST be salted to prevent "Mass Scraping" of patient identities linked to specific expensive medical devices.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Medical device manufacturers issue implant cards under healthcare products regulator authority (MHRA in the UK).
+
+```
+✓ implants.medtronic.com/verify — Issues medical device implant cards
+  ✓ mhra.gov.uk — Regulates UK medicines and medical devices
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -103,6 +103,20 @@ The **Insurance Company** (client) benefits from verification.
 **Domain Binding Value:**
 Binding the opinion to `milliman.com` (for example) proves that the *firm* stands behind the opinion, not just the individual signer. If an actuary goes rogue, the firm won't publish the hash.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Actuaries certify that insurers have set aside sufficient reserves for future claims.
+
+```
+✓ actuarial.ey.com/verify — Issues actuarial opinions for insurance reserves
+  ✓ frc.org.uk/actuaries — Regulates UK actuarial standards and practice
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

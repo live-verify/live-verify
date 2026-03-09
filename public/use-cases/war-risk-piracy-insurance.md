@@ -92,6 +92,20 @@ The **Shipowner / Master** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Vessel positions and insurance values are national security and high-value trade secrets. The hash must be salted and access restricted to authorized maritime authorities.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Lloyd's and specialty marine insurers issue war risk and piracy insurance and are regulated by the UK Financial Conduct Authority under the UK marine and insurance framework.
+
+```
+✓ warrisk.lloyds.com/verify — Lloyd's syndicate issuing war risk and piracy insurance binders
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 War risk is the "Highest Stakes" in maritime law. By turning binders into verifiable digital bridges, we protect the global supply chain from the risk of un-insured catastrophes and ensure that "Safety in Conflict" is backed by cryptographic proof.

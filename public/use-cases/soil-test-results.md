@@ -98,6 +98,20 @@ The **Farmer / Landowner** benefits from verification.
 
 **Privacy Salt:** Medium. Field coordinates and farmer identities are private business data. The hash must be salted to prevent "Yield Mapping" by competitors.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Agricultural testing labs analyze soil composition and issue reports for nutrient management.
+
+```
+✓ soil.example-lab.co.uk — Tests soil nutrient levels and environmental properties
+  ✓ ukas.com — Accredits UK testing, calibration, and inspection bodies
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Soil is the "Foundation of the Food Supply." By turning soil reports into verifiable digital bridges, we ensure that the environmental and economic data we rely on is based on real science, not creative editing.

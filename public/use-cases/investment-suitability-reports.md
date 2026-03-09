@@ -93,6 +93,20 @@ US Reg BI is newer (2020) and weaker than UK/EU fiduciary-style requirements, bu
 **The Fix:** Report is hashed at time of delivery. Client receives copy with verification line. If disputed later, both parties can verify the report is exactly what was issued — no alterations, no backdating.
 
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+St. James's Place, a regulated financial advisory firm, is authorized by the FCA to issue verified investment suitability reports and financial advice documentation.
+
+```
+✓ advice.sjp.co.uk/suitability/verify — Issues verified investment suitability reports
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

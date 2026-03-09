@@ -236,6 +236,20 @@ When multiple citizens report the same subject:
 
 Authorities can aggregate without revealing reporter identities to each other or to the subject.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Police forces hold statutory authority under evidence law to acknowledge and register citizen evidence submissions.
+
+```
+✓ police.uk/evidence/verify — Receives and confirms citizen evidence submissions
+```
+
+Self-authorized — this is a sovereign body whose authority derives from statute.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Considerations
 
 **Police Evidence Submission:**

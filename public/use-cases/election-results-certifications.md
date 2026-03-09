@@ -153,6 +153,20 @@ Unlike many use cases, election results are inherently public. Verification does
 When recounts occur, the recount report should reference the original certified result hash and explain any changes, creating an auditable correction trail.
 
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Electoral commissions and boards hold statutory authority under election law to certify election results and canvass reports.
+
+```
+✓ electoralcommission.org.uk/verify — Certifies election results and canvass documents
+```
+
+Self-authorized — this is a sovereign body whose authority derives from statute.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -101,6 +101,20 @@ The **Property Seller / Owner** benefits from verification.
 **Accredited Laboratories:** (Handling the Phase II soil/water samples).
 **Insurance Carriers:** (Who underwrite the pollution liability).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Environmental consultants are accredited to conduct phase I and phase II site assessments.
+
+```
+✓ esa.example-environmental.com — Conducts environmental site assessments
+  ✓ iema.net — Accredits UK environmental impact assessors
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

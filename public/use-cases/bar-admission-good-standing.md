@@ -108,6 +108,27 @@ The **Attorney** benefits from verification.
 **State Bar Associations:** (Acting as the administrative arm).
 **National Registries:** (e.g., ABA National Lawyer Regulatory Data Bank).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+US attorneys are admitted by their state's court system, not a federal body. The chain terminates at the state government — Tenth Amendment sovereignty.
+
+```
+✓ nycourts.gov/attorneys/v — Admits and regulates New York attorneys
+  ✓ ny.gov — New York state government
+```
+
+UK solicitors are regulated by the SRA under the Legal Services Act:
+
+```
+✓ sra.org.uk/solicitors/verify — Regulates solicitors in England and Wales
+  ✓ legalservicesboard.org.uk — Oversees approved legal regulators
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

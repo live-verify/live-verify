@@ -103,6 +103,19 @@ The **Traveler (Citizen of VWP Country)** benefits from verification.
 
 **Privacy Salt:** Critical. Passport numbers and names are highly sensitive. The hash must be salted to prevent "Guess-and-Check" attacks to find specific travelers.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Authorizes visa-free travel for citizens of eligible countries.
+
+```
+✓ esta.cbp.dhs.gov/verify — Authorizes visa-free travel for citizens of eligible countries
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

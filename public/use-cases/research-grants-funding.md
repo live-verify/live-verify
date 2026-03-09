@@ -104,6 +104,20 @@ The **Researcher (Principal Investigator)** benefits from verification.
 
 **Privacy Salt:** Medium. While award amounts are public record, individual salary allocations within the budget are private. The hash should be salted to protect individual compensation data.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Research funding is distributed by UKRI (UK Research and Innovation), which is the primary funder of UK research and innovation, operating under government mandate and oversight.
+
+```
+✓ grants.ukri.org/verify — Issues research grant awards and funding notifications
+  ✓ ukri.org — Funds UK research and innovation
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Research funding is the "Engine of Progress." By turning award letters into verifiable digital bridges, we protect the integrity of the scientific record and ensure that funding goes to those who actually earned it.

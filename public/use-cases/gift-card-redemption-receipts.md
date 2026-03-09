@@ -122,6 +122,20 @@ Law enforcement investigating gift card scams could verify redemption locations 
 States require unclaimed gift card balances to be reported as unclaimed property. Verified redemption records prove value was used before escheatment.
 
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Gift card issuers and merchants issue redemption receipts confirming the purchase and value consumed. Self-authorized by their control of the gift card balance system.
+
+```
+✓ giftcards.amazon.co.uk/verify — Issues gift card redemption receipts and transaction confirmations
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

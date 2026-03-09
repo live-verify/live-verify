@@ -62,6 +62,20 @@ The **Facility Manager / Landlord** benefits from verification.
 - **Safe Working:** Verifying that a specific panel was recently vetted before opening it for maintenance.
 
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+NICEIC is an accredited UK electrical safety certification body.
+
+```
+✓ eicr.niceic.com — Issues electrical inspection certificates
+  ✓ niceic.com — Certifies UK electrical safety inspections
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

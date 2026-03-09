@@ -100,6 +100,19 @@ The **Family / Citizen** benefits from verification.
 
 **Privacy Salt:** Critical. Caseworker names and routes are highly sensitive. The hash must be salted to prevent "Caseload Scraping" or tracking the movements of individual employees.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Local authorities employ social services workers and issue employment verification under the Children Act 1989 and Care Act 2014.
+
+```
+✓ socialworker.localauthority.gov.uk/verify — Local authority social services worker credentials
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Social services verification is about "Safety for the Vulnerable." By allowing families to instantly cross-reference a physical badge with a digital government record, we eliminate the primary weapon of predators: the fear of state authority.

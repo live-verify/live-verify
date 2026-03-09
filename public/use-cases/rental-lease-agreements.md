@@ -111,6 +111,20 @@ The tenant (second party) may hand the verified document to various third partie
 
 **Privacy Salt:** Not required. Rental lease agreements contain many unpredictable variables that combine to create high entropy: unique agreement IDs, tenant names, specific property addresses including unit numbers, exact monthly rent amounts (including cents), security deposit amounts, and specific start/end dates. The combination of these unique identifiers makes brute-force enumeration infeasible without salt.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Issues residential property lease agreements
+
+```
+✓ lettings.example-agency.co.uk/verify — Issues residential property lease agreements
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require property managers and landlord platforms to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

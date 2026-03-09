@@ -105,6 +105,20 @@ The property owner (second party) may hand the verified document to various thir
 
 **Privacy Salt:** Required. Pollution insurance policies often contain enumerable values—round dollar limits ($1M, $5M, $10M), standard retroactive dates, and publicly known site addresses. A competitor or neighboring property owner could feasibly enumerate combinations to reverse-engineer a property's contamination history and coverage strategy, gaining unfair advantage in real estate negotiations or litigation. Salt protects these sensitive environmental and financial details.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+AIG underwrites environmental liability and pollution insurance for contaminated sites.
+
+```
+✓ pollution.aig.co.uk/verify — Underwrites environmental liability and pollution insurance
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require pollution insurers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

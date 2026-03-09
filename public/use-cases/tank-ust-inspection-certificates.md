@@ -96,6 +96,20 @@ The **Gas Station Owner / Operator** benefits from verification.
 
 **Privacy Salt:** Low. UST compliance is generally public environmental record. However, individual inspector license numbers should be salted to protect professional privacy.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Underground storage tank operators must maintain verified compliance certificates inspected by certified professionals regulated by environmental authorities to prevent groundwater contamination.
+
+```
+✓ ust.example-inspection.co.uk/verify — Issues verified tank compliance certificates
+  ✓ environment-agency.gov.uk — Regulates environmental protection in England
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 UST safety is about "Unseen Risk." By turning compliance certificates into verifiable digital bridges, we create a transparent "Barrier of Trust" that ensures the tanks under our feet are as safe as the paper on the wall claims.

@@ -103,6 +103,20 @@ The traveler (second party) may hand the verified document to various third part
 
 **Privacy Salt:** Not required. OTA booking confirmations contain many unpredictable variables that combine to create high entropy: unique confirmation numbers (typically 8-10 alphanumeric characters), guest names, specific check-in/check-out dates, individual hotel properties, and exact price amounts (including cents/decimals and currency conversions). The combination of these unique identifiers makes brute-force enumeration infeasible without salt.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Online travel agencies issue booking confirmations certifying reservations, pricing, and cancellation status. The issuer is self-authorized as the booking service provider.
+
+```
+✓ confirmation.booking.com/verify — Issues verified travel booking confirmations with pricing and cancellation policy
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require OTAs to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -98,6 +98,20 @@ The **Property Owner / REIT** benefits from verification.
 **Building Research Establishment (BRE):** (BREEAM standards).
 **International WELL Building Institute (IWBI).**
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Building Research Establishment issues BREEAM certifications for green building performance standards.
+
+```
+✓ breeam.bregroup.com — Certifies buildings against environmental standards
+  ✓ ukas.com — Accredits UK testing, calibration, and inspection bodies
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

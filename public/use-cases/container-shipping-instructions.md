@@ -76,6 +76,20 @@ The **Exporter (Shipper)** benefits from verification.
 **Logistics Aggregators (Flexport / Freightos)**
 **Data Integrity:** Automatically ingesting verified shipping data from dozens of different carriers into a single dashboard without manual data entry errors.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Ocean carriers issue shipping instructions to confirm the parameters of cargo placement. Self-authorized by their operational control of container ships and booking authority.
+
+```
+✓ si.maersk.com/verify — Issues container shipping instructions and vessel instructions
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

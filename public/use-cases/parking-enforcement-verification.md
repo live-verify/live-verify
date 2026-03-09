@@ -141,6 +141,19 @@ The **Driver / Vehicle Owner** benefits from verification.
 
 **Privacy Salt:** Critical. The hash must be salted to prevent "Badge Harvesting" or tracking the movements of individual officers by bad actors.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Local authorities employ parking enforcement officers and issue enforcement authority under the Traffic Management Act 2004 and Road Traffic Regulation Act 1984.
+
+```
+✓ parking.localauthority.gov.uk/officer/verify — Local authority parking enforcement officer badges
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Privacy-Preserving Badge Design
 
 Parking enforcement officers issue dozens of citations daily, each a brief, often confrontational interaction. Their badge is visible to every driver who receives a ticket, plus bystanders and dashcams. Full name exposure creates unnecessary privacy and safety risks — parking disputes can escalate, and officers have been targeted for harassment or retaliation.

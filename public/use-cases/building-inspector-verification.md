@@ -136,6 +136,19 @@ The **Property Owner** (Homeowner or Business) benefits from verification.
 **State Agencies:** (OSHA, Environmental Protection).
 **Federal Agencies:** (FBI, EPA, DEA).
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Local authorities employ building inspectors authorized by the Building Act 1984 and Building Regulations 2010.
+
+```
+✓ inspector.localauthority.gov.uk/verify — Local authority building safety inspector badges
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

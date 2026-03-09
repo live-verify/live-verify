@@ -101,6 +101,20 @@ In a crash involving a heavy truck, the insurer receives the last verified weigh
 
 **Privacy Salt:** Required. License plates and high-value cargo weights are private business data. While each ticket contains unique combinations of ticket numbers, precise timestamps (14:32:01), specific weight measurements (78,450 lb gross, 32,100 lb tare), plate numbers, and scale IDs that provide significant entropy, the commercial sensitivity of this data—and the risk that competitors could use enumeration for "traffic mapping" to track commodity flows and undercut pricing—means salt is essential. Salt protects both driver privacy and shipper competitive intelligence.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Certified public scales are regulated by weights and measures authorities to ensure accurate weight measurements in commerce and prevent fraud in bulk commodity transactions.
+
+```
+✓ scales.npl.co.uk/verify — Issues verified weight measurement tickets
+  ✓ opss.gov.uk — Enforces UK product safety standards
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require certified scale operators to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

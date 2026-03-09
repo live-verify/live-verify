@@ -90,6 +90,20 @@ The **Investor / Developer** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Infrastructure project details and insurance limits are national security and high-value business secrets. The hash must be salted and access restricted to authorized financial institutions.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Lloyd's of London issues PRI policies and is regulated by the UK Financial Conduct Authority as part of the UK insurance framework.
+
+```
+✓ pri.lloyds.com/verify — Speciality insurer for political and structured credit
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 PRI is the "Safety Net of Global Development." By turning specialty policies into verifiable digital bridges, we protect the capital flowing into the world's most critical infrastructure projects from the risk of sovereign deception.

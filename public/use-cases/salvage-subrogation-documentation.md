@@ -95,6 +95,20 @@ The **Insurer / At-Fault Party** benefits from verification.
 
 **Privacy Salt:** Essential. VINs and claim amounts are sensitive private data. The hash must be salted to prevent "VIN Harvesting" by data brokers or competitive-intelligence firms.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+UK insurers issue salvage and subrogation documentation and are regulated by the UK Financial Conduct Authority under the UK insurance framework and marine insurance laws.
+
+```
+✓ subrogation.example-insurer.co.uk/verify — Insurance carrier managing total loss and subrogation recovery
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Salvage documentation is the "History of Failure" for an asset. By turning total-loss records into verifiable digital bridges, we protect the public from dangerous "Zombies" (rebuilt wrecks) and ensure that the multi-billion dollar subrogation market is based on the digital truth of the claim.

@@ -129,13 +129,25 @@ This is purely **identity escrow and transaction witnessing**—a notary for inf
 
 This is for one-time transactions. For ongoing service relationships (weekly cleaner, dog walker, babysitter), see `recurring-home-access-escrow.md`.
 
-| Aspect | One-Time (P2P Sale) | Recurring (Home Access) |
-| :--- | :--- | :--- |
-| Duration | Single transaction | Ongoing relationship |
-| Escrow lifecycle | Ends after sale | Duration + buffer period |
-| Reputation | None (one-off) | Accumulates over time |
-| Disclosure triggers | Incident-based | Pattern-based alerts possible |
-| Key differentiator | "Can I find them if this laptop is stolen?" | "Can I find them after 6 months of service?" |
+| Aspect              | One-Time (P2P Sale)                         | Recurring (Home Access)                      |
+|:--------------------|:--------------------------------------------|:---------------------------------------------|
+| Duration            | Single transaction                          | Ongoing relationship                         |
+| Escrow lifecycle    | Ends after sale                             | Duration + buffer period                     |
+| Reputation          | None (one-off)                              | Accumulates over time                        |
+| Disclosure triggers | Incident-based                              | Pattern-based alerts possible                |
+| Key differentiator  | "Can I find them if this laptop is stolen?" | "Can I find them after 6 months of service?" |
+
+## Authority Chain
+
+**Pattern:** Personal
+
+```
+✓ witness.example-marketplace.com/verify — Witnesses peer-to-peer sales between individuals
+```
+
+No regulatory chain. Trust rests on the individual's domain.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
 ## Jurisdictional Witnessing
 

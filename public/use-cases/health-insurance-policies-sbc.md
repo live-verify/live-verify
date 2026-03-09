@@ -105,6 +105,20 @@ The policyholder (second party) may hand the verified document to various third 
 
 **Privacy Salt:** Required. While SBCs contain some unique elements, they also include enumerable values—standard deductible tiers ($500, $1000, $2500, $5000), predictable copay amounts ($20, $40, $50 for common services), and publicly known plan names (Bronze, Silver, Gold, Platinum). A competitor or data aggregator could feasibly enumerate combinations to reverse-engineer market pricing strategies, subscriber demographics by zip code, or competitive positioning. Salt protects this sensitive market intelligence.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Health insurers issue SBCs under federal insurance regulator authority (CMS in the US).
+
+```
+✓ sbc.unitedhealthcare.com/verify — Issues summaries of benefits and coverage
+  ✓ cms.gov — Administers US Medicare and Medicaid programs
+    ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require health insurers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

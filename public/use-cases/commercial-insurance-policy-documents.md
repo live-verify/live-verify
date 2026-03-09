@@ -118,6 +118,20 @@ The **Insured Business** benefits from verification.
 **Multi-Line Carriers:** (Chubb, Travelers, Liberty Mutual).
 **Compliance Risk Platforms:** (e.g., myCOI, CertFocus - hosting the hashes).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+AIG issues commercial insurance policies for UK businesses and organizations.
+
+```
+✓ commercial.aig.co.uk/verify — Issues commercial insurance policies
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

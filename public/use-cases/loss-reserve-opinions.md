@@ -92,6 +92,20 @@ The **Insurer's Board of Directors** benefits from verification.
 **Actuarial Audit Firms:** (Milliman, Willis Towers Watson, KPMG).
 **State Departments of Insurance.**
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Actuaries assess the adequacy of insurance loss reserves for accounting and solvency.
+
+```
+✓ lro.milliman.com/verify — Issues loss reserve opinions for insurers
+  ✓ frc.org.uk/actuaries — Regulates UK actuarial standards and practice
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

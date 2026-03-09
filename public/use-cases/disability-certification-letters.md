@@ -138,9 +138,17 @@ Disability certification fraud is widespread, corrosive, and directly harms peop
 
 ## Authority Chain
 
-Certifying physician's practice → medical licensing board (state medical board in the US, GMC in the UK, equivalent national bodies elsewhere) → statute (ADA, Equality Act, AODA, etc.).
+**Pattern:** Regulated
 
-For parking permits specifically: certifying physician → local authority (county, city) → state or national government → statute.
+Physicians issue disability certification letters under medical regulator authority (GMC in the UK).
+
+```
+✓ disability.elmstreetmedical.nhs.uk/verify — Issues disability certification letters
+  ✓ gmc-uk.org/register — Registers and regulates UK medical doctors
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
 The authority chain is what exposes ESA letter mills and other fraudulent certification operations. A "certifying physician" whose license can't be verified through the medical board's chain is a red flag. A physician whose license is from a different state than where they're practicing is a red flag. A physician whose license has been disciplined for issuing fraudulent certifications is a red flag. The chain makes these checks possible — and fast.
 

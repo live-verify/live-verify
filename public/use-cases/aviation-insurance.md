@@ -106,6 +106,20 @@ Brokers like NetJets or Wheels Up can automatically verify the insurance status 
 
 **Privacy Salt:** Required. Aviation insurance certificates contain enumerable values—round dollar hull values ($75M, $100M), standard liability limits ($500M, $1B), common policy periods (annual), and publicly registered aircraft tail numbers. A competitor could feasibly enumerate combinations to reverse-engineer an operator's fleet insurance portfolio and undercut their renewal pricing. Salt protects these competitive insurance positions.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Global Aerospace underwrites aircraft hull and liability insurance for aviation operations.
+
+```
+✓ aviation.globalae.com/verify — Underwrites aircraft hull and liability insurance
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require aviation underwriters to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

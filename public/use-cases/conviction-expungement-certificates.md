@@ -133,6 +133,19 @@ States with automatic sealing laws (Pennsylvania, Michigan, etc.) could issue ve
 Expungement in one state doesn't automatically clear records in other states' databases. Verified expungement orders help individuals prove their status across jurisdictions.
 
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+UK courts issue conviction expungement and record sealing orders under the Rehabilitation of Offenders Act 1974.
+
+```
+✓ courts.gov.uk/expungement/verify — UK courts expungement and record sealing service
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -102,6 +102,20 @@ The business owner (second party) may hand the verified document to various thir
 
 **Privacy Salt:** Not required. CGL policy declarations contain many unpredictable variables: business names, unique policy numbers, specific coverage limits (exact dollar amounts), business descriptions and class codes, effective/expiration dates, deductible amounts, and carrier identifiers. The combination of these policy-specific details creates sufficient entropy to prevent hash enumeration attacks.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Carriers must be licensed by state insurance regulators to issue commercial liability policies.
+
+```
+✓ cgl.travelers.com/verify — Issues commercial general liability policies
+  ✓ insurance.ca.gov — Regulates insurance companies in California
+    ✓ california.gov — California state government
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require commercial liability insurers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -242,6 +242,20 @@ Biometric likeness claims close this gap by combining:
 
 **Privacy Salt:** The single-use salt IS the privacy mechanism. Each verification uses a fresh random salt, making verifications unlinkable. No additional salting needed.
 
+## Authority Chain
+
+**Pattern:** Personal
+
+The citizen's app generates a fresh claim each time, with a single-use salt that proves current likeness at a specific moment.
+
+```
+✓ likeness.example-platform.com/verify — Citizen-generated biometric claim
+```
+
+Personal issuer — individual attestation, no regulatory chain.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

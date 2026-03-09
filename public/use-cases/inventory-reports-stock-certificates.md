@@ -94,6 +94,20 @@ The depositor (second party) may hand the verified document to various third par
 
 **Privacy Salt:** Not required. Inventory reports contain many unpredictable variables that combine to create sufficient entropy—lot numbers (unique alphanumeric), product descriptions (varied and specific), precise quantity counts (continuous values), depositor-specific identifiers, warehouse location codes, and timestamp combinations. The variability in these fields makes reverse-engineering a specific inventory report computationally infeasible without already knowing all the details.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Warehouse operators and 3PL providers issue inventory reports certifying goods in custody. The issuer is self-authorized as the custodian responsible for accurate stock counts.
+
+```
+✓ inventory.example-warehouse.co.uk/verify — Certifies inventory quantities and valuation in warehouse custody
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require warehouse operators to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

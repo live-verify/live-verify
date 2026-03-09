@@ -91,6 +91,20 @@ The **Renter (Customer)** benefits from verification.
 
 **Privacy Salt:** Essential. Renter names and locations are sensitive travel data. The hash must be salted to prevent "Customer Tracking" by data brokers.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Issues car rental agreements and contracts
+
+```
+✓ rental.enterprise.co.uk/verify — Issues car rental agreements and contracts
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Rental documentation is the "History of Condition." By turning agreements into verifiable digital bridges, we protect the consumer's wallet and the company's fleet, ensuring that "Responsibility for the Asset" is backed by cryptographic proof.

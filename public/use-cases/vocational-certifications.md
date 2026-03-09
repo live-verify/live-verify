@@ -94,6 +94,20 @@ The **Skilled Worker (Graduate)** benefits from verification.
 
 **Privacy Salt:** Low to Medium. While graduation status is public, individual exam scores and student IDs should be salted to protect professional privacy.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Vocational certifications are regulated by Ofqual in the UK, which sets standards for all qualifications in trades and technical skills, including City & Guilds certifications.
+
+```
+✓ cityandguilds.com/verify — Issues vocational and trade certifications
+  ✓ ofqual.gov.uk — Regulates qualifications and exams in England
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Vocational skills are the "Physical Code" of civilization. By turning certificates into verifiable digital bridges, we ensure that "Job Readiness" is backed by cryptographic proof, protecting the safety of the public and the livelihoods of honest tradespeople.

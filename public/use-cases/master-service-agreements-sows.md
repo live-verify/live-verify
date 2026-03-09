@@ -91,6 +91,20 @@ The **Procurement / Legal Team** benefits from verification.
 **Law Firms:** (e.g., Wilson Sonsini, Cooley - hosting for clients).
 **Contract Platforms:** (e.g., Ironclad, Icertis, DocuSign - hosting the hashes).
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Corporate legal departments and contract platforms issue MSA and SOW verifications. The issuer is self-authorized as the contracting party responsible for agreement custody.
+
+```
+✓ contracts.example-corp.com/msa/verify — Certifies master service agreements and statements of work with liability terms
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -100,6 +100,20 @@ The **Borrower (Maker)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Loan amounts and borrower identities are private financial data. The hash must be salted to prevent "Wealth Mapping" of the population.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Barclays issues promissory notes and lending documents and is regulated by the UK Financial Conduct Authority under the UK bills of exchange and financial services framework.
+
+```
+✓ lending.barclays.co.uk/note/verify — Retail and commercial bank providing lending services
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Promissory notes are the "Currency of the Credit Market." By turning them into verifiable digital bridges, we ensure that the multi-trillion dollar market for debt is based on the digital truth of the contract, not the creative editing of a PDF.

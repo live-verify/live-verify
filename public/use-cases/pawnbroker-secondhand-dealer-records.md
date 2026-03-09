@@ -147,6 +147,20 @@ Pawnbrokers and second-hand dealers sit at the intersection of two criminal econ
 
 **Privacy Salt:** Important. Seller ID data is sensitive. The hash must be salted to prevent enumeration of sellers or reverse-engineering who sold what.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Licensed pawnbrokers, regulated by the FCA for consumer credit and anti-money laundering compliance, issue verified transaction records and pledging receipts.
+
+```
+✓ pawnbroker.example.co.uk/verify — Issues verified pawnbroker transaction records
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Pawnbroker regulations are among the oldest consumer protection laws in existence — some jurisdictions have had them since the 1800s. The regulatory intent is sound: record what you buy, from whom, and hold it long enough for the police to check. But the records are trapped in local silos. A verified transaction record doesn't change the regulation — it makes it work the way it was always supposed to, across jurisdictional boundaries, at the speed of a hash lookup instead of a detective's phone call.

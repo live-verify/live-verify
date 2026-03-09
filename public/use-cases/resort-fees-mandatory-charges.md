@@ -108,6 +108,20 @@ In consumer protection lawsuits, verified receipts serve as admissible evidence 
 
 **Privacy Salt:** Not required. Unlike documents with only one or two variable fields, a resort fee disclosure contains multiple unpredictable values—confirmation number, guest name, stay dates, room number—that together provide sufficient entropy to prevent brute-force hash matching. An attacker cannot feasibly enumerate all combinations to "reverse" the hash.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Issues resort fees and charges statements
+
+```
+✓ fees.marriott.com/verify — Issues resort fees and charges statements
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require hotels to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

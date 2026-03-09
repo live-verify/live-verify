@@ -345,6 +345,20 @@ The **Elite Member (Traveler)** benefits from verification.
 **Travel Management Companies (TMCs).**
 **Loyalty Aggregators:** (e.g., AwardWallet, Points.com).
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Hotel brands and loyalty program operators issue booking confirmations, cancellation notices, and room upgrade records. The issuer is self-authorized as the service provider.
+
+```
+✓ booking.hilton.com/receipt/verify — Verifies hotel bookings, cancellations, and loyalty rewards
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

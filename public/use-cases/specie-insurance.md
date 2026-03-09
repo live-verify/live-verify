@@ -94,6 +94,20 @@ The **Collector / Museum Director** benefits from verification.
 
 **Privacy Salt:** Highly Critical. High-value asset locations and routes are the most sensitive data in the world. The hash must be salted and access restricted to pre-authorized logistics IPs.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Lloyd's of London issues specie and fine art insurance policies and is regulated by the UK Financial Conduct Authority under the UK insurance framework.
+
+```
+✓ specie.lloyds.com/verify — Lloyd's syndicate specializing in fine art and specie insurance
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Specie insurance is the "Trust of the Treasure." By turning specialty certificates into verifiable digital bridges, we protect the world's heritage and wealth from the high-stakes risk of documentary deception.

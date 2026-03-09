@@ -338,6 +338,20 @@ Full details including authorized individuals:
 
 **The gap this fills:** Currently, agents carry paper authorizations that could be forged. Police often can't verify on-scene. "Sort it out at the station" wastes everyone's time. Instant verification resolves disputes immediately.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Licensed or contracted agents act on behalf of their authorizing organizations, relying on professional accountability and domain reputation.
+
+```
+✓ agents.example-corp.com/verify — Licensed or contracted agent firm
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## See Also
 
 - [Estate Clearance Authorizations](view.html?slug=estate-clearance-authorizations) — Detailed system for probate and property clearance

@@ -141,6 +141,19 @@ People move and businesses expand across jurisdictions. Verified registrations f
 Many municipal registrations can change status quickly (business closes, vehicle sold, license suspended). Verified lookups provide current status rather than relying on potentially outdated paper documents.
 
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Local authorities maintain registration records and issue confirmations under the Local Government Act 1972.
+
+```
+✓ council.gov.uk/registration/verify — UK local authority registration and verification service
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

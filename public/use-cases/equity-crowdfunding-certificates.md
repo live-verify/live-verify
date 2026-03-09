@@ -102,6 +102,20 @@ The **Investor (Shareholder)** benefits from verification.
 **Transfer Agents:** (e.g., Carta, Computershare).
 **Law Firms:** (Managing private cap tables).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Crowdcube issues equity crowdfunding investment certificates for UK startups.
+
+```
+✓ shares.crowdcube.com/verify — Issues equity crowdfunding investment certificates
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

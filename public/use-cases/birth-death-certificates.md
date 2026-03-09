@@ -108,6 +108,17 @@ The **Named Person** or **Next of Kin** benefits from verification.
 
 **Privacy Salt:** Critical. Vital records are protected by law. The hash must be salted to prevent enumeration/guessing of birth records.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+```
+✓ gro.gov.uk/verify — Registers births, deaths, and marriages in England and Wales
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

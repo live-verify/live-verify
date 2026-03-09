@@ -78,6 +78,20 @@ The **Consumer / End User** benefits (somewhat).
 - **Hardware OEMs:** (Samsung, Cisco, Sony).
 - **Device Manufacturers:** (IoT makers, automotive).
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Hardware manufacturers issue open source compliance notices certifying software components and licenses. The issuer is self-authorized as the manufacturer responsible for license compliance.
+
+```
+✓ oss.example-corp.com/notices/verify — Publishes open source software bill of materials (SBOM) and license notices
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

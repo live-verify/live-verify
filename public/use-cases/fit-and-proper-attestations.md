@@ -91,6 +91,20 @@ UK SM&CR is the most developed regime; US has fragmented oversight across FINRA/
 **Revocation visibility:** If certification is revoked mid-year, verification status changes. New employer querying an old attestation sees "Revoked" status — critical for preventing bad actors from moving between firms.
 
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Financial firms attest that staff in certified roles remain fit and proper for their duties.
+
+```
+✓ smcr.fca.org.uk/verify — Authorized financial firm issuing fit and proper attestation
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

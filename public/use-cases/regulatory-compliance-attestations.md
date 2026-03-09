@@ -138,6 +138,20 @@ Some regulations require ongoing compliance, not just point-in-time. Verified at
 Many compliance determinations come with conditions or corrective action requirements. Verified attestations should indicate any conditions attached to the compliance status.
 
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Regulatory authorities and agencies hold statutory power to issue compliance attestations, audit clearances, and inspection certificates.
+
+```
+✓ fca.org.uk/compliance/verify — Issues regulatory compliance attestations and certifications
+```
+
+Self-authorized — this is a sovereign body whose authority derives from statute.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

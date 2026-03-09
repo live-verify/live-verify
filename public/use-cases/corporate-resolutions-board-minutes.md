@@ -98,6 +98,20 @@ The **Corporation** benefits from verification.
 **Law Firms:** (e.g., Skadden, Sullivan & Cromwell - hosting on behalf of clients).
 **Equity Management Platforms:** (e.g., Carta, Pulley - managing board consents).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Notaries authenticate board authority and certify corporate resolutions.
+
+```
+✓ notary.example-firm.co.uk/resolution/verify — Authenticates board authority for corporate actions
+  ✓ facultyoffice.org.uk — Regulates notaries public in England and Wales
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

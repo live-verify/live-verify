@@ -276,6 +276,20 @@ This is distinct from verifying licensed professionals (plumbers, electricians, 
 - Disclosure requires legal process OR mutual consent
 - Witness cannot monetize identity data
 
+## Authority Chain
+
+**Pattern:** Personal
+
+An escrow provider (third party) holds verified identities on behalf of individuals meeting for personal encounters. The escrow holds identity on consent, releasing only if needed for legal process.
+
+```
+✓ safety.example-escrow.com/verify — Verifies individual identity for personal encounters; releases only with consent or legal order
+```
+
+Personal issuer — individual attestation, no regulatory chain.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may license or regulate identity escrow providers for consumer protection. Requirements might include:

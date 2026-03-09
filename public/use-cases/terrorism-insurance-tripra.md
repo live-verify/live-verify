@@ -105,6 +105,20 @@ Large insurers "selling off" terrorism risk to re-insurers provide verified hash
 
 **Privacy Salt:** Required. Building locations and insurance values are sensitive competitive and security data. While each policy contains unique combinations of property addresses, policy numbers, and specific coverage limits ($150M certified, $25M non-certified) that provide some entropy, the strategic importance of this information—and the risk that terrorists or competitors could use enumeration to identify high-value targets or gain market intelligence—means salt is essential. Salt protects both national security interests and commercial confidentiality.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Insurance carriers issue TRIPRA terrorism coverage and are regulated by the UK Financial Conduct Authority under the UK insurance and terrorism reinsurance framework.
+
+```
+✓ terrorism.poolre.co.uk/verify — Insurance carrier issuing TRIPRA-compliant terrorism policies
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require insurance carriers offering TRIPRA coverage to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

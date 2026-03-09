@@ -91,6 +91,20 @@ The **Photographer / Artist** benefits from verification.
 
 **Privacy Salt:** Low to Medium. While licenses are commercial contracts, specific pricing and client lists are sensitive. The hash must be salted to prevent "Customer List Scraping" by competitors.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Photo agencies and copyright holders issue image licenses certifying usage rights. The issuer is self-authorized as the copyright holder or authorized licensing agent.
+
+```
+✓ license.gettyimages.co.uk/verify — Issues verified image licenses with usage scope and duration
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Image licensing is the "Currency of the Visual Web." By turning certificates into verifiable digital bridges, we protect the livelihoods of creators and the legal standing of publishers, ensuring that "Permission to Post" is backed by cryptographic proof.

@@ -103,6 +103,20 @@ The **University / College** benefits from verification.
 **National Faith-Related Accreditors.**
 **Specialized Program Accreditors:** (e.g., ABET for engineering, AACSB for business).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Educational institutions must maintain accreditation through the Office for Students, which registers and oversees all higher education providers in England.
+
+```
+✓ officeforstudents.org.uk/register/verify — Issues institutional accreditation status
+  ✓ officeforstudents.org.uk — Regulates English higher education providers
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

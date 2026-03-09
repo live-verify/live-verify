@@ -106,6 +106,20 @@ The **Coach** benefits from verification.
 
 **Privacy Salt:** Critical. Coaching records include sensitive safety/legal data. The hash must be salted to prevent "Guess-and-Check" searches for barred individuals.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+UK Sport certifies coaches who meet safeguarding and technical competency standards.
+
+```
+✓ certificates.uksport.gov.uk — Issues coaching certifications
+  ✓ uksport.gov.uk — Certifies UK coaches and sports officials
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -99,6 +99,20 @@ The general contractor (second party) may hand the verified document to various 
 
 **Privacy Salt:** Not required. Builders risk certificates contain many unpredictable variables: unique project names, specific site addresses, general contractor company names, exact coverage values (often to the dollar), specific construction dates, and unique policy numbers. The combination of these project-specific details creates sufficient entropy to prevent hash enumeration attacks.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Zurich underwrites construction site and builders risk insurance for UK projects.
+
+```
+✓ buildersrisk.zurich.co.uk/verify — Underwrites construction site and builders risk insurance
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require construction insurers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

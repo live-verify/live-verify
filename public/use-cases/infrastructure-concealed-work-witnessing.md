@@ -386,3 +386,17 @@ Blockchain anchoring provides:
 Witnessing technology will advance far beyond photos and text attestations—embedded strain sensors in bridges, continuous monitoring of dam seepage, AI analysis of pipeline ILI data, digital twins of entire structures. Insurance requirements will drive adoption.
 
 See `construction-trade-witnessing.md` → "Future: Witnessing Technology Evolution" for detailed analysis of the technology trajectory and insurance-legislation feedback loop. The same dynamics apply to infrastructure: insurers mandate → technology develops → costs drop → requirements increase.
+
+## Authority Chain
+
+**Pattern:** Regulated
+
+Witnessing firms attest to infrastructure concealed work compliance with UK building regulations.
+
+```
+✓ witness.example-engineers.co.uk — Witnesses structural work and welds in infrastructure
+  ✓ ukas.com — Accredits UK testing, calibration, and inspection bodies
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.

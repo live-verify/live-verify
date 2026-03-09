@@ -90,6 +90,20 @@ The **Cruise Guest** benefits from verification.
 **River Cruise Operators:** (Viking, AmaWaterways).
 **Onboard Payment Systems:** (e.g., OceanMedallion).
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Cruise lines issue final folios accounting for all onboard charges and payments. Self-authorized by their operation of the vessel and merchant contract with passengers.
+
+```
+✓ folio.pocruises.com/verify — Issues cruise final folios and onboard account statements
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

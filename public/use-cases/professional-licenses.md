@@ -111,6 +111,17 @@ The **Professional (Practitioner)** benefits from verification.
 
 **Privacy Salt:** Critical. License numbers and disciplinary data are sensitive. The hash must be salted to prevent "Mass Roster Scraping" of the state's professional workforce.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+```
+✓ license.example-board.texas.gov/verify — Licenses professionals in the state of Texas
+  ✓ texas.gov — Texas state government
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Professional licensing is about "Public Protection." By turning static certificates into live digital bridges, we ensure that professional authority is always backed by real-time cryptographic proof, protecting the public from the devastating cost of unlicensed practice.

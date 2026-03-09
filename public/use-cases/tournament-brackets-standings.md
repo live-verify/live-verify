@@ -98,6 +98,20 @@ The **Athlete / Team Captain** benefits from verification.
 
 **Privacy Salt:** Low. Tournament results are usually public. However, individual player IDs should be salted to protect the privacy of youth athletes.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Issues tournament bracket standings
+
+```
+✓ brackets.itftennis.com/verify — Issues tournament bracket standings
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Sports results are "Competitive History." By turning brackets into verifiable digital bridges, we ensure that the rewards of victory—glory, scholarships, and contracts—go to those who actually won the game.

@@ -105,6 +105,20 @@ League integrity officers track verified physical growth patterns. If an athlete
 
 **Privacy Salt:** Required. Athlete health data and minor PII are sensitive. While each report contains unique combinations of player names, precise performance metrics (e.g., 4.42s dash, 38.5" vertical), and scout evaluations that provide significant entropy, the vulnerability of minors and the risk that rival teams could use enumeration for "prospect harvesting" means salt is essential. Salt protects young athletes from being tracked or targeted by data brokers and predatory agents.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Issues professional player statistics
+
+```
+✓ stats.premierleague.com/verify — Issues professional player statistics
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require scouting organizations to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -111,6 +111,18 @@ The **Graduate (Alumnus)** benefits from verification.
 **Ministry of Education:** (In countries with a centralized national degree database).
 **Credly / Parchment:** (Digital credential platforms hosting verified hashes).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+```
+✓ degree-confirmation.cam.ac.uk/verify — Awards degrees and academic qualifications
+  ✓ officeforstudents.org.uk — Regulates English higher education providers
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -181,6 +181,20 @@ CORGI was decommissioned in 2009 but the brand is still widely recognised. Some 
 
 **MCS** (`mcscertified.com`) — Microgeneration Certification Scheme. Certification body for renewable energy installers. Required for customers to access the Boiler Upgrade Scheme and Smart Export Guarantee.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Gas engineers must be registered with Gas Safe, operating under HSE authority to prevent unqualified technicians from installing faulty equipment that causes carbon monoxide poisoning.
+
+```
+✓ gassaferegister.co.uk/verify — Maintains register of qualified gas engineers
+  ✓ hse.gov.uk — Regulates UK workplace health and safety
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Gas Safe registration is one of the few trade credentials where failure to verify can directly result in death. The system already works — there is a register, there are ID cards, there is a website lookup. The gap is purely at the point of encounter: the doorstep, where the homeowner meets the engineer and has three seconds to decide whether to let them in. A scannable card that returns a photo and a live status is the difference between "I'll take your word for it" and "I can see you're registered, come in." The verification cost is trivial; the cost of not verifying is measured in lives.

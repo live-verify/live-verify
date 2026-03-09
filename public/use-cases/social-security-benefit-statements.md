@@ -101,6 +101,19 @@ The **Beneficiary** benefits from verification.
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. Social security data is the most sensitive data in the US. The hash MUST be salted to prevent "Mass Mapping" of the population's income by hackers or predatory lenders.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Administers US Social Security benefit statements and payments.
+
+```
+✓ ssa.gov/myaccount/verify — Administers US Social Security benefit statements and payments
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

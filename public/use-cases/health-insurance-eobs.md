@@ -94,6 +94,20 @@ The **Patient** benefits from verification.
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. EOBs contain sensitive medical procedure data. The hash MUST be salted to prevent "Guess-and-Check" searches for specific patient conditions.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Health insurance carriers issue EOBs under federal insurance regulator authority (CMS in the US).
+
+```
+✓ eob.unitedhealthcare.com/verify — Issues explanations of benefits
+  ✓ cms.gov — Administers US Medicare and Medicaid programs
+    ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

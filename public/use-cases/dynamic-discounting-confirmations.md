@@ -104,6 +104,20 @@ The supplier (second party) may hand the verified document to various third part
 
 **Privacy Salt:** Required. Dynamic discounting confirmations often contain enumerable values—round dollar amounts ($50K, $100K, $500K), standard discount percentages (1%, 1.5%, 2%), and publicly known buyer-supplier relationships. A competitor could feasibly enumerate combinations to reverse-engineer a supplier's cash flow strategy and discount acceptance thresholds, gaining unfair market intelligence. Salt protects these sensitive financial strategies.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Dynamic discounting platforms facilitate early payment discounts between buyers and suppliers. Self-authorized by their role as intermediary hosts of the financing arrangements.
+
+```
+✓ discount.taulia.com/verify — Issues dynamic discounting confirmations and early payment offers
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require discounting platforms to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

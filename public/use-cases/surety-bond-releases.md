@@ -123,6 +123,20 @@ Best practice: sureties notify obligees when bonds are released. The verificatio
 Some states maintain registries of active contractor bonds. Release notifications could include verification hashes, allowing the registry to confirm releases are genuine before updating records.
 
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Travelers and surety bond providers issue bond releases and are regulated by the UK Financial Conduct Authority under the UK insurance framework.
+
+```
+✓ surety.travelers.com/release/verify — Surety company issuing construction and license bond releases
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -114,6 +114,20 @@ The **Home Seller / Real Estate Agent** benefits from verification.
 
 **Privacy Salt:** Essential. Specific property defect details and home addresses are sensitive. The hash must be salted to prevent "Neighborhood Blight Mapping" by data brokers or speculators.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Pest control firms and inspectors are accredited to issue pest infestation certificates.
+
+```
+✓ report.example-pest.com — Issues pest inspection reports
+  ✓ bpca.org.uk — Accredits UK pest management professionals
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Pest inspection is the "Structural Integrity" audit of a home. By turning static reports into verifiable digital bridges, we protect the buyer's investment and the lender's collateral, ensuring that "Clear" really means "No Bugs."

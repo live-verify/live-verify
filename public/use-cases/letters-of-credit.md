@@ -99,6 +99,20 @@ The **Beneficiary (Exporter)** benefits from verification.
 **Central Banks:** (In countries with high exchange controls).
 **Trade Platforms:** (e.g., Contour, Marco Polo - hosting the hashes).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+HSBC Bank, a regulated international bank, is authorized by the FCA to issue verified letters of credit for international trade transactions.
+
+```
+✓ tradefinance.hsbc.co.uk/lc/verify — Issues verified letters of credit
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

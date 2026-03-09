@@ -284,6 +284,18 @@ Who holds the escrow matters:
 - **Online communities:** Platform-independent verification service
 - **Survivor groups:** Trauma-informed organization with advocacy expertise
 
+## Authority Chain
+
+**Pattern:** Personal
+
+```
+✓ group.example-platform.com/verify — Facilitates anonymous group participation
+```
+
+No regulatory chain. Trust rests on the individual's domain.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Post-Verification Actions
 
 **For Facilitators/Moderators:**

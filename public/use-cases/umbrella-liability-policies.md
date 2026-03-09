@@ -92,6 +92,20 @@ The **Policyholder (Asset Owner)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Personal liability limits and home addresses are sensitive indicators of wealth. The hash must be salted to prevent "Wealth Mapping" of the population by hackers or predatory data brokers.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Chubb and umbrella liability insurers issue excess liability policies and are regulated by the UK Financial Conduct Authority under the UK insurance framework.
+
+```
+✓ umbrella.chubb.com/verify — Excess liability insurer issuing umbrella policies and limits
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Umbrella insurance is the "Anchor of Wealth." By turning specialty policies into verifiable digital bridges, we ensure that "Financial Protection" is backed by the professional truth of the carrier, protecting the stability of the high-end credit and service markets.

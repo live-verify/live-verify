@@ -97,21 +97,27 @@ The **consumer**. The person whose credit is being reported.
 
 ## Authority Chain
 
-Credit bureaus derive their authority from a clear regulatory chain:
+**Pattern:** Regulated
 
-**Credit bureaus** (Equifax, Experian, TransUnion) → **financial regulator** (CFPB in US, FCA in UK) → **statute** (Fair Credit Reporting Act in US, Consumer Credit Act 1974 in UK).
+Credit bureaus are regulated consumer reporting agencies — licensed by financial regulators under statute.
 
-The verification response includes an authority chain header confirming the bureau is a regulated consumer reporting agency:
+US chain (Equifax, Experian, TransUnion → CFPB → Fair Credit Reporting Act):
 
 ```
-X-Verify-Authority-For: consumer-credit-report
-X-Verify-Authority-Attested-By: https://registry.consumerfinance.gov/v/{hash}
-X-Verify-Authority-Scope: fcra-registered-cra
+✓ equifax.com/report — Issues consumer credit reports in the US
+  ✓ consumerfinance.gov/register — Supervises consumer reporting agencies
+    ✓ usa.gov/verifiers — US federal government root namespace
 ```
 
-This lets the relying party confirm not just that the report is authentic, but that the issuer is a legitimate, regulated credit bureau — not a lookalike domain serving fabricated reports.
+UK chain (Experian UK, Equifax UK, TransUnion UK → FCA → Consumer Credit Act 1974):
 
-See [Verification Response Format: Authority Chains](../../docs/Verification-Response-Format.md#authority-chain-verification) for the full specification.
+```
+✓ experian.co.uk/consumer/verify — Issues consumer credit reports in the UK
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
 ## Competition
 

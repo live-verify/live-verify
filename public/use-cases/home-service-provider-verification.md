@@ -141,6 +141,20 @@ The **Tradesperson (Plumber/Electrician)** benefits from verification.
 
 **Privacy Salt:** Highly critical. Worker and job site association data is sensitive. The hash MUST be salted to prevent "Mass Scraping" of contractor routes.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+A verified marketplace or state licensing board issues tradesperson credentials. The issuer (marketplace or board) is self-authorized to confirm license status.
+
+```
+✓ pro.checkatrade.com/verify — Verifies tradesperson licenses and background clearance
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

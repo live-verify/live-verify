@@ -105,6 +105,20 @@ The traveler (second party) may hand the verified document to various third part
 
 **Privacy Salt:** Not required. Tour vouchers contain many unpredictable variables that combine to create sufficient entropy—booking reference ID (unique alphanumeric), participant name (non-enumerable), specific meeting point addresses, precise date/time combinations, itemized pricing with surcharges, and operator-specific lot numbers. The combination makes reverse-engineering a specific booking computationally infeasible without already knowing the details.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Tour operators and travel platforms issue guided tour receipts confirming booking details and payment. Self-authorized by their operation of the booking system and provision of travel services.
+
+```
+✓ receipt.viator.com/verify — Issues guided tour receipts and booking confirmations
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require tour operators to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

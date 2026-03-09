@@ -102,6 +102,20 @@ The **Passenger (Rider)** benefits from verification.
 
 **Privacy Salt:** Essential. Driver names and plates are private employment data. The hash must be salted to prevent "Mass Fleet Scraping" by competitors or data brokers.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Vehicle for-hire permits are issued and regulated by the Transport for London authority.
+
+```
+✓ tfl.gov.uk/taxi/verify — Issues taxi medallions and for-hire vehicle permits
+  ✓ tfl.gov.uk — Regulates transport services in London
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Vehicle postings are the "Shield of the Public Road." By turning static cards into live digital bridges, we ensure that "Permission to Drive" is backed by the cryptographic truth of the city vault, protecting both passengers and the legitimate taxi industry.

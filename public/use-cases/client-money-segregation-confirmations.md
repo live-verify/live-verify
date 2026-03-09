@@ -107,6 +107,20 @@ The **Retail / Institutional Client** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Individual account volumes are sensitive business intelligence. The hash must be salted and access restricted to authorized clients and regulators.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Solicitors confirm client money segregation compliance with regulatory requirements.
+
+```
+✓ clientmoney.example-solicitors.co.uk/verify — Confirms client funds segregation compliance
+  ✓ sra.org.uk/solicitors — Regulates solicitors in England and Wales
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Client money is the "Trust Core" of the financial system. By turning technical attestations into verifiable digital bridges, we protect the public from the devastating cost of firm failure and ensure that "Segregated" means "Safe."

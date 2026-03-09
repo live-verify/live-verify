@@ -96,6 +96,20 @@ The **Author** benefits from verification.
 
 **Privacy Salt:** Critical. Manuscript titles and hashes are trade secrets. The hash MUST be salted to prevent competitors from "Guessing" the topics of upcoming high-profile books.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Publishers and publishing platforms issue manuscript attestations certifying author submissions and edit history. The issuer is self-authorized as the publisher responsible for manuscript custody.
+
+```
+✓ manuscript.example-publisher.com/verify — Certifies manuscript versions and submission timestamps for copyright protection
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

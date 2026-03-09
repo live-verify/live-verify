@@ -104,6 +104,19 @@ In an election contest, verified custody forms provide a cryptographically solid
 
 **Privacy Salt:** Required. Ballot transfer forms contain enumerable values—predictable precinct numbers, sequential container IDs, standard seal number formats, and round ballot counts. A malicious actor could feasibly enumerate combinations to monitor or reverse-engineer ballot movement patterns across a jurisdiction. Salt protects the integrity and privacy of election logistics.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Administers election ballot custody and transfer records.
+
+```
+✓ elections.maryland.gov/verify — Administers election ballot custody and transfer records
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require county election departments to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

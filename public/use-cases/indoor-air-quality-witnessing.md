@@ -472,3 +472,17 @@ As these systems become widespread, witnessing their installation, commissioning
 See `construction-trade-witnessing.md` → "Future: Witnessing Technology Evolution" for the insurance-legislation feedback loop. Air quality monitoring will follow the same pattern: insurers mandate → technology develops → costs drop → requirements increase.
 
 The difference: air quality monitoring is ongoing rather than one-time concealment. This creates larger data volumes but also richer pattern detection—identifying buildings, systems, or operators that consistently underperform.
+
+## Authority Chain
+
+**Pattern:** Regulated
+
+Accredited monitoring firms witness indoor air quality compliance for UK workplace standards.
+
+```
+✓ iaq.example-monitoring.co.uk — Tests ventilation and air quality in buildings
+  ✓ ukas.com — Accredits UK testing, calibration, and inspection bodies
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.

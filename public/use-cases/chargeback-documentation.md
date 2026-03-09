@@ -96,6 +96,20 @@ The **Merchant** (Business Owner) benefits from verification.
 **Acquiring Banks:** (Chase, Wells Fargo, Barclays).
 **Dispute Management Platforms:** (Chargebacks911, Chargehound).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Visa processes payment chargeback disputes and documentation for card networks.
+
+```
+✓ disputes.visa.com/verify — Processes payment chargeback disputes and documentation
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

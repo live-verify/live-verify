@@ -108,6 +108,20 @@ The **Non-Profit Organization** benefits from verification.
 **Impact Evaluators:** (GiveWell, ImpactMatters).
 **Data Aggregators:** (Candid / GuideStar).
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Charity watchdogs and rating organizations evaluate non-profit financial data to issue ratings and accreditations. Self-authorized by their industry reputation and independent research methodology.
+
+```
+✓ rating.charitynavigator.org/verify — Issues charity ratings and accreditation certificates
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

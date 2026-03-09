@@ -212,6 +212,17 @@ The **Actual Shipper (SME / Manufacturer)** benefits from verification.
 **Logistics Platforms:** (e.g., Flexport, Forto).
 **Cargo Community Systems (CCS).**
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+```
+✓ cargo.united.com/awb/verify — Carries air freight under IATA agreements
+  ✓ iata.org — Sets standards for international air transport
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

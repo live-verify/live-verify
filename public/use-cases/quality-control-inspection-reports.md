@@ -93,6 +93,20 @@ The **Manufacturer (The Shop)** benefits from verification.
 
 **Privacy Salt:** Critical. Test parameters and batch volumes are sensitive "Production Secrets." The hash must be salted to prevent competitors from mapping a factory's yield or capacity.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Inspection bodies like SGS verify quality control and compliance to ISO 9001 standards.
+
+```
+✓ qc.sgs.com — Inspects products and issues quality compliance reports
+  ✓ ukas.com — Accredits UK testing, calibration, and inspection bodies
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Quality Control is about "The Last Line of Defense." By turning static test reports into live digital bridges, we create a transparent chain of safety that spans the entire global supply chain.

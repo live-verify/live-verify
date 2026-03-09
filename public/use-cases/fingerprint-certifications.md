@@ -99,6 +99,19 @@ The **Applicant** benefits from verification.
 
 **Privacy Salt:** Highly critical. Biometric association data is the most sensitive PII. The hash MUST be salted to prevent "Guess-and-Check" searches for criminal background checks.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Certifies fingerprints and identity for background checks.
+
+```
+✓ livescan.fbi.gov/verify — Certifies fingerprints and identity for background checks
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

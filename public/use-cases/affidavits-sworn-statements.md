@@ -102,6 +102,18 @@ The **Affiant** (signer) benefits from verification.
 **e-Notary Platforms:** (DocuSign, Notarize, etc.)
 **State Secretary of State:** (Some states are building central notary registries)
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+```
+✓ solicitors.example-firm.co.uk/affidavit/verify — Prepares and certifies sworn legal statements
+  ✓ sra.org.uk/solicitors — Regulates solicitors in England and Wales
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

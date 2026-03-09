@@ -105,6 +105,20 @@ The credit buyer (second party) may hand the verified document to various third 
 
 **Privacy Salt:** Not required. Carbon retirement certificates contain many unpredictable variables: unique certificate IDs, beneficiary company names, specific project names and IDs, exact quantities (often large, precise numbers in tonnes), vintage years, retirement dates, and serial number ranges. The combination of these project-specific details creates sufficient entropy to prevent hash enumeration attacks.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Carbon credit registries are regulated by environmental protection agencies to ensure only verified, legitimate credits are retired and cannot be double-counted across jurisdictions.
+
+```
+✓ credits.goldstandard.org/verify — Issues verified carbon credit retirement certificates
+  ✓ environment-agency.gov.uk — Regulates environmental protection in England
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require carbon registries to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

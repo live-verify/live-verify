@@ -100,6 +100,20 @@ The **Sender** (Remitter) benefits from verification.
 
 **Privacy Salt:** Highly critical. Remittance data involves PII and banking info. The hash must be salted to prevent "Guessing" transfer IDs to see who is moving money.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Wise processes cross-border payment transfers and international remittances.
+
+```
+✓ wise.com/transfer/verify — Processes cross-border payment transfers and receipts
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

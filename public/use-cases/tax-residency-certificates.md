@@ -117,16 +117,16 @@ Tax authorities are the sole issuers: HMRC (UK), IRS (US, via Form 6166), Eidgen
 
 ## Authority Chain
 
-Tax authorities ARE root authorities — they derive their authority directly from national tax legislation, not from any higher attestation body. HMRC derives from UK Finance Acts. The IRS derives from the Internal Revenue Code. The Swiss Federal Tax Administration derives from Swiss federal tax law. The Bundeszentralamt für Steuern derives from the Abgabenordnung.
+**Pattern:** Sovereign
 
-The OECD provides the framework (Model Tax Convention, Common Reporting Standard) but is not an attestation authority — it doesn't issue or verify certificates. It sets the template that bilateral treaties follow.
+HMRC issues tax residency certificates and treaty eligibility declarations under the Taxation (International and Other Provisions) Act 2010.
 
 ```
-National tax authority → national government → sovereignty
-HMRC → UK Parliament (Finance Acts) → Crown
-IRS → US Congress (Internal Revenue Code) → Constitution
-ESTV → Swiss Federal Council → Federal Constitution
+✓ hmrc.gov.uk/tax-residency/verify — HMRC tax residency certificate and treaty eligibility service
+  ✓ gov.uk/verifiers — UK government root namespace
 ```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
 ## Competition
 

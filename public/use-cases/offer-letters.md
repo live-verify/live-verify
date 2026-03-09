@@ -145,21 +145,17 @@ High sensitivity. Salary information is private. The hash MUST be salted to prev
 
 ## Authority Chain
 
-The authority chain for offer letters follows the same pattern as [Proof of Employment](view.html?doc=proof-of-employment):
+**Pattern:** Commercial
 
-**Employer domain → tax authority (HMRC/IRS) → statute.**
-
-The employer is attesting to a *future* employment relationship — a commitment to hire. The secondary verification confirms the employer is a legitimate, registered entity authorized to employ people. The chain terminates at the statutory root (the tax authority's enabling legislation).
+Employers issue offer letters committing to future employment. The issuer is self-authorized as the employer making the employment commitment.
 
 ```
-HTTP/1.1 200 OK
-X-Verify-Status: ACTIVE
-X-Verify-Authority-For: employment-offer-attestation
-X-Verify-Authority-Attested-By: https://employers.hmrc.gov.uk/v/{hash}
-X-Verify-Authority-Scope: paye-registered-employer
+✓ hr.google.com/offers/v — Issues verified employment offer letters with role, salary, and start date
 ```
 
-See [Verification Response Format: Authority Chains](../../docs/Verification-Response-Format.md#authority-chain-verification) for the full specification.
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
 ## Competition
 

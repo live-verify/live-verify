@@ -94,6 +94,20 @@ The **Homeowner / Seller** benefits from verification.
 
 **Privacy Salt:** Essential. Home values and floor plans are sensitive private data. The hash must be salted to prevent "Wealth Mapping" of entire neighborhoods by data scrapers.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Surveyors determine fair market value of residential and commercial property.
+
+```
+✓ valuation.example-surveyor.co.uk/verify — Conducts property appraisals and valuations
+  ✓ rics.org — Regulates UK chartered surveyors and valuers
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Property value is the "Foundation of Credit." By turning static appraisal reports into verifiable digital bridges, we protect the stability of the housing market and ensure that the "Wealth" on the page is backed by the professional truth of the audit.

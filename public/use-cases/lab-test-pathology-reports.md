@@ -98,6 +98,20 @@ The **Patient** benefits from verification.
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. Pathology data is the most sensitive PII. The hash MUST be salted to prevent "Guess-and-Check" attacks to find specific people with cancer or rare diseases.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+NHS pathology labs test specimens and issue reports following UK medical device regulations.
+
+```
+✓ pathology.guysandstthomas.nhs.uk — Tests pathology specimens in UK hospitals
+  ✓ ukas.com — Accredits UK testing, calibration, and inspection bodies
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

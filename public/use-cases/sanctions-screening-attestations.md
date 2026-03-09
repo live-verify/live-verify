@@ -95,6 +95,20 @@ The **Compliance Department / Exporter** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Sanctions screening involves highly sensitive PII and "Negative List" data. The hash must be salted and access restricted to authorized compliance personnel.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Banks and compliance officers issue sanctions screening attestations and are regulated by the UK Financial Conduct Authority under the UK sanctions and anti-money laundering framework.
+
+```
+✓ compliance.example-bank.co.uk/sanctions-attest/verify — Bank compliance department issuing sanctions screening confirmations
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Sanctions compliance is the "First Line of Financial Defense." By turning attestations into verifiable digital bridges, we ensure that global trade is transparent and that "Clean Status" is backed by the real-time cryptographic truth of the world's most critical risk databases.

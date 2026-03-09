@@ -242,6 +242,20 @@ The buyer/seller (second party) may hand the verified document to various third 
 
 **Privacy Salt:** Required. Wire instructions contain highly sensitive data—bank account numbers, routing numbers, and large transaction amounts. While some elements like escrow numbers are unique, the hash must be salted to prevent enumeration attacks that could reveal transaction patterns, amounts, or banking relationships. This is critical for preventing both fraud reconnaissance and privacy violations involving substantial financial transfers.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Escrow companies are licensed by state regulators to hold funds during real estate closings.
+
+```
+✓ escrow.firstam.com — Holds escrow funds for real estate transactions
+  ✓ dfi.ca.gov — Regulates California financial institutions
+    ✓ california.gov — California state government
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require title companies to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

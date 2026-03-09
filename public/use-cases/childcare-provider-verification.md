@@ -145,6 +145,20 @@ The **Childcare Provider** benefits from verification.
 
 **Privacy Salt:** Highly critical. Childcare data is personal. The hash must be salted to prevent "Guessing" the names of providers in a neighborhood.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Childcare providers are inspected and registered through Ofsted, which maintains the official register of all childcare professionals in England.
+
+```
+✓ ofsted.gov.uk/childminder/verify — Issues childcare provider verification
+  ✓ ofsted.gov.uk — Inspects childcare and education in England
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

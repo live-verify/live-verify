@@ -93,6 +93,20 @@ The **Real Estate Investor (Insured)** benefits from verification.
 **International Law Firms:** (Hosting verified hashes for settlement escrows).
 **National Land Registries:** (In advanced jurisdictions like the UK or Singapore).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+International title underwriters must be licensed by state insurance regulators to issue title insurance policies.
+
+```
+✓ title.stewartintl.com/verify — Issues international title insurance policies
+  ✓ insurance.ca.gov — Regulates insurance companies in California
+    ✓ california.gov — California state government
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -91,6 +91,20 @@ The **Employer / Contractor** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Individual employee counts and payroll figures are sensitive business data. The hash must be salted and access restricted to authorized general contractors and regulators.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Workers' compensation carriers must be licensed by state insurance regulators to provide mandatory workplace injury coverage.
+
+```
+✓ workerscomp.hartford.com/verify — Issues workers' compensation certificates
+  ✓ insurance.ca.gov — Regulates insurance companies in California
+    ✓ california.gov — California state government
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Workers' comp is the "Social Contract" of labor. By turning static COIs into verifiable digital bridges, we protect the livelihoods of workers and the capital of general contractors, ensuring that "Workplace Protection" is a cryptographic fact, not a paper fabrication.

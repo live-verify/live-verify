@@ -121,6 +121,20 @@ Many jurisdictions require satisfaction letters to be recorded with the county r
 Lenders could submit payoff hashes to credit bureaus along with their regular reporting. This creates an independent verification path for consumers disputing account status.
 
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Barclays issues debt satisfaction letters for paid-off loans and credit obligations.
+
+```
+✓ loans.barclays.co.uk/satisfaction/verify — Issues debt satisfaction letters for paid loans
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

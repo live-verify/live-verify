@@ -149,21 +149,17 @@ Verifying that an employee has actually activated their coverage after open enro
 
 ## Authority Chain
 
-Health insurers derive their authority from a clear regulatory chain:
+**Pattern:** Regulated
 
-**Health insurer** (BCBS, UnitedHealthcare, Aetna) → **state insurance commissioner** (US, per-state regulation) or **financial regulator** (FCA in UK, APRA in Australia) → **statute** (state insurance codes in US, Affordable Care Act federally).
-
-The verification response includes an authority chain header confirming the insurer is a licensed, regulated entity:
+Bupa, a regulated health insurer, is authorized by the FCA to issue verified health insurance cards and membership eligibility confirmation.
 
 ```
-X-Verify-Authority-For: health-insurance-membership
-X-Verify-Authority-Attested-By: https://registry.insurance.illinois.gov/v/{hash}
-X-Verify-Authority-Scope: state-licensed-health-insurer
+✓ membercard.bupa.co.uk/verify — Issues verified health insurance membership cards
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
 ```
 
-This lets the relying party confirm not just that the card is authentic, but that the issuer is a legitimate, state-licensed health insurer — not a lookalike domain serving fabricated eligibility responses.
-
-See [Verification Response Format: Authority Chains](../../docs/Verification-Response-Format.md#authority-chain-verification) for the full specification.
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
 ## Competition
 

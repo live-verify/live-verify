@@ -184,6 +184,20 @@ Filing the wrong information, or filing without authority, can result in penalti
 
 **Portal access management:** Companies can issue time-limited filing authority confirmations that correspond to portal credentials. When authority is revoked, credential should be disabled — but verification provides independent check even if credentials weren't revoked promptly.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Companies delegate filing authority to authorized persons and are regulated under the UK Companies Act 2006 and Financial Services and Markets Act 2000.
+
+```
+✓ authority.example-corp.com/filing/verify — Company delegation portal for regulatory filing authority
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## See Also
 
 Other delegated authority confirmations:

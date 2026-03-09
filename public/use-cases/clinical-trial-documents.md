@@ -142,6 +142,20 @@ The Participant ID card enables this: scan → verify → see trial details → 
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. Patient data is highly protected (GDPR/HIPAA). The hash MUST use a high-entropy salt to prevent re-identification of participants.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Clinical trial sponsors and research institutions issue consent forms under healthcare regulator authority (MHRA in the UK).
+
+```
+✓ trials.nihr.ac.uk/consent/verify — Issues informed consent forms for clinical trials
+  ✓ mhra.gov.uk — Regulates UK medicines and medical devices
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

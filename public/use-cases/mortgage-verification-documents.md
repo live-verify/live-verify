@@ -227,6 +227,20 @@ The borrower / employee (second party) may hand the verified document to various
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. Salary and tax data is highly sensitive. The hash MUST be salted to prevent "Brute Force" searching of a company's entire payroll to see who makes the most money. Salary amounts and YTD totals are often enumerable (round numbers, standard pay periods), making rainbow table attacks feasible without salt.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Employers and payroll providers issue employment and income verification for mortgage underwriting. The issuer is self-authorized as the employer responsible for payroll records.
+
+```
+✓ hr.example-corp.com/mortgage-verify/verify — Issues verified employment offers and income documentation
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require payroll processors to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

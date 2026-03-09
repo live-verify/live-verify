@@ -97,6 +97,20 @@ The structural engineer / fabricator (second party) may hand the verified docume
 
 **Privacy Salt:** Required. Unlike documents with many unpredictable variables, material test reports often contain enumerable values—common alloy grades (A36, A572), round test numbers (yield strength in standard PSI increments), and publicly known heat number patterns. A competitor could feasibly enumerate combinations to reverse-engineer a mill's production batches and gain unfair market intelligence. Salt protects these trade secrets.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Steel mills and testing labs issue material test reports certified against EN 10204 and ASTM.
+
+```
+✓ mtr.example-steelmill.com — Tests material properties and certifies test reports
+  ✓ ukas.com — Accredits UK testing, calibration, and inspection bodies
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require mills and testing labs to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

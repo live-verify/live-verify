@@ -96,6 +96,20 @@ The **Supplier (The Insured)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Individual buyer names and their specific "Credit Limits" are sensitive business intelligence. The hash must be salted and access restricted to authorized trading partners.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Euler Hermes and trade credit insurers issue trade credit insurance policies and are regulated by the UK Financial Conduct Authority under the UK insurance framework.
+
+```
+✓ tradecredit.eulerhermes.co.uk/verify — Trade credit insurer issuing credit limit approvals
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Trade credit is the "Fuel of the B2B Economy." By turning static limit notices into verifiable digital bridges, we protect the supply chain from the "Chain Reaction" of insolvencies and ensure that "Credit Power" is backed by the digital truth of the insurer.

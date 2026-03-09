@@ -117,6 +117,19 @@ The **Contractor** benefits from verification.
 **Municipal Licensing:** (In states without centralized boards).
 **Surety Companies:** (For the bonding component).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+State licensing boards issue contractor licenses and bonding to protect consumers.
+
+```
+✓ cslb.ca.gov — Issues California contractor licenses
+  ✓ california.gov — California state government
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

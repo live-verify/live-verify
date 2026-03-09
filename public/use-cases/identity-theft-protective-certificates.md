@@ -100,6 +100,20 @@ The **Victim of Identity Theft** benefits from verification.
 
 **Privacy Salt:** Critical. Victim data is sensitive. The hash must be salted to prevent "guessing" names of victims.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Anti-fraud agencies issue protective status for identity theft victims.
+
+```
+✓ protection.cifas.org.uk/verify — Issues identity theft protective certificates
+  ✓ ico.org.uk — Regulates UK data protection and information rights
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Identity theft is a "Life-Altering Crime." By turning recovery records into verifiable digital bridges, we help victims escape the "Automated Blacklist" and restore their lives with official, trusted evidence.

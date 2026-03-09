@@ -101,6 +101,20 @@ The **Receiving Party (Vendor/Contractor)** benefits from verification.
 **Corporate Legal Departments:** (e.g., "verify:google.legal/...").
 **CLM Platforms:** (e.g., Ironclad, Icertis, LinkSquares - hosting the verified hashes).
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Law firms and corporate legal departments issue NDA verifications certifying signed confidentiality agreements. The issuer is self-authorized as the legal custodian of the contract.
+
+```
+✓ legal.example-corp.com/nda/verify — Certifies non-disclosure agreements with scope and term
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -107,6 +107,20 @@ The crane owner (second party) may hand the verified document to various third p
 
 **Privacy Salt:** Not required. Inspection certificates contain many unpredictable variables—unique serial numbers, specific equipment models, inspector certification numbers, precise inspection dates, and load test results. The combination of these variables creates sufficient entropy that reverse-engineering a hash to discover inspection details is computationally infeasible without prior knowledge of the exact values.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Accredited inspection firms issue certificates for crane safety compliance under UK lifting regulations.
+
+```
+✓ crane.example-inspection.co.uk — Inspects lifting equipment annually under LOLER
+  ✓ ukas.com — Accredits UK testing, calibration, and inspection bodies
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require inspection firms to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

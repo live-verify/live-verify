@@ -98,6 +98,19 @@ The **Traveler** (Non-citizen) benefits from verification.
 
 **Privacy Salt:** Essential. I-94 numbers and names are highly sensitive. The hash must be salted to prevent status enumeration.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Records US border entry admissions and permits.
+
+```
+✓ i94.cbp.dhs.gov/verify — Records US border entry admissions and permits
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

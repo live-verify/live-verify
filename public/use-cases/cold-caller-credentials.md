@@ -252,6 +252,20 @@ The **Employee** benefits from verification.
 **Real-Time Status:**
 Unlike a static ID card, verification checks current employment status. An employee terminated yesterday will show as "Not Found" or "Inactive" today — their physical badge is worthless.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Employers and utility companies issue cold-caller credentials to verify that field staff are authorized agents. Self-authorized by their employment relationship and operational authority.
+
+```
+✓ callers.example-corp.com/verify — Issues cold-caller credentials and field staff verification
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Existing Schemes and Integration
 
 **Password Schemes:**

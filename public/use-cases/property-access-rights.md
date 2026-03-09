@@ -251,6 +251,20 @@ LOCKSMITH OPENS LOCK
 
 **On-demand, not posted:** Unlike estate clearance (mandatory site notice), property access rights are presented when challenged — carried by the person, shown on request.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Property owners and letting agents issue verifiable proof of access rights (ownership, tenancy, guest status, keyholder authorization).
+
+```
+✓ access.example-management.co.uk/verify — Property owner or letting agent
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## See Also
 
 - [Property Deeds](view.html?slug=property-deeds) — Ownership transfer documents

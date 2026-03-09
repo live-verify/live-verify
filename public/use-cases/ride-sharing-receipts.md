@@ -99,6 +99,20 @@ The business traveler / rider (second party) may hand the verified document to v
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. Pickup/Drop-off addresses are highly sensitive private data. The hash MUST be salted to prevent "Stalking" or "Pattern Analysis" of individual riders. Even though receipts contain unique trip IDs and timestamps, the specific addresses could be enumerated to track a person's movements, creating serious privacy and safety risks. Salt is mandatory to protect rider location privacy.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Issues ride-sharing journey receipts
+
+```
+✓ receipts.uber.com/verify — Issues ride-sharing journey receipts
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require ride-sharing platforms to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

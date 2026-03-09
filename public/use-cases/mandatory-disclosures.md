@@ -420,6 +420,20 @@ The **Disclosing Organization** benefits from verification.
 **Affected Parties**
 **Rights Enforcement:** Know exactly when you should have been told.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Regulated companies disclose material events (breaches, recalls, financial events) under FCA oversight to provide verified immutable records of compliance.
+
+```
+✓ disclosures.example-corp.co.uk/verify — Issues verified mandatory disclosure records
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Novel Applications
 
 **Disclosure Heat Maps**

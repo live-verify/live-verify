@@ -126,6 +126,20 @@ Live Verify doesn't prevent wire fraud directly, but it provides an independent 
 Complex transactions may require multiple parties to verify the same release. The hash provides a single source of truth that all parties can independently confirm.
 
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Escrow releases are issued by licensed title and escrow companies regulated by the California real estate authority.
+
+```
+✓ escrow.firstam.com/release/verify — Issues escrow closing statements and release authorizations
+  ✓ dre.ca.gov — Regulates California real estate
+    ✓ california.gov — California state government
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

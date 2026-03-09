@@ -108,6 +108,20 @@ The **Employer (Facility Manager)** benefits from verification.
 **Distributors:** (e.g., Grainger, Brenntag).
 **SDS Aggregators:** (e.g., MSDSonline, VelocityEHS - hosting verified hashes).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Chemical manufacturers must provide accurate Safety Data Sheets regulated by health and safety authorities to ensure workers have current hazard information and emergency response protocols.
+
+```
+✓ sds.example-chemical.co.uk/verify — Issues verified Safety Data Sheets for chemicals
+  ✓ hse.gov.uk — Regulates UK workplace health and safety
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -99,6 +99,20 @@ The **Researcher (Author)** benefits from verification.
 
 **Privacy Salt:** Critical. Manuscript titles and reviewer comments are intellectual property. The hash must be salted to prevent "Research Poaching" or tracking of unpublished ideas.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Journal editors and reviewers certify that research has met scholarly standards.
+
+```
+✓ review.nature.com/verify — Publishes peer-reviewed research articles
+  ✓ cope.org.uk — Sets ethical standards for peer review and publishing
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Peer review is the "Defense of Science." By turning decision letters into verifiable digital bridges, we protect the integrity of the scholarly record and ensure that academic status is based on real vetting, not creative editing.

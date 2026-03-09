@@ -329,3 +329,17 @@ Witnessing services may commit procedure attestation hashes to a public blockcha
 Witnessing technology will advance far beyond photos and text attestations—AI analysis of surgical video, smart implants with embedded sensors, continuous monitoring throughout device lifetime. Insurance requirements will drive adoption.
 
 See `construction-trade-witnessing.md` → "Future: Witnessing Technology Evolution" for detailed analysis of the technology trajectory and insurance-legislation feedback loop. The same dynamics apply to medical witnessing: insurers mandate → technology develops → costs drop → requirements increase.
+
+## Authority Chain
+
+**Pattern:** Regulated
+
+Hospitals issue medical implant and procedure attestations under healthcare regulator authority (CQC in the UK).
+
+```
+✓ theatre.nhs.uk/witnessing/verify — Issues procedure attestations
+  ✓ cqc.org.uk — Regulates health and social care services in England
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.

@@ -92,6 +92,20 @@ The **Volunteer (Student/Employee)** benefits from verification.
 
 **Privacy Salt:** Low to Medium. While service is public, individual IDs and specific projects can be private. The hash should be salted to prevent "Volunteer Roster Scraping."
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Issues volunteer hours verification records
+
+```
+✓ volunteer.redcross.org.uk/verify — Issues volunteer hours verification records
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Volunteerism is the "Social Credit" of a healthy society. By turning service letters into verifiable digital bridges, we protect the value of honest labor and ensure that rewards go to those who actually do the work.

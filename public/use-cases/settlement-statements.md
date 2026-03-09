@@ -93,6 +93,20 @@ The **Buyer / Seller** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Individual financial payoffs and property values are extremely sensitive. The hash must be salted to prevent "Wealth Harvesting" or "Homeowner Targeting" by predators.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Settlement statements must comply with RESPA and are regulated by the CFPB.
+
+```
+✓ settlement.firstam.com — Issues real estate settlement statements
+  ✓ cfpb.gov — Regulates US consumer financial protection
+    ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Settlement statements are the "Financial DNA" of a home. By turning static PDFs into verifiable digital bridges, we protect the public from wire fraud and ensure that the multi-trillion dollar mortgage market is based on the digital truth of the closing table.

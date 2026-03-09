@@ -98,6 +98,20 @@ The **Named Driver** benefits from verification.
 **Telematics Platforms:** (e.g., Root, Metromile - hosting live driver hashes).
 **National Motor Insurance Databases:** (e.g., UK's MID).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Direct Line, a regulated motor insurer, is authorized by the FCA to issue verified named driver insurance certificates.
+
+```
+✓ nameddriver.directline.co.uk/verify — Issues verified named driver insurance certificates
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

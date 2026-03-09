@@ -181,6 +181,20 @@ Certificates specify exactly what was searched:
 
 Verification confirms the scope, not an absolute universal claim.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Registry authorities issuing absence certificates are self-authorized by their control of the underlying registry. Trust rests on the completeness and accuracy of the registry itself.
+
+```
+✓ absence.example-corp.com/verify — Issues absence certificates and registry clearance proofs
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Novel Applications
 
 **Continuous Absence Monitoring**

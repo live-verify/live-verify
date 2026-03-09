@@ -234,6 +234,20 @@ The **Field Worker (Technician/Surveyor)** benefits from verification.
 
 **Privacy Salt:** Critical. Worker locations and names are high-value targets. The hash MUST be salted to prevent "Stalking" attacks where someone tries to track a specific technician's daily route.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Utility worker IDs are issued by licensed utilities and regulated by the UK energy market authority.
+
+```
+✓ field.britishgas.co.uk/verify — Issues utility field worker badges and field access authorizations
+  ✓ ofgem.gov.uk — Regulates UK energy markets
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Privacy-Preserving Badge Design
 
 Meter readers and field technicians have brief, high-volume interactions — 30-60 seconds per property, 50+ visits per day. Their badge is visible to every homeowner, neighbor, and passerby. Full name exposure creates unnecessary privacy risk.

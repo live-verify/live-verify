@@ -96,6 +96,20 @@ The **Corporate Security Director** benefits from verification.
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. K&R data is the most sensitive data in the insurance industry. The hash MUST be salted to prevent "Guess-and-Check" searches to see which companies have ransom insurance (making them targets for kidnappers).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Hiscox, a regulated specialty insurer, is authorized by the FCA to issue verified kidnap and ransom insurance policies for crisis management coverage.
+
+```
+✓ kr.hiscox.co.uk/verify — Issues verified kidnap and ransom insurance policies
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -91,6 +91,20 @@ The **Gig Worker (Driver/Courier)** benefits from verification.
 **Payroll Processors:** (e.g., Stripe, Marqeta).
 **Aggregators:** (e.g., Argyle, Pinwheel - who host verified worker data).
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Gig economy platforms issue payout receipts documenting earnings and payments to workers. Self-authorized by their role as intermediary payment processors and platform operators.
+
+```
+✓ drivers.uber.com/earnings/verify — Issues gig economy payout receipts and earnings statements
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

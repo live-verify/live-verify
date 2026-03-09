@@ -65,6 +65,20 @@ The **Machine Operator** benefits from verification.
 - **Premium Vetting:** Verifying that a high-risk factory is maintaining its 100% inspection rate for heavy machinery.
 
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Work equipment inspectors verify that machinery is maintained and guarded to prevent worker injury, regulated by health and safety authorities requiring periodic compliance certification.
+
+```
+✓ tags.example-inspection.co.uk/verify — Issues verified work equipment safety certifications
+  ✓ hse.gov.uk — Regulates UK workplace health and safety
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

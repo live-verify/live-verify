@@ -100,6 +100,20 @@ The **Data Recipient** (Researcher) benefits from verification.
 
 **Privacy Salt:** Highly critical. DSAs often involve sensitive health or genetic data labels. The hash must be salted to prevent "Guess-and-Check" searches for specific clinical trial involvements.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Research institutions document legal agreements for sharing research data.
+
+```
+✓ dsa.ukri.org/verify — Manages UK research data sharing agreements
+  ✓ ico.org.uk — Regulates UK data protection and information rights
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -111,6 +111,20 @@ The **Teacher / Educator** benefits from verification.
 
 **Privacy Salt:** Critical. Teacher PII and disciplinary data are sensitive. The hash must be salted to prevent "Mass Roster Scraping" of the nation's educators.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Teaching licenses are issued and regulated through the Teaching Regulation Agency, which sets professional standards and maintains the register of qualified teachers in England.
+
+```
+✓ teacherregulation.education.gov.uk/verify — Issues teaching licenses and reciprocity credentials
+  ✓ teaching-regulation.education.gov.uk — Regulates the teaching profession in England
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Teaching is a "Trust-Based Profession." By turning licenses into verifiable digital bridges, we ensure that classroom authority is backed by cryptographic proof, protecting students and rewarding the vast majority of educators who maintain clean professional records.

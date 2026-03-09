@@ -91,6 +91,20 @@ The borrower (second party) may hand the verified document to various third part
 
 **Privacy Salt:** Not required. BNPL agreements contain many unpredictable variables that combine to create high entropy: unique loan IDs, borrower names, specific merchant names, exact financing amounts (down to the cent), precise dates, and unique APR calculations. The combination of these elements makes it computationally infeasible to reverse-engineer the hash through enumeration, even if some individual fields (like common APR tiers) are predictable.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Klarna issues buy-now-pay-later purchase agreements for UK consumers and merchants.
+
+```
+✓ agreement.klarna.com/verify — Issues buy-now-pay-later purchase agreements
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require BNPL providers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

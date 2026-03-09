@@ -103,6 +103,19 @@ The **Property Owner** benefits from verification.
 **Civil Engineering Firms.**
 **Municipal Floodplain Managers:** (Hosting hashes for all certificates in the city).
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Certifies building elevations for federal flood insurance.
+
+```
+✓ msc.fema.gov/verify — Certifies building elevations for federal flood insurance
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

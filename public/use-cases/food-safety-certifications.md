@@ -124,6 +124,18 @@ The **Manufacturer / Processor** benefits from verification.
 **Certification Bodies:** (SCS Global, NSF International).
 **National Agriculture Depts:** (USDA, EU Commissions).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+```
+✓ hygiene.example-restaurant.co.uk/verify — Prepares and serves food to the public
+  ✓ food.gov.uk — Regulates food safety and hygiene standards in the UK
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

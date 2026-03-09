@@ -103,6 +103,19 @@ The **Developer / Applicant** benefits from verification.
 
 **Privacy Salt:** Low. These are public notices by definition. However, application IDs should be salted to prevent "Mass Scraping" of a city's development pipeline by speculators.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Local authorities issue public works and planning notices under the Town and Country Planning Act 1990.
+
+```
+✓ planning.localauthority.gov.uk/notice/verify — Local authority planning notices and public works authorization
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Public notices are the "Physical interface of Democracy." By turning static cards into live digital bridges, we ensure that the community's right to participate in the shaping of their environment is protected by the digital truth of the law.

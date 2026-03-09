@@ -120,7 +120,16 @@ High sensitivity. The existence of a bail document reveals that a person has bee
 
 ## Authority Chain
 
-Court &rarr; state judicial system &rarr; statute (state criminal procedure code, bail reform acts). Bail bondsmen (if surety bond) &rarr; state insurance commissioner (bail bonds are regulated as insurance in most states) &rarr; statute (state insurance code, bail bond licensing statutes). See [Authority Chain Specification](/specs/authority-chain) for the full protocol.
+**Pattern:** Sovereign
+
+UK courts issue bail orders and conditions of release authorized by the Bail Act 1976 and criminal procedure codes.
+
+```
+✓ courts.gov.uk/bail/verify — UK courts issuing bail orders and release conditions
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
 ## Competition
 

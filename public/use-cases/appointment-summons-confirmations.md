@@ -161,13 +161,17 @@ Important for medical appointments. Salt prevents an attacker from hashing known
 
 ## Authority Chain
 
-**Medical appointments:** Hospital/clinic domain &rarr; NHS Trust or health system &rarr; healthcare regulator (CQC in UK, state health department in US) &rarr; statute (Health and Social Care Act 2008 in UK, state medical practice acts in US).
+**Pattern:** Regulated
 
-**Jury duty:** Court domain &rarr; court administration (HMCTS in UK, Administrative Office of the US Courts in US) &rarr; statute (Juries Act 1974 in UK, 28 U.S.C. in US).
+For medical appointments, the NHS or health system issues the appointment confirmation under healthcare regulator authority (CQC in the UK).
 
-**Witness summons:** Court domain &rarr; court administration &rarr; statute (Criminal Justice Act 2003 / Magistrates' Courts Act 1980 in UK, Federal Rules of Civil/Criminal Procedure in US).
+```
+✓ appointments.nhs.uk/verify — Issues appointment confirmations
+  ✓ cqc.org.uk — Regulates health and social care services in England
+    ✓ gov.uk/verifiers — UK government root namespace
+```
 
-See [Authority Chain Specification](/specs/authority-chain) for the full protocol.
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
 ## Competition
 

@@ -106,6 +106,20 @@ The fleet owner (second party) may hand the verified document to various third p
 
 **Privacy Salt:** Not required. Commercial auto insurance cards contain many unpredictable variables: fleet company names, unique DOT numbers, specific VINs (17-character alphanumeric), unique policy numbers, exact coverage limits, effective/expiration dates, and MCS-90 filing details. The combination of these fleet-specific details creates sufficient entropy to prevent hash enumeration attacks.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Aviva underwrites commercial auto fleet insurance for UK businesses.
+
+```
+✓ fleet.aviva.co.uk/verify — Underwrites commercial auto fleet insurance
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require commercial auto insurers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

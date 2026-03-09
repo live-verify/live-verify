@@ -89,6 +89,20 @@ The **Driver / Insured** benefits from verification.
 
 **Privacy Salt:** Essential. Driver schedules and locations are sensitive. The hash must be salted to prevent data brokers from mapping the "Gig Workforce" density.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Temporary insurance providers and insurtech platforms issue short-term policies and are regulated by the UK Financial Conduct Authority under the UK insurance and financial services framework.
+
+```
+✓ tempcover.co.uk/verify — Insurtech platform issuing temporary and short-term insurance policies
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Temporary insurance is the "Speed Limit of Fintech." By turning binders into verifiable digital bridges, we protect the owner's asset and the insurer's pool from the high-velocity risk of "Seconds-After-Impact" fraud.

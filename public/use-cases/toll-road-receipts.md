@@ -95,6 +95,20 @@ The **Driver / Fleet Manager** benefits from verification.
 
 **Privacy Salt:** Essential. License plates and travel times are highly sensitive. The hash must be salted to prevent "Stalking" or "Surveillance" of individual drivers.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Issues toll road charge receipts
+
+```
+✓ receipt.dartcharge.co.uk/verify — Issues toll road charge receipts
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Toll receipts are the "Digital Breadcrumbs" of modern travel. By turning these micro-transactions into verifiable digital bridges, we eliminate the high-volume "Paper Friction" that costs businesses millions in lost time and fraudulent expenses.

@@ -102,6 +102,19 @@ The **Carnet Holder** (Exporter) benefits from verification.
 **National Chambers of Commerce:** (e.g., USCIB in the US, London Chamber in the UK).
 **International Chamber of Commerce (ICC):** Overseeing the global chain.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Chambers of commerce issue carnets to certify the temporary export of goods across borders without duty.
+
+```
+✓ carnet.londonchamber.co.uk — Authorizes temporary import/export
+  ✓ iccwbo.org — Administers international carnet conventions
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

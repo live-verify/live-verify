@@ -94,6 +94,20 @@ The **Importer / Distributor** benefits from verification.
 **Testing Houses:** (e.g., TUV, SGS, UL - hosting the verified test reports).
 **Authorized Representatives:** (For companies outside the EU/UK).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Manufacturers must declare that products meet applicable safety standards and directives, with declarations subject to product safety authority oversight to prevent unsafe products from reaching markets.
+
+```
+✓ doc.siemens.com/verify — Issues verified Declarations of Conformity
+  ✓ opss.gov.uk — Enforces UK product safety standards
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

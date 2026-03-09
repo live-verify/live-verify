@@ -153,7 +153,16 @@ Critical. The existence of a restraining order reveals domestic violence, stalki
 
 ## Authority Chain
 
-Issuing court (state superior/family court, tribal court) --> state judicial system --> statute (state domestic violence statutes, VAWA for interstate enforcement). Courts are root authorities in most models, but the specific court must be verifiable -- a fabricated "court" issuing orders from a nonexistent jurisdiction should not be trusted. The authority chain spec defines how verifiers confirm the issuing domain maps to a legitimate court. See [Authority Chain Spec](/specs/authority-chain).
+**Pattern:** Sovereign
+
+UK courts issue restraining orders and protective orders under the Protection from Harassment Act 1997 and related domestic abuse legislation.
+
+```
+✓ courts.gov.uk/protection/verify — UK courts protective and restraining orders
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
 ## Competition
 

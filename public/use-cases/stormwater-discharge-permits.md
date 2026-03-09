@@ -94,6 +94,19 @@ The **Facility Manager / HSE Officer** benefits from verification.
 
 **Privacy Salt:** Low. These are public environmental permits by law. However, individual facility contact names and internal production volumes should be salted to protect business privacy.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+The Environment Agency issues stormwater and wastewater discharge permits under the Environmental Permitting Regulations 2016.
+
+```
+✓ environment-agency.gov.uk/npdes/verify — Environment Agency discharge and effluent permits
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Water quality is a "Downstream Risk." By turning static permits into verifiable digital bridges, we ensure that "Clean Water" is backed by cryptographic proof, protecting local watersheds and ensuring that industrial accountability is a digital fact.

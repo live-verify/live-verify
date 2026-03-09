@@ -94,6 +94,20 @@ The **Warehouse Manager (Receiver)** benefits from verification.
 **NVOCCs (Non-Vessel Operating Common Carriers).**
 **Customs Brokers.**
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Shippers and freight forwarders issue packing lists and shipping manifests itemizing cargo contents. The issuer is self-authorized as the shipper responsible for accurate cargo declaration.
+
+```
+✓ manifest.ups.com/verify — Issues verified packing lists with SKU itemization and seal numbers
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

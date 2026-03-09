@@ -113,6 +113,18 @@ Schools and employers use verification to filter thousands of vaccine cards, ins
 
 **Privacy Salt:** Required. Vaccination data is Protected Health Information (PHI). While each record contains unique combinations of patient names, dates of birth, specific lot numbers, precise administration dates, and provider IDs that provide very high entropy, the extreme sensitivity of health data—and the risk that bad actors could use enumeration to target individuals based on vaccination status or create "mass health mapping" databases—means salt is absolutely essential. Salt protects both individual medical privacy and prevents discrimination based on immunization status.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+```
+✓ vaccination.nhs.uk/verify — Administers vaccinations across UK health services
+  ✓ gmc-uk.org/register — Registers and regulates UK medical doctors
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require healthcare providers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

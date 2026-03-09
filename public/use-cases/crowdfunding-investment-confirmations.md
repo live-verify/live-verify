@@ -99,6 +99,20 @@ The **Backer / Investor** benefits from verification.
 
 **Privacy Salt:** Critical. Pledges can reveal personal interests and political affiliations. The hash must be salted to prevent "Guessing" names of backers for controversial projects.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Seedrs issues investment confirmations for UK crowdfunding platforms.
+
+```
+✓ invest.seedrs.com/confirm/verify — Issues investment confirmations for crowdfunding platforms
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

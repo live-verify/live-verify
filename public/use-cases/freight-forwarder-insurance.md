@@ -103,6 +103,20 @@ The **Freight Forwarder** benefits from verification.
 **Global Commercial Carriers.**
 **MGA Logistics Specialists.**
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+The TT Club, a mutual insurer specializing in logistics, is regulated by the FCA and issues verified freight forwarder liability insurance certificates.
+
+```
+✓ ff-insurance.ttin.co.uk/verify — Issues freight forwarder liability insurance certificates
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

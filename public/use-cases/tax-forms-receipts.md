@@ -105,6 +105,17 @@ The **Employee / Taxpayer** benefits from verification.
 
 **Privacy Salt:** EXTREMELY CRITICAL. Tax data is governed by strict privacy laws (Section 6103 in the US). The hash MUST be salted to prevent "Mass Income Scraping" of the tax-paying population.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+```
+✓ irs.gov/verify — Administers US federal tax collection
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Tax forms are the "Financial DNA" of a citizen. By turning wage statements into verifiable digital bridges, we protect the mortgage market from defaults and the government from the multi-billion dollar cost of refund fraud.

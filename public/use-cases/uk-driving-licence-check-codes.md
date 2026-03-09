@@ -87,6 +87,19 @@ To solve the "Phone/SMS" problem, the DVLA site provides a URL-encoded link:
 `https://service.gov.uk/v#t=SHARE%20CODE%3AaB123dEf%0ADriver%3A****7766%0Averify%3Aservice.gov.uk/v`
 The recipient taps the link, and the browser/app handles the hashing and verification silently, displaying the **Correct Plain-Text Code** once verified.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+The DVLA issues UK driving licence check codes and share codes under the Road Traffic Act 1988.
+
+```
+✓ viewdrivingrecord.service.gov.uk/verify — DVLA driving licence check codes and sharing service
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 The UK "Share Licence" service is a high-volume, high-friction ritual. By turning these ephemeral codes into verifiable digital bridges, we eliminate the "Dictation Gap" and ensure that hire cars and repairs are processed without case-sensitive frustration.

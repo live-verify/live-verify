@@ -90,6 +90,20 @@ The **Consignee (Receiver)** benefits from verification.
 
 **Privacy Salt:** Essential. Tracking numbers and addresses are sensitive. The hash must be salted to prevent "Tracking Number Harvesting" by data scrapers.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Logistics carriers issue proof of delivery confirming shipment handoff to recipients. The issuer is self-authorized as the carrier responsible for delivery documentation.
+
+```
+✓ pod.fedex.com/verify — Issues verified delivery receipts with recipient signature and timestamp
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Proof of Delivery is the "Closing Link" in the global supply chain. Live Verify turns a fleeting physical event (the handoff) into a permanent, verifiable digital fact, reducing billions in "Loss and Dispute" costs annually.

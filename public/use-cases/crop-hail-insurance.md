@@ -92,6 +92,20 @@ The **Farmer** benefits from verification.
 **Private Crop Insurers:** (Rain & Hail, Farmers Mutual Hail, NAU Country).
 **USDA Risk Management Agency (RMA):** (Overseeing the Federal MPCI program).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+NFU Mutual underwrites crop and hail insurance for UK agricultural operations.
+
+```
+✓ crop.nfu-mutual.co.uk/verify — Underwrites crop and hail insurance for agricultural operations
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

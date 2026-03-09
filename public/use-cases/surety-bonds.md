@@ -100,6 +100,20 @@ The **Contractor (Principal)** benefits from verification.
 **Treasury-Listed Sureties:** (Meeting Circular 570 requirements).
 **Bond Execution Platforms:** (e.g., SurePath, Bond-Verify).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Travelers and surety companies issue bonds and performance guarantees and are regulated by the UK Financial Conduct Authority under the UK insurance framework and surety bond requirements.
+
+```
+✓ surety.travelers.com/verify — Surety company issuing construction and performance bonds
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

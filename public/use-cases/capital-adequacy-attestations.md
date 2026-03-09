@@ -107,6 +107,20 @@ The **Firm's Treasury / Compliance Dept** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Exact capital amounts and internal buffer strategies are highly sensitive "Market-Moving" data. The hash must be salted and access restricted to authorized financial institutions.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Barclays issues capital adequacy compliance attestations for UK banking regulations.
+
+```
+✓ compliance.barclays.co.uk/capital/verify — Issues capital adequacy compliance attestations
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Capital adequacy is the "Foundation of Financial Stability." By turning technical attestations into verifiable digital bridges, we protect the banking system from the "Minsky Moment" of hidden insolvency and ensure that "Safety" is backed by cryptographic proof.

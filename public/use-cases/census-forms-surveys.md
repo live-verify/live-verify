@@ -103,6 +103,19 @@ The **Resident / Head of Household** benefits from verification.
 
 **Privacy Salt:** Critical. Census data is protected by strict privacy laws (e.g., Title 13 in the USA). The hash must be salted to ensure that a third party cannot "brute force" the names or addresses of residents.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Administers decennial US population census surveys.
+
+```
+✓ census.gov/verify — Administers decennial US population census surveys
+  ✓ usa.gov/verifiers — US federal government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -93,6 +93,20 @@ The **Hiring Insurance Carrier** benefits from verification.
 **Independent Adjusters:** (Solo practitioners).
 **Inspection Platforms:** (e.g., Xactimate/Verisk - hosting the underlying data hashes).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Independent adjusters are licensed professionals who investigate insurance loss claims.
+
+```
+✓ adjuster.crawco.co.uk — Issues insurance loss assessments
+  ✓ cila.co.uk — Regulates UK claims professionals
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

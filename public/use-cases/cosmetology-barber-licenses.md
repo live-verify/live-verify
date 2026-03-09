@@ -98,6 +98,19 @@ The **Practitioner** benefits from verification.
 **State Boards of Cosmetology & Barbering:** (e.g., California BBC, Texas TDLR).
 **State Departments of Licensing.**
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+State cosmetology and barber boards license practitioners in personal care services.
+
+```
+✓ barbersboard.ca.gov — Issues California barber licenses
+  ✓ california.gov — California state government
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

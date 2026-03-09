@@ -207,6 +207,20 @@ The **Inventory Owner (Depositor)** benefits from verification.
 
 **Privacy Salt:** High. Specific inventory levels and values are sensitive business secrets. The hash must be salted to prevent "Market Mapping" by competitors.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Warehouse operators issue receipts and are regulated by the UK Financial Conduct Authority under the Factors Act 1889 and financial services framework.
+
+```
+✓ receipt.example-warehouse.co.uk/verify — Warehouse operator issuing storage receipts and warrants
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Warehousing is the "Physical Bank" of the supply chain. By turning receipts into verifiable digital bridges, we create a transparent "Chain of Custody" that turns idle inventory into a trusted, bankable financial asset.

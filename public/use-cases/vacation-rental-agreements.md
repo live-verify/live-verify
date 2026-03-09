@@ -90,6 +90,20 @@ The **Vacationer (Guest)** benefits from verification.
 
 **Privacy Salt:** Essential. Property addresses and guest names are highly sensitive. The hash must be salted to prevent "Tourist Tracking" or "Burglary Mapping" (finding out which homes will be empty).
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Issues vacation rental agreements
+
+```
+✓ rental.airbnb.co.uk/verify — Issues vacation rental agreements
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Vacation rentals are "High-Emotion, Low-Trust" transactions. By turning the booking summary into a verifiable digital bridge, we protect the traveler's vacation and the host's property from the high cost of manual dispute resolution and fraud.

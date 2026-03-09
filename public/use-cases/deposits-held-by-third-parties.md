@@ -558,3 +558,17 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
 3. **Public blockchain** — Decentralized trust anchor via rollup inclusion
+
+## Authority Chain
+
+**Pattern:** Regulated
+
+Solicitors hold client deposits in escrow under strict regulatory segregation rules.
+
+```
+✓ stakeholderdeposits.example-solicitors.co.uk/verify — Holds security deposits in escrow
+  ✓ sra.org.uk/solicitors — Regulates solicitors in England and Wales
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.

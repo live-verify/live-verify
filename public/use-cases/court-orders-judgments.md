@@ -125,6 +125,19 @@ The **Winning Party (Plaintiff/Creditor)** benefits from verification.
 **Federal Courts:** (PACER integration).
 **Clerks of Court.**
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+UK courts issue court orders and judgments authorized by the Courts Act 2003 and Senior Courts Act 1981.
+
+```
+✓ courtsni.gov.uk/verify — UK courts issuing orders and judicial judgments
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

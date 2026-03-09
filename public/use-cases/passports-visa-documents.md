@@ -110,6 +110,17 @@ The **Passport Holder (Traveler)** benefits from verification.
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. Passport data is the "Crown Jewels" of identity. The hash MUST be salted to prevent foreign intelligence or hackers from "Mass Mapping" a population's travel documents.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+```
+✓ hmpo.gov.uk/verify — Issues and renews UK passports
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Photo Return: Defeating the "Woman in Cabin 10" Pattern
 
 Verification responses can include the **issuing authority's authoritative photo** of the holder — not just status, but the actual face on file.

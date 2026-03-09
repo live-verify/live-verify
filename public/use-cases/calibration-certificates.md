@@ -130,6 +130,18 @@ The tool owner (second party) may hand the verified document to various third pa
 
 **Privacy Salt:** Not required. Calibration certificates contain many unpredictable variables: unique certificate numbers, instrument serial numbers, specific measurement data points (multiple decimal places), exact calibration dates, technician names, environmental conditions (temperature/humidity to decimal precision), and unique uncertainty values. The combination of these metrological details creates sufficient entropy to prevent hash enumeration attacks.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+```
+✓ calibration.npl.co.uk/cert/verify — Calibrates scientific instruments to national standards
+  ✓ ukas.com — Accredits UK testing and calibration laboratories
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require accredited calibration labs to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

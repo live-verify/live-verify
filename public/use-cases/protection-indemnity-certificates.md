@@ -92,6 +92,20 @@ The **Shipowner / Manager** benefits from verification.
 
 **Privacy Salt:** Low to Medium. While vessel names are public, the specific "Claims History" and member premium rates are sensitive. The hash should be salted to protect commercial confidentiality.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+UK P&I Club issues maritime protection and indemnity certificates and is regulated by the UK Financial Conduct Authority under the UK insurance framework and maritime conventions.
+
+```
+✓ pi.ukpandi.com/verify — P&I club issuing maritime liability insurance certificates
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 P&I insurance is the "Global Shield" of the oceans. By turning certificates into verifiable digital bridges, we protect the world's coastlines from the catastrophic cost of un-insured oil spills and ensure that "Safety at Sea" is backed by cryptographic proof.

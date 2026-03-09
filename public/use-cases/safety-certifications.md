@@ -90,6 +90,20 @@ The **Manufacturer / Importer** benefits from verification.
 
 **Privacy Salt:** Low. Safety certifications are public safety data by necessity. However, individual factory IDs and production batch volumes should be salted to protect manufacturing trade secrets.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Safety testing laboratories are accredited by product safety authorities to verify that manufactured products meet rigorous safety standards before entering commerce.
+
+```
+✓ certs.ul.com/verify — Issues verified product safety certifications
+  ✓ opss.gov.uk — Enforces UK product safety standards
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Product safety is the "Invisible Foundation" of modern life. By turning static labels into verifiable digital bridges, we ensure that the "Protection" on the box is backed by the professional truth of the lab, preventing fires and saving lives.

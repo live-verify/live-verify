@@ -375,6 +375,20 @@ The **Homeowner / Renter** benefits from verification.
 **Direct-to-Consumer Insurtechs:** (Lemonade, Hippo, Kin).
 **State Insurance Pools:** (e.g., California FAIR Plan).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Aviva, a regulated home and contents insurer, is authorized by the FCA to issue verified homeowners and renters insurance policies.
+
+```
+✓ policy.aviva.co.uk/home/verify — Issues verified homeowners and renters insurance policies
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -182,6 +182,20 @@ The classic fraud: someone claims purchasing authority they don't have, places o
 
 **Adoption incentive:** Companies that verify reduce bad debt. Companies that issue confirmations get better credit terms (suppliers see them as lower risk). Insurance premiums may decrease for companies with verified purchasing controls.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Companies issue purchasing authority confirmations to control their own internal delegation of spending authority. Self-authorized by company governance and employment law.
+
+```
+✓ credit.example-corp.com/verify — Issues purchasing authority confirmations and credit control attestations
+```
+
+Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Integration with Existing Systems
 
 **ERP/procurement systems** — Can require verification URL for new supplier setups

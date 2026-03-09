@@ -96,6 +96,20 @@ US OFAC applies extraterritorially — even non-US firms processing USD transact
 
 **Rescreening visibility:** When a party is re-screened, previous confirmations remain valid but show "Superseded" — the audit trail is preserved. If a re-screening reveals a match, the timeline is clear.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Authorized financial firms issue sanctions screening confirmations proving they checked clients against official sanctions lists.
+
+```
+✓ compliance.example-bank.co.uk/sanctions/verify — Authorized financial firm's compliance office
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## The False Positive Problem
 
 Most "matches" are false positives — common names, similar spellings. The confirmation should document:

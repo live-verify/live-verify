@@ -90,6 +90,20 @@ The **Sender / Recipient** benefits from verification.
 
 **Privacy Salt:** Highly critical. Mobile money data involves personal phone numbers and cash flow. The hash MUST be salted to prevent "Mass Mapping" of a community's financial activity.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Mobile network operators are regulated by central banks to issue payment receipts.
+
+```
+✓ mpesa.safaricom.co.ke — Issues mobile money transaction receipts
+  ✓ centralbank.go.ke — Regulates Kenyan financial services
+    ✓ go.ke — Kenyan government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -99,6 +99,20 @@ The **Citizen abroad** benefits from verification.
 
 **Privacy Salt:** Critical. Consular records involve citizenship and financial data. The hash must be salted to prevent "Guessing" the names of citizens living in a specific foreign city.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Diplomatic missions derive their consular authority from international law and are self-authorized to issue attestations on behalf of their home governments.
+
+```
+✓ gov.uk/government/world/organisations/verify — Issues consular attestations and certifications
+```
+
+Self-authorized — this is a sovereign body whose authority derives from statute.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

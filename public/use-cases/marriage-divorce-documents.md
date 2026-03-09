@@ -106,6 +106,19 @@ The **Named Spouse(s)** benefit from verification.
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. Marital status is highly private. The hash MUST be salted to prevent "Mass Scraping" of a county's marriage history by data brokers or stalkers.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+The General Register Office issues marriage and divorce certificates under the Marriage Act 1949 and Matrimonial Causes Act 1973.
+
+```
+✓ gro.gov.uk/marriage/verify — UK General Register Office marriage and divorce certificates
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

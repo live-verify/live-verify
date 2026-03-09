@@ -217,6 +217,20 @@ Individual predictions compose into track records:
 - Calibration curves
 - Comparison to baseline (random, consensus)
 
+## Authority Chain
+
+**Pattern:** Personal
+
+An individual makes a public prediction commitment recorded on a platform. The platform provides attestation of the prediction, date, and eventual outcome.
+
+```
+✓ prediction.example-platform.com/verify — Records individual predictions with timestamped outcomes
+```
+
+Personal issuer — individual attestation, no regulatory chain.
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Novel Applications
 
 **Forecaster Markets**

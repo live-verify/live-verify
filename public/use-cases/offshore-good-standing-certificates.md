@@ -127,12 +127,16 @@ When rating structured finance vehicles domiciled offshore, agencies need to con
 
 ## Authority Chain
 
+**Pattern:** Sovereign
+
+Certifies good standing status of offshore registered entities.
+
 ```
-BVI FSC → BVI Government → UK Overseas Territory
-Cayman General Registry → Cayman Islands Government → UK Crown Dependency
-JFSC → States of Jersey → UK Crown Dependency
-Bermuda Registrar → Bermuda Government → UK Overseas Territory
+✓ registry.gov.ky/certificate/verify — Certifies good standing status of offshore registered entities
+  ✓ usa.gov/verifiers — US federal government root namespace
 ```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
 ## Competition
 

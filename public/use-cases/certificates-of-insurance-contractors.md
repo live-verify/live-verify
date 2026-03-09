@@ -102,6 +102,20 @@ The contractor (second party) may hand the verified document to various third pa
 
 **Privacy Salt:** Not required. Certificates of insurance contain many unpredictable variables: contractor company names, unique policy numbers (often alphanumeric), specific coverage limits (exact dollar amounts), effective/expiration dates, certificate holder names, producer names and locations, and multiple policy types. The combination of these certificate-specific details creates sufficient entropy to prevent hash enumeration attacks.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Zurich issues certificates of insurance for contractors and construction operations.
+
+```
+✓ coi.zurich.co.uk/verify — Issues certificates of insurance for contractors
+  ✓ fca.org.uk/register — Regulates UK financial services firms
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require insurance brokers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

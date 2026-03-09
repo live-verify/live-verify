@@ -106,6 +106,20 @@ The **Technician (Practitioner)** benefits from verification.
 
 **Privacy Salt:** Critical. Technician names and home addresses are sensitive. The hash must be salted to prevent "Mass Roster Scraping" by predatory marketers or data brokers.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Pest control operators must be licensed and background-checked by health and safety authorities to ensure only trained professionals handle toxic pesticides in food facilities and homes.
+
+```
+✓ bpca.org.uk/member/verify — Maintains register of qualified pest control operators
+  ✓ hse.gov.uk — Regulates UK workplace health and safety
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Rationale
 
 Pest control is a "Toxic Trust" domain. By turning static badges into live digital bridges, we protect the safety of homes and the health of the food supply, ensuring that those who handle poisons are held to the digital truth of the state record.

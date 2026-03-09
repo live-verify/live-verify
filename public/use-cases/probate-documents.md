@@ -101,6 +101,19 @@ The **Executor (Personal Representative)** benefits from verification.
 **Clerks of the Court.**
 **Estate Planning Software:** (e.g., WealthCounsel - hosting mirror hashes).
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+UK probate courts issue grant of probate and letters testamentary under the Administration of Estates Act 1925.
+
+```
+✓ courts.gov.uk/probate/verify — UK probate court grants and testamentary letters
+  ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

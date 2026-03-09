@@ -111,6 +111,20 @@ The **Patient** benefits from verification.
 **Healthcare Systems:** (Epic MyChart, etc.)
 **Secretary of State Offices:** (Some states maintain directive registries)
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Solicitors draft and certify healthcare directives under mental capacity law.
+
+```
+✓ solicitors.example-firm.co.uk/ahd/verify — Drafts and certifies healthcare decisions
+  ✓ sra.org.uk/solicitors — Regulates solicitors in England and Wales
+    ✓ gov.uk/verifiers — UK government root namespace
+```
+
+See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
