@@ -105,7 +105,7 @@ Steel mills and testing labs issue material test reports certified against EN 10
 
 ```
 ✓ mtr.example-steelmill.com — Tests material properties and certifies test reports
-  ✓ ukas.com — Accredits UK testing, calibration, and inspection bodies
+  ✓ ukas.com — Accredits UK testing laboratories
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

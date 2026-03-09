@@ -112,7 +112,7 @@ Travelers underwrites employee fidelity bonds and crime insurance for employers.
 
 ```
 ✓ fidelity.travelers.com/verify — Underwrites employee fidelity bonds and crime insurance
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK surety and bond providers
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

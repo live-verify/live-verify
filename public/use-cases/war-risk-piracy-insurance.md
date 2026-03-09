@@ -100,7 +100,7 @@ Lloyd's and specialty marine insurers issue war risk and piracy insurance and ar
 
 ```
 ✓ warrisk.lloyds.com/verify — Lloyd's syndicate issuing war risk and piracy insurance binders
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

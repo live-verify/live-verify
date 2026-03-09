@@ -95,7 +95,7 @@ NFU Mutual, a regulated agricultural insurer, is authorized by the FCA to issue 
 
 ```
 ✓ livestock.nfu-mutual.co.uk/verify — Issues verified livestock and crop insurance policies
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

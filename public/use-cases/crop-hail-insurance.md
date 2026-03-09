@@ -100,7 +100,7 @@ NFU Mutual underwrites crop and hail insurance for UK agricultural operations.
 
 ```
 ✓ crop.nfu-mutual.co.uk/verify — Underwrites crop and hail insurance for agricultural operations
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

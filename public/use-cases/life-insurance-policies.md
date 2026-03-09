@@ -97,7 +97,7 @@ Aviva, a regulated life insurance provider, is authorized by the FCA to issue ve
 
 ```
 ✓ policy.aviva.co.uk/life/verify — Issues verified life insurance policies
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK life insurance and pensions firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

@@ -635,7 +635,7 @@ Licensed tradespeople attest to their work being code-compliant, with their prof
 
 ```
 ✓ witness.example-inspector.co.uk/verify — Licensed tradesperson or inspector
-  ✓ ukas.com — Accredits UK testing, calibration, and inspection bodies
+  ✓ ukas.com — Accredits UK inspection bodies
 ```
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.

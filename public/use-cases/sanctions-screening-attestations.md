@@ -103,7 +103,7 @@ Banks and compliance officers issue sanctions screening attestations and are reg
 
 ```
 ✓ compliance.example-bank.co.uk/sanctions-attest/verify — Bank compliance department issuing sanctions screening confirmations
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK financial crime prevention
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

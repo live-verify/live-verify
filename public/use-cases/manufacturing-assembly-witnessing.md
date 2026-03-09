@@ -370,7 +370,7 @@ Lloyd's Register witnesses manufacturing assembly and verifies quality to ISO 90
 
 ```
 ✓ witness.lloydsregister.com — Witnesses manufacturing and assembly work for quality assurance
-  ✓ ukas.com — Accredits UK testing, calibration, and inspection bodies
+  ✓ ukas.com — Accredits UK inspection bodies
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

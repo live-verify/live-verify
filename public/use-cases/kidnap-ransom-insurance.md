@@ -104,7 +104,7 @@ Hiscox, a regulated specialty insurer, is authorized by the FCA to issue verifie
 
 ```
 ✓ kr.hiscox.co.uk/verify — Issues verified kidnap and ransom insurance policies
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

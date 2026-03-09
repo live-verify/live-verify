@@ -97,7 +97,7 @@ Insurers and valuation providers issue total loss valuations and are regulated b
 
 ```
 ✓ totalloss.example-insurer.co.uk/verify — Insurance carrier issuing total loss valuations and ACV reports
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

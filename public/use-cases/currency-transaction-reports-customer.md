@@ -105,7 +105,7 @@ Barclays issues currency transaction reports for regulatory and compliance purpo
 
 ```
 ✓ compliance.barclays.co.uk/ctr/verify — Issues currency transaction reports for compliance
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK financial crime prevention
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

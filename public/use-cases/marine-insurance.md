@@ -420,7 +420,7 @@ Lloyd's of London, the world's leading marine insurance market, is regulated by 
 
 ```
 ✓ marine.lloyds.com/verify — Issues verified marine cargo insurance certificates
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

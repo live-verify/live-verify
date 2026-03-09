@@ -101,7 +101,7 @@ Inspection bodies like SGS verify quality control and compliance to ISO 9001 sta
 
 ```
 ✓ qc.sgs.com — Inspects products and issues quality compliance reports
-  ✓ ukas.com — Accredits UK testing, calibration, and inspection bodies
+  ✓ ukas.com — Accredits UK inspection bodies
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

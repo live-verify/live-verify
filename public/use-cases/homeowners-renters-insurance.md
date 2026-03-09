@@ -383,7 +383,7 @@ Aviva, a regulated home and contents insurer, is authorized by the FCA to issue 
 
 ```
 ✓ policy.aviva.co.uk/home/verify — Issues verified homeowners and renters insurance policies
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

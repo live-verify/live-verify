@@ -111,7 +111,7 @@ AIG underwrites directors liability insurance for pension plan fiduciaries.
 
 ```
 ✓ directors.aig.co.uk/pension-liability/verify — Underwrites directors liability for pension issues
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK life insurance and pensions firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

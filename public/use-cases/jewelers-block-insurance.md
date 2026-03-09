@@ -101,7 +101,7 @@ Chubb, a regulated specialty insurer, is authorized by the FCA to issue verified
 
 ```
 ✓ jewelers.chubb.com/verify — Issues verified jewelers block insurance policies
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

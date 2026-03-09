@@ -105,7 +105,7 @@ American Express issues credit card travel insurance benefits for cardholders.
 
 ```
 ✓ benefits.amex.co.uk/verify — Issues credit card travel insurance benefits
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK banks and deposit-takers
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

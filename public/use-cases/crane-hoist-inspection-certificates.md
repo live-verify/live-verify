@@ -115,7 +115,7 @@ Accredited inspection firms issue certificates for crane safety compliance under
 
 ```
 ✓ crane.example-inspection.co.uk — Inspects lifting equipment annually under LOLER
-  ✓ ukas.com — Accredits UK testing, calibration, and inspection bodies
+  ✓ ukas.com — Accredits UK inspection bodies
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

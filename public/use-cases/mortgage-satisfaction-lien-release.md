@@ -98,7 +98,7 @@ Nationwide Building Society, a regulated lender, is authorized by the FCA to iss
 
 ```
 ✓ mortgage.nationwide.co.uk/release/verify — Issues verified mortgage satisfaction records
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK banks and deposit-takers
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

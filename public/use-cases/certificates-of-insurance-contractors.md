@@ -110,7 +110,7 @@ Zurich issues certificates of insurance for contractors and construction operati
 
 ```
 ✓ coi.zurich.co.uk/verify — Issues certificates of insurance for contractors
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

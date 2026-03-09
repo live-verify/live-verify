@@ -116,7 +116,7 @@ AIG underwrites directors and officers liability insurance for UK companies.
 
 ```
 ✓ dno.aig.co.uk/verify — Underwrites directors and officers liability insurance
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

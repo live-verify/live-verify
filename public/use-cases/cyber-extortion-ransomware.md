@@ -112,7 +112,7 @@ Beazley underwrites cyber extortion and ransomware insurance for enterprises glo
 
 ```
 ✓ cyberextortion.beazley.com/verify — Underwrites cyber extortion and ransomware insurance
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

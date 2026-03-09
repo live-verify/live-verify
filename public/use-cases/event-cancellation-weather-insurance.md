@@ -110,7 +110,7 @@ Hiscox underwrites event cancellation and weather insurance for venues and organ
 
 ```
 ✓ eventinsurance.hiscox.co.uk/verify — Underwrites event cancellation and weather insurance
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

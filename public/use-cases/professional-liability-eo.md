@@ -113,7 +113,7 @@ Hiscox issues professional liability and E&O insurance and is regulated by the U
 
 ```
 ✓ eo.hiscox.co.uk/verify — Professional liability and errors and omissions insurer
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

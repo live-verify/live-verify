@@ -104,7 +104,7 @@ Accredited calibration labs provide NIST-traceable calibrations following ISO/IE
 
 ```
 ✓ calibration.npl.co.uk — Calibrates scientific instruments against NIST standards
-  ✓ ukas.com — Accredits UK testing, calibration, and inspection bodies
+  ✓ ukas.com — Accredits UK calibration laboratories
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

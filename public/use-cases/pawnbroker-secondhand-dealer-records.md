@@ -155,7 +155,7 @@ Licensed pawnbrokers, regulated by the FCA for consumer credit and anti-money la
 
 ```
 ✓ pawnbroker.example.co.uk/verify — Issues verified pawnbroker transaction records
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK consumer credit firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

@@ -101,7 +101,7 @@ St. James's Place, a regulated financial advisory firm, is authorized by the FCA
 
 ```
 ✓ advice.sjp.co.uk/suitability/verify — Issues verified investment suitability reports
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK investment firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

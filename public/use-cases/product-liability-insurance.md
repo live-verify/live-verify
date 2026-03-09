@@ -100,7 +100,7 @@ Zurich issues product liability insurance and is regulated by the UK Financial C
 
 ```
 ✓ product-liability.zurich.co.uk/verify — Commercial general and product liability insurer
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

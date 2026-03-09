@@ -395,7 +395,7 @@ Witnessing firms attest to infrastructure concealed work compliance with UK buil
 
 ```
 ✓ witness.example-engineers.co.uk — Witnesses structural work and welds in infrastructure
-  ✓ ukas.com — Accredits UK testing, calibration, and inspection bodies
+  ✓ ukas.com — Accredits UK inspection bodies
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

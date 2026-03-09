@@ -103,7 +103,7 @@ Aviva, a regulated insurance claims administrator, is authorized by the FCA to i
 
 ```
 ✓ adjuster.aviva.co.uk/verify — Issues verified insurance claims adjuster reports
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

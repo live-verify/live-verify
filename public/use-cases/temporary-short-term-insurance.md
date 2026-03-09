@@ -97,7 +97,7 @@ Temporary insurance providers and insurtech platforms issue short-term policies 
 
 ```
 ✓ tempcover.co.uk/verify — Insurtech platform issuing temporary and short-term insurance policies
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

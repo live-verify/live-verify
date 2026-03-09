@@ -119,7 +119,7 @@ UK insurance carriers issue proof of loss forms and are regulated by the UK Fina
 
 ```
 ✓ pol.example-insurer.co.uk/verify — Insurance carrier processing proof of loss claims
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

@@ -192,7 +192,7 @@ Companies delegate filing authority to authorized persons and are regulated unde
 
 ```
 ✓ authority.example-corp.com/filing/verify — Company delegation portal for regulatory filing authority
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK financial services governance
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

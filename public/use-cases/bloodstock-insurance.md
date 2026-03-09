@@ -114,7 +114,7 @@ Lycetts underwrites insurance for thoroughbred and bloodstock animals globally.
 
 ```
 ✓ bloodstock.lycetts.co.uk/verify — Underwrites insurance for thoroughbred and bloodstock animals
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

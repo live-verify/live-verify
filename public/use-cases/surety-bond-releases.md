@@ -131,7 +131,7 @@ Travelers and surety bond providers issue bond releases and are regulated by the
 
 ```
 ✓ surety.travelers.com/release/verify — Surety company issuing construction and license bond releases
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK surety and bond providers
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

@@ -119,7 +119,7 @@ Barclays issues proof of funds letters and is regulated by the UK Financial Cond
 
 ```
 ✓ pof.barclays.co.uk/verify — Bank issuing proof of funds verification letters
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK banks and deposit-takers
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

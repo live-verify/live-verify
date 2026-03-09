@@ -100,7 +100,7 @@ Close Brothers, a regulated financial services firm, is authorized by the FCA to
 
 ```
 ✓ factoring.closebrothers.co.uk/verify — Issues verified invoice financing and factoring confirmations
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK trade finance providers
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

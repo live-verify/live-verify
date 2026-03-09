@@ -103,7 +103,7 @@ Zurich issues retrospective premium adjustments for UK commercial insurance poli
 
 ```
 ✓ retro.zurich.co.uk/verify — Issues retrospective premium adjustments for commercial insurance
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

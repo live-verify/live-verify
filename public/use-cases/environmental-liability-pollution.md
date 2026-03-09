@@ -113,7 +113,7 @@ AIG underwrites environmental liability and pollution insurance for contaminated
 
 ```
 ✓ pollution.aig.co.uk/verify — Underwrites environmental liability and pollution insurance
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

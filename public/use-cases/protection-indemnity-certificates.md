@@ -100,7 +100,7 @@ UK P&I Club issues maritime protection and indemnity certificates and is regulat
 
 ```
 ✓ pi.ukpandi.com/verify — P&I club issuing maritime liability insurance certificates
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

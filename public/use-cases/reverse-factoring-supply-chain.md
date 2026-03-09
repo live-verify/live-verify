@@ -104,7 +104,7 @@ Supply chain finance providers issue reverse factoring approvals and are regulat
 
 ```
 ✓ scf.greensill.com/verify — Supply chain finance platform issuing early payment approvals
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK trade finance providers
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

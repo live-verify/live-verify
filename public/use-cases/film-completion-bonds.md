@@ -111,7 +111,7 @@ Film Finances underwrites film and media production completion bonds globally.
 
 ```
 ✓ completion.filmfinances.com/verify — Underwrites film and media production completion bonds
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK surety and bond providers
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

@@ -335,7 +335,7 @@ Transfer agents and company registrars issue stock certificates and are regulate
 
 ```
 ✓ registrars.linkgroup.com/verify — Transfer agent and registrar maintaining share records and certificates
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK investment firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

@@ -118,7 +118,7 @@ Legal & General certifies actuarial pricing for UK annuity products.
 
 ```
 ✓ annuity.legalandgeneral.co.uk/pricing/verify — Certifies actuarial pricing for annuity products
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK life insurance and pensions firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

@@ -102,7 +102,7 @@ Lloyd's of London issues specie and fine art insurance policies and is regulated
 
 ```
 ✓ specie.lloyds.com/verify — Lloyd's syndicate specializing in fine art and specie insurance
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

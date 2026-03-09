@@ -119,7 +119,7 @@ Banks issue internal suspicious activity reports and are regulated by the UK Fin
 
 ```
 ✓ compliance.example-bank.co.uk/sar/verify — Bank compliance unit maintaining internal SAR filing records
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK financial crime prevention
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

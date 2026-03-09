@@ -104,7 +104,7 @@ Genworth, a regulated mortgage insurance provider, is authorized by the FCA to i
 
 ```
 ✓ lmi.genworth.co.uk/verify — Issues verified mortgage indemnity insurance certificates
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

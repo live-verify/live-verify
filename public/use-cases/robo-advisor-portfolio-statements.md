@@ -124,7 +124,7 @@ Nutmeg issues robo-advisor portfolio statements and is regulated by the UK Finan
 
 ```
 ✓ portfolio.nutmeg.com/verify — Robo-advisor platform issuing portfolio statements and statements
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK investment firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

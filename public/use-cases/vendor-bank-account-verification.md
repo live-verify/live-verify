@@ -107,7 +107,7 @@ Banks issue vendor account ownership certificates and are regulated by the UK Fi
 
 ```
 ✓ payments.example-corp.com/vendor/verify — Bank issuing account ownership verification certificates
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK payment service providers
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

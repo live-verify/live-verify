@@ -100,7 +100,7 @@ Chubb and umbrella liability insurers issue excess liability policies and are re
 
 ```
 ✓ umbrella.chubb.com/verify — Excess liability insurer issuing umbrella policies and limits
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

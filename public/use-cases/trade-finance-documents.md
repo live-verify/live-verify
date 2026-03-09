@@ -302,7 +302,7 @@ Standard Chartered and other trade finance banks issue bills of lading and are r
 
 ```
 ✓ tradefinance.standardchartered.com/bl/verify — Trade finance bank issuing bills of lading and letters of credit
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK trade finance providers
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

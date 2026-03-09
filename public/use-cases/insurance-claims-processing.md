@@ -371,7 +371,7 @@ Aviva, a regulated insurance claims processor, is authorized by the FCA to issue
 
 ```
 ✓ claims.aviva.co.uk/eob/verify — Issues verified claims correspondence and EOBs
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

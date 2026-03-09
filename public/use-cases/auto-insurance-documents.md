@@ -469,7 +469,7 @@ The **Vehicle Owner** (or Dealer) benefits from verification.
 
 ```
 ✓ motor.directline.co.uk/verify — Underwrites UK motor insurance
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

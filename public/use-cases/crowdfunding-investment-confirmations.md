@@ -107,7 +107,7 @@ Seedrs issues investment confirmations for UK crowdfunding platforms.
 
 ```
 ✓ invest.seedrs.com/confirm/verify — Issues investment confirmations for crowdfunding platforms
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK investment firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

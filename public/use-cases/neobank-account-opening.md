@@ -102,7 +102,7 @@ Monzo Bank, a regulated neo-bank, is authorized by the FCA to issue verified ban
 
 ```
 ✓ monzo.com/account/verify — Issues verified bank account confirmation documents
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK banks and deposit-takers
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

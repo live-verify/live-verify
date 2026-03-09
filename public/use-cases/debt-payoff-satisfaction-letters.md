@@ -129,7 +129,7 @@ Barclays issues debt satisfaction letters for paid-off loans and credit obligati
 
 ```
 ✓ loans.barclays.co.uk/satisfaction/verify — Issues debt satisfaction letters for paid loans
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK banks and deposit-takers
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

@@ -106,7 +106,7 @@ NHS pathology labs test specimens and issue reports following UK medical device 
 
 ```
 ✓ pathology.guysandstthomas.nhs.uk — Tests pathology specimens in UK hospitals
-  ✓ ukas.com — Accredits UK testing, calibration, and inspection bodies
+  ✓ ukas.com — Accredits UK testing laboratories
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

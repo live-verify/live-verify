@@ -481,7 +481,7 @@ Accredited monitoring firms witness indoor air quality compliance for UK workpla
 
 ```
 ✓ iaq.example-monitoring.co.uk — Tests ventilation and air quality in buildings
-  ✓ ukas.com — Accredits UK testing, calibration, and inspection bodies
+  ✓ ukas.com — Accredits UK testing laboratories
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

@@ -110,7 +110,7 @@ AXA Art, a specialist insurer, is regulated by the FCA to provide fine art cover
 
 ```
 ✓ fineart.axa-art.co.uk/verify — Issues and verifies fine art insurance policies
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

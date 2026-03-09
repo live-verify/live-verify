@@ -200,7 +200,7 @@ Direct Line underwrites additional driver endorsements for UK auto insurance pol
 
 ```
 ✓ endorsement.directline.co.uk/verify — Underwrites additional driver endorsements for auto insurance
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

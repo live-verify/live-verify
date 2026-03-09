@@ -113,7 +113,7 @@ UK chain (Experian UK, Equifax UK, TransUnion UK → FCA → Consumer Credit Act
 
 ```
 ✓ experian.co.uk/consumer/verify — Issues consumer credit reports in the UK
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK consumer credit firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

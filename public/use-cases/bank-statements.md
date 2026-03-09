@@ -99,7 +99,7 @@ The **Bank Customer** benefits from verification.
 
 ```
 ✓ statements.hsbc.co.uk/verify — Provides retail and commercial banking in the UK
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK banks and deposit-takers
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

@@ -141,7 +141,7 @@ Admiral Group, a regulated motor insurer, is authorized by the FCA to issue veri
 
 ```
 ✓ noclaims.admiral.co.uk/verify — Issues verified no claims bonus certificates
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

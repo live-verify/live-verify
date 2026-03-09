@@ -150,7 +150,7 @@ Nationwide Building Society, a regulated lender, is authorized by the FCA to iss
 
 ```
 ✓ loans.nationwide.co.uk/guarantor/verify — Issues verified guarantor release documents
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK banks and deposit-takers
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

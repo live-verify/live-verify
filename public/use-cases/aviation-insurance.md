@@ -114,7 +114,7 @@ Global Aerospace underwrites aircraft hull and liability insurance for aviation 
 
 ```
 ✓ aviation.globalae.com/verify — Underwrites aircraft hull and liability insurance
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

@@ -114,7 +114,7 @@ Unum underwrites disability income insurance policies for UK individuals and emp
 
 ```
 ✓ disability.unum.co.uk/verify — Underwrites disability income insurance policies
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK life insurance and pensions firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

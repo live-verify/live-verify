@@ -136,7 +136,7 @@ The tool owner (second party) may hand the verified document to various third pa
 
 ```
 ✓ calibration.npl.co.uk/cert/verify — Calibrates scientific instruments to national standards
-  ✓ ukas.com — Accredits UK testing and calibration laboratories
+  ✓ ukas.com — Accredits UK calibration laboratories
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

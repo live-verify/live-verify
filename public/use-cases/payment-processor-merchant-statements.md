@@ -97,7 +97,7 @@ Stripe, a regulated payment processor, is authorized by the FCA to issue verifie
 
 ```
 ✓ business.stripe.com/statement/verify — Issues verified payment processor merchant statements
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK payment service providers
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

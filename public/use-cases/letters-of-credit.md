@@ -107,7 +107,7 @@ HSBC Bank, a regulated international bank, is authorized by the FCA to issue ver
 
 ```
 ✓ tradefinance.hsbc.co.uk/lc/verify — Issues verified letters of credit
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK trade finance providers
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

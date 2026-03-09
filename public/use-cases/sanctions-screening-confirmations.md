@@ -104,7 +104,7 @@ Authorized financial firms issue sanctions screening confirmations proving they 
 
 ```
 ✓ compliance.example-bank.co.uk/sanctions/verify — Authorized financial firm's compliance office
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK financial crime prevention
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

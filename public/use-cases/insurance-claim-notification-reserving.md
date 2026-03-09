@@ -127,7 +127,7 @@ Lloyd's of London, the world's leading insurance market, is regulated by the FCA
 
 ```
 ✓ reserving.lloyds.com/verify — Issues verified insurance claim notification and reserving records
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

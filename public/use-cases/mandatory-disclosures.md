@@ -428,7 +428,7 @@ Regulated companies disclose material events (breaches, recalls, financial event
 
 ```
 ✓ disclosures.example-corp.co.uk/verify — Issues verified mandatory disclosure records
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK investment firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

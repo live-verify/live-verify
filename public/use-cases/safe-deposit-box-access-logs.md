@@ -112,7 +112,7 @@ Barclays maintains safe deposit boxes and vault access logs and is regulated by 
 
 ```
 ✓ vault.barclays.co.uk/access/verify — Bank vault operator maintaining access logs and security
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK banks and deposit-takers
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

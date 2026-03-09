@@ -108,7 +108,7 @@ Travelers and surety companies issue bonds and performance guarantees and are re
 
 ```
 ✓ surety.travelers.com/verify — Surety company issuing construction and performance bonds
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK surety and bond providers
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

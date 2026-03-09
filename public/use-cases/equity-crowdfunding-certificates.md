@@ -110,7 +110,7 @@ Crowdcube issues equity crowdfunding investment certificates for UK startups.
 
 ```
 ✓ shares.crowdcube.com/verify — Issues equity crowdfunding investment certificates
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK investment firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

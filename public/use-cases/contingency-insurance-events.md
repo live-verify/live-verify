@@ -115,7 +115,7 @@ Lloyd's of London underwrites contingency and event cancellation insurance globa
 
 ```
 ✓ contingency.lloyds.com/verify — Underwrites contingency and event cancellation insurance
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

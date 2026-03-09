@@ -215,7 +215,7 @@ Warehouse operators issue receipts and are regulated by the UK Financial Conduct
 
 ```
 ✓ receipt.example-warehouse.co.uk/verify — Warehouse operator issuing storage receipts and warrants
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK trade finance providers
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

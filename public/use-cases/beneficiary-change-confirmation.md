@@ -108,7 +108,7 @@ Prudential processes beneficiary changes for UK life insurance and pension polic
 
 ```
 ✓ beneficiary.prudential.co.uk/verify — Processes beneficiary changes for life insurance policies
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK life insurance and pensions firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

@@ -118,7 +118,7 @@ Western Union is a licensed money transfer provider regulated by the UK Financia
 
 ```
 ✓ westernunion.com/transfer/verify — Money transfer provider processing cross-border remittances
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK payment service providers
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

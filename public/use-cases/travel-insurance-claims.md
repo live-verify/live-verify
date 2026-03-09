@@ -100,7 +100,7 @@ Travel insurers like Aviva issue claim settlements and are regulated by the UK F
 
 ```
 ✓ claims.aviva.co.uk/travel/verify — Travel insurance provider issuing claim settlements and payouts
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

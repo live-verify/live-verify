@@ -115,7 +115,7 @@ Zurich processes business interruption insurance claims and loss calculations.
 
 ```
 ✓ claims.zurich.co.uk/bi/verify — Processes business interruption insurance claims
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

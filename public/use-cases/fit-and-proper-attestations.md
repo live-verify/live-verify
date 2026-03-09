@@ -99,7 +99,7 @@ Financial firms attest that staff in certified roles remain fit and proper for t
 
 ```
 ✓ smcr.fca.org.uk/verify — Authorized financial firm issuing fit and proper attestation
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK financial services governance
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

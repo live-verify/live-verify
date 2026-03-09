@@ -101,7 +101,7 @@ Crawford & Company issues batch claims reports for catastrophic events and disas
 
 ```
 ✓ cat-claims.crawco.co.uk/verify — Issues batch claims reports for catastrophic events
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

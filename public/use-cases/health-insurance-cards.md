@@ -155,7 +155,7 @@ Bupa, a regulated health insurer, is authorized by the FCA to issue verified hea
 
 ```
 ✓ membercard.bupa.co.uk/verify — Issues verified health insurance membership cards
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK life insurance and pensions firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

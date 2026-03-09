@@ -107,7 +107,7 @@ Zurich underwrites construction site and builders risk insurance for UK projects
 
 ```
 ✓ buildersrisk.zurich.co.uk/verify — Underwrites construction site and builders risk insurance
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

@@ -112,7 +112,7 @@ The Motor Insurer's Bureau (MIB), regulated by the FCA, issues verified internat
 
 ```
 ✓ greencard.mib.org.uk/verify — Issues international motor insurance green cards
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

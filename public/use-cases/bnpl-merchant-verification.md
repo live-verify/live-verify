@@ -95,7 +95,7 @@ Klarna verifies merchants for buy-now-pay-later transactions and financial servi
 
 ```
 ✓ merchant.klarna.com/verify — Verifies merchants for buy-now-pay-later transactions
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK consumer credit firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

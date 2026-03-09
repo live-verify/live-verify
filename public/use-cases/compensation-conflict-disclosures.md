@@ -338,7 +338,7 @@ Example Advisors issues conflict of interest disclosures for UK financial adviso
 
 ```
 ✓ disclosures.example-advisors.co.uk/verify — Issues conflict of interest disclosures for advisors
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK investment firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

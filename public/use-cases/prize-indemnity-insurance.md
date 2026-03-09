@@ -100,7 +100,7 @@ SportsCover issues prize indemnity insurance and is regulated by the UK Financia
 
 ```
 ✓ prize.sportscover.com/verify — Prize and contingency specialist insurer
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

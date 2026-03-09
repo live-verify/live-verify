@@ -112,7 +112,7 @@ Barclays Bank, a regulated financial institution, is authorized by the FCA to is
 
 ```
 ✓ openbanking.barclays.co.uk/consent/verify — Issues verified open banking consent records
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK banks and deposit-takers
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

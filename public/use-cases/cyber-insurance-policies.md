@@ -113,7 +113,7 @@ Beazley underwrites cyber liability and data breach insurance for global enterpr
 
 ```
 ✓ cyber.beazley.com/verify — Underwrites cyber liability and data breach insurance
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

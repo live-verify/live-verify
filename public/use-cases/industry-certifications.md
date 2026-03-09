@@ -99,7 +99,7 @@ Accredited bodies issue professional certifications validated against ISO/IEC 17
 
 ```
 ✓ certifications.comptia.org — Issues industry-recognized professional certifications
-  ✓ ukas.com — Accredits UK testing, calibration, and inspection bodies
+  ✓ ukas.com — Accredits UK inspection bodies
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

@@ -120,7 +120,7 @@ Regulated financial institutions maintain verified PEP declarations under FCA ov
 
 ```
 ✓ compliance.example-bank.co.uk/pep/verify — Issues verified PEP declarations
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK financial crime prevention
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

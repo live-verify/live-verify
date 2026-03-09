@@ -101,7 +101,7 @@ Atrium Underwriters issues satellite and space insurance policies and is regulat
 
 ```
 ✓ satellite.atrium-uw.com/verify — Speciality space and satellite insurer
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

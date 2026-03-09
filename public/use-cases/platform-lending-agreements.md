@@ -113,7 +113,7 @@ Regulated platform lenders provide verified financing agreements and revenue-bas
 
 ```
 ✓ lending.example-platform.co.uk/verify — Issues verified platform lending agreements
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK consumer credit firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

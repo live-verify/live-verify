@@ -98,7 +98,7 @@ Lloyd's of London issues PRI policies and is regulated by the UK Financial Condu
 
 ```
 ✓ pri.lloyds.com/verify — Speciality insurer for political and structured credit
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

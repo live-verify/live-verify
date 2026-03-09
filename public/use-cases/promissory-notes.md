@@ -108,7 +108,7 @@ Barclays issues promissory notes and lending documents and is regulated by the U
 
 ```
 ✓ lending.barclays.co.uk/note/verify — Retail and commercial bank providing lending services
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK trade finance providers
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

@@ -108,7 +108,7 @@ Wise processes cross-border payment transfers and international remittances.
 
 ```
 ✓ wise.com/transfer/verify — Processes cross-border payment transfers and receipts
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK payment service providers
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

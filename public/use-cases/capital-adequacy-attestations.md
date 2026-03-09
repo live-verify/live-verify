@@ -115,7 +115,7 @@ Barclays issues capital adequacy compliance attestations for UK banking regulati
 
 ```
 ✓ compliance.barclays.co.uk/capital/verify — Issues capital adequacy compliance attestations
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK financial services governance
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

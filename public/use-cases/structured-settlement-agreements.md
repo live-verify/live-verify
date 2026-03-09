@@ -103,7 +103,7 @@ Life insurance companies issue structured settlement annuity contracts and are r
 
 ```
 ✓ settlement.jmfin.com/verify — Life insurance company issuing structured settlement annuities
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK life insurance and pensions firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

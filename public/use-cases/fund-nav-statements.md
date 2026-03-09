@@ -123,7 +123,7 @@ Vanguard UK, a regulated investment manager, is authorized by the FCA to issue v
 
 ```
 ✓ statements.vanguard.co.uk/verify — Issues verified fund net asset value statements
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK investment firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

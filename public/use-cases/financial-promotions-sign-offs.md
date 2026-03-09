@@ -127,7 +127,7 @@ Authorized financial firms issue compliance sign-offs confirming that marketing 
 
 ```
 ✓ compliance.example-bank.co.uk/s21/verify — Authorized financial firm's compliance office
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK financial services governance
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

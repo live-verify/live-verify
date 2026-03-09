@@ -106,7 +106,7 @@ Agricultural testing labs analyze soil composition and issue reports for nutrien
 
 ```
 ✓ soil.example-lab.co.uk — Tests soil nutrient levels and environmental properties
-  ✓ ukas.com — Accredits UK testing, calibration, and inspection bodies
+  ✓ ukas.com — Accredits UK testing laboratories
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

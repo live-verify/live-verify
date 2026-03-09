@@ -114,7 +114,7 @@ Aviva underwrites commercial auto fleet insurance for UK businesses.
 
 ```
 ✓ fleet.aviva.co.uk/verify — Underwrites commercial auto fleet insurance
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

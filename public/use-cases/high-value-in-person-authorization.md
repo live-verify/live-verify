@@ -104,7 +104,7 @@ Barclays Bank, a regulated financial institution, is authorized by the FCA to is
 
 ```
 ✓ branch.barclays.co.uk/authorize/verify — Issues verified in-person transaction authorization tokens
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK financial crime prevention
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

@@ -104,7 +104,7 @@ Euler Hermes and trade credit insurers issue trade credit insurance policies and
 
 ```
 ✓ tradecredit.eulerhermes.co.uk/verify — Trade credit insurer issuing credit limit approvals
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

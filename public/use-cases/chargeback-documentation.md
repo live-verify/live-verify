@@ -104,7 +104,7 @@ Visa processes payment chargeback disputes and documentation for card networks.
 
 ```
 ✓ disputes.visa.com/verify — Processes payment chargeback disputes and documentation
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK payment service providers
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

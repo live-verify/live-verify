@@ -110,7 +110,7 @@ The UK P&I Club, a mutual insurance association, is regulated by the FCA and iss
 
 ```
 ✓ fdd.ukpandi.com/verify — Issues freight, demurrage & defense insurance certificates
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

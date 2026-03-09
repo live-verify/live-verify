@@ -111,7 +111,7 @@ The TT Club, a mutual insurer specializing in logistics, is regulated by the FCA
 
 ```
 ✓ ff-insurance.ttin.co.uk/verify — Issues freight forwarder liability insurance certificates
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK general insurance firms
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 

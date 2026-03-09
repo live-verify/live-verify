@@ -119,7 +119,7 @@ HSBC and other transaction banks issue wire transfer confirmations and are regul
 
 ```
 ✓ swift.hsbc.co.uk/transfer/verify — Bank issuing SWIFT and wire transfer confirmations
-  ✓ fca.org.uk/register — Regulates UK financial services firms
+  ✓ fca.org.uk/register — Regulates UK payment service providers
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 
