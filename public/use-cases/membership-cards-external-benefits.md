@@ -189,7 +189,7 @@ University clubs, business clubs with reciprocal networks (e.g., the University 
   </div>
 </div>
 
-**Examples:** IBEW, UA (Plumbers & Pipefitters), Carpenters, Ironworkers, SAG-AFTRA, IATSE, Teamsters
+**Examples:** IBEW, UA (Plumbers & Pipefitters), Carpenters, Ironworkers, SAG-AFTRA, IATSE, Teamsters, Equity (UK actors/performers), Musicians' Union (UK), BECTU (UK broadcasting/entertainment), Actors' Equity Association (US stage), MEAA (Australia)
 
 ### Data Verified
 **Member Name**, **Card/Book Number**, **Local Union**, **Trade Classification** (Journeyman, Apprentice, Foreman), **Dues-Paid Status**, **Certifications** (welding certs, OSHA cards linked).

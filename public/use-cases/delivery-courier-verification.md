@@ -292,6 +292,73 @@ The delivery driver (second party) may hand the verified credential to various t
 
 **Why Live Verify wins here:** The "Doorman Dilemma." In a large apartment building, the doorman doesn't know which of the 500 residents ordered an Amazon package. They cannot see the resident's private app notification. Live Verify turns the **Driver's Badge** into a public-facing trust bridge, allowing the doorman to verify the driver independently.
 
+## Food Delivery Drivers
+
+Food delivery is a distinct variant of courier verification. The parcel courier leaves a
+box on a porch; the food delivery driver hands you an open bag of food at your door,
+often late at night. The trust requirements are different.
+
+**Why it's higher-risk than parcel delivery:**
+- **Direct handoff.** The customer opens the door and takes food from a stranger's hands — no "leave at door" option for hot meals.
+- **Home address + ordering pattern.** The driver knows what you eat, when you're home, and that you just spent money. This is richer personal data than "a box arrived."
+- **Late night / solo recipients.** A significant share of food deliveries happen after dark to people alone at home.
+- **No uniform.** Parcel couriers at least wear branded uniforms. Food delivery drivers use their own clothes and cars — there is nothing visual to authenticate.
+- **Platform distance.** DoorDash, Deliveroo, and Uber Eats classify drivers as independent contractors, creating less institutional accountability than FedEx or UPS employees.
+
+**The verification scenario:**
+
+A customer orders food. The app says "Your driver is Priya." A person arrives at the
+door. Is this actually Priya? Today the customer's only check is comparing a small
+thumbnail photo in the app (which may be outdated or belong to someone else's account)
+with the person standing on the doorstep.
+
+With Live Verify, the driver shows a badge (phone screen or printed card) with:
+
+<div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #e21236; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
+  <div style="background: #e21236; color: #fff; padding: 12px 15px; display: flex; align-items: center;">
+    <div style="font-weight: bold; font-size: 1.3em; margin-right: 10px;">DoorDash</div>
+    <div style="font-size: 0.75em; opacity: 0.9; border-left: 1px solid rgba(255,255,255,0.4); padding-left: 10px;">Delivery Partner<br>Active Dasher</div>
+  </div>
+  <div style="padding: 15px; display: flex;">
+    <div style="width: 80px; margin-right: 15px;">
+      <div style="width: 80px; height: 100px; background: #eee; border: 1px solid #ccc; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #777; font-size: 0.65em;">[PHOTO]</div>
+    </div>
+    <div style="flex-grow: 1; color: #000; font-size: 0.9em; line-height: 1.6;">
+      <div style="font-weight: bold; font-size: 1.1em;">Priya K 88214</div>
+      <div>Region: Brooklyn, NY</div>
+      <div>Salt: 4r8n2w6j</div>
+      <div style="font-family: 'Courier New', monospace; font-size: 0.9em; margin-top: 4px;">vfy:dasher.doordash.com</div>
+    </div>
+  </div>
+</div>
+
+The customer scans and sees a green "Active Dasher" confirmation from `doordash.com` with
+a photo match — not a thumbnail controlled by the driver, but a photo hash verified
+against the platform's domain.
+
+**Account sharing / multi-apping fraud:**
+
+A known problem in food delivery: drivers share accounts with unvetted friends or family
+members. Person A passes the background check; Person B (who might not pass) delivers
+under Person A's account. The platform's in-app photo check is easily defeated by showing
+a screenshot. A verified badge with a rotating salt and photo hash is much harder to share
+because the salt changes and the photo must match.
+
+**Food safety angle:**
+
+Some jurisdictions require food handlers to hold a valid food safety certificate. The
+badge payload could include a linked hash for the driver's food handling certification,
+letting the customer verify not just "this is a real driver" but "this driver has a valid
+food safety credential" — relevant for allergy-sensitive or immunocompromised recipients.
+
+**Platforms:**
+- DoorDash / Dasher
+- Uber Eats
+- Deliveroo
+- Grubhub
+- Just Eat / Menulog
+- Instacart / Gopuff (grocery delivery — same trust model)
+
 ## Related E-Ink Scenarios
 
 See [E-Ink ID Cards](../e-ink-id-cards.md) for the full list of use cases sharing this pattern, including police officers, healthcare staff, hotel staff, residential building maintenance, and event venue crews.

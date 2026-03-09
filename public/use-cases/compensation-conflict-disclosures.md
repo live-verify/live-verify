@@ -5,8 +5,8 @@ volume: "Medium-Large"
 retention: "7 years (regulatory), permanent (litigation)"
 slug: "compensation-conflict-disclosures"
 verificationMode: "clip"
-tags: ["conflict-of-interest", "fiduciary", "commission", "compensation", "disclosure", "fee-only", "kickback", "transparency", "attestation"]
-furtherDerivations: 0
+tags: ["conflict-of-interest", "fiduciary", "commission", "compensation", "disclosure", "fee-only", "kickback", "transparency", "attestation", "influencer", "ftc-ad", "sponsorship", "esg", "greenwashing", "expert-witness", "board-governance", "lobbying"]
+furtherDerivations: 5
 ---
 
 # Compensation & Conflict-of-Interest Disclosures
@@ -327,6 +327,170 @@ Attestations bind to the issuing registry's domain:
 - `verify:openpaymentscheck.org/confirm/...` — CMS cross-reference
 
 A fake attestation won't hash to the registry. And the registry only issues after verification.
+
+---
+
+## Type 3: Role-Scoped Negative Attestations ("I Have No Conflicts in My Capacity As...")
+
+Types 1 and 2 cover individuals disclosing what they earn or attesting they earn nothing.
+But many conflicts are **role-specific** — a person may legitimately hold investments or
+receive payments that only become conflicts *in a particular capacity*.
+
+<div style="max-width: 600px; margin: 24px auto; font-family: 'Helvetica Neue', sans-serif; border: 1px solid #4a4a8a; background: #fff; padding: 0;">
+  <div style="background: #4a4a8a; color: white; padding: 15px;">
+    <div style="font-size: 1.1em; font-weight: bold;">ROLE-SCOPED CONFLICT ATTESTATION</div>
+    <div style="font-size: 0.85em; margin-top: 5px;">Board of Directors &mdash; Annual Disclosure</div>
+  </div>
+  <div style="padding: 20px; font-size: 0.9em; line-height: 1.7;">
+    <p style="margin: 5px 0;"><strong>Name:</strong> Patricia Okafor</p>
+    <p style="margin: 5px 0;"><strong>Role:</strong> Non-Executive Director, Greenfield Water plc</p>
+    <p style="margin: 5px 0;"><strong>Date:</strong> 1 February 2026</p>
+    <div style="margin: 15px 0; padding: 12px; background: #f5f5ff; border-left: 3px solid #4a4a8a;">
+      <p style="margin: 0;">I, Patricia Okafor, confirm that <strong>in my capacity as
+      Non-Executive Director of Greenfield Water plc</strong>, I have:</p>
+      <p style="margin: 8px 0 0;">1. No financial interest in any supplier, contractor, or
+      service provider to Greenfield Water</p>
+      <p style="margin: 8px 0 0;">2. No family members employed by or holding equity in any
+      entity with which Greenfield Water transacts</p>
+      <p style="margin: 8px 0 0;">3. No consultancy, advisory, or board roles with competitors
+      of Greenfield Water</p>
+      <p style="margin: 8px 0 0;">4. No pending litigation against Greenfield Water or its
+      subsidiaries</p>
+    </div>
+    <p style="font-size: 0.8em; color: #666; margin-top: 15px;">
+      This attestation covers the 12-month period ending 31 January 2027.
+      I undertake to notify the Company Secretary of any material change within 14 days.
+    </p>
+    <div style="margin-top: 15px; border-top: 1px dashed #ccc; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;">
+      verify:governance.greenfieldwater.co.uk/disclosures
+    </div>
+  </div>
+</div>
+
+### Why "In My Capacity As" Matters
+
+Patricia Okafor may own shares in a construction firm. That's fine — unless Greenfield
+Water is about to award a construction contract. The conflict isn't the shareholding
+itself; it's the intersection of the shareholding with her board role. The attestation
+is scoped to the role, not the person's entire financial life.
+
+**Common role-scoped attestations:**
+- **Board directors:** "No conflicts with respect to matters before the board"
+- **Grant reviewers:** "No conflicts with any applicant in this funding round"
+- **Peer reviewers:** "No conflicts with the authors of this manuscript"
+- **Planning committee members:** "No interest in the properties under consideration"
+- **Jury members:** "No prior relationship with the defendant, victim, or counsel"
+- **Exam markers:** "No personal connection to any candidate"
+- **Public procurement evaluators:** "No interest in any bidding entity"
+
+### Status Indications
+- **Current** — Attestation valid for the stated period and role
+- **Recused** — Individual declared a conflict and stepped back from specific decisions
+- **Superseded** — Updated attestation filed (e.g., after acquiring a new interest)
+- **Voided** — Undisclosed conflict discovered; attestation invalidated
+
+---
+
+## Modern Derivations
+
+### Influencer & Creator Sponsorship Disclosures
+
+The FTC (US), ASA/CAP (UK), and equivalent regulators worldwide require that paid
+endorsements are clearly disclosed. "#ad" on an Instagram post is the current mechanism.
+It is trivially faked in both directions:
+
+- **Hiding sponsorship:** Influencer is paid but doesn't disclose, making the endorsement
+  look organic. The FTC has brought enforcement actions but can't monitor every post.
+- **Faking sponsorship:** Smaller influencers add "#ad" or "paid partnership with @brand"
+  to posts that aren't actually sponsored, to make themselves look more commercially
+  successful and attract real deals.
+
+Live Verify solves both directions: the *brand* hashes the sponsorship agreement and the
+influencer includes a verify line. Followers can check "is this really a Nike partnership?"
+against `nike.com`'s domain. And Nike can check "did this person claim our sponsorship
+without a deal?"
+
+<div style="max-width: 500px; margin: 24px auto; font-family: 'Helvetica Neue', sans-serif; border: 1px solid #ddd; background: #fafafa; border-radius: 8px; padding: 0; overflow: hidden;">
+  <div style="padding: 15px; display: flex; align-items: center; border-bottom: 1px solid #eee;">
+    <div style="width: 40px; height: 40px; border-radius: 50%; background: #e0e0e0; margin-right: 12px; display: flex; align-items: center; justify-content: center; font-size: 0.7em; color: #666;">[PFP]</div>
+    <div>
+      <div style="font-weight: bold; font-size: 0.9em;">@fitnesswithkara</div>
+      <div style="font-size: 0.75em; color: #888;">Paid partnership with NovaPro Nutrition</div>
+    </div>
+  </div>
+  <div style="padding: 15px; font-size: 0.9em; line-height: 1.5; color: #333;">
+    Obsessed with the new NovaPro Greens powder. Been using it for 3 months
+    and my energy levels are completely different. Link in bio for 20% off!<br><br>
+    <span style="color: #888;">#ad #sponsored</span>
+  </div>
+  <div style="padding: 10px 15px; border-top: 1px solid #eee; font-family: 'Courier New', monospace; font-size: 0.7em; color: #666; text-align: center;">
+    verify:creators.novapro.com/partnerships
+  </div>
+</div>
+
+**Data Verified:** Creator handle/name, brand name, campaign ID, sponsorship dates,
+compensation type (flat fee, commission, free product), content approval status.
+
+**Status Indications:**
+- **Active Partnership** — Current paid relationship confirmed by the brand
+- **Completed** — Campaign ended; posts remain but no ongoing relationship
+- **Terminated** — Brand ended the partnership (e.g., creator violated terms)
+- **Unrecognised** — Brand has no record of this partnership (possible fake #ad)
+
+**Third-Party Use:**
+- **Followers/consumers:** Verify the endorsement is genuine before trusting a recommendation
+- **Competitor brands:** Check if a creator claiming exclusivity actually has conflicting deals
+- **FTC / ASA investigators:** Verify disclosure compliance at scale without manual review
+- **Talent agencies:** Confirm a creator's claimed sponsorship portfolio is real
+
+### Expert Witness Independence Declarations
+
+Expert witnesses in litigation are paid by one side but must provide genuinely independent
+opinions. Courts and opposing counsel routinely challenge independence. A verified
+declaration from a professional registry adds weight.
+
+**The attestation:**
+- "I have no prior relationship with the instructing party beyond this engagement"
+- "My fee is not contingent on the outcome of the case"
+- "I have not been retained by this party more than N times in the past 5 years"
+
+**Issuer:** The expert's professional body or an independent expert witness registry
+(e.g., National Register of Public Service Interpreters, Expert Witness Institute, RICS
+for valuers).
+
+### ESG & Sustainability Claims
+
+Companies making ESG claims ("carbon neutral by 2030," "100% renewable energy,"
+"conflict-free supply chain") face growing scrutiny. The EU Corporate Sustainability
+Reporting Directive (CSRD) and SEC climate disclosure rules require verifiable data.
+
+A company hashes its sustainability attestation — audited by a third-party verifier —
+and stakeholders can check it against the auditor's domain rather than trusting a
+glossy PDF.
+
+**Issuer:** ESG auditors (KPMG, EY, Bureau Veritas, SGS), sustainability certification
+bodies (B Corp, SBTi, Carbon Trust).
+
+**Third-Party Use:**
+- **Investors:** Verify ESG claims before allocating to "sustainable" funds
+- **Procurement teams:** Confirm supplier sustainability credentials
+- **Regulators:** Spot-check corporate ESG filings
+- **Journalists:** Verify greenwashing claims
+
+### Political Donation & Lobbying Disclosures
+
+Elected officials and candidates claim "I don't take corporate money" or "I'm funded
+entirely by small donors." These claims are technically verifiable via FEC/Electoral
+Commission filings, but nobody reads them.
+
+A verified attestation from the campaign's filing domain makes the claim scannable.
+The hash includes the period, the categories excluded (corporate PACs, lobbyists,
+foreign nationals), and resolves against the official filing domain.
+
+**The fraud vector is familiar:** a candidate claims grassroots funding while a
+Super PAC run by associates spends millions on their behalf. The attestation can only
+cover what the campaign directly controls, but making that boundary explicit and
+verifiable is itself valuable.
 
 ---
 
