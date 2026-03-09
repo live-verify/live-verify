@@ -104,6 +104,21 @@ The supplier (second party) may hand the verified document to various third part
 
 **Privacy Salt:** Required. Dynamic discounting confirmations often contain enumerable values—round dollar amounts ($50K, $100K, $500K), standard discount percentages (1%, 1.5%, 2%), and publicly known buyer-supplier relationships. A competitor could feasibly enumerate combinations to reverse-engineer a supplier's cash flow strategy and discount acceptance thresholds, gaining unfair market intelligence. Salt protects these sensitive financial strategies.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require discounting platforms to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

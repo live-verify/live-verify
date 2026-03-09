@@ -90,6 +90,21 @@ The **Vacationer (Guest)** benefits from verification.
 
 **Privacy Salt:** Essential. Property addresses and guest names are highly sensitive. The hash must be salted to prevent "Tourist Tracking" or "Burglary Mapping" (finding out which homes will be empty).
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Vacation rentals are "High-Emotion, Low-Trust" transactions. By turning the booking summary into a verifiable digital bridge, we protect the traveler's vacation and the host's property from the high cost of manual dispute resolution and fraud.

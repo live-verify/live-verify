@@ -111,6 +111,31 @@ The **Graduate (Alumnus)** benefits from verification.
 **Ministry of Education:** (In countries with a centralized national degree database).
 **Credly / Parchment:** (Digital credential platforms hosting verified hashes).
 
+## Authority Chain
+
+**Patterns:** Regulated, Sovereign
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

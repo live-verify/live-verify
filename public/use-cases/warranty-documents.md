@@ -89,6 +89,21 @@ The **Consumer / Product Owner** benefits from verification.
 
 **Privacy Salt:** Medium. Serial numbers and purchase dates are sensitive for theft tracking and consumer privacy. The hash must be salted to prevent "Serial Harvesting" by thieves.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 Warranties are "Value Protectors." By turning certificates into verifiable digital bridges, we protect the consumer's investment and the manufacturer's brand, ensuring that "Peace of Mind" is backed by cryptographic proof.

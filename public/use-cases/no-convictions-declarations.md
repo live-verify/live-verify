@@ -139,6 +139,21 @@ Some clearances (e.g., FINRA, TSA PreCheck) involve continuous monitoring. The v
 Different clearances check different things. A childcare clearance checks specific offenses related to child welfare. A driving certification checks driving-related offenses. Verified clearances should clearly indicate their scope so verifiers understand what was and wasn't checked.
 
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

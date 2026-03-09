@@ -91,6 +91,31 @@ UK SM&CR is the most developed regime; US has fragmented oversight across FINRA/
 **Revocation visibility:** If certification is revoked mid-year, verification status changes. New employer querying an old attestation sees "Revoked" status — critical for preventing bad actors from moving between firms.
 
 
+## Authority Chain
+
+**Patterns:** Commercial, Personal
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

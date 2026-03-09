@@ -86,6 +86,21 @@ The **Voter (Citizen)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Voter PII and party affiliation are sensitive democratic data. The hash must be salted to prevent "Mass Roster Scraping" or political targeting by bad actors.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Voter registration is the "Trust Link" of democracy. By turning registration cards into verifiable digital bridges, we ensure that "One Person, One Vote" is backed by cryptographic proof, protecting the integrity of the ballot box and building public trust in elections.

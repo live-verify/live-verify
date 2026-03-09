@@ -122,15 +122,24 @@ International scholarship programs requiring equivalency — Fulbright, Chevenin
 - UK NARIC / ENIC-NARIC (European Network of Information Centres)
 - Country-specific evaluation bodies (IQAS in Alberta, WES Canada, ICAS in Ontario)
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Privacy Salt
 
 Moderate. Education credentials are semi-public — people list degrees on CVs, mention their alma mater in conversation, display diplomas on walls. But the equivalency determination can be sensitive. Being told your degree is worth less than you expected is a private matter, not something you want enumerable by anyone with a hash dictionary. Salt prevents enumeration of who has had their credentials evaluated and what the outcomes were.
-
-## Authority Chain
-
-Evaluation agency (WES, ECE) → accrediting body (NACES, AICE in the US; NARIC in the UK/EU) → education ministry / statute.
-
-The authority chain is critical here because fake evaluation agencies exist. A report from `globalcredentials-eval.com` with no accreditation chain is a red flag. A report from `wes.org` with accreditation attested by NACES is trustworthy. The domain in the `verify:` line points to the evaluation agency; the authority chain from that agency leads to NACES or AICE; and NACES/AICE membership is publicly verifiable. If the chain breaks at any point — the agency isn't accredited, or the accrediting body doesn't recognize them — the evaluation is suspect.
 
 ## Competition vs. Existing Verification
 

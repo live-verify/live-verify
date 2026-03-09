@@ -120,6 +120,31 @@ The **Building Owner / Industrial Operator** benefits from verification.
 
 **Privacy Salt:** Low. Environmental ratings are generally public safety information. However, individual auditor IDs should be salted to protect professional privacy.
 
+## Authority Chain
+
+**Patterns:** Personal, Sovereign
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Environmental safety is about "Vicinity Trust." By turning static certificates into live digital bridges, we empower the community to verify the invisible impacts of the buildings and factories they live near.

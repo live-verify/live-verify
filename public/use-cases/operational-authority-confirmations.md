@@ -164,6 +164,21 @@ When a vendor is told "you've been selected," or a customer is promised an SLA, 
 
 **Integration with operational systems:** Project management systems require authority verification before budget release. Vendor management systems check authority before adding new vendors. CRM validates SLA commitments against authority limits.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## See Also
 
 Other delegated authority confirmations:

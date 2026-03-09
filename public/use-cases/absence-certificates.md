@@ -181,6 +181,21 @@ Certificates specify exactly what was searched:
 
 Verification confirms the scope, not an absolute universal claim.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Novel Applications
 
 **Continuous Absence Monitoring**

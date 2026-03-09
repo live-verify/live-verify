@@ -124,6 +124,21 @@ The **Manufacturer / Processor** benefits from verification.
 **Certification Bodies:** (SCS Global, NSF International).
 **National Agriculture Depts:** (USDA, EU Commissions).
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

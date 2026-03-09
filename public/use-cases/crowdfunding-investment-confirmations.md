@@ -99,6 +99,31 @@ The **Backer / Investor** benefits from verification.
 
 **Privacy Salt:** Critical. Pledges can reveal personal interests and political affiliations. The hash must be salted to prevent "Guessing" names of backers for controversial projects.
 
+## Authority Chain
+
+**Patterns:** Commercial, Personal
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

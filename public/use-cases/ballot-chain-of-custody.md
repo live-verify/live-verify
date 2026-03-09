@@ -104,6 +104,21 @@ In an election contest, verified custody forms provide a cryptographically solid
 
 **Privacy Salt:** Required. Ballot transfer forms contain enumerable values—predictable precinct numbers, sequential container IDs, standard seal number formats, and round ballot counts. A malicious actor could feasibly enumerate combinations to monitor or reverse-engineer ballot movement patterns across a jurisdiction. Salt protects the integrity and privacy of election logistics.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require county election departments to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

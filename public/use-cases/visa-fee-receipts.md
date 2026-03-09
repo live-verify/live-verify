@@ -95,6 +95,31 @@ The **Visa Applicant** benefits from verification.
 
 **Privacy Salt:** Critical. Passport numbers and payment times are private. The hash must be salted to prevent "Passport Harvesting" by data scrapers.
 
+## Authority Chain
+
+**Patterns:** Regulated, Sovereign
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Visa fees are the "Front Door" of international travel. By turning receipts into verifiable digital bridges, we protect the public from predatory agents and ensure that "Permission to Apply" is based on the digital truth of the ledger, not the creative editing of a scammer.

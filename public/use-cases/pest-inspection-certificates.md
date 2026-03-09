@@ -114,6 +114,31 @@ The **Home Seller / Real Estate Agent** benefits from verification.
 
 **Privacy Salt:** Essential. Specific property defect details and home addresses are sensitive. The hash must be salted to prevent "Neighborhood Blight Mapping" by data brokers or speculators.
 
+## Authority Chain
+
+**Patterns:** Regulated, Sovereign
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Pest inspection is the "Structural Integrity" audit of a home. By turning static reports into verifiable digital bridges, we protect the buyer's investment and the lender's collateral, ensuring that "Clear" really means "No Bugs."

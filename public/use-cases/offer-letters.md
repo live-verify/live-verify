@@ -139,27 +139,24 @@ New account opening in a new city or country. KYC requirements include proof of 
 
 **Offer mills** — Services that produce fake offer letters, similar to diploma mills. Entire businesses exist to fabricate employment offers for visa applicants. The authority chain breaks this model: an offer mill's domain cannot produce a valid HMRC/IRS registration.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Privacy Salt
 
 High sensitivity. Salary information is private. The hash MUST be salted to prevent enumeration attacks. Without a salt, an attacker who knows the employer's endpoint and a candidate's name could brute-force the salary by hashing different amounts until one matches. The salt ensures that only someone holding the original document can produce the correct hash.
-
-## Authority Chain
-
-The authority chain for offer letters follows the same pattern as [Proof of Employment](view.html?doc=proof-of-employment):
-
-**Employer domain → tax authority (HMRC/IRS) → statute.**
-
-The employer is attesting to a *future* employment relationship — a commitment to hire. The secondary verification confirms the employer is a legitimate, registered entity authorized to employ people. The chain terminates at the statutory root (the tax authority's enabling legislation).
-
-```
-HTTP/1.1 200 OK
-X-Verify-Status: ACTIVE
-X-Verify-Authority-For: employment-offer-attestation
-X-Verify-Authority-Attested-By: https://employers.hmrc.gov.uk/v/{hash}
-X-Verify-Authority-Scope: paye-registered-employer
-```
-
-See [Verification Response Format: Authority Chains](../../docs/Verification-Response-Format.md#authority-chain-verification) for the full specification.
 
 ## Competition
 

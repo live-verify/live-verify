@@ -87,6 +87,21 @@ To solve the "Phone/SMS" problem, the DVLA site provides a URL-encoded link:
 `https://service.gov.uk/v#t=SHARE%20CODE%3AaB123dEf%0ADriver%3A****7766%0Averify%3Aservice.gov.uk/v`
 The recipient taps the link, and the browser/app handles the hashing and verification silently, displaying the **Correct Plain-Text Code** once verified.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 The UK "Share Licence" service is a high-volume, high-friction ritual. By turning these ephemeral codes into verifiable digital bridges, we eliminate the "Dictation Gap" and ensure that hire cars and repairs are processed without case-sensitive frustration.

@@ -111,6 +111,21 @@ The tenant (second party) may hand the verified document to various third partie
 
 **Privacy Salt:** Not required. Rental lease agreements contain many unpredictable variables that combine to create high entropy: unique agreement IDs, tenant names, specific property addresses including unit numbers, exact monthly rent amounts (including cents), security deposit amounts, and specific start/end dates. The combination of these unique identifiers makes brute-force enumeration infeasible without salt.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require property managers and landlord platforms to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

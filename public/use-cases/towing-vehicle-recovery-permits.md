@@ -106,6 +106,21 @@ The **Vehicle Owner / Driver** benefits from verification.
 
 **Privacy Salt:** Essential. Driver names and truck locations are private employment data. The hash must be salted to prevent "Mass Fleet Scraping" by predatory competitors.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Towing is a "Coercive Service." By turning static cards into live digital bridges, we ensure that "Authority to Seize" is backed by the cryptographic truth of the city vault, protecting citizens from theft and the legitimate industry from bandit competition.

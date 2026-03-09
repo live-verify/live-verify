@@ -101,6 +101,21 @@ The **Property Seller / Owner** benefits from verification.
 **Accredited Laboratories:** (Handling the Phase II soil/water samples).
 **Insurance Carriers:** (Who underwrite the pollution liability).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

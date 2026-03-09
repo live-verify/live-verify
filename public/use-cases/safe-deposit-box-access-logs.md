@@ -104,6 +104,41 @@ During a money laundering investigation, police receive verified access logs sho
 
 **Privacy Salt:** Required. Vault access is extremely private. While each log contains unique combinations of precise timestamps, box numbers, officer IDs, and customer names that provide significant entropy, the sensitive nature of this data—and the risk that bad actors could track high-net-worth individuals' vault visit patterns—means salt is essential. Salt prevents "box number harvesting" and protects customers from being targeted based on their vault access frequency.
 
+## Authority Chain
+
+**Patterns:** Personal, Regulated, Sovereign
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require banks offering safe deposit boxes to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

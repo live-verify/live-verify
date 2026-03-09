@@ -91,6 +91,41 @@ The **Renter (Customer)** benefits from verification.
 
 **Privacy Salt:** Essential. Renter names and locations are sensitive travel data. The hash must be salted to prevent "Customer Tracking" by data brokers.
 
+## Authority Chain
+
+**Patterns:** Commercial, Personal, Sovereign
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Rental documentation is the "History of Condition." By turning agreements into verifiable digital bridges, we protect the consumer's wallet and the company's fleet, ensuring that "Responsibility for the Asset" is backed by cryptographic proof.

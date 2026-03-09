@@ -217,6 +217,21 @@ Individual predictions compose into track records:
 - Calibration curves
 - Comparison to baseline (random, consensus)
 
+## Authority Chain
+
+**Pattern:** Personal
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+
 ## Novel Applications
 
 **Forecaster Markets**

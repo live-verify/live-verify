@@ -303,6 +303,21 @@ In fiduciary breach cases, verified disclosures (or their absence) become eviden
 
 ## Verification Architecture
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ### The Fraud Vectors
 
 - **Hidden Commissions:** Receiving payments through family members, shell companies, or deferred arrangements

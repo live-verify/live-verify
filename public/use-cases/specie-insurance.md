@@ -94,6 +94,31 @@ The **Collector / Museum Director** benefits from verification.
 
 **Privacy Salt:** Highly Critical. High-value asset locations and routes are the most sensitive data in the world. The hash must be salted and access restricted to pre-authorized logistics IPs.
 
+## Authority Chain
+
+**Patterns:** Commercial, Regulated
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Rationale
 
 Specie insurance is the "Trust of the Treasure." By turning specialty certificates into verifiable digital bridges, we protect the world's heritage and wealth from the high-stakes risk of documentary deception.

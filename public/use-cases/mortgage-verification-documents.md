@@ -100,6 +100,21 @@ The borrower / employee (second party) may hand the verified document to various
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. Salary and employment status are highly sensitive. The hash MUST be salted to prevent "Guess-and-Check" searches for high-earning employees. Even though documents contain unique employee IDs and names, salary amounts and job titles are often enumerable (common salary bands like $50k, $75k, $100k, $145k combined with standard titles), making brute-force attacks feasible without salt.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require employers and payroll processors to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

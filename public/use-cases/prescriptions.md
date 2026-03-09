@@ -122,13 +122,34 @@ Verifying prescriptions for residents. Care homes administer medication daily to
 - **International prescription fraud:** Forged prescriptions from overseas doctors. Particularly dangerous because the receiving country has no practical way to verify a foreign prescriber.
 - **The "FILLED" status is critical:** It prevents a single prescription from being presented to multiple pharmacies. Once dispensed, the status changes. This is the single most important fraud-prevention feature — turning a reusable piece of paper into a one-time token.
 
+## Authority Chain
+
+**Patterns:** Personal, Regulated
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Privacy Salt
 
 Critical. Medical prescriptions are among the most sensitive documents in existence. The medication name alone reveals health conditions — antipsychotics reveal mental illness, antiretrovirals reveal HIV status, methadone reveals opioid dependency. Salt is essential to prevent enumeration attacks. Without salt, an attacker who knows a patient's name could hash common medication combinations and check them against the endpoint, effectively building a medical profile without ever seeing the prescription. The salt makes this computationally infeasible.
-
-## Authority Chain
-
-Prescriber's practice domain (e.g., `elmstreetmedical.nhs.uk`) &rarr; medical licensing body (GMC in UK, state medical board in US) &rarr; statute (Medical Act 1983 in UK, state medical practice acts in US). For controlled substances: additional chain through DEA registration (US) or Home Office licensing (UK). See [Authority Chain Specification](/specs/authority-chain) for the full protocol.
 
 ## Competition
 

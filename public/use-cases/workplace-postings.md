@@ -80,6 +80,21 @@ Live Verify allows an employee to scan the poster to verify: **"Is this the curr
 **State Departments of Labor.**
 **Municipal Labor Standards Offices.**
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 Workplace postings are the "Bill of Rights" for the breakroom. By turning them into verifiable digital bridges, we ensure that employees are informed by the digital truth of the law, not the creative editing of a manager.

@@ -106,6 +106,21 @@ The **Permittee (Developer / Researcher)** benefits from verification.
 
 **Privacy Salt:** Critical. Permit locations can pinpoint rare species locations, attracting illegal poachers. The hash must be salted to prevent "Species Mapping" attacks.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

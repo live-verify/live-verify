@@ -626,3 +626,17 @@ The attestation examples shown here (photos, sign-offs, hash verification) are t
 - `home-inspection-reports.md` - Pre-purchase inspections
 - `construction-lien-waivers.md` - Payment/lien documentation
 - `warranty-documents.md` - Warranty registration and claims
+
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |

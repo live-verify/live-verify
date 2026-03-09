@@ -105,6 +105,21 @@ The merchant submits verified agreements as part of a regulatory complaint about
 
 **Privacy Salt:** Required. Unlike documents with many unpredictable variables, platform lending agreements contain enumerable values—round dollar amounts, standard percentage tiers (5%, 10%, 15%), and publicly known merchant storefronts. A competitor could feasibly enumerate combinations to reverse-engineer a rival's debt position and gain unfair market intelligence. Salt protects these trade secrets.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require platforms offering merchant financing to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

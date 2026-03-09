@@ -92,6 +92,31 @@ The **Winner / Participant** benefits from verification.
 
 **Privacy Salt:** Low to Medium. While event names are public, the specific payout terms and premium costs are sensitive business data.
 
+## Authority Chain
+
+**Patterns:** Commercial, Regulated
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Rationale
 
 Prize indemnity is the "Trust of the Big Win." By turning certificates into verifiable digital bridges, we ensure that "Once-in-a-Lifetime" moments are backed by cryptographic certainty, protecting the winner's life-changing event from corporate deception.

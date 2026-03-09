@@ -153,6 +153,21 @@ This is faster than text selection and provides the critical photo-matching step
 
 **Privacy Salt:** Critical. Child names + school names are highly sensitive. Hash must be salted to prevent enumeration attacks ("Which children attend Lincoln Elementary?").
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

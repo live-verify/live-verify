@@ -89,6 +89,31 @@ The **Energy Buyer (Corporation)** benefits from verification.
 
 **Privacy Salt:** Essential. Specific trade volumes and prices are sensitive business data. The hash must be salted to prevent "Market-Volume Mapping" by competitors.
 
+## Authority Chain
+
+**Patterns:** Commercial, Sovereign
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 RECs are the "Digital Integrity" of the green economy. By turning static certificates into verifiable digital bridges, we protect the multibilion-dollar transition to clean power and ensure that "100% Green" is a cryptographic fact, not a marketing gimmick.

@@ -96,6 +96,21 @@ US OFAC applies extraterritorially — even non-US firms processing USD transact
 
 **Rescreening visibility:** When a party is re-screened, previous confirmations remain valid but show "Superseded" — the audit trail is preserved. If a re-screening reveals a match, the timeline is clear.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## The False Positive Problem
 
 Most "matches" are false positives — common names, similar spellings. The confirmation should document:

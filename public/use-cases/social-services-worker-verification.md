@@ -100,6 +100,21 @@ The **Family / Citizen** benefits from verification.
 
 **Privacy Salt:** Critical. Caseworker names and routes are highly sensitive. The hash must be salted to prevent "Caseload Scraping" or tracking the movements of individual employees.
 
+## Authority Chain
+
+**Pattern:** Personal
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+
 ## Rationale
 
 Social services verification is about "Safety for the Vulnerable." By allowing families to instantly cross-reference a physical badge with a digital government record, we eliminate the primary weapon of predators: the fear of state authority.

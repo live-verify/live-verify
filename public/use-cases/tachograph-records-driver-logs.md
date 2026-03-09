@@ -96,6 +96,31 @@ The **Driver / Fleet Manager** benefits from verification.
 
 **Privacy Salt:** Critical. Driver locations and work schedules are highly sensitive. The hash must be salted to prevent "Driver Stalking" or competitor analysis of carrier routes.
 
+## Authority Chain
+
+**Patterns:** Commercial, Sovereign
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Hours of Service compliance is the "Safety Foundation" of the trucking industry. By turning logs into verifiable digital bridges, we ensure that the "Truth of the Road" is backed by cryptographic proof, protecting both drivers from exploitation and the public from fatigued driving.

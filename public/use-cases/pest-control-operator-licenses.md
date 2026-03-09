@@ -106,6 +106,21 @@ The **Technician (Practitioner)** benefits from verification.
 
 **Privacy Salt:** Critical. Technician names and home addresses are sensitive. The hash must be salted to prevent "Mass Roster Scraping" by predatory marketers or data brokers.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Pest control is a "Toxic Trust" domain. By turning static badges into live digital bridges, we protect the safety of homes and the health of the food supply, ensuring that those who handle poisons are held to the digital truth of the state record.

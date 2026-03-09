@@ -103,6 +103,21 @@ The traveler (second party) may hand the verified document to various third part
 
 **Privacy Salt:** Not required. OTA booking confirmations contain many unpredictable variables that combine to create high entropy: unique confirmation numbers (typically 8-10 alphanumeric characters), guest names, specific check-in/check-out dates, individual hotel properties, and exact price amounts (including cents/decimals and currency conversions). The combination of these unique identifiers makes brute-force enumeration infeasible without salt.
 
+## Authority Chain
+
+**Pattern:** Personal
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require OTAs to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

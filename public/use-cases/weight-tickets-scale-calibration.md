@@ -101,6 +101,21 @@ In a crash involving a heavy truck, the insurer receives the last verified weigh
 
 **Privacy Salt:** Required. License plates and high-value cargo weights are private business data. While each ticket contains unique combinations of ticket numbers, precise timestamps (14:32:01), specific weight measurements (78,450 lb gross, 32,100 lb tare), plate numbers, and scale IDs that provide significant entropy, the commercial sensitivity of this data—and the risk that competitors could use enumeration for "traffic mapping" to track commodity flows and undercut pricing—means salt is essential. Salt protects both driver privacy and shipper competitive intelligence.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require certified scale operators to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

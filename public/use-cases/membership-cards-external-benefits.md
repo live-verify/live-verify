@@ -68,6 +68,21 @@ Some auto insurers offer discounts for AAA members (assuming safer drivers). Ver
 
 ---
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Professional Society Memberships
 
 <div style="max-width: 500px; margin: 24px auto; font-family: 'Helvetica Neue', sans-serif; border: 1px solid #00629B; background: #fff; padding: 0; overflow: hidden;">

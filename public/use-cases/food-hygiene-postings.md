@@ -101,6 +101,41 @@ The **Restaurant Owner / Manager** benefits from verification.
 
 **Privacy Salt:** Low. Food hygiene ratings are almost always public record. However, employee IDs for individual food handlers should be salted to protect worker privacy.
 
+## Authority Chain
+
+**Patterns:** Commercial, Personal, Sovereign
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Food safety is a "High-Frequency, Low-Trust" domain. By allowing the public to instantly verify the truth behind the window sticker, we create a powerful incentive for restaurant owners to maintain consistent standards between inspections.

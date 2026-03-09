@@ -106,6 +106,41 @@ The policyholder (second party) may hand the verified document to various third 
 
 **Privacy Salt:** Required. Disability insurance policies contain a mix of enumerable and unique values—round dollar benefit amounts ($5K, $10K, $15K per month), standard occupation classes, and publicly known professions. A competitor or adversary in divorce proceedings could feasibly enumerate combinations to reverse-engineer a professional's income protection strategy. More critically, salt prevents unauthorized parties from discovering someone's disability insurance status, which could be used for discrimination or targeting. Salt protects both financial privacy and personal medical information.
 
+## Authority Chain
+
+**Patterns:** Commercial, Personal, Regulated
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require disability insurers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -93,6 +93,41 @@ The **Employee (Trainee)** benefits from verification.
 
 **Privacy Salt:** Low to Medium. While training status is a professional credential, individual exam scores and employee IDs should be salted to protect worker privacy.
 
+## Authority Chain
+
+**Patterns:** Personal, Regulated, Sovereign
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Training is the "Code of the Workforce." By turning certificates into verifiable digital bridges, we ensure that "Job Readiness" is backed by cryptographic proof, protecting workers from danger and companies from the high cost of un-vetted labor.

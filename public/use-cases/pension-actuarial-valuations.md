@@ -100,6 +100,31 @@ The **Plan Trustees / CFO** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Pension plan asset details and actuarial math are sensitive financial data. The hash must be salted and access restricted to authorized plan participants and regulators.
 
+## Authority Chain
+
+**Patterns:** Commercial, Sovereign
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Pensions are the "Lifetime Promises" of the economy. By turning technical valuations into verifiable digital bridges, we protect the retirement security of millions and ensure that "Solvency" is based on the digital truth of the math, not the creative editing of a trustee.

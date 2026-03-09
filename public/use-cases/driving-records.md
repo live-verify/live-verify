@@ -220,6 +220,21 @@ Driving records are **point-in-time**. Driver could:
 - Self-declarations prove nothing
 - Third-party scrapers are unreliable and may violate terms
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## See Also
 
 - [National/State/Province ID Cards](view.html?slug=national-state-province-id-cards) — Identity verification with photo return

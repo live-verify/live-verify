@@ -93,6 +93,21 @@ The **Manufacturer (The Shop)** benefits from verification.
 
 **Privacy Salt:** Critical. Test parameters and batch volumes are sensitive "Production Secrets." The hash must be salted to prevent competitors from mapping a factory's yield or capacity.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 Quality Control is about "The Last Line of Defense." By turning static test reports into live digital bridges, we create a transparent chain of safety that spans the entire global supply chain.

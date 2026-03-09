@@ -101,6 +101,21 @@ The **Beneficiary** benefits from verification.
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. Social security data is the most sensitive data in the US. The hash MUST be salted to prevent "Mass Mapping" of the population's income by hackers or predatory lenders.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

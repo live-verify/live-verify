@@ -97,6 +97,21 @@ The **Animal Owner / Shipper** benefits from verification.
 
 **Privacy Salt:** Critical. Livestock owner names and farm locations are sensitive. The hash must be salted to prevent "Cattle Rustling" groups from mapping high-value herds.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

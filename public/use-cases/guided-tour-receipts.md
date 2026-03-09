@@ -105,6 +105,21 @@ The traveler (second party) may hand the verified document to various third part
 
 **Privacy Salt:** Not required. Tour vouchers contain many unpredictable variables that combine to create sufficient entropy—booking reference ID (unique alphanumeric), participant name (non-enumerable), specific meeting point addresses, precise date/time combinations, itemized pricing with surcharges, and operator-specific lot numbers. The combination makes reverse-engineering a specific booking computationally infeasible without already knowing the details.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require tour operators to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -148,20 +148,28 @@ The declarations are standardized enough across jurisdictions that the same veri
 
 ## Authority Chain
 
-Offshore registrars derive their authority from domestic legislation, which in turn responds to international frameworks:
+**Patterns:** Personal, Sovereign
 
-```
-DITC (Cayman) → Cayman Islands Government → UK Crown Dependency
-BVI FSC → BVI Government → UK Overseas Territory
-JFSC (Jersey) → States of Jersey → UK Crown Dependency
-Bermuda Registrar → Bermuda Government → UK Overseas Territory
-```
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
 
-For EU member states with substance requirements:
-```
-Revenue Commissioners (Ireland) → Irish Government → EU Member State
-Administration des contributions (Luxembourg) → Luxembourg Government → EU Member State
-```
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
 
 ## Competition
 

@@ -119,6 +119,21 @@ The **Traveler (Guest)** benefits from verification.
 
 **Privacy Salt:** Essential. Traveler names and room numbers are private. The hash must be salted to prevent "Resort Roster Scraping" by competitors or criminals.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 Travel packages are high-value "Soft Assets." By turning them into verifiable digital bridges, we create a "Voucher of Truth" that protects the guest's vacation and the operator's revenue from the high cost of manual verification and fraud.

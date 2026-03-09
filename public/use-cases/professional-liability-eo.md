@@ -105,6 +105,31 @@ The professional firm (second party) may hand the verified document to various t
 
 **Privacy Salt:** Required. Unlike documents with many unpredictable variables, E&O certificates often contain enumerable values—standard coverage limits ($1M, $2M, $5M per claim), common aggregate limits, round deductibles ($10k, $25k, $50k), and predictable retroactive dates (often January 1st of common years). A competitor could feasibly enumerate combinations to reverse-engineer a firm's insurance profile and client risk exposure. Salt protects this competitive intelligence.
 
+## Authority Chain
+
+**Patterns:** Commercial, Regulated
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require insurance carriers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

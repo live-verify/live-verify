@@ -90,6 +90,21 @@ The **Refugee / Asylee (Traveler)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Refugee data is subject to extreme privacy protections due to the risk of "Transnational Repression" by their home countries. The hash must be salted and access restricted to authorized port-of-entry partners.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Refugee travel is "High-Stakes Mobility." By turning travel booklets into verifiable digital bridges, we protect the most vulnerable travelers from administrative errors and ensure that "Freedom of Movement" is backed by cryptographic proof.

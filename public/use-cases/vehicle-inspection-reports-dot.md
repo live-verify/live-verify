@@ -111,6 +111,31 @@ The **Fleet Manager / Owner-Operator** benefits from verification.
 
 **Privacy Salt:** Low. Commercial vehicle safety is mostly public record. However, the inspector's individual license number should be salted to protect professional privacy.
 
+## Authority Chain
+
+**Patterns:** Commercial, Personal
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+
 ## Rationale
 
 Truck safety is a "Life-and-Death" domain. By turning annual reports into verifiable digital bridges, we ensure that the "Chain of Safety" is backed by cryptographic proof, keeping dangerous vehicles off the highway and rewarding safe carriers.

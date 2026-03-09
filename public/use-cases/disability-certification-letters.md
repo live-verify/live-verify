@@ -138,11 +138,38 @@ Disability certification fraud is widespread, corrosive, and directly harms peop
 
 ## Authority Chain
 
-Certifying physician's practice → medical licensing board (state medical board in the US, GMC in the UK, equivalent national bodies elsewhere) → statute (ADA, Equality Act, AODA, etc.).
+**Patterns:** Personal, Regulated, Sovereign
 
-For parking permits specifically: certifying physician → local authority (county, city) → state or national government → statute.
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
 
-The authority chain is what exposes ESA letter mills and other fraudulent certification operations. A "certifying physician" whose license can't be verified through the medical board's chain is a red flag. A physician whose license is from a different state than where they're practicing is a red flag. A physician whose license has been disciplined for issuing fraudulent certifications is a red flag. The chain makes these checks possible — and fast.
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
 
 ## Competition vs. Existing Systems
 

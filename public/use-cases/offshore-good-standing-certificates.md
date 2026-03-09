@@ -127,12 +127,28 @@ When rating structured finance vehicles domiciled offshore, agencies need to con
 
 ## Authority Chain
 
-```
-BVI FSC → BVI Government → UK Overseas Territory
-Cayman General Registry → Cayman Islands Government → UK Crown Dependency
-JFSC → States of Jersey → UK Crown Dependency
-Bermuda Registrar → Bermuda Government → UK Overseas Territory
-```
+**Patterns:** Regulated, Sovereign
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
 
 ## Competition
 

@@ -98,6 +98,31 @@ The **Account Holder (Consumer)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Telephone numbers and account data are the keys to a person's life. The hash MUST be salted to prevent "Mass Phone Mapping" by hackers or marketers.
 
+## Authority Chain
+
+**Patterns:** Commercial, Sovereign
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Number porting is the "Identity Pivot" of the modern world. By turning authorizations into verifiable digital bridges, we protect the consumer's digital life from the multi-billion dollar cost of SIM-Swap fraud and ensure that "Permission to Move" is a cryptographic fact.

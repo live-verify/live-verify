@@ -113,6 +113,21 @@ The **Cruise Passenger** benefits from verification.
 
 **Privacy Salt:** Essential. Cabin numbers and passenger names are private travel data. The hash must be salted to prevent "Passenger Tracking" by data scrapers at the port.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 Shore excursions are high-risk "Off-Ship" events. By turning tickets into verifiable digital bridges, we create a "Shield of Trust" that protects passengers from scams and ensures that operators are held to the safety standards of the cruise brand.

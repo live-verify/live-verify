@@ -103,6 +103,21 @@ The **Local Recipient / Project Witness** benefits from verification.
 
 **Privacy Salt:** Recommended. Project details may be sensitive in certain conflict zones.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 Charity fraud thrives on the "Fog of Aid"—the distance between the donor and the recipient. By turning local witness receipts into verifiable digital bridges, we bring "Last Mile" accountability to the entire philanthropy ecosystem.

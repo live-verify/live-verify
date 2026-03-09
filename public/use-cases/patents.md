@@ -221,6 +221,21 @@ This binds to the exact granted document—specification, claims, and drawings. 
 
 **Integration:** Patent databases (Espacenet, Google Patents) could cross-reference verification endpoints.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Priority Date Timestamping
 
 Patent applications remain secret during examination (typically 18 months). This creates a different problem than verification: proving when an application was filed without revealing its contents.

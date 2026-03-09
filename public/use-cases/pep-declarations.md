@@ -112,6 +112,31 @@ The **Client / Declarant** benefits from verification.
 
 **Privacy Salt:** Highly Critical. PEP status and wealth data are extremely sensitive legal data. The hash must be salted and access restricted to authorized compliance and regulatory IP ranges.
 
+## Authority Chain
+
+**Patterns:** Regulated, Sovereign
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 PEP compliance is the "First Line of Defense" against global corruption. By turning declarations into verifiable digital bridges, we ensure that the "Gatekeepers of Wealth" are held to the digital truth of the disclosure, protecting the financial system from the multi-billion dollar cost of hidden political risk.

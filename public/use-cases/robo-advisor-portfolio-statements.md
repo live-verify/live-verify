@@ -116,6 +116,21 @@ The **Investor (Client)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Investment balances and specific holdings are sensitive financial secrets. The hash must be salted to prevent "Wealth Mapping" of the population by data brokers or hackers.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 Robo-advisors are the "Modern Bank." By turning digital statements into verifiable digital bridges, we protect the stability of the consumer credit market and ensure that "Wealth" is based on the digital truth of the market, not the creative editing of a smartphone user.

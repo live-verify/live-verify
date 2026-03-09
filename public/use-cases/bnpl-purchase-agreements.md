@@ -91,6 +91,31 @@ The borrower (second party) may hand the verified document to various third part
 
 **Privacy Salt:** Not required. BNPL agreements contain many unpredictable variables that combine to create high entropy: unique loan IDs, borrower names, specific merchant names, exact financing amounts (down to the cent), precise dates, and unique APR calculations. The combination of these elements makes it computationally infeasible to reverse-engineer the hash through enumeration, even if some individual fields (like common APR tiers) are predictable.
 
+## Authority Chain
+
+**Patterns:** Personal, Regulated
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require BNPL providers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

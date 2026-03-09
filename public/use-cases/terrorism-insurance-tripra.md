@@ -105,6 +105,41 @@ Large insurers "selling off" terrorism risk to re-insurers provide verified hash
 
 **Privacy Salt:** Required. Building locations and insurance values are sensitive competitive and security data. While each policy contains unique combinations of property addresses, policy numbers, and specific coverage limits ($150M certified, $25M non-certified) that provide some entropy, the strategic importance of this information—and the risk that terrorists or competitors could use enumeration to identify high-value targets or gain market intelligence—means salt is essential. Salt protects both national security interests and commercial confidentiality.
 
+## Authority Chain
+
+**Patterns:** Commercial, Regulated, Sovereign
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require insurance carriers offering TRIPRA coverage to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

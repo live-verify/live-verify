@@ -137,13 +137,24 @@ Nurseries and childcare facilities may require medical clearance before acceptin
 - **Recycled notes:** A genuine note from a previous illness is presented for a current absence, with dates crudely altered.
 - **Complicit providers:** Some walk-in clinics and telemedicine providers issue notes with minimal or no examination. The note is "real" in that a doctor signed it, but the assessment was perfunctory. Live Verify doesn't solve this (the note would verify as genuine), but the authority chain signals whether the issuing practice is recognized by a credible medical body.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Privacy Salt
 
 Recommended but less critical than for prescriptions. Doctor's notes contain the patient's name and absence dates but typically minimal clinical detail. Salt prevents an attacker from hashing known employee names with date ranges to check whether a specific person was signed off sick. For small practices where the patient pool is guessable, salt is important.
-
-## Authority Chain
-
-Medical practice domain (e.g., `riversidefp.nhs.uk`) &rarr; medical licensing body (GMC in UK, state medical board in US) &rarr; statute (Medical Act 1983 in UK, state medical practice acts in US). For NHS Fit Notes specifically: NHS England provides the statutory framework. See [Authority Chain Specification](/specs/authority-chain) for the full protocol.
 
 ## Competition
 

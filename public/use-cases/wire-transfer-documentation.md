@@ -111,6 +111,41 @@ The **Originator (Sender)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Individual wire amounts and beneficiary names are extremely sensitive financial PII. The hash must be salted and access restricted to authorized trading partners.
 
+## Authority Chain
+
+**Patterns:** Personal, Regulated, Sovereign
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Wire transfers are the "Hard Currency" of global trade. By turning static confirmations into verifiable digital bridges, we protect the entire commercial system from the devastating cost of BEC scams and ensure that "Sent" means "Spent" with cryptographic certainty.

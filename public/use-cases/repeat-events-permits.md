@@ -114,6 +114,21 @@ The **Vendor / Farmer** benefits from verification.
 
 **Privacy Salt:** Low. These are public commercial permits. However, individual farmer home addresses should be salted to protect family privacy.
 
+## Authority Chain
+
+**Pattern:** Personal
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+
 ## Rationale
 
 Repeat events are the "Street Life" of the city. By turning static placards into live digital bridges, we ensure that the transparency required for public trust is backed by cryptographic proof, protecting real farmers and the safety of the community.

@@ -96,6 +96,21 @@ The **Immigration Officer** benefits from verification.
 
 **Privacy Salt:** Highly critical. Officer names and photos are high-value targets for harassment. The hash MUST be salted to prevent "Doxxing" attacks where people try to map all agent identities.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

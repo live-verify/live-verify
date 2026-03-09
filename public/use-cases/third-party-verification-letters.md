@@ -104,6 +104,41 @@ The **Applicant (Borrower / Tenant)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Individual income data is protected by strict privacy laws (FCRA). The hash MUST be salted to prevent "Mass Income Scraping" of the workforce.
 
+## Authority Chain
+
+**Patterns:** Personal, Regulated, Sovereign
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Third-party verification is the "Check and Balance" of the financial system. By turning these reports into verifiable digital bridges, we ensure that high-stakes credit decisions are based on the digital truth of payroll, not the creative editing of an applicant.

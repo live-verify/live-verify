@@ -96,6 +96,31 @@ The **Corporate Security Director** benefits from verification.
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. K&R data is the most sensitive data in the insurance industry. The hash MUST be salted to prevent "Guess-and-Check" searches to see which companies have ransom insurance (making them targets for kidnappers).
 
+## Authority Chain
+
+**Patterns:** Commercial, Regulated
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

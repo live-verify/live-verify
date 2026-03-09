@@ -102,6 +102,21 @@ The homeowner / taxpayer (second party) may hand the verified document to variou
 
 **Privacy Salt:** Not required for standard assessments. Property tax assessments contain many unpredictable variables: unique PIN/parcel numbers (typically long alphanumeric strings), owner names, specific property addresses, exact market values (not round numbers), and tax year combinations. While tax values are public record, the combination of these unique identifiers makes brute-force enumeration infeasible without salt. However, individual exemptions (e.g., Disability/Hardship) should use salted hashes to protect sensitive taxpayer privacy.
 
+## Authority Chain
+
+**Pattern:** Personal
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require county assessors to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

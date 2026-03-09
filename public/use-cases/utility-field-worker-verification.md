@@ -135,6 +135,21 @@ The **Homeowner / Resident** benefits from verification.
 
 **Privacy Salt:** Critical. The hash must be salted to prevent competitor reconnaissance or data harvesting of employee rosters.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 Utility worker verification is about "Personal Safety at the Door." By allowing a resident to instantly cross-reference a physical badge with a digital corporate record, it neutralizes the primary weapon of home-invasion scammers: the fake uniform.

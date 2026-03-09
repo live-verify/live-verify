@@ -107,6 +107,21 @@ Auditors verify that "Cancelled Travel" deductions on a corporate tax return are
 
 **Privacy Salt:** Required. Passenger names and booking codes are private. While each cancellation contains unique combinations of booking references (PNRs), passenger names, cancellation timestamps, and specific refund amounts that provide significant entropy, the sensitivity of travel patterns—and the risk that competitors could use enumeration for "cancellation mining" to track operational disruptions (e.g., how many people cancelled during a BA strike)—means salt is essential. Salt protects both passenger privacy and carrier competitive intelligence.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require travel providers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

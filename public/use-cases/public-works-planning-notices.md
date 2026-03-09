@@ -103,6 +103,21 @@ The **Developer / Applicant** benefits from verification.
 
 **Privacy Salt:** Low. These are public notices by definition. However, application IDs should be salted to prevent "Mass Scraping" of a city's development pipeline by speculators.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 Public notices are the "Physical interface of Democracy." By turning static cards into live digital bridges, we ensure that the community's right to participate in the shaping of their environment is protected by the digital truth of the law.

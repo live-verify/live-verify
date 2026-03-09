@@ -366,3 +366,17 @@ For records that must survive generations:
 Witnessing technology will advance far beyond photos and text attestations—continuous soil vapor monitoring, groundwater sensor networks, drone-based thermal imaging for landfill caps, AI analysis of remediation effectiveness. Insurance requirements will drive adoption.
 
 See `construction-trade-witnessing.md` → "Future: Witnessing Technology Evolution" for detailed analysis of the technology trajectory and insurance-legislation feedback loop. The same dynamics apply to environmental remediation: insurers mandate → technology develops → costs drop → requirements increase.
+
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |

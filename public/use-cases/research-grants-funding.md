@@ -104,6 +104,31 @@ The **Researcher (Principal Investigator)** benefits from verification.
 
 **Privacy Salt:** Medium. While award amounts are public record, individual salary allocations within the budget are private. The hash should be salted to protect individual compensation data.
 
+## Authority Chain
+
+**Patterns:** Personal, Regulated
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Rationale
 
 Research funding is the "Engine of Progress." By turning award letters into verifiable digital bridges, we protect the integrity of the scientific record and ensure that funding goes to those who actually earned it.

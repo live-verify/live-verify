@@ -100,6 +100,31 @@ The **Borrower (Maker)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Loan amounts and borrower identities are private financial data. The hash must be salted to prevent "Wealth Mapping" of the population.
 
+## Authority Chain
+
+**Patterns:** Personal, Regulated
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Rationale
 
 Promissory notes are the "Currency of the Credit Market." By turning them into verifiable digital bridges, we ensure that the multi-trillion dollar market for debt is based on the digital truth of the contract, not the creative editing of a PDF.

@@ -106,6 +106,21 @@ The **Named Spouse(s)** benefit from verification.
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. Marital status is highly private. The hash MUST be salted to prevent "Mass Scraping" of a county's marriage history by data brokers or stalkers.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

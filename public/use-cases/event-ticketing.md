@@ -247,6 +247,21 @@ Investigate counterfeit ticket operations. Verified records show which tickets w
 **Artists/Promoters:** (Live Nation, AEG) controlling ticket policies
 **Sports Leagues:** (NFL, Premier League) issuing season tickets
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Privacy Considerations
 
 Photo binding creates privacy implications:

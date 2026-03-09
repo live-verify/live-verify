@@ -94,6 +94,21 @@ Because neo-bank documents are *born digital* (PDFs), they are trivial to edit b
 - **Neo-banks:** (Chime, Current, Varo, Monzo, Revolut, N26, Starling).
 - **Fintech Wallets:** (PayPal, Venmo, Cash App - for balance letters).
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -95,6 +95,31 @@ The **Driver / Fleet Manager** benefits from verification.
 
 **Privacy Salt:** Essential. License plates and travel times are highly sensitive. The hash must be salted to prevent "Stalking" or "Surveillance" of individual drivers.
 
+## Authority Chain
+
+**Patterns:** Commercial, Personal
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+
 ## Rationale
 
 Toll receipts are the "Digital Breadcrumbs" of modern travel. By turning these micro-transactions into verifiable digital bridges, we eliminate the high-volume "Paper Friction" that costs businesses millions in lost time and fraudulent expenses.

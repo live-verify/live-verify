@@ -113,6 +113,51 @@ Schools and employers use verification to filter thousands of vaccine cards, ins
 
 **Privacy Salt:** Required. Vaccination data is Protected Health Information (PHI). While each record contains unique combinations of patient names, dates of birth, specific lot numbers, precise administration dates, and provider IDs that provide very high entropy, the extreme sensitivity of health data—and the risk that bad actors could use enumeration to target individuals based on vaccination status or create "mass health mapping" databases—means salt is absolutely essential. Salt protects both individual medical privacy and prevents discrimination based on immunization status.
 
+## Authority Chain
+
+**Patterns:** Commercial, Personal, Regulated, Sovereign
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require healthcare providers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

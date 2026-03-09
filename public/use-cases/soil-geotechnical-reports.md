@@ -97,6 +97,21 @@ The **Property Developer / Owner** benefits from verification.
 
 **Privacy Salt:** Essential. Borehole data and project budgets are sensitive competitive information. The hash must be salted to prevent "Project Mapping" by rival developers.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Rationale
 
 Geotechnical reports are the "First Link" in the chain of structural safety. By turning technical summaries into verifiable digital bridges, we ensure that the buildings where we live and work are standing on the digital truth of the earth, not the creative editing of a developer.

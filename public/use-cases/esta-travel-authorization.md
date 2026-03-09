@@ -103,6 +103,21 @@ The **Traveler (Citizen of VWP Country)** benefits from verification.
 
 **Privacy Salt:** Critical. Passport numbers and names are highly sensitive. The hash must be salted to prevent "Guess-and-Check" attacks to find specific travelers.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

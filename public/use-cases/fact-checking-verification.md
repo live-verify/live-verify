@@ -96,6 +96,21 @@ The **News Organization / Journalist** benefits from verification.
 
 **Privacy Salt:** Critical for "Anonymous Source" protection. The hash must be salted to ensure that searching for a source doesn't inadvertently reveal their identity through pattern matching.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -91,6 +91,41 @@ The **Homeowner / System Owner** benefits from verification.
 
 **Privacy Salt:** Low. Solar performance is generally public business data. However, individual homeowner names associated with specific panels should be salted to protect consumer privacy.
 
+## Authority Chain
+
+**Patterns:** Commercial, Personal, Sovereign
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Solar is a "25-Year Investment." By turning static certificates into verifiable digital bridges, we protect the billions of dollars in green capital and ensure that the "Clean Energy" on the roof is backed by the professional truth of the factory.

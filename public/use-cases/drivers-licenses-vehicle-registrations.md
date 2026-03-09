@@ -115,6 +115,21 @@ The **Named Individual** benefits from verification.
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. Identity data is the ultimate target for hackers. The hash MUST be salted to prevent "Dictionary Attacks" using voter rolls to find specific people's license numbers.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Photo Return: Defeating Sibling Lending and High-Grade Clones
 
 Verification responses can include the **DMV's authoritative photo** of the license holder — not just status, but the actual face on file.

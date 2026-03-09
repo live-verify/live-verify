@@ -145,6 +145,21 @@ The classic casino launder has several variants, all exploiting the same gap —
 
 **Privacy Salt:** Critical. Gaming records contain financial and behavioural data. The hash must be salted to prevent enumeration of patron activity.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 Casino laundering persists because the money enters a black box and exits looking clean. The cage records exist but are locked inside the casino's systems — the bank receiving the cheque has no visibility into what happened between buy-in and cash-out. Verifiable session records don't prevent someone from walking into a casino with dirty cash, but they make the walk-through visible: session duration, play patterns, and buy-in/cash-out ratios become auditable facts rather than the casino's private data. The launderer's edge — "you can't see what I did inside" — disappears.

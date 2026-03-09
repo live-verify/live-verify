@@ -95,6 +95,41 @@ The **Insurer / At-Fault Party** benefits from verification.
 
 **Privacy Salt:** Essential. VINs and claim amounts are sensitive private data. The hash must be salted to prevent "VIN Harvesting" by data brokers or competitive-intelligence firms.
 
+## Authority Chain
+
+**Patterns:** Commercial, Regulated, Sovereign
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Salvage documentation is the "History of Failure" for an asset. By turning total-loss records into verifiable digital bridges, we protect the public from dangerous "Zombies" (rebuilt wrecks) and ensure that the multi-billion dollar subrogation market is based on the digital truth of the claim.

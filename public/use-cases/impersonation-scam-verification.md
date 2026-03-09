@@ -214,6 +214,21 @@ Every impersonation scam exploits the same gap: there is no practical way for a 
 
 Live Verify fills this gap with a single, channel-agnostic mechanism: a verifiable claim bound to the organization's domain.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Privacy Salt
 
 Where impersonation verification involves case numbers, account references, or other predictable data, the issuer should include a random salt to prevent enumeration. This is particularly important for sealed legal matters and law enforcement cases where the existence of the investigation itself is sensitive.

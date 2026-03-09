@@ -107,6 +107,21 @@ The **Firm's Treasury / Compliance Dept** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Exact capital amounts and internal buffer strategies are highly sensitive "Market-Moving" data. The hash must be salted and access restricted to authorized financial institutions.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Rationale
 
 Capital adequacy is the "Foundation of Financial Stability." By turning technical attestations into verifiable digital bridges, we protect the banking system from the "Minsky Moment" of hidden insolvency and ensure that "Safety" is backed by cryptographic proof.

@@ -94,6 +94,31 @@ The **Homeowner / Seller** benefits from verification.
 
 **Privacy Salt:** Essential. Home values and floor plans are sensitive private data. The hash must be salted to prevent "Wealth Mapping" of entire neighborhoods by data scrapers.
 
+## Authority Chain
+
+**Patterns:** Commercial, Sovereign
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Property value is the "Foundation of Credit." By turning static appraisal reports into verifiable digital bridges, we protect the stability of the housing market and ensure that the "Wealth" on the page is backed by the professional truth of the audit.

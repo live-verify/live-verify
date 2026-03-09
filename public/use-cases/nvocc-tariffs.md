@@ -92,6 +92,31 @@ The **Shipper (Exporters / Importers)** benefits from verification.
 
 **Privacy Salt:** Essential. Specific customer names and trade volumes are sensitive business secrets. The hash must be salted to prevent competitors from mapping a rival's cargo flow.
 
+## Authority Chain
+
+**Patterns:** Commercial, Sovereign
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 NVOCC tariffs are the "Rules of the Road" for global trade. By turning static price sheets into verifiable digital bridges, we ensure that the transparency required by law is backed by cryptographic proof, protecting shippers and fair competition.

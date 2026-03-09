@@ -105,6 +105,41 @@ The **Athlete / Parent** benefits from verification.
 
 **Privacy Salt:** Low. Equipment safety data is generally public safety information. However, individual athlete names associated with specific helmets should be salted to protect minor privacy.
 
+## Authority Chain
+
+**Patterns:** Commercial, Personal, Sovereign
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Sports safety is a "No-Failure" zone. By turning equipment labels into verifiable digital bridges, we create a transparent "Shield of Safety" that ensures athletes are protected by the engineering they were promised.

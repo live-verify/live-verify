@@ -89,6 +89,31 @@ The **Driver / Insured** benefits from verification.
 
 **Privacy Salt:** Essential. Driver schedules and locations are sensitive. The hash must be salted to prevent data brokers from mapping the "Gig Workforce" density.
 
+## Authority Chain
+
+**Patterns:** Commercial, Regulated
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Rationale
 
 Temporary insurance is the "Speed Limit of Fintech." By turning binders into verifiable digital bridges, we protect the owner's asset and the insurer's pool from the high-velocity risk of "Seconds-After-Impact" fraud.

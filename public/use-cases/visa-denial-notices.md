@@ -100,6 +100,21 @@ The **Visa Applicant** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Visa data is extremely sensitive. The hash must be salted and the verification URL restricted to authorized diplomatic and law enforcement IPs.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Visa denials are the "Permanent Record" of global mobility. By turning notices into verifiable digital bridges, we protect the integrity of borders and ensure that "Travel History" is based on the digital truth of the consulate, not the creative editing of an applicant.

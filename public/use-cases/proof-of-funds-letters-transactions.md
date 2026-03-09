@@ -111,6 +111,31 @@ The **Buyer / Offeror** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Individual wealth data is extremely sensitive. The hash must be salted to prevent "Wealth Mapping" or the targeting of high-net-worth individuals by scammers.
 
+## Authority Chain
+
+**Patterns:** Personal, Regulated
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Rationale
 
 Proof of Funds is the "Ticket to the Game" in high-value commerce. By turning bank letters into verifiable digital bridges, we protect the marketplace from "Phantom Buyers" and ensure that "Proof of Wealth" is backed by the digital truth of the ledger.

@@ -130,6 +130,31 @@ The tool owner (second party) may hand the verified document to various third pa
 
 **Privacy Salt:** Not required. Calibration certificates contain many unpredictable variables: unique certificate numbers, instrument serial numbers, specific measurement data points (multiple decimal places), exact calibration dates, technician names, environmental conditions (temperature/humidity to decimal precision), and unique uncertainty values. The combination of these metrological details creates sufficient entropy to prevent hash enumeration attacks.
 
+## Authority Chain
+
+**Patterns:** Regulated, Sovereign
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require accredited calibration labs to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

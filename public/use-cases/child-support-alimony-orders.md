@@ -136,15 +136,24 @@ Verifying opposing party's claimed order terms — the amount, the effective dat
 **State Child Support Enforcement Agencies:** Issue income withholding orders and arrears certifications.
 **Administrative Law Judges:** Some states allow administrative (non-judicial) establishment of support orders.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Privacy Salt
 
 High sensitivity. Family court matters are private. The existence of a child support order reveals divorce, out-of-wedlock children, and financial obligations. Names of minor children are embedded in the order. The hash MUST be salted with a high-entropy random value (printed on the document) to prevent enumeration attacks — no one should be able to guess-and-check hashes to discover whether a specific person has a child support order.
-
-## Authority Chain
-
-Family court → state judicial system → statute (state family code / domestic relations law). Each state's family code establishes the court's authority to order support, set guidelines for calculating amounts, and enforce through income withholding. Federal law (42 U.S.C. § 666) requires all states to have income withholding procedures.
-
-See [Authority Chain specification](/specs/authority-chain) for the full technical detail.
 
 ## Competition vs. Existing Systems
 

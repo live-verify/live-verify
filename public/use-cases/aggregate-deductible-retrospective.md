@@ -95,6 +95,31 @@ In a corporate acquisition, the buyer needs to know if the target company has a 
 
 **Privacy Salt:** Required. Retrospective premium adjustments contain enumerable values—round dollar amounts for standard premiums, predictable loss conversion factors (1.10, 1.15), and common policy periods. A competitor could feasibly enumerate combinations to reverse-engineer a company's risk profile and undercut their renewal pricing. Salt protects these competitive insurance positions.
 
+## Authority Chain
+
+**Patterns:** Commercial, Regulated
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require insurance carriers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

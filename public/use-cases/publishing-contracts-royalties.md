@@ -97,6 +97,21 @@ The **Author / Artist / Creator** benefits from verification.
 
 **Privacy Salt:** High. Royalty earnings and specific sales volumes are highly sensitive private financial data. The hash must be salted to prevent competitors from mapping a rival's entire bestseller list.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 Royalty accounting is famously opaque. By turning statements into verifiable digital bridges, we create a transparent "Chain of Value" that ensures creators are paid exactly what they are owed according to the agreed-upon contract.

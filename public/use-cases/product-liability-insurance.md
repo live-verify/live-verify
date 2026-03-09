@@ -92,6 +92,31 @@ The **Manufacturer / Distributor** benefits from verification.
 
 **Privacy Salt:** Essential. Client lists and specific coverage limits are sensitive competitive data. The hash must be salted to prevent "Policy Harvesting" by rivals.
 
+## Authority Chain
+
+**Patterns:** Commercial, Regulated
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Rationale
 
 Product liability is the "Long-Tail Risk" of the global economy. By turning static COIs into verifiable digital bridges, we ensure that the "Chain of Accountability" from factory to shelf is backed by cryptographic proof, protecting both consumers and commerce.

@@ -206,6 +206,31 @@ Some attestations combine multiple sensors:
 - GPS + accelerometer = verified delivery (arrived at location, no drops)
 - Temperature + humidity + door sensor = cold chain integrity
 
+## Authority Chain
+
+**Patterns:** Commercial, Personal
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+
 ## Novel Applications
 
 **Predictive Maintenance Proof**

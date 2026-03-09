@@ -109,6 +109,21 @@ Closing agents must follow strict instructions from the QI. Verifying the exchan
 
 **Privacy Salt:** Required. Unlike documents with many unpredictable variables, 1031 identification forms contain enumerable values—standard property addresses, round dollar fair market values, and publicly recorded real estate transactions. A competitor or tax authority could feasibly enumerate combinations to reverse-engineer a taxpayer's investment strategy. Salt protects the privacy of the specific properties being considered.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require Qualified Intermediaries to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

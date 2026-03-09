@@ -100,6 +100,31 @@ The **Policyholder / Account Owner** benefits from verification.
 
 **Privacy Salt:** Highly critical. Beneficiary data is extremely sensitive. The hash must be salted to prevent "guessing" names of beneficiaries.
 
+## Authority Chain
+
+**Patterns:** Commercial, Regulated
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Rationale
 
 Insurance and pensions are often the largest assets in an estate. By turning beneficiary records into verifiable digital bridges, we protect the "Final Intent" of the policyholder and prevent billions in "Ghost" fraud.

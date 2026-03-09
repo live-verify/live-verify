@@ -99,6 +99,21 @@ The general contractor (second party) may hand the verified document to various 
 
 **Privacy Salt:** Not required. Builders risk certificates contain many unpredictable variables: unique project names, specific site addresses, general contractor company names, exact coverage values (often to the dollar), specific construction dates, and unique policy numbers. The combination of these project-specific details creates sufficient entropy to prevent hash enumeration attacks.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require construction insurers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -95,6 +95,31 @@ The test taker (second party) may hand the verified document to various third pa
 
 **Privacy Salt:** Required. While test reports contain unique registration IDs, they also include enumerable values—score ranges (0-30, bands 1-9), standard test dates, common names, and predictable section breakdowns. A malicious actor, predatory recruiter, or competitor could feasibly enumerate combinations to reverse-engineer test taker performance, map student populations by institution, or target specific demographics. Salt protects this sensitive educational and personal information.
 
+## Authority Chain
+
+**Patterns:** Personal, Sovereign
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require testing organizations to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

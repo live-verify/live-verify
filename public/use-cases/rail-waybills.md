@@ -96,6 +96,21 @@ The **Shipper (The Exporter)** benefits from verification.
 
 **Privacy Salt:** Essential. Specific customer names and trade volumes are sensitive business data. The hash must be salted to prevent "Commodity Forecasting" by speculators.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 Rail freight is the "Heavy Industry" of the supply chain. By turning waybills into verifiable digital bridges, we protect the integrity of bulk trade and ensure that "Safety on the Rails" is backed by cryptographic proof.

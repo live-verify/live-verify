@@ -96,6 +96,21 @@ The **Supplier (The Payee)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Corporate trade volumes and supplier lists are extremely sensitive "Trade Secrets." The hash must be salted and access restricted to authorized financial institutions.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Rationale
 
 Supply Chain Finance is the "Oil" of global manufacturing. By turning approval advice into verifiable digital bridges, we protect the banks from multi-billion dollar fraud and ensure that capital flows to legitimate suppliers with cryptographic certainty.

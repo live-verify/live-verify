@@ -195,6 +195,21 @@ Fly-tipping in England reached over 1 million incidents in 2022/23 (DEFRA statis
 
 **Destination sites** (recycling centres, landfills, transfer stations) — confirm receipt of waste, closing the chain of custody.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 The waste carrier licence system works perfectly in theory. In practice, nobody checks. The Environment Agency's public register exists but requires active lookup. The duty of care regulations place liability on the householder but give them no practical tool to discharge that duty at the doorstep. A verified licence — scannable from a van sticker, a card, or a digital display — turns a theoretical obligation into a three-second check. The incentive structure is already in place (householders are liable); the missing piece is the verification mechanism that makes the check trivially easy instead of impractically cumbersome.

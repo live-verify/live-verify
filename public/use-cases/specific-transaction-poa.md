@@ -101,6 +101,31 @@ The **Principal (Individual Granting Authority)** benefits from verification.
 
 **Privacy Salt:** Highly critical. Legal and financial details are sensitive. The hash must be salted to prevent "guessing" the names or transaction amounts.
 
+## Authority Chain
+
+**Patterns:** Regulated, Sovereign
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Power of Attorney is currently "Binary": you either have none or you have it all. By turning specific authorities into verifiable digital bridges, we bring the security principle of "Least Privilege" to the legal system, protecting the vulnerable from financial exploitation.

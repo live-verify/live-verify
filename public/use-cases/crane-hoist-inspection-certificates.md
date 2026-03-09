@@ -107,6 +107,41 @@ The crane owner (second party) may hand the verified document to various third p
 
 **Privacy Salt:** Not required. Inspection certificates contain many unpredictable variables—unique serial numbers, specific equipment models, inspector certification numbers, precise inspection dates, and load test results. The combination of these variables creates sufficient entropy that reverse-engineering a hash to discover inspection details is computationally infeasible without prior knowledge of the exact values.
 
+## Authority Chain
+
+**Patterns:** Commercial, Regulated, Sovereign
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require inspection firms to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

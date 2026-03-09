@@ -107,6 +107,21 @@ The **Voucher Holder (Traveler)** benefits from verification.
 
 **Privacy Salt:** Essential. Voucher codes are essentially passwords to money. The hash must be salted to prevent "Code Guessing" (Brute-Force) attacks to find valid vouchers.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 Travel vouchers are "Digital Gold." By turning them into verifiable digital bridges, we protect the secondary market from scams and ensure that travel credits retain their value as a trusted alternative to cash refunds.

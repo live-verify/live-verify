@@ -104,6 +104,21 @@ The **Real Estate Professional (Agent)** benefits from verification.
 
 **Privacy Salt:** Critical. Agent schedules and client lists are sensitive. The hash must be salted to prevent "Harvesting" of an agent's active lead list by competitors.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Real estate is a "Trust-Heavy" industry. By turning agent IDs into verifiable digital bridges, we protect the safety of buyers and the security of homes, ensuring that the "Keys to the House" are only held by verified professionals.

@@ -141,6 +141,21 @@ People move and businesses expand across jurisdictions. Verified registrations f
 Many municipal registrations can change status quickly (business closes, vehicle sold, license suspended). Verified lookups provide current status rather than relying on potentially outdated paper documents.
 
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

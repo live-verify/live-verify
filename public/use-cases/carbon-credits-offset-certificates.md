@@ -105,6 +105,31 @@ The credit buyer (second party) may hand the verified document to various third 
 
 **Privacy Salt:** Not required. Carbon retirement certificates contain many unpredictable variables: unique certificate IDs, beneficiary company names, specific project names and IDs, exact quantities (often large, precise numbers in tonnes), vintage years, retirement dates, and serial number ranges. The combination of these project-specific details creates sufficient entropy to prevent hash enumeration attacks.
 
+## Authority Chain
+
+**Patterns:** Commercial, Sovereign
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require carbon registries to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

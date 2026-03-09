@@ -184,6 +184,21 @@ Filing the wrong information, or filing without authority, can result in penalti
 
 **Portal access management:** Companies can issue time-limited filing authority confirmations that correspond to portal credentials. When authority is revoked, credential should be disabled — but verification provides independent check even if credentials weren't revoked promptly.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## See Also
 
 Other delegated authority confirmations:

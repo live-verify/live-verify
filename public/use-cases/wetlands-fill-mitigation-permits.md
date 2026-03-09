@@ -93,6 +93,41 @@ The **Developer / Construction Firm** benefits from verification.
 
 **Privacy Salt:** Essential. Development plans and mitigation costs are sensitive business data. The hash must be salted to prevent "Site Mapping" by rival developers or data brokers.
 
+## Authority Chain
+
+**Patterns:** Commercial, Regulated, Sovereign
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Wetland fill is a "Point of No Return" for an ecosystem. By turning static permits into verifiable digital bridges, we ensure that every shovel of dirt moved is authorized by the digital truth of the law, protecting the planet's watersheds from the high cost of documentary deception.

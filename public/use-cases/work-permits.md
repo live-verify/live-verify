@@ -157,6 +157,31 @@ Work permits are issued exclusively by government authorities:
 
 **Privacy Salt:** Absolutely critical. Immigration data is among the most sensitive personal information. Hash enumeration attacks could be used to identify undocumented workers, map employer-employee relationships, or target vulnerable populations. All work permit hashes must include issuer-generated random salt.
 
+## Authority Chain
+
+**Patterns:** Personal, Sovereign
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Competition vs. Existing Systems
 
 | Feature | Live Verify | Government Portals (E-Verify, VEVO, Share Code) | Physical Document Inspection |

@@ -107,6 +107,31 @@ The **Brand Owner / IP Attorney** benefits from verification.
 
 **Privacy Salt:** Low. Trademark records are public by law. However, individual attorney contact IDs should be salted to protect professional privacy.
 
+## Authority Chain
+
+**Patterns:** Personal, Sovereign
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Trademarks are the "Identity of Commerce." By turning static certificates into verifiable digital bridges, we protect the global brand economy from the multi-billion dollar cost of counterfeiting and ensures that "Ownership" is a cryptographic fact, not a Photoshop trick.

@@ -100,6 +100,21 @@ The **Property Buyer** benefits from verification.
 
 **Privacy Salt:** Highly critical. Wealth data is extremely sensitive. The hash must be salted to prevent "guessing" wealth levels or sources.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Rationale
 
 Property is the ultimate destination for laundered money. By turning fund origin attestations into verifiable digital bridges, we close the gap between the bank's private records and the real estate closing process — not by asking banks to certify cleanliness (they won't), but by letting them confirm provenance (they already do this internally).

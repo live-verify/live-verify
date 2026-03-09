@@ -93,6 +93,31 @@ The **Farmer / Farm Manager** benefits from verification.
 
 **Privacy Salt:** Essential. Specific field coordinates and chemical formulations are sensitive business data. The hash must be salted to prevent "Yield Mapping" by competitors or chemical-sales data mining.
 
+## Authority Chain
+
+**Patterns:** Commercial, Personal
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+
 ## Rationale
 
 Pesticide logs are the "Moral Compass" of farming. By turning mandatory records into verifiable digital bridges, we protect the consumer's health and the farmworker's safety, ensuring that the "Food we Trust" is actually the "Food we were Promised."

@@ -93,6 +93,21 @@ The **Buyer (Purchaser)** benefits from verification.
 
 **Privacy Salt:** Essential. Defect details and home addresses are sensitive. The hash must be salted to prevent "Neighborhood Defect Mapping" by data scrapers.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 Property disclosure is about "Informed Consent." By turning static forms into verifiable digital bridges, we protect the buyer's largest-ever investment and the seller's legal reputation, ensuring that the "Truth of the House" is backed by cryptographic proof.

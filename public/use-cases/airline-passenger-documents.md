@@ -93,6 +93,21 @@ Verifying that "travel expenses" were actually incurred and not just fabricated 
 
 **Privacy Salt:** Not required. Airline ancillary receipts contain highly unpredictable variables—unique ticket numbers, specific flight numbers with dates, passenger names, transaction authorization codes, and precise timestamps. These elements combined provide sufficient entropy that enumeration attacks are infeasible. Adding salt would provide no additional security benefit.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require airlines to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

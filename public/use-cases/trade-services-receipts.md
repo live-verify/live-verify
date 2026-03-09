@@ -182,6 +182,21 @@ Each step is timestamped. If a tradesperson tries to skip registration, they can
 
 Customer addresses are hashed. The verification confirms "this receipt is valid" without exposing the customer's identity or location to third parties.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## International Variations
 
 **United Kingdom:** HMRC integration via Making Tax Digital (MTD) APIs. Gas Safe and NICEIC for regulated trades.

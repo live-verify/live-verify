@@ -160,6 +160,21 @@ This transforms the power dynamic at the most coercive moment in civilian-govern
 - **Specialized Courts** — FISA Court (sealed warrants with SEALED status), military courts
 - **International equivalents** — UK Magistrates' Courts, Canadian Provincial Courts, EU member state courts issuing European Investigation Orders
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Privacy Salt
 
 **Critical for this use case.** Sealed warrants are common in drug investigations, terrorism cases, child exploitation cases, and organized crime. The hash must not leak the existence of sealed warrants through enumeration attacks.

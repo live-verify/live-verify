@@ -105,6 +105,21 @@ The **Employee / Taxpayer** benefits from verification.
 
 **Privacy Salt:** EXTREMELY CRITICAL. Tax data is governed by strict privacy laws (Section 6103 in the US). The hash MUST be salted to prevent "Mass Income Scraping" of the tax-paying population.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Tax forms are the "Financial DNA" of a citizen. By turning wage statements into verifiable digital bridges, we protect the mortgage market from defaults and the government from the multi-billion dollar cost of refund fraud.

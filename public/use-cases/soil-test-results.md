@@ -98,6 +98,31 @@ The **Farmer / Landowner** benefits from verification.
 
 **Privacy Salt:** Medium. Field coordinates and farmer identities are private business data. The hash must be salted to prevent "Yield Mapping" by competitors.
 
+## Authority Chain
+
+**Patterns:** Regulated, Sovereign
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Soil is the "Foundation of the Food Supply." By turning soil reports into verifiable digital bridges, we ensure that the environmental and economic data we rely on is based on real science, not creative editing.

@@ -142,6 +142,31 @@ The **Solo Traveler (Guest)** benefits from verification.
 
 **Privacy Salt:** Critical. Guide schedules and locations are sensitive. The hash must be salted to prevent "Guide Stalking" or harassment by bad actors.
 
+## Authority Chain
+
+**Patterns:** Commercial, Sovereign
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Tourism is a "Reputation Export." By turning guide badges into verifiable digital bridges, we protect the safety of global travelers and the brand of the destination, ensuring that "Local Hospitality" is backed by cryptographic proof.

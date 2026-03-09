@@ -91,6 +91,21 @@ The **Photographer / Artist** benefits from verification.
 
 **Privacy Salt:** Low to Medium. While licenses are commercial contracts, specific pricing and client lists are sensitive. The hash must be salted to prevent "Customer List Scraping" by competitors.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 Image licensing is the "Currency of the Visual Web." By turning certificates into verifiable digital bridges, we protect the livelihoods of creators and the legal standing of publishers, ensuring that "Permission to Post" is backed by cryptographic proof.

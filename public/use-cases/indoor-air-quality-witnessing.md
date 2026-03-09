@@ -472,3 +472,17 @@ As these systems become widespread, witnessing their installation, commissioning
 See `construction-trade-witnessing.md` → "Future: Witnessing Technology Evolution" for the insurance-legislation feedback loop. Air quality monitoring will follow the same pattern: insurers mandate → technology develops → costs drop → requirements increase.
 
 The difference: air quality monitoring is ongoing rather than one-time concealment. This creates larger data volumes but also richer pattern detection—identifying buildings, systems, or operators that consistently underperform.
+
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |

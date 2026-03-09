@@ -90,6 +90,31 @@ The **Manufacturer / Importer** benefits from verification.
 
 **Privacy Salt:** Low. Safety certifications are public safety data by necessity. However, individual factory IDs and production batch volumes should be salted to protect manufacturing trade secrets.
 
+## Authority Chain
+
+**Patterns:** Personal, Sovereign
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Product safety is the "Invisible Foundation" of modern life. By turning static labels into verifiable digital bridges, we ensure that the "Protection" on the box is backed by the professional truth of the lab, preventing fires and saving lives.

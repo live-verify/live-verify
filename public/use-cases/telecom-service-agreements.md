@@ -95,6 +95,21 @@ The **Enterprise IT Manager (Customer)** benefits from verification.
 
 **Privacy Salt:** High. Contract pricing and network locations are highly sensitive. The hash must be salted to prevent "Contract Harvesting" by competitors.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 SLAs are the "Insurance Policy" of the digital age. By turning complex legal terms into verifiable digital bridges, we ensure that both providers and customers are held to the exact standard they agreed to at the moment of signing.

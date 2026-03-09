@@ -252,6 +252,21 @@ The **Employee** benefits from verification.
 **Real-Time Status:**
 Unlike a static ID card, verification checks current employment status. An employee terminated yesterday will show as "Not Found" or "Inactive" today — their physical badge is worthless.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Existing Schemes and Integration
 
 **Password Schemes:**

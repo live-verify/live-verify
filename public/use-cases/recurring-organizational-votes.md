@@ -289,6 +289,21 @@ The gold standard is that voters cannot prove how they voted:
 
 Some implementations allow voters to verify their own vote was counted (without proving to others), using techniques like receipt-free voting or deniable receipts.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Recurring Vote Patterns
 
 **Why Recurring Matters:**

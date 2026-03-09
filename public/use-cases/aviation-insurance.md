@@ -106,6 +106,31 @@ Brokers like NetJets or Wheels Up can automatically verify the insurance status 
 
 **Privacy Salt:** Required. Aviation insurance certificates contain enumerable values—round dollar hull values ($75M, $100M), standard liability limits ($500M, $1B), common policy periods (annual), and publicly registered aircraft tail numbers. A competitor could feasibly enumerate combinations to reverse-engineer an operator's fleet insurance portfolio and undercut their renewal pricing. Salt protects these competitive insurance positions.
 
+## Authority Chain
+
+**Patterns:** Commercial, Regulated
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require aviation underwriters to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

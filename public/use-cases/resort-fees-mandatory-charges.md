@@ -108,6 +108,21 @@ In consumer protection lawsuits, verified receipts serve as admissible evidence 
 
 **Privacy Salt:** Not required. Unlike documents with only one or two variable fields, a resort fee disclosure contains multiple unpredictable values—confirmation number, guest name, stay dates, room number—that together provide sufficient entropy to prevent brute-force hash matching. An attacker cannot feasibly enumerate all combinations to "reverse" the hash.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require hotels to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -95,6 +95,21 @@ The **Named Individual** benefits from verification.
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. National identity data is the most sensitive data a government holds. The hash MUST be salted to prevent "Mass Mapping" of the population by hackers or foreign intelligence.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Photo Return: Defeating Sibling Lending and High-Grade Clones
 
 Verification responses can include the **issuer's authoritative photo** of the credential holder — not just "valid/invalid" but the actual face on file.

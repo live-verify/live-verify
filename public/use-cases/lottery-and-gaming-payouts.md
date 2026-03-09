@@ -101,6 +101,31 @@ The **Lottery Player (Winner)** benefits from verification.
 
 **Privacy Salt:** High. Lottery wins are highly sensitive and often attract unwanted attention. The hash must be salted to ensure that only the winner (with the physical/digital receipt) can prove the win.
 
+## Authority Chain
+
+**Patterns:** Commercial, Sovereign
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Lottery payouts are the ultimate test of "Issuer Integrity." When the issuer is also the payor of half a billion dollars, trust must be externalized. Independent witnessing turns a "Notification of Win" into an undeniable legal fact, protecting the player's life-changing moment from system failures or human greed.

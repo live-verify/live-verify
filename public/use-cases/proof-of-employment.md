@@ -66,37 +66,6 @@ The endpoint returns current employment status:
 - **NOT_EMPLOYED** — No longer employed by this organization.
 - **404** — No matching record. The letter is forged, or the details don't match.
 
-## Authority Chain Verification
-
-When an immigration officer verifies a proof-of-employment letter from `hr.hsbc.co.uk`, they know HSBC says this person works there. But how does the officer know that `hr.hsbc.co.uk` is a legitimate employer authorized to attest employment?
-
-The verification response includes an **authority chain** — a secondary verification link allowing the relying party to confirm that the issuer is itself a recognized authority for the type of claim being made:
-
-```
-HTTP/1.1 200 OK
-X-Verify-Status: OK
-X-Verify-Authority-For: employment-attestation
-X-Verify-Authority-Attested-By: https://employers.hmrc.gov.uk/v/{hash}
-X-Verify-Authority-Scope: paye-registered-employer
-```
-
-The immigration officer's system can optionally follow this chain:
-
-**Step 1 — Primary verification:** `hr.hsbc.co.uk` confirms Jane Worthington is employed as VP, Global Markets.
-
-**Step 2 — Secondary verification:** `employers.hmrc.gov.uk` confirms that HSBC Holdings plc (domain: `hr.hsbc.co.uk`) is a registered PAYE employer. HMRC is the UK tax authority — every legitimate UK employer must be PAYE-registered. This is the government attesting that the employer is real and authorized to employ people.
-
-**Step 3 (optional) — Tertiary verification:** HMRC's own authority is statutory — established by act of Parliament. The chain terminates at a root authority that derives its legitimacy from law, not from another verification endpoint.
-
-**What the authority chain proves:**
-1. Jane works at HSBC (primary — employer attests)
-2. HSBC is a real, registered employer (secondary — HMRC attests)
-3. HMRC is a statutory tax authority (tertiary — the law)
-
-**What the absence of an authority chain means:** If a verification response from `hr.acme-corp.example.com` confirms employment but includes no `X-Verify-Authority-Attested-By` header, the relying party knows the claim is self-attested only — no government or regulatory body has confirmed this is a legitimate employer. The claim may still be genuine (a newly registered company, a foreign employer not yet in the local registry), but the absence is a signal that warrants additional scrutiny.
-
-See [Verification Response Format: Authority Chains](../../docs/Verification-Response-Format.md#authority-chain-verification) for the full specification.
-
 ### Worked Examples
 
 **UK Solicitor at Court:**
@@ -177,6 +146,31 @@ The **employee** is the primary beneficiary and carrier of the document.
 | **Shelf life** | Current — expires when employment ends (or sooner via EXPIRED status) | Point-in-time — describes a past employment period |
 | **Authority chain** | Yes — employer → tax authority → statute | Not typically — the recipient judges the employer's credibility |
 | **See also** | This document | [Employment References](view.html?doc=employment-references) |
+
+## Authority Chain
+
+**Patterns:** Regulated, Sovereign
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
 
 ## Privacy Salt
 

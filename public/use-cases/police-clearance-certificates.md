@@ -134,15 +134,24 @@ National police forces and criminal records authorities are the sole issuers. Ea
 - **RCMP** (Canada) — rcmp-grc.gc.ca
 - **Dubai Police** (UAE) — dubaipolice.gov.ae
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Privacy Salt
 
 Critical. Criminal record data is among the most sensitive personal data. In many jurisdictions (UK Rehabilitation of Offenders Act, EU GDPR), spent convictions have legal protections against disclosure. The hash MUST be salted to prevent enumeration of who has been checked and what the results were. Without salt, an attacker who knows a person's name and date of birth could guess-and-check to determine whether they have a criminal record — a direct violation of rehabilitation-of-offenders protections in most jurisdictions.
-
-## Authority Chain
-
-National police/criminal records authority -> national government -> sovereignty. Each country's authority is a root authority for its own criminal records. There is no supranational police clearance authority — Interpol coordinates but does not issue clearance certificates. ACRO is the root for UK criminal records. The FBI is the root for US criminal records. The Casier Judiciaire is the root for French criminal records. The authority chain is short and sovereign: the police force answers to its national government, and that's it.
-
-See the [authority chain spec](/specs/authority-chain) for the full model.
 
 ## Competition vs. Existing Verification Methods
 

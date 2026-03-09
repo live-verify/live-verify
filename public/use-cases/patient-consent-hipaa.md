@@ -128,6 +128,21 @@ The healthcare entity where consent is obtained is the natural issuer:
 -   **FDA (21 CFR Part 11):** Requirements for electronic records and electronic signatures in clinical trials. Verifiable paper outputs (e.g., from e-Consent systems) can meet some requirements.
 -   **GCP (Good Clinical Practice):** International ethical and scientific quality standard for clinical trials. Valid informed consent is foundational to GCP.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Rationale
 
 Patient consent forms and HIPAA authorizations are **legally and ethically critical** for protecting patient autonomy and privacy in healthcare. Verification directly combats **consent fraud** and **unauthorized PHI disclosure** by providing instant, tamper-evident proof that the patient's agreement was obtained for a specific procedure or data use. Domain binding ensures legitimacy, enhancing patient trust and reducing legal liability for healthcare providers.

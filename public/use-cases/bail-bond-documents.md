@@ -114,13 +114,34 @@ The **Defendant** — the person released on bail — benefits from verification
 - **Bail Bondsmen** — Licensed surety agents issuing bond agreements (regulated as insurance in most states)
 - **Pretrial Services Agencies** — Government agencies managing supervised release programs
 
+## Authority Chain
+
+**Patterns:** Regulated, Sovereign
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Privacy Salt
 
 High sensitivity. The existence of a bail document reveals that a person has been charged with a crime. Salt is essential to prevent enumeration attacks. Without salt, an adversary who knows a person's name could hash plausible case number combinations and probe the endpoint, discovering whether someone has been arrested and released on bail — even without possessing the document. The salt makes this computationally infeasible.
-
-## Authority Chain
-
-Court &rarr; state judicial system &rarr; statute (state criminal procedure code, bail reform acts). Bail bondsmen (if surety bond) &rarr; state insurance commissioner (bail bonds are regulated as insurance in most states) &rarr; statute (state insurance code, bail bond licensing statutes). See [Authority Chain Specification](/specs/authority-chain) for the full protocol.
 
 ## Competition
 

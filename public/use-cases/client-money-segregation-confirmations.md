@@ -107,6 +107,31 @@ The **Retail / Institutional Client** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Individual account volumes are sensitive business intelligence. The hash must be salted and access restricted to authorized clients and regulators.
 
+## Authority Chain
+
+**Patterns:** Personal, Regulated
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Rationale
 
 Client money is the "Trust Core" of the financial system. By turning technical attestations into verifiable digital bridges, we protect the public from the devastating cost of firm failure and ensure that "Segregated" means "Safe."

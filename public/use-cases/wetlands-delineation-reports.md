@@ -95,6 +95,21 @@ The **Property Owner / Developer** benefits from verification.
 
 **Privacy Salt:** Essential. Specific property boundaries and development plans are sensitive competitive data. The hash must be salted to prevent "Pipeline Mapping" by rival developers.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 Wetlands are the "Filter of the Planet." By turning technical surveys into verifiable digital bridges, we ensure that land development is based on the digital truth of the ecosystem, protecting the environment and the multi-billion dollar real estate market from the high cost of scientific deception.

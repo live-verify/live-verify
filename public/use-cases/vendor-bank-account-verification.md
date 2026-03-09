@@ -99,6 +99,21 @@ The **Vendor (Business Entity)** benefits from verification.
 
 **Privacy Salt:** Critical. Account numbers are sensitive. The hash must include a random salt to prevent enumeration.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Rationale
 
 Invoice fraud relies on the customer's inability to verify a "remit to" instruction in real time. By binding the account number to the bank's domain, we turn a passive PDF line into a verifiable cryptographic bridge.

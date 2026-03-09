@@ -100,6 +100,21 @@ The broker or REIT manager (second party) may hand the verified document to vari
 
 **Privacy Salt:** Required. Catastrophe modeling reports often contain enumerable values—round dollar amounts for PML estimates, standard return periods (100yr, 250yr, 500yr), publicly known portfolios, and model version numbers that are industry-wide. A competitor could feasibly enumerate combinations to reverse-engineer a rival's risk profile and gain unfair market intelligence. Salt protects these strategic risk assessments.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require catastrophe modeling firms to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

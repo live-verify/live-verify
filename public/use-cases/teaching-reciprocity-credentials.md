@@ -111,6 +111,21 @@ The **Teacher / Educator** benefits from verification.
 
 **Privacy Salt:** Critical. Teacher PII and disciplinary data are sensitive. The hash must be salted to prevent "Mass Roster Scraping" of the nation's educators.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Teaching is a "Trust-Based Profession." By turning licenses into verifiable digital bridges, we ensure that classroom authority is backed by cryptographic proof, protecting students and rewarding the vast majority of educators who maintain clean professional records.

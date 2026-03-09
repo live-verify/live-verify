@@ -113,6 +113,21 @@ The **Patient / Caregiver** benefits from verification.
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. Medical data is highly sensitive (HIPAA/GDPR). The hash MUST be salted to prevent "Guess-and-Check" attacks to find specific patient diagnoses.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -102,6 +102,21 @@ The member (second party) may hand the verified document to various third partie
 
 **Privacy Salt:** Not required. Unlike documents with enumerable values, frequent flyer statements contain many unpredictable variables that combine to create sufficient entropy—member ID (unique), total mileage balance (varies continuously), recent transaction details (flight-specific with dates, routes, fare classes), and lifetime miles (cumulative, non-repeating). The combination of these variables makes reverse-engineering a specific member's statement computationally infeasible without already knowing all the details.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require airlines to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

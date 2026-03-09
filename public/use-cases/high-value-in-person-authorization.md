@@ -96,6 +96,21 @@ The **Cardholder / Customer** benefits from verification.
 
 **Privacy Salt:** Highly critical. Transaction data is extremely sensitive. The hash must be salted and the verification URL should ideally be restricted to authorized merchant POS networks.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Rationale
 
 High-value fraud costs the retail industry billions annually. By turning payment authorizations into verifiable digital bridges, we bring "Active Witnessing" to the transaction, making fraud expensive and disputes easy to resolve.

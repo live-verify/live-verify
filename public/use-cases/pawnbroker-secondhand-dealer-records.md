@@ -147,6 +147,21 @@ Pawnbrokers and second-hand dealers sit at the intersection of two criminal econ
 
 **Privacy Salt:** Important. Seller ID data is sensitive. The hash must be salted to prevent enumeration of sellers or reverse-engineering who sold what.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Rationale
 
 Pawnbroker regulations are among the oldest consumer protection laws in existence — some jurisdictions have had them since the 1800s. The regulatory intent is sound: record what you buy, from whom, and hold it long enough for the police to check. But the records are trapped in local silos. A verified transaction record doesn't change the regulation — it makes it work the way it was always supposed to, across jurisdictional boundaries, at the speed of a hash lookup instead of a detective's phone call.

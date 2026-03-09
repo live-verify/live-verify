@@ -103,6 +103,21 @@ The **Resident / Head of Household** benefits from verification.
 
 **Privacy Salt:** Critical. Census data is protected by strict privacy laws (e.g., Title 13 in the USA). The hash must be salted to ensure that a third party cannot "brute force" the names or addresses of residents.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -115,6 +115,21 @@ The investor (second party) may hand the verified document to various third part
 
 **Privacy Salt:** Required. Unlike documents with many unpredictable variables, NAV statements often contain enumerable values—round dollar amounts, standard fund names, predictable quarterly reporting dates, and publicly known performance tiers. A competitor or malicious actor could feasibly enumerate combinations to reverse-engineer investor positions, fund sizes, or institutional allocations. Salt protects this sensitive financial intelligence from systematic discovery.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require fund administrators to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

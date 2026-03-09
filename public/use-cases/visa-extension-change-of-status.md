@@ -89,6 +89,21 @@ The **Employee (Beneficiary)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Case numbers and names are protected under the Privacy Act. The hash must be salted to prevent "Case Scraping" by unauthorized data brokers.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Visa extensions are the "Oxygen of Legal Presence." By turning notices into verifiable digital bridges, we protect the US labor market from fraud and ensure that legal residents can live and work without unfair administrative delays.

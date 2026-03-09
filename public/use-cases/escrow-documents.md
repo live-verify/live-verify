@@ -104,6 +104,21 @@ The homeowner (second party) may hand the verified document to various third par
 
 **Privacy Salt:** Required. Escrow statements contain a mix of enumerable and unique values—loan numbers that might follow predictable patterns, property addresses that are public records, and round dollar amounts for taxes and insurance. While some elements are unique, the hash must be salted to prevent unauthorized enumeration of homeowner financial data and to protect the privacy of escrow account details from being discovered through brute-force attempts.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require mortgage servicers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

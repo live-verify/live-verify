@@ -105,6 +105,31 @@ The courier (second party) may hand the verified credential to various third par
 
 **Privacy Salt:** Required. Courier badges combine predictable values—partial names, hub locations, and standard ID formats. More critically, the hash must be salted to prevent "Stalking" attacks where someone could enumerate driver IDs and routes, creating serious safety risks for drivers. Salt also prevents "Competitor Reconnaissance" where rival firms could map out a company's delivery density and staffing patterns.
 
+## Authority Chain
+
+**Patterns:** Commercial, Sovereign
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require courier companies to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

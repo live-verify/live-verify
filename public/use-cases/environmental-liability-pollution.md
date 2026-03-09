@@ -105,6 +105,31 @@ The property owner (second party) may hand the verified document to various thir
 
 **Privacy Salt:** Required. Pollution insurance policies often contain enumerable values—round dollar limits ($1M, $5M, $10M), standard retroactive dates, and publicly known site addresses. A competitor or neighboring property owner could feasibly enumerate combinations to reverse-engineer a property's contamination history and coverage strategy, gaining unfair advantage in real estate negotiations or litigation. Salt protects these sensitive environmental and financial details.
 
+## Authority Chain
+
+**Patterns:** Commercial, Regulated
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require pollution insurers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

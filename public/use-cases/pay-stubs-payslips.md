@@ -83,14 +83,6 @@ The endpoint returns the stub's authenticity and current employment status:
 - **NOT_EMPLOYED** — Person is no longer employed by this organization. The stub was authentic when issued, but the employee has since departed.
 - **404** — No matching record. Either the stub is fabricated, the details have been altered, or the data has been purged past the retention window.
 
-## Authority Chain
-
-The authority chain applies to pay stubs the same way it applies to proof of employment. The employer's payroll domain is the primary authority. The secondary authority is the tax agency — HMRC (UK), IRS (US), CRA (Canada) — which confirms the employer is a registered entity that files payroll taxes. The chain terminates at statute.
-
-A stub from `payroll.pinnacle-eng.com` gets its credibility reinforced when the IRS confirms Pinnacle Engineering Group is a registered employer filing quarterly 941s. A stub from a shell company with no tax filings breaks at the second link.
-
-See [Proof of Employment](view.html?doc=proof-of-employment) for the full authority chain discussion with worked examples.
-
 ## Second-Party Use
 
 The **employee** is the carrier and presenter of the document.
@@ -140,6 +132,31 @@ Pay stub fraud is uniquely dangerous because the documents are so easy to fake a
 **Payroll Providers:** ADP, Paychex, Gusto, Workday — these companies process payroll for millions of employers. They're the natural issuers of verified stubs, publishing hashes to their client's payroll subdomain.
 **In-House Payroll:** Large employers (banks, governments, hospitals) that run payroll internally and publish verification on their own domain.
 **Gig Platforms:** Uber, DoorDash, Upwork — technically earnings statements, not pay stubs, but the verification pattern is identical. See Further Derivations below.
+
+## Authority Chain
+
+**Patterns:** Regulated, Sovereign
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
 
 ## Privacy Salt
 

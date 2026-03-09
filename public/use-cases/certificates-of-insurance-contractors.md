@@ -102,6 +102,31 @@ The contractor (second party) may hand the verified document to various third pa
 
 **Privacy Salt:** Not required. Certificates of insurance contain many unpredictable variables: contractor company names, unique policy numbers (often alphanumeric), specific coverage limits (exact dollar amounts), effective/expiration dates, certificate holder names, producer names and locations, and multiple policy types. The combination of these certificate-specific details creates sufficient entropy to prevent hash enumeration attacks.
 
+## Authority Chain
+
+**Patterns:** Commercial, Regulated
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require insurance brokers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

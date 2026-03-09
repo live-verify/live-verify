@@ -123,6 +123,21 @@ In the US, UCC Article 7 governs warehouse receipts. An Live Verify system helps
 _[Content merged from: warehouse-receipts-storage]_
 
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## What are Warehouse Storage Receipts?
 
 In the logistics and retail industries, a **Warehouse Receipt** is the proof that goods (e.g., 500 pallets of electronics or 10,000 lbs of grain) are physically present in a specific facility. These documents are often used as **Collateral** for bank loans (Inventory Financing).

@@ -101,6 +101,31 @@ The park director / school principal (second party) may hand the verified docume
 
 **Privacy Salt:** Not required. Playground safety certificates contain many unpredictable variables that combine to create high entropy: unique structure IDs, specific park locations, inspector license numbers, exact HIC test scores (with decimal precision), and inspection dates. Playground safety data is a matter of public record, and the combination of these unique identifiers makes brute-force enumeration infeasible without salt.
 
+## Authority Chain
+
+**Patterns:** Commercial, Sovereign
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require parks departments and inspection firms to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

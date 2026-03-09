@@ -130,20 +130,18 @@ When writing Directors & Officers or Errors & Omissions policies for offshore en
 
 ## Authority Chain
 
-Compliance auditors derive their authority from licensing by the jurisdiction's financial services regulator:
+**Pattern:** Regulated
 
-```
-Compliance Firm (Cayman) → Licensed by CIMA → Cayman Islands Government
-Compliance Firm (BVI) → Licensed by BVI FSC → BVI Government
-Compliance Firm (Jersey) → Licensed by JFSC → States of Jersey
-```
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
 
-The endorsement chain naturally reflects this:
+**Primary issuer example:**
 
-```
-verify:cicompliance.ky/reports
-  endorsed by cima.ky (Cayman Islands Monetary Authority)
-```
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
 
 ## Competition
 

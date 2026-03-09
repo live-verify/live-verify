@@ -97,6 +97,21 @@ The **Traveler (Client)** benefits from verification.
 
 **Privacy Salt:** Essential. Traveler names and destinations are highly sensitive. The hash must be salted to prevent "Paparazzi" or data scrapers from tracking high-net-worth travelers.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 Travel itineraries are "Soft Contracts." By turning them into verifiable digital bridges, we protect both the traveler's mobility (visas) and the employer's capital (expenses), ensuring that "The Plan" matches "The Reality."

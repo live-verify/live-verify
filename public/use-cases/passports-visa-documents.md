@@ -110,6 +110,21 @@ The **Passport Holder (Traveler)** benefits from verification.
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. Passport data is the "Crown Jewels" of identity. The hash MUST be salted to prevent foreign intelligence or hackers from "Mass Mapping" a population's travel documents.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Photo Return: Defeating the "Woman in Cabin 10" Pattern
 
 Verification responses can include the **issuing authority's authoritative photo** of the holder — not just status, but the actual face on file.

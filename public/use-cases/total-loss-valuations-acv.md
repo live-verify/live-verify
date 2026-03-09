@@ -89,6 +89,31 @@ The **Vehicle Owner (Claimant)** benefits from verification.
 
 **Privacy Salt:** Essential. VINs and settlement amounts are private financial data. The hash must be salted to prevent "Wealth Mapping" of accident victims.
 
+## Authority Chain
+
+**Patterns:** Regulated, Sovereign
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Total loss is the "Financial Death" of a vehicle. By turning valuation reports into verifiable digital bridges, we ensure that the multi-billion dollar claims market is based on the digital truth of the audit, protecting both the insurance pool and the secondary car market.

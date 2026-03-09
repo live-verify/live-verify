@@ -189,6 +189,21 @@ Verification (or sealed code word) confirms: "This is an authorized exercise, no
 4. Verification confirms: authorized, in scope, within window
 5. No police involvement, testing continues
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## See Also
 
 Other delegated authority confirmations:

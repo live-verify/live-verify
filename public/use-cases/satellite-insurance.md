@@ -93,6 +93,31 @@ The **Satellite Operator (Startups / Telcos)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Satellite frequencies, orbits, and technical specs are high-value trade secrets. The hash must be salted and access restricted to authorized aerospace partners.
 
+## Authority Chain
+
+**Patterns:** Regulated, Sovereign
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Space is the "Final Frontier of Risk." By turning specialty policies into verifiable digital bridges, we protect the billions of dollars flowing into the new space economy and ensure that "Mission Success" is backed by the professional truth of the insurer.

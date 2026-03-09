@@ -181,6 +181,21 @@ CORGI was decommissioned in 2009 but the brand is still widely recognised. Some 
 
 **MCS** (`mcscertified.com`) — Microgeneration Certification Scheme. Certification body for renewable energy installers. Required for customers to access the Boiler Upgrade Scheme and Smart Export Guarantee.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 Gas Safe registration is one of the few trade credentials where failure to verify can directly result in death. The system already works — there is a register, there are ID cards, there is a website lookup. The gap is purely at the point of encounter: the doorstep, where the homeowner meets the engineer and has three seconds to decide whether to let them in. A scannable card that returns a photo and a live status is the difference between "I'll take your word for it" and "I can see you're registered, come in." The verification cost is trivial; the cost of not verifying is measured in lives.

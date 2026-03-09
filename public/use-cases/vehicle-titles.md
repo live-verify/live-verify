@@ -116,15 +116,24 @@ Title fraud is not a single attack — it's a family of related schemes, all of 
 **DVLA (UK):** The Driver and Vehicle Licensing Agency issues V5C registration certificates.
 **Equivalent Agencies:** (Transport Canada, DVSA, state-level agencies in Germany, Australia, etc.)
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Privacy Salt
 
 Moderate. VINs are semi-public — they're visible through the windshield on the dashboard plate, printed on insurance cards, and recorded in service records. But linking a VIN to an owner's name and address is sensitive information. Without salting, an attacker could enumerate VINs (they follow a predictable format) and build a database of who owns what vehicle and where they live. The salt prevents this "VIN-to-owner" enumeration attack while still allowing verification when you have the actual title document in hand.
-
-## Authority Chain
-
-State DMV &rarr; state government &rarr; sovereignty. Each state is its own issuing authority for vehicle titles within its jurisdiction. Interstate verification means the buyer's app needs to recognize approximately 50 state DMV domains (US), plus DVLA (UK), Transport Canada, and equivalent agencies in other countries. The authority chain confirms that `dmv.texas.gov` is in fact the Texas DMV and is authorized to issue vehicle titles — not a lookalike domain.
-
-See [Verification Response Format: Authority Chains](../../docs/Verification-Response-Format.md#authority-chain-verification) for the full specification.
 
 ## Competition vs. Existing Title Verification Methods
 

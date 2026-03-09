@@ -115,6 +115,21 @@ The **Business Traveler** benefits from verification.
 
 **Privacy Salt:** Essential. Itineraries reveal locations and habits. The hash must be salted to prevent "Stalking" or "Executive Tracking" by unauthorized parties.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 Travel documentation is the "High-Volume Friction" of global business. By turning itineraries into verifiable digital bridges, we eliminate the friction of manual auditing and protect the multibillion-dollar travel budget from the high cost of "Small-Ticket" fraud.

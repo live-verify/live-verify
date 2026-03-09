@@ -99,6 +99,21 @@ The **Researcher (Author)** benefits from verification.
 
 **Privacy Salt:** Critical. Manuscript titles and reviewer comments are intellectual property. The hash must be salted to prevent "Research Poaching" or tracking of unpublished ideas.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 Peer review is the "Defense of Science." By turning decision letters into verifiable digital bridges, we protect the integrity of the scholarly record and ensure that academic status is based on real vetting, not creative editing.

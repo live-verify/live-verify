@@ -203,6 +203,21 @@ The verified etching replaces this with the same pattern as every other Live Ver
 
 **Approved Repair Stations:** FAA Part 145 / EASA Part 145 approved MROs that overhaul components and issue release certificates. Their domain verifies the overhaul, the OEM's domain verifies the original part — two verification layers.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Beyond Aviation: Other Safety-Critical Parts
 
 The same pattern applies wherever expensive, safety-critical components attract counterfeiters, fraudulent intermediaries, or cost-cutting operators:

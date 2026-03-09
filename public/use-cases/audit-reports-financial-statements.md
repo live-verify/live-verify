@@ -115,6 +115,21 @@ Agencies (e.g., USAID, NIH) verify that non-profits have passed their mandatory 
 
 **Privacy Salt:** Not required. Audit reports contain highly unpredictable variables—unique company names, specific fiscal year-end dates, precise revenue and net income figures with many digits, partner names, engagement numbers, and PCAOB registration details. These elements combined provide sufficient entropy that enumeration attacks are infeasible. Adding salt would provide no additional security benefit.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require audit firms to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

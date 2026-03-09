@@ -420,6 +420,21 @@ The **Disclosing Organization** benefits from verification.
 **Affected Parties**
 **Rights Enforcement:** Know exactly when you should have been told.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Novel Applications
 
 **Disclosure Heat Maps**

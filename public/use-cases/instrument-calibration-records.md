@@ -96,6 +96,21 @@ The lab manager (second party) may hand the verified document to various third p
 
 **Privacy Salt:** Not required. Calibration records contain many unpredictable variables that combine to create sufficient entropy—instrument serial number (unique alphanumeric), specific drift measurements (continuous values with multiple decimal places), environmental conditions (temperature/humidity to precise decimals), technician credentials (non-enumerable names and IDs), reference standard batch numbers, and precise calibration dates/times. The combination makes reverse-engineering a specific calibration record computationally infeasible without already knowing all the details.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require calibration laboratories to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

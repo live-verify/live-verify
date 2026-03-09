@@ -111,6 +111,21 @@ The **Professional (Practitioner)** benefits from verification.
 
 **Privacy Salt:** Critical. License numbers and disciplinary data are sensitive. The hash must be salted to prevent "Mass Roster Scraping" of the state's professional workforce.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Professional licensing is about "Public Protection." By turning static certificates into live digital bridges, we ensure that professional authority is always backed by real-time cryptographic proof, protecting the public from the devastating cost of unlicensed practice.

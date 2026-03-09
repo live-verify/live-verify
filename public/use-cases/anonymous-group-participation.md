@@ -284,6 +284,21 @@ Who holds the escrow matters:
 - **Online communities:** Platform-independent verification service
 - **Survivor groups:** Trauma-informed organization with advocacy expertise
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Post-Verification Actions
 
 **For Facilitators/Moderators:**

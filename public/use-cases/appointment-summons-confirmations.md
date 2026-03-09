@@ -155,19 +155,24 @@ Parents occasionally need to justify a child's absence with proof of a medical a
 - **Recycled documents:** A genuine appointment letter from a previous visit is presented for a current absence. The employer has no way to know the appointment already happened.
 - **Strategic appointments:** Some walk-in clinics and telemedicine providers offer "appointments" with minimal medical need. Like complicit doctors' note providers, Live Verify doesn't solve this — the appointment is real — but the authority chain signals whether the institution is a recognized healthcare provider.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Privacy Salt
 
 Important for medical appointments. Salt prevents an attacker from hashing known employee names with likely appointment dates to check whether a specific person has a hospital appointment on a given day. Court summons are typically less sensitive (they're matters of public record in many jurisdictions), but salt is still recommended as default.
-
-## Authority Chain
-
-**Medical appointments:** Hospital/clinic domain &rarr; NHS Trust or health system &rarr; healthcare regulator (CQC in UK, state health department in US) &rarr; statute (Health and Social Care Act 2008 in UK, state medical practice acts in US).
-
-**Jury duty:** Court domain &rarr; court administration (HMCTS in UK, Administrative Office of the US Courts in US) &rarr; statute (Juries Act 1974 in UK, 28 U.S.C. in US).
-
-**Witness summons:** Court domain &rarr; court administration &rarr; statute (Criminal Justice Act 2003 / Magistrates' Courts Act 1980 in UK, Federal Rules of Civil/Criminal Procedure in US).
-
-See [Authority Chain Specification](/specs/authority-chain) for the full protocol.
 
 ## Competition
 

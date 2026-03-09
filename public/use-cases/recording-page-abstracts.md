@@ -104,6 +104,21 @@ The **Property Owner (Grantee)** benefits from verification.
 
 **Privacy Salt:** Essential. While land records are public, the ability to "Mass-Harvest" property transfers is a target for predatory data brokers. The hash must be salted to prevent unauthorized bulk scraping.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Property records are the "Physical Registry of Wealth." By turning recording stamps into verifiable digital bridges, we protect the stability of the housing market and ensure that "Ownership" is based on the digital truth of the county vault.

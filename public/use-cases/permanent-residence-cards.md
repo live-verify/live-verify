@@ -103,6 +103,21 @@ The **Permanent Resident (Holder)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Green Card data is subject to the Privacy Act. The hash must be salted to prevent "Enumeration" of the US non-citizen population.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 The Green Card is the "Gold Standard" of identity. By turning it into a verifiable digital bridge, we protect the US labor market and the banking system from the multi-billion dollar cost of high-grade identity fraud.

@@ -92,6 +92,21 @@ The **Traveler (Claimant)** benefits from verification.
 
 **Privacy Salt:** Highly Critical. Medical loss data and payout amounts are sensitive PII. The hash must be salted and access restricted to authorized financial partners.
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Rationale
 
 Travel insurance is the "Global Safety Net." By turning settlement letters into verifiable digital bridges, we protect the integrity of the claims process and ensure that payouts are based on the professional truth of the audit, not the creative editing of a claimant.

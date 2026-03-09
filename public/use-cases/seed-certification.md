@@ -98,6 +98,31 @@ A dealer receiving 500 bags of seed scans the verified hashes to ensure the lot 
 
 **Privacy Salt:** Required. While variety names are public, specific grower field locations and total purchase volumes are sensitive business secrets. The combination of lot numbers, tag IDs, and precise quality metrics (99.85% purity, 94.00% germination) provides some entropy, but the risk that competitors could use enumeration for "market-share mapping"—tracking which farmers are buying which varieties and in what volumes—means salt is essential. Salt protects both farmer privacy and seed company competitive intelligence.
 
+## Authority Chain
+
+**Patterns:** Commercial, Sovereign
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require seed certifying agencies to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

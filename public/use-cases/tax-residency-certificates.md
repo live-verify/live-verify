@@ -111,22 +111,24 @@ Verifying client residency claims before filing cross-border tax returns. Gettin
 
 Tax authorities are the sole issuers: HMRC (UK), IRS (US, via Form 6166), Eidgenössische Steuerverwaltung (Switzerland), Bundeszentralamt für Steuern (Germany), Direction Générale des Finances Publiques (France), National Tax Agency (Japan), Agenzia delle Entrate (Italy), Canada Revenue Agency.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Privacy Salt
 
 **Moderate.** Tax residency is not highly secret — it's declared on tax returns and disclosed to financial institutions routinely. But linking a specific person or entity to a specific tax authority reveals financial activity and cross-border economic connections. Salt prevents enumeration — an attacker who knows a company's TIN format shouldn't be able to probe whether that company holds a residency certificate in a particular jurisdiction.
-
-## Authority Chain
-
-Tax authorities ARE root authorities — they derive their authority directly from national tax legislation, not from any higher attestation body. HMRC derives from UK Finance Acts. The IRS derives from the Internal Revenue Code. The Swiss Federal Tax Administration derives from Swiss federal tax law. The Bundeszentralamt für Steuern derives from the Abgabenordnung.
-
-The OECD provides the framework (Model Tax Convention, Common Reporting Standard) but is not an attestation authority — it doesn't issue or verify certificates. It sets the template that bilateral treaties follow.
-
-```
-National tax authority → national government → sovereignty
-HMRC → UK Parliament (Finance Acts) → Crown
-IRS → US Congress (Internal Revenue Code) → Constitution
-ESTV → Swiss Federal Council → Federal Constitution
-```
 
 ## Competition
 

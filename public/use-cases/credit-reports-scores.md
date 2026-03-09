@@ -91,27 +91,24 @@ The **consumer**. The person whose credit is being reported.
 
 **The fix:** Bureau issues report with verify line. Consumer shares report with landlord/lender. Recipient scans the verify line. Bureau's domain confirms: yes, this is the authentic report we issued for this consumer on this date, with this score. No SSN exchange, no consent form, no cost to the verifier, no hard inquiry on the consumer's file.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Privacy Salt
 
 **Critical.** Credit data is extremely sensitive. The hash must be salted to prevent enumeration attacks. Without salt, an attacker who knows the bureau's endpoint could try hashing combinations of common names and dates to discover whether specific individuals have credit reports at specific bureaus, what their approximate score ranges are, or whether they have derogatory marks. The salt makes this computationally infeasible — you need the actual document to produce the correct hash.
-
-## Authority Chain
-
-Credit bureaus derive their authority from a clear regulatory chain:
-
-**Credit bureaus** (Equifax, Experian, TransUnion) → **financial regulator** (CFPB in US, FCA in UK) → **statute** (Fair Credit Reporting Act in US, Consumer Credit Act 1974 in UK).
-
-The verification response includes an authority chain header confirming the bureau is a regulated consumer reporting agency:
-
-```
-X-Verify-Authority-For: consumer-credit-report
-X-Verify-Authority-Attested-By: https://registry.consumerfinance.gov/v/{hash}
-X-Verify-Authority-Scope: fcra-registered-cra
-```
-
-This lets the relying party confirm not just that the report is authentic, but that the issuer is a legitimate, regulated credit bureau — not a lookalike domain serving fabricated reports.
-
-See [Verification Response Format: Authority Chains](../../docs/Verification-Response-Format.md#authority-chain-verification) for the full specification.
 
 ## Competition
 

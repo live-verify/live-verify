@@ -139,20 +139,18 @@ Live Verify doesn't change the trust hierarchy — it just makes the existing tr
 
 ## Authority Chain
 
-Registered agents derive their authority from licensing by the jurisdiction's financial services regulator:
+**Pattern:** Commercial
 
-```
-Harneys (BVI) → Licensed by BVI FSC → BVI Government
-Maples (Cayman) → Licensed by CIMA → Cayman Islands Government
-Conyers (Bermuda) → Licensed by BMA → Bermuda Government
-```
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
 
-This is notably different from registry-issued certificates — the agent is a regulated private entity, not the government itself. The endorsement chain could reflect this:
+**Primary issuer example:**
 
-```
-verify:harneys.com/letters
-  endorsed by bvifsc.vg (BVI Financial Services Commission)
-```
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
 
 ## Competition
 

@@ -147,13 +147,24 @@ When both parties arrive separately after an incident. ER staff need to know a r
 **Tribal Courts:** Tribal courts issue protective orders enforceable under VAWA.
 **Military Courts:** Military protective orders (MPOs) issued by commanding officers.
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Privacy Salt
 
 Critical. The existence of a restraining order reveals domestic violence, stalking, or harassment. Salt prevents enumeration of who has orders against whom. However, for public safety, law enforcement access must be prioritized -- the privacy model must balance victim safety against respondent privacy. A high-entropy random salt printed on the document ensures that the hash cannot be reverse-engineered or brute-forced to discover whether a specific individual has an order against them.
-
-## Authority Chain
-
-Issuing court (state superior/family court, tribal court) --> state judicial system --> statute (state domestic violence statutes, VAWA for interstate enforcement). Courts are root authorities in most models, but the specific court must be verifiable -- a fabricated "court" issuing orders from a nonexistent jurisdiction should not be trusted. The authority chain spec defines how verifiers confirm the issuing domain maps to a legitimate court. See [Authority Chain Spec](/specs/authority-chain).
 
 ## Competition
 

@@ -107,6 +107,21 @@ The **Event Organizer** benefits from verification.
 
 **Privacy Salt:** Low. These are public permits by law. However, individual organizer phone numbers should be salted to protect privacy.
 
+## Authority Chain
+
+**Pattern:** Personal
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+
 ## Rationale
 
 Events permits are the "Contract with the Neighborhood." By turning static cards into live digital bridges, we ensure that the public's right to peace and safety is protected by the digital truth of the city vault.

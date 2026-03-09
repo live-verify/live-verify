@@ -151,6 +151,21 @@ This is infrastructure the building department must implement; Live Verify assum
 
 **Privacy Salt:** Low. Building safety info is generally public record. However, equipment IDs should be salted to prevent competitors from mapping a city's entire infrastructure density.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 Building safety is about "Passive Trust." By turning every safety placard into a live, verifiable bridge to the regulator, we empower the public to enforce the codes that protect their lives.

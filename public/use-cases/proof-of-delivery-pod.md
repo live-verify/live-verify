@@ -90,6 +90,21 @@ The **Consignee (Receiver)** benefits from verification.
 
 **Privacy Salt:** Essential. Tracking numbers and addresses are sensitive. The hash must be salted to prevent "Tracking Number Harvesting" by data scrapers.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 Proof of Delivery is the "Closing Link" in the global supply chain. Live Verify turns a fleeting physical event (the handoff) into a permanent, verifiable digital fact, reducing billions in "Loss and Dispute" costs annually.

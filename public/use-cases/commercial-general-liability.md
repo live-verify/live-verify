@@ -102,6 +102,21 @@ The business owner (second party) may hand the verified document to various thir
 
 **Privacy Salt:** Not required. CGL policy declarations contain many unpredictable variables: business names, unique policy numbers, specific coverage limits (exact dollar amounts), business descriptions and class codes, effective/expiration dates, deductible amounts, and carrier identifiers. The combination of these policy-specific details creates sufficient entropy to prevent hash enumeration attacks.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require commercial liability insurers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

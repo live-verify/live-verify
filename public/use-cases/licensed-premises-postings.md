@@ -98,6 +98,21 @@ The **Business Owner / Licensee** benefits from verification.
 
 **Privacy Salt:** Low. These licenses are typically public information. However, the hashes should be salted to prevent competitors from scraping the entire city's licensing schedule.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 Licensed premises are the "Living Room" of the city. By turning static placards into live digital bridges, we create a safer, more transparent environment for patrons, neighbors, and regulators alike.

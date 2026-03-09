@@ -280,6 +280,21 @@ These differ from incident-based identity escrow:
 - **Open standards:** Non-proprietary data formats
 - **Legal trust structures:** Escrow held by legal entities with succession plans
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Jurisdictional Considerations
 
 **Donor Identity:**

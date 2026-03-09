@@ -107,6 +107,21 @@ The **Homeowner / Contractor** benefits from verification.
 
 **Privacy Salt:** Essential. Project descriptions and owner names are sensitive. The hash must be salted to prevent "Data Mining" of all local renovation budgets.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 Construction permits are about "Community Trust." By allowing the public to instantly verify the legality of a construction project, we transform the permit from a passive piece of paper into a live, transparent contract between the builder and the city.

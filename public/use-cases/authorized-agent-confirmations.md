@@ -338,6 +338,31 @@ Full details including authorized individuals:
 
 **The gap this fills:** Currently, agents carry paper authorizations that could be forged. Police often can't verify on-scene. "Sort it out at the station" wastes everyone's time. Instant verification resolves disputes immediately.
 
+## Authority Chain
+
+**Patterns:** Regulated, Sovereign
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## See Also
 
 - [Estate Clearance Authorizations](view.html?slug=estate-clearance-authorizations) — Detailed system for probate and property clearance

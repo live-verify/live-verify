@@ -104,6 +104,21 @@ The **Insured Company** (Victim) benefits from verification.
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. Ransomware events are highly confidential. The hash MUST be salted to prevent "Guessing" which companies are currently under attack.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

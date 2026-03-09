@@ -102,6 +102,21 @@ The **Passenger (Rider)** benefits from verification.
 
 **Privacy Salt:** Essential. Driver names and plates are private employment data. The hash must be salted to prevent "Mass Fleet Scraping" by competitors or data brokers.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Rationale
 
 Vehicle postings are the "Shield of the Public Road." By turning static cards into live digital bridges, we ensure that "Permission to Drive" is backed by the cryptographic truth of the city vault, protecting both passengers and the legitimate taxi industry.

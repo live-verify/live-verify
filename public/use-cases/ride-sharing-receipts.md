@@ -99,6 +99,31 @@ The business traveler / rider (second party) may hand the verified document to v
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. Pickup/Drop-off addresses are highly sensitive private data. The hash MUST be salted to prevent "Stalking" or "Pattern Analysis" of individual riders. Even though receipts contain unique trip IDs and timestamps, the specific addresses could be enumerated to track a person's movements, creating serious privacy and safety risks. Salt is mandatory to protect rider location privacy.
 
+## Authority Chain
+
+**Patterns:** Commercial, Personal
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require ride-sharing platforms to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

@@ -105,6 +105,31 @@ The insured business (second party) may hand the verified document to various th
 
 **Privacy Salt:** Required. Cyber insurance policies often contain enumerable values—round dollar coverage limits ($1M, $5M, $10M), standard retention amounts, and publicly known company names. A competitor could feasibly enumerate combinations to reverse-engineer a company's cyber risk profile and coverage strategy, gaining unfair market intelligence. Salt protects these strategic business decisions.
 
+## Authority Chain
+
+**Patterns:** Commercial, Regulated
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require cyber insurers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

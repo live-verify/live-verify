@@ -101,6 +101,31 @@ The **Client / Gym Member** benefits from verification.
 
 **Privacy Salt:** Medium. While certification status is public, individual background check details are private. The hash must be salted to prevent "Stalking" or harassment of individual trainers.
 
+## Authority Chain
+
+**Patterns:** Personal, Sovereign
+
+Personal issuers are individuals making personal attestations, often via a peer-referral platform.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `personal-domain.com/refs` |
+| `authorizedBy` | `refs.peerreferrals.com/v1` |
+| `authorityBasis` | Individual's personal peer references |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 Personal training is a "High-Touch, Low-Oversight" service. By turning professional badges into verifiable digital bridges, we create a "Shield of Safety" that protects clients and rewards the dedicated professionals who maintain their standards.

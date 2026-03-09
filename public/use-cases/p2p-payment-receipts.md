@@ -93,6 +93,31 @@ The **Seller / Recipient** benefits from verification.
 
 **Privacy Salt:** Highly Critical. P2P handles and payment amounts are highly sensitive social and financial data. The hash MUST be salted to prevent "Mass Payment Harvesting" by data scrapers.
 
+## Authority Chain
+
+**Patterns:** Commercial, Sovereign
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Rationale
 
 P2P payments are the "Cash of the Mobile Age." By turning digital receipts into verifiable digital bridges, we protect the informal economy from the multi-billion dollar cost of "Screenshot Scams" and ensure that "Sent" means "Spent."

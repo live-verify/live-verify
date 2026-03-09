@@ -143,27 +143,24 @@ Verifying that an employee has actually activated their coverage after open enro
 **State Medicaid Programs:** (See Further Derivations.)
 **Federal Medicare:** (See Further Derivations.)
 
+## Authority Chain
+
+**Pattern:** Regulated
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Privacy Salt
 
 **Critical.** Health insurance membership reveals that a person has (or lacks) health coverage, which insurer they use, and their group number (which identifies their employer). In the US, health insurance status is tied to employment, income, and potentially medical conditions (certain plan types suggest chronic conditions). The hash must be salted to prevent enumeration of members by employer group number — an attacker who knows the group number format could otherwise attempt to enumerate all employees at a target company and determine their insurance status.
-
-## Authority Chain
-
-Health insurers derive their authority from a clear regulatory chain:
-
-**Health insurer** (BCBS, UnitedHealthcare, Aetna) → **state insurance commissioner** (US, per-state regulation) or **financial regulator** (FCA in UK, APRA in Australia) → **statute** (state insurance codes in US, Affordable Care Act federally).
-
-The verification response includes an authority chain header confirming the insurer is a licensed, regulated entity:
-
-```
-X-Verify-Authority-For: health-insurance-membership
-X-Verify-Authority-Attested-By: https://registry.insurance.illinois.gov/v/{hash}
-X-Verify-Authority-Scope: state-licensed-health-insurer
-```
-
-This lets the relying party confirm not just that the card is authentic, but that the issuer is a legitimate, state-licensed health insurer — not a lookalike domain serving fabricated eligibility responses.
-
-See [Verification Response Format: Authority Chains](../../docs/Verification-Response-Format.md#authority-chain-verification) for the full specification.
 
 ## Competition
 

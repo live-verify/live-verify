@@ -96,6 +96,21 @@ The **Property Owner** benefits from verification.
 **State Title Guaranty Funds:** (In jurisdictions like Iowa).
 **Real Estate Data Mirror Sites:** (e.g., DataTrace - hosting verified policy hashes).
 
+## Authority Chain
+
+**Pattern:** Sovereign
+
+Sovereign issuers are government bodies or statutory authorities. The chain typically terminates at the government root.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `gov.uk/verify` |
+| `authorizedBy` | *(self-authorized)* |
+| `authorityBasis` | National statutory authority |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

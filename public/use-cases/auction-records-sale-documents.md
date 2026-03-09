@@ -95,6 +95,21 @@ Verifying that "record-breaking prices" reported in the media are authentic and 
 
 **Privacy Salt:** Not required. Auction purchase statements contain highly unpredictable variables—unique lot numbers, specific sale IDs with dates, buyer/bidder IDs, artwork titles and years, precise hammer prices, and calculated premiums with exact tax percentages. These elements combined provide sufficient entropy that enumeration attacks are infeasible. Adding salt would provide no additional security benefit.
 
+## Authority Chain
+
+**Pattern:** Commercial
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require auction houses to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

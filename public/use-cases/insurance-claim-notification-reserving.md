@@ -119,6 +119,31 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 **Reinsurance Carriers.**
 **Lloyd's Syndicates.**
 
+## Authority Chain
+
+**Patterns:** Commercial, Regulated
+
+Commercial issuers are private businesses or platforms that may be self-authorized or accredited by an industry body.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `checkr.com/verify` |
+| `authorizedBy` | `napbs.org/accreditation` |
+| `authorityBasis` | NAPBS-accredited background screening provider |
+
+Regulated issuers are institutions like banks or universities that operate under a government-issued license.
+
+**Primary issuer example:**
+
+| Field | Value |
+|---|---|
+| Issuer domain | `example-bank.com/v` |
+| `authorizedBy` | `fca.org.uk/register` |
+| `authorityBasis` | FCA-authorised deposit taker, FRN 123456 |
+
+
 ## Rationale
 
 Insurance is a "Business of Promises." The value of an insurance policy is entirely dependent on the insurer's ability to pay future claims. By externalizing the "First Notice of Loss" via witnessed hashes, we move from a model of "Trusting management's data" to "Verifying the public's claims," ensuring that the book growth never hides a hollow reserve.
