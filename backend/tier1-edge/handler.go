@@ -120,6 +120,11 @@ func clientIP(r *http.Request) string {
 }
 
 func (h *edgeHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	// CORS: specification requirement, not optional. Verification endpoints are
+	// public, read-only, unauthenticated GETs. Browser-based renderers (e.g. the
+	// <verified-cv> web component) make cross-origin fetches to verify claims.
+	// Without this header, browser verification silently fails.
+	// Server-side defenses (rate limiting, WAF, IP throttling) are unaffected.
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "GET, OPTIONS")
 

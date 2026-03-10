@@ -1,7 +1,7 @@
 {
       "generated": "2026-03-05T19:59:52.807Z",
-      "totalUseCases": 465,
-      "totalFurtherDerivations": 554,
+      "totalUseCases": 466,
+      "totalFurtherDerivations": 557,
       "categories": {
             "Real Estate & Property": 31,
             "Charitable & Non-Profit": 7,
@@ -2649,27 +2649,6 @@
                   ]
             },
             {
-                  "slug": "vehicle-registration",
-                  "title": "Vehicle Registration",
-                  "category": "Government & Civic Documents",
-                  "volume": "Very Large",
-                  "retention": "1-2 years (annual renewal)",
-                  "verificationMode": "camera",
-                  "furtherDerivations": 1,
-                  "snippet": "Plate number, VIN, year/make/model, colour, registered owner, registration expiration, insurance status, registration status, holds or flags (stolen, impounded, emissions non-compliance)",
-                  "tags": [
-                        "dmv",
-                        "vehicle-registration",
-                        "license-plate",
-                        "registration-card",
-                        "insurance-verification",
-                        "traffic-stop",
-                        "parking-enforcement",
-                        "qr-code",
-                        "digital-registration"
-                  ]
-            },
-            {
                   "slug": "driving-records",
                   "title": "Authority-Issued Driving Records",
                   "category": "Government & Civic Documents",
@@ -4051,6 +4030,27 @@
                   ]
             },
             {
+                  "slug": "hospital-wayfinding-postings",
+                  "title": "Large Building & Campus Wayfinding Postings",
+                  "category": "Site & Equipment Safety",
+                  "volume": "Large",
+                  "retention": "Permanent (updated on refurbishment)",
+                  "verificationMode": "camera",
+                  "furtherDerivations": 2,
+                  "snippet": "Location identifier, nearest destinations with walking times, nearest facilities, last-updated date, issuing building operator. Post-verification response provides turn-by-turn indoor navigation for hospitals, universities, airports, courts, and any large building with unfamiliar visitors.",
+                  "tags": [
+                        "wayfinding",
+                        "hospital",
+                        "navigation",
+                        "you-are-here",
+                        "nhs",
+                        "public-building",
+                        "accessibility",
+                        "post-verification-action",
+                        "anti-tampering"
+                  ]
+            },
+            {
                   "slug": "hotel-booking-documents",
                   "title": "Hotel Cancellation & Refund Receipts",
                   "category": "Travel & Hospitality",
@@ -5422,6 +5422,26 @@
                   ]
             },
             {
+                  "slug": "meter-reader-surveyor-verification",
+                  "title": "Meter Reader & Property Surveyor Verification",
+                  "category": "Identity & Authority Verification",
+                  "volume": "Large",
+                  "retention": "Visit + 1-3 years (access records)",
+                  "verificationMode": "camera",
+                  "furtherDerivations": 1,
+                  "snippet": "Worker name, photo hash, professional registration number, firm affiliation, qualification level, role, assignment status",
+                  "tags": [
+                        "meter-reader",
+                        "surveyor",
+                        "property-access",
+                        "appraiser",
+                        "personal-safety",
+                        "home-security",
+                        "bogus-caller",
+                        "property-valuation"
+                  ]
+            },
+            {
                   "slug": "micro-credentials",
                   "title": "Micro-Credentials / Skill Attestations",
                   "category": "Novel Document Types",
@@ -6112,6 +6132,27 @@
                   ]
             },
             {
+                  "slug": "payment-behaviour-attestations",
+                  "title": "Payment Behaviour Attestations",
+                  "category": "Business & Commerce",
+                  "volume": "Large",
+                  "retention": "Rolling (current + 3 years history)",
+                  "verificationMode": "clip",
+                  "furtherDerivations": 2,
+                  "snippet": "Company name, Companies House number, stated payment terms, policy effective date. Supplier attestations: trading relationship duration, invoice count, payment timing statistics, attestation period.",
+                  "tags": [
+                        "payment",
+                        "net-30",
+                        "trade-credit",
+                        "b2b",
+                        "supplier",
+                        "attestation",
+                        "credit-risk",
+                        "peer-to-peer",
+                        "non-sovereign"
+                  ]
+            },
+            {
                   "slug": "payment-processor-merchant-statements",
                   "title": "Payment Processor Merchant Statements",
                   "category": "Banking & Payments",
@@ -6452,6 +6493,26 @@
                         "government-id",
                         "training-certification",
                         "election-day-ops"
+                  ]
+            },
+            {
+                  "slug": "postal-courier-worker-verification",
+                  "title": "Postal & Courier Worker Verification",
+                  "category": "Identity & Authority Verification",
+                  "volume": "Very Large",
+                  "retention": "Delivery + 30 days",
+                  "verificationMode": "camera",
+                  "furtherDerivations": 1,
+                  "snippet": "Worker name, photo hash, employee ID, company/service, depot assignment, role, current shift status",
+                  "tags": [
+                        "postal-worker",
+                        "royal-mail",
+                        "usps",
+                        "courier",
+                        "personal-safety",
+                        "suspicious-packages",
+                        "doorstep-fraud",
+                        "package-security"
                   ]
             },
             {
@@ -7004,6 +7065,25 @@
                         "property-fraud",
                         "money-laundering",
                         "financial-crime"
+                  ]
+            },
+            {
+                  "slug": "real-estate-showing-agent-verification",
+                  "title": "Real Estate Showing Agent Verification",
+                  "category": "Identity & Authority Verification",
+                  "volume": "Medium",
+                  "retention": "Showing + 1-3 years (liability)",
+                  "verificationMode": "camera",
+                  "furtherDerivations": 1,
+                  "snippet": "Agent name, photo hash, licence number, agency affiliation, licence status, professional indemnity insurance status",
+                  "tags": [
+                        "real-estate",
+                        "estate-agent",
+                        "property-showing",
+                        "personal-safety",
+                        "female-safety",
+                        "agent-verification",
+                        "vacant-property"
                   ]
             },
             {
@@ -8134,6 +8214,27 @@
                   ]
             },
             {
+                  "slug": "taxi-private-hire-verification",
+                  "title": "Taxi & Private Hire Driver Verification",
+                  "category": "Identity & Authority Verification",
+                  "volume": "Very Large",
+                  "retention": "License term + 1-3 years (incidents)",
+                  "verificationMode": "camera",
+                  "furtherDerivations": 1,
+                  "snippet": "Driver name, photo hash, PCO licence number, vehicle details, operator affiliation, licence expiry, DBS check date, active status",
+                  "tags": [
+                        "taxi-verification",
+                        "private-hire",
+                        "minicab",
+                        "female-safety",
+                        "personal-safety",
+                        "tfl",
+                        "ride-safety",
+                        "driver-credentials",
+                        "vulnerable-passengers"
+                  ]
+            },
+            {
                   "slug": "teaching-reciprocity-credentials",
                   "title": "Teaching Reciprocity and Compact Credentials",
                   "category": "Professional & Educational Qualifications",
@@ -8692,6 +8793,25 @@
                   ]
             },
             {
+                  "slug": "utility-worker-verification",
+                  "title": "Utility Worker Verification",
+                  "category": "Identity & Authority Verification",
+                  "volume": "Large",
+                  "retention": "Service + 1-3 years (access records)",
+                  "verificationMode": "camera",
+                  "furtherDerivations": 1,
+                  "snippet": "Worker name, photo hash, employee ID, company, role, DBS check date, service area, current shift status",
+                  "tags": [
+                        "utility-worker",
+                        "meter-reader",
+                        "gas-engineer",
+                        "personal-safety",
+                        "home-security",
+                        "vulnerable-homeowners",
+                        "bogus-caller"
+                  ]
+            },
+            {
                   "slug": "vacation-rental-agreements",
                   "title": "Vacation Rental Agreements",
                   "category": "Travel & Hospitality",
@@ -8775,6 +8895,27 @@
                         "emissions",
                         "personal-vehicle",
                         "used-car"
+                  ]
+            },
+            {
+                  "slug": "vehicle-registration",
+                  "title": "Vehicle Registration",
+                  "category": "Government & Civic Documents",
+                  "volume": "Very Large",
+                  "retention": "1-2 years (annual renewal)",
+                  "verificationMode": "camera",
+                  "furtherDerivations": 1,
+                  "snippet": "Plate number, VIN, year/make/model, colour, registered owner, registration expiration, insurance status, registration status, holds or flags (stolen, impounded, emissions non-compliance)",
+                  "tags": [
+                        "dmv",
+                        "vehicle-registration",
+                        "license-plate",
+                        "registration-card",
+                        "insurance-verification",
+                        "traffic-stop",
+                        "parking-enforcement",
+                        "qr-code",
+                        "digital-registration"
                   ]
             },
             {
@@ -9079,27 +9220,6 @@
                   ]
             },
             {
-                  "slug": "wills-estate-documents",
-                  "title": "Last Will and Testament (Wills)",
-                  "category": "Financial & Legal Documents",
-                  "volume": "Small",
-                  "retention": "Permanent (estate records)",
-                  "verificationMode": "clip",
-                  "furtherDerivations": 1,
-                  "snippet": "Testator name, Date of Execution, Witness names, Executor/Personal Representative name, Page Number (e.g., \"Page 1 of 12\"), Revision ID, Law firm/Attorney ID, Drafting date.",
-                  "tags": [
-                        "wills",
-                        "estate",
-                        "documents",
-                        "financial",
-                        "legal",
-                        "last-will",
-                        "testamentary",
-                        "inheritance-fraud",
-                        "probate"
-                  ]
-            },
-            {
                   "slug": "wifi-credential-postings",
                   "title": "Wi-Fi Credential Postings",
                   "category": "Novel Document Types",
@@ -9118,6 +9238,27 @@
                         "network",
                         "hospitality",
                         "anti-phishing"
+                  ]
+            },
+            {
+                  "slug": "wills-estate-documents",
+                  "title": "Last Will and Testament (Wills)",
+                  "category": "Financial & Legal Documents",
+                  "volume": "Small",
+                  "retention": "Permanent (estate records)",
+                  "verificationMode": "clip",
+                  "furtherDerivations": 1,
+                  "snippet": "Testator name, Date of Execution, Witness names, Executor/Personal Representative name, Page Number (e.g., \"Page 1 of 12\"), Revision ID, Law firm/Attorney ID, Drafting date.",
+                  "tags": [
+                        "wills",
+                        "estate",
+                        "documents",
+                        "financial",
+                        "legal",
+                        "last-will",
+                        "testamentary",
+                        "inheritance-fraud",
+                        "probate"
                   ]
             },
             {
@@ -9215,126 +9356,6 @@
                         "fmla",
                         "eeoc",
                         "nlra"
-                  ]
-            },
-            {
-                  "slug": "taxi-private-hire-verification",
-                  "title": "Taxi & Private Hire Driver Verification",
-                  "category": "Identity & Authority Verification",
-                  "volume": "Very Large",
-                  "retention": "License term + 1-3 years (incidents)",
-                  "verificationMode": "camera",
-                  "furtherDerivations": 1,
-                  "snippet": "Driver name, photo hash, PCO licence number, vehicle details, operator affiliation, licence expiry, DBS check date, active status",
-                  "tags": [
-                        "taxi-verification",
-                        "private-hire",
-                        "minicab",
-                        "female-safety",
-                        "personal-safety",
-                        "tfl",
-                        "ride-safety",
-                        "driver-credentials",
-                        "vulnerable-passengers"
-                  ]
-            },
-            {
-                  "slug": "utility-worker-verification",
-                  "title": "Utility Worker Verification",
-                  "category": "Identity & Authority Verification",
-                  "volume": "Large",
-                  "retention": "Service + 1-3 years (access records)",
-                  "verificationMode": "camera",
-                  "furtherDerivations": 1,
-                  "snippet": "Worker name, photo hash, employee ID, company, role, DBS check date, service area, current shift status",
-                  "tags": [
-                        "utility-worker",
-                        "meter-reader",
-                        "gas-engineer",
-                        "personal-safety",
-                        "home-security",
-                        "vulnerable-homeowners",
-                        "bogus-caller"
-                  ]
-            },
-            {
-                  "slug": "real-estate-showing-agent-verification",
-                  "title": "Real Estate Showing Agent Verification",
-                  "category": "Identity & Authority Verification",
-                  "volume": "Medium",
-                  "retention": "Showing + 1-3 years (liability)",
-                  "verificationMode": "camera",
-                  "furtherDerivations": 1,
-                  "snippet": "Agent name, photo hash, licence number, agency affiliation, licence status, professional indemnity insurance status",
-                  "tags": [
-                        "real-estate",
-                        "estate-agent",
-                        "property-showing",
-                        "personal-safety",
-                        "female-safety",
-                        "agent-verification",
-                        "vacant-property"
-                  ]
-            },
-            {
-                  "slug": "postal-courier-worker-verification",
-                  "title": "Postal & Courier Worker Verification",
-                  "category": "Identity & Authority Verification",
-                  "volume": "Very Large",
-                  "retention": "Delivery + 30 days",
-                  "verificationMode": "camera",
-                  "furtherDerivations": 1,
-                  "snippet": "Worker name, photo hash, employee ID, company/service, depot assignment, role, current shift status",
-                  "tags": [
-                        "postal-worker",
-                        "royal-mail",
-                        "usps",
-                        "courier",
-                        "personal-safety",
-                        "suspicious-packages",
-                        "doorstep-fraud",
-                        "package-security"
-                  ]
-            },
-            {
-                  "slug": "meter-reader-surveyor-verification",
-                  "title": "Meter Reader & Property Surveyor Verification",
-                  "category": "Identity & Authority Verification",
-                  "volume": "Large",
-                  "retention": "Visit + 1-3 years (access records)",
-                  "verificationMode": "camera",
-                  "furtherDerivations": 1,
-                  "snippet": "Worker name, photo hash, professional registration number, firm affiliation, qualification level, role, assignment status",
-                  "tags": [
-                        "meter-reader",
-                        "surveyor",
-                        "property-access",
-                        "appraiser",
-                        "personal-safety",
-                        "home-security",
-                        "bogus-caller",
-                        "property-valuation"
-                  ]
-            },
-            {
-                  "slug": "hospital-wayfinding-postings",
-                  "title": "Large Building & Campus Wayfinding Postings",
-                  "category": "Site & Equipment Safety",
-                  "volume": "Large",
-                  "retention": "Permanent (updated on refurbishment)",
-                  "verificationMode": "camera",
-                  "furtherDerivations": 2,
-                  "snippet": "Location identifier, nearest destinations with walking times, nearest facilities, last-updated date, issuing building operator. Post-verification response provides turn-by-turn indoor navigation for hospitals, universities, airports, courts, and any large building with unfamiliar visitors.",
-                  "tags": [
-                        "wayfinding",
-                        "hospital",
-                        "navigation",
-                        "you-are-here",
-                        "nhs",
-                        "public-building",
-                        "accessibility",
-                        "post-verification-action",
-                        "anti-tampering"
                   ]
             }
       ],
