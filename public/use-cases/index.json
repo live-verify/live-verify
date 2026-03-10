@@ -1,6 +1,6 @@
 {
   "generated": "2026-03-05T19:59:52.807Z",
-  "totalUseCases": 457,
+  "totalUseCases": 458,
   "totalFurtherDerivations": 544,
   "categories": {
     "Real Estate & Property": 31,
@@ -2631,8 +2631,8 @@
       ]
     },
     {
-      "slug": "drivers-licenses-vehicle-registrations",
-      "title": "Driver's Licenses and Vehicle Registrations",
+      "slug": "drivers-licenses",
+      "title": "Driver's Licenses",
       "category": "Government & Civic Documents",
       "volume": "Medium-Large",
       "retention": "5-10 years (renewal cycles)",
@@ -2642,11 +2642,31 @@
       "tags": [
         "dmv",
         "drivers-license",
-        "vehicle-registration",
         "real-id",
         "identity-verification",
         "public-safety",
         "law-enforcement"
+      ]
+    },
+    {
+      "slug": "vehicle-registration",
+      "title": "Vehicle Registration",
+      "category": "Government & Civic Documents",
+      "volume": "Very Large",
+      "retention": "1-2 years (annual renewal)",
+      "verificationMode": "camera",
+      "furtherDerivations": 1,
+      "snippet": "Plate number, VIN, year/make/model, colour, registered owner, registration expiration, insurance status, registration status, holds or flags (stolen, impounded, emissions non-compliance)",
+      "tags": [
+        "dmv",
+        "vehicle-registration",
+        "license-plate",
+        "registration-card",
+        "insurance-verification",
+        "traffic-stop",
+        "parking-enforcement",
+        "qr-code",
+        "digital-registration"
       ]
     },
     {

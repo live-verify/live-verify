@@ -150,5 +150,6 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 ## See Also
 
 - [Authority-Issued Driving Records](view.html?slug=driving-records) — Before adding a named driver, insurers should verify their points/endorsements
-- [Driver's Licenses & Vehicle Registrations](view.html?slug=drivers-licenses-vehicle-registrations) — License card verification
+- [Driver's Licenses](view.html?slug=drivers-licenses) — License card verification
+- [Vehicle Registration](view.html?slug=vehicle-registration) — Registration and insurance status
 - [Additional Driver Endorsements](view.html?slug=additional-driver-endorsements) — Temporary driver coverage

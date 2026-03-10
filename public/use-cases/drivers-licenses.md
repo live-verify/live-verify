@@ -1,11 +1,11 @@
 ---
-title: "Driver's Licenses and Vehicle Registrations"
+title: "Driver's Licenses"
 category: "Government & Civic Documents"
 volume: "Medium-Large"
 retention: "5-10 years (renewal cycles)"
-slug: "drivers-licenses-vehicle-registrations"
+slug: "drivers-licenses"
 verificationMode: "camera"
-tags: ["dmv", "drivers-license", "vehicle-registration", "real-id", "identity-verification", "public-safety", "law-enforcement"]
+tags: ["dmv", "drivers-license", "real-id", "identity-verification", "public-safety", "law-enforcement"]
 furtherDerivations: 1
 ---
 
@@ -65,20 +65,20 @@ The card proves identity and basic validity. For points/violations, see [Authori
 
 **Document Types:**
 - **Driver's License:** The foundational ID card.
-- **Vehicle Registration:** Proving ownership and valid tags.
 - **Interim License:** 30-day paper proof for new drivers.
-- **Disabled Person Placard:** Proving legitimate parking rights.
+- **Learner's Permit / Provisional License:** Restricted driving privileges for new drivers.
+
+For vehicle registration verification, see [Vehicle Registration](view.html?slug=vehicle-registration).
 
 ## Data Visible After Verification
 
-Shows the issuer domain (`dmv.ca.gov`, `nysdmv.com`) and current license/vehicle status.
+Shows the issuer domain (`dmv.ca.gov`, `nysdmv.com`) and current license status.
 
 **Status Indications:**
-- **Valid** — License/Registration is active and in good standing.
+- **Valid** — License is active and in good standing.
 - **Suspended** — Driving privileges removed (e.g., DUI or points).
 - **Expired** — Renewal required.
 - **Stolen** — License reported missing (fraud detection).
-- **Lapsed Insurance** — (For Registration) Plates suspended due to lack of insurance.
 
 ## Second-Party Use
 
@@ -105,13 +105,10 @@ The **Named Individual** benefits from verification.
 
 - **Birthdate Alteration:** Minors using "High-Quality Fakes" to buy alcohol or enter bars.
 - **Suspension Hiding:** A driver who lost their license keeping the physical card to fool employers or police.
-- **VIN / Plate Swapping:** Using a valid registration card from a "Clean" car on a stolen or uninsured vehicle.
-
 **Issuer Types** (First Party)
 
 **State DMVs:** (The primary authority in the USA).
-**National Ministries of Transport:** (In unified-system countries).
-**Law Enforcement Agencies.**
+**National Ministries of Transport:** (In unified-system countries, e.g., DVLA in the UK).
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. Identity data is the ultimate target for hackers. The hash MUST be salted to prevent "Dictionary Attacks" using voter rolls to find specific people's license numbers.
 
@@ -119,10 +116,10 @@ The **Named Individual** benefits from verification.
 
 **Pattern:** Sovereign
 
-The DVLA issues UK driving licenses and vehicle registrations under the Road Traffic Act 1988 and Vehicle Excise and Registration Act 1994.
+The DVLA issues UK driving licenses under the Road Traffic Act 1988.
 
 ```
-✓ dvla.gov.uk/verify — DVLA driving licenses and vehicle registration service
+✓ dvla.gov.uk/verify — DVLA driving license service
   ✓ gov.uk/verifiers — UK government root namespace
 ```
 
