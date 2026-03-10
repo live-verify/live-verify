@@ -118,6 +118,48 @@ The endpoint returns a status code:
 - **EXCUSED** — Person has been excused from jury duty or witness obligation
 - **404** — No matching record; possible forgery
 
+## Post-Verification Action: "Help Me Find This Department"
+
+The appointment letter proves the appointment is real. But it also contains something else: the location. "Cardiology Outpatients, East Wing, 4th Floor, Room 4.12." For an employer scanning the letter, that's irrelevant. For the patient arriving at a sprawling 1970s hospital campus and staring at a corridor that branches three ways, it's the most important information on the page.
+
+When the patient scans their own appointment letter — not at work to prove absence, but in the hospital lobby to find where they're going — the verification response can include a navigation action:
+
+```
+HTTP 200 OK
+Status: CONFIRMED
+
+Appointment: Thursday 12 March 2026, 14:15
+Department:  Cardiology Outpatients
+Location:    East Wing, 4th Floor, Room 4.12
+Patient:     J.R.C.
+
+--- Actions ---
+
+[Navigate to this appointment]
+  → Turn-by-turn directions from your current location
+  → Estimated walk: 7 minutes from Main Entrance
+
+[Add to calendar]
+  → Thursday 12 March 2026, 14:15
+  → Allow 2 hours including tests
+
+[Share arrival time with department]
+  → Let Cardiology Outpatients know you're in the building
+```
+
+**Privacy in the response:** The verification response shows the patient's initials (J.R.C.), not their full name. Anyone who intercepts the response — a passer-by glancing at the screen, a shoulder-surfer — sees initials, a department, and a time. Not "JAMES ROBERT CHEN has a cardiology appointment." The full name is on the paper letter itself (which the patient controls); the digital response minimises exposure.
+
+**How navigation works:** The patient taps "Navigate to this appointment." The app needs to know where they are now. Two options:
+
+1. **GPS/cellular location** — works for getting to the right building on a multi-building campus, but useless inside a concrete hospital.
+2. **Scan a wayfinding sign** — the patient scans a [corridor wayfinding posting](view.html?slug=hospital-wayfinding-postings) at the nearest junction. The app now knows both where they are (from the sign) and where they need to be (from the appointment letter). It calculates the route.
+
+This pairs the appointment letter with the wayfinding signs. The letter is the destination; the corridor sign is the current position. Together they produce indoor navigation without beacons, Wi-Fi triangulation, or any infrastructure beyond printed text and a verification endpoint.
+
+**Cellular coverage:** Large hospitals often have poor indoor coverage, especially in basement departments, radiology suites (shielded), and older concrete buildings. The navigation data should be delivered in full on the first scan — a complete set of directions, not a turn-by-turn stream that requires continuous connectivity. The patient downloads the route at the lobby (where coverage exists) and follows it offline.
+
+**The elderly patient scenario:** Mrs Patel, 78, arrives at Addenbrooke's for a hip consultation. She has her appointment letter in her handbag. Her daughter helped her install the app last week. She scans the letter in the main entrance. The app shows: "Orthopaedic Outpatients — 8 minute walk. Follow the blue line. Step-free route available." She follows the directions on her phone screen. At a junction where she's unsure, she scans the corridor sign and the route recalculates. She arrives at the right clinic without asking anyone. She didn't need to read a map, parse a colour-coded floor plan, or flag down a porter.
+
 ## Second-Party Use
 
 The **Recipient** (patient, juror, witness, defendant) receives the confirmation from the institution (first party) and presents it to their employer, school, or university.

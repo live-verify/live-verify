@@ -118,6 +118,86 @@ Scans → hash matches → green tick. The prescription is genuine, issued by El
 
 Secondary lookup endpoints always serve `text/plain` because their content must be deterministically hashable. HTML would introduce formatting variations that break hash reproducibility.
 
+## Action Suggestions (Consumer-Facing)
+
+Secondary lookups serve specialist software. But there's a lighter-weight mechanism for consumer apps: **action suggestions** in the issuer's `verification-meta.json`. These are optional prompts the app can offer after a successful primary verification — no secondary lookup needed.
+
+### Schema
+
+```json
+{
+  "actionSuggestions": [
+    {
+      "action": "notify",
+      "text": "Share this driver's details with your emergency contact",
+      "description": "Sends driver name, licence, vehicle, and your pickup location to a trusted contact"
+    },
+    {
+      "action": "store",
+      "text": "Save these credentials for your records",
+      "description": "Store verified credentials locally for future reference or dispute resolution"
+    },
+    {
+      "action": "register",
+      "text": "Register this care visit",
+      "description": "Log this visit with the care coordinator for safeguarding records",
+      "redirectUrl": "https://provider.example.com/log-visit",
+      "redirectParams": {
+        "worker": "{worker_name}",
+        "credential": "{credential_id}",
+        "date": "{verification_timestamp}"
+      }
+    }
+  ]
+}
+```
+
+### Fields
+
+| Field | Required | Description |
+|---|---|---|
+| `action` | Yes | Action type: `notify`, `store`, or `register` |
+| `text` | Yes | Short prompt shown to the user (one line) |
+| `description` | Yes | Explanation of what will happen if the user taps |
+| `redirectUrl` | No | URL to open if the user accepts. Absent for local-only actions like `store` |
+| `redirectParams` | No | Template parameters substituted from the verification context before redirect |
+
+### Action Types
+
+**`notify`** — Send the verified credential details to a trusted contact. The app composes a message (SMS, email, or platform-specific) containing the verified person's name, credential, photo hash, and the user's current location. Primary use: personal safety (taxi rides, care visits, tradesperson visits). The recipient is chosen by the user, not by the issuer.
+
+**`store`** — Save the verified credential locally on the user's device. No data leaves the phone. Useful for keeping a record of who performed work (insurance claims, warranty disputes), who visited (care logs), or who was verified (incident records).
+
+**`register`** — Open a URL to register the interaction with a third party. The `redirectUrl` is provided by the issuer's `verification-meta.json`; the app substitutes `redirectParams` from the verification context before opening it. Use cases:
+
+- Tradesperson visits: register with HMRC for tax purposes, or with an insurance company for warranty/claims documentation
+- Care visits: log with the care coordinator for safeguarding records
+- Taxi rides: register with the licensing authority's safety database
+
+### Privacy Constraints
+
+Action suggestions are **optional for the user.** The app shows them; the user decides whether to act. The verification itself is complete regardless.
+
+The `redirectUrl` is controlled by the issuer — the app should display the destination domain clearly before redirecting. The user must consent to the redirect; the app never silently opens URLs.
+
+`redirectParams` are populated from the verification response, not from the user's device. The app does not send device identifiers, location, or personal data unless the user explicitly includes it (e.g., by choosing to share location with an emergency contact via `notify`).
+
+### Relationship to Secondary Lookups
+
+Action suggestions and secondary lookups serve different audiences:
+
+| | Secondary Lookups | Action Suggestions |
+|---|---|---|
+| **Audience** | Specialist software | Consumer apps |
+| **Trigger** | Automatic (software follows `secondaryLookups` paths) | User-initiated (taps a prompt) |
+| **Purpose** | Verify named entities against regulator | Record, share, or register the interaction |
+| **Protocol** | Hash-based chain verification | URL redirect or local storage |
+| **Defined in** | `verification-meta.json` → `secondaryLookups` | `verification-meta.json` → `actionSuggestions` |
+
+Both live in the issuer's `verification-meta.json` but operate independently. A pharmacy system follows `secondaryLookups` to verify a prescriber; it ignores `actionSuggestions`. A consumer app shows `actionSuggestions` to the user; it ignores `secondaryLookups`.
+
+See [Trust Assessments](trust-assessments.md) for when action suggestions matter most — safety-critical verifications where logging the interaction protects the vulnerable party.
+
 ## What This Is Not
 
 - **Not a directory lookup.** The specialist software is not querying "tell me about Dr. Milligan." It is asking "does your record match what Elm Street Medical claims about Dr. Milligan?"

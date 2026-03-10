@@ -1,11 +1,11 @@
 {
       "generated": "2026-03-05T19:59:52.807Z",
-      "totalUseCases": 463,
-      "totalFurtherDerivations": 549,
+      "totalUseCases": 465,
+      "totalFurtherDerivations": 554,
       "categories": {
             "Real Estate & Property": 31,
             "Charitable & Non-Profit": 7,
-            "Novel Document Types": 5,
+            "Novel Document Types": 6,
             "Actuarial & Insurance Mathematics": 10,
             "Personal Lines Insurance": 14,
             "Government & Civic Documents": 19,
@@ -9100,6 +9100,27 @@
                   ]
             },
             {
+                  "slug": "wifi-credential-postings",
+                  "title": "Wi-Fi Credential Postings",
+                  "category": "Novel Document Types",
+                  "volume": "Large",
+                  "retention": "Ephemeral (rotates with passphrase)",
+                  "verificationMode": "camera",
+                  "furtherDerivations": 3,
+                  "snippet": "SSID, passphrase, issuing venue name, credential validity period, rotation schedule, access point identifier",
+                  "tags": [
+                        "wifi",
+                        "credentials",
+                        "captive-portal",
+                        "eink",
+                        "access-control",
+                        "post-verification-action",
+                        "network",
+                        "hospitality",
+                        "anti-phishing"
+                  ]
+            },
+            {
                   "slug": "wire-transfer-documentation",
                   "title": "Wire Transfer Confirmations (SWIFT/Fedwire)",
                   "category": "Banking & Payments",
@@ -9293,6 +9314,27 @@
                         "home-security",
                         "bogus-caller",
                         "property-valuation"
+                  ]
+            },
+            {
+                  "slug": "hospital-wayfinding-postings",
+                  "title": "Large Building & Campus Wayfinding Postings",
+                  "category": "Site & Equipment Safety",
+                  "volume": "Large",
+                  "retention": "Permanent (updated on refurbishment)",
+                  "verificationMode": "camera",
+                  "furtherDerivations": 2,
+                  "snippet": "Location identifier, nearest destinations with walking times, nearest facilities, last-updated date, issuing building operator. Post-verification response provides turn-by-turn indoor navigation for hospitals, universities, airports, courts, and any large building with unfamiliar visitors.",
+                  "tags": [
+                        "wayfinding",
+                        "hospital",
+                        "navigation",
+                        "you-are-here",
+                        "nhs",
+                        "public-building",
+                        "accessibility",
+                        "post-verification-action",
+                        "anti-tampering"
                   ]
             }
       ],
