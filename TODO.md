@@ -1,19 +1,23 @@
 # TODO
 
-## Android: Rich verification payload support
+## ~~Android: Rich verification payload support~~ ✓ DONE
 
-The Chrome extension already parses JSON payloads from the backend and renders
-extra fields (e.g. `headshot`, `message`). The Android app currently discards the
-response body on HTTP 200 (`VerificationLogic.kt:170`) — it only checks the status
-code.
+`VerificationLogic.verifyHash()` now parses JSON response body, extracts `status`,
+`headshot`, `message`. `VerificationResult.Verified` carries optional `payload: JSONObject?`.
+`MainActivity` renders headshot (base64 → Bitmap) and message text in result overlay.
 
-Changes needed:
-- `VerificationLogic.verifyHash()` — parse response body as JSON when Content-Type
-  is application/json. Extract `status`, `headshot` (base64 data URI), `message`,
-  and any other fields.
-- `VerificationResult.Verified` — add optional `payload: JSONObject?` field
-- `MainActivity` result UI — render headshot image and message text when present
-- Match the Chrome extension's popup layout: photo on the left, message on the right
+## ~~Android: Authority chain display~~ ✓ DONE
+
+Chain display follows `docs/authority-chain-app-display.md` spec: indented lines with
+`✓ domain — description` format. Broken chains show `✗ NOT CONFIRMED`. Tap for
+`formalName` detail. `AuthorizationChainEntry` now carries `formalName`.
+
+## Android: Full-stack test — IMPLEMENTED, NOT YET RUN
+
+`full-stack-tests/android/run-android-test.sh` launches emulator, builds debug APK,
+starts containerized backend, seeds Gina scenario, launches app with text-paste intent
+(bypasses camera/OCR), captures screenshot + video. Debug build trusts user-installed
+CAs via `network_security_config.xml`. Needs first real run to validate.
 
 ## iOS: Rich verification payload support
 
@@ -27,9 +31,6 @@ Changes needed:
 - `ResultView.swift` — render headshot (base64 data URI → UIImage) and message text
 - Match the Chrome extension's layout
 
-## Full-stack tests: Android and iOS
+## Full-stack tests: iOS
 
-The Chrome extension full-stack test (`full-stack-tests/chrome-extension/`) works.
-Android and iOS equivalents are planned in `full-stack-tests/PLAN.md` but not yet
-implemented. These depend on the rich payload work above to be meaningful for the
-doorstep warrant-card scenario.
+macOS only. Planned in `full-stack-tests/PLAN.md` but not yet implemented.

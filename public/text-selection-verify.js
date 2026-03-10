@@ -590,6 +590,23 @@
             }
             authorizationEl.innerHTML = authorizationHtml;
             authorizationEl.style.display = 'block';
+        } else if (fullDomain && (type === 'verified')) {
+            // No authorization chain — self-verified
+            if (!authorizationEl) {
+                authorizationEl = document.createElement('div');
+                authorizationEl.id = 'tsv-authorization';
+                authorizationEl.style.cssText = `
+                    padding: 8px 20px;
+                    border-bottom: 1px solid #333;
+                    font-size: 12px;
+                    text-align: center;
+                `;
+                domainEl.parentNode.insertBefore(authorizationEl, domainEl.nextSibling);
+            }
+            authorizationEl.style.background = 'rgba(72, 187, 120, 0.2)';
+            authorizationEl.style.color = '#68d391';
+            authorizationEl.innerHTML = `Self-verified by <strong>${fullDomain}</strong>`;
+            authorizationEl.style.display = 'block';
         } else if (authorizationEl) {
             authorizationEl.style.display = 'none';
         }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Debug-only manifest overlay.
+    Adds networkSecurityConfig to trust user-installed CAs (Caddy self-signed TLS).
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <application
+        android:networkSecurityConfig="@xml/network_security_config"
+        tools:targetApi="24" />
+</manifest>

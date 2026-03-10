@@ -97,7 +97,7 @@ struct ResultView: View {
                 Spacer()
             }
 
-            // Authorization chain or "no authority" warning
+            // Authorization chain or self-verified indicator
             if let auth = result.authorization {
                 authorizationView(auth)
             } else if let domain = statusDomain, isAffirming {
@@ -170,14 +170,14 @@ struct ResultView: View {
 
     private func noAuthorityView(domain: String) -> some View {
         HStack(spacing: 4) {
-            Image(systemName: "exclamationmark.triangle")
+            Image(systemName: "checkmark.seal.fill")
                 .font(.caption)
-            Text("\(domain) has no authority to verify")
+            Text("Self-verified by \(domain)")
                 .font(.caption)
         }
         .padding(.vertical, 2)
         .padding(.horizontal, 8)
-        .background(Color.orange.opacity(0.3))
+        .background(Color.green.opacity(0.3))
         .cornerRadius(4)
     }
 

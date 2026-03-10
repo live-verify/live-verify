@@ -23,4 +23,6 @@
     <string name="auth_not_confirmed">Authorization by %1$s — not confirmed</string>
     <string name="auth_expired">Authorization by %1$s — expired</string>
     <string name="auth_no_authority">%1$s has no authority to verify</string>
+    <string name="auth_self_verified">Self-verified by %1$s</string>
+    <string name="headshot_description">Verified person photo</string>
 </resources>

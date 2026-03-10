@@ -66,7 +66,10 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:padding="16dp">
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp"
+            android:paddingTop="36dp">
 
             <TextView
                 android:id="@+id/resultIcon"
@@ -107,6 +110,37 @@
                 android:layout_height="wrap_content"
                 style="?android:attr/buttonBarButtonStyle"
                 android:text="@string/scan_another" />
+
+        </LinearLayout>
+
+        <!-- Payload info (headshot + message) -->
+        <LinearLayout
+            android:id="@+id/payloadInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/payloadHeadshot"
+                android:layout_width="120dp"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                android:visibility="gone"
+                android:contentDescription="@string/headshot_description" />
+
+            <TextView
+                android:id="@+id/payloadMessage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:visibility="gone" />
 
         </LinearLayout>
 

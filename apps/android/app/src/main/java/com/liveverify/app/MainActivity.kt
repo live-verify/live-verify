@@ -21,9 +21,11 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.graphics.RectF
 import android.os.Bundle
+import android.util.Base64
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -44,6 +46,7 @@ import com.google.mlkit.vision.text.latin.TextRecognizerOptions
 import com.google.android.material.tabs.TabLayoutMediator
 import com.liveverify.app.databinding.ActivityMainBinding
 import kotlinx.coroutines.launch
+import org.json.JSONObject
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
@@ -90,6 +93,38 @@ class MainActivity : AppCompatActivity() {
         cameraExecutor = Executors.newSingleThreadExecutor()
 
         setupUI()
+
+        // Apply DNS overrides if provided (comma-separated "host=ip" pairs)
+        val dnsOverrides = intent.getStringExtra(EXTRA_DNS_OVERRIDES)
+        if (dnsOverrides != null) {
+            val mappings = dnsOverrides.split(",").mapNotNull { pair ->
+                val parts = pair.split("=", limit = 2)
+                if (parts.size == 2) parts[0].trim() to parts[1].trim() else null
+            }.toMap()
+            Log.d(TAG, "DNS overrides: $mappings")
+            VerificationLogic.configureClient(mappings, trustAllCerts = true)
+        }
+
+        // Debug image mode: load image from file, OCR it, verify
+        val verifyImage = intent.getStringExtra(EXTRA_VERIFY_IMAGE)
+        if (verifyImage != null) {
+            Log.d(TAG, "Debug image mode: OCR from $verifyImage")
+            showProcessing(true)
+            updateStatus(getString(R.string.status_recognizing))
+            processImageFile(verifyImage)
+            return
+        }
+
+        // Debug text-paste mode: skip camera and OCR, verify text directly
+        val verifyText = intent.getStringExtra(EXTRA_VERIFY_TEXT)
+        if (verifyText != null) {
+            Log.d(TAG, "Debug text-paste mode: verifying supplied text")
+            showProcessing(true)
+            updateStatus(getString(R.string.status_processing))
+            processRecognizedText(verifyText)
+            return
+        }
+
         checkCameraPermission()
     }
 
@@ -331,6 +366,33 @@ class MainActivity : AppCompatActivity() {
         return Bitmap.createBitmap(bitmap, left, top, width, height)
     }
 
+    /**
+     * Load an image file, run ML Kit text recognition, then verify.
+     * Exercises the full OCR → normalization → hashing → verification pipeline.
+     */
+    private fun processImageFile(imagePath: String) {
+        val bitmap = BitmapFactory.decodeFile(imagePath)
+        if (bitmap == null) {
+            showError("Could not load image: $imagePath")
+            return
+        }
+
+        capturedBitmap = bitmap
+        val inputImage = InputImage.fromBitmap(bitmap, 0)
+
+        textRecognizer.process(inputImage)
+            .addOnSuccessListener { visionText ->
+                val rawText = visionText.textBlocks.joinToString("\n") { it.text }
+                Log.d(TAG, "OCR from image ($imagePath):\n$rawText")
+                rawOcrText = rawText
+                processRecognizedText(rawText)
+            }
+            .addOnFailureListener { e ->
+                Log.e(TAG, "OCR failed on image", e)
+                showError("OCR failed: ${e.message}")
+            }
+    }
+
     private fun processRecognizedText(rawText: String) {
         this.rawOcrText = rawText
         Log.d(TAG, "OCR Text:\n$rawText")
@@ -380,7 +442,7 @@ class MainActivity : AppCompatActivity() {
                     Log.d(TAG, "Authorization: checked=${authorization.checked}, confirmed=${authorization.confirmed}, authorizer=${authorization.authorizer}")
                 }
 
-                showResult(result, authorization)
+                showResult(result, authorization, meta)
             } catch (e: Exception) {
                 Log.e(TAG, "Verification failed", e)
                 showError("Verification failed: ${e.message}")
@@ -388,7 +450,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun showResult(result: VerificationResult, authorization: AuthorizationResult? = null) {
+    private fun showResult(result: VerificationResult, authorization: AuthorizationResult? = null, issuerMeta: JSONObject? = null) {
         showProcessing(false)
 
         when (result) {
@@ -422,62 +484,146 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        showAuthorizationInfo(result, authorization)
+        showPayloadInfo(result)
+        showAuthorizationChain(result, authorization, issuerMeta)
 
         binding.resultOverlay.visibility = View.VISIBLE
         showDiagnosticInfo()
     }
 
-    private fun showAuthorizationInfo(result: VerificationResult, authorization: AuthorizationResult?) {
+    private fun showPayloadInfo(result: VerificationResult) {
+        val payload = (result as? VerificationResult.Verified)?.payload
+        if (payload == null) {
+            binding.payloadInfo.visibility = View.GONE
+            return
+        }
+
+        var hasContent = false
+
+        val headshot = payload.optString("headshot", "")
+        if (headshot.isNotEmpty()) {
+            try {
+                // Strip data URI prefix (e.g. "data:image/jpeg;base64,")
+                val base64Data = if (headshot.contains(",")) headshot.substringAfter(",") else headshot
+                val bytes = Base64.decode(base64Data, Base64.DEFAULT)
+                val bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
+                if (bitmap != null) {
+                    binding.payloadHeadshot.setImageBitmap(bitmap)
+                    binding.payloadHeadshot.visibility = View.VISIBLE
+                    hasContent = true
+                }
+            } catch (e: Exception) {
+                Log.w(TAG, "Failed to decode headshot: ${e.message}")
+                binding.payloadHeadshot.visibility = View.GONE
+            }
+        } else {
+            binding.payloadHeadshot.visibility = View.GONE
+        }
+
+        val message = payload.optString("message", "")
+        if (message.isNotEmpty()) {
+            binding.payloadMessage.text = message
+            binding.payloadMessage.visibility = View.VISIBLE
+            hasContent = true
+        } else {
+            binding.payloadMessage.visibility = View.GONE
+        }
+
+        binding.payloadInfo.visibility = if (hasContent) View.VISIBLE else View.GONE
+    }
+
+    /**
+     * Display the authority chain in the indented format:
+     *   ✓ midsomer.police.uk — Police force for the county of Midsomer
+     *     ✓ policing.gov.uk — His Majesty's Inspectorate...
+     *       ✓ gov.uk — Root authorization...
+     *
+     * Broken chains show ✗ NOT CONFIRMED at the failed node.
+     * Tap any line to see formalName in a toast.
+     */
+    private fun showAuthorizationChain(result: VerificationResult, authorization: AuthorizationResult?, issuerMeta: JSONObject?) {
         val domain = when (result) {
             is VerificationResult.Verified -> result.domain
             is VerificationResult.NotVerified -> result.domain
             else -> null
         }
 
-        if (authorization != null && authorization.checked) {
-            binding.authorizationInfo.visibility = View.VISIBLE
-
-            when {
-                authorization.expired -> {
-                    binding.authorizationText.text = getString(R.string.auth_expired, authorization.authorizer ?: "unknown")
-                    binding.authorizationText.setBackgroundColor(getColor(R.color.auth_warning_bg))
-                    binding.authorizationText.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, 0, 0)
-                }
-                authorization.confirmed -> {
-                    val firstEntry = authorization.chain.firstOrNull()
-                    val desc = firstEntry?.description
-                    val text = if (desc != null) {
-                        getString(R.string.auth_authorized_by_desc, authorization.authorizer ?: "unknown", desc)
-                    } else {
-                        getString(R.string.auth_authorized_by, authorization.authorizer ?: "unknown")
-                    }
-                    binding.authorizationText.text = "✓ $text"
-                    binding.authorizationText.setBackgroundColor(getColor(R.color.auth_confirmed_bg))
-
-                    if (authorization.chain.size > 1) {
-                        val chainText = authorization.chain.drop(1).joinToString("\n") { entry ->
-                            val entryDesc = entry.description?.let { " ($it)" } ?: ""
-                            "← ${entry.authorizer}$entryDesc"
-                        }
-                        binding.authorizationChainText.text = chainText
-                        binding.authorizationChainText.visibility = View.VISIBLE
-                    } else {
-                        binding.authorizationChainText.visibility = View.GONE
-                    }
-                }
-                else -> {
-                    binding.authorizationText.text = "⚠ " + getString(R.string.auth_not_confirmed, authorization.authorizer ?: "unknown")
-                    binding.authorizationText.setBackgroundColor(getColor(R.color.auth_warning_bg))
-                }
+        if (authorization == null || !authorization.checked) {
+            if (domain != null) {
+                binding.authorizationInfo.visibility = View.VISIBLE
+                binding.authorizationText.text = "✓ " + getString(R.string.auth_self_verified, domain)
+                binding.authorizationText.setBackgroundColor(getColor(R.color.auth_confirmed_bg))
+                binding.authorizationChainText.visibility = View.GONE
+            } else {
+                binding.authorizationInfo.visibility = View.GONE
             }
-        } else if (domain != null) {
-            binding.authorizationInfo.visibility = View.VISIBLE
-            binding.authorizationText.text = "⚠ " + getString(R.string.auth_no_authority, domain)
+            return
+        }
+
+        binding.authorizationInfo.visibility = View.VISIBLE
+
+        if (authorization.expired) {
+            binding.authorizationText.text = getString(R.string.auth_expired, authorization.authorizer ?: "unknown")
             binding.authorizationText.setBackgroundColor(getColor(R.color.auth_warning_bg))
             binding.authorizationChainText.visibility = View.GONE
+            return
+        }
+
+        // Build the full chain starting with the issuer domain
+        val issuerDesc = issuerMeta?.optString("description", "")?.takeIf { it.isNotEmpty() }
+        val issuerFormalName = issuerMeta?.optString("formalName", "")?.takeIf { it.isNotEmpty() }
+            ?: issuerMeta?.optString("issuer", "")?.takeIf { it.isNotEmpty() }
+
+        val lines = StringBuilder()
+        val formalNames = mutableListOf<String?>()
+
+        // First line: the issuer itself (always confirmed if we got here via successful verification)
+        if (domain != null) {
+            val descSuffix = if (issuerDesc != null) " \u2014 $issuerDesc" else ""
+            lines.append("✓ $domain$descSuffix")
+            formalNames.add(issuerFormalName)
+        }
+
+        // Chain entries (authorizers)
+        for ((index, entry) in authorization.chain.withIndex()) {
+            val indent = "  ".repeat(index + 1)
+            val descSuffix = if (entry.description != null) " \u2014 ${entry.description}" else ""
+            val symbol = if (entry.confirmed) "✓" else "✗"
+            if (lines.isNotEmpty()) lines.append("\n")
+            if (!entry.confirmed) {
+                lines.append("$indent$symbol ${entry.authorizer} \u2014 NOT CONFIRMED")
+            } else {
+                lines.append("$indent$symbol ${entry.authorizer}$descSuffix")
+            }
+            formalNames.add(entry.formalName)
+        }
+
+        val bgColor = if (authorization.confirmed) {
+            getColor(R.color.auth_confirmed_bg)
         } else {
-            binding.authorizationInfo.visibility = View.GONE
+            getColor(R.color.auth_warning_bg)
+        }
+
+        // Use authorizationText for the first line, chainText for the rest
+        val allLines = lines.toString().split("\n")
+        binding.authorizationText.text = allLines.first()
+        binding.authorizationText.setBackgroundColor(bgColor)
+
+        if (allLines.size > 1) {
+            binding.authorizationChainText.text = allLines.drop(1).joinToString("\n")
+            binding.authorizationChainText.setBackgroundColor(bgColor)
+            binding.authorizationChainText.visibility = View.VISIBLE
+        } else {
+            binding.authorizationChainText.visibility = View.GONE
+        }
+
+        // Tap-for-detail: show formalName in a toast
+        val chainView = binding.authorizationInfo
+        chainView.setOnClickListener {
+            val names = formalNames.filterNotNull()
+            if (names.isNotEmpty()) {
+                Toast.makeText(this, names.joinToString("\n"), Toast.LENGTH_LONG).show()
+            }
         }
     }
 
@@ -496,7 +642,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun hideResult() {
         binding.resultOverlay.visibility = View.GONE
+        binding.payloadInfo.visibility = View.GONE
+        binding.payloadHeadshot.visibility = View.GONE
+        binding.payloadMessage.visibility = View.GONE
         binding.authorizationInfo.visibility = View.GONE
+        binding.authorizationInfo.setOnClickListener(null)
         binding.authorizationChainText.visibility = View.GONE
         updateStatus(getString(R.string.status_ready))
 
@@ -540,5 +690,8 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         private const val TAG = "LiveVerify"
+        const val EXTRA_VERIFY_IMAGE = "com.liveverify.app.VERIFY_IMAGE"
+        const val EXTRA_VERIFY_TEXT = "com.liveverify.app.VERIFY_TEXT"
+        const val EXTRA_DNS_OVERRIDES = "com.liveverify.app.DNS_OVERRIDES"
     }
 }

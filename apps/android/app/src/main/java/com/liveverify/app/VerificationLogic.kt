@@ -19,10 +19,17 @@ package com.liveverify.app
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import okhttp3.Dns
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONObject
+import java.net.InetAddress
+import java.security.SecureRandom
+import java.security.cert.X509Certificate
 import java.text.SimpleDateFormat
+import javax.net.ssl.SSLContext
+import javax.net.ssl.TrustManager
+import javax.net.ssl.X509TrustManager
 import java.util.Date
 import java.util.Locale
 
@@ -31,7 +38,43 @@ import java.util.Locale
  */
 object VerificationLogic {
 
-    private val client = OkHttpClient()
+    private var client = OkHttpClient()
+
+    /**
+     * Configure OkHttpClient with custom DNS mappings and optional TLS trust-all.
+     * Used by debug text-paste mode to resolve test domains to emulator host
+     * and trust Caddy's self-signed TLS certificates.
+     */
+    fun configureClient(dnsOverrides: Map<String, String>, trustAllCerts: Boolean = false) {
+        val builder = OkHttpClient.Builder()
+
+        if (dnsOverrides.isNotEmpty()) {
+            builder.dns(object : Dns {
+                override fun lookup(hostname: String): List<InetAddress> {
+                    val override = dnsOverrides[hostname]
+                    return if (override != null) {
+                        listOf(InetAddress.getByName(override))
+                    } else {
+                        Dns.SYSTEM.lookup(hostname)
+                    }
+                }
+            })
+        }
+
+        if (trustAllCerts) {
+            val trustManager = object : X509TrustManager {
+                override fun checkClientTrusted(chain: Array<X509Certificate>, authType: String) {}
+                override fun checkServerTrusted(chain: Array<X509Certificate>, authType: String) {}
+                override fun getAcceptedIssuers(): Array<X509Certificate> = arrayOf()
+            }
+            val sslContext = SSLContext.getInstance("TLS")
+            sslContext.init(null, arrayOf<TrustManager>(trustManager), SecureRandom())
+            builder.sslSocketFactory(sslContext.socketFactory, trustManager)
+            builder.hostnameVerifier { _, _ -> true }
+        }
+
+        client = builder.build()
+    }
 
     /**
      * Result of extracting a verification URL from OCR text
@@ -166,9 +209,31 @@ object VerificationLogic {
                 .build()
 
             val response = client.newCall(request).execute()
+            val domain = getDomainFromUrl(verificationUrl)
             when (response.code) {
-                200 -> VerificationResult.Verified(getDomainFromUrl(verificationUrl))
-                404 -> VerificationResult.NotVerified(getDomainFromUrl(verificationUrl), "Hash not found on server")
+                200 -> {
+                    val bodyText = response.body?.string()?.trim() ?: ""
+                    val payload = try {
+                        if (bodyText.startsWith("{")) JSONObject(bodyText) else null
+                    } catch (_: Exception) { null }
+
+                    // Check status field if JSON, otherwise treat plain "OK" as verified
+                    if (payload != null) {
+                        val status = payload.optString("status", "").uppercase()
+                        if (status == "OK" || status == "VERIFIED") {
+                            VerificationResult.Verified(domain, payload)
+                        } else if (status.isNotEmpty()) {
+                            VerificationResult.NotVerified(domain, status)
+                        } else {
+                            VerificationResult.Verified(domain, payload)
+                        }
+                    } else if (bodyText.uppercase() == "OK" || bodyText.isEmpty()) {
+                        VerificationResult.Verified(domain)
+                    } else {
+                        VerificationResult.NotVerified(domain, bodyText.take(50))
+                    }
+                }
+                404 -> VerificationResult.NotVerified(domain, "Hash not found on server")
                 else -> VerificationResult.Error("Server returned ${response.code}")
             }
         } catch (e: Exception) {
@@ -325,14 +390,15 @@ object VerificationLogic {
             val request = Request.Builder().url(authorizerMetaUrl).build()
             val response = client.newCall(request).execute()
             if (!response.isSuccessful) {
-                return listOf(AuthorizationChainEntry(authorizer, null, primaryConfirmed))
+                return listOf(AuthorizationChainEntry(authorizer, null, null, primaryConfirmed))
             }
 
             val authorizerMeta = JSONObject(response.body?.string() ?: "{}")
             val description = authorizerMeta.optString("description", "").takeIf { it.isNotEmpty() }
+            val formalName = authorizerMeta.optString("formalName", "").takeIf { it.isNotEmpty() }
                 ?: authorizerMeta.optString("issuer", "").takeIf { it.isNotEmpty() }
 
-            val entry = AuthorizationChainEntry(authorizer, description, primaryConfirmed)
+            val entry = AuthorizationChainEntry(authorizer, description, formalName, primaryConfirmed)
 
             // If authorizer itself has authorizedBy, recurse
             val subAuthorizedBy = authorizerMeta.optString("authorizedBy", "")
@@ -343,7 +409,7 @@ object VerificationLogic {
                 listOf(entry)
             }
         } catch (_: Exception) {
-            listOf(AuthorizationChainEntry(authorizer, null, primaryConfirmed))
+            listOf(AuthorizationChainEntry(authorizer, null, null, primaryConfirmed))
         }
     }
 }
@@ -354,6 +420,7 @@ object VerificationLogic {
 data class AuthorizationChainEntry(
     val authorizer: String,
     val description: String?,
+    val formalName: String?,
     val confirmed: Boolean
 )
 
@@ -382,7 +449,7 @@ data class AuthorizationResult(
  * Verification result sealed class
  */
 sealed class VerificationResult {
-    data class Verified(val domain: String) : VerificationResult()
+    data class Verified(val domain: String, val payload: JSONObject? = null) : VerificationResult()
     data class NotVerified(val domain: String, val reason: String) : VerificationResult()
     data class Error(val message: String) : VerificationResult()
 }
