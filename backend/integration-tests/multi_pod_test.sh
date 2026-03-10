@@ -65,14 +65,14 @@ echo "=== A. Replication & Convergence ==="
 
 # A1: Write to Pod A only — Pod A has it, Pod B does not.
 HASH_A1="a100000000000000000000000000000000000000000000000000000000000001"
-curl -s -o /dev/null -X PUT "${POD_A_WRITE}/v/${HASH_A1}" -d "OK"
+curl -s -o /dev/null -X PUT "${POD_A_WRITE}/v/${HASH_A1}" -d '{"status":"verified"}'
 assert_status "A1: GET from Pod A after write to A -> 200" "200" \
     "${POD_A_READ}/c/${HASH_A1}"
 assert_status "A1: GET from Pod B (not replicated) -> 404" "404" \
     "${POD_B_READ}/c/${HASH_A1}"
 
 # A2: Simulate replication — write same hash+payload to Pod B.
-curl -s -o /dev/null -X PUT "${POD_B_WRITE}/v/${HASH_A1}" -d "OK"
+curl -s -o /dev/null -X PUT "${POD_B_WRITE}/v/${HASH_A1}" -d '{"status":"verified"}'
 assert_status "A2: GET from Pod B after simulated replication -> 200" "200" \
     "${POD_B_READ}/c/${HASH_A1}"
 body_a=$(curl -s "${POD_A_READ}/c/${HASH_A1}")
@@ -81,8 +81,8 @@ assert_eq "A2: Both pods return same payload" "$body_a" "$body_b"
 
 # A3: Write same hash to both pods simultaneously — idempotent convergence.
 HASH_A3="a300000000000000000000000000000000000000000000000000000000000003"
-curl -s -o /dev/null -X PUT "${POD_A_WRITE}/v/${HASH_A3}" -d "OK" &
-curl -s -o /dev/null -X PUT "${POD_B_WRITE}/v/${HASH_A3}" -d "OK" &
+curl -s -o /dev/null -X PUT "${POD_A_WRITE}/v/${HASH_A3}" -d '{"status":"verified"}' &
+curl -s -o /dev/null -X PUT "${POD_B_WRITE}/v/${HASH_A3}" -d '{"status":"verified"}' &
 wait
 assert_status "A3: Pod A returns 200 after simultaneous write" "200" \
     "${POD_A_READ}/c/${HASH_A3}"
@@ -96,19 +96,19 @@ echo "=== B. Conflict Detection ==="
 
 # B4: Write different payloads for the same hash to each pod.
 HASH_B4="b400000000000000000000000000000000000000000000000000000000000004"
-curl -s -o /dev/null -X PUT "${POD_A_WRITE}/v/${HASH_B4}" -d "OK"
-curl -s -o /dev/null -X PUT "${POD_B_WRITE}/v/${HASH_B4}" -d "REVOKED"
+curl -s -o /dev/null -X PUT "${POD_A_WRITE}/v/${HASH_B4}" -d '{"status":"verified"}'
+curl -s -o /dev/null -X PUT "${POD_B_WRITE}/v/${HASH_B4}" -d '{"status":"revoked"}'
 
 body_a=$(curl -s "${POD_A_READ}/c/${HASH_B4}")
 body_b=$(curl -s "${POD_B_READ}/c/${HASH_B4}")
-assert_eq "B4: Pod A returns its own value" "OK" "$body_a"
-assert_eq "B4: Pod B returns its own value" "REVOKED" "$body_b"
+assert_eq "B4: Pod A returns its own value" '{"status":"verified"}' "$body_a"
+assert_eq "B4: Pod B returns its own value" '{"status":"revoked"}' "$body_b"
 
 # Cross-replicating the conflicting value should return 409.
 assert_status "B4: Replicating Pod B's value to Pod A -> 409 Conflict" "409" \
-    "${POD_A_WRITE}/v/${HASH_B4}" -X PUT -d "REVOKED"
+    "${POD_A_WRITE}/v/${HASH_B4}" -X PUT -d '{"status":"revoked"}'
 assert_status "B4: Replicating Pod A's value to Pod B -> 409 Conflict" "409" \
-    "${POD_B_WRITE}/v/${HASH_B4}" -X PUT -d "OK"
+    "${POD_B_WRITE}/v/${HASH_B4}" -X PUT -d '{"status":"verified"}'
 
 # ── D. Network Isolation ───────────────────────────────────────────────
 
@@ -120,11 +120,11 @@ HASH_D7="d700000000000000000000000000000000000000000000000000000000000007"
 assert_status "D7: POST to tier1-a -> 405" "405" \
     "${POD_A_READ}/c/${HASH_D7}" -X POST
 assert_status "D7: PUT to tier1-a -> 405" "405" \
-    "${POD_A_READ}/c/${HASH_D7}" -X PUT -d "OK"
+    "${POD_A_READ}/c/${HASH_D7}" -X PUT -d '{"status":"verified"}'
 assert_status "D7: POST to tier1-b -> 405" "405" \
     "${POD_B_READ}/c/${HASH_D7}" -X POST
 assert_status "D7: PUT to tier1-b -> 405" "405" \
-    "${POD_B_READ}/c/${HASH_D7}" -X PUT -d "OK"
+    "${POD_B_READ}/c/${HASH_D7}" -X PUT -d '{"status":"verified"}'
 
 # ── Results ─────────────────────────────────────────────────────────────
 

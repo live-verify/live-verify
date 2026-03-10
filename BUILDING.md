@@ -166,7 +166,7 @@ live-verify/
 │   ├── examples/                    # Example verification-meta.json
 │   └── c/                           # Verification endpoints
 │       ├── verification-meta.json   # Demo issuer metadata (Unseen University)
-│       └── {hash}/index.html        # Static "OK" responses
+│       └── {hash}/index.html        # Static {"status":"verified"} responses
 │
 ├── apps/
 │   ├── browser-extension/           # Chrome/Edge/Firefox Manifest V3 extension

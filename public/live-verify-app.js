@@ -837,25 +837,20 @@ async function verifyAgainstClaimedUrl(claimedUrl, computedHash) {
         const body = await response.text();
         const trimmedBody = body.trim();
 
-        // Check for exact "OK" or try parsing as JSON
+        // Try parsing as JSON for structured response
         let isVerified = false;
         let statusText = null;
 
-        if (trimmedBody === 'OK') {
-            isVerified = true;
-        } else {
-            // Try parsing as JSON for structured response
-            try {
-                const json = JSON.parse(trimmedBody);
-                if (json.status === 'OK' || json.status === 'VERIFIED') {
-                    isVerified = true;
-                } else {
-                    statusText = json.status || json.message || trimmedBody;
-                }
-            } catch (e) {
-                // Not JSON, treat as plain text status
-                statusText = trimmedBody.toUpperCase().substring(0, 50);
+        try {
+            const json = JSON.parse(trimmedBody);
+            if (json.status === 'verified' || json.status === 'VERIFIED') {
+                isVerified = true;
+            } else {
+                statusText = json.status || json.message || trimmedBody;
             }
+        } catch (e) {
+            // Not JSON, treat as plain text status
+            statusText = trimmedBody.toUpperCase().substring(0, 50);
         }
 
         if (!isVerified) {
@@ -881,14 +876,14 @@ async function verifyAgainstClaimedUrl(claimedUrl, computedHash) {
             return { status: 'NOT_OK', body: status };
         }
 
-        // Success: 200 status + "OK" in body
+        // Success: 200 status + {"status":"verified"} in body
         verificationStatus.innerHTML = `Verified by ${authority}`;
         verificationStatus.classList.add('verified');
 
         // Show camera-native success overlay
         showSuccessOverlay(authority);
 
-        return { status: 200, body: 'OK' };
+        return { status: 200, body: 'verified' };
 
     } catch (error) {
         // Network error or CORS issue

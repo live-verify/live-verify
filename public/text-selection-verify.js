@@ -453,7 +453,7 @@
 
                 console.log('[TSV] Response body:', trimmedBody);
 
-                if (trimmedBody === 'OK' || trimmedBody.includes('OK')) {
+                if (trimmedBody.includes('"VERIFIED"') || trimmedBody.includes('"verified"')) {
                     console.log('[TSV] ✓ VERIFICATION SUCCESSFUL - hash matches and endpoint confirmed');
                     showResult('verified', 'VERIFIED', `by ${domain}`, normalizedText, hash,
                         registrableDomain, domainNotListed, authorization, domain);

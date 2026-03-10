@@ -75,7 +75,7 @@ Blockchain (Bitcoin, 2008) uses Merkle trees and hash functions as building bloc
 
 | Approach | What It Does | Complexity |
 |----------|--------------|------------|
-| **Live Verify** | Hash text → HTTP lookup → OK/404 | Simple: static files or serverless |
+| **Live Verify** | Hash text → HTTP lookup → `{"status":"verified"}`/404 | Simple: static files or serverless |
 | **Merkle tree** | Organize many hashes for efficient proof | Medium: tree construction, proof paths |
 | **Blockchain** | Distributed consensus + Merkle trees + incentives | Complex: nodes, consensus, fees |
 
@@ -87,7 +87,7 @@ While `parentAuthorities` provides passive links for humans to browse, `authoriz
 
 Date bounds (`authorizedFrom`/`authorizedTo`) define the endorsement period, pinned by the merkle hash. Chain walking: the endorser's own `verification-meta.json` can declare `authorizedBy`, forming chains (max 3 levels deep). Clients display the full chain with descriptions.
 
-If the endorser returns `OK` → "Endorsed by [endorser] (description)" (green)
+If the endorser returns `{"status":"verified"}` → "Endorsed by [endorser] (description)" (green)
 If the endorser returns `404` → "Endorsement not confirmed" (amber — the issuer claims endorsement, but the endorser doesn't confirm it)
 If the endorser is unreachable → "{issuerDomain} claims endorsement by {endorser} but that endorsement is missing" (grey)
 If endorsement has expired → "Endorsement expired" (amber), with successor if declared
@@ -266,8 +266,8 @@ flowchart TD
     CheckHTTP -->|404 Not Found| ShowNotFound[❌ FAILS VERIFICATION<br/>Hash not in database]
     CheckHTTP -->|Network Error| ShowError[⚠️ VERIFICATION ERROR<br/>Cannot reach server]
     CheckHTTP -->|200 OK| CheckBody{Response body?}
-    CheckBody -->|"OK" exact match<br/>or JSON status: OK/VERIFIED| ShowVerified[✅ VERIFIED<br/>by domain.com]
-    CheckBody -->|Plain text or JSON<br/>other status| ShowNotOK[❌ Status from server<br/>REVOKED/SUSPENDED/EXPIRED/etc.]
+    CheckBody -->|JSON status: verified| ShowVerified[✅ VERIFIED<br/>by domain.com]
+    CheckBody -->|JSON other status| ShowNotOK[❌ Status from server<br/>revoked/suspended/expired/etc.]
     ShowVerified --> End([End])
     ShowNotFound --> End
     ShowNotOK --> End
@@ -315,8 +315,8 @@ flowchart TD
     ShowNotFound --> Start
     CheckHTTP -->|Network Error| ShowError[⚠️ VERIFICATION ERROR<br/>Cannot reach server]
     CheckHTTP -->|200 OK| CheckBody{Response body?}
-    CheckBody -->|"OK" exact match<br/>or JSON status: OK/VERIFIED| ShowVerified[✅ VERIFIED<br/>by domain.com]
-    CheckBody -->|Plain text or JSON<br/>other status| ShowNotOK[❌ Status from server<br/>REVOKED/SUSPENDED/EXPIRED/etc.]
+    CheckBody -->|JSON status: verified| ShowVerified[✅ VERIFIED<br/>by domain.com]
+    CheckBody -->|JSON other status| ShowNotOK[❌ Status from server<br/>revoked/suspended/expired/etc.]
     ShowVerified --> End([End])
     ShowNotOK --> End
     ShowError --> End
@@ -650,7 +650,7 @@ To create verifiable documents:
 2. Normalize it (Unicode normalization + whitespace rules - see NORMALIZATION.md)
 3. Compute SHA-256 hash
 4. Print text within registration marks + base URL: `verify:your-org.com/c` (use Courier New font)
-5. Host verification endpoint at `https://your-org.com/c/{HASH}` returning HTTP 200 + "OK" for valid hashes
+5. Host verification endpoint at `https://your-org.com/c/{HASH}` returning HTTP 200 + `{"status":"verified"}` for valid hashes
 6. Optional: Host `verification-meta.json` at `https://your-org.com/c/verification-meta.json` with text normalization rules and OCR optimization settings
 
 The `verification-meta.json` file can provide document-specific normalization rules, custom response types, and OCR optimization:
@@ -672,12 +672,12 @@ The `verification-meta.json` file can provide document-specific normalization ru
     "https://regulatory-agency.gov/licensed/your-org"
   ],
   "responseTypes": {
-    "OK": {
+    "verified": {
       "class": "affirming",
       "text": "This claim is verified and authentic",
       "link": "https://your-org.com/verification-info"
     },
-    "REVOKED": {
+    "revoked": {
       "class": "denying",
       "text": "This credential has been revoked",
       "link": "https://your-org.com/revocation-policy.html"
@@ -712,13 +712,13 @@ The `verification-meta.json` file can provide document-specific normalization ru
 }
 ```
 
-"SUPERSEDED" would not link to a replacement SHA-256 URL that'd have "OK", nor would HTTP's 302 do the same. The point is the requester should already know the the plain-text that would culminate in a verification lookup.
+"SUPERSEDED" would not link to a replacement SHA-256 URL that'd have `{"status":"verified"}`, nor would HTTP's 302 do the same. The point is the requester should already know the the plain-text that would culminate in a verification lookup.
 
 **Fields:**
 - `issuer` (optional) - Name of the issuing organization
 - `claimType` (optional) - Type of claim (e.g., "degree", "license", "certification")
 - `parentAuthorities` (optional) - Array of URLs linking to parent/accrediting organizations that authorize this issuer
-- `responseTypes` (optional) - Dictionary defining possible response statuses beyond "OK", each with:
+- `responseTypes` (optional) - Dictionary defining possible response statuses beyond "verified", each with:
   - `class` - Either "affirming" or "denying" (determines UI color/icon)
   - `text` - Human-readable explanation of what this status means
   - `link` - URL to a page with more information about this status
@@ -803,14 +803,14 @@ Portal: Shares the full CV. With or without verification proof - the client coul
 **What "verified ✓" means:**
 
 - The candidate submitted physical documents (degree certificate, employment letter), OR scans there of OR the already-extracted and normalized text from the same.
-- If physical scans, the portal scanned them using Live Verify "OK" vs 404 response, etc
-- The issuing organizations (Edinburgh University, Microsoft) confirmed authenticity via HTTP 200 + "OK" and that gets noted "claims made in CV all verified"
+- If physical scans, the portal scanned them using Live Verify `{"status":"verified"}` vs 404 response, etc
+- The issuing organizations (Edinburgh University, Microsoft) confirmed authenticity via HTTP 200 + `{"status":"verified"}` and that gets noted "claims made in CV all verified"
 
 **Key insight:** The retention laws govern **the underlying text** (the CV, the degree claim, the employment history, the financial services contract/transaction), not the hash. The hash is merely a cryptographic proof that helps verify authenticity, but the legal obligations attach to the personal data being stored and shared.
 
 ## Post-Verification Actions
 
-Verification doesn't end at "OK" or "REVOKED". Endpoints can return optional follow-up actions appropriate to the context:
+Verification doesn't end at `{"status":"verified"}` or `{"status":"revoked"}`. Endpoints can return optional follow-up actions appropriate to the context:
 
 ### Accountability-Focused Actions (Strong)
 
@@ -1017,7 +1017,7 @@ This bridges both digital-native (Clip) and physical-to-digital (Camera) verific
 
 ### Can organizations revoke credentials?
 
-**Yes.** Instead of returning "OK", the verification endpoint can return "REVOKED" or "SUSPENDED". The app shows ❌ red "REVOKED by xyz.org" instead of green "VERIFIED". See [Technical_Concepts.md: Response Formats](Technical_Concepts.md#response-formats) for all status codes.
+**Yes.** Instead of returning `{"status":"verified"}`, the verification endpoint can return `{"status":"revoked"}` or `{"status":"suspended"}`. The app shows ❌ red "REVOKED by xyz.org" instead of green "VERIFIED". See [Technical_Concepts.md: Response Formats](Technical_Concepts.md#response-formats) for all status codes.
 
 Medical licenses, professional certifications, security clearances - anything that can be revoked can use this status. See [deep-dives/Medical_License.md](deep-dives/Medical_License.md).
 
@@ -1040,7 +1040,7 @@ See [For Organizations Creating Verifiable Documents](#for-organizations-creatin
 2. Normalize it (see [NORMALIZATION.md](NORMALIZATION.md) and [Technical_Concepts.md: Text Normalization](Technical_Concepts.md#text-normalization))
 3. Compute SHA-256 hash (see [Technical_Concepts.md: Hash Algorithms](Technical_Concepts.md#hash-algorithms))
 4. Print text + `verify:your-org.com/c` with registration marks (see [Technical_Concepts.md: Registration Marks](Technical_Concepts.md#registration-marks-computer-vision-for-document-boundaries))
-5. Host static file at `https://your-org.com/c/{HASH}` returning "OK" (see [Technical_Concepts.md: Response Formats](Technical_Concepts.md#response-formats))
+5. Host static file at `https://your-org.com/c/{HASH}` returning `{"status":"verified"}` (see [Technical_Concepts.md: Response Formats](Technical_Concepts.md#response-formats))
 
 Infrastructure cost: ~$5 per million verifications (Cloudflare example).
 

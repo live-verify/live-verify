@@ -65,7 +65,7 @@ Medical licenses share similar properties to government IDs ([Government_IDs.md]
 9. **HR manager verifies:**
    - Returned photo matches physician's face
    - Returned photo matches physical license card photo
-   - Status is "OK" (not REVOKED or SUSPENDED)
+   - Status is "verified" (not REVOKED or SUSPENDED)
 
 **Verification time:** 10-15 seconds (vs 30+ minute phone call to state board)
 
@@ -83,7 +83,7 @@ GET https://mbc.ca.gov/licenses/abc123def456...
 **Response:**
 ```json
 {
-  "status": "OK",
+  "status": "verified",
   "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...",
   "issued_date": "2018-01-20",
   "expiry_date": "2026-03-15",
@@ -116,7 +116,7 @@ GET https://mbc.ca.gov/licenses/abc123def456...
 **Response:**
 ```json
 {
-  "status": "REVOKED",
+  "status": "revoked",
   "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...",
   "reason": "Gross negligence resulting in patient death",
   "revoked_date": "2023-06-10",
@@ -243,7 +243,7 @@ GET https://mbc.ca.gov/licenses/fake_hash_value...
 
 ```json
 {
-  "status": "OK",
+  "status": "verified",
   "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...",
   "issued_date": "2018-01-20",
   "expiry_date": "2026-03-15",
@@ -254,7 +254,7 @@ GET https://mbc.ca.gov/licenses/fake_hash_value...
 ```
 
 **Status codes:**
-- `"OK"` - License valid and in good standing
+- `"verified"` - License valid and in good standing
 - `"SUSPENDED"` - Temporarily suspended (pending investigation)
 - `"REVOKED"` - Permanently revoked (malpractice, fraud, criminal conviction)
 - `"EXPIRED"` - Past expiration date (needs renewal)

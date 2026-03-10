@@ -60,10 +60,10 @@ echo "=== Verifying chain (smoke test) ==="
 CLAIM_HASH=$(printf 'MIDSOMER CONSTABULARY\nPOLICE OFFICER\nDETECTIVE GINA COULBY\nSalt: 7k3m9x2p' | sha256sum | cut -d' ' -f1)
 RESULT=$(curl -sk --resolve midsomer.police.uk:443:127.0.0.1 "https://midsomer.police.uk/id/${CLAIM_HASH}")
 STATUS=$(echo "$RESULT" | jq -r '.status // empty' 2>/dev/null || echo "$RESULT")
-if [ "$STATUS" = "OK" ]; then
-    echo "Smoke test passed: claim hash returns status OK"
+if [ "$STATUS" = "verified" ]; then
+    echo "Smoke test passed: claim hash returns status verified"
 else
-    echo "Smoke test FAILED: expected status OK, got '$RESULT'"
+    echo "Smoke test FAILED: expected status verified, got '$RESULT'"
     exit 1
 fi
 

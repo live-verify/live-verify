@@ -141,12 +141,12 @@ final class VerificationClientTests: XCTestCase {
 
     // MARK: - verify Tests
 
-    func testVerify_http200_OK_affirming() async {
-        let okData = "OK".data(using: .utf8)!
+    func testVerify_http200_verified_affirming() async {
+        let verifiedData = "{\"status\":\"verified\"}".data(using: .utf8)!
 
         MockURLProtocol.requestHandler = { request in
             let response = HTTPURLResponse(url: request.url!, statusCode: 200, httpVersion: nil, headerFields: nil)!
-            return (response, okData)
+            return (response, verifiedData)
         }
 
         let result = await client.verify(verificationURL: "https://example.com/c/abc123", meta: nil)

@@ -107,7 +107,7 @@ The homeowner's app sends nothing but the hash. DPD's endpoint returns the curre
 
 ```json
 {
-  "status": "OK",
+  "status": "verified",
   "photo_url": "https://associates.dpd.co.uk/photos/2621.jpg",
   "current_destination": "221B Baker St, London NW1 6XE",
   "tracking": "DPD-7742991",

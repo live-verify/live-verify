@@ -7,9 +7,9 @@ import java.net.URI
 
 class VerificationResponseInterpreterTest {
     @Test
-    fun okIsAffirmingWithoutMeta() {
+    fun verifiedJsonIsAffirmingWithoutMeta() {
         val url = URI.create("https://issuer.example.com/claims/abc")
-        val outcome = VerificationResponseInterpreter.interpret(200, "OK", url, meta = null)
+        val outcome = VerificationResponseInterpreter.interpret(200, """{"status":"verified"}""", url, meta = null)
         assertEquals(VerificationClassification.AFFIRMING, outcome.classification)
         assertEquals("Claim Verified", outcome.displayText)
     }
@@ -42,9 +42,9 @@ class VerificationResponseInterpreterTest {
     }
 
     @Test
-    fun jsonStatusOkIsAffirming() {
+    fun jsonStatusVerifiedIsAffirming() {
         val url = URI.create("https://issuer.example.com/claims/abc")
-        val outcome = VerificationResponseInterpreter.interpret(200, """{"status":"OK"}""", url, meta = null)
+        val outcome = VerificationResponseInterpreter.interpret(200, """{"status":"verified"}""", url, meta = null)
         assertEquals(VerificationClassification.AFFIRMING, outcome.classification)
     }
 }

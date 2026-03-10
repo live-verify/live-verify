@@ -59,8 +59,8 @@ wait_for_url "${POD_A_READ}/healthz"
 wait_for_url "${POD_B_READ}/healthz"
 
 HASH_F="f500000000000000000000000000000000000000000000000000000000000005"
-curl -s -o /dev/null -X PUT "${POD_A_WRITE}/v/${HASH_F}" -d "OK"
-curl -s -o /dev/null -X PUT "${POD_B_WRITE}/v/${HASH_F}" -d "OK"
+curl -s -o /dev/null -X PUT "${POD_A_WRITE}/v/${HASH_F}" -d '{"status":"verified"}'
+curl -s -o /dev/null -X PUT "${POD_B_WRITE}/v/${HASH_F}" -d '{"status":"verified"}'
 echo "Seeded $HASH_F to both pods."
 
 # ── C5: Stop tier3-a — tier1-a degrades, tier1-b unaffected ────────────

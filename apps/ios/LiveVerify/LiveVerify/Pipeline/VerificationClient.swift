@@ -147,16 +147,11 @@ class VerificationClient {
             // Parse response body
             let bodyText = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
 
-            // Check for simple "OK" response
-            if bodyText == "OK" {
-                return .affirming(domain: domain, status: "VERIFIED")
-            }
-
             // Try to parse as JSON
             if let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
                let status = json["status"] as? String {
                 let upperStatus = status.uppercased()
-                if upperStatus == "OK" || upperStatus == "VERIFIED" {
+                if upperStatus == "VERIFIED" {
                     return .affirming(domain: domain, status: "VERIFIED")
                 }
 
@@ -172,7 +167,7 @@ class VerificationClient {
                     }
                 }
 
-                // Default: treat non-OK/VERIFIED as denying
+                // Default: treat non-VERIFIED as denying
                 return .denying(domain: domain, reason: upperStatus)
             }
 
@@ -190,7 +185,7 @@ class VerificationClient {
                 }
             }
 
-            // Default for non-OK body
+            // Default for unrecognized body
             if !bodyText.isEmpty {
                 return .denying(domain: domain, reason: bodyText.prefix(50).description)
             }
@@ -269,8 +264,8 @@ class VerificationClient {
                 if let httpAuth = authResponse as? HTTPURLResponse {
                     if (200...299).contains(httpAuth.statusCode) {
                         let body = String(data: authData, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-                        confirmed = body == "OK" || body.isEmpty ||
-                            (body.hasPrefix("{") && ((try? JSONSerialization.jsonObject(with: authData) as? [String: Any])?["status"] as? String) == "OK")
+                        confirmed = body.isEmpty ||
+                            (body.hasPrefix("{") && ((try? JSONSerialization.jsonObject(with: authData) as? [String: Any])?["status"] as? String) == "verified")
                     }
                 }
             }

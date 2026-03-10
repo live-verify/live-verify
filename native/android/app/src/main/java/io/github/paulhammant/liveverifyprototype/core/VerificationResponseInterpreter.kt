@@ -44,7 +44,7 @@ object VerificationResponseInterpreter {
             )
         }
 
-        if (normalizedStatus == "OK" || normalizedStatus == "VERIFIED") {
+        if (normalizedStatus == "VERIFIED") {
             return VerificationOutcome(
                 httpStatus = httpStatus,
                 statusCode = normalizedStatus,
@@ -68,7 +68,6 @@ object VerificationResponseInterpreter {
     }
 
     private fun extractStatusCode(trimmedBody: String): String {
-        if (trimmedBody == "OK") return "OK"
         if (trimmedBody.isBlank()) return "EMPTY_RESPONSE"
 
         val parsed = runCatching { json.decodeFromString(EndpointJsonResponse.serializer(), trimmedBody) }.getOrNull()

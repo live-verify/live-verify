@@ -64,9 +64,9 @@ Uses MockURLProtocol to mock URLSession responses.
 - [x] Returns nil on invalid JSON
 
 #### verify (8 tests)
-- [x] HTTP 200 + "OK" body → affirming
-- [x] HTTP 200 + `{"status": "VERIFIED"}` → affirming
-- [x] HTTP 200 + `{"status": "REVOKED"}` → denying
+- [x] HTTP 200 + `{"status": "verified"}` → affirming
+- [x] HTTP 200 + `{"status": "VERIFIED"}` → affirming (legacy uppercase)
+- [x] HTTP 200 + `{"status": "revoked"}` → denying
 - [x] HTTP 404 → denying "Hash not found"
 - [x] HTTP 500 → denying
 - [x] Network error → networkError outcome

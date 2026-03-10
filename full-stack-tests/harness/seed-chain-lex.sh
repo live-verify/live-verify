@@ -36,11 +36,11 @@ echo "=== Seeding NYPD authority chain ==="
 
 # 1. NYPD's meta hash → stored so ny.gov can confirm authorization
 NYPD_META_HASH=$(meta_hash "${META_DIR}/ids.nypd.nyc.gov/2026/verification-meta.json")
-seed "$NYPD_META_HASH" "OK" "NYPD meta (authorized by ny.gov)"
+seed "$NYPD_META_HASH" '{"status":"verified"}' "NYPD meta (authorized by ny.gov)"
 
 # 2. NY State's meta hash → root authority
 NY_META_HASH=$(meta_hash "${META_DIR}/ny.gov/verified/verification-meta.json")
-seed "$NY_META_HASH" "OK" "NY State meta (root authority)"
+seed "$NY_META_HASH" '{"status":"verified"}' "NY State meta (root authority)"
 
 echo ""
 echo "=== NOT seeding claim hash (Lex's ID was never issued) ==="

@@ -21,11 +21,11 @@ CAs via `network_security_config.xml`. Needs first real run to validate.
 
 ## iOS: Rich verification payload support
 
-Same gap as Android. `VerificationClient.swift` parses for "OK"/"VERIFIED" but
+Same gap as Android. `VerificationClient.swift` parses for "verified"/"VERIFIED" but
 doesn't extract or surface extra JSON fields.
 
 Changes needed:
-- `VerificationClient.verify()` — when response is JSON with `status: "OK"`, also
+- `VerificationClient.verify()` — when response is JSON with `status: "verified"`, also
   extract `headshot`, `message`, and other fields into the result
 - `VerificationResult` enum — add associated payload data
 - `ResultView.swift` — render headshot (base64 data URI → UIImage) and message text

@@ -114,7 +114,7 @@ verify:degrees.ed.ac.uk/c
 2. App normalizes text (removes `verify:` line for hashing)
 3. Computes SHA-256: `abc123def456...`
 4. Constructs URL: `https://degrees.ed.ac.uk/c/abc123def456...`
-5. Fetches URL - only `degrees.ed.ac.uk` can return "OK"
+5. Fetches URL - only `degrees.ed.ac.uk` can return `{"status":"verified"}`
 
 **Why this prevents fraud:**
 
@@ -129,7 +129,7 @@ verify:fake-university.com/c
 **What happens:**
 - Hash computes correctly
 - App queries `https://fake-university.com/c/{hash}`
-- Fake server returns "OK"
+- Fake server returns `{"status":"verified"}`
 - **BUT** - App displays: ❌ **VERIFIED by fake-university.com**
 - User sees immediately this is NOT from Edinburgh University
 
@@ -198,13 +198,13 @@ Critical privacy property - the hash is **never** printed on the physical docume
 
 Organizations can return different response types from verification endpoints:
 
-### Simple Text Response
+### Simple JSON Response
 
 **Simplest implementation:**
 ```
 GET https://degrees.ed.ac.uk/c/abc123def456...
 Response: 200 OK
-Body: OK
+Body: {"status":"verified"}
 ```
 
 App displays: ✅ **VERIFIED by degrees.ed.ac.uk**
@@ -223,7 +223,7 @@ App displays: ❌ **FAILS VERIFICATION**
 
 ```json
 {
-  "status": "OK",
+  "status": "verified",
   "issuer": "California Medical Board",
   "issued_date": "2018-06-23",
   "expiry_date": "2026-06-23",
@@ -233,16 +233,16 @@ App displays: ❌ **FAILS VERIFICATION**
 ```
 
 **Possible status values:**
-- `"OK"` - Valid, active credential
-- `"REVOKED"` - Credential has been revoked (malpractice, disciplinary action)
+- `"verified"` - Valid, active credential
+- `"revoked"` - Credential has been revoked (malpractice, disciplinary action)
 - `"SUSPENDED"` - Temporarily suspended (pending investigation)
 - `"EXPIRED"` - Credential has expired (needs renewal)
 - `"STOLEN"` - Reported stolen (remove photo from response for privacy)
 - `"REPLACED"` - Superseded by newer version (wills, estate documents)
 
 **Status display:**
-- `"OK"` → ✅ Green **VERIFIED by mbc.ca.gov**
-- `"REVOKED"` → ❌ Red **REVOKED by mbc.ca.gov**
+- `"verified"` → ✅ Green **VERIFIED by mbc.ca.gov**
+- `"revoked"` → ❌ Red **REVOKED by mbc.ca.gov**
 - `"SUSPENDED"` → ⚠️ Yellow **SUSPENDED by mbc.ca.gov**
 
 See [Use_Case-Medical_License.md](Use_Case-Medical_License.md) for detailed JSON schema.
@@ -285,7 +285,7 @@ See [README.md: For Organizations Creating Verifiable Documents](README.md#for-o
 **Bad approach:**
 ```json
 {
-  "status": "OK",
+  "status": "verified",
   "photo_url": "https://mbc.ca.gov/photos/12345.jpg"
 }
 ```
@@ -300,7 +300,7 @@ See [README.md: For Organizations Creating Verifiable Documents](README.md#for-o
 **Correct approach:**
 ```json
 {
-  "status": "OK",
+  "status": "verified",
   "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgICAgMCAgID..."
 }
 ```
@@ -323,7 +323,7 @@ During transition period (20-30 years), some individuals may opt out of photo ve
 
 ```json
 {
-  "status": "OK",
+  "status": "verified",
   "photo": null,
   "photo_opt_out": true,
   "issued_date": "2015-03-10"
@@ -462,7 +462,7 @@ These libraries will encapsulate the entire flow:
 2.  **Normalization:** Rigorous implementation of the ruleset (e.g., [NORMALIZATION.md](NORMALIZATION.md)) to guarantee hash consistency.
 3.  **Hashing:** Cryptographically secure hashing (SHA-256/512) with salt management.
 4.  **GET Processing:** Handling the verification network request securely.
-5.  **Outcome Display:** Rendering the result (OK/REVOKED) in a trusted UI component.
+5.  **Outcome Display:** Rendering the result (verified/revoked) in a trusted UI component.
 
 **Non-Vetoable Judgment:**
 Crucially, the library itself indicates the verification judgment to the human user. This judgment (e.g., a green "Verified" shield or a red "Revoked" warning) is a **non-vetoable aspect of the library**. The calling application cannot intercept, suppress, or modify this final status display. This ensures that a malicious app cannot perform the verification and then lie to the user about the result.
@@ -615,9 +615,9 @@ Generate static files in the secure zone, transfer to DMZ:
 ./generate-hashes.sh
 
 # Creates:
-# public/c/abc123.../index.html  → "OK"
-# public/c/def456.../index.html  → "OK"
-# public/c/xyz789.../index.html  → "REVOKED"
+# public/c/abc123.../index.html  → {"status":"verified"}
+# public/c/def456.../index.html  → {"status":"verified"}
+# public/c/xyz789.../index.html  → {"status":"revoked"}
 
 # Transfer to public-facing tier (one-way sync):
 rsync -av --delete public/ public-server:/var/www/degrees/
@@ -659,8 +659,8 @@ rsync -av --delete public/ public-server:/var/www/degrees/
 
 **Public-facing tier (degrees.ed.ac.uk):**
 - Static hosting (Nginx, Apache, S3+CloudFront, Cloud Storage+CDN)
-- 50,000 tiny files: `/c/{hash}/index.html` containing "OK"
-- If student's degree is revoked: file contents change to `{"status": "REVOKED"}`
+- 50,000 tiny files: `/c/{hash}/index.html` containing `{"status":"verified"}`
+- If student's degree is revoked: file contents change to `{"status":"revoked"}`
 - No database, no application server, no state (12-factor backing service pattern)
 
 ### Cost and Scale
@@ -803,7 +803,7 @@ While the underlying text of a claim is static, its **legal or financial standin
 A verification endpoint can return different statuses during the lifecycle of a document.
 
 **Example: Hotel Receipt Lifecycle**
-1.  **Day 0 (Checkout):** Guest receives receipt for $500. Hash endpoint returns `{"status": "OK"}`.
+1.  **Day 0 (Checkout):** Guest receives receipt for $500. Hash endpoint returns `{"status": "verified"}`.
 2.  **Day 3 (Dispute):** Guest complains about a broken AC. Hotel agrees to a $100 refund.
 3.  **Day 4 (Update):** The hotel updates their internal system. The **same hash** endpoint now returns `{"status": "AMENDED"}` (or `PARTIAL_REFUND`).
 
@@ -824,7 +824,7 @@ There are two primary methods for identifying the witness service:
 2.  **Discovery via Issuer Response:** The primary verification GET request returns the witness URL as metadata in its response:
     ```json
     {
-      "status": "OK",
+      "status": "verified",
       "witness": "https://independent-audit.org/w"
     }
     ```

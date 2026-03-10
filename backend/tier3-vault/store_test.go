@@ -33,34 +33,34 @@ func TestGetNotFound(t *testing.T) {
 
 func TestPutAndGet(t *testing.T) {
 	store := newTestStore(t)
-	if err := store.SafePut(testHash, "OK"); err != nil {
+	if err := store.SafePut(testHash, `{"status":"verified"}`); err != nil {
 		t.Fatal(err)
 	}
 	val, err := store.Get(testHash)
 	if err != nil {
 		t.Fatal(err)
 	}
-	if val != "OK" {
-		t.Fatalf("expected OK, got %q", val)
+	if val != `{"status":"verified"}` {
+		t.Fatalf(`expected {"status":"verified"}, got %q`, val)
 	}
 }
 
 func TestIdempotentPut(t *testing.T) {
 	store := newTestStore(t)
-	if err := store.SafePut(testHash, "OK"); err != nil {
+	if err := store.SafePut(testHash, `{"status":"verified"}`); err != nil {
 		t.Fatal(err)
 	}
-	if err := store.SafePut(testHash, "OK"); err != nil {
+	if err := store.SafePut(testHash, `{"status":"verified"}`); err != nil {
 		t.Fatalf("idempotent put should succeed, got %v", err)
 	}
 }
 
 func TestConflictPut(t *testing.T) {
 	store := newTestStore(t)
-	if err := store.SafePut(testHash, "OK"); err != nil {
+	if err := store.SafePut(testHash, `{"status":"verified"}`); err != nil {
 		t.Fatal(err)
 	}
-	err := store.SafePut(testHash, "REVOKED")
+	err := store.SafePut(testHash, `{"status":"revoked"}`)
 	if err != ErrConflict {
 		t.Fatalf("expected ErrConflict, got %v", err)
 	}
@@ -81,7 +81,7 @@ func TestInvalidHash(t *testing.T) {
 		if err != ErrInvalidHash {
 			t.Errorf("Get(%q): expected ErrInvalidHash, got %v", hash, err)
 		}
-		err = store.SafePut(hash, "OK")
+		err = store.SafePut(hash, `{"status":"verified"}`)
 		if err != ErrInvalidHash {
 			t.Errorf("SafePut(%q): expected ErrInvalidHash, got %v", hash, err)
 		}

@@ -134,7 +134,7 @@ The core anti-scalping mechanism: **bind the ticket to a person, not just a barc
 **Verification Response:**
 ```json
 {
-  "status": "OK",
+  "status": "verified",
   "message": "Valid ticket — photo ID required at entry",
   "photo_url": "/photos/a3f2b8c9d4e5f6a7.jpg",
   "transfer_status": "ORIGINAL_PURCHASER"
@@ -154,7 +154,7 @@ For events that allow resale (with anti-scalping controls):
 Verification shows the chain:
 ```json
 {
-  "status": "OK",
+  "status": "verified",
   "transfer_status": "AUTHORIZED_TRANSFER",
   "transfer_count": 1,
   "message": "Transferred via official resale — photo ID required"
@@ -167,7 +167,7 @@ Some artists (Taylor Swift, Ed Sheeran, etc.) mandate resale at face value only:
 
 ```json
 {
-  "status": "OK",
+  "status": "verified",
   "resale_policy": "FACE_VALUE_ONLY",
   "original_price": "GBP 150.00",
   "message": "Resale permitted at face value only via official platform"
@@ -190,7 +190,7 @@ Event name, venue, date/time, section/row/seat, ticket holder name, photo hash (
 
 The endpoint returns status and context:
 
-- **OK** — Ticket is valid and unused
+- **`{"status":"verified"}`** — Ticket is valid and unused
 - **ALREADY_SCANNED** — Ticket was used for entry (duplicate detected)
 - **WRONG_DATE** — Ticket is for a different date
 - **CANCELLED** — Event was cancelled; ticket refunded

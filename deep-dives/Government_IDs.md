@@ -83,7 +83,7 @@ Both driver's licenses and passports share the same verification workflow and ch
 **Scenario 1: Valid license**
 ```json
 {
-  "status": "OK",
+  "status": "verified",
   "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...",
   "issued_date": "2022-01-20",
   "expiry_date": "2027-03-15"
@@ -123,7 +123,7 @@ GET https://dmv.ca.gov/dl/{computed_hash}
 **Scenario 5: Valid license with photo opt-out (transition period)**
 ```json
 {
-  "status": "OK",
+  "status": "verified",
   "photo": "opted out"
 }
 ```

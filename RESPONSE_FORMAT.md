@@ -4,98 +4,73 @@ This document defines the standard response formats for Live Verify verification
 
 ## Overview
 
-When a verification URL is requested (e.g., `https://domain.com/path/hash`), the server MUST return HTTP 200 with a body indicating the verification status.
+When a verification URL is requested (e.g., `https://domain.com/path/hash`), the server MUST return HTTP 200 with a JSON body indicating the verification status.
 
-## Response Formats
+## Response Format
 
-### 1. Plain Text Response (Simple)
-
-**Verified in it's simplest response**
-```
-OK
-```
-
-Those could be `text/plain` or whatever the static server chooses for the file. That could also be from a dynamic endpoint, in which case it would be `text/plain`
-
-**Not Verified (various statuses that may be self explanatory to the user):**
-```
-REVOKED
-```
-```
-SUSPENDED
-```
-```
-EXPIRED
-```
-```
-CANCELLED
-```
-
-**Rules:**
-- Response body is trimmed and compared as exact string match
-- `"OK"` (case-sensitive, exact match) → Verification succeeds
-- Any other plain text → Verification fails, status shown to user
-- Keep status messages SHORT (≤50 characters will be displayed)
-
-### 2. JSON Response (Structured)
-
-For more complex scenarios, servers can return JSON:
+All verification responses use JSON:
 
 **Verified:**
 ```json
 {
-  "status": "OK"
+  "status": "verified"
 }
 ```
 
-Or:
+**Not Verified (various statuses):**
 ```json
 {
-  "status": "VERIFIED"
+  "status": "revoked"
 }
 ```
-
-**Not Verified (realistic - minimal response):**
 ```json
 {
-  "status": "REVOKED"
+  "status": "suspended"
 }
 ```
+```json
+{
+  "status": "expired"
+}
+```
+```json
+{
+  "status": "cancelled"
+}
+```
+
+**Rules:**
+- Response body is parsed as JSON, checking the `status` field
+- `status: "verified"` (case-insensitive) → Verification succeeds
+- Any other status → Verification fails, status shown to user
+- Keep status messages SHORT (≤50 characters will be displayed)
+
+### Rich Payloads
+
+For verification scenarios that include additional context (headshot, message):
 
 ```json
 {
-  "status": "SUSPENDED"
+  "status": "verified",
+  "headshot": "data:image/jpeg;base64,...",
+  "message": "investigating a murder"
 }
 ```
 
-```json
-{
-  "status": "EXPIRED"
-}
-```
-
-**Not Verified (theoretical - with optional details):**
+**Not Verified (with optional details):**
 
 Organizations *could* include additional fields, but in practice they rarely would due to privacy concerns, legal liability, and simplicity:
 
 ```json
 {
-  "status": "REVOKED",
+  "status": "revoked",
   "message": "License revoked - contact board for details"
 }
 ```
 
-**Rules:**
-- Client parses JSON and checks `json.status` field
-- `status: "OK"` or `status: "VERIFIED"` → Verification succeeds
-- Any other status → Verification fails
-- Additional fields (message, dates, URLs) are theoretically possible but unlikely in practice
-- Most organizations will just return the status alone
-- If JSON parsing fails, treat as plain text
+### Custom Status Display (verification-meta.json)
 
-### 3. Custom Status Display (verification-meta.json)
-
-Organizations can optionally define custom display text so the camera overlay speaks the customer’s language. The `text` value can be as short as “Valid ID” or as long as “Licensed R.N in Texas and states listed on nursecompact.com”.
+Organizations can optionally define custom display text so the camera overlay speaks the customer's language. The `text` value can be as short as "Valid ID" or as long as "Licensed R.N in Texas and states listed on nursecompact.com".
 
 ```json
 {
@@ -124,10 +99,10 @@ Organizations can optionally define custom display text so the camera overlay sp
 **Rules:**
 - `text`: Display text shown to the user when the response code matches.
 - `class`: `"affirming"` (green check), `"not-found"` (red X), or `"warning"` (yellow triangle).
-- `link`: Optional “Learn more” URL for longer explanations.
-- Falls back to the default “Claim Verified”/“Denied” text if the response code is missing.
+- `link`: Optional "Learn more" URL for longer explanations.
+- Falls back to the default "Claim Verified"/"Denied" text if the response code is missing.
 
-### 4. Endorsement (`endorsedBy` in verification-meta.json)
+### Endorsement (`endorsedBy` in verification-meta.json)
 
 Issuers can declare who endorses them as an authority for the claim type. Unlike `parentAuthorities` (passive URL links), `endorsedBy` is a **verifiable claim** — clients can check the endorsement via the same `verify:` protocol.
 
@@ -152,7 +127,7 @@ Issuers can declare who endorses them as an authority for the claim type. Unlike
 - Check date bounds (`endorsedFrom`/`endorsedTo`) — if outside bounds, show expired
 - Fetch the raw `verification-meta.json` bytes, canonicalize: `JSON.stringify(JSON.parse(raw))`
 - Hash the canonical JSON, perform a `verify:` lookup at `https://{endorsedBy}/{hash}`
-- Endorser returns `OK` → confirmed; `404` → not confirmed
+- Endorser returns `{"status":"verified"}` → confirmed; `404` → not confirmed
 - Display endorsement status alongside the primary verification result:
   - Endorser confirms → "Endorsed by **arb.org.uk** (Architects Registration Board)"
   - Endorser returns 404 → "Endorsement by arb.org.uk — not confirmed"
@@ -173,15 +148,11 @@ Texas has been running Operation Nightingale against fake nursing IDs; the board
 ```
 HTTP 200 OK received
 └─> Read body as text
-    └─> Trim whitespace
-        ├─> Exact match "OK"? → ✅ VERIFIED
-        ├─> Try parse as JSON
-        │   ├─> JSON valid?
-        │   │   ├─> status === "OK" or "VERIFIED"? → ✅ VERIFIED
-        │   │   └─> Other status → ❌ Show status (use message if available)
-        │   └─> JSON parse failed
-        │       └─> Treat as plain text status → ❌ Show status
-        └─> Empty body → ❌ FAILS VERIFICATION (no status)
+    └─> Parse as JSON
+        ├─> JSON valid?
+        │   ├─> status === "verified"? → ✅ VERIFIED
+        │   └─> Other status → ❌ Show status (use message if available)
+        └─> JSON parse failed → ❌ FAILS VERIFICATION
 ```
 
 ## Examples
@@ -191,13 +162,13 @@ HTTP 200 OK received
 **File:** `https://live-verify.github.io/live-verify/c/1cddfbb2adfa13e4562d274b59e56b946f174a0feb566622dd67a4880cf0b223`
 
 **Content:**
-```
-OK
+```json
+{"status":"verified"}
 ```
 
-**MIME type:** `text/plain` (any MIME type works - body content is what matters)
+**MIME type:** `application/json` or `text/html` (any MIME type works - body content is what matters)
 
-As it happens on GitHub-Pages, example 1 is really [https://live-verify.github.io/live-verify/c/1cddfbb2adfa13e4562d274b59e56b946f174a0feb566622dd67a4880cf0b223/index.html](https://live-verify.github.io/live-verify/c/1cddfbb2adfa13e4562d274b59e56b946f174a0feb566622dd67a4880cf0b223/index.html) in order to get served and visible in a browser by a human. That has a `text/html` mime type but is really just plain text content (a hack).
+As it happens on GitHub-Pages, example 1 is really [https://live-verify.github.io/live-verify/c/1cddfbb2adfa13e4562d274b59e56b946f174a0feb566622dd67a4880cf0b223/index.html](https://live-verify.github.io/live-verify/c/1cddfbb2adfa13e4562d274b59e56b946f174a0feb566622dd67a4880cf0b223/index.html) in order to get served and visible in a browser by a human. That has a `text/html` mime type but the body content is JSON.
 
 ### Example 2: Serverless Function (Cloudflare Workers)
 
@@ -206,14 +177,7 @@ As it happens on GitHub-Pages, example 1 is really [https://live-verify.github.i
 **Response:**
 ```json
 {
-  "status": "OK"
-}
-```
-
-**Important:** In practice, most responses are just:
-```json
-{
-  "status": "OK"
+  "status": "verified"
 }
 ```
 
@@ -231,7 +195,7 @@ Organizations *could* include verification metadata (timestamp, count), but this
 **Response (realistic):**
 ```json
 {
-  "status": "REVOKED"
+  "status": "revoked"
 }
 ```
 
@@ -250,7 +214,7 @@ Organizations *could* include verification metadata (timestamp, count), but this
 **Response (realistic):**
 ```json
 {
-  "status": "SUSPENDED"
+  "status": "suspended"
 }
 ```
 
@@ -265,8 +229,8 @@ Organizations *could* include verification metadata (timestamp, count), but this
 
 | HTTP Status | Meaning | Client Display |
 |-------------|---------|----------------|
-| `200 OK` with body `"OK"` or JSON `status: "OK"/"VERIFIED"` | Verified successfully | ✅ VERIFIED by domain.com |
-| `200 OK` with other body | Verification endpoint exists but status is not OK | ❌ Status from server (REVOKED/etc.) |
+| `200 OK` with JSON `status: "verified"` | Verified successfully | ✅ VERIFIED by domain.com |
+| `200 OK` with other status | Verification endpoint exists but status is not verified | ❌ Status from server (REVOKED/etc.) |
 | `404 Not Found` | Hash not in database | ❌ FAILS VERIFICATION - Re-frame and try again |
 | `Network Error` (CORS, timeout, etc.) | Cannot reach server | ⚠️ VERIFICATION ERROR - Cannot reach server |
 
@@ -279,11 +243,11 @@ Organizations *could* include verification metadata (timestamp, count), but this
 **Scenario 1: License granted, then later revoked**
 1. Doctor applies for medical license
 2. Background check passes, license **granted** (2023-01-15)
-3. Database record created: `hash → OK`
-4. Doctor can verify license: `GET /verify/hash` → `200 OK` + `"OK"`
+3. Database record created: `hash → {"status":"verified"}`
+4. Doctor can verify license: `GET /verify/hash` → `200 OK` + `{"status":"verified"}`
 5. Later: Malpractice finding, license **revoked** (2024-06-15)
-6. Database record updated: `hash → REVOKED`
-7. Doctor's document still exists, but verification shows: `200 OK` + `{"status": "REVOKED"}`
+6. Database record updated: `hash → {"status":"revoked"}`
+7. Doctor's document still exists, but verification shows: `200 OK` + `{"status":"revoked"}`
 
 **Scenario 2: License denied during initial application**
 1. Applicant applies for medical license
@@ -295,13 +259,13 @@ Organizations *could* include verification metadata (timestamp, count), but this
 
 **Why this matters:**
 - **404 means:** Hash not found - either document is fake, OCR failed, or document was never issued
-- **200 + REVOKED means:** Document was real and issued, but issuer has revoked it
+- **200 + revoked means:** Document was real and issued, but issuer has revoked it
 - **Denied applications don't get hashes** - you can't verify something that was never created
 - **Privacy protection:** Applicant's denial isn't publicly queryable (404 looks the same as fake document)
 
 ## Best Practices
 
-1. **Keep it simple:** Plain text `"OK"` is sufficient for most use cases
+1. **JSON responses:** All responses use `{"status":"verified"}` format
 2. **Minimal responses:** Just return the status - avoid including detailed metadata (dates, reasons, case numbers)
 3. **Privacy first:** Don't disclose sensitive information in public verification responses
 4. **Short status codes:** Keep statuses ≤50 chars for mobile display
@@ -317,46 +281,37 @@ Organizations *could* include verification metadata (timestamp, count), but this
 403 Forbidden → Revoked
 410 Gone → Expired
 ```
-Use 200 OK with body content instead. 404 is reserved for "hash not found".
+Use 200 OK with JSON body instead. 404 is reserved for "hash not found".
 
 ❌ **Don't include hash in response body:**
 ```json
 {
-  "status": "OK",
-  "hash": "1cddfbb2..."  // Redundant - hash is in URL
+  "status": "verified",
+  "hash": "1cddfbb2..."
 }
 ```
-
-❌ **Don't use `contains()` check for "OK":**
-```
-// Bad: "REVOKED" contains "OK" substring
-body.includes("OK")  // ❌
-
-// Good: Exact match
-body.trim() === "OK"  // ✅
-```
+Redundant - hash is already in the URL.
 
 ❌ **Don't include detailed revocation information:**
 ```json
 {
-  "status": "REVOKED",
+  "status": "revoked",
   "revokedDate": "2024-06-15",
   "reason": "Malpractice finding",
   "caseNumber": "2024-ML-4291",
   "boardDecisionUrl": "https://medicalboard.gov/decisions/2024-ML-4291"
 }
 ```
-This exposes private disciplinary details. Just return `{"status": "REVOKED"}` and direct inquiries to official channels.
+This exposes private disciplinary details. Just return `{"status": "revoked"}` and direct inquiries to official channels.
 
 ## Content-Type Headers
 
 The client accepts any `Content-Type` for the response. Common options:
 
-- `text/plain` - For simple `"OK"` responses
-- `application/json` - For JSON responses
-- `text/html` - Works but not recommended (extra bytes)
+- `application/json` - Preferred for JSON responses
+- `text/html` - Works for static file hosting (body content is what matters)
 
-The client reads the body as text and attempts JSON parsing if the content looks like JSON.
+The client reads the body as text and parses as JSON.
 
 ## Character Encoding
 

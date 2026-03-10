@@ -84,7 +84,7 @@ Click "Settings" in the popup to configure:
 3. **Hash**: Computes SHA-256 hash of normalized text
 4. **Verify**: Fetches `https://{domain}/{path}/{hash}` and checks response
 
-A response of "OK" means the claim is verified by the issuer.
+A JSON response of `{"status":"verified"}` means the claim is verified by the issuer.
 
 ## Requirements
 

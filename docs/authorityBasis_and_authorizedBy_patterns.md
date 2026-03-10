@@ -147,7 +147,7 @@ The issuer *is* the government or a statutory body. The chain is short — often
   "claimType": "Crime report confirmation",
   "authorizedBy": "policing.gov.uk/forces",
   "responseTypes": {
-    "OK": { "class": "affirming", "text": "Crime report confirmation is valid" },
+    "verified": { "class": "affirming", "text": "Crime report confirmation is valid" },
     "PENDING_INVESTIGATION": { "class": "affirming", "text": "Report valid, pending investigation" },
     "REVOKED": { "class": "denying", "text": "Report withdrawn" }
   }
@@ -218,7 +218,7 @@ The issuer is an institution regulated by a government body. The chain goes: ins
   "claimType": "Academic degree",
   "authorizedBy": "officeforstudents.org.uk/register",
   "responseTypes": {
-    "OK": { "class": "affirming", "text": "Degree verified" },
+    "verified": { "class": "affirming", "text": "Degree verified" },
     "REVOKED": { "class": "denying", "text": "Degree revoked" }
   }
 }

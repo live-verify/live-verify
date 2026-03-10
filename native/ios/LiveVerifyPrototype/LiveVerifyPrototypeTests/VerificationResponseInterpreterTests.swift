@@ -2,9 +2,9 @@ import XCTest
 @testable import LiveVerifyPrototype
 
 final class VerificationResponseInterpreterTests: XCTestCase {
-    func testOkIsAffirmingWithoutMeta() {
+    func testVerifiedJsonIsAffirmingWithoutMeta() {
         let url = URL(string: "https://issuer.example.com/claims/abc")!
-        let outcome = VerificationResponseInterpreter.interpret(httpStatus: 200, body: "OK", verificationURL: url, meta: nil)
+        let outcome = VerificationResponseInterpreter.interpret(httpStatus: 200, body: "{\"status\":\"verified\"}", verificationURL: url, meta: nil)
         XCTAssertEqual(outcome.classification, .affirming)
         XCTAssertEqual(outcome.displayText, "Claim Verified")
     }
@@ -33,9 +33,9 @@ final class VerificationResponseInterpreterTests: XCTestCase {
         XCTAssertEqual(outcome.httpStatus, 404)
     }
 
-    func testJsonStatusOkIsAffirming() {
+    func testJsonStatusVerifiedIsAffirming() {
         let url = URL(string: "https://issuer.example.com/claims/abc")!
-        let outcome = VerificationResponseInterpreter.interpret(httpStatus: 200, body: "{\"status\":\"OK\"}", verificationURL: url, meta: nil)
+        let outcome = VerificationResponseInterpreter.interpret(httpStatus: 200, body: "{\"status\":\"verified\"}", verificationURL: url, meta: nil)
         XCTAssertEqual(outcome.classification, .affirming)
     }
 }

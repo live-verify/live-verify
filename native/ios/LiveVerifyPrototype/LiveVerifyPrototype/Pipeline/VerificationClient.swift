@@ -77,7 +77,7 @@ enum VerificationResponseInterpreter {
             )
         }
 
-        if statusCode == "OK" || statusCode == "VERIFIED" {
+        if statusCode == "VERIFIED" {
             return VerificationOutcome(
                 httpStatus: httpStatus,
                 statusCode: statusCode,
@@ -101,10 +101,6 @@ enum VerificationResponseInterpreter {
     }
 
     private static func extractStatusCode(from trimmedBody: String) -> String {
-        if trimmedBody == "OK" {
-            return "OK"
-        }
-
         if let json = tryParseJSON(trimmedBody) {
             if let status = (json["status"] as? String)?.trimmingCharacters(in: .whitespacesAndNewlines), !status.isEmpty {
                 return status.uppercased().prefix(50).description

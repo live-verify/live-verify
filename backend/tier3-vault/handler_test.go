@@ -38,7 +38,7 @@ func TestPutAndGetHTTP(t *testing.T) {
 	mux, _ := setupTestServer(t)
 
 	// PUT
-	req := httptest.NewRequest("PUT", "/v/"+testHash, strings.NewReader("OK"))
+	req := httptest.NewRequest("PUT", "/v/"+testHash, strings.NewReader(`{"status":"verified"}`))
 	w := httptest.NewRecorder()
 	mux.ServeHTTP(w, req)
 	if w.Code != 200 {
@@ -52,8 +52,8 @@ func TestPutAndGetHTTP(t *testing.T) {
 	if w.Code != 200 {
 		t.Fatalf("GET: expected 200, got %d", w.Code)
 	}
-	if w.Body.String() != "OK" {
-		t.Fatalf("expected OK, got %q", w.Body.String())
+	if w.Body.String() != `{"status":"verified"}` {
+		t.Fatalf(`expected {"status":"verified"}, got %q`, w.Body.String())
 	}
 	if w.Header().Get("Access-Control-Allow-Origin") != "*" {
 		t.Fatal("missing CORS header")
@@ -63,14 +63,14 @@ func TestPutAndGetHTTP(t *testing.T) {
 func TestPutConflictHTTP(t *testing.T) {
 	mux, _ := setupTestServer(t)
 
-	req := httptest.NewRequest("PUT", "/v/"+testHash, strings.NewReader("OK"))
+	req := httptest.NewRequest("PUT", "/v/"+testHash, strings.NewReader(`{"status":"verified"}`))
 	w := httptest.NewRecorder()
 	mux.ServeHTTP(w, req)
 	if w.Code != 200 {
 		t.Fatalf("first PUT: expected 200, got %d", w.Code)
 	}
 
-	req = httptest.NewRequest("PUT", "/v/"+testHash, strings.NewReader("REVOKED"))
+	req = httptest.NewRequest("PUT", "/v/"+testHash, strings.NewReader(`{"status":"revoked"}`))
 	w = httptest.NewRecorder()
 	mux.ServeHTTP(w, req)
 	if w.Code != 409 {
@@ -80,7 +80,7 @@ func TestPutConflictHTTP(t *testing.T) {
 
 func TestPutInvalidHashHTTP(t *testing.T) {
 	mux, _ := setupTestServer(t)
-	req := httptest.NewRequest("PUT", "/v/badhash", strings.NewReader("OK"))
+	req := httptest.NewRequest("PUT", "/v/badhash", strings.NewReader(`{"status":"verified"}`))
 	w := httptest.NewRecorder()
 	mux.ServeHTTP(w, req)
 	if w.Code != 400 {

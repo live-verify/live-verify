@@ -15,38 +15,22 @@ The verifier already has the document—they just scanned or selected it. They c
 | Return `"amount": "USD 1,250,000"` | Verifier already sees the amount |
 
 **What endpoints SHOULD return:**
-- **Status** — Is this document authentic and current? (`OK`, `REVOKED`, `EXPIRED`)
+- **Status** — Is this document authentic and current? (`verified`, `revoked`, `expired`)
 - **Actionable context** — Information the verifier needs but doesn't have (see below)
-
-## The Simple Case: Plain Text OK
-
-For the simplest verification scenarios, an endpoint may return:
-
-```
-HTTP/1.1 200 OK
-Content-Type: text/plain
-
-OK
-```
-
-This is sufficient when:
-- The verifier only needs to know "is this authentic?"
-- No additional context improves the verification
-- The document type doesn't have meaningful status variations
-
-The verifier app checks: `status === 200 && body.includes('OK')` → show green "VERIFIED".
 
 ## Standard JSON Response
 
-For verification scenarios that need more than `OK`, endpoints return JSON:
+All verification responses use JSON. The simplest possible response:
 
 ```json
 {
-  "status": "OK"
+  "status": "verified"
 }
 ```
 
 That's it for most cases. The document itself contains all the content; the endpoint just confirms it's authentic.
+
+The verifier app parses the JSON and checks: `json.status === "verified"` → show green "VERIFIED".
 
 ### Required Fields
 
@@ -75,14 +59,14 @@ If returning a `photo_url`, it should:
 **Examples:**
 ```json
 {
-  "status": "OK",
+  "status": "verified",
   "photo_url": "/photos/{hash}}.jpg"
 }
 ```
 
 ```json
 {
-  "status": "OK",
+  "status": "verified",
   "photo_url": "/{hash}.jpg"
 }
 ```
@@ -92,7 +76,7 @@ Relative paths are preferred—the client already knows the issuer domain from t
 Full URLs are also valid if the photo is hosted elsewhere:
 ```json
 {
-  "status": "OK",
+  "status": "verified",
   "photo_url": "https://cdn.officers.police.uk/5bae46076bc23bb356231b60075c1304996289797c9351cbde641f8af116bfce.jpg"
 }
 ```
@@ -113,7 +97,7 @@ This prevents:
 **Example: Delivery Worker (actionable context)**
 ```json
 {
-  "status": "OK",
+  "status": "verified",
   "photo_url": "https://associates.dpd.co.uk/photos/2621.jpg",
   "current_destination": "221B Baker St, London NW1 6XE"
 }
@@ -128,7 +112,7 @@ This is actionable—it helps them decide whether to open the door. It's not ech
 **Example: Police Officer (minimal response)**
 ```json
 {
-  "status": "OK",
+  "status": "verified",
   "photo_url": "https://officers.police.uk/photos/7b6aa80ef223f4da8fc00f81b77ff0afa7686f6454836a6bd9489f62e8e3a1fa.jpg"
 }
 ```
@@ -138,7 +122,7 @@ The citizen can compare the photo to the officer. They don't need the endpoint t
 **Example: Financial Document (status only)**
 ```json
 {
-  "status": "OK"
+  "status": "verified"
 }
 ```
 
@@ -147,18 +131,18 @@ The bank confirms the proof-of-funds letter is authentic. The verifier already h
 **Example: Success with guidance**
 ```json
 {
-  "status": "OK",
+  "status": "verified",
   "message": "Licensed MD in Texas — compare photo to confirm identity",
   "photo_url": "/photo/a3f2b8c9d4e5f6a7"
 }
 ```
 
-`status: "OK"` is the machine-readable verdict. The `message` provides human-readable guidance—what the verifier should do next.
+`status: "verified"` is the machine-readable verdict. The `message` provides human-readable guidance—what the verifier should do next.
 
 **Example: Failure with explanation**
 ```json
 {
-  "status": "SUSPENDED",
+  "status": "suspended",
   "message": "License suspended pending disciplinary hearing"
 }
 ```
@@ -171,10 +155,10 @@ For failures, `message` explains *why* verification failed—context the verifie
 
 | Status       | Meaning                                           | Verifier Action                                     |
 |--------------|---------------------------------------------------|-----------------------------------------------------|
-| `OK`         | Document is authentic and current                 | Show green "VERIFIED"                               |
-| `EXPIRED`    | Document was valid but has passed its expiry date | Show amber warning; request fresh document          |
-| `REVOKED`    | Document was explicitly invalidated by issuer     | Show red "REVOKED"; do not trust                    |
-| `SUPERSEDED` | A newer version of this document exists           | Show amber; request updated document                |
+| `verified`   | Document is authentic and current                 | Show green "VERIFIED"                               |
+| `expired`    | Document was valid but has passed its expiry date | Show amber warning; request fresh document          |
+| `revoked`    | Document was explicitly invalidated by issuer     | Show red "REVOKED"; do not trust                    |
+| `superseded` | A newer version of this document exists           | Show amber; request updated document                |
 | `404`        | Hash not found                                    | Show red "NOT FOUND"; possible forgery or OCR error |
 
 ### Domain-Specific Statuses
@@ -194,7 +178,7 @@ Endpoints may return statuses specific to their document type. These should be s
 1. **Self-documenting:** A verifier unfamiliar with the domain should understand the implication
 2. **Actionable:** Each status implies a clear next step
 3. **Conservative:** When in doubt, return a more cautious status
-4. **No false positives:** Never return `OK` unless the document is genuinely valid
+4. **No false positives:** Never return `verified` unless the document is genuinely valid
 
 ## Error Responses
 
@@ -254,7 +238,7 @@ For scenarios with power dynamics or accountability needs, the response can incl
 
 ```json
 {
-  "status": "OK",
+  "status": "verified",
   "message": "Licensed building inspector — City of Chicago",
   "follow_up_url": "/inspect/report/992288",
   "follow_up_prompt": "Optionally record details of this inspection visit or interaction"
@@ -278,7 +262,7 @@ For high-stakes interactions (especially law enforcement), the response includes
 
 ```json
 {
-  "status": "OK",
+  "status": "verified",
   "message": "Active Metropolitan Police officer",
   "verification_id": "VRF-2026-01-12-14:32:07-7k3m9x2p",
   "complaint_url": "/complaints?ref=VRF-2026-01-12-14:32:07-7k3m9x2p"
@@ -301,7 +285,7 @@ For professions with established public registries, return a link rather than a 
 
 ```json
 {
-  "status": "OK",
+  "status": "verified",
   "more_info": "https://lawsociety.org.uk/public/solicitor/SOL-2019-44821"
 }
 ```
@@ -317,7 +301,7 @@ For use cases where the **act of verifying** itself carries legal or business me
 
 ```json
 {
-  "status": "ACTIVE_CALL",
+  "status": "active_call",
   "message": "Court Summons — Case CV-2026-03892",
   "headers": {
     "X-Verify-Retain-Until": "2031-02-28T00:00:00Z",
@@ -346,7 +330,7 @@ The `X-Verify-Retain-Reason` stays short and machine-readable — apps and devic
 
 ```
 HTTP/1.1 200 OK
-X-Verify-Status: OK
+X-Verify-Status: verified
 X-Verify-Retain-Until: 2056-02-28T00:00:00Z
 X-Verify-Retain-Reason: loan-disclosure
 X-Verify-Retain-Reason-Further-Details: https://loandepot.com/verify/retain/tila-respa
@@ -361,7 +345,7 @@ The URL at `loandepot.com/verify/retain/tila-respa` explains:
 
 ```
 HTTP/1.1 200 OK
-X-Verify-Status: ACTIVE_CALL
+X-Verify-Status: active_call
 X-Verify-Retain-Until: 2031-02-28T00:00:00Z
 X-Verify-Retain-Reason: service-of-process
 X-Verify-Retain-Reason-Further-Details: https://courts.maricopa.gov/verify/retain/service-info
@@ -429,13 +413,13 @@ The issuer's verification response includes three headers that link to a higher 
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
-X-Verify-Status: OK
+X-Verify-Status: verified
 X-Verify-Authority-For: employment-attestation
 X-Verify-Authority-Attested-By: https://employers.hmrc.gov.uk/v/{hash}
 X-Verify-Authority-Scope: paye-registered-employer
 
 {
-  "status": "OK"
+  "status": "verified"
 }
 ```
 
@@ -630,7 +614,7 @@ When an endorser is sunsetting, the issuer declares a `successor` field pointing
 3. Client fetches the raw `verification-meta.json` bytes and canonicalizes: `JSON.stringify(JSON.parse(raw))`
 4. Client computes SHA-256 hash of the canonical JSON
 5. Client performs a `verify:` lookup: `https://gov.uk/verifiers/{meta-hash}`
-6. If the endorser's endpoint returns `OK`, the endorsement is confirmed — display "Endorsed by **gov.uk**"
+6. If the endorser's endpoint returns `{"status":"verified"}`, the endorsement is confirmed — display "Endorsed by **gov.uk**"
 7. If the endorser's endpoint returns `404`, the endorsement is **unconfirmed** — display "Endorsement by gov.uk — not confirmed"
 
 #### Chain Walking
@@ -675,82 +659,38 @@ See [E-Ink ID Cards: Privacy Tiers](../public/use-cases/e-ink-id-cards.md#privac
 
 ## Client Response Handling
 
-Verification endpoints may return either plain text or JSON. Client software must handle both formats gracefully—there is no content negotiation.
-
-### Plain Text Responses
-
-```
-HTTP/1.1 200 OK
-Content-Type: text/plain
-
-OK
-```
-
-Client handling:
-
-| Response Body    | Client Interpretation              | Display                                                                |
-|------------------|------------------------------------|------------------------------------------------------------------------|
-| `""` (empty)     | Verified                           | Translate to local language: "Verified", "Vérifié", "Verificado", etc. |
-| `"OK"`           | Verified                           | Translate to local language, as above                                  |
-| Any other string | Not verified; string is the reason | Display the string as-is (may be non-English)                          |
-
-**Examples of non-OK plain text:**
-- `EXPIRED`
-- `REVOKED`
-- `Licence suspendue` (French issuer)
-- `Documento scaduto` (Italian issuer)
-- `Not currently employed`
-
-The client should display these strings verbatim—they are human-readable messages from the issuer explaining why verification failed.
-
-### JSON Responses
+All verification responses are JSON.
 
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
 
-{ "status": "OK", ... }
+{ "status": "verified", ... }
 ```
 
 Client handling:
 
 1. Parse JSON
 2. Check `status` field
-3. If `status === "OK"` → show localized-to-user "Verified" + any additional fields
-4. If `status !== "OK"` → show the status value (and optional `message` field if present)
+3. If `status === "verified"` → show localized-to-user "Verified" + any additional fields
+4. If `status !== "verified"` → show the status value (and optional `message` field if present)
 
-### Detection Logic
-
-Client pseudocode:
+### Client Pseudocode
 
 ```javascript
-const contentType = response.headers.get('Content-Type') || '';
 const body = await response.text();
+const json = JSON.parse(body);
 
-if (contentType.includes('application/json')) {
-  // JSON response
-  const json = JSON.parse(body);
-  if (json.status === "OK") {
-    showVerified(json);  // Green + localized "Verified" + actionable context
-  } else {
-    showFailed(json.status, json.message);  // Red + status string
-  }
+if (json.status === "verified") {
+  showVerified(json);  // Green + localized "Verified" + actionable context
 } else {
-  // Plain text response (text/plain or missing Content-Type)
-  const trimmed = body.trim();
-  if (trimmed === "" || trimmed === "OK") {
-    showVerified();  // Green + localized "Verified"
-  } else {
-    showFailed(trimmed);  // Red + the literal string
-  }
+  showFailed(json.status, json.message);  // Red + status string
 }
 ```
 
-### Why No Content Negotiation
+### Internationalization
 
-1. **Simpler servers:** Issuers can return whatever format is easiest for them
-2. **Graceful degradation:** A minimal issuer returns `OK`; a sophisticated issuer returns rich JSON
-3. **Internationalization at the right layer:** Issuers can return failure messages in their local language; clients handle success localization
+Success localization is handled by the client — `"verified"` is a machine-readable status, and the client translates it to the user's language ("Verified", "Vérifié", "Verificado", etc.). Failure messages may include a human-readable `message` field from the issuer, which may be in the issuer's local language.
 
 ## CORS and Security
 
@@ -780,7 +720,7 @@ To query a verification endpoint, you need the SHA-256 hash. To have the hash, y
 - The original electronic document, or
 - A photograph/scan/print of it
 
-If someone already has the document (or photographed it), returning `OK` or `REVOKED` doesn't leak new information. 
+If someone already has the document (or photographed it), returning `verified` or `revoked` doesn't leak new information. 
 The hash itself is the credential—CORS doesn't expand the attack surface, 
 nor can the original document be reverse engineered from the hash.
 
@@ -825,20 +765,12 @@ GET https://lawsociety.org.uk/v/a3f2b8c9d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3
 ```
 
 **Success Response:**
-```
-HTTP/1.1 200 OK
-Content-Type: text/plain
-
-OK
-```
-
-Or with JSON:
 ```json
 HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "status": "OK"
+  "status": "verified"
 }
 ```
 
@@ -850,7 +782,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "status": "SUSPENDED",
+  "status": "suspended",
   "message": "License suspended pending disciplinary hearing"
 }
 ```
@@ -863,7 +795,7 @@ HTTP/1.1 404 Not Found
 Content-Type: application/json
 
 {
-  "status": "NOT_FOUND",
+  "status": "not_found",
   "message": "No document matches this hash"
 }
 ```

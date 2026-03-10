@@ -40,7 +40,7 @@ These capabilities are designed to be built into the native fabric of digital li
 3. App extracts text within registration marks via OCR
 4. App normalizes text and computes SHA-256 hash
 5. App builds full verification URL: `https://issuer.com/c/{hash}`
-6. App fetches URL and confirms HTTP 200 + "OK" response
+6. App fetches URL and confirms HTTP 200 + `{"status":"verified"}` response
 7. Result displayed as green "VERIFIED" overlay on camera
 
 ### Key Features
@@ -250,7 +250,7 @@ This is a key difference from document mode: web text is already in digital form
 
 **Verification Endpoint Response:**
 - Same format as document mode
-- Status: "OK" (verified), "REVOKED" (content no longer valid), etc.
+- Status: `{"status":"verified"}` (verified), `{"status":"revoked"}` (content no longer valid), etc.
 - Optional: timestamp, version number, source metadata
 
 **Source Metadata** (optional)
@@ -597,8 +597,8 @@ All modes share:
 3. **Verification Model**
    - Issuer operates endpoint at domain
    - Hash in URL → issuer domain must authenticate
-   - Response: HTTP 200 + "OK" means verified
-   - Response: HTTP 200 + other text = status (REVOKED, EXPIRED, etc.)
+   - Response: HTTP 200 + `{"status":"verified"}` means verified
+   - Response: HTTP 200 + other JSON status = e.g. `{"status":"revoked"}`, `{"status":"expired"}`, etc.
 
 4. **Trust Anchor**
    - Domain ownership (not distributed consensus)

@@ -91,14 +91,14 @@ The app:
 6. Normalizes remaining text (Unicode normalization + whitespace rules)
 7. Computes SHA-256 hash
 8. **Builds full verification URL** by converting `verify:` to `https://` and appending the hash
-9. Fetches the URL and verifies HTTP 200 + "OK" in response
+9. Fetches the URL and verifies HTTP 200 + `{"status":"verified"}` in response
 10. Shows green "VERIFIED" or red "FAILS VERIFICATION" overlay on camera
 
 ### 3. No Hardcoded Hashes in the App
 - We do **NOT** maintain a local database of valid hashes in the app
 - Trust model: The organization that controls the domain (e.g., `live-verify.github.io`) is trusted
 - Hash database is pre-built and deployed to GitHub Pages at `/c/{hash}/index.html`
-- If hash matches URL AND endpoint returns 200 + "OK" → verified
+- If hash matches URL AND endpoint returns 200 + `{"status":"verified"}` → verified
 - If hash doesn't match URL OR endpoint fails → verification fails
 
 ## File Structure
@@ -166,7 +166,7 @@ live-verify/
 │   │   └── doctorate-high-energy-magic.html
 │   ├── c/
 │   │   ├── verification-meta.json       # Document normalization rules + OCR settings (optional)
-│   │   └── {hash}/index.html        # Static verification endpoints (200 + "OK")
+│   │   └── {hash}/index.html        # Static verification endpoints (200 + {"status":"verified"})
 │   └── hashes.json                  # Hash database metadata
 │
 ├── scripts/
@@ -628,8 +628,8 @@ async function verifyAgainstClaimedUrl(claimedUrl, computedHash) {
     }
 
     const body = await response.text();
-    if (!body.includes('OK')) {
-        // Show actual status (e.g., "REVOKED")
+    if (!body.includes('"verified"')) {
+        // Show actual status (e.g., "revoked")
         const status = body.trim().toUpperCase().substring(0, 50);
         showOverlay('red', status);
         return;
@@ -798,7 +798,7 @@ python3 -m http.server 8000
 ## CORS Considerations
 
 The app performs a **full fetch** of verification URLs:
-- If CORS allows: Fetches and checks for HTTP 200 + "OK" in body
+- If CORS allows: Fetches and checks for HTTP 200 + `{"status":"verified"}` in body
 - If CORS blocks: Shows "CANNOT VERIFY - Network error or CORS restriction"
 
 Most verification endpoints need CORS headers:
@@ -898,7 +898,7 @@ const psl = (typeof window !== 'undefined' && window.psl) || require('psl');
 The app verifies:
 1. ✅ Computed hash matches the hash in the URL
 2. ✅ URL endpoint exists (HTTP 200)
-3. ✅ Endpoint confirms validity (body contains "OK")
+3. ✅ Endpoint confirms validity (body contains `{"status":"verified"}`)
 
 **Verification endpoints NEVER echo claim content.** The verifier already has the document—they just scanned/selected it. The endpoint confirms authenticity (status: OK, REVOKED, EXPIRED, etc.), not content. Echoing back "Driver: MICHAEL CHEN, Vehicle: Tesla Model Y" would be redundant; that's already in the document being verified.
 

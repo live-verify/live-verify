@@ -53,16 +53,16 @@ async function run() {
     // Read headshot for response payload
     const headshotBase64 = fs.readFileSync('full-stack-tests/fixtures/gina-headshot-small.jpg').toString('base64');
     const responsePayload = JSON.stringify({
-        status: "OK",
+        status: "verified",
         message: "Active Detective, Midsomer Constabulary",
         headshot: `data:image/jpeg;base64,${headshotBase64}`
     });
 
     // Create a seed script
     const seed = {
-        [govMetaHash]: "OK",
-        [hmicfrsMetaHash]: "OK",
-        [midsomerMetaHash]: "OK",
+        [govMetaHash]: '{"status":"verified"}',
+        [hmicfrsMetaHash]: '{"status":"verified"}',
+        [midsomerMetaHash]: '{"status":"verified"}',
         [claimHash]: responsePayload
     };
 

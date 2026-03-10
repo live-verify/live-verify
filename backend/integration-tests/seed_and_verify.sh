@@ -61,21 +61,21 @@ done
 echo ""
 echo "=== Testing READ path (Tier 1 -> Tier 2 -> Tier 3) ==="
 
-# Test known OK hashes
+# Test known verified hashes
 for hash in \
     09d1e6765c2dbd833e5a1f4770d9f0c9368224f7b1aed34de7a3bd5bf4d1f031 \
     1cddfbb2adfa13e4562d274b59e56b946f174a0feb566622dd67a4880cf0b223 \
     f10573d8517edbfa04623d6a255402816d42b962dce13a1dc2b6427c4539711c; do
     body=$(curl -s "${BASE_URL}/c/${hash}")
-    assert_eq "GET /c/$hash body" "OK" "$body"
+    assert_eq "GET /c/$hash body" '{"status":"verified"}' "$body"
 done
 
-# Test REVOKED hashes
+# Test revoked hashes
 for hash in \
     949cdf7a5ee604e1dc01403eb898b49f66dd9e4d5a248a97eb7971a392bc1aec \
     b767b0558ebff1c2bc911fa69ce4e63fd7c2ba7ff7a540c6fa257a8fe6628f0a; do
     body=$(curl -s "${BASE_URL}/c/${hash}")
-    assert_eq "GET /c/$hash body" "REVOKED" "$body"
+    assert_eq "GET /c/$hash body" '{"status":"revoked"}' "$body"
 done
 
 echo ""
@@ -96,7 +96,7 @@ assert_status "POST -> 405" "405" \
 
 # Path-agnostic: different prefix should work
 body=$(curl -s "${BASE_URL}/claims/09d1e6765c2dbd833e5a1f4770d9f0c9368224f7b1aed34de7a3bd5bf4d1f031")
-assert_eq "GET /claims/{hash} (path-agnostic)" "OK" "$body"
+assert_eq "GET /claims/{hash} (path-agnostic)" '{"status":"verified"}' "$body"
 
 echo ""
 echo "=== Results: $pass passed, $fail failed ==="

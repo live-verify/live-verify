@@ -18,8 +18,8 @@ No. And this is where the merkle design shines.
 
 The chain is not a pre-computed fact stored somewhere. It's **evaluated live** when the user scans the document. Each link is checked independently:
 
-1. Client hashes `smithandpartners.co.uk`'s `verification-meta.json` → checks against `arb.org.uk` → OK or 404
-2. Client hashes `arb.org.uk`'s `verification-meta.json` → checks against `gov.uk` → OK or 404
+1. Client hashes `smithandpartners.co.uk`'s `verification-meta.json` → checks against `arb.org.uk` → `{"status":"verified"}` or 404
+2. Client hashes `arb.org.uk`'s `verification-meta.json` → checks against `gov.uk` → `{"status":"verified"}` or 404
 
 Each check is a simple, independent HTTP request. No coordination between the parties is needed.
 
@@ -79,7 +79,7 @@ An attacker who wants to fake an endorsement needs to insert a hash into the end
 
 ### Attack 1: Compromise the Endorser's Hosting
 
-**Goal:** Insert a file containing "OK" at `https://arb.org.uk/{hash-of-fake-meta}` so that a rogue issuer appears endorsed.
+**Goal:** Insert a file containing `{"status":"verified"}` at `https://arb.org.uk/{hash-of-fake-meta}` so that a rogue issuer appears endorsed.
 
 **What it takes:** Write access to ARB's web hosting — SSH credentials, CMS admin, CI/CD pipeline, cloud storage bucket, or DNS control. This is a standard infrastructure attack, identical to defacing any website.
 
@@ -102,7 +102,7 @@ An attacker who wants to fake an endorsement needs to insert a hash into the end
 
 ### Attack 3: DNS Hijacking / BGP Hijacking
 
-**Goal:** Redirect requests for `arb.org.uk` to an attacker-controlled server that returns "OK" for any hash.
+**Goal:** Redirect requests for `arb.org.uk` to an attacker-controlled server that returns `{"status":"verified"}` for any hash.
 
 **What it takes:** DNS cache poisoning, registrar account compromise, or BGP route hijacking.
 
@@ -144,9 +144,9 @@ The bottom line: the most dangerous attack is #2 (build pipeline compromise), be
 
 ### Endorser Response Is Trivial
 
-The endorser returns `OK` or `404`. No JSON, no metadata, no timestamps. All the richness lives in the issuer's own `verification-meta.json`, pinned by the hash. This means:
+The endorser returns `{"status":"verified"}` or `404`. No metadata, no timestamps. All the richness lives in the issuer's own `verification-meta.json`, pinned by the hash. This means:
 
-- Endorsers can use static file hosting (a directory of hash files containing "OK")
+- Endorsers can use static file hosting (a directory of hash files containing `{"status":"verified"}`)
 - No API, no database, no custom software
 - Adding or removing an endorsement is creating or deleting a file
 
@@ -200,4 +200,4 @@ With Live Verify + shared ledger: both passport hashes are on the ledger. Hash `
 
 The diplomatic conversation shifts from "someone forged a French passport" to "your domain confirmed this passport was genuine, a witness recorded the confirmation, and the same fingerprints are on a UK passport that `gov.uk` also confirmed — explain."
 
-The fingerprint correlation is each country's own sovereign capability — their own database, their own biometrics, nothing shared. Live Verify's contribution is proving that the *documents* were genuinely issued by the states whose domains attested to them. The state can no longer say "that was a forgery, nothing to do with us" when their own verification endpoint returned OK and an independent witness recorded it on a public ledger.
+The fingerprint correlation is each country's own sovereign capability — their own database, their own biometrics, nothing shared. Live Verify's contribution is proving that the *documents* were genuinely issued by the states whose domains attested to them. The state can no longer say "that was a forgery, nothing to do with us" when their own verification endpoint returned `{"status":"verified"}` and an independent witness recorded it on a public ledger.

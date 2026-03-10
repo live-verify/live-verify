@@ -96,9 +96,8 @@ The client (web app, browser extension, Android, iOS) constructs
 
 | Response | Meaning |
 |---|---|
-| 200 + body `OK` | Verified |
-| 200 + JSON `{"status":"OK"}` | Verified |
-| 200 + other body | Status text (e.g. `REVOKED`, `GRADUATED`) |
+| 200 + JSON `{"status":"verified"}` | Verified |
+| 200 + other body | Status JSON (e.g. `{"status":"revoked"}`, `{"status":"graduated"}`) |
 | 404 | Not found |
 | 429 | Rate limited |
 

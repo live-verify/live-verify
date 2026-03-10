@@ -225,17 +225,12 @@ async function verifyHash(verificationUrl, meta) {
 
         const bodyText = (await response.text()).trim();
 
-        // Check for simple "OK" response
-        if (bodyText === 'OK') {
-            return { success: true, status: 'VERIFIED', domain };
-        }
-
         // Try to parse as JSON
         try {
             const json = JSON.parse(bodyText);
             if (json.status) {
                 const upperStatus = json.status.toUpperCase();
-                if (upperStatus === 'OK' || upperStatus === 'VERIFIED') {
+                if (upperStatus === 'VERIFIED') {
                     return { success: true, status: 'VERIFIED', domain, payload: json };
                 }
 
@@ -349,8 +344,8 @@ async function checkAuthorization(meta, metaUrl, originUrl) {
         let confirmed = false;
         if (response.ok) {
             const body = (await response.text()).trim();
-            confirmed = body === 'OK' || body === '' ||
-                (body.startsWith('{') && JSON.parse(body).status === 'OK');
+            confirmed = body === '' ||
+                (body.startsWith('{') && JSON.parse(body).status === 'verified');
         } else if (response.status !== 404) {
             return { checked: true, confirmed: false, authorizer, description: null, expired: false, successor: null, error: `HTTP ${response.status}`, chain: [] };
         }

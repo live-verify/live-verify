@@ -39,7 +39,7 @@ for i in $(seq 1 30); do
 done
 
 TEST_HASH="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-TEST_PAYLOAD="WRITE_TEST_OK"
+TEST_PAYLOAD='{"status":"verified"}'
 
 echo ""
 echo "=== Test: PUT new hash via Tier 2 write port ==="
@@ -63,7 +63,7 @@ assert_eq "PUT different payload -> 409" "409" "$code"
 
 echo ""
 echo "=== Test: PUT invalid hash ==="
-code=$(curl -s -o /dev/null -w '%{http_code}' -X PUT "${TIER2_MGMT}/v/badhash" -d "OK")
+code=$(curl -s -o /dev/null -w '%{http_code}' -X PUT "${TIER2_MGMT}/v/badhash" -d '{"status":"verified"}')
 assert_eq "PUT invalid hash -> 400" "400" "$code"
 
 echo ""

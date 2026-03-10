@@ -217,18 +217,16 @@ object VerificationLogic {
                         if (bodyText.startsWith("{")) JSONObject(bodyText) else null
                     } catch (_: Exception) { null }
 
-                    // Check status field if JSON, otherwise treat plain "OK" as verified
+                    // Check status field in JSON response
                     if (payload != null) {
                         val status = payload.optString("status", "").uppercase()
-                        if (status == "OK" || status == "VERIFIED") {
+                        if (status == "VERIFIED") {
                             VerificationResult.Verified(domain, payload)
                         } else if (status.isNotEmpty()) {
                             VerificationResult.NotVerified(domain, status)
                         } else {
                             VerificationResult.Verified(domain, payload)
                         }
-                    } else if (bodyText.uppercase() == "OK" || bodyText.isEmpty()) {
-                        VerificationResult.Verified(domain)
                     } else {
                         VerificationResult.NotVerified(domain, bodyText.take(50))
                     }
@@ -340,8 +338,8 @@ object VerificationLogic {
                 val authResponse = client.newCall(authRequest).execute()
                 if (authResponse.isSuccessful) {
                     val body = authResponse.body?.string()?.trim() ?: ""
-                    confirmed = body == "OK" || body.isEmpty() ||
-                        (body.startsWith("{") && try { JSONObject(body).optString("status") == "OK" } catch (_: Exception) { false })
+                    confirmed = body.isEmpty() ||
+                        (body.startsWith("{") && try { JSONObject(body).optString("status") == "verified" } catch (_: Exception) { false })
                 }
             } catch (_: Exception) {
                 // Authorization fetch failed - not confirmed

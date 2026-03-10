@@ -148,14 +148,14 @@ Each use case invents its own status vocabulary with minimal overlap:
 
 | Use Case | Statuses |
 |----------|----------|
-| EAD | `OK`, `PENDING_RENEWAL`, `REVOKED`, `EXPIRED`, `404` |
+| EAD | `verified`, `PENDING_RENEWAL`, `revoked`, `EXPIRED`, `404` |
 | Absence certificates | `Clear`, `Expired`, `Superseded`, `Partial` |
 | Contracts | `Executed`, `Pending Signature`, `Amended`, `Terminated`, `Expired`, `Disputed` |
 | Consent records | `Active`, `Withdrawn`, `Expired`, `Superseded`, `Partial` |
 | B2B credit | `Active`, `Expired`, `Revoked`, `Suspended`, `Superseded` |
 | Delivery workers | `On Duty`, `Verified`, `Inactive`, `Fraud Alert` |
 
-The Verification Response Format doc defines universal statuses (`OK`, `EXPIRED`, `REVOKED`, `SUPERSEDED`) and sector-specific extensions, but many use cases don't follow this convention — using `Active` vs `OK`, `Clear` vs `OK`, `Verified` vs `OK`.
+The Verification Response Format doc defines universal statuses (`verified`, `EXPIRED`, `revoked`, `SUPERSEDED`) and sector-specific extensions, but many use cases don't follow this convention — using `Active` vs `verified`, `Clear` vs `verified`, `Verified` vs `verified`.
 
 No client guidance exists for handling unknown status codes.
 

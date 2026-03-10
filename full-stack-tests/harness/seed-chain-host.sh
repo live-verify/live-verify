@@ -34,15 +34,15 @@ echo "=== Seeding authority chain ==="
 
 # 1. Midsomer's meta hash → stored so policing.gov.uk can confirm authorization
 MIDSOMER_META_HASH=$(meta_hash "${META_DIR}/midsomer.police.uk/id/verification-meta.json")
-seed "$MIDSOMER_META_HASH" "OK" "Midsomer meta (authorized by policing.gov.uk)"
+seed "$MIDSOMER_META_HASH" '{"status":"verified"}' "Midsomer meta (authorized by policing.gov.uk)"
 
 # 2. Policing's meta hash → stored so gov.uk can confirm authorization
 POLICING_META_HASH=$(meta_hash "${META_DIR}/policing.gov.uk/v1/verification-meta.json")
-seed "$POLICING_META_HASH" "OK" "Policing meta (authorized by gov.uk)"
+seed "$POLICING_META_HASH" '{"status":"verified"}' "Policing meta (authorized by gov.uk)"
 
 # 3. Gov.uk's meta hash → stored as root (self-evident, but seeded for completeness)
 GOV_META_HASH=$(meta_hash "${META_DIR}/gov.uk/v1/verification-meta.json")
-seed "$GOV_META_HASH" "OK" "Gov.uk meta (root authority)"
+seed "$GOV_META_HASH" '{"status":"verified"}' "Gov.uk meta (root authority)"
 
 echo ""
 echo "=== Seeding claim hash ==="
@@ -63,7 +63,7 @@ buf = io.BytesIO()
 img.save(buf, format='JPEG', quality=60)
 print(base64.b64encode(buf.getvalue()).decode())
 ")
-CLAIM_PAYLOAD="{\"status\":\"OK\",\"headshot\":\"data:image/jpeg;base64,${HEADSHOT_B64}\",\"message\":\"investigating a murder\"}"
+CLAIM_PAYLOAD="{\"status\":\"verified\",\"headshot\":\"data:image/jpeg;base64,${HEADSHOT_B64}\",\"message\":\"investigating a murder\"}"
 seed "$CLAIM_HASH" "$CLAIM_PAYLOAD" "Gina Coulby warrant claim"
 
 echo ""

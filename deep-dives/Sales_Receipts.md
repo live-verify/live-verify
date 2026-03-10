@@ -80,7 +80,7 @@ All these elements (except the verify: line itself) contribute to the hash, maki
 2. App OCRs full receipt text (items, subtotal, VAT/sales tax, total, date, transaction ID)
 3. App normalizes text (see [Technical_Concepts.md: Text Normalization](Technical_Concepts.md#text-normalization)), computes hash: `a7f3e92b...` using SHA-256 (see [Technical_Concepts.md: Hash Algorithms](Technical_Concepts.md#hash-algorithms))
 4. App verifies receipt exists: `GET https://rx.starbucks.com/a7f3e92b...`
-5. Starbucks server responds: **200 OK + "OK"** (receipt is valid) - see [Technical_Concepts.md: Response Formats](Technical_Concepts.md#response-formats)
+5. Starbucks server responds: **200 OK + `{"status":"verified"}`** (receipt is valid) - see [Technical_Concepts.md: Response Formats](Technical_Concepts.md#response-formats)
 6. Employee submits expense claim with verified hash
 7. Finance department sees "✓ Verified against Starbucks"
 
@@ -132,8 +132,8 @@ The simple GET verification above only confirms the receipt exists. To prevent d
 **1. Static QR Enables Duplicate Claims**
 
 - Receipt printed with QR: `https://starbucks.com/verify?ref=STB-45829`
-- Employee expenses receipt → QR verifies "OK"
-- Employee photocopies receipt + QR → **QR still verifies "OK"**
+- Employee expenses receipt → QR verifies as valid
+- Employee photocopies receipt + QR → **QR still verifies as valid**
 - No cryptographic binding prevents duplicate expense claims
 - Merchant would need to track ref codes, but employee could claim at different times/companies
 
@@ -155,7 +155,7 @@ The simple GET verification above only confirms the receipt exists. To prevent d
 
 - Change "£7.50" to "£75.00" on printed receipt
 - QR still points to original transaction verification
-- QR verifies "OK" despite altered amount
+- QR still verifies as valid despite altered amount
 - Live Verify: altered text → different hash → verification fails
 
 ### The Thermal Receipt Problem: QR as Supplement

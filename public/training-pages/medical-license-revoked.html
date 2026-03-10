@@ -154,7 +154,7 @@
         </div>
 
         <div class="warning">
-            <strong>⚠️ REVOKED STATUS:</strong> The verification endpoint will return "REVOKED" instead of "OK".
+            <strong>⚠️ REVOKED STATUS:</strong> The verification endpoint will return <code>{"status":"revoked"}</code> instead of <code>{"status":"verified"}</code>.
             This demonstrates that even when the hash matches perfectly, the certification can still fail
             verification if it has been revoked by the issuing authority.
             The app should show a RED "FAILS VERIFICATION" overlay.

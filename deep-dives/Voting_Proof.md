@@ -91,7 +91,7 @@ that's E&Y again.
 - QR encodes ballot reference `B7F3E2A19C4D`
 - Official changes "Newsome/AOC" to "Trump/Vance" on printed text beside QR
 - Hands fake chit to colluding voter (or uses for mail-in ballot fraud)
-- QR still verifies "OK" (points to real ballot B7F3E2A19C4D)
+- QR still verifies as valid (points to real ballot B7F3E2A19C4D)
 - Auditor sees: one ballot, one verification (no red flag)
 - **No cryptographic binding between printed vote choice and QR code**
 
@@ -107,7 +107,7 @@ that's E&Y again.
 **Problem with QR codes:**
 - Corrupt official prints chit with QR pointing to `https://election-verification-ey.com/verify` (lookalike domain)
 - Voter scans QR, sees "Your vote was counted ✓"
-- Attacker-controlled server always responds "OK"
+- Attacker-controlled server always responds `{"status":"verified"}`
 - Hard to spot domain spoofing in quick scan (voter expects verification, gets fake confirmation)
 - Voter believes vote was counted, but it wasn't (or was changed)
 
@@ -125,7 +125,7 @@ that's E&Y again.
 - Corrupt poll worker prints chit with QR + text saying "Newsome/AOC"
 - But QR actually points to ballot that counted "Trump/Vance"
 - Voter keeps chit, thinks vote was counted correctly
-- QR verifies "OK" (ballot exists in system)
+- QR verifies as valid (ballot exists in system)
 - **Voter never discovers vote was changed** (text on chit doesn't match actual counted ballot)
 
 **Live Verify solution:**

@@ -7,7 +7,7 @@
 - **One legal fact**: "Jane has a BSc in Computer Science from Edinburgh University, awarded June 2018"
 - **Multiple valid representations**: Ornate wall certificate, CV summary, LinkedIn profile text, conference bio
 - **Multiple valid hashes**: Each representation produces a different SHA-256 hash
-- **All verify successfully**: The issuer stores all hashes, all return "OK"
+- **All verify successfully**: The issuer stores all hashes, all return `{"status":"verified"}`
 
 This applies to degrees, licenses, certifications, receipts, contracts - any credential that can be legitimately represented in different formats.
 
@@ -154,7 +154,7 @@ The university's verification database stores **ALL** hashes for Jane's degree:
 {
   "hashes": {
     "abc123def456...": {
-      "status": "OK",
+      "status": "verified",
       "claimType": "degree-long-form",
       "graduate": "Jane Elizabeth Smith",
       "degree": "BSc Computer Science",
@@ -163,7 +163,7 @@ The university's verification database stores **ALL** hashes for Jane's degree:
       "issued": "2018-06-23T10:00:00Z"
     },
     "789ghi012jkl...": {
-      "status": "OK",
+      "status": "verified",
       "claimType": "degree-medium-form",
       "graduate": "Jane Elizabeth Smith",
       "degree": "BSc Computer Science",
@@ -172,7 +172,7 @@ The university's verification database stores **ALL** hashes for Jane's degree:
       "issued": "2024-03-15T14:30:00Z"
     },
     "def456mno789...": {
-      "status": "OK",
+      "status": "verified",
       "claimType": "degree-short-form",
       "graduate": "Jane Elizabeth Smith",
       "degree": "BSc Computer Science",
@@ -184,7 +184,7 @@ The university's verification database stores **ALL** hashes for Jane's degree:
 }
 ```
 
-**All three return HTTP 200 + "OK"** when verified.
+**All three return HTTP 200 + `{"status":"verified"}`** when verified.
 
 ## Why This Works
 
@@ -219,7 +219,7 @@ The university's verification database stores **ALL** hashes for Jane's degree:
    - App normalizes text: `"BSc Computer Science (First Class)\nUniversity of Edinburgh, 2018\nJane Elizabeth Smith"`
    - Computes SHA-256: `789ghi012jkl...`
    - Fetches `https://degrees.ed.ac.uk/c/789ghi012jkl...`
-   - Response: HTTP 200 + "OK"
+   - Response: HTTP 200 + `{"status":"verified"}`
    - **✅ VERIFIED by degrees.ed.ac.uk**
 
 4. **No need to scan the ornate certificate** - it's hanging on Jane's wall at home
@@ -244,7 +244,7 @@ The university's verification database stores **ALL** hashes for Jane's degree:
    - App normalizes text
    - Computes SHA-256: `abc123def456...`
    - Fetches `https://degrees.ed.ac.uk/c/abc123def456...`
-   - Response: HTTP 200 + "OK"
+   - Response: HTTP 200 + `{"status":"verified"}`
    - **✅ VERIFIED by degrees.ed.ac.uk**
 
 ## University Adoption Path
@@ -368,7 +368,7 @@ CREATE TABLE degree_verifications (
   award_date DATE,
   claim_format ENUM('long-form', 'short-form'),
   issued_date TIMESTAMP,
-  status ENUM('OK', 'REVOKED', 'SUPERSEDED')
+  status ENUM('verified', 'revoked', 'SUPERSEDED')
 );
 ```
 
@@ -380,7 +380,7 @@ CREATE TABLE degree_verifications (
 - Badge text with middle name: `mno345...`
 - ...unlimited additional representations
 
-All return "OK" because they represent the **same underlying credential**.
+All return `{"status":"verified"}` because they represent the **same underlying credential**.
 
 ### Privacy Considerations
 

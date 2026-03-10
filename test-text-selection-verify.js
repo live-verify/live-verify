@@ -195,7 +195,7 @@ console.log('✓ Different text produces different hashes: WORKING');
 console.log('\nThe verification logic is READY. In the browser, it will:');
 console.log('1. Extract the text and hash (as above)');
 console.log('2. Fetch: ' + verifyUrl1);
-console.log('3. If response is 200 + "OK" → show VERIFIED');
+console.log('3. If response is 200 + {"status":"verified"} → show VERIFIED');
 console.log('4. If response is 404 → show NOT FOUND (verification fails)');
 console.log('5. For incorrect text (like "nseen..."), hash is different');
 console.log('6. Endpoint won\'t exist for wrong hash → verification fails');

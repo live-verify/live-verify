@@ -47,7 +47,7 @@ func TestEdgeForwardsToUpstream(t *testing.T) {
 			t.Errorf("unexpected upstream path: %s", r.URL.Path)
 		}
 		w.WriteHeader(200)
-		w.Write([]byte("OK"))
+		w.Write([]byte(`{"status":"verified"}`))
 	}))
 	defer upstream.Close()
 
@@ -61,8 +61,8 @@ func TestEdgeForwardsToUpstream(t *testing.T) {
 	if w.Code != 200 {
 		t.Fatalf("expected 200, got %d", w.Code)
 	}
-	if w.Body.String() != "OK" {
-		t.Fatalf("expected OK, got %q", w.Body.String())
+	if w.Body.String() != `{"status":"verified"}` {
+		t.Fatalf(`expected {"status":"verified"}, got %q`, w.Body.String())
 	}
 	if w.Header().Get("Access-Control-Allow-Origin") != "*" {
 		t.Fatal("missing CORS header")
@@ -73,7 +73,7 @@ func TestEdgePathAgnostic(t *testing.T) {
 	hash := "09d1e6765c2dbd833e5a1f4770d9f0c9368224f7b1aed34de7a3bd5bf4d1f031"
 	upstream := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(200)
-		w.Write([]byte("OK"))
+		w.Write([]byte(`{"status":"verified"}`))
 	}))
 	defer upstream.Close()
 
@@ -113,7 +113,7 @@ func TestEdge404FromUpstream(t *testing.T) {
 func TestEdgeRateLimit(t *testing.T) {
 	upstream := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(200)
-		w.Write([]byte("OK"))
+		w.Write([]byte(`{"status":"verified"}`))
 	}))
 	defer upstream.Close()
 

@@ -183,7 +183,7 @@ Response includes explicit cache control headers and usage tracking:
 ```json
 {
   "hash": "09d1e6765c2dbd833e5a1f4770d9f0c9...",
-  "status": "OK",
+  "status": "verified",
   "verified_at": "2025-01-26T14:30:00Z",
   "cache_control": "no-store, no-cache, must-revalidate",
   "pricing": {
@@ -340,11 +340,11 @@ Organizations can publish their pricing information in the metadata file at `htt
     }
   },
   "responseTypes": {
-    "OK": {
+    "verified": {
       "class": "affirming",
       "text": "This degree is verified and authentic"
     },
-    "REVOKED": {
+    "revoked": {
       "class": "denying",
       "text": "This degree has been revoked due to academic misconduct"
     }
