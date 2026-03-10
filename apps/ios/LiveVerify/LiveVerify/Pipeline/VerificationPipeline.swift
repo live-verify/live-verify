@@ -162,6 +162,8 @@ struct VerificationResult {
     let verificationURL: String?
     let baseURL: String?
     var authorization: AuthorizationResult?
+    var issuerDescription: String?
+    var issuerFormalName: String?
 }
 
 /// Pipeline error types
@@ -414,7 +416,9 @@ class VerificationPipeline: ObservableObject {
             hash: hash,
             verificationURL: verificationURL,
             baseURL: baseURL,
-            authorization: authorization
+            authorization: authorization,
+            issuerDescription: meta?["description"] as? String,
+            issuerFormalName: (meta?["formalName"] as? String) ?? (meta?["issuer"] as? String)
         )
     }
 
@@ -535,7 +539,9 @@ class VerificationPipeline: ObservableObject {
             hash: hash,
             verificationURL: verificationURL,
             baseURL: baseURL,
-            authorization: authorization
+            authorization: authorization,
+            issuerDescription: meta?["description"] as? String,
+            issuerFormalName: (meta?["formalName"] as? String) ?? (meta?["issuer"] as? String)
         )
     }
 
@@ -601,7 +607,9 @@ class VerificationPipeline: ObservableObject {
             hash: hash,
             verificationURL: verificationURL,
             baseURL: baseURL,
-            authorization: authorization
+            authorization: authorization,
+            issuerDescription: meta?["description"] as? String,
+            issuerFormalName: (meta?["formalName"] as? String) ?? (meta?["issuer"] as? String)
         )
     }
 }

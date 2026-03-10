@@ -228,6 +228,35 @@ Content-Type: application/json
 It should return HTTP 404 with optional JSON body explaining the result. Some 404s will happen after OCR
 errors in the camera apps, and people will get used to trying again after repositioning the phone.
 
+## When Records Are Created vs Never Created
+
+**Key principle:** A hash only appears in the verification database if the claim was **issued/approved**. Post-issuance status changes (revoked, suspended) return 200 OK with status. Pre-issuance denials never create a database record.
+
+### Example: Medical License Application
+
+**Scenario 1: License granted, then later revoked**
+1. Doctor applies for medical license
+2. Background check passes, license **granted** (2023-01-15)
+3. Database record created: `hash → OK`
+4. Doctor can verify license: `GET /verify/hash` → `200 OK` + `"OK"`
+5. Later: Malpractice finding, license **revoked** (2024-06-15)
+6. Database record updated: `hash → REVOKED`
+7. Doctor's document still exists, but verification shows: `200 OK` + `{"status": "REVOKED"}`
+
+**Scenario 2: License denied during initial application**
+1. Applicant applies for medical license
+2. Background check **fails** - criminal record found
+3. Application **denied** - license never issued
+4. **NO database record created** - hash never enters the system
+5. Applicant has no document to share (license was never printed)
+6. If applicant somehow fabricated a document: `GET /verify/hash` → `404 Not Found`
+
+**Why this matters:**
+- **404 means:** Hash not found - either document is fake, OCR failed, or document was never issued
+- **200 + REVOKED means:** Document was real and issued, but issuer has revoked it
+- **Denied applications don't get hashes** - you can't verify something that was never created
+- **Privacy protection:** Applicant's denial isn't publicly queryable (404 looks the same as fake document)
+
 ## Post-Verification Actions
 
 Some use cases benefit from **post-verification actions**—optional follow-up the verifier can take after confirming authenticity. These are returned as part of the response.
@@ -688,6 +717,22 @@ if (json.status === "verified") {
 }
 ```
 
+### Response Decision Tree
+
+```
+HTTP 200 OK received
+└─> Read body as text
+    └─> Trim whitespace
+        ├─> Exact match "OK"? → ✅ VERIFIED
+        ├─> Try parse as JSON
+        │   ├─> JSON valid?
+        │   │   ├─> status === "OK" or "VERIFIED"? → ✅ VERIFIED
+        │   │   └─> Other status → ❌ Show status (use message if available)
+        │   └─> JSON parse failed
+        │       └─> Treat as plain text status → ❌ Show status
+        └─> Empty body → ❌ FAILS VERIFICATION (no status)
+```
+
 ### Internationalization
 
 Success localization is handled by the client — `"verified"` is a machine-readable status, and the client translates it to the user's language ("Verified", "Vérifié", "Verificado", etc.). Failure messages may include a human-readable `message` field from the issuer, which may be in the issuer's local language.
@@ -757,6 +802,59 @@ For rotating-salt credentials (e-ink badges), responses are inherently non-cache
 
 For static credentials, short caching (e.g., 60 seconds) may be acceptable but risks serving stale revocation status.
 
+## Best Practices
+
+1. **Keep it simple:** Plain text `"OK"` is sufficient for most use cases
+2. **Minimal responses:** Just return the status - avoid including detailed metadata (dates, reasons, case numbers)
+3. **Privacy first:** Don't disclose sensitive information in public verification responses
+4. **Short status codes:** Keep statuses ≤50 chars for mobile display
+5. **CORS headers:** Enable CORS for verification endpoints (public data)
+6. **Cache headers:** Use appropriate cache headers (immutable hashes can be cached forever)
+7. **Response time:** Aim for <100ms response time (static files are ideal)
+
+## Anti-Patterns
+
+❌ **Don't use HTTP status codes for verification status:**
+```
+200 OK → Verified
+403 Forbidden → Revoked
+410 Gone → Expired
+```
+Use 200 OK with body content instead. 404 is reserved for "hash not found".
+
+❌ **Don't include hash in response body:**
+```json
+{
+  "status": "OK",
+  "hash": "1cddfbb2..."  // Redundant - hash is in URL
+}
+```
+
+❌ **Don't use `contains()` check for "OK":**
+```
+// Bad: "REVOKED" contains "OK" substring
+body.includes("OK")  // ❌
+
+// Good: Exact match
+body.trim() === "OK"  // ✅
+```
+
+❌ **Don't include detailed revocation information:**
+```json
+{
+  "status": "REVOKED",
+  "revokedDate": "2024-06-15",
+  "reason": "Malpractice finding",
+  "caseNumber": "2024-ML-4291",
+  "boardDecisionUrl": "https://medicalboard.gov/decisions/2024-ML-4291"
+}
+```
+This exposes private disciplinary details. Just return `{"status": "REVOKED"}` and direct inquiries to official channels.
+
+## Character Encoding
+
+Always use `UTF-8` encoding. The SHA-256 hash is computed from UTF-8 bytes of the normalized text.
+
 ## Example: Full Response Lifecycle
 
 **Request:**
@@ -801,3 +899,7 @@ Content-Type: application/json
 ```
 
 Of course, 404 responses from a web server/app may have no content/payload at all, and that's valid too.
+
+### Note: Static File Hosting (GitHub Pages)
+
+On GitHub Pages, a verification hash like `https://live-verify.github.io/live-verify/c/1cddfbb2adfa13e4562d274b59e56b946f174a0feb566622dd67a4880cf0b223` is really served from an `index.html` file at that path with a `text/html` MIME type — but the body content is just plain text `OK`. This works because the client reads the body as text regardless of MIME type.

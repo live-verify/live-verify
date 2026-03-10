@@ -51,6 +51,7 @@ enum VerificationError: Error, LocalizedError {
 struct AuthorizationChainEntry {
     let authorizer: String
     let description: String?
+    let formalName: String?
     let confirmed: Bool
 }
 
@@ -303,20 +304,21 @@ class VerificationClient {
             let authorizerMetaUrl = "\(httpsBase)/verification-meta.json"
 
             guard let url = URL(string: authorizerMetaUrl) else {
-                return [AuthorizationChainEntry(authorizer: authorizer, description: nil, confirmed: primaryConfirmed)]
+                return [AuthorizationChainEntry(authorizer: authorizer, description: nil, formalName: nil, confirmed: primaryConfirmed)]
             }
 
             let (data, response) = try await session.data(from: url)
             guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                return [AuthorizationChainEntry(authorizer: authorizer, description: nil, confirmed: primaryConfirmed)]
+                return [AuthorizationChainEntry(authorizer: authorizer, description: nil, formalName: nil, confirmed: primaryConfirmed)]
             }
 
             guard let authorizerMeta = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
-                return [AuthorizationChainEntry(authorizer: authorizer, description: nil, confirmed: primaryConfirmed)]
+                return [AuthorizationChainEntry(authorizer: authorizer, description: nil, formalName: nil, confirmed: primaryConfirmed)]
             }
 
             let description = authorizerMeta["description"] as? String ?? authorizerMeta["issuer"] as? String
-            let entry = AuthorizationChainEntry(authorizer: authorizer, description: description, confirmed: primaryConfirmed)
+            let formalName = authorizerMeta["formalName"] as? String ?? authorizerMeta["issuer"] as? String
+            let entry = AuthorizationChainEntry(authorizer: authorizer, description: description, formalName: formalName, confirmed: primaryConfirmed)
 
             // If authorizer itself has authorizedBy, recurse
             if let subEndorsedBy = authorizerMeta["authorizedBy"] as? String, !subEndorsedBy.isEmpty {
@@ -326,7 +328,7 @@ class VerificationClient {
 
             return [entry]
         } catch {
-            return [AuthorizationChainEntry(authorizer: authorizer, description: nil, confirmed: primaryConfirmed)]
+            return [AuthorizationChainEntry(authorizer: authorizer, description: nil, formalName: nil, confirmed: primaryConfirmed)]
         }
     }
 

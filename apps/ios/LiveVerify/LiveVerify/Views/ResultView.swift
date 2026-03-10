@@ -33,6 +33,8 @@ struct ResultView: View {
 
     @State private var selectedTab: ResultTab = .captured
     @State private var editedText: String = ""
+    @State private var showingFormalNames: Bool = false
+    @State private var formalNamesToShow: String = ""
 
     var body: some View {
         VStack(spacing: 0) {
@@ -72,6 +74,11 @@ struct ResultView: View {
         }
         .onAppear {
             editedText = result.normalizedText ?? ""
+        }
+        .alert("Authority Chain", isPresented: $showingFormalNames) {
+            Button("OK", role: .cancel) { }
+        } message: {
+            Text(formalNamesToShow)
         }
     }
 
@@ -115,7 +122,7 @@ struct ResultView: View {
             HStack(spacing: 4) {
                 Image(systemName: "clock.badge.exclamationmark")
                     .font(.caption)
-                Text("Authorization by \(auth.authorizer ?? "unknown") — expired")
+                Text("Authorization by \(auth.authorizer ?? "unknown") \u{2014} expired")
                     .font(.caption)
                 if let successor = auth.successor {
                     Text("Successor: \(successor)")
@@ -126,46 +133,63 @@ struct ResultView: View {
             .padding(.horizontal, 8)
             .background(Color.orange.opacity(0.3))
             .cornerRadius(4)
-        } else if auth.confirmed {
-            VStack(alignment: .leading, spacing: 2) {
-                HStack(spacing: 4) {
-                    Image(systemName: "checkmark.seal.fill")
-                        .font(.caption)
-                    let desc = auth.chain.first?.description.map { " (\($0))" } ?? ""
-                    Text("Authorized by \(auth.authorizer ?? "unknown")\(desc)")
-                        .font(.caption)
-                }
-
-                // Show chain entries beyond the first
-                if auth.chain.count > 1 {
-                    ForEach(Array(auth.chain.dropFirst().enumerated()), id: \.offset) { _, entry in
-                        HStack(spacing: 4) {
-                            Image(systemName: "arrow.left")
-                                .font(.caption2)
-                            let entryDesc = entry.description.map { " (\($0))" } ?? ""
-                            Text("\(entry.authorizer)\(entryDesc)")
-                                .font(.caption2)
-                        }
-                        .padding(.leading, 20)
-                    }
-                }
-            }
-            .padding(.vertical, 2)
-            .padding(.horizontal, 8)
-            .background(Color.green.opacity(0.3))
-            .cornerRadius(4)
         } else if auth.checked {
-            HStack(spacing: 4) {
-                Image(systemName: "exclamationmark.triangle")
-                    .font(.caption)
-                Text("Authorization by \(auth.authorizer ?? "unknown") — not confirmed")
-                    .font(.caption)
-            }
-            .padding(.vertical, 2)
-            .padding(.horizontal, 8)
-            .background(Color.orange.opacity(0.3))
-            .cornerRadius(4)
+            authorizationChainView(auth)
+                .padding(.vertical, 2)
+                .padding(.horizontal, 8)
+                .background(auth.confirmed ? Color.green.opacity(0.3) : Color.orange.opacity(0.3))
+                .cornerRadius(4)
+                .onTapGesture {
+                    showFormalNames(auth)
+                }
         }
+    }
+
+    /// Android-style indented authority chain:
+    ///   ✓ midsomer.police.uk — Police force for the county of Midsomer
+    ///     ✓ policing.gov.uk — His Majesty's Inspectorate...
+    ///       ✓ gov.uk — Root authorization...
+    @ViewBuilder
+    private func authorizationChainView(_ auth: AuthorizationResult) -> some View {
+        let domain = statusDomain
+        VStack(alignment: .leading, spacing: 1) {
+            // First line: the issuer itself
+            if let domain = domain {
+                let symbol = "✓"
+                let descSuffix = result.issuerDescription.map { " \u{2014} \($0)" } ?? ""
+                Text("\(symbol) \(domain)\(descSuffix)")
+                    .font(.system(.caption, design: .monospaced))
+            }
+
+            // Chain entries (authorizers) with increasing indentation
+            ForEach(Array(auth.chain.enumerated()), id: \.offset) { index, entry in
+                let indent = String(repeating: "  ", count: index + 1)
+                let symbol = entry.confirmed ? "✓" : "✗"
+                let descSuffix: String = {
+                    if !entry.confirmed { return " \u{2014} NOT CONFIRMED" }
+                    return entry.description.map { " \u{2014} \($0)" } ?? ""
+                }()
+                Text("\(indent)\(symbol) \(entry.authorizer)\(descSuffix)")
+                    .font(.system(.caption2, design: .monospaced))
+            }
+        }
+    }
+
+    /// Show formalName values in an alert (equivalent to Android's Toast)
+    private func showFormalNames(_ auth: AuthorizationResult) {
+        var names: [String] = []
+        if let issuerFormal = result.issuerFormalName {
+            names.append(issuerFormal)
+        }
+        for entry in auth.chain {
+            if let formal = entry.formalName {
+                names.append(formal)
+            }
+        }
+        guard !names.isEmpty else { return }
+        // Use notification center to show a temporary overlay
+        formalNamesToShow = names.joined(separator: "\n")
+        showingFormalNames = true
     }
 
     private func noAuthorityView(domain: String) -> some View {
@@ -388,7 +412,7 @@ struct ResultView: View {
                 checked: true, confirmed: true, authorizer: "gov.uk",
                 description: "UK Government", expired: false, successor: nil, error: nil,
                 chain: [
-                    AuthorizationChainEntry(authorizer: "gov.uk", description: "UK Government", confirmed: true)
+                    AuthorizationChainEntry(authorizer: "gov.uk", description: "UK Government", formalName: "His Majesty's Government", confirmed: true)
                 ]
             )
         ),
