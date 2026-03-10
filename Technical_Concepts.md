@@ -64,7 +64,7 @@ See [bachelor-thaumatology-square.html](public/training-pages/bachelor-thaumatol
 
 **Why needed:** OCR engines may introduce inconsistencies (extra spaces, line breaks, case variations). Normalization ensures the same text always produces the same hash.
 
-**Normalization rules** (see [NORMALIZATION.md](NORMALIZATION.md) for complete specification):
+**Normalization rules** (see [NORMALIZATION.md](docs/NORMALIZATION.md) for complete specification):
 
 1. **Unicode NFC normalization** - Combines accented characters (é → e + combining accent)
 2. **Trim leading/trailing whitespace** - `"  text  "` → `"text"`
@@ -459,7 +459,7 @@ We anticipate that native libraries for **iOS, Android, Windows, macOS, and Linu
 **Core Capabilities:**
 These libraries will encapsulate the entire flow:
 1.  **Text Capture:** Secure, optimized camera access for text regions.
-2.  **Normalization:** Rigorous implementation of the ruleset (e.g., [NORMALIZATION.md](NORMALIZATION.md)) to guarantee hash consistency.
+2.  **Normalization:** Rigorous implementation of the ruleset (e.g., [NORMALIZATION.md](docs/NORMALIZATION.md)) to guarantee hash consistency.
 3.  **Hashing:** Cryptographically secure hashing (SHA-256/512) with salt management.
 4.  **GET Processing:** Handling the verification network request securely.
 5.  **Outcome Display:** Rendering the result (verified/revoked) in a trusted UI component.

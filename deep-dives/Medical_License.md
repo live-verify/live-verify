@@ -369,4 +369,4 @@ GET https://mbc.ca.gov/licenses/fake_hash_value...
 - [Technical_Concepts.md](Technical_Concepts.md) - Shared technical explanations (registration marks, domain binding, photo encoding)
 - [Use_Case-Government_IDs.md](Use_Case-Government_IDs.md) - Similar wallet card format and verification workflow
 - [Verification_Charges.md](Verification_Charges.md) - Business models for free vs paid verification
-- [NORMALIZATION.md](NORMALIZATION.md) - Text normalization rules for consistent hashing
+- [NORMALIZATION.md](../docs/NORMALIZATION.md) - Text normalization rules for consistent hashing

@@ -466,7 +466,7 @@ certification = {
     'testing_lab': 'Intertek Testing Services'
 }
 
-# Construct normalized text (see NORMALIZATION.md)
+# Construct normalized text (see ../docs/NORMALIZATION.md)
 text = f"{certification['testing_lab']}\n"
 text += f"Product Safety Certification\n"
 text += f"Product: {certification['product']}\n"
@@ -794,7 +794,7 @@ async function handleRequest(request) {
 
 **Technical implementation details:**
 - [Technical_Concepts.md](Technical_Concepts.md) - Registration marks, text normalization, **domain binding** (critical for anti-impersonation), hash algorithms, response formats
-- [NORMALIZATION.md](NORMALIZATION.md) - Detailed text normalization rules for consistent hashing
+- [NORMALIZATION.md](../docs/NORMALIZATION.md) - Detailed text normalization rules for consistent hashing
 
 **Business model & pricing:**
 - [Verification_Charges.md](Verification_Charges.md) - Ethical framework for who pays for verification (testing labs already compensated)

@@ -8,7 +8,7 @@ A critical review of Live Verify's documentation, protocol specification, and us
 
 ### 1. Normalization is the Achilles' heel
 
-The entire protocol depends on independent parties computing identical hashes from the same document text. [NORMALIZATION.md](../NORMALIZATION.md) specifies rules for whitespace, Unicode quotes, dashes, and border artifacts — but:
+The entire protocol depends on independent parties computing identical hashes from the same document text. [NORMALIZATION.md](NORMALIZATION.md) specifies rules for whitespace, Unicode quotes, dashes, and border artifacts — but:
 
 - **No collision analysis.** Can two meaningfully different documents produce the same hash after normalization? The spec doesn't address this.
 - **Ligatures, diacritics, and Unicode edge cases.** `é` has multiple Unicode representations (precomposed U+00E9 vs. decomposed U+0065 U+0301). NFC normalization handles this, but many scripts have ambiguities NFC doesn't resolve (e.g., Turkish İ/I, German ß/ss, Japanese fullwidth/halfwidth).
@@ -167,7 +167,7 @@ Three different URL prefix conventions appear across the codebase:
 - `vfy:domain.com/path` — used in e-ink badge use cases (police, hotel staff, delivery workers, etc.)
 - `verify://domain.com/path` — appears in delivery-courier-verification.md
 
-The NORMALIZATION.md spec mentions both `verify:` and `vfy:` as valid. But the coexistence is never explained — when should an issuer use which? Is `verify://` (with `//`) valid?
+The docs/NORMALIZATION.md spec mentions both `verify:` and `vfy:` as valid. But the coexistence is never explained — when should an issuer use which? Is `verify://` (with `//`) valid?
 
 ### 16. Jurisdictional witnessing boilerplate across 422 files
 

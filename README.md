@@ -647,7 +647,7 @@ git push origin main
 To create verifiable documents:
 
 1. Generate certification text
-2. Normalize it (Unicode normalization + whitespace rules - see NORMALIZATION.md)
+2. Normalize it (Unicode normalization + whitespace rules - see docs/NORMALIZATION.md)
 3. Compute SHA-256 hash
 4. Print text within registration marks + base URL: `verify:your-org.com/c` (use Courier New font)
 5. Host verification endpoint at `https://your-org.com/c/{HASH}` returning HTTP 200 + `{"status":"verified"}` for valid hashes
@@ -1037,7 +1037,7 @@ See [For Organizations Creating Verifiable Documents](#for-organizations-creatin
 
 **Quick overview:**
 1. Generate certification text
-2. Normalize it (see [NORMALIZATION.md](NORMALIZATION.md) and [Technical_Concepts.md: Text Normalization](Technical_Concepts.md#text-normalization))
+2. Normalize it (see [NORMALIZATION.md](docs/NORMALIZATION.md) and [Technical_Concepts.md: Text Normalization](Technical_Concepts.md#text-normalization))
 3. Compute SHA-256 hash (see [Technical_Concepts.md: Hash Algorithms](Technical_Concepts.md#hash-algorithms))
 4. Print text + `verify:your-org.com/c` with registration marks (see [Technical_Concepts.md: Registration Marks](Technical_Concepts.md#registration-marks-computer-vision-for-document-boundaries))
 5. Host static file at `https://your-org.com/c/{HASH}` returning `{"status":"verified"}` (see [Technical_Concepts.md: Response Formats](Technical_Concepts.md#response-formats))
@@ -1131,7 +1131,7 @@ When to choose what
 **For organizations (issuers):**
 - Read [For Organizations Creating Verifiable Documents](#for-organizations-creating-verifiable-documents)
 - Check [Verification_Charges.md](Verification_Charges.md) for business model guidance
-- Review [NORMALIZATION.md](NORMALIZATION.md) for technical specification
+- Review [NORMALIZATION.md](docs/NORMALIZATION.md) for technical specification
 
 **For developers:**
 - Clone the repo and read [BUILDING.md](BUILDING.md)

@@ -341,7 +341,7 @@ field = "Computer Science"
 date = "2023-06-23"
 institution = "University of Edinburgh"
 
-# Construct normalized text (see NORMALIZATION.md)
+# Construct normalized text (see ../docs/NORMALIZATION.md)
 text = f"{institution}\n{degree}\n{field}\nAwarded to: {graduate_name}\nDate: {date}"
 
 # Compute SHA-256 hash
@@ -695,7 +695,7 @@ https://alumni.ed.ac.uk/verify-credentials
 
 **Technical implementation details:**
 - [Technical_Concepts.md](Technical_Concepts.md) - Registration marks, text normalization, domain binding, hash algorithms, response formats, photo encoding, OCR challenges
-- [NORMALIZATION.md](NORMALIZATION.md) - Detailed text normalization rules for consistent hashing
+- [NORMALIZATION.md](../docs/NORMALIZATION.md) - Detailed text normalization rules for consistent hashing
 - [Multi_Representation_Verification.md](../Multi_Representation_Verification.md) - How universities support unlimited text representations of the same degree
 
 **Business model & pricing:**

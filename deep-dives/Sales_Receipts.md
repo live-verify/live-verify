@@ -418,7 +418,7 @@ The basic Live Verify verification (GET request confirms receipt exists) is stra
 
 **Technical implementation details:**
 - [Technical_Concepts.md](Technical_Concepts.md) - Text normalization (critical for thermal receipts with varied OCR), hash algorithms, response formats
-- [NORMALIZATION.md](NORMALIZATION.md) - Detailed text normalization rules for consistent hashing across different OCR engines
+- [NORMALIZATION.md](../docs/NORMALIZATION.md) - Detailed text normalization rules for consistent hashing across different OCR engines
 
 **Business model & pricing:**
 - [Verification_Charges.md](Verification_Charges.md) - Ethical framework for who pays (multi-party beneficiary model)

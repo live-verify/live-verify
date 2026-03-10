@@ -552,7 +552,7 @@ OCR handles English + Spanish hybrid text (Tesseract multilanguage mode).
 
 **Technical implementation details:**
 - [Technical_Concepts.md](Technical_Concepts.md) - Text normalization, hash algorithms, response formats, OCR challenges (critical for ballot chit handling)
-- [NORMALIZATION.md](NORMALIZATION.md) - Detailed text normalization rules for consistent hashing
+- [NORMALIZATION.md](../docs/NORMALIZATION.md) - Detailed text normalization rules for consistent hashing
 
 **Business model & pricing:**
 - [Verification_Charges.md](Verification_Charges.md) - Ethical framework for who pays (public good funded by government)

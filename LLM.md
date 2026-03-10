@@ -196,7 +196,7 @@ live-verify/
 │
 ├── README.md                        # User-facing documentation
 ├── TESTING.md                       # Test documentation
-├── NORMALIZATION.md                 # Detailed normalization rules
+├── docs/NORMALIZATION.md                 # Detailed normalization rules
 ├── BUILDING.md                      # Build instructions
 └── LLM.md                           # This file
 ```
@@ -229,7 +229,7 @@ retention: "7 years"
 
 ## Core Logic
 
-### Text Normalization Rules (NORMALIZATION.md)
+### Text Normalization Rules (docs/NORMALIZATION.md)
 
 **Step 1: Unicode Character Normalization**
 ```javascript

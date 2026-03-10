@@ -344,7 +344,7 @@ The employer doesn't care about the **ornate certificate** - they care about the
 
 ### Normalization Differences
 
-The long-form and short-form have **different normalization rules** (see NORMALIZATION.md), but both follow the same **process**:
+The long-form and short-form have **different normalization rules** (see docs/NORMALIZATION.md), but both follow the same **process**:
 
 1. Unicode NFC normalization
 2. Trim leading/trailing whitespace

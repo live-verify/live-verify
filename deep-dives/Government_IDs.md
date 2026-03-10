@@ -501,7 +501,7 @@ GET https://dmv.ca.gov/dl/{computed_hash}
 
 **Technical implementation details:**
 - [Technical_Concepts.md](Technical_Concepts.md) - Registration marks (computer vision), text normalization (consistent hashing), domain binding (prevents issuer impersonation), hash algorithms (SHA-512 for passports), response formats (JSON with status codes), photo encoding (base64 prevents enumeration)
-- [NORMALIZATION.md](NORMALIZATION.md) - Detailed text normalization rules for consistent hashing across different OCR engines
+- [NORMALIZATION.md](../docs/NORMALIZATION.md) - Detailed text normalization rules for consistent hashing across different OCR engines
 
 **Business model & pricing:**
 - [Verification_Charges.md](Verification_Charges.md) - Ethical framework for who pays (government public service vs. freemium for commercial users)
