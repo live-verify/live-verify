@@ -296,7 +296,7 @@ When printing new certificates, universities could add **plain-text verification
 
 **Design principle:** Decorative elements OUTSIDE the scannable box, plain text INSIDE.
 
-Similar to [bachelor-thaumatology-square.html](public/training-pages/bachelor-thaumatology-square.html) training page - decoy text on left, scannable content within registration marks.
+Similar to the `bachelor-thaumatology-square.html` training page — decoy text on left, scannable content within registration marks.
 
 ### Phase 3: Retroactive Hash Generation (Graduated Already)
 

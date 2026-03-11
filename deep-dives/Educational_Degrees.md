@@ -702,6 +702,6 @@ https://alumni.ed.ac.uk/verify-credentials
 - [Verification_Charges.md](../docs/Verification_Charges.md) - Ethical framework for who pays for verification (anti-double-dipping principle)
 
 **Related use cases:**
-- [Use_Case-Medical_License.md](Use_Case-Medical_License.md) - Professional credentials with revocation capability
-- [Use_Case-Government_IDs.md](Use_Case-Government_IDs.md) - Wallet card format with photo verification
-- [Use_Case-Product_Labeling.md](Use_Case-Product_Labeling.md) - Anti-counterfeiting for physical products
+- [Medical_License.md](Medical_License.md) - Professional credentials with revocation capability
+- [Government_IDs.md](Government_IDs.md) - Wallet card format with photo verification
+- [Product_Labeling.md](Product_Labeling.md) - Anti-counterfeiting for physical products

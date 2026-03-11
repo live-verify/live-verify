@@ -800,6 +800,6 @@ async function handleRequest(request) {
 - [Verification_Charges.md](../docs/Verification_Charges.md) - Ethical framework for who pays for verification (testing labs already compensated)
 
 **Related use cases:**
-- [Use_Case-Medical_License.md](Use_Case-Medical_License.md) - Professional credentials with revocation capability (similar B2B verification)
-- [Use_Case-Educational_Degrees.md](Use_Case-Educational_Degrees.md) - Privacy-preserving credentials (different from B2B anti-tampering)
-- [Use_Case-Government_IDs.md](Use_Case-Government_IDs.md) - Wallet card format with photo verification (similar anti-fraud focus)
+- [Medical_License.md](Medical_License.md) - Professional credentials with revocation capability (similar B2B verification)
+- [Educational_Degrees.md](Educational_Degrees.md) - Privacy-preserving credentials (different from B2B anti-tampering)
+- [Government_IDs.md](Government_IDs.md) - Wallet card format with photo verification (similar anti-fraud focus)

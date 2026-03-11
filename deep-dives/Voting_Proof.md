@@ -558,7 +558,7 @@ OCR handles English + Spanish hybrid text (multilanguage mode).
 - [Verification_Charges.md](../docs/Verification_Charges.md) - Ethical framework for who pays (public good funded by government)
 
 **Related use cases:**
-- [Use_Case-Sales_Receipts.md](Use_Case-Sales_Receipts.md) - Similar clearinghouse/auditor model (independent third-party verification)
-- [Use_Case-Educational_Degrees.md](Use_Case-Educational_Degrees.md) - Privacy-preserving verification (ballot secrecy vs credential verification)
-- [Use_Case-Government_IDs.md](Use_Case-Government_IDs.md) - Government-issued documents with verification (similar trust model)
+- [Sales_Receipts.md](Sales_Receipts.md) - Similar clearinghouse/auditor model (independent third-party verification)
+- [Educational_Degrees.md](Educational_Degrees.md) - Privacy-preserving verification (ballot secrecy vs credential verification)
+- [Government_IDs.md](Government_IDs.md) - Government-issued documents with verification (similar trust model)
 

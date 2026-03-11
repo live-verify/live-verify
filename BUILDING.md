@@ -108,24 +108,6 @@ The workflow (`.github/workflows/deploy.yml`) does:
 
 ## Build Scripts
 
-### Generate Hash Database
-
-```bash
-node build-hashes.js
-```
-
-Creates:
-- `public/hashes.json` - Metadata for all hashes
-- `public/c/{hash}/index.html` - Verification endpoints
-
-### Generate Training Pages
-
-```bash
-node generate-training-pages.js
-```
-
-Creates HTML training certificates for testing.
-
 ### Sync Shared Extension Code
 
 ```bash
@@ -193,28 +175,22 @@ live-verify/
 │
 ├── scripts/
 │   ├── sync-shared.js               # Generates extension shared/ from canonical public/ sources
-│   ├── concat-source.py             # Concatenates source files for review
 │   ├── count-and-update-derivations.js # Updates use-case derivation counts
 │   └── generate-use-cases-index.js  # Generates use-cases index page
 │
 ├── normalization-hashes/            # Cross-platform test fixtures
 │   └── {sha256}.md                  # Test cases (filename = expected hash)
 │
-├── __tests__/                       # Jest unit tests (10 test files)
+├── __tests__/                       # Jest unit tests (9 test files)
 │
-├── e2e/                             # Playwright E2E tests
+├── e2e/                             # Playwright E2E tests (3 spec files)
 │
 ├── test/fixtures/                   # Test images
 │   ├── should-detect/               # Images with valid registration marks
 │   ├── should-not-detect/           # Images without marks
-│   ├── mixed/                       # Mixed test cases
-│   └── screenshots/                 # Training page screenshots
+│   └── mixed/                       # Mixed test cases
 │
-├── docs/                            # Detailed documentation
-│   └── Verification-Response-Format.md
-│
-├── build-hashes.js                  # Build tool: generates hash database
-├── generate-training-pages.js       # Build tool: generates training pages
+├── docs/                            # Detailed documentation (32 files)
 │
 └── .github/workflows/
     └── deploy.yml                   # CI/CD pipeline

@@ -21,7 +21,6 @@ Built from:
 | **Browser extension** (Chrome, Edge, Firefox) | Clip | Working prototype | [`apps/browser-extension/`](apps/browser-extension/) |
 | **iOS app** | Camera | Working prototype | [`apps/ios/LiveVerify/`](apps/ios/LiveVerify/) |
 | **Android app** | Camera | Working prototype | [`apps/android/`](apps/android/) |
-| **Web demo** | Camera | Working prototype | [Try it](https://live-verify.github.io/live-verify/) |
 | **Examples page** | Clip (in-page) | Working prototype | [Try it](https://live-verify.github.io/live-verify/examples/) |
 | Apple (iOS/macOS native) | Clip + Camera | Not started | OS-level `verify:` recognition in rendered text and images (Live Text) |
 | Google (Android native) | Clip + Camera | Not started | OS-level `verify:` recognition in rendered text and images (Lens) |
@@ -182,19 +181,17 @@ HR reviewing a CV with 5 employment claims? Verify each one without leaving the 
 ### Clip Mode (Browser Extension)
 
 1. Install the browser extension (see above)
-2. Visit a page with verifiable claims (e.g., a [training page](https://live-verify.github.io/live-verify/training-pages/bachelor-thaumatology.html))
+2. Visit a page with verifiable claims (e.g., the [examples page](https://live-verify.github.io/live-verify/examples/))
 3. Select the claim text including the `verify:` line
 4. Right-click → "Verify this claim" (or press Cmd/Ctrl+Shift+V)
 5. See ✅ **VERIFIED by live-verify.github.io** or ❌ **FAILS VERIFICATION**
 
 ### Camera Mode (Phone)
 
-1. Visit **[https://live-verify.github.io/live-verify/](https://live-verify.github.io/live-verify/)** on your phone
-2. Click "Enable Camera"
-3. Print a [training page](public/training-pages/bachelor-thaumatology.html) (or display it on your computer screen)
-4. Align the black registration marks in your phone’s viewfinder
-5. Click "Capture & Verify"
-6. See ✅ **VERIFIED by live-verify.github.io** or ❌ **FAILS VERIFICATION**
+1. Install the **iOS app** (`apps/ios/LiveVerify/`) or **Android app** (`apps/android/`)
+2. Print a document with registration marks and a `verify:` line (or display one on your computer screen)
+3. Point your phone camera at the document
+4. See ✅ **VERIFIED by live-verify.github.io** or ❌ **FAILS VERIFICATION**
 
 Note: no serious production verification deployment of this technology would rest on `github.io`. I am only doing so
 because I am demonstrating how this works and GH-P is convenient, free, and static (proving the server-side can be almost absent).
@@ -404,7 +401,7 @@ Traditional university degrees, professional certifications, and art certificate
 
 2. **OCR-optimized originals** - Organizations can print certificates with:
    - Registration marks around a plain-text verification box
-   - Decorative elements OUTSIDE the scannable area (like the [bachelor-thaumatology-square.html](public/training-pages/bachelor-thaumatology-square.html) example with decoy text)
+   - Decorative elements OUTSIDE the scannable area (decoy text outside the registration marks)
    - Standard fonts (Courier New, Arial) in the verification zone
 
 3. **Manual text entry** - For ornate certificates, users could type the text manually rather than relying on OCR (loses convenience but maintains verification)
@@ -606,9 +603,9 @@ git push origin main
 4. See ✅ green "VERIFIED" or ❌ red "FAILS VERIFICATION"
 
 **Camera mode (phone):**
-1. Open app on phone, click "Enable Camera"
-2. Position registration marks around document text + URL
-3. Click "Capture & Verify"
+1. Open the iOS or Android app
+2. Point camera at document with registration marks + `verify:` URL
+3. App captures and verifies automatically
 4. See ✅ green "VERIFIED" or ❌ red "FAILS VERIFICATION"
 
 ## For Organizations Creating Verifiable Documents
@@ -1079,7 +1076,7 @@ When to choose what
 
 **For verifiers (users):**
 - Install the **[browser extension](apps/browser-extension/)** and right-click to verify claims on any web page
-- Or try the **[camera demo](https://live-verify.github.io/live-verify/)** on your phone with a [training page](public/training-pages/bachelor-thaumatology.html)
+- Or install the **iOS/Android app** and scan a printed document with a `verify:` line
 
 **For organizations (issuers):**
 - Read [For Organizations Creating Verifiable Documents](#for-organizations-creating-verifiable-documents)

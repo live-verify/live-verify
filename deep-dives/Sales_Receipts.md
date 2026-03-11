@@ -7,23 +7,15 @@ Expense fraud costs UK businesses [£1.3 billion annually](https://www.expensein
 
 Key criteria: Business transaction with no privacy expectation. One-off transaction. Needs verifiable for tax/audit period (7 years). Hash must be unique to prevent duplicate claims.
 
-### Example Receipts (HTML Mockups)
+### Example Receipts
 
-You can test the verification system with these example receipt mockups (HTML representations of paper receipts):
+The `public/training-pages/` directory contains HTML mockups of various receipt types used for testing:
 
-**UK Receipts:**
-- [UK Coffee Shop](https://live-verify.github.io/live-verify/training-pages/uk-coffee-shop.html) - £8.45 coffee and pastry receipt
-- [UK Corner Shop](https://live-verify.github.io/live-verify/training-pages/uk-corner-shop.html) - £4.85 convenience store receipt (compact format)
-- [UK Electronics Store](https://live-verify.github.io/live-verify/training-pages/uk-electronics-store.html) - £847.99 laptop purchase
+- **UK:** Coffee shop (£8.45), corner shop (£4.85), electronics store (£847.99)
+- **US:** Burrito shop ($15.08), home improvement ($680.40)
+- **Hotel:** Hotel Scheidegg, Switzerland (CHF 54.50)
 
-**US Receipts:**
-- [US Burrito Shop](https://live-verify.github.io/live-verify/training-pages/us-burrito-shop.html) - $15.08 burrito meal
-- [US Home Improvement](https://live-verify.github.io/live-verify/training-pages/us-home-improvement.html) - $680.40 building supplies
-
-**Hotel Receipt:**
-- [Hotel Scheidegg (Switzerland)](https://live-verify.github.io/live-verify/training-pages/hotel-receipt-scheidegg.html) - CHF 54.50 restaurant/bar charges
-
-**Note:** These are HTML mockups designed to look like printed receipts. They demonstrate the Live Verify verification system with working `verify:` URLs. You can scan these with the [Live Verify web app](https://live-verify.github.io/live-verify/) by displaying them on one device and scanning with another, or by printing them.
+These are test fixtures with working `verify:` URLs and registered hashes.
 
 **Example receipt screenshots:**
 
@@ -424,6 +416,6 @@ The basic Live Verify verification (GET request confirms receipt exists) is stra
 - [Verification_Charges.md](../docs/Verification_Charges.md) - Ethical framework for who pays (multi-party beneficiary model)
 
 **Related use cases:**
-- [Use_Case-Voting_Proof.md](Use_Case-Voting_Proof.md) - Similar clearinghouse model (independent auditor)
-- [Use_Case-Product_Labeling.md](Use_Case-Product_Labeling.md) - B2B verification with tax compliance angle
-- [Use_Case-Educational_Degrees.md](Use_Case-Educational_Degrees.md) - Anti-double-dipping principle (different from receipt verification where multiple parties benefit)
+- [Voting_Proof.md](Voting_Proof.md) - Similar clearinghouse model (independent auditor)
+- [Product_Labeling.md](Product_Labeling.md) - B2B verification with tax compliance angle
+- [Educational_Degrees.md](Educational_Degrees.md) - Anti-double-dipping principle (different from receipt verification where multiple parties benefit)

@@ -354,12 +354,12 @@ GET https://mbc.ca.gov/licenses/fake_hash_value...
 ## Comparison to Related Use Cases
 
 **Similar to:**
-- **Government IDs** ([Use_Case-Government_IDs.md](Use_Case-Government_IDs.md)) - Same wallet card format, photo verification, revocation capability
-- **Educational Degrees** ([Use_Case-Educational_Degrees.md](Use_Case-Educational_Degrees.md)) - Professional credentials, but medical licenses can be revoked
+- **Government IDs** ([Government_IDs.md](Government_IDs.md)) - Same wallet card format, photo verification, revocation capability
+- **Educational Degrees** ([Educational_Degrees.md](Educational_Degrees.md)) - Professional credentials, but medical licenses can be revoked
 
 **Different from:**
-- **Receipts** ([Use_Case-Sales_Receipts.md](Use_Case-Sales_Receipts.md)) - No revocation, no photo, high-volume
-- **Product Certifications** ([Use_Case-Product_Labeling.md](Use_Case-Product_Labeling.md)) - B2B verification, no photo, anti-impersonation focus
+- **Receipts** ([Sales_Receipts.md](Sales_Receipts.md)) - No revocation, no photo, high-volume
+- **Product Certifications** ([Product_Labeling.md](Product_Labeling.md)) - B2B verification, no photo, anti-impersonation focus
 
 **Key distinction:** Medical licenses require **real-time status checks** (suspensions happen mid-career) unlike static credentials (degrees don't get "revoked" retroactively).
 
@@ -367,6 +367,6 @@ GET https://mbc.ca.gov/licenses/fake_hash_value...
 
 **Related Documentation:**
 - [Technical_Concepts.md](../docs/Technical_Concepts.md) - Shared technical explanations (registration marks, domain binding, photo encoding)
-- [Use_Case-Government_IDs.md](Use_Case-Government_IDs.md) - Similar wallet card format and verification workflow
+- [Government_IDs.md](Government_IDs.md) - Similar wallet card format and verification workflow
 - [Verification_Charges.md](../docs/Verification_Charges.md) - Business models for free vs paid verification
 - [NORMALIZATION.md](../docs/NORMALIZATION.md) - Text normalization rules for consistent hashing

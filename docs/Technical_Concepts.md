@@ -59,7 +59,7 @@ This document explains technical concepts referenced across multiple use case do
 - **Proximity to `verify:` URL** - If no registration marks, just OCR text near the `verify:` line
 - **QR code hybrid** - Use QR code to indicate scannable region boundaries
 
-See [bachelor-thaumatology-square.html](../public/training-pages/bachelor-thaumatology-square.html) for example with decorative text OUTSIDE the scannable area.
+The `bachelor-thaumatology-square.html` training page demonstrates decorative text OUTSIDE the scannable area.
 
 ---
 

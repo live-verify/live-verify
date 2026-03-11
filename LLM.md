@@ -147,9 +147,14 @@ live-verify/
 │   └── {sha256}.md                  # Test cases (filename = expected hash)
 │
 ├── public/                          # Deploy this folder to GitHub Pages
+│   ├── index.html                   # Landing page
 │   ├── styles.css                   # Responsive design, mobile-first
-│   ├── normalize.js                 # Text normalization + SHA-256 (TESTED)
-│   ├── app-logic.js                 # Pure functions for URL extraction, rotation (TESTED)
+│   ├── normalize.js                 # Text normalization + SHA-256 (canonical, TESTED)
+│   ├── app-logic.js                 # URL extraction, text processing (canonical, TESTED)
+│   ├── domain-authority.js          # PSL-based registrable domain extraction (canonical, TESTED)
+│   ├── doc-specific-normalization.js# Document-specific normalization rules
+│   ├── ocr-cleanup.js               # OCR artifact cleanup
+│   ├── text-selection-verify.js     # Text selection → hash → verify UI
 │   ├── test-normalization.html      # Interactive test page for normalization
 │   ├── cv/
 │   │   ├── geometry.js              # OpenCV geometry utilities (TESTED)
@@ -158,40 +163,56 @@ live-verify/
 │   │   ├── index.html               # Landing page
 │   │   ├── bachelor-thaumatology.html
 │   │   ├── master-applied-anthropics.html
-│   │   └── doctorate-high-energy-magic.html
-│   ├── c/
-│   │   ├── verification-meta.json       # Document normalization rules + OCR settings (optional)
-│   │   └── {hash}/index.html        # Static verification endpoints (200 + {"status":"verified"})
-│   └── hashes.json                  # Hash database metadata
+│   │   └── ...                      # ~19 files total (receipts, licenses, CVs, etc.)
+│   ├── examples/                    # Text selection verification demo
+│   ├── use-cases/                   # ~450 use case documents (Markdown)
+│   └── c/
+│       ├── verification-meta.json   # Demo issuer metadata (Unseen University)
+│       └── {hash}/index.html        # Static verification endpoints (200 + {"status":"verified"})
 │
 ├── scripts/
 │   ├── sync-shared.js               # Generates extension shared/ from canonical public/ sources
-│   └── concat-source.py             # Concatenates source files for review
+│   ├── count-and-update-derivations.js # Updates use-case derivation counts
+│   └── generate-use-cases-index.js  # Generates use-cases index page
 │
-├── build-hashes.js                  # Build tool: generates hash database
-├── generate-training-pages.js       # Build tool: generates training pages
-│
-├── ocr-hash.test.js                 # Jest: normalize.js tests (30 tests)
-├── app-logic.test.js                # Jest: app-logic.js tests (29 tests)
-├── cv-geometry.test.js              # Jest: geometry.js tests
-├── detectSquares.node.test.js       # Jest: placeholder tests
+├── __tests__/                       # Jest unit tests (9 test files)
+│   ├── ocr-hash.test.js             # normalize.js tests
+│   ├── app-logic.test.js            # app-logic.js tests
+│   ├── domain-authority.test.js     # PSL-based domain extraction tests
+│   ├── cv-geometry.test.js          # Geometry utilities tests
+│   ├── doc-specific-normalization.test.js
+│   ├── normalize-trailing-artifacts.test.js
+│   ├── cross-platform-hashes.test.js # Cross-platform hash fixtures
+│   ├── browser-extension.test.js    # Browser extension shared module tests
+│   └── training-pages-integration.test.js # Training page hash verification
 │
 ├── e2e/
-│   ├── cv-detect.spec.ts            # Playwright: registration mark detection (8 tests)
-│   ├── cv-ocr.spec.ts               # Playwright: OCR integration (8 tests)
-│   └── cv-harness.html              # Test harness for E2E tests
+│   ├── cv-detect.spec.ts            # Playwright: registration mark detection
+│   ├── psl.spec.ts                  # Playwright: PSL domain authority in browser
+│   ├── state-transitions.spec.ts    # Playwright: state transitions
+│   ├── cv-harness.html              # Test harness for CV detection
+│   ├── psl-harness.html             # Test harness for PSL
+│   ├── state-harness.html           # Test harness for state transitions
+│   └── test-helpers.js              # Test orchestration helpers
 │
 ├── test/fixtures/                   # Test images
 │   ├── should-detect/               # Images with valid registration marks
 │   ├── should-not-detect/           # Images without marks
 │   └── mixed/                       # Mixed test cases
 │
+├── docs/                            # Detailed documentation (32 files)
+│   ├── NORMALIZATION.md             # Detailed normalization rules
+│   ├── Technical_Concepts.md        # Registration marks, domain binding, OCR challenges
+│   ├── Verification-Response-Format.md # Response format specification
+│   ├── VERIFICATION-MODES.md        # Clip, Camera, Image modes
+│   ├── weaknesses_audit.md          # Self-critical audit of protocol weaknesses
+│   └── ...                          # Authority chains, .vcv format, peer references, etc.
+│
 ├── .github/workflows/
 │   └── deploy.yml                   # CI/CD: runs tests, deploys to GitHub Pages
 │
 ├── README.md                        # User-facing documentation
 ├── TESTING.md                       # Test documentation
-├── docs/NORMALIZATION.md                 # Detailed normalization rules
 ├── BUILDING.md                      # Build instructions
 └── LLM.md                           # This file
 ```
@@ -213,12 +234,12 @@ retention: "7 years"
 
 **Key files:**
 - `public/use-cases/criteria-template.md` — Template + guidance for writing use cases. Covers: good use case criteria, party definitions (issuer/second/third), fraud patterns, status indications, common objections.
-- `scripts/migrate-use-cases.js` — Regenerates `public/use-cases/index.json` from .md frontmatter. Run after adding/editing use cases.
+- `scripts/generate-use-cases-index.js` — Regenerates `public/use-cases/index.json` from .md frontmatter. Run after adding/editing use cases.
 - `public/use-cases/view.html` — Client-side markdown viewer. Access via `view.html?doc=slug-name`.
 
-**Workflow:** Edit .md files → run `node scripts/migrate-use-cases.js` → index.json updated.
+**Workflow:** Edit .md files → run `node scripts/generate-use-cases-index.js` → index.json updated.
 
-**Important:** Always run `node scripts/migrate-use-cases.js` before committing changes to use-cases. The generated `index.json` must be kept in sync with the .md files.
+**Important:** Always run `node scripts/generate-use-cases-index.js` before committing changes to use-cases. The generated `index.json` must be kept in sync with the .md files.
 
 **Categories:** 40 categories. Large ones split (Insurance→Specialty/Claims/Bonds, Logistics→Shipping/Customs/Warehouse/Fleet, Banking→Payments/Compliance/Trade/Fintech).
 
@@ -585,38 +606,23 @@ async function verifyAgainstClaimedUrl(claimedUrl, computedHash) {
 
 ## Test Coverage
 
-### Unit Tests (Jest) - 68 tests
+### Unit Tests (Jest) — 9 test files in `__tests__/`
 
-**ocr-hash.test.js (30 tests):**
-- Text normalization (whitespace, Unicode characters)
-- SHA-256 hashing
-- Registration mark positioning
-- Full verification flow
+**ocr-hash.test.js:** Text normalization (whitespace, Unicode), SHA-256 hashing, full verification flow
+**app-logic.test.js:** URL extraction (verify: and https://), certification text extraction, buildVerificationUrl
+**domain-authority.test.js:** PSL-based registrable domain extraction
+**cv-geometry.test.js:** Corner ordering, square candidate scoring
+**doc-specific-normalization.test.js:** Document-specific normalization rules
+**normalize-trailing-artifacts.test.js:** OCR trailing artifact cleanup
+**cross-platform-hashes.test.js:** Cross-platform hash fixtures from `normalization-hashes/`
+**browser-extension.test.js:** Browser extension shared module tests
+**training-pages-integration.test.js:** Training page hash verification
 
-**app-logic.test.js (38 tests):**
-- Canvas rotation (0°, 90°, 180°, 270°, negative angles)
-- URL extraction (space removal, validation, verify: and https:// prefixes)
-- Certification text extraction
-- Hash matching logic
-- buildVerificationUrl (converts verify: to https:// with hash appended)
+### E2E Tests (Playwright) — 3 spec files in `e2e/`
 
-**cv-geometry.test.js:**
-- Corner ordering
-- Square candidate scoring
-
-**detectSquares.node.test.js:**
-- Placeholder tests (fixtures exist)
-
-### E2E Tests (Playwright) - 16 tests
-
-**e2e/cv-detect.spec.ts (8 tests):**
-- Detection on should-detect fixtures ✓
-- Detection on mixed fixtures ✓
-- Non-detection on should-not-detect fixtures ✓
-
-**e2e/cv-ocr.spec.ts (8 tests):**
-- OCR on cropped regions ✓
-- Text extraction and normalization ✓
+**cv-detect.spec.ts:** Registration mark detection on fixture images
+**psl.spec.ts:** PSL domain authority in browser context
+**state-transitions.spec.ts:** State machine transitions
 
 ### Android Unit Tests (JUnit)
 
@@ -702,24 +708,7 @@ All have corresponding verification endpoints at `/c/{hash}/index.html`
 
 ## Build Process
 
-### Generate Hash Database
-
-```bash
-node build-hashes.js
-```
-
-Creates:
-- `public/hashes.json` - Metadata for all hashes
-- `public/c/{hash}/index.html` - Verification endpoints
-- Updates build timestamp
-
-### Generate Training Pages
-
-```bash
-node generate-training-pages.js
-```
-
-Creates HTML pages for the three training certificates.
+Hash endpoints (`public/c/{hash}/index.html`) and training pages are maintained manually in the repo. There are no build scripts for generating them — they are committed directly.
 
 ## Deployment
 
