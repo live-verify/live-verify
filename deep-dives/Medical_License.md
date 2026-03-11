@@ -1,5 +1,5 @@
 > Use case catalog: https://live-verify.github.io/live-verify/use-cases/  
-> Demo (camera app prototype): https://live-verify.github.io/live-verify/camera-app/
+> Demo: https://live-verify.github.io/live-verify/examples/
 
 # Medical License Verification: Revocable Credentials with Domain Binding
 
@@ -45,7 +45,7 @@ Medical licenses share similar properties to government IDs ([Government_IDs.md]
 - **Hash not printed** - Only base verification URL appears
 - **Photo not part of hashed text** - Enables photo updates without changing hash
 - **Registration marks** - Black border helps computer vision detection
-- **Standard fonts** - Government standard fonts work well with Tesseract.js OCR
+- **Standard fonts** - Government standard fonts work well with on-device OCR
 - **Wallet-sized** - 3.5" × 2.5" (standard credit card dimensions)
 
 ---
@@ -239,7 +239,7 @@ GET https://mbc.ca.gov/licenses/fake_hash_value...
 
 ## Technical Implementation
 
-**Response format** (see [Technical_Concepts.md](Technical_Concepts.md#response-formats) for details):
+**Response format** (see [Technical_Concepts.md](../docs/Technical_Concepts.md#response-formats) for details):
 
 ```json
 {
@@ -260,9 +260,9 @@ GET https://mbc.ca.gov/licenses/fake_hash_value...
 - `"EXPIRED"` - Past expiration date (needs renewal)
 - `"PROBATION"` - Active but restricted practice (e.g., supervision required)
 
-**Photo encoding:** Base64-encoded JPEG embedded in response (not URL). Prevents enumeration attacks. See [Technical_Concepts.md: Photo Encoding](Technical_Concepts.md#photo-encoding).
+**Photo encoding:** Base64-encoded JPEG embedded in response (not URL). Prevents enumeration attacks. See [Technical_Concepts.md: Photo Encoding](../docs/Technical_Concepts.md#photo-encoding).
 
-**OCR challenges:** Medical license wallet cards use standard government fonts and plain layout - works reliably with Tesseract.js. No ornate decorations or seals that would confuse OCR.
+**OCR challenges:** Medical license wallet cards use standard government fonts and plain layout - works reliably with on-device OCR. No ornate decorations or seals that would confuse OCR.
 
 ---
 
@@ -300,7 +300,7 @@ GET https://mbc.ca.gov/licenses/fake_hash_value...
 - Prevents hiring physicians with revoked licenses (malpractice lawsuit prevention)
 - Insurance premium reductions (verified credential checks reduce risk)
 
-**Revenue model:** Similar to [Verification_Charges.md](Verification_Charges.md) freemium approach - free for consumers, paid for commercial high-volume users.
+**Revenue model:** Similar to [Verification_Charges.md](../docs/Verification_Charges.md) freemium approach - free for consumers, paid for commercial high-volume users.
 
 **Rollout timeline:**
 - **Year 1:** State medical boards implement verification endpoints
@@ -366,7 +366,7 @@ GET https://mbc.ca.gov/licenses/fake_hash_value...
 ---
 
 **Related Documentation:**
-- [Technical_Concepts.md](Technical_Concepts.md) - Shared technical explanations (registration marks, domain binding, photo encoding)
+- [Technical_Concepts.md](../docs/Technical_Concepts.md) - Shared technical explanations (registration marks, domain binding, photo encoding)
 - [Use_Case-Government_IDs.md](Use_Case-Government_IDs.md) - Similar wallet card format and verification workflow
-- [Verification_Charges.md](Verification_Charges.md) - Business models for free vs paid verification
+- [Verification_Charges.md](../docs/Verification_Charges.md) - Business models for free vs paid verification
 - [NORMALIZATION.md](../docs/NORMALIZATION.md) - Text normalization rules for consistent hashing

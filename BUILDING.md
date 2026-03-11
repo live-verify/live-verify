@@ -19,7 +19,7 @@ This installs:
 - psl (Public Suffix List) for domain authority extraction
 - Development tools (ESLint, etc.)
 
-**Note:** OpenCV.js and Tesseract.js are loaded from CDN in the browser. No compilation needed.
+**Note:** OpenCV.js is loaded from CDN in the browser. No compilation needed.
 
 ## Tests
 
@@ -40,14 +40,11 @@ npm run test:e2e      # Playwright only (requires local server)
 - `cross-platform-hashes.test.js` — Cross-platform hash fixtures from `normalization-hashes/`
 - `browser-extension.test.js` — Browser extension shared module tests
 - `training-pages-integration.test.js` — Training page hash verification
-- `ui-state-machine.test.js` — Camera UI state transitions
 - `cv-geometry.test.js` — OpenCV geometry utilities
 
 **E2E tests** (`e2e/` directory):
 - Registration mark detection (using OpenCV.js in browser)
-- OCR integration (using Tesseract.js in browser)
 - Full verification workflow
-- Screenshot verification with real training pages
 - PSL domain authority in browser context
 - State transitions
 
@@ -150,13 +147,11 @@ live-verify/
 ├── public/                          # Static files (deploy to GitHub Pages)
 │   ├── index.html                   # Landing page
 │   ├── styles.css                   # Responsive design, mobile-first
-│   ├── camera-app/index.html        # Camera UI with registration marks overlay
 │   ├── normalize.js                 # Text normalization + SHA-256 (canonical)
 │   ├── app-logic.js                 # URL extraction, rotation, endorsement (canonical)
 │   ├── domain-authority.js          # PSL-based registrable domain extraction (canonical)
 │   ├── doc-specific-normalization.js# Document-specific normalization rules
 │   ├── ocr-cleanup.js               # OCR artifact cleanup
-│   ├── live-verify-app.js           # Main camera app logic (OCR, verification)
 │   ├── text-selection-verify.js     # Clip verification UI (text selection → hash → verify)
 │   ├── cv/
 │   │   ├── detectSquares.js         # Registration mark detection (uses OpenCV.js)
@@ -229,7 +224,6 @@ live-verify/
 
 ### Runtime (loaded from CDN in browser)
 - **OpenCV.js 4.x** - Computer vision for registration mark detection (~8MB WASM)
-- **Tesseract.js v6** - OCR engine (~2MB WASM)
 - **Web Crypto API** - Built-in SHA-256 (no library needed)
 
 ### Runtime (npm — used by build scripts and extensions)
@@ -292,7 +286,7 @@ kill <PID>
 1. **No compilation** - Just HTML/CSS/JS
 2. **No backend** - Static files only
 3. **No database** - Verification URLs are static
-4. **Privacy-first** - All OCR happens in browser (images never leave device)
+4. **Privacy-first** - All OCR happens on-device (images never leave device)
 5. **Free hosting** - GitHub Pages, Netlify, etc.
 6. **Fast CI** - No OpenCV compilation, tests run in ~2 minutes
 7. **Easy deployment** - Just push to GitHub

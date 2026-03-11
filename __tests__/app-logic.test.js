@@ -226,7 +226,7 @@ random OCR garbage text`;
 
         // Tests for OCR leading garbage (verify: preceded by space)
         describe('OCR verify-line garbage handling', () => {
-            it('should find verify: preceded by tesseract mistakes or with trailing mistakes', () => {
+            it('should find verify: preceded by OCR mistakes or with trailing mistakes', () => {
                 expect(extractVerificationUrlOnly(`abc verify:example.com/path e`))
                     .toBe('verify:example.com/path');
                 expect(extractVerificationUrlOnly(`abc vfy:example.com/path e`))

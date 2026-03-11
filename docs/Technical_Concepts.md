@@ -1,21 +1,24 @@
 # Technical Concepts: Live Verify
 
-This document explains technical concepts referenced across multiple use case documents. Read this first to understand how Live Verify works under the hood.
+This document explains technical concepts referenced across multiple use case documents. Some sections are canonical (full content here); others are stubs linking to newer, more detailed documents.
 
 ## Table of Contents
 
+**Canonical sections:**
 1. [Registration Marks](#registration-marks)
-2. [Text Normalization](#text-normalization)
-3. [Domain Binding](#domain-binding)
-4. [Hash Algorithms](#hash-algorithms)
-5. [Response Formats](#response-formats)
-6. [Photo Encoding](#photo-encoding)
-7. [Dynamic Badges & Worker Verification](#dynamic-badges--worker-verification)
-8. [OCR Challenges](#ocr-challenges)
-9. [Standard Libraries & Native Integration](#standard-libraries--native-integration)
-10. [Deployment Architecture](#deployment-architecture-air-gapped-originals-public-hashes)
-11. [Independent Witnessing & Stateful Verification](#independent-witnessing--stateful-verification)
-12. [Sector-Specific Implementation Nuances](#sector-specific-implementation-nuances)
+2. [Domain Binding](#domain-binding)
+3. [Hash Algorithms](#hash-algorithms)
+4. [OCR Challenges](#ocr-challenges)
+5. [Standard Libraries & Native Integration](#standard-libraries--native-integration)
+6. [Deployment Architecture](#deployment-architecture-air-gapped-originals-public-hashes)
+
+**Stubs (see linked docs for detail):**
+7. [Text Normalization](#text-normalization) → [NORMALIZATION.md](NORMALIZATION.md)
+8. [Response Formats](#response-formats) → [Verification-Response-Format.md](Verification-Response-Format.md)
+9. [Photo Encoding](#photo-encoding) → [Verification-Response-Format.md](Verification-Response-Format.md)
+10. [Dynamic Badges](#dynamic-badges--worker-verification) → [e-ink-id-cards.md](../public/e-ink-id-cards.md)
+11. [Witnessing](#independent-witnessing--stateful-verification) → [WITNESSING-THIRD-PARTIES.md](WITNESSING-THIRD-PARTIES.md)
+12. [Sector-Specific Nuances](#sector-specific-implementation-nuances) (condensed table)
 
 ---
 
@@ -39,10 +42,10 @@ This document explains technical concepts referenced across multiple use case do
 1. **OpenCV.js** detects contours (outlines of shapes)
 2. Finds the largest quadrilateral (4-sided polygon)
 3. Extracts the region inside this quadrilateral
-4. Sends extracted region to Tesseract.js for OCR
+4. Sends extracted region to on-device OCR (Apple Vision on iOS, Google ML Kit on Android)
 
 **Why needed:**
-- **Prevents OCR of wrong text** - Without registration marks, Tesseract might OCR the entire page (headers, footers, adjacent text)
+- **Prevents OCR of wrong text** - Without registration marks, OCR might process the entire page (headers, footers, adjacent text)
 - **Improves accuracy** - Knowing the boundary helps OCR focus on the relevant region
 - **Enables perspective correction** - Can detect tilted documents and rotate them
 
@@ -56,7 +59,7 @@ This document explains technical concepts referenced across multiple use case do
 - **Proximity to `verify:` URL** - If no registration marks, just OCR text near the `verify:` line
 - **QR code hybrid** - Use QR code to indicate scannable region boundaries
 
-See [bachelor-thaumatology-square.html](public/training-pages/bachelor-thaumatology-square.html) for example with decorative text OUTSIDE the scannable area.
+See [bachelor-thaumatology-square.html](../public/training-pages/bachelor-thaumatology-square.html) for example with decorative text OUTSIDE the scannable area.
 
 ---
 
@@ -64,34 +67,7 @@ See [bachelor-thaumatology-square.html](public/training-pages/bachelor-thaumatol
 
 **Why needed:** OCR engines may introduce inconsistencies (extra spaces, line breaks, case variations). Normalization ensures the same text always produces the same hash.
 
-**Normalization rules** (see [NORMALIZATION.md](docs/NORMALIZATION.md) for complete specification):
-
-1. **Unicode NFC normalization** - Combines accented characters (é → e + combining accent)
-2. **Trim leading/trailing whitespace** - `"  text  "` → `"text"`
-3. **Collapse multiple spaces** - `"hello    world"` → `"hello world"`
-4. **Remove leading/trailing pipe characters** - `"|text|"` → `"text"` (OCR artifacts from registration mark borders)
-5. **Preserve case** - `"Edinburgh"` ≠ `"edinburgh"` (case matters unless document specifies otherwise)
-6. **Preserve punctuation** - `"Bachelor of Science"` ≠ `"Bachelor of Science,"`
-
-**Example:**
-
-**Original OCR output:**
-```
-|  Bachelor  of Science
-   Computer Science
-   Jane Smith, 2018  |
-```
-
-**After normalization:**
-```
-Bachelor of Science
-Computer Science
-Jane Smith, 2018
-```
-
-**Critical detail:** Organizations must document their normalization rules so verifiers can reproduce the exact hash. If Edinburgh prints "Honours" but you normalize to "Honors" (US spelling), verification will fail.
-
-**Privacy implication:** Normalization doesn't change the meaning but changes the hash. Two identical documents with different whitespace will have different hashes - this is actually a **feature** for preventing hash enumeration attacks.
+See [NORMALIZATION.md](NORMALIZATION.md) for the complete specification, including per-document normalization via `verification-meta.json`, character and OCR normalization schemas, line-by-line processing rules, and the SHA-256 hash computation pipeline.
 
 ---
 
@@ -149,7 +125,7 @@ The app MUST show the verifying domain prominently:
 
 The verification app uses the **Public Suffix List** to correctly identify the full hostname, not truncate to just `ed.ac.uk`.
 
-See [public/domain-authority.js](public/domain-authority.js) for implementation.
+See [domain-authority.js](../public/domain-authority.js) for implementation.
 
 ---
 
@@ -196,178 +172,31 @@ Critical privacy property - the hash is **never** printed on the physical docume
 
 ## Response Formats
 
-Organizations can return different response types from verification endpoints:
+Verification endpoints return JSON with a `status` field. The simplest case: `GET https://degrees.ed.ac.uk/c/{hash}` returns `{"status":"verified"}` (200 OK) or 404 (not found). Richer responses can include issuer name, dates, base64-encoded photos, and revocation status.
 
-### Simple JSON Response
-
-**Simplest implementation:**
-```
-GET https://degrees.ed.ac.uk/c/abc123def456...
-Response: 200 OK
-Body: {"status":"verified"}
-```
-
-App displays: ✅ **VERIFIED by degrees.ed.ac.uk**
-
-**Invalid hash:**
-```
-GET https://degrees.ed.ac.uk/c/invalid_hash...
-Response: 404 Not Found
-```
-
-App displays: ❌ **FAILS VERIFICATION**
-
-### JSON Response (Recommended)
-
-**For credentials with revocation capability (medical licenses, security clearances):**
-
-```json
-{
-  "status": "verified",
-  "issuer": "California Medical Board",
-  "issued_date": "2018-06-23",
-  "expiry_date": "2026-06-23",
-  "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRg...",
-  "link": "https://mbc.ca.gov/verification-info.html"
-}
-```
-
-**Possible status values:**
-- `"verified"` - Valid, active credential
-- `"revoked"` - Credential has been revoked (malpractice, disciplinary action)
-- `"SUSPENDED"` - Temporarily suspended (pending investigation)
-- `"EXPIRED"` - Credential has expired (needs renewal)
-- `"STOLEN"` - Reported stolen (remove photo from response for privacy)
-- `"REPLACED"` - Superseded by newer version (wills, estate documents)
-
-**Status display:**
-- `"verified"` → ✅ Green **VERIFIED by mbc.ca.gov**
-- `"revoked"` → ❌ Red **REVOKED by mbc.ca.gov**
-- `"SUSPENDED"` → ⚠️ Yellow **SUSPENDED by mbc.ca.gov**
-
-See [Use_Case-Medical_License.md](Use_Case-Medical_License.md) for detailed JSON schema.
-
-### Extended Response with Metadata
-
-**Using `verification-meta.json` configuration:**
-
-Organizations can host `https://example.com/c/verification-meta.json` to define custom response types and suggest more integrated participation:
-
-```json
-{
-  "integrationLinks": {
-    "website": "https://example.com/verify-help",
-    "iosApp": "https://apps.apple.com/app/example-verify",
-    "androidApp": "https://play.google.com/store/apps/details?id=com.example.verify"
-  },
-  "responseTypes": {
-    "SUPERSEDED": {
-      "class": "denying",
-      "text": "This document has been replaced by a newer version",
-      "link": "https://example.com/verification-updates.html"
-    }
-  }
-}
-```
-
-This allows the verifier's generic app to suggest the issuer's dedicated app for a more rich experience (e.g., real-time notifications or biometric integration).
-
-See [README.md: For Organizations Creating Verifiable Documents](README.md#for-organizations-creating-verifiable-documents) for complete `verification-meta.json` specification.
+See [Verification-Response-Format.md](Verification-Response-Format.md) for the complete specification, including the "never echo claim content" principle, universal and sector-specific status codes, photo encoding rationale, and the `verification-meta.json` schema for custom response types.
 
 ---
 
 ## Photo Encoding
 
-**Why Base64 instead of URL:** Privacy and security.
+Photos are embedded as Base64 in the JSON response, not served via URL. This prevents enumeration attacks (iterating `/photos/1.jpg`, `/photos/2.jpg`...), eliminates tracking, and enables offline display.
 
-### The Problem with Photo URLs
-
-**Bad approach:**
-```json
-{
-  "status": "verified",
-  "photo_url": "https://mbc.ca.gov/photos/12345.jpg"
-}
-```
-
-**Attacks this enables:**
-1. **Photo enumeration** - Attacker can iterate `/photos/1.jpg`, `/photos/2.jpg`, ... and download entire database
-2. **Privacy violation** - Photo URLs may be guessable or publicly accessible
-3. **Tracking** - Server can log who accessed which photo URLs
-
-### Base64 Encoding Solution
-
-**Correct approach:**
-```json
-{
-  "status": "verified",
-  "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgICAgMCAgID..."
-}
-```
-
-**Benefits:**
-1. **No enumeration** - Can't guess other photos without knowing their hashes
-2. **Privacy** - Photo only revealed when someone has physical document
-3. **No tracking** - Server doesn't know who viewed which photos
-4. **Offline capability** - Photo embedded in response, no second network request
-
-**How it works:**
-- Photograph converted to Base64 string
-- Embedded directly in JSON response
-- Browser decodes and displays automatically
-- Typical photo size: 20-50 KB (reasonable for mobile networks)
-
-**Photo opt-out mechanism** (government IDs):
-
-During transition period (20-30 years), some individuals may opt out of photo verification:
-
-```json
-{
-  "status": "verified",
-  "photo": null,
-  "photo_opt_out": true,
-  "issued_date": "2015-03-10"
-}
-```
-
-App displays: ✅ **VERIFIED by dmv.ca.gov** (no photo, issued before photo mandate)
-
-See [Use_Case-Government_IDs.md](Use_Case-Government_IDs.md) lines 236-242 for cultural transition discussion.
+See [Verification-Response-Format.md](Verification-Response-Format.md) for the full rationale, the photo opt-out mechanism for government IDs, and the JSON schema.
 
 ---
 
 ## Dynamic Badges & Worker Verification
 
-In some high-volume use cases (delivery drivers, utility workers, field inspectors), the "document" being verified is a **Dynamic Badge** or wearable pendant.
+For high-volume use cases (delivery drivers, utility workers, police officers), the "document" being verified is a **dynamic e-Ink badge** with a rotating salt synced via Bluetooth. The salt rotates every 10 minutes, preventing photograph-and-replay attacks. A photocopy of a badge stops working within minutes.
 
-### e-Ink Badges
-
-Static ID cards can be easily photographed or forged. Next-generation worker verification uses **e-Ink badges** that can display a rotating "Salt" or a specific "Session ID" linked to the worker's current task.
-
-**Typical Use Cases:**
-- **[Police Officer Verification](public/use-cases/police-officer-verification.md):** Preventing impersonation during traffic stops or home visits.
-- **[Delivery & Courier Verification](public/use-cases/delivery-courier-verification.md):** High-volume interactions where route-specific salts protect driver privacy.
-- **[Utility & Field Worker Verification](public/use-cases/utility-field-worker-verification.md):** Verifying authorized access for meter readers and repair crews.
-- **[Social Services Worker Verification](public/use-cases/social-services-worker-verification.md):** Ensuring the legitimacy of officials conducting sensitive home visits.
-- **[Hotel & Vacation Rental Staff](public/use-cases/hotel-staff-verification.md):** Verifying maintenance and room-service workers at the guest's door.
-
-**How it works:**
-1.  **Task Assignment:** A driver starts a delivery shift. Their phone app syncs a unique salt to their e-Ink badge via Bluetooth.
-2.  **Visual Presentation:** The worker shows the badge through a window or doorbell camera. The badge displays their name, ID, and the current session salt.
-3.  **No-Friction Verification:** The recipient scans the badge. The salt ensures that a simple photocopy of the badge won't verify. The hash lookup returns the worker's current duty status and assignment.
-
-### Pre-Notification Integration
-
-Where a recipient already has a relationship with the issuer (e.g., an Amazon customer expecting a package), the verification details can be pushed to the recipient's phone via SMS, email, or a mobile app **before** the worker arrives.
-
-- **Synced Metadata:** The "Verification Line" on the driver's e-Ink badge matches the details sent in the "Out for Delivery" notification.
-- **Participatory Security:** The recipient can verify the driver's authority without needing to interact or open the door, increasing safety for both parties.
+See [e-ink-id-cards.md](../public/e-ink-id-cards.md) for the complete specification: hardware architecture, salt mechanics, anti-cloning/anti-tracking properties, six use cases (police, delivery, utility, social services, hotel staff, residential buildings), privacy tiers, and when e-Ink badges are and aren't necessary.
 
 ---
 
 ## OCR Challenges
 
-**Current technology (Tesseract.js v5)** works reliably with:
+**Current on-device OCR (Apple Vision, Google ML Kit)** works reliably with:
 
 ### ✅ Works Well Today
 
@@ -408,7 +237,7 @@ Where a recipient already has a relationship with the issuer (e.g., an Amazon cu
 3. OCR processes just the framed region
 4. Works without registration marks
 
-See [Use_Case-Product_Labeling.md](Use_Case-Product_Labeling.md) lines 79-99.
+See [Product_Labeling.md](../deep-dives/Product_Labeling.md) lines 79-99.
 
 ### Challenge: Thermal Receipt Fading
 
@@ -432,7 +261,7 @@ Tot  : $  .67      ← Partial readability
 3. **Photo archive** - Store high-resolution photo alongside hash
 4. **Longer retention** - Restaurant keeps hash valid for 7+ years even if receipt fades
 
-See [Use_Case-Sales_Receipts.md](Use_Case-Sales_Receipts.md) lines 106-124.
+See [Sales_Receipts.md](../deep-dives/Sales_Receipts.md) lines 106-124.
 
 ### Future: On-Device AI (2026+)
 
@@ -445,7 +274,7 @@ See [Use_Case-Sales_Receipts.md](Use_Case-Sales_Receipts.md) lines 106-124.
 
 **Still 100% on-device** - maintains privacy guarantee.
 
-See [README.md: Privacy-First Architecture](README.md#privacy-first-architecture-why-client-side-ocr-matters) for detailed discussion.
+See [README.md: Privacy-First Architecture](../README.md#privacy-first-architecture-why-client-side-ocr-matters) for detailed discussion.
 
 ---
 
@@ -459,7 +288,7 @@ We anticipate that native libraries for **iOS, Android, Windows, macOS, and Linu
 **Core Capabilities:**
 These libraries will encapsulate the entire flow:
 1.  **Text Capture:** Secure, optimized camera access for text regions.
-2.  **Normalization:** Rigorous implementation of the ruleset (e.g., [NORMALIZATION.md](docs/NORMALIZATION.md)) to guarantee hash consistency.
+2.  **Normalization:** Rigorous implementation of the ruleset (e.g., [NORMALIZATION.md](NORMALIZATION.md)) to guarantee hash consistency.
 3.  **Hashing:** Cryptographically secure hashing (SHA-256/512) with salt management.
 4.  **GET Processing:** Handling the verification network request securely.
 5.  **Outcome Display:** Rendering the result (verified/revoked) in a trusted UI component.
@@ -796,106 +625,22 @@ This gives CDN speed + database flexibility without exposing the database to pub
 
 ## Independent Witnessing & Stateful Verification
 
-While the underlying text of a claim is static, its **legal or financial standing** can change over time.
+Verification endpoints can return different statuses over time (e.g., a hotel receipt goes from `verified` to `AMENDED` after a refund). To prevent issuers from rewriting history, some implementations use an independent witnessing service that anchors hashes with timestamps.
 
-### Stateful Verification
-
-A verification endpoint can return different statuses during the lifecycle of a document.
-
-**Example: Hotel Receipt Lifecycle**
-1.  **Day 0 (Checkout):** Guest receives receipt for $500. Hash endpoint returns `{"status": "verified"}`.
-2.  **Day 3 (Dispute):** Guest complains about a broken AC. Hotel agrees to a $100 refund.
-3.  **Day 4 (Update):** The hotel updates their internal system. The **same hash** endpoint now returns `{"status": "AMENDED"}` (or `PARTIAL_REFUND`).
-
-This allows external parties (like corporate finance or tax authorities) to see the *current* reality of a claim even if they only possess the *original* document. Note that specific refund amounts are typically NOT returned in the JSON to preserve privacy; the status change simply signals that the original total is no longer the final net amount.
-
-### Independent Witnessing Services
-
-To prevent issuers from "rewriting history" (e.g., deleting a verification record to hide a mistake), some implementations use a **Secondary Witness**.
-
-**How it is communicated:**
-There are two primary methods for identifying the witness service:
-
-1.  **Explicitly on the document:** The physical document includes a second line or alias:
-    ```
-    verify:hotel-chain.com/c
-    witness:independent-audit.org/w
-    ```
-2.  **Discovery via Issuer Response:** The primary verification GET request returns the witness URL as metadata in its response:
-    ```json
-    {
-      "status": "verified",
-      "witness": "https://independent-audit.org/w"
-    }
-    ```
-
-**How it works:**
-1.  **Issuance:** When the issuer creates the document, they send the hash to an independent third-party service (the Witness).
-2.  **Anchoring:** The Witness stores the hash and a timestamp, often "anchoring" it to a public ledger (blockchain or certificate transparency log).
-3.  **Verification:** The verifier app primarily checks the issuer's endpoint for current status. If witness information is available, the app provides an **option** to also check the Witness service to prove the document existed and was valid on its claimed issuance date.
-
-**Benefits & Reasons for Existence:**
--   **Immutable Timestamps (Neutral Ground):** Proves a receipt or certificate wasn't backdated by the issuer or holder. The Witness provides a non-repudiable "Proof of Existence" at a specific point in time.
--   **Anti-Deletion / Issuer Longevity:** If an issuer goes out of business, deletes their records, or is compromised, the Witness service remains as a neutral proof that the document was once authoritative.
--   **Collusion Resistance:** Prevents an issuer and holder from colluding to create a "fake historical" record. If it wasn't witnessed on day zero, it can't be claimed as valid on day 100.
--   **Anti-Dishonesty (Conflict of Interest):** Prevents an issuer who is also the "Payor" from later denying a valid claim for financial gain. For example, if a Lottery Commission informs a user they won a jackpot via a digital or printed receipt, an independent witness prevents the Commission from later deleting the record or claiming "no one won" to keep the prize money.
--   **Audit Integrity:** Provides a neutral "third party" for resolving disputes between two parties (e.g., Guest vs. Hotel) without requiring one to trust the other's internal database.
--   **Public Transparency (Optional):** For government or high-stakes certifications, a Witness can publish hashes to a public ledger, allowing anyone to verify the volume and issuance rate of credentials without seeing PII.
+See [WITNESSING-THIRD-PARTIES.md](WITNESSING-THIRD-PARTIES.md) for the complete model: party roles (issuer, recipient, verifier, witness), anti-deletion and collusion resistance, blockchain anchoring, and the three verification paths.
 
 ---
 
 ## Sector-Specific Implementation Nuances
 
-This section addresses practical considerations for specific organization types.
+Implementation timelines and key friction points vary by sector. These are planning estimates, not technical specifications — the individual use case files in [public/use-cases/](../public/use-cases/) have the technical details.
 
-### Healthcare Facilities: The Credentialing Complexity
+| Sector | Timeline | Key Friction |
+|--------|----------|-------------|
+| **Healthcare** | 12–18 months | Regulatory review, license board integration, HIPAA audit log retention (6 yr minimum), staff training that credential verification ≠ identity verification |
+| **Police** | 9–15 months | Officer doxing risk (must use anonymized role-based claims, not badge numbers), rotating salt non-negotiable (prevents movement tracking), federal agencies need higher OPSEC |
+| **Hotels** | 6–10 months | Badge sunset policy for old plastic badges, guest training, third-party contractor resistance (work multiple hotels) |
+| **Residential buildings** | 8–12 months | Resident adoption (low incentive if expecting the work), work order system integration, contractor resistance, insurance/liability questions |
+| **Event venues** | 6–9 months | Just-in-time badge issuance (24 hr turnaround), multi-company coordination problem, post-event badge destruction (GDPR) |
 
-**Key Nuance:** Healthcare adds regulatory layers that hotels don't have.
-
-- **Credential Verification vs. Identity Verification:** Your patients need to know both "who is this person?" (identity) and "are they licensed?" (credential). The e-Ink badge solves the second; photo handles the first. Budget time for staff training that this is *not* the same as traditional photo ID checks
-- **License Boards Integration:** If you want real-time license status (suspended, expired, active), you need to either:
-  - Partner with state medical/nursing boards for API access (complex, 3-6 months)
-  - Pre-generate badge hashes daily from board data (requires daily hash rebuilds)
-  - Use hash-based status (simpler, but less real-time)
-- **Abusive Patient Escalation:** You will get calls from staff saying "A patient scanned my badge 10 times in 2 hours." Rate limiting prevents this at the app level, but you need security/HR procedures to actually *respond*. Budget time for legal review of harassment policy *before* deployment
-- **HIPAA Audit Log Retention:** Your audit logs documenting "Dr. Smith was verified at 2:15 PM in CCU" are medical records. They stay for 6 years minimum under HIPAA. Budget data storage; don't assume it's negligible
-- **Timeline Expectation:** Healthcare implementation is 12-18 months (vs. 6-12 months for hotels), mostly due to regulatory review and credentialing integration
-
-### Police Departments: The Officer Safety Paradox
-
-**Key Nuance:** Verification helps citizens, but exposes officers to doxing. You must solve this or face officer resistance.
-
-- **Privacy-Protective Claim vs. Badge Display:** The breakthrough is that your badge can show "Officer A 1332" (for identification) but the verification claim never includes the badge number. Instead, it verifies "NYC Police Department officer, active duty, authorized for traffic enforcement" (anonymized, role-based). This is *the* critical architectural choice. Without this, you cannot ethically deploy to officers working organized crime, narcotics, or undercover
-- **Rotating Salt Non-Negotiable:** If your police department issues static badges with permanent hashes, you've created a searchable database. A suspect verifies an officer's hash, then can verify it repeatedly to track the officer's movements (Brixton, then Peckham, then Westminster = movement trail). You must use ephemeral hashes (10-minute rotation) or officers will resist
-- **Federal vs. Local:** FBI, ATF, and federal agents have even higher operational security needs. If you deploy to federal LEO, your verification system cannot expose operational assignment or task force affiliation. Design around this from day one
-- **Citizen Verification Expectations:** Not all citizens will understand why they can verify an officer is real but can't see the officer's full name. Budget time for public education. Some will feel this is "opaque." Address this in your messaging
-- **Timeline Expectation:** 9-15 months, heavily back-loaded with officer buy-in and operational security review
-
-### Hotels & Vacation Rentals: The Counterfeiting Problem
-
-**Key Nuance:** Your biggest risk is printed counterfeits. E-Ink doesn't help if counterfeits are in circulation.
-
-- **Badge Replacement Logistics:** When you switch to e-Ink, you have old plastic badges in circulation. You need a *sunset policy* — plastic badges stop working on Date X. Without this, guests see both types and may not understand which is real. Budget 3-6 months to get all staff switched over; shorter timelines will have parallel authentication confusion
-- **Guest Training:** Not all guests will carry phones or understand how to scan. Some will ask staff to do it for them (defeats the purpose). Budget time for signage ("You can scan our staff badges using the hotel app") and guest education
-- **Turnover Reality:** If you have 50% staff turnover annually, issuing new badges for half your staff every year is normal ops. If you have 20% turnover, badge distribution isn't a burden. Know your baseline
-- **Third-Party Contractors:** Housekeeping, maintenance, laundry, food service contractors may not want e-Ink badges if they work multiple hotels. Will you mandate it? Provide it? Ensure contracts allow it? This is an underestimated friction point
-- **Timeline Expectation:** 6-10 months for hotels (shorter than healthcare/police because fewer regulatory constraints)
-
-### Residential Buildings & Apartment Management: The Burden of Proof
-
-**Key Nuance:** You're asking residents to trust a system they didn't choose, for contractors they didn't hire.
-
-- **Resident Adoption:** Unlike hotels, residents have limited incentive to scan contractor badges if they're expecting the work. The value proposition ("Are you sure you want to let a stranger in?") only works if residents are naturally skeptical. Know your resident demographics before deploying
-- **Work Order Integration:** For e-Ink verification to work, your badge system must tie to your work order system. A contractor shows up with badge for unit 412 on Friday 9-5, but there's no work order in the system. Now the resident won't let them in *correctly*, but you have a service gap. Budget time for integrating badges with your maintenance scheduling software
-- **Contractor Resistance:** Many plumbers, electricians, and HVAC companies work multiple buildings. They won't want separate badges for each. Provide lanyards, centralized distribution, or other solutions to reduce friction
-- **Insurance & Liability:** If a contractor commits theft and claims "But I was verified, so that proves I was authorized," your insurance may have questions. Work with your insurance and legal counsel on liability implications *before* deployment
-- **Timeline Expectation:** 8-12 months (contractor coordination adds friction)
-
-### Event Venues & Hospitality: The Temporary Logistics Challenge
-
-**Key Nuance:** You're managing hundreds of workers you'll never see again. Verification is useful, but only if you have a process to issue badges quickly.
-
-- **Just-In-Time Badge Printing:** Unlike permanent staff, event contractors arrive 2-3 days before setup. You don't have time for a 3-week badge process. You need *rapid printing* (24 hours or less) or a kiosk system for on-site badge generation. Budget for this upfront
-- **Multi-Company Coordination:** If setup involves 5 different contractors (security, catering, AV, talent handlers, event staff), they all need badges issued by 5 different companies. Who coordinates? Who enforces policy? One company won't adopt if others don't, and vice versa. This is a *coordination problem*, not a technology problem
-- **Post-Event Badge Destruction:** After the event, you have 500 single-use e-Ink badges. Do you recycle? Destroy? Store? Budget for disposal and secure destruction (GDPR/privacy regulation applies)
-- **Timeline Expectation:** 6-9 months to implement, but with higher ongoing logistics burden (each event = badge coordination cycle)
+See also [e-ink-id-cards.md](../public/e-ink-id-cards.md) for the privacy tiers and risk assessment across these sectors.

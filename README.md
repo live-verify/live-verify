@@ -28,8 +28,7 @@ Built from:
 | Microsoft (Windows native) | Clip + Camera | Not started | OS-level `verify:` recognition in rendered text and images |
 | Adobe (Acrobat, Reader) | Clip | Not started | Verify claims in PDFs |
 
-**Project status:** Prototype. The browser extension (Clip mode) works reliably for digital documents. Camera mode works well for OCR-friendly layouts (receipts, plain-text credentials); ornate typography and scanning from screens can reduce reliability (including moiré patterns).
-Known issue for Camera mode: Tesseract.js (via WASM) bug not present in newer native versions: [issue #1](https://github.com/paul-hammant/live-verify/issues/1). Production deployments would likely use native on-device OCR (or self-hosted assets) with the same protocol.
+**Project status:** Prototype. The browser extension (Clip mode) works reliably for digital documents. Camera mode uses native on-device OCR (Apple Vision on iOS, Google ML Kit on Android) and handles OCR-friendly layouts well; ornate typography and scanning from screens can reduce reliability (including moiré patterns).
 
 ## Why Live Verify?
 
@@ -205,8 +204,6 @@ You’d see "VERIFIED BY bankofamerica.com" (or similar) for real production dep
 
 For verifying physical documents (printed receipts, certificates, licenses), native camera apps provide on-device OCR.
 
-This prototype uses Tesseract.js (OCR) and OpenCV.js (registration marker detection + de-skew) in the browser. Modern phones already ship camera OCR (iOS Live Text / Android Camera Text); adding `verify:` recognition + normalization + hashing would make this a natural camera upgrade.
-
 ### iOS App
 Point your iPhone at any document with a `verify:` line and get instant verification. Uses Apple’s Vision framework for OCR — no cloud services, no data leaves your device.
 
@@ -217,11 +214,6 @@ Point your iPhone at any document with a `verify:` line and get instant verifica
 Native Kotlin app using ML Kit for OCR and CameraX for camera capture.
 
 - **Source:** `apps/android/`
-
-### Web Demo
-Browser-based camera verification using Tesseract.js and OpenCV.js — no installation needed.
-
-- **Try it:** [https://live-verify.github.io/live-verify/](https://live-verify.github.io/live-verify/)
 
 ## Commercialization (SaaS)
 
@@ -294,7 +286,7 @@ flowchart TD
     Start([User captures<br/>document image]) --> Detect[Detect registration marks<br/>using OpenCV]
     Detect --> Transform[Apply perspective transform<br/>to straighten document<br/>handles off-angles like 85°/175°/265°]
     Transform --> Extract[Extract bordered region]
-    Extract --> TryAllRotations[Try OCR at ALL 4 rotations:<br/>0°, 90°, 180°, 270°<br/>Tesseract.js on each]
+    Extract --> TryAllRotations[Try OCR at ALL 4 rotations:<br/>0°, 90°, 180°, 270°<br/>on-device OCR on each]
     TryAllRotations --> CompareConfidence[Compare OCR confidence scores<br/>Pick rotation with highest confidence]
     CompareConfidence --> CheckConfidence{Best confidence<br/>good enough?}
     CheckConfidence -->|No - OCR failed all rotations| ShowOCRError[❌ OCR could not extract text<br/>Try better lighting/focus]
@@ -379,7 +371,7 @@ Read about one way hash functions on [Wikipedia](https://en.wikipedia.org/wiki/C
 
 - I want to use my choice of Verification App to verify the item you are showing me, not yours. Vendors should not force a single proprietary verifier; open, URL-based verification lets anyone use a trusted app of their choosing.
 
-**Current OCR technology (Tesseract.js v5)**
+**Current OCR technology**
 
 | Document Type                     | OCR Feasibility      | Why                                                                    |
 |-----------------------------------|----------------------|------------------------------------------------------------------------|
@@ -404,11 +396,11 @@ Traditional university degrees, professional certifications, and art certificate
 - Multiple font sizes and styles
 - Background patterns and imagery
 
-**Tesseract chokes on these elements** - OCR accuracy drops from 95%+ (plain text) to <50% (ornate certificates).
+**OCR engines struggle with these elements** - accuracy drops from 95%+ (plain text) to <50% (ornate certificates).
 
 **Practical solutions today:**
 
-1. **Multi-representation claims** - The same credential can have MULTIPLE valid hashes (long-form, medium-form, short-form, etc.). See **[Multi_Representation_Verification.md](Multi_Representation_Verification.md)** for detailed explanation of how universities can support ornate wall certificates AND OCR-friendly CV claims AND social media profiles - unlimited representations of the same legal fact.
+1. **Multi-representation claims** - The same credential can have MULTIPLE valid hashes (long-form, medium-form, short-form, etc.). See **[docs/Multi_Representation_Verification.md](docs/Multi_Representation_Verification.md)** for detailed explanation of how universities can support ornate wall certificates AND OCR-friendly CV claims AND social media profiles - unlimited representations of the same legal fact.
 
 2. **OCR-optimized originals** - Organizations can print certificates with:
    - Registration marks around a plain-text verification box
@@ -443,12 +435,10 @@ Traditional university degrees, professional certifications, and art certificate
 - ✅ Selected text (Clip) and captured images (Camera) **never leave your device**
 - ✅ Only the **SHA-256 hash** is computed and sent (one-way, can't reconstruct original text)
 - ✅ Verification URL fetch (`https://example.com/hashes/abc123...`) reveals nothing about document content
-- ✅ Camera OCR happens locally using Tesseract.js (current) or on-device AI (future)
+- ✅ Camera OCR happens locally using on-device AI (Apple Vision on iOS, Google ML Kit on Android)
 - ✅ **Zero trust** in cloud providers, API vendors, or network intermediaries
 
-**Current limitation (2025):** We use Tesseract.js because it runs client-side in the browser. It's a traditional computer vision algorithm from 2006 technology - excellent for plain text, struggles with ornate documents.
-
-**Future evolution (2026-2027+):** On-device AI will transform this:
+**Future evolution (2026-2027+):** On-device AI will continue improving:
 
 Modern phones already have neural processing units (NPUs) running sophisticated AI models **entirely on-device**:
 - **Apple Intelligence** (iPhone 15 Pro+, A17 Pro chip) - vision models, document understanding
@@ -472,30 +462,9 @@ Modern phones already have neural processing units (NPUs) running sophisticated 
 - Detect and mask decorative elements intelligently
 - **Still 100% on-device** - images never leave the phone
 
-**Tesseract becomes one tool in the AI's toolkit:**
-
-```javascript
-// Future API concept (illustrative)
-async function extractTextForVerification(imageData) {
-  // Try fast traditional OCR first
-  let text = await Tesseract.ocr(imageData);
-
-  // If confidence is low, ask on-device AI
-  if (text.confidence < 0.85) {
-    text = await OnDeviceAI.ocr(imageData, {
-      mode: 'on-device-only',  // Privacy guarantee
-      specialization: 'certificates',
-      fallbackTools: ['vision-transformer', 'handwriting-recognition']
-    });
-  }
-
-  return text;
-}
-```
-
 **The privacy model stays identical:**
 1. Image captured on phone
-2. OCR processed on-device (Tesseract OR AI, never cloud)
+2. OCR processed on-device (Apple Vision / ML Kit / future AI, never cloud)
 3. Text normalized locally
 4. SHA-256 hash computed locally
 5. Only hash sent to verification endpoint
@@ -515,9 +484,9 @@ Live Verify offers a **fundamentally different privacy model:**
 - Even the verifying organization doesn't receive document contents (just hash)
 
 **On-device AI makes this practical for ALL document types:**
-- Plain text receipts: ✅ Works today with Tesseract
-- Business letters: ✅ Works today with Tesseract
-- Wallet cards: ✅ Works today with Tesseract
+- Plain text receipts: ✅ Works today
+- Business letters: ✅ Works today
+- Wallet cards: ✅ Works today
 - Ornate certificates: 🔜 Will work with on-device AI (2026+)
 - Handwritten documents: 🔜 Will work with on-device AI (2026+)
 - Historical documents: 🔜 Will work with on-device AI (2027+)
@@ -616,7 +585,7 @@ python3 -m http.server 8000
 # Open http://localhost:8000
 ```
 
-No `npm install` needed - pure HTML/CSS/JS with Tesseract.js from CDN.
+No `npm install` needed for the web demo - pure HTML/CSS/JS. Camera OCR is handled by native iOS/Android apps.
 
 **Deploy:**
 
@@ -701,14 +670,7 @@ The `verification-meta.json` file can provide document-specific normalization ru
       "link": "https://state.gov/privacy-act",
       "summary": "Verification records retained for 7 years for audit purposes; may be disclosed to government agencies under subpoena"
     }
-  ],
-  "tesseract": {
-    "lang": "eng",
-    "psm": 6,
-    "oem": 1,
-    "tessedit_char_whitelist": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0-9 .,-/:()",
-    "preserve_interword_spaces": "1"
-  }
+  ]
 }
 ```
 
@@ -727,10 +689,6 @@ The `verification-meta.json` file can provide document-specific normalization ru
   - `law` - Name/citation of the specific law or regulation
   - `link` - URL to the official text or authoritative explanation
   - `summary` - Plain-language explanation of retention period and sharing constraints
-- `tesseract` (optional) - Tesseract.js configuration for improved OCR accuracy
-
-The app will automatically fetch this file and use the Tesseract settings if initial OCR fails (404 response).
-
 **Parent Authorities Examples:**
 
 The `parentAuthorities` field establishes a chain of trust through simple URL links (no PKI required):
@@ -881,7 +839,7 @@ Organizations must decide whether to offer free verification or charge for looku
 - **Commercial certification bodies** may charge to fund operations and prevent abuse
 - **Hybrid freemium models** provide free access for individuals while monetizing commercial bulk verification
 
-For detailed analysis of pricing models, implementation costs, the Bloomberg-style recurring revenue approach, and decision frameworks for issuers, see **[Verification_Charges.md](Verification_Charges.md)**.
+For detailed analysis of pricing models, implementation costs, the Bloomberg-style recurring revenue approach, and decision frameworks for issuers, see **[docs/Verification_Charges.md](docs/Verification_Charges.md)**.
 
 ## Full Use Case Catalog
 
@@ -899,11 +857,6 @@ All verification happens client-side — no PII ever leaves your device.
 - **Manifest V3**: Modern Chrome extension architecture
 - **chrome.scripting API**: Text selection capture
 - **chrome.storage.session**: Privacy-preserving session storage
-- **Web Crypto API**: SHA-256 hashing (built into browsers)
-
-**Web Demo (Camera mode):**
-- **OpenCV.js 4.x**: Computer vision for registration mark detection
-- **Tesseract.js v5**: Client-side OCR engine
 - **Web Crypto API**: SHA-256 hashing (built into browsers)
 
 **iOS App (Camera mode):**
@@ -929,10 +882,10 @@ See TESTING.md for details.
 
 ## Documentation
 
-- **Technical_Concepts.md** - Shared technical explanations: registration marks (computer vision), text normalization, domain binding, hash algorithms (SHA-256 vs SHA-512), response formats, photo encoding, OCR challenges
+- **docs/Technical_Concepts.md** - Shared technical explanations: registration marks (computer vision), text normalization, domain binding, hash algorithms (SHA-256 vs SHA-512), response formats, photo encoding, OCR challenges
 - **NORMALIZATION.md** - Detailed text normalization specification that would be interesting to other implementations
-- **Multi_Representation_Verification.md** - How one legal claim can have unlimited text representations (ornate certificate, CV claim, LinkedIn profile, etc.), each with its own SHA-256 hash, all verifying the same underlying fact
-- **Verification_Charges.md** - Business models for free vs paid verification, Bloomberg approach, freemium, ethical frameworks
+- **docs/Multi_Representation_Verification.md** - How one legal claim can have unlimited text representations (ornate certificate, CV claim, LinkedIn profile, etc.), each with its own SHA-256 hash, all verifying the same underlying fact
+- **docs/Verification_Charges.md** - Business models for free vs paid verification, Bloomberg approach, freemium, ethical frameworks
 - **LLM.md** - Complete project context for AI assistants
 - **BUILDING.md** - Build instructions
 - **TESTING.md** - Test documentation
@@ -959,9 +912,9 @@ See the full [QR Code comparison](#decision-criteria-live-verify-vs-qr-code) for
 
 ### How does this prevent fake receipts/degrees/licenses?
 
-**Cryptographic hash** - Any change to the text (even one character) completely changes the SHA-256 hash. The verification endpoint will return 404 (not found) instead of 200 OK. See [Technical_Concepts.md: Hash Algorithms](Technical_Concepts.md#hash-algorithms).
+**Cryptographic hash** - Any change to the text (even one character) completely changes the SHA-256 hash. The verification endpoint will return 404 (not found) instead of 200 OK. See [docs/Technical_Concepts.md: Hash Algorithms](docs/Technical_Concepts.md#hash-algorithms).
 
-**Domain binding** - The `verify:` URL specifies which organization to trust. A fake degree from `fake-university.com` won't verify against `degrees.ed.ac.uk`. Users see "VERIFIED by degrees.ed.ac.uk" not just a green checkmark. See [Technical_Concepts.md: Domain Binding](Technical_Concepts.md#domain-binding-text-determines-verification-authority).
+**Domain binding** - The `verify:` URL specifies which organization to trust. A fake degree from `fake-university.com` won't verify against `degrees.ed.ac.uk`. Users see "VERIFIED by degrees.ed.ac.uk" not just a green checkmark. See [docs/Technical_Concepts.md: Domain Binding](docs/Technical_Concepts.md#domain-binding-text-determines-verification-authority).
 
 **No hash on document** - The hash isn't printed, so you can't just photoshop the receipt and compute a new hash. You'd need to compromise the issuing organization's verification database.
 
@@ -1013,11 +966,11 @@ This bridges both digital-native (Clip) and physical-to-digital (Camera) verific
 
 **For verifiers:** Yes, the client-side app is free and open source (AGPL-3.0).
 
-**For issuers:** Organizations decide whether to charge for verification lookups. Infrastructure cost is ~$0.000005 per verification (Cloudflare Workers example). Many universities/governments offer free verification as part of their mission. Commercial entities may charge. See [Verification_Charges.md](Verification_Charges.md) for detailed business models.
+**For issuers:** Organizations decide whether to charge for verification lookups. Infrastructure cost is ~$0.000005 per verification (Cloudflare Workers example). Many universities/governments offer free verification as part of their mission. Commercial entities may charge. See [docs/Verification_Charges.md](docs/Verification_Charges.md) for detailed business models.
 
 ### Can organizations revoke credentials?
 
-**Yes.** Instead of returning `{"status":"verified"}`, the verification endpoint can return `{"status":"revoked"}` or `{"status":"suspended"}`. The app shows ❌ red "REVOKED by xyz.org" instead of green "VERIFIED". See [Technical_Concepts.md: Response Formats](Technical_Concepts.md#response-formats) for all status codes.
+**Yes.** Instead of returning `{"status":"verified"}`, the verification endpoint can return `{"status":"revoked"}` or `{"status":"suspended"}`. The app shows ❌ red "REVOKED by xyz.org" instead of green "VERIFIED". See [docs/Technical_Concepts.md: Response Formats](docs/Technical_Concepts.md#response-formats) for all status codes.
 
 Medical licenses, professional certifications, security clearances - anything that can be revoked can use this status. See [deep-dives/Medical_License.md](deep-dives/Medical_License.md).
 
@@ -1037,10 +990,10 @@ See [For Organizations Creating Verifiable Documents](#for-organizations-creatin
 
 **Quick overview:**
 1. Generate certification text
-2. Normalize it (see [NORMALIZATION.md](docs/NORMALIZATION.md) and [Technical_Concepts.md: Text Normalization](Technical_Concepts.md#text-normalization))
-3. Compute SHA-256 hash (see [Technical_Concepts.md: Hash Algorithms](Technical_Concepts.md#hash-algorithms))
-4. Print text + `verify:your-org.com/c` with registration marks (see [Technical_Concepts.md: Registration Marks](Technical_Concepts.md#registration-marks-computer-vision-for-document-boundaries))
-5. Host static file at `https://your-org.com/c/{HASH}` returning `{"status":"verified"}` (see [Technical_Concepts.md: Response Formats](Technical_Concepts.md#response-formats))
+2. Normalize it (see [NORMALIZATION.md](docs/NORMALIZATION.md) and [docs/Technical_Concepts.md: Text Normalization](docs/Technical_Concepts.md#text-normalization))
+3. Compute SHA-256 hash (see [docs/Technical_Concepts.md: Hash Algorithms](docs/Technical_Concepts.md#hash-algorithms))
+4. Print text + `verify:your-org.com/c` with registration marks (see [docs/Technical_Concepts.md: Registration Marks](docs/Technical_Concepts.md#registration-marks-computer-vision-for-document-boundaries))
+5. Host static file at `https://your-org.com/c/{HASH}` returning `{"status":"verified"}` (see [docs/Technical_Concepts.md: Response Formats](docs/Technical_Concepts.md#response-formats))
 
 Infrastructure cost: ~$5 per million verifications (Cloudflare example).
 
@@ -1053,7 +1006,7 @@ Infrastructure cost: ~$5 per million verifications (Cloudflare example).
 - **Public Suffix List** - Correctly identifies domain authority across global TLDs
 - **No central authority** - Each organization runs their own verification endpoint
 
-However, OCR accuracy may vary by language. Tesseract.js supports 100+ languages, but on-device AI models (2026+) will be even better.
+However, OCR accuracy may vary by language. On-device AI models continue to improve across language support.
 
 ## Alternatives
 
@@ -1130,7 +1083,7 @@ When to choose what
 
 **For organizations (issuers):**
 - Read [For Organizations Creating Verifiable Documents](#for-organizations-creating-verifiable-documents)
-- Check [Verification_Charges.md](Verification_Charges.md) for business model guidance
+- Check [docs/Verification_Charges.md](docs/Verification_Charges.md) for business model guidance
 - Review [NORMALIZATION.md](docs/NORMALIZATION.md) for technical specification
 
 **For developers:**

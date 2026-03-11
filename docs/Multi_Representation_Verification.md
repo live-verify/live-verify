@@ -43,7 +43,7 @@ Traditional credentials are often designed for **human prestige**, not machine r
 - Multiple font sizes and styles
 - Ornamental spacing and layout
 
-**Tesseract.js OCR accuracy:** <50% on ornate certificates (vs 95%+ on plain text)
+**OCR accuracy on ornate documents:** <50% on ornate certificates (vs 95%+ on plain text)
 
 ## The Solution: Multi-Representation Approach
 

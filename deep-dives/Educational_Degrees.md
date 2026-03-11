@@ -1,5 +1,5 @@
 > Use case catalog: https://live-verify.github.io/live-verify/use-cases/  
-> Demo (camera app prototype): https://live-verify.github.io/live-verify/camera-app/
+> Demo: https://live-verify.github.io/live-verify/examples/
 
 ## Claimed degrees and certs on CV/Resume
 
@@ -27,11 +27,11 @@ The **hash is NOT printed** on the CV. It's a function of all the other text so 
 **Interview workflow:**
 
 1. Interviewer has printed CV in hand
-2. Opens phone app, scans the registration-marked section (see [Technical_Concepts.md: Registration Marks](Technical_Concepts.md#registration-marks))
-3. App OCRs text, normalizes it (see [Technical_Concepts.md: Text Normalization](Technical_Concepts.md#text-normalization)), computes hash from the certification text
-4. App builds full URL: `https://degrees.ed.ac.uk/{computed_hash}` using SHA-256 (see [Technical_Concepts.md: Hash Algorithms](Technical_Concepts.md#hash-algorithms))
+2. Opens phone app, scans the registration-marked section (see [Technical_Concepts.md: Registration Marks](../docs/Technical_Concepts.md#registration-marks))
+3. App OCRs text, normalizes it (see [Technical_Concepts.md: Text Normalization](../docs/Technical_Concepts.md#text-normalization)), computes hash from the certification text
+4. App builds full URL: `https://degrees.ed.ac.uk/{computed_hash}` using SHA-256 (see [Technical_Concepts.md: Hash Algorithms](../docs/Technical_Concepts.md#hash-algorithms))
 5. Fetches URL taking advantage of the setup of degrees.ed.ac.uk not having or needing accounts/logins to access
-6. The fetch yields a `200` http response, and the entire content could be blank or `OK` to signal verification success (see [Technical_Concepts.md: Response Formats](Technical_Concepts.md#response-formats))
+6. The fetch yields a `200` http response, and the entire content could be blank or `OK` to signal verification success (see [Technical_Concepts.md: Response Formats](../docs/Technical_Concepts.md#response-formats))
 7. Interviewer sees that on the phone app and pencils "✓ verified" on the CV themselves. Recruitment intermediaries may have done that too
 
 **Why this is privacy-preserving:**
@@ -111,7 +111,7 @@ Note ebe51417c7a506ee09763e055590858568b841f238cb6462818709cfbfebbdca is the SHA
 **Live Verify solution:**
 - Text determines domain ("Edinburgh University" → `degrees.ed.ac.uk`)
 - App displays: **"VERIFIED by degrees.ed.ac.uk"** (not fake domain)
-- Domain binding (see [Technical_Concepts.md: Domain Binding](Technical_Concepts.md#domain-binding))
+- Domain binding (see [Technical_Concepts.md: Domain Binding](../docs/Technical_Concepts.md#domain-binding))
 - Interviewer sees immediately which authority verified
 
 ---
@@ -130,13 +130,13 @@ Note ebe51417c7a506ee09763e055590858568b841f238cb6462818709cfbfebbdca is the SHA
 
 All share the key criteria: personal claims with privacy expectations, one-off documents, need for long-term verifiability (decades), and hash-not-printed verification.
 
-**Note on ornate degree certificates:** Traditional university diplomas with decorative fonts, seals, and embossing are difficult for current OCR technology to read. See [Multi_Representation_Verification.md](../Multi_Representation_Verification.md) for how universities can support ornate wall certificates AND plain-text CV claims AND LinkedIn profiles - unlimited representations of the same degree.
+**Note on ornate degree certificates:** Traditional university diplomas with decorative fonts, seals, and embossing are difficult for current OCR technology to read. See [Multi_Representation_Verification.md](../docs/Multi_Representation_Verification.md) for how universities can support ornate wall certificates AND plain-text CV claims AND LinkedIn profiles - unlimited representations of the same degree.
 
 ---
 
 ## Pricing Model: Who Pays for Verification?
 
-**Core principle:** Universities were already paid (via tuition or taxes) to educate students and issue degrees. Verification is part of that mission, not a new revenue stream. See [Verification_Charges.md](Verification_Charges.md) for detailed ethical framework.
+**Core principle:** Universities were already paid (via tuition or taxes) to educate students and issue degrees. Verification is part of that mission, not a new revenue stream. See [Verification_Charges.md](../docs/Verification_Charges.md) for detailed ethical framework.
 
 ### Infrastructure Costs
 
@@ -694,12 +694,12 @@ https://alumni.ed.ac.uk/verify-credentials
 ## Related Documentation
 
 **Technical implementation details:**
-- [Technical_Concepts.md](Technical_Concepts.md) - Registration marks, text normalization, domain binding, hash algorithms, response formats, photo encoding, OCR challenges
+- [Technical_Concepts.md](../docs/Technical_Concepts.md) - Registration marks, text normalization, domain binding, hash algorithms, response formats, photo encoding, OCR challenges
 - [NORMALIZATION.md](../docs/NORMALIZATION.md) - Detailed text normalization rules for consistent hashing
-- [Multi_Representation_Verification.md](../Multi_Representation_Verification.md) - How universities support unlimited text representations of the same degree
+- [Multi_Representation_Verification.md](../docs/Multi_Representation_Verification.md) - How universities support unlimited text representations of the same degree
 
 **Business model & pricing:**
-- [Verification_Charges.md](Verification_Charges.md) - Ethical framework for who pays for verification (anti-double-dipping principle)
+- [Verification_Charges.md](../docs/Verification_Charges.md) - Ethical framework for who pays for verification (anti-double-dipping principle)
 
 **Related use cases:**
 - [Use_Case-Medical_License.md](Use_Case-Medical_License.md) - Professional credentials with revocation capability

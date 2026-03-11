@@ -290,7 +290,7 @@ A 20-page contract has 20 verification lines — one per page. This ensures:
 
 **Camera OCR limitations:**
 
-Camera-app Live Verify works well for simple documents: a badge, an ID card, a certificate with a handful of lines. But a dense legal page with small fonts, justified text, and complex formatting? OCR errors accumulate quickly. A single misread character breaks the hash.
+Live Verify's camera OCR works well for simple documents: a badge, an ID card, a certificate with a handful of lines. But a dense legal page with small fonts, justified text, and complex formatting? OCR errors accumulate quickly. A single misread character breaks the hash.
 
 For multi-page legal documents, camera OCR is not a realistic verification path.
 

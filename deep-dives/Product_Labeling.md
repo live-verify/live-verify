@@ -1,5 +1,5 @@
 > Use case catalog: https://live-verify.github.io/live-verify/use-cases/  
-> Demo (camera app prototype): https://live-verify.github.io/live-verify/camera-app/
+> Demo: https://live-verify.github.io/live-verify/examples/
 
 ## The MedPro PPE Case: Anti-Tampering for B2B Certifications
 
@@ -28,14 +28,14 @@ Key criteria: Produce/company have no expectation of privacy. Many thousands in 
 └────────────────────────────────────────┘
 ```
 
-**Critical detail:** The printed **text itself determines which domain gets queried**. You can't print "INTERTEK" and have it verify against a fake domain. See [Technical_Concepts.md: Domain Binding](Technical_Concepts.md#domain-binding) for detailed explanation.
+**Critical detail:** The printed **text itself determines which domain gets queried**. You can't print "INTERTEK" and have it verify against a fake domain. See [Technical_Concepts.md: Domain Binding](../docs/Technical_Concepts.md#domain-binding) for detailed explanation.
 
 **Procurement workflow:**
 
 1. UK Government procurement officer receives shipment with certificate
-2. Opens phone app, scans the registration-marked certification section (see [Technical_Concepts.md: Registration Marks](Technical_Concepts.md#registration-marks))
+2. Opens phone app, scans the registration-marked certification section (see [Technical_Concepts.md: Registration Marks](../docs/Technical_Concepts.md#registration-marks))
 3. App OCRs text including "INTERTEK TESTING SERVICES"
-4. App normalizes text (see [Technical_Concepts.md: Text Normalization](Technical_Concepts.md#text-normalization)), computes hash from the full certification claim using SHA-256 (see [Technical_Concepts.md: Hash Algorithms](Technical_Concepts.md#hash-algorithms))
+4. App normalizes text (see [Technical_Concepts.md: Text Normalization](../docs/Technical_Concepts.md#text-normalization)), computes hash from the full certification claim using SHA-256 (see [Technical_Concepts.md: Hash Algorithms](../docs/Technical_Concepts.md#hash-algorithms))
 5. App builds verification URL: `https://intertek.com/certifications/{computed_hash}`
 6. Fetches URL → **404 response** (certificate never issued by Intertek)
 7. Officer flags shipment as fraudulent before accepting delivery, or starting "returns" paperwork and emailing the bosses.
@@ -156,7 +156,7 @@ The MedPro case reveals a criterion not about privacy:
 
 ## Pricing Model: Who Pays for Verification?
 
-**Core principle:** Testing labs (Intertek, SGS, TÜV) were already paid by manufacturers to perform testing and issue certifications. Verification should be free or low-cost. See [Verification_Charges.md](Verification_Charges.md) for ethical framework.
+**Core principle:** Testing labs (Intertek, SGS, TÜV) were already paid by manufacturers to perform testing and issue certifications. Verification should be free or low-cost. See [Verification_Charges.md](../docs/Verification_Charges.md) for ethical framework.
 
 ### Infrastructure Costs
 
@@ -793,11 +793,11 @@ async function handleRequest(request) {
 ## Related Documentation
 
 **Technical implementation details:**
-- [Technical_Concepts.md](Technical_Concepts.md) - Registration marks, text normalization, **domain binding** (critical for anti-impersonation), hash algorithms, response formats
+- [Technical_Concepts.md](../docs/Technical_Concepts.md) - Registration marks, text normalization, **domain binding** (critical for anti-impersonation), hash algorithms, response formats
 - [NORMALIZATION.md](../docs/NORMALIZATION.md) - Detailed text normalization rules for consistent hashing
 
 **Business model & pricing:**
-- [Verification_Charges.md](Verification_Charges.md) - Ethical framework for who pays for verification (testing labs already compensated)
+- [Verification_Charges.md](../docs/Verification_Charges.md) - Ethical framework for who pays for verification (testing labs already compensated)
 
 **Related use cases:**
 - [Use_Case-Medical_License.md](Use_Case-Medical_License.md) - Professional credentials with revocation capability (similar B2B verification)

@@ -4,7 +4,7 @@
     This file contains test-specific orchestration logic that was previously
     embedded in production code. Following "Design for Testability" principles:
 
-    - Production code (live-verify-app.js) exposes clean seams via window.liveVerifyApp
+    - Production code exposes clean seams for testing
     - Test code (this file) handles mocking, setup, and orchestration
     - Zero test logic ships in production bundle
 

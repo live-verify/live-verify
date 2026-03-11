@@ -1,5 +1,5 @@
 > Use case catalog: https://live-verify.github.io/live-verify/use-cases/  
-> Demo (camera app prototype): https://live-verify.github.io/live-verify/camera-app/
+> Demo: https://live-verify.github.io/live-verify/examples/
 
 ## Point-of-Sale Receipt Case: Preventing Expense Fraud
 
@@ -78,9 +78,9 @@ All these elements (except the verify: line itself) contribute to the hash, maki
 
 1. Employee scans receipt with phone app
 2. App OCRs full receipt text (items, subtotal, VAT/sales tax, total, date, transaction ID)
-3. App normalizes text (see [Technical_Concepts.md: Text Normalization](Technical_Concepts.md#text-normalization)), computes hash: `a7f3e92b...` using SHA-256 (see [Technical_Concepts.md: Hash Algorithms](Technical_Concepts.md#hash-algorithms))
+3. App normalizes text (see [Technical_Concepts.md: Text Normalization](../docs/Technical_Concepts.md#text-normalization)), computes hash: `a7f3e92b...` using SHA-256 (see [Technical_Concepts.md: Hash Algorithms](../docs/Technical_Concepts.md#hash-algorithms))
 4. App verifies receipt exists: `GET https://rx.starbucks.com/a7f3e92b...`
-5. Starbucks server responds: **200 OK + `{"status":"verified"}`** (receipt is valid) - see [Technical_Concepts.md: Response Formats](Technical_Concepts.md#response-formats)
+5. Starbucks server responds: **200 OK + `{"status":"verified"}`** (receipt is valid) - see [Technical_Concepts.md: Response Formats](../docs/Technical_Concepts.md#response-formats)
 6. Employee submits expense claim with verified hash
 7. Finance department sees "✓ Verified against Starbucks"
 
@@ -241,7 +241,7 @@ The basic Live Verify verification (GET request confirms receipt exists) is stra
 
 ## Pricing Model: Who Pays for Verification?
 
-**Core principle:** Receipt verification benefits multiple parties (employers, merchants, tax authorities). Cost should be distributed across beneficiaries, with ultra-low marginal cost. See [Verification_Charges.md](Verification_Charges.md) for ethical framework.
+**Core principle:** Receipt verification benefits multiple parties (employers, merchants, tax authorities). Cost should be distributed across beneficiaries, with ultra-low marginal cost. See [Verification_Charges.md](../docs/Verification_Charges.md) for ethical framework.
 
 ### Infrastructure Costs
 
@@ -417,11 +417,11 @@ The basic Live Verify verification (GET request confirms receipt exists) is stra
 ## Related Documentation
 
 **Technical implementation details:**
-- [Technical_Concepts.md](Technical_Concepts.md) - Text normalization (critical for thermal receipts with varied OCR), hash algorithms, response formats
+- [Technical_Concepts.md](../docs/Technical_Concepts.md) - Text normalization (critical for thermal receipts with varied OCR), hash algorithms, response formats
 - [NORMALIZATION.md](../docs/NORMALIZATION.md) - Detailed text normalization rules for consistent hashing across different OCR engines
 
 **Business model & pricing:**
-- [Verification_Charges.md](Verification_Charges.md) - Ethical framework for who pays (multi-party beneficiary model)
+- [Verification_Charges.md](../docs/Verification_Charges.md) - Ethical framework for who pays (multi-party beneficiary model)
 
 **Related use cases:**
 - [Use_Case-Voting_Proof.md](Use_Case-Voting_Proof.md) - Similar clearinghouse model (independent auditor)

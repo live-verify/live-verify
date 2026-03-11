@@ -1,5 +1,5 @@
 > Use case catalog: https://live-verify.github.io/live-verify/use-cases/  
-> Demo (camera app prototype): https://live-verify.github.io/live-verify/camera-app/
+> Demo: https://live-verify.github.io/live-verify/examples/
 
 ## Voting Ballot Proof: Verifiable Vote Counting
 
@@ -45,9 +45,9 @@ Key criteria: Democratic process requiring voter confidence. One-off transaction
 2. System prints proof chit with ballot ID, transaction details, AND voter's choices
 4. **Later (hours/days after polls close)**, voter scans chit with phone app
 5. App OCRs text: Election name, polling station, date, time, ballot ID, transaction ID, vote choices
-6. App normalizes text (see [Technical_Concepts.md: Text Normalization](Technical_Concepts.md#text-normalization)), computes hash using SHA-256 (see [Technical_Concepts.md: Hash Algorithms](Technical_Concepts.md#hash-algorithms))
+6. App normalizes text (see [Technical_Concepts.md: Text Normalization](../docs/Technical_Concepts.md#text-normalization)), computes hash using SHA-256 (see [Technical_Concepts.md: Hash Algorithms](../docs/Technical_Concepts.md#hash-algorithms))
 7. App builds URL: `https://election-50.ey.com/{computed_hash}`
-8. Independent auditor (E&Y) responds with verification status "✓ YOUR VOTE WAS COUNTED" (see [Technical_Concepts.md: Response Formats](Technical_Concepts.md#response-formats))
+8. Independent auditor (E&Y) responds with verification status "✓ YOUR VOTE WAS COUNTED" (see [Technical_Concepts.md: Response Formats](../docs/Technical_Concepts.md#response-formats))
 9. Voter sees that in Live Verify app.
 
 → Voter sees red "404 not found - please flatten your vote chit and scan again"
@@ -115,7 +115,7 @@ that's E&Y again.
 - Text determines domain: "verify:election-50.ey.com" printed on chit
 - App displays: **"VERIFIED by election-50.ey.com"** (shows actual verifying domain)
 - Voter sees immediately which auditor verified (E&Y, not fake domain)
-- Domain binding (see [Technical_Concepts.md: Domain Binding](Technical_Concepts.md#domain-binding))
+- Domain binding (see [Technical_Concepts.md: Domain Binding](../docs/Technical_Concepts.md#domain-binding))
 - Can't print "Ernst & Young" and have it verify against attacker domain
 
 #### 4. Vote Tampering Undetected
@@ -212,7 +212,7 @@ that's E&Y again.
 
 ## Pricing Model: Who Pays for Verification?
 
-**Core principle:** Election verification is a public good funded by government/taxpayers. Independent auditor (E&Y, Deloitte, PwC) provides trusted third-party verification service. See [Verification_Charges.md](Verification_Charges.md) for ethical framework.
+**Core principle:** Election verification is a public good funded by government/taxpayers. Independent auditor (E&Y, Deloitte, PwC) provides trusted third-party verification service. See [Verification_Charges.md](../docs/Verification_Charges.md) for ethical framework.
 
 ### Infrastructure Costs
 
@@ -482,7 +482,7 @@ that's E&Y again.
 **Problem:** Voter scans chit in dim lighting (parking lot at night) or holds phone at wrong angle
 
 **Impact on OCR:**
-- Low-light photos lack contrast (Tesseract.js accuracy drops from 95% to 60%)
+- Low-light photos lack contrast (OCR accuracy drops significantly)
 - Angled scanning creates perspective distortion (rectangular chit looks trapezoidal)
 - Flash glare creates white hot spots that obscure text
 
@@ -524,13 +524,13 @@ that's E&Y again.
 **Problem:** US has non-English speaking voters (Spanish, Chinese, Vietnamese, etc.) - chit text may include non-Latin characters
 
 **Impact on OCR:**
-- Tesseract.js requires specific language models for non-Latin scripts
-- Mixed-language chits (English + Spanish) confuse OCR (switches language mid-text)
+- On-device OCR may need specific language models for non-Latin scripts
+- Mixed-language chits (English + Spanish) can confuse OCR (switches language mid-text)
 - Diacritical marks (á, é, í, ñ) may be misrecognized
 
 **Solutions:**
-1. **Language detection:** App detects voter's phone language, loads appropriate Tesseract model
-2. **Multi-language training:** Tesseract trained on mixed-language ballot chits
+1. **Language detection:** App detects voter's phone language, loads appropriate OCR model
+2. **Multi-language support:** OCR trained on mixed-language ballot chits
 3. **ASCII-only hashing:** Core verification data (ballot ID, transaction ID) uses ASCII only (no accents)
 4. **Manual entry option:** Voter can manually select language if auto-detection fails
 
@@ -544,18 +544,18 @@ Vote cast for: Newsome/AOC
 verify:election-50.ey.com
 ```
 
-OCR handles English + Spanish hybrid text (Tesseract multilanguage mode).
+OCR handles English + Spanish hybrid text (multilanguage mode).
 
 ---
 
 ## Related Documentation
 
 **Technical implementation details:**
-- [Technical_Concepts.md](Technical_Concepts.md) - Text normalization, hash algorithms, response formats, OCR challenges (critical for ballot chit handling)
+- [Technical_Concepts.md](../docs/Technical_Concepts.md) - Text normalization, hash algorithms, response formats, OCR challenges (critical for ballot chit handling)
 - [NORMALIZATION.md](../docs/NORMALIZATION.md) - Detailed text normalization rules for consistent hashing
 
 **Business model & pricing:**
-- [Verification_Charges.md](Verification_Charges.md) - Ethical framework for who pays (public good funded by government)
+- [Verification_Charges.md](../docs/Verification_Charges.md) - Ethical framework for who pays (public good funded by government)
 
 **Related use cases:**
 - [Use_Case-Sales_Receipts.md](Use_Case-Sales_Receipts.md) - Similar clearinghouse/auditor model (independent third-party verification)

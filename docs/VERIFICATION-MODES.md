@@ -175,7 +175,7 @@ These capabilities are designed to be built into the native fabric of digital li
 **Browser Capabilities Required:**
 - Text selection access (DOM Selection API)
 - Extension/userscript environment or bookmarklet
-- Access to Tesseract or native text extraction
+- Access to native text extraction
 - Network access for verification fetch
 - UI element injection capability
 
@@ -234,13 +234,13 @@ javascript:(function(){
 
 **Performance on Mobile:**
 - Hashing (SHA-256) is fast even on older phones
-- OCR/Tesseract can be heavy - optional for mode 2
+- OCR can be heavy - optional for mode 2
 - Prefer simple text extraction from selections
 - Minimal UI for slower networks
 
 **Text Processing Pipeline (No OCR Required):**
 - Browser already has text selected (DOM provides raw text)
-- **Skip OCR entirely** - no need for Tesseract or image recognition
+- **Skip OCR entirely** - no need for image recognition
 - Apply Unicode normalization
 - Apply whitespace rules
 - Compute SHA-256 hash
@@ -291,7 +291,7 @@ Similar to Mode 2, but the source is an image (screenshot, photo, PNG) rather th
 
 **How It Works**
 1. User pastes or uploads an image (screenshot, photo, etc.)
-2. Browser uses built-in text recognition (Canvas API, Tesseract optional)
+2. Browser uses built-in text recognition (Canvas API, native OCR)
 3. Browser displays extracted text with verification indicators
 4. User can select specific text portions to verify
 5. Selected text is normalized and hashed

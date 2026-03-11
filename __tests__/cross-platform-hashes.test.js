@@ -75,15 +75,7 @@ function parseFrontmatter(content) {
 }
 
 /**
- * Extract image path from markdown image syntax ![](path.png)
- */
-function extractImagePath(body) {
-    const match = body.trim().match(/^!\[\]\((.+)\)$/);
-    return match ? match[1] : null;
-}
-
-/**
- * Load all fixture files from normalization-hashes directory
+ * Load all text fixture files from normalization-hashes directory
  */
 function loadFixtures() {
     const files = fs.readdirSync(FIXTURES_DIR)
@@ -94,33 +86,23 @@ function loadFixtures() {
         const content = fs.readFileSync(path.join(FIXTURES_DIR, filename), 'utf8');
         const { metadata, body } = parseFrontmatter(content);
 
-        // Check if this is an image fixture
-        const imagePath = extractImagePath(body);
+        // Skip image fixtures — OCR is handled by native iOS/Android apps
+        const isImage = body.trim().match(/^!\[\]\((.+)\)$/);
 
         return {
             filename,
             expectedHash,
-            body: body.trimEnd(), // Remove trailing newline from file
+            body: body.trimEnd(),
             metadata,
             description: metadata?.description || filename,
-            imagePath: imagePath ? path.join(FIXTURES_DIR, imagePath) : null
+            isImage: !!isImage
         };
     });
 }
 
-/**
- * Perform OCR on an image file using Tesseract.js
- */
-async function ocrImage(imagePath) {
-    const Tesseract = require('tesseract.js');
-    const { data: { text } } = await Tesseract.recognize(imagePath, 'eng');
-    return text;
-}
-
 describe('Cross-Platform Hash Consistency', () => {
     const fixtures = loadFixtures();
-    const textFixtures = fixtures.filter(f => !f.imagePath);
-    const imageFixtures = fixtures.filter(f => f.imagePath);
+    const textFixtures = fixtures.filter(f => !f.isImage);
 
     describe('Text fixtures (normalize → hash)', () => {
         test.each(textFixtures)(
@@ -132,38 +114,6 @@ describe('Cross-Platform Hash Consistency', () => {
                 expect(computedHash).toBe(expectedHash);
             }
         );
-    });
-
-    // Image fixtures: Tesseract.js is inferior to ML Kit/Vision, so these are
-    // informational only for JS. Android and iOS tests do the real assertions.
-    describe('Image fixtures (OCR → normalize → hash) [informational]', () => {
-        test.each(imageFixtures.length ? imageFixtures : [{ description: 'no image fixtures yet', skip: true }])(
-            '$description',
-            async ({ expectedHash, imagePath, metadata, skip, description }) => {
-                if (skip) {
-                    return; // No image fixtures yet
-                }
-
-                // OCR the image
-                const ocrText = await ocrImage(imagePath);
-
-                // Clean OCR artifacts, then normalize
-                const cleaned = cleanOcrArtifacts(ocrText);
-                const normalized = normalizeText(cleaned, metadata);
-                const computedHash = sha256(normalized);
-
-                // Log results for comparison - Tesseract.js may differ from ML Kit/Vision
-                if (computedHash !== expectedHash) {
-                    console.log(`\n[${description}] Tesseract.js hash differs (expected from ML Kit/Vision):`);
-                    console.log(`  Expected: ${expectedHash}`);
-                    console.log(`  Got:      ${computedHash}`);
-                    console.log(`  Normalized text:\n${normalized.split('\n').map(l => '    ' + l).join('\n')}`);
-                }
-
-                // Don't fail - Tesseract.js OCR quality is inferior to native mobile OCR
-                // This test is informational only; Android/iOS tests are authoritative
-            }
-        , 60000); // 60s timeout for OCR
     });
 
     it('should have loaded at least 5 text fixtures', () => {

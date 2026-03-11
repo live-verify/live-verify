@@ -912,7 +912,6 @@ Every field that may appear in a verification response body (JSON) or HTTP heade
 | `parentAuthorities` | array of URLs | No | Passive links for human browsing (Wikipedia, accreditor website) |
 | `responseTypes` | object | No | Maps status strings to `{class, text, link}` for client display |
 | `retentionLaws` | array of objects | No | Jurisdiction-specific data retention rules: `{jurisdiction, law, link, summary}` |
-| `tesseract` | object | No | OCR configuration hints for camera-based verification apps |
 | `delegateTo` | string (base URL) | No | SaaS provider handling verification on behalf of this domain |
 | `successor` | string (base URL) | No | Replacement endorser when current endorsement is sunsetting |
 

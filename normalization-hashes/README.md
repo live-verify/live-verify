@@ -43,7 +43,7 @@ Image files are stored in the `pics/` subdirectory.
 
 ### Image Fixtures
 1. Detect `![](pics/path.png)` in body
-2. Load image and run OCR (ML Kit on Android, Vision on iOS, Tesseract.js on web)
+2. Load image and run OCR (ML Kit on Android, Vision on iOS)
 3. Apply `cleanOcrArtifacts()` then `normalizeText()`
 4. Compute SHA-256 hash
 5. Assert hash equals filename
@@ -52,7 +52,7 @@ Image files are stored in the `pics/` subdirectory.
 
 | Platform | Text Fixtures | Image Fixtures |
 |----------|--------------|----------------|
-| JS/Web | Unit tests | Informational only (Tesseract.js inferior) |
+| JS/Web | Unit tests | N/A (no browser OCR) |
 | Android | Unit tests | Instrumented tests (ML Kit) |
 | iOS | Unit tests | Instrumented tests (Vision) |
 

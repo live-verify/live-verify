@@ -1,5 +1,5 @@
 > Use case catalog: https://live-verify.github.io/live-verify/use-cases/  
-> Demo (camera app prototype): https://live-verify.github.io/live-verify/camera-app/
+> Demo: https://live-verify.github.io/live-verify/examples/
 
 ## Government ID Verification: Bridging the Non-Government Gap
 
@@ -70,11 +70,11 @@ Both driver's licenses and passports share the same verification workflow and ch
 **Hotel check-in workflow (same for both):**
 
 1. Guest presents ID (driver's license or passport) at front desk
-2. Clerk opens phone app, scans registration-marked section (see [Technical_Concepts.md: Registration Marks](Technical_Concepts.md#registration-marks-computer-vision-for-document-boundaries))
+2. Clerk opens phone app, scans registration-marked section (see [Technical_Concepts.md: Registration Marks](../docs/Technical_Concepts.md#registration-marks-computer-vision-for-document-boundaries))
 3. App OCRs text: Name, DOB, ID number, dates, etc (not the machine-readable zone)
-4. App normalizes text (see [Technical_Concepts.md: Text Normalization](Technical_Concepts.md#text-normalization)), computes hash (SHA-512 for passports, see [Technical_Concepts.md: Hash Algorithms](Technical_Concepts.md#hash-algorithms))
-5. App builds URL: `https://dmv.ca.gov/dl/{hash}` or `https://passports.gov.uk/{hash}` (domain determined by text, see [Technical_Concepts.md: Domain Binding](Technical_Concepts.md#domain-binding-text-determines-verification-authority))
-6. Government responds with JSON including status and base64-encoded photo (see [Technical_Concepts.md: Photo Encoding](Technical_Concepts.md#photo-encoding-preventing-enumeration-attacks) and [Technical_Concepts.md: Response Formats](Technical_Concepts.md#response-formats))
+4. App normalizes text (see [Technical_Concepts.md: Text Normalization](../docs/Technical_Concepts.md#text-normalization)), computes hash (SHA-512 for passports, see [Technical_Concepts.md: Hash Algorithms](../docs/Technical_Concepts.md#hash-algorithms))
+5. App builds URL: `https://dmv.ca.gov/dl/{hash}` or `https://passports.gov.uk/{hash}` (domain determined by text, see [Technical_Concepts.md: Domain Binding](../docs/Technical_Concepts.md#domain-binding-text-determines-verification-authority))
+6. Government responds with JSON including status and base64-encoded photo (see [Technical_Concepts.md: Photo Encoding](../docs/Technical_Concepts.md#photo-encoding-preventing-enumeration-attacks) and [Technical_Concepts.md: Response Formats](../docs/Technical_Concepts.md#response-formats))
 7. App displays verification result + photo match confirmation
 8. Clerk compares displayed photo to guest's face and physical ID photo
 
@@ -177,7 +177,7 @@ GET https://dmv.ca.gov/dl/{computed_hash}
 
 ## Pricing Model: Who Pays for Verification?
 
-**Core principle:** Government IDs are issued for public benefit (security, identification). Non-government verifiers (hotels, police, bars) derive value from verification. Cost should be minimal, with freemium model. See [Verification_Charges.md](Verification_Charges.md) for ethical framework.
+**Core principle:** Government IDs are issued for public benefit (security, identification). Non-government verifiers (hotels, police, bars) derive value from verification. Cost should be minimal, with freemium model. See [Verification_Charges.md](../docs/Verification_Charges.md) for ethical framework.
 
 ### Infrastructure Costs
 
@@ -500,11 +500,11 @@ GET https://dmv.ca.gov/dl/{computed_hash}
 ## Related Documentation
 
 **Technical implementation details:**
-- [Technical_Concepts.md](Technical_Concepts.md) - Registration marks (computer vision), text normalization (consistent hashing), domain binding (prevents issuer impersonation), hash algorithms (SHA-512 for passports), response formats (JSON with status codes), photo encoding (base64 prevents enumeration)
+- [Technical_Concepts.md](../docs/Technical_Concepts.md) - Registration marks (computer vision), text normalization (consistent hashing), domain binding (prevents issuer impersonation), hash algorithms (SHA-512 for passports), response formats (JSON with status codes), photo encoding (base64 prevents enumeration)
 - [NORMALIZATION.md](../docs/NORMALIZATION.md) - Detailed text normalization rules for consistent hashing across different OCR engines
 
 **Business model & pricing:**
-- [Verification_Charges.md](Verification_Charges.md) - Ethical framework for who pays (government public service vs. freemium for commercial users)
+- [Verification_Charges.md](../docs/Verification_Charges.md) - Ethical framework for who pays (government public service vs. freemium for commercial users)
 
 **Related use cases:**
 - [Use_Case-Medical_License.md](Use_Case-Medical_License.md) - Similar government-issued credential with SUSPENDED/REVOKED status codes

@@ -1,6 +1,6 @@
 # Live Verify (iOS prototype)
 
-Native Swift prototype of the web demo at `public/camera-app/index.html`.
+Native Swift prototype for on-device document verification.
 
 Pipeline:
 
@@ -15,7 +15,7 @@ Pipeline:
 
 - OCR + normalization + hashing are performed on-device.
 - The network call is a minimal `GET` to the issuer endpoint (and optionally `/verification-meta.json` for issuer-defined response/normalization rules).
-- This is a prototype; production camera-app integration would follow the same on-device model.
+- This is a prototype; production integration would follow the same on-device model.
 
 ## Build requirements
 

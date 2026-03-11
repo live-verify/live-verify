@@ -28,7 +28,7 @@ If a `verification-meta.json` file exists at the verification URL path, it may d
 - Example: `éèêë→e` means: é→e, è→e, ê→e, ë→e
 - **Use cases:**
   - Diacritic removal: `é→e`, `ñ→n`, `ç→c`
-  - Known OCR misreads: `ß→B` (if Tesseract consistently misreads ß as B)
+  - Known OCR misreads: `ß→B` (if OCR consistently misreads ß as B)
 - **NOT for:**
   - Multi-character expansions: `ö→oe` (language-specific, not universal)
   - Numeral replacements: `0→O`, `1→l` (numerals must remain as-is)

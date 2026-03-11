@@ -12,10 +12,7 @@ Live Verify works two ways: **select** claims on screen, or **scan** them on pap
 ### Integration Vision
 These capabilities are designed for building into camera apps, browsers (mobile/desktop), email clients, PDF viewers, messaging systems (SMS, WhatsApp, iMessage), and collaboration tools (Slack, Discord).
 
-### POC 1: Live Verify - Camera
-`public/camera-app/index.html` — Point camera at physical document, OCR extracts text, normalizes, hashes, verifies against issuer's endpoint.
-
-### POC 2: Live Verify - Clip (Browser Extension)
+### POC 1: Live Verify - Clip (Browser Extension)
 `public/text-selection-verify.js` — Select text on webpage, right-click "Verify?", computes hash, checks issuer endpoint.
 
 ### iOS App
@@ -68,7 +65,7 @@ If you change normalization logic, update ALL implementations. The web app versi
 - "Show me" button scrolls to and highlights verified claims
 
 ### Additional Modes
-See [VERIFICATION-MODES.md](./VERIFICATION-MODES.md) for detailed permutations and the platform integration roadmap.
+See [VERIFICATION-MODES.md](./docs/VERIFICATION-MODES.md) for detailed permutations and the platform integration roadmap.
 
 ## Key Design Decisions
 
@@ -150,11 +147,9 @@ live-verify/
 │   └── {sha256}.md                  # Test cases (filename = expected hash)
 │
 ├── public/                          # Deploy this folder to GitHub Pages
-│   ├── camera-app/index.html        # Camera UI with registration marks overlay
 │   ├── styles.css                   # Responsive design, mobile-first
 │   ├── normalize.js                 # Text normalization + SHA-256 (TESTED)
 │   ├── app-logic.js                 # Pure functions for URL extraction, rotation (TESTED)
-│   ├── live-verify-app.js             # Main app logic (camera, OCR, verification)
 │   ├── test-normalization.html      # Interactive test page for normalization
 │   ├── cv/
 │   │   ├── geometry.js              # OpenCV geometry utilities (TESTED)
@@ -301,47 +296,6 @@ Uses **OpenCV.js** to detect black square registration marks:
 - `public/cv/geometry.js` - Geometry utilities (orderCorners, etc.)
 - `public/cv/detectSquares.js` - Detection algorithm
 
-### Multi-Orientation OCR
-
-Since users may hold the camera sideways, the app tries OCR at multiple orientations:
-
-```javascript
-const orientations = [
-    { rotation: 0, canvas: cropped },                // Most likely (portrait)
-    { rotation: 270, canvas: rotateCanvas(cropped, 270) },  // Landscape right
-    { rotation: 90, canvas: rotateCanvas(cropped, 90) },    // Landscape left
-    { rotation: 180, canvas: rotateCanvas(cropped, 180) }   // Upside down (rare)
-];
-
-// Try in order: 0°, 270°, 90°, 180°
-// Pick FIRST orientation that achieves high confidence (early exit optimization)
-for (const { rotation, canvas } of orientations) {
-    const result = await Tesseract.recognize(canvas.toDataURL(), 'eng');
-    const confidence = result.data.confidence || 0;
-
-    if (confidence > HIGH_CONFIDENCE_THRESHOLD) {
-        // Good enough - use this orientation
-        bestResult = result;
-        bestRotation = rotation;
-        break;
-    }
-}
-```
-
-### High-Resolution Capture
-
-Uses **ImageCapture API** when available for higher resolution than video frames:
-
-```javascript
-if ('ImageCapture' in window) {
-    const ic = new ImageCapture(track);
-    const photo = await ic.takePhoto();           // Returns high-res Blob
-    imageBitmap = await createImageBitmap(photo);
-}
-```
-
-Falls back to canvas capture from video element if ImageCapture not supported.
-
 ### Verification Logic
 
 **Verification URL schemes: `verify:` and `vfy:`**
@@ -372,13 +326,6 @@ Issuers can optionally provide document-specific normalization rules and OCR opt
       "description": "Remove space between CHF currency code and amount"
     }
   ],
-  "tesseract": {
-    "lang": "eng",
-    "psm": 6,
-    "oem": 1,
-    "tessedit_char_whitelist": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0-9 .,-/:()",
-    "preserve_interword_spaces": "1"
-  }
 }
 ```
 
@@ -394,14 +341,7 @@ If the app finds this file at `https://example.com/c/verification-meta.json`, it
   - Use cases: Whitespace from HTML rendering, date formatting artifacts
   - Example: `CHF\s+(\d)` → `CHF$1` removes spaces between currency code and amount
 
-**2. OCR Optimization (optional Tesseract settings):**
-- `lang`: OCR language model (e.g., "eng", "eng+fra")
-- `psm`: Page segmentation mode (6 = uniform block of text)
-- `oem`: OCR engine mode (1 = LSTM neural net only)
-- `tessedit_char_whitelist`: Allowed characters (reduces false positives)
-- `preserve_interword_spaces`: Keeps spaces between words intact
-
-**3. Data Retention & Compliance Rules (optional but recommended):**
+**2. Data Retention & Compliance Rules (optional but recommended):**
 
 Issuers can specify legal/regulatory requirements for how verification apps must handle captured data:
 
@@ -747,7 +687,6 @@ All have corresponding verification endpoints at `/c/{hash}/index.html`
 ## Dependencies
 
 ### Runtime (Loaded from CDN)
-- **Tesseract.js v5**: OCR engine (~2MB WASM)
 - **OpenCV.js 4.x**: Computer vision for registration mark detection (~8MB)
 - **Web Crypto API**: Built into browsers for SHA-256
 
@@ -772,7 +711,7 @@ node build-hashes.js
 Creates:
 - `public/hashes.json` - Metadata for all hashes
 - `public/c/{hash}/index.html` - Verification endpoints
-- Updates build timestamp in `public/live-verify-app.js`
+- Updates build timestamp
 
 ### Generate Training Pages
 
@@ -839,13 +778,11 @@ Click the app title to see build timestamp.
 
 ## Known Limitations
 
-1. **OCR accuracy**: Tesseract isn't perfect, may need retries
+1. **OCR accuracy**: On-device OCR (Apple Vision, Google ML Kit) is very good but not perfect on ornate typography
 2. **Registration marks**: Must be visible and form a clear rectangle
 3. **Lighting**: Poor lighting affects both detection and OCR quality
 4. **Camera quality**: Works best with modern phone cameras
-5. **HTTPS required**: Camera API needs HTTPS (GitHub Pages provides this)
-6. **Wide-angle lens**: Some phones capture wide FOV, reducing text pixel density
-7. **iOS zoom**: No zoom control available on iOS Safari
+5. **Moiré patterns**: Screens can introduce patterns that confuse OCR
 
 ## Development Guidelines
 
@@ -966,7 +903,7 @@ More: https://issuer.com/public-profile/{id}
 - NFT-less verification (no blockchain needed for basic use case)
 - The Medpro/Intertek fraud case that inspired this
 - OpenCV.js for web-based computer vision
-- Independent Witnessing and Stateful Verification (see Technical_Concepts.md)
+- Independent Witnessing and Stateful Verification (see docs/Technical_Concepts.md)
 
 ## License
 

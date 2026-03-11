@@ -168,32 +168,21 @@
 	        <div class="section">
 	            <h2>What Live Verify Does</h2>
 	            <p>
-	                For now, Live Verify is a proof-of-concept browser-based application that scans text within registration marks, computes a cryptographic hash,
-	                and verifies it against a certification server. The entire OCR and hashing process happens <strong>locally in your browser</strong>. Over time, the same
-	                multi-step flow could be embedded directly into iOS and Android camera apps.
+	                Live Verify uses native iOS and Android apps to scan text, compute a cryptographic hash,
+	                and verify it against a certification server. The entire OCR and hashing process happens <strong>on-device</strong>.
+	                A browser extension and email extension also support text-selection-based verification (no OCR needed).
 	            </p>
-	            <div class="warning">
-	                <strong>Future native camera apps:</strong> iOS and Android would likely use platform OCR and image processing rather than browser-based
-	                Tesseract/OpenCV. The steps stay the same (OCR → normalize → SHA‑256 → GET hash), but should be faster and more reliable—while keeping the same
-	                on-device privacy posture.
-	            </div>
 	        </div>
 
 	        <div class="section">
 	            <h2>Data Processing: 100% Local</h2>
-	            <p>In this demo / proof-of-concept, all sensitive operations occur entirely within your browser. When these same multi-step features land directly in iOS and Android camera apps, the privacy model should remain the same: on-device and private.</p>
+	            <p>All sensitive operations occur entirely on your device:</p>
 	            <ul>
-	                <li><strong>Camera access:</strong> Uses browser MediaStream API - you tap to take a picture, which is not saved to your photos and discarded soon after</li>
-	                <li><strong>OCR text extraction:</strong> Performed locally using <a href="https://github.com/tesseract-ocr" target="_blank">Tesseract OCR</a> (open source)</li>
-	                <li><strong>Image processing:</strong> <a href="https://opencv.org/" target="_blank">OpenCV</a> (open source) snips out a rectangle from a larger image - entirely in the browser</li>
-	                <li><strong>Text normalization:</strong> Character mapping happens in the browser page (JavaScript in the web page)</li>
-	                <li><strong>SHA-256 hashing:</strong> Computed locally using browser's built-in <a href="https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto" target="_blank">SubtleCrypto API</a></li>
+	                <li><strong>Camera access:</strong> Native camera APIs capture the document image, which is not saved to your photos and discarded soon after</li>
+	                <li><strong>OCR text extraction:</strong> Performed on-device using Apple Vision (iOS) or Google ML Kit (Android)</li>
+	                <li><strong>Text normalization:</strong> Character mapping happens on-device</li>
+	                <li><strong>SHA-256 hashing:</strong> Computed locally using platform cryptography APIs</li>
 	            </ul>
-	            <p>
-	                <strong>Future native camera apps:</strong> When this verification flow is embedded into iOS and Android camera apps, the underlying implementation will likely use
-	                platform OCR and image processing (not browser-based Tesseract/OpenCV). The steps stay the same (OCR → normalize → SHA‑256 → GET hash), but should be faster and
-	                more reliable—while keeping the same on-device privacy posture.
-	            </p>
 
 	            <div class="highlight">
 	                <strong>Summary:</strong> Your document images and extracted text never leave your device to complete verification. They are not uploaded to any cloud OCR service and are not transmitted to certification servers.
@@ -284,14 +273,8 @@
 	        <div class="section">
 	            <h2>Third-Party Resources</h2>
 	            <p>Live Verify loads the following libraries from CDNs to provide functionality:</p>
-	            <div class="warning">
-	                <strong>Future native camera apps:</strong> platform camera apps would use built-in OCR and vision stacks and would not need to load these browser libraries over the network
-	                at runtime.
-	            </div>
 	            <ul>
-	                <li><strong>Tesseract.js</strong> (cdn.jsdelivr.net) - OCR engine for text extraction</li>
-	                <li><strong>OpenCV.js</strong> (docs.opencv.org) - Computer vision for image processing</li>
-	                <li><strong>PSL (Public Suffix List)</strong> (unpkg.com) - Domain parsing for security</li>
+	                <li><strong>PSL (Public Suffix List)</strong> (unpkg.com) - Domain parsing for security (browser extension and web pages only)</li>
             </ul>
             <p>These libraries are loaded over HTTPS and execute entirely within your browser's JavaScript sandbox. They do not need to transmit your document images or extracted text anywhere to function. If you want to minimize third-party network dependencies and supply-chain trust, you can self-host these assets.</p>
         </div>
@@ -385,7 +368,7 @@
         </div>
 
         <div class="footer-links">
-            <a href="camera-app/">Back to Live Verify App</a> ·
+            <a href="index.html">Back to Live Verify</a> ·
             <a href="https://github.com/paul-hammant/live-verify" target="_blank">View on GitHub</a> ·
             <a href="training-pages/" target="_blank">Training Pages</a>
         </div>

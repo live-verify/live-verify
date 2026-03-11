@@ -40,12 +40,5 @@
       "link": "https://unseen-u.discworld/Guilds.html",
       "summary": "Student magical research data retained for 100 years or until the student achieves immortality, whichever comes first. Data may be shared with other magical institutions for peer review and spell verification, but deleted immediately after use. Dangerous experimental results shared with The Watch for public safety."
     }
-  ],
-  "tesseract": {
-    "lang": "eng",
-    "psm": 6,
-    "oem": 1,
-    "tessedit_char_whitelist": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0-9 .,-/:()\"'-",
-    "preserve_interword_spaces": "1"
-  }
+  ]
 }
