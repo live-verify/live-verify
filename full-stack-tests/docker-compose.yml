@@ -67,6 +67,9 @@ services:
           - gov.uk
           - ids.nypd.nyc.gov
           - ny.gov
+          - meridian-national.bank.us
+          - fdic.gov
+          - treasury.gov
 
 
 volumes:

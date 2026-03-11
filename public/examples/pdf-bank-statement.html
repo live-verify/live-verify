@@ -1,0 +1,343 @@
+<!--
+    Copyright (C) 2025, Paul Hammant
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Bank Statement - Live Verify Demo</title>
+    <script src='https://unpkg.com/psl@1.15.0/dist/psl.umd.cjs'></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .breadcrumbs {
+            font-size: 0.9em;
+            color: #475569;
+            margin-bottom: 18px;
+        }
+
+        .breadcrumbs a {
+            color: #475569;
+            text-decoration: none;
+        }
+
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumbs .sep {
+            margin: 0 8px;
+            opacity: 0.7;
+        }
+
+        h1 {
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border-left: 4px solid #5c6bc0;
+        }
+
+        .intro-box h2 {
+            color: #3949ab;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+
+        .intro-box p {
+            color: #37474f;
+            margin-bottom: 8px;
+        }
+
+        .intro-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .leap-of-faith {
+            background: #fff3e0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #ff9800;
+        }
+
+        .leap-of-faith h3 {
+            color: #e65100;
+            margin-bottom: 10px;
+        }
+
+        .leap-of-faith p {
+            color: #5d4037;
+        }
+
+        .pdf-wrapper {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .pdf-wrapper h3 {
+            color: #333;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        #pdf-container {
+            position: relative;
+            display: inline-block;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        #pdf-container .page {
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            margin: 0 auto;
+        }
+
+        #pdf-container canvas {
+            display: block;
+        }
+
+        /* Text layer: transparent text positioned over the canvas */
+        #pdf-container .textLayer {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            opacity: 0.25;
+            line-height: 1.0;
+        }
+
+        #pdf-container .textLayer > span {
+            color: transparent;
+            position: absolute;
+            white-space: pre;
+            transform-origin: 0% 0%;
+        }
+
+        /* When selecting text, make it visible */
+        #pdf-container .textLayer ::selection {
+            background: rgba(0, 100, 200, 0.3);
+        }
+
+        #loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .note {
+            background: #e8f5e9;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            color: #2e7d32;
+            font-size: 0.95rem;
+        }
+
+        .note strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        @media (max-width: 700px) {
+            #pdf-container canvas {
+                width: 100% !important;
+                height: auto !important;
+            }
+            #pdf-container .textLayer {
+                display: none; /* text selection impractical on tiny screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a><span class="sep">›</span><a href="index.html">Examples</a><span class="sep">›</span><span>PDF Bank Statement</span>
+        </nav>
+
+        <h1>PDF Bank Statement Verification</h1>
+        <p class="subtitle">Verifying a claim inside a PDF document via text selection</p>
+
+        <div class="intro-box">
+            <h2>What is this?</h2>
+            <p>This page renders a mock bank statement PDF using <strong>PDF.js</strong>. The PDF contains a <code>verify:</code> line at the bottom. You can <strong>select the text</strong> in the rendered PDF (including the verify line) and verify it — just as you would on any web page.</p>
+            <p>This demonstrates that <strong>PDF documents with verification lines</strong> can participate in the Live Verify ecosystem. A native PDF viewer (Preview, Evince, Adobe Reader) with text-selection verification built in would provide the same experience.</p>
+        </div>
+
+        <div class="leap-of-faith">
+            <h3>A small leap of faith</h3>
+            <p>Ideally we'd demonstrate this inside a native PDF viewer (Qt/GTK+/Cocoa) with built-in verification. Instead, we use PDF.js to render the PDF in-browser with a selectable text layer — the same text layer that native viewers provide. The browser extension's text-selection verification works identically on this rendered text. Take the leap: if it works here, it works in any viewer that exposes selectable text.</p>
+        </div>
+
+        <div class="pdf-wrapper">
+            <h3>Meridian National Bank — March 2025 Statement</h3>
+            <div id="loading">Loading PDF...</div>
+            <div id="pdf-container"></div>
+        </div>
+
+        <div class="note">
+            <strong>How to verify:</strong>
+            Select all the text in the rendered PDF above — from "Meridian National Bank" down through the <code>verify:</code> line — then right-click and choose "Verify this claim" (browser extension), or click the green Verify button (on-page verification).
+        </div>
+
+        <footer>
+            <p>Part of the <a href="https://live-verify.github.io/live-verify/">Live Verify</a> project</p>
+            <p style="margin-top: 5px;"><a href="https://github.com/paul-hammant/live-verify">Source</a></p>
+        </footer>
+    </div>
+
+    <!-- PDF.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@4.9.155/build/pdf.min.mjs" type="module"></script>
+
+    <script type="module">
+        import * as pdfjsLib from 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.9.155/build/pdf.min.mjs';
+
+        pdfjsLib.GlobalWorkerOptions.workerSrc =
+            'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.9.155/build/pdf.worker.min.mjs';
+
+        const container = document.getElementById('pdf-container');
+        const loading = document.getElementById('loading');
+
+        async function renderPDF() {
+            try {
+                const pdf = await pdfjsLib.getDocument('bank-statement.pdf').promise;
+                const page = await pdf.getPage(1);
+
+                const scale = 1.5;
+                const viewport = page.getViewport({ scale });
+
+                // Create page wrapper
+                const pageDiv = document.createElement('div');
+                pageDiv.className = 'page';
+                pageDiv.style.width = viewport.width + 'px';
+                pageDiv.style.height = viewport.height + 'px';
+
+                // Canvas for rendering
+                const canvas = document.createElement('canvas');
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+                pageDiv.appendChild(canvas);
+
+                // Render the page onto the canvas
+                const ctx = canvas.getContext('2d');
+                await page.render({ canvasContext: ctx, viewport }).promise;
+
+                // Text layer for selection
+                const textContent = await page.getTextContent();
+                const textLayerDiv = document.createElement('div');
+                textLayerDiv.className = 'textLayer';
+                textLayerDiv.style.width = viewport.width + 'px';
+                textLayerDiv.style.height = viewport.height + 'px';
+
+                // Position each text item
+                for (const item of textContent.items) {
+                    if (!item.str) continue;
+
+                    const span = document.createElement('span');
+                    span.textContent = item.str;
+
+                    const tx = pdfjsLib.Util.transform(viewport.transform, item.transform);
+
+                    const fontSize = Math.sqrt(tx[0] * tx[0] + tx[1] * tx[1]);
+                    const left = tx[4];
+                    const top = tx[5];
+
+                    span.style.left = left + 'px';
+                    span.style.top = (viewport.height - top) + 'px';
+                    span.style.fontSize = fontSize + 'px';
+                    span.style.fontFamily = item.fontName?.includes('Bold') ? 'Helvetica, sans-serif' : 'Helvetica, sans-serif';
+                    span.style.fontWeight = item.fontName?.includes('Bold') ? 'bold' : 'normal';
+
+                    if (item.width) {
+                        span.style.letterSpacing = '0px';
+                    }
+
+                    textLayerDiv.appendChild(span);
+                }
+
+                pageDiv.appendChild(textLayerDiv);
+                container.appendChild(pageDiv);
+                loading.style.display = 'none';
+
+            } catch (err) {
+                loading.textContent = 'Failed to load PDF: ' + err.message;
+                console.error('PDF render error:', err);
+            }
+        }
+
+        renderPDF();
+    </script>
+
+    <!-- Load verification dependencies for on-page verify button -->
+    <script src="../normalize.js"></script>
+    <script src="../app-logic.js"></script>
+    <script src="../domain-authority.js"></script>
+    <script src="../text-selection-verify.js"></script>
+</body>
+</html>

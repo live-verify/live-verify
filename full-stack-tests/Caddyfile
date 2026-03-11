@@ -88,3 +88,51 @@ ny.gov {
 		reverse_proxy tier1:8080
 	}
 }
+
+meridian-national.bank.us {
+	tls internal
+
+	# Verification metadata
+	handle /statements/verification-meta.json {
+		root * /srv/meta/meridian-national.bank.us
+		file_server
+	}
+
+	# Hash lookups → backend
+	handle /statements/* {
+		reverse_proxy tier1:8080
+	}
+
+	# Fixture pages (bank statement demo)
+	handle /demo/* {
+		root * /srv/fixtures
+		uri strip_prefix /demo
+		file_server
+	}
+}
+
+fdic.gov {
+	tls internal
+
+	handle /verified/verification-meta.json {
+		root * /srv/meta/fdic.gov
+		file_server
+	}
+
+	handle /verified/* {
+		reverse_proxy tier1:8080
+	}
+}
+
+treasury.gov {
+	tls internal
+
+	handle /v1/verification-meta.json {
+		root * /srv/meta/treasury.gov
+		file_server
+	}
+
+	handle /v1/* {
+		reverse_proxy tier1:8080
+	}
+}

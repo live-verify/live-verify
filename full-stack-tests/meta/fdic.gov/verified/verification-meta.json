@@ -1,0 +1,6 @@
+{
+  "issuer": "Federal Deposit Insurance Corporation",
+  "description": "FDIC verifier registry for insured institutions",
+  "claimType": "InstitutionAuthorization",
+  "authorizedBy": "treasury.gov/v1"
+}
