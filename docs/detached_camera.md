@@ -17,7 +17,7 @@ The detached camera acts as a remote lens for the **Live Verify** pipeline:
 - **The Sensor:** A high-resolution (4K preferred) wide-angle camera mounted at eye or chest level.
 - **The Angle:** Mounted at 45 degrees out or down to minimize glare from overhead lighting and optimize the "sweet spot" for badge presentation.
 - **The Link:**
-    *   **Wireless:** Low-latency Bluetooth (BLE) or local WiFi (WebRTC) feed to the smartphone.
+    *   **Wireless:** Low-latency Bluetooth (BLE) or local WiFi feed to the smartphone.
     *   **Wired:** USB-C or Lightning connection for maximum reliability and zero-latency in commercial/front-desk settings.
 - **Security & Standards:** While the hardware link is technical, the security of the connection is a platform-level concern. **Apple and Google** would be the entities to specify the protocols for how such cameras are securely "attached" or "paired" with smartphones to ensure the feed's integrity and prevent man-in-the-middle attacks.
 - **The Processor:** All OCR, normalization, and hashing still occur on the **user's smartphone**. The camera is a "dumb sensor," ensuring the bank/issuer domain never sees the raw video feed (privacy-preserving).
@@ -26,7 +26,7 @@ The detached camera acts as a remote lens for the **Live Verify** pipeline:
 
 1.  **Arrival:** A visitor arrives at the entryway and presents their credential (e.g., a **[Delivery Courier Badge](../public/use-cases/delivery-courier-verification.md)** or **[Police Officer ID](../public/use-cases/police-officer-verification.md)**) toward the wall-mounted camera.
 2.  **Feed Acquisition:** The smartphone app (Live Verify) automatically acquires the feed from the detached camera.
-3.  **Active Detection:** The app's computer vision logic (OpenCV.js) detects the registration marks on the credential within the remote feed.
+3.  **Active Detection:** The app's computer vision logic detects the registration marks on the credential within the remote feed.
 4.  **The "Verify" Moment:**
     *   The app performs OCR and normalization on the captured frame.
     *   The hash is computed and verified against the issuer's domain (e.g., `fedex.com` or `nypd.gov`).
@@ -61,4 +61,4 @@ In corporate lobbies, a detached camera can be built into the desk surface, angl
 
 ## 7. Technical Note on Latency
 
-For detached cameras, the **[Multi-Orientation OCR](../LLM.md#multi-orientation-ocr)** and **[High-Resolution Capture](../LLM.md#high-resolution-capture)** logic must be optimized for the transport link. Using WebRTC for wireless links ensures the "Verify" moment happens in < 2 seconds, maintaining the "Live" feel of the verification.
+For detached cameras, the OCR and capture logic must be optimized for the transport link. Low-latency wireless protocols ensure the "Verify" moment happens in < 2 seconds, maintaining the "Live" feel of the verification.

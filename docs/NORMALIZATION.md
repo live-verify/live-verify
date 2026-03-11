@@ -177,8 +177,8 @@ const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');  /
 
 The code is implemented in:
 - **Production** (public/normalize.js) - text normalization and hashing for the live webapp
-- **Production** (public/app-logic.js) - pure functions for URL extraction, text processing, canvas rotation, and verify: to https:// conversion
-- **Tests** (ocr-hash.test.js) - tests normalize.js (40 tests, including leading/trailing pipe removal)
-- **Tests** (app-logic.test.js) - tests app-logic.js (38 tests, including buildVerificationUrl)
+- **Production** (public/app-logic.js) - pure functions for URL extraction, text processing, and verify: to https:// conversion
+- **Tests** (__tests__/ocr-hash.test.js) - tests normalize.js
+- **Tests** (__tests__/app-logic.test.js) - tests app-logic.js
 
 All tests validate the production browser code to ensure correctness.

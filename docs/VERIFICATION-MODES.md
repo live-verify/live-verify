@@ -27,11 +27,11 @@ These capabilities are designed to be built into the native fabric of digital li
 
 ---
 
-## Mode 1: Camera-Based Document Verification (POC Implemented)
+## Mode 1: Camera-Based Document Verification (Implemented)
 
 **Physical documents with printed verification lines**
 
-*Future: iOS/Android camera apps get this built-in natively.*
+*Native iOS app (Apple Vision) and Android app (Google ML Kit) implement this mode.*
 
 ### How It Works
 
@@ -300,7 +300,7 @@ Similar to Mode 2, but the source is an image (screenshot, photo, PNG) rather th
 **Key Difference from Mode 1:**
 - No registration marks needed
 - User manually selects text from image (not automatic boundary detection)
-- Simpler than document mode (no OpenCV geometry)
+- Simpler than document mode (no computer vision geometry)
 - Useful for: WhatsApp screenshots, social media post screenshots, receipts without registration marks
 
 **Use Cases:**
@@ -635,9 +635,8 @@ All modes share:
 ## Implementation Roadmap
 
 ### Phase 1: Foundation ✅
-- **Mode 1:** Camera-based document verification (POC complete)
-- **Mode 2:** Web text selection verification (POC complete)
-- Both demonstrate capabilities for future native platform integration
+- **Mode 1:** Camera-based document verification (native iOS and Android apps)
+- **Mode 2:** Web text selection verification (browser extension, Thunderbird extension)
 
 ### Phase 2: Image-Based Verification 📋
 - **Mode 2b:** In-photo text selection

@@ -6,7 +6,7 @@ Most Live Verify use cases follow a familiar pattern: issuer → regulator → g
 
 But government is not the only source of trust. Many valuable attestations have no regulator in the chain and no government at the end. The trust comes from somewhere else: from commercial reputation, from bilateral relationships, from the accumulated weight of multiple independent attestations pointing at the same claim.
 
-These are the patterns that a SaaS verification provider (see [SAAS-VERIFICATION-PROVIDERS.md](SAAS-VERIFICATION-PROVIDERS.md)) enables at near-zero cost. The backend is small (see `backend/`). The barrier to entry is a domain and a subscription.
+These are the patterns that a SaaS verification provider (see [SAAS-VERIFICATION-PROVIDERS.md](SAAS-VERIFICATION-PROVIDERS.md)) enables at near-zero cost. The backend is small (see [`backend/`](../backend/)). The barrier to entry is a domain and a subscription.
 
 ## The Four Non-Sovereign Patterns
 

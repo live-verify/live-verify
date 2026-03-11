@@ -128,7 +128,7 @@ These files use a simpler pattern with `<br>` tags that should be more OCR-frien
 - `adoption-custody-orders.md`
 - `501c3-status-documentation.md`
 
-## Statistics
+## Statistics (as of initial audit — counts may have changed as use cases were added)
 
 | Pattern | File Count | OCR Risk |
 |---------|------------|----------|

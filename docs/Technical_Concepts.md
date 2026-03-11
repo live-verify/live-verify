@@ -39,7 +39,7 @@ This document explains technical concepts referenced across multiple use case do
 ```
 
 **How they work:**
-1. **OpenCV.js** detects contours (outlines of shapes)
+1. **Computer vision** detects contours (outlines of shapes)
 2. Finds the largest quadrilateral (4-sided polygon)
 3. Extracts the region inside this quadrilateral
 4. Sends extracted region to on-device OCR (Apple Vision on iOS, Google ML Kit on Android)
@@ -52,7 +52,7 @@ This document explains technical concepts referenced across multiple use case do
 **Standard implementation:**
 - **Border width:** 3px solid black (CSS: `border: 3px solid black;`)
 - **Variance testing:** Some training pages use 10px borders to test robustness
-- **Detection algorithm:** OpenCV `findContours()` with area thresholding
+- **Detection algorithm:** Contour detection with area thresholding (e.g., OpenCV `findContours()`)
 
 **Alternative approaches:**
 - **Corner marks only** - ┌ └ ┐ ┘ instead of full border (saves ink)

@@ -421,4 +421,4 @@ This multi-representation approach works for **any credential that appears in di
 
 **Bottom line:** You can have beautiful ornate certificates AND practical OCR verification. The credential is the **fact** (Jane has a degree), not the **format** (ornate vs plain vs ultra-brief). Any number of representations can cryptographically verify the same underlying truth.
 
-For implementation details, see [Educational_Degrees.md](deep-dives/Educational_Degrees.md) which focuses on the CV medium-form approach.
+For implementation details, see [Educational_Degrees.md](../deep-dives/Educational_Degrees.md) which focuses on the CV medium-form approach.
