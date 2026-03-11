@@ -1,4 +1,5 @@
 {
+  "schemaVersion": 1,
   "issuer": "Paul Hammant (Live Verify Demo)",
   "authorityBasis": "Accredited degree-granting institution (Unseen University, Ankh-Morpork)",
   "claimType": "Academic certification from Unseen University",

@@ -363,6 +363,7 @@ Issuers can optionally provide document-specific normalization rules and OCR opt
 ```json
 {
   "description": "Example verification-meta.json for hotel receipts with Swiss Franc formatting",
+  "hashSuffix": ".json",
   "charNormalization": "éèêë→e àáâä→a ìíîï→i òóôö→o ùúûü→u ñ→n ç→c",
   "ocrNormalizationRules": [
     {
@@ -380,6 +381,8 @@ Issuers can optionally provide document-specific normalization rules and OCR opt
   }
 }
 ```
+
+**Optional: `hashSuffix`** — Specifies what to append to the hash when building the lookup URL. If omitted, the app requests the bare hash path (e.g., `https://example.com/c/{hash}`). GitHub Pages users typically use `{hash}/index.html` directories, which GitHub serves at the bare path via 302 — so no `hashSuffix` is needed. Issuers on other infrastructure can set `"hashSuffix": ".json"` to produce `https://example.com/c/{hash}.json`, or any other suffix appropriate to their server configuration.
 
 If the app finds this file at `https://example.com/c/verification-meta.json`, it applies the rules in this order:
 

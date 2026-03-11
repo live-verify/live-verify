@@ -38,6 +38,19 @@ The verifier app parses the JSON and checks: `json.status === "verified"` → sh
 |-------|------|-------------|
 | `status` | string | **Required.** The verification result. See [Status Codes](#status-codes). |
 
+### Schema Versioning
+
+Both `verification-meta.json` and verify response payloads include a `schemaVersion` field to support safe evolution over time:
+
+```json
+{
+  "schemaVersion": 1,
+  "status": "verified"
+}
+```
+
+Clients should ignore unknown fields (forward compatibility) and use `schemaVersion` to handle breaking changes. The current schema version is **1**. The field is optional for now — its absence implies version 1 — but new deployments should include it.
+
 ### Actionable Context (Not Content Echo)
 
 Some scenarios benefit from **actionable context**—information the verifier needs but doesn't have from the document itself:
@@ -60,7 +73,7 @@ If returning a `photo_url`, it should:
 ```json
 {
   "status": "verified",
-  "photo_url": "/photos/{hash}}.jpg"
+  "photo_url": "/photos/{hash}.jpg"
 }
 ```
 
@@ -93,6 +106,23 @@ This prevents:
 - **Stale photo caching** — Revoked credentials don't leave cached photos behind
 - **Dynamic photo serving** — if the e-ink ID for the holder has a salt that is changing on some basis, then the photos with the same hash appear/disappear on the same basis (or last only seconds longer)
 - **Roster building** — Can't scrape all employee photos by guessing URLs
+
+### Screen Capture Prevention
+
+Photos returned by verification endpoints are sensitive — they exist for momentary visual comparison ("does this person match this photo?"), not for collection or redistribution. All clients should treat photos as screen-capture-protected by default.
+
+| Client | Capability | Mechanism |
+|--------|-----------|-----------|
+| **iOS app** | Can block | `UIScreen.isCaptured` / secure content API — OS blanks the view in screenshots and screen recordings |
+| **Android app** | Can block | `FLAG_SECURE` on the window — OS prevents screenshots and excludes the window from screen recording |
+| **Browser extension** | Cannot block (today) | Best effort: show photo briefly, remove from DOM after display, never persist to local storage |
+| **Web component** | Cannot block (today) | Same best-effort approach as browser extension |
+
+This is not a protocol concern — the response format doesn't need a field signalling screenshot policy. Every client treats every photo as sensitive. The limitation is the OS/browser sandbox, not the spec.
+
+Browser-based clients are the gap. Neither macOS, Windows, nor Linux currently expose screen-capture-suppression APIs to browser extensions or web content. As OS vendors extend content protection capabilities (Apple and Microsoft are both moving in this direction for DRM and enterprise data protection), browser-based verifiers will gain parity with native apps. When that happens, clients adopt the new OS APIs — the protocol doesn't change.
+
+A determined person can always photograph their screen with another device. The goal is to make casual capture and bulk scraping difficult, not to achieve absolute prevention.
 
 **Example: Delivery Worker (actionable context)**
 ```json
@@ -739,14 +769,18 @@ Success localization is handled by the client — `"verified"` is a machine-read
 
 ## CORS and Security
 
-Verification endpoints should enable open CORS:
+Verification endpoints **must** serve open CORS headers on all GET and OPTIONS responses:
 
 ```
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Methods: GET, OPTIONS
 ```
 
-### Why Open CORS Is Recommended
+This is a **specification requirement**. Without these headers, browser-based verifiers — including the `<verified-cv>` web component and any web-hosted verification tool — silently fail on cross-origin requests. An endpoint without CORS headers is a broken endpoint.
+
+CORS `*` does not weaken server-side defenses. Rate limiting (per-IP, per-ASN), WAF/Cloudflare, geographic restrictions, and throttling all operate independently of the CORS header. The header means "browsers are allowed to read the response" — nothing more.
+
+### Why Open CORS Is Required
 
 **Not all clients need CORS:**
 
@@ -776,6 +810,26 @@ Could an attacker brute-force hashes via browser? Theoretically, but:
 - Rate limiting (see below) blocks automated enumeration
 - The attacker gains nothing without knowing what document a hash represents
 
+### Static Hosting CORS Defaults
+
+Not all static hosts serve CORS headers by default:
+
+| Host | CORS by default? | Configuration needed |
+|------|-------------------|---------------------|
+| **GitHub Pages** | Yes | None — serves `Access-Control-Allow-Origin: *` on all responses |
+| **Netlify** | No | Add a `_headers` file with `Access-Control-Allow-Origin: *` or configure in `netlify.toml` |
+| **Cloudflare Pages** | No | Add a `_headers` file |
+| **Vercel** | No | Add a `vercel.json` with headers config |
+
+For Netlify, the simplest fix is a `_headers` file in the site root:
+
+```
+/*
+  Access-Control-Allow-Origin: *
+```
+
+One line of config. But issuers who skip it will have broken endpoints for browser-based verifiers.
+
 ### When Issuers Might Restrict CORS
 
 Some issuers may have legitimate reasons to limit which apps can verify:
@@ -786,9 +840,9 @@ Some issuers may have legitimate reasons to limit which apps can verify:
 
 This is an issuer choice. However, restricting CORS reduces the public good value of verification—a document that can only be verified by one app is less trustworthy than one anyone can verify.
 
-### Recommendation
+### Requirement
 
-Enable open CORS unless you have a specific reason not to. The hash already gates access; CORS restrictions add friction without adding security.
+Open CORS is the specification default. Issuers who restrict it are opting out of browser-based verification — their endpoints will only work with native apps, browser extensions, and server-side proxies. This reduces the public good value of verification and is strongly discouraged.
 
 ## Caching
 
@@ -801,6 +855,66 @@ Cache-Control: no-cache, must-revalidate
 For rotating-salt credentials (e-ink badges), responses are inherently non-cacheable as the salt changes frequently.
 
 For static credentials, short caching (e.g., 60 seconds) may be acceptable but risks serving stale revocation status.
+
+## Consolidated Field Reference
+
+Every field that may appear in a verification response body (JSON) or HTTP headers, in one table.
+
+### JSON Body Fields
+
+| Field | Type | Required | Pattern | Description |
+|-------|------|----------|---------|-------------|
+| `schemaVersion` | integer | No (implies 1) | All | Schema version for forward compatibility |
+| `status` | string | **Yes** | All | Verification result: `verified`, `revoked`, `expired`, `suspended`, `superseded`, or domain-specific |
+| `message` | string | No | All | Human-readable explanation — guidance on success, reason on failure |
+| `photo_url` | string (URL) | No | Identity credentials | Photo for visual confirmation; relative or absolute URL; hash-based filenames, no-cache headers |
+| `current_destination` | string | No | Delivery workers | Dynamic location the worker should be at — verifier compares to their own address |
+| `follow_up_url` | string (URL) | No | Accountability (Pattern 1) | URL for verifier to optionally record the interaction |
+| `follow_up_prompt` | string | No | Accountability (Pattern 1) | Human-readable prompt explaining what the follow-up form is for |
+| `verification_id` | string | No | Accountability (Pattern 2) | Unique ID for the verification event — creates mutual accountability |
+| `complaint_url` | string (URL) | No | Accountability (Pattern 2) | One-click complaint path pre-filled with verification ID |
+| `more_info` | string (URL) | No | Registry link (Pattern 3) | Link to existing public registry profile (bar association, licensing board) |
+| `error` | string | No | Error responses | Machine-readable error code (`MALFORMED_HASH`, `RATE_LIMITED`, `ISSUER_UNAVAILABLE`) |
+| `retry_after` | integer | No | 429 responses | Seconds to wait before retrying |
+
+### HTTP Response Headers
+
+| Header | Required | Pattern | Description |
+|--------|----------|---------|-------------|
+| `Access-Control-Allow-Origin: *` | **Yes** | All | CORS — specification requirement for browser-based verifiers |
+| `Access-Control-Allow-Methods: GET, OPTIONS` | **Yes** | All | CORS methods |
+| `X-Verify-Authority-For` | No | Authority chain | Claim type the issuer is authorized to make |
+| `X-Verify-Authority-Attested-By` | No | Authority chain | URL of higher authority's verification endpoint |
+| `X-Verify-Authority-Scope` | No | Authority chain | Specific capacity in which the issuer is recognized |
+| `X-Verify-Retain-Until` | No | Retention (Pattern 4) | ISO 8601 datetime — how long the recipient should preserve the result |
+| `X-Verify-Retain-Reason` | No | Retention (Pattern 4) | Machine-readable reason code (`service-of-process`, `loan-disclosure`, `informed-consent`) |
+| `X-Verify-Retain-Reason-Further-Details` | No | Retention (Pattern 4) | URL to human-readable explanation of why retention is requested |
+| `X-Verify-Case-Ref` | No | Retention (Pattern 4) | Reference identifier linking to the underlying legal/business matter |
+| `Cache-Control` | No | All | Caching guidance; `no-cache, must-revalidate` for most use cases |
+
+### `verification-meta.json` Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `schemaVersion` | integer | No (implies 1) | Schema version for forward compatibility |
+| `issuer` | string | No | Human-readable issuer name (legacy; prefer `formalName`) |
+| `formalName` | string | No | Official legal name — shown on hover/tap in authority chain display |
+| `description` | string | No | What this domain does — shown inline in authority chain display and CV rendering |
+| `descriptions` | object | No | Per-path descriptions: `{"/refs/": "Select peer references"}` — most specific prefix wins |
+| `logo` | string (URL) | No | Issuer's logo for rendered display |
+| `url` | string (URL) | No | Issuer's website (for personal domains, peer references) |
+| `industry` | string | No | Issuer's industry sector |
+| `claimType` | string | No | Type of claims this endpoint verifies |
+| `authorityBasis` | string | No | Statute, license, or accreditation underpinning the issuer's authority |
+| `authorizedBy` | string (base URL) | No | Endorsing authority — verifiable via the `verify:` protocol (merkle-committed) |
+| `authorizedFrom` | string (date) | No | Start of endorsement validity period |
+| `authorizedTo` | string (date) | No | End of endorsement validity period |
+| `parentAuthorities` | array of URLs | No | Passive links for human browsing (Wikipedia, accreditor website) |
+| `responseTypes` | object | No | Maps status strings to `{class, text, link}` for client display |
+| `retentionLaws` | array of objects | No | Jurisdiction-specific data retention rules: `{jurisdiction, law, link, summary}` |
+| `tesseract` | object | No | OCR configuration hints for camera-based verification apps |
+| `delegateTo` | string (base URL) | No | SaaS provider handling verification on behalf of this domain |
+| `successor` | string (base URL) | No | Replacement endorser when current endorsement is sunsetting |
 
 ## Best Practices
 

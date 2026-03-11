@@ -298,6 +298,31 @@ Not typically required for Wi-Fi credential postings. The credentials are epheme
 
 However, for **corporate visitor networks** subject to compliance requirements (financial services, healthcare), the witnessing firm could attest that credential rotation occurred on schedule and that the walled garden was enforced — providing evidence for regulatory audits of network security practices.
 
+## Implementation Reality
+
+This use case describes a future direction. None of it works today.
+
+**What you can do now:** pin a sheet of paper on the wall with an SSID, password, and `verify:` line. A customer with mobile data (4G/5G) can scan it and verify the credentials against the venue's domain. That's useful — it confirms the credentials came from the venue, not an attacker. But the phone simply displays "verified" and the customer still types the password manually. No Wi-Fi device registration happens. No walled garden opens. No token is exchanged.
+
+**What doesn't work now:**
+
+- **No network, no verification.** A customer who is offline (no mobile data, no existing Wi-Fi) cannot reach the `verify:` endpoint at all. The phone apps would fail on the GET. This is the chicken-and-egg problem: you need a network to verify credentials for a network you don't yet have. Mobile data is the escape hatch for phones, but laptops without a cellular connection are stuck.
+
+- **No access point supports the token exchange.** The walled garden flow — verify, receive token, present token to AP, garden opens — requires access point firmware that does not exist in any consumer or enterprise product today. Router manufacturers (TP-Link, Netgear, Ubiquiti), enterprise AP vendors (Cisco Meraki, Aruba), and captive portal providers would need to build this integration. It's a firmware and/or captive portal standards problem.
+
+- **No OS-level scan-and-connect.** The "scan the sticker and auto-fill Wi-Fi credentials" flow for router setup requires OS support from Apple (iOS) and Google (Android) to parse a verification response and populate the Wi-Fi settings screen. Neither supports this today. Both have QR-code-to-Wi-Fi flows, but not verification-gated ones.
+
+**Who would need to move:**
+
+| Party | What they'd build |
+|-------|-------------------|
+| **Apple / Google** | OS-level support for scan-verify-connect flow; Wi-Fi credential auto-fill from verification response |
+| **Router manufacturers** | Firmware support for token-gated walled gardens; `verify:` lines on factory stickers |
+| **Enterprise AP vendors** | Captive portal integration with Live Verify token exchange |
+| **Captive portal providers** | Integration with Live Verify endpoints as an authentication method |
+
+The protocol is ready. The infrastructure is not. This use case is a design for where Wi-Fi authentication should go, not a description of what's available today.
+
 ## Further Derivations
 
 1. **Conference badge Wi-Fi credentials.** The back of a conference name badge includes the event Wi-Fi credentials with a `verify:` line against the organiser's domain. Every attendee gets verified credentials in their hand. An attacker running a rogue "ConfName-WiFi" hotspot is defeated because their SSID won't match the hash published by the event organiser. The badge credentials can rotate mid-conference (day 1 vs day 2 passwords) with an EXPIRED response pointing to the current ones.
