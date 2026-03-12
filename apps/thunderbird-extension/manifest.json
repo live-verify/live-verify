@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Verify claims in emails against issuer endpoints using SHA-256 hashing",
   "author": "Paul Hammant",
-  "homepage_url": "https://github.com/paul-hammant/live-verify",
+  "homepage_url": "https://github.com/live-verify/live-verify",
   "browser_specific_settings": {
     "gecko": {
       "id": "liveverify@live-verify.github.io",

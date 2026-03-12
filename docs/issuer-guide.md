@@ -94,7 +94,7 @@ The `parentAuthorities` field establishes a chain of trust through simple URL li
 - **Food safety cert** → Health department's licensed facilities page
 - **Product certification** → Standards body's certified labs directory
 
-Example for a university: See [public/c/verification-meta.json](https://github.com/paul-hammant/live-verify/blob/main/public/c/verification-meta.json)
+Example for a university: See [public/c/verification-meta.json](https://github.com/live-verify/live-verify/blob/main/public/c/verification-meta.json)
 
 ## Retention Laws and Legal Implications
 

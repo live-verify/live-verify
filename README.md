@@ -2,7 +2,7 @@
 
 **Verify digital and printed claims**
 
-![Jest and Playwright tests, then deploy to GitHub Pages](https://github.com/paul-hammant/live-verify/actions/workflows/deploy.yml/badge.svg)
+![Jest and Playwright tests, then deploy to GitHub Pages](https://github.com/live-verify/live-verify/actions/workflows/deploy.yml/badge.svg)
 ![License](https://img.shields.io/badge/license-Apache--2.0-blue)
 
 **Issuer-attested verification of on-screen and printed claims.** Select text on screen or scan it on paper — both produce instant cryptographic verification.
