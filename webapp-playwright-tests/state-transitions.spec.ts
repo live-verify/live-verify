@@ -87,19 +87,17 @@ test.describe('State Machine Transitions', () => {
         await expect(page.locator('#captureBtn')).toBeVisible();
         await expect(page.locator('#retakeBtn')).not.toBeVisible();
 
-        // Transition: Simulate capture button click (hide capture, show progress)
+        // Transition: Simulate capture button click (hide capture during processing)
         await page.evaluate(() => {
             const captureBtn = document.getElementById('captureBtn') as HTMLElement;
-            const progressBar = document.getElementById('progressBar') as HTMLElement;
 
             // State transition from capture click handler
             captureBtn.style.display = 'none';
-            progressBar.style.display = 'block';
         });
 
-        // Target state: Capturing (button hidden, progress shown)
+        // Target state: Capturing (button hidden while processing runs)
         await expect(page.locator('#captureBtn')).not.toBeVisible();
-        await expect(page.locator('#progressBar')).toBeVisible();
+        await expect(page.locator('#retakeBtn')).not.toBeVisible();
     });
 
     test('Processing → Error: Detection failure shows Retake button (bug fix)', async ({ page }) => {
