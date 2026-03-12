@@ -94,6 +94,16 @@ pdf.ln(16)
 pdf.set_font("Courier", "", 9)
 pdf.cell(0, 6, "verify:meridian-national.bank.us/statements", new_x="LMARGIN", new_y="NEXT", align="C")
 
+# Bank footer
+pdf.ln(20)
+pdf.set_draw_color(180, 180, 180)
+pdf.line(10, pdf.get_y(), 200, pdf.get_y())
+pdf.ln(4)
+pdf.set_font("Helvetica", "", 7)
+pdf.set_text_color(160, 160, 160)
+pdf.cell(0, 4, "Meridian National Bank  |  Member FDIC  |  Equal Housing Lender  |  NMLS #48217", new_x="LMARGIN", new_y="NEXT", align="C")
+pdf.cell(0, 4, "P.O. Box 7700, Meridian, ID 83680  |  1-800-555-0199  |  meridian-national.bank.us", new_x="LMARGIN", new_y="NEXT", align="C")
+
 import shutil
 
 output_path = "public/examples/bank-statement.pdf"
