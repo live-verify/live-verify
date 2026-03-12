@@ -93,6 +93,18 @@ pdf.set_font("Courier", "", 9)
 pdf.cell(0, 6, "verify:ofsi.hm-treasury.gov.uk/licences",
          new_x="LMARGIN", new_y="NEXT", align="C")
 
+# Official footer (also ensures verify line is fully selectable in Chrome)
+pdf.ln(20)
+pdf.set_draw_color(180, 180, 180)
+pdf.line(10, pdf.get_y(), 200, pdf.get_y())
+pdf.ln(4)
+pdf.set_font("Helvetica", "", 7)
+pdf.set_text_color(160, 160, 160)
+pdf.cell(0, 4, "HM Treasury  |  Office of Financial Sanctions Implementation  |  ofsi@hmtreasury.gov.uk",
+         new_x="LMARGIN", new_y="NEXT", align="C")
+pdf.cell(0, 4, "1 Horse Guards Road, London SW1A 2HQ  |  gov.uk/ofsi",
+         new_x="LMARGIN", new_y="NEXT", align="C")
+
 output_path = "public/examples/ofsi-licence.pdf"
 pdf.output(output_path)
 print(f"Generated: {output_path}")
