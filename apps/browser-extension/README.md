@@ -90,6 +90,22 @@ browser-extension/
 └── icons/               # Extension icons
 ```
 
+## Result Display Mode
+
+Results can be shown as an **in-page banner** (injected into the DOM) or as an **OS notification** (via Chrome's notification API). The banner is the default.
+
+The distinction matters: page JavaScript could fake a banner, but cannot create OS notifications — only the extension can. This is why the banner includes the disclaimer "screencaps of this are not proof of anything".
+
+Switch to notification:
+```bash
+sed -i "s/const RESULT_DISPLAY = 'banner'/const RESULT_DISPLAY = 'notification'/" apps/browser-extension/background.js
+```
+
+Switch to banner:
+```bash
+sed -i "s/const RESULT_DISPLAY = 'notification'/const RESULT_DISPLAY = 'banner'/" apps/browser-extension/background.js
+```
+
 ## Browser Compatibility
 
 | Browser | Status |

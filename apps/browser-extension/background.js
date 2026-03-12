@@ -34,12 +34,13 @@ import {
     checkAuthorization
 } from './shared/verify.js';
 import { extractDomainAuthority } from './shared/domain-authority.js';
+import { buildNotificationMessage } from './shared/notification-message.js';
 
 console.log('[LiveVerify] Service worker started');
 
 // Hard-coded switch: 'banner' shows an in-page slide-down banner,
 // 'notification' uses OS-level system notifications (can be silently suppressed)
-const RESULT_DISPLAY = 'banner'; // 'banner' or 'notification'
+const RESULT_DISPLAY = 'notification'; // 'banner' or 'notification'
 
 // Default settings
 const DEFAULT_SETTINGS = {
@@ -290,19 +291,12 @@ async function showResult(result, tab) {
 
         if (settings.intrusiveness === 'minimal') return;
 
-        let message;
-        if (result.success) {
-            message = `Verified by ${result.domain}`;
-        } else if (result.error) {
-            message = result.error;
-        } else {
-            message = `${result.status} (${result.domain})`;
-        }
+        const { title, message } = buildNotificationMessage(result);
 
         const notificationOptions = {
             type: 'basic',
             iconUrl: result.success ? 'icons/icon-verified-128.png' : 'icons/icon-failed-128.png',
-            title: result.success ? 'Verified' : 'Not Verified',
+            title,
             message,
             priority: 2
         };
@@ -376,7 +370,9 @@ function showResultBanner(result) {
 
     // Build authorization HTML
     let authorizationHtml = '';
-    if (result.authorization && result.authorization.authorizer) {
+    if (isVerified && !result.authorization) {
+        authorizationHtml = '<div style="font-size: 12px; color: #ffb74d; margin-top: 2px;">Self-verified (no authority chain)</div>';
+    } else if (result.authorization && result.authorization.authorizer) {
         const a = result.authorization;
         const authorizerBold = `<strong>${a.authorizer}</strong>`;
         let aColor, aText;

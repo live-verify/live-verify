@@ -182,7 +182,13 @@ function renderResultCard(result) {
     }
 
     // Show authorization status if available
-    if (result.authorization && result.authorization.authorizer) {
+    if (result.success && !result.authorization) {
+        html += `
+            <div class="authorization-row authorization-self">
+                Self-verified (no authority chain)
+            </div>
+        `;
+    } else if (result.authorization && result.authorization.authorizer) {
         const a = result.authorization;
         let authClass, authHtml;
         if (a.expired) {
