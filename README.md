@@ -15,15 +15,16 @@ Anyone can verify any document presented to them — no special equipment, no cr
 
 **All processing happens on your device. No exceptions.**
 
-| Step | What happens | Where |
-|------|-------------|-------|
-| Text captured | Selected (Clip) or OCR'd from camera (Camera) | On device |
-| Normalized | Whitespace, Unicode, issuer-specific rules | On device |
-| Hashed | SHA-256 computed | On device |
-| Verified | Only the hash sent via HTTPS GET | Network |
-| **PII transmitted** | **None. Ever.** | — |
+| Step                           | What happens                                  | Where     |
+|--------------------------------|-----------------------------------------------|-----------|
+| Text captured                  | Selected (Clip) or OCR'd from camera (Camera) | On device |
+| Normalized                     | Whitespace, Unicode, issuer-specific rules    | On device |
+| Hashed                         | SHA-256 computed                              | On device |
+| Verified                       | Only the hash sent via HTTPS GET              | Network   |
+| Hash reversed to original text | Mathematically impossible                     | —         |
+| **PII transmitted**            | **None. Ever.**                               | —         |
 
-This is architecturally non-negotiable. Cloud OCR services see your degree certificates, medical licenses, salary receipts, and passport photos. Live Verify never does. The verification endpoint receives a hash — a one-way fingerprint that reveals nothing about the document.
+This is architecturally non-negotiable. Cloud OCR services see your degree certificates, medical licenses, salary receipts, and passport photos. Live Verify never does. The verification endpoint receives a hash — a one-way fingerprint that reveals nothing about the document. There are tens of thousands of PhDs with deep cryptographic competency who could be expert witnesses if needed in a court case to defend the one way nature of hashing.
 
 On-device AI (Apple Vision, ML Kit, NPUs) continues to improve OCR accuracy without changing the privacy model. See [docs/ocr-limitations.md](docs/ocr-limitations.md) for the trajectory.
 
@@ -31,9 +32,9 @@ On-device AI (Apple Vision, ML Kit, NPUs) continues to improve OCR accuracy with
 
 The `verify:` line in a document signals that verification is available. The pipeline: **text → normalize → hash → HTTP GET**.
 
-**Example (Clip mode):** An HR manager receives a CV claiming "MSc Computer Science, Edinburgh University" with a `verify:degrees.ed.ac.uk/c` line. They select the text, right-click "Verify this claim," and see "VERIFIED by degrees.ed.ac.uk" — instant confirmation without calling the university.
+**Example (Clip mode):** An HR manager receives a CV claiming "MSc Computer Science, Edinburgh University, Sarah Chen, 2024" with a `verify:degrees.ed.ac.uk/c` line. They select the text, right-click "Verify this claim," and see "VERIFIED by degrees.ed.ac.uk" — instant confirmation without calling the university. That was clip -> normalize -> hash -> verification (or not)
 
-**Example (Camera mode):** A colleague pays for lunch, scans the receipt with their phone. The receipt's `verify:` line triggers on-device OCR → hash → verification. The restaurant confirms: "Yes, this receipt is authentic."
+**Example (Camera mode):** A colleague pays for lunch, scans the receipt with their phone. The receipt's `verify:` line triggers on-device OCR → normalize -> hash → verification (or not). The restaurant systems confirm: "Yes, this receipt is authentic." which might be important to a expenses system, later.
 
 ![](https://live-verify.github.io/live-verify/screenshots/hotel-receipt-scheidegg.png)
 
@@ -45,12 +46,12 @@ Unlike QR codes, Live Verify binds the **visible text itself** to the verificati
 
 Live Verify works today as a browser extension and mobile app. It is designed to become a **platform primitive** — recognized natively by operating systems, browsers, email clients, and document viewers.
 
-| Platform | Integration Point | What they already ship |
-|----------|-------------------|----------------------|
-| **Apple** | Live Text recognizes `verify:` in rendered text and images | Vision framework, Live Text, Apple Intelligence |
-| **Google** | Lens offers "Verify this document" action | ML Kit, Google Lens, Gmail smart chips |
-| **Microsoft** | Edge, Outlook, and Word detect `verify:` lines | Microsoft Lens, Windows OCR API, Copilot |
-| **Adobe** | Acrobat Reader shows verification panel alongside digital signatures | Acrobat, Adobe Scan, Document Cloud |
+| Platform      | Integration Point                                                    | What they already ship                          |
+|---------------|----------------------------------------------------------------------|-------------------------------------------------|
+| **Apple**     | Live Text recognizes `verify:` in rendered text and images           | Vision framework, Live Text, Apple Intelligence |
+| **Google**    | Lens offers "Verify this document" action                            | ML Kit, Google Lens, Gmail smart chips, Chome   |
+| **Microsoft** | Edge, Outlook, and Word detect `verify:` lines                       | Microsoft Lens, Windows OCR API, Copilot        |
+| **Adobe**     | Acrobat Reader shows verification panel alongside digital signatures | Acrobat, Adobe Scan, Document Cloud             |
 
 The integration is architecturally simple: detect the `verify:` pattern in text the platform already extracts, compute SHA-256 (already available in every platform's crypto library), and make one HTTPS GET. No SDK, no API key, no partnership required.
 
@@ -60,13 +61,15 @@ See [docs/platform_integration.md](docs/platform_integration.md) for vendor-spec
 
 ## Reference Implementations
 
-| Tool | Mode | Status | Source |
-|------|------|--------|--------|
-| **Browser extension** (Chrome, Edge, Firefox) | Clip | Reference implementation | [`apps/browser-extension/`](apps/browser-extension/) |
-| **iOS app** | Camera | Reference implementation | [`apps/ios/LiveVerify/`](apps/ios/LiveVerify/) |
-| **Android app** | Camera | Reference implementation | [`apps/android/`](apps/android/) |
-| **Thunderbird extension** | Clip (email) | Reference implementation | [`apps/thunderbird/`](apps/thunderbird/) |
-| **Examples page** | Clip (in-page) | Live demo | [Try it](https://live-verify.github.io/live-verify/examples/) |
+| Tool                                         | Mode           | Status                   | Source                                                        |
+|----------------------------------------------|----------------|--------------------------|---------------------------------------------------------------|
+| **Browser extension** (Chrome, Edge, Firefox) | Clip           | Reference implementation | [`apps/browser-extension/`](apps/browser-extension/)          |
+| **iOS app**                                  | Camera         | Reference implementation | [`apps/ios/LiveVerify/`](apps/ios/LiveVerify/)                |
+| **Android app**                              | Camera         | Reference implementation | [`apps/android/`](apps/android/)                              |
+| **Thunderbird extension**                    | Clip (email)   | Reference implementation | [`apps/thunderbird/`](apps/thunderbird/)                      |
+| **Examples page**                            | Clip (in-page) | Live demo                | [Try it](https://live-verify.github.io/live-verify/examples/) |
+
+iOS and Android reference apps get deleted when Apple and Google take over development (and agree on a standard).
 
 ## Use Cases
 
@@ -100,9 +103,13 @@ If a claim is aimed at humans reading it — whether digital or printed — it i
 2. Select claim text including the `verify:` line
 3. Right-click → "Verify this claim" (or Cmd/Ctrl+Shift+V)
 
+Note: Chrome-extension is not yet published to the Chrome Web Store.
+
 **Camera mode (phone):**
 1. Install the iOS app (`apps/ios/LiveVerify/`) or Android app (`apps/android/`)
 2. Point camera at a document with registration marks + `verify:` line
+
+Note: Apps are not on app-stores yet.
 
 **Run locally:**
 ```bash
@@ -133,12 +140,12 @@ This isn't patent-locked, and the protocol is intentionally simple. The commerci
 
 All verification happens client-side — no PII ever leaves your device.
 
-| Component | Technology |
-|-----------|-----------|
+| Component         | Technologies                                            |
+|-------------------|---------------------------------------------------------|
 | Browser extension | Manifest V3, Web Crypto API (SHA-256), chrome.scripting |
-| iOS app | Swift/SwiftUI, Vision framework (OCR), CryptoKit |
-| Android app | Kotlin, ML Kit (OCR), CameraX |
-| Testing | Jest (59 unit tests), Playwright (16 E2E tests), XCTest |
+| iOS app           | Swift/SwiftUI, Vision framework (OCR), CryptoKit        |
+| Android app       | Kotlin, ML Kit (OCR), CameraX                           |
+| Testing           | Jest (59 unit tests), Playwright (16 E2E tests), XCTest |
 
 ## Documentation
 
