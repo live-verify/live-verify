@@ -53,6 +53,60 @@ The recipient's GET request against the verification endpoint *is* the provable 
 
 **Use cases:** Service of process (court summons), loan disclosure acknowledgment, eviction notices, informed consent, product recall notifications, data breach notifications, employment policy acknowledgments. See [Verification Response Format](Verification-Response-Format.md) for the full pattern and header specification.
 
+## Chariatble Donations
+
+For use cases where verification naturally leads to a financial transaction — most obviously charitable donations at street collections.
+
+**What the donor sees** (on a collection tin, banner, or leaflet):
+
+```
+Tees Valley Mind Matters
+DAVE SMITH'S PULL UPS (2026)
+Registered Charity No. 1198234
+Charity Commission for England and Wales
+verify:tees-valley-mind-matters.org.uk/c
+```
+
+The donor scans or selects that text. The app normalizes, hashes, and GETs `tees-valley-mind-matters.org.uk/c/{hash}`. The charity's `verification-meta.json` declares `"authorizedBy": "charitycommission.gov.uk/v1"` — so the app walks the authority chain to confirm the Charity Commission recognises this entity.
+
+**What tees-valley-mind-matter.org/c endpoint returns:**
+
+```json
+{
+  "status": "verified",
+  "donation_ref": "DAVE_SMITH_2026",
+  "donation_prefix": "/donate",
+  "donation_prompt": "Donate to this charity?"
+}
+```
+
+The phone owner is asked if they want to donate (a post verification action), and they tap "yes", so a 
+request it made to https://charitiescommission.gov.uk/donate?ref=DAVE_SMITH_2026 which redirects to Apple Wallet (or Google Wallet) with pertinent information for a donation that would credit "Dave Smith 2026" so that the charity can work out why money is coming in.  UK allows for tax clawback coupled to charitable donations, so maybe that kicks in here too.
+
+The critical point: **the payment is made via the country's charities overseer and not the charity's own materials**. Nor A QR code on a collection tin is controlled by whoever printed it and stuck it on. A donate capability started by the charity's verified endpoint — with an authority chain back to `charitycommission.gov.uk` — is bound to a registration the Commission currently recognises. If the Commission revokes or suspends the charity's registration, the authority chain breaks and the verifier sees the failure. No green badge, no donate button.
+
+This replaces untraceable cash-in-tin with card/tap payments through the charity's legitimate payment page — creating an auditable financial record.
+
+**Use cases:**
+- **Street charity collections** — Verify registration, donate via the charity's payment page
+- **Sponsored events** — Verify the fundraiser's affiliation, sponsor via the charity's page
+
+Live Verify never handles money. The app opens the link; payment processing is the charity's responsibility via their existing infrastructure (JustGiving, GoFundMe, Stripe, etc.) .. or more likely the phone's wallet apps as outlined.
+
+See [Verification Response Format](Verification-Response-Format.md) for the full field specification.
+
+## Payments for services
+
+(subject to income tax)
+
+TODO - as above but HMRC deducts tax at higher rate - to be settled up later - but forwards net amounts there and then.
+This would have to sit within IR35 (UK) but could be a streamlining for "I worked a week for XyZ Ltd in Sunderland"
+
+## Tips
+
+Less likely perhaps as means for tipping comes with ordinal service (food, etc)
+(subject to income tax)
+
 ## Why This Matters
 
 Post-verification actions transform verification from a yes/no check into an accountability and transparency tool:
@@ -62,3 +116,4 @@ Post-verification actions transform verification from a yes/no check into an acc
 - **Deterrent effect:** Officials know interactions can be easily documented
 - **Evidence creation:** "I recorded every visit" is powerful in disputes
 - **Evidence of receipt:** Verification GET = timestamped evidence that a device in the recipient's possession engaged with a notice (a strong point of evidence, analogous to signed-for delivery — not irrefutable proof of personal receipt)
+- **Trusted transactions:** Donate links from the regulator's verification response, not from the charity's own print materials — eliminates payment redirection fraud
