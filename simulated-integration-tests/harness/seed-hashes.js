@@ -1,7 +1,7 @@
 const fs = require('fs');
 const http = require('http');
 
-const data = JSON.parse(fs.readFileSync('full-stack-tests/harness/test-data.json', 'utf8'));
+const data = JSON.parse(fs.readFileSync('simulated-integration-tests/harness/test-data.json', 'utf8'));
 
 async function seed() {
     for (const [hash, val] of Object.entries(data.seed)) {

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# run-james-test.sh — Full-stack bank statement verification test.
+# run-ofsi-test.sh — Full-stack OFSI sanctions licence verification test.
 #
-# James Whitfield's bank statement from Meridian National Bank (fictional).
-# Authority chain: meridian-national.bank.us → fdic.gov → treasury.gov (root).
+# Albion Capital Management's OFSI licence (fictional).
+# Authority chain: ofsi.hm-treasury.gov.uk → gov.uk (root).
 # The claim hash is seeded, so verification should succeed with full chain.
 #
 # Works with docker compose or podman-compose.
@@ -57,8 +57,8 @@ $COMPOSE -f "$COMPOSE_FILE" up --build -d
 
 echo "=== Waiting for Caddy (HTTPS on 443) ==="
 for i in $(seq 1 30); do
-    if curl -sk --resolve meridian-national.bank.us:443:127.0.0.1 \
-        https://meridian-national.bank.us/statements/verification-meta.json > /dev/null 2>&1; then
+    if curl -sk --resolve ofsi.hm-treasury.gov.uk:443:127.0.0.1 \
+        https://ofsi.hm-treasury.gov.uk/licences/verification-meta.json > /dev/null 2>&1; then
         echo "Caddy ready."
         break
     fi
@@ -71,11 +71,11 @@ for i in $(seq 1 30); do
 done
 
 echo "=== Seeding authority chain + claim ==="
-bash "${SCRIPT_DIR}/harness/seed-chain-james.sh"
+bash "${SCRIPT_DIR}/harness/seed-chain-ofsi.sh"
 
 echo "=== Verifying (smoke test) ==="
-CLAIM_HASH=$(printf 'Account Holder: James R. Whitfield\nAccount Number: 7294-0038-4821\nRouting Number: 091000019\nStatement Period: 1 March 2025 - 31 March 2025\nOpening Balance: $12,450.30\nDate Description Amount\n01/03 Direct Deposit - Employer $4,200.00\n05/03 Electric Company Payment -$142.50\n08/03 Grocery Store -$87.23\n12/03 Online Transfer In $500.00\n15/03 Insurance Premium -$325.00\n18/03 Restaurant -$64.80\n22/03 ATM Withdrawal -$200.00\n25/03 Subscription Service -$14.99\n28/03 Gas Station -$52.15\n31/03 Interest Earned $8.42\nClosing Balance: $16,272.05' | sha256sum | cut -d' ' -f1)
-RESULT=$(curl -sk --resolve meridian-national.bank.us:443:127.0.0.1 "https://meridian-national.bank.us/statements/${CLAIM_HASH}")
+CLAIM_HASH=$(printf 'HM TREASURY - OFSI\nOffice of Financial Sanctions Implementation\nLICENCE UNDER THE RUSSIA (SANCTIONS) (EU EXIT) REGULATIONS 2019\nLicence Reference: INT/2026/1847293\nDate of Issue: 14 March 2026\nLicence Holder: Albion Capital Management LLP\nDesignated Person: [Name redacted - see restricted annex]\nAuthorised Activity:\nPayment of legal fees to Clifford Chance LLP\nMaximum Amount: GBP 75,000.00\nExpiry: 14 June 2026\nSubject to conditions in the attached annex.\nIssued by: Financial Sanctions Officer, OFSI' | sha256sum | cut -d' ' -f1)
+RESULT=$(curl -sk --resolve ofsi.hm-treasury.gov.uk:443:127.0.0.1 "https://ofsi.hm-treasury.gov.uk/licences/${CLAIM_HASH}")
 STATUS=$(echo "$RESULT" | jq -r '.status // empty' 2>/dev/null || echo "$RESULT")
 if [ "$STATUS" = "verified" ]; then
     echo "Smoke test passed: claim hash returns status verified"
@@ -89,12 +89,12 @@ cd "${SCRIPT_DIR}/.."
 if [ "$USE_XVFB" = true ]; then
     xvfb-run --auto-servernum --server-args='-screen 0 1920x1080x24' \
         npx playwright test \
-        full-stack-tests/chrome-extension/james-bank-statement.spec.ts \
-        --config=full-stack-tests/chrome-extension/playwright.config.ts
+        simulated-integration-tests/chrome-extension/ofsi-licence.spec.ts \
+        --config=simulated-integration-tests/chrome-extension/playwright.config.ts
 else
     npx playwright test \
-        full-stack-tests/chrome-extension/james-bank-statement.spec.ts \
-        --config=full-stack-tests/chrome-extension/playwright.config.ts
+        simulated-integration-tests/chrome-extension/ofsi-licence.spec.ts \
+        --config=simulated-integration-tests/chrome-extension/playwright.config.ts
 fi
 
-echo "=== Test complete — bank statement verified! ==="
+echo "=== Test complete — OFSI licence verified! ==="

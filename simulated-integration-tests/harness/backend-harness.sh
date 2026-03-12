@@ -16,7 +16,7 @@ echo "Starting Tier 1 (Edge) on :8081..."
 T1_PID=$!
 
 echo "Starting Mock Domains Server on :8002..."
-node full-stack-tests/harness/mock-domains.js > /tmp/mock.log 2>&1 &
+node simulated-integration-tests/harness/mock-domains.js > /tmp/mock.log 2>&1 &
 MOCK_PID=$!
 
 function cleanup {
@@ -41,7 +41,7 @@ done
 
 # Seed hashes directly to Tier 3
 echo "Seeding hashes via Tier 3 port..."
-node full-stack-tests/harness/seed-hashes.js
+node simulated-integration-tests/harness/seed-hashes.js
 
 echo "Backend harness ready. Press Ctrl+C to stop."
 wait

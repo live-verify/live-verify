@@ -97,7 +97,7 @@ output_path = "public/examples/ofsi-licence.pdf"
 pdf.output(output_path)
 print(f"Generated: {output_path}")
 
-# Copy to full-stack-tests fixtures
-fixtures_copy = "full-stack-tests/fixtures/ofsi-licence.pdf"
+# Copy to simulated-integration-tests fixtures
+fixtures_copy = "simulated-integration-tests/fixtures/ofsi-licence.pdf"
 shutil.copy2(output_path, fixtures_copy)
 print(f"Copied to: {fixtures_copy}")

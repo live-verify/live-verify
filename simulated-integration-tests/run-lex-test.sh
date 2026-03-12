@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
-# run-ofsi-test.sh — Full-stack OFSI sanctions licence verification test.
+# run-lex-test.sh — Full-stack FAILING verification test.
 #
-# Albion Capital Management's OFSI licence (fictional).
-# Authority chain: ofsi.hm-treasury.gov.uk → gov.uk (root).
-# The claim hash is seeded, so verification should succeed with full chain.
+# Lex Luthor has a fake NYPD warrant card. The NYPD authority chain
+# (ids.nypd.nyc.gov → ny.gov) is set up and valid, but the claim hash
+# was never registered — because NYPD never issued this credential.
+#
+# The extension should walk the authority chain successfully but then
+# fail on the hash lookup (404), showing verification failure.
 #
 # Works with docker compose or podman-compose.
 #
@@ -19,6 +22,7 @@ set -euo pipefail
 # Xwayland session before falling back to xvfb-run.
 USE_XVFB=false
 if [ -z "${DISPLAY:-}" ]; then
+    # Look for Xwayland auth file (GNOME/Mutter on Wayland)
     XWAUTH=$(ls /run/user/$(id -u)/.mutter-Xwaylandauth.* 2>/dev/null | head -1)
     if [ -n "$XWAUTH" ] && DISPLAY=:0 XAUTHORITY="$XWAUTH" xdpyinfo &>/dev/null; then
         export DISPLAY=:0
@@ -57,8 +61,8 @@ $COMPOSE -f "$COMPOSE_FILE" up --build -d
 
 echo "=== Waiting for Caddy (HTTPS on 443) ==="
 for i in $(seq 1 30); do
-    if curl -sk --resolve ofsi.hm-treasury.gov.uk:443:127.0.0.1 \
-        https://ofsi.hm-treasury.gov.uk/licences/verification-meta.json > /dev/null 2>&1; then
+    if curl -sk --resolve ids.nypd.nyc.gov:443:127.0.0.1 \
+        https://ids.nypd.nyc.gov/2026/verification-meta.json > /dev/null 2>&1; then
         echo "Caddy ready."
         break
     fi
@@ -70,17 +74,16 @@ for i in $(seq 1 30); do
     sleep 1
 done
 
-echo "=== Seeding authority chain + claim ==="
-bash "${SCRIPT_DIR}/harness/seed-chain-ofsi.sh"
+echo "=== Seeding NYPD authority chain (no claim hash) ==="
+bash "${SCRIPT_DIR}/harness/seed-chain-lex.sh"
 
-echo "=== Verifying (smoke test) ==="
-CLAIM_HASH=$(printf 'HM TREASURY - OFSI\nOffice of Financial Sanctions Implementation\nLICENCE UNDER THE RUSSIA (SANCTIONS) (EU EXIT) REGULATIONS 2019\nLicence Reference: INT/2026/1847293\nDate of Issue: 14 March 2026\nLicence Holder: Albion Capital Management LLP\nDesignated Person: [Name redacted - see restricted annex]\nAuthorised Activity:\nPayment of legal fees to Clifford Chance LLP\nMaximum Amount: GBP 75,000.00\nExpiry: 14 June 2026\nSubject to conditions in the attached annex.\nIssued by: Financial Sanctions Officer, OFSI' | sha256sum | cut -d' ' -f1)
-RESULT=$(curl -sk --resolve ofsi.hm-treasury.gov.uk:443:127.0.0.1 "https://ofsi.hm-treasury.gov.uk/licences/${CLAIM_HASH}")
-STATUS=$(echo "$RESULT" | jq -r '.status // empty' 2>/dev/null || echo "$RESULT")
-if [ "$STATUS" = "verified" ]; then
-    echo "Smoke test passed: claim hash returns status verified"
+echo "=== Verifying chain (smoke test — expecting 404 for claim) ==="
+CLAIM_HASH=$(printf 'NEW YORK POLICE DEPARTMENT\nDETECTIVE\nLEX LUTHOR\nBadge: 84729' | sha256sum | cut -d' ' -f1)
+HTTP_CODE=$(curl -sk -o /dev/null -w '%{http_code}' --resolve ids.nypd.nyc.gov:443:127.0.0.1 "https://ids.nypd.nyc.gov/2026/${CLAIM_HASH}")
+if [ "$HTTP_CODE" = "404" ]; then
+    echo "Smoke test passed: claim hash returns 404 (never issued)"
 else
-    echo "Smoke test FAILED: expected status verified, got '$RESULT'"
+    echo "Smoke test FAILED: expected 404, got HTTP ${HTTP_CODE}"
     exit 1
 fi
 
@@ -89,12 +92,12 @@ cd "${SCRIPT_DIR}/.."
 if [ "$USE_XVFB" = true ]; then
     xvfb-run --auto-servernum --server-args='-screen 0 1920x1080x24' \
         npx playwright test \
-        full-stack-tests/chrome-extension/ofsi-licence.spec.ts \
-        --config=full-stack-tests/chrome-extension/playwright.config.ts
+        simulated-integration-tests/chrome-extension/lex-verification.spec.ts \
+        --config=simulated-integration-tests/chrome-extension/playwright.config.ts
 else
     npx playwright test \
-        full-stack-tests/chrome-extension/ofsi-licence.spec.ts \
-        --config=full-stack-tests/chrome-extension/playwright.config.ts
+        simulated-integration-tests/chrome-extension/lex-verification.spec.ts \
+        --config=simulated-integration-tests/chrome-extension/playwright.config.ts
 fi
 
-echo "=== Test complete — OFSI licence verified! ==="
+echo "=== Test complete — fake ID correctly rejected! ==="

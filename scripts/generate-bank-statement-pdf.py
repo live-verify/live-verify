@@ -110,7 +110,7 @@ output_path = "public/examples/bank-statement.pdf"
 pdf.output(output_path)
 print(f"Generated: {output_path}")
 
-# Copy to full-stack-tests fixtures (served by Caddy in test environment)
-fixtures_copy = "full-stack-tests/fixtures/bank-statement.pdf"
+# Copy to simulated-integration-tests fixtures (served by Caddy in test environment)
+fixtures_copy = "simulated-integration-tests/fixtures/bank-statement.pdf"
 shutil.copy2(output_path, fixtures_copy)
 print(f"Copied to: {fixtures_copy}")

@@ -133,7 +133,7 @@ Tier 2 write port.
 ### Files
 
 ```
-full-stack-tests/chrome-extension/
+simulated-integration-tests/chrome-extension/
   playwright.config.ts
   gov-chain.spec.ts        # The actual test
   fixtures/
@@ -183,7 +183,7 @@ Alternatively, for automated tests without camera:
 ### Files
 
 ```
-full-stack-tests/android/
+simulated-integration-tests/android/
   run-emulator-demo.sh       # Start emulator, install APK, seed, record
   test-document.png          # Rendered claim image for virtual camera
   network_security_config.xml # Cleartext config for *.gov.test (copied into debug build)
@@ -235,7 +235,7 @@ work in the iOS Simulator. Two options:
 ### Files
 
 ```
-full-stack-tests/ios/
+simulated-integration-tests/ios/
   run-simulator-demo.sh      # Build, boot, install, record
   test-document.png          # Claim image for photo library injection
 ```
@@ -248,7 +248,7 @@ For the camera-based demo, use a physical device with QuickTime screen mirroring
 ## Directory Structure
 
 ```
-full-stack-tests/
+simulated-integration-tests/
   PLAN.md                       # This file
   backend-harness.sh            # Start/stop 3 tiers as plain HTTP processes
   seed-demo-chain.sh            # Seed government authority chain + test claim

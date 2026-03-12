@@ -70,7 +70,7 @@ fi
 echo "=== Running Playwright test ==="
 cd "${SCRIPT_DIR}/.."
 npx playwright test \
-    full-stack-tests/chrome-extension/gina-verification.spec.ts \
-    --config=full-stack-tests/chrome-extension/playwright.config.ts
+    simulated-integration-tests/chrome-extension/gina-verification.spec.ts \
+    --config=simulated-integration-tests/chrome-extension/playwright.config.ts
 
 echo "=== Test complete! ==="

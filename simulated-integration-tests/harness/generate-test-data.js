@@ -51,7 +51,7 @@ async function run() {
     console.log(`claimHash: ${claimHash}`);
 
     // Read headshot for response payload
-    const headshotBase64 = fs.readFileSync('full-stack-tests/fixtures/gina-headshot-small.jpg').toString('base64');
+    const headshotBase64 = fs.readFileSync('simulated-integration-tests/fixtures/gina-headshot-small.jpg').toString('base64');
     const responsePayload = JSON.stringify({
         status: "verified",
         message: "Active Detective, Midsomer Constabulary",
@@ -79,7 +79,7 @@ async function run() {
         seed
     };
 
-    fs.writeFileSync('full-stack-tests/harness/test-data.json', JSON.stringify(data, null, 2));
+    fs.writeFileSync('simulated-integration-tests/harness/test-data.json', JSON.stringify(data, null, 2));
 }
 
 run();

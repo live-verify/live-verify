@@ -47,7 +47,7 @@ test.describe('OFSI Sanctions Licence Verification (Albion Capital)', () => {
         }, { timeout: 30000 });
 
         // Screenshot before verification
-        await page.screenshot({ path: 'full-stack-tests/results/ofsi-before-verification-page.png' });
+        await page.screenshot({ path: 'simulated-integration-tests/results/ofsi-before-verification-page.png' });
 
         // Select all text in the text layer (simulates user Ctrl+A within the PDF)
         console.log('Selecting text layer content...');
@@ -92,14 +92,14 @@ test.describe('OFSI Sanctions Licence Verification (Albion Capital)', () => {
 
         // Screenshots
         await page.bringToFront();
-        await page.screenshot({ path: 'full-stack-tests/results/ofsi-final-page.png' });
+        await page.screenshot({ path: 'simulated-integration-tests/results/ofsi-final-page.png' });
 
         await popupPage.bringToFront();
         const detailsToggle = popupPage.locator('.details-toggle');
         if (await detailsToggle.isVisible()) {
             await detailsToggle.click();
         }
-        await popupPage.screenshot({ path: 'full-stack-tests/results/ofsi-final-popup.png' });
+        await popupPage.screenshot({ path: 'simulated-integration-tests/results/ofsi-final-popup.png' });
 
         // Check the popup for the verification result
         const statusEl = popupPage.locator('.history-status, .result-status').first();

@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
-# run-lex-test.sh — Full-stack FAILING verification test.
+# run-james-test.sh — Full-stack bank statement verification test.
 #
-# Lex Luthor has a fake NYPD warrant card. The NYPD authority chain
-# (ids.nypd.nyc.gov → ny.gov) is set up and valid, but the claim hash
-# was never registered — because NYPD never issued this credential.
-#
-# The extension should walk the authority chain successfully but then
-# fail on the hash lookup (404), showing verification failure.
+# James Whitfield's bank statement from Meridian National Bank (fictional).
+# Authority chain: meridian-national.bank.us → fdic.gov → treasury.gov (root).
+# The claim hash is seeded, so verification should succeed with full chain.
 #
 # Works with docker compose or podman-compose.
 #
@@ -22,7 +19,6 @@ set -euo pipefail
 # Xwayland session before falling back to xvfb-run.
 USE_XVFB=false
 if [ -z "${DISPLAY:-}" ]; then
-    # Look for Xwayland auth file (GNOME/Mutter on Wayland)
     XWAUTH=$(ls /run/user/$(id -u)/.mutter-Xwaylandauth.* 2>/dev/null | head -1)
     if [ -n "$XWAUTH" ] && DISPLAY=:0 XAUTHORITY="$XWAUTH" xdpyinfo &>/dev/null; then
         export DISPLAY=:0
@@ -61,8 +57,8 @@ $COMPOSE -f "$COMPOSE_FILE" up --build -d
 
 echo "=== Waiting for Caddy (HTTPS on 443) ==="
 for i in $(seq 1 30); do
-    if curl -sk --resolve ids.nypd.nyc.gov:443:127.0.0.1 \
-        https://ids.nypd.nyc.gov/2026/verification-meta.json > /dev/null 2>&1; then
+    if curl -sk --resolve meridian-national.bank.us:443:127.0.0.1 \
+        https://meridian-national.bank.us/statements/verification-meta.json > /dev/null 2>&1; then
         echo "Caddy ready."
         break
     fi
@@ -74,16 +70,17 @@ for i in $(seq 1 30); do
     sleep 1
 done
 
-echo "=== Seeding NYPD authority chain (no claim hash) ==="
-bash "${SCRIPT_DIR}/harness/seed-chain-lex.sh"
+echo "=== Seeding authority chain + claim ==="
+bash "${SCRIPT_DIR}/harness/seed-chain-james.sh"
 
-echo "=== Verifying chain (smoke test — expecting 404 for claim) ==="
-CLAIM_HASH=$(printf 'NEW YORK POLICE DEPARTMENT\nDETECTIVE\nLEX LUTHOR\nBadge: 84729' | sha256sum | cut -d' ' -f1)
-HTTP_CODE=$(curl -sk -o /dev/null -w '%{http_code}' --resolve ids.nypd.nyc.gov:443:127.0.0.1 "https://ids.nypd.nyc.gov/2026/${CLAIM_HASH}")
-if [ "$HTTP_CODE" = "404" ]; then
-    echo "Smoke test passed: claim hash returns 404 (never issued)"
+echo "=== Verifying (smoke test) ==="
+CLAIM_HASH=$(printf 'Account Holder: James R. Whitfield\nAccount Number: 7294-0038-4821\nRouting Number: 091000019\nStatement Period: 1 March 2025 - 31 March 2025\nOpening Balance: $12,450.30\nDate Description Amount\n01/03 Direct Deposit - Employer $4,200.00\n05/03 Electric Company Payment -$142.50\n08/03 Grocery Store -$87.23\n12/03 Online Transfer In $500.00\n15/03 Insurance Premium -$325.00\n18/03 Restaurant -$64.80\n22/03 ATM Withdrawal -$200.00\n25/03 Subscription Service -$14.99\n28/03 Gas Station -$52.15\n31/03 Interest Earned $8.42\nClosing Balance: $16,272.05' | sha256sum | cut -d' ' -f1)
+RESULT=$(curl -sk --resolve meridian-national.bank.us:443:127.0.0.1 "https://meridian-national.bank.us/statements/${CLAIM_HASH}")
+STATUS=$(echo "$RESULT" | jq -r '.status // empty' 2>/dev/null || echo "$RESULT")
+if [ "$STATUS" = "verified" ]; then
+    echo "Smoke test passed: claim hash returns status verified"
 else
-    echo "Smoke test FAILED: expected 404, got HTTP ${HTTP_CODE}"
+    echo "Smoke test FAILED: expected status verified, got '$RESULT'"
     exit 1
 fi
 
@@ -92,12 +89,12 @@ cd "${SCRIPT_DIR}/.."
 if [ "$USE_XVFB" = true ]; then
     xvfb-run --auto-servernum --server-args='-screen 0 1920x1080x24' \
         npx playwright test \
-        full-stack-tests/chrome-extension/lex-verification.spec.ts \
-        --config=full-stack-tests/chrome-extension/playwright.config.ts
+        simulated-integration-tests/chrome-extension/james-bank-statement.spec.ts \
+        --config=simulated-integration-tests/chrome-extension/playwright.config.ts
 else
     npx playwright test \
-        full-stack-tests/chrome-extension/lex-verification.spec.ts \
-        --config=full-stack-tests/chrome-extension/playwright.config.ts
+        simulated-integration-tests/chrome-extension/james-bank-statement.spec.ts \
+        --config=simulated-integration-tests/chrome-extension/playwright.config.ts
 fi
 
-echo "=== Test complete — fake ID correctly rejected! ==="
+echo "=== Test complete — bank statement verified! ==="
