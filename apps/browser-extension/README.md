@@ -117,4 +117,4 @@ sed -i "s/const RESULT_DISPLAY = 'notification'/const RESULT_DISPLAY = 'banner'/
 
 ## License
 
-AGPL-3.0-or-later
+Apache-2.0

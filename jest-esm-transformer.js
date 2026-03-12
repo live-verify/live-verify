@@ -1,6 +1,6 @@
 /*
     Copyright (C) 2025, Paul Hammant
-    SPDX-License-Identifier: AGPL-3.0-or-later
+    SPDX-License-Identifier: Apache-2.0
 
     Jest transformer that strips ES module export statements from files
     that have dual ES module/CommonJS exports.

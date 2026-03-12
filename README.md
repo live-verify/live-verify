@@ -3,7 +3,7 @@
 **Verify digital and printed claims**
 
 ![Jest and Playwright tests, then deploy to GitHub Pages](https://github.com/paul-hammant/live-verify/actions/workflows/deploy.yml/badge.svg)
-![License](https://img.shields.io/badge/license-AGPL--3.0-blue)
+![License](https://img.shields.io/badge/license-Apache--2.0-blue)
 
 A **proof of concept** for issuer-attested verification of on-screen and printed claims.
 Live Verify works two ways: **select** claims on screen, or **scan** them on paper — both with quick mathematical verification.
@@ -958,7 +958,7 @@ This bridges both digital-native (Clip) and physical-to-digital (Camera) verific
 
 ### Is this free to use?
 
-**For verifiers:** Yes, the client-side app is free and open source (AGPL-3.0).
+**For verifiers:** Yes, the client-side app is free and open source (Apache-2.0).
 
 **For issuers:** Organizations decide whether to charge for verification lookups. Infrastructure cost is ~$0.000005 per verification (Cloudflare Workers example). Many universities/governments offer free verification as part of their mission. Commercial entities may charge. See [docs/Verification_Charges.md](docs/Verification_Charges.md) for detailed business models.
 
@@ -1092,6 +1092,6 @@ When to choose what
 
 ## License
 
-GNU Affero General Public License v3.0 or later (AGPL-3.0-or-later)
+Apache License, Version 2.0 (Apache-2.0)
 
 See LICENSE file for full text.

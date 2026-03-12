@@ -65,4 +65,4 @@ Run instrumented tests (requires device/emulator):
 
 ## License
 
-GNU Affero General Public License v3.0 or later (AGPL-3.0-or-later)
+Apache License 2.0 (Apache-2.0)

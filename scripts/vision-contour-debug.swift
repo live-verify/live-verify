@@ -1,6 +1,6 @@
 #!/usr/bin/env swift
 // Copyright (C) 2025, Paul Hammant
-// SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-License-Identifier: Apache-2.0
 
 import AppKit
 import CoreImage

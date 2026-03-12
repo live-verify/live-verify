@@ -870,6 +870,6 @@ More: https://issuer.com/public-profile/{id}
 
 ## License
 
-GNU Affero General Public License v3.0 or later (AGPL-3.0-or-later)
+Apache License, Version 2.0 (Apache-2.0)
 
-All code requires AGPL license header. Run `./add-license-headers.sh` to add missing headers.
+All code requires Apache 2.0 license header.
