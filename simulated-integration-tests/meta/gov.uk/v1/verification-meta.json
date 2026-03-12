@@ -1,5 +1,6 @@
 {
+  "role": "root-authority",
   "issuer": "HM Government",
-  "description": "Root authorization for government digital identities",
-  "claimType": "RootAuthority"
+  "description": "Oversees all official verification chains in the United Kingdom",
+  "hidePathInDisplay": true
 }

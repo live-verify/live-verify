@@ -1,6 +1,7 @@
 {
+  "role": "endorser",
   "issuer": "HMICFRS",
-  "description": "His Majesty's Inspectorate of Constabulary and Fire & Rescue Services",
-  "claimType": "IntermediateAuthority",
-  "authorizedBy": "gov.uk/v1"
+  "description": "Oversees standards for all police forces in England and Wales",
+  "authorizedBy": "gov.uk/v1",
+  "hidePathInDisplay": true
 }

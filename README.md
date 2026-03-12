@@ -146,6 +146,7 @@ All verification happens client-side — no PII ever leaves your device.
 |----------|----------|---------|
 | [docs/platform_integration.md](docs/platform_integration.md) | Platform vendors | Apple/Google/Microsoft/Adobe integration details |
 | [docs/issuer-guide.md](docs/issuer-guide.md) | Organizations | Creating verifiable documents, verification-meta.json |
+| [docs/verification-meta-schemas.md](docs/verification-meta-schemas.md) | Implementers | Issuer vs authority schema for verification-meta.json |
 | [docs/how-it-works.md](docs/how-it-works.md) | Developers | Pipeline flowcharts, multi-page docs, design principles |
 | [docs/cryptographic-foundations.md](docs/cryptographic-foundations.md) | Technical | SHA-256, Merkle trees, authority chains |
 | [docs/text-is-king.md](docs/text-is-king.md) | Everyone | Why text verification vs QR codes, blockchain, etc. |

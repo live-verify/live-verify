@@ -1,5 +1,6 @@
 {
+  "role": "root-authority",
   "issuer": "State of New York",
-  "description": "Root authorization for New York State credentials",
-  "claimType": "RootAuthority"
+  "description": "Authorizes all state-issued credentials and professional licenses in New York",
+  "hidePathInDisplay": true
 }

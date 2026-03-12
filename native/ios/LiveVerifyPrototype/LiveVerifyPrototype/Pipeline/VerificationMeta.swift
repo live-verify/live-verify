@@ -3,6 +3,7 @@ import Foundation
 struct VerificationMeta: Decodable, Equatable {
     var description: String?
     var issuer: String?
+    var role: String?
     var claimType: String?
     var parentAuthorities: [String]?
     var authorizedBy: String?

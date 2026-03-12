@@ -1,6 +1,7 @@
 {
+  "role": "endorser",
   "issuer": "Federal Deposit Insurance Corporation",
-  "description": "FDIC verifier registry for insured institutions",
-  "claimType": "InstitutionAuthorization",
-  "authorizedBy": "treasury.gov/v1"
+  "description": "Regulates and insures all nationally chartered banks in the United States",
+  "authorizedBy": "treasury.gov/v1",
+  "hidePathInDisplay": true
 }

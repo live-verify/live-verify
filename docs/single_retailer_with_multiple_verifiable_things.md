@@ -29,7 +29,7 @@ Display:
 ```
 ✓ tesco.com — Tesco PLC retail store receipts
   ✓ dti.gov.uk — Approved company selling goods in UK
-    ✓ gov.uk — Root authorization for government digital identities
+    ✓ gov.uk — Oversees all official verification chains in the United Kingdom
 ```
 
 **Fuel receipts:**
@@ -47,7 +47,7 @@ Display:
 ```
 ✓ tesco.com — Tesco PLC fuel station receipts
   ✓ ofgem.gov.uk — Licensed fuel retailer
-    ✓ gov.uk — Root authorization for government digital identities
+    ✓ gov.uk — Oversees all official verification chains in the United Kingdom
 ```
 
 **Pharmacy prescriptions:**

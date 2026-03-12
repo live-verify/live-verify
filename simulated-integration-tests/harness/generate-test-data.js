@@ -4,16 +4,18 @@ const path = require('path');
 
 async function run() {
     const govMeta = {
+        role: "root-authority",
         issuer: "HM Government",
-        description: "Root authorization for government digital identities",
-        claimType: "RootAuthority"
+        description: "Oversees all official verification chains in the United Kingdom",
+        hidePathInDisplay: true
     };
 
     const hmicfrsMeta = {
+        role: "endorser",
         issuer: "HMICFRS",
-        description: "Her Majesty's Inspectorate of Constabulary and Fire & Rescue Services",
-        claimType: "IntermediateAuthority",
-        authorizedBy: "127.0.0.1:8002/authorized"
+        description: "Oversees standards for all police forces in England and Wales",
+        authorizedBy: "127.0.0.1:8002/authorized",
+        hidePathInDisplay: true
     };
 
     const midsomerMeta = {

@@ -8,6 +8,7 @@ import java.net.URI
 data class VerificationMeta(
     val description: String? = null,
     val issuer: String? = null,
+    val role: String? = null,
     val claimType: String? = null,
     val parentAuthorities: List<String>? = null,
     val authorizedBy: String? = null,

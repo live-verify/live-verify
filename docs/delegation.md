@@ -96,7 +96,7 @@ Nothing about the delegation. The display is:
 ```
 ✓ tesco.com — Tesco PLC fuel station receipts
   ✓ ofgem.gov.uk — Licensed fuel retailer
-    ✓ gov.uk — Root authorization for government digital identities
+    ✓ gov.uk — Oversees all official verification chains in the United Kingdom
 ```
 
 Not `uk.foobar-verification.com`. The delegate is infrastructure, not a trust anchor. The trust question is answered entirely by the issuer's meta and authority chain.

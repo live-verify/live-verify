@@ -44,16 +44,16 @@ describe('buildNotificationMessage', () => {
                 authorizer: 'gov.uk',
                 confirmed: true,
                 checked: true,
-                description: 'Root authorization for government digital identities',
+                description: 'Oversees all official verification chains in the United Kingdom',
                 chain: [
-                    { authorizer: 'gov.uk', confirmed: true, description: 'Root authorization for government digital identities' }
+                    { authorizer: 'gov.uk', confirmed: true, description: 'Oversees all official verification chains in the United Kingdom' }
                 ]
             }
         };
         const { title, message } = buildNotificationMessage(result);
         expect(title).toBe('Verified');
         expect(message).toContain('Verified by ofsi.hm-treasury.gov.uk');
-        expect(message).toContain('Authorized by gov.uk (Root authorization for government digital identities)');
+        expect(message).toContain('Authorized by gov.uk (Oversees all official verification chains in the United Kingdom)');
     });
 
     test('multi-level authority chain with descriptions', () => {
