@@ -122,6 +122,26 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Potential verify: domain** | `hmrc.gov.uk/trust-register` | `fincen.gov/boi-register` | Varies (e.g., `rbe.economie.fgov.be`, `register.bnotk.de`) |
 | **Key difference** | Since 2022, most UK trusts must register; access restricted to those with "legitimate interest" | No single trust register; Form 3520-A is tax-focused (not AML); FinCEN BOI covers companies but not trusts specifically | Each member state maintains its own register; 5MLD requires "legitimate interest" access; some states (Luxembourg, Austria) fought implementation |
 
+**Further Jurisdictional Peers**
+
+- **Australia (ATO)** — Trusts must obtain an Australian Business Number (ABN) and Tax File Number (TFN) from the Australian Taxation Office (ATO). Trustees file annual trust tax returns (Trust Tax Return form). Under the *AML/CTF Act 2006*, reporting entities must identify and verify beneficial owners of trust customers. Key difference: Australia has no centralised trust register for AML purposes — trust identification relies on ABN/TFN registration (tax-focused) and the customer due diligence obligations on financial institutions.
+- **Canada (CRA)** — Trusts must file annual T3 trust income tax returns with the Canada Revenue Agency (CRA). Since 2023, bare trusts and most express trusts must report beneficial ownership information (settlors, trustees, beneficiaries) under enhanced *Income Tax Act* requirements. Key difference: Canada's expanded trust reporting since 2023 is primarily tax-driven (following FATF recommendations) rather than AML-specific, but it effectively creates a beneficial ownership database accessible to law enforcement.
+- **Singapore** — Trusts are governed by the *Trustees Act* and must be registered with the Inland Revenue Authority of Singapore (IRAS) for tax purposes. Licensed trust companies are regulated by MAS under the *Trust Companies Act*. Key difference: Singapore has no public trust register; trust transparency relies on MAS-regulated trust companies conducting CDD on their own trust structures, creating a private-sector-led model rather than a centralised registry.
+- **Switzerland** — Switzerland has no public trust register and does not recognise trusts under domestic law (though it ratified the Hague Trust Convention in 2007). Financial intermediaries must identify beneficial owners of trusts under the *Anti-Money Laundering Act (AMLA)* and the *Agreement on the Swiss Banks' Code of Conduct (CDB 20)*. Key difference: the absence of a trust register means trust transparency relies entirely on the due diligence obligations of Swiss financial intermediaries — a significant gap that FATF has repeatedly flagged.
+
+**Tax Evasion & Transparency**
+
+Trust registration is primarily a tax transparency measure. Trusts are a dominant vehicle for tax planning and, in abuse cases, tax evasion — using distinct legal frameworks from AML:
+
+- **UK:** TRS (Trust Registration Service) was created primarily to implement 4MLD/5MLD trust transparency requirements — but HMRC uses it for tax compliance (income tax, IHT, CGT on trust assets)
+- **US:** IRS Form 3520/3520-A for foreign trust reporting; FATCA reporting of trust accounts; grantor trust rules
+- **FATCA/CRS:** Trusts are a key CRS reporting entity; trust UBO data feeds automatic exchange of financial account information across 100+ jurisdictions
+- **EU:** DAC6 — cross-border trust arrangements are reportable; 5MLD expanded trust registration requirements across member states
+- **Australia:** ATO trust tax compliance programs; trusts are the dominant business/investment structure — significant tax compliance focus
+- **Canada:** T3 Trust Income Tax and Information Return; CRA scrutiny of trust arrangements for tax avoidance
+- **Offshore jurisdictions:** Jersey, Guernsey, Cayman, BVI trust registers — increasing transparency requirements under FATF/EU/UK pressure; Economic Substance Requirements
+- **OECD:** Mandatory Disclosure Rules for CRS Avoidance Arrangements (MDR) — specifically targets trust structures used to circumvent CRS
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

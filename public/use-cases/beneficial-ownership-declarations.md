@@ -119,6 +119,76 @@ Companies House maintains the registry of beneficial ownership declarations file
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
+## Jurisdictional Equivalents
+
+| | UK | US | EU |
+|---|---|---|---|
+| **Authority** | Companies House | FinCEN | Member state UBO registries |
+| **Document** | PSC (People with Significant Control) register entry | BOI (Beneficial Ownership Information) report | UBO register entry (varies by member state) |
+| **Legal basis** | Companies Act 2006, Part 21A | Corporate Transparency Act 2021 | 4th/5th Anti-Money Laundering Directives (4MLD/5MLD) |
+| **Potential verify: domain** | `psc.companieshouse.gov.uk/v` | `fincen.gov/boi/v` | `ubo-register.kvk.nl/v` (varies by state) |
+| **Key difference** | Public register — PSC data freely searchable online | Federal register — access restricted to authorised users (law enforcement, financial institutions) | Each member state maintains its own national register; public access rules vary (some restricted after CJEU ruling C-37/20) |
+
+**Further Jurisdictional Peers**
+
+- **Australia:** ASIC company register; no separate UBO register yet but reforms underway
+- **Canada:** Federal beneficial ownership register (2024) + provincial corporate registries
+- **Singapore:** ACRA (Accounting and Corporate Regulatory Authority) Register of Registrable Controllers
+- **Japan:** National Tax Agency; company register at Legal Affairs Bureau
+- **Switzerland:** Not public but companies must maintain UBO records under AMLA
+- **Hong Kong:** Companies Registry significant controllers register under Companies (Amendment) Ord 2018
+- **Netherlands:** UBO register at KVK (Chamber of Commerce) under Wwft
+
+**Bribery & Corruption**
+
+Shell companies are the primary vehicle for hiding bribery payments and corrupt proceeds — UBO transparency is an anti-corruption tool as much as an AML tool.
+
+- **UK:** PSC (People with Significant Control) register public since 2016; Economic Crime and Corporate Transparency Act 2023 strengthened Companies House verification powers, driven partly by anti-corruption advocacy following the "Laundromat" and "Pandora Papers" revelations
+- **US:** Corporate Transparency Act 2021 (FinCEN BOI reporting) — championed by anti-corruption groups including the FACT Coalition; aims to end anonymous shell company formation that has facilitated foreign bribery and kleptocratic wealth hiding
+- **OECD/FATF:** Beneficial ownership transparency is a key FATF and OECD anti-corruption recommendation; the FATF's 2023 amendments to Recommendation 24 strengthened BO requirements specifically citing corruption risks
+- **France:** RBE (Registre des Bénéficiaires Effectifs) — public since 2017 under Sapin II; France explicitly links UBO transparency to its anti-corruption framework
+- **Ukraine/emerging economies:** BO transparency is seen as a critical anti-corruption reform — Ukraine's public BO register was a condition of EU integration and a key demand of anti-corruption civil society
+- **Transparency International:** Publishes annual assessments of BO transparency by country; advocates for public registers as essential anti-corruption infrastructure; their research links jurisdictions with weak BO transparency to higher corruption risk
+
+**Tax Evasion & Transparency**
+
+UBO registers serve tax transparency as much as AML. Tax evasion uses distinct legal frameworks from anti-money laundering:
+
+- **FATCA (US):** Foreign Account Tax Compliance Act 2010 — requires foreign financial institutions to report US person accounts; UBO declarations feed FATCA reporting
+- **CRS (OECD):** Common Reporting Standard — 100+ jurisdictions automatically exchange financial account information; UBO data is a key CRS input
+- **UK:** Criminal Finances Act 2017 — corporate offence of failure to prevent tax evasion; Companies House reforms strengthen UBO verification for tax purposes
+- **EU:** DAC6 (Directive on Administrative Cooperation) — mandatory disclosure of cross-border tax arrangements; UBO data supports DAC6 analysis
+- **Panama Papers / Pandora Papers:** These leaks demonstrated how opaque beneficial ownership enabled tax evasion at scale — driving CTA (US), PSC reforms (UK), and EU-wide UBO registers
+- **OECD BEPS:** Base Erosion and Profit Shifting framework — Country-by-Country Reporting (CbCR) complements UBO transparency
+
+**Cybercrime-Enabled Financial Crime**
+
+Shell companies with opaque beneficial ownership are used to register domains for phishing, set up fake merchant accounts for payment fraud, and launder ransomware proceeds.
+
+- **UK:** Economic Crime and Corporate Transparency Act 2023 — Companies House identity verification aims to prevent fake company registrations used in cyber fraud
+- **US:** FinCEN BOI reporting helps law enforcement trace corporate vehicles used in BEC (Business Email Compromise) and investment fraud schemes
+- **Crypto:** Opaque corporate structures are used to operate unregistered crypto exchanges and DeFi platforms; UBO transparency is a key regulatory tool
+
+**Trade-Based Money Laundering (TBML)**
+
+Shell companies with opaque ownership are the primary vehicle for TBML invoicing fraud — creating fake trading relationships for over/under-invoicing schemes. UBO transparency disrupts TBML by revealing that "buyer" and "seller" are controlled by the same person.
+
+- **TBML nexus:** Over/under-invoicing, phantom shipments, and multiple invoicing require shell companies on both sides of a trade; beneficial ownership registers that expose common control between counterparties are the most effective TBML prevention tool
+- **Free Trade Zones (FTZs):** Companies registered in FTZs (Dubai JAFZA, Singapore FTZ, Hong Kong) are disproportionately used in TBML — UBO requirements in these zones are often weaker than in the wider economy, creating a gap that TBML operators exploit
+- **FATF:** Recommendation 24 (beneficial ownership) specifically references trade-based laundering as a risk that UBO transparency mitigates; the 2023 amendments strengthened BO requirements with TBML explicitly in scope
+
+**Unexplained Wealth & Asset Recovery**
+
+Opaque beneficial ownership is the primary obstacle to asset recovery — kleptocrats and criminals hide assets behind layers of shell companies. UBO registers are the foundation of effective confiscation regimes.
+
+- **Asset recovery nexus:** Opaque beneficial ownership is the primary obstacle to asset recovery — kleptocrats and criminals hide assets behind layers of shell companies; UBO registers are the foundation of effective confiscation
+- **UK:** UWOs require identification of the true owner of property — PSC register and Companies House verification are essential tools; Economic Crime and Corporate Transparency Act 2023 strengthened identity verification to support asset tracing
+- **US:** DOJ Kleptocracy Initiative relies on UBO information to trace assets; FinCEN BOI database will be available to law enforcement for asset recovery investigations
+- **France:** AGRASC coordinates with RBE (beneficial ownership register) to trace confiscable assets
+- **Switzerland:** Swiss authorities have frozen/returned billions in kleptocratic assets (Marcos, Abacha, Duvalier, Uzbekistan cases); UBO due diligence under AMLA is critical to these efforts
+- **Italy:** Anti-mafia confiscation regime traces assets through complex corporate structures; Antimafia Investigation Directorate (DIA) uses corporate registry data
+- **FATF:** Recommendation 4 (confiscation and provisional measures) explicitly links UBO transparency to effective asset recovery
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

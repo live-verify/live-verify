@@ -108,6 +108,49 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Potential verify: domain** | `ofsi.hm-treasury.gov.uk/licences` | `ofac.treasury.gov/licences` | `sanctions.bafin.de/licences` (varies by state) |
 | **Key difference** | Single UK-wide authority | OFAC has extraterritorial reach — non-US firms dealing in USD need OFAC licences too | Each member state issues its own licences; no single EU-wide licensing body (though the EU Sanctions Coordinator may evolve this role) |
 
+**Further Jurisdictional Peers**
+
+- **Australia (DFAT)** — The Department of Foreign Affairs and Trade administers sanctions licensing under the *Autonomous Sanctions Act 2011* and *Charter of the United Nations Act 1945*. Permit applications are made to the Minister for Foreign Affairs. Key difference: Australia's regime is smaller in scope than the UK's, with fewer designated persons, and licences are called "sanctions permits."
+- **Canada (GAC)** — Global Affairs Canada issues permits under the *Special Economic Measures Act (SEMA)* and the *Justice for Victims of Corrupt Foreign Officials Act (Sergei Magnitsky Law)*. Permits are granted by the Minister of Foreign Affairs. Key difference: Canada's regime closely mirrors the UK/US model but with lower volume; permits are published in the *Canada Gazette*.
+- **Singapore (MAS)** — The Monetary Authority of Singapore may grant exemptions from asset-freezing requirements under the *Monetary Authority of Singapore (Sanctions and Freezing of Assets of Persons — DPRK/Iran/etc.) Regulations*. Key difference: exemptions are narrower in scope, typically limited to basic expenses and legal fees; MAS coordinates with the Ministry of Foreign Affairs.
+- **Switzerland (SECO)** — The State Secretariat for Economic Affairs issues licences under the *Embargo Act (EmbA)* and specific annexes to the *Ordinance on Measures against [Country]*. Key difference: Switzerland's neutral status creates unique dynamics — Swiss banks hold significant sanctioned assets, making the licensing regime particularly active despite Switzerland not being an EU member.
+- **Japan (METI/MOF)** — The Ministry of Economy, Trade and Industry (METI) and Ministry of Finance (MOF) administer export and asset-freeze licences under the *Foreign Exchange and Foreign Trade Act (FEFTA)*. Key difference: Japan's sanctions licensing is split between METI (trade/export) and MOF (financial), requiring coordination between two ministries for complex cases.
+
+**Counter-Terrorist Financing (CTF)**
+
+Licensing the release of terrorist-frozen funds operates under distinct legal frameworks from general sanctions licensing, with additional national security oversight and stricter conditions.
+
+- **UK:** Licences to release funds frozen under *ATCSA 2001* (terrorist asset freezing) are legally distinct from SAMLA sanctions licences. The *Terrorism Act 2000 ss.16-18* criminalises use of terrorist property — even licensed releases require coordination with counter-terrorism policing.
+- **US:** OFAC licences under *Executive Order 13224* for terrorism-designated regions face acute tension with humanitarian access. Humanitarian exemptions for terrorism-designated areas (Syria, Afghanistan, Yemen) are a major live policy debate — far more contested than general sanctions licensing.
+- **EU:** Post-2022 reforms introduced humanitarian carve-outs for EU terrorist asset freezing regulations, partly in response to the Afghanistan and Syria crises. These exemptions are narrower and more politically sensitive than general sanctions licensing.
+- **Humanitarian carve-outs** are the defining CTF licensing challenge: unlike general sanctions (where licensing is routine for wind-down, legal fees, etc.), CTF licensing must balance national security concerns against humanitarian law obligations — a policy area still actively evolving across all major jurisdictions.
+
+**Sanctions Evasion**
+
+Sanctions evasion through licensing abuse is a distinct threat from money laundering — it involves exploiting the licensing mechanism itself to circumvent asset freezes and trade restrictions.
+
+- **Licensing fraud typologies:** Fraudulent licence applications with fabricated supporting documents, altered licence conditions (inflating amounts, extending expiry dates, widening permitted activities), presenting expired or revoked licences as current, and using a licence granted for one purpose (e.g., legal fees) to justify a broader release of funds.
+- **US (OFAC):** OFAC has extraterritorial reach — non-US firms dealing in USD require OFAC specific licences in addition to domestic authorisations. Secondary sanctions risk means firms that transact with licensed entities in one jurisdiction may still face OFAC penalties if USD clears through US correspondent banks.
+- **EU:** Circumvention reporting obligation under EU Regulation 2022/576 requires firms to report attempts to circumvent sanctions, including through licensing abuse. This creates a positive duty to flag suspicious licence usage, not merely to comply with one's own licence conditions.
+- **Trade-based evasion:** Goods and technology sanctions (dual-use items under the Wassenaar Arrangement) require export licences — a parallel but distinct licensing ecosystem. Firms may exploit gaps between financial sanctions licences (OFSI/OFAC) and export control licences (ECJU/BIS) to move restricted goods under the guise of licensed financial activity.
+- **Humanitarian exemptions:** UN Security Council Resolution 2664 (2022) created a standing humanitarian carve-out for UN-listed persons. Licensing frameworks must now distinguish humanitarian from commercial transactions — evasion actors exploit this ambiguity by routing commercial flows through humanitarian channels.
+
+**Unexplained Wealth & Asset Recovery**
+
+- **Asset recovery nexus:** Sanctions licences authorise limited release of frozen assets — the licensing decision is a gatekeeper between asset freezing and potential asset dissipation. Fraudulent licences undermine the entire asset recovery framework.
+- **UK:** OFSI licences must be reconciled with any parallel NCA civil recovery proceedings — releasing assets to a designated person may conflict with a recovery order.
+- **US:** OFAC licences + DOJ forfeiture — complex interaction when frozen assets are subject to both sanctions licensing and civil forfeiture proceedings.
+- **Repurposing debate:** G7 discussions on using frozen Russian sovereign assets (or their income) for Ukraine reconstruction — licensing frameworks may need to evolve to enable "repurposing" as a new category distinct from release.
+
+**Proliferation Financing**
+
+Licences under proliferation sanctions regimes (Iran, DPRK) carry additional conditions not present in general sanctions licences — end-use monitoring, inspection rights, and catch-all controls on unlisted goods that could contribute to WMD programs.
+
+- **UK:** OFSI issues licences under *Iran (Sanctions) (EU Exit) Regulations 2019* and North Korea sanctions regulations; separate from general SAMLA licensing; requires coordination with ECJU for goods/technology components.
+- **US:** OFAC Iran/DPRK licences have specific conditions; BIS export licences for dual-use goods to proliferation-concern countries require end-use certificates and may include post-shipment verification.
+- **UN:** UNSCR 1718 Committee (DPRK) and JCPOA procurement channel (Iran, though currently suspended) — international licensing/approval mechanisms for specific proliferation-sensitive goods.
+- **Key distinction:** Proliferation licensing requires technical assessment of goods/technology — not just financial controls; licensing decisions involve export control experts, intelligence agencies, and sometimes international bodies (IAEA).
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

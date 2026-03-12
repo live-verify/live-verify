@@ -108,6 +108,31 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Potential verify: domain** | `ofsi.hm-treasury.gov.uk/reports` | `ofac.treasury.gov/blocked-property` | Varies by member state |
 | **Key difference** | Must report "as soon as practicable" | Annual blocked property report due by 30 September; initial report within 10 business days of blocking | Varies — most member states require "without delay" reporting |
 
+**Further Jurisdictional Peers**
+
+- **Australia (DFAT)** — Under the *Autonomous Sanctions Act 2011* s.33 and the *Charter of the United Nations Act 1945*, holders of frozen assets must report to DFAT. Reports are made via the DFAT sanctions contact point. Key difference: Australia's reporting obligation covers both asset holdings and attempted transactions; there is no separate "blocked property report" — a single report covers both.
+- **Canada (OSFI/FINTRAC)** — Financial institutions must report frozen assets to the Office of the Superintendent of Financial Institutions (OSFI) under the *Special Economic Measures Act (SEMA)* and to FINTRAC for related suspicious transaction reports. Key difference: dual reporting is required — OSFI for the asset freeze itself, and FINTRAC if the circumstances also constitute a suspicious transaction.
+- **Singapore (MAS)** — Financial institutions must report to MAS under the *Monetary Authority of Singapore (Sanctions and Freezing of Assets of Persons)* Regulations. MAS requires reporting to the Suspicious Transaction Reporting Office (STRO) when sanctions-related suspicious activity is detected. Key difference: MAS integrates sanctions reporting with STR reporting via STRO, creating a unified intelligence pipeline rather than separate sanctions and AML streams.
+- **Switzerland (SECO)** — Under the *Embargo Act (EmbA)* and specific embargo ordinances, financial intermediaries must report frozen assets to SECO immediately. The Swiss Financial Market Supervisory Authority (FINMA) also requires reporting through its supervisory channels. Key difference: Switzerland's role as a major global financial centre means SECO receives a disproportionately high volume of frozen asset reports relative to its population; reporting is immediate with no grace period.
+
+**Sanctions Evasion**
+
+Reporting suspected sanctions breaches is distinct from SAR reporting — sanctions breach reports concern specific prohibited transactions rather than patterns of suspicion, and the reporting obligations for evasion carry their own legal framework.
+
+- **UK (SAMLA 2018 s.51):** Mandatory reporting of known or suspected sanctions breaches — failure to report is a criminal offence. OFSI receives approximately 400 breach reports per year, compared to over 900,000 SARs filed with the NCA. The low volume reflects the binary nature of sanctions reporting: did you deal with a designated person, yes or no.
+- **US (OFAC VSD):** OFAC's Voluntary Self-Disclosure (VSD) program incentivises firms to report their own breaches — voluntary disclosure significantly reduces penalties (typically by 50% or more). Unlike the UK, there is no mandatory reporting obligation for sanctions breaches, creating a different incentive structure that relies on self-interest rather than criminal liability.
+- **EU:** Most member states impose mandatory sanctions breach reporting. New EU-wide reporting requirements under the sanctions circumvention regulation (Regulation 2022/576) extend the obligation to report not just breaches but suspected circumvention attempts — a broader net than traditional breach reporting.
+- **Signal-to-noise contrast:** Sanctions breach reports number in hundreds per year per jurisdiction, versus millions of SARs. This dramatically higher signal-to-noise ratio means sanctions reports receive individual attention from enforcement agencies — unlike SARs, which are processed algorithmically. Verified reporting acknowledgments therefore carry substantial evidentiary weight.
+- **Evasion-specific reporting:** Post-2022, reporting obligations increasingly cover circumvention indicators — unusual ownership restructuring, sudden changes in vessel registration, routing payments through newly established intermediaries — not just completed breaches. This shifts the reporting model from reactive (breach occurred) to proactive (evasion attempted).
+
+**Proliferation Financing**
+
+Breach reports under proliferation sanctions regimes (Iran, DPRK) carry heightened national security significance — a breach may indicate active WMD procurement, not just a compliance failure.
+
+- **UK:** OFSI breach reports related to Iran/DPRK sanctions are shared with intelligence agencies and ECJU, not just treated as regulatory compliance matters.
+- **US:** OFAC voluntary self-disclosures for Iran/DPRK violations are treated more seriously than general sanctions breaches; DOJ criminal prosecution is more likely for proliferation-related violations.
+- **Key distinction:** General sanctions breaches are primarily regulatory; proliferation sanctions breaches have national security and intelligence dimensions.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

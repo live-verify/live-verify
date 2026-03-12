@@ -118,6 +118,35 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Potential verify: domain** | `nca.gov.uk/sar-receipts` | `fincen.gov/bsa-filings` | Varies by member state (e.g., `fiu.belastingdienst.nl/receipts`) |
 | **Key difference** | ~900,000 SARs/year; single national FIU; tipping off is criminal offence (POCA s.333A) | ~4 million SARs/year filed via BSA E-Filing system; FinCEN also receives CTRs, CMIRs, FBARs | Each member state operates its own FIU; no single EU-wide filing system; Europol FIU.net enables cross-border sharing |
 
+**Further Jurisdictional Peers**
+
+- **Australia (AUSTRAC)** — AUSTRAC receives suspicious matter reports (SMRs) under the *Anti-Money Laundering and Counter-Terrorism Financing Act 2006*. AUSTRAC issues electronic acknowledgments via its online reporting portal (AUSTRAC Online). Key difference: Australia uses "suspicious matter reports" (not SARs) with a lower threshold — reports are required where there are "reasonable grounds to suspect" — and AUSTRAC processes approximately 350,000 SMRs per year.
+- **Canada (FINTRAC)** — The Financial Transactions and Reports Analysis Centre of Canada receives suspicious transaction reports (STRs) under the *Proceeds of Crime (Money Laundering) and Terrorist Financing Act (PCMLTFA)*. Filing acknowledgments are issued electronically via FINTRAC's F2R system. Key difference: Canada requires STRs within 30 days of the suspicion forming; tipping off is a criminal offence under PCMLTFA s.8.
+- **Singapore (STRO)** — The Suspicious Transaction Reporting Office receives STRs under the *Corruption, Drug Trafficking and Other Serious Crimes (Confiscation of Benefits) Act (CDSA)*. Acknowledgments are issued via the STRO Online Notices and Reporting (SONAR) platform. Key difference: Singapore's FIU is part of the Commercial Affairs Department of the Singapore Police Force, giving it direct law enforcement capabilities.
+- **Switzerland (MROS)** — The Money Laundering Reporting Office Switzerland receives reports under the *Anti-Money Laundering Act (AMLA)* via the goAML platform. MROS issues acknowledgments electronically. Key difference: Swiss reporting triggers an automatic five-day asset freeze (AMLA Art. 10), making the acknowledgment timestamp particularly significant as it starts the freeze clock.
+- **Japan (JAFIC)** — The Japan Financial Intelligence Center receives suspicious transaction reports (STRs) under the *Act on Prevention of Transfer of Criminal Proceeds*. Key difference: JAFIC is part of the National Police Agency; Japan's SAR volume has increased significantly since FATF's 2021 mutual evaluation, with enhanced reporting requirements for virtual asset service providers.
+
+**Counter-Terrorist Financing (CTF)**
+
+The NCA receives terrorism-related SARs through the same portal but processes them through a distinct intelligence pathway with different urgency and downstream recipients.
+
+- **UK:** *Terrorism Act 2000 s.21A* SARs are filed to the same NCA SAR Online portal as POCA SARs and receive the same receipt acknowledgment format. However, downstream processing is fundamentally different — terrorism SARs are disseminated to counter-terrorism policing (SO15 Metropolitan Police Counter Terrorism Command / regional CTUs) rather than standard financial investigation teams.
+- **Same receipt, different urgency:** The receipt acknowledgment mechanism is identical, but the verification timestamp is especially significant for terrorism SARs because counter-terrorism moratorium periods and intervention timelines are shorter than for proceeds-of-crime matters.
+- **Distinction from POCA SARs:** A firm's SAR filing history may include both POCA and TA 2000 reports. Verified receipts allow FCA supervisors to confirm that the firm is correctly categorising reports — filing a terrorism suspicion as a POCA SAR (rather than under s.21A) could delay critical intelligence reaching counter-terrorism agencies.
+
+**Cybercrime-Enabled Financial Crime**
+
+NCA's National Cyber Crime Unit is a key consumer of cyber-flagged SARs, with growing overlap between financial intelligence and cyber threat intelligence.
+
+- **UK:** NCSC and NCA collaborate on ransomware payment intelligence; SARs flagged as cyber-related are prioritised differently from traditional financial crime SARs
+- **Volume trend:** Cyber-enabled financial crime SARs are growing faster than any other category — mule account SARs alone have driven significant volume increases
+
+**Unexplained Wealth & Asset Recovery**
+
+- **Asset recovery nexus:** SARs filed with the NCA feed directly into civil recovery investigations under POCA Part 5; the SAR is often the starting point for unexplained wealth investigations.
+- **UK:** NCA's Proceeds of Crime Centre uses SAR intelligence to identify assets for UWO applications and civil recovery; DAML consent refusals can lead directly to restraint orders and confiscation.
+- **Volume:** Of ~900,000 SARs/year, a small fraction lead to asset recovery — but those cases involve significant values; NCA recovered £345M in 2022/23 via POCA.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

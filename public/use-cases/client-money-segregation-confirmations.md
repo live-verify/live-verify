@@ -125,6 +125,37 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Client money is the "Trust Core" of the financial system. By turning technical attestations into verifiable digital bridges, we protect the public from the devastating cost of firm failure and ensure that "Segregated" means "Safe."
 
+## Jurisdictional Equivalents
+
+| | UK | US | EU |
+|---|---|---|---|
+| **Authority** | FCA (Financial Conduct Authority) | SEC / CFTC | National competent authority (e.g., BaFin, AMF, CONSOB) |
+| **Document** | CASS 7 segregation attestation / audit opinion | Customer Protection Rule confirmation (SEC Rule 15c3-3); CFTC Reg 1.20-1.30 statements | MiFID II client asset safeguarding report (varies by member state) |
+| **Legal basis** | FCA Client Assets Sourcebook (CASS 7) | Securities Exchange Act 1934 (Rule 15c3-3); Commodity Exchange Act | MiFID II (Directive 2014/65/EU), delegated regulation on safeguarding |
+| **Potential verify: domain** | `cass.fca.org.uk/v` | `sec.gov/custody/v` | `bafin.de/client-assets/v` (varies by state) |
+| **Key difference** | Single rulebook (CASS) with daily reconciliation and annual external audit | SEC and CFTC have separate regimes for securities and futures; no unified "CASS-style" sourcebook | Harmonised at directive level but implementation and audit frequency vary by national regulator |
+
+**Further Jurisdictional Peers**
+
+- **Australia:** ASIC client money rules under Corporations Act 2001 s.981A-981H
+- **Canada:** IIROC/CIPF client asset protection rules
+- **Singapore:** SFA (Securities and Futures Act) — MAS regulations on client money
+- **Japan:** FIEA (Financial Instruments and Exchange Act) client asset segregation
+- **Switzerland:** FINMA rules on segregation of client assets under Banking Act
+- **Hong Kong:** SFC Client Securities Rules and Client Money Rules
+
+**Market Abuse & Insider Trading**
+
+Falsifying client money segregation reports is a form of securities fraud — it misleads clients about the safety of their assets. MF Global (2011) and Lehman Brothers (2008) demonstrated how segregation failures can constitute market manipulation when combined with misleading statements to investors.
+
+- **UK:** FCA CASS enforcement sits alongside market abuse powers; firms that misrepresent segregation status face both CASS sanctions and potential market abuse charges under UK MAR; FCA fined Barclays £38M (2015) for failure to segregate client money
+- **US:** SEC Rule 15c3-3 (Customer Protection Rule) violations can be prosecuted as securities fraud under Securities Exchange Act s.10(b); SIPC (Securities Investor Protection Corporation) provides investor compensation when segregation fails; MF Global's Jon Corzine faced SEC enforcement for segregation failures
+- **EU:** MiFID II Art. 16(8)-(10) client asset obligations; national regulators enforce; ESMA has issued guidelines on asset segregation as an investor protection measure
+- **Australia:** ASIC enforces client money obligations under Corporations Act s.981A-981H; BBY Group collapse (2015) highlighted segregation failures in Australian broking
+- **Japan:** FIEA requires strict segregation via trust banks; Japan Securities Finance Co. provides additional protection layer; SESC monitors compliance
+- **Singapore:** SFA client money rules enforced by MAS; segregation failures can trigger MAS enforcement action and market misconduct proceedings
+- **Hong Kong:** SFC Client Securities Rules / Client Money Rules; SFC has taken enforcement action for segregation failures linked to market misconduct
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

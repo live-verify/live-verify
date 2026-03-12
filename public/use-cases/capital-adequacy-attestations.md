@@ -125,6 +125,39 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Capital adequacy is the "Foundation of Financial Stability." By turning technical attestations into verifiable digital bridges, we protect the banking system from the "Minsky Moment" of hidden insolvency and ensure that "Safety" is backed by cryptographic proof.
 
+## Jurisdictional Equivalents
+
+| | UK | US | EU |
+|---|---|---|---|
+| **Authority** | PRA (Bank of England) | Federal Reserve / OCC / FDIC | ECB/SSM (Single Supervisory Mechanism) + national regulators |
+| **Document** | Capital adequacy attestation | Capital adequacy attestation | Capital adequacy attestation |
+| **Legal basis** | CRD IV/V; Basel III implemented via PRA rulebook | Dodd-Frank Act; US capital rules (Basel III implementation) | CRD IV/V + CRR (Capital Requirements Regulation) |
+| **Potential verify: domain** | `prudentialregulation.bankofengland.co.uk` | `federalreserve.gov/supervisionreg` | `bankingsupervision.europa.eu` (varies by state) |
+| **Key difference** | PRA applies Basel III with UK-specific buffers; dual-regulated firms also answer to FCA | Three federal agencies (Fed, OCC, FDIC) plus state regulators; Basel III "endgame" rules subject to US rulemaking | ECB directly supervises significant institutions; national regulators handle less significant ones; CRR is directly applicable EU law |
+
+**Further Jurisdictional Peers**
+
+- **Australia:** APRA (Australian Prudential Regulation Authority) — Basel III implemented via APS (Authorised Deposit-taking Institution Prudential Standards). Known for conservative "unquestionably strong" capital benchmarks.
+- **Canada:** OSFI (Office of the Superintendent of Financial Institutions) — Basel III via CAR Guideline (Capital Adequacy Requirements). Canadian banks consistently among the best-capitalised globally.
+- **Singapore:** MAS — Basel III via MAS Notice 637. Singapore applies Basel standards with additional domestic buffers for systemically important banks.
+- **Japan:** FSA/JFSA — Basel III via local capital adequacy requirements. Japan's megabanks subject to G-SIB surcharges.
+- **Switzerland:** FINMA — Basel III, often with a "Swiss finish" imposing higher requirements than the Basel minimum, particularly for UBS and Credit Suisse (now UBS).
+- **Hong Kong:** HKMA — Basel III via Banking (Capital) Rules. Hong Kong typically implements Basel standards ahead of schedule.
+
+**Market Abuse & Insider Trading**
+
+Falsifying capital adequacy ratios is a form of market manipulation — it misleads investors, counterparties, and regulators about a firm's solvency. "Window dressing" capital positions at quarter-end is a known abuse pattern.
+
+- **UK:** Market Abuse Regulation (UK MAR, retained EU law) — misleading statements about capital position can constitute market manipulation under Art. 12; FCA has enforcement powers under FSMA 2000 s.118; Criminal Justice Act 1993 for criminal insider dealing
+- **US:** SEC Rule 10b-5 (anti-fraud); Sarbanes-Oxley Act 2002 (SOX) s.302/906 — CEO/CFO must personally certify financial statements including capital ratios; false certification is a federal crime (up to 20 years); Dodd-Frank Act whistleblower provisions
+- **EU:** Market Abuse Regulation (MAR, Regulation 596/2014) + Market Abuse Directive II (MAD II, Directive 2014/57/EU) — criminal sanctions for market manipulation; ESMA coordinates enforcement across member states
+- **Australia:** ASIC enforces market integrity under Corporations Act 2001 Part 7.10; continuous disclosure obligations (ASX Listing Rules) mean capital adequacy issues must be disclosed promptly
+- **Canada:** Provincial securities regulators (OSC, AMF, BCSC); Criminal Code s.380 (fraud) and s.382 (market manipulation); CSA (Canadian Securities Administrators) coordinates nationally
+- **Singapore:** Securities and Futures Act (SFA) Part XII — market manipulation and insider trading; MAS and SGX enforce; criminal penalties up to 7 years / SGD 250,000
+- **Japan:** Financial Instruments and Exchange Act (FIEA) — insider trading (Art. 166-167), market manipulation (Art. 159); SESC (Securities and Exchange Surveillance Commission) investigates, FSA enforces
+- **Hong Kong:** Securities and Futures Ordinance (SFO) Part XIII/XIV — market misconduct; SFC and Market Misconduct Tribunal; dual civil/criminal enforcement track
+- **Switzerland:** Financial Market Infrastructure Act (FMIA) — insider trading and market manipulation; FINMA enforcement; Criminal Code Art. 161 (repealed, now in FMIA)
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

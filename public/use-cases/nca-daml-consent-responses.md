@@ -125,6 +125,22 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Potential verify: domain** | `nca.gov.uk/daml-consent` | N/A | Varies (e.g., `fiu.belastingdienst.nl/consent` in NL) |
 | **Key difference** | Unique UK mechanism — firms MUST obtain consent before proceeding with suspicious transactions or face criminal liability | US has no consent requirement; firms file SARs but are not blocked from processing | Some EU states (Netherlands, Belgium) have consent-like regimes; most do not. The UK's DAML system is unusually strict and well-defined |
 
+**Further Jurisdictional Peers**
+
+The UK's DAML consent mechanism is largely unique. Most peer jurisdictions operate a "file and proceed" model where firms report suspicious activity but are not required to obtain pre-transaction consent from the FIU. Notable comparisons:
+
+- **Australia (AUSTRAC)** — Under the *Anti-Money Laundering and Counter-Terrorism Financing Act 2006*, reporting entities file suspicious matter reports (SMRs) with AUSTRAC. There is no pre-transaction consent mechanism — firms file and proceed. Key difference: Australia's regime has no equivalent of the UK's 31-day moratorium; transactions continue unless a separate law enforcement restraining order is obtained.
+- **Canada (FINTRAC)** — Under the *Proceeds of Crime (Money Laundering) and Terrorist Financing Act (PCMLTFA)*, firms file suspicious transaction reports (STRs) with FINTRAC. There is no pre-transaction consent requirement. Key difference: Canadian firms face no criminal liability for processing a transaction after filing an STR — the act of filing is the compliance obligation, not obtaining consent.
+- **Switzerland (MROS)** — The Money Laundering Reporting Office Switzerland (MROS) operates under the *Anti-Money Laundering Act (AMLA)*. When a financial intermediary files a suspicious activity report, assets are automatically frozen for five working days under AMLA Art. 10, extendable if MROS refers the case to prosecution. Key difference: Switzerland's regime is the closest peer to the UK's — it imposes an automatic asset freeze upon filing (rather than requiring pre-consent), giving MROS time to assess before the intermediary can proceed.
+- **Singapore (STRO)** — The Suspicious Transaction Reporting Office receives STRs under the *Corruption, Drug Trafficking and Other Serious Crimes (Confiscation of Benefits) Act (CDSA)*. There is no formal consent mechanism. Key difference: Singapore's FIU can issue restraint orders through the courts, but the reporting entity is not blocked from proceeding with the transaction upon filing.
+
+**Unexplained Wealth & Asset Recovery**
+
+- **Asset recovery nexus:** When the NCA refuses DAML consent, the 31-day moratorium period is specifically designed to allow law enforcement to apply for a restraint order under POCA s.41 — DAML refusal is the trigger for asset freezing and potential confiscation.
+- **UK:** DAML refusal → restraint order → criminal confiscation or civil recovery is a defined enforcement pathway; the verified DAML response timestamp is critical evidence for the restraint order application.
+- **Key distinction:** This is unique to the UK — no other jurisdiction has a pre-transaction consent mechanism that directly triggers asset restraint proceedings.
+- **Ireland:** Criminal Assets Bureau (CAB) model is different — CAB can seek interim orders without a SAR/DAML trigger, based on its own intelligence.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

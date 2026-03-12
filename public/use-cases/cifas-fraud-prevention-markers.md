@@ -208,6 +208,51 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 CIFAS is one of the most powerful fraud prevention tools in the UK — and one of the least transparent to the individuals it affects. The system works well for its members (banks catching fraud) but poorly for individuals (no portable proof of status, no notification when markers are filed, no way to quickly demonstrate a clean record or a successful appeal). A verified status certificate doesn't change how CIFAS works internally — it gives the individual a portable, cryptographically verifiable document that makes their status visible to anyone, not just CIFAS members.
 
 
+## Jurisdictional Equivalents
+
+| | UK | US | EU |
+|---|---|---|---|
+| **Authority** | CIFAS (industry mutual, 600+ members) | No single equivalent; ChexSystems / Early Warning Services (banking); FTC (identity theft) | No pan-EU fraud marker database; some member states operate national schemes |
+| **Document** | CIFAS Status Certificate (marker status) | ChexSystems Consumer Report; FTC Identity Theft Report (protective registration) | Varies by member state |
+| **Legal basis** | Data Protection Act 2018; UK GDPR; CIFAS member agreement | Fair Credit Reporting Act (FCRA); FTC Act; state banking regulations | GDPR; national data-sharing frameworks |
+| **Potential verify: domain** | `cifas.org.uk/status` | `chexsystems.com/verify` / `identitytheft.gov` | N/A (no pan-EU system) |
+| **Key difference** | Single shared industry database visible to all members; 6-year marker duration; protective registration for victims | Fragmented: ChexSystems covers banking only; EWS covers deposit accounts; FTC identity theft report is government-issued but not a fraud marker system | No unified cross-border scheme; France has Banque de France FCC/FICP for credit/payment incidents; some Nordic countries share fraud databases |
+
+**Further Jurisdictional Peers**
+
+- **Australia:** IDCare (national identity and cyber support service for fraud victims); AFCA (Australian Financial Complaints Authority) handles disputes. No centralised fraud marker database equivalent to CIFAS.
+- **Canada:** Equifax Canada / TransUnion Canada fraud alerts; Canadian Anti-Fraud Centre (CAFC) for reporting. No shared industry blacklist system.
+- **Singapore:** ABS (Association of Banks in Singapore) coordinates inter-bank fraud databases; MAS oversees AML/fraud frameworks.
+- **Japan:** JBA (Japanese Bankers Association) facilitates information sharing among member banks; no centralised fraud marker system.
+- **France:** Banque de France operates FCC (Fichier central des cheques) and FICP (Fichier des incidents de remboursement des credits aux particuliers) — centralised credit/payment incident files, the closest EU equivalent to CIFAS.
+- **Hong Kong:** HKMA coordinates fraud intelligence sharing among authorized institutions; JFIU (Joint Financial Intelligence Unit) handles suspicious transaction data.
+
+**Fraud Prevention**
+
+CIFAS is a fraud prevention body, not an AML body — the agencies, laws, and databases involved are fundamentally different from AML/CTF frameworks covered above.
+
+- **UK:** Fraud Act 2006 is the primary statute (distinct from POCA/AML); Action Fraud is the national reporting centre; City of London Police is the lead force for fraud; National Fraud Intelligence Bureau (NFIB) analyses reports; Insurance Fraud Bureau (IFB) covers insurance-specific fraud. CIFAS itself is a private-sector industry mutual, not a regulator — it operates under data-sharing agreements, not statutory authority.
+- **US:** FTC (Federal Trade Commission) leads on consumer fraud; FBI IC3 (Internet Crime Complaint Center) handles online fraud reporting; state Attorneys General enforce consumer protection. No national fraud marker database equivalent to CIFAS — ChexSystems and Early Warning Services are banking-sector only and cover cheque/deposit fraud, not the broad cross-industry coverage CIFAS provides.
+- **EU:** No pan-EU fraud marker database. Europol EC3 (European Cybercrime Centre) coordinates cross-border fraud investigations; national police forces lead domestically. Each member state has its own consumer fraud framework.
+- **Australia:** ACCC (Australian Competition and Consumer Commission) handles consumer fraud; AFP (Australian Federal Police) investigates serious/complex fraud; IDCare provides identity fraud victim support. No national shared fraud marker database.
+- **Canada:** CAFC (Canadian Anti-Fraud Centre) is the national fraud reporting centre; RCMP investigates serious fraud; Competition Bureau handles deceptive trade practices; Equifax/TransUnion fraud alerts provide limited marker-like functionality.
+- **Singapore:** SPF (Singapore Police Force) Anti-Scam Command leads operational response; MAS covers financial fraud within regulated firms; Inter-Ministry Committee on Scams coordinates policy. Singapore runs very active public awareness campaigns (ScamShield app, anti-scam hotline).
+- **Japan:** NPA (National Police Agency) leads fraud investigation; Consumer Affairs Agency handles consumer protection. Relatively low fraud rates historically, but rising online and phone scams — notably *ore ore sagi* ("it's me" scams), a social engineering fraud type with no direct Western equivalent.
+- **France:** DGCCRF (Direction generale de la concurrence, de la consommation et de la repression des fraudes) handles consumer fraud; Tracfin covers fraud with a money laundering nexus. Banque de France operates FCC (Fichier Central des Cheques) and FICP (Fichier des incidents de remboursement des credits aux particuliers) — payment incident databases somewhat analogous to CIFAS markers for cheque and credit defaults.
+- **Germany:** BaFin covers financial fraud within regulated institutions; BKA (Bundeskriminalamt / Federal Criminal Police) investigates serious fraud. No national shared fraud database equivalent to CIFAS.
+- **Hong Kong:** HKPF Anti-Deception Coordination Centre (ADCC) is the operational hub for fraud prevention; SFC handles securities fraud. Recent surge in investment scam enforcement, with ADCC running real-time intervention programmes to intercept victims mid-transaction.
+
+**Cybercrime-Enabled Financial Crime**
+
+Identity fraud is increasingly cyber-enabled — data breaches feed the creation of synthetic identities and fuel CIFAS-type fraud markers. APP (Authorised Push Payment) fraud is now the UK's largest fraud type by volume.
+
+- **UK:** PSR (Payment Systems Regulator) mandatory reimbursement for APP fraud (from Oct 2024); Online Safety Act 2023 places duties on platforms; NCSC (National Cyber Security Centre) for breach response
+- **US:** FBI IC3 reported $12.5B in cybercrime losses (2023); FTC consumer reports; no mandatory APP fraud reimbursement (unlike UK)
+- **Australia:** ACSC (Australian Cyber Security Centre); Scamwatch (ACCC); mandatory data breach notification under Privacy Act; banks developing industry-wide anti-scam framework
+- **Singapore:** Inter-Ministry Committee on Scams; MAS shared responsibility framework for scam losses (2024); PDPC (Personal Data Protection Commission) for breach enforcement
+- **EU:** NIS2 Directive (2024) — cybersecurity obligations for financial sector; PSD3 (proposed) includes fraud liability provisions
+- **Crypto dimension:** Crypto-enabled fraud (pig butchering scams, fake investment platforms) is the fastest-growing fraud type globally — CIFAS-equivalent systems must expand to cover crypto wallet addresses, not just bank accounts
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

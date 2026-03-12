@@ -111,6 +111,62 @@ Barclays issues currency transaction reports for regulatory and compliance purpo
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
+## Jurisdictional Equivalents
+
+| | US | UK | EU |
+|---|---|---|---|
+| **Authority** | FinCEN (Financial Crimes Enforcement Network) | NCA (National Crime Agency); FCA-supervised firms | Member state FIUs under 4MLD/5MLD |
+| **Document** | Currency Transaction Report (FinCEN Form 112) | No direct CTR equivalent; SARs cover large cash transactions | Varies by member state; cash threshold reporting where mandated |
+| **Legal basis** | Bank Secrecy Act (BSA); 31 USC 5313; 31 CFR 1010.311 | POCA 2002; Money Laundering Regulations 2017 | 4th/5th Anti-Money Laundering Directives (4MLD/5MLD) |
+| **Potential verify: domain** | `bankofamerica.com/compliance/v` (issuing bank) | N/A (no automatic CTR regime) | Varies by member state |
+| **Key difference** | Automatic filing at >$10,000 cash threshold; ~15 million CTRs filed annually | No automatic cash threshold reporting; all suspicious activity reported via SARs to NCA regardless of amount | Cash thresholds vary by member state; some have no automatic reporting; EU framework mandates suspicious transaction reporting |
+
+**Further Jurisdictional Peers**
+
+- **Australia:** AUSTRAC Threshold Transaction Reports (TTR) for cash transactions >AUD 10,000. Filed by reporting entities under AML/CTF Act 2006. Closest direct equivalent to US CTRs.
+- **Canada:** FINTRAC Large Cash Transaction Reports (LCTR) for cash transactions >CAD 10,000. Filed under PCMLTFA (Proceeds of Crime (Money Laundering) and Terrorist Financing Act).
+- **Singapore:** Cash Transaction Reports filed with STRO (Suspicious Transaction Reporting Office) under MAS supervision. Reporting thresholds set by CDSA (Corruption, Drug Trafficking and Other Serious Crimes Act).
+- **Japan:** JAFIC (Japan Financial Intelligence Center) receives suspicious transaction reports from financial institutions under the Act on Prevention of Transfer of Criminal Proceeds. No automatic cash threshold equivalent to the US $10,000 rule.
+- **Switzerland:** MROS (Money Laundering Reporting Office Switzerland) under FINMA supervision. No automatic CTR threshold; SARs required for suspicious transactions under AMLA (Anti-Money Laundering Act).
+- **Hong Kong:** JFIU (Joint Financial Intelligence Unit) receives suspicious transaction reports. No automatic cash threshold reporting; STRs filed under OSCO (Organized and Serious Crimes Ordinance) and DTROP (Drug Trafficking (Recovery of Proceeds) Ordinance).
+
+**Tax Evasion & Transparency**
+
+CTR data is a primary tax evasion detection tool. "Structuring" (breaking deposits into sub-threshold amounts to avoid reporting) is both a BSA violation and often indicative of tax evasion:
+
+- **Tax nexus:** CTR data is shared with IRS-CI for tax fraud investigations; structuring is both a federal crime (31 USC 5324) and frequently indicative of unreported taxable income
+- **US:** IRS receives CTR data directly from FinCEN; CTRs are a primary tool for detecting unreported cash income in tax investigations
+- **Australia:** AUSTRAC TTRs are shared with ATO for tax compliance; significant use in cash economy enforcement (restaurants, tradies, etc.)
+- **Canada:** FINTRAC LCTRs shared with CRA; used in underground economy enforcement
+- **EU:** Cash payment limits (varying by country — France EUR 1,000, Italy EUR 1,000, Spain EUR 1,000, Germany EUR 10,000) are a parallel anti-tax-evasion measure alongside transaction reporting
+
+**Fraud Prevention**
+
+"Structuring" (breaking transactions to avoid CTR thresholds) is itself a federal crime, but it is also commonly a technique within broader fraud schemes — tax fraud, insurance fraud, payroll fraud, and embezzlement. The fraud dimension is distinct from the AML dimension: structuring may involve entirely legitimate funds being moved in ways designed to evade reporting obligations.
+
+- **US:** Structuring is a federal crime under 31 USC 5324, prosecuted by DOJ even when the underlying funds are legitimate. This has been controversial — IRS-CI civil asset forfeiture of structured but lawful deposits drew significant criticism, leading to IRS policy reforms in 2014-2015 restricting seizures of legal-source structured funds. The fraud charge attaches to the evasion of reporting, not the source of money.
+- **UK:** No fixed CTR threshold, but structuring deposits to avoid triggering SARs is indicative of fraud and may constitute a money laundering offence under POCA s.327-329. The Fraud Act 2006 may also apply where structuring is part of a scheme involving false representation to financial institutions.
+- **Australia:** AUSTRAC has prosecuted "smurfing" (structuring via multiple persons or accounts to stay below the AUD 10,000 TTR threshold). The Tabcorp $45M penalty (2017) was partly for TTR failures that enabled structuring. ACCC involvement where structuring relates to consumer fraud schemes.
+- **Canada:** FINTRAC — structuring to avoid Large Cash Transaction Reports (LCTR) is an offence under PCMLTFA s.75. CAFC (Canadian Anti-Fraud Centre) tracks structuring as a fraud typology when it appears in broader fraud schemes such as romance fraud cash-outs or investment scam laundering.
+
+**Cybercrime-Enabled Financial Crime**
+
+Crypto exchanges are now required to file CTRs in many jurisdictions; cash-to-crypto transactions at Bitcoin ATMs are a growing laundering channel.
+
+- **US:** FinCEN 2019 guidance confirmed virtual currency businesses are MSBs and must file CTRs; IRS-CI has a dedicated cryptocurrency unit
+- **Australia:** AUSTRAC — digital currency exchanges must register and file TTRs; Binance Australia lost its banking relationships over compliance concerns
+- **Canada:** FINTRAC — virtual currency dealers classified as MSBs since 2020; CTR/LCTR requirements apply
+- **UK:** FCA registration requirement for crypto firms under MLR 2017; no CTR equivalent but crypto SARs to NCA
+
+**Trade-Based Money Laundering (TBML)**
+
+Cash generated from trade-based laundering enters the banking system via deposits that trigger CTRs — making the CTR often the first detection point for TBML schemes. TBML is enforced by customs authorities rather than financial regulators, creating a distinct enforcement domain.
+
+- **TBML nexus:** Proceeds from over-invoiced goods sold domestically are deposited as cash, triggering CTRs; the CTR creates an auditable link between trade fraud and the banking system
+- **Black Market Peso Exchange (BMPE):** Classic TBML typology where drug cash in the US is used to buy goods exported to Colombia at inflated invoices; CTRs on the cash deposits are key intelligence for connecting seemingly legitimate trade to illicit proceeds
+- **US:** FinCEN has issued specific advisories linking CTR patterns to TBML (FIN-2006-A003, updated 2020); CBP Trade Transparency Units cross-reference CTR data with customs declarations to identify pricing anomalies
+- **Emerging:** Trade finance digitisation (blockchain-based letters of credit, e-bills of lading) may provide new verification points — Live Verify could authenticate trade documents that are currently vulnerable to TBML manipulation
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

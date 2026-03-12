@@ -129,6 +129,73 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 SARs are the "Police Reports" of the financial system. By turning internal records into verifiable digital bridges, we ensure that the "Chain of Compliance" is unbreakable, making it impossible for banks to hide dirty money from their regulators.
 
+## Jurisdictional Equivalents
+
+| | US | UK | EU |
+|---|---|---|---|
+| **Authority** | FinCEN (Financial Crimes Enforcement Network) | NCA (National Crime Agency) | Member state FIUs (Financial Intelligence Units) |
+| **Document** | Suspicious Activity Report (FinCEN Form 111) | SAR filed with NCA; separate DAML (Defence Against Money Laundering) consent requests | Suspicious Transaction Reports to national FIUs |
+| **Legal basis** | Bank Secrecy Act (BSA); 31 USC 5318(g); OCC/Fed guidance | POCA 2002 ss.330-332; Terrorism Act 2000 s.21A; MLR 2017 | 4th/5th Anti-Money Laundering Directives (4MLD/5MLD); national transpositions |
+| **Potential verify: domain** | `goliathbank.com/aml/v` (issuing bank) | `compliance.example-bank.co.uk/sar/verify` (issuing bank) | Varies by member state and institution |
+| **Key difference** | ~4 million SARs filed annually; strict tipping-off prohibition; $5,000 threshold for insider abuse, $25,000 for others | DAML consent regime unique to UK — must get NCA consent before proceeding with suspicious transaction; no monetary threshold | Each member state transposes directives differently; reporting thresholds and tipping-off rules vary; 6AMLD introduced criminal liability for legal persons |
+
+**Further Jurisdictional Peers**
+
+- **Australia:** Suspicious Matter Reports (SMRs) filed with AUSTRAC under AML/CTF Act 2006. Reporting entities must file within 24 hours for terrorism-related matters, 3 business days otherwise.
+- **Canada:** Suspicious Transaction Reports (STRs) filed with FINTRAC under PCMLTFA (Proceeds of Crime (Money Laundering) and Terrorist Financing Act). No monetary threshold; 30-day filing deadline.
+- **Singapore:** Suspicious Transaction Reports (STRs) filed with STRO (Suspicious Transaction Reporting Office) under CDSA (Corruption, Drug Trafficking and Other Serious Crimes Act). MAS supervises financial institution compliance.
+- **Japan:** Suspicious Transaction Reports filed with JAFIC (Japan Financial Intelligence Center) under the Act on Prevention of Transfer of Criminal Proceeds. FSA (Financial Services Agency) supervises compliance.
+- **Switzerland:** SARs filed with MROS (Money Laundering Reporting Office Switzerland) under AMLA (Anti-Money Laundering Act). FINMA supervises financial intermediaries. Unique obligation: reporting entity must freeze assets for 5 business days upon filing.
+- **Hong Kong:** Suspicious Transaction Reports filed with JFIU (Joint Financial Intelligence Unit, a joint HKPF/C&ED operation) under OSCO (Organized and Serious Crimes Ordinance) and DTROP (Drug Trafficking (Recovery of Proceeds) Ordinance). SFC and HKMA supervise regulated entities.
+
+**Counter-Terrorist Financing (CTF)**
+
+Terrorist financing SARs operate under separate legal obligations from AML SARs, with different downstream recipients, urgency, and detection patterns.
+
+- **UK:** The *Terrorism Act 2000 s.21A* imposes a separate terrorist financing SAR obligation — these are filed to the same NCA portal as POCA SARs but are processed with higher priority and disseminated to counter-terrorism policing (SO15/CTU).
+- **US:** FinCEN SAR filings include a terrorism financing checkbox; SARs tagged for terrorism are routed to FBI and NCTC (National Counterterrorism Center) rather than standard law enforcement channels.
+- **Australia:** AUSTRAC suspicious matter reports include terrorism financing; ASIO (Australian Security Intelligence Organisation) receives intelligence from terrorism-flagged reports, distinct from the police-oriented AML pathway.
+- **Canada:** FINTRAC STRs for terrorism financing are shared with CSIS (Canadian Security Intelligence Service) — a national security intelligence agency, not a law enforcement body — reflecting the fundamentally different downstream use.
+- **Key distinction:** Terrorist financing amounts are often very small — operational costs can be under $1,000. Pattern detection differs fundamentally from AML: instead of looking for large structured deposits, CTF monitoring looks for small transfers to high-risk regions, crowdfunding patterns, and rapid dispersal of modest sums.
+
+**Cybercrime-Enabled Financial Crime**
+
+A growing proportion of SARs relate to cyber-enabled financial crime — ransomware payments, BEC (Business Email Compromise) funds, crypto-laundering, and mule account networks.
+
+- **UK:** NCA National Cyber Crime Unit receives cyber-flagged SARs; NCSC/NCA partnership on ransomware payment reporting
+- **US:** FinCEN issued specific ransomware SAR guidance (2021) — financial institutions must file SARs for suspected ransomware-related transactions; FBI IC3 provides indicators of compromise for SAR correlation
+- **Australia:** AUSTRAC 2020 guidance on cyber-enabled crime indicators in SMRs; AFP-led Joint Policing Cybercrime Coordination Centre (JPC3)
+- **Ransomware payments:** Controversial policy question — UK/US discourage but don't prohibit ransom payments; reporting obligations vary; some jurisdictions (e.g., Australia) have considered mandatory reporting of ransom payments
+- **Mule accounts:** Cyber-enabled fraud relies on "money mule" networks to launder proceeds; SAR systems must flag rapid account turnover and mule indicators
+
+**Trade-Based Money Laundering (TBML)**
+
+Banks are expected to file SARs when they detect TBML indicators — unusual trade financing patterns, letters of credit for commodities inconsistent with the customer's business, and payments to/from high-risk trade corridors. TBML is enforced by customs authorities rather than financial regulators, making it a distinct enforcement domain.
+
+- **Red flags:** FinCEN/FATF TBML red flags include significant discrepancies between goods described and goods shipped, unusual shipping routes, repeated transactions just below reporting thresholds, and counterparties in free trade zones
+- **US:** FinCEN 2020 advisory on TBML — updated SAR filing guidance for trade-based patterns; emphasis on correspondent banking and trade finance as key TBML channels
+- **UK:** NCA/HMRC TBML intelligence sharing; JMLIT (Joint Money Laundering Intelligence Taskforce) has published TBML typologies linking trade finance SARs to customs enforcement
+- **Singapore:** STRO has flagged Singapore's role as a major trade hub making TBML detection a priority; MAS guidance on trade finance AML controls requires banks to monitor for over/under-invoicing patterns
+
+**Market Abuse & Insider Trading**
+
+Financial institutions must report suspected market abuse separately from AML-related SARs — in many jurisdictions these are separate reporting obligations to different authorities.
+
+- **UK:** Suspicious Transaction and Order Reports (STORs) under UK MAR Art. 16 — filed to FCA, NOT to NCA; separate obligation from POCA SARs; firms must maintain both SAR and STOR systems
+- **EU:** MAR Art. 16 STORs to national competent authorities (separate from FIU SARs under 4MLD)
+- **US:** SEC and FINRA Suspicious Activity Reports — broker-dealers file SARs to FinCEN but also have separate obligations under SEC/FINRA rules for suspicious securities transactions
+- **Australia:** ASIC receives market integrity reports; separate from AUSTRAC SMRs; ASX market surveillance also detects suspicious trading patterns
+- **Key distinction:** AML SARs focus on source/movement of funds; market abuse STORs focus on trading behaviour (timing, size, counterparty, information advantage)
+
+**Proliferation Financing**
+
+Financial institutions must be able to detect proliferation financing indicators in transactions — these differ from standard money laundering red flags. PF often involves legitimate-looking trade transactions for dual-use goods.
+
+- **FATF:** 2020 guidance on PF risk assessment identifies specific PF indicators — unusual end-users for controlled goods, payments routed through multiple jurisdictions inconsistent with trade routes, front companies in free trade zones purchasing sensitive technology.
+- **UK:** NCA receives proliferation-related SARs; OFSI/HMRC/ECJU coordination on trade-based PF intelligence.
+- **US:** FinCEN advisories on North Korea and Iran PF typologies; Treasury has issued specific guidance on proliferation trade finance red flags.
+- **Singapore:** MAS has issued PF-specific guidance given Singapore's role as a technology trade hub; *Strategic Goods (Control) Act* violations trigger both criminal prosecution and MAS enforcement.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

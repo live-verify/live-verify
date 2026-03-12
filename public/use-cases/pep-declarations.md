@@ -130,6 +130,52 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 PEP compliance is the "First Line of Defense" against global corruption. By turning declarations into verifiable digital bridges, we ensure that the "Gatekeepers of Wealth" are held to the digital truth of the disclosure, protecting the financial system from the multi-billion dollar cost of hidden political risk.
 
+## Jurisdictional Equivalents
+
+| | UK | US | EU |
+|---|---|---|---|
+| **Authority** | FCA (Financial Conduct Authority) | FinCEN / federal banking regulators | National competent authority (e.g., BaFin, AMF, Banca d'Italia) |
+| **Document** | PEP declaration under MLR 2017; includes domestic PEPs | No statutory PEP declaration; guidance-based screening (FFIEC BSA/AML Manual) | PEP declaration per 4MLD/5MLD; includes domestic PEPs |
+| **Legal basis** | Money Laundering Regulations 2017 (MLR 2017); FCA Handbook | Bank Secrecy Act; FinCEN CDD Rule (31 CFR 1010.230); FFIEC guidance | 4th/5th Anti-Money Laundering Directives (4MLD/5MLD); FATF Recommendations |
+| **Potential verify: domain** | `pep.fca.org.uk/v` | `fincen.gov/pep/v` | `bafin.de/pep/v` (varies by state) |
+| **Key difference** | Statutory definition covering domestic and foreign PEPs; regulated firms must apply EDD | No single statutory PEP definition — screening relies on regulatory guidance and commercial databases | Harmonised definition across member states via directives; domestic PEPs included since 4MLD |
+
+**Further Jurisdictional Peers**
+
+- **Australia:** AUSTRAC AML/CTF Rules; PEP = "foreign PEP" or "domestic PEP" since 2016
+- **Canada:** PCMLTFA — PEP includes foreign and domestic since 2014 amendments
+- **Singapore:** MAS Notice 626 (banks) — PEP screening required for all customers
+- **Japan:** JAFIC guidelines; PEP screening required under Act on Prevention of Transfer of Criminal Proceeds
+- **Switzerland:** FINMA Anti-Money Laundering Ordinance — PEPs treated as higher-risk
+- **Hong Kong:** HKMA/SFC guidelines — PEP screening required; FATF aligned
+
+**Bribery & Corruption**
+
+PEP screening exists primarily as an anti-corruption control — identifying individuals whose public positions create bribery risk.
+
+- **UK:** Bribery Act 2010 — s.6 specifically criminalises bribery of foreign public officials; s.7 creates corporate "failure to prevent" liability. PEP screening is the frontline control that operationalises the Act's intent
+- **US:** Foreign Corrupt Practices Act 1977 (FCPA) — extraterritorial reach covering any company with US nexus; DOJ and SEC jointly enforce. PEP screening in US financial institutions is largely driven by FCPA compliance, not just BSA/AML
+- **OECD:** Anti-Bribery Convention (1997) — 44 signatory countries commit to criminalising bribery of foreign public officials; compliance monitored via peer review by the OECD Working Group on Bribery
+- **France:** Sapin II Law (2016) — created the Agence Française Anticorruption (AFA); mandates anti-corruption compliance programs for companies with 500+ employees or €100M+ revenue, including PEP and bribery risk mapping
+- **Germany:** No standalone bribery act — anti-bribery provisions sit within Criminal Code §§299, 331–335; limited extraterritorial reach compared to UK Bribery Act or US FCPA, though EU Anti-Corruption Directive proposals may change this
+- **Australia:** Criminal Code Act 1995 Division 70 (foreign bribery); National Anti-Corruption Commission (NACC, est. 2023) provides federal-level anti-corruption oversight for the first time
+- **Canada:** Corruption of Foreign Public Officials Act 1999 (CFPOA) — RCMP enforcement; amended 2013 to remove "facilitation payments" exception
+- **Singapore:** Prevention of Corruption Act (PCA) — enforced by the Corrupt Practices Investigation Bureau (CPIB); extremely strict enforcement with criminal penalties for both giver and receiver of bribes
+- **Japan:** Unfair Competition Prevention Law (UCPL) covers foreign bribery; relatively few prosecutions historically, though enforcement is increasing under OECD peer review pressure
+- **Switzerland:** Swiss Criminal Code Art. 322ter–322octies; prosecution of bribery of foreign officials since 2000; Switzerland's financial centre role makes its anti-corruption enforcement globally significant
+- **Note:** Transparency International's Corruption Perceptions Index (CPI) provides a different lens from AML risk rankings — countries perceived as least corrupt (Denmark, Finland, New Zealand, Singapore) typically maintain the strongest anti-corruption frameworks, and their PEP screening regimes reflect this
+
+**Unexplained Wealth & Asset Recovery**
+
+PEPs are the primary targets of unexplained wealth orders and kleptocracy enforcement — public officials and their associates who accumulate disproportionate wealth are subject to asset recovery mechanisms that reverse the burden of proof.
+
+- **Asset recovery nexus:** PEP declarations identify the individuals most likely to be subject to unexplained wealth investigations — public officials and their associates who accumulate disproportionate wealth are the primary targets of UWOs, civil forfeiture, and kleptocracy enforcement
+- **UK:** UWOs are specifically designed for PEPs — Criminal Finances Act 2017 s.362A(3)(b) allows UWOs against anyone who is a PEP or connected to a PEP; PEP declarations in banks directly inform UWO investigations
+- **US:** DOJ Kleptocracy Initiative targets foreign PEPs who acquire US assets with corrupt proceeds; FCPA enforcement against companies that facilitated PEP corruption
+- **EU:** Proposed Asset Recovery Directive would allow non-conviction-based confiscation of PEP assets across all member states
+- **Australia:** Foreign PEPs are a specific category under AML/CTF Rules; ACIC unexplained wealth referrals increasingly target foreign PEP-linked assets in Australian real estate
+- **International:** UNCAC Art. 52 requires enhanced scrutiny of PEP financial activities; Mutual Legal Assistance Treaties (MLATs) enable cross-border PEP asset freezing
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:

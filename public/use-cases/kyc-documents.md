@@ -91,6 +91,53 @@ The customer (second party) may hand the verified document to various third part
 
 **Privacy Salt:** Required. KYC documents contain highly sensitive personal information with enumerable values—common names, standard date of birth formats, publicly listed addresses, passport number patterns, and predictable status categories (verified, restricted, suspended). A malicious actor could feasibly enumerate combinations to reverse-engineer customer identities, map bank populations, or target specific demographics. Salt is absolutely critical to protect this ultimate target for identity theft and financial fraud.
 
+## Jurisdictional Equivalents
+
+| | UK | US | EU |
+|---|---|---|---|
+| **Authority** | FCA (Financial Conduct Authority) | FinCEN (Financial Crimes Enforcement Network) | Member state competent authorities under 4MLD/5MLD |
+| **Document** | KYC identity verification record | CDD (Customer Due Diligence) record | KYC verification record |
+| **Legal basis** | MLR 2017 (Money Laundering Regulations); electronic verification via credit reference agencies | FinCEN CDD Rule (2018); BSA/AML requirements; state-level requirements vary | 4MLD/5MLD (4th/5th Anti-Money Laundering Directives); each member state implements nationally |
+| **Potential verify: domain** | `fca.org.uk/register` | `fincen.gov/bsa` | Varies by member state |
+| **Key difference** | Electronic verification standard via credit reference agencies (Experian, Equifax); simplified due diligence for low-risk | Federal CDD Rule sets baseline; states may impose additional requirements; no national digital ID system | Each member state transposes the directive differently; eIDAS provides emerging cross-border digital identity framework |
+
+**Further Jurisdictional Peers**
+
+- **Australia:** AUSTRAC AML/CTF Act 2006; 100-point identification system for customer verification. Australia pioneered points-based ID verification.
+- **Canada:** FINTRAC — PCMLTFA (Proceeds of Crime (Money Laundering) and Terrorist Financing Act) KYC requirements. Digital ID verification is emerging across provinces.
+- **Singapore:** MAS CDD requirements under Notice 626/824; MyInfo integration enables digital KYC using government-verified identity data.
+- **Japan:** JAFIC — verification of identity under the Act on Prevention of Transfer of Criminal Proceeds. Japan requires in-person or equivalent verification for higher-risk relationships.
+- **Switzerland:** FINMA — CDB 20 (Agreement on Due Diligence); strict bank secrecy tradition combined with rigorous KYC obligations for all financial intermediaries.
+- **Hong Kong:** HKMA/SFC — CDD requirements under AMLO (Anti-Money Laundering and Counter-Terrorist Financing Ordinance). Risk-based approach aligned with FATF standards.
+
+**Bribery & Corruption**
+
+KYC processes must identify PEPs, check against corruption databases, and flag proceeds of corruption — the onboarding stage is the primary control point for preventing corrupt individuals from accessing financial services.
+
+- **Wolfsberg Group:** Anti-Corruption Guidance (2017) — sets global banking standards for corruption-related due diligence at onboarding; requires banks to assess bribery/corruption risk as part of KYC, not just AML risk
+- **US:** FCPA enforcement increasingly focuses on bank KYC failures that facilitated bribery payments — banks face liability for onboarding clients whose funds derive from foreign corruption
+- **UK:** FCA has fined banks for weak PEP controls within KYC processes (e.g., Deutsche Bank £163m fine in 2017 for mirror trading/AML failures; Standard Chartered £102m for AML/sanctions breaches)
+- **Singapore:** MAS took enforcement action against multiple banks for KYC failures related to the 1MDB corruption case — demonstrating that KYC is a frontline anti-corruption control, not just an AML formality
+
+**Fraud Prevention**
+
+KYC failures are the primary enabler of identity fraud — distinct from money laundering. Synthetic identities (combining real and fabricated data) cost US banks an estimated ~$6B/year. KYC verification is the frontline control that prevents onboarding of fraudulent identities before they can be used for credit fraud, account takeover, or benefit theft.
+
+- **UK:** CIFAS markers interact directly with KYC — banks check the CIFAS National Fraud Database before account opening. An identity flagged with a fraud marker triggers enhanced due diligence or refusal. This is a fraud check, not an AML check, and operates under separate data-sharing agreements.
+- **US:** FinCEN Beneficial Ownership and CDD requirements address identity verification, but fraud-specific protections come from different frameworks: FTC's IdentityTheft.gov for victim reporting, the Red Flags Rule (FACTA s.114) requiring financial institutions to detect identity theft warning signs during onboarding. No single fraud marker database — fragmented across ChexSystems, Early Warning Services, and credit bureau fraud alerts.
+- **Australia:** The 100-point ID verification system was designed primarily as an anti-fraud measure, not an AML measure. The Document Verification Service (DVS) provides real-time government document checks — verifying that a passport or driver licence number matches the issuing agency's records, directly preventing document forgery in KYC.
+- **Singapore:** MyInfo (government digital identity platform) eliminates document fraud risk in KYC entirely — verified identity attributes are pulled directly from government databases via SingPass integration, removing the need for customers to present physical documents that could be forged.
+- **India:** Aadhaar-based eKYC uses biometric verification (fingerprint/iris) to eliminate document forgery — relevant as an emerging global model for fraud-resistant KYC. Over 1.3 billion enrolments make it the world's largest biometric identity system. The model is being studied by other jurisdictions seeking to move beyond document-based KYC.
+
+**Cybercrime-Enabled Financial Crime**
+
+AI-generated deepfake documents and synthetic identities are emerging as the next generation of KYC fraud; liveness detection and biometric verification are the countermeasures.
+
+- **Deepfake documents:** AI can now generate convincing passport images, utility bills, and bank statements; KYC providers (Onfido, Jumio) are in an arms race with generative AI
+- **UK:** FCA has flagged deepfake-enabled KYC fraud as an emerging risk; no specific legislation yet but Fraud Act 2006 covers the conduct
+- **Singapore:** MAS has issued guidance on technology risks in digital onboarding including deepfake detection requirements
+- **Biometric countermeasures:** India's Aadhaar, Singapore's SingPass, EU's eIDAS 2.0 — government-issued digital identities provide stronger assurance than document-based KYC against cyber fraud
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require banks and KYC providers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
