@@ -20,7 +20,7 @@ import path from 'path';
 
 test.describe('PSL library integration in browser', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('file://' + path.resolve('e2e/psl-harness.html'));
+    await page.goto('file://' + path.resolve('webapp-playwright-tests/psl-harness.html'));
 
     // Wait for psl to be ready
     await page.evaluate(() => window.waitForPsl());

@@ -38,7 +38,7 @@ npm run test:unit
 step "Web App: Installing Playwright browsers"
 npx playwright install --with-deps
 
-step "Web App: Starting local server for e2e tests"
+step "Web App: Starting local server for Playwright tests"
 cd public
 python3 -m http.server 8000 &
 SERVER_PID=$!
@@ -46,8 +46,8 @@ echo "Server started with PID: ${SERVER_PID}"
 cd ..
 sleep 2
 
-step "Web App: Running e2e tests (Playwright)"
-npm run test:e2e
+step "Web App: Running Playwright tests"
+npm run test:playwright
 
 # ============================================================================
 # Android App

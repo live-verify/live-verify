@@ -13,7 +13,7 @@ __tests__/              # Jest unit tests (*.test.js)
 ├── ocr-hash.test.js
 └── ui-state-machine.test.js
 
-e2e/                    # Playwright E2E tests (*.spec.ts)
+webapp-playwright-tests/ # Playwright browser tests (*.spec.ts)
 ├── psl.spec.ts
 ├── state-transitions.spec.ts
 └── ...
@@ -33,7 +33,7 @@ This structure is idiomatic and recommended by both Jest and Playwright document
 ```bash
 npm test              # All tests (unit + E2E)
 npm run test:unit     # Jest only (fast)
-npm run test:e2e      # Playwright only (slow, includes OCR)
+npm run test:playwright      # Playwright only (slow, includes OCR)
 ```
 
 ### Screenshot Verification Tests (E2E)
@@ -59,7 +59,7 @@ This creates trimmed screenshots in `test/fixtures/screenshots/` that are used b
 cd public && python3 -m http.server 8000
 
 # Run tests in another terminal:
-npm run test:e2e -- screenshot-verification
+npm run test:playwright -- screenshot-verification
 ```
 
 **Note:** Screenshot fixtures are already committed in `test/fixtures/screenshots/`. You only need to regenerate them if you modify training pages.
@@ -81,7 +81,7 @@ npm run test:e2e -- screenshot-verification
 
 **Design for Testability:**
 
-The app exposes test seams via `window.liveVerifyApp.processImageCanvas()` that allows E2E tests to inject images directly into the verification pipeline without requiring camera access. See `e2e/test-helpers.js` for usage.
+The app exposes test seams via `window.liveVerifyApp.processImageCanvas()` that allows E2E tests to inject images directly into the verification pipeline without requiring camera access. See `webapp-playwright-tests/test-helpers.js` for usage.
 
 **Fixtures:**
 - PNG fixtures and matching .txt files under `test/fixtures/` are checked in

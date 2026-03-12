@@ -5,7 +5,7 @@ module.exports = {
   ],
   testPathIgnorePatterns: [
     '/node_modules/',
-    '/e2e/',
+    '/webapp-playwright-tests/',
     '/_site/',
     '/test-results/'
   ],

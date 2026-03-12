@@ -181,7 +181,7 @@ live-verify/
 │   ├── browser-extension.test.js    # Browser extension shared module tests
 │   └── training-pages-integration.test.js # Training page hash verification
 │
-├── e2e/
+├── webapp-playwright-tests/
 │   ├── psl.spec.ts                  # Playwright: PSL domain authority in browser
 │   ├── state-transitions.spec.ts    # Playwright: state transitions
 │   ├── psl-harness.html             # Test harness for PSL
@@ -595,7 +595,7 @@ async function verifyAgainstClaimedUrl(claimedUrl, computedHash) {
 **browser-extension.test.js:** Browser extension shared module tests
 **training-pages-integration.test.js:** Training page hash verification
 
-### E2E Tests (Playwright) — 3 spec files in `e2e/`
+### Playwright Tests — 3 spec files in `webapp-playwright-tests/`
 
 **psl.spec.ts:** PSL domain authority in browser context
 **state-transitions.spec.ts:** State machine transitions
@@ -644,7 +644,7 @@ node -e "const {normalizeText,sha256}=require('./public/normalize.js'); console.
 # Web app (Jest + Playwright)
 npm test              # All tests (unit + E2E)
 npm run test:unit     # Jest only
-npm run test:e2e      # Playwright only
+npm run test:playwright      # Playwright only
 
 # Android (from apps/android/)
 ./gradlew test        # Run unit tests

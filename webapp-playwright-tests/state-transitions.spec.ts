@@ -29,7 +29,7 @@ import path from 'path';
 test.describe('State Machine Transitions', () => {
     test.beforeEach(async ({ page }) => {
         // Load the state transition test harness using file:// protocol
-        await page.goto('file://' + path.resolve('e2e/state-harness.html'));
+        await page.goto('file://' + path.resolve('webapp-playwright-tests/state-harness.html'));
         await page.waitForLoadState('networkidle');
     });
 

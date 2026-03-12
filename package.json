@@ -6,9 +6,9 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "test": "npm run test:unit && npm run test:e2e",
+    "test": "npm run test:unit && npm run test:playwright",
     "test:unit": "jest",
-    "test:e2e": "playwright test",
+    "test:playwright": "playwright test",
     "generate:saas-leads": "node generate-saas-leads.js",
     "build": "webpack",
     "serve": "cd public && python3 -m http.server 8000",

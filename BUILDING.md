@@ -25,7 +25,7 @@ This installs:
 ```bash
 npm test              # All tests (unit + E2E)
 npm run test:unit     # Jest only (fast)
-npm run test:e2e      # Playwright only (requires local server)
+npm run test:playwright      # Playwright only (requires local server)
 ```
 
 ### Test Structure
@@ -39,7 +39,7 @@ npm run test:e2e      # Playwright only (requires local server)
 - `cross-platform-hashes.test.js` — Cross-platform hash fixtures from `normalization-hashes/`
 - `browser-extension.test.js` — Browser extension shared module tests
 - `training-pages-integration.test.js` — Training page hash verification
-**E2E tests** (`e2e/` directory):
+**Playwright tests** (`webapp-playwright-tests/` directory):
 - Full verification workflow
 - PSL domain authority in browser context
 - State transitions
@@ -54,7 +54,7 @@ cd public
 python3 -m http.server 8000
 
 # Terminal 2: Run E2E tests
-npm run test:e2e
+npm run test:playwright
 ```
 
 Or use the npm script:
@@ -176,7 +176,7 @@ live-verify/
 │
 ├── __tests__/                       # Jest unit tests (9 test files)
 │
-├── e2e/                             # Playwright E2E tests (3 spec files)
+├── webapp-playwright-tests/          # Playwright browser tests (3 spec files)
 │
 ├── test/fixtures/                   # Test images
 │   ├── should-detect/               # Images with valid registration marks
