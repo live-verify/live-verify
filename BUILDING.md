@@ -19,7 +19,6 @@ This installs:
 - psl (Public Suffix List) for domain authority extraction
 - Development tools (ESLint, etc.)
 
-**Note:** OpenCV.js is loaded from CDN in the browser. No compilation needed.
 
 ## Tests
 
@@ -40,10 +39,7 @@ npm run test:e2e      # Playwright only (requires local server)
 - `cross-platform-hashes.test.js` — Cross-platform hash fixtures from `normalization-hashes/`
 - `browser-extension.test.js` — Browser extension shared module tests
 - `training-pages-integration.test.js` — Training page hash verification
-- `cv-geometry.test.js` — OpenCV geometry utilities
-
 **E2E tests** (`e2e/` directory):
-- Registration mark detection (using OpenCV.js in browser)
 - Full verification workflow
 - PSL domain authority in browser context
 - State transitions
@@ -104,7 +100,7 @@ The workflow (`.github/workflows/deploy.yml`) does:
 3. **Deploy job:**
    - Deploy artifact to GitHub Pages
 
-**No OpenCV compilation, no native bindings, no system libraries needed.**
+**No native bindings, no system libraries needed.**
 
 ## Build Scripts
 
@@ -135,9 +131,6 @@ live-verify/
 │   ├── doc-specific-normalization.js# Document-specific normalization rules
 │   ├── ocr-cleanup.js               # OCR artifact cleanup
 │   ├── text-selection-verify.js     # Clip verification UI (text selection → hash → verify)
-│   ├── cv/
-│   │   ├── detectSquares.js         # Registration mark detection (uses OpenCV.js)
-│   │   └── geometry.js              # Geometry utilities
 │   ├── training-pages/              # Test certificates (HTML)
 │   ├── use-cases/                   # ~450 use case documents (Markdown)
 │   ├── examples/                    # Example verification-meta.json
@@ -198,8 +191,7 @@ live-verify/
 
 ## Dependencies Explained
 
-### Runtime (loaded from CDN in browser)
-- **OpenCV.js 4.x** - Computer vision for registration mark detection (~8MB WASM)
+### Runtime (browser built-ins)
 - **Web Crypto API** - Built-in SHA-256 (no library needed)
 
 ### Runtime (npm — used by build scripts and extensions)
@@ -213,7 +205,6 @@ live-verify/
 - **browserify** - Bundling for extension shared modules
 
 ### NOT Used
-- ~~Native OpenCV bindings~~ (OpenCV.js is pure WASM)
 - ~~Node.js server~~ (static files only)
 - ~~Database~~ (verification URLs point to static files)
 
@@ -264,5 +255,5 @@ kill <PID>
 3. **No database** - Verification URLs are static
 4. **Privacy-first** - All OCR happens on-device (images never leave device)
 5. **Free hosting** - GitHub Pages, Netlify, etc.
-6. **Fast CI** - No OpenCV compilation, tests run in ~2 minutes
+6. **Fast CI** - Tests run in ~2 minutes
 7. **Easy deployment** - Just push to GitHub

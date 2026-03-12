@@ -47,5 +47,5 @@ To avoid installing to the emulator, stop it (example): `adb -s emulator-5554 em
 
 ## Notes
 
-- This first cut does **not** implement registration-mark detection + perspective correction (the web demo uses OpenCV for that).
+- This first cut does **not** implement registration-mark detection + perspective correction.
 - Domain “registrable authority” display uses the full host for now (no Public Suffix List integration yet).

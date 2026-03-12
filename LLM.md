@@ -80,9 +80,8 @@ The document itself contains:
 - Verification base URL printed below the text (e.g., `verify:live-verify.github.io/live-verify/c`)
 
 The app:
-1. Uses **OpenCV.js** to detect the black square registration marks
-2. Crops to the rectangle defined by the marks
-3. Tries **multi-orientation OCR** (0°, 90°, 270°, 180°) and picks the best result
+1. On-device OCR extracts text from the captured frame (Apple Vision on iOS, ML Kit on Android)
+2. Tries **multi-orientation OCR** (0°, 90°, 270°, 180°) and picks the best result
 4. Extracts the base URL from the last line of OCR text (accepts `verify:` or `https://` prefix)
 5. Removes URL line from certification text
 6. Normalizes remaining text (Unicode normalization + whitespace rules)
@@ -156,9 +155,6 @@ live-verify/
 │   ├── ocr-cleanup.js               # OCR artifact cleanup
 │   ├── text-selection-verify.js     # Text selection → hash → verify UI
 │   ├── test-normalization.html      # Interactive test page for normalization
-│   ├── cv/
-│   │   ├── geometry.js              # OpenCV geometry utilities (TESTED)
-│   │   └── detectSquares.js         # Registration mark detection (TESTED via E2E)
 │   ├── training-pages/              # Training certificates for testing
 │   │   ├── index.html               # Landing page
 │   │   ├── bachelor-thaumatology.html
@@ -179,7 +175,6 @@ live-verify/
 │   ├── ocr-hash.test.js             # normalize.js tests
 │   ├── app-logic.test.js            # app-logic.js tests
 │   ├── domain-authority.test.js     # PSL-based domain extraction tests
-│   ├── cv-geometry.test.js          # Geometry utilities tests
 │   ├── doc-specific-normalization.test.js
 │   ├── normalize-trailing-artifacts.test.js
 │   ├── cross-platform-hashes.test.js # Cross-platform hash fixtures
@@ -187,10 +182,8 @@ live-verify/
 │   └── training-pages-integration.test.js # Training page hash verification
 │
 ├── e2e/
-│   ├── cv-detect.spec.ts            # Playwright: registration mark detection
 │   ├── psl.spec.ts                  # Playwright: PSL domain authority in browser
 │   ├── state-transitions.spec.ts    # Playwright: state transitions
-│   ├── cv-harness.html              # Test harness for CV detection
 │   ├── psl-harness.html             # Test harness for PSL
 │   ├── state-harness.html           # Test harness for state transitions
 │   └── test-helpers.js              # Test orchestration helpers
@@ -301,21 +294,6 @@ function sha256(text) {
 }
 ```
 
-### Computer Vision: Registration Mark Detection
-
-Uses **OpenCV.js** to detect black square registration marks:
-
-1. Convert image to grayscale
-2. Apply Gaussian blur
-3. Adaptive thresholding
-4. Find contours
-5. Filter for square-like shapes (aspect ratio ~1.0, area > threshold)
-6. Select best 4 squares that form a rectangle
-7. Apply perspective transform to crop and deskew
-
-**Key files:**
-- `public/cv/geometry.js` - Geometry utilities (orderCorners, etc.)
-- `public/cv/detectSquares.js` - Detection algorithm
 
 ### Verification Logic
 
@@ -611,7 +589,6 @@ async function verifyAgainstClaimedUrl(claimedUrl, computedHash) {
 **ocr-hash.test.js:** Text normalization (whitespace, Unicode), SHA-256 hashing, full verification flow
 **app-logic.test.js:** URL extraction (verify: and https://), certification text extraction, buildVerificationUrl
 **domain-authority.test.js:** PSL-based registrable domain extraction
-**cv-geometry.test.js:** Corner ordering, square candidate scoring
 **doc-specific-normalization.test.js:** Document-specific normalization rules
 **normalize-trailing-artifacts.test.js:** OCR trailing artifact cleanup
 **cross-platform-hashes.test.js:** Cross-platform hash fixtures from `normalization-hashes/`
@@ -620,7 +597,6 @@ async function verifyAgainstClaimedUrl(claimedUrl, computedHash) {
 
 ### E2E Tests (Playwright) — 3 spec files in `e2e/`
 
-**cv-detect.spec.ts:** Registration mark detection on fixture images
 **psl.spec.ts:** PSL domain authority in browser context
 **state-transitions.spec.ts:** State machine transitions
 
@@ -692,8 +668,7 @@ All have corresponding verification endpoints at `/c/{hash}/index.html`
 
 ## Dependencies
 
-### Runtime (Loaded from CDN)
-- **OpenCV.js 4.x**: Computer vision for registration mark detection (~8MB)
+### Runtime (Browser Built-ins)
 - **Web Crypto API**: Built into browsers for SHA-256
 
 ### Development (npm install)
@@ -891,7 +866,6 @@ More: https://issuer.com/public-profile/{id}
 - Merkle trees for audit trails
 - NFT-less verification (no blockchain needed for basic use case)
 - The Medpro/Intertek fraud case that inspired this
-- OpenCV.js for web-based computer vision
 - Independent Witnessing and Stateful Verification (see docs/Technical_Concepts.md)
 
 ## License

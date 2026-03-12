@@ -7,7 +7,6 @@ This project uses the standard Jest + Playwright test organization pattern:
 ```
 __tests__/              # Jest unit tests (*.test.js)
 ├── app-logic.test.js
-├── cv-geometry.test.js
 ├── doc-specific-normalization.test.js
 ├── domain-authority.test.js
 ├── normalize-trailing-artifacts.test.js
@@ -15,10 +14,8 @@ __tests__/              # Jest unit tests (*.test.js)
 └── ui-state-machine.test.js
 
 e2e/                    # Playwright E2E tests (*.spec.ts)
-├── cv-detect.spec.ts
-├── cv-ocr.spec.ts
-├── deskew-test.spec.ts
-├── screenshot-verification.spec.ts
+├── psl.spec.ts
+├── state-transitions.spec.ts
 └── ...
 
 test/fixtures/          # Shared test fixtures

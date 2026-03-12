@@ -489,7 +489,7 @@ that's E&Y again.
 **Solutions:**
 1. **App guidance:** Real-time feedback ("Move closer", "Avoid glare", "Increase brightness")
 2. **Automatic flash control:** App detects low light, enables flash (but warns about glare)
-3. **Registration mark detection:** OpenCV finds chit boundaries, corrects perspective automatically
+3. **Registration mark detection:** On-device CV finds chit boundaries, corrects perspective automatically
 4. **Multi-frame capture:** App takes 3-5 photos, selects best quality frame for OCR
 5. **Scan later option:** App allows voter to save chit photo, verify when home (better lighting)
 
@@ -504,13 +504,13 @@ that's E&Y again.
 **Problem:** Ballot chit has security watermarks, official seals, or decorative borders that interfere with registration mark detection
 
 **Impact on OCR:**
-- OpenCV detects wrong contours (seal outline instead of text boundary)
+- On-device CV detects wrong contours (seal outline instead of text boundary)
 - OCR extracts decorative text outside scannable area
 - Hash computation includes wrong text → verification fails
 
 **Solutions:**
 1. **Simple chit design:** Minimal decoration, clear text area, prominent registration marks
-2. **Color coding:** Registration marks in specific color (e.g., blue borders) that OpenCV filters for
+2. **Color coding:** Registration marks in specific color (e.g., blue borders) that CV filters for
 3. **Unique pattern:** Registration marks use distinctive shapes (e.g., QR-like corners) vs generic rectangles
 4. **User-guided framing:** If automatic detection fails, app shows targeting reticle for manual framing
 5. **Text-only fallback:** If CV fails, app OCRs entire photo, uses "verify:" keyword to identify text region

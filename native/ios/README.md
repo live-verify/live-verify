@@ -30,6 +30,6 @@ Pipeline:
 
 ## What’s intentionally not in this first cut
 
-- Registration-mark detection + perspective correction (the web demo uses OpenCV for this). This prototype OCRs the captured frame.
+- Registration-mark detection + perspective correction. This prototype OCRs the captured frame.
 - Public Suffix List based “registrable domain” extraction (the UI displays the full host).
 

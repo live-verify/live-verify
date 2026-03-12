@@ -52,7 +52,7 @@ This document explains technical concepts referenced across multiple use case do
 **Standard implementation:**
 - **Border width:** 3px solid black (CSS: `border: 3px solid black;`)
 - **Variance testing:** Some training pages use 10px borders to test robustness
-- **Detection algorithm:** Contour detection with area thresholding (e.g., OpenCV `findContours()`)
+- **Detection algorithm:** Contour detection with area thresholding (native CV frameworks on iOS/Android)
 
 **Alternative approaches:**
 - **Corner marks only** - ┌ └ ┐ ┘ instead of full border (saves ink)

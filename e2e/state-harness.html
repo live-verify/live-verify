@@ -23,12 +23,6 @@
     <title>State Machine Test Harness - Verific</title>
     <link rel="stylesheet" href="../public/styles.css">
     <script src='https://unpkg.com/psl@1.15.0/dist/psl.umd.cjs'></script>
-    <script>
-      window.cvReady = new Promise(resolve => {
-        window.__onCvReady = resolve;
-      });
-    </script>
-    <script async src="https://docs.opencv.org/4.x/opencv.js" onload="cv['onRuntimeInitialized']=()=>window.__onCvReady && window.__onCvReady();"></script>
 </head>
 <body>
     <div class="container">
@@ -118,8 +112,6 @@
         </footer>
     </div>
 
-    <script src="../public/cv/geometry.js"></script>
-    <script src="../public/cv/detectSquares.js"></script>
     <script src="../public/normalize.js"></script>
     <script src="../public/app-logic.js"></script>
     <script src="../public/domain-authority.js"></script>

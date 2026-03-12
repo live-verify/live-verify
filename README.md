@@ -280,10 +280,7 @@ Camera mode adds OCR and computer vision to extract text from physical documents
 
 ```mermaid
 flowchart TD
-    Start([User captures<br/>document image]) --> Detect[Detect registration marks<br/>using OpenCV]
-    Detect --> Transform[Apply perspective transform<br/>to straighten document<br/>handles off-angles like 85°/175°/265°]
-    Transform --> Extract[Extract bordered region]
-    Extract --> TryAllRotations[Try OCR at ALL 4 rotations:<br/>0°, 90°, 180°, 270°<br/>on-device OCR on each]
+    Start([User captures<br/>document image]) --> TryAllRotations[Try OCR at ALL 4 rotations:<br/>0°, 90°, 180°, 270°<br/>on-device OCR on each]
     TryAllRotations --> CompareConfidence[Compare OCR confidence scores<br/>Pick rotation with highest confidence]
     CompareConfidence --> CheckConfidence{Best confidence<br/>good enough?}
     CheckConfidence -->|No - OCR failed all rotations| ShowOCRError[❌ OCR could not extract text<br/>Try better lighting/focus]

@@ -12,7 +12,7 @@ module.exports = {
   collectCoverageFrom: [
     'public/**/*.js',
     'apps/browser-extension/shared/**/*.js',
-    '!public/cv/opencv.js',
+
     '!jest.config.js',
     '!webpack.config.js'
   ],
