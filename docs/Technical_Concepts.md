@@ -274,7 +274,7 @@ See [Sales_Receipts.md](../deep-dives/Sales_Receipts.md) lines 106-124.
 
 **Still 100% on-device** - maintains privacy guarantee.
 
-See [README.md: Privacy-First Architecture](../README.md#privacy-first-architecture-why-client-side-ocr-matters) for detailed discussion.
+See [README.md: Privacy-First Architecture](../README.md#privacy-first-architecture) for detailed discussion.
 
 ---
 

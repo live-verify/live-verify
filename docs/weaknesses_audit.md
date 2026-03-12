@@ -187,7 +187,7 @@ Several features are described in the present tense as if they exist, but have n
 | SaaS verification providers | SAAS-VERIFICATION-PROVIDERS.md | Market analysis, not a working service |
 | Biometric liveness detection | biometric-likeness-claims.md | Mentioned, not specified |
 
-The README does state "Proof of concept" and "Prototype" — but deeper in the docs, the aspirational language blurs with specification language.
+The README previously stated "Proof of concept" and "Prototype" — this has been updated to "Reference implementation" language. Deeper in the docs, some aspirational language still blurs with specification language.
 
 ### 18. README doing too many jobs
 
