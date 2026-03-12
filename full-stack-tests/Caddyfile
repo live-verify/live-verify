@@ -89,6 +89,28 @@ ny.gov {
 	}
 }
 
+ofsi.hm-treasury.gov.uk {
+	tls internal
+
+	# Verification metadata
+	handle /licences/verification-meta.json {
+		root * /srv/meta/ofsi.hm-treasury.gov.uk
+		file_server
+	}
+
+	# Hash lookups → backend
+	handle /licences/* {
+		reverse_proxy tier1:8080
+	}
+
+	# Fixture pages (OFSI licence demo)
+	handle /demo/* {
+		root * /srv/fixtures
+		uri strip_prefix /demo
+		file_server
+	}
+}
+
 meridian-national.bank.us {
 	tls internal
 

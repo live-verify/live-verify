@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<!--
+    OFSI sanctions licence fixture for full-stack verification test.
+    Renders ofsi-licence.pdf via PDF.js with a selectable text layer.
+    The browser extension verifies text selected from the rendered PDF.
+-->
+
+<html>
+<head>
+    <title>OFSI Licence - Albion Capital Management LLP</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: sans-serif;
+        }
+
+        #pdf-frame {
+            position: relative;
+            border: 1.5px solid #999;
+            border-radius: 4px;
+            padding: 12px;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        #pdf-frame::after {
+            content: "rendered using pdf.js";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            font-size: 42px;
+            font-family: 'Courier New', monospace;
+            color: rgba(0, 0, 0, 0.04);
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        #pdf-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        #pdf-container .page {
+            position: relative;
+        }
+
+        #pdf-container canvas {
+            display: block;
+        }
+
+        /* Text layer: transparent text positioned over the canvas */
+        #pdf-container .textLayer {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            opacity: 0.25;
+            line-height: 1.0;
+        }
+
+        #pdf-container .textLayer > span {
+            color: transparent;
+            position: absolute;
+            white-space: pre;
+            transform-origin: 0% 0%;
+        }
+
+        #pdf-container .textLayer ::selection {
+            background: rgba(0, 100, 200, 0.3);
+        }
+
+        #loading {
+            text-align: center;
+            padding: 60px 120px;
+            color: #666;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="pdf-frame">
+        <div id="loading">Loading PDF...</div>
+        <div id="pdf-container"></div>
+    </div>
+
+    <!-- Test locators (hidden, used by Playwright) -->
+    <div class="licence-holder" style="display:none">Albion Capital Management LLP</div>
+    <div class="issuer" style="display:none">OFSI</div>
+
+    <!-- PDF.js from CDN -->
+    <script type="module">
+        import * as pdfjsLib from 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.9.155/build/pdf.min.mjs';
+
+        pdfjsLib.GlobalWorkerOptions.workerSrc =
+            'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.9.155/build/pdf.worker.min.mjs';
+
+        const container = document.getElementById('pdf-container');
+        const loading = document.getElementById('loading');
+
+        async function renderPDF() {
+            try {
+                const pdf = await pdfjsLib.getDocument('ofsi-licence.pdf').promise;
+                const page = await pdf.getPage(1);
+
+                const scale = 1.5;
+                const viewport = page.getViewport({ scale });
+
+                // Create page wrapper
+                const pageDiv = document.createElement('div');
+                pageDiv.className = 'page';
+                pageDiv.style.width = viewport.width + 'px';
+                pageDiv.style.height = viewport.height + 'px';
+
+                // Canvas for rendering
+                const canvas = document.createElement('canvas');
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+                pageDiv.appendChild(canvas);
+
+                // Render the page onto the canvas
+                const ctx = canvas.getContext('2d');
+                await page.render({ canvasContext: ctx, viewport }).promise;
+
+                // Text layer for selection
+                const textContent = await page.getTextContent();
+                const textLayerDiv = document.createElement('div');
+                textLayerDiv.className = 'textLayer';
+                textLayerDiv.style.width = viewport.width + 'px';
+                textLayerDiv.style.height = viewport.height + 'px';
+
+                // Position each text item
+                for (const item of textContent.items) {
+                    if (!item.str) continue;
+
+                    const span = document.createElement('span');
+                    span.textContent = item.str;
+
+                    const tx = pdfjsLib.Util.transform(viewport.transform, item.transform);
+                    const fontSize = Math.sqrt(tx[0] * tx[0] + tx[1] * tx[1]);
+                    const left = tx[4];
+                    const top = tx[5];
+
+                    span.style.left = left + 'px';
+                    span.style.top = (viewport.height - top) + 'px';
+                    span.style.fontSize = fontSize + 'px';
+                    span.style.fontFamily = 'Helvetica, sans-serif';
+                    span.style.fontWeight = item.fontName?.includes('Bold') ? 'bold' : 'normal';
+
+                    textLayerDiv.appendChild(span);
+                }
+
+                pageDiv.appendChild(textLayerDiv);
+                container.appendChild(pageDiv);
+                loading.style.display = 'none';
+
+                // Populate test locators
+                document.querySelector('.licence-holder').textContent = 'Albion Capital Management LLP';
+                document.querySelector('.issuer').textContent = 'OFSI';
+
+            } catch (err) {
+                loading.textContent = 'Failed to load PDF: ' + err.message;
+                console.error('PDF render error:', err);
+            }
+        }
+
+        renderPDF();
+    </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "issuer": "Office of Financial Sanctions Implementation",
+  "description": "OFSI issues sanctions licences under SAMLA 2018",
+  "claimType": "SanctionsLicence",
+  "authorizedBy": "gov.uk/v1"
+}
