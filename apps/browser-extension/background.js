@@ -305,7 +305,7 @@ async function showResult(result, tab) {
         }
 
         try {
-            await chrome.notifications.create('verification-result', notificationOptions);
+            await chrome.notifications.create(`verification-${Date.now()}`, notificationOptions);
         } catch (error) {
             console.error('[LiveVerify] Failed to show notification:', error);
         }
