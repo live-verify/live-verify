@@ -1,7 +1,7 @@
 {
   "generated": "2026-03-12T13:51:10.112Z",
-  "totalUseCases": 477,
-  "totalFurtherDerivations": 566,
+  "totalUseCases": 478,
+  "totalFurtherDerivations": 568,
   "categories": {
     "Real Estate & Property": 32,
     "Charitable & Non-Profit": 7,
@@ -26,7 +26,7 @@
     "Specialty Insurance": 23,
     "Business & Commerce": 15,
     "Legal & Court Documents": 14,
-    "Banking & Payments": 15,
+    "Banking & Payments": 16,
     "Financial Compliance": 23,
     "Investment & Fintech": 11,
     "Site & Equipment Safety": 12,
@@ -1295,6 +1295,27 @@
         "logistics",
         "audit-trail",
         "criminal-justice"
+      ]
+    },
+    {
+      "slug": "bank-fraud-report-acknowledgments",
+      "title": "Bank Fraud Report Acknowledgments",
+      "category": "Banking & Payments",
+      "volume": "Large",
+      "retention": "7-10 years (regulatory requirement)",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Account holder name, case number, date and time reported, reporting channel, affected account(s), transaction count and total disputed amount, actions taken, regulatory rights stated.",
+      "tags": [
+        "bank-fraud",
+        "unauthorized-transactions",
+        "regulation-e",
+        "fraud-report",
+        "account-takeover",
+        "ach-fraud",
+        "wire-fraud",
+        "provisional-credit",
+        "consumer-protection"
       ]
     },
     {
