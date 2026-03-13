@@ -53,18 +53,18 @@ These already have full test infrastructure (Docker, Caddy, seeding scripts, Pla
 
 ### Immediate (no new test infrastructure)
 
-- [ ] Add peer reference example to `index.html` — seed hash on `live-verify.github.io/live-verify/c` OR verify against `paulhammant.com/refs` directly
-- [ ] Remove Unseen University example
+- [x] Add peer reference example to `index.html` — verifies against `paulhammant.com/refs` directly
+- [x] Remove Unseen University example
 
 ### New test: revoked employment reference
 
-- [ ] Create `simulated-integration-tests/run-revoked-reference-test.sh`
-- [ ] Fixture HTML: employment reference from a fictitious company (e.g., "Meridian Consulting Group") for a fictitious person, with `verify:` line
-- [ ] Seed script: seed the hash with `{"status":"revoked","message":"Reference withdrawn — post-departure misconduct"}`
-- [ ] Playwright spec: verify the extension shows REVOKED status
-- [ ] Seed the same hash on `live-verify.github.io/live-verify/c` with revoked status
-- [ ] Replace Barber-Surgeons example on `index.html`
-- [ ] Remove Discworld content
+- [x] Create `simulated-integration-tests/run-revoked-reference-test.sh`
+- [x] Fixture HTML: employment reference from Meridian Consulting Group for Sarah Chen, with `verify:` line
+- [x] Seed script: seed the hash with `{"status":"revoked","message":"Reference withdrawn — post-departure misconduct discovered"}`
+- [x] Playwright spec: verify the extension shows REVOKED status
+- [x] Seed the same hash on `live-verify.github.io/live-verify/c` with revoked status
+- [x] Replace Barber-Surgeons example on `index.html`
+- [x] Remove Discworld content from examples page and `verification-meta.json`
 
 ### Optional: promote existing tests to examples page
 

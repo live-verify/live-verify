@@ -238,40 +238,32 @@
         </div>
 
         <div class="example-section">
-            <h3>Example 1: Valid University Degree</h3>
-            <span class="claim-label valid">Should verify as OK</span>
-            <div class="verifiable-claim">UNSEEN UNIVERSITY
-Ankh-Morpork, The Discworld
-
-This is to certify that
-PONDER STIBBONS
-has been admitted to the degree of
-BACHELOR OF THAUMATOLOGY
-with all rights and privileges thereunto pertaining
-
-Granted this 15th day of Grune, Year of the Prawn
-Archchancellor Mustrum Ridcully
-verify:live-verify.github.io/live-verify/c</div>
+            <h3>Example 1: Peer Reference (Real Domain)</h3>
+            <span class="claim-label valid">Should verify as OK — verifies against paulhammant.com</span>
+            <div class="verifiable-claim">I, Paul Hammant, worked for Kevin Behr in
+his role as CIO of HedgeServ in New York City
+in 2015 and 2016
+verify:paulhammant.com/refs</div>
         </div>
 
         <div class="example-section">
-            <h3>Example 2: Revoked Medical License</h3>
+            <h3>Example 2: Revoked Employment Reference</h3>
             <span class="claim-label revoked">Should verify as REVOKED</span>
-            <div class="verifiable-claim">ANKH-MORPORK GUILD OF BARBER-SURGEONS
+            <div class="verifiable-claim">MERIDIAN CONSULTING GROUP
 
-LICENSE TO PRACTICE MEDICINE
-License No: AM-MED-1623-ML
+EMPLOYMENT REFERENCE
+Ref: MCG-EMP-2024-0847
 
-This certifies that
-DR. MOSSY LAWN
-of Elm Street, Ankh-Morpork
-Is hereby licensed to practice medicine, surgery,
-and related healing arts within the city limits.
+This confirms that
+SARAH CHEN
+was employed as Senior Project Manager
+from March 2021 to November 2023.
 
-Issued: 1st Offle, Year of the Engaging Sloth
-Valid Until Revoked
+During her tenure, Ms. Chen demonstrated
+strong leadership and project delivery skills.
 
-Guild Master: Dr. John Hicks
+Issued: 15 January 2024
+HR Director: James Morton
 verify:live-verify.github.io/live-verify/c</div>
         </div>
 
@@ -309,6 +301,12 @@ verify:live-verify.github.io/live-verify/c</div>
             <h3>Future: Native Browser Support</h3>
             <p>Imagine this built into Chrome, Safari, and Firefox: select any text containing a <code>verify:</code> URL, right-click, and see "Verify Claim" in the context menu. The verification result appears in the browser's trusted UI (address bar area), not in the page itself - preventing fake "Verified" badges from malicious pages.</p>
             <p style="margin-top: 10px;">This page simulates that experience. The green bar at the top acts as the browser chrome where verification results would appear in a native implementation.</p>
+        </div>
+
+        <div style="margin-top: 30px; padding: 16px; background: #f8fafc; border-radius: 8px; font-size: 0.9rem; color: #475569;">
+            <strong>More demos:</strong>
+            The <a href="https://github.com/live-verify/live-verify/tree/main/simulated-integration-tests" style="color: #667eea;">simulated integration tests</a> run full-stack verification with authority chains, fake TLS domains, and real browser extension — police IDs, bank statements, OFSI sanctions licences, and revoked references. See the repo for demo videos.
+            <span style="margin-left: 4px;">The <a href="../training-pages/" style="color: #667eea;">training pages</a> have additional fictional documents for OCR testing.</span>
         </div>
 
         <footer>

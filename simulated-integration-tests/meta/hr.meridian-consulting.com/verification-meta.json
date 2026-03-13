@@ -1,0 +1,14 @@
+{
+  "issuer": "Meridian Consulting Group",
+  "claimType": "Employment reference",
+  "responseTypes": {
+    "VERIFIED": {
+      "class": "affirming",
+      "text": "This employment reference is verified and current"
+    },
+    "REVOKED": {
+      "class": "denying",
+      "text": "This reference has been withdrawn"
+    }
+  }
+}

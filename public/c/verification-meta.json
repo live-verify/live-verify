@@ -1,44 +1,17 @@
 {
   "schemaVersion": 1,
-  "issuer": "Paul Hammant (Live Verify Demo)",
-  "authorityBasis": "Accredited degree-granting institution (Unseen University, Ankh-Morpork)",
-  "claimType": "Academic certification from Unseen University",
-  "parentAuthorities": [
-    "https://en.wikipedia.org/wiki/Unseen_University",
-    "https://unseen-u.discworld/"
-  ],
-  "authorizedBy": "gov.uk/verifiers",
-  "authorizedFrom": "2023-01-01",
-  "authorizedTo": "2028-12-31",
+  "issuer": "Live Verify Demo",
+  "claimType": "Mixed demonstration claims",
   "responseTypes": {
     "verified": {
       "class": "affirming",
-      "text": "This academic certification from Unseen University is verified and authentic",
-      "link": "https://unseen-u.discworld/verification-explanations/verified.html"
+      "text": "This claim is verified and authentic",
+      "link": "https://live-verify.github.io/live-verify/"
     },
-    "GRADUATED": {
-      "class": "affirming",
-      "text": "Student successfully graduated from Unseen University",
-      "link": "https://unseen-u.discworld/verification-explanations/Graduated.html"
-    },
-    "REVOKED": {
+    "revoked": {
       "class": "denying",
-      "text": "This degree was revoked due to academic misconduct or magical malpractice",
-      "link": "https://unseen-u.discworld/verification-explanations/reasons_for_revocation_or_denying.html"
+      "text": "This credential has been revoked",
+      "link": "https://live-verify.github.io/live-verify/"
     }
-  },
-  "retentionLaws": [
-    {
-      "jurisdiction": "Ankh-Morpork City State",
-      "law": "Patrician's Decree on Academic Records (Year of the Anchovy)",
-      "link": "https://Ankh-Morpork.discworld",
-      "summary": "Academic records retained indefinitely for historical and magical safety purposes. Verification hashes kept permanently, but underlying student data subject to deletion by request to the Bursar (if you can find him). Data will not be sold to the Thieves' Guild or shared with the Assassins' Guild without a properly stamped contract. We do monthly spell stacking to see if any data leakage may have happened and quickly do reverse spellcasting undo that. Note, we noonger use undergraduates in this procedure and follow checklists rigorously"
-    },
-    {
-      "jurisdiction": "Discworld",
-      "law": "Guild of Wizards Charter - Privacy of Thaumaturgical Research",
-      "link": "https://unseen-u.discworld/Guilds.html",
-      "summary": "Student magical research data retained for 100 years or until the student achieves immortality, whichever comes first. Data may be shared with other magical institutions for peer review and spell verification, but deleted immediately after use. Dangerous experimental results shared with The Watch for public safety."
-    }
-  ]
+  }
 }

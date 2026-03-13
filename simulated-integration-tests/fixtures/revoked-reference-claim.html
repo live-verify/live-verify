@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employment Reference - Meridian Consulting Group</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            font-family: sans-serif;
+        }
+        .letter {
+            width: 600px;
+            background: white;
+            padding: 50px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            line-height: 1.6;
+        }
+        .letterhead {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #1a365d;
+            padding-bottom: 20px;
+        }
+        .letterhead h1 {
+            color: #1a365d;
+            font-size: 1.4em;
+            margin: 0;
+        }
+        .reference-text {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 20px;
+        }
+        .marker {
+            color: rgba(0,0,0,0.05);
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="letter">
+        <div class="letterhead">
+            <h1>Meridian Consulting Group</h1>
+        </div>
+        <div class="reference-text">
+                    <span class="marker" verifiable-text="start" data-for="reference">[</span><span style="display:block; line-height:22px">MERIDIAN CONSULTING GROUP<br>
+                    EMPLOYMENT REFERENCE<br>
+                    Ref: MCG-EMP-2024-0847<br>
+                    This confirms that<br>
+                    SARAH CHEN<br>
+                    was employed as Senior Project Manager<br>
+                    from March 2021 to November 2023.<br>
+                    During her tenure, Ms. Chen demonstrated<br>
+                    strong leadership and project delivery skills.<br>
+                    Issued: 15 January 2024<br>
+                    HR Director: James Morton</span><span class="marker" verifiable-text="end" data-for="reference">]</span>
+
+<span data-verify-line="reference">verify:hr.meridian-consulting.com/refs</span>
+        </div>
+    </div>
+    <!-- Test locators -->
+    <div class="name" style="display:none">SARAH CHEN</div>
+    <div class="company" style="display:none">MERIDIAN CONSULTING GROUP</div>
+</body>
+</html>

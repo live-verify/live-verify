@@ -158,3 +158,23 @@ treasury.gov {
 		reverse_proxy tier1:8080
 	}
 }
+
+hr.meridian-consulting.com {
+	tls internal
+
+	handle /refs/verification-meta.json {
+		root * /srv/meta/hr.meridian-consulting.com
+		file_server
+	}
+
+	handle /refs/* {
+		reverse_proxy tier1:8080
+	}
+
+	# Fixture pages
+	handle /demo/* {
+		root * /srv/fixtures
+		uri strip_prefix /demo
+		file_server
+	}
+}
