@@ -207,24 +207,6 @@
             font-size: 1em;
             background: rgba(255, 255, 255, 0.1);
         }
-        .demo-screenshot {
-            width: min(360px, 100%);
-            border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.28);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-            display: block;
-            margin: 14px auto 0;
-        }
-        .demo-caption {
-            margin-top: 10px;
-            text-align: center;
-            font-size: 0.92em;
-            opacity: 0.92;
-        }
-        .demo-caption a {
-            color: white;
-            text-decoration: underline;
-        }
         .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -399,27 +381,6 @@
             <p class="note" style="margin-top: 8px;">
                 <strong>Revocation is part of trust.</strong> Issuers can update or withdraw claims over time, so the result reflects what they stand behind <em>today</em>.
                 Some issuers may return an operational instruction, e.g. <code>Stolen ID — please retain/cut in half and contact https://example.com/stolen_and_found quoting reference 283762.</code>.
-            </p>
-        </div>
-
-        <!-- What the user sees: screenshot -->
-        <div class="card" id="userExperience">
-            <h2>What the user sees</h2>
-            <h3 style="margin-top: 12px; font-size: 1em; opacity: 0.85;">Clip mode (digital documents)</h3>
-            <p>Select text containing a claim and its <code>verify:</code> line in any browser, email client, or PDF viewer. Right-click &rarr; "Verify this claim" (or Cmd/Ctrl+Shift+V). The extension shows "Verified by <em>domain</em>" or "Fails verification" instantly.</p>
-            <h3 style="margin-top: 16px; font-size: 1em; opacity: 0.85;">Camera mode (printed documents)</h3>
-            <p>Point your phone at a document with registration marks. Snap to capture, and the app overlays "Claim Verified" with the issuer domain shown, or Denied/Revoked, or "Not found" if the hash doesn't match.</p>
-            <img
-                class="demo-screenshot"
-                src="screenshots/a_verification_after_the_event.png"
-                alt="Live Verify prototype showing a successful 'Claim Verified' result"
-                loading="lazy"
-            />
-            <p class="demo-caption">
-                Camera mode example: verification result for the
-a fictional "Elbonian Source of Funds" document. This screenshot shows debug info that would not be present in a production version.
-                <br><br>
-                In a real deployment, the overlay would show <code>happy.bank.elbonia</code>, rather than <code>live-verify.github.io</code> &mdash; <code>.elbonia</code> is fictional, so nobody can buy those domains.
             </p>
         </div>
 
