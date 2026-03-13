@@ -237,7 +237,8 @@ final class VerificationClientTests: XCTestCase {
 
         let result = await client.verify(verificationURL: "https://example.com/c/abc123", meta: nil)
 
-        if case .networkError(let error) = result {
+        if case .networkError(let domain, let error) = result {
+            XCTAssertEqual(domain, "example.com")
             XCTAssertEqual((error as NSError).code, NSURLErrorNotConnectedToInternet)
         } else {
             XCTFail("Expected .networkError, got \(result)")

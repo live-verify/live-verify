@@ -230,8 +230,8 @@ struct ResultView: View {
             return "FAILED: \(reason)"
         case .noVerifyURL:
             return "No verify: URL found"
-        case .networkError(let error):
-            return "Network error: \(error.localizedDescription)"
+        case .networkError(let domain, _):
+            return "Network error: \(domain) not found"
         case .error(let message):
             return message
         }

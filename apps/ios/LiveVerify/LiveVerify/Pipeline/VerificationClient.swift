@@ -20,7 +20,7 @@ import Foundation
 enum VerificationOutcome {
     case affirming(domain: String, status: String)
     case denying(domain: String, reason: String)
-    case networkError(Error)
+    case networkError(domain: String, Error)
     case noVerifyURL
     case error(String)
 }
@@ -193,7 +193,7 @@ class VerificationClient {
             return .denying(domain: domain, reason: "Empty response")
 
         } catch {
-            return .networkError(error)
+            return .networkError(domain: domain, error)
         }
     }
 

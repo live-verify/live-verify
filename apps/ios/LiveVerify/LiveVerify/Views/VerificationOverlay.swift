@@ -159,8 +159,8 @@ struct VerificationResultOverlay: View {
             return reason
         case .noVerifyURL:
             return "No verify: or vfy: URL found in the scanned text"
-        case .networkError(let error):
-            return error.localizedDescription
+        case .networkError(let domain, _):
+            return "\(domain) not found"
         case .error(let message):
             return message
         }
