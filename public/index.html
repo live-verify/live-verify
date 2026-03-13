@@ -426,41 +426,95 @@ a fictional "Elbonian Source of Funds" document. This screenshot shows debug inf
         <!-- Demo videos -->
         <div class="card" id="demos">
             <h2>Demo videos</h2>
-            <p>Short screen recordings showing Live Verify in action. All are simulated environments running in Docker on Ubuntu.</p>
+
+            <h3 style="margin-top: 16px; font-size: 1em; opacity: 0.85;">Clip mode (browser extension + PDF)</h3>
+            <p>The Chrome extension verifying PDFs rendered via PDF.js in a browser tab. This simulates what verification would feel like inside Outlook, Windows Explorer, Mac Preview, or Acrobat &mdash; none of which have Live Verify integrated yet. Domains and authority chains are simulated inside Docker containers on Ubuntu.</p>
             <div class="video-grid">
                 <a class="video-card" href="https://youtu.be/PFeJgWtzApg" target="_blank" rel="noreferrer">
-                    <img src="https://img.youtube.com/vi/PFeJgWtzApg/mqdefault.jpg" alt="Clip mode: browser extension verifying a PDF" loading="lazy">
+                    <img src="https://img.youtube.com/vi/PFeJgWtzApg/mqdefault.jpg" alt="Clip mode: browser extension verifying a PDF via simulated OFSI authority chain" loading="lazy">
                     <div class="video-info">
-                        <div class="video-title">Clip mode: browser extension verifying a PDF via simulated OFSI authority chain</div>
+                        <div class="video-title">OFSI sanctions licence verified via simulated UK gov authority chain</div>
                         <div class="video-duration">0:30</div>
                     </div>
                 </a>
                 <a class="video-card" href="https://youtu.be/3kP2XxUuszU" target="_blank" rel="noreferrer">
-                    <img src="https://img.youtube.com/vi/3kP2XxUuszU/mqdefault.jpg" alt="Clip mode: verifying a bank statement PDF via simulated FDIC authority chain" loading="lazy">
+                    <img src="https://img.youtube.com/vi/3kP2XxUuszU/mqdefault.jpg" alt="Clip mode: bank statement verified via simulated FDIC/Treasury authority chain" loading="lazy">
                     <div class="video-info">
-                        <div class="video-title">Clip mode: verifying a bank statement PDF via simulated FDIC/Treasury authority chain</div>
+                        <div class="video-title">Fictitious bank statement verified via simulated FDIC/Treasury authority chain</div>
                         <div class="video-duration">0:26</div>
                     </div>
                 </a>
                 <a class="video-card" href="https://youtube.com/shorts/FyWTzZXiZeo" target="_blank" rel="noreferrer">
-                    <img src="https://img.youtube.com/vi/FyWTzZXiZeo/mqdefault.jpg" alt="Clip mode: verification failure on a fictitious bank statement" loading="lazy">
+                    <img src="https://img.youtube.com/vi/FyWTzZXiZeo/mqdefault.jpg" alt="Clip mode: verification failure — fictitious bank domain doesn't exist" loading="lazy">
                     <div class="video-info">
-                        <div class="video-title">Clip mode: verification failure — fictitious bank domain doesn't exist</div>
+                        <div class="video-title">Verification failure &mdash; fictitious bank domain doesn't exist (real extension, no backend)</div>
                         <div class="video-duration">0:17</div>
                     </div>
                 </a>
-                <a class="video-card" href="https://youtu.be/Ut8GV-KSdNI" target="_blank" rel="noreferrer">
-                    <img src="https://img.youtube.com/vi/Ut8GV-KSdNI/mqdefault.jpg" alt="Camera mode: Android phone scanning a police ID card" loading="lazy">
+            </div>
+
+            <h3 style="margin-top: 24px; font-size: 1em; opacity: 0.85;">Camera mode &mdash; automated tests</h3>
+            <p>Playwright driving a headless browser against simulated issuer domains in Docker. The camera app OCRs a printed document and verifies against the authority chain. Fictitious organisations, fictitious people.</p>
+            <div class="video-grid">
+                <a class="video-card" href="https://youtu.be/PfMgrua9hpE" target="_blank" rel="noreferrer">
+                    <img src="https://img.youtube.com/vi/PfMgrua9hpE/mqdefault.jpg" alt="Automated test: detective ID verified with headshot returned" loading="lazy">
                     <div class="video-info">
-                        <div class="video-title">Camera mode: scanning a fictitious police ID card with an Android phone</div>
+                        <div class="video-title">Police ID verified w/ backend, authority chain walk, pic of officer</div>
+                        <div class="video-duration">0:28</div>
+                    </div>
+                </a>
+                <a class="video-card" href="https://youtu.be/OcuH4WLsYe8" target="_blank" rel="noreferrer">
+                    <img src="https://img.youtube.com/vi/OcuH4WLsYe8/mqdefault.jpg" alt="Automated test: fake police ID caught by simulated NYPD authority chain" loading="lazy">
+                    <div class="video-info">
+                        <div class="video-title">Fake police ID rejected &mdash; authority chain valid, hash never issued</div>
+                        <div class="video-duration">0:30</div>
+                    </div>
+                </a>
+            </div>
+
+            <h3 style="margin-top: 24px; font-size: 1em; opacity: 0.85;">Camera mode &mdash; manual tests (real phones)</h3>
+            <p>Actual Android and iPhone devices scanning printed documents by hand. The police IDs are fictitious (Midsomer Murders universe). The peer reference is real &mdash; the hash is hosted on the issuer's personal website.</p>
+            <div class="video-grid">
+                <a class="video-card" href="https://youtu.be/Ut8GV-KSdNI" target="_blank" rel="noreferrer">
+                    <img src="https://img.youtube.com/vi/Ut8GV-KSdNI/mqdefault.jpg" alt="Camera mode: Android scanning a police ID card" loading="lazy">
+                    <div class="video-info">
+                        <div class="video-title">Police ID verified &mdash; Android</div>
                         <div class="video-duration">0:30</div>
                     </div>
                 </a>
                 <a class="video-card" href="https://youtu.be/MxA3c4AfEQc" target="_blank" rel="noreferrer">
                     <img src="https://img.youtube.com/vi/MxA3c4AfEQc/mqdefault.jpg" alt="Camera mode: iPhone scanning a police ID card" loading="lazy">
                     <div class="video-info">
-                        <div class="video-title">Camera mode: scanning a fictitious police ID card with an iPhone</div>
+                        <div class="video-title">Police ID verified &mdash; iPhone</div>
                         <div class="video-duration">0:30</div>
+                    </div>
+                </a>
+                <a class="video-card" href="https://youtu.be/J5aeYZwoipM" target="_blank" rel="noreferrer">
+                    <img src="https://img.youtube.com/vi/J5aeYZwoipM/mqdefault.jpg" alt="Camera mode: Android scanning a fake police ID" loading="lazy">
+                    <div class="video-info">
+                        <div class="video-title">Fake police ID rejected &mdash; Android</div>
+                        <div class="video-duration">0:22</div>
+                    </div>
+                </a>
+                <a class="video-card" href="https://youtu.be/pHDVBcjKb6U" target="_blank" rel="noreferrer">
+                    <img src="https://img.youtube.com/vi/pHDVBcjKb6U/mqdefault.jpg" alt="Camera mode: iPhone scanning a fake police ID" loading="lazy">
+                    <div class="video-info">
+                        <div class="video-title">Fake police ID rejected &mdash; iPhone</div>
+                        <div class="video-duration">0:39</div>
+                    </div>
+                </a>
+                <a class="video-card" href="https://youtu.be/NfUqKxSZ_V0" target="_blank" rel="noreferrer">
+                    <img src="https://img.youtube.com/vi/NfUqKxSZ_V0/mqdefault.jpg" alt="Camera mode: iPhone verifying a real peer reference" loading="lazy">
+                    <div class="video-info">
+                        <div class="video-title">Real peer reference &mdash; iPhone (hash live on issuer's site)</div>
+                        <div class="video-duration">0:51</div>
+                    </div>
+                </a>
+                <a class="video-card" href="https://youtu.be/UpMEKDH42Q4" target="_blank" rel="noreferrer">
+                    <img src="https://img.youtube.com/vi/UpMEKDH42Q4/mqdefault.jpg" alt="Camera mode: Android verifying a real peer reference" loading="lazy">
+                    <div class="video-info">
+                        <div class="video-title">Real peer reference &mdash; Android (hash live on issuer's site)</div>
+                        <div class="video-duration">0:18</div>
                     </div>
                 </a>
             </div>
