@@ -1,0 +1,7 @@
+{
+  "role": "endorser",
+  "issuer": "Financial Conduct Authority",
+  "description": "Regulates financial services firms and markets in the United Kingdom",
+  "authorizedBy": "gov.uk/v1",
+  "hidePathInDisplay": true
+}

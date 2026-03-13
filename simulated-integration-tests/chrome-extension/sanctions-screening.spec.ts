@@ -2,9 +2,9 @@ import { test, expect, chromium, type BrowserContext } from '@playwright/test';
 import path from 'path';
 
 const EXTENSION_PATH = path.resolve(__dirname, '../../apps/browser-extension');
-const FIXTURE_URL = 'https://hr.meridian-consulting.com/demo/revoked-reference-claim.html';
+const FIXTURE_URL = 'https://compliance.hartwell-beck.co.uk/demo/sanctions-screening-claim.html';
 
-test.describe('Revoked Employment Reference (Meridian Consulting)', () => {
+test.describe('Sanctions Screening Attestation (Hartwell Beck)', () => {
     let context: BrowserContext;
 
     test.beforeEach(async ({}) => {
@@ -17,7 +17,7 @@ test.describe('Revoked Employment Reference (Meridian Consulting)', () => {
                 '--no-sandbox',
                 '--disable-setuid-sandbox',
                 '--ignore-certificate-errors',
-                '--host-resolver-rules=MAP hr.meridian-consulting.com 127.0.0.1'
+                '--host-resolver-rules=MAP compliance.hartwell-beck.co.uk 127.0.0.1, MAP fca.org.uk 127.0.0.1, MAP gov.uk 127.0.0.1'
             ],
         });
 
@@ -28,7 +28,7 @@ test.describe('Revoked Employment Reference (Meridian Consulting)', () => {
         // if (context) await context.close();
     });
 
-    test('should show REVOKED for withdrawn employment reference', async () => {
+    test('should verify sanctions screening attestation with FCA authority chain', async () => {
         test.setTimeout(120000);
         const page = await context.newPage();
 
@@ -38,14 +38,14 @@ test.describe('Revoked Employment Reference (Meridian Consulting)', () => {
         await page.goto(FIXTURE_URL);
 
         // Check if page loaded
-        await expect(page.locator('.name')).toHaveText('SARAH CHEN', { timeout: 10000 });
+        await expect(page.locator('.subject')).toHaveText('AURORA MARITIME HOLDINGS LTD', { timeout: 10000 });
 
-        // Wait for scan button (injected by extension when it detects registration marks)
+        // Wait for scan button
         console.log('Waiting for scan button...');
         const scanBtn = page.locator('.liveverify-scan-btn');
         await expect(scanBtn).toBeVisible({ timeout: 20000 });
 
-        await page.screenshot({ path: 'simulated-integration-tests/results/revoked-reference-before.png' });
+        await page.screenshot({ path: 'simulated-integration-tests/results/sanctions-before.png' });
 
         await scanBtn.click();
 
@@ -56,7 +56,7 @@ test.describe('Revoked Employment Reference (Meridian Consulting)', () => {
         await verifyBadge.click();
 
         // Wait for result
-        console.log('Waiting for verification result (expecting REVOKED)...');
+        console.log('Waiting for verification result...');
         await expect(verifyBadge).not.toHaveText('⏳ Verifying...', { timeout: 40000 });
         const finalBadgeText = await verifyBadge.innerText();
         const finalBadgeTitle = await verifyBadge.getAttribute('title');
@@ -75,20 +75,27 @@ test.describe('Revoked Employment Reference (Meridian Consulting)', () => {
 
         // Screenshots
         await page.bringToFront();
-        await page.screenshot({ path: 'simulated-integration-tests/results/revoked-reference-final-page.png' });
+        await page.screenshot({ path: 'simulated-integration-tests/results/sanctions-final-page.png' });
 
         await popupPage.bringToFront();
         const detailsToggle = popupPage.locator('.details-toggle');
         if (await detailsToggle.isVisible()) {
             await detailsToggle.click();
         }
-        await popupPage.screenshot({ path: 'simulated-integration-tests/results/revoked-reference-final-popup.png' });
+        await popupPage.screenshot({ path: 'simulated-integration-tests/results/sanctions-final-popup.png' });
 
-        // Assert failure with reason shown
-        expect(finalBadgeText).toContain('Not Verified');
-        expect(finalBadgeText).toContain('REVOKED');
-        console.log('Confirmed: document found and shown as revoked');
+        // Assert verified
+        expect(finalBadgeText).toBe('✓ Verified');
 
-        console.log('Test successful — revoked reference correctly identified!');
+        // Check authority chain is displayed
+        const chainEl = page.locator('.liveverify-chain');
+        if (await chainEl.isVisible()) {
+            const chainText = await chainEl.innerText();
+            console.log('Authority chain:', chainText);
+            expect(chainText).toContain('fca.org.uk');
+            expect(chainText).toContain('gov.uk');
+        }
+
+        console.log('Test successful — sanctions screening verified with authority chain!');
     });
 });

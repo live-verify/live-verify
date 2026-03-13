@@ -317,40 +317,52 @@
                 region.container.classList.remove('pending');
                 region.container.classList.add('verified');
 
-                // Show authority chain below the region
-                if (result.authorization && result.authorization.chain && result.authorization.chain.length > 0) {
-                    const chainEl = document.createElement('div');
-                    chainEl.className = 'liveverify-chain';
-                    const domains = [result.domain, ...result.authorization.chain.map(c => c.authorizer)];
-                    chainEl.innerHTML = domains[0] + domains.slice(1).map(d => '<br>  authorised by ' + d).join('');
-                    // Full details with descriptions in tooltip
-                    const details = result.authorization.chain.map(c => {
-                        return c.description ? `${c.authorizer} (${c.description})` : c.authorizer;
-                    });
-                    chainEl.title = result.domain + ' authorised by ' + details.join(' authorised by ');
-                    region.container.appendChild(chainEl);
-                }
+                // Show combined result panel (chain + payload) below the region
+                const hasChain = result.authorization && result.authorization.chain && result.authorization.chain.length > 0;
+                const hasPayload = result.payload && (result.payload.headshot || result.payload.message);
 
-                // Show payload data (headshot + message) if present
-                if (result.payload && (result.payload.headshot || result.payload.message)) {
-                    const payloadEl = document.createElement('div');
-                    payloadEl.className = 'liveverify-payload';
-                    payloadEl.style.cssText = 'position:absolute; bottom:-2px; right:-2px; transform:translateY(100%); display:flex; align-items:center; gap:10px; background:rgba(34,197,94,0.9); color:white; font-size:14px; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; padding:8px 12px; border-radius:0 0 4px 4px; z-index:10000;';
+                if (hasChain || hasPayload) {
+                    const panelEl = document.createElement('div');
+                    panelEl.className = 'liveverify-chain';
                     let inner = '';
-                    if (result.payload.headshot) {
-                        inner += `<img src="${result.payload.headshot}" style="width:120px; height:150px; object-fit:cover; border-radius:4px; border:2px solid rgba(255,255,255,0.7);">`;
+
+                    // Authority chain
+                    if (hasChain) {
+                        const domains = [result.domain, ...result.authorization.chain.map(c => c.authorizer)];
+                        const chainHtml = domains[0] + domains.slice(1).map(d => '<br>\u00a0\u00a0authorised by ' + d).join('');
+                        inner += `<div>${chainHtml}</div>`;
+                        // Full details with descriptions in tooltip
+                        const details = result.authorization.chain.map(c => {
+                            return c.description ? `${c.authorizer} (${c.description})` : c.authorizer;
+                        });
+                        panelEl.title = result.domain + ' authorised by ' + details.join(' authorised by ');
                     }
-                    if (result.payload.message) {
-                        inner += `<span style="font-size:14px; font-weight:500;">${result.payload.message}</span>`;
+
+                    // Payload (headshot + message)
+                    if (hasPayload) {
+                        inner += '<div style="display:flex; align-items:center; gap:10px; margin-top:6px;">';
+                        if (result.payload.headshot) {
+                            inner += `<img src="${result.payload.headshot}" style="width:120px; height:150px; object-fit:cover; border-radius:4px; border:2px solid rgba(255,255,255,0.7);">`;
+                        }
+                        if (result.payload.message) {
+                            inner += `<span style="font-size:14px; font-weight:500;">${result.payload.message}</span>`;
+                        }
+                        inner += '</div>';
                     }
-                    payloadEl.innerHTML = inner;
-                    region.container.appendChild(payloadEl);
+
+                    panelEl.innerHTML = inner;
+                    region.container.appendChild(panelEl);
                 }
             } else {
                 region.status = 'failed';
                 badge.className = 'liveverify-badge failed';
-                badge.innerHTML = '✗ Not Verified';
-                badge.title = result.error || result.status || 'Not verified';
+                const reason = result.status || result.error || '';
+                if (reason && reason !== 'Not verified' && !reason.includes('does not verify')) {
+                    badge.innerHTML = `✗ Not Verified <span style="font-size:0.8em; opacity:0.85;">(${reason})</span>`;
+                } else {
+                    badge.innerHTML = '✗ Not Verified';
+                }
+                badge.title = reason || 'Not verified';
 
                 // Expand outline to include verify line if it's outside the container
                 if (region.verifyLineEl && !region.container.contains(region.verifyLineEl)) {

@@ -1,0 +1,16 @@
+{
+  "issuer": "Hartwell Beck Compliance Ltd",
+  "description": "Sanctions screening and financial crime compliance services",
+  "claimType": "SanctionsScreeningAttestation",
+  "authorizedBy": "fca.org.uk/register",
+  "responseTypes": {
+    "VERIFIED": {
+      "class": "affirming",
+      "text": "This screening attestation is verified and current"
+    },
+    "STALE": {
+      "class": "denying",
+      "text": "Dataset versions used in this screening are outdated"
+    }
+  }
+}

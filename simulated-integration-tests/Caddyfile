@@ -159,6 +159,38 @@ treasury.gov {
 	}
 }
 
+fca.org.uk {
+	tls internal
+
+	handle /register/verification-meta.json {
+		root * /srv/meta/fca.org.uk
+		file_server
+	}
+
+	handle /register/* {
+		reverse_proxy tier1:8080
+	}
+}
+
+compliance.hartwell-beck.co.uk {
+	tls internal
+
+	handle /sanctions/verification-meta.json {
+		root * /srv/meta/compliance.hartwell-beck.co.uk
+		file_server
+	}
+
+	handle /sanctions/* {
+		reverse_proxy tier1:8080
+	}
+
+	handle /demo/* {
+		root * /srv/fixtures
+		uri strip_prefix /demo
+		file_server
+	}
+}
+
 hr.meridian-consulting.com {
 	tls internal
 

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sanctions Screening Attestation - Hartwell Beck Compliance</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            background: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            font-family: sans-serif;
+        }
+        .document {
+            width: 700px;
+            background: white;
+            padding: 50px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #1a365d;
+            padding-bottom: 15px;
+        }
+        .header h1 {
+            color: #1a365d;
+            font-size: 1.3em;
+            margin: 0 0 5px;
+        }
+        .header h2 {
+            color: #4a5568;
+            font-size: 1em;
+            font-weight: normal;
+            margin: 0;
+        }
+        .attestation {
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 20px;
+        }
+        .marker {
+            color: rgba(0,0,0,0.05);
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="document">
+        <div class="header">
+            <h1>Hartwell Beck Compliance Ltd</h1>
+            <h2>Official Screening Attestation</h2>
+        </div>
+        <div class="attestation">
+                    <span class="marker" verifiable-text="start" data-for="screening">[</span><span style="display:block; line-height:22px">HARTWELL BECK COMPLIANCE LTD<br>
+                    SANCTIONS SCREENING ATTESTATION<br>
+                    Screening ID: HB-2026-4419-KR<br>
+                    Subject: AURORA MARITIME HOLDINGS LTD<br>
+                    Jurisdiction: Cyprus<br>
+                    Entity Ref: CY-33810045<br>
+                    Date: 12 MAR 2026 09:15:03 UTC<br>
+                    Result: NO MATCH FOUND<br>
+                    Lists screened:<br>
+                    - OFAC SDN (ver 12-MAR-2026)<br>
+                    - UN Consolidated Sanctions (ver 11-MAR-2026)<br>
+                    - EU Consolidated List (ver 12-MAR-2026)<br>
+                    - UK OFSI Consolidated (ver 12-MAR-2026)<br>
+                    Match threshold: 85% fuzzy<br>
+                    Screening officer: R. Okonkwo</span><span class="marker" verifiable-text="end" data-for="screening">]</span>
+
+<span data-verify-line="screening">verify:compliance.hartwell-beck.co.uk/sanctions</span>
+        </div>
+    </div>
+    <!-- Test locators -->
+    <div class="subject" style="display:none">AURORA MARITIME HOLDINGS LTD</div>
+    <div class="result" style="display:none">NO MATCH FOUND</div>
+</body>
+</html>
