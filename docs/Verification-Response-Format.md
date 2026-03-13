@@ -443,30 +443,31 @@ This pattern lets issuers provide as much or as little context as appropriate, w
 
 **Relationship to witnessing:** The witnessing firm (if retained) also receives the verification event, creating a third independent record. For service of process, this means the court, the recipient, and the witness all have timestamped evidence of the delivery event.
 
-### Pattern 5: Transaction Link (Donate, Pay, Tip)
+### Pattern 5: Transaction Reference (Donate, Pay, Tip)
 
-For use cases where verification naturally leads to a transaction — charitable donations, service payments, tips — the response can include a payment URL routed through a regulatory authority:
+For use cases where verification naturally leads to an occasional one-off transaction — charitable donations, service payments, tips. Not designed for recurring payments, salaries, wages, or subscriptions.
+
+The issuer's response provides only a **reference identifier**. The app constructs the payment URL from the authority chain's domain and payment path (declared in the authority's `verification-meta.json`), never from the issuer's response. This prevents a compromised issuer from redirecting payments.
 
 ```json
 {
   "status": "verified",
   "donation_ref": "DAVE_SMITH_2026",
-  "donation_prefix": "/donate",
   "donation_prompt": "Donate to this charity?"
 }
 ```
 
-The payment flows through or via the regulator (Charity Commission, HMRC, IRS), not the charity or service provider directly. This means the regulator controls the trust anchor — if registration is revoked, the authority chain breaks and no payment option is offered.
+The payment flows through or via the regulator (Charity Commission, professional body, licensing authority), not the charity or service provider directly. This means the regulator controls the trust anchor — if registration is revoked, the authority chain breaks and no payment option is offered.
 
 **Transaction types:**
 
-| Type | Routed via | Example |
-|---|---|---|
-| `donate` | Charity regulator (Charity Commission, IRS) | Street collection, sponsored event |
-| `pay` | Tax authority (HMRC, IRS) | Tradesperson invoice, gig work |
-| `tip` | Licensing authority (local council, tourism board) | Busker, tour guide, delivery worker |
+| Type | Ref field | Routed via | Example |
+|---|---|---|---|
+| `donate` | `donation_ref` | Charity regulator (Charity Commission, IRS) | Street collection, sponsored event |
+| `pay` | `payment_ref` | Professional body or trade regulator | Tradesperson invoice, one-off service |
+| `tip` | `tip_ref` | Licensing authority (local council, tourism board) | Busker, tour guide, delivery worker |
 
-See [Post-Verification Actions](post-verification-actions.md) for the full charitable donations flow (including Gift Aid), payment for services (including IR35/CIS implications), and tips.
+See [Post-Verification Actions](post-verification-actions.md) for the full charitable donations flow (including Gift Aid), payment for services, and tips.
 
 ### When to Use Each Pattern
 
@@ -476,7 +477,7 @@ See [Post-Verification Actions](post-verification-actions.md) for the full chari
 | **Verification ID** | High-stakes interaction; mutual accountability needed (law enforcement, government officials) |
 | **Link only** | Robust complaint/information channels already exist (bar associations, licensing boards) |
 | **Retention headers** | The act of verifying itself is the legally meaningful event; proof of receipt/acknowledgment required |
-| **Transaction link** | Verification naturally leads to a donation, service payment, or tip — routed via regulator |
+| **Transaction reference** | Occasional one-off transaction (donate, pay, tip) — app constructs URL from authority chain, not issuer |
 | **None** | Simple document verification; no ongoing relationship (proof of funds, employment reference) |
 
 ## Authority Chain Verification
