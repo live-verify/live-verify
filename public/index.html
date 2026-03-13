@@ -225,6 +225,42 @@
             color: white;
             text-decoration: underline;
         }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 14px;
+            margin-top: 16px;
+        }
+        .video-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 10px;
+            overflow: hidden;
+            text-decoration: none;
+            color: white;
+            transition: background 0.15s ease, transform 0.15s ease;
+        }
+        .video-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        .video-card img {
+            width: 100%;
+            display: block;
+        }
+        .video-card .video-info {
+            padding: 10px 14px;
+        }
+        .video-card .video-title {
+            font-weight: 700;
+            font-size: 0.9em;
+            line-height: 1.3;
+        }
+        .video-card .video-duration {
+            font-size: 0.8em;
+            opacity: 0.7;
+            margin-top: 4px;
+        }
         .category-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -385,6 +421,49 @@ a fictional "Elbonian Source of Funds" document. This screenshot shows debug inf
                 <br><br>
                 In a real deployment, the overlay would show <code>happy.bank.elbonia</code>, rather than <code>live-verify.github.io</code> &mdash; <code>.elbonia</code> is fictional, so nobody can buy those domains.
             </p>
+        </div>
+
+        <!-- Demo videos -->
+        <div class="card" id="demos">
+            <h2>Demo videos</h2>
+            <p>Short screen recordings showing Live Verify in action. All are simulated environments running in Docker on Ubuntu.</p>
+            <div class="video-grid">
+                <a class="video-card" href="https://youtu.be/PFeJgWtzApg" target="_blank" rel="noreferrer">
+                    <img src="https://img.youtube.com/vi/PFeJgWtzApg/mqdefault.jpg" alt="Clip mode: browser extension verifying a PDF" loading="lazy">
+                    <div class="video-info">
+                        <div class="video-title">Clip mode: browser extension verifying a PDF via simulated OFSI authority chain</div>
+                        <div class="video-duration">0:30</div>
+                    </div>
+                </a>
+                <a class="video-card" href="https://youtu.be/3kP2XxUuszU" target="_blank" rel="noreferrer">
+                    <img src="https://img.youtube.com/vi/3kP2XxUuszU/mqdefault.jpg" alt="Clip mode: verifying a bank statement PDF via simulated FDIC authority chain" loading="lazy">
+                    <div class="video-info">
+                        <div class="video-title">Clip mode: verifying a bank statement PDF via simulated FDIC/Treasury authority chain</div>
+                        <div class="video-duration">0:26</div>
+                    </div>
+                </a>
+                <a class="video-card" href="https://youtube.com/shorts/FyWTzZXiZeo" target="_blank" rel="noreferrer">
+                    <img src="https://img.youtube.com/vi/FyWTzZXiZeo/mqdefault.jpg" alt="Clip mode: verification failure on a fictitious bank statement" loading="lazy">
+                    <div class="video-info">
+                        <div class="video-title">Clip mode: verification failure — fictitious bank domain doesn't exist</div>
+                        <div class="video-duration">0:17</div>
+                    </div>
+                </a>
+                <a class="video-card" href="https://youtu.be/Ut8GV-KSdNI" target="_blank" rel="noreferrer">
+                    <img src="https://img.youtube.com/vi/Ut8GV-KSdNI/mqdefault.jpg" alt="Camera mode: Android phone scanning a police ID card" loading="lazy">
+                    <div class="video-info">
+                        <div class="video-title">Camera mode: scanning a fictitious police ID card with an Android phone</div>
+                        <div class="video-duration">0:30</div>
+                    </div>
+                </a>
+                <a class="video-card" href="https://youtu.be/FOUI7QTrLZ8" target="_blank" rel="noreferrer">
+                    <img src="https://img.youtube.com/vi/FOUI7QTrLZ8/mqdefault.jpg" alt="Camera mode: iPhone scanning a police ID card" loading="lazy">
+                    <div class="video-info">
+                        <div class="video-title">Camera mode: scanning a fictitious police ID card with an iPhone</div>
+                        <div class="video-duration">0:30</div>
+                    </div>
+                </a>
+            </div>
         </div>
 
         <!-- Privacy model -->
