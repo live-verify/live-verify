@@ -159,6 +159,18 @@ function extractDomain(baseUrl) {
 }
 
 /**
+ * Insert www. into a verify/vfy line's domain, if not already present.
+ * Returns the original string unchanged if www. is already there.
+ */
+function addWwwPrefix(baseUrl) {
+    const match = baseUrl.match(/^(verify:|vfy:)(.*)/i);
+    if (!match) return baseUrl;
+    const [, prefix, rest] = match;
+    if (rest.toLowerCase().startsWith('www.')) return baseUrl;
+    return prefix + 'www.' + rest;
+}
+
+/**
  * Build verification-meta.json URL from base URL
  * @param {string} baseUrl - Base URL (verify:, vfy:, or https://)
  * @returns {string} - Full URL to verification-meta.json
@@ -196,11 +208,24 @@ async function fetchVerificationMeta(baseUrl) {
         if (response.status === 200) {
             return await response.json();
         }
-        return null;
     } catch (error) {
         console.log('Could not fetch verification-meta.json:', error.message);
-        return null;
     }
+
+    // Retry with www. prefix — browsers hide it so verify lines often omit it
+    try {
+        const wwwUrl = buildMetaUrl(addWwwPrefix(baseUrl));
+        if (wwwUrl !== buildMetaUrl(baseUrl)) {
+            const response = await fetch(wwwUrl);
+            if (response.status === 200) {
+                return await response.json();
+            }
+        }
+    } catch (error) {
+        console.log('Could not fetch verification-meta.json (www fallback):', error.message);
+    }
+
+    return null;
 }
 
 /**

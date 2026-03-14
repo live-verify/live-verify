@@ -172,7 +172,27 @@ object VerificationLogic {
      * @return Metadata object or null if not found
      */
     suspend fun fetchVerificationMeta(baseUrl: String): JSONObject? = withContext(Dispatchers.IO) {
-        try {
+        fetchMetaFrom(baseUrl)
+            ?: run {
+                // Retry with www. prefix — browsers hide it so verify lines often omit it
+                val wwwUrl = addWwwPrefix(baseUrl)
+                if (wwwUrl != baseUrl) fetchMetaFrom(wwwUrl) else null
+            }
+    }
+
+    private fun addWwwPrefix(baseUrl: String): String {
+        val lower = baseUrl.lowercase()
+        val prefix = when {
+            lower.startsWith("verify:") -> "verify:"
+            lower.startsWith("vfy:") -> "vfy:"
+            else -> return baseUrl
+        }
+        val rest = baseUrl.substring(prefix.length)
+        return if (rest.lowercase().startsWith("www.")) baseUrl else "${prefix}www.$rest"
+    }
+
+    private fun fetchMetaFrom(baseUrl: String): JSONObject? {
+        return try {
             val httpsBase = when {
                 baseUrl.lowercase().startsWith("verify:") -> "https://${baseUrl.substring(7)}"
                 baseUrl.lowercase().startsWith("vfy:") -> "https://${baseUrl.substring(4)}"

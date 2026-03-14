@@ -83,7 +83,32 @@ class VerificationClient {
     /// - Parameter baseURL: Base URL (e.g., "verify:example.com/c" or "https://example.com/c")
     /// - Returns: Parsed JSON dictionary or nil if not found
     func fetchVerificationMeta(baseURL: String) async -> [String: Any]? {
-        let httpsBase = convertToHTTPS(baseURL)
+        if let result = await fetchMetaFrom(convertToHTTPS(baseURL)) {
+            return result
+        }
+        // Retry with www. prefix — browsers hide it so verify lines often omit it
+        let wwwBase = addWwwPrefix(baseURL)
+        if wwwBase != baseURL {
+            Log.d("Verify", "Retrying with www. prefix")
+            return await fetchMetaFrom(convertToHTTPS(wwwBase))
+        }
+        return nil
+    }
+
+    /// Insert www. into a verify/vfy line's domain, if not already present
+    private func addWwwPrefix(_ baseURL: String) -> String {
+        let lower = baseURL.lowercased()
+        let prefix: String
+        if lower.hasPrefix("verify:") { prefix = "verify:" }
+        else if lower.hasPrefix("vfy:") { prefix = "vfy:" }
+        else { return baseURL }
+        let rest = String(baseURL.dropFirst(prefix.count))
+        if rest.lowercased().hasPrefix("www.") { return baseURL }
+        return "\(prefix)www.\(rest)"
+    }
+
+    /// Fetch verification-meta.json from a single HTTPS base URL
+    private func fetchMetaFrom(_ httpsBase: String) async -> [String: Any]? {
         let metaURLString = "\(httpsBase)/verification-meta.json"
         Log.d("Verify", "Fetching meta from: \(metaURLString)")
 
@@ -93,9 +118,7 @@ class VerificationClient {
         }
 
         do {
-            Log.d("Verify", "Starting network request...")
             let (data, response) = try await session.data(from: metaURL)
-            Log.d("Verify", "Network request completed")
 
             guard let httpResponse = response as? HTTPURLResponse else {
                 Log.d("Verify", "Not an HTTP response")

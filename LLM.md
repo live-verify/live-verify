@@ -795,6 +795,7 @@ const psl = (typeof window !== 'undefined' && window.psl) || require('psl');
 
 ### No Fallback Logic
 - Do not add "last known good" caches, silent fallbacks, or default defaults when inputs/signals are missing (orientation, network, feature flags, etc.). Surface missing data explicitly and fail loudly so issues are visible.
+- **LLM instruction:** Never add retry, fallback, or graceful-degradation logic on your own initiative. If you think a fallback might be appropriate, raise it as a question for the product owner to decide — do not implement it speculatively. Fallback behaviour is a design decision, not a coding convenience.
 
 
 ## Trust Model
