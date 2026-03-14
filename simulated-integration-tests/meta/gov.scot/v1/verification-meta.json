@@ -1,0 +1,6 @@
+{
+  "role": "root-authority",
+  "issuer": "Scottish Government",
+  "description": "Scottish Government — root of trust",
+  "hidePathInDisplay": true
+}

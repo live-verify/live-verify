@@ -120,3 +120,143 @@ The solution is a static root store shipped with the app — analogous to the ~1
 This is a manageable list. It changes slowly — new countries don't appear often. It can be maintained as a JSON file in the app, updated with app releases. The app would distinguish between chains terminating at a recognised root (full confidence) and chains terminating at an unrecognised domain (the chain is intact but the root is not in the store — the user decides).
 
 Importantly, the root store only contains roots. The hundreds of thousands of issuers and the hundreds of endorsers (regulators, professional bodies) don't need to be listed. They're discovered dynamically by walking the chain. The root store just answers the final question: "does this chain end somewhere I trust?"
+
+## One Entity, Multiple Chains
+
+A single entity can have multiple `vfy:` endpoints, each with a different authority chain for a different type of claim. The authority chain is per-claim, not per-entity.
+
+Take a Scottish pub:
+
+- `vfy:r.pub-elebben.scot` → hmrc.gov.uk/vat → gov.uk (VAT registration)
+- `vfy:food.pub-elebben.scot` → foodstandards.gov.scot → gov.scot (food hygiene)
+- `vfy:employer.pub-elebben.scot` → hmrc.gov.uk/paye → gov.uk (PAYE employer)
+
+Or a Scottish law firm:
+
+- `verify:macleod-fraser.co.uk/certs` → lawscot.org.uk → gov.scot (individual solicitor's practising certificate)
+- `verify:macleod-fraser.co.uk/firm` → lawscot.org.uk → gov.scot (firm/partnership registration)
+- `verify:macleod-fraser.co.uk/aml` → lawscot.org.uk → OPBAS/FCA → HM Treasury → gov.uk (AML compliance)
+
+The Law Society of Scotland maintains two separate registers — individual solicitors and firms — so these are two distinct claims even though they go through the same chain. A solicitor's practising certificate moves with them if they change firms; a firm's registration persists regardless of which solicitors work there.
+
+The third chain for AML goes through UK-wide authority because anti-money laundering is reserved to Westminster, not devolved. Same firm, different claim, different root. Each chain is a straight line — the question is always: "for *this specific thing*, who's the direct endorser?"
+
+This keeps the model simple despite arbitrarily complex regulatory landscapes.
+
+## Regulatory Complexity vs. Chain Simplicity
+
+Real regulatory structures are messy. Scottish solicitors, for example, are subject to overlapping oversight:
+
+```dot
+digraph ScottishLegalRegulation {
+    node [shape=box, style=filled, fontname="Arial", fontsize=10];
+    edge [fontname="Arial", fontsize=9];
+
+    subgraph cluster_judicial {
+        label = "Judicial & Ultimate Oversight";
+        style = dashed;
+        color = grey;
+        CourtOfSession [label="Court of Session\n(Supreme Civil Court)", fillcolor="#d1e5f0"];
+        LordPresident [label="Lord President\n(Head of Judiciary)", fillcolor="#d1e5f0"];
+    }
+
+    subgraph cluster_statutory {
+        label = "Statutory & Legislative Oversight";
+        style = dashed;
+        color = grey;
+        ScotParl [label="Scottish Parliament\n(Legislative Authority)", fillcolor="#f9f9f9"];
+        ConsumerScot [label="Consumer Scotland\n(Consumer Interest)", fillcolor="#f9f9f9"];
+    }
+
+    subgraph cluster_primary_regulators {
+        label = "Primary Regulators & Discipline";
+        style = solid;
+        SLCC [label="Scottish Legal Complaints Commission\n(The 'Gateway' / Oversight)", fillcolor="#fff2cc"];
+        LawSoc [label="Law Society of Scotland\n(Professional Body/Regulator)", fillcolor="#e2f0d9"];
+        SSDT [label="Scottish Solicitors' Discipline Tribunal\n(Independent Court)", fillcolor="#e2f0d9"];
+        FCA [label="Financial Conduct Authority\n(AML Oversight)", fillcolor="#fbe5d6"];
+    }
+
+    subgraph cluster_practitioners {
+        label = "The Profession";
+        style = filled;
+        color = "#eeeeee";
+        LawFirms [label="Law Firms / Licensed Providers\n(Entities)", shape=component];
+        Solicitors [label="Individual Solicitors\n(Practitioners)", shape=person];
+    }
+
+    ScotParl -> CourtOfSession [label="Enacts Statutes"];
+    ScotParl -> SLCC [label="Annual Reporting"];
+    LordPresident -> CourtOfSession [label="Presides Over"];
+    CourtOfSession -> LawSoc [label="Ultimate Oversight"];
+    CourtOfSession -> SSDT [label="Appoints Members"];
+    SLCC -> LawSoc [label="Oversees Conduct Handling"];
+    SLCC -> Solicitors [label="Investigates Service Complaints"];
+    LawSoc -> Solicitors [label="Issues Practising Certificates"];
+    LawSoc -> LawFirms [label="Accounts/AML Rules"];
+    LawSoc -> SSDT [label="Prosecutes Misconduct"];
+    ConsumerScot -> LordPresident [label="Can Trigger Performance Review"];
+    FCA -> LawSoc [label="AML Standards"];
+    SSDT -> Solicitors [label="Strikes Off / Fines"];
+    Solicitors -> LawFirms [label="Employed by / Partner in"];
+}
+```
+
+Where UK-wide authority intersects with devolved Scottish authority:
+
+```dot
+digraph ScottishLegalRegulationWithUK {
+    node [shape=box, style=filled, fontname="Arial", fontsize=10];
+    edge [fontname="Arial", fontsize=9];
+
+    subgraph cluster_uk {
+        label = "UK-Wide Authority (Economic Crime)";
+        style = dashed;
+        color = red;
+        HMTreasury [label="HM Treasury\n(Policy & Strategy)", fillcolor="#fce4ec"];
+        OPBAS [label="OPBAS / FCA\n(The 'Regulator of Regulators')", fillcolor="#fce4ec"];
+    }
+
+    subgraph cluster_scotland {
+        label = "Scottish Devolved Authority";
+        style = dashed;
+        color = blue;
+        LordPresident [label="Lord President\n(Ultimate Judicial Oversight)", fillcolor="#d1e5f0"];
+        SLCC [label="SLCC\n(Service & Conduct Watchdog)", fillcolor="#fff2cc"];
+    }
+
+    LawSoc [label="Law Society of Scotland\n(Direct Regulator)", fillcolor="#e2f0d9"];
+    LawFirms [label="Law Firms", shape=component];
+    Solicitors [label="Individual Solicitors", shape=person];
+
+    HMTreasury -> OPBAS [label="Sets UK AML Regulations"];
+    OPBAS -> LawSoc [label="Supervises AML Performance"];
+    LordPresident -> LawSoc [label="Approves Practice Rules"];
+    SLCC -> LawSoc [label="Audits Complaints Handling"];
+    LawSoc -> Solicitors [label="Regulates Individuals"];
+    LawSoc -> LawFirms [label="Regulates Entities (AML/Accounts)"];
+    OPBAS -> LawFirms [label="Planned Future Direct Supervision", style=dotted, color=red];
+}
+```
+
+The authority chain doesn't try to capture this full graph. It captures one straight line through it: **who directly endorses this specific verification endpoint**. For a practising certificate, that's:
+
+```
+✓ macleod-fraser.co.uk/certs (Solicitors, Edinburgh)
+  ✓ lawscot.org.uk (Regulates solicitors in Scotland)
+    ✓ gov.scot (Scottish Government — root of trust)
+```
+
+The Court of Session, SLCC, SSDT, Scottish Parliament, OPBAS, and FCA all have roles in regulating solicitors — but none of them are in this chain because none of them directly endorse Macleod Fraser's verification-meta.json. The chain answers "who vouches for this specific claim?" not "who has regulatory jurisdiction over this entity?"
+
+If Macleod Fraser also needed to verify AML compliance, that would be a separate `vfy:` endpoint with a separate chain going through the UK-wide AML regulators to `gov.uk`. Same firm, different claim, different chain, potentially different root.
+
+## Peer Relationships Between Endorsers Are Out of Scope
+
+When the Law Society of Scotland strikes off a solicitor, HMRC might also need to know (the firm may owe tax). When HMRC deregisters a business for VAT, the Law Society might need to know (the firm's accounts are suspect).
+
+These peer relationships between endorsers exist — but they don't belong in the verification meta or the authority chain. The chain is strictly hierarchical: issuer → endorser → root. How endorsers coordinate with each other is an operational matter between regulators, not something the verification system needs to model or that end users need to see.
+
+Regulators already have statutory duties to share information (e.g., the Legal Profession and Legal Aid (Scotland) Act 2007 requires the Law Society to report certain matters to the Lord President). These obligations predate Live Verify and will continue to operate through existing channels — MoUs, data-sharing agreements, statutory reporting. Adding a `peers` field to verification-meta.json would be over-engineering a problem that's already solved elsewhere.
+
+The authority chain answers one question: "is this claim endorsed right now?" Whether the endorser learned about a change from its own records, from a peer regulator, or from a statutory notification doesn't affect the verification result. The chain is a snapshot of trust at the moment of verification, not a model of how that trust is maintained.

@@ -1,0 +1,7 @@
+{
+  "role": "endorser",
+  "issuer": "Law Society of Scotland",
+  "description": "Regulates solicitors in Scotland",
+  "authorizedBy": "gov.scot/v1",
+  "hidePathInDisplay": true
+}

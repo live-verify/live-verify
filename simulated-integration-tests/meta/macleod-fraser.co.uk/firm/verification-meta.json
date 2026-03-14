@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "issuer": "Macleod Fraser & Partners",
+  "description": "Solicitors, Edinburgh",
+  "claimType": "RegisteredLegalPractice",
+  "authorizedBy": "lawscot.org.uk/register",
+  "responseTypes": {
+    "VERIFIED": {
+      "class": "affirming",
+      "text": "This firm is a registered legal practice"
+    },
+    "SUSPENDED": {
+      "class": "denying",
+      "text": "This firm's registration has been suspended"
+    },
+    "WITHDRAWN": {
+      "class": "denying",
+      "text": "This firm's registration has been withdrawn"
+    }
+  }
+}

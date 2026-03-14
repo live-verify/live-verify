@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Firm Registration - Macleod Fraser & Partners</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            background: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            font-family: 'Georgia', serif;
+        }
+        .certificate {
+            width: 600px;
+            background: #fffff8;
+            padding: 50px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border: 3px double #1a365d;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #1a365d;
+            padding-bottom: 15px;
+        }
+        .header h1 {
+            color: #1a365d;
+            font-size: 1.2em;
+            margin: 0 0 5px;
+            letter-spacing: 1px;
+        }
+        .header h2 {
+            color: #4a5568;
+            font-size: 0.95em;
+            font-weight: normal;
+            margin: 0;
+        }
+        .cert-body {
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 22px;
+        }
+        .marker {
+            color: rgba(0,0,0,0.05);
+            font-size: 10px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            border-top: 2px solid #1a365d;
+            padding-top: 15px;
+            font-size: 0.8em;
+            color: #666;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate">
+        <div class="header">
+            <h1>THE LAW SOCIETY OF SCOTLAND</h1>
+            <h2>Registered Legal Practice</h2>
+        </div>
+        <div class="cert-body">
+            <span class="marker" verifiable-text="start" data-for="firm">[</span><span style="display:block; line-height:22px">REGISTERED LEGAL PRACTICE<br>
+Registration No: RLP-2026-03847<br>
+<br>
+Firm: MACLEOD FRASER &amp; PARTNERS<br>
+Trading as: Macleod Fraser &amp; Partners<br>
+14 Charlotte Square, Edinburgh EH2 4DJ<br>
+<br>
+Partnership, established 2003<br>
+Registered: 15 March 2003, renewed: 01 November 2025<br>
+Valid until: 31 October 2026<br>
+Partners: 4, Solicitors: 11<br>
+PII: Confirmed, Client account: Royal Bank of Scotland<br>
+AML: Compliant</span><span class="marker" verifiable-text="end" data-for="firm">]</span>
+
+<span data-verify-line="firm" style="display:block">verify:macleod-fraser.co.uk/firm</span>
+        </div>
+        <div class="footer">
+            Issued under the Solicitors (Scotland) Act 1980<br>
+            as amended by the Legal Services (Scotland) Act 2010
+        </div>
+    </div>
+    <!-- Test locators -->
+    <div class="firm-name" style="display:none">MACLEOD FRASER &amp; PARTNERS</div>
+    <div class="registration-type" style="display:none">Partnership</div>
+</body>
+</html>

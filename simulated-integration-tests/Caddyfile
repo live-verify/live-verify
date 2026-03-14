@@ -223,6 +223,60 @@ r.the-red-lion.co.uk {
 	}
 }
 
+macleod-fraser.co.uk {
+	tls internal
+
+	handle /certs/verification-meta.json {
+		root * /srv/meta/macleod-fraser.co.uk
+		file_server
+	}
+
+	handle /firm/verification-meta.json {
+		root * /srv/meta/macleod-fraser.co.uk
+		file_server
+	}
+
+	handle /demo/* {
+		root * /srv/fixtures
+		uri strip_prefix /demo
+		file_server
+	}
+
+	handle /certs/* {
+		reverse_proxy tier1:8080
+	}
+
+	handle /firm/* {
+		reverse_proxy tier1:8080
+	}
+}
+
+lawscot.org.uk {
+	tls internal
+
+	handle /register/verification-meta.json {
+		root * /srv/meta/lawscot.org.uk
+		file_server
+	}
+
+	handle /register/* {
+		reverse_proxy tier1:8080
+	}
+}
+
+gov.scot {
+	tls internal
+
+	handle /v1/verification-meta.json {
+		root * /srv/meta/gov.scot
+		file_server
+	}
+
+	handle /v1/* {
+		reverse_proxy tier1:8080
+	}
+}
+
 hr.meridian-consulting.com {
 	tls internal
 

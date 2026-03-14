@@ -75,6 +75,9 @@ services:
           - compliance.hartwell-beck.co.uk
           - hmrc.gov.uk
           - r.the-red-lion.co.uk
+          - macleod-fraser.co.uk
+          - lawscot.org.uk
+          - gov.scot
           - hr.meridian-consulting.com
 
 

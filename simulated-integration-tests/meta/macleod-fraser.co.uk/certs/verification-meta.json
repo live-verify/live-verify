@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "issuer": "Macleod Fraser & Partners",
+  "description": "Solicitors, Edinburgh",
+  "claimType": "SolicitorPractisingCertificate",
+  "authorizedBy": "lawscot.org.uk/register",
+  "responseTypes": {
+    "VERIFIED": {
+      "class": "affirming",
+      "text": "This practising certificate is current and valid"
+    },
+    "SUSPENDED": {
+      "class": "denying",
+      "text": "This practising certificate has been suspended"
+    },
+    "EXPIRED": {
+      "class": "denying",
+      "text": "This practising certificate has expired"
+    }
+  }
+}
