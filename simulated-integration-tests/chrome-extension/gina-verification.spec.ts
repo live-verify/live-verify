@@ -47,7 +47,7 @@ test.describe('Police Officer Verification (Gina Coulby)', () => {
         await expect(scanBtn).toBeVisible({ timeout: 20000 });
 
         // Screenshot before any verification
-        await page.screenshot({ path: 'simulated-integration-tests/results/gina-before-verification-page.png' });
+        await page.screenshot({ path: 'public/test-results/gina-before-verification-page.png' });
 
         await scanBtn.click();
 
@@ -77,7 +77,7 @@ test.describe('Police Officer Verification (Gina Coulby)', () => {
 
         // Screenshots
         await page.bringToFront();
-        await page.screenshot({ path: 'simulated-integration-tests/results/gina-final-page.png' });
+        await page.screenshot({ path: 'public/test-results/gina-final-page.png' });
         
         await popupPage.bringToFront();
         // Wait for details toggle to be visible and click it to see normalized text
@@ -85,7 +85,7 @@ test.describe('Police Officer Verification (Gina Coulby)', () => {
         if (await detailsToggle.isVisible()) {
             await detailsToggle.click();
         }
-        await popupPage.screenshot({ path: 'simulated-integration-tests/results/gina-final-popup.png' });
+        await popupPage.screenshot({ path: 'public/test-results/gina-final-popup.png' });
 
         // Now assert success
         expect(finalBadgeText).toBe('✓ Verified');

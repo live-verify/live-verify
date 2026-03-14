@@ -288,6 +288,31 @@
             font-size: 1.6em;
             font-weight: 800;
         }
+        .screenshot-scenario {
+            margin-top: 18px;
+        }
+        .screenshot-scenario h4 {
+            font-size: 0.9em;
+            opacity: 0.85;
+            margin-bottom: 8px;
+        }
+        .screenshot-strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+        .screenshot-strip img {
+            width: 100%;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            display: block;
+        }
+        .screenshot-strip .caption {
+            font-size: 0.75em;
+            opacity: 0.7;
+            text-align: center;
+            margin-top: 3px;
+        }
         @media (max-width: 520px) {
             h1 { font-size: 1.75em; }
             .card { padding: 18px; }
@@ -492,6 +517,114 @@
                         <div class="video-duration">0:18</div>
                     </div>
                 </a>
+            </div>
+        </div>
+
+        <!-- Test result screenshots -->
+        <div class="card" id="testResults">
+            <h2>Automated test screenshots</h2>
+            <p>Screenshots captured by Playwright during automated tests against simulated authority chains in Docker. All organisations and people are fictitious.</p>
+
+            <h3 style="margin-top: 16px; font-size: 1em; opacity: 0.85;">Clip mode (browser extension)</h3>
+
+            <div class="screenshot-scenario">
+                <h4>Police ID verified (Gina Dallimore, Midsomer police)</h4>
+                <div class="screenshot-strip">
+                    <div><img src="test-results/gina-before-verification-page.png" alt="Before: police ID document" loading="lazy"><div class="caption">Document</div></div>
+                    <div><img src="test-results/gina-final-page.png" alt="After: verification banner shown" loading="lazy"><div class="caption">Verified</div></div>
+                    <div><img src="test-results/gina-final-popup.png" alt="Extension popup with authority chain" loading="lazy"><div class="caption">Authority chain</div></div>
+                </div>
+            </div>
+
+            <div class="screenshot-scenario">
+                <h4>Fake police ID rejected (Lex Luthor, NYPD)</h4>
+                <div class="screenshot-strip">
+                    <div><img src="test-results/lex-before-verification-page.png" alt="Before: fake NYPD ID" loading="lazy"><div class="caption">Document</div></div>
+                    <div><img src="test-results/lex-final-page.png" alt="After: not verified banner" loading="lazy"><div class="caption">Not verified</div></div>
+                    <div><img src="test-results/lex-final-popup.png" alt="Extension popup showing failure" loading="lazy"><div class="caption">Hash not found</div></div>
+                </div>
+            </div>
+
+            <div class="screenshot-scenario">
+                <h4>Bank statement (James, FDIC/Treasury chain)</h4>
+                <div class="screenshot-strip">
+                    <div><img src="test-results/james-before-verification-page.png" alt="Before: bank statement" loading="lazy"><div class="caption">Document</div></div>
+                    <div><img src="test-results/james-final-page.png" alt="After: verified with authority chain" loading="lazy"><div class="caption">Verified</div></div>
+                    <div><img src="test-results/james-final-popup.png" alt="Extension popup with FDIC chain" loading="lazy"><div class="caption">Authority chain</div></div>
+                </div>
+            </div>
+
+            <div class="screenshot-scenario">
+                <h4>OFSI sanctions licence (UK gov chain)</h4>
+                <div class="screenshot-strip">
+                    <div><img src="test-results/ofsi-before-verification-page.png" alt="Before: OFSI licence" loading="lazy"><div class="caption">Document</div></div>
+                    <div><img src="test-results/ofsi-final-page.png" alt="After: verified via gov.uk chain" loading="lazy"><div class="caption">Verified</div></div>
+                </div>
+            </div>
+
+            <div class="screenshot-scenario">
+                <h4>Pub receipt (Red Lion, HMRC VAT chain)</h4>
+                <div class="screenshot-strip">
+                    <div><img src="test-results/receipt-before.png" alt="Before: pub receipt" loading="lazy"><div class="caption">Document</div></div>
+                    <div><img src="test-results/receipt-final-page.png" alt="After: receipt verified" loading="lazy"><div class="caption">Verified</div></div>
+                    <div><img src="test-results/receipt-final-popup.png" alt="Extension popup with HMRC chain" loading="lazy"><div class="caption">Authority chain</div></div>
+                </div>
+            </div>
+
+            <div class="screenshot-scenario">
+                <h4>Scottish solicitor practising certificate (Law Society &rarr; gov.scot)</h4>
+                <div class="screenshot-strip">
+                    <div><img src="test-results/solicitor-before.png" alt="Before: practising certificate" loading="lazy"><div class="caption">Document</div></div>
+                    <div><img src="test-results/solicitor-final-page.png" alt="After: certificate verified" loading="lazy"><div class="caption">Verified</div></div>
+                    <div><img src="test-results/solicitor-final-popup.png" alt="Extension popup with law society chain" loading="lazy"><div class="caption">Authority chain</div></div>
+                </div>
+            </div>
+
+            <div class="screenshot-scenario">
+                <h4>Scottish solicitors firm registration</h4>
+                <div class="screenshot-strip">
+                    <div><img src="test-results/solicitors-firm-before.png" alt="Before: firm registration" loading="lazy"><div class="caption">Document</div></div>
+                    <div><img src="test-results/solicitors-firm-final-page.png" alt="After: firm verified" loading="lazy"><div class="caption">Verified</div></div>
+                    <div><img src="test-results/solicitors-firm-final-popup.png" alt="Extension popup with firm chain" loading="lazy"><div class="caption">Authority chain</div></div>
+                </div>
+            </div>
+
+            <div class="screenshot-scenario">
+                <h4>Sanctions screening attestation (FCA chain)</h4>
+                <div class="screenshot-strip">
+                    <div><img src="test-results/sanctions-before.png" alt="Before: sanctions screening document" loading="lazy"><div class="caption">Document</div></div>
+                    <div><img src="test-results/sanctions-final-page.png" alt="After: screening verified" loading="lazy"><div class="caption">Verified</div></div>
+                    <div><img src="test-results/sanctions-final-popup.png" alt="Extension popup with FCA chain" loading="lazy"><div class="caption">Authority chain</div></div>
+                </div>
+            </div>
+
+            <div class="screenshot-scenario">
+                <h4>Revoked employment reference</h4>
+                <div class="screenshot-strip">
+                    <div><img src="test-results/revoked-reference-before.png" alt="Before: employment reference" loading="lazy"><div class="caption">Document</div></div>
+                    <div><img src="test-results/revoked-reference-final-page.png" alt="After: revoked banner" loading="lazy"><div class="caption">Revoked</div></div>
+                    <div><img src="test-results/revoked-reference-final-popup.png" alt="Extension popup showing revocation" loading="lazy"><div class="caption">Revocation detail</div></div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 24px; font-size: 1em; opacity: 0.85;">Camera mode (Android)</h3>
+
+            <div class="screenshot-scenario">
+                <h4>Police ID verified (Gina, Android emulator)</h4>
+                <div class="screenshot-strip">
+                    <div><img src="test-results/android-gina-captured.png" alt="Android: captured image" loading="lazy"><div class="caption">Captured</div></div>
+                    <div><img src="test-results/android-gina-extracted.png" alt="Android: extracted text" loading="lazy"><div class="caption">OCR extracted</div></div>
+                    <div><img src="test-results/android-gina-result.png" alt="Android: verification result" loading="lazy"><div class="caption">Verified</div></div>
+                </div>
+            </div>
+
+            <div class="screenshot-scenario">
+                <h4>Fake police ID rejected (Lex, Android emulator)</h4>
+                <div class="screenshot-strip">
+                    <div><img src="test-results/android-lex-captured.png" alt="Android: captured fake ID" loading="lazy"><div class="caption">Captured</div></div>
+                    <div><img src="test-results/android-lex-extracted.png" alt="Android: extracted text" loading="lazy"><div class="caption">OCR extracted</div></div>
+                    <div><img src="test-results/android-lex-result.png" alt="Android: not verified" loading="lazy"><div class="caption">Not verified</div></div>
+                </div>
             </div>
         </div>
 

@@ -21,7 +21,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 FST_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 PROJECT_DIR="$(cd "$FST_DIR/.." && pwd)"
 ANDROID_DIR="${PROJECT_DIR}/apps/android"
-RESULTS_DIR="${FST_DIR}/results"
+RESULTS_DIR="${PROJECT_DIR}/public/test-results"
 
 ANDROID_HOME="${ANDROID_HOME:-$HOME/Android/Sdk}"
 ADB_BIN="${ANDROID_HOME}/platform-tools/adb"

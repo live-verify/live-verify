@@ -45,7 +45,7 @@ test.describe('Sales Receipt (The Red Lion)', () => {
         const scanBtn = page.locator('.liveverify-scan-btn');
         await expect(scanBtn).toBeVisible({ timeout: 20000 });
 
-        await page.screenshot({ path: 'simulated-integration-tests/results/receipt-before.png' });
+        await page.screenshot({ path: 'public/test-results/receipt-before.png' });
 
         await scanBtn.click();
 
@@ -78,14 +78,14 @@ test.describe('Sales Receipt (The Red Lion)', () => {
 
         // Screenshots
         await page.bringToFront();
-        await page.screenshot({ path: 'simulated-integration-tests/results/receipt-final-page.png' });
+        await page.screenshot({ path: 'public/test-results/receipt-final-page.png' });
 
         await popupPage.bringToFront();
         const detailsToggle = popupPage.locator('.details-toggle');
         if (await detailsToggle.isVisible()) {
             await detailsToggle.click();
         }
-        await popupPage.screenshot({ path: 'simulated-integration-tests/results/receipt-final-popup.png' });
+        await popupPage.screenshot({ path: 'public/test-results/receipt-final-popup.png' });
 
         // Assert verified
         expect(finalBadgeText).toBe('✓ Verified');

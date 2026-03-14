@@ -45,7 +45,7 @@ test.describe('Revoked Employment Reference (Meridian Consulting)', () => {
         const scanBtn = page.locator('.liveverify-scan-btn');
         await expect(scanBtn).toBeVisible({ timeout: 20000 });
 
-        await page.screenshot({ path: 'simulated-integration-tests/results/revoked-reference-before.png' });
+        await page.screenshot({ path: 'public/test-results/revoked-reference-before.png' });
 
         await scanBtn.click();
 
@@ -75,14 +75,14 @@ test.describe('Revoked Employment Reference (Meridian Consulting)', () => {
 
         // Screenshots
         await page.bringToFront();
-        await page.screenshot({ path: 'simulated-integration-tests/results/revoked-reference-final-page.png' });
+        await page.screenshot({ path: 'public/test-results/revoked-reference-final-page.png' });
 
         await popupPage.bringToFront();
         const detailsToggle = popupPage.locator('.details-toggle');
         if (await detailsToggle.isVisible()) {
             await detailsToggle.click();
         }
-        await popupPage.screenshot({ path: 'simulated-integration-tests/results/revoked-reference-final-popup.png' });
+        await popupPage.screenshot({ path: 'public/test-results/revoked-reference-final-popup.png' });
 
         // Assert failure with reason shown
         expect(finalBadgeText).toContain('Not Verified');

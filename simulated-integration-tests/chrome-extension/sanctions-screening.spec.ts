@@ -45,7 +45,7 @@ test.describe('Sanctions Screening Attestation (Hartwell Beck)', () => {
         const scanBtn = page.locator('.liveverify-scan-btn');
         await expect(scanBtn).toBeVisible({ timeout: 20000 });
 
-        await page.screenshot({ path: 'simulated-integration-tests/results/sanctions-before.png' });
+        await page.screenshot({ path: 'public/test-results/sanctions-before.png' });
 
         await scanBtn.click();
 
@@ -75,14 +75,14 @@ test.describe('Sanctions Screening Attestation (Hartwell Beck)', () => {
 
         // Screenshots
         await page.bringToFront();
-        await page.screenshot({ path: 'simulated-integration-tests/results/sanctions-final-page.png' });
+        await page.screenshot({ path: 'public/test-results/sanctions-final-page.png' });
 
         await popupPage.bringToFront();
         const detailsToggle = popupPage.locator('.details-toggle');
         if (await detailsToggle.isVisible()) {
             await detailsToggle.click();
         }
-        await popupPage.screenshot({ path: 'simulated-integration-tests/results/sanctions-final-popup.png' });
+        await popupPage.screenshot({ path: 'public/test-results/sanctions-final-popup.png' });
 
         // Assert verified
         expect(finalBadgeText).toBe('✓ Verified');

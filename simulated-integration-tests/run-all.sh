@@ -15,7 +15,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 COMPOSE_FILE="${SCRIPT_DIR}/docker-compose.yml"
 META_DIR="${SCRIPT_DIR}/meta"
-RESULTS_DIR="${SCRIPT_DIR}/results"
+RESULTS_DIR="${SCRIPT_DIR}/../public/test-results"
 
 mkdir -p "$RESULTS_DIR"
 

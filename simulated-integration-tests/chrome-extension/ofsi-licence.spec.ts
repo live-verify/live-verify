@@ -47,7 +47,7 @@ test.describe('OFSI Sanctions Licence Verification (Albion Capital)', () => {
         }, { timeout: 30000 });
 
         // Screenshot before verification
-        await page.screenshot({ path: 'simulated-integration-tests/results/ofsi-before-verification-page.png' });
+        await page.screenshot({ path: 'public/test-results/ofsi-before-verification-page.png' });
 
         // Select text from "HM TREASURY" through "verify:" line
         console.log('Selecting claim text from PDF text layer...');
@@ -147,7 +147,7 @@ test.describe('OFSI Sanctions Licence Verification (Albion Capital)', () => {
         }));
 
         // Screenshots
-        await page.screenshot({ path: 'simulated-integration-tests/results/ofsi-final-page.png' });
+        await page.screenshot({ path: 'public/test-results/ofsi-final-page.png' });
 
         // Assert success — chain: ofsi.hm-treasury.gov.uk → gov.uk
         expect(result.success).toBe(true);

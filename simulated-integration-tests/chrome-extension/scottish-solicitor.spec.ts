@@ -44,7 +44,7 @@ test.describe('Scottish Solicitor Practising Certificate (Macleod Fraser)', () =
         const scanBtn = page.locator('.liveverify-scan-btn');
         await expect(scanBtn).toBeVisible({ timeout: 20000 });
 
-        await page.screenshot({ path: 'simulated-integration-tests/results/solicitor-before.png' });
+        await page.screenshot({ path: 'public/test-results/solicitor-before.png' });
 
         await scanBtn.click();
 
@@ -66,12 +66,12 @@ test.describe('Scottish Solicitor Practising Certificate (Macleod Fraser)', () =
         await popupPage.goto(`chrome-extension://${extensionId}/popup/popup.html`);
 
         await page.bringToFront();
-        await page.screenshot({ path: 'simulated-integration-tests/results/solicitor-final-page.png' });
+        await page.screenshot({ path: 'public/test-results/solicitor-final-page.png' });
 
         await popupPage.bringToFront();
         const detailsToggle = popupPage.locator('.details-toggle');
         if (await detailsToggle.isVisible()) await detailsToggle.click();
-        await popupPage.screenshot({ path: 'simulated-integration-tests/results/solicitor-final-popup.png' });
+        await popupPage.screenshot({ path: 'public/test-results/solicitor-final-popup.png' });
 
         expect(finalBadgeText).toBe('✓ Verified');
 
@@ -100,7 +100,7 @@ test.describe('Scottish Solicitor Practising Certificate (Macleod Fraser)', () =
         const scanBtn = page.locator('.liveverify-scan-btn');
         await expect(scanBtn).toBeVisible({ timeout: 20000 });
 
-        await page.screenshot({ path: 'simulated-integration-tests/results/solicitors-firm-before.png' });
+        await page.screenshot({ path: 'public/test-results/solicitors-firm-before.png' });
 
         await scanBtn.click();
 
@@ -122,12 +122,12 @@ test.describe('Scottish Solicitor Practising Certificate (Macleod Fraser)', () =
         await popupPage.goto(`chrome-extension://${extensionId}/popup/popup.html`);
 
         await page.bringToFront();
-        await page.screenshot({ path: 'simulated-integration-tests/results/solicitors-firm-final-page.png' });
+        await page.screenshot({ path: 'public/test-results/solicitors-firm-final-page.png' });
 
         await popupPage.bringToFront();
         const detailsToggle = popupPage.locator('.details-toggle');
         if (await detailsToggle.isVisible()) await detailsToggle.click();
-        await popupPage.screenshot({ path: 'simulated-integration-tests/results/solicitors-firm-final-popup.png' });
+        await popupPage.screenshot({ path: 'public/test-results/solicitors-firm-final-popup.png' });
 
         expect(finalBadgeText).toBe('✓ Verified');
 

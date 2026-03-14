@@ -46,7 +46,7 @@ test.describe('Fake Police ID Verification (Lex Luthor)', () => {
         await expect(scanBtn).toBeVisible({ timeout: 20000 });
 
         // Screenshot before any verification
-        await page.screenshot({ path: 'simulated-integration-tests/results/lex-before-verification-page.png' });
+        await page.screenshot({ path: 'public/test-results/lex-before-verification-page.png' });
 
         await scanBtn.click();
 
@@ -76,14 +76,14 @@ test.describe('Fake Police ID Verification (Lex Luthor)', () => {
 
         // Screenshots
         await page.bringToFront();
-        await page.screenshot({ path: 'simulated-integration-tests/results/lex-final-page.png' });
+        await page.screenshot({ path: 'public/test-results/lex-final-page.png' });
 
         await popupPage.bringToFront();
         const detailsToggle = popupPage.locator('.details-toggle');
         if (await detailsToggle.isVisible()) {
             await detailsToggle.click();
         }
-        await popupPage.screenshot({ path: 'simulated-integration-tests/results/lex-final-popup.png' });
+        await popupPage.screenshot({ path: 'public/test-results/lex-final-popup.png' });
 
         // Assert FAILURE — Lex's fake ID was never issued by NYPD
         expect(finalBadgeText).toBe('✗ Not Verified');

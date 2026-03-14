@@ -46,7 +46,7 @@ test.describe('Bank Statement PDF Verification (James Whitfield)', () => {
         }, { timeout: 30000 });
 
         // Screenshot before verification
-        await page.screenshot({ path: 'simulated-integration-tests/results/james-before-verification-page.png' });
+        await page.screenshot({ path: 'public/test-results/james-before-verification-page.png' });
 
         // Select text from "Account Holder:" through "verify:..." line
         console.log('Selecting claim text from PDF text layer...');
@@ -157,7 +157,7 @@ test.describe('Bank Statement PDF Verification (James Whitfield)', () => {
         }));
 
         // Screenshot
-        await page.screenshot({ path: 'simulated-integration-tests/results/james-final-page.png' });
+        await page.screenshot({ path: 'public/test-results/james-final-page.png' });
 
         // Assert success — chain: meridian-national.bank.us → fdic.gov → treasury.gov
         expect(result.success).toBe(true);
