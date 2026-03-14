@@ -159,6 +159,17 @@ test.describe('Bank Statement PDF Verification (James Whitfield)', () => {
         // Screenshot
         await page.screenshot({ path: 'public/test-results/james-final-page.png' });
 
+        // Open popup and screenshot
+        const extensionId = background.url().split('/')[2];
+        const popupPage = await context.newPage();
+        await popupPage.goto(`chrome-extension://${extensionId}/popup/popup.html`);
+        await popupPage.bringToFront();
+        const detailsToggle = popupPage.locator('.details-toggle');
+        if (await detailsToggle.isVisible()) {
+            await detailsToggle.click();
+        }
+        await popupPage.screenshot({ path: 'public/test-results/james-final-popup.png' });
+
         // Assert success — chain: meridian-national.bank.us → fdic.gov → treasury.gov
         expect(result.success).toBe(true);
         expect(result.domain).toBe('meridian-national.bank.us');

@@ -149,6 +149,17 @@ test.describe('OFSI Sanctions Licence Verification (Albion Capital)', () => {
         // Screenshots
         await page.screenshot({ path: 'public/test-results/ofsi-final-page.png' });
 
+        // Open popup and screenshot
+        const extensionId = background.url().split('/')[2];
+        const popupPage = await context.newPage();
+        await popupPage.goto(`chrome-extension://${extensionId}/popup/popup.html`);
+        await popupPage.bringToFront();
+        const detailsToggle = popupPage.locator('.details-toggle');
+        if (await detailsToggle.isVisible()) {
+            await detailsToggle.click();
+        }
+        await popupPage.screenshot({ path: 'public/test-results/ofsi-final-popup.png' });
+
         // Assert success — chain: ofsi.hm-treasury.gov.uk → gov.uk
         expect(result.success).toBe(true);
         expect(result.domain).toBe('ofsi.hm-treasury.gov.uk');

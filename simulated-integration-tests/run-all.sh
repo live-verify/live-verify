@@ -37,6 +37,10 @@ function cleanup {
 }
 trap cleanup EXIT
 
+# Tear down any stale containers from a previous run (podman-compose can leave
+# containers in a broken state if the previous run was killed)
+$COMPOSE -f "$COMPOSE_FILE" down -v 2>/dev/null || true
+
 echo "=== Starting backend + Caddy ==="
 $COMPOSE -f "$COMPOSE_FILE" up --build -d
 
