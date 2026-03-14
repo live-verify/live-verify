@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "issuer": "The Red Lion",
+  "description": "Traditional pub and kitchen, Amersham, Buckinghamshire",
+  "claimType": "SalesReceipt",
+  "authorizedBy": "hmrc.gov.uk/vat",
+  "responseTypes": {
+    "VERIFIED": {
+      "class": "affirming",
+      "text": "This receipt matches our transaction records"
+    },
+    "REFUNDED": {
+      "class": "denying",
+      "text": "This transaction has been refunded"
+    },
+    "VOIDED": {
+      "class": "denying",
+      "text": "This transaction was voided at point of sale"
+    }
+  }
+}

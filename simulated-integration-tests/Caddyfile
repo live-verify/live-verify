@@ -191,6 +191,38 @@ compliance.hartwell-beck.co.uk {
 	}
 }
 
+hmrc.gov.uk {
+	tls internal
+
+	handle /vat/verification-meta.json {
+		root * /srv/meta/hmrc.gov.uk
+		file_server
+	}
+
+	handle /vat/* {
+		reverse_proxy tier1:8080
+	}
+}
+
+r.the-red-lion.co.uk {
+	tls internal
+
+	handle /verification-meta.json {
+		root * /srv/meta/r.the-red-lion.co.uk
+		file_server
+	}
+
+	handle /demo/* {
+		root * /srv/fixtures
+		uri strip_prefix /demo
+		file_server
+	}
+
+	handle /* {
+		reverse_proxy tier1:8080
+	}
+}
+
 hr.meridian-consulting.com {
 	tls internal
 

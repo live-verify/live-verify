@@ -73,6 +73,8 @@ services:
           - treasury.gov
           - fca.org.uk
           - compliance.hartwell-beck.co.uk
+          - hmrc.gov.uk
+          - r.the-red-lion.co.uk
           - hr.meridian-consulting.com
 
 

@@ -1,0 +1,7 @@
+{
+  "role": "endorser",
+  "issuer": "HM Revenue & Customs — VAT",
+  "description": "Confirms VAT registration of UK businesses",
+  "authorizedBy": "gov.uk/v1",
+  "hidePathInDisplay": true
+}

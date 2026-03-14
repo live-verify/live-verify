@@ -326,16 +326,15 @@
                     panelEl.className = 'liveverify-chain';
                     let inner = '';
 
-                    // Authority chain
+                    // Authority chain with descriptions (matching banner style)
                     if (hasChain) {
-                        const domains = [result.domain, ...result.authorization.chain.map(c => c.authorizer)];
-                        const chainHtml = domains[0] + domains.slice(1).map(d => '<br>\u00a0\u00a0authorised by ' + d).join('');
+                        const chain = result.authorization.chain;
+                        let chainHtml = result.domain;
+                        for (const c of chain) {
+                            chainHtml += '<br>\u00a0\u00a0authorised by <strong>' + c.authorizer + '</strong>';
+                            if (c.description) chainHtml += ' <span style="opacity:0.85;">(' + c.description + ')</span>';
+                        }
                         inner += `<div>${chainHtml}</div>`;
-                        // Full details with descriptions in tooltip
-                        const details = result.authorization.chain.map(c => {
-                            return c.description ? `${c.authorizer} (${c.description})` : c.authorizer;
-                        });
-                        panelEl.title = result.domain + ' authorised by ' + details.join(' authorised by ');
                     }
 
                     // Payload (headshot + message)

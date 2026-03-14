@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Receipt - The Red Lion</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            background: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            font-family: 'Courier New', monospace;
+        }
+        .receipt {
+            width: 420px;
+            background: #fffef8;
+            padding: 30px 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed #999;
+            padding-bottom: 10px;
+        }
+        .header h1 {
+            font-size: 1.5em;
+            margin: 0 0 4px;
+            letter-spacing: 2px;
+        }
+        .header p {
+            margin: 2px 0;
+            font-size: 0.8em;
+            color: #444;
+        }
+        .receipt-body {
+            white-space: pre;
+            font-size: 13px;
+            line-height: 22px;
+        }
+        .marker {
+            color: rgba(0,0,0,0.05);
+            font-size: 10px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 10px;
+            border-top: 1px dashed #999;
+            padding-top: 10px;
+            font-size: 0.75em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="receipt">
+        <div class="header">
+            <h1>THE RED LION</h1>
+            <p>Amersham, Buckinghamshire</p>
+            <p>Tel: 01494 726 300</p>
+        </div>
+        <div class="receipt-body"><span class="marker" verifiable-text="start" data-for="receipt">[</span><span>17 High Street, Amersham HP7 0DJ
+Receipt: RL-20260314-0042
+Date: 14/03/2026 12:47
+Table: 6
+Fish &amp; Chips              £14.50
+Ploughman's Lunch          £11.95
+Scampi &amp; Chips             £13.50
+London Pride (pint)         £5.80
+Doom Bar (pint)             £5.60
+Diet Coke                   £2.95
+                           ------
+SUBTOTAL:                  £54.30
+VAT @ 20%:                  £9.05
+TOTAL:                     £54.30
+Visa contactless ****7821
+Auth: 493017</span><span class="marker" verifiable-text="end" data-for="receipt">]</span>
+
+<span data-verify-line="receipt">vfy:r.the-red-lion.co.uk</span></div>
+        <div class="footer">
+            VAT No: GB 847 2910 35<br>
+            Thank you for visiting The Red Lion!
+        </div>
+    </div>
+    <!-- Test locators -->
+    <div class="pub-name" style="display:none">THE RED LION</div>
+    <div class="total" style="display:none">£54.30</div>
+</body>
+</html>
