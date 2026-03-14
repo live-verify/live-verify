@@ -157,3 +157,7 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | **Integrity** | **Cryptographic.** Binds GPA and Honors. | **Data-Only.** | **Vulnerable.** |
 
 **Why Live Verify wins here:** The "Speed of Hiring." In a competitive labor market, high-quality candidates don't want to wait 10 days for a "Background Check Firm" to call a university registrar. Live Verify allows for **Instant Trust**, turning the diploma on the wall into a live, cryptographic bridge to the university's source of truth.
+
+## Further Reading
+
+[Deep dive: Educational Degrees](https://github.com/live-verify/live-verify/tree/main/deep-dives/Educational_Degrees.md)

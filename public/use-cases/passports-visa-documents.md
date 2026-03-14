@@ -171,3 +171,7 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | **Integrity** | **Cryptographic.** Binds photo to status. | **High.** | **Vulnerable.** |
 
 **Why Live Verify wins here:** The "Damaged Chip" reality. Thousands of passports have broken or non-functioning NFC chips due to wear and tear. Live Verify turns the **Durable Printed Page** into a live digital credential, providing "Chip-Level" trust to even the oldest or most battered passport books.
+
+## Further Reading
+
+[Deep dive: Government IDs](https://github.com/live-verify/live-verify/tree/main/deep-dives/Government_IDs.md)

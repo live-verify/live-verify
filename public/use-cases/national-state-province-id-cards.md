@@ -171,3 +171,7 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | **Adoption** | **High.** Works for cards without chips. | **Low.** Many US/Canada IDs lack chips. |
 
 **Why Live Verify wins here:** The "Technology Gap." While high-end EU IDs have NFC chips, many state and provincial IDs in North America are still just "Smart Paper." Live Verify turn these **Low-Tech Cards** into live digital credentials, providing "Chip-Level" trust to billions of people without the cost of a hardware upgrade.
+
+## Further Reading
+
+[Deep dive: Government IDs](https://github.com/live-verify/live-verify/tree/main/deep-dives/Government_IDs.md)

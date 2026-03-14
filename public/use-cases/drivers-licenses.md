@@ -187,3 +187,7 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | **Hardware** | **Universal.** Any smartphone browser. | **Specialized.** Requires expensive scanners or apps. | **Human Eye.** |
 
 **Why Live Verify wins here:** Freshness and Universality. A minor can buy a fake ID with a "Perfectly Scalable Barcode" that scans as 21+. But that minor **cannot** create a record on `dmv.ca.gov`. Live Verify allows a bouncer or a police officer to check the **Live Status** of the person, bypassing the "Static Data" flaws of barcodes.
+
+## Further Reading
+
+[Deep dive: Government IDs](https://github.com/live-verify/live-verify/tree/main/deep-dives/Government_IDs.md)

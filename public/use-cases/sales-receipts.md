@@ -111,6 +111,10 @@ Costa could aggregate all franchisees under one domain (`rcpts.costa.co.uk`) or 
 
 Receipts are the lowest-value, highest-volume verifiable documents. The cost per verification is negligible (static hash lookup), but the aggregate fraud prevention across millions of expense claims is substantial. POS system vendors (Square, Clover, Toast) can add `verify:` lines to receipts with minimal engineering effort — it's a hash table lookup against their existing transaction database.
 
+## Further Reading
+
+[Deep dive: Sales Receipts](https://github.com/live-verify/live-verify/tree/main/deep-dives/Sales_Receipts.md)
+
 ## Jurisdictional Equivalents
 
 | | UK | US | EU |

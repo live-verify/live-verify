@@ -148,3 +148,7 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
 3. **Public blockchain** — Decentralized trust anchor via rollup inclusion
+
+## Further Reading
+
+[Deep dive: Medical Licenses and Professional Licensing](https://github.com/live-verify/live-verify/tree/main/deep-dives/Medical_License.md)
