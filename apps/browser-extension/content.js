@@ -330,6 +330,7 @@
                     if (hasChain) {
                         const chain = result.authorization.chain;
                         let chainHtml = result.domain;
+                        if (result.issuerDescription) chainHtml += ' <span style="opacity:0.85;">(' + result.issuerDescription + ')</span>';
                         for (const c of chain) {
                             chainHtml += '<br>\u00a0\u00a0authorised by <strong>' + c.authorizer + '</strong>';
                             if (c.description) chainHtml += ' <span style="opacity:0.85;">(' + c.description + ')</span>';

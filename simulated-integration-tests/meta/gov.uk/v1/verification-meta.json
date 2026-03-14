@@ -1,6 +1,6 @@
 {
   "role": "root-authority",
   "issuer": "HM Government",
-  "description": "Oversees all official verification chains in the United Kingdom",
+  "description": "UK government — root of trust",
   "hidePathInDisplay": true
 }

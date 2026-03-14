@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "issuer": "The Red Lion",
-  "description": "Traditional pub and kitchen, Amersham, Buckinghamshire",
+  "description": "Pub and restaurant, Amersham, Bucks",
   "claimType": "SalesReceipt",
   "authorizedBy": "hmrc.gov.uk/vat",
   "responseTypes": {

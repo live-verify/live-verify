@@ -229,6 +229,7 @@ async function verifySelection(selectedText, tab) {
         success: verifyResult.success,
         status: verifyResult.status,
         domain: verifyResult.domain,
+        issuerDescription: meta ? (meta.description || null) : null,
         payload: verifyResult.payload,
         registrableDomain,
         domainNotListed,
@@ -381,7 +382,8 @@ function showResultBanner(result) {
             if (a.successor) aText += `. Successor: ${a.successor}`;
         } else if (a.confirmed) {
             aColor = '#c8e6c9';
-            aText = `Verification authorized by ${authorizerBold}`;
+            const issuerDesc = result.issuerDescription ? ` (${result.issuerDescription})` : '';
+            aText = `${emph(result.domain) || 'Issuer'}${issuerDesc} \u2190 authorized by ${authorizerBold}`;
             if (a.description) aText += ` (${a.description})`;
             if (a.chain && a.chain.length > 1) {
                 for (let i = 1; i < a.chain.length; i++) {
@@ -566,6 +568,7 @@ async function verifyText(selectedText) {
         success: verifyResult.success,
         status: verifyResult.status,
         domain: verifyResult.domain,
+        issuerDescription: meta ? (meta.description || null) : null,
         payload: verifyResult.payload,
         registrableDomain,
         domainNotListed,

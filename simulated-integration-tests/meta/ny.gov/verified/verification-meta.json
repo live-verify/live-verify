@@ -1,6 +1,6 @@
 {
   "role": "root-authority",
   "issuer": "State of New York",
-  "description": "Authorizes all state-issued credentials and professional licenses in New York",
+  "description": "State of New York — root of trust",
   "hidePathInDisplay": true
 }

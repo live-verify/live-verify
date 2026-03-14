@@ -1,6 +1,6 @@
 {
   "role": "root-authority",
   "issuer": "United States Department of the Treasury",
-  "description": "Oversees all federal financial institution verification chains in the United States",
+  "description": "US Treasury — root of trust for federal financial regulation",
   "hidePathInDisplay": true
 }
