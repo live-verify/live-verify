@@ -1,5 +1,6 @@
 {
   "schemaVersion": 1,
+  "baseUrl": "macleod-fraser.co.uk/firm",
   "issuer": "Macleod Fraser & Partners",
   "description": "Solicitors, Edinburgh",
   "claimType": "RegisteredLegalPractice",

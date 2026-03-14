@@ -1,5 +1,6 @@
 {
   "schemaVersion": 1,
+  "baseUrl": "macleod-fraser.co.uk/certs",
   "issuer": "Macleod Fraser & Partners",
   "description": "Solicitors, Edinburgh",
   "claimType": "SolicitorPractisingCertificate",

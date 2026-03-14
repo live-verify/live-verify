@@ -314,10 +314,10 @@ async function verifyHash(verificationUrl, meta) {
  *
  * @param {Object} meta - The issuer's full verification-meta.json object
  * @param {string} metaUrl - The URL from which verification-meta.json was fetched (for re-fetch)
- * @param {string} [originUrl] - The original verification URL that triggered this chain walk
+ * @param {string} [claimUrl] - The original claim verification URL (e.g., https://r.the-red-lion.co.uk/{hash})
  * @returns {Promise<{checked: boolean, confirmed: boolean, authorizer: string, description: string|null, authorityBasis: string|null, expired: boolean, successor: string|null, error: string|null, chain: Array}>}
  */
-async function checkAuthorization(meta, metaUrl, originUrl) {
+async function checkAuthorization(meta, metaUrl, claimUrl) {
     if (!meta || !meta.authorizedBy || typeof meta.authorizedBy !== 'string') {
         return { checked: false, confirmed: false, authorizer: null, description: null, expired: false, successor: null, error: null, chain: [] };
     }
@@ -371,7 +371,10 @@ async function checkAuthorization(meta, metaUrl, originUrl) {
             ? meta.authorizedBy : `verify:${meta.authorizedBy}`;
         const authorizationUrl = buildVerificationUrl(verifyUrl, metaHash);
 
-        const fetchOpts = originUrl ? { headers: { 'X-Verification-URL': originUrl } } : {};
+        // Pass chain of URLs used so far so the endorser can walk backward for safety
+        const priorUrls = claimUrl ? [claimUrl] : [];
+        const fetchOpts = priorUrls.length > 0
+            ? { headers: { 'X-Verification-URLs': priorUrls.join(', ') } } : {};
         const response = await fetch(authorizationUrl, fetchOpts);
 
         let confirmed = false;
@@ -384,7 +387,9 @@ async function checkAuthorization(meta, metaUrl, originUrl) {
         }
 
         // Walk the authorization chain
-        const chain = await walkAuthorizationChain(meta.authorizedBy, confirmed, hashFn, 0, originUrl);
+        // Walk the authorization chain, threading accumulated URLs for endorser safety
+        const chainSoFar = claimUrl ? [claimUrl, authorizationUrl] : [authorizationUrl];
+        const chain = await walkAuthorizationChain(meta.authorizedBy, confirmed, hashFn, 0, chainSoFar);
 
         // The issuer's authority basis from their verification-meta.json.
         // A short statement of what kind of authority backs this verification.
@@ -418,10 +423,10 @@ async function checkAuthorization(meta, metaUrl, originUrl) {
  * @param {boolean} primaryConfirmed - Whether the primary authorization was confirmed
  * @param {Function} hashFn - SHA-256 hash function
  * @param {number} [depth=0] - Current recursion depth
- * @param {string} [originUrl] - The original verification URL that triggered this chain walk
+ * @param {string[]} [chainUrls=[]] - Accumulated verification URLs from levels below, sent as X-Verification-URLs
  * @returns {Promise<Array<{authorizer: string, description: string|null, confirmed: boolean}>>}
  */
-async function walkAuthorizationChain(authorizedByUrl, primaryConfirmed, hashFn, depth, originUrl) {
+async function walkAuthorizationChain(authorizedByUrl, primaryConfirmed, hashFn, depth, chainUrls) {
     if (depth === undefined) depth = 0;
     const MAX_DEPTH = 3;
     if (depth >= MAX_DEPTH) return [];
@@ -436,7 +441,9 @@ async function walkAuthorizationChain(authorizedByUrl, primaryConfirmed, hashFn,
         }
         const authorizerMetaUrl = `${httpsBase}/verification-meta.json`;
 
-        const fetchOpts = originUrl ? { headers: { 'X-Verification-URL': originUrl } } : {};
+        const urls = chainUrls || [];
+        const fetchOpts = urls.length > 0
+            ? { headers: { 'X-Verification-URLs': urls.join(', ') } } : {};
         const response = await fetch(authorizerMetaUrl, fetchOpts);
         if (!response.ok) {
             return [{ authorizer, description: null, confirmed: primaryConfirmed }];
@@ -447,9 +454,9 @@ async function walkAuthorizationChain(authorizedByUrl, primaryConfirmed, hashFn,
 
         const entry = { authorizer, description, confirmed: primaryConfirmed };
 
-        // If authorizer itself has authorizedBy, recurse
+        // If authorizer itself has authorizedBy, recurse with accumulated URLs
         if (authorizerMeta.authorizedBy) {
-            const subChain = await walkAuthorizationChain(authorizerMeta.authorizedBy, true, hashFn, depth + 1, originUrl);
+            const subChain = await walkAuthorizationChain(authorizerMeta.authorizedBy, true, hashFn, depth + 1, [...urls, authorizerMetaUrl]);
             return [entry, ...subChain];
         }
 

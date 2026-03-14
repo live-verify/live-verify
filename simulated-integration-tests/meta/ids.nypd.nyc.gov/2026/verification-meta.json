@@ -1,4 +1,5 @@
 {
+  "baseUrl": "ids.nypd.nyc.gov/2026",
   "issuer": "New York City Police Department",
   "description": "NYPD officer warrant cards and credentials",
   "claimType": "PoliceWarrant",

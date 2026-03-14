@@ -1,4 +1,5 @@
 {
+  "baseUrl": "treasury.gov/v1",
   "role": "root-authority",
   "issuer": "United States Department of the Treasury",
   "description": "US Treasury — root of trust for federal financial regulation",

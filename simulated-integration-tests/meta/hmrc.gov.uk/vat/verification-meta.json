@@ -1,4 +1,5 @@
 {
+  "baseUrl": "hmrc.gov.uk/vat",
   "role": "endorser",
   "issuer": "HM Revenue & Customs — VAT",
   "description": "Confirms VAT registration of UK businesses",

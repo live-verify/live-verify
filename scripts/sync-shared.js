@@ -41,11 +41,6 @@ const TARGETS = [
         dir: path.join(ROOT, 'apps', 'browser-extension', 'shared'),
         exports: 'es',  // ES export {} + CommonJS fallback
     },
-    {
-        name: 'thunderbird-extension',
-        dir: path.join(ROOT, 'apps', 'thunderbird-extension', 'shared'),
-        exports: 'none', // No exports (global scope)
-    },
 ];
 
 /**
@@ -140,7 +135,6 @@ function appendExports(source, functionNames, target) {
         source += `    module.exports = { ${functionNames.join(', ')} };\n`;
         source += `}\n`;
     }
-    // 'none' — no exports added (Thunderbird loads as global scope script)
     return source;
 }
 

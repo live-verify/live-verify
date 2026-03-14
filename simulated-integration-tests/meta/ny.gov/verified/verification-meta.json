@@ -1,4 +1,5 @@
 {
+  "baseUrl": "ny.gov/verified",
   "role": "root-authority",
   "issuer": "State of New York",
   "description": "State of New York — root of trust",

@@ -1,4 +1,5 @@
 {
+  "baseUrl": "policing.gov.uk/v1",
   "role": "endorser",
   "issuer": "HMICFRS",
   "description": "Oversees standards for all police forces in England and Wales",

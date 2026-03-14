@@ -1,4 +1,5 @@
 {
+  "baseUrl": "ofsi.hm-treasury.gov.uk/licences",
   "issuer": "Office of Financial Sanctions Implementation",
   "description": "OFSI issues sanctions licences under SAMLA 2018",
   "claimType": "SanctionsLicence",

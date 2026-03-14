@@ -77,6 +77,73 @@ Self-attestation is not necessarily invalid. It is the correct state for:
 
 It is a signal that warrants additional scrutiny from the relying party, not an automatic rejection.
 
+## X-Verification-URLs Header
+
+When a verifying app walks the authority chain, each GET request to an endorser includes an `X-Verification-URLs` header containing a comma-separated list of all verification URLs used at levels *below* the current request. The header grows as the chain is walked upward.
+
+### Worked Example: Red Lion → HMRC → gov.uk
+
+**Step 1 — Claim hash lookup.** The app verifies the receipt against the issuer. No header — there is nothing below.
+
+```
+GET /abc123
+Host: r.the-red-lion.co.uk
+```
+
+**Step 2 — First endorser.** The app checks HMRC's endorsement of the Red Lion's meta hash. The header contains the claim URL from step 1.
+
+```
+GET /vat/def456
+Host: hmrc.gov.uk
+X-Verification-URLs: https://r.the-red-lion.co.uk/abc123
+```
+
+**Step 3 — Root authority.** The app checks gov.uk's endorsement of HMRC's meta hash. The header contains both prior URLs.
+
+```
+GET /v1/ghi789
+Host: gov.uk
+X-Verification-URLs: https://r.the-red-lion.co.uk/abc123, https://hmrc.gov.uk/vat/def456
+```
+
+### Backward Walk for Endorser Safety
+
+Each endorser can optionally walk the `X-Verification-URLs` chain backward to verify the request is legitimate:
+
+1. **HMRC** receives `X-Verification-URLs: https://r.the-red-lion.co.uk/abc123`. It can check that `r.the-red-lion.co.uk` is an issuer it actually endorses (its meta hash is in HMRC's store) and that hash `abc123` resolves there.
+
+2. **Gov.uk** receives both URLs. It can verify HMRC's hash resolves, and optionally walk further back to verify the Red Lion's hash.
+
+If any step fails, the request is suspect — fabricated headers, a revoked issuer, or a DDoS with random URLs. The endorser can drop or rate-limit accordingly.
+
+An attacker sending requests with fabricated `X-Verification-URLs` values is detectable because the endorser can verify the claimed chain. An attacker replaying a valid chain can be rate-limited per-issuer because the header identifies which issuer is generating traffic.
+
+### The `baseUrl` Field
+
+Each `verification-meta.json` includes a `baseUrl` field declaring the URL path it is served from:
+
+```json
+{
+  "baseUrl": "hmrc.gov.uk/vat",
+  "role": "endorser",
+  "issuer": "HM Revenue & Customs — VAT",
+  "description": "Confirms VAT registration of UK businesses",
+  "authorizedBy": "gov.uk/v1"
+}
+```
+
+This lets an endorser verify consistency: the request arrived at `hmrc.gov.uk/vat/{hash}` and the meta at that path declares `baseUrl: hmrc.gov.uk/vat`. A misrouted or spoofed request would mismatch. Since the endorser hashes the entire meta (including `baseUrl`), the field is bound to the endorsement — it cannot be changed without breaking the hash.
+
+### What This Does Not Solve
+
+The `X-Verification-URLs` header does not prevent DDoS by itself. An attacker with a valid public hash can replay it. But it gives endorsers the information to make intelligent rate-limiting decisions:
+
+- Per-issuer rate limiting (HMRC sees which issuers are generating traffic)
+- Anomaly detection (sudden spike from an issuer that normally gets 10 verifications/day)
+- Backward verification (drop requests whose claimed chain doesn't check out)
+
+The header is advisory. Endorsers are not required to walk it. A minimal endorser implementation ignores it entirely and just serves hash lookups. A security-conscious endorser uses it for traffic analysis and abuse detection.
+
 ## Table Format for Use Case Files
 
 Each use case file includes an `## Authority Chain` section with a table per issuer type:

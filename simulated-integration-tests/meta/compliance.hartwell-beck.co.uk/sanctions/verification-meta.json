@@ -1,4 +1,5 @@
 {
+  "baseUrl": "compliance.hartwell-beck.co.uk/sanctions",
   "issuer": "Hartwell Beck Compliance Ltd",
   "description": "Sanctions screening and financial crime compliance services",
   "claimType": "SanctionsScreeningAttestation",

@@ -1,5 +1,6 @@
 {
   "schemaVersion": 1,
+  "baseUrl": "r.the-red-lion.co.uk",
   "issuer": "The Red Lion",
   "description": "Pub and restaurant, Amersham, Bucks",
   "claimType": "SalesReceipt",

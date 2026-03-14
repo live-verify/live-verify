@@ -1,4 +1,5 @@
 {
+  "baseUrl": "fdic.gov/verified",
   "role": "endorser",
   "issuer": "Federal Deposit Insurance Corporation",
   "description": "Regulates and insures all nationally chartered banks in the United States",

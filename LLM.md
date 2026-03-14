@@ -39,21 +39,11 @@ These capabilities are designed for building into camera apps, browsers (mobile/
 
 Target SDK: 35 (Android 15), Min SDK: 26 (Android 8.0). Uses native Kotlin implementation for normalization (no JS engine) for performance and minimal APK size.
 
-### Thunderbird Extension (Email Client)
-`apps/thunderbird-extension/` — Thunderbird MailExtension for verifying claims in emails. Key files:
-- `background.js` — Background script handling verification, context menu, notifications
-- `popup/` — Verification history UI
-- `settings/` — Notification level settings
-- `shared/` — **Auto-generated** by `scripts/sync-shared.js` from canonical `public/` sources. Do not edit directly.
-
-Minimum version: Thunderbird 102. Uses `messenger.*` APIs for email-specific functionality.
-
-**CRITICAL - Keep normalization in sync:** Text normalization is implemented in FIVE places that must match:
+**CRITICAL - Keep normalization in sync:** Text normalization is implemented in FOUR places that must match:
 1. `public/normalize.js` (JavaScript, web app)
 2. `apps/browser-extension/shared/normalize.js` (JavaScript ES modules, browser extension)
 3. `apps/ios/LiveVerify/` uses JSBridge to run normalize.js directly
 4. `apps/android/app/src/main/java/com/liveverify/app/TextNormalizer.kt` (Kotlin, Android app)
-5. `apps/thunderbird-extension/shared/normalize.js` (JavaScript, Thunderbird extension)
 
 If you change normalization logic, update ALL implementations. The web app version also has `public/ocr-cleanup.js` for OCR-specific artifact removal (not needed by Clip mode).
 
@@ -131,14 +121,6 @@ live-verify/
 │   │   │       └── AndroidManifest.xml
 │   │   ├── build.gradle.kts         # Project config
 │   │   └── settings.gradle.kts
-│   │
-│   ├── thunderbird-extension/       # Thunderbird MailExtension
-│   │   ├── manifest.json            # MailExtension manifest
-│   │   ├── background.js            # Background script
-│   │   ├── popup/                   # History UI
-│   │   ├── settings/                # Options page
-│   │   ├── shared/                  # AUTO-GENERATED from public/ via scripts/sync-shared.js
-│   │   └── icons/                   # Extension icons
 │   │
 │
 ├── normalization-hashes/            # Cross-platform test fixtures

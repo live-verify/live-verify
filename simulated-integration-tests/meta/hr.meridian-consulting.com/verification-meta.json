@@ -1,4 +1,5 @@
 {
+  "baseUrl": "hr.meridian-consulting.com/refs",
   "issuer": "Meridian Consulting Group",
   "claimType": "Employment reference",
   "responseTypes": {

@@ -1,4 +1,5 @@
 {
+  "baseUrl": "gov.scot/v1",
   "role": "root-authority",
   "issuer": "Scottish Government",
   "description": "Scottish Government — root of trust",

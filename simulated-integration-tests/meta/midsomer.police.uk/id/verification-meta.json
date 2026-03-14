@@ -1,4 +1,5 @@
 {
+  "baseUrl": "midsomer.police.uk/id",
   "issuer": "Midsomer Constabulary",
   "description": "Police force for the county of Midsomer",
   "claimType": "PoliceWarrant",

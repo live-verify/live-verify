@@ -1,4 +1,5 @@
 {
+  "baseUrl": "meridian-national.bank.us/statements",
   "issuer": "Meridian National Bank",
   "description": "FDIC-insured national bank, charter #48217",
   "claimType": "BankStatement",
