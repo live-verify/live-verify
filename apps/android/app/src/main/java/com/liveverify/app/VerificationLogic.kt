@@ -290,7 +290,7 @@ object VerificationLogic {
      * @param metaUrl The URL from which verification-meta.json was fetched (for re-fetch)
      * @return AuthorizationResult with chain
      */
-    suspend fun checkAuthorization(meta: JSONObject, metaUrl: String): AuthorizationResult = withContext(Dispatchers.IO) {
+    suspend fun checkAuthorization(meta: JSONObject, metaUrl: String, claimUrl: String? = null): AuthorizationResult = withContext(Dispatchers.IO) {
         val authorizedBy = meta.optString("authorizedBy", "")
         if (authorizedBy.isEmpty()) {
             return@withContext AuthorizationResult.unchecked
@@ -352,8 +352,13 @@ object VerificationLogic {
 
             // Fetch authorization endpoint
             var confirmed = false
+            val headerUrls = if (claimUrl != null) listOf(claimUrl) else emptyList()
             try {
-                val authRequest = Request.Builder().url(authorizationUrl).build()
+                val authRequestBuilder = Request.Builder().url(authorizationUrl)
+                if (headerUrls.isNotEmpty()) {
+                    authRequestBuilder.addHeader("X-Verification-URLs", headerUrls.joinToString(", "))
+                }
+                val authRequest = authRequestBuilder.build()
                 val authResponse = client.newCall(authRequest).execute()
                 if (authResponse.isSuccessful) {
                     val body = authResponse.body?.string()?.trim() ?: ""
@@ -364,8 +369,9 @@ object VerificationLogic {
                 // Authorization fetch failed - not confirmed
             }
 
-            // Walk the authorization chain
-            val chain = walkAuthorizationChain(authorizedBy, confirmed, 0)
+            // Walk the authorization chain — thread URLs for X-Verification-URLs header
+            val walkUrls = if (claimUrl != null) listOf(claimUrl, authorizationUrl) else listOf(authorizationUrl)
+            val chain = walkAuthorizationChain(authorizedBy, confirmed, 0, walkUrls)
 
             AuthorizationResult(
                 checked = true,
@@ -393,7 +399,8 @@ object VerificationLogic {
     private suspend fun walkAuthorizationChain(
         authorizedByUrl: String,
         primaryConfirmed: Boolean,
-        depth: Int
+        depth: Int,
+        chainUrls: List<String> = emptyList()
     ): List<AuthorizationChainEntry> {
         val maxDepth = 3
         if (depth >= maxDepth) return emptyList()
@@ -404,7 +411,11 @@ object VerificationLogic {
             val httpsBase = convertToHttps(authorizedByUrl)
             val authorizerMetaUrl = "$httpsBase/verification-meta.json"
 
-            val request = Request.Builder().url(authorizerMetaUrl).build()
+            val requestBuilder = Request.Builder().url(authorizerMetaUrl)
+            if (chainUrls.isNotEmpty()) {
+                requestBuilder.addHeader("X-Verification-URLs", chainUrls.joinToString(", "))
+            }
+            val request = requestBuilder.build()
             val response = client.newCall(request).execute()
             if (!response.isSuccessful) {
                 return listOf(AuthorizationChainEntry(authorizer, null, null, primaryConfirmed))
@@ -417,10 +428,10 @@ object VerificationLogic {
 
             val entry = AuthorizationChainEntry(authorizer, description, formalName, primaryConfirmed)
 
-            // If authorizer itself has authorizedBy, recurse
+            // If authorizer itself has authorizedBy, recurse with accumulated URLs
             val subAuthorizedBy = authorizerMeta.optString("authorizedBy", "")
             if (subAuthorizedBy.isNotEmpty()) {
-                val subChain = walkAuthorizationChain(subAuthorizedBy, true, depth + 1)
+                val subChain = walkAuthorizationChain(subAuthorizedBy, true, depth + 1, chainUrls + authorizerMetaUrl)
                 listOf(entry) + subChain
             } else {
                 listOf(entry)

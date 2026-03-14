@@ -437,7 +437,7 @@ class MainActivity : AppCompatActivity() {
                         else -> urlResult.url
                     }
                     val metaUrl = "$httpsBase/verification-meta.json"
-                    authorization = VerificationLogic.checkAuthorization(meta, metaUrl)
+                    authorization = VerificationLogic.checkAuthorization(meta, metaUrl, verificationUrl)
                     Log.d(TAG, "Authorization: checked=${authorization.checked}, confirmed=${authorization.confirmed}, authorizer=${authorization.authorizer}")
                 }
 
