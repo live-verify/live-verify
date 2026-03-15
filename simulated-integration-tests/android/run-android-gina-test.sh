@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# run-android-test.sh — Full-stack test: Android emulator against containerized backend.
+# run-android-gina-test.sh — Full-stack test: Android emulator against containerized backend.
 #
 # Starts backend + Caddy in containers, seeds authority chain, builds debug APK,
 # installs on emulator, launches with text-paste intent + DNS overrides, captures screenshot.
@@ -62,6 +62,9 @@ function cleanup {
 trap cleanup EXIT
 
 # ── 1. Start backend ──────────────────────────────────────────────
+
+# Tear down any stale containers from a previous run
+$COMPOSE -f "$COMPOSE_FILE" down -v 2>/dev/null || true
 
 echo "=== Starting backend + Caddy ==="
 $COMPOSE -f "$COMPOSE_FILE" up --build -d

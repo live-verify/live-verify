@@ -67,6 +67,9 @@ trap cleanup EXIT
 
 # ── 1. Start backend ──────────────────────────────────────────────
 
+# Tear down any stale containers from a previous run
+$COMPOSE -f "$COMPOSE_FILE" down -v 2>/dev/null || true
+
 echo "=== Starting backend + Caddy ==="
 $COMPOSE -f "$COMPOSE_FILE" up --build -d
 

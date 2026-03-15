@@ -14,7 +14,7 @@ Chain display follows `docs/authority-chain-app-display.md` spec: indented lines
 
 ## Android: Full-stack test — IMPLEMENTED, NOT YET RUN
 
-`simulated-integration-tests/android/run-android-test.sh` launches emulator, builds debug APK,
+`simulated-integration-tests/android/run-android-gina-test.sh` launches emulator, builds debug APK,
 starts containerized backend, seeds Gina scenario, launches app with text-paste intent
 (bypasses camera/OCR), captures screenshot + video. Debug build trusts user-installed
 CAs via `network_security_config.xml`. Needs first real run to validate.
