@@ -168,70 +168,6 @@
         [data-verify-line]:hover {
             color: #c00 !important;
         }
-        [data-verify-line].has-demo {
-            cursor: pointer;
-        }
-        .show-me-btn {
-            display: inline-block;
-            margin-left: 8px;
-            padding: 2px 8px;
-            background: #6b46c1;
-            color: white;
-            font-size: 11px;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            vertical-align: middle;
-        }
-        .show-me-btn:hover {
-            background: #553c9a;
-        }
-
-        /* Slides overlay */
-        .slides-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.8);
-            z-index: 10000;
-            align-items: center;
-            justify-content: center;
-        }
-        .slides-overlay.visible {
-            display: flex;
-        }
-        .slides-overlay iframe {
-            width: 90%;
-            max-width: 900px;
-            height: 90%;
-            max-height: 700px;
-            border: none;
-            border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-        }
-        .slides-overlay .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            background: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 24px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        }
-        .slides-overlay .close-btn:hover {
-            background: #f0f0f0;
-        }
     </style>
 </head>
 <body>
@@ -243,40 +179,7 @@
         </div>
     </div>
 
-    <!-- Slides overlay for verification demos -->
-    <div class="slides-overlay" id="slidesOverlay">
-        <button class="close-btn" onclick="closeSlidesOverlay()">&times;</button>
-        <iframe id="slidesFrame" src=""></iframe>
-    </div>
-
     <script>
-        // Slides demo state
-        let slidesAvailable = false;
-        let slidesPath = '';
-
-        // Close slides overlay
-        function closeSlidesOverlay() {
-            document.getElementById('slidesOverlay').classList.remove('visible');
-            document.getElementById('slidesFrame').src = '';
-        }
-
-        // Open slides overlay
-        function openSlidesOverlay() {
-            if (!slidesAvailable) return;
-            document.getElementById('slidesFrame').src = slidesPath;
-            document.getElementById('slidesOverlay').classList.add('visible');
-        }
-
-        // Close on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeSlidesOverlay();
-        });
-
-        // Close on overlay background click
-        document.getElementById('slidesOverlay').addEventListener('click', (e) => {
-            if (e.target.id === 'slidesOverlay') closeSlidesOverlay();
-        });
-
         // Initialize hover effects for verify line examples
         function initVerifyHover() {
             document.querySelectorAll('[data-verify-line]').forEach(verifyLine => {
@@ -295,32 +198,7 @@
                     });
                 }
 
-                // Add [show me] button for slides demo (if available)
-                if (slidesAvailable) {
-                    verifyLine.classList.add('has-demo');
-
-                    // Create and insert the [show me] button
-                    const showMeBtn = document.createElement('span');
-                    showMeBtn.className = 'show-me-btn';
-                    showMeBtn.textContent = 'show me';
-                    showMeBtn.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        openSlidesOverlay();
-                    });
-                    verifyLine.parentNode.insertBefore(showMeBtn, verifyLine.nextSibling);
-                }
             });
-        }
-
-        // Check if slides exist for this document
-        async function checkForSlides(docSlug) {
-            slidesPath = `slides/${docSlug}-1.html`;
-            try {
-                const response = await fetch(slidesPath, { method: 'HEAD' });
-                slidesAvailable = response.ok;
-            } catch {
-                slidesAvailable = false;
-            }
         }
 
         // Get the document slug from URL
@@ -337,7 +215,7 @@
                     if (!response.ok) throw new Error('Document not found');
                     return response.text();
                 })
-                .then(async markdown => {
+                .then(markdown => {
                     // Parse YAML frontmatter
                     let content = markdown;
                     let meta = {};
@@ -430,8 +308,7 @@
                         }
                     }
 
-                    // Check for slides and initialize verify hover effects
-                    await checkForSlides(slug);
+                    // Initialize verify hover effects
                     initVerifyHover();
                 })
                 .catch(error => {
