@@ -1,7 +1,7 @@
 {
-  "generated": "2026-03-12T13:51:10.112Z",
-  "totalUseCases": 478,
-  "totalFurtherDerivations": 568,
+  "generated": "2026-03-15T13:40:07.024Z",
+  "totalUseCases": 483,
+  "totalFurtherDerivations": 582,
   "categories": {
     "Real Estate & Property": 32,
     "Charitable & Non-Profit": 7,
@@ -9,22 +9,22 @@
     "Scientific & Research": 8,
     "Actuarial & Insurance Mathematics": 10,
     "Personal Lines Insurance": 14,
-    "Government & Civic Documents": 21,
+    "Government & Civic Documents": 22,
     "Notary Services": 7,
-    "Immigration & Visa Documents": 17,
+    "Immigration & Visa Documents": 18,
     "Financial & Legal Documents": 8,
     "Insurance Claims & Operations": 15,
     "Chain of Custody & Logistics": 18,
     "Travel & Hospitality": 21,
     "Professional & Occupational Licenses": 13,
-    "Identity & Authority Verification": 38,
-    "Healthcare & Medical Records": 12,
+    "Identity & Authority Verification": 39,
+    "Healthcare & Medical Records": 13,
     "Professional & Educational Qualifications": 19,
     "Art, Media & Publishing": 7,
     "Customs & Trade Compliance": 6,
     "Sports & Athletics": 6,
     "Specialty Insurance": 23,
-    "Business & Commerce": 15,
+    "Business & Commerce": 16,
     "Legal & Court Documents": 14,
     "Banking & Payments": 16,
     "Financial Compliance": 23,
@@ -732,6 +732,27 @@
       ]
     },
     {
+      "slug": "bank-fraud-report-acknowledgments",
+      "title": "Bank Fraud Report Acknowledgments",
+      "category": "Banking & Payments",
+      "volume": "Large",
+      "retention": "7-10 years (regulatory requirement)",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Account holder name, case number, date and time reported, reporting channel, affected account(s), transaction count and total disputed amount, actions taken, regulatory rights stated. The hash does NO",
+      "tags": [
+        "bank-fraud",
+        "unauthorized-transactions",
+        "regulation-e",
+        "fraud-report",
+        "account-takeover",
+        "ach-fraud",
+        "wire-fraud",
+        "provisional-credit",
+        "consumer-protection"
+      ]
+    },
+    {
       "slug": "bank-statements",
       "title": "Bank Statements",
       "category": "Banking & Payments",
@@ -765,6 +786,34 @@
         "good-standing",
         "license",
         "professional"
+      ]
+    },
+    {
+      "slug": "bedside-care-interaction-records",
+      "title": "Bedside Care Interaction Records",
+      "category": "Healthcare & Medical Records",
+      "volume": "Very Large",
+      "retention": "Interaction + 7–10 years (clinical negligence limitation)",
+      "verificationMode": "both",
+      "furtherDerivations": 3,
+      "snippet": "",
+      "tags": [
+        "hospital",
+        "care-home",
+        "nursing",
+        "bedside",
+        "patient",
+        "procedure",
+        "ward",
+        "interaction",
+        "lidar",
+        "voice-ai",
+        "care-log",
+        "staffing",
+        "nhs",
+        "medicare",
+        "worker-protection",
+        "blockchain"
       ]
     },
     {
@@ -1295,27 +1344,6 @@
         "logistics",
         "audit-trail",
         "criminal-justice"
-      ]
-    },
-    {
-      "slug": "bank-fraud-report-acknowledgments",
-      "title": "Bank Fraud Report Acknowledgments",
-      "category": "Banking & Payments",
-      "volume": "Large",
-      "retention": "7-10 years (regulatory requirement)",
-      "verificationMode": "clip",
-      "furtherDerivations": 2,
-      "snippet": "Account holder name, case number, date and time reported, reporting channel, affected account(s), transaction count and total disputed amount, actions taken, regulatory rights stated.",
-      "tags": [
-        "bank-fraud",
-        "unauthorized-transactions",
-        "regulation-e",
-        "fraud-report",
-        "account-takeover",
-        "ach-fraud",
-        "wire-fraud",
-        "provisional-credit",
-        "consumer-protection"
       ]
     },
     {
@@ -2641,6 +2669,36 @@
       ]
     },
     {
+      "slug": "disability-social-care-funding-fraud",
+      "title": "Disability, Aged Care & Social Care Funding Fraud",
+      "category": "Government & Civic Documents",
+      "volume": "Large",
+      "retention": "Plan duration + 7 years (audit/prosecution window)",
+      "verificationMode": "both",
+      "furtherDerivations": 4,
+      "snippet": "Clinician name and registration number, professional body, service user name (may be redacted in the verifiable region), assessment date, findings, recommended service category and level, report refer",
+      "tags": [
+        "ndis",
+        "disability",
+        "aged-care",
+        "nursing-home",
+        "social-care",
+        "medicaid-hcbs",
+        "medicare",
+        "personal-budgets",
+        "provider-fraud",
+        "phantom-services",
+        "price-gouging",
+        "assistive-technology",
+        "plan-management",
+        "organised-crime",
+        "invoice-fraud",
+        "service-agreement",
+        "care-minutes",
+        "dementia"
+      ]
+    },
+    {
       "slug": "discharge-summaries-care-plans",
       "title": "Discharge Summaries and Care Plans",
       "category": "Healthcare & Medical Records",
@@ -3813,6 +3871,31 @@
         "tourism-logistics",
         "viator",
         "getyourguide"
+      ]
+    },
+    {
+      "slug": "h1b-visa-fraud-documents",
+      "title": "H-1B Visa Fraud Documents",
+      "category": "Immigration & Visa Documents",
+      "volume": "Large",
+      "retention": "Petition validity + 7 years (USCIS retention schedule)",
+      "verificationMode": "clip",
+      "furtherDerivations": 3,
+      "snippet": "Client company name, MSA/SOW reference number, staffing company name, consultant name, role title, engagement period (start/end), work location, reporting manager, specialty occupation statement.",
+      "tags": [
+        "h1b",
+        "visa-fraud",
+        "body-shop",
+        "bench-company",
+        "client-letter",
+        "lca",
+        "labor-condition-application",
+        "experience-letter",
+        "it-certification",
+        "immigration",
+        "uscis",
+        "dol",
+        "staffing"
       ]
     },
     {
@@ -7802,6 +7885,27 @@
       ]
     },
     {
+      "slug": "sales-receipts",
+      "title": "Sales Receipts (Retail, Hospitality, Food & Beverage)",
+      "category": "Business & Commerce",
+      "volume": "Very Large",
+      "retention": "Transaction + 7 years (tax/audit)",
+      "verificationMode": "clip+camera",
+      "furtherDerivations": 1,
+      "snippet": "Receipt number, merchant name, location, date/time, itemized purchases with individual prices, subtotal, tax (VAT/sales tax rate and amount), total, payment method indicator, transaction reference.",
+      "tags": [
+        "receipt",
+        "retail",
+        "hospitality",
+        "expense",
+        "duplicate-claim",
+        "expense-fraud",
+        "vat",
+        "sales-tax",
+        "point-of-sale"
+      ]
+    },
+    {
       "slug": "salvage-subrogation-documentation",
       "title": "Salvage and Subrogation Documentation",
       "category": "Insurance Claims & Operations",
@@ -7896,6 +8000,33 @@
         "compliance",
         "software-bill-of-materials",
         "executive-order-14028"
+      ]
+    },
+    {
+      "slug": "school-childcare-attendance-handover",
+      "title": "School & Childcare Attendance and Handover Records",
+      "category": "Identity & Authority Verification",
+      "volume": "Very Large",
+      "retention": "Academic year + 7 years (funding audit / safeguarding review)",
+      "verificationMode": "both",
+      "furtherDerivations": 3,
+      "snippet": "",
+      "tags": [
+        "school",
+        "childcare",
+        "daycare",
+        "attendance",
+        "handover",
+        "sign-in",
+        "sign-out",
+        "safeguarding",
+        "custody",
+        "funding",
+        "subsidy",
+        "child-safety",
+        "autonomy",
+        "kindergarten",
+        "preschool"
       ]
     },
     {
@@ -9619,7 +9750,7 @@
   "categoriesList": [
     {
       "name": "Identity & Authority Verification",
-      "count": 38
+      "count": 39
     },
     {
       "name": "Real Estate & Property",
@@ -9635,7 +9766,7 @@
     },
     {
       "name": "Government & Civic Documents",
-      "count": 21
+      "count": 22
     },
     {
       "name": "Travel & Hospitality",
@@ -9646,23 +9777,23 @@
       "count": 19
     },
     {
+      "name": "Immigration & Visa Documents",
+      "count": 18
+    },
+    {
       "name": "Chain of Custody & Logistics",
       "count": 18
     },
     {
-      "name": "Immigration & Visa Documents",
-      "count": 17
-    },
-    {
-      "name": "Insurance Claims & Operations",
-      "count": 15
-    },
-    {
       "name": "Business & Commerce",
-      "count": 15
+      "count": 16
     },
     {
       "name": "Banking & Payments",
+      "count": 16
+    },
+    {
+      "name": "Insurance Claims & Operations",
       "count": 15
     },
     {
@@ -9679,7 +9810,7 @@
     },
     {
       "name": "Healthcare & Medical Records",
-      "count": 12
+      "count": 13
     },
     {
       "name": "Site & Equipment Safety",
