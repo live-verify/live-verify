@@ -37,29 +37,12 @@
             max-width: 760px;
             margin: 0 auto;
         }
-        .badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 18px;
-            backdrop-filter: blur(10px);
-        }
         h1 {
             font-size: 2.2em;
             font-weight: 800;
             line-height: 1.2;
             text-shadow: 0 2px 10px rgba(0,0,0,0.2);
             margin-bottom: 14px;
-        }
-        .lede {
-            opacity: 0.95;
-            line-height: 1.7;
-            font-size: 1.05em;
-            margin-bottom: 22px;
         }
         .card {
             background: rgba(255, 255, 255, 0.15);
@@ -108,16 +91,6 @@
         .cta:hover {
             transform: translateY(-1px);
             box-shadow: 0 14px 40px rgba(0,0,0,0.35);
-        }
-        .cta.secondary {
-            background: rgba(255, 255, 255, 0.22);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            box-shadow: none;
-            font-weight: 700;
-        }
-        .cta.secondary:hover {
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
         }
         .note {
             font-size: 0.95em;
@@ -324,35 +297,14 @@
         <nav class="breadcrumbs" aria-label="Breadcrumb">
             <span>Home</span>
         </nav>
-        <div class="badge">LIVE VERIFY</div>
-        <h1>Stop trusting documents. Start verifying them.</h1>
-        <p style="font-size: 1.15em; opacity: 0.95; line-height: 1.6; margin: 8px 0 4px;">
-            <strong>Clip:</strong> Right-click any claim in your browser, email client, or PDF viewer and know if the issuer stands behind it.
-        </p>
-        <p data-slogan-root style="font-size: 1.4em;">
-            <strong>Camera:</strong> the next logical step up from <span data-slogan-platform>the iPhone's</span> <span data-slogan-term>Live Text</span> &mdash; for print.
-            <button type="button" data-slogan-toggle></button>
-        </p>
+        <h1>Stop trusting And Start Verifying</h1>
 
         <div class="cta-row">
             <a class="cta" href="examples/">Clip Mode Examples</a>
-            <a class="cta" href="https://github.com/live-verify/live-verify/tree/main/native">Native Apps (iOS/Android)</a>
-            <a class="cta secondary" href="use-cases/">Use Cases</a>
-            <a class="cta secondary" href="opportunity.html">Opportunity</a>
-            <a class="cta secondary" href="privacy_declaration.html">Privacy</a>
-            <a class="cta secondary" href="https://github.com/live-verify/live-verify" target="_blank" rel="noreferrer">Source Code</a>
-        </div>
-
-        <!-- Use case categories grid -->
-        <div class="card" id="useCases">
-            <h2>What problems does this solve?</h2>
-            <div class="stats-row">
-                <div class="stat"><strong id="useCaseCount">...</strong> use cases</div>
-                <div class="stat">across <strong id="categoryCount">...</strong> categories</div>
-            </div>
-            <p>Fraud, safety, security, compliance, authenticity &mdash; unverified documents cause harm across every sector. We've mapped the landscape:</p>
-            <div class="category-grid" id="categoryGrid"></div>
-            <p style="margin-top: 14px;"><a href="use-cases/" style="color: white; text-decoration: underline; font-weight: 700;">Browse all use cases &rarr;</a></p>
+            <a class="cta" href="use-cases/">Use Cases</a>
+            <a class="cta" href="opportunity.html">Opportunity</a>
+            <a class="cta" href="privacy_declaration.html">Privacy</a>
+            <a class="cta" href="https://github.com/live-verify/live-verify" target="_blank" rel="noreferrer">Source Code</a>
         </div>
 
         <!-- How it works: pipeline diagram -->
@@ -391,6 +343,18 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- Use case categories grid -->
+        <div class="card" id="useCases">
+            <h2>What problems does this solve?</h2>
+            <div class="stats-row">
+                <div class="stat"><strong id="useCaseCount">...</strong> use cases</div>
+                <div class="stat">across <strong id="categoryCount">...</strong> categories</div>
+            </div>
+            <p>Fraud, safety, security, compliance, authenticity &mdash; unverified documents cause harm across every sector. We've mapped the landscape:</p>
+            <div class="category-grid" id="categoryGrid"></div>
+            <p style="margin-top: 14px;"><a href="use-cases/" style="color: white; text-decoration: underline; font-weight: 700;">Browse all use cases &rarr;</a></p>
         </div>
 
         <!-- What "Verified" means -->
@@ -746,6 +710,5 @@
                 // Silently degrade — stats just show "..."
             });
     </script>
-    <script src="slogan.js" defer></script>
 </body>
 </html>
