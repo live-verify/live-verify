@@ -5,7 +5,8 @@ node_modules/
 npm-debug.log*
 SAAS_LEADS.md
 _site/
-test-results/
+/test-results/
+!public/test-results/
 test-images/
 test-verifications/
 *.traineddata
