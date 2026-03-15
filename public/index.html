@@ -180,41 +180,32 @@
             font-size: 1em;
             background: rgba(255, 255, 255, 0.1);
         }
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 14px;
-            margin-top: 16px;
+        .video-list {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0 0 0;
         }
-        .video-card {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            border-radius: 10px;
-            overflow: hidden;
-            text-decoration: none;
-            color: white;
-            transition: background 0.15s ease, transform 0.15s ease;
-        }
-        .video-card:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-        .video-card img {
-            width: 100%;
-            display: block;
-        }
-        .video-card .video-info {
-            padding: 10px 14px;
-        }
-        .video-card .video-title {
-            font-weight: 700;
+        .video-list li {
+            padding: 6px 0;
             font-size: 0.9em;
-            line-height: 1.3;
+            line-height: 1.4;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .video-card .video-duration {
+        .video-list li:last-child {
+            border-bottom: none;
+        }
+        .video-list a {
+            color: white;
+            text-decoration: underline;
+            text-decoration-color: rgba(255, 255, 255, 0.4);
+        }
+        .video-list a:hover {
+            text-decoration-color: white;
+        }
+        .video-list .video-duration {
             font-size: 0.8em;
-            opacity: 0.7;
-            margin-top: 4px;
+            opacity: 0.6;
+            margin-left: 6px;
         }
         .category-grid {
             display: grid;
@@ -373,141 +364,6 @@
             </p>
         </div>
 
-        <!-- Demo videos -->
-        <div class="card" id="demos">
-            <h2>Demo videos</h2>
-
-            <h3 style="margin-top: 16px; font-size: 1em; opacity: 0.85;">Clip mode (browser extension + PDF)</h3>
-            <p>The Chrome extension verifying PDFs rendered via PDF.js in a browser tab. This simulates what verification would feel like inside Outlook, Windows Explorer, Mac Preview, or Acrobat &mdash; none of which have Live Verify integrated yet. Domains and authority chains are simulated inside Docker containers on Ubuntu.</p>
-            <div class="video-grid">
-                <a class="video-card" href="https://youtu.be/PFeJgWtzApg" target="_blank" rel="noreferrer">
-                    <img src="https://img.youtube.com/vi/PFeJgWtzApg/mqdefault.jpg" alt="Clip mode: browser extension verifying a PDF via simulated OFSI authority chain" loading="lazy">
-                    <div class="video-info">
-                        <div class="video-title">OFSI sanctions licence verified via simulated UK gov authority chain</div>
-                        <div class="video-duration">0:30</div>
-                    </div>
-                </a>
-                <a class="video-card" href="https://youtu.be/3kP2XxUuszU" target="_blank" rel="noreferrer">
-                    <img src="https://img.youtube.com/vi/3kP2XxUuszU/mqdefault.jpg" alt="Clip mode: bank statement verified via simulated FDIC/Treasury authority chain" loading="lazy">
-                    <div class="video-info">
-                        <div class="video-title">Fictitious bank statement verified via simulated FDIC/Treasury authority chain</div>
-                        <div class="video-duration">0:26</div>
-                    </div>
-                </a>
-                <a class="video-card" href="https://youtube.com/shorts/FyWTzZXiZeo" target="_blank" rel="noreferrer">
-                    <img src="https://img.youtube.com/vi/FyWTzZXiZeo/mqdefault.jpg" alt="Clip mode: verification failure — fictitious bank domain doesn't exist" loading="lazy">
-                    <div class="video-info">
-                        <div class="video-title">Verification failure &mdash; fictitious bank domain doesn't exist (real extension, no backend or test automation)</div>
-                        <div class="video-duration">0:17</div>
-                    </div>
-                </a>
-                <!-- TODO: replace href and img src with YouTube URL/thumbnail once uploaded -->
-                <a class="video-card" href="#TODO-receipt-video" rel="noreferrer">
-                    <img src="test-results/receipt-final-page.png" alt="Clip mode: pub receipt verified via simulated HMRC VAT authority chain" loading="lazy">
-                    <div class="video-info">
-                        <div class="video-title">Pub receipt verified via simulated HMRC VAT &rarr; gov.uk authority chain</div>
-                        <div class="video-duration">TODO</div>
-                    </div>
-                </a>
-                <!-- TODO: replace href and img src with YouTube URL/thumbnail once uploaded -->
-                <a class="video-card" href="#TODO-solicitor-cert-video" rel="noreferrer">
-                    <img src="test-results/solicitor-final-page.png" alt="Clip mode: solicitor practising certificate verified via Law Society / gov.scot chain" loading="lazy">
-                    <div class="video-info">
-                        <div class="video-title">Solicitor practising certificate verified via Law Society &rarr; gov.scot chain</div>
-                        <div class="video-duration">TODO</div>
-                    </div>
-                </a>
-                <!-- TODO: replace href and img src with YouTube URL/thumbnail once uploaded -->
-                <a class="video-card" href="#TODO-solicitors-firm-video" rel="noreferrer">
-                    <img src="test-results/solicitors-firm-final-page.png" alt="Clip mode: solicitors firm registration verified via Law Society / gov.scot chain" loading="lazy">
-                    <div class="video-info">
-                        <div class="video-title">Solicitors firm registration verified via Law Society &rarr; gov.scot chain</div>
-                        <div class="video-duration">TODO</div>
-                    </div>
-                </a>
-            </div>
-
-            <h3 style="margin-top: 24px; font-size: 1em; opacity: 0.85;">Camera mode &mdash; automated tests</h3>
-            <p>Playwright driving a headless browser against simulated issuer domains in Docker. The camera app OCRs a printed document and verifies against the authority chain. Fictitious organisations, fictitious people.</p>
-            <div class="video-grid">
-                <a class="video-card" href="https://www.youtube.com/watch?v=kbPRq4tdoMM" target="_blank" rel="noreferrer">
-                    <img src="https://img.youtube.com/vi/kbPRq4tdoMM/mqdefault.jpg" alt="Automated test: detective ID verified with headshot returned" loading="lazy">
-                    <div class="video-info">
-                        <div class="video-title">Police ID verified w/ backend, authority chain walk, pic of officer</div>
-                        <div class="video-duration">0:12</div>
-                    </div>
-                </a>
-                <a class="video-card" href="https://youtu.be/OcuH4WLsYe8" target="_blank" rel="noreferrer">
-                    <img src="https://img.youtube.com/vi/OcuH4WLsYe8/mqdefault.jpg" alt="Automated test: fake police ID caught by simulated NYPD authority chain" loading="lazy">
-                    <div class="video-info">
-                        <div class="video-title">Fake police ID rejected &mdash; authority chain valid, hash never issued</div>
-                        <div class="video-duration">0:30</div>
-                    </div>
-                </a>
-                <a class="video-card" href="https://youtu.be/V4_q6zhRD3A" target="_blank" rel="noreferrer">
-                    <img src="https://img.youtube.com/vi/V4_q6zhRD3A/mqdefault.jpg" alt="Automated test: sanctions screening attestation verified via FCA authority chain" loading="lazy">
-                    <div class="video-info">
-                        <div class="video-title">Sanctions screening attestation verified via simulated FCA/gov.uk chain</div>
-                        <div class="video-duration">0:30</div>
-                    </div>
-                </a>
-                <a class="video-card" href="https://youtu.be/0bN5RcVkMj4" target="_blank" rel="noreferrer">
-                    <img src="https://img.youtube.com/vi/0bN5RcVkMj4/mqdefault.jpg" alt="Automated test: employment reference returns revoked status" loading="lazy">
-                    <div class="video-info">
-                        <div class="video-title">Employment reference revoked &mdash; post-departure misconduct discovered</div>
-                        <div class="video-duration">0:30</div>
-                    </div>
-                </a>
-            </div>
-
-            <h3 style="margin-top: 24px; font-size: 1em; opacity: 0.85;">Camera mode &mdash; manual tests (real phones)</h3>
-            <p>Actual Android and iPhone devices scanning printed documents by hand. The police IDs are fictitious (Midsomer Murders universe). The peer reference is real &mdash; the hash is hosted on the issuer's personal website.</p>
-            <div class="video-grid">
-                <a class="video-card" href="https://youtu.be/Ut8GV-KSdNI" target="_blank" rel="noreferrer">
-                    <img src="https://img.youtube.com/vi/Ut8GV-KSdNI/mqdefault.jpg" alt="Camera mode: Android scanning a police ID card" loading="lazy">
-                    <div class="video-info">
-                        <div class="video-title">Police ID verified &mdash; Android</div>
-                        <div class="video-duration">0:30</div>
-                    </div>
-                </a>
-                <a class="video-card" href="https://youtu.be/MxA3c4AfEQc" target="_blank" rel="noreferrer">
-                    <img src="https://img.youtube.com/vi/MxA3c4AfEQc/mqdefault.jpg" alt="Camera mode: iPhone scanning a police ID card" loading="lazy">
-                    <div class="video-info">
-                        <div class="video-title">Police ID verified &mdash; iPhone</div>
-                        <div class="video-duration">0:30</div>
-                    </div>
-                </a>
-                <a class="video-card" href="https://youtu.be/J5aeYZwoipM" target="_blank" rel="noreferrer">
-                    <img src="https://img.youtube.com/vi/J5aeYZwoipM/mqdefault.jpg" alt="Camera mode: Android scanning a fake police ID" loading="lazy">
-                    <div class="video-info">
-                        <div class="video-title">Fake police ID rejected &mdash; Android</div>
-                        <div class="video-duration">0:22</div>
-                    </div>
-                </a>
-                <a class="video-card" href="https://youtu.be/pHDVBcjKb6U" target="_blank" rel="noreferrer">
-                    <img src="https://img.youtube.com/vi/pHDVBcjKb6U/mqdefault.jpg" alt="Camera mode: iPhone scanning a fake police ID" loading="lazy">
-                    <div class="video-info">
-                        <div class="video-title">Fake police ID rejected &mdash; iPhone</div>
-                        <div class="video-duration">0:39</div>
-                    </div>
-                </a>
-                <a class="video-card" href="https://youtu.be/NfUqKxSZ_V0" target="_blank" rel="noreferrer">
-                    <img src="https://img.youtube.com/vi/NfUqKxSZ_V0/mqdefault.jpg" alt="Camera mode: iPhone verifying a real peer reference" loading="lazy">
-                    <div class="video-info">
-                        <div class="video-title">Real peer reference &mdash; iPhone (hash live on issuer's site)</div>
-                        <div class="video-duration">0:51</div>
-                    </div>
-                </a>
-                <a class="video-card" href="https://youtu.be/UpMEKDH42Q4" target="_blank" rel="noreferrer">
-                    <img src="https://img.youtube.com/vi/UpMEKDH42Q4/mqdefault.jpg" alt="Camera mode: Android verifying a real peer reference" loading="lazy">
-                    <div class="video-info">
-                        <div class="video-title">Real peer reference &mdash; Android (hash live on issuer's site)</div>
-                        <div class="video-duration">0:18</div>
-                    </div>
-                </a>
-            </div>
-        </div>
-
         <!-- Test result screenshots -->
         <div class="card" id="testResults">
             <h2>Automated test screenshots</h2>
@@ -516,7 +372,7 @@
             <h3 style="margin-top: 16px; font-size: 1em; opacity: 0.85;">Clip mode (browser extension)</h3>
 
             <div class="screenshot-scenario">
-                <h4>Bank statement (James, FDIC/Treasury chain) - Chrome extension  being itself or simulating something built-in to Outlook, Adobe or operating systems</h4>
+                <h4>Bank statement (James, FDIC/Treasury chain) - Chrome extension being itself or simulating something built-in to Outlook, Adobe or operating systems</h4>
                 <div class="screenshot-strip">
                     <div><img src="test-results/james-before-verification-page.png" alt="Before: bank statement" loading="lazy"><div class="caption">Document</div></div>
                     <div><img src="test-results/james-final-page.png" alt="After: verified with authority chain" loading="lazy"><div class="caption">Verified</div></div>
@@ -525,7 +381,7 @@
             </div>
 
             <div class="screenshot-scenario">
-                <h4>OFSI sanctions licence (UK gov chain) - Chrome extension  being itself or simulating something built-in to Outlook, Adobe or operating systems</h4>
+                <h4>OFSI sanctions licence (UK gov chain) - Chrome extension being itself or simulating something built-in to Outlook, Adobe or operating systems</h4>
                 <div class="screenshot-strip">
                     <div><img src="test-results/ofsi-before-verification-page.png" alt="Before: OFSI licence" loading="lazy"><div class="caption">Document</div></div>
                     <div><img src="test-results/ofsi-final-page.png" alt="After: verified via gov.uk chain" loading="lazy"><div class="caption">Verified</div></div>
@@ -543,7 +399,7 @@
             </div>
 
             <div class="screenshot-scenario">
-                <h4>Scottish solicitor practising certificate (Law Society &rarr; gov.scot) - Chrome extension  being itself or simulating something built-in to Outlook, Adobe or operating systems</h4>
+                <h4>Scottish solicitor practising certificate (Law Society &rarr; gov.scot) - Chrome extension being itself or simulating something built-in to Outlook, Adobe or operating systems</h4>
                 <div class="screenshot-strip">
                     <div><img src="test-results/solicitor-before.png" alt="Before: practising certificate" loading="lazy"><div class="caption">Document</div></div>
                     <div><img src="test-results/solicitor-final-page.png" alt="After: certificate verified" loading="lazy"><div class="caption">Verified</div></div>
@@ -552,7 +408,7 @@
             </div>
 
             <div class="screenshot-scenario">
-                <h4>Scottish solicitors firm registration - Chrome extension  being itself or simulating something built-in to Outlook, Adobe or operating systems</h4>
+                <h4>Scottish solicitors firm registration - Chrome extension being itself or simulating something built-in to Outlook, Adobe or operating systems</h4>
                 <div class="screenshot-strip">
                     <div><img src="test-results/solicitors-firm-before.png" alt="Before: firm registration" loading="lazy"><div class="caption">Document</div></div>
                     <div><img src="test-results/solicitors-firm-final-page.png" alt="After: firm verified" loading="lazy"><div class="caption">Verified</div></div>
@@ -561,7 +417,7 @@
             </div>
 
             <div class="screenshot-scenario">
-                <h4>Sanctions screening attestation (FCA chain) - Chrome extension  being itself or simulating something built-in to Outlook, Adobe or operating systems</h4>
+                <h4>Sanctions screening attestation (FCA chain) - Chrome extension being itself or simulating something built-in to Outlook, Adobe or operating systems</h4>
                 <div class="screenshot-strip">
                     <div><img src="test-results/sanctions-before.png" alt="Before: sanctions screening document" loading="lazy"><div class="caption">Document</div></div>
                     <div><img src="test-results/sanctions-final-page.png" alt="After: screening verified" loading="lazy"><div class="caption">Verified</div></div>
@@ -570,7 +426,7 @@
             </div>
 
             <div class="screenshot-scenario">
-                <h4>Revoked employment reference - Chrome extension  being itself or simulating something built-in to Outlook, Adobe or operating systems</h4>
+                <h4>Revoked employment reference - Chrome extension being itself or simulating something built-in to Outlook, Adobe or operating systems</h4>
                 <div class="screenshot-strip">
                     <div><img src="test-results/revoked-reference-before.png" alt="Before: employment reference" loading="lazy"><div class="caption">Document</div></div>
                     <div><img src="test-results/revoked-reference-final-page.png" alt="After: revoked banner" loading="lazy"><div class="caption">Revoked</div></div>
@@ -590,14 +446,13 @@
             </div>
 
             <div class="screenshot-scenario">
-                <h4>Fake police ID rejected (Lex Luthor, NYPD) - browser extension simulating the experience of a camera app </h4>
+                <h4>Fake police ID rejected (Lex Luthor, NYPD) - browser extension simulating the experience of a camera app</h4>
                 <div class="screenshot-strip">
                     <div><img src="test-results/lex-before-verification-page.png" alt="Before: fake NYPD ID" loading="lazy"><div class="caption">Document</div></div>
                     <div><img src="test-results/lex-final-page.png" alt="After: not verified banner" loading="lazy"><div class="caption">Not verified</div></div>
                     <div><img src="test-results/lex-final-popup.png" alt="Extension popup showing failure" loading="lazy"><div class="caption">Hash not found</div></div>
                 </div>
             </div>
-
 
             <div class="screenshot-scenario">
                 <h4>Police ID verified (Gina, Android emulator but zoomed in more than a phone could do)</h4>
@@ -618,6 +473,39 @@
                     <div><img src="test-results/android-lex-normalized.png" alt="Android: normalized text" loading="lazy"><div class="caption">Normalized</div></div>
                 </div>
             </div>
+        </div>
+
+        <!-- Demo videos -->
+        <div class="card" id="demos">
+            <h2>Demo videos</h2>
+
+            <h3 style="margin-top: 16px; font-size: 1em; opacity: 0.85;">Clip mode (browser extension + PDF)</h3>
+            <p>The Chrome extension verifying PDFs rendered via PDF.js in a browser tab. This simulates what verification would feel like inside Outlook, Windows Explorer, Mac Preview, or Acrobat &mdash; none of which have Live Verify integrated yet. Domains and authority chains are simulated inside Docker containers on Ubuntu.</p>
+            <ul class="video-list">
+                <li><a href="https://youtu.be/PFeJgWtzApg" target="_blank" rel="noreferrer">OFSI sanctions licence verified via simulated UK gov authority chain</a> <span class="video-duration">0:30</span></li>
+                <li><a href="https://youtu.be/3kP2XxUuszU" target="_blank" rel="noreferrer">Fictitious bank statement verified via simulated FDIC/Treasury authority chain</a> <span class="video-duration">0:26</span></li>
+                <li><a href="https://youtube.com/shorts/FyWTzZXiZeo" target="_blank" rel="noreferrer">Verification failure &mdash; fictitious bank domain doesn't exist</a> <span class="video-duration">0:17</span></li>
+            </ul>
+
+            <h3 style="margin-top: 24px; font-size: 1em; opacity: 0.85;">Camera mode &mdash; automated tests</h3>
+            <p>Playwright driving a headless browser against simulated issuer domains in Docker. The camera app OCRs a printed document and verifies against the authority chain. Fictitious organisations, fictitious people.</p>
+            <ul class="video-list">
+                <li><a href="https://www.youtube.com/watch?v=kbPRq4tdoMM" target="_blank" rel="noreferrer">Police ID verified w/ backend, authority chain walk, pic of officer</a> <span class="video-duration">0:12</span></li>
+                <li><a href="https://youtu.be/OcuH4WLsYe8" target="_blank" rel="noreferrer">Fake police ID rejected &mdash; authority chain valid, hash never issued</a> <span class="video-duration">0:30</span></li>
+                <li><a href="https://youtu.be/V4_q6zhRD3A" target="_blank" rel="noreferrer">Sanctions screening attestation verified via simulated FCA/gov.uk chain</a> <span class="video-duration">0:30</span></li>
+                <li><a href="https://youtu.be/0bN5RcVkMj4" target="_blank" rel="noreferrer">Employment reference revoked &mdash; post-departure misconduct discovered</a> <span class="video-duration">0:30</span></li>
+            </ul>
+
+            <h3 style="margin-top: 24px; font-size: 1em; opacity: 0.85;">Camera mode &mdash; manual tests (real phones)</h3>
+            <p>Actual Android and iPhone devices scanning printed documents by hand. The police IDs are fictitious (Midsomer Murders universe). The peer reference is real &mdash; the hash is hosted on the issuer's personal website.</p>
+            <ul class="video-list">
+                <li><a href="https://youtu.be/Ut8GV-KSdNI" target="_blank" rel="noreferrer">Police ID verified &mdash; Android</a> <span class="video-duration">0:30</span></li>
+                <li><a href="https://youtu.be/MxA3c4AfEQc" target="_blank" rel="noreferrer">Police ID verified &mdash; iPhone</a> <span class="video-duration">0:30</span></li>
+                <li><a href="https://youtu.be/J5aeYZwoipM" target="_blank" rel="noreferrer">Fake police ID rejected &mdash; Android</a> <span class="video-duration">0:22</span></li>
+                <li><a href="https://youtu.be/pHDVBcjKb6U" target="_blank" rel="noreferrer">Fake police ID rejected &mdash; iPhone</a> <span class="video-duration">0:39</span></li>
+                <li><a href="https://youtu.be/NfUqKxSZ_V0" target="_blank" rel="noreferrer">Real peer reference &mdash; iPhone (hash live on issuer's site)</a> <span class="video-duration">0:51</span></li>
+                <li><a href="https://youtu.be/UpMEKDH42Q4" target="_blank" rel="noreferrer">Real peer reference &mdash; Android (hash live on issuer's site)</a> <span class="video-duration">0:18</span></li>
+            </ul>
         </div>
 
         <!-- Privacy model -->
