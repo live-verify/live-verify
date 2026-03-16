@@ -43,6 +43,62 @@ This matters because an issuer can *claim* to be endorsed, but the verifier inde
 
 The demo at `public/c/verification-meta.json` shows this: Unseen University claims endorsement by `gov.uk/verifiers` but the endorsement lookup fails because the institution is fictional.
 
+## Merkle Trees for Database Anchoring
+
+A SaaS verification provider (or any operator of a hash vault) can periodically anchor their database state to a public ledger (e.g., Hedera HCS, Ethereum) by computing a Merkle root over all stored hashes and committing that single root. This provides tamper-evidence independent of the operator — if hashes are silently added, removed, or altered, the root won't match.
+
+This solves the same non-repudiation problem as [witnessing](./WITNESSING-THIRD-PARTIES.md) — preventing issuers from denying they published a hash — but through mathematics rather than third-party testimony. The two approaches are complementary; see the "Public Blockchain" section in that doc for how witnessing firms use Merkle rollups.
+
+### Construction
+
+Sort all stored SHA-256 hashes lexicographically. Pair them, hash each pair, repeat until one root remains:
+
+```
+Level 0 (leaves):  H₁   H₂   H₃   H₄   H₅   H₆   H₇   H₈
+Level 1:           H(H₁‖H₂)  H(H₃‖H₄)  H(H₅‖H₆)  H(H₇‖H₈)
+Level 2:           H(L1₁‖L1₂)            H(L1₃‖L1₄)
+Level 3 (root):    H(L2₁‖L2₂)
+```
+
+A binary tree (branching factor 2) over N leaves has `log₂(N)` levels. For 100 million entries, that's ~27 levels.
+
+### Inclusion Proofs
+
+To prove a specific hash was in the database at anchor time without revealing other hashes, provide the **sibling at each level** along the path from leaf to root. The verifier recomputes upward and checks against the published root.
+
+```
+Proof for H₃:
+  - Sibling at level 0: H₄
+  - Sibling at level 1: H(H₁‖H₂)
+  - Sibling at level 2: H(L1₃‖L1₄)
+  → Recompute: H(H₃‖H₄) → H(result‖H(H₁‖H₂)) → H(result‖H(L1₃‖L1₄)) → compare to root
+```
+
+For 100M entries: 27 sibling hashes × 32 bytes = **864 bytes** per proof.
+
+### Branching Factor Trade-offs
+
+Higher branching factors reduce tree depth but increase proof size:
+
+| Branching Factor | Tree Depth (100M entries) | Proof Size |
+|------------------|--------------------------|------------|
+| 2 (binary)       | ~27 levels               | 27 × 32B = 864B |
+| 16 (hex nibbles) | ~7 levels                | 7 × 15 × 32B = 3,360B |
+| 256 (byte)       | ~4 levels                | 4 × 255 × 32B = 32,640B |
+
+Binary is the standard choice — compact proofs, simple implementation, well-understood. Ethereum's Patricia Merkle Trie uses a 16-ary structure for different reasons (key-value state lookups), but for anchoring a hash database, binary is sufficient.
+
+### Practical Use
+
+The anchoring workflow:
+
+1. Operator sorts all hashes, computes binary Merkle root
+2. Commits root to public ledger (one transaction, negligible cost)
+3. Stores the full tree off-chain (for proof generation if challenged)
+4. Repeats periodically (hourly, daily — depends on write volume)
+
+If a dispute arises ("was this hash in the database on January 15th?"), the operator produces the inclusion proof against the root that was anchored on that date. The proof is independently verifiable by anyone with the root hash from the ledger.
+
 ## Why This Matters
 
 This is infrastructure applying **40+ years of peer-reviewed cryptography**, not novel technology requiring new trust assumptions. Organizations already have trusted domains; hash verification is computationally trivial; the protocol is simple enough to implement in an afternoon.

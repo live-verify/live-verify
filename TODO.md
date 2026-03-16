@@ -31,6 +31,20 @@ Changes needed:
 - `ResultView.swift` — render headshot (base64 data URI → UIImage) and message text
 - Match the Chrome extension's layout
 
+## Browser extension ships auto-generated copies of canonical JS that can go stale
+
+The browser extension (`apps/browser-extension/shared/`) contains auto-generated copies
+of `public/normalize.js`, `public/app-logic.js`, and `public/domain-authority.js`. These
+copies have ES module transformations applied by `scripts/sync-shared.js`. If canonical
+files in `public/` change without running `npm run sync-shared`, the **shipped extension**
+uses stale logic — this is a production bug, not just a test problem. The integration
+tests inherit the same issue since they load the extension as-is.
+
+**Fix:** Add `npm run sync-shared` to CI (`.github/workflows/deploy.yml`) before tests
+run, and add a staleness check that fails if the copies don't match what `sync-shared`
+would generate. This ensures no commit can land where the extension's shared code is
+out of sync with the canonical sources.
+
 ## Full-stack tests: iOS
 
 macOS only. Planned in `simulated-integration-tests/PLAN.md` but not yet implemented.

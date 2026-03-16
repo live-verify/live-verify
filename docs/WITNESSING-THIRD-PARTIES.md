@@ -252,3 +252,5 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 - Long-term archival independent of any single firm
 
 The public blockchain is a "non-party" - it's infrastructure, not a participant in the transaction.
+
+See [Merkle Trees for Database Anchoring](./cryptographic-foundations.md#merkle-trees-for-database-anchoring) for the construction, inclusion proofs, and branching factor trade-offs behind these rollups.

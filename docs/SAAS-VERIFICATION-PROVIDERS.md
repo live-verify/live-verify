@@ -63,6 +63,8 @@ Providers serve many issuers from shared infrastructure:
 └─────────────────────────────────────────────────────────┘
 ```
 
+**Internal Storage:** Hashes are co-mingled in a single store, partitioned by tenant (e.g., `{tenant_id}:{hash}` composite keys). SafePut semantics provide a cross-tenant safety net — even if tenant boundaries fail, an attacker cannot overwrite another tenant's hash with different content (409 Conflict).
+
 ## Use Cases by Category
 
 **Employment & HR:**
@@ -182,6 +184,14 @@ Post-verification actions justify premium pricing:
 - Enterprise tier: POST forms with analytics dashboard
 
 See [`../public/use-cases/post-verification-actions.csv`](../public/use-cases/post-verification-actions.csv) for the full catalog of use cases with defined actions.
+
+## Blockchain as Auditing Substrate
+
+SaaS providers may optionally anchor their hash databases to a public blockchain (e.g., Hedera Hashgraph, Ethereum) by periodically committing Merkle roots. This gives issuers a tamper-evidence guarantee independent of the provider — if the provider alters or deletes hashes, the on-chain roots won't match. The operational store still handles reads at speed; the blockchain provides the audit trail.
+
+## Protocol Portability
+
+Because the `verify:` / `vfy:` URL scheme points at the issuer's domain (not the provider's infrastructure), issuers can switch SaaS providers — or move to self-hosted — without reprinting a single document. The DNS CNAME changes; everything else stays the same. SaaS providers distribute the protocol rather than compete with it, and the absence of provider lock-in is what makes adoption low-risk for issuers.
 
 ## Trust Considerations
 
