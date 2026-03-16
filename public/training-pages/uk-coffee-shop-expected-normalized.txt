@@ -1,0 +1,11 @@
+8 Market Square
+Henley-on-Thames RG9 2AA
+Receipt: DG-20260315-0017
+Date: 15/03/2026 08:23
+Flat White £3.40
+Almond Croissant £3.25
+SUBTOTAL: £6.65
+VAT @ 20%: £1.11
+TOTAL: £6.65
+Visa contactless ****3094
+Auth: 718204
