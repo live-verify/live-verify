@@ -102,7 +102,7 @@ echo "=== Seeding claim hash ==="
 CLAIM_HASH=$(node -e "
 const { normalizeText } = require('./public/normalize.js');
 const crypto = require('crypto');
-const text = '8 Market Square\nHenley-on-Thames RG9 2AA\nReceipt: DG-20260315-0017\nDate: 15/03/2026 08:23\nFlat White                  £3.40\nAlmond Croissant            £3.25\n                           ------\nSUBTOTAL:                   £6.65\nVAT @ 20%:                  £1.11\nTOTAL:                      £6.65\nVisa contactless ****3094\nAuth: 718204';
+const text = '8 Market Square\nHenley-on-Thames RG9 2AA\nReceipt: DG-20260315-0017\nDate: 15/03/2026 08:23\nFlat White                  £3.40\nAlmond Croissant            £3.25\nSUBTOTAL:                   £6.65\nVAT @ 20%:                  £1.11\nTOTAL:                      £6.65\nVisa contactless ****3094\nAuth: 718204';
 const normalized = normalizeText(text);
 const hash = crypto.createHash('sha256').update(normalized).digest('hex');
 process.stdout.write(hash);

@@ -398,6 +398,15 @@
             </div>
 
             <div class="screenshot-scenario">
+                <h4>Coffee shop receipt (The Daily Grind, HMRC VAT chain)</h4>
+                <div class="screenshot-strip">
+                    <div><img src="test-results/coffee-shop-before.png" alt="Before: coffee shop receipt" loading="lazy"><div class="caption">Document</div></div>
+                    <div><img src="test-results/coffee-shop-final-page.png" alt="After: receipt verified" loading="lazy"><div class="caption">Verified</div></div>
+                    <div><img src="test-results/coffee-shop-final-popup.png" alt="Extension popup with HMRC chain" loading="lazy"><div class="caption">Authority chain</div></div>
+                </div>
+            </div>
+
+            <div class="screenshot-scenario">
                 <h4>Scottish solicitor practising certificate (Law Society &rarr; gov.scot)</h4>
                 <div class="screenshot-strip">
                     <div><img src="test-results/solicitor-before.png" alt="Before: practising certificate" loading="lazy"><div class="caption">Document</div></div>
@@ -487,6 +496,20 @@
                     <div><img src="test-results/android-lex-extracted.png" alt="Android: OCR extracted text" loading="lazy"><div class="caption">OCR extracted</div></div>
                     <div><img src="test-results/android-lex-normalized.png" alt="Android: normalized text" loading="lazy"><div class="caption">Normalized</div></div>
                 </div>
+            </div>
+
+            <div class="screenshot-scenario">
+                <h4>Coffee shop receipt OCR (The Daily Grind, Android emulator) &mdash; not yet passing</h4>
+                <div class="screenshot-strip">
+                    <div><img src="test-results/android-coffee-result.png" alt="Android: coffee receipt result" loading="lazy"><div class="caption">Result</div></div>
+                    <div><img src="test-results/android-coffee-extracted.png" alt="Android: OCR extracted text with stitched rows" loading="lazy"><div class="caption">Extracted (stitched)</div></div>
+                    <div><img src="test-results/android-coffee-normalized-1.png" alt="Android: normalized candidate 1" loading="lazy"><div class="caption">Normalized-1</div></div>
+                </div>
+                <p style="font-size: 0.8em; opacity: 0.8; margin-top: 6px; line-height: 1.5;">
+                    Hash lookup fails due to Google ML Kit OCR errors: <code>Henley -on-Thames</code> (spurious space around hyphen),
+                    <code>TOTAL :</code> (space before colon). Row stitching and iterative blank-line candidate search work correctly &mdash;
+                    the remaining gap is OCR character accuracy. Apple Vision on iOS gets these right.
+                </p>
             </div>
 
             <div class="screenshot-scenario">

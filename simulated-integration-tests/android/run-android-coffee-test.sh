@@ -141,7 +141,7 @@ echo "=== Seeding claim hash ==="
 CLAIM_HASH=$(node -e "
 const { normalizeText } = require('./public/normalize.js');
 const crypto = require('crypto');
-const text = '8 Market Square\nHenley-on-Thames RG9 2AA\nReceipt: DG-20260315-0017\nDate: 15/03/2026 08:23\nFlat White                  £3.40\nAlmond Croissant            £3.25\n                           ------\nSUBTOTAL:                   £6.65\nVAT @ 20%:                  £1.11\nTOTAL:                      £6.65\nVisa contactless ****3094\nAuth: 718204';
+const text = '8 Market Square\nHenley-on-Thames RG9 2AA\nReceipt: DG-20260315-0017\nDate: 15/03/2026 08:23\nFlat White                  £3.40\nAlmond Croissant            £3.25\nSUBTOTAL:                   £6.65\nVAT @ 20%:                  £1.11\nTOTAL:                      £6.65\nVisa contactless ****3094\nAuth: 718204';
 const normalized = normalizeText(text);
 const hash = crypto.createHash('sha256').update(normalized).digest('hex');
 process.stdout.write(hash);
@@ -183,6 +183,12 @@ done
 
 # Short pause for system services to stabilize
 sleep 3
+
+# Suppress ANR dialogs — swiftshader GPU makes everything slow on emulators
+echo "=== Suppressing ANR dialogs ==="
+$ADB shell settings put secure anr_show_background 0
+$ADB shell settings put global activity_manager_constants anr_dialog_enabled=false
+$ADB shell setprop dalvik.vm.dex2oat-threads 1
 
 # ── 4. Install APK ───────────────────────────────────────────────
 
@@ -283,6 +289,19 @@ stop_anr_dismisser
 
 # ── 6. Capture results ───────────────────────────────────────────
 
+echo "=== Dumping logcat (LiveVerify + StitchRows + ExtractCert) ==="
+LOGCAT_FILE="${RESULTS_DIR}/android-coffee-logcat.txt"
+$ADB logcat -d -s LiveVerify:D StitchRows:D ExtractCert:D > "$LOGCAT_FILE"
+echo "  logcat saved to $LOGCAT_FILE ($(wc -l < "$LOGCAT_FILE") lines)"
+# Also print key lines to stdout
+echo "--- StitchRows ---"
+grep "StitchRows" "$LOGCAT_FILE" || echo "  (no StitchRows entries)"
+echo "--- ExtractCert ---"
+grep "ExtractCert" "$LOGCAT_FILE" || echo "  (no ExtractCert entries)"
+echo "--- LiveVerify OCR ---"
+grep -E "OCR from image|Found URL|line\[" "$LOGCAT_FILE" | head -40 || echo "  (no OCR entries)"
+echo "---"
+
 echo "=== Capturing screenshots ==="
 mkdir -p "$RESULTS_DIR"
 
@@ -326,13 +345,31 @@ $ADB shell screencap -p /sdcard/android-coffee-extracted.png
 $ADB pull /sdcard/android-coffee-extracted.png "${RESULTS_DIR}/android-coffee-extracted.png"
 echo "  extracted tab saved"
 
-# Tap "Normalized" tab
-tap_tab "Normalized"
-sleep 2
-dismiss_anr_once
-$ADB shell screencap -p /sdcard/android-coffee-normalized.png
-$ADB pull /sdcard/android-coffee-normalized.png "${RESULTS_DIR}/android-coffee-normalized.png"
-echo "  normalized tab saved"
+# Tap normalized tabs — on success there's one "Normalized" tab,
+# on failure there are "Normalized-1", "Normalized-2", etc.
+# Try the single "Normalized" first, then numbered variants.
+$ADB shell uiautomator dump /sdcard/ui.xml 2>/dev/null
+$ADB pull /sdcard/ui.xml /tmp/android-ui.xml 2>/dev/null
+if grep -q 'text="Normalized-1"' /tmp/android-ui.xml 2>/dev/null; then
+    # Multiple candidates — screenshot each
+    for n in 1 2 3 4 5; do
+        if grep -q "text=\"Normalized-${n}\"" /tmp/android-ui.xml 2>/dev/null; then
+            tap_tab "Normalized-${n}"
+            sleep 2
+            dismiss_anr_once
+            $ADB shell screencap -p "/sdcard/android-coffee-normalized-${n}.png"
+            $ADB pull "/sdcard/android-coffee-normalized-${n}.png" "${RESULTS_DIR}/android-coffee-normalized-${n}.png"
+            echo "  normalized-${n} tab saved"
+        fi
+    done
+else
+    tap_tab "Normalized"
+    sleep 2
+    dismiss_anr_once
+    $ADB shell screencap -p /sdcard/android-coffee-normalized.png
+    $ADB pull /sdcard/android-coffee-normalized.png "${RESULTS_DIR}/android-coffee-normalized.png"
+    echo "  normalized tab saved"
+fi
 
 # Optional: short video capture
 echo "=== Recording demo video (12 seconds) ==="

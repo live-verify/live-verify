@@ -274,6 +274,104 @@ class TextOverlayViewTest {
         assertEquals("line C", sorted[2].text)
     }
 
+    // stitchLinesIntoRows tests — uses the real companion function
+
+    @Test
+    fun `stitch should merge lines with same Y into one row`() {
+        // "Flat White" and "£3.40" on the same receipt line
+        val lines = listOf(
+            TextOverlayView.TextLine("Flat White", top = 200f, left = 50f),
+            TextOverlayView.TextLine("£3.40", top = 200f, left = 300f)
+        )
+        val result = TextOverlayView.stitchLinesIntoRows(lines)
+        assertEquals("Flat White  £3.40", result)
+    }
+
+    @Test
+    fun `stitch should handle full receipt with prices`() {
+        // Simulate ML Kit output: each line item and its price are separate blocks at same Y
+        // Normal line spacing ~30px, with a larger gap before TOTAL (separator line on receipt)
+        val lines = listOf(
+            TextOverlayView.TextLine("Flat White", top = 200f, left = 50f),
+            TextOverlayView.TextLine("£3.40", top = 200f, left = 300f),
+            TextOverlayView.TextLine("Almond Croissant", top = 230f, left = 50f),
+            TextOverlayView.TextLine("£3.25", top = 230f, left = 300f),
+            TextOverlayView.TextLine("SUBTOTAL:", top = 260f, left = 50f),
+            TextOverlayView.TextLine("£6.65", top = 260f, left = 300f),
+            TextOverlayView.TextLine("VAT @ 20%:", top = 290f, left = 50f),
+            TextOverlayView.TextLine("£1.11", top = 290f, left = 300f),
+            TextOverlayView.TextLine("TOTAL:", top = 350f, left = 50f),
+            TextOverlayView.TextLine("£6.65", top = 350f, left = 300f)
+        )
+        val result = TextOverlayView.stitchLinesIntoRows(lines)
+        val resultLines = result.split("\n")
+        assertEquals("Flat White  £3.40", resultLines[0])
+        assertEquals("Almond Croissant  £3.25", resultLines[1])
+        assertEquals("SUBTOTAL:  £6.65", resultLines[2])
+        assertEquals("VAT @ 20%:  £1.11", resultLines[3])
+        // 60px gap (2x normal 30px) triggers blank line before TOTAL
+        assertEquals("", resultLines[4])
+        assertEquals("TOTAL:  £6.65", resultLines[5])
+    }
+
+    @Test
+    fun `stitch should insert blank line for large Y gap`() {
+        // Header block far above body text
+        val lines = listOf(
+            TextOverlayView.TextLine("THE DAILY GRIND", top = 50f, left = 100f),
+            TextOverlayView.TextLine("Tel: 01491 577 200", top = 80f, left = 100f),
+            // 50px gap here (header margin) vs ~30px normal line spacing
+            TextOverlayView.TextLine("8 Market Square", top = 160f, left = 50f),
+            TextOverlayView.TextLine("Receipt: DG-001", top = 190f, left = 50f),
+            TextOverlayView.TextLine("vfy:example.com", top = 220f, left = 50f)
+        )
+        val result = TextOverlayView.stitchLinesIntoRows(lines)
+        val resultLines = result.split("\n")
+        // Should have a blank line between header and body
+        assertTrue("Should contain blank line", resultLines.contains(""))
+        // Header before blank line
+        assertTrue(result.contains("THE DAILY GRIND"))
+        // Body after blank line
+        assertTrue(result.contains("8 Market Square"))
+    }
+
+    @Test
+    fun `stitch should sort fragments left-to-right within a row`() {
+        // Price appears before item name in ML Kit output
+        val lines = listOf(
+            TextOverlayView.TextLine("£3.40", top = 200f, left = 300f),
+            TextOverlayView.TextLine("Flat White", top = 200f, left = 50f)
+        )
+        val result = TextOverlayView.stitchLinesIntoRows(lines)
+        assertEquals("Flat White  £3.40", result)
+    }
+
+    @Test
+    fun `stitch empty list returns empty string`() {
+        assertEquals("", TextOverlayView.stitchLinesIntoRows(emptyList()))
+    }
+
+    @Test
+    fun `stitch single line returns its text`() {
+        val lines = listOf(TextOverlayView.TextLine("hello", top = 100f, left = 50f))
+        assertEquals("hello", TextOverlayView.stitchLinesIntoRows(lines))
+    }
+
+    @Test
+    fun `stitch should not merge lines with different Y positions`() {
+        val lines = listOf(
+            TextOverlayView.TextLine("Line 1", top = 100f, left = 50f),
+            TextOverlayView.TextLine("Line 2", top = 130f, left = 50f),
+            TextOverlayView.TextLine("Line 3", top = 160f, left = 50f)
+        )
+        val result = TextOverlayView.stitchLinesIntoRows(lines)
+        val resultLines = result.split("\n")
+        assertEquals(3, resultLines.size)
+        assertEquals("Line 1", resultLines[0])
+        assertEquals("Line 2", resultLines[1])
+        assertEquals("Line 3", resultLines[2])
+    }
+
     // Coordinate transformation tests
 
     @Test

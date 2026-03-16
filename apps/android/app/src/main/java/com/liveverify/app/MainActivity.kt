@@ -73,6 +73,8 @@ class MainActivity : AppCompatActivity() {
 
     // Diagnostic adapter for ViewPager2
     private lateinit var diagnosticAdapter: DiagnosticAdapter
+    // Candidate attempts for diagnostic display (set during verification)
+    private var diagnosticCandidates: List<DiagnosticAdapter.NormalizedCandidate> = emptyList()
 
     private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
@@ -159,15 +161,7 @@ class MainActivity : AppCompatActivity() {
         // Set up diagnostic ViewPager2 with tabs
         diagnosticAdapter = DiagnosticAdapter()
         binding.diagnosticPager.adapter = diagnosticAdapter
-
-        val tabTitles = arrayOf(
-            getString(R.string.tab_captured),
-            getString(R.string.tab_extracted),
-            getString(R.string.tab_normalized)
-        )
-        TabLayoutMediator(binding.diagnosticTabs, binding.diagnosticPager) { tab, position ->
-            tab.text = tabTitles[position]
-        }.attach()
+        attachDiagnosticTabs()
     }
 
     private fun checkCameraPermission() {
@@ -309,7 +303,10 @@ class MainActivity : AppCompatActivity() {
         // Use the verify: line as anchor: it's always last in reading order.
         val allLines = selectedBlocks.flatMap { it.lines }
         val sortedLines = TextOverlayView.sortLinesInReadingOrder(allLines)
-        val combinedText = sortedLines.joinToString("\n") { it.text }
+        // Stitch lines into rows using Y coordinates — merges fragments that
+        // ML Kit split (e.g. "Flat White" and "£3.40") and detects blank lines
+        // from vertical gaps (separating headers from verifiable content).
+        val combinedText = TextOverlayView.stitchLinesIntoRows(allLines)
 
         val topRange = allLines.maxOf { it.top } - allLines.minOf { it.top }
         val leftRange = allLines.maxOf { it.left } - allLines.minOf { it.left }
@@ -381,8 +378,25 @@ class MainActivity : AppCompatActivity() {
 
         textRecognizer.process(inputImage)
             .addOnSuccessListener { visionText ->
-                val rawText = visionText.textBlocks.joinToString("\n") { it.text }
-                Log.d(TAG, "OCR from image ($imagePath):\n$rawText")
+                // Extract individual lines with coordinates for row stitching
+                val allLines = visionText.textBlocks.flatMap { block ->
+                    block.lines.map { line ->
+                        val box = line.boundingBox
+                        TextOverlayView.TextLine(
+                            text = line.text,
+                            top = box?.top?.toFloat() ?: 0f,
+                            left = box?.left?.toFloat() ?: 0f
+                        )
+                    }
+                }
+
+                Log.d(TAG, "OCR from image ($imagePath): ${allLines.size} lines from ${visionText.textBlocks.size} blocks")
+                for ((i, line) in allLines.withIndex()) {
+                    Log.d(TAG, "  line[$i] top=${line.top} left=${line.left} text=\"${line.text}\"")
+                }
+
+                val rawText = TextOverlayView.stitchLinesIntoRows(allLines)
+                Log.d(TAG, "Stitched text:\n$rawText")
                 rawOcrText = rawText
                 processRecognizedText(rawText)
             }
@@ -404,12 +418,18 @@ class MainActivity : AppCompatActivity() {
 
         Log.d(TAG, "Found URL: ${urlResult.url} at line ${urlResult.urlLineIndex}")
 
-        val certText = VerificationLogic.extractCertText(rawText, urlResult.urlLineIndex)
-        Log.d(TAG, "Cert text:\n$certText")
+        val candidates = VerificationLogic.extractCertTextCandidates(rawText, urlResult.urlLineIndex)
+        if (candidates.isEmpty()) {
+            showError("No certification text found above verification URL")
+            return
+        }
 
+        // Start with smallest candidate for display
+        val certText = candidates.first()
         normalizedText = TextNormalizer.normalizeText(certText)
         computedHash = TextNormalizer.sha256(normalizedText)
-        Log.d(TAG, "Hash: $computedHash")
+        Log.d(TAG, "Initial cert text (candidate 0):\n$certText")
+        Log.d(TAG, "Initial hash: $computedHash")
 
         updateStatus(getString(R.string.status_verifying))
 
@@ -418,14 +438,48 @@ class MainActivity : AppCompatActivity() {
                 val meta = VerificationLogic.fetchVerificationMeta(urlResult.url)
                 val suffix = meta?.optString("appendToHashFileName") ?: ""
 
-                val verificationUrl = VerificationLogic.buildVerificationUrl(
-                    urlResult.url,
-                    computedHash,
-                    suffix
-                )
-                Log.d(TAG, "Verification URL: $verificationUrl")
+                // Try each candidate from smallest to largest until server confirms.
+                // Collect all attempts for diagnostic display.
+                var result: VerificationResult? = null
+                var verificationUrl = ""
+                val triedCandidates = mutableListOf<DiagnosticAdapter.NormalizedCandidate>()
 
-                val result = VerificationLogic.verifyHash(verificationUrl)
+                for ((i, candidate) in candidates.withIndex()) {
+                    val normalized = TextNormalizer.normalizeText(candidate)
+                    val hash = TextNormalizer.sha256(normalized)
+                    val url = VerificationLogic.buildVerificationUrl(urlResult.url, hash, suffix)
+                    Log.d(TAG, "Trying candidate $i/${candidates.size}: hash=${hash.take(16)}... (${candidate.count { it == '\n' } + 1} lines)")
+
+                    triedCandidates.add(DiagnosticAdapter.NormalizedCandidate(normalized, hash))
+                    val candidateResult = VerificationLogic.verifyHash(url)
+
+                    if (candidateResult is VerificationResult.Verified) {
+                        Log.d(TAG, "Candidate $i matched!")
+                        result = candidateResult
+                        verificationUrl = url
+                        normalizedText = normalized
+                        computedHash = hash
+                        // On success, only show the winning candidate
+                        diagnosticCandidates = listOf(triedCandidates.last())
+                        break
+                    }
+                }
+
+                // No candidate matched — show all failed attempts as separate tabs
+                if (result == null) {
+                    Log.d(TAG, "No candidate matched, showing all ${triedCandidates.size} attempts")
+                    val first = triedCandidates.first()
+                    result = VerificationResult.NotVerified(
+                        VerificationLogic.getDomainFromUrl(
+                            VerificationLogic.buildVerificationUrl(urlResult.url, first.hash, suffix)
+                        ),
+                        "Hash not found on server"
+                    )
+                    verificationUrl = VerificationLogic.buildVerificationUrl(urlResult.url, first.hash, suffix)
+                    normalizedText = first.text
+                    computedHash = first.hash
+                    diagnosticCandidates = triedCandidates
+                }
 
                 // Check authorization chain if meta has authorizedBy
                 var authorization: AuthorizationResult? = null
@@ -441,7 +495,7 @@ class MainActivity : AppCompatActivity() {
                     Log.d(TAG, "Authorization: checked=${authorization.checked}, confirmed=${authorization.confirmed}, authorizer=${authorization.authorizer}")
                 }
 
-                showResult(result, authorization, meta)
+                showResult(result!!, authorization, meta)
             } catch (e: Exception) {
                 Log.e(TAG, "Verification failed", e)
                 showError("Verification failed: ${e.message}")
@@ -631,12 +685,20 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "Raw OCR text with return symbols:\n${DiagnosticHelper.withReturnSymbols(rawOcrText)}")
         Log.d(TAG, "Normalized text:\n$normalizedText")
         Log.d(TAG, "Hash: $computedHash")
+        Log.d(TAG, "Diagnostic candidates: ${diagnosticCandidates.size}")
         Log.d(TAG, "=======================")
 
         diagnosticAdapter.capturedImage = capturedBitmap
         diagnosticAdapter.extractedText = rawOcrText
-        diagnosticAdapter.normalizedText = normalizedText
-        diagnosticAdapter.computedHash = computedHash
+        diagnosticAdapter.setNormalizedCandidates(diagnosticCandidates)
+        attachDiagnosticTabs()
+    }
+
+    private fun attachDiagnosticTabs() {
+        binding.diagnosticTabs.removeAllTabs()
+        TabLayoutMediator(binding.diagnosticTabs, binding.diagnosticPager) { tab, position ->
+            tab.text = diagnosticAdapter.getTabTitle(position)
+        }.attach()
     }
 
     private fun hideResult() {

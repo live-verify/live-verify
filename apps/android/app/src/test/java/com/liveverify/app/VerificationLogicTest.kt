@@ -180,14 +180,107 @@ verify:example.com/c"""
     }
 
     @Test
-    fun `should remove trailing blank lines from cert text`() {
+    fun `extractCertText returns smallest section above URL`() {
+        val rawText = """THE DAILY GRIND
+
+8 Market Square
+TOTAL: £6.65
+verify:example.com/c"""
+
+        val certText = VerificationLogic.extractCertText(rawText, 4)
+        assertEquals("8 Market Square\nTOTAL: £6.65", certText)
+    }
+
+    @Test
+    fun `no blank lines includes all content before URL`() {
         val rawText = """Line 1
 Line 2
-
+Line 3
 verify:example.com/c"""
 
         val certText = VerificationLogic.extractCertText(rawText, 3)
-        assertEquals("Line 1\nLine 2", certText)
+        assertEquals("Line 1\nLine 2\nLine 3", certText)
+    }
+
+    // ==================== extractCertTextCandidates Tests ====================
+
+    @Test
+    fun `candidates returns progressively larger sections`() {
+        val rawText = """THE DAILY GRIND
+Henley-on-Thames
+
+8 Market Square
+Receipt: DG-001
+TOTAL: £6.65
+verify:example.com/c"""
+
+        val candidates = VerificationLogic.extractCertTextCandidates(rawText, 6)
+        assertEquals(2, candidates.size)
+        // Smallest: just below the blank line
+        assertEquals("8 Market Square\nReceipt: DG-001\nTOTAL: £6.65", candidates[0])
+        // Largest: everything (blank lines are kept; normalizer strips them before hashing)
+        assertTrue(candidates[1].startsWith("THE DAILY GRIND"))
+        assertTrue(candidates[1].endsWith("TOTAL: £6.65"))
+    }
+
+    @Test
+    fun `candidates with multiple blank lines returns three sections`() {
+        val rawText = """Header
+
+Middle section
+
+Cert line 1
+Cert line 2
+verify:example.com/c"""
+
+        val candidates = VerificationLogic.extractCertTextCandidates(rawText, 6)
+        assertEquals(3, candidates.size)
+        assertEquals("Cert line 1\nCert line 2", candidates[0])
+        assertTrue(candidates[1].startsWith("Middle section"))
+        assertTrue(candidates[1].endsWith("Cert line 2"))
+        assertTrue(candidates[2].startsWith("Header"))
+        assertTrue(candidates[2].endsWith("Cert line 2"))
+    }
+
+    @Test
+    fun `candidates with no blank lines returns single candidate`() {
+        val rawText = """Line 1
+Line 2
+Line 3
+verify:example.com/c"""
+
+        val candidates = VerificationLogic.extractCertTextCandidates(rawText, 3)
+        assertEquals(1, candidates.size)
+        assertEquals("Line 1\nLine 2\nLine 3", candidates[0])
+    }
+
+    @Test
+    fun `candidates with receipt-style layout`() {
+        val rawText = """THE DAILY GRIND
+Tel: 01491 577 200
+
+8 Market Square
+Flat White  £3.40
+Almond Croissant  £3.25
+
+SUBTOTAL:  £6.65
+VAT @ 20%:  £1.11
+TOTAL:  £6.65
+Visa contactless ****3094
+Auth: 718204
+verify:example.com/c"""
+
+        val candidates = VerificationLogic.extractCertTextCandidates(rawText, 12)
+        assertEquals(3, candidates.size)
+        // First: SUBTOTAL through Auth (below second blank line)
+        assertTrue(candidates[0].startsWith("SUBTOTAL:"))
+        assertTrue(candidates[0].endsWith("Auth: 718204"))
+        // Second: 8 Market Square through Auth (below first blank line)
+        assertTrue(candidates[1].startsWith("8 Market Square"))
+        assertTrue(candidates[1].endsWith("Auth: 718204"))
+        // Third: everything including header
+        assertTrue(candidates[2].startsWith("THE DAILY GRIND"))
+        assertTrue(candidates[2].endsWith("Auth: 718204"))
     }
 
     @Test

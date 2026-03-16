@@ -16,6 +16,7 @@
 
 package com.liveverify.app
 
+import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.Dns
@@ -145,24 +146,84 @@ object VerificationLogic {
     }
 
     /**
-     * Extract certification text from raw OCR text (everything before the URL line)
+     * Extract candidate certification texts from raw OCR text.
+     *
+     * Returns a list of candidates, smallest first. The first candidate is the
+     * section immediately above the vfy: line (up to the nearest blank line).
+     * Each subsequent candidate prepends the next section above the previous
+     * blank line. The caller tries each candidate against the server until one
+     * matches (200), letting the hash tell us where the cert text really starts.
+     *
+     * This handles OCR stitching inserting synthetic blank lines (e.g. from a
+     * dashed separator on a receipt) without needing to guess which blank lines
+     * are structural boundaries vs incidental ones.
      *
      * @param rawText Raw OCR text
      * @param urlLineIndex Index of the URL line
-     * @return Certification text
+     * @return List of candidate cert texts, smallest (bottom-most section) first
      */
-    fun extractCertText(rawText: String, urlLineIndex: Int): String {
+    fun extractCertTextCandidates(rawText: String, urlLineIndex: Int): List<String> {
         val rawLines = rawText.split("\n").map { it.trim() }
 
-        // Get everything before the URL line
-        val certLines = rawLines.take(urlLineIndex).toMutableList()
-
-        // Remove trailing blank lines
-        while (certLines.isNotEmpty() && certLines.last().trim().isEmpty()) {
-            certLines.removeAt(certLines.lastIndex)
+        Log.d("ExtractCert", "urlLineIndex=$urlLineIndex, totalLines=${rawLines.size}")
+        for ((i, line) in rawLines.withIndex()) {
+            val marker = when {
+                i == urlLineIndex -> " <-- URL"
+                line.isEmpty() -> " <-- BLANK"
+                else -> ""
+            }
+            Log.d("ExtractCert", "  [$i] \"$line\"$marker")
         }
 
-        return certLines.joinToString("\n")
+        // Find blank line positions above the URL line
+        val blankIndices = mutableListOf<Int>()
+        for (i in (urlLineIndex - 1) downTo 0) {
+            if (rawLines[i].isEmpty()) {
+                blankIndices.add(i)
+            }
+        }
+
+        // Build candidates: expand upward one section at a time
+        val candidates = mutableListOf<String>()
+
+        // Boundaries to try: each blank line, then index 0 (everything)
+        val boundaries = blankIndices.map { it + 1 } + listOf(0)
+        // Deduplicate and keep order (nearest blank line first)
+        val uniqueBoundaries = boundaries.distinct()
+
+        for (startIndex in uniqueBoundaries) {
+            val certLines = rawLines.subList(startIndex, urlLineIndex).toMutableList()
+            // Remove trailing blank lines
+            while (certLines.isNotEmpty() && certLines.last().isEmpty()) {
+                certLines.removeAt(certLines.lastIndex)
+            }
+            // Remove leading blank lines
+            while (certLines.isNotEmpty() && certLines.first().isEmpty()) {
+                certLines.removeAt(0)
+            }
+            if (certLines.isNotEmpty()) {
+                val candidate = certLines.joinToString("\n")
+                // Avoid duplicates (can happen if consecutive blank lines)
+                if (candidates.isEmpty() || candidates.last() != candidate) {
+                    Log.d("ExtractCert", "Candidate ${candidates.size}: startIndex=$startIndex (${certLines.size} lines)")
+                    candidates.add(candidate)
+                }
+            }
+        }
+
+        if (candidates.isEmpty()) {
+            Log.d("ExtractCert", "No candidates found")
+        }
+        return candidates
+    }
+
+    /**
+     * Extract certification text (single result, for backward compatibility).
+     * Returns the smallest section above the URL line (up to first blank line),
+     * or everything if no blank lines exist.
+     */
+    fun extractCertText(rawText: String, urlLineIndex: Int): String {
+        return extractCertTextCandidates(rawText, urlLineIndex).firstOrNull() ?: ""
     }
 
     /**

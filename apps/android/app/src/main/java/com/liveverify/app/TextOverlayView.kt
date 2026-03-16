@@ -22,6 +22,7 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
 import android.util.AttributeSet
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import com.google.mlkit.vision.text.Text
@@ -94,6 +95,78 @@ class TextOverlayView @JvmOverloads constructor(
             } else {
                 lines.sortedBy { it.top }
             }
+        }
+
+        /**
+         * Stitch ML Kit lines into rows using Y coordinates, and detect blank
+         * lines from vertical gaps.
+         *
+         * ML Kit often splits a single visual row into separate text blocks
+         * (e.g. "Flat White" and "£3.40" on the same receipt line). This groups
+         * lines with similar Y positions into one row, sorts fragments left-to-right
+         * within each row, and inserts blank lines where the Y gap between rows
+         * exceeds 1.8x the median line height.
+         */
+        fun stitchLinesIntoRows(lines: List<TextLine>): String {
+            if (lines.isEmpty()) return ""
+            if (lines.size == 1) return lines[0].text
+
+            val sorted = lines.sortedBy { it.top }
+
+            // Estimate typical line height from the median gap between consecutive lines
+            val gaps = sorted.zipWithNext { a, b -> b.top - a.top }.filter { it > 0 }
+            val medianGap = if (gaps.isNotEmpty()) {
+                gaps.sorted()[gaps.size / 2]
+            } else {
+                30f // fallback
+            }
+
+            // Group lines into rows: lines within half the median gap are on the same row
+            val rowThreshold = medianGap * 0.5f
+            Log.d("StitchRows", "medianGap=$medianGap rowThreshold=$rowThreshold lines=${sorted.size}")
+            val rows = mutableListOf<MutableList<TextLine>>()
+            var currentRow = mutableListOf(sorted[0])
+            rows.add(currentRow)
+
+            for (i in 1 until sorted.size) {
+                val gap = sorted[i].top - currentRow[0].top
+                if (gap <= rowThreshold) {
+                    Log.d("StitchRows", "  MERGE gap=$gap: \"${sorted[i].text}\" into row with \"${currentRow[0].text}\"")
+                    currentRow.add(sorted[i])
+                } else {
+                    Log.d("StitchRows", "  NEW ROW gap=$gap: \"${sorted[i].text}\"")
+                    currentRow = mutableListOf(sorted[i])
+                    rows.add(currentRow)
+                }
+            }
+
+            Log.d("StitchRows", "${rows.size} rows formed:")
+            for ((i, row) in rows.withIndex()) {
+                val texts = row.sortedBy { it.left }.joinToString(" | ") { "\"${it.text}\"(L=${it.left})" }
+                Log.d("StitchRows", "  row[$i] top=${row[0].top}: $texts")
+            }
+
+            // Build output: sort each row by X (left-to-right), join with spaces.
+            // Insert blank line when Y gap between rows exceeds 1.8x the median.
+            val blankLineThreshold = medianGap * 1.8f
+            Log.d("StitchRows", "blankLineThreshold=$blankLineThreshold")
+            val result = StringBuilder()
+
+            for (i in rows.indices) {
+                if (i > 0) {
+                    val prevRowTop = rows[i - 1][0].top
+                    val thisRowTop = rows[i][0].top
+                    val gap = thisRowTop - prevRowTop
+                    if (gap > blankLineThreshold) {
+                        result.append("\n") // blank line
+                    }
+                    result.append("\n")
+                }
+                val rowText = rows[i].sortedBy { it.left }.joinToString("  ") { it.text }
+                result.append(rowText)
+            }
+
+            return result.toString()
         }
     }
 

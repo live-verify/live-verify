@@ -1,0 +1,189 @@
+--------- beginning of main
+03-16 10:48:11.835  2079  2079 D LiveVerify: DNS overrides: {r.the-daily-grind.co.uk=10.0.2.2, hmrc.gov.uk=10.0.2.2, gov.uk=10.0.2.2}
+03-16 10:48:11.914  2079  2079 D LiveVerify: Debug image mode: OCR from /data/data/com.liveverify.app/files/coffee-shop-receipt.png
+03-16 10:49:15.669  2079  2079 D LiveVerify: OCR from image (/data/data/com.liveverify.app/files/coffee-shop-receipt.png): 23 lines from 21 blocks
+03-16 10:49:15.676  2079  2079 D LiveVerify:   line[0] top=109.0 left=136.0 text="THE DAILY GRIND"
+03-16 10:49:15.676  2079  2079 D LiveVerify:   line[1] top=415.0 left=74.0 text="8 Market Square"
+03-16 10:49:15.676  2079  2079 D LiveVerify:   line[2] top=466.0 left=75.0 text="Henley -on-Thames RG9 2AA"
+03-16 10:49:15.676  2079  2079 D LiveVerify:   line[3] top=165.0 left=237.0 text="Henley - on -Thames"
+03-16 10:49:15.676  2079  2079 D LiveVerify:   line[4] top=200.0 left=231.0 text="Tel: 01491 577 200"
+03-16 10:49:15.676  2079  2079 D LiveVerify:   line[5] top=514.0 left=75.0 text="Receipt: DG-20260315-0017"
+03-16 10:49:15.676  2079  2079 D LiveVerify:   line[6] top=562.0 left=75.0 text="Date: 15/03/2026 08:23"
+03-16 10:49:15.676  2079  2079 D LiveVerify:   line[7] top=610.0 left=75.0 text="Flat White"
+03-16 10:49:15.676  2079  2079 D LiveVerify:   line[8] top=658.0 left=73.0 text="Almond Croissant"
+03-16 10:49:15.676  2079  2079 D LiveVerify:   line[9] top=720.0 left=74.0 text="SUBTOTAL:"
+03-16 10:49:15.676  2079  2079 D LiveVerify:   line[10] top=769.0 left=73.0 text="VAT @ 20%:"
+03-16 10:49:15.676  2079  2079 D LiveVerify:   line[11] top=816.0 left=73.0 text="TOTAL:"
+03-16 10:49:15.677  2079  2079 D LiveVerify:   line[12] top=865.0 left=73.0 text="Visa contactless"
+03-16 10:49:15.677  2079  2079 D LiveVerify:   line[13] top=913.0 left=73.0 text="Auth: 718204"
+03-16 10:49:15.677  2079  2079 D LiveVerify:   line[14] top=859.0 left=351.0 text="****3094"
+03-16 10:49:15.677  2079  2079 D LiveVerify:   line[15] top=1005.0 left=89.0 text="vfy:r.the -daily-grind.co.uk"
+03-16 10:49:15.677  2079  2079 D LiveVerify:   line[16] top=610.0 left=527.0 text="£3.40"
+03-16 10:49:15.677  2079  2079 D LiveVerify:   line[17] top=660.0 left=527.0 text="£3.25"
+03-16 10:49:15.677  2079  2079 D LiveVerify:   line[18] top=721.0 left=527.0 text="£6.65"
+03-16 10:49:15.677  2079  2079 D LiveVerify:   line[19] top=769.0 left=526.0 text="£1.11"
+03-16 10:49:15.677  2079  2079 D LiveVerify:   line[20] top=816.0 left=527.0 text="£6.65"
+03-16 10:49:15.677  2079  2079 D LiveVerify:   line[21] top=1101.0 left=199.0 text="VAT No: GB 391 4820 17"
+03-16 10:49:15.677  2079  2079 D LiveVerify:   line[22] top=1130.0 left=295.0 text="Thank you!"
+03-16 10:49:15.678  2079  2079 D StitchRows: medianGap=48.0 rowThreshold=24.0 lines=23
+03-16 10:49:15.679  2079  2079 D StitchRows:   NEW ROW gap=56.0: "Henley - on -Thames"
+03-16 10:49:15.681  2079  2079 D StitchRows:   NEW ROW gap=35.0: "Tel: 01491 577 200"
+03-16 10:49:15.681  2079  2079 D StitchRows:   NEW ROW gap=215.0: "8 Market Square"
+03-16 10:49:15.681  2079  2079 D StitchRows:   NEW ROW gap=51.0: "Henley -on-Thames RG9 2AA"
+03-16 10:49:15.681  2079  2079 D StitchRows:   NEW ROW gap=48.0: "Receipt: DG-20260315-0017"
+03-16 10:49:15.681  2079  2079 D StitchRows:   NEW ROW gap=48.0: "Date: 15/03/2026 08:23"
+03-16 10:49:15.681  2079  2079 D StitchRows:   NEW ROW gap=48.0: "Flat White"
+03-16 10:49:15.681  2079  2079 D StitchRows:   MERGE gap=0.0: "£3.40" into row with "Flat White"
+03-16 10:49:15.681  2079  2079 D StitchRows:   NEW ROW gap=48.0: "Almond Croissant"
+03-16 10:49:15.681  2079  2079 D StitchRows:   MERGE gap=2.0: "£3.25" into row with "Almond Croissant"
+03-16 10:49:15.681  2079  2079 D StitchRows:   NEW ROW gap=62.0: "SUBTOTAL:"
+03-16 10:49:15.681  2079  2079 D StitchRows:   MERGE gap=1.0: "£6.65" into row with "SUBTOTAL:"
+03-16 10:49:15.681  2079  2079 D StitchRows:   NEW ROW gap=49.0: "VAT @ 20%:"
+03-16 10:49:15.681  2079  2079 D StitchRows:   MERGE gap=0.0: "£1.11" into row with "VAT @ 20%:"
+03-16 10:49:15.681  2079  2079 D StitchRows:   NEW ROW gap=47.0: "TOTAL:"
+03-16 10:49:15.681  2079  2079 D StitchRows:   MERGE gap=0.0: "£6.65" into row with "TOTAL:"
+03-16 10:49:15.681  2079  2079 D StitchRows:   NEW ROW gap=43.0: "****3094"
+03-16 10:49:15.682  2079  2079 D StitchRows:   MERGE gap=6.0: "Visa contactless" into row with "****3094"
+03-16 10:49:15.682  2079  2079 D StitchRows:   NEW ROW gap=54.0: "Auth: 718204"
+03-16 10:49:15.684  2079  2079 D StitchRows:   NEW ROW gap=92.0: "vfy:r.the -daily-grind.co.uk"
+03-16 10:49:15.684  2079  2079 D StitchRows:   NEW ROW gap=96.0: "VAT No: GB 391 4820 17"
+03-16 10:49:15.684  2079  2079 D StitchRows:   NEW ROW gap=29.0: "Thank you!"
+03-16 10:49:15.684  2079  2079 D StitchRows: 17 rows formed:
+03-16 10:49:15.684  2079  2079 D StitchRows:   row[0] top=109.0: "THE DAILY GRIND"(L=136.0)
+03-16 10:49:15.687  2079  2079 D StitchRows:   row[1] top=165.0: "Henley - on -Thames"(L=237.0)
+03-16 10:49:15.688  2079  2079 D StitchRows:   row[2] top=200.0: "Tel: 01491 577 200"(L=231.0)
+03-16 10:49:15.690  2079  2079 D StitchRows:   row[3] top=415.0: "8 Market Square"(L=74.0)
+03-16 10:49:15.690  2079  2079 D StitchRows:   row[4] top=466.0: "Henley -on-Thames RG9 2AA"(L=75.0)
+03-16 10:49:15.690  2079  2079 D StitchRows:   row[5] top=514.0: "Receipt: DG-20260315-0017"(L=75.0)
+03-16 10:49:15.690  2079  2079 D StitchRows:   row[6] top=562.0: "Date: 15/03/2026 08:23"(L=75.0)
+03-16 10:49:15.690  2079  2079 D StitchRows:   row[7] top=610.0: "Flat White"(L=75.0) | "£3.40"(L=527.0)
+03-16 10:49:15.691  2079  2079 D StitchRows:   row[8] top=658.0: "Almond Croissant"(L=73.0) | "£3.25"(L=527.0)
+03-16 10:49:15.691  2079  2079 D StitchRows:   row[9] top=720.0: "SUBTOTAL:"(L=74.0) | "£6.65"(L=527.0)
+03-16 10:49:15.691  2079  2079 D StitchRows:   row[10] top=769.0: "VAT @ 20%:"(L=73.0) | "£1.11"(L=526.0)
+03-16 10:49:15.691  2079  2079 D StitchRows:   row[11] top=816.0: "TOTAL:"(L=73.0) | "£6.65"(L=527.0)
+03-16 10:49:15.691  2079  2079 D StitchRows:   row[12] top=859.0: "Visa contactless"(L=73.0) | "****3094"(L=351.0)
+03-16 10:49:15.691  2079  2079 D StitchRows:   row[13] top=913.0: "Auth: 718204"(L=73.0)
+03-16 10:49:15.691  2079  2079 D StitchRows:   row[14] top=1005.0: "vfy:r.the -daily-grind.co.uk"(L=89.0)
+03-16 10:49:15.691  2079  2079 D StitchRows:   row[15] top=1101.0: "VAT No: GB 391 4820 17"(L=199.0)
+03-16 10:49:15.692  2079  2079 D StitchRows:   row[16] top=1130.0: "Thank you!"(L=295.0)
+03-16 10:49:15.692  2079  2079 D StitchRows: blankLineThreshold=86.399994
+03-16 10:49:15.693  2079  2079 D LiveVerify: Stitched text:
+03-16 10:49:15.693  2079  2079 D LiveVerify: THE DAILY GRIND
+03-16 10:49:15.693  2079  2079 D LiveVerify: Henley - on -Thames
+03-16 10:49:15.693  2079  2079 D LiveVerify: Tel: 01491 577 200
+03-16 10:49:15.693  2079  2079 D LiveVerify: 
+03-16 10:49:15.693  2079  2079 D LiveVerify: 8 Market Square
+03-16 10:49:15.693  2079  2079 D LiveVerify: Henley -on-Thames RG9 2AA
+03-16 10:49:15.693  2079  2079 D LiveVerify: Receipt: DG-20260315-0017
+03-16 10:49:15.693  2079  2079 D LiveVerify: Date: 15/03/2026 08:23
+03-16 10:49:15.693  2079  2079 D LiveVerify: Flat White  £3.40
+03-16 10:49:15.693  2079  2079 D LiveVerify: Almond Croissant  £3.25
+03-16 10:49:15.693  2079  2079 D LiveVerify: SUBTOTAL:  £6.65
+03-16 10:49:15.693  2079  2079 D LiveVerify: VAT @ 20%:  £1.11
+03-16 10:49:15.693  2079  2079 D LiveVerify: TOTAL:  £6.65
+03-16 10:49:15.693  2079  2079 D LiveVerify: Visa contactless  ****3094
+03-16 10:49:15.693  2079  2079 D LiveVerify: Auth: 718204
+03-16 10:49:15.693  2079  2079 D LiveVerify: 
+03-16 10:49:15.693  2079  2079 D LiveVerify: vfy:r.the -daily-grind.co.uk
+03-16 10:49:15.693  2079  2079 D LiveVerify: 
+03-16 10:49:15.693  2079  2079 D LiveVerify: VAT No: GB 391 4820 17
+03-16 10:49:15.693  2079  2079 D LiveVerify: Thank you!
+03-16 10:49:15.694  2079  2079 D LiveVerify: OCR Text:
+03-16 10:49:15.694  2079  2079 D LiveVerify: THE DAILY GRIND
+03-16 10:49:15.694  2079  2079 D LiveVerify: Henley - on -Thames
+03-16 10:49:15.694  2079  2079 D LiveVerify: Tel: 01491 577 200
+03-16 10:49:15.694  2079  2079 D LiveVerify: 
+03-16 10:49:15.694  2079  2079 D LiveVerify: 8 Market Square
+03-16 10:49:15.694  2079  2079 D LiveVerify: Henley -on-Thames RG9 2AA
+03-16 10:49:15.694  2079  2079 D LiveVerify: Receipt: DG-20260315-0017
+03-16 10:49:15.694  2079  2079 D LiveVerify: Date: 15/03/2026 08:23
+03-16 10:49:15.694  2079  2079 D LiveVerify: Flat White  £3.40
+03-16 10:49:15.694  2079  2079 D LiveVerify: Almond Croissant  £3.25
+03-16 10:49:15.694  2079  2079 D LiveVerify: SUBTOTAL:  £6.65
+03-16 10:49:15.694  2079  2079 D LiveVerify: VAT @ 20%:  £1.11
+03-16 10:49:15.694  2079  2079 D LiveVerify: TOTAL:  £6.65
+03-16 10:49:15.694  2079  2079 D LiveVerify: Visa contactless  ****3094
+03-16 10:49:15.694  2079  2079 D LiveVerify: Auth: 718204
+03-16 10:49:15.694  2079  2079 D LiveVerify: 
+03-16 10:49:15.694  2079  2079 D LiveVerify: vfy:r.the -daily-grind.co.uk
+03-16 10:49:15.694  2079  2079 D LiveVerify: 
+03-16 10:49:15.694  2079  2079 D LiveVerify: VAT No: GB 391 4820 17
+03-16 10:49:15.694  2079  2079 D LiveVerify: Thank you!
+03-16 10:49:15.702  2079  2079 D LiveVerify: Found URL: vfy:r.the-daily-grind.co.uk at line 16
+03-16 10:49:15.705  2079  2079 D ExtractCert: urlLineIndex=16, totalLines=20
+03-16 10:49:15.705  2079  2079 D ExtractCert:   [0] "THE DAILY GRIND"
+03-16 10:49:15.705  2079  2079 D ExtractCert:   [1] "Henley - on -Thames"
+03-16 10:49:15.705  2079  2079 D ExtractCert:   [2] "Tel: 01491 577 200"
+03-16 10:49:15.705  2079  2079 D ExtractCert:   [3] "" <-- BLANK
+03-16 10:49:15.705  2079  2079 D ExtractCert:   [4] "8 Market Square"
+03-16 10:49:15.705  2079  2079 D ExtractCert:   [5] "Henley -on-Thames RG9 2AA"
+03-16 10:49:15.705  2079  2079 D ExtractCert:   [6] "Receipt: DG-20260315-0017"
+03-16 10:49:15.705  2079  2079 D ExtractCert:   [7] "Date: 15/03/2026 08:23"
+03-16 10:49:15.705  2079  2079 D ExtractCert:   [8] "Flat White  £3.40"
+03-16 10:49:15.705  2079  2079 D ExtractCert:   [9] "Almond Croissant  £3.25"
+03-16 10:49:15.705  2079  2079 D ExtractCert:   [10] "SUBTOTAL:  £6.65"
+03-16 10:49:15.705  2079  2079 D ExtractCert:   [11] "VAT @ 20%:  £1.11"
+03-16 10:49:15.705  2079  2079 D ExtractCert:   [12] "TOTAL:  £6.65"
+03-16 10:49:15.705  2079  2079 D ExtractCert:   [13] "Visa contactless  ****3094"
+03-16 10:49:15.705  2079  2079 D ExtractCert:   [14] "Auth: 718204"
+03-16 10:49:15.705  2079  2079 D ExtractCert:   [15] "" <-- BLANK
+03-16 10:49:15.705  2079  2079 D ExtractCert:   [16] "vfy:r.the -daily-grind.co.uk" <-- URL
+03-16 10:49:15.705  2079  2079 D ExtractCert:   [17] "" <-- BLANK
+03-16 10:49:15.705  2079  2079 D ExtractCert:   [18] "VAT No: GB 391 4820 17"
+03-16 10:49:15.705  2079  2079 D ExtractCert:   [19] "Thank you!"
+03-16 10:49:15.705  2079  2079 D ExtractCert: Candidate 0: startIndex=4 (11 lines)
+03-16 10:49:15.705  2079  2079 D ExtractCert: Candidate 1: startIndex=0 (15 lines)
+03-16 10:49:15.713  2079  2079 D LiveVerify: Initial cert text (candidate 0):
+03-16 10:49:15.713  2079  2079 D LiveVerify: 8 Market Square
+03-16 10:49:15.713  2079  2079 D LiveVerify: Henley -on-Thames RG9 2AA
+03-16 10:49:15.713  2079  2079 D LiveVerify: Receipt: DG-20260315-0017
+03-16 10:49:15.713  2079  2079 D LiveVerify: Date: 15/03/2026 08:23
+03-16 10:49:15.713  2079  2079 D LiveVerify: Flat White  £3.40
+03-16 10:49:15.713  2079  2079 D LiveVerify: Almond Croissant  £3.25
+03-16 10:49:15.713  2079  2079 D LiveVerify: SUBTOTAL:  £6.65
+03-16 10:49:15.713  2079  2079 D LiveVerify: VAT @ 20%:  £1.11
+03-16 10:49:15.713  2079  2079 D LiveVerify: TOTAL:  £6.65
+03-16 10:49:15.713  2079  2079 D LiveVerify: Visa contactless  ****3094
+03-16 10:49:15.713  2079  2079 D LiveVerify: Auth: 718204
+03-16 10:49:15.719  2079  2079 D LiveVerify: Initial hash: f1fa4279b9bad8caabed4bbd77660ce9b143198aa673f690c6d43aae9d82ea8b
+03-16 10:49:16.836  2079  2079 D LiveVerify: Trying candidate 0/2: hash=f1fa4279b9bad8ca... (11 lines)
+03-16 10:49:17.029  2079  2079 D LiveVerify: Trying candidate 1/2: hash=52c074e7b924a59b... (15 lines)
+03-16 10:49:17.553  2079  2079 D LiveVerify: No candidate matched, showing all 2 attempts
+03-16 10:49:18.251  2079  2079 D LiveVerify: Authorization: checked=true, confirmed=false, authorizer=hmrc.gov.uk
+03-16 10:49:18.276  2079  2079 D LiveVerify: === DIAGNOSTIC INFO ===
+03-16 10:49:18.282  2079  2079 D LiveVerify: Raw OCR text with return symbols:
+03-16 10:49:18.282  2079  2079 D LiveVerify: THE DAILY GRIND⏎
+03-16 10:49:18.282  2079  2079 D LiveVerify: Henley - on -Thames⏎
+03-16 10:49:18.282  2079  2079 D LiveVerify: Tel: 01491 577 200⏎
+03-16 10:49:18.282  2079  2079 D LiveVerify: ⏎
+03-16 10:49:18.282  2079  2079 D LiveVerify: 8 Market Square⏎
+03-16 10:49:18.282  2079  2079 D LiveVerify: Henley -on-Thames RG9 2AA⏎
+03-16 10:49:18.282  2079  2079 D LiveVerify: Receipt: DG-20260315-0017⏎
+03-16 10:49:18.282  2079  2079 D LiveVerify: Date: 15/03/2026 08:23⏎
+03-16 10:49:18.282  2079  2079 D LiveVerify: Flat White  £3.40⏎
+03-16 10:49:18.282  2079  2079 D LiveVerify: Almond Croissant  £3.25⏎
+03-16 10:49:18.282  2079  2079 D LiveVerify: SUBTOTAL:  £6.65⏎
+03-16 10:49:18.282  2079  2079 D LiveVerify: VAT @ 20%:  £1.11⏎
+03-16 10:49:18.282  2079  2079 D LiveVerify: TOTAL:  £6.65⏎
+03-16 10:49:18.282  2079  2079 D LiveVerify: Visa contactless  ****3094⏎
+03-16 10:49:18.282  2079  2079 D LiveVerify: Auth: 718204⏎
+03-16 10:49:18.282  2079  2079 D LiveVerify: ⏎
+03-16 10:49:18.282  2079  2079 D LiveVerify: vfy:r.the -daily-grind.co.uk⏎
+03-16 10:49:18.282  2079  2079 D LiveVerify: ⏎
+03-16 10:49:18.282  2079  2079 D LiveVerify: VAT No: GB 391 4820 17⏎
+03-16 10:49:18.282  2079  2079 D LiveVerify: Thank you!⏎
+03-16 10:49:18.284  2079  2079 D LiveVerify: Normalized text:
+03-16 10:49:18.284  2079  2079 D LiveVerify: 8 Market Square
+03-16 10:49:18.284  2079  2079 D LiveVerify: Henley -on-Thames RG9 2AA
+03-16 10:49:18.284  2079  2079 D LiveVerify: Receipt: DG-20260315-0017
+03-16 10:49:18.284  2079  2079 D LiveVerify: Date: 15/03/2026 08:23
+03-16 10:49:18.284  2079  2079 D LiveVerify: Flat White £3.40
+03-16 10:49:18.284  2079  2079 D LiveVerify: Almond Croissant £3.25
+03-16 10:49:18.284  2079  2079 D LiveVerify: SUBTOTAL: £6.65
+03-16 10:49:18.284  2079  2079 D LiveVerify: VAT @ 20%: £1.11
+03-16 10:49:18.284  2079  2079 D LiveVerify: TOTAL: £6.65
+03-16 10:49:18.284  2079  2079 D LiveVerify: Visa contactless ****3094
+03-16 10:49:18.284  2079  2079 D LiveVerify: Auth: 718204
+03-16 10:49:18.291  2079  2079 D LiveVerify: Hash: f1fa4279b9bad8caabed4bbd77660ce9b143198aa673f690c6d43aae9d82ea8b
+03-16 10:49:18.291  2079  2079 D LiveVerify: Diagnostic candidates: 2
+03-16 10:49:18.291  2079  2079 D LiveVerify: =======================

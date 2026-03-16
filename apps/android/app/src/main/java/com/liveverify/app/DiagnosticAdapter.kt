@@ -28,9 +28,15 @@ import androidx.recyclerview.widget.RecyclerView
  * ViewPager2 adapter for diagnostic tabs showing:
  * - Tab 0: Captured image
  * - Tab 1: Extracted (raw OCR) text with return symbols
- * - Tab 2: Normalized text + hash
+ * - Tab 2+: Normalized text + hash for each candidate attempt
+ *
+ * On successful verification: single "Normalized" tab (the winning candidate).
+ * On failure: one tab per failed candidate ("Normalized-1", "Normalized-2", etc.)
+ * so the user can see what each attempt looked like.
  */
 class DiagnosticAdapter : RecyclerView.Adapter<DiagnosticAdapter.DiagnosticViewHolder>() {
+
+    data class NormalizedCandidate(val text: String, val hash: String)
 
     var capturedImage: Bitmap? = null
         set(value) {
@@ -44,21 +50,28 @@ class DiagnosticAdapter : RecyclerView.Adapter<DiagnosticAdapter.DiagnosticViewH
             notifyItemChanged(1)
         }
 
-    var normalizedText: String = ""
-        set(value) {
-            field = value
-            notifyItemChanged(2)
-        }
+    /** The candidates to show as normalized tabs. On success, just one entry. */
+    private var normalizedCandidates: List<NormalizedCandidate> = emptyList()
 
-    var computedHash: String = ""
-        set(value) {
-            field = value
-            notifyItemChanged(2)
-        }
+    fun setNormalizedCandidates(candidates: List<NormalizedCandidate>) {
+        val oldCount = itemCount
+        normalizedCandidates = candidates
+        val newCount = itemCount
+        // Refresh all items from position 2 onward
+        if (oldCount > 2) notifyItemRangeRemoved(2, oldCount - 2)
+        if (newCount > 2) notifyItemRangeInserted(2, newCount - 2)
+    }
 
-    override fun getItemCount(): Int = 3
+    override fun getItemCount(): Int = 2 + normalizedCandidates.size
 
-    override fun getItemViewType(position: Int): Int = position
+    fun getTabTitle(position: Int): String = when {
+        position == 0 -> "Captured"
+        position == 1 -> "Extracted"
+        normalizedCandidates.size == 1 -> "Normalized"
+        else -> "Normalized-${position - 1}"
+    }
+
+    override fun getItemViewType(position: Int): Int = if (position == 0) 0 else 1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DiagnosticViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -87,19 +100,23 @@ class DiagnosticAdapter : RecyclerView.Adapter<DiagnosticAdapter.DiagnosticViewH
                 }
             }
             is TextViewHolder -> {
-                when (position) {
-                    1 -> {
+                when {
+                    position == 1 -> {
                         holder.textView.text = DiagnosticHelper.withReturnSymbols(extractedText)
                     }
-                    2 -> {
-                        val text = buildString {
-                            append(normalizedText)
-                            if (computedHash.isNotEmpty()) {
-                                append("\n\n---\nHash: ")
-                                append(computedHash)
+                    position >= 2 -> {
+                        val candidateIndex = position - 2
+                        if (candidateIndex < normalizedCandidates.size) {
+                            val candidate = normalizedCandidates[candidateIndex]
+                            val text = buildString {
+                                append(candidate.text)
+                                if (candidate.hash.isNotEmpty()) {
+                                    append("\n\n---\nHash: ")
+                                    append(candidate.hash)
+                                }
                             }
+                            holder.textView.text = text
                         }
-                        holder.textView.text = text
                     }
                 }
             }
