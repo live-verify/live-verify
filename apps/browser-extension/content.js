@@ -85,7 +85,8 @@
             position: absolute;
             bottom: -2px;
             left: -2px;
-            right: -2px;
+            min-width: calc(100% + 4px);
+            width: max-content;
             transform: translateY(100%);
             background: rgba(34, 197, 94, 0.9);
             color: white;

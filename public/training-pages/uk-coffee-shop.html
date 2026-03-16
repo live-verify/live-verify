@@ -3,133 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coffee Shop Receipt - Costa Coffee</title>
+    <title>Receipt - The Daily Grind</title>
     <style>
         body {
-            font-family: 'Courier New', Courier, monospace;
-            background: #f5f5f5;
-            padding: 40px 20px;
+            margin: 0;
+            padding: 0;
+            background: #e8e8e8;
             display: flex;
             justify-content: center;
             align-items: center;
+            min-height: 100vh;
+            font-family: 'Courier New', monospace;
         }
-        .receipt-container {
-            width: 640px;
-            background: white;
-            padding: 40px;
-            
+        /* White border simulates a receipt photographed on a flat surface */
+        .photo-frame {
+            background: #fff;
+            padding: 80px 100px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         }
-        .bordered-content {
-            border: 3px solid black;
-            padding: 30px;
+        .receipt {
+            width: 200px;
+            background: #fffef8;
+            padding: 14px 12px;
+            border: 1px solid #ddd;
+            overflow: visible;
         }
         .header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 8px;
+            border-bottom: 1px dashed #999;
+            padding-bottom: 8px;
         }
         .header h1 {
-            font-size: 38px;
-            font-weight: bold;
-            margin: 0;
+            font-size: 1em;
+            margin: 0 0 2px;
+            letter-spacing: 1px;
         }
         .header p {
-            margin: 2px 0;
-            font-size: 24px;
+            margin: 1px 0;
+            font-size: 0.6em;
+            color: #444;
         }
-        .info {
-            font-size: 24px;
-            margin-bottom: 15px;
+        .receipt-body {
+            white-space: pre;
+            font-size: 9px;
+            line-height: 16px;
         }
-        .items {
-            margin-top: 15px;
-            font-size: 24px;
+        .marker {
+            color: rgba(0,0,0,0.05);
+            font-size: 10px;
         }
-        .item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-        }
-        .total {
-            margin-top: 15px;
-            font-weight: bold;
-            font-size: 28px;
-            border-top: 1px solid black;
-            padding-top: 10px;
-            display: flex;
-            justify-content: space-between;
-        }
-        .tax-info {
-            font-size: 38px;
-            margin-top: 10px;
-        }
-        .verify-url {
-            margin-top: 15px;
+        .footer {
             text-align: center;
-            font-weight: bold;
-            white-space: nowrap;
-        }
-        .footer-info {
-            margin-top: 20px;
-            font-size: 38px;
-            text-align: center;
+            margin-top: 8px;
+            border-top: 1px dashed #999;
+            padding-top: 8px;
+            font-size: 0.55em;
+            color: #666;
         }
     </style>
 </head>
 <body>
-    <div class="receipt-container">
-        <div class="header">
-            <h1>COSTA COFFEE</h1>
-            <p>12 High Street</p>
-            <p>Cambridge CB2 3PQ</p>
-        </div>
-
-        <div class="bordered-content">
-            <div class="info">
-                <p>Receipt: 00284719</p>
-                <p>Date: 18/01/2025 09:42</p>
+    <div class="photo-frame">
+        <div class="receipt">
+            <div class="header">
+                <h1>THE DAILY GRIND</h1>
+                <p>Henley-on-Thames</p>
+                <p>Tel: 01491 577 200</p>
             </div>
+            <div class="receipt-body"><span class="marker" verifiable-text="start" data-for="receipt">[</span><span>8 Market Square
+Henley-on-Thames RG9 2AA
+Receipt: DG-20260315-0017
+Date: 15/03/2026 08:23
+Flat White                  £3.40
+Almond Croissant            £3.25
+                           ------
+SUBTOTAL:                   £6.65
+VAT @ 20%:                  £1.11
+TOTAL:                      £6.65
+Visa contactless ****3094
+Auth: 718204</span><span class="marker" verifiable-text="end" data-for="receipt">]</span>
 
-            <div class="items">
-                <div class="item">
-                    <span>Flat White (Large)</span>
-                    <span>£3.65</span>
-                </div>
-                <div class="item">
-                    <span>Cappuccino (Regular)</span>
-                    <span>£3.25</span>
-                </div>
-                <div class="item">
-                    <span>Chocolate Twist</span>
-                    <span>£1.55</span>
-                </div>
+<span data-verify-line="receipt" style="display:block">vfy:r.the-daily-grind.co.uk</span></div>
+            <div class="footer">
+                VAT No: GB 391 4820 17<br>
+                Thank you!
             </div>
-
-            <div class="total">
-                <span>TOTAL:</span>
-                <span>£8.45</span>
-            </div>
-
-            <div class="tax-info">
-                <p>VAT @ 20%: £1.41</p>
-            </div>
-
-            <div class="verify-url">
-                vfy:r.costa.co.uk
-            </div>
-        </div>
-
-        <div class="footer-info">
-            <p>Served by: Emma</p>
-            <p>VAT No: GB 232 4156 42</p>
-            <p>Thank you for your visit!</p>
         </div>
     </div>
-
-    <!-- Text Selection Verification -->
-    <script src='https://unpkg.com/psl@1.15.0/dist/psl.umd.cjs'></script>
-    <script src="../normalize.js"></script>
-    <script src="../app-logic.js"></script>
-    <script src="../domain-authority.js"></script>
-    <script src="../text-selection-verify.js"></script>
+    <!-- Test locators -->
+    <div class="shop-name" style="display:none">THE DAILY GRIND</div>
+    <div class="total" style="display:none">£6.65</div>
 </body>
 </html>

@@ -53,6 +53,7 @@ services:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - ./meta:/srv/meta:ro
       - ./fixtures:/srv/fixtures:ro
+      - ../public/training-pages:/srv/training-pages:ro
       - caddy_data:/data
       - caddy_config:/config
     ports:
@@ -78,6 +79,7 @@ services:
           - macleod-fraser.co.uk
           - lawscot.org.uk
           - gov.scot
+          - r.the-daily-grind.co.uk
           - hr.meridian-consulting.com
 
 

@@ -151,6 +151,21 @@ process.stdout.write(hash);
 seed "$MF_FIRM_HASH" '{"status":"verified"}' "Firm registration (Macleod Fraser)"
 
 echo ""
+echo "=== Seeding: Coffee shop receipt (HMRC VAT chain) ==="
+DG_META_HASH=$(meta_hash "${META_DIR}/r.the-daily-grind.co.uk/verification-meta.json")
+seed "$DG_META_HASH" '{"status":"verified"}' "Daily Grind meta"
+# HMRC and Gov.uk metas already seeded above (Red Lion)
+DG_CLAIM_HASH=$(node -e "
+const { normalizeText } = require('./public/normalize.js');
+const crypto = require('crypto');
+const text = '8 Market Square\nHenley-on-Thames RG9 2AA\nReceipt: DG-20260315-0017\nDate: 15/03/2026 08:23\nFlat White                  £3.40\nAlmond Croissant            £3.25\n                           ------\nSUBTOTAL:                   £6.65\nVAT @ 20%:                  £1.11\nTOTAL:                      £6.65\nVisa contactless ****3094\nAuth: 718204';
+const normalized = normalizeText(text);
+const hash = crypto.createHash('sha256').update(normalized).digest('hex');
+process.stdout.write(hash);
+")
+seed "$DG_CLAIM_HASH" '{"status":"verified","message":"Send to Expensify?"}' "Daily Grind receipt claim"
+
+echo ""
 echo "=== Seeding: Sanctions screening (FCA chain) ==="
 HB_META_HASH=$(meta_hash "${META_DIR}/compliance.hartwell-beck.co.uk/sanctions/verification-meta.json")
 seed "$HB_META_HASH" '{"status":"verified"}' "Hartwell-Beck meta"
@@ -192,6 +207,7 @@ SPECS=(
     simulated-integration-tests/chrome-extension/james-bank-statement.spec.ts
     simulated-integration-tests/chrome-extension/ofsi-licence.spec.ts
     simulated-integration-tests/chrome-extension/sales-receipt.spec.ts
+    simulated-integration-tests/chrome-extension/coffee-shop-receipt.spec.ts
     simulated-integration-tests/chrome-extension/scottish-solicitor.spec.ts
     simulated-integration-tests/chrome-extension/sanctions-screening.spec.ts
     simulated-integration-tests/chrome-extension/revoked-reference.spec.ts
