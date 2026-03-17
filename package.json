@@ -13,6 +13,7 @@
     "build": "webpack",
     "serve": "cd public && python3 -m http.server 8000",
     "sync-shared": "node scripts/sync-shared.js",
+    "transpile-normalize": "node scripts/transpile-normalize.js",
     "lint": "eslint public/**/*.js __tests__/**/*.js",
     "lint:fix": "eslint --fix public/**/*.js __tests__/**/*.js"
   },
@@ -31,6 +32,8 @@
     "psl": "^1.15.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.2",
     "@eslint/js": "^9.38.0",
     "@playwright/test": "^1.49.0",
     "browserify": "^17.0.1",
