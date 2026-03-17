@@ -195,3 +195,15 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | **Cost** | **Low.** Standard web infra. | **Very High.** Lenders pay $50-$100 per check. | **High.** Costs in human time. |
 
 **Why Live Verify wins here:** Reach. Small and medium businesses (SMBs) aren't on The Work Number. They rely on "Persistent Paper" reference letters. Live Verify allows a small 5-person law firm or a local bakery to provide the same level of cryptographic trust as a Fortune 500 company.
+
+## Mandate Potential
+
+Employment references and VOE letters are strong candidates for a **government-mandated free verification** obligation. Employers already hold employment data in payroll and HRIS systems; a mandate to offer hash-based verification endpoints would impose minimal marginal cost on existing infrastructure.
+
+**Why mandate makes sense here:**
+- Employers are already required to report payroll data to tax authorities (HMRC/PAYE in the UK, IRS/W-2 in the US). Mandating a verification endpoint is a small incremental obligation on top of existing reporting duties.
+- The current alternative — The Work Number (Equifax) — charges $50-100 per lookup and only covers large employers. A mandate would democratise employment verification, making it free and universal rather than a paid service gatekept by a data aggregator.
+- Employment verification delays are a systemic drag on mortgage approvals, rental applications, and hiring pipelines. Mandated verification endpoints would collapse multi-day manual processes into seconds.
+- Employees currently depend on their former employer's goodwill to get a timely reference. A mandate gives the employee a **right** to a verifiable confirmation, with a time-limited salt they control.
+
+**Implementation path:** Tax authorities (HMRC, IRS) could require that any employer filing payroll returns must also operate a Live Verify endpoint (or delegate to their payroll provider — Workday, ADP, Sage, Xero — who would offer it as a standard feature). Small employers using basic payroll software would get verification hosting bundled in, just as they currently get RTI/PAYE filing bundled in.
