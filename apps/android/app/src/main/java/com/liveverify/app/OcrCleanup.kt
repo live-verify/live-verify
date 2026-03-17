@@ -42,6 +42,10 @@ object OcrCleanup {
             // Remove trailing border artifacts
             cleaned = cleaned.replace(Regex("\\s*[|~`^*#+=/\\\\\\[\\]{}]+$"), "")
 
+            // Remove trailing ⌝ registration mark (U+231D)
+            // Temporary: until Apple/Google OCR engines consume this mark natively
+            cleaned = cleaned.replace(Regex("\\s*\u231D$"), "")
+
             // Remove trailing single lowercase letter (OCR artifact)
             // Preserves uppercase like "Appendix A", "Grade A" which are likely meaningful
             cleaned = cleaned.replace(Regex("\\s+[a-z]$"), "")

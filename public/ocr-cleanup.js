@@ -38,6 +38,11 @@ function cleanOcrArtifacts(text) {
         // Examples: "text |", "text ~", "text ||", "text | |"
         line = line.replace(/\s*[|~`^*#+=/\\_\[\]{}]+$/, '');
 
+        // Remove trailing ⌝ registration mark (U+231D) from first line
+        // Temporary: until Apple/Google OCR engines consume this mark natively
+        // and omit it from text output, we strip it here.
+        line = line.replace(/\s*\u231D$/, '');
+
         // Remove trailing single lowercase letter (OCR artifact)
         // Examples: "John Doe a", "Company Name b" -> "John Doe", "Company Name"
         // Preserves uppercase like "Appendix A", "Grade A" which are likely meaningful

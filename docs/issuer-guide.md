@@ -13,6 +13,47 @@ This guide is for organizations that want to issue verifiable documents — degr
 
 Infrastructure cost: ~$5 per million verifications (Cloudflare Workers example).
 
+## HTML Markup for Web Documents
+
+If your verifiable documents are web pages (or HTML emails), mark verifiable regions so the browser extension can auto-detect them. Two styles are supported:
+
+**Style 1 — Start/end spans** (when the verifiable region crosses element boundaries):
+```html
+<span verifiable-text="start" data-for="cert">[</span>
+Acme Corporation
+John D. Smith
+Senior Software Engineer
+<span data-verify-line="cert">verify:acme-corp.com/staff</span>
+<span verifiable-text="end" data-for="cert">]</span>
+```
+
+**Style 2 — Whole element** (when the verifiable region is a single container):
+```html
+<div verifiable-text-element="true">
+  8 Market Square
+  Flat White                  £3.40
+  Almond Croissant            £3.25
+  SUBTOTAL:                   £6.65
+  <span data-verify-line="receipt">vfy:r.the-daily-grind.co.uk</span>
+</div>
+```
+
+Style 2 is simpler — one attribute on one element instead of paired markers. The browser extension detects it without any additional CSS or visual marks.
+
+For documents that will also be **printed and verified by camera**, you can optionally add CSS to place a `⌝` (U+231D) registration mark at the top-right corner. Paired with the `vfy:` line at bottom-left, this defines a bounding rectangle for camera OCR engines to treat as a single text block. The `⌝` is not required for clip-mode (browser extension) verification. CSS:
+
+```css
+[verifiable-text-element="true"] { position: relative; }
+[verifiable-text-element="true"]::after {
+    content: "\231D";
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 12px;
+    line-height: 1;
+}
+```
+
 ## verification-meta.json
 
 The `verification-meta.json` file can provide document-specific normalization rules, custom response types, and OCR optimization:

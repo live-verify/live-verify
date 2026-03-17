@@ -138,6 +138,28 @@ These files use a simpler pattern with `<br>` tags that should be more OCR-frien
 | `<br>` line breaks only | 25 | LOW - Generally OCR-friendly |
 | Total files with verifiable-text | 374 | - |
 
+## HTML Markup Styles
+
+Two styles are supported for marking verifiable regions:
+
+**Style 1 — Start/end spans** (used in most use cases):
+```html
+<span verifiable-text="start" data-for="id">[</span>
+Claim text here
+<span data-verify-line="id">verify:domain.com/path</span>
+<span verifiable-text="end" data-for="id">]</span>
+```
+
+**Style 2 — Whole element** (simpler, for self-contained blocks):
+```html
+<div verifiable-text-element="true">
+  Claim text here
+  <span data-verify-line="id">verify:domain.com/path</span>
+</div>
+```
+
+Style 2 is simpler — one attribute on one element instead of paired markers. It also supports auto-placement of a `⌝` (U+231D) registration mark at the top-right corner via CSS, paired with the `vfy:` line at bottom-left, to define a bounding rectangle for camera OCR engines (see `uk-coffee-shop2.html` for an example). Style 1 remains necessary when the verifiable region crosses element boundaries.
+
 ## Recommendations
 
 ### Option 1: Simplify Verifiable Regions

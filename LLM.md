@@ -25,7 +25,7 @@ These capabilities are designed for building into camera apps, browsers (mobile/
 ### Chrome Extension (Browser)
 `apps/browser-extension/` — Manifest V3 extension for text selection verification. Works in Chrome, Edge, Firefox. Key files:
 - `background.js` — Service worker handling verification, context menu, notifications
-- `content.js` — Page scanning for `verifiable-text` HTML markers, auto-verify regions
+- `content.js` — Page scanning for `verifiable-text` HTML markers (two styles: start/end spans and `verifiable-text-element` whole-element), auto-verify regions
 - `popup/` — Verification history UI with "Show me" feature to locate claims on page
 - `settings/` — Intrusiveness levels, auto-scan options
 - `shared/` — **Auto-generated** by `scripts/sync-shared.js` from canonical `public/` sources. Do not edit directly.
@@ -51,7 +51,7 @@ If you change normalization logic, update ALL implementations. The web app versi
 - Right-click "Verify this claim" on selected text
 - Keyboard shortcut Cmd/Ctrl+Shift+V
 - Session-only history (privacy: cleared on browser close)
-- Auto-detect `verifiable-text` HTML markers on pages
+- Auto-detect `verifiable-text` HTML markers on pages (both start/end span pairs and `verifiable-text-element="true"` whole-element style)
 - "Show me" button scrolls to and highlights verified claims
 
 ### Additional Modes

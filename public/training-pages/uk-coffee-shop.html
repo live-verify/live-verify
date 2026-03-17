@@ -60,6 +60,20 @@
             font-size: 0.55em;
             color: #666;
         }
+        /* Auto-place ⌝ registration mark at top-right of verifiable regions.
+           Paired with vfy: at bottom-left, this defines a bounding rectangle
+           for camera OCR engines to treat as a single text block. */
+        [verifiable-text-element="true"] {
+            position: relative;
+        }
+        [verifiable-text-element="true"]::after {
+            content: "\231D"; /* ⌝ U+231D UPPER RIGHT CORNER */
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 12px;
+            line-height: 1;
+        }
     </style>
 </head>
 <body>
@@ -70,19 +84,20 @@
                 <p>Henley-on-Thames</p>
                 <p>Tel: 01491 577 200</p>
             </div>
-            <div class="receipt-body"><span verifiable-text="start" data-for="receipt"></span><span>8 Market Square
+            <div verifiable-text-element="true">
+              <div class="receipt-body"><span>8 Market Square
 Henley-on-Thames RG9 2AA
 Receipt: DG-20260315-0017
 Date: 15/03/2026 08:23
-Flat White                  £3.40
-Almond Croissant            £3.25
-</span><hr style="border:none;border-top:1px dashed #999;margin:2px 0"><span>SUBTOTAL:                   £6.65
-VAT @ 20%:                  £1.11
-TOTAL:                      £6.65
+Flat White                      £3.40
+Almond Croissant                £3.25
+</span><hr style="border:none;border-top:1px dashed #999;margin:2px 0"><span>SUBTOTAL:                       £6.65
+VAT @ 20%:                      £1.11
+TOTAL:                          £6.65
 Visa contactless ****3094
-Auth: 718204</span><span verifiable-text="end" data-for="receipt"></span>
-
-<span data-verify-line="receipt" style="display:block">vfy:r.the-daily-grind.co.uk</span></div>
+Auth: 718204</span></span>
+              <span data-verify-line="receipt" style="display:block">vfy:r.the-daily-grind.co.uk</span></div>
+            </div>
             <div class="footer">
                 VAT No: GB 391 4820 17<br>
                 Thank you!

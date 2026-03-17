@@ -93,3 +93,41 @@ Line three`;
         expect(result).toBe(expected);
     });
 });
+
+describe('OCR Cleanup - Registration mark ⌝ (U+231D)', () => {
+    it('should strip trailing ⌝ from first line', () => {
+        const input = `8 Market Square \u231D
+Flat White £3.40`;
+
+        const result = cleanOcrArtifacts(input);
+        expect(result).toBe(`8 Market Square
+Flat White £3.40`);
+    });
+
+    it('should strip ⌝ with no preceding space', () => {
+        const input = `8 Market Square\u231D
+Flat White £3.40`;
+
+        const result = cleanOcrArtifacts(input);
+        expect(result).toBe(`8 Market Square
+Flat White £3.40`);
+    });
+
+    it('should strip ⌝ from any line (not just first)', () => {
+        const input = `Line one
+Line two \u231D
+Line three`;
+
+        const result = cleanOcrArtifacts(input);
+        expect(result).toBe(`Line one
+Line two
+Line three`);
+    });
+
+    it('should not strip ⌝ from middle of text', () => {
+        const input = `Text \u231D more text`;
+
+        const result = cleanOcrArtifacts(input);
+        expect(result).toBe(`Text \u231D more text`);
+    });
+});

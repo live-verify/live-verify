@@ -42,6 +42,12 @@ enum OcrCleanup {
                 cleaned.removeSubrange(match)
             }
 
+            // Remove trailing ⌝ registration mark (U+231D)
+            // Temporary: until Apple/Google OCR engines consume this mark natively
+            if let match = cleaned.range(of: "\\s*\u{231D}$", options: .regularExpression) {
+                cleaned.removeSubrange(match)
+            }
+
             // Remove trailing single lowercase letter (OCR artifact)
             // Preserves uppercase like "Appendix A", "Grade A" which are likely meaningful
             if let match = cleaned.range(of: "\\s+[a-z]$", options: .regularExpression) {

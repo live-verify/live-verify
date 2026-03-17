@@ -17,11 +17,19 @@
 /**
  * Content script for detecting and verifying marked regions on pages
  *
- * Looks for HTML markers:
+ * Looks for HTML markers (two styles):
+ *
+ * Style 1 — Start/end spans:
  *   <span verifiable-text="start" data-for="id">[</span>
  *   ...content...
  *   <span data-verify-line="id">verify:domain.com/path</span>
  *   <span verifiable-text="end" data-for="id">]</span>
+ *
+ * Style 2 — Whole element:
+ *   <div verifiable-text-element="true">
+ *     ...content...
+ *     <span data-verify-line="id">verify:domain.com/path</span>
+ *   </div>
  */
 
 (function() {
@@ -263,6 +271,67 @@
                 endEl,
                 verifyLineEl,
                 container: commonParent,
+                status: 'unverified'
+            });
+        });
+
+        // Style 2: verifiable-text-element="true" on a single container element
+        const elementMarkers = document.querySelectorAll('[verifiable-text-element="true"]');
+
+        elementMarkers.forEach(el => {
+            // Find the verify line inside this element
+            const verifyLineEl = el.querySelector('[data-verify-line]');
+            if (!verifyLineEl) return;
+
+            const forId = verifyLineEl.getAttribute('data-verify-line');
+
+            // Extract text from the element, excluding the verify line itself
+            const tempDiv = el.cloneNode(true);
+
+            // Remove the verify line from the clone so it's not included in the text
+            const clonedVerifyLine = tempDiv.querySelector('[data-verify-line]');
+            if (clonedVerifyLine) clonedVerifyLine.remove();
+
+            // Temporarily insert to get valid bounding rects
+            tempDiv.style.visibility = 'hidden';
+            tempDiv.style.position = 'absolute';
+            tempDiv.style.left = '0';
+            tempDiv.style.top = '0';
+            tempDiv.style.pointerEvents = 'none';
+            document.body.appendChild(tempDiv);
+
+            const items = getTextNodesWithPositions(tempDiv);
+
+            document.body.removeChild(tempDiv);
+
+            let text = '';
+            let lastLineIndex = -1;
+            for (const item of items) {
+                if (item.type === 'text') {
+                    const currentLineIndex = Math.floor(item.rect.top / 20);
+                    if (currentLineIndex !== lastLineIndex && lastLineIndex !== -1) {
+                        text += '\n';
+                    }
+                    text += item.text;
+                    lastLineIndex = currentLineIndex;
+                } else if (item.type === 'br') {
+                    text += '\n';
+                    lastLineIndex = -1;
+                }
+            }
+
+            text = text.trim();
+
+            const verifyUrl = verifyLineEl.textContent.trim();
+
+            regions.push({
+                id: forId,
+                text,
+                verifyUrl,
+                startEl: el,
+                endEl: el,
+                verifyLineEl,
+                container: el,
                 status: 'unverified'
             });
         });
