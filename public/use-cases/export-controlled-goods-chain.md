@@ -275,3 +275,188 @@ The chain becomes:
 2. The authorising body (ECJU) issues verified attestations for each approval
 3. Any party in the chain can verify any other party's documents directly
 4. Status changes (suspension, revocation) propagate instantly — a revoked OTA shows as revoked for everyone who checks it, regardless of what PDF the seller is still circulating
+
+## Worked Example: 500 GPUs in 50 Ten-Packs
+
+Advanced compute GPUs (NVIDIA A100, H100, and successors) are export-controlled under US EAR (ECCN 3A090, 4A090) and the Wassenaar Arrangement. They are controlled not because they're dangerous to ship — they're standard electronics — but because they enable weapons simulation, cryptanalysis, AI training for military applications, and mass surveillance. They are among the most actively diverted controlled goods in the world.
+
+This example follows a batch of 500 GPUs from a US manufacturer through a UK distributor, split into 50 ten-packs for onward sale across Asia-Pacific. It shows how each split creates a new link in the permission chain, and how the current paper system fails at exactly the scale where diversion is most likely.
+
+### The Setup
+
+**Manufacturer:** NVIDIA (US)
+**UK Distributor:** Apex Compute Distribution Ltd (UK)
+**Original Purchase:** 500× NVIDIA H100 SXM GPUs
+**BIS Licence:** US Department of Commerce, Bureau of Industry and Security
+**ECJU Licence:** UK re-export licence (because Apex is re-exporting US-origin controlled goods from the UK)
+
+Apex holds a UK OIEL (Open Individual Export Licence) covering re-export of US-origin compute accelerators to a list of pre-approved countries — but each onward sale still requires an End-User Undertaking from the buyer and (for certain destinations) an individual Onward Transfer Authorisation.
+
+### The Licence Document
+
+<div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="gpu-licence"></span>RE-EXPORT LICENCE (OPEN INDIVIDUAL)
+UK Export Control Joint Unit (ECJU)
+═══════════════════════════════════════════════════════════════════
+
+Licence Ref:          GBOIE/2026/01293
+Licence Type:         Open Individual Export Licence (OIEL)
+Licensee:             Apex Compute Distribution Ltd (UK)
+
+Controlled Goods:     High-Performance Compute Accelerators
+                      (GPU/TPU, ≥4800 TOPS INT8 or equivalent)
+Control List Entry:   3A090 (US EAR) / UK ML Cat 3
+US Origin Licence:    BIS-2026-EXP-44871 (re-export authorised)
+
+Approved Destinations:  Japan, South Korea, Singapore,
+                        Australia, New Zealand, Taiwan
+Prohibited:           No re-export to Country Groups D:1, D:5
+                      (China, Russia, Iran, North Korea, etc.)
+
+Total Quantity:       500 units (H100 SXM, 80GB HBM3)
+Shipped to Date:      320 of 500
+
+Per-Transfer Requirement:
+  — End-User Undertaking required for each consignment
+  — Sanctions screening within 14 days of shipment
+  — ECJU notification within 5 business days of each transfer
+  — Buyer must confirm: no resale without Apex/ECJU approval
+
+<span data-verify-line="gpu-licence">verify:exportcontrol.gov.uk/licence/v</span> <span verifiable-text="end" data-for="gpu-licence"></span></pre>
+</div>
+
+### Splitting: 50 Ten-Packs, 50 Separate Chains
+
+Apex sells the 500 GPUs as 50 ten-packs to buyers across the approved region. Each ten-pack sale creates its own permission chain:
+
+| Pack # | Buyer | Country | End-Use | OTA Ref | Status |
+|--------|-------|---------|---------|---------|--------|
+| 001 | NTT Data Corp | Japan | Cloud inference cluster | OTA/01293/001 | Shipped |
+| 002 | NTT Data Corp | Japan | Cloud inference cluster | OTA/01293/002 | Shipped |
+| ... | | | | | |
+| 017 | Hyundai AutoEver | South Korea | Autonomous driving R&D | OTA/01293/017 | Shipped |
+| 018 | ST Engineering | Singapore | Defence simulation (additional ECJU review) | OTA/01293/018 | Approved |
+| ... | | | | | |
+| 033 | DataMesh Pty Ltd | Australia | Academic research (CSIRO) | OTA/01293/033 | Approved |
+| ... | | | | | |
+| 042 | Unknown buyer via broker | Singapore | "General compute" | OTA/01293/042 | **REFUSED** |
+| ... | | | | | |
+| 050 | TSMC Research | Taiwan | Chip design simulation | OTA/01293/050 | Under Review |
+
+Each row has its own verified EUU and OTA. Each is independently verifiable against `exportcontrol.gov.uk`.
+
+### The Ten-Pack Transfer Document
+
+<div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="gpu-transfer"></span>ONWARD TRANSFER AUTHORISATION
+UK Export Control Joint Unit (ECJU)
+═══════════════════════════════════════════════════════════════════
+
+Transfer Ref:         OTA/01293/017
+Parent Licence:       GBOIE/2026/01293
+
+Transferor:           Apex Compute Distribution Ltd (UK)
+Transferee:           Hyundai AutoEver Co Ltd (KR)
+Verified End-Use:     Autonomous driving R&D
+                      (Hyundai Motor Group internal use only)
+Facility:             Hyundai AutoEver Pangyo R&D Centre
+                      Seongnam-si, Gyeonggi-do, South Korea
+
+Items:                10× NVIDIA H100 SXM 80GB HBM3
+Control List Entry:   3A090 (US EAR) / UK ML Cat 3
+Serial Range:         H100-SXM-KR-2026-04410 to 04419
+
+Conditions:
+  — No resale, lease, or transfer without ECJU approval
+  — No use in weapons systems or surveillance applications
+  — Annual deployment report to ECJU (location + application)
+  — Physical inspection rights reserved (ECJU / BIS)
+  — US re-export conditions apply (EAR §744.23)
+
+Sanctions Screening:  Completed 08 Mar 2026
+  OFSI: No match    OFAC/SDN: No match
+  EU:   No match    UN:       No match
+  BIS Entity List: No match
+
+EUU Reference:        HAE-EUU-2026-0038 (verified)
+
+Status: APPROVED — Transfer permitted
+
+<span data-verify-line="gpu-transfer">verify:exportcontrol.gov.uk/transfer/v</span> <span verifiable-text="end" data-for="gpu-transfer"></span></pre>
+</div>
+
+### What the Buyer Sees (Verification Response)
+
+Hyundai AutoEver's procurement team receives 10 GPUs with paperwork. Before powering them on, their compliance team verifies the transfer:
+
+**Hash lookup against `exportcontrol.gov.uk`:**
+- **Status:** APPROVED
+- **Issuer:** UK Export Control Joint Unit
+- **Transfer Ref:** OTA/01293/017
+- **Valid Until:** 15 March 2028
+
+This tells Hyundai AutoEver: these GPUs were lawfully exported from the US, lawfully re-exported from the UK, and the transfer to us was specifically reviewed and approved. If a BIS or ECJU inspector visits, Hyundai can prove they performed verification at the point of receipt.
+
+### Where It Goes Wrong: Pack #042
+
+Pack #042 tells the real story. A broker in Singapore approaches Apex wanting 10 GPUs for a client whose end-use is described only as "general compute." The broker won't name the ultimate end-user. Apex, following compliance procedure, submits the OTA application to ECJU anyway. ECJU refuses — the application triggers red flags (unnamed end-user, vague end-use, broker intermediary, Singapore as a known transhipment hub for controlled technology).
+
+**Without Live Verify:**
+The broker could forge an OTA approval — creating a PDF that looks like OTA/01293/042 with status "APPROVED" — and present it to a different distributor, or use it to source equivalent GPUs from a less diligent supplier. The forged OTA references a real parent licence (GBOIE/2026/01293), which makes it look plausible. The downstream buyer, if there is one, has no way to check.
+
+**With Live Verify:**
+Anyone who encounters OTA/01293/042 and checks the hash against `exportcontrol.gov.uk` sees: **REFUSED**. The forgery is caught instantly. The broker cannot circulate a fake approval because the verification endpoint is controlled by ECJU, not by the broker.
+
+### The Resale Cascade
+
+Now consider what happens when Hyundai AutoEver, two years later, decommissions its autonomous driving lab and wants to sell the 10 GPUs to another Korean company — say, Kakao Brain, for LLM training.
+
+**Chain at this point:**
+
+```
+BIS Export Licence (US → UK)                      verify:bis.gov/v
+  └── ECJU OIEL (UK re-export)                    verify:exportcontrol.gov.uk/licence/v
+       └── OTA/01293/017 (UK → Korea, Hyundai)    verify:exportcontrol.gov.uk/transfer/v
+            └── NEW: OTA/01293/017/R01             verify:exportcontrol.gov.uk/transfer/v
+                 (Korea → Korea, Hyundai → Kakao)
+                 └── New EUU from Kakao Brain      verify:kakaobrain.com/compliance/v
+                 └── New sanctions screening       verify:sanctions.ofsi.gov.uk/v
+```
+
+The chain is now four levels deep. Each level is verifiable. Kakao Brain can walk the entire chain to confirm that:
+
+1. The GPUs were lawfully manufactured and exported from the US
+2. They were lawfully re-exported from the UK under a valid OIEL
+3. The transfer to Hyundai AutoEver was specifically approved
+4. The resale from Hyundai to Kakao was specifically approved
+5. Sanctions screening is current at every level
+
+If BIS revokes the original US export licence (e.g., due to a policy change tightening controls on the H100), the revocation propagates: the ECJU OIEL status changes, all downstream OTAs show "Parent Licence Revoked," and every holder of these GPUs worldwide knows immediately that their authorisation basis has changed.
+
+### Quantity Accounting
+
+The OIEL tracks quantity across all 50 transfers:
+
+```
+GBOIE/2026/01293 — 500 units authorised
+
+Transferred:   320 (32 approved OTAs × 10 units)
+Approved:       30 (3 OTAs approved, not yet shipped)
+Under Review:   10 (1 OTA pending)
+Refused:        10 (1 OTA refused — Pack #042)
+Remaining:     130 (available for new OTA applications)
+```
+
+This quantity accounting is visible in the licence verification response. A potential buyer can verify not just that the licence exists, but that there are units remaining to be allocated. This prevents the "overselling" fraud where a distributor sells more units than their licence covers — a form of quantity manipulation that's invisible in the paper system until a post-clearance audit catches it months later.
+
+### Why Ten-Packs Make This Hard (and Why Verification Fixes It)
+
+The ten-pack split is precisely the scale at which export control systems struggle:
+
+**Too many for manual tracking.** Fifty separate OTAs, each with its own EUU, sanctions screening, and conditions. ECJU case officers are managing thousands of these. Paper tracking is error-prone.
+
+**Too few for automated systems.** This isn't a bulk commodity shipment handled by a customs platform. Each ten-pack is a bespoke sale to a named end-user with specific conditions. It falls between the cracks of automated trade systems.
+
+**Perfect for diversion.** Ten GPUs is small enough to fit in a suitcase. Small enough to be "lost" in inventory. Small enough that a single corrupt employee at the distributor could redirect a pack without triggering volume-based audit flags. But ten H100s is worth ~$300,000 and provides meaningful compute for prohibited applications.
+
+**The verification chain changes this calculus.** Every pack is tracked. Every transfer is verified. Every downstream buyer can confirm their specific pack's provenance. And critically: a pack that was refused (like #042) cannot be laundered through a forged approval, because the verification endpoint is authoritative and the refusal is permanent
