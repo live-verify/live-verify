@@ -50,9 +50,6 @@ These documents are the "Trigger for Action" in high-value commerce. A title com
       title="Demo only: Banks don't yet offer verification&#10;endpoints, so this is illustrative">
       <span data-verify-line="wire">verify:wires.goliathbank.com/v</span> <span verifiable-text="end" data-for="wire"></span>
     </div>
-    <div style="font-size: 0.7em; color: #666; margin-top: 10px; font-style: italic;">
-      Scan to verify execution status, beneficiary account match, and real-time OFAC clearance.
-    </div>
   </div>
 </div>
 

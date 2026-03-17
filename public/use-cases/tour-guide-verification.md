@@ -35,7 +35,7 @@ The problem is that "Tour Guide" is a low-barrier profession. Anyone can buy a g
   </div>
 <div style="padding: 0 20px 20px 20px; background: #fff;">
     <div style="font-size: 0.7em; color: #555; text-align: center; margin-bottom: 10px; line-height: 1.3;">
-      Vetted by the National Tourism Board. Authorized for historical sites. Scan to verify current duty status and insurance.
+      Vetted by the National Tourism Board. Authorized for historical sites.
     </div>
     <div data-verify-line="guide" style="border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.85em; color: #0072b2; text-align: center; font-weight: bold;"
       title="Demo only: Tourism boards don't yet offer verification&#10;endpoints, so this is illustrative">

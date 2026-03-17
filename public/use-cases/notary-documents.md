@@ -338,9 +338,6 @@ The problem is that the "Notary Seal" (the ink stamp or embossed circle) is a ph
       title="Demo only: Individual notaries don't yet offer verification&#10;endpoints, so this is illustrative">
       <span data-verify-line="notary">verify:sarahnotary.com/v</span> <span verifiable-text="end" data-for="notary"></span>
     </div>
-    <div style="font-size: 0.7em; color: #666; margin-top: 10px;">
-      Scan to verify notary commission standing, witness authority, and journal entry integrity.
-    </div>
   </div>
 </div>
 
@@ -435,9 +432,6 @@ The problem is that a "Digital Seal" is often just a pretty image on a PDF. Frau
     <strong>ID Verified via:</strong> KBA + Bio-Metric Credential Analysis</p>
   </div>
 <div style="margin-top: 30px; border-top: 1px dashed #999; padding-top: 15px; text-align: center;">
-    <div style="font-size: 0.75em; color: #666; font-style: italic; margin-bottom: 10px;">
-      This electronic act is recorded in the platform's digital journal. Scan to verify session integrity and notary authority.
-    </div>
     <div data-verify-line="ron" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #000; font-weight: bold;"
       title="Demo only: RON platforms don't yet offer verification&#10;endpoints, so this is illustrative">
       <span data-verify-line="ron">verify:notarize.com/v</span> <span verifiable-text="end" data-for="ron"></span>

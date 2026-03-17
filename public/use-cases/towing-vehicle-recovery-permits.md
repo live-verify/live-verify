@@ -45,9 +45,6 @@ This industry is a primary target for "Bandit Towers"—unlicensed operators who
       title="Demo only: Police departments don't yet offer verification&#10;endpoints, so this is illustrative">
       <span data-verify-line="tow">verify:springfieldpd.gov/v</span> <span verifiable-text="end" data-for="tow"></span>
     </div>
-    <div style="font-size: 0.65em; color: #999; margin-top: 8px; text-align: center;">
-      Scan to verify insurance validity, criminal background clearance, and legal impound authority.
-    </div>
   </div>
 </div>
 

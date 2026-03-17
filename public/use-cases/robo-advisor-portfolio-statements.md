@@ -46,17 +46,11 @@ These digital-first documents are the "Proof of Wealth" for a new generation of 
         <div style="width: 5%; background: #b2ebf2; display: flex; align-items: center; justify-content: center; color: #00838f; font-size: 0.7em; font-weight: bold;">CASH</div>
       </div>
     </div>
-<div style="font-size: 0.8em; color: #666; font-style: italic; background: #f9f9f9; padding: 15px; border-radius: 4px;">
-      "Verification protects the integrity of your investment data. This statement is a SEC-compliant record of your holdings and performance."
-    </div>
   </div>
 <div style="padding: 20px; background: #fff; border-top: 1px dashed #999; text-align: center;">
     <div data-verify-line="robo" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;"
       title="Demo only: Robo-advisors don't yet offer verification&#10;endpoints, so this is illustrative">
       <span data-verify-line="robo">verify:betterment.com/v</span> <span verifiable-text="end" data-for="robo"></span>
-    </div>
-    <div style="font-size: 0.7em; color: #999; margin-top: 10px;">
-      Scan to verify net account value, risk-score settings, and tax-loss harvesting status.
     </div>
   </div>
 </div>

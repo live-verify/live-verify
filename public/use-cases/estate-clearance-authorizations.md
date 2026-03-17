@@ -30,7 +30,7 @@ The current system relies on self-declaration and trust. Criminals exploit this 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 2px solid #003366; background: #fff; padding: 0;">
   <div style="background: #003366; color: #fff; padding: 15px;">
     <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="estateclearanceautho"></span>AUTHORIZED PROPERTY CLEARANCE IN PROGRESS</div>
-    <div style="font-size: 0.8em;">Mandatory Site Notice — Scan to Verify</div>
+    <div style="font-size: 0.8em;">Mandatory Site Notice</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
     <p><strong>Property:</strong> 42 Wimbledon Park Road, London SW19 5NE<br>
@@ -44,8 +44,7 @@ The current system relies on self-declaration and trust. Criminals exploit this 
     </div>
 <div style="text-align: center; margin: 20px 0;">
       <div style="display: inline-block; border: 2px solid #003366; padding: 10px;">
-        <strong>[QR CODE]</strong><br>
-        <span style="font-size: 0.8em;">SCAN TO VERIFY</span>
+        <strong>[QR CODE]</strong>
       </div>
     </div>
 <p style="font-size: 0.85em; color: #666; text-align: center;">
@@ -216,7 +215,7 @@ MANDATORY SITE NOTICE
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 2px solid #003366; background: #fff; padding: 0;">
   <div style="background: #003366; color: #fff; padding: 15px;">
     <div style="font-weight: bold; font-size: 1.1em;">AUTHORIZED PROPERTY CLEARANCE IN PROGRESS</div>
-    <div style="font-size: 0.8em;">Scan to Verify — Challenge if Concerned</div>
+    <div style="font-size: 0.8em;">Challenge if Concerned</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
     <p><strong>Property:</strong> 42 Wimbledon Park Road, London SW19 5NE<br>
@@ -333,7 +332,7 @@ Each worker has their own scannable poster. Neighbor approaches worker → worke
 
 ## Third-Party Use
 
-**Neighbors** — Scan to verify clearance is legitimate before valuables disappear
+**Neighbors** — Verify clearance is legitimate before valuables disappear
 **Police** — On-scene verification; clear basis for intervention if verification fails
 **Local authority** — Monitoring for unlicensed clearance operations
 **Other family members** — Verify executor is legitimate, not fraudster

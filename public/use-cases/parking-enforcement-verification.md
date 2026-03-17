@@ -37,9 +37,6 @@ Live Verify allows a driver to scan an officer's ID badge or the verification li
     </div>
   </div>
 <div style="padding: 0 20px 20px 20px; background: #fff;">
-    <div style="font-size: 0.7em; color: #555; text-align: center; margin-bottom: 10px; line-height: 1.3;">
-      Scan to verify current duty status and authorization to issue citations.
-    </div>
     <div data-verify-line="park-off" style="border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 1em; color: #000; text-align: center; font-weight: bold;"
       title="Demo only: Municipalities don't yet offer verification&#10;endpoints, so this is illustrative">
       vfy:enforcement.sfmta.com <span verifiable-text="end" data-for="park-off"></span>

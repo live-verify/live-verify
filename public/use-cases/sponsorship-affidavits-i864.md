@@ -42,9 +42,6 @@ These documents are high-stakes legal instruments. Fraud is common: people often
       title="Demo only: USCIS doesn't yet offer verification&#10;endpoints, so this is illustrative">
       <span data-verify-line="i864">verify:uscis.gov/v/i864</span> <span verifiable-text="end" data-for="i864"></span>
     </div>
-    <div style="font-size: 0.7em; color: #999; margin-top: 10px; font-style: italic;">
-      Scan to verify sponsorship authenticity and income threshold compliance.
-    </div>
   </div>
 </div>
 

@@ -47,9 +47,6 @@ This paper is the #1 tool for preventing "Medical Errors" when a patient moves t
     </div>
 <div style="margin-top: 20px; display: flex; justify-content: space-between; align-items: flex-end;">
       <div style="border-top: 1px solid #000; width: 200px; padding-top: 5px; font-style: italic; font-size: 0.85em;">Attending: Dr. Leslie Thompkins</div>
-      <div style="text-align: right; font-size: 0.8em; color: #777;">
-        Verified via Epic MyChart
-      </div>
     </div>
 <div data-verify-line="discharge" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Cedars-Sinai doesn't yet offer verification&#10;endpoints, so this is illustrative">

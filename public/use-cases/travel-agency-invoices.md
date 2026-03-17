@@ -36,9 +36,6 @@ Professional Planning Fee                           $    500.00
 ───────────────────────────────────────────────────────────────────
 TOTAL PAID (USD):                                   $ 14,750.00
 
-Scan to verify itinerary authenticity, payment status,
-and Virtuoso protection.
-
 <span data-verify-line="travel">verify:elitetravel.com/v</span> <span verifiable-text="end" data-for="travel"></span></pre>
 </div>
 

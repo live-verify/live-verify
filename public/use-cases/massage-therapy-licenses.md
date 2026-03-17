@@ -33,7 +33,7 @@ furtherDerivations: 1
   </div>
 <div style="padding: 0 20px 20px 20px;">
     <p style="font-size: 0.75em; color: #555; font-style: italic; text-align: center;">
-      Verified via the FL Department of Health. Bearer has met all educational and background check requirements.
+      Bearer has met all educational and background check requirements.
     </p>
     <div data-verify-line="massage" style="border-top: 1px dashed #999; margin-top: 10px; padding-top: 5px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: FL Board of Massage doesn't yet offer verification&#10;endpoints, so this is illustrative">

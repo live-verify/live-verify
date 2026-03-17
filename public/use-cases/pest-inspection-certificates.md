@@ -53,9 +53,6 @@ Because a "Positive" finding can kill a home sale or require a $5,000 treatment,
       title="Demo only: Inspection firms don't yet offer verification&#10;endpoints, so this is illustrative">
       <span data-verify-line="wdi">verify:precision-pest.com/v</span> <span verifiable-text="end" data-for="wdi"></span>
     </div>
-    <div style="font-size: 0.7em; color: #666; margin-top: 10px;">
-      Scan to verify structural findings, view high-res damage photos, and check for active service warranties.
-    </div>
   </div>
 </div>
 

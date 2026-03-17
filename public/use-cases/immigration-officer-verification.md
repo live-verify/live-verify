@@ -32,9 +32,6 @@ furtherDerivations: 1
     </div>
   </div>
 <div style="padding: 0 20px 20px 20px;">
-    <p style="font-size: 0.75em; color: #555; font-style: italic; text-align: center;">
-      Verified via Department of Homeland Security Enforcement Systems. Scan to confirm officer's current active duty status.
-    </p>
     <div data-verify-line="im-officer" style="border-top: 1px dashed #999; margin-top: 10px; padding-top: 5px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: DHS doesn't yet offer verification&#10;endpoints, so this is illustrative">
       <span data-verify-line="im-officer">verify:dhs.gov/verify/v</span> <span verifiable-text="end" data-for="im-officer"></span>

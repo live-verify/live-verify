@@ -45,9 +45,6 @@ Because vouchers are essentially "Digital Cash," they are a primary target for *
       title="Demo only: Amtrak doesn't yet offer verification&#10;endpoints, so this is illustrative">
       <span data-verify-line="voucher">verify:amtrak.com/v</span> <span verifiable-text="end" data-for="voucher"></span>
     </div>
-    <div style="font-size: 0.65em; color: #999; margin-top: 8px; font-style: italic;">
-      Scan to verify current remaining balance and transferability status. Not redeemable for cash.
-    </div>
   </div>
 </div>
 

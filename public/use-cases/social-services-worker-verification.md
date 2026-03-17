@@ -40,7 +40,7 @@ Live Verify allows a family to scan the worker's ID card to verify: **"Is this a
   </div>
 <div style="padding: 0 20px 20px 20px; background: #fff;">
     <div style="font-size: 0.7em; color: #555; text-align: center; margin-bottom: 10px; line-height: 1.3;">
-      Authorized to conduct field visits and welfare checks. Scan to verify current duty status and agency credentials.
+      Authorized to conduct field visits and welfare checks.
     </div>
     <div data-verify-line="social" style="border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.85em; color: #2e7d32; text-align: center; font-weight: bold;"
       title="Demo only: Government agencies don't yet offer verification&#10;endpoints, so this is illustrative">

@@ -42,9 +42,6 @@ Live Verify allows a citizen or neighbor to scan the notice from the sidewalk to
       title="Demo only: Municipalities don't yet offer verification&#10;endpoints, so this is illustrative">
       <span data-verify-line="plan">verify:springfield.gov/plan/v</span> <span verifiable-text="end" data-for="plan"></span>
     </div>
-    <div style="font-size: 0.7em; color: #666; margin-top: 10px;">
-      Scan to verify appeal deadlines, view high-res project renderings, and read the full environmental impact report.
-    </div>
   </div>
 </div>
 

@@ -39,9 +39,6 @@ The problem is that "Agent ID Cards" are not standardized and are easy to fake. 
     </div>
   </div>
 <div style="padding: 0 20px 20px 20px; background: #fff;">
-    <div style="font-size: 0.7em; color: #555; text-align: center; margin-bottom: 10px; line-height: 1.3;">
-      Scan to verify current license standing, brokerage affiliation, and background clearance for property access.
-    </div>
     <div data-verify-line="agent" style="border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.85em; color: #d32f2f; text-align: center; font-weight: bold;"
       title="Demo only: Real estate boards don't yet offer verification&#10;endpoints, so this is illustrative">
       <span data-verify-line="agent">verify:realtor.com/v</span> <span verifiable-text="end" data-for="agent"></span>

@@ -43,9 +43,6 @@ These pages are the "Lifeblood of Title." Fraud is high-stakes: criminals create
       title="Demo only: County recorders don't yet offer verification&#10;endpoints, so this is illustrative">
       <span data-verify-line="record">verify:cookcountyclerk.com/v</span> <span verifiable-text="end" data-for="record"></span>
     </div>
-    <div style="font-size: 0.7em; color: #666; margin-top: 10px; font-style: italic;">
-      Scan to verify instrument authenticity, view the full 4-page scanned image, and check for subsequent 'Notice of Rescission'.
-    </div>
   </div>
 </div>
 

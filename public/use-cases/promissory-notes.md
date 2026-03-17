@@ -39,9 +39,6 @@ These documents are the "Paper Gold" of the lending industry. In the **Secondary
       title="Demo only: Banks don't yet offer verification&#10;endpoints, so this is illustrative">
       <span data-verify-line="note">verify:goliathbank.com/v</span> <span verifiable-text="end" data-for="note"></span>
     </div>
-    <div style="font-size: 0.7em; color: #666; margin-top: 8px;">
-      Scan to verify principal amount, interest rate, and current lien holder status.
-    </div>
   </div>
 </div>
 

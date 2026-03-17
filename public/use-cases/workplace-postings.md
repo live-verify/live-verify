@@ -46,9 +46,6 @@ Live Verify allows an employee to scan the poster to verify: **"Is this the curr
       title="Demo only: OSHA doesn't yet offer verification&#10;endpoints, so this is illustrative">
       <span data-verify-line="osha">verify:osha.gov/posters/v</span> <span verifiable-text="end" data-for="osha"></span>
     </div>
-    <div style="font-size: 0.65em; color: #999; margin-top: 8px; font-style: italic;">
-      Scan to verify this is the current official version. Unauthorized alteration is a federal violation.
-    </div>
   </div>
 </div>
 

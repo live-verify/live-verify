@@ -40,11 +40,6 @@ Live Verify allows a resident or security guard to scan the driver's ID badge or
       </div>
     </div>
   </div>
-  <div style="padding: 0 20px 20px 20px;">
-    <div style="border-top: 1px dashed #bbb; padding-top: 10px; font-size: 0.7em; color: #666; text-align: center; margin-bottom: 15px; line-height: 1.3;">
-      Scan to verify employment status and current delivery route authorization.
-    </div>
-  </div>
 </div>
 
 ## Data Verified
