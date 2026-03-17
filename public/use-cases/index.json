@@ -1,7 +1,7 @@
 {
-  "generated": "2026-03-17T18:21:22.551Z",
-  "totalUseCases": 484,
-  "totalFurtherDerivations": 584,
+  "generated": "2026-03-17T19:13:14.416Z",
+  "totalUseCases": 488,
+  "totalFurtherDerivations": 589,
   "categories": {
     "Real Estate & Property": 32,
     "Charitable & Non-Profit": 7,
@@ -17,7 +17,7 @@
     "Chain of Custody & Logistics": 18,
     "Travel & Hospitality": 21,
     "Professional & Occupational Licenses": 13,
-    "Identity & Authority Verification": 39,
+    "Identity & Authority Verification": 40,
     "Healthcare & Medical Records": 13,
     "Professional & Educational Qualifications": 19,
     "Art, Media & Publishing": 7,
@@ -41,7 +41,9 @@
     "Banking & Financial Services": 6,
     "Trade Finance": 5,
     "Agriculture & Food": 7,
-    "Identity & KYC": 1
+    "Identity & KYC": 2,
+    "Healthcare & Medical": 1,
+    "Insurance": 1
   },
   "useCases": [
     {
@@ -7057,6 +7059,52 @@
       ]
     },
     {
+      "slug": "proof-of-childcare-enrolment",
+      "title": "Proof of Childcare Enrolment",
+      "category": "Identity & Authority Verification",
+      "volume": "Large",
+      "retention": "Enrolment period + 3 years",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Childcare provider name, Ofsted registration number (or equivalent), child's full name, child's date of birth, enrolment start date, weekly attendance hours, funded hours allocation.",
+      "tags": [
+        "childcare",
+        "nursery",
+        "daycare",
+        "tax-credits",
+        "benefits",
+        "enrolment",
+        "mandate",
+        "hmrc",
+        "tax-free-childcare",
+        "universal-credit",
+        "employer-vouchers",
+        "proof"
+      ]
+    },
+    {
+      "slug": "proof-of-council-tax",
+      "title": "Proof of Council Tax (Address & Payment Standing)",
+      "category": "Identity & KYC",
+      "volume": "Very Large",
+      "retention": "Tax year + 6 years",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Local authority name, account holder full name, full property address, council tax band, payment status (current / arrears / exempt), applicable discounts or exemptions, tax year.",
+      "tags": [
+        "council-tax",
+        "proof-of-address",
+        "local-authority",
+        "mandate",
+        "kyc",
+        "address-verification",
+        "benefits",
+        "electoral-roll",
+        "single-person-discount",
+        "payment-standing"
+      ]
+    },
+    {
       "slug": "proof-of-delivery-pod",
       "title": "Proof of Delivery (POD) and Delivery Receipts",
       "category": "Chain of Custody & Logistics",
@@ -7114,6 +7162,52 @@
         "financial-vetting",
         "escrow-funding",
         "mergers-and-acquisitions"
+      ]
+    },
+    {
+      "slug": "proof-of-gp-registration",
+      "title": "Proof of GP / Primary Care Registration",
+      "category": "Healthcare & Medical",
+      "volume": "Large",
+      "retention": "Registration period + 10 years",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "GP practice name, NHS practice code, patient full name, registration date, address held on record.",
+      "tags": [
+        "gp",
+        "primary-care",
+        "nhs",
+        "registration",
+        "proof-of-address",
+        "mandate",
+        "healthcare",
+        "medical-registration",
+        "patient",
+        "benefits",
+        "school-admission"
+      ]
+    },
+    {
+      "slug": "proof-of-insurance-status",
+      "title": "Proof of Insurance (Policyholder Confirmation)",
+      "category": "Insurance",
+      "volume": "Very Large",
+      "retention": "Policy term + 2 years",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Insurer name, policyholder full name, insurance type (public liability, professional indemnity, employers' liability, motor, etc.), cover amount, policy validity dates, status-as-at date.",
+      "tags": [
+        "insurance",
+        "proof-of-insurance",
+        "policyholder",
+        "liability",
+        "landlord",
+        "mandate",
+        "public-liability",
+        "employers-liability",
+        "motor",
+        "professional-indemnity",
+        "gig-economy"
       ]
     },
     {
@@ -9773,7 +9867,7 @@
   "categoriesList": [
     {
       "name": "Identity & Authority Verification",
-      "count": 39
+      "count": 40
     },
     {
       "name": "Real Estate & Property",
@@ -9925,8 +10019,16 @@
     },
     {
       "name": "Identity & KYC",
+      "count": 2
+    },
+    {
+      "name": "Healthcare & Medical",
+      "count": 1
+    },
+    {
+      "name": "Insurance",
       "count": 1
     }
   ],
-  "totalCategories": 39
+  "totalCategories": 41
 }
