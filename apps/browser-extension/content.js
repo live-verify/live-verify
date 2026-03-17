@@ -132,6 +132,19 @@
         .liveverify-verify-line-hidden {
             display: none !important;
         }
+        @media print {
+            .liveverify-region {
+                outline: none !important;
+            }
+            .liveverify-badge,
+            .liveverify-chain,
+            .liveverify-scan-btn {
+                display: none !important;
+            }
+            .liveverify-verify-line-hidden {
+                display: revert !important;
+            }
+        }
     `;
 
     // Inject styles
