@@ -125,7 +125,7 @@ The verify URL points to the *referee's* domain, not the employer's. This reflec
   I, Paul Hammant, worked for Kevin Behr in<br>
   his role as CIO of HedgeServ in New York City<br>
   in 2015 and 2016<br>
-  verify:paulhammant.com/refs
+  <span data-verify-line="peer-ref">verify:paulhammant.com/refs</span>
 </div>
 
 **Use Cases:**
