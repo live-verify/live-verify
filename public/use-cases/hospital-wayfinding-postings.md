@@ -30,7 +30,7 @@ But universities are just as bad. The University of Oxford has 200+ buildings sc
 Airports are worse under time pressure. Heathrow Terminal 5 is a 15-minute walk from security to some gates. Dallas/Fort Worth covers more ground area than Manhattan Island. A passenger who misreads a sign has a boarding deadline that a hospital visitor doesn't.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="wayfinding">[</span>ROYAL FREE HOSPITAL — NHS FOUNDATION TRUST
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="wayfinding"></span>ROYAL FREE HOSPITAL — NHS FOUNDATION TRUST
 ═══════════════════════════════════════════════════════════════════
 
 YOU ARE HERE: Block C, Level 2, Junction 7
@@ -48,13 +48,13 @@ Toilets: 25m south              Wheelchair loan: Main Entrance
 
 This sign was last updated: 06 MAR 2026
 
-<span data-verify-line="wayfinding">verify:nav.royalfree.nhs.uk/v</span> <span verifiable-text="end" data-for="wayfinding">]</span></pre>
+<span data-verify-line="wayfinding">verify:nav.royalfree.nhs.uk/v</span> <span verifiable-text="end" data-for="wayfinding"></span></pre>
 </div>
 
 The same pattern works in any building type. A university variant:
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="wayfinding2">[</span>IMPERIAL COLLEGE LONDON — SOUTH KENSINGTON CAMPUS
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="wayfinding2"></span>IMPERIAL COLLEGE LONDON — SOUTH KENSINGTON CAMPUS
 ═══════════════════════════════════════════════════════════════════
 
 YOU ARE HERE: Sherfield Building, Level 3, West Corridor
@@ -71,7 +71,7 @@ Lifts: 10m east    Stairs: here    Toilets: 15m north
 
 This sign was last updated: 08 MAR 2026
 
-<span data-verify-line="wayfinding2">verify:nav.imperial.ac.uk/v</span> <span verifiable-text="end" data-for="wayfinding2">]</span></pre>
+<span data-verify-line="wayfinding2">verify:nav.imperial.ac.uk/v</span> <span verifiable-text="end" data-for="wayfinding2"></span></pre>
 </div>
 
 ## Why Text, Not QR

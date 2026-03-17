@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 3px double #1a365d; background: #fdfcf0; padding: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border-radius: 4px;">
   <div style="text-align: center; border-bottom: 2px solid #1a365d; padding-bottom: 15px; margin-bottom: 25px;">
-    <div style="font-weight: bold; font-size: 1.3em; letter-spacing: 2px; color: #1a365d;"><span verifiable-text="start" data-for="marriage">[</span>STATE OF NEVADA</div>
+    <div style="font-weight: bold; font-size: 1.3em; letter-spacing: 2px; color: #1a365d;"><span verifiable-text="start" data-for="marriage"></span>STATE OF NEVADA</div>
     <div style="font-size: 0.9em; text-transform: uppercase; color: #2c5282;">Clark County • Marriage Bureau</div>
   </div>
 <h2 style="text-align: center; font-size: 1.5em; color: #1a365d; margin-bottom: 25px;">CERTIFICATE OF MARRIAGE</h2>
@@ -45,7 +45,7 @@ furtherDerivations: 1
   </div>
 <div data-verify-line="marriage" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Clark County doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:clarkcountynv.gov/marriage/v <span verifiable-text="end" data-for="marriage">]</span>
+      verify:clarkcountynv.gov/marriage/v <span verifiable-text="end" data-for="marriage"></span>
   </div>
 </div>
 

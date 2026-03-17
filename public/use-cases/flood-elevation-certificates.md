@@ -21,7 +21,7 @@ An **Elevation Certificate** is the official paper from a licensed surveyor that
   <div style="background: #000; color: #fff; padding: 15px; text-align: center; display: flex; align-items: center; justify-content: center;">
     <div style="font-size: 1.5em; margin-right: 15px;">🌊</div>
     <div>
-      <h2 style="margin: 0; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="flood">[</span>ELEVATION CERTIFICATE</h2>
+      <h2 style="margin: 0; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="flood"></span>ELEVATION CERTIFICATE</h2>
       <div style="font-size: 0.8em; opacity: 0.8;">FEDERAL EMERGENCY MANAGEMENT AGENCY (FEMA)</div>
     </div>
   </div>
@@ -46,7 +46,7 @@ An **Elevation Certificate** is the official paper from a licensed surveyor that
     </div>
 <div data-verify-line="flood" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: FEMA/Surveyor doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:miller-surveying.com/v <span verifiable-text="end" data-for="flood">]</span>
+      verify:miller-surveying.com/v <span verifiable-text="end" data-for="flood"></span>
     </div>
   </div>
 </div>

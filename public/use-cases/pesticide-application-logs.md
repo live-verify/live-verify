@@ -16,7 +16,7 @@ In the agriculture industry, the **Pesticide Application Log** is the mandatory 
 These logs are the "Safety Map" of our food supply. Large retailers (e.g., Whole Foods, Tesco) and export authorities use them to ensure that crops don't contain illegal residues. Fraud is a major concern: a farm might "scrub" its log to hide the use of a banned chemical or to hide that they sprayed too close to a harvest date. Verified hashes bind the **Chemical EPA #, Application Date, and Field ID** to the farm's or the certified applicator's domain (e.g., `sunnyacres.farm` or `ag-applicators.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="pest">[</span>PESTICIDE APPLICATION RECORD
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="pest"></span>PESTICIDE APPLICATION RECORD
 In accordance with EPA 40 CFR Part 170                LOG #: 2026-NY-42
 ═══════════════════════════════════════════════════════════════════
 
@@ -35,7 +35,7 @@ _________________________
 David Chen, Certified Applicator              [ENTRY RESTRICTED
 License: #NY-PEST-992288 - Exp: 2027          UNTIL 17 MAR]
 
-<span data-verify-line="pest">verify:sunnyacres.farm/v</span> <span verifiable-text="end" data-for="pest">]</span></pre>
+<span data-verify-line="pest">verify:sunnyacres.farm/v</span> <span verifiable-text="end" data-for="pest"></span></pre>
 </div>
 
 ## Data Verified

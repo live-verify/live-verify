@@ -28,7 +28,7 @@ You find a cleaner on Nextdoor. She seems great. You give her keys. She comes ev
 **How Recurring Identity Escrow Helps:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="clean">[</span>HOMEHELP VERIFIED SERVICE PROVIDER
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="clean"></span>HOMEHELP VERIFIED SERVICE PROVIDER
 
 Provider ID: HH-PRV-449281
 Member Since: March 2024
@@ -46,7 +46,7 @@ CLIENT HOUSEHOLD: Verified #H-882134
 ARRANGEMENT: Weekly, Tuesdays, 10am-2pm
 KEY ACCESS: Yes
 
-<span data-verify-line="clean">verify:homehelp.org/provider/v</span> <span verifiable-text="end" data-for="clean">]</span></pre>
+<span data-verify-line="clean">verify:homehelp.org/provider/v</span> <span verifiable-text="end" data-for="clean"></span></pre>
 </div>
 
 **What Gets Escrowed (Provider):**
@@ -93,7 +93,7 @@ Your dog walker has keys and knows your schedule (when you're definitely not hom
 Same pattern as house cleaner, with pet-specific additions:
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="dog">[</span>PETWATCH VERIFIED WALKER
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="dog"></span>PETWATCH VERIFIED WALKER
 
 Walker ID: PW-WLK-772918
 Member Since: June 2023
@@ -113,7 +113,7 @@ SCHEDULE: M/W/F, 12pm, 45-minute walk
 KEY ACCESS: Yes
 EMERGENCY VET: [On file with PetWatch]
 
-<span data-verify-line="dog">verify:petwatch.org/walker/v</span> <span verifiable-text="end" data-for="dog">]</span></pre>
+<span data-verify-line="dog">verify:petwatch.org/walker/v</span> <span verifiable-text="end" data-for="dog"></span></pre>
 </div>
 
 **Pet-Specific Features:**
@@ -138,7 +138,7 @@ You hire a college student to babysit every Saturday night. After three months, 
 **How Recurring Identity Escrow Helps:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="sit">[</span>SITTERCHECK VERIFIED CAREGIVER
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="sit"></span>SITTERCHECK VERIFIED CAREGIVER
 
 Caregiver ID: SC-CGV-118294
 Member Since: September 2024
@@ -158,7 +158,7 @@ SESSION LOG: 14 verified sessions
   - No incidents
   - Always on time
 
-<span data-verify-line="sit">verify:sittercheck.org/caregiver/v</span> <span verifiable-text="end" data-for="sit">]</span></pre>
+<span data-verify-line="sit">verify:sittercheck.org/caregiver/v</span> <span verifiable-text="end" data-for="sit"></span></pre>
 </div>
 
 **Child-Specific Features:**
@@ -183,7 +183,7 @@ Your aging parent needs help a few hours a day. A full-time agency aide is expen
 **How Recurring Identity Escrow Helps:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="elder">[</span>ELDERCARE VERIFIED AIDE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="elder"></span>ELDERCARE VERIFIED AIDE
 
 Aide ID: EC-AID-339471
 Member Since: January 2024
@@ -204,7 +204,7 @@ EMERGENCY PROTOCOL: Call [family contact], then 911
 
 SESSION LOG: 89 verified visits
 
-<span data-verify-line="elder">verify:eldercare.org/aide/v</span> <span verifiable-text="end" data-for="elder">]</span></pre>
+<span data-verify-line="elder">verify:eldercare.org/aide/v</span> <span verifiable-text="end" data-for="elder"></span></pre>
 </div>
 
 **Elder-Specific Features:**
@@ -227,7 +227,7 @@ SESSION LOG: 89 verified visits
 Mobile hairdressers, massage therapists, personal trainers, music teachers—anyone who comes to your home regularly for a service. Same trust issue: ongoing access, informal arrangement, limited accountability.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="mobile">[</span>HOMEPRO VERIFIED PROVIDER
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="mobile"></span>HOMEPRO VERIFIED PROVIDER
 
 Provider ID: HP-PRV-556782
 Member Since: April 2023
@@ -245,7 +245,7 @@ CLIENT: Verified Household #H-449281
 SCHEDULE: Biweekly, Thursdays, 2pm
 SERVICE LOCATION: Client home
 
-<span data-verify-line="mobile">verify:homepro.org/provider/v</span> <span verifiable-text="end" data-for="mobile">]</span></pre>
+<span data-verify-line="mobile">verify:homepro.org/provider/v</span> <span verifiable-text="end" data-for="mobile"></span></pre>
 </div>
 
 **Service Types Covered:**

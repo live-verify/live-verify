@@ -16,7 +16,7 @@ A **Notice of Property Tax Assessment** is the official government record of a p
 These documents are "Financial Anchors." Lenders use them to calculate "Escrow Reserves" for mortgages, and they are the primary evidence in **Tax Appeals**. Fraud is common: owners might "edit" an assessment to show a lower value to evade taxes, or conversely, "inflate" the value on a PDF to trick a private lender into thinking the property has more equity than it does. Verified hashes bind the **Assessed Market Value, Taxable Value, and Parcel ID** to the county assessor's domain (e.g., `cookcountyassessor.com` or `maricopa.gov`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="tax-assess">[</span>
+  <span verifiable-text="start" data-for="tax-assess"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">OFFICE OF THE COUNTY ASSESSOR
 ═══════════════════════════════════════════════════════════════════
 
@@ -40,7 +40,7 @@ applicable exemptions. This assessment is used to calculate your
 final tax bill."
 
 </pre>
-<span data-verify-line="tax-assess">verify:springfieldassessor.gov/v</span> <span verifiable-text="end" data-for="tax-assess">]</span>
+<span data-verify-line="tax-assess">verify:springfieldassessor.gov/v</span> <span verifiable-text="end" data-for="tax-assess"></span>
 </div>
 
 ## Data Verified

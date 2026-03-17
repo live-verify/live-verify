@@ -18,7 +18,7 @@ For business travelers, this receipt is critical for **Expense Audits**. It prov
 "Double-Dipping" fraud happens when an employee gets a refund for a room but still tries to claim the original cost from their employer. Verified hashes allow corporate finance departments to automatically flag "Ghost Refunds" where an employee provides a fake PDF to hide a credit.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="hotel-cancel">[</span>THE GRAND HOTEL - PARIS
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="hotel-cancel"></span>THE GRAND HOTEL - PARIS
 OFFICIAL CANCELLATION NOTICE
 
 This document confirms the cancellation of your reservation.
@@ -35,7 +35,7 @@ Status:            REFUNDED & CLOSED
                                         ─────────────────────────
                                         Reservations Manager
 
-<span data-verify-line="hotel-cancel">verify:grandhotelparis.com/v</span> <span verifiable-text="end" data-for="hotel-cancel">]</span></pre>
+<span data-verify-line="hotel-cancel">verify:grandhotelparis.com/v</span> <span verifiable-text="end" data-for="hotel-cancel"></span></pre>
 </div>
 
 ## Data Verified
@@ -141,7 +141,7 @@ At the front desk, clerks often claim "the system is down" or "we have no record
 A **Verified Confirmation** from the hotel's domain ends the argument instantly. More importantly, it helps corporate travelers prove to their employer that the "Presidential Suite" they stayed in was a **Verified Free Perk** and not an unapproved personal splurge on the company card.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="upgrade">[</span>THE RITZ-CARLTON
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="upgrade"></span>THE RITZ-CARLTON
 Official Suite Upgrade Confirmation
 
 UPGRADE SUCCESSFUL                    Reservation ID: RC-99228877
@@ -159,7 +159,7 @@ Upgrade Value:   $ 450.00 / Night (Complimentary)
 Please present this verified confirmation at the front desk
 upon arrival.
 
-<span data-verify-line="upgrade">verify:ritzcarlton.com/upgrades/v</span> <span verifiable-text="end" data-for="upgrade">]</span></pre>
+<span data-verify-line="upgrade">verify:ritzcarlton.com/upgrades/v</span> <span verifiable-text="end" data-for="upgrade"></span></pre>
 </div>
 
 ## Data Verified
@@ -274,7 +274,7 @@ The **Member Statement** is the proof of your "Hotel Wealth" and your Elite Stat
 You need this verified proof for a **"Status Match"**—where a rival hotel gives you free suites and breakfast just to win your business. Fraudsters often "Photoshop" their status to get free perks they didn't earn. Verified hashes allow hotel groups to see the **un-altered point balance** directly from the brand's domain.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="hotel-loy">[</span>MARRIOTT BONVOY                          Member #: 99228877
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="hotel-loy"></span>MARRIOTT BONVOY                          Member #: 99228877
 Official Member Statement
 
 Member:        SARAH JANE SMITH          Period: MAR 2026
@@ -289,7 +289,7 @@ This statement is a verified record of your point balance
 and elite status. Valid for corporate housing and
 status-match requests.
 
-<span data-verify-line="hotel-loy">verify:marriott.com/loyalty/v</span> <span verifiable-text="end" data-for="hotel-loy">]</span></pre>
+<span data-verify-line="hotel-loy">verify:marriott.com/loyalty/v</span> <span verifiable-text="end" data-for="hotel-loy"></span></pre>
 </div>
 
 ## Data Verified

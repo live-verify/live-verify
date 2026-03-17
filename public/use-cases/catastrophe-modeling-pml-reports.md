@@ -18,7 +18,7 @@ A specialized firm (like RMS) uses weather data and building locations to say: "
 This number is the lifeblood of the insurance market. Reinsurers use it to decide how much to charge for coverage. If a broker "Games the Model" (edits the PDF) to show a lower loss, they are tricking the market into taking too much risk for too little money.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="pml">[</span>
+  <span verifiable-text="start" data-for="pml"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">RMS (Risk Management Solutions)
 Model Version: 21.0 (RiskLink)                           March 15, 2026
 ═══════════════════════════════════════════════════════════════════
@@ -39,7 +39,7 @@ Return Period                                         PML (Gross)
 Certified by: Robert Miller, Senior Catastrophe Modeler
 
 </pre>
-<span data-verify-line="pml">verify:rms.com/reports/v</span> <span verifiable-text="end" data-for="pml">]</span>
+<span data-verify-line="pml">verify:rms.com/reports/v</span> <span verifiable-text="end" data-for="pml"></span>
 </div>
 
 ## Data Verified

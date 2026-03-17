@@ -31,7 +31,7 @@ You capture a car doing 122 MPH on your dashcam. You want to report it to police
 **How Verified Submission Helps:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="dash">[</span>EVIDENCE SUBMISSION ACKNOWLEDGEMENT
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="dash"></span>EVIDENCE SUBMISSION ACKNOWLEDGEMENT
 
 Submission ID: ES-2025-0114-7829
 Received: January 14, 2025, 4:32 PM GMT
@@ -53,7 +53,7 @@ STATUS: Received for review
   - No commitment to prosecute is implied
   - You may be contacted as a witness
 
-<span data-verify-line="dash">verify:gmp.police.uk/evidence/v</span> <span verifiable-text="end" data-for="dash">]</span></pre>
+<span data-verify-line="dash">verify:gmp.police.uk/evidence/v</span> <span verifiable-text="end" data-for="dash"></span></pre>
 </div>
 
 **What Gets Acknowledged:**
@@ -88,7 +88,7 @@ If that driver kills someone next month:
 You witness fly-tipping (illegal dumping), noise violations, pollution, or building code violations. You report to the council. Nothing happens. You want proof you reported it.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="env">[</span>ENVIRONMENTAL REPORT ACKNOWLEDGEMENT
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="env"></span>ENVIRONMENTAL REPORT ACKNOWLEDGEMENT
 
 Report ID: ENV-2025-0114-3341
 Received: January 14, 2025, 9:15 AM GMT
@@ -107,7 +107,7 @@ STATUS: Logged for inspection
   - Reference number for follow-up: ENV-2025-3341
   - Typical response time: 5 working days
 
-<span data-verify-line="env">verify:bolton.gov.uk/reports/v</span> <span verifiable-text="end" data-for="env">]</span></pre>
+<span data-verify-line="env">verify:bolton.gov.uk/reports/v</span> <span verifiable-text="end" data-for="env"></span></pre>
 </div>
 
 **Why This Matters:**
@@ -127,7 +127,7 @@ You witness animal cruelty or neglect. You report to the RSPCA, animal control, 
 - Evidence preservation if the animal dies
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="animal">[</span>ANIMAL WELFARE REPORT ACKNOWLEDGEMENT
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="animal"></span>ANIMAL WELFARE REPORT ACKNOWLEDGEMENT
 
 Report ID: AW-2025-0114-8891
 Received: January 14, 2025, 2:20 PM GMT
@@ -148,7 +148,7 @@ STATUS: Assigned for investigation
   - Reporter identity NOT disclosed to owner
   - You may be contacted for additional information
 
-<span data-verify-line="animal">verify:rspca.org.uk/reports/v</span> <span verifiable-text="end" data-for="animal">]</span></pre>
+<span data-verify-line="animal">verify:rspca.org.uk/reports/v</span> <span verifiable-text="end" data-for="animal"></span></pre>
 </div>
 
 **Anonymity Importance:**
@@ -164,7 +164,7 @@ STATUS: Assigned for investigation
 You observe suspicious activity—unattended bag, suspicious behavior, potential terrorism indicators. You report it. You want proof you reported it, but you also don't want to be identified publicly or to the subject.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="sec">[</span>SECURITY TIP ACKNOWLEDGEMENT
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="sec"></span>SECURITY TIP ACKNOWLEDGEMENT
 
 Tip ID: ST-2025-0114-REDACTED
 Received: January 14, 2025, 11:45 AM GMT
@@ -183,7 +183,7 @@ STATUS: Received
   - No further action required from you
   - Thank you for reporting
 
-<span data-verify-line="sec">verify:btp.police.uk/tips/v</span> <span verifiable-text="end" data-for="sec">]</span></pre>
+<span data-verify-line="sec">verify:btp.police.uk/tips/v</span> <span verifiable-text="end" data-for="sec"></span></pre>
 </div>
 
 **Sensitive Handling:**

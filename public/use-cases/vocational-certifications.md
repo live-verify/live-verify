@@ -16,7 +16,7 @@ In the industrial world, a **Vocational Certificate** is the proof that a worker
 The problem is that "Trade School" certificates are easily forged. Shady contractors or workers might "edit" a certificate to turn a "Basic Welding" pass into a "Certified Nuclear Welder" to get onto a high-paying project. In high-risk fields (e.g., oil rigs or aircraft maintenance), a fake certification can lead to catastrophic structural failures. Verified hashes bind the **Trade Code, Completion Date, and Instructor ID** to the technical school's or the standard body's domain (e.g., `aws.org` or `lincolntec.edu`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="vocation">[</span>LINCOLN TECH ACADEMY
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="vocation"></span>LINCOLN TECH ACADEMY
 Institute of Skilled Trades & Applied Science
 ═══════════════════════════════════════════════════════════════════
 
@@ -36,7 +36,7 @@ Institute of Skilled Trades & Applied Science
 Date Conferred:   MARCH 15, 2026          Campus:     Springfield East
 Hours Completed:  420 Shop Hours          Instructor: David R. Chen
 
-<span data-verify-line="vocation">verify:lincolntech.edu/v</span> <span verifiable-text="end" data-for="vocation">]</span></pre>
+<span data-verify-line="vocation">verify:lincolntech.edu/v</span> <span verifiable-text="end" data-for="vocation"></span></pre>
 </div>
 
 ## Data Verified

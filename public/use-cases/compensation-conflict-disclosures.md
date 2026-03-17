@@ -47,7 +47,7 @@ Currently, these claims are unverifiable. Disclosures exist in fine print or reg
 <div style="margin-top: 15px; border-top: 1px dashed #ccc; padding-top: 10px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666;">
       <div data-verify-line="compensationconflict" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:disclosures.wellington-wealth.com/comp <span verifiable-text="end" data-for="compensationconflict">]</span>
+        verify:disclosures.wellington-wealth.com/comp <span verifiable-text="end" data-for="compensationconflict"></span>
       </div>
     </div>
   </div>
@@ -97,7 +97,7 @@ Verified disclosures make the information **scannable at the point of decision**
 <div style="margin-top: 20px; font-size: 0.8em; font-family: monospace; color: #888;">
       <div data-verify-line="compensationconflict" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:conflictfree.org/attest <span verifiable-text="end" data-for="compensationconflict">]</span>
+        verify:conflictfree.org/attest <span verifiable-text="end" data-for="compensationconflict"></span>
       </div>
     </div>
   </div>
@@ -129,7 +129,7 @@ You can't just take someone's word for it. But you can ask the entities that *wo
     THIRD-PARTY PAYMENT CONFIRMATIONS
   </div>
   <div style="font-size: 0.85em; line-height: 1.8;">
-    <p><strong><span verifiable-text="start" data-for="compensationconflict">[</span>Re:</strong> Dr. Sarah Chen, MD (NPI: 1234567890)</p>
+    <p><strong><span verifiable-text="start" data-for="compensationconflict"></span>Re:</strong> Dr. Sarah Chen, MD (NPI: 1234567890)</p>
     <p><strong>Period:</strong> Calendar Year 2025</p>
 <div style="margin: 15px 0; padding: 10px; background: #fff; border: 1px dashed #666;">
       <p style="margin: 0;"><strong>Pfizer Inc.</strong> — $0.00 paid</p>
@@ -142,7 +142,7 @@ You can't just take someone's word for it. But you can ask the entities that *wo
 <div style="margin-top: 15px; font-size: 0.8em; text-align: center; color: #888;">
       <div data-verify-line="compensationconflict" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:openpaymentscheck.org/confirm <span verifiable-text="end" data-for="compensationconflict">]</span>
+        verify:openpaymentscheck.org/confirm <span verifiable-text="end" data-for="compensationconflict"></span>
       </div>
     </div>
   </div>

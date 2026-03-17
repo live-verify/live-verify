@@ -22,7 +22,7 @@ Fraudsters often "mis-declare" cargo in the instructions (e.g., calling high-tax
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Arial Narrow', sans-serif; border: 1px solid #000; background: #fff; padding: 0; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
   <div style="background: #002d62; color: #fff; padding: 10px; display: flex; justify-content: space-between; align-items: center;">
-    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="ship">[</span>MAERSK LINE</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="ship"></span>MAERSK LINE</div>
     <div style="font-size: 0.8em;">SHIPPING INSTRUCTIONS (DRAFT)</div>
   </div>
 <div style="padding: 20px;">
@@ -44,7 +44,7 @@ Fraudsters often "mis-declare" cargo in the instructions (e.g., calling high-tax
     </div>
 <div data-verify-line="ship" style="border-top: 1px dashed #999; margin-top: 25px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Maersk doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:maersk.com/si/v <span verifiable-text="end" data-for="ship">]</span>
+      verify:maersk.com/si/v <span verifiable-text="end" data-for="ship"></span>
     </div>
   </div>
 </div>

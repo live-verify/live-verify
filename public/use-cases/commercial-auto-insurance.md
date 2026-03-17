@@ -18,7 +18,7 @@ Every driver carries a **Proof of Insurance** card. Unlike personal insurance, t
 Fraud is common: fleet owners often "delete" expensive-to-insure trucks from their policy to save money, but keep the old paper cards in the glovebox to fool DOT inspectors. Live Verify allows an inspector to verify that **this specific VIN** is still covered today.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="com-auto">[</span>
+  <span verifiable-text="start" data-for="com-auto"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">PROGRESSIVE COMMERCIAL
 Fleet & Logistics Division
 ═══════════════════════════════════════════════════════════════════
@@ -44,7 +44,7 @@ Coverage Includes: MCS-90 Endorsement, Hired & Non-Owned Auto
 Policy Period: Jan 01, 2026 to Jan 01, 2027
 
 </pre>
-<span data-verify-line="com-auto">verify:progressive.com/commercial/v</span> <span verifiable-text="end" data-for="com-auto">]</span>
+<span data-verify-line="com-auto">verify:progressive.com/commercial/v</span> <span verifiable-text="end" data-for="com-auto"></span>
 </div>
 
 ## Data Verified

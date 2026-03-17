@@ -20,7 +20,7 @@ You can't. Not really. You might show a business card (anyone can print one), pu
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #db0011; padding-bottom: 15px; margin-bottom: 20px;">
     <div>
-      <div style="font-weight: bold; font-size: 1.3em; color: #db0011;"><span verifiable-text="start" data-for="employment">[</span>HSBC Holdings plc</div>
+      <div style="font-weight: bold; font-size: 1.3em; color: #db0011;"><span verifiable-text="start" data-for="employment"></span>HSBC Holdings plc</div>
       <div style="font-size: 0.8em; color: #666; text-transform: uppercase; letter-spacing: 1px;">Confirmation of Employment</div>
     </div>
     <div style="width: 50px; height: 50px; background: #db0011; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold; font-size: 0.7em;">HSBC</div>
@@ -38,7 +38,7 @@ You can't. Not really. You might show a business card (anyone can print one), pu
   </div>
   <div data-verify-line="employment" style="margin-top: 15px; padding-top: 10px; border-top: 1px dashed #999; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
     title="Demo only: HSBC doesn't yet offer verification&#10;endpoints, so this is illustrative">
-    verify:hr.hsbc.co.uk/employment/v <span verifiable-text="end" data-for="employment">]</span>
+    verify:hr.hsbc.co.uk/employment/v <span verifiable-text="end" data-for="employment"></span>
   </div>
 </div>
 

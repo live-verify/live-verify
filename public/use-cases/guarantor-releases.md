@@ -15,7 +15,7 @@ A guarantor release confirms that someone who personally guaranteed a debt, leas
 Guarantor releases are critical for credit and financial planning. While guaranteed, the full debt appears as a contingent liability. A fraudulent release could mislead lenders about a guarantor's true exposure.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="student">[</span>CO-SIGNER RELEASE<br>
+  <span verifiable-text="start" data-for="student"></span>CO-SIGNER RELEASE<br>
   Sallie Mae<br>
   Loan #SM-2019-4478921<br>
   Borrower: Jessica Martinez<br>
@@ -24,11 +24,11 @@ Guarantor releases are critical for credit and financial planning. While guarant
   Qualifying Payments: 24 consecutive on-time<br>
   Co-Signer Released: January 5, 2026<br>
   Borrower Remains Obligated<br>
-  <span data-verify-line="student">verify:salliemae.com/loans</span> <span verifiable-text="end" data-for="student">]</span>
+  <span data-verify-line="student">verify:salliemae.com/loans</span> <span verifiable-text="end" data-for="student"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="lease">[</span>PERSONAL GUARANTEE RELEASE<br>
+  <span verifiable-text="start" data-for="lease"></span>PERSONAL GUARANTEE RELEASE<br>
   Brookfield Properties<br>
   Lease: 100 Park Avenue Suite 4400<br>
   Tenant: TechStartup Inc<br>
@@ -36,11 +36,11 @@ Guarantor releases are critical for credit and financial planning. While guarant
   Original Guarantee: $480,000 (2 years rent)<br>
   Release Reason: 3 Years Clean Payment History<br>
   Released: December 31, 2025<br>
-  <span data-verify-line="lease">verify:brookfield.com/leasing</span> <span verifiable-text="end" data-for="lease">]</span>
+  <span data-verify-line="lease">verify:brookfield.com/leasing</span> <span verifiable-text="end" data-for="lease"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="sba">[</span>SBA GUARANTEE RELEASE<br>
+  <span verifiable-text="start" data-for="sba"></span>SBA GUARANTEE RELEASE<br>
   U.S. Small Business Administration<br>
   Loan #SBA-7A-2020-88412<br>
   Borrower: Johnson Manufacturing LLC<br>
@@ -49,11 +49,11 @@ Guarantor releases are critical for credit and financial planning. While guarant
   Loan Balance at Release: $0.00<br>
   Release Type: Loan Paid in Full<br>
   Released: January 8, 2026<br>
-  <span data-verify-line="sba">verify:sba.gov/loans</span> <span verifiable-text="end" data-for="sba">]</span>
+  <span data-verify-line="sba">verify:sba.gov/loans</span> <span verifiable-text="end" data-for="sba"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="apartment">[</span>LEASE CO-SIGNER RELEASE<br>
+  <span verifiable-text="start" data-for="apartment"></span>LEASE CO-SIGNER RELEASE<br>
   Greystar Real Estate<br>
   Property: The Heights at Riverside<br>
   Unit: 412<br>
@@ -62,7 +62,7 @@ Guarantor releases are critical for credit and financial planning. While guarant
   Original Lease: 12 months from June 2024<br>
   Release Reason: Lease Renewal - Tenant Qualifies Solo<br>
   Released: June 1, 2025<br>
-  <span data-verify-line="apartment">verify:greystar.com/leasing</span> <span verifiable-text="end" data-for="apartment">]</span>
+  <span data-verify-line="apartment">verify:greystar.com/leasing</span> <span verifiable-text="end" data-for="apartment"></span>
 </div>
 
 ## Data Verified

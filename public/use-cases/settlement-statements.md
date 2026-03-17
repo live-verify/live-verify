@@ -16,7 +16,7 @@ A **Settlement Statement** (typically the **ALTA** or **HUD-1**) is the "Final S
 Because this document governs the distribution of hundreds of thousands of dollars, it is a primary target for **Mortgage and Wire Fraud**. Criminals use fake settlement statements to trick banks into releasing loan funds to "Phantom Payees," or they "edit" a statement to hide illegal "Kickbacks" to unlicensed parties. Verified hashes bind the **Net Payouts, Loan Amounts, and Settlement Agent ID** to the title company's or the lender's domain (e.g., `firstam.com` or `stewart.com`).
 
 <div style="max-width: 700px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="settle">[</span>ALTA SETTLEMENT STATEMENT                    File #: ESC-99228877-XJ
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="settle"></span>ALTA SETTLEMENT STATEMENT                    File #: ESC-99228877-XJ
                                              Date: 15 MAR 2026
 
 Settlement Agent: SPRINGFIELD TITLE & ESCROW
@@ -35,7 +35,7 @@ CASH TO CLOSE / FROM SELLER:      $ 114,250.00     $ 482,450.00
 Verification confirms the financial integrity of this closing.
 Any unauthorized payoff or fee alteration renders this statement void.
 
-<span data-verify-line="settle">verify:springfield-title.com/v</span> <span verifiable-text="end" data-for="settle">]</span></pre>
+<span data-verify-line="settle">verify:springfield-title.com/v</span> <span verifiable-text="end" data-for="settle"></span></pre>
 </div>
 
 ## Data Verified

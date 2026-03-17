@@ -20,7 +20,7 @@ Both systems are vulnerable to the same fraud: fabricated or inflated receipts. 
 Verified hashes allow tax authorities to scan a receipt and see "VERIFIED" on the charity's own domain — stopping fabricated receipts in the US and giving HMRC a way to spot-check individual declarations behind a bulk Gift Aid claim.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="donate">[</span>AMERICAN RED CROSS
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="donate"></span>AMERICAN RED CROSS
 OFFICIAL CHARITABLE CONTRIBUTION RECEIPT
 
 Dear JOHN JACOB DOE,
@@ -40,11 +40,11 @@ organization. Federal Tax ID: 12-3456789.
                                     ───────────────────────
                                     Treasurer, ARC
 
-<span data-verify-line="donate">verify:redcross.org/receipts/v</span> <span verifiable-text="end" data-for="donate">]</span></pre>
+<span data-verify-line="donate">verify:redcross.org/receipts/v</span> <span verifiable-text="end" data-for="donate"></span></pre>
 </div>
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="giftaid">[</span>BRITISH RED CROSS
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="giftaid"></span>BRITISH RED CROSS
 GIFT AID DONATION RECEIPT
 
 Dear SARAH J. THOMPSON,
@@ -64,7 +64,7 @@ Total value to charity:   £625.00
 Charity No: 220949
 Declaration Ref: GA-2025-884721
 
-<span data-verify-line="giftaid">verify:redcross.org.uk/giving/v</span> <span verifiable-text="end" data-for="giftaid">]</span></pre>
+<span data-verify-line="giftaid">verify:redcross.org.uk/giving/v</span> <span verifiable-text="end" data-for="giftaid"></span></pre>
 </div>
 
 ## Data Verified

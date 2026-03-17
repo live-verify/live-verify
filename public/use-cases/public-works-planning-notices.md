@@ -19,7 +19,7 @@ Live Verify allows a citizen or neighbor to scan the notice from the sidewalk to
 
 <div style="max-width: 500px; margin: 24px auto; font-family: 'Helvetica Neue', Arial, sans-serif; border: 4px solid #ffcc00; background: #fffbe6; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 15px; margin-bottom: 20px;">
-    <div style="font-weight: bold; font-size: 1.3em; text-transform: uppercase;"><span verifiable-text="start" data-for="plan">[</span>City Planning Commission</div>
+    <div style="font-weight: bold; font-size: 1.3em; text-transform: uppercase;"><span verifiable-text="start" data-for="plan"></span>City Planning Commission</div>
     <div style="font-size: 1em; letter-spacing: 1px;">PUBLIC NOTICE OF PROPOSED DEVELOPMENT</div>
   </div>
 <div style="font-size: 0.9em; line-height: 1.6; color: #000;">
@@ -40,7 +40,7 @@ Live Verify allows a citizen or neighbor to scan the notice from the sidewalk to
 <div style="padding: 20px; background: #fff; border: 1px dashed #000; margin-top: 20px; text-align: center;">
     <div data-verify-line="plan" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #000; font-weight: bold;"
       title="Demo only: Municipalities don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:springfield.gov/plan/v <span verifiable-text="end" data-for="plan">]</span>
+      verify:springfield.gov/plan/v <span verifiable-text="end" data-for="plan"></span>
     </div>
     <div style="font-size: 0.7em; color: #666; margin-top: 10px;">
       Scan to verify appeal deadlines, view high-res project renderings, and read the full environmental impact report.

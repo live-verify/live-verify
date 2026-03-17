@@ -58,7 +58,7 @@ The output of this system is a **continuous, verified log of every care interact
 
 <div style="max-width: 560px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="background: #00695c; color: #fff; padding: 14px 20px;">
-    <div style="font-size: 1.1em; font-weight: bold;"><span verifiable-text="start" data-for="start">[</span>Royal Devon University Healthcare</div>
+    <div style="font-size: 1.1em; font-weight: bold;"><span verifiable-text="start" data-for="start"></span>Royal Devon University Healthcare</div>
     <div style="font-size: 0.75em; opacity: 0.9;">NHS Foundation Trust</div>
   </div>
   <div style="padding: 20px;">
@@ -72,14 +72,14 @@ The output of this system is a **continuous, verified log of every care interact
     <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
     <div data-verify-line="start" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: this trust doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:rduh.nhs.uk/care/v <span verifiable-text="end" data-for="start">]</span>
+      verify:rduh.nhs.uk/care/v <span verifiable-text="end" data-for="start"></span>
     </div>
   </div>
 </div>
 
 <div style="max-width: 560px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="background: #004d40; color: #fff; padding: 14px 20px;">
-    <div style="font-size: 1.1em; font-weight: bold;"><span verifiable-text="start" data-for="end">[</span>Royal Devon University Healthcare</div>
+    <div style="font-size: 1.1em; font-weight: bold;"><span verifiable-text="start" data-for="end"></span>Royal Devon University Healthcare</div>
     <div style="font-size: 0.75em; opacity: 0.9;">NHS Foundation Trust</div>
   </div>
   <div style="padding: 20px;">
@@ -94,7 +94,7 @@ The output of this system is a **continuous, verified log of every care interact
     <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
     <div data-verify-line="end" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: this trust doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:rduh.nhs.uk/care/v <span verifiable-text="end" data-for="end">]</span>
+      verify:rduh.nhs.uk/care/v <span verifiable-text="end" data-for="end"></span>
     </div>
   </div>
 </div>

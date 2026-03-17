@@ -24,7 +24,7 @@ With Live Verify, the bank issues a verified fraud report acknowledgment — a p
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #0a3d7c; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="fraudack">[</span>CHASE FRAUD DEPARTMENT</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="fraudack"></span>CHASE FRAUD DEPARTMENT</div>
       <div style="font-size: 0.8em; opacity: 0.85; margin-top: 2px;">Fraud Report Acknowledgment</div>
     </div>
     <div style="text-align: right; font-size: 0.8em;">
@@ -67,7 +67,7 @@ With Live Verify, the bank issues a verified fraud report acknowledgment — a p
   <div style="padding: 0 20px 20px 20px;">
     <div style="border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Chase doesn't yet offer verification endpoints, so this is illustrative">
-      verify:chase.com/fraud/v <span verifiable-text="end" data-for="fraudack">]</span>
+      verify:chase.com/fraud/v <span verifiable-text="end" data-for="fraudack"></span>
     </div>
   </div>
 </div>

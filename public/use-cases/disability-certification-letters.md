@@ -18,7 +18,7 @@ The result is a system where legitimate disability certification is simultaneous
 With Live Verify, the disability certification carries a `verify:` line bound to the certifying physician's or organization's domain. The employer, the university, the housing provider scans it and gets confirmation: real certification, from a real medical professional, currently valid — without seeing the underlying diagnosis.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Georgia', serif; border: 1px solid #ccc; background: #fff; padding: 30px 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="dcl">[</span>
+  <span verifiable-text="start" data-for="dcl"></span>
   <div style="text-align: center; margin-bottom: 20px;">
     <div style="font-family: sans-serif; font-weight: bold; font-size: 1.15em; color: #1a3c5e;">Lakeview Medical Associates</div>
     <div style="font-family: sans-serif; font-size: 0.85em; color: #555;">4200 Birchwood Drive, Suite 310, Madison, WI 53711</div>
@@ -48,7 +48,7 @@ With Live Verify, the disability certification carries a `verify:` line bound to
   </div>
   <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
   <div data-verify-line="dcl" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;">
-    verify:lakeviewmedical.com/cert/v <span verifiable-text="end" data-for="dcl">]</span>
+    verify:lakeviewmedical.com/cert/v <span verifiable-text="end" data-for="dcl"></span>
   </div>
 </div>
 

@@ -20,7 +20,7 @@ Because these lead directly to high-paying jobs, "internship fraud" (faking a ce
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Georgia', serif; border: 10px solid #eee; background: #fff; padding: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <div style="padding: 40px; text-align: center; border: 1px solid #ccc; margin: 10px;">
     <div style="margin-bottom: 20px;">
-      <div style="font-size: 1.5em; font-weight: bold; letter-spacing: 2px;"><span verifiable-text="start" data-for="intern">[</span>CERTIFICATE OF COMPLETION</div>
+      <div style="font-size: 1.5em; font-weight: bold; letter-spacing: 2px;"><span verifiable-text="start" data-for="intern"></span>CERTIFICATE OF COMPLETION</div>
       <div style="font-size: 0.9em; font-style: italic;">Professional Development Program</div>
     </div>
 <div style="margin: 30px 0;">
@@ -42,7 +42,7 @@ Because these lead directly to high-paying jobs, "internship fraud" (faking a ce
     </div>
 <div data-verify-line="intern" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Company doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:techno-dynamic.com/interns/v <span verifiable-text="end" data-for="intern">]</span>
+      verify:techno-dynamic.com/interns/v <span verifiable-text="end" data-for="intern"></span>
     </div>
   </div>
 </div>

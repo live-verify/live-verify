@@ -16,7 +16,7 @@ In the renewable energy industry, a **Solar Efficiency Certificate** (or Flash T
 These certificates are the foundation of **Solar Financing** and **Warranties**. Fraud is common in the "Budget Solar" market: shady distributors often "edit" a certificate to turn a low-efficiency generic panel into a high-performance "Tier-1" brand like SunPower or LG. Similarly, they might inflate the wattage to charge a homeowner more for a smaller system. Verified hashes bind the **Panel Serial Number, STC Wattage, and Testing Date** to the manufacturer's or the testing lab's domain (e.g., `trinasolar.com` or `tuv.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="solar">[</span>TRINA SOLAR LABS
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="solar"></span>TRINA SOLAR LABS
 IEC 61215 Certified - Flash Test Report
 ═══════════════════════════════════════════════════════════════════
 
@@ -33,7 +33,7 @@ This panel has been individually tested at the point of
 manufacture. Performance data is guaranteed for 25 years under
 the Linear Power Warranty.
 
-<span data-verify-line="solar">verify:trinasolar.com/v</span> <span verifiable-text="end" data-for="solar">]</span></pre>
+<span data-verify-line="solar">verify:trinasolar.com/v</span> <span verifiable-text="end" data-for="solar"></span></pre>
 </div>
 
 ## Data Verified

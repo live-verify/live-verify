@@ -16,7 +16,7 @@ In the auto insurance industry, an **Additional Driver Endorsement** is the form
 These documents are the "Permission to Drive." Fraud is high-frequency: individuals whose own insurance was cancelled for accidents often "edit" a friend's insurance card or PDF to add their own name, making them look insured to police or rental agencies. Verified hashes bind the **Additional Driver Name, License Number, and Validity Dates** to the insurer's domain (e.g., `geico.com` or `progressive.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="endorse">[</span>SAFEGUARD INSURANCE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="endorse"></span>SAFEGUARD INSURANCE
 Policy Amendment Certificate
 ════════════════════════════════════════════════════=═══════════════
 
@@ -32,7 +32,7 @@ Starts:  15 MAR 2026 15:30                Ends:    22 MAR 2026 23:59
 Coverage extended only to the named operator while driving
 with owner's permission.
 
-<span data-verify-line="endorse">verify:safeguard-ins.com/v</span> <span verifiable-text="end" data-for="endorse">]</span></pre>
+<span data-verify-line="endorse">verify:safeguard-ins.com/v</span> <span verifiable-text="end" data-for="endorse"></span></pre>
 </div>
 
 ## Data Verified

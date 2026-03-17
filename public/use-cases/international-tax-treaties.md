@@ -15,7 +15,7 @@ When you work across borders, two countries may both claim taxing rights on your
 These documents are crucial for expats, remote workers, multinational employees, and retirees abroad. Fraud and disputes are common: fake residency certificates, forged coverage certificates, and disputes over which country's system applies.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="treaty1">[</span>TAX RESIDENCY CERTIFICATE<br>
+  <span verifiable-text="start" data-for="treaty1"></span>TAX RESIDENCY CERTIFICATE<br>
   IRS Form 6166<br>
   U.S. Department of Treasury<br>
   <br>
@@ -31,11 +31,11 @@ These documents are crucial for expats, remote workers, multinational employees,
   Tax Year: 2025<br>
   Issued: January 8, 2026<br>
   Certificate #: 6166-2026-0847221<br>
-  <span data-verify-line="treaty1">verify:irs.gov/treaty</span> <span verifiable-text="end" data-for="treaty1">]</span>
+  <span data-verify-line="treaty1">verify:irs.gov/treaty</span> <span verifiable-text="end" data-for="treaty1"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="treaty2">[</span>CERTIFICATE OF RESIDENCE<br>
+  <span verifiable-text="start" data-for="treaty2"></span>CERTIFICATE OF RESIDENCE<br>
   HM Revenue & Customs (UK)<br>
   <br>
   Name: Sarah Williams<br>
@@ -50,11 +50,11 @@ These documents are crucial for expats, remote workers, multinational employees,
   For treaty purposes with: Germany<br>
   Issued: 12 January 2026<br>
   Ref: HMRC-RES-2026-44871<br>
-  <span data-verify-line="treaty2">verify:hmrc.gov.uk/residence</span> <span verifiable-text="end" data-for="treaty2">]</span>
+  <span data-verify-line="treaty2">verify:hmrc.gov.uk/residence</span> <span verifiable-text="end" data-for="treaty2"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="total1">[</span>CERTIFICATE OF COVERAGE<br>
+  <span verifiable-text="start" data-for="total1"></span>CERTIFICATE OF COVERAGE<br>
   Social Security Administration (US)<br>
   Form SSA-1199<br>
   <br>
@@ -70,11 +70,11 @@ These documents are crucial for expats, remote workers, multinational employees,
   Employer: TechCorp Inc<br>
   Period: 01/01/2026 - 12/31/2030<br>
   Certificate #: USA/DE-2026-4478821<br>
-  <span data-verify-line="total1">verify:ssa.gov/totalization</span> <span verifiable-text="end" data-for="total1">]</span>
+  <span data-verify-line="total1">verify:ssa.gov/totalization</span> <span verifiable-text="end" data-for="total1"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="total2">[</span>PORTABLE DOCUMENT A1<br>
+  <span verifiable-text="start" data-for="total2"></span>PORTABLE DOCUMENT A1<br>
   European Union Social Security<br>
   <br>
   Worker: Marie Dubois<br>
@@ -90,11 +90,11 @@ These documents are crucial for expats, remote workers, multinational employees,
   Valid: 01/03/2026 - 28/02/2028<br>
   Issued by: URSSAF (FR)<br>
   Document #: FR-A1-2026-7784521<br>
-  <span data-verify-line="total2">verify:cleiss.fr/a1</span> <span verifiable-text="end" data-for="total2">]</span>
+  <span data-verify-line="total2">verify:cleiss.fr/a1</span> <span verifiable-text="end" data-for="total2"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="credit1">[</span>FOREIGN TAX CREDIT STATEMENT<br>
+  <span verifiable-text="start" data-for="credit1"></span>FOREIGN TAX CREDIT STATEMENT<br>
   Finanzamt München<br>
   <br>
   Taxpayer: Robert Schmidt<br>
@@ -110,11 +110,11 @@ These documents are crucial for expats, remote workers, multinational employees,
   for foreign tax credit purposes.<br>
   <br>
   Issued: 15 January 2026<br>
-  <span data-verify-line="credit1">verify:finanzamt.de/credit</span> <span verifiable-text="end" data-for="credit1">]</span>
+  <span data-verify-line="credit1">verify:finanzamt.de/credit</span> <span verifiable-text="end" data-for="credit1"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="pension1">[</span>PENSION ENTITLEMENT STATEMENT<br>
+  <span verifiable-text="start" data-for="pension1"></span>PENSION ENTITLEMENT STATEMENT<br>
   Department for Work and Pensions (UK)<br>
   <br>
   Claimant: David Thompson<br>
@@ -131,11 +131,11 @@ These documents are crucial for expats, remote workers, multinational employees,
   Payable From: 6 April 2026<br>
   <br>
   Agreement Ref: UK/US-TOT-2026-44721<br>
-  <span data-verify-line="pension1">verify:dwp.gov.uk/pension</span> <span verifiable-text="end" data-for="pension1">]</span>
+  <span data-verify-line="pension1">verify:dwp.gov.uk/pension</span> <span verifiable-text="end" data-for="pension1"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="treaty3">[</span>WITHHOLDING TAX EXEMPTION<br>
+  <span verifiable-text="start" data-for="treaty3"></span>WITHHOLDING TAX EXEMPTION<br>
   Japan National Tax Agency<br>
   <br>
   Recipient: Global Investment Fund LP<br>
@@ -153,7 +153,7 @@ These documents are crucial for expats, remote workers, multinational employees,
   <br>
   Valid: Tax Year 2026<br>
   Certificate #: NTA-WHT-2026-884721<br>
-  <span data-verify-line="treaty3">verify:nta.go.jp/treaty</span> <span verifiable-text="end" data-for="treaty3">]</span>
+  <span data-verify-line="treaty3">verify:nta.go.jp/treaty</span> <span verifiable-text="end" data-for="treaty3"></span>
 </div>
 
 ## Why This Matters

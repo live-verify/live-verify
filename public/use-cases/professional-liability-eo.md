@@ -18,7 +18,7 @@ It is the "Insurance for Brainwork." If an architect's design causes a balcony t
 **"Retroactive Date Fraud"** is a critical risk in this sector. E&O policies are usually "Claims-Made," meaning they only cover work done after a specific **Retroactive Date**. A professional who missed a design error 5 years ago might "edit" their certificate's retroactive date from 2024 to 2015 to hide that they weren't actually insured at the time of the error. Verified hashes bind the **Policy Limits and the Retroactive Date** to the underwriter's domain.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="eo">[</span>
+  <span verifiable-text="start" data-for="eo"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">HISCOX INSURANCE CO.
 Professional Liability Division
 ═══════════════════════════════════════════════════════════════════
@@ -43,7 +43,7 @@ Deductible (Retention)                                    $ 25,000
 Policy Period: March 15, 2026 to March 15, 2027
 
 </pre>
-<span data-verify-line="eo">verify:hiscox.com/certificates/v</span> <span verifiable-text="end" data-for="eo">]</span>
+<span data-verify-line="eo">verify:hiscox.com/certificates/v</span> <span verifiable-text="end" data-for="eo"></span>
 </div>
 
 ## Data Verified

@@ -16,7 +16,7 @@ An **Immunization Record** (often a wallet card like the CDC "White Card" or a s
 The problem is that physical cards are easy to fake. During the COVID-19 pandemic, a massive black market emerged for "Fake White Cards," where people used real lot numbers on forged paper to bypass employment and travel rules. Similarly, students sometimes "edit" their childhood MMR records to meet college requirements. Verified hashes bind the **Patient Name, Vaccine Lot Number, and Date of Administration** to the provider's or the health department's domain (e.g., `cvs.com`, `cdc.gov`, or `doh.wa.gov`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="vax">[</span>
+  <span verifiable-text="start" data-for="vax"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">COVID-19 VACCINATION RECORD CARD                              [CDC]
 ═══════════════════════════════════════════════════════════════════
 
@@ -34,7 +34,7 @@ Please keep this record card, which includes medical information
 about the vaccines you have received.
 
 </pre>
-<span data-verify-line="vax">verify:cvs.com/vax/v</span> <span verifiable-text="end" data-for="vax">]</span>
+<span data-verify-line="vax">verify:cvs.com/vax/v</span> <span verifiable-text="end" data-for="vax"></span>
 </div>
 
 ## Data Verified

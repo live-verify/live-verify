@@ -16,7 +16,7 @@ In B2B commerce, the **Purchase Order (PO)** is the official offer to buy, and t
 These documents are high-value targets for **Invoice Factoring Fraud**. A dishonest supplier might create a fake PO from a reputable company (like Apple or Walmart) to get a multimillion-dollar "Advance" from a bank. Similarly, a buyer might "alter" a delivery note to claim they received fewer items than were actually shipped. Verified hashes bind the **Order IDs, Quantities, and Unit Prices** to the issuer's domain (e.g., `amazon.com` or `boeing.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="po">[</span>ACME MANUFACTURING CORP.
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="po"></span>ACME MANUFACTURING CORP.
 Procurement Office - 123 Factory Lane
 PURCHASE ORDER                                      # PO-2026-992288
 ═══════════════════════════════════════════════════════════════════
@@ -36,7 +36,7 @@ TOTAL ORDER VALUE (USD):                              $ 15,100.00
 
 This PO is a legally binding offer once accepted.
 
-<span data-verify-line="po">verify:acme-mfg.com/procure/v</span> <span verifiable-text="end" data-for="po">]</span></pre>
+<span data-verify-line="po">verify:acme-mfg.com/procure/v</span> <span verifiable-text="end" data-for="po"></span></pre>
 </div>
 
 ## Data Verified

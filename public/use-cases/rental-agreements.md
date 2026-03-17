@@ -16,7 +16,7 @@ A **Rental Agreement** is the temporary contract of possession for a vehicle or 
 This sector is plagued by high-volume, low-trust disputes. **Damage Fraud** is the primary issue: a rental company might "edit" a condition report to charge a customer for a scratch that was already there, or a customer might "edit" an agreement to show they paid for "Full Coverage" when they actually declined it. Verified hashes bind the **Odometer Reading, Fuel Level, and Coverage Selections** to the rental company's domain (e.g., `hertz.com` or `unitedrentals.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="rental">[</span>Hertz
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="rental"></span>Hertz
 RENTAL RECORD                                     Ref: RA-99228877-XJ
 ═══════════════════════════════════════════════════════════════════
 
@@ -33,7 +33,7 @@ Coverage (LDW):                                   ACCEPTED ($0 Ded)
 Unauthorized alteration of mileage or coverage status
 renders this document void.
 
-<span data-verify-line="rental">verify:hertz.com/v</span> <span verifiable-text="end" data-for="rental">]</span></pre>
+<span data-verify-line="rental">verify:hertz.com/v</span> <span verifiable-text="end" data-for="rental"></span></pre>
 </div>
 
 ## Data Verified

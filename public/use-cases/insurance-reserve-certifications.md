@@ -10,7 +10,7 @@ furtherDerivations: 3
 ---
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="life-res">[</span>
+  <span verifiable-text="start" data-for="life-res"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">PRUDENTIAL FINANCIAL SERVICES
 ═══════════════════════════════════════════════════════════════════
 
@@ -34,7 +34,7 @@ ________________________                         [FILED & VERIFIED]
 Robert Miller, FSA
 
 </pre>
-<span data-verify-line="life-res">verify:prudential.com/actuarial/v</span> <span verifiable-text="end" data-for="life-res">]</span>
+<span data-verify-line="life-res">verify:prudential.com/actuarial/v</span> <span verifiable-text="end" data-for="life-res"></span>
 </div>
 
 ## Data Verified
@@ -108,7 +108,7 @@ _[Content merged from: ltc-insurance-reserve-certifications]_
 
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="ltc-res">[</span>
+  <span verifiable-text="start" data-for="ltc-res"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">GENWORTH FINANCIAL
 ═══════════════════════════════════════════════════════════════════
 
@@ -130,7 +130,7 @@ ________________________                         [FILED & VERIFIED]
 Robert Miller, FSA
 
 </pre>
-<span data-verify-line="ltc-res">verify:genworth.com/actuarial/v</span> <span verifiable-text="end" data-for="ltc-res">]</span>
+<span data-verify-line="ltc-res">verify:genworth.com/actuarial/v</span> <span verifiable-text="end" data-for="ltc-res"></span>
 </div>
 
 ## Data Verified
@@ -210,7 +210,7 @@ In the insurance and self-insurance industries, a **Reserve Certification** (or 
 These documents are the "Proof of Solvency." Fraud is high-stakes in **M&A (Mergers & Acquisitions)**: a company being sold might "edit" a reserve certification to hide a $10M liability, making the firm look more profitable than it actually is. Similarly, a self-insured employer might use a fake "Actuarial Letter" to trick a state regulator into thinking they have enough cash to cover their workers. Verified hashes bind the **Total Reserve Amount, Claim ID, and Actuary's License** to the insurer's or the audit firm's domain (e.g., `deloitte.com` or `hartford.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="reserve">[</span>
+  <span verifiable-text="start" data-for="reserve"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">HARTFORD LOSS CONTROL SERVICES
 Official Loss Reserve Attestation
 ═══════════════════════════════════════════════════════════════════
@@ -242,7 +242,7 @@ Sarah Jenkins, Lead Actuary
 Credential: #ACAS-992288
 
 </pre>
-<span data-verify-line="reserve">verify:thehartford.com/v</span> <span verifiable-text="end" data-for="reserve">]</span>
+<span data-verify-line="reserve">verify:thehartford.com/v</span> <span verifiable-text="end" data-for="reserve"></span>
 </div>
 
 ## Data Verified

@@ -17,7 +17,7 @@ OFSI issues a licence letter specifying exactly what's permitted: the amount, th
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #1a237e; background: #fff; padding: 0;">
   <div style="background: #1a237e; color: #fff; padding: 15px;">
-    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="ofsilicence">[</span>HM TREASURY — OFSI</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="ofsilicence"></span>HM TREASURY — OFSI</div>
     <div style="font-size: 0.8em;">Office of Financial Sanctions Implementation</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -36,7 +36,7 @@ OFSI issues a licence letter specifying exactly what's permitted: the amount, th
     Issued by: Financial Sanctions Officer, OFSI</p>
     <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="ofsilicence" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #555;">
-        verify:ofsi.hm-treasury.gov.uk/licences <span verifiable-text="end" data-for="ofsilicence">]</span>
+        verify:ofsi.hm-treasury.gov.uk/licences <span verifiable-text="end" data-for="ofsilicence"></span>
       </div>
     </div>
   </div>

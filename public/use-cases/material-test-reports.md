@@ -10,7 +10,7 @@ furtherDerivations: 1
 ---
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="mtr">[</span>
+  <span verifiable-text="start" data-for="mtr"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">SHEFFIELD STEEL FORGE, LTD.
 ═══════════════════════════════════════════════════════════════════
 
@@ -35,7 +35,7 @@ We hereby certify that the material has been tested and found to
 be in compliance with the above listed specifications.
 
 </pre>
-<span data-verify-line="mtr">verify:sheffield-steel.co.uk/mtr/v</span> <span verifiable-text="end" data-for="mtr">]</span>
+<span data-verify-line="mtr">verify:sheffield-steel.co.uk/mtr/v</span> <span verifiable-text="end" data-for="mtr"></span>
 </div>
 
 ## Data Verified

@@ -25,7 +25,7 @@ Live Verify allows a citizen to scan the officer's ID card to get a real-time "A
   <div style="background: #002d62; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
     <img src="met.png" alt="Metropolitan Police" style="width: 45px; height: 45px; object-fit: contain;">
     <div style="text-align: right;">
-      <div style="font-weight: bold; font-size: 1.1em; letter-spacing: 1px;"><span verifiable-text="start" data-for="police">[</span>WARRANT CARD</div>
+      <div style="font-weight: bold; font-size: 1.1em; letter-spacing: 1px;"><span verifiable-text="start" data-for="police"></span>WARRANT CARD</div>
       <div style="font-size: 0.7em; opacity: 0.8;">METROPOLITAN POLICE</div>
     </div>
   </div>
@@ -40,7 +40,7 @@ Live Verify allows a citizen to scan the officer's ID card to get a real-time "A
   </div>
 <div style="padding: 0 20px 20px 20px;">
     <div style="border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.9em; color: #666; text-align: center;">
-      https://www.met.police.uk <span verifiable-text="end" data-for="police">]</span>
+      https://www.met.police.uk <span verifiable-text="end" data-for="police"></span>
     </div>
   </div>
 </div>
@@ -52,7 +52,7 @@ When presented with a physical warrant card, a citizen must rely on visual inspe
 
 <div style="max-width: 320px; margin: 24px auto; font-family: 'Courier New', monospace; border: 3px solid #002d62; border-radius: 8px; background: #f5f5f0; padding: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
   <div style="font-size: 1em; color: #000; font-weight: bold; margin-bottom: 8px;">METROPOLITAN POLICE</div>
-  <div style="font-size: 1em; color: #000; margin-bottom: 8px;"><span verifiable-text="start" data-for="eink">[</span>DIGITAL WARRANT CARD</div>
+  <div style="font-size: 1em; color: #000; margin-bottom: 8px;"><span verifiable-text="start" data-for="eink"></span>DIGITAL WARRANT CARD</div>
   <div style="font-size: 1em; font-weight: bold; color: #000; margin-bottom: 8px;">PC Alex D 1332</div>
   <div style="font-size: 1em; color: #000; margin-bottom: 8px;">London MET</div>
   <div style="font-size: 1em; color: #000; margin-bottom: 8px;">
@@ -60,7 +60,7 @@ When presented with a physical warrant card, a citizen must rely on visual inspe
   </div>
   <div data-verify-line="eink" style="font-size: 1em; color: #555;"
     title="Demo only: Police don't yet offer verification endpoints">
-    vfy:officers.police.uk <span verifiable-text="end" data-for="eink">]</span>
+    vfy:officers.police.uk <span verifiable-text="end" data-for="eink"></span>
   </div>
 </div>
 
@@ -81,7 +81,7 @@ Officers also carry a secure mobile app that generates the same verifiable displ
   <!-- Right side: Verification Text -->
   <div style="flex-grow: 1; padding: 20px; font-family: sans-serif; text-align: left; background: #fff;">
     <div style="font-size: 1.2em; color: #000; font-weight: bold; margin-bottom: 5px;">METROPOLITAN POLICE</div>
-    <div style="font-size: 1.2em; color: #000; margin-bottom: 15px; letter-spacing: 1px;"><span verifiable-text="start" data-for="app-police">[</span>DIGITAL WARRANT CARD</div>
+    <div style="font-size: 1.2em; color: #000; margin-bottom: 15px; letter-spacing: 1px;"><span verifiable-text="start" data-for="app-police"></span>DIGITAL WARRANT CARD</div>
     <div style="font-size: 1.2em; font-weight: bold; color: #000; margin-bottom: 5px;">PC Alex D 1332</div>
     <div style="font-size: 1.2em; color: #000; margin-bottom: 10px;">London MET</div>
     <div style="font-size: 1.2em; color: #000; font-weight: bold; margin-bottom: 10px;">
@@ -89,7 +89,7 @@ Officers also carry a secure mobile app that generates the same verifiable displ
     </div>
     <div data-verify-line="app-police" style="font-family: 'Courier New', monospace; font-size: 0.9em; color: #000; border-top: 1px dashed #ccc; padding-top: 10px;"
       title="Demo only: Police don't yet offer verification endpoints">
-      vfy:officers.police.uk <span verifiable-text="end" data-for="app-police">]</span>
+      vfy:officers.police.uk <span verifiable-text="end" data-for="app-police"></span>
     </div>
   </div>
 </div>

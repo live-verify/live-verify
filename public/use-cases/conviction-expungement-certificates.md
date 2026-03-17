@@ -15,7 +15,7 @@ An expungement certificate confirms that a criminal conviction has been legally 
 This is life-changing documentation. Fraud includes fake expungements to pass background checks, or criminals misrepresenting the scope of what was actually expunged.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="exp">[</span>ORDER OF EXPUNGEMENT<br>
+  <span verifiable-text="start" data-for="exp"></span>ORDER OF EXPUNGEMENT<br>
   Superior Court of California<br>
   County of Los Angeles<br>
   Case #BA-2019-44782<br>
@@ -24,11 +24,11 @@ This is life-changing documentation. Fraud includes fake expungements to pass ba
   Conviction Date: March 15, 2019<br>
   Expungement Granted: January 3, 2026<br>
   Judge: Hon. Sandra Martinez<br>
-  <span data-verify-line="exp">verify:courts.ca.gov/expungement</span> <span verifiable-text="end" data-for="exp">]</span>
+  <span data-verify-line="exp">verify:courts.ca.gov/expungement</span> <span verifiable-text="end" data-for="exp"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="seal">[</span>CERTIFICATE OF RECORD SEALING<br>
+  <span verifiable-text="start" data-for="seal"></span>CERTIFICATE OF RECORD SEALING<br>
   Commonwealth of Pennsylvania<br>
   Court of Common Pleas - Philadelphia<br>
   Case #CP-51-CR-2018-003321<br>
@@ -36,11 +36,11 @@ This is life-changing documentation. Fraud includes fake expungements to pass ba
   Sealed Offenses: All charges in above case<br>
   Sealing Type: Clean Slate Act Automatic<br>
   Effective: December 15, 2025<br>
-  <span data-verify-line="seal">verify:courts.pa.gov/sealed</span> <span verifiable-text="end" data-for="seal">]</span>
+  <span data-verify-line="seal">verify:courts.pa.gov/sealed</span> <span verifiable-text="end" data-for="seal"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="pardon">[</span>PARDON CERTIFICATE<br>
+  <span verifiable-text="start" data-for="pardon"></span>PARDON CERTIFICATE<br>
   Office of the Governor<br>
   State of Virginia<br>
   Pardon #2025-0041<br>
@@ -49,7 +49,7 @@ This is life-changing documentation. Fraud includes fake expungements to pass ba
   Conviction Date: September 2010<br>
   Type: Full and Unconditional Pardon<br>
   Granted: January 7, 2026<br>
-  <span data-verify-line="pardon">verify:governor.virginia.gov/pardons</span> <span verifiable-text="end" data-for="pardon">]</span>
+  <span data-verify-line="pardon">verify:governor.virginia.gov/pardons</span> <span verifiable-text="end" data-for="pardon"></span>
 </div>
 
 ## Data Verified

@@ -27,7 +27,7 @@ The common thread: **someone other than you is calculating what your money is wo
 In the **Bernie Madoff** scandal, the fraud was possible because Madoff wrote his own statements. A **Verified NAV Statement** must be issued by an independent administrator, custodian, or recordkeeper. Verified hashes ensure the numbers haven't been fabricated or altered.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="nav">[</span>
+  <span verifiable-text="start" data-for="nav"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">CITCO FUND SERVICES
 Independent Fund Administrator
 ═══════════════════════════════════════════════════════════════════
@@ -53,7 +53,7 @@ Verification confirms the NAV and performance match the
 administrator's official books and records.
 
 </pre>
-<span data-verify-line="nav">verify:citco.com/statements/v</span> <span verifiable-text="end" data-for="nav">]</span>
+<span data-verify-line="nav">verify:citco.com/statements/v</span> <span verifiable-text="end" data-for="nav"></span>
 </div>
 
 ## Data Verified

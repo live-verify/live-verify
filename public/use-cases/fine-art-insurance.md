@@ -20,7 +20,7 @@ Fraud is high-stakes here: a collector might edit a $1M policy to read $100M to 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 2px solid #002366; background: #fff; padding: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <div style="background: #002366; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="art-ins">[</span>AXA ARTPRIVÉ</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="art-ins"></span>AXA ARTPRIVÉ</div>
       <div style="font-size: 0.8em;">Specialist Fine Art & Collectibles</div>
     </div>
     <div style="text-align: right;">
@@ -44,7 +44,7 @@ Fraud is high-stakes here: a collector might edit a $1M policy to read $100M to 
     </div>
 <div data-verify-line="art-ins" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: AXA Art doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:axa-art.com/v <span verifiable-text="end" data-for="art-ins">]</span>
+      verify:axa-art.com/v <span verifiable-text="end" data-for="art-ins"></span>
     </div>
   </div>
 </div>

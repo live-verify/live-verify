@@ -16,7 +16,7 @@ In competitive sports and eSports, the **Tournament Bracket** is the official ma
 These documents are the "Career Proof" for athletes and teams. They are used to secure **Sponsorships**, **College Recruitment**, and **Pro Draft** slots. Fraud is common in junior and amateur levels: players or coaches often "edit" a bracket to show they finished in the "Top 4" instead of the "Top 32," or to hide a loss against a weak opponent. Verified hashes bind the **Match Results, Player/Team Names, and Final Rankings** to the league's domain (e.g., `ncaa.com`, `fifa.com`, or `challengermode.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="bracket">[</span>ELITE CHAMPIONSHIP SERIES
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="bracket"></span>ELITE CHAMPIONSHIP SERIES
 Official Results & Final Standings
 ═══════════════════════════════════════════════════════════════════
 
@@ -40,7 +40,7 @@ SEMIFINAL 2                    │     │                         │
 OFFICIAL NOTE: Match #42 (Finals) verified by Lead Official
 Sarah Jenkins. No protests pending.
 
-<span data-verify-line="bracket">verify:elite-champs.com/v</span> <span verifiable-text="end" data-for="bracket">]</span></pre>
+<span data-verify-line="bracket">verify:elite-champs.com/v</span> <span verifiable-text="end" data-for="bracket"></span></pre>
 </div>
 
 ## Data Verified

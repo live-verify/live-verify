@@ -21,7 +21,7 @@ It tells you:
 Verified EOBs are essential for **HSA/FSA Reimbursement**. Fraudsters often edit these PDFs to inflate their "Patient Responsibility" to trick their tax-free savings account into releasing cash. Verified hashes ensure the $70 charge matches the insurer's actual adjudication.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="eob-health">[</span>ANTHEM BLUE CROSS                       Claim #: 99228877-BC
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="eob-health"></span>ANTHEM BLUE CROSS                       Claim #: 99228877-BC
 Explanation of Benefits (EOB)
 
 Patient: SARAH J. DOE                   Service Date:   Feb 10, 2026
@@ -36,7 +36,7 @@ TOTAL PATIENT RESPONSIBILITY:                     $ 70.00
 
 This is NOT a bill. Use this verified record for HSA/FSA reimbursement.
 
-<span data-verify-line="eob-health">verify:anthem.com/claims/v</span> <span verifiable-text="end" data-for="eob-health">]</span></pre>
+<span data-verify-line="eob-health">verify:anthem.com/claims/v</span> <span verifiable-text="end" data-for="eob-health"></span></pre>
 </div>
 
 ## Data Verified

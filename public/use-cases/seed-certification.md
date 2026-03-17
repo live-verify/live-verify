@@ -16,7 +16,7 @@ In global agriculture, a **Seed Certification Tag** (often a blue, purple, or wh
 These tags are the "Intellectual Property" of the seed world. Fraud is common in high-value crops (e.g., GMO Soybeans or Hybrid Corn). Shady dealers often "edit" a tag to turn generic, low-quality grain into a "Certified High-Yield" variety to sell it at a 500% markup. Similarly, they might hide a poor germination test result. Verified hashes bind the **Lot Number, Variety Name, and Purity Metrics** to the state's or the breeder's domain (e.g., `aosca.org` or `monsanto.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="seed">[</span>
+  <span verifiable-text="start" data-for="seed"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">OFFICIAL CERTIFIED SEED
 Member: Assoc. of Official Seed Certifying Agencies
 ═══════════════════════════════════════════════════════════════════
@@ -33,7 +33,7 @@ Inert Matter:                                                 0.15%
 Noxious Weeds:                                                 NONE
 
 </pre>
-<span data-verify-line="seed">verify:aosca.org/v</span> <span verifiable-text="end" data-for="seed">]</span>
+<span data-verify-line="seed">verify:aosca.org/v</span> <span verifiable-text="end" data-for="seed"></span>
 </div>
 
 ## Data Verified

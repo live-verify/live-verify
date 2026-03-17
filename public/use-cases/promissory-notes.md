@@ -17,7 +17,7 @@ These documents are the "Paper Gold" of the lending industry. In the **Secondary
 
 <div style="max-width: 650px; margin: 24px auto; font-family: 'Times New Roman', Times, serif; border: 1px solid #000; background: #fff; padding: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 30px;">
-    <h2 style="margin: 0; font-size: 1.4em; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="note">[</span>PROMISSORY NOTE</h2>
+    <h2 style="margin: 0; font-size: 1.4em; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="note"></span>PROMISSORY NOTE</h2>
     <div style="font-size: 0.9em; font-style: italic;">Fixed Rate - Installment</div>
   </div>
 <div style="font-size: 1em; line-height: 1.6; color: #000; text-align: justify;">
@@ -37,7 +37,7 @@ These documents are the "Paper Gold" of the lending industry. In the **Secondary
 <div style="padding: 20px; background: #fffbe6; border: 1px dashed #999; margin-top: 30px; text-align: center;">
     <div data-verify-line="note" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #000; font-weight: bold;"
       title="Demo only: Banks don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:goliathbank.com/v <span verifiable-text="end" data-for="note">]</span>
+      verify:goliathbank.com/v <span verifiable-text="end" data-for="note"></span>
     </div>
     <div style="font-size: 0.7em; color: #666; margin-top: 8px;">
       Scan to verify principal amount, interest rate, and current lien holder status.

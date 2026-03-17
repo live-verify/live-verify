@@ -16,7 +16,7 @@ In professional and collegiate sports (Baseball, Football, Soccer), a **Scouting
 These documents are the "Resumes" of the sports world. They determine who gets a $1M pro contract or a full-ride college scholarship. Fraud is common: parents or agents often "edit" a report to turn a 90 MPH fastball into a 95 MPH one, or to hide a "Character Red Flag" found by a scout. Verified hashes bind the **Player's Name, Core Stats, and Scout's Credentials** to the team's or the combine's domain (e.g., `mlb.com`, `nflcombine.com`, or `imgacademy.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="scout">[</span>
+  <span verifiable-text="start" data-for="scout"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">NATIONAL SCOUTING BUREAU
 Official Prospect Evaluation
 ═══════════════════════════════════════════════════════════════════
@@ -40,7 +40,7 @@ Scout Notes: Elite explosive power. Exceptional field vision.
 Character Grade: A. Recommended for Tier-1 recruitment.
 
 </pre>
-<span data-verify-line="scout">verify:nationscout.com/v</span> <span verifiable-text="end" data-for="scout">]</span>
+<span data-verify-line="scout">verify:nationscout.com/v</span> <span verifiable-text="end" data-for="scout"></span>
 </div>
 
 ## Data Verified

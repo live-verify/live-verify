@@ -16,7 +16,7 @@ A **Property Appraisal** is the professional "Opinion of Value" for a piece of r
 Because the appraisal determines how much money a bank will lend, it is a primary target for **Valuation Fraud**. Shady owners or "Fix-and-Flip" scammers often "edit" an appraisal to turn a $400,000 value into a $600,000 one to bypass equity requirements. Similarly, they might use a fake "Certified" letter from a non-existent appraiser. Verified hashes bind the **Final Opinion of Value, Property Condition, and Appraiser License** to the appraisal firm's or the state's domain (e.g., `corelogic.com` or `state-appraisal-board.gov`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="appraise">[</span>SUMMIT APPRAISAL GROUP
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="appraise"></span>SUMMIT APPRAISAL GROUP
 USPAP Compliant Valuations                      License: #TX-9922
 ═══════════════════════════════════════════════════════════════════
 APPRAISAL SUMMARY                                 Ref: SAP-2026-8844
@@ -36,7 +36,7 @@ _________________________
 Robert J. Miller, Certified Appraiser
 License: #TX-992288 - Exp: 2027
 
-<span data-verify-line="appraise">verify:summit-eval.com/v</span> <span verifiable-text="end" data-for="appraise">]</span></pre>
+<span data-verify-line="appraise">verify:summit-eval.com/v</span> <span verifiable-text="end" data-for="appraise"></span></pre>
 </div>
 
 ## Data Verified

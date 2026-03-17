@@ -27,7 +27,7 @@ Witnessed hashes provide the immutable, third-party proof required to turn a "de
 
 <div style="max-width: 400px; margin: 24px auto; font-family: 'Courier New', Courier, monospace; border: 2px solid #000; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 20px;">
-    <div style="font-weight: bold; font-size: 1.4em;"><span verifiable-text="start" data-for="lottery">[</span>STATE LOTTERY</div>
+    <div style="font-weight: bold; font-size: 1.4em;"><span verifiable-text="start" data-for="lottery"></span>STATE LOTTERY</div>
     <div style="font-size: 0.8em;">OFFICIAL WIN NOTIFICATION</div>
   </div>
 <div style="font-size: 1em; line-height: 1.4; text-align: center;">
@@ -43,7 +43,7 @@ Witnessed hashes provide the immutable, third-party proof required to turn a "de
   </div>
 <div data-verify-line="lottery" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Lottery doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:statelottery.gov/v <span verifiable-text="end" data-for="lottery">]</span>
+      verify:statelottery.gov/v <span verifiable-text="end" data-for="lottery"></span>
   </div>
   <div style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center; margin-top: 5px;">
       witness:independent-audit.org/w

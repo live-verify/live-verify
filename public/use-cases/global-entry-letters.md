@@ -20,7 +20,7 @@ Fraud is common: scammers often create fake "Global Entry" PDFs to trick employe
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #002d62; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
     <div>
-      <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="ttp">[</span>U.S. CUSTOMS AND BORDER PROTECTION</div>
+      <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="ttp"></span>U.S. CUSTOMS AND BORDER PROTECTION</div>
       <div style="font-size: 0.8em;">Trusted Traveler Programs</div>
     </div>
     <div style="width: 40px; height: 40px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #002d62; font-weight: bold; font-size: 0.7em; text-align: center;">CBP</div>
@@ -42,7 +42,7 @@ Fraud is common: scammers often create fake "Global Entry" PDFs to trick employe
     </div>
 <div data-verify-line="ttp" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: CBP doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:ttp.cbp.dhs.gov/v <span verifiable-text="end" data-for="ttp">]</span>
+      verify:ttp.cbp.dhs.gov/v <span verifiable-text="end" data-for="ttp"></span>
     </div>
   </div>
 </div>

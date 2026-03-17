@@ -14,7 +14,7 @@ An asset unfreeze notice confirms that a previously frozen or held account, asse
 The unfreeze notice is critical for proving access has been restored. Fraud includes fake releases to manipulate credit decisions or claim assets are available when they remain frozen.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="bank">[</span>ACCOUNT HOLD RELEASE<br>
+  <span verifiable-text="start" data-for="bank"></span>ACCOUNT HOLD RELEASE<br>
   Wells Fargo Bank N.A.<br>
   Account: ****4892<br>
   Account Holder: Marcus Johnson<br>
@@ -22,11 +22,11 @@ The unfreeze notice is critical for proving access has been restored. Fraud incl
   Hold Date: November 15, 2025<br>
   Released: January 7, 2026<br>
   Status: Account Fully Accessible<br>
-  <span data-verify-line="bank">verify:wellsfargo.com/accounts</span> <span verifiable-text="end" data-for="bank">]</span>
+  <span data-verify-line="bank">verify:wellsfargo.com/accounts</span> <span verifiable-text="end" data-for="bank"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="court">[</span>GARNISHMENT RELEASE<br>
+  <span verifiable-text="start" data-for="court"></span>GARNISHMENT RELEASE<br>
   Superior Court of California<br>
   Case #2024-CV-88412<br>
   Judgment Debtor: James Wilson<br>
@@ -35,11 +35,11 @@ The unfreeze notice is critical for proving access has been restored. Fraud incl
   Garnishment Satisfied: January 5, 2026<br>
   Amount Collected: $12,450.00<br>
   Account Released<br>
-  <span data-verify-line="court">verify:courts.ca.gov/garnish</span> <span verifiable-text="end" data-for="court">]</span>
+  <span data-verify-line="court">verify:courts.ca.gov/garnish</span> <span verifiable-text="end" data-for="court"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="ofac">[</span>OFAC LICENSE GRANTED<br>
+  <span verifiable-text="start" data-for="ofac"></span>OFAC LICENSE GRANTED<br>
   U.S. Treasury - OFAC<br>
   License #SDGT-2025-441892<br>
   Applicant: Global Trading LLC<br>
@@ -47,7 +47,7 @@ The unfreeze notice is critical for proving access has been restored. Fraud incl
   Original Block: Executive Order 13224<br>
   License Type: Specific - Unblocking<br>
   Effective: January 3, 2026<br>
-  <span data-verify-line="ofac">verify:treasury.gov/ofac</span> <span verifiable-text="end" data-for="ofac">]</span>
+  <span data-verify-line="ofac">verify:treasury.gov/ofac</span> <span verifiable-text="end" data-for="ofac"></span>
 </div>
 
 ## Data Verified

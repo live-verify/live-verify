@@ -49,7 +49,7 @@ When failures occur—bridge collapse, tunnel flood, dam breach, pipeline ruptur
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="bridge">[</span>STRUCTURAL WELD ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="bridge"></span>STRUCTURAL WELD ATTESTATION
 
 Project: River Crossing Bridge, Span 4
 Element: Main Girder Splice, Grid Line C-4
@@ -79,7 +79,7 @@ ATTESTATION HASH: 8f4a2c1e9b...
 
 CONCEALMENT DATE: January 16, 2025 (coating applied)
 
-<span data-verify-line="bridge">verify:rivercrossing-project.gov/welds/v</span> <span verifiable-text="end" data-for="bridge">]</span></pre>
+<span data-verify-line="bridge">verify:rivercrossing-project.gov/welds/v</span> <span verifiable-text="end" data-for="bridge"></span></pre>
 </div>
 
 **Roll-Up:**
@@ -106,7 +106,7 @@ CONCEALMENT DATE: January 16, 2025 (coating applied)
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="tunnel">[</span>TUNNEL LINING ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="tunnel"></span>TUNNEL LINING ATTESTATION
 
 Project: Metro Line Extension, Tunnel Section T-7
 Chainage: 4+250 to 4+300
@@ -128,7 +128,7 @@ ATTESTATION HASH: 2d7e4f1a8c...
 
 CONCEALMENT DATE: January 17, 2025 (secondary lining pour)
 
-<span data-verify-line="tunnel">verify:metro-extension.gov/lining/v</span> <span verifiable-text="end" data-for="tunnel">]</span></pre>
+<span data-verify-line="tunnel">verify:metro-extension.gov/lining/v</span> <span verifiable-text="end" data-for="tunnel"></span></pre>
 </div>
 
 **Why This Matters:**
@@ -200,7 +200,7 @@ Dam safety has multi-generational timescales:
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="pipe">[</span>PIPELINE WELD ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="pipe"></span>PIPELINE WELD ATTESTATION
 
 Project: Northern Gas Transmission Line
 Weld ID: NGT-W-4721
@@ -234,7 +234,7 @@ ATTESTATION HASH: 5c9a3b2e7f...
 
 BURIAL DATE: January 15, 2025
 
-<span data-verify-line="pipe">verify:northern-gas.com/welds/v</span> <span verifiable-text="end" data-for="pipe">]</span></pre>
+<span data-verify-line="pipe">verify:northern-gas.com/welds/v</span> <span verifiable-text="end" data-for="pipe"></span></pre>
 </div>
 
 **Inline Inspection Integration:**
@@ -268,7 +268,7 @@ Modern pipelines use inline inspection (ILI / "smart pigs"):
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="wind">[</span>WIND TURBINE BLADE ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="wind"></span>WIND TURBINE BLADE ATTESTATION
 
 Project: Coastal Wind Farm, Turbine T-14
 Component: Blade Serial #LM-2024-B-7821
@@ -293,7 +293,7 @@ INSTALLATION:
   - Pitch system test: Pass
   - Blade weight: 12,847 kg (within spec)
 
-<span data-verify-line="wind">verify:coastal-wind.com/blades/v</span> <span verifiable-text="end" data-for="wind">]</span></pre>
+<span data-verify-line="wind">verify:coastal-wind.com/blades/v</span> <span verifiable-text="end" data-for="wind"></span></pre>
 </div>
 
 ---

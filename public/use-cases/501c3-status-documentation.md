@@ -21,7 +21,7 @@ Without this letter:
 Charities often have to fax, email, or mail this letter dozens of times a year to prove their legitimacy.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', serif; border: 1px solid #ccc; background: #fff; padding: 40px;">
-  <span verifiable-text="start" data-for="501c3">[</span>
+  <span verifiable-text="start" data-for="501c3"></span>
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 20px; margin-bottom: 30px;">
     <div style="font-weight: bold; font-size: 1.2em;">Internal Revenue Service</div>
     <div style="font-size: 0.9em;">Department of the Treasury</div>
@@ -49,7 +49,7 @@ Charities often have to fax, email, or mail this letter dozens of times a year t
       title="Demo only: IRS doesn't yet offer verification&#10;endpoints, so this is illustrative">
       verify:irs.gov/teos/v
   </div>
-  <span verifiable-text="end" data-for="501c3">]</span>
+  <span verifiable-text="end" data-for="501c3"></span>
 </div>
 
 ## Data Verified

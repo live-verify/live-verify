@@ -31,7 +31,7 @@ Verified incident reports create immutable, timestamped records that can't be qu
 ### Healthcare
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="med1">[</span>PATIENT SAFETY INCIDENT REPORT<br>
+  <span verifiable-text="start" data-for="med1"></span>PATIENT SAFETY INCIDENT REPORT<br>
   NHS Patient Safety Learning System<br>
   <br>
   Trust: Royal London Hospital<br>
@@ -49,7 +49,7 @@ Verified incident reports create immutable, timestamped records that can't be qu
   Duty of Candour met: YES<br>
   <br>
   Reported: 2026-01-08 14:32 GMT<br>
-  <span data-verify-line="med1">verify:learn.patientsafety.nhs.uk/i</span> <span verifiable-text="end" data-for="med1">]</span>
+  <span data-verify-line="med1">verify:learn.patientsafety.nhs.uk/i</span> <span verifiable-text="end" data-for="med1"></span>
 </div>
 
 **Key frameworks:** NHS PSIRF, Duty of Candour (CQC Regulation 20), Joint Commission Sentinel Events, Patient Safety Organizations (US), Never Events (CMS)
@@ -59,7 +59,7 @@ Verified incident reports create immutable, timestamped records that can't be qu
 ### Aviation
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="av1">[</span>AVIATION SAFETY REPORT<br>
+  <span verifiable-text="start" data-for="av1"></span>AVIATION SAFETY REPORT<br>
   NASA ASRS (Aviation Safety Reporting System)<br>
   <br>
   Report #: ACN 2026-00847<br>
@@ -76,7 +76,7 @@ Verified incident reports create immutable, timestamped records that can't be qu
   <br>
   Outcome: No damage, no injuries<br>
   Reporter: [DE-IDENTIFIED]<br>
-  <span data-verify-line="av1">verify:asrs.arc.nasa.gov/r</span> <span verifiable-text="end" data-for="av1">]</span>
+  <span data-verify-line="av1">verify:asrs.arc.nasa.gov/r</span> <span verifiable-text="end" data-for="av1"></span>
 </div>
 
 **Key frameworks:** NASA ASRS (immunity model), FAA Mandatory Occurrence Reports, NTSB accident reports, ICAO Annex 13
@@ -86,7 +86,7 @@ Verified incident reports create immutable, timestamped records that can't be qu
 ### Nuclear
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="nrc1">[</span>NUCLEAR EVENT REPORT<br>
+  <span verifiable-text="start" data-for="nrc1"></span>NUCLEAR EVENT REPORT<br>
   NRC Operations Center<br>
   <br>
   Event #: EN-56847<br>
@@ -104,7 +104,7 @@ Verified incident reports create immutable, timestamped records that can't be qu
   <br>
   Reported: 2026-01-09 04:32 EST<br>
   4-Hour Notification: MET<br>
-  <span data-verify-line="nrc1">verify:nrc.gov/event</span> <span verifiable-text="end" data-for="nrc1">]</span>
+  <span data-verify-line="nrc1">verify:nrc.gov/event</span> <span verifiable-text="end" data-for="nrc1"></span>
 </div>
 
 **Key frameworks:** NRC 10 CFR 50.72/73, Licensee Event Reports (LER), INPO Operating Experience
@@ -114,7 +114,7 @@ Verified incident reports create immutable, timestamped records that can't be qu
 ### Construction / Workplace
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="osha1">[</span>OSHA INCIDENT REPORT<br>
+  <span verifiable-text="start" data-for="osha1"></span>OSHA INCIDENT REPORT<br>
   Form 301 - Injury and Illness Record<br>
   <br>
   Establishment: Morrison Construction LLC<br>
@@ -131,7 +131,7 @@ Verified incident reports create immutable, timestamped records that can't be qu
   Root Cause: Toe board missing from scaffold<br>
   Corrective Action: Scaffold inspection<br>
   checklist implemented<br>
-  <span data-verify-line="osha1">verify:osha.gov/300</span> <span verifiable-text="end" data-for="osha1">]</span>
+  <span data-verify-line="osha1">verify:osha.gov/300</span> <span verifiable-text="end" data-for="osha1"></span>
 </div>
 
 **Key frameworks:** OSHA 300 Log, OSHA Form 301, fatality reporting (8 hours), near-miss programs (voluntary but increasingly common)
@@ -139,7 +139,7 @@ Verified incident reports create immutable, timestamped records that can't be qu
 ### Rail
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="rail1">[</span>RAIL CLOSE CALL REPORT<br>
+  <span verifiable-text="start" data-for="rail1"></span>RAIL CLOSE CALL REPORT<br>
   FRA Confidential Close Call System<br>
   <br>
   Report #: C3RS-2026-4471<br>
@@ -157,7 +157,7 @@ Verified incident reports create immutable, timestamped records that can't be qu
   - Crew fatigue (11th hour of shift)<br>
   <br>
   System Worked: PTC prevented collision<br>
-  <span data-verify-line="rail1">verify:fra.dot.gov/c3rs</span> <span verifiable-text="end" data-for="rail1">]</span>
+  <span data-verify-line="rail1">verify:fra.dot.gov/c3rs</span> <span verifiable-text="end" data-for="rail1"></span>
 </div>
 
 **Key frameworks:** FRA C3RS (Confidential Close Call Reporting System), FRA Accident/Incident Reports, Positive Train Control logs
@@ -165,7 +165,7 @@ Verified incident reports create immutable, timestamped records that can't be qu
 ### Maritime
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="mar1">[</span>MARINE CASUALTY REPORT<br>
+  <span verifiable-text="start" data-for="mar1"></span>MARINE CASUALTY REPORT<br>
   U.S. Coast Guard - MISLE<br>
   <br>
   Activity #: 7445821<br>
@@ -182,7 +182,7 @@ Verified incident reports create immutable, timestamped records that can't be qu
   <br>
   Preliminary Cause: Navigation error<br>
   during restricted visibility<br>
-  <span data-verify-line="mar1">verify:uscg.mil/misle</span> <span verifiable-text="end" data-for="mar1">]</span>
+  <span data-verify-line="mar1">verify:uscg.mil/misle</span> <span verifiable-text="end" data-for="mar1"></span>
 </div>
 
 **Key frameworks:** Coast Guard CG-2692, IMO casualty investigation code, Port State Control, ISM Code non-conformities
@@ -190,7 +190,7 @@ Verified incident reports create immutable, timestamped records that can't be qu
 ### Chemical / Environmental
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="chem1">[</span>CHEMICAL RELEASE REPORT<br>
+  <span verifiable-text="start" data-for="chem1"></span>CHEMICAL RELEASE REPORT<br>
   EPA RMP / EPCRA Section 304<br>
   <br>
   Facility: Westside Chemical Corp<br>
@@ -206,7 +206,7 @@ Verified incident reports create immutable, timestamped records that can't be qu
   <br>
   LEPC Notified: 2026-01-07 14:15 CST<br>
   NRC Notified: 2026-01-07 14:22 CST<br>
-  <span data-verify-line="chem1">verify:epa.gov/rmp</span> <span verifiable-text="end" data-for="chem1">]</span>
+  <span data-verify-line="chem1">verify:epa.gov/rmp</span> <span verifiable-text="end" data-for="chem1"></span>
 </div>
 
 **Key frameworks:** EPA Risk Management Plan (RMP), EPCRA Section 304, OSHA PSM, CSB investigations
@@ -216,7 +216,7 @@ Verified incident reports create immutable, timestamped records that can't be qu
 ### Cybersecurity
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="cyber1">[</span>CYBERSECURITY INCIDENT REPORT<br>
+  <span verifiable-text="start" data-for="cyber1"></span>CYBERSECURITY INCIDENT REPORT<br>
   CISA Incident Reporting<br>
   <br>
   Organization: [CRITICAL INFRASTRUCTURE]<br>
@@ -233,7 +233,7 @@ Verified incident reports create immutable, timestamped records that can't be qu
   <br>
   Reported to CISA: 2026-01-08<br>
   (within 72-hour requirement)<br>
-  <span data-verify-line="cyber1">verify:cisa.gov/incident</span> <span verifiable-text="end" data-for="cyber1">]</span>
+  <span data-verify-line="cyber1">verify:cisa.gov/incident</span> <span verifiable-text="end" data-for="cyber1"></span>
 </div>
 
 **Key frameworks:** CISA CIRCIA (72-hour requirement for critical infrastructure), state breach notification laws, SEC cyber disclosure (public companies), GDPR breach notification (72 hours)
@@ -241,7 +241,7 @@ Verified incident reports create immutable, timestamped records that can't be qu
 ### Food Safety
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="food1">[</span>FOOD SAFETY INCIDENT<br>
+  <span verifiable-text="start" data-for="food1"></span>FOOD SAFETY INCIDENT<br>
   FDA CFSAN Adverse Event Reporting<br>
   <br>
   Product: Sunny Farms Organic Spinach<br>
@@ -257,7 +257,7 @@ Verified incident reports create immutable, timestamped records that can't be qu
   <br>
   Recall Class: I (serious)<br>
   Public Notice: 2026-01-09<br>
-  <span data-verify-line="food1">verify:fda.gov/safety/recall</span> <span verifiable-text="end" data-for="food1">]</span>
+  <span data-verify-line="food1">verify:fda.gov/safety/recall</span> <span verifiable-text="end" data-for="food1"></span>
 </div>
 
 **Key frameworks:** FDA adverse event reporting, USDA FSIS, recall classification system, FSMA preventive controls
@@ -265,7 +265,7 @@ Verified incident reports create immutable, timestamped records that can't be qu
 ### Financial Services
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="fin1">[</span>OPERATIONAL INCIDENT REPORT<br>
+  <span verifiable-text="start" data-for="fin1"></span>OPERATIONAL INCIDENT REPORT<br>
   FCA / PRA Notification<br>
   <br>
   Firm: Midland Banking PLC<br>
@@ -283,7 +283,7 @@ Verified incident reports create immutable, timestamped records that can't be qu
   Root Cause: Database failover failure<br>
   <br>
   Notified FCA: 2026-01-08 (within 24h)<br>
-  <span data-verify-line="fin1">verify:fca.org.uk/incident</span> <span verifiable-text="end" data-for="fin1">]</span>
+  <span data-verify-line="fin1">verify:fca.org.uk/incident</span> <span verifiable-text="end" data-for="fin1"></span>
 </div>
 
 **Key frameworks:** FCA/PRA operational resilience, OCC incident reporting (US), DORA (EU Digital Operational Resilience Act)

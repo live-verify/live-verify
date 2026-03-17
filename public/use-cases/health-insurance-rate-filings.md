@@ -19,7 +19,7 @@ Verification ensures that the "4.2% Average Increase" the company announces to t
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Georgia', serif; border: 1px solid #333; background: #fff; padding: 40px; box-shadow: 2px 2px 12px rgba(0,0,0,0.1);">
   <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px;">
-    <div style="font-weight: bold; font-size: 1.1em; color: #1a237e;"><span verifiable-text="start" data-for="rate-filing">[</span>BLUE SHIELD OF CALIFORNIA</div>
+    <div style="font-weight: bold; font-size: 1.1em; color: #1a237e;"><span verifiable-text="start" data-for="rate-filing"></span>BLUE SHIELD OF CALIFORNIA</div>
     <div style="text-align: right; font-size: 0.8em; color: #666;">
       Compliance Filing: RATE-2026-042<br>
       March 15, 2026
@@ -43,7 +43,7 @@ Verification ensures that the "4.2% Average Increase" the company announces to t
   </div>
 <div data-verify-line="rate-filing" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Blue Shield doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:blueshieldca.com/actuarial/v <span verifiable-text="end" data-for="rate-filing">]</span>
+      verify:blueshieldca.com/actuarial/v <span verifiable-text="end" data-for="rate-filing"></span>
   </div>
 </div>
 

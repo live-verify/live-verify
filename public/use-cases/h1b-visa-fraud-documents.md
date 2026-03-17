@@ -33,7 +33,7 @@ This is the linchpin of body-shop fraud. Bench companies file hundreds of H-1B p
 <div style="max-width: 620px; margin: 24px auto; font-family: 'Georgia', serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
     <div>
-      <div style="font-family: sans-serif; font-weight: bold; font-size: 1.4em; color: #003a70;"><span verifiable-text="start" data-for="clientletter">[</span>JPMorgan Chase</div>
+      <div style="font-family: sans-serif; font-weight: bold; font-size: 1.4em; color: #003a70;"><span verifiable-text="start" data-for="clientletter"></span>JPMorgan Chase</div>
       <div style="font-family: sans-serif; font-size: 0.75em; color: #666;">Corporate & Investment Bank</div>
     </div>
     <div style="font-family: sans-serif; font-size: 0.8em; color: #555; text-align: right;">
@@ -69,7 +69,7 @@ This is the linchpin of body-shop fraud. Bench companies file hundreds of H-1B p
   <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
   <div data-verify-line="clientletter" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
     title="Demo only: JPMorgan doesn't yet offer verification&#10;endpoints, so this is illustrative">
-    verify:procurement.jpmorgan.com/engagements <span verifiable-text="end" data-for="clientletter">]</span>
+    verify:procurement.jpmorgan.com/engagements <span verifiable-text="end" data-for="clientletter"></span>
   </div>
 </div>
 
@@ -106,7 +106,7 @@ Before filing an H-1B petition, the employer must file a **Labor Condition Appli
 The fraud: employers file an LCA stating $140,000/year for a "Senior Software Engineer" in Manhattan, then actually pay the worker $80,000 and pocket the difference. Or they file the LCA listing their own office as the worksite, then deploy the worker to a client site in a different metro area with a different (higher) prevailing wage. The worker can't easily verify what the employer filed, and USCIS can't easily verify that the LCA matches reality.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.82em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="lca">[</span>U.S. DEPARTMENT OF LABOR
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.82em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="lca"></span>U.S. DEPARTMENT OF LABOR
 EMPLOYMENT AND TRAINING ADMINISTRATION
 ═══════════════════════════════════════════════════════════════════
 CERTIFIED LABOR CONDITION APPLICATION (ETA-9035)
@@ -127,7 +127,7 @@ Wage Source:      OES/OFLC Online Data Center
 
 Period:           04/01/2026 – 03/31/2029
 
-<span data-verify-line="lca">verify:lcaverify.dol.gov/v</span> <span verifiable-text="end" data-for="lca">]</span></pre>
+<span data-verify-line="lca">verify:lcaverify.dol.gov/v</span> <span verifiable-text="end" data-for="lca"></span></pre>
 </div>
 
 ### Data Verified
@@ -162,7 +162,7 @@ The letters are trivially forged. Company letterhead is downloadable. Phone numb
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Georgia', serif; border: 1px solid #ccc; background: #fff; padding: 35px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="margin-bottom: 20px;">
-    <div style="font-family: sans-serif; font-weight: bold; font-size: 1.2em; color: #1a237e;"><span verifiable-text="start" data-for="expletter">[</span>Infosys Limited</div>
+    <div style="font-family: sans-serif; font-weight: bold; font-size: 1.2em; color: #1a237e;"><span verifiable-text="start" data-for="expletter"></span>Infosys Limited</div>
     <div style="font-family: sans-serif; font-size: 0.8em; color: #666;">Electronics City, Hosur Road, Bangalore 560 100, India</div>
   </div>
 
@@ -193,7 +193,7 @@ The letters are trivially forged. Company letterhead is downloadable. Phone numb
   <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
   <div data-verify-line="expletter" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
     title="Demo only: Infosys doesn't yet offer verification&#10;endpoints, so this is illustrative">
-    verify:hr.infosys.com/employment/v <span verifiable-text="end" data-for="expletter">]</span>
+    verify:hr.infosys.com/employment/v <span verifiable-text="end" data-for="expletter"></span>
   </div>
 </div>
 
@@ -235,7 +235,7 @@ The certifications are forged routinely. Fake AWS certificates with plausible-lo
 <div style="max-width: 580px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="background: #232f3e; color: #ff9900; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-size: 1.3em; font-weight: bold;"><span verifiable-text="start" data-for="cert">[</span>aws</div>
+      <div style="font-size: 1.3em; font-weight: bold;"><span verifiable-text="start" data-for="cert"></span>aws</div>
       <div style="font-size: 0.75em; color: #ddd; margin-top: 2px;">Amazon Web Services</div>
     </div>
     <div style="font-size: 0.85em; color: #ff9900; font-weight: bold;">CERTIFIED</div>
@@ -252,7 +252,7 @@ The certifications are forged routinely. Fake AWS certificates with plausible-lo
     <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
     <div data-verify-line="cert" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: AWS doesn't yet offer hash-based verification&#10;endpoints, so this is illustrative">
-      verify:aws.amazon.com/certification/v <span verifiable-text="end" data-for="cert">]</span>
+      verify:aws.amazon.com/certification/v <span verifiable-text="end" data-for="cert"></span>
     </div>
   </div>
 </div>

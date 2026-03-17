@@ -19,7 +19,7 @@ In the "Robo-Signing" scandal of 2008, banks forged millions of affidavits to fo
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 2px 2px 8px rgba(0,0,0,0.1);">
   <div style="text-align: center; margin-bottom: 20px;">
-    <h3 style="text-decoration: underline; text-transform: uppercase;"><span verifiable-text="start" data-for="affidavit">[</span>AFFIDAVIT OF IDENTITY</h3>
+    <h3 style="text-decoration: underline; text-transform: uppercase;"><span verifiable-text="start" data-for="affidavit"></span>AFFIDAVIT OF IDENTITY</h3>
   </div>
 <div style="font-size: 0.95em; line-height: 1.6; text-align: justify;">
     <p>STATE OF NEW YORK )<br>
@@ -47,7 +47,7 @@ In the "Robo-Signing" scandal of 2008, banks forged millions of affidavits to fo
   </div>
 <div data-verify-line="affidavit" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Notary platform doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:notary-check.ny.gov/v <span verifiable-text="end" data-for="affidavit">]</span>
+      verify:notary-check.ny.gov/v <span verifiable-text="end" data-for="affidavit"></span>
   </div>
 </div>
 

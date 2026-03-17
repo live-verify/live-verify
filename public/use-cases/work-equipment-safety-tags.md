@@ -21,7 +21,7 @@ In industrial settings, machinery must be kept in a safe operating condition. Re
   </div>
   <div style="padding: 20px;">
     <div style="font-size: 0.9em; margin-bottom: 10px;">
-      <strong><span verifiable-text="start" data-for="machinery">[</span>Asset ID:</strong> CNC-LATHE-9922<br>
+      <strong><span verifiable-text="start" data-for="machinery"></span>Asset ID:</strong> CNC-LATHE-9922<br>
       <strong>Location:</strong> Machine Shop Floor B
     </div>
     <div style="background: #f9f9f9; border: 1px solid #ddd; padding: 10px; margin-bottom: 15px;">
@@ -33,7 +33,7 @@ In industrial settings, machinery must be kept in a safe operating condition. Re
       In accordance with PUWER 1998 Reg 6 / OSHA 1910.212.
     </div>
     <div data-verify-line="machinery" style="border-top: 1px dashed #999; margin-top: 15px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #d32f2f; text-align: center; font-weight: bold;">
-      verify:acme-mfg.com/safety/v <span verifiable-text="end" data-for="machinery">]</span>
+      verify:acme-mfg.com/safety/v <span verifiable-text="end" data-for="machinery"></span>
     </div>
   </div>
 </div>

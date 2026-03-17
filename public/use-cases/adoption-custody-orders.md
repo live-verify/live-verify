@@ -20,7 +20,7 @@ These documents are presented to schools, police, doctors, and passport agents. 
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1);">
   <div style="text-align: center; margin-bottom: 30px;">
-    <div style="font-weight: bold; font-size: 1.2em; text-transform: uppercase;"><span verifiable-text="start" data-for="custody">[</span>In the Circuit Court of Cook County, Illinois</div>
+    <div style="font-weight: bold; font-size: 1.2em; text-transform: uppercase;"><span verifiable-text="start" data-for="custody"></span>In the Circuit Court of Cook County, Illinois</div>
     <div style="font-size: 1em; margin-top: 5px;">County Department, Domestic Relations Division</div>
   </div>
 <div style="display: flex; justify-content: space-between; margin-bottom: 30px;">
@@ -58,7 +58,7 @@ These documents are presented to schools, police, doctors, and passport agents. 
   </div>
 <div data-verify-line="custody" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Court doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:cookcountycourt.org/orders/v <span verifiable-text="end" data-for="custody">]</span>
+      verify:cookcountycourt.org/orders/v <span verifiable-text="end" data-for="custody"></span>
   </div>
 </div>
 

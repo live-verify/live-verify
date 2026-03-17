@@ -23,7 +23,7 @@ Police officers at a traffic stop need to verify these permits in seconds. If a 
   <div style="background: #1a237e; color: #fff; padding: 15px; text-align: center; display: flex; align-items: center; justify-content: center;">
     <div style="font-size: 1.5em; margin-right: 10px;">⭐</div>
     <div>
-      <h3 style="margin: 0; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="ccw">[</span>STATE OF NEVADA</h3>
+      <h3 style="margin: 0; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="ccw"></span>STATE OF NEVADA</h3>
       <div style="font-size: 0.8em;">CONCEALED FIREARMS PERMIT</div>
     </div>
   </div>
@@ -45,7 +45,7 @@ Police officers at a traffic stop need to verify these permits in seconds. If a 
     <div style="font-size: 0.8em; font-weight: bold; color: #1a237e; text-align: center; margin-bottom: 5px;">WASHOE COUNTY SHERIFF</div>
     <div data-verify-line="ccw" style="border-top: 1px dashed #999; padding-top: 5px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Washoe Sheriff doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:washoesheriff.com/ccw/v <span verifiable-text="end" data-for="ccw">]</span>
+      verify:washoesheriff.com/ccw/v <span verifiable-text="end" data-for="ccw"></span>
     </div>
   </div>
 </div>

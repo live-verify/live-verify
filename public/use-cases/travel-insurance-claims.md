@@ -16,7 +16,7 @@ A **Travel Insurance Settlement Advice** is the formal document issued by an ins
 These documents are "Financial Recovery" records. Fraud is high-stakes: claimants often "edit" a settlement letter to inflate the amount paid to get a higher "Secondary Payout" from an employer or a second insurer (Double-Dipping). Similarly, scammers create fake "Settlement Notices" to trick overseas hospitals into releasing a medical lien. Verified hashes bind the **Settlement Amount, Loss Type, and Claim ID** to the insurer's domain (e.g., `allianz.com` or `aig.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="claim">[</span>ALLIANZ GLOBAL ASSISTANCE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="claim"></span>ALLIANZ GLOBAL ASSISTANCE
 Official Settlement Advice
 ═══════════════════════════════════════════════════════════════════
 
@@ -34,7 +34,7 @@ TOTAL NET SETTLEMENT (USD):                            $ 16,400.00
 
 Payment issued via Wire Transfer to account on file.
 
-<span data-verify-line="claim">verify:allianz.com/v</span> <span verifiable-text="end" data-for="claim">]</span></pre>
+<span data-verify-line="claim">verify:allianz.com/v</span> <span verifiable-text="end" data-for="claim"></span></pre>
 </div>
 
 ## Data Verified

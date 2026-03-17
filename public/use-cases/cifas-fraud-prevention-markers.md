@@ -24,7 +24,7 @@ A **Verifiable CIFAS Status Certificate** is a document issued by CIFAS to an in
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #003366; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #003366; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="cifas-clear">[</span>CIFAS STATUS CERTIFICATE</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="cifas-clear"></span>CIFAS STATUS CERTIFICATE</div>
       <div style="font-size: 0.8em; opacity: 0.9;">Fraud Prevention Service</div>
     </div>
     <div style="text-align: right;">
@@ -46,7 +46,7 @@ A **Verifiable CIFAS Status Certificate** is a document issued by CIFAS to an in
   </div>
   <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #003366; text-align: center;">
     <div data-verify-line="cifas-clear" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:cifas.org.uk/status/v <span verifiable-text="end" data-for="cifas-clear">]</span>
+      verify:cifas.org.uk/status/v <span verifiable-text="end" data-for="cifas-clear"></span>
     </div>
   </div>
 </div>
@@ -54,7 +54,7 @@ A **Verifiable CIFAS Status Certificate** is a document issued by CIFAS to an in
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #b71c1c; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #b71c1c; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="cifas-marker">[</span>CIFAS STATUS CERTIFICATE</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="cifas-marker"></span>CIFAS STATUS CERTIFICATE</div>
       <div style="font-size: 0.8em; opacity: 0.9;">Fraud Prevention Service</div>
     </div>
     <div style="text-align: right;">
@@ -79,7 +79,7 @@ A **Verifiable CIFAS Status Certificate** is a document issued by CIFAS to an in
   </div>
   <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #b71c1c; text-align: center;">
     <div data-verify-line="cifas-marker" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:cifas.org.uk/status/v <span verifiable-text="end" data-for="cifas-marker">]</span>
+      verify:cifas.org.uk/status/v <span verifiable-text="end" data-for="cifas-marker"></span>
     </div>
   </div>
 </div>
@@ -87,7 +87,7 @@ A **Verifiable CIFAS Status Certificate** is a document issued by CIFAS to an in
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #e65100; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #e65100; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="cifas-removed">[</span>CIFAS STATUS CERTIFICATE</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="cifas-removed"></span>CIFAS STATUS CERTIFICATE</div>
       <div style="font-size: 0.8em; opacity: 0.9;">Fraud Prevention Service — Appeal Outcome</div>
     </div>
     <div style="text-align: right;">
@@ -113,7 +113,7 @@ A **Verifiable CIFAS Status Certificate** is a document issued by CIFAS to an in
   </div>
   <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #e65100; text-align: center;">
     <div data-verify-line="cifas-removed" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:cifas.org.uk/status/v <span verifiable-text="end" data-for="cifas-removed">]</span>
+      verify:cifas.org.uk/status/v <span verifiable-text="end" data-for="cifas-removed"></span>
     </div>
   </div>
 </div>

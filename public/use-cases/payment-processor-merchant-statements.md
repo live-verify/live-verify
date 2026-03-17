@@ -16,7 +16,7 @@ For any business that accepts credit cards (via **Stripe**, **PayPal**, or **Squ
 These statements are the "Income Proof" for the digital economy. Lenders use them to approve business loans, and buyers use them to judge the health of a company during an acquisition. Fraud is rampant: owners often "edit" a statement to turn a $10,000 month into a $100,000 month, or to delete a high chargeback rate that would indicate a failing or fraudulent business. Verified hashes bind the **Net Payout, Chargeback Volume, and Merchant ID** to the processor's domain (e.g., `stripe.com` or `paypal.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="stripe">[</span>stripe
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="stripe"></span>stripe
 MONTHLY REVENUE SUMMARY                   Statement ID: ST-99228877-XJ
 ═══════════════════════════════════════════════════════════════════
 
@@ -31,7 +31,7 @@ CHARGEBACKS:                                            $      0.00
 ───────────────────────────────────────────────────────────────────
 TOTAL NET PAYOUT:                                       $ 42,250.00
 
-<span data-verify-line="stripe">verify:stripe.com/v</span> <span verifiable-text="end" data-for="stripe">]</span></pre>
+<span data-verify-line="stripe">verify:stripe.com/v</span> <span verifiable-text="end" data-for="stripe"></span></pre>
 </div>
 
 ## Data Verified

@@ -22,7 +22,7 @@ A **Verified Gas Safe Card** is the engineer's ID made scannable — the homeown
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #000; background: #fff; padding: 0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
   <div style="background: #000; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em; color: #f9a825;"><span verifiable-text="start" data-for="gassafe">[</span>Gas Safe Register</div>
+      <div style="font-weight: bold; font-size: 1.2em; color: #f9a825;"><span verifiable-text="start" data-for="gassafe"></span>Gas Safe Register</div>
       <div style="font-size: 0.8em; opacity: 0.9;">Registered Gas Engineer</div>
     </div>
     <div style="background: #f9a825; color: #000; padding: 5px 10px; border-radius: 4px; font-weight: bold; font-size: 0.8em;">ID CARD</div>
@@ -49,7 +49,7 @@ A **Verified Gas Safe Card** is the engineer's ID made scannable — the homeown
   </div>
   <div style="padding: 15px 20px; background: #f9f9f9; border-top: 1px dashed #999;">
     <div data-verify-line="gassafe" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; text-align: center; font-weight: bold;">
-      verify:gassaferegister.co.uk/v <span verifiable-text="end" data-for="gassafe">]</span>
+      verify:gassaferegister.co.uk/v <span verifiable-text="end" data-for="gassafe"></span>
     </div>
   </div>
 </div>
@@ -57,7 +57,7 @@ A **Verified Gas Safe Card** is the engineer's ID made scannable — the homeown
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #1a237e; background: #fff; padding: 0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
   <div style="background: #1a237e; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="niceic">[</span>NICEIC</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="niceic"></span>NICEIC</div>
       <div style="font-size: 0.8em; opacity: 0.9;">Approved Contractor — Domestic Installer</div>
     </div>
     <div style="background: #fff; color: #1a237e; padding: 5px 10px; border-radius: 4px; font-weight: bold; font-size: 0.8em;">ID CARD</div>
@@ -83,7 +83,7 @@ A **Verified Gas Safe Card** is the engineer's ID made scannable — the homeown
   </div>
   <div style="padding: 15px 20px; background: #f9f9f9; border-top: 1px dashed #999;">
     <div data-verify-line="niceic" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; text-align: center; font-weight: bold;">
-      verify:niceic.com/v <span verifiable-text="end" data-for="niceic">]</span>
+      verify:niceic.com/v <span verifiable-text="end" data-for="niceic"></span>
     </div>
   </div>
 </div>

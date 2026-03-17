@@ -21,7 +21,7 @@ This "Ethical Premium" is worth billions of dollars. Large retailers (like Starb
   <div style="background: #388e3c; color: #fff; padding: 20px; display: flex; align-items: center; justify-content: center;">
     <div style="font-size: 2em; margin-right: 15px;">⚖️</div>
     <div>
-      <h2 style="margin: 0; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="fairtrade">[</span>FAIRTRADE CERTIFIED</h2>
+      <h2 style="margin: 0; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="fairtrade"></span>FAIRTRADE CERTIFIED</h2>
       <div style="font-size: 0.8em; opacity: 0.9;">Empowering Farmers and Workers Worldwide</div>
     </div>
   </div>
@@ -42,7 +42,7 @@ This "Ethical Premium" is worth billions of dollars. Large retailers (like Starb
     </div>
 <div data-verify-line="fairtrade" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Fairtrade doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:fairtrade.net/v <span verifiable-text="end" data-for="fairtrade">]</span>
+      verify:fairtrade.net/v <span verifiable-text="end" data-for="fairtrade"></span>
     </div>
   </div>
 </div>

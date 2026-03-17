@@ -18,7 +18,7 @@ The **Declarations Page** is the 1-page summary showing the "Limits" (e.g., $2,0
 Business owners must show these verified limits to win contracts. Fraudsters often "Inflate" their limits on a PDF (changing $500k to $2M) to qualify for big jobs they aren't actually insured for.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="cgl">[</span>
+  <span verifiable-text="start" data-for="cgl"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">THE TRAVELERS COMPANIES
 Commercial General Liability
 ═══════════════════════════════════════════════════════════════════
@@ -41,7 +41,7 @@ Products-Completed Ops                                 $ 4,000,000
 Policy Period: March 01, 2026 to March 01, 2027
 
 </pre>
-<span data-verify-line="cgl">verify:travelers.com/policy/v</span> <span verifiable-text="end" data-for="cgl">]</span>
+<span data-verify-line="cgl">verify:travelers.com/policy/v</span> <span verifiable-text="end" data-for="cgl"></span>
 </div>
 
 ## Data Verified

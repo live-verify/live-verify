@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #000; background: #fff; padding: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
   <div style="background: #000; color: #fff; padding: 10px; display: flex; justify-content: space-between; align-items: center;">
-    <div style="font-weight: bold;"><span verifiable-text="start" data-for="driver">[</span>ADMIRAL</div>
+    <div style="font-weight: bold;"><span verifiable-text="start" data-for="driver"></span>ADMIRAL</div>
     <div style="font-size: 0.8em;">CERTIFICATE OF MOTOR INSURANCE</div>
   </div>
 <div style="padding: 15px;">
@@ -41,7 +41,7 @@ furtherDerivations: 1
     </div>
 <div data-verify-line="driver" style="border-top: 1px dashed #999; margin-top: 15px; padding-top: 5px; font-family: 'Courier New', monospace; font-size: 0.7em; color: #555; text-align: center;"
       title="Demo only: Admiral doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:admiral.com/check/v <span verifiable-text="end" data-for="driver">]</span>
+      verify:admiral.com/check/v <span verifiable-text="end" data-for="driver"></span>
     </div>
   </div>
 </div>

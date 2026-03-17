@@ -19,7 +19,7 @@ It's not just for geography—it's for **Tariffs**. If a company ships microproc
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; background: #fff; padding: 0;">
   <div style="background: #333; color: #fff; padding: 10px; text-align: center;">
-    <h3 style="margin: 0; text-transform: uppercase;"><span verifiable-text="start" data-for="origin-us">[</span>CERTIFICATE OF ORIGIN</h3>
+    <h3 style="margin: 0; text-transform: uppercase;"><span verifiable-text="start" data-for="origin-us"></span>CERTIFICATE OF ORIGIN</h3>
     <div style="font-size: 0.8em;">U.S. CHAMBER OF COMMERCE • WASHINGTON D.C.</div>
   </div>
 <div style="padding: 20px; font-size: 0.8em;">
@@ -49,7 +49,7 @@ It's not just for geography—it's for **Tariffs**. If a company ships microproc
     </div>
 <div data-verify-line="origin-us" style="border-top: 1px dashed #999; margin-top: 25px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.85em; color: #555; text-align: center;"
       title="Demo only: US Chamber doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:uschamber.com/v <span verifiable-text="end" data-for="origin-us">]</span>
+      verify:uschamber.com/v <span verifiable-text="end" data-for="origin-us"></span>
     </div>
   </div>
 </div>

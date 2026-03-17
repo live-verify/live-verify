@@ -22,7 +22,7 @@ Always scan the badge before letting a "technician" into your home to learn your
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 4px solid #b71c1c; background: #fff; padding: 0;">
   <div style="background: #b71c1c; color: #fff; padding: 15px; text-align: center;">
-    <h3 style="margin: 0;"><span verifiable-text="start" data-for="alarm">[</span>TEXAS DEPARTMENT OF PUBLIC SAFETY</h3>
+    <h3 style="margin: 0;"><span verifiable-text="start" data-for="alarm"></span>TEXAS DEPARTMENT OF PUBLIC SAFETY</h3>
     <div style="font-size: 0.9em;">PRIVATE SECURITY BUREAU</div>
   </div>
 <div style="padding: 25px; display: flex;">
@@ -43,7 +43,7 @@ Always scan the badge before letting a "technician" into your home to learn your
   </div>
 <div data-verify-line="alarm" style="border-top: 1px dashed #999; margin-top: 10px; padding: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center; background: #f9f9f9;"
       title="Demo only: State DPS doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:dps.texas.gov/psb/v <span verifiable-text="end" data-for="alarm">]</span>
+      verify:dps.texas.gov/psb/v <span verifiable-text="end" data-for="alarm"></span>
   </div>
 </div>
 

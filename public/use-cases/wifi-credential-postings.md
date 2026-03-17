@@ -28,13 +28,13 @@ This is an "evil twin" attack, and it's trivial. A £30 pocket router, an identi
 With Live Verify, the Wi-Fi credentials are a verifiable posting. The `verify:` line confirms that the credentials came from the business's own domain — and the post-verification action gates internet access through the legitimate access point.
 
 <div style="max-width: 550px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="wifi1">[</span>THE ROASTERY — FREE WI-FI
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="wifi1"></span>THE ROASTERY — FREE WI-FI
 ═══════════════════════════════════════════
 
 Network:   TheRoastery-Guest
 Password:  march-latte-9X4k
 
-<span data-verify-line="wifi1">verify:wifi.theroastery.co.uk/v</span> <span verifiable-text="end" data-for="wifi1">]</span></pre>
+<span data-verify-line="wifi1">verify:wifi.theroastery.co.uk/v</span> <span verifiable-text="end" data-for="wifi1"></span></pre>
 </div>
 
 ## The Problem with Today's Wi-Fi Credentials
@@ -116,7 +116,7 @@ A printed card with a static password is fine for a café that changes it monthl
 An **eInk display** mounted on the wall replaces the printed card. The venue's system rotates the WPA passphrase — hourly, daily, weekly — and the eInk display updates to show the new credentials. The `verify:` hash updates simultaneously at the endpoint.
 
 <div style="max-width: 550px; margin: 24px auto; border: 2px solid #333; background: #f5f5f0; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="wifi2">[</span>WEWORK MOORGATE — MEMBER WI-FI
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="wifi2"></span>WEWORK MOORGATE — MEMBER WI-FI
 ═══════════════════════════════════════════
 
 Network:   WeWork-Members-4F
@@ -125,7 +125,7 @@ Password:  prism-chalk-8827
 Rotates daily at 03:00 UTC
 Current until: 11 MAR 2026 03:00
 
-<span data-verify-line="wifi2">verify:net.wework.com/wifi/v</span> <span verifiable-text="end" data-for="wifi2">]</span></pre>
+<span data-verify-line="wifi2">verify:net.wework.com/wifi/v</span> <span verifiable-text="end" data-for="wifi2"></span></pre>
 </div>
 
 **Why eInk:**
@@ -159,7 +159,7 @@ Every consumer router ships with default credentials printed on a sticker on the
 A `verify:` line on the router sticker turns this into a single camera scan:
 
 <div style="max-width: 550px; margin: 24px auto; border: 1px solid #ccc; background: #f9f9f9; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="router1">[</span>TP-Link Archer AX73 — Quick Connect
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="router1"></span>TP-Link Archer AX73 — Quick Connect
 ═══════════════════════════════════════════
 
 Network:   TP-Link_A73_5G
@@ -167,7 +167,7 @@ Password:  xR4m-92kT-pLn7
 
 Serial:    2648A-00391-UK
 
-<span data-verify-line="router1">verify:devices.tp-link.com/v</span> <span verifiable-text="end" data-for="router1">]</span></pre>
+<span data-verify-line="router1">verify:devices.tp-link.com/v</span> <span verifiable-text="end" data-for="router1"></span></pre>
 </div>
 
 You scan the sticker. The verification confirms the credentials. The post-verification action offers:

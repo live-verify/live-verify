@@ -16,7 +16,7 @@ A **Refugee Travel Document (Form I-571)** is a passport-style booklet issued to
 For a refugee, this document is a fragile lifeline. If an airline agent in a foreign airport (e.g., in Turkey or Jordan) doesn't recognize the blue booklet or think it looks "fake," the traveler can be stranded in a dangerous location. Verified hashes bind the **Document ID, Validity Dates, and Holder's Photo** to the `uscis.gov` domain, providing global authorities with an instant way to trust the document.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="refugee">[</span>UNITED STATES OF AMERICA
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="refugee"></span>UNITED STATES OF AMERICA
 Refugee Travel Document
 ═══════════════════════════════════════════════════════════════════
 
@@ -32,7 +32,7 @@ Issued:         15 MAR 2026              Expires:  14 MAR 2027
 "This document is issued under the 1951 Convention
 relating to the Status of Refugees."
 
-<span data-verify-line="refugee">verify:uscis.gov/v/i571</span> <span verifiable-text="end" data-for="refugee">]</span></pre>
+<span data-verify-line="refugee">verify:uscis.gov/v/i571</span> <span verifiable-text="end" data-for="refugee"></span></pre>
 </div>
 
 ## Data Verified

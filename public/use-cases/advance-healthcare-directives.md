@@ -21,7 +21,7 @@ Doctors in the ER need to see this *immediately* to know whether to resuscitate.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Arial', sans-serif; border: 2px solid #000; background: #fff; padding: 30px;">
   <div style="text-align: center; border-bottom: 2px solid #000; margin-bottom: 20px;">
-    <h2 style="margin: 0;"><span verifiable-text="start" data-for="directive">[</span>ADVANCE HEALTH CARE DIRECTIVE</h2>
+    <h2 style="margin: 0;"><span verifiable-text="start" data-for="directive"></span>ADVANCE HEALTH CARE DIRECTIVE</h2>
     <div style="font-size: 0.9em; margin-bottom: 10px;">(California Probate Code §4701)</div>
   </div>
 <div style="font-size: 0.95em; line-height: 1.5; color: #333;">
@@ -51,7 +51,7 @@ Doctors in the ER need to see this *immediately* to know whether to resuscitate.
   </div>
 <div data-verify-line="directive" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Registry doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:uslivingwillregistry.com/v <span verifiable-text="end" data-for="directive">]</span>
+      verify:uslivingwillregistry.com/v <span verifiable-text="end" data-for="directive"></span>
   </div>
 </div>
 

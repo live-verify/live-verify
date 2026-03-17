@@ -16,7 +16,7 @@ In the energy market, a **Renewable Energy Certificate (REC)** is the proof that
 The problem is that a REC can only be used once. "Double-Counting" is a massive fraud where a solar farm sells the same MWh of energy to two different companies. Similarly, shady firms create fake "Green Certificates" to greenwash their carbon footprint. Verified hashes bind the **Generator ID, MWh Amount, and Vintage Year** to the tracking registry's domain (e.g., `mirecs.org` or `wregis.org`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="rec">[</span>NORTH AMERICAN RENEWABLE REGISTRY
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="rec"></span>NORTH AMERICAN RENEWABLE REGISTRY
 Official Certificate of Generation
 ═══════════════════════════════════════════════════════════════════
 
@@ -31,7 +31,7 @@ Location:     Kern County, CA             Status:         ACTIVE
 Fuel Type: Solar Photovoltaic
 CAISO balancing authority area.
 
-<span data-verify-line="rec">verify:wregis.org/v</span> <span verifiable-text="end" data-for="rec">]</span></pre>
+<span data-verify-line="rec">verify:wregis.org/v</span> <span verifiable-text="end" data-for="rec"></span></pre>
 </div>
 
 ## Data Verified

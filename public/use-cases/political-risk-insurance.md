@@ -16,7 +16,7 @@ In international finance, **Political Risk Insurance (PRI)** is the "Shield of S
 These documents are the "Proof of Protection." Fraud is high-stakes: a developer might create a fake "Zurich" or "Chubb" policy to trick a bank into releasing a $100M loan for a power plant. Similarly, a government might demand to see "Verified Coverage" before granting a land lease. Verified hashes bind the **Host Country, Coverage Limits, and Exclusion Clauses** to the specialist insurer's domain (e.g., `zurich.com` or `chubb.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="pri">[</span>ZURICH SPECIALTY
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="pri"></span>ZURICH SPECIALTY
 Political Risk & Structured Credit Unit
 ═══════════════════════════════════════════════════════════════════
 POLICY SUMMARY                                  Ref: PRI-2026-992288
@@ -32,7 +32,7 @@ Currency Inconvertibility:                                 INCLUDED
 Political Violence (War/Terrorism):                        INCLUDED
 Breach of Contract (Sovereign):                            EXCLUDED
 
-<span data-verify-line="pri">verify:zurich.com/pri/v</span> <span verifiable-text="end" data-for="pri">]</span></pre>
+<span data-verify-line="pri">verify:zurich.com/pri/v</span> <span verifiable-text="end" data-for="pri"></span></pre>
 </div>
 
 ## Data Verified

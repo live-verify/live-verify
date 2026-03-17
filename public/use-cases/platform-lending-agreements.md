@@ -16,7 +16,7 @@ In the e-commerce economy, platforms like **Shopify**, **Amazon**, and **Square*
 These digital agreements are the "Lien on Future Revenue." Fraud is rampant in the "Stacked Debt" market: a merchant might "edit" a Shopify agreement to hide that they already owe $50,000 to Amazon, allowing them to take out another illegal loan they can't afford. Similarly, they might use a fake "Satisfied" letter to hide an active lien. Verified hashes bind the **Advance Amount, Repayment Percentage, and Total Payback** to the platform's domain (e.g., `shopify.com` or `amazon.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="platform">[</span>
+  <span verifiable-text="start" data-for="platform"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">SHOPIFY CAPITAL
 Financing Agreement
 ═══════════════════════════════════════════════════════════════════
@@ -40,7 +40,7 @@ Shopify Capital. This agreement creates a legal security interest
 under UCC Article 9."
 
 </pre>
-<span data-verify-line="platform">verify:shopify.com/v</span> <span verifiable-text="end" data-for="platform">]</span>
+<span data-verify-line="platform">verify:shopify.com/v</span> <span verifiable-text="end" data-for="platform"></span>
 </div>
 
 ## Data Verified

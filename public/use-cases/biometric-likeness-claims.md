@@ -19,7 +19,7 @@ Traditional ID fraud exploits the gap between document and person. A stolen pass
 
 <div style="max-width: 340px; margin: 24px auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; border: 1px solid #e2e8f0; border-radius: 24px; background: linear-gradient(145deg, #1e293b 0%, #334155 100%); padding: 20px; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
   <div style="text-align: center; margin-bottom: 15px;">
-    <div style="font-size: 0.7em; color: #94a3b8; letter-spacing: 1px;"><span verifiable-text="start" data-for="likeness">[</span>CALIFORNIA DMV • DIGITAL ID</div>
+    <div style="font-size: 0.7em; color: #94a3b8; letter-spacing: 1px;"><span verifiable-text="start" data-for="likeness"></span>CALIFORNIA DMV • DIGITAL ID</div>
   </div>
   <div style="background: #f8fafc; border-radius: 12px; padding: 15px; margin-bottom: 15px;">
     <div style="width: 120px; height: 150px; background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%); border-radius: 8px; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; color: #475569; font-size: 0.8em;">[Photo]</div>
@@ -33,7 +33,7 @@ Traditional ID fraud exploits the gap between document and person. A stolen pass
     <div style="font-size: 0.9em; color: #f8fafc; font-weight: 500;">12 Jan 2026</div>
   </div>
   <div data-verify-line="likeness" style="font-family: 'Courier New', monospace; font-size: 0.7em; color: #cbd5e1; text-align: center; padding: 8px; background: #0f172a; border-radius: 6px;">
-    verify:dmv.ca.gov/likeness/v <span verifiable-text="end" data-for="likeness">]</span>
+    verify:dmv.ca.gov/likeness/v <span verifiable-text="end" data-for="likeness"></span>
   </div>
 </div>
 

@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
   <div style="background: #004a99; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
-    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="implant">[</span>MEDTRONIC</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="implant"></span>MEDTRONIC</div>
     <div style="font-size: 0.8em; font-weight: bold; text-transform: uppercase;">Medical Device ID Card</div>
   </div>
 <div style="padding: 20px;">
@@ -37,7 +37,7 @@ furtherDerivations: 1
     </div>
 <div data-verify-line="implant" style="border-top: 1px dashed #999; margin-top: 15px; padding-top: 5px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Medtronic doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:medtronic.com/implants/v <span verifiable-text="end" data-for="implant">]</span>
+      verify:medtronic.com/implants/v <span verifiable-text="end" data-for="implant"></span>
     </div>
   </div>
 </div>

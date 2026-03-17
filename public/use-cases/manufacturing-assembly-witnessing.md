@@ -44,7 +44,7 @@ Defects may not manifest for years or decades. When they do—fatigue cracking, 
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="aircraft">[</span>AIRCRAFT ASSEMBLY ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="aircraft"></span>AIRCRAFT ASSEMBLY ATTESTATION
 
 Aircraft: Boeing 787-9, Line Number 1247
 Section: Section 41 (Forward Fuselage)
@@ -71,7 +71,7 @@ ATTESTATION HASH: 8f4a2c1e9b...
   - Torque data log
   - Sealant cure verification
 
-<span data-verify-line="aircraft">verify:boeing.com/production/v</span> <span verifiable-text="end" data-for="aircraft">]</span></pre>
+<span data-verify-line="aircraft">verify:boeing.com/production/v</span> <span verifiable-text="end" data-for="aircraft"></span></pre>
 </div>
 
 **Aviation-Specific Traceability:**
@@ -110,7 +110,7 @@ Witnessing adds:
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="auto">[</span>AUTOMOTIVE ASSEMBLY ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="auto"></span>AUTOMOTIVE ASSEMBLY ATTESTATION
 
 Vehicle: VIN 1HGCV1F34MA123456
 Assembly Plant: Marysville, Ohio
@@ -133,7 +133,7 @@ ATTESTATION HASH: 2d7e4f1a8c...
   - Vision system images
   - UT sample report
 
-<span data-verify-line="auto">verify:honda.com/quality/v</span> <span verifiable-text="end" data-for="auto">]</span></pre>
+<span data-verify-line="auto">verify:honda.com/quality/v</span> <span verifiable-text="end" data-for="auto"></span></pre>
 </div>
 
 **Automotive Scale Challenge:**
@@ -168,7 +168,7 @@ Millions of vehicles per year:
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="ship">[</span>SHIPBUILDING WELD ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="ship"></span>SHIPBUILDING WELD ATTESTATION
 
 Vessel: Hull 2847, Container Ship
 Block: Block 47 (Engine Room Double Bottom)
@@ -197,7 +197,7 @@ ATTESTATION HASH: 5c9a3b2e7f...
 
 CONCEALMENT: Coating January 16, 2025
 
-<span data-verify-line="ship">verify:hhi.co.kr/hulls/v</span> <span verifiable-text="end" data-for="ship">]</span></pre>
+<span data-verify-line="ship">verify:hhi.co.kr/hulls/v</span> <span verifiable-text="end" data-for="ship"></span></pre>
 </div>
 
 **Classification Society Role:**
@@ -232,7 +232,7 @@ Ships are surveyed by Classification Societies (DNV, Lloyd's, ABS, etc.):
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="pcb">[</span>PCB ASSEMBLY ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="pcb"></span>PCB ASSEMBLY ATTESTATION
 
 Product: Cardiac Pacemaker Model XR-500
 Serial: XR5-2025-0114-7821
@@ -256,7 +256,7 @@ ATTESTATION HASH: 3a4b5c6d7e...
   - X-ray images (100% BGA)
   - Test data log
 
-<span data-verify-line="pcb">verify:meddevice.com/production/v</span> <span verifiable-text="end" data-for="pcb">]</span></pre>
+<span data-verify-line="pcb">verify:meddevice.com/production/v</span> <span verifiable-text="end" data-for="pcb"></span></pre>
 </div>
 
 **Medical Device Specifics:**

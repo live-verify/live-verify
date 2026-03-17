@@ -19,7 +19,7 @@ This industry is a primary target for "Bandit Towers"—unlicensed operators who
   <div style="background: #333; color: #fff; padding: 15px; display: flex; align-items: center; border-bottom: 2px solid #000;">
     <div style="font-size: 1.8em; margin-right: 15px;">⛓️</div>
     <div>
-      <div style="font-weight: bold; font-size: 1.1em; letter-spacing: 1px;"><span verifiable-text="start" data-for="tow">[</span>CITY POLICE DEPT.</div>
+      <div style="font-weight: bold; font-size: 1.1em; letter-spacing: 1px;"><span verifiable-text="start" data-for="tow"></span>CITY POLICE DEPT.</div>
       <div style="font-size: 0.75em; font-weight: bold; opacity: 0.8;">OFFICIAL TOWING OPERATOR</div>
     </div>
   </div>
@@ -43,7 +43,7 @@ This industry is a primary target for "Bandit Towers"—unlicensed operators who
 <div style="padding: 15px 20px 20px 20px; background: #fff;">
     <div data-verify-line="tow" style="border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; text-align: center; font-weight: bold;"
       title="Demo only: Police departments don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:springfieldpd.gov/v <span verifiable-text="end" data-for="tow">]</span>
+      verify:springfieldpd.gov/v <span verifiable-text="end" data-for="tow"></span>
     </div>
     <div style="font-size: 0.65em; color: #999; margin-top: 8px; text-align: center;">
       Scan to verify insurance validity, criminal background clearance, and legal impound authority.

@@ -21,7 +21,7 @@ Live Verify allows a driver to scan an officer's ID badge or the verification li
   <div style="background: #efcc00; color: #000; padding: 15px; display: flex; align-items: center; border-bottom: 2px solid #444;">
     <div style="font-size: 1.8em; margin-right: 15px;">🏙️</div>
     <div>
-      <div style="font-weight: bold; font-size: 1.1em; letter-spacing: 1px;"><span verifiable-text="start" data-for="park-off">[</span>CITY OF SAN FRANCISCO</div>
+      <div style="font-weight: bold; font-size: 1.1em; letter-spacing: 1px;"><span verifiable-text="start" data-for="park-off"></span>CITY OF SAN FRANCISCO</div>
       <div style="font-size: 0.75em; font-weight: bold; opacity: 0.8;">MUNICIPAL TRANSPORTATION AGENCY</div>
     </div>
   </div>
@@ -42,7 +42,7 @@ Live Verify allows a driver to scan an officer's ID badge or the verification li
     </div>
     <div data-verify-line="park-off" style="border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 1em; color: #000; text-align: center; font-weight: bold;"
       title="Demo only: Municipalities don't yet offer verification&#10;endpoints, so this is illustrative">
-      vfy:enforcement.sfmta.com <span verifiable-text="end" data-for="park-off">]</span>
+      vfy:enforcement.sfmta.com <span verifiable-text="end" data-for="park-off"></span>
     </div>
   </div>
 </div>

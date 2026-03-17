@@ -21,7 +21,7 @@ Scammers often create fake FFL PDF papers to trick online sellers into shipping 
   <div style="background: #000; color: #fff; padding: 15px; text-align: center; display: flex; align-items: center; justify-content: center;">
     <div style="font-size: 1.5em; margin-right: 15px;">⚖️</div>
     <div>
-      <h2 style="margin: 0; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="ffl">[</span>FEDERAL FIREARMS LICENSE</h2>
+      <h2 style="margin: 0; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="ffl"></span>FEDERAL FIREARMS LICENSE</h2>
       <div style="font-size: 0.8em; opacity: 0.8;">U.S. DEPT OF JUSTICE • BUREAU OF ALCOHOL, TOBACCO, FIREARMS AND EXPLOSIVES</div>
     </div>
   </div>
@@ -48,7 +48,7 @@ Scammers often create fake FFL PDF papers to trick online sellers into shipping 
     </div>
 <div data-verify-line="ffl" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: ATF doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:atf.gov/fflezcheck/v <span verifiable-text="end" data-for="ffl">]</span>
+      verify:atf.gov/fflezcheck/v <span verifiable-text="end" data-for="ffl"></span>
     </div>
   </div>
 </div>

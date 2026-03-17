@@ -31,7 +31,7 @@ The current system is a mess: some donors were promised anonymity, some offsprin
 At time of donation, the donor's identity is verified and escrowed with clear disclosure conditions. Everyone knows the rules upfront.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="donor">[</span>DONOR IDENTITY ESCROW CERTIFICATE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="donor"></span>DONOR IDENTITY ESCROW CERTIFICATE
 
 Escrow ID: DE-2025-0114-7829
 Established: January 14, 2025
@@ -52,7 +52,7 @@ DISCLOSURE CONDITIONS:
 ESCROW HOLDER: FamilyOrigins Trust
 Jurisdiction: [State/Country]
 
-<span data-verify-line="donor">verify:familyorigins.org/donor/v</span> <span verifiable-text="end" data-for="donor">]</span></pre>
+<span data-verify-line="donor">verify:familyorigins.org/donor/v</span> <span verifiable-text="end" data-for="donor"></span></pre>
 </div>
 
 **What Gets Escrowed:**
@@ -112,7 +112,7 @@ Adopted individuals and birth parents may want to reconnect, but:
 Both parties can register with verified identity. Disclosure happens only when BOTH parties have registered and indicated willingness to connect.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="adopt">[</span>REUNION REGISTRY ENROLLMENT
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="adopt"></span>REUNION REGISTRY ENROLLMENT
 
 Registry ID: RR-2025-0114-4421
 Enrolled: January 14, 2025
@@ -130,7 +130,7 @@ STATUS: Awaiting match
 
 DISCLOSURE CONDITION: Mutual registration only
 
-<span data-verify-line="adopt">verify:reunionregistry.org/r/v</span> <span verifiable-text="end" data-for="adopt">]</span></pre>
+<span data-verify-line="adopt">verify:reunionregistry.org/r/v</span> <span verifiable-text="end" data-for="adopt"></span></pre>
 </div>
 
 **How It Works:**
@@ -190,7 +190,7 @@ Current process is slow, expensive, and requires probate court for almost everyt
 The deceased person pre-registers authorized heirs/executors with escrowed verification. Upon death, verification unlocks access without full probate delays.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="estate">[</span>CONDITIONAL ACCESS AUTHORIZATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="estate"></span>CONDITIONAL ACCESS AUTHORIZATION
 
 Authorization ID: CA-2025-0114-8811
 Established: January 14, 2025
@@ -208,7 +208,7 @@ ACCESS CONDITION: Death of grantor
 
 ESCROW HOLDER: EstatePlan Trust
 
-<span data-verify-line="estate">verify:estateplan.org/access/v</span> <span verifiable-text="end" data-for="estate">]</span></pre>
+<span data-verify-line="estate">verify:estateplan.org/access/v</span> <span verifiable-text="end" data-for="estate"></span></pre>
 </div>
 
 **What Gets Escrowed:**

@@ -16,7 +16,7 @@ In the modern gig economy, **Ride-Sharing Receipts** (Uber, Lyft) are the highes
 Fraud is high-frequency and low-barrier: employees use "Ride Receipt Generator" websites to create fake $45 receipts for trips they never took, or they "edit" a $10 personal trip into a $60 business trip by changing the destination and price in a PDF editor. Verified hashes bind the **Trip ID, Route (Pickup/Drop-off), and Total Fare** to the platform's domain (e.g., `uber.com` or `lyft.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="ride">[</span>
+  <span verifiable-text="start" data-for="ride"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">Uber
 ═══════════════════════════════════════════════════════════════════
 
@@ -37,7 +37,7 @@ Tip                                                          $ 5.00
 TOTAL (USD)                                                 $ 42.50
 
 </pre>
-<span data-verify-line="ride">verify:uber.com/receipts/v</span> <span verifiable-text="end" data-for="ride">]</span>
+<span data-verify-line="ride">verify:uber.com/receipts/v</span> <span verifiable-text="end" data-for="ride"></span>
 </div>
 
 ## Data Verified

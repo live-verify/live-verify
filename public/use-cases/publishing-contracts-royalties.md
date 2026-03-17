@@ -16,7 +16,7 @@ In the media and publishing world, an author's or artist's income is typically a
 Because these statements determine the distribution of millions of dollars, they are a primary source of "Creative Accounting" and outright fraud. A publisher might "edit" a statement to show 10,000 sales instead of 100,000 to avoid paying the creator. Similarly, an author might "alter" a past statement to prove a higher historical income when negotiating a new "Advance" with a different publisher. Verified hashes bind the **Sales Quantities, Unit Prices, and Total Payout** to the publisher's domain (e.g., `penguinrandomhouse.com` or `universalmusic.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="royalty">[</span>PENGUIN RANDOM HOUSE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="royalty"></span>PENGUIN RANDOM HOUSE
 Global Royalty & Accounting Office
 ═══════════════════════════════════════════════════════════════════
 
@@ -39,7 +39,7 @@ TOTAL NET EARNINGS (USD):                              $ 189,875.00
 Verification confirms financial integrity against publisher's
 general ledger.
 
-<span data-verify-line="royalty">verify:prh.com/royalties/v</span> <span verifiable-text="end" data-for="royalty">]</span></pre>
+<span data-verify-line="royalty">verify:prh.com/royalties/v</span> <span verifiable-text="end" data-for="royalty"></span></pre>
 </div>
 
 ## Data Verified

@@ -16,7 +16,7 @@ In modern agriculture, the **Soil Analysis Report** is the "Blood Test" for a fi
 These reports are high-value documents. Farmers use them to secure **Crop Loans**, land buyers use them to judge **Property Value**, and increasingly, companies use them to verify **Carbon Credits**. Fraud is common: people "edit" a poor soil report to hide contamination or to inflate organic carbon levels to fraudulently claim "Green Subsidies" or carbon payouts. Verified hashes bind the **Field ID, Lab Metrics, and Timestamp** to the testing lab's domain (e.g., `agrolabs.com` or `soil-science.edu`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="soil">[</span>AGRO-METRICS LABS
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="soil"></span>AGRO-METRICS LABS
 Precision Agronomy & Environmental Analysis
 ═══════════════════════════════════════════════════════════════════
 
@@ -40,7 +40,7 @@ levels post-harvest. No lime required.
 This report is a verified digital copy of the original lab
 analysis. Alteration of metrics renders this report void.
 
-<span data-verify-line="soil">verify:agrolabs.com/v</span> <span verifiable-text="end" data-for="soil">]</span></pre>
+<span data-verify-line="soil">verify:agrolabs.com/v</span> <span verifiable-text="end" data-for="soil"></span></pre>
 </div>
 
 ## Data Verified

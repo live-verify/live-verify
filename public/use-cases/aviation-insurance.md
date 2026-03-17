@@ -18,7 +18,7 @@ The **Certificate of Insurance (COI)** is the high-stakes document that pilots m
 If a pilot presents a fake certificate to land in London or Dubai, they are flying "uninsured" for hundreds of millions of dollars. Because there is no global database of plane insurance, officials rely on these printed papers. Live Verify provides the digital bridge they need.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="aviation">[</span>
+  <span verifiable-text="start" data-for="aviation"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">GLOBAL AEROSPACE, INC.
 Specialist Aviation Underwriters
 ═══════════════════════════════════════════════════════════════════
@@ -45,7 +45,7 @@ NOTE: This certificate is issued as a matter of information only
 and confers no rights upon the holder.
 
 </pre>
-  <span data-verify-line="aviation">verify:global-aerospace.com/v</span> <span verifiable-text="end" data-for="aviation">]</span>
+  <span data-verify-line="aviation">verify:global-aerospace.com/v</span> <span verifiable-text="end" data-for="aviation"></span>
 </div>
 
 ## Data Verified

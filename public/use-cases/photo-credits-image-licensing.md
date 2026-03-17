@@ -16,7 +16,7 @@ In the media and advertising industries, a **Photo License** is the legal contra
 These documents are the "Proof of Permission." Fraud is rampant in the "Copyright Trolling" and "Stock Photo" sectors. Dishonest sites often use stolen images and then create a fake "License PDF" to trick the creator's lawyers into stopping a lawsuit. Similarly, a publisher might "edit" a 1-year license to read "Perpetual" to avoid paying a renewal fee. Verified hashes bind the **Image ID, Licensee Name, and Rights Tier** to the agency's or the photographer's domain (e.g., `gettyimages.com` or `shutterstock.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="photo">[</span>GETTY IMAGES
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="photo"></span>GETTY IMAGES
 License Verification Certificate
 ═══════════════════════════════════════════════════════════════════
 
@@ -33,7 +33,7 @@ Exclusivity:                                           Non-Exclusive
 
 License is non-transferable.
 
-<span data-verify-line="photo">verify:gettyimages.com/v</span> <span verifiable-text="end" data-for="photo">]</span></pre>
+<span data-verify-line="photo">verify:gettyimages.com/v</span> <span verifiable-text="end" data-for="photo"></span></pre>
 </div>
 
 ## Data Verified

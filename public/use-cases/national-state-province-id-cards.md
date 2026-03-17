@@ -12,7 +12,7 @@ furtherDerivations: 1
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
   <div style="background: #002d62; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
     <div>
-      <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="nat-id">[</span>PROVINCE OF ONTARIO</div>
+      <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="nat-id"></span>PROVINCE OF ONTARIO</div>
       <div style="font-size: 0.8em;">PHOTO IDENTIFICATION CARD</div>
     </div>
     <div style="font-size: 1.5em;">🏛️</div>
@@ -35,7 +35,7 @@ furtherDerivations: 1
     <div style="font-size: 0.8em; font-weight: bold; color: #002d62; text-align: center; margin-bottom: 5px;">MINISTRY OF TRANSPORTATION</div>
     <div data-verify-line="nat-id" style="border-top: 1px dashed #999; padding-top: 5px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Ontario MTO doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:mto.gov.on.ca/v <span verifiable-text="end" data-for="nat-id">]</span>
+      verify:mto.gov.on.ca/v <span verifiable-text="end" data-for="nat-id"></span>
     </div>
   </div>
 </div>

@@ -19,7 +19,7 @@ This is a critical security frontier. Fraudsters or partisan actors might attemp
   <div style="background: #b71c1c; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
     <div style="font-size: 1.8em; margin-right: 15px;">🗳️</div>
     <div style="text-align: right;">
-      <div style="font-weight: bold; font-size: 1.1em; letter-spacing: 1px;"><span verifiable-text="start" data-for="poll">[</span>BOARD OF ELECTIONS</div>
+      <div style="font-weight: bold; font-size: 1.1em; letter-spacing: 1px;"><span verifiable-text="start" data-for="poll"></span>BOARD OF ELECTIONS</div>
       <div style="font-size: 0.75em; font-weight: bold; opacity: 0.9;">COUNTY OF SPRINGFIELD</div>
     </div>
   </div>
@@ -43,7 +43,7 @@ This is a critical security frontier. Fraudsters or partisan actors might attemp
 <div style="padding: 15px 20px 20px 20px; background: #fff;">
     <div data-verify-line="poll" style="border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; text-align: center; font-weight: bold;"
       title="Demo only: Election boards don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:elections.springfield.gov/v <span verifiable-text="end" data-for="poll">]</span>
+      verify:elections.springfield.gov/v <span verifiable-text="end" data-for="poll"></span>
     </div>
     <div style="font-size: 0.65em; color: #999; margin-top: 8px; text-align: center; font-style: italic;">
       Verification confirms authorization for the current election cycle only.

@@ -18,7 +18,7 @@ Right now, you can't know any of this with certainty in a parking lot. You can c
 With Live Verify, the title carries a `verify:` line bound to the state DMV's domain. You scan it in the parking lot and get confirmation: real title, this VIN, this owner, no liens, clean history — or not. Five seconds, on your phone, before you hand over $28,000.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="title">[</span>CERTIFICATE OF TITLE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="title"></span>CERTIFICATE OF TITLE
 STATE OF TEXAS — DEPARTMENT OF MOTOR VEHICLES
 ═══════════════════════════════════════════════════════════════════
 
@@ -35,7 +35,7 @@ Lien Holder:    NONE
 Odometer:       38,442 miles (ACTUAL)
 Title Brand:    CLEAN
 
-<span data-verify-line="title">verify:dmv.texas.gov/title/v</span> <span verifiable-text="end" data-for="title">]</span></pre>
+<span data-verify-line="title">verify:dmv.texas.gov/title/v</span> <span verifiable-text="end" data-for="title"></span></pre>
 </div>
 
 ## Data Verified

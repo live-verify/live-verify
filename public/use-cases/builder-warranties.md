@@ -20,7 +20,7 @@ This warranty is a valuable financial asset that stays with the house for 10 yea
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 4px solid #1a365d; background: #fff; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #1a365d; padding-bottom: 20px; margin-bottom: 25px;">
-    <div style="font-weight: bold; font-size: 1.4em; letter-spacing: 2px; color: #1a365d;"><span verifiable-text="start" data-for="warranty">[</span>2-10 HOME BUYERS WARRANTY</div>
+    <div style="font-weight: bold; font-size: 1.4em; letter-spacing: 2px; color: #1a365d;"><span verifiable-text="start" data-for="warranty"></span>2-10 HOME BUYERS WARRANTY</div>
     <div style="font-size: 0.85em; color: #666; margin-top: 5px;">THE NATION'S LEADING STRUCTURAL WARRANTY</div>
   </div>
 <h3 style="text-align: center; text-transform: uppercase; margin-bottom: 20px; color: #1a365d;">Certificate of Warranty Coverage</h3>
@@ -49,7 +49,7 @@ This warranty is a valuable financial asset that stays with the house for 10 yea
   </div>
 <div data-verify-line="warranty" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: 2-10 HBW doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:2-10.com/warranty/v <span verifiable-text="end" data-for="warranty">]</span>
+      verify:2-10.com/warranty/v <span verifiable-text="end" data-for="warranty"></span>
   </div>
 </div>
 

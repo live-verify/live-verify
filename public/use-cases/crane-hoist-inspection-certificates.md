@@ -18,7 +18,7 @@ Because the stakes are so high, every crane must be professionally inspected eve
 "Pencil Whipping" is a common industry fraud where an operator fakes an inspection to keep working during a busy season. Verified hashes allow a site foreman or an OSHA inspector to scan the certificate and prove the crane actually passed a load test yesterday.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="crane">[</span>
+  <span verifiable-text="start" data-for="crane"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">HEAVY LIFT INSPECTION SERVICES
 Certified Accredited Crane Inspector
 ═══════════════════════════════════════════════════════════════════
@@ -45,7 +45,7 @@ NEXT DUE DATE:   March 15, 2027
                 [NCCCO] "SAFETY FIRST - LIFTING EXCELLENCE"
 
 </pre>
-<span data-verify-line="crane">verify:heavylift-inspections.com/v</span> <span verifiable-text="end" data-for="crane">]</span>
+<span data-verify-line="crane">verify:heavylift-inspections.com/v</span> <span verifiable-text="end" data-for="crane"></span>
 </div>
 
 ## Data Verified

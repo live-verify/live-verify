@@ -18,7 +18,7 @@ If a restaurant burns down or a factory is hit by a hurricane, the owner doesn't
 The result is an **Adjustment Summary**. Because these documents often trigger multimillion-dollar insurance payouts, they are high-value targets for "PDF alteration" by unscrupulous owners or brokers.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="bi-claim">[</span>
+  <span verifiable-text="start" data-for="bi-claim"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">LIBERTY MUTUAL
 Commercial Property Claims
 ═══════════════════════════════════════════════════════════════════
@@ -45,7 +45,7 @@ Forensic Accountant: Baker Tilly US, LLP
 Status: FINAL ADJUDICATION
 
 </pre>
-<span data-verify-line="bi-claim">verify:libertymutual.com/claims/v</span> <span verifiable-text="end" data-for="bi-claim">]</span>
+<span data-verify-line="bi-claim">verify:libertymutual.com/claims/v</span> <span verifiable-text="end" data-for="bi-claim"></span>
 </div>
 
 ## Data Verified

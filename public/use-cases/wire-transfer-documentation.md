@@ -17,7 +17,7 @@ These documents are the "Trigger for Action" in high-value commerce. A title com
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Courier New', Courier, monospace; border: 1px solid #333; background: #fff; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="border-bottom: 1px dashed #333; padding-bottom: 15px; margin-bottom: 20px; text-align: center;">
-    <div style="font-weight: bold; font-size: 1.3em;"><span verifiable-text="start" data-for="wire">[</span>GOLIATH NATIONAL BANK</div>
+    <div style="font-weight: bold; font-size: 1.3em;"><span verifiable-text="start" data-for="wire"></span>GOLIATH NATIONAL BANK</div>
     <div style="font-size: 0.8em; opacity: 0.9;">OUTGOING WIRE TRANSFER NOTIFICATION</div>
   </div>
 <div style="font-size: 0.9em; line-height: 1.4; color: #000;">
@@ -48,7 +48,7 @@ These documents are the "Trigger for Action" in high-value commerce. A title com
 <div style="padding: 20px; background: #fff; border-top: 1px dashed #999; margin-top: 30px; text-align: center;">
     <div data-verify-line="wire" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #000; font-weight: bold;"
       title="Demo only: Banks don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:wires.goliathbank.com/v <span verifiable-text="end" data-for="wire">]</span>
+      verify:wires.goliathbank.com/v <span verifiable-text="end" data-for="wire"></span>
     </div>
     <div style="font-size: 0.7em; color: #666; margin-top: 10px; font-style: italic;">
       Scan to verify execution status, beneficiary account match, and real-time OFAC clearance.

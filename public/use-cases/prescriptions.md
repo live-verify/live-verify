@@ -19,7 +19,7 @@ With Live Verify, the prescription carries a `verify:` line bound to the prescri
 
 <div style="max-width: 500px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; border-radius: 8px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
   <div style="background: #1a5276; color: #fff; padding: 14px 18px;">
-    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="rx">[ </span>Elm Street Medical Practice</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="rx"> </span>Elm Street Medical Practice</div>
     <div style="font-size: 0.8em; margin-top: 2px;">42 Elm Street, Islington, London N1 8QJ</div>
     <div style="font-size: 0.75em; margin-top: 2px;">Tel: 020 7946 0123</div>
   </div>
@@ -46,7 +46,7 @@ With Live Verify, the prescription carries a `verify:` line bound to the prescri
       <em style="font-size: 0.85em; color: #555;">Signature: E. Whitfield (electronic)</em>
     </div>
     <div data-verify-line="rx" style="border-top: 1px dashed #999; padding-top: 8px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;">
-      verify:elmstreetmedical.nhs.uk/rx/v <span verifiable-text="end" data-for="rx">]</span>
+      verify:elmstreetmedical.nhs.uk/rx/v <span verifiable-text="end" data-for="rx"></span>
     </div>
   </div>
 </div>

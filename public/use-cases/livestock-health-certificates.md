@@ -12,7 +12,7 @@ furtherDerivations: 1
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #1b5e20; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="animal">[</span>VETERINARY HEALTH CERTIFICATE</div>
+      <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="animal"></span>VETERINARY HEALTH CERTIFICATE</div>
       <div style="font-size: 0.8em;">Certificate of Veterinary Inspection (CVI)</div>
     </div>
     <div style="width: 40px; height: 40px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #1b5e20; font-weight: bold; font-size: 0.7em;">USDA</div>
@@ -36,7 +36,7 @@ furtherDerivations: 1
     </div>
 <div data-verify-line="animal" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: State Vet Office doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:tahc.texas.gov/cvi/v <span verifiable-text="end" data-for="animal">]</span>
+      verify:tahc.texas.gov/cvi/v <span verifiable-text="end" data-for="animal"></span>
     </div>
   </div>
 </div>

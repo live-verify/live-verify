@@ -17,7 +17,7 @@ Because a "Positive" finding can kill a home sale or require a $5,000 treatment,
 
 <div style="max-width: 650px; margin: 24px auto; font-family: 'Times New Roman', Times, serif; border: 1px solid #333; background: #fff; padding: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 30px;">
-    <div style="font-weight: bold; font-size: 1.4em; color: #004d40;"><span verifiable-text="start" data-for="wdi">[</span>PRECISION PEST AUDITS</div>
+    <div style="font-weight: bold; font-size: 1.4em; color: #004d40;"><span verifiable-text="start" data-for="wdi"></span>PRECISION PEST AUDITS</div>
     <div style="font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px;">Official Wood Destroying Insect (WDI) Report</div>
   </div>
 <div style="font-size: 0.95em; line-height: 1.6; color: #333;">
@@ -51,7 +51,7 @@ Because a "Positive" finding can kill a home sale or require a $5,000 treatment,
 <div style="padding: 20px; background: #fffbe6; border: 1px dashed #999; margin-top: 30px; text-align: center;">
     <div data-verify-line="wdi" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #000; font-weight: bold;"
       title="Demo only: Inspection firms don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:precision-pest.com/v <span verifiable-text="end" data-for="wdi">]</span>
+      verify:precision-pest.com/v <span verifiable-text="end" data-for="wdi"></span>
     </div>
     <div style="font-size: 0.7em; color: #666; margin-top: 10px;">
       Scan to verify structural findings, view high-res damage photos, and check for active service warranties.

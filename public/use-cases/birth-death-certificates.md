@@ -19,7 +19,7 @@ Verified vital records allow banks and agencies to check the **Live Status** of 
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 3px double #1a365d; background: #fdfcf0; padding: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); position: relative; border-radius: 4px;">
   <div style="text-align: center; border-bottom: 2px solid #1a365d; padding-bottom: 15px; margin-bottom: 25px;">
-    <div style="font-weight: bold; font-size: 1.3em; letter-spacing: 2px; color: #1a365d;"><span verifiable-text="start" data-for="birth">[</span>COMMONWEALTH OF PENNSYLVANIA</div>
+    <div style="font-weight: bold; font-size: 1.3em; letter-spacing: 2px; color: #1a365d;"><span verifiable-text="start" data-for="birth"></span>COMMONWEALTH OF PENNSYLVANIA</div>
     <div style="font-size: 0.9em; text-transform: uppercase; color: #2c5282;">Department of Health • Vital Statistics</div>
   </div>
 <h2 style="text-align: center; font-size: 1.5em; color: #1a365d; margin-bottom: 25px;">CERTIFICATION OF BIRTH</h2>
@@ -47,7 +47,7 @@ Verified vital records allow banks and agencies to check the **Live Status** of 
   </div>
 <div data-verify-line="birth" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: PA Health Dept doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:health.pa.gov/vital/v <span verifiable-text="end" data-for="birth">]</span>
+      verify:health.pa.gov/vital/v <span verifiable-text="end" data-for="birth"></span>
   </div>
 </div>
 

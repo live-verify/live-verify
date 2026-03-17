@@ -16,7 +16,7 @@ A **Structured Settlement** is a financial arrangement typically used in persona
 These documents are the "Financial Lifeline" for injured parties. Fraud is high-stakes: predatory "Cash-Now" factoring companies often trick claimants into signing over their future payments for pennies on the dollar. Similarly, a fraudster might "edit" a settlement agreement to hide an existing lien or a prior transfer of payments to another firm. Verified hashes bind the **Payment Schedule, Beneficiary Name, and Contract ID** to the annuity issuer's domain (e.g., `metlife.com` or `prudential.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="settle">[</span>PACIFIC LIFE & ANNUITY
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="settle"></span>PACIFIC LIFE & ANNUITY
 Structured Settlement Annuity Contract
 ═══════════════════════════════════════════════════════════════════
 
@@ -37,7 +37,7 @@ Transfer Restriction: This annuity is non-assignable and
 non-transferable without a verified Court Order pursuant to
 State Structured Settlement Protection Acts.
 
-<span data-verify-line="settle">verify:pacificlife.com/v</span> <span verifiable-text="end" data-for="settle">]</span></pre>
+<span data-verify-line="settle">verify:pacificlife.com/v</span> <span verifiable-text="end" data-for="settle"></span></pre>
 </div>
 
 ## Data Verified

@@ -16,7 +16,7 @@ In the US and many other nations, the **W-2 Wage and Tax Statement** (or its equ
 Lenders use W-2s to approve mortgages, and tax authorities use them to verify your tax return. Fraud is rampant: criminals create "Synthetic W-2s" to claim fraudulent tax refunds, or they "edit" a real W-2 to inflate their income to qualify for a luxury home loan. Verified hashes bind the **Employee SSN, Total Wages, and Employer EIN** to the payroll provider's or the tax agency's domain (e.g., `adp.com`, `gusto.com`, or `irs.gov`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="tax">[</span>Form W-2 Wage and Tax Statement                               2025
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="tax"></span>Form W-2 Wage and Tax Statement                               2025
 ═══════════════════════════════════════════════════════════════════
 
 Employer EIN:           99-2288776        Control Number: CN-992288-XJ
@@ -34,7 +34,7 @@ Address:         42 WALL STREET, NEW YORK, NY 10005
 
 Verified extract of official payroll and tax record.
 
-<span data-verify-line="tax">verify:adp.com/tax/v</span> <span verifiable-text="end" data-for="tax">]</span></pre>
+<span data-verify-line="tax">verify:adp.com/tax/v</span> <span verifiable-text="end" data-for="tax"></span></pre>
 </div>
 
 ## Data Verified

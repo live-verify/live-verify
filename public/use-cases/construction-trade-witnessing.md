@@ -67,7 +67,7 @@ Witnessing doesn't independently verify work quality—it creates a verifiable r
 **At-the-Time Witnessing:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="vapor">[</span>TRADE WORK ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="vapor"></span>TRADE WORK ATTESTATION
 
 Project: Riverside Homes Phase 2
 Unit: Plot 47, 23 Willow Lane
@@ -90,7 +90,7 @@ ATTESTATION:
 INSPECTOR SIGN-OFF: Pending
 NEXT TRADE BLOCKED UNTIL: Inspector approval
 
-<span data-verify-line="vapor">verify:riverside-homes.co.uk/build/v</span> <span verifiable-text="end" data-for="vapor">]</span></pre>
+<span data-verify-line="vapor">verify:riverside-homes.co.uk/build/v</span> <span verifiable-text="end" data-for="vapor"></span></pre>
 </div>
 
 **What Gets Recorded:**
@@ -147,7 +147,7 @@ Photos of every wall cavity showing:
 **At-the-Time Witnessing:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="frame">[</span>TRADE WORK ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="frame"></span>TRADE WORK ATTESTATION
 
 Project: Riverside Homes Phase 2
 Unit: Plot 47, 23 Willow Lane
@@ -169,7 +169,7 @@ ATTESTATION:
 
 STRUCTURAL ENGINEER SPOT-CHECK: Passed (Jan 11)
 
-<span data-verify-line="frame">verify:riverside-homes.co.uk/build/v</span> <span verifiable-text="end" data-for="frame">]</span></pre>
+<span data-verify-line="frame">verify:riverside-homes.co.uk/build/v</span> <span verifiable-text="end" data-for="frame"></span></pre>
 </div>
 
 ---
@@ -239,7 +239,7 @@ Concrete is a **crew operation**, not individual work:
 **At-the-Time Witnessing:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="conc">[</span>CONCRETE POUR ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="conc"></span>CONCRETE POUR ATTESTATION
 
 Project: Skyline Tower, Level 14 Floor Slab
 Pour ID: ST-L14-SLAB-001
@@ -275,7 +275,7 @@ ATTESTATION HASH: 7b8c9d0e1f...
   - Cylinder cast log
   - Weather station data
 
-<span data-verify-line="conc">verify:skyline-tower.com/pours/v</span> <span verifiable-text="end" data-for="conc">]</span></pre>
+<span data-verify-line="conc">verify:skyline-tower.com/pours/v</span> <span verifiable-text="end" data-for="conc"></span></pre>
 </div>
 
 **Why Crew-Level Attribution Still Matters:**
@@ -314,7 +314,7 @@ Concrete cylinders tested at 7/28 days prove:
 **At-the-Time Witnessing:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="plumb">[</span>TRADE WORK ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="plumb"></span>TRADE WORK ATTESTATION
 
 Project: Riverside Homes Phase 2
 Unit: Plot 47, 23 Willow Lane
@@ -334,7 +334,7 @@ ATTESTATION:
    all joints soldered with lead-free. Pipes
    insulated to Part L. Pressure tested OK."
 
-<span data-verify-line="plumb">verify:riverside-homes.co.uk/build/v</span> <span verifiable-text="end" data-for="plumb">]</span></pre>
+<span data-verify-line="plumb">verify:riverside-homes.co.uk/build/v</span> <span verifiable-text="end" data-for="plumb"></span></pre>
 </div>
 
 **Pressure Test as Verification:**
@@ -375,7 +375,7 @@ Photos showing:
 Individual trade attestations roll up into a **construction provenance document** for the completed unit:
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="rollup">[</span>CONSTRUCTION PROVENANCE CERTIFICATE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="rollup"></span>CONSTRUCTION PROVENANCE CERTIFICATE
 
 Property: 23 Willow Lane, Riverside Estate
 Developer: Riverside Homes Ltd
@@ -401,7 +401,7 @@ INSPECTIONS:
   ✓ Building Control: Passed (Final, Mar 14)
   ✓ NHBC/Warranty: Registered
 
-<span data-verify-line="rollup">verify:riverside-homes.co.uk/provenance/v</span> <span verifiable-text="end" data-for="rollup">]</span></pre>
+<span data-verify-line="rollup">verify:riverside-homes.co.uk/provenance/v</span> <span verifiable-text="end" data-for="rollup"></span></pre>
 </div>
 
 **What This Enables:**

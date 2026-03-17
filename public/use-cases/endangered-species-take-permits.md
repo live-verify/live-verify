@@ -21,7 +21,7 @@ This permit is a "Contract with the Earth." It says: "You are allowed to harm 15
   <div style="background: #2e7d32; color: #fff; padding: 15px; text-align: center; display: flex; align-items: center; justify-content: center;">
     <div style="font-size: 2em; margin-right: 15px;">🦅</div>
     <div>
-      <h2 style="margin: 0; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="species">[</span>FEDERAL FISH & WILDLIFE PERMIT</h2>
+      <h2 style="margin: 0; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="species"></span>FEDERAL FISH & WILDLIFE PERMIT</h2>
       <div style="font-size: 0.85em; opacity: 0.9;">U.S. FISH AND WILDLIFE SERVICE</div>
     </div>
   </div>
@@ -46,7 +46,7 @@ This permit is a "Contract with the Earth." It says: "You are allowed to harm 15
     </div>
 <div data-verify-line="species" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: FWS doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:fws.gov/permits/v <span verifiable-text="end" data-for="species">]</span>
+      verify:fws.gov/permits/v <span verifiable-text="end" data-for="species"></span>
     </div>
   </div>
 </div>

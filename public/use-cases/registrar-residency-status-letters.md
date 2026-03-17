@@ -19,7 +19,7 @@ These letters are the "Benefit Unlockers" of the student world. They are used to
 
 <div style="max-width: 650px; margin: 24px auto; font-family: 'Times New Roman', Times, serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #003366; padding-bottom: 20px; margin-bottom: 30px;">
-    <div style="font-weight: bold; font-size: 1.4em; color: #003366; letter-spacing: 1px;"><span verifiable-text="start" data-for="registrar">[</span>UNIVERSITY OF CALIFORNIA, BERKELEY</div>
+    <div style="font-weight: bold; font-size: 1.4em; color: #003366; letter-spacing: 1px;"><span verifiable-text="start" data-for="registrar"></span>UNIVERSITY OF CALIFORNIA, BERKELEY</div>
     <div style="font-size: 0.9em; text-transform: uppercase;">Office of the Registrar • Enrollment Verification</div>
   </div>
 <div style="font-size: 0.95em; line-height: 1.6; color: #333;">
@@ -45,7 +45,7 @@ These letters are the "Benefit Unlockers" of the student world. They are used to
 <div style="padding: 20px; background: #fffbe6; border: 1px dashed #999; margin-top: 30px; text-align: center;">
     <div data-verify-line="registrar" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #000; font-weight: bold;"
       title="Demo only: University registrars don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:berkeley.edu/v <span verifiable-text="end" data-for="registrar">]</span>
+      verify:berkeley.edu/v <span verifiable-text="end" data-for="registrar"></span>
     </div>
     <div style="font-size: 0.7em; color: #666; margin-top: 8px;">
       Scan to verify enrollment intensity, legal residency status, and semester dates.

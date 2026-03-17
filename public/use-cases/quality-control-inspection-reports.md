@@ -16,7 +16,7 @@ In manufacturing, the **Quality Control (QC) Report** (or Certificate of Conform
 For critical components (e.g., bolts for an airplane wing, medical implants, or structural steel), a fake QC report can lead to catastrophic failure and loss of life. Shady suppliers often "edit" a failed test result into a "PASS," or use a real report from a high-quality batch to cover for a cheaper, low-quality one. Verified hashes bind the **Batch Number, Test Results, and Inspector's Name** to the manufacturer's or the lab's domain (e.g., `boeing.com` or `sgs.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="qc">[</span>PRECISION ALLOYS, INC.
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="qc"></span>PRECISION ALLOYS, INC.
 ISO 9001:2015 Certified Facility                       Lab ID: 9922
 ═══════════════════════════════════════════════════════════════════
 CERTIFICATE OF CONFORMANCE                     Report #: QC-2026-8844
@@ -35,7 +35,7 @@ _________________________
 Robert Miller, QC Lead                               [QC PASS]
 Digital Signature ID: RM-992288
 
-<span data-verify-line="qc">verify:precision-alloys.com/v</span> <span verifiable-text="end" data-for="qc">]</span></pre>
+<span data-verify-line="qc">verify:precision-alloys.com/v</span> <span verifiable-text="end" data-for="qc"></span></pre>
 </div>
 
 ## Data Verified

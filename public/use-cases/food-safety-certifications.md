@@ -20,7 +20,7 @@ This certificate is the "License to Sell" to big retailers. Shady factories that
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #000; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="food-safe">[</span>SQF INSTITUTE</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="food-safe"></span>SQF INSTITUTE</div>
       <div style="font-size: 0.8em; opacity: 0.8;">Food Safety Code for Manufacturing</div>
     </div>
     <div style="text-align: right;">
@@ -45,7 +45,7 @@ This certificate is the "License to Sell" to big retailers. Shady factories that
     </div>
 <div data-verify-line="food-safe" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: SQF doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:sqfi.com/v <span verifiable-text="end" data-for="food-safe">]</span>
+      verify:sqfi.com/v <span verifiable-text="end" data-for="food-safe"></span>
     </div>
   </div>
 </div>

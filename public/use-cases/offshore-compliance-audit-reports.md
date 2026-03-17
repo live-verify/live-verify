@@ -27,7 +27,7 @@ With Live Verify, the compliance report carries a `verify:` line bound to the au
     <div style="font-size: 0.65em; color: #bdc3c7; margin-top: 2px;">Licensed by CIMA under the Anti-Money Laundering Regulations (2025 Revision)</div>
   </div>
   <div style="padding: 22px; font-size: 0.88em; line-height: 1.7; color: #333;">
-    <h3 style="text-align: center; font-size: 1em; color: #2c3e50; margin-bottom: 16px;"><span verifiable-text="start" data-for="compliance">[ </span>AML COMPLIANCE AUDIT REPORT</h3>
+    <h3 style="text-align: center; font-size: 1em; color: #2c3e50; margin-bottom: 16px;"><span verifiable-text="start" data-for="compliance"> </span>AML COMPLIANCE AUDIT REPORT</h3>
     <div style="background: #f4f6f7; padding: 14px; border-left: 4px solid #34495e; margin-bottom: 14px;">
       <strong>Entity:</strong> Oceanic Capital Holdings Ltd<br>
       <strong>Registration No:</strong> MC-347821<br>
@@ -49,7 +49,7 @@ With Live Verify, the compliance report carries a `verify:` line bound to the au
     </p>
     <div data-verify-line="compliance" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: fictional compliance firm">
-      verify:cicompliance.ky/reports <span verifiable-text="end" data-for="compliance">]</span>
+      verify:cicompliance.ky/reports <span verifiable-text="end" data-for="compliance"></span>
     </div>
   </div>
 </div>

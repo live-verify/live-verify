@@ -16,7 +16,7 @@ Volunteer service is a "Reputation Currency." Students need verified hours for *
 The problem is that "Volunteer Certificates" are among the easiest documents to forge. A student might turn 10 hours into 100 hours with a pen, or a defendant might create a fake letterhead from a local food bank to avoid jail time. Verified hashes bind the **Total Hours, Project Scope, and Supervisor Identity** to the charity's domain (e.g., `redcross.org` or `habitat.org`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="volunteer">[</span>CERTIFICATE OF SERVICE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="volunteer"></span>CERTIFICATE OF SERVICE
 AMERICA'S HARVEST FOOD BANK
 ═══════════════════════════════════════════════════════════════════
 
@@ -34,7 +34,7 @@ Supervisor:   Robert Miller               120.0 HOURS
 _________________________
 Executive Director                               [VERIFIED SERVICE]
 
-<span data-verify-line="volunteer">verify:americasharvest.org/v</span> <span verifiable-text="end" data-for="volunteer">]</span></pre>
+<span data-verify-line="volunteer">verify:americasharvest.org/v</span> <span verifiable-text="end" data-for="volunteer"></span></pre>
 </div>
 
 ## Data Verified

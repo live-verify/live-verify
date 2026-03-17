@@ -15,7 +15,7 @@ When a plumber fixes your boiler or an electrician rewires your kitchen, you rec
 A **Verified Trade Service Receipt** is pre-registered with tax authorities *before* the work begins. The customer receives a receipt tied to the tradesperson's tax registration, license number, and insurance policy. If the receipt can't be verified, the customer knows something is wrong.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="trade1">[</span>TRADE SERVICE RECEIPT<br>
+  <span verifiable-text="start" data-for="trade1"></span>TRADE SERVICE RECEIPT<br>
   <br>
   Provider: J. Williams Plumbing Ltd<br>
   HMRC UTR: 1234567890<br>
@@ -33,11 +33,11 @@ A **Verified Trade Service Receipt** is pre-registered with tax authorities *bef
   <br>
   Payment: Card (ending 4421)<br>
   Job Ref: JWP-2026-0847<br>
-  <span data-verify-line="trade1">verify:hmrc.gov.uk/receipts/v</span> <span verifiable-text="end" data-for="trade1">]</span>
+  <span data-verify-line="trade1">verify:hmrc.gov.uk/receipts/v</span> <span verifiable-text="end" data-for="trade1"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="trade2">[</span>TRADE SERVICE RECEIPT<br>
+  <span verifiable-text="start" data-for="trade2"></span>TRADE SERVICE RECEIPT<br>
   <br>
   Provider: Mike's Electrical Services<br>
   ABN: 51 824 753 556<br>
@@ -54,11 +54,11 @@ A **Verified Trade Service Receipt** is pre-registered with tax authorities *bef
   <br>
   Payment: Bank transfer<br>
   Job Ref: MES-26-1847<br>
-  <span data-verify-line="trade2">verify:ato.gov.au/verify</span> <span verifiable-text="end" data-for="trade2">]</span>
+  <span data-verify-line="trade2">verify:ato.gov.au/verify</span> <span verifiable-text="end" data-for="trade2"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="trade3">[</span>TRADE SERVICE RECEIPT<br>
+  <span verifiable-text="start" data-for="trade3"></span>TRADE SERVICE RECEIPT<br>
   <br>
   Provider: Garcia Home Repairs LLC<br>
   EIN: 84-4772991<br>
@@ -76,7 +76,7 @@ A **Verified Trade Service Receipt** is pre-registered with tax authorities *bef
   <br>
   Payment: Check #1847<br>
   Job Ref: GHR-2026-0223<br>
-  <span data-verify-line="trade3">verify:ftb.ca.gov/verify</span> <span verifiable-text="end" data-for="trade3">]</span>
+  <span data-verify-line="trade3">verify:ftb.ca.gov/verify</span> <span verifiable-text="end" data-for="trade3"></span>
 </div>
 
 ## The Pre-Registration Model

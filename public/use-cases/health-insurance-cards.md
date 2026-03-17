@@ -20,7 +20,7 @@ With Live Verify, the insurance card carries a `verify:` line bound to the insur
 <div style="max-width: 420px; margin: 24px auto; font-family: sans-serif; border: 1px solid #005a9c; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
   <div style="background: linear-gradient(135deg, #005a9c 0%, #003d6b 100%); color: #fff; padding: 15px 20px; display: flex; align-items: center; justify-content: space-between;">
     <div>
-      <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="healthins">[</span>Blue Cross Blue Shield</div>
+      <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="healthins"></span>Blue Cross Blue Shield</div>
       <div style="font-size: 0.8em; opacity: 0.9;">of Illinois</div>
     </div>
     <div style="width: 45px; height: 45px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #005a9c; font-weight: bold; font-size: 0.6em; text-align: center;">BCBS</div>
@@ -64,7 +64,7 @@ With Live Verify, the insurance card carries a `verify:` line bound to the insur
     </div>
     <div data-verify-line="healthins" style="border-top: 1px dashed #999; padding-top: 8px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: BCBS doesn't yet offer verification endpoints">
-      verify:bcbsil.com/member/v <span verifiable-text="end" data-for="healthins">]</span>
+      verify:bcbsil.com/member/v <span verifiable-text="end" data-for="healthins"></span>
     </div>
   </div>
 </div>

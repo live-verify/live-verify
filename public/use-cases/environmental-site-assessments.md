@@ -19,7 +19,7 @@ Fraud happens when a seller "Deletes" the page of the report that mentions a bur
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Helvetica', Arial, sans-serif; border: 2px solid #2e7d32; background: #f1f8e9; padding: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #2e7d32; padding-bottom: 15px; margin-bottom: 25px;">
-    <div style="font-weight: bold; font-size: 1.3em;"><span verifiable-text="start" data-for="esa">[</span>ENVIRO-CONSULT GROUP, LLC</div>
+    <div style="font-weight: bold; font-size: 1.3em;"><span verifiable-text="start" data-for="esa"></span>ENVIRO-CONSULT GROUP, LLC</div>
     <div style="font-size: 0.85em; color: #33691e;">PHASE I ENVIRONMENTAL SITE ASSESSMENT</div>
   </div>
 <div style="font-size: 0.95em; line-height: 1.6; color: #333;">
@@ -44,7 +44,7 @@ Fraud happens when a seller "Deletes" the page of the report that mentions a bur
   </div>
 <div data-verify-line="esa" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Enviro-Consult doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:enviroconsult.com/reports/v <span verifiable-text="end" data-for="esa">]</span>
+      verify:enviroconsult.com/reports/v <span verifiable-text="end" data-for="esa"></span>
   </div>
 </div>
 

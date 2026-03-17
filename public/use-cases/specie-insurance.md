@@ -16,7 +16,7 @@ In the world of high-value logistics, **Specie Insurance** covers the transport 
 These documents are the "Proof of Protection" for the most valuable items on Earth. Fraud is high-stakes: a courier might create a fake "Lloyd's" certificate to trick a museum into releasing a painting, or an owner might "edit" a policy to hide a "No-Armored-Car" exclusion after a theft. Verified hashes bind the **Item Description, Transit Route, and Security Protocols** to the specialist insurer's domain (e.g., `lloyds.com` or `axa-art.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="specie">[</span>AXA ART SPECIALTY
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="specie"></span>AXA ART SPECIALTY
 Global Specie & High-Value Assets Unit
 ═══════════════════════════════════════════════════════════════════
 
@@ -36,7 +36,7 @@ This certificate is a verified extract of the Master Specie Policy.
 Coverage is contingent upon strict adherence to the transit
 protocols stated above.
 
-<span data-verify-line="specie">verify:axa-art.com/v</span> <span verifiable-text="end" data-for="specie">]</span></pre>
+<span data-verify-line="specie">verify:axa-art.com/v</span> <span verifiable-text="end" data-for="specie"></span></pre>
 </div>
 
 ## Data Verified

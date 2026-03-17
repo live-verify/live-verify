@@ -16,7 +16,7 @@ In the professional and industrial worlds, a **Training Completion Certificate**
 The problem is that "compliance fatigue" leads to massive fraud. Shady employers or workers often "pencil whip" certificates, creating fake PDFs for training that never happened to avoid the cost of downtime. In high-risk fields, a fake safety certificate can lead to fatal accidents. Verified hashes bind the **Trainee Name, Course ID, and Completion Date** to the training provider's or the company's domain (e.g., `nsc.org`, `osha.gov`, or `walmart-academy.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="train">[</span>CERTIFICATE OF COMPLETION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="train"></span>CERTIFICATE OF COMPLETION
 NATIONAL SAFETY COUNCIL ACADEMY
 ═══════════════════════════════════════════════════════════════════
 
@@ -35,7 +35,7 @@ Units:       8.0 CEU / 40 Contact Hours  Instructor:  Sarah J. Jenkins
 _________________________
 Academy Director                                         [NSC VERIFIED]
 
-<span data-verify-line="train">verify:nsc.org/v/train</span> <span verifiable-text="end" data-for="train">]</span></pre>
+<span data-verify-line="train">verify:nsc.org/v/train</span> <span verifiable-text="end" data-for="train"></span></pre>
 </div>
 
 ## Data Verified

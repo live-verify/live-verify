@@ -17,7 +17,7 @@ Fund managers encounter trust structures constantly: family trusts investing in 
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #0d47a1; background: #fff; padding: 0;">
   <div style="background: #0d47a1; color: #fff; padding: 15px;">
-    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="trs">[</span>HM REVENUE & CUSTOMS</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="trs"></span>HM REVENUE & CUSTOMS</div>
     <div style="font-size: 0.8em;">Trust Registration Service — Registration Confirmation</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -36,7 +36,7 @@ Fund managers encounter trust structures constantly: family trusts investing in 
     <p style="font-size: 0.85em; color: #666;">This confirmation is issued under the Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017 (as amended).</p>
     <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="trs" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #555;">
-        verify:hmrc.gov.uk/trust-register <span verifiable-text="end" data-for="trs">]</span>
+        verify:hmrc.gov.uk/trust-register <span verifiable-text="end" data-for="trs"></span>
       </div>
     </div>
   </div>

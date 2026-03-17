@@ -21,7 +21,7 @@ It proves:
 Verification is critical for lenders who use "Imported Inventory" as collateral. A verified 7501 proves that the goods were legally imported and that the government doesn't have a "Senior Lien" for unpaid duties.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="customs">[</span>U.S. CUSTOMS AND BORDER PROTECTION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="customs"></span>U.S. CUSTOMS AND BORDER PROTECTION
 Entry Summary / Proof of Clearance                        CBP 7501
 ═══════════════════════════════════════════════════════════════════
 
@@ -40,7 +40,7 @@ TOTAL REVENUE COLLECTED:                               $ 12,450.00
 Status: RELEASED & SETTLED
 All duties and fees have been paid.
 
-<span data-verify-line="customs">verify:cbp.gov/entry/v</span> <span verifiable-text="end" data-for="customs">]</span></pre>
+<span data-verify-line="customs">verify:cbp.gov/entry/v</span> <span verifiable-text="end" data-for="customs"></span></pre>
 </div>
 
 ## Data Verified

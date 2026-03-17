@@ -72,7 +72,7 @@ The **Hierarchy of Controls** is the foundational risk assessment framework rank
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="elimination">[</span>HAZARD ELIMINATION ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="elimination"></span>HAZARD ELIMINATION ATTESTATION
 
 Facility: Midwest Manufacturing Plant
 Hazard: Hexavalent Chromium (Cr6+) in Plating Line 3
@@ -97,7 +97,7 @@ ATTESTATION HASH: 8f4a2c1e9b...
   - Air monitoring reports
   - Remediation closure letter
 
-<span data-verify-line="elimination">verify:midwest-mfg.com/safety/v</span> <span verifiable-text="end" data-for="elimination">]</span></pre>
+<span data-verify-line="elimination">verify:midwest-mfg.com/safety/v</span> <span verifiable-text="end" data-for="elimination"></span></pre>
 </div>
 
 **Why Elimination Witnessing Matters:**
@@ -158,7 +158,7 @@ Substitution is vulnerable to fraud and backsliding:
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="substitution">[</span>CHEMICAL SUBSTITUTION ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="substitution"></span>CHEMICAL SUBSTITUTION ATTESTATION
 
 Facility: AutoPaint Body Shop
 Product Category: Primer/Surfacer
@@ -186,7 +186,7 @@ ATTESTATION HASH: 2d7e4f1a8c...
   - XRF test report
   - Training records
 
-<span data-verify-line="substitution">verify:autopaint-shop.com/safety/v</span> <span verifiable-text="end" data-for="substitution">]</span></pre>
+<span data-verify-line="substitution">verify:autopaint-shop.com/safety/v</span> <span verifiable-text="end" data-for="substitution"></span></pre>
 </div>
 
 **Supply Chain Verification:**
@@ -269,7 +269,7 @@ Engineering controls are the most inspection-intensive level of the hierarchy. T
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="engineering">[</span>ENGINEERING CONTROL ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="engineering"></span>ENGINEERING CONTROL ATTESTATION
 
 Facility: ChemProcess Industries
 Control: Local Exhaust Ventilation, Reactor Area
@@ -302,7 +302,7 @@ ATTESTATION HASH: 5c9a3b2e7f...
   - System photos
   - P&ID markup
 
-<span data-verify-line="engineering">verify:chemprocess.com/safety/v</span> <span verifiable-text="end" data-for="engineering">]</span></pre>
+<span data-verify-line="engineering">verify:chemprocess.com/safety/v</span> <span verifiable-text="end" data-for="engineering"></span></pre>
 </div>
 
 **Emerging Engineering Control Witnessing:**
@@ -378,7 +378,7 @@ Administrative controls are often called "soft" controls—they depend on human 
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="admin">[</span>PERMIT-TO-WORK ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="admin"></span>PERMIT-TO-WORK ATTESTATION
 
 Facility: Refinery Unit 4
 Permit Type: Hot Work
@@ -414,13 +414,13 @@ ATTESTATION HASH: 9x8y7z6w5v...
   - Authorization signatures (digital)
   - Closure verification photos
 
-<span data-verify-line="admin">verify:refinery-ops.com/permits/v</span> <span verifiable-text="end" data-for="admin">]</span></pre>
+<span data-verify-line="admin">verify:refinery-ops.com/permits/v</span> <span verifiable-text="end" data-for="admin"></span></pre>
 </div>
 
 **Training Attestation:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="training">[</span>COMPETENCY ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="training"></span>COMPETENCY ATTESTATION
 
 Employee: [ID on file]
 Training: Confined Space Entry - Authorized Entrant
@@ -444,7 +444,7 @@ ATTESTATION HASH: 3a4b5c6d7e...
   - Practical evaluation checklist
   - Video clips of practical demos
 
-<span data-verify-line="training">verify:safetyfirst.com/training/v</span> <span verifiable-text="end" data-for="training">]</span></pre>
+<span data-verify-line="training">verify:safetyfirst.com/training/v</span> <span verifiable-text="end" data-for="training"></span></pre>
 </div>
 
 **The Administrative Control Problem:**
@@ -491,7 +491,7 @@ Witnessing can't prevent all failures but creates accountability and evidence tr
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="ppe">[</span>RESPIRATOR FIT TEST ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="ppe"></span>RESPIRATOR FIT TEST ATTESTATION
 
 Employee: [ID on file]
 Respirator: 3M 6800 Full Face
@@ -527,13 +527,13 @@ ATTESTATION HASH: 7f8e9d0c1b...
   - Medical clearance (reference only)
   - Training sign-off
 
-<span data-verify-line="ppe">verify:employer-safety.com/ppe/v</span> <span verifiable-text="end" data-for="ppe">]</span></pre>
+<span data-verify-line="ppe">verify:employer-safety.com/ppe/v</span> <span verifiable-text="end" data-for="ppe"></span></pre>
 </div>
 
 **Fall Arrest Equipment:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="fall">[</span>FALL ARREST EQUIPMENT ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="fall"></span>FALL ARREST EQUIPMENT ATTESTATION
 
 Equipment: Full Body Harness
 Serial: 3M-DBI-2023-A-78451
@@ -567,7 +567,7 @@ ATTESTATION HASH: 4e5f6g7h8i...
   - Inspector certification
   - Equipment history log
 
-<span data-verify-line="fall">verify:safeheight.com/equipment/v</span> <span verifiable-text="end" data-for="fall">]</span></pre>
+<span data-verify-line="fall">verify:safeheight.com/equipment/v</span> <span verifiable-text="end" data-for="fall"></span></pre>
 </div>
 
 **Emerging PPE Witnessing:**

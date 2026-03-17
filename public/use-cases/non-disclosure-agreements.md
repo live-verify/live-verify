@@ -21,7 +21,7 @@ A **Verified NDA** adds a cryptographic hash to the signature page. This proves:
 **"Page Swapping"** is a major risk in physical contracts. Disgruntled employees or rogue partners might swap a middle page of a physical NDA to remove a high-value technology from the "Confidential" list. Live Verify provides **Per-Page Verification**, ensuring that every paragraph of the contract remains exactly as it was when the digital hash was anchored to the legal domain.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <div style="text-align: center; font-weight: bold; margin-bottom: 30px; font-size: 1.2em; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="nda">[</span>Mutual Non-Disclosure Agreement</div>
+  <div style="text-align: center; font-weight: bold; margin-bottom: 30px; font-size: 1.2em; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="nda"></span>Mutual Non-Disclosure Agreement</div>
 <div style="font-size: 1em; line-height: 1.6; text-align: justify; color: #000;">
     <p>This Agreement is made effective as of <strong>January 15, 2026</strong>, by and between:</p>
 <p><strong>Disclosing Party:</strong> Acme Global Hub, Inc.<br>
@@ -47,7 +47,7 @@ A **Verified NDA** adds a cryptographic hash to the signature page. This proves:
   </div>
 <div data-verify-line="nda" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
     title="Demo only: Acme doesn't yet offer verification&#10;endpoints, so this is illustrative">
-    verify:acme-corp.legal/v <span verifiable-text="end" data-for="nda">]</span>
+    verify:acme-corp.legal/v <span verifiable-text="end" data-for="nda"></span>
   </div>
 </div>
 

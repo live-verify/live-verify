@@ -17,7 +17,7 @@ A **Verified Coverage Guarantee** is a specific, timestamped attestation by the 
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Arial', sans-serif; border: 2px solid #000; background: #fff; padding: 20px;">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 20px;">
-    <h2 style="margin: 0;"><span verifiable-text="start" data-for="net">[</span>VERIZONIA WIRELESS</h2>
+    <h2 style="margin: 0;"><span verifiable-text="start" data-for="net"></span>VERIZONIA WIRELESS</h2>
     <div style="font-size: 0.9em; color: #555;">Coverage Certification</div>
   </div>
 <div style="font-family: 'Courier New', monospace; font-size: 0.95em;">
@@ -33,7 +33,7 @@ A **Verified Coverage Guarantee** is a specific, timestamped attestation by the 
       (Coordinates: 30.2672° N, 97.7431° W)
     </div>
 <div data-verify-line="net" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 10px; text-align: center; font-size: 0.85em;">
-      verify:verizonia.com/sla/v <span verifiable-text="end" data-for="net">]</span>
+      verify:verizonia.com/sla/v <span verifiable-text="end" data-for="net"></span>
     </div>
   </div>
 </div>

@@ -16,7 +16,7 @@ A **Non-Vessel Operating Common Carrier (NVOCC)** is a freight forwarder that bu
 The problem is that freight rates are volatile. To win business, some NVOCCs "edit" their tariff sheets to show a lower "filed" rate than they actually reported to the government, or they add "hidden surcharges" that aren't in the legal tariff. Verified hashes bind the **Route, Rate, and Surcharge Codes** to the carrier's official tariff domain (e.g., `expeditors.com` or `flexport.com`), ensuring that the price on the paper matches the price filed with the regulator.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="tariff">[</span>GLOBAL FREIGHT LOGISTICS
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="tariff"></span>GLOBAL FREIGHT LOGISTICS
 FMC OTI License: #0992288N                     Public Tariff #042
 ═══════════════════════════════════════════════════════════════════
 RATE FILING                                    Ref: GFL-SHA-LAX-2026
@@ -34,7 +34,7 @@ TOTAL FILED RATE:                                      $ 3,670.00
 
 FMC Compliance: Filed with Federal Maritime Commission.
 
-<span data-verify-line="tariff">verify:gfreight.com/tariffs/v</span> <span verifiable-text="end" data-for="tariff">]</span></pre>
+<span data-verify-line="tariff">verify:gfreight.com/tariffs/v</span> <span verifiable-text="end" data-for="tariff"></span></pre>
 </div>
 
 ## Data Verified

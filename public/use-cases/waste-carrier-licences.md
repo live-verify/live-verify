@@ -20,7 +20,7 @@ A **Verified Waste Carrier Licence** is the carrier's registration made scannabl
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #1b5e20; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #1b5e20; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="upper">[</span>WASTE CARRIER LICENCE</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="upper"></span>WASTE CARRIER LICENCE</div>
       <div style="font-size: 0.8em; opacity: 0.9;">Environment Agency — England</div>
     </div>
     <div style="text-align: right;">
@@ -44,7 +44,7 @@ A **Verified Waste Carrier Licence** is the carrier's registration made scannabl
   </div>
   <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #1b5e20; text-align: center;">
     <div data-verify-line="upper" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:environment-agency.gov.uk/waste/v <span verifiable-text="end" data-for="upper">]</span>
+      verify:environment-agency.gov.uk/waste/v <span verifiable-text="end" data-for="upper"></span>
     </div>
   </div>
 </div>
@@ -52,7 +52,7 @@ A **Verified Waste Carrier Licence** is the carrier's registration made scannabl
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #e65100; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #e65100; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="lower">[</span>WASTE CARRIER LICENCE</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="lower"></span>WASTE CARRIER LICENCE</div>
       <div style="font-size: 0.8em; opacity: 0.9;">Environment Agency — England</div>
     </div>
     <div style="text-align: right;">
@@ -76,7 +76,7 @@ A **Verified Waste Carrier Licence** is the carrier's registration made scannabl
   </div>
   <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #e65100; text-align: center;">
     <div data-verify-line="lower" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:environment-agency.gov.uk/waste/v <span verifiable-text="end" data-for="lower">]</span>
+      verify:environment-agency.gov.uk/waste/v <span verifiable-text="end" data-for="lower"></span>
     </div>
   </div>
 </div>
@@ -84,7 +84,7 @@ A **Verified Waste Carrier Licence** is the carrier's registration made scannabl
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #37474f; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #37474f; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="wtn">[</span>WASTE TRANSFER NOTE</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="wtn"></span>WASTE TRANSFER NOTE</div>
       <div style="font-size: 0.8em; opacity: 0.9;">Duty of Care Record</div>
     </div>
     <div style="text-align: right;">
@@ -110,7 +110,7 @@ A **Verified Waste Carrier Licence** is the carrier's registration made scannabl
   </div>
   <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #37474f; text-align: center;">
     <div data-verify-line="wtn" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:clearawaywaste.co.uk/duty/v <span verifiable-text="end" data-for="wtn">]</span>
+      verify:clearawaywaste.co.uk/duty/v <span verifiable-text="end" data-for="wtn"></span>
     </div>
   </div>
 </div>

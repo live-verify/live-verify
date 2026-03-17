@@ -19,7 +19,7 @@ Live Verify allows a neighbor or building inspector to scan the permit from the 
 
 <div style="max-width: 500px; margin: 24px auto; font-family: sans-serif; border: 3px solid #d32f2f; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
   <div style="background: #d32f2f; color: #fff; padding: 15px; text-align: center;">
-    <h2 style="margin: 0; text-transform: uppercase; font-size: 1.3em; letter-spacing: 1px;"><span verifiable-text="start" data-for="permit">[</span>Building Permit</h2>
+    <h2 style="margin: 0; text-transform: uppercase; font-size: 1.3em; letter-spacing: 1px;"><span verifiable-text="start" data-for="permit"></span>Building Permit</h2>
     <div style="font-size: 0.8em; font-weight: bold; opacity: 0.9;">POST IN A CONSPICUOUS PLACE</div>
   </div>
 <div style="padding: 25px;">
@@ -47,7 +47,7 @@ Live Verify allows a neighbor or building inspector to scan the permit from the 
     </div>
 <div data-verify-line="permit" style="margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.85em; color: #d32f2f; text-align: center; font-weight: bold; border-top: 1px dashed #bbb;"
       title="Demo only: Municipalities don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:springfield.gov/build/v <span verifiable-text="end" data-for="permit">]</span>
+      verify:springfield.gov/build/v <span verifiable-text="end" data-for="permit"></span>
     </div>
   </div>
 </div>

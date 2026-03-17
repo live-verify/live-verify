@@ -10,7 +10,7 @@ furtherDerivations: 1
 ---
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="retro">[</span>
+  <span verifiable-text="start" data-for="retro"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">PREMIUM ADJUSTMENT STATEMENT
 CONFIDENTIAL
 ═══════════════════════════════════════════════════════════════════
@@ -36,7 +36,7 @@ ADDITIONAL PREMIUM DUE                                    $160,000
 * Subject to Aggregate Deductible Limit of $3,000,000.
 
 </pre>
-  <span data-verify-line="retro">verify:chubb.com/retro/v</span> <span verifiable-text="end" data-for="retro">]</span>
+  <span data-verify-line="retro">verify:chubb.com/retro/v</span> <span verifiable-text="end" data-for="retro"></span>
 </div>
 
 ## Data Verified

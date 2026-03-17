@@ -18,7 +18,7 @@ A **Source of Funds Attestation (SOFA)** is a document issued by the buyer's pri
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #0d47a1; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #0d47a1; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="sofa">[</span>SOURCE OF FUNDS ATTESTATION</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="sofa"></span>SOURCE OF FUNDS ATTESTATION</div>
       <div style="font-size: 0.8em; opacity: 0.9;">Compliance & Anti-Money Laundering</div>
     </div>
     <div style="text-align: right;">
@@ -41,7 +41,7 @@ A **Source of Funds Attestation (SOFA)** is a document issued by the buyer's pri
   </div>
 <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #0d47a1; text-align: center;">
     <div data-verify-line="sofa" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:barclays.com/aml/v <span verifiable-text="end" data-for="sofa">]</span>
+      verify:barclays.com/aml/v <span verifiable-text="end" data-for="sofa"></span>
     </div>
   </div>
 </div>

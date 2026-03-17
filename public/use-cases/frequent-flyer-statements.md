@@ -18,7 +18,7 @@ The **Mileage Statement** is the "Bank Statement" for your travel points.
 You need this verified proof for a **"Status Match"**—where a rival airline gives you free upgrades to win your business) or to prove your net worth during a divorce or bank audit. Fraudsters often use "Inspect Element" to turn 1,000 miles into 1,000,000 to sell "fake accounts" to mileage brokers. Verified hashes stop this point-theft instantly.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="loyalty">[</span>
+  <span verifiable-text="start" data-for="loyalty"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">AMERICAN ADMIRALS CLUB
 AAdvantage Executive Statement
 ═══════════════════════════════════════════════════════════════════
@@ -40,7 +40,7 @@ This statement is a verified record of your mileage balance and
 tier status. Valid for status-match applications.
 
 </pre>
-<span data-verify-line="loyalty">verify:aa.com/loyalty/v</span> <span verifiable-text="end" data-for="loyalty">]</span>
+<span data-verify-line="loyalty">verify:aa.com/loyalty/v</span> <span verifiable-text="end" data-for="loyalty"></span>
 </div>
 
 ## Data Verified

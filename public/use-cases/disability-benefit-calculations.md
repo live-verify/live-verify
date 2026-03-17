@@ -18,7 +18,7 @@ The **Benefit Calculation Worksheet** is the actuarial math showing how the insu
 Claimants use these verified worksheets to prove their income to banks for mortgages. Fraud happens when people "Edit" the worksheet to show a higher monthly benefit to get a bigger loan. Verified hashes link the lender directly to the insurer's official calculation.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="disability">[</span>METLIFE INDEMNITY
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="disability"></span>METLIFE INDEMNITY
                                                   Claim ID: DI-992288-26
                                                   Date: March 15, 2026
 ═══════════════════════════════════════════════════════════════════
@@ -41,7 +41,7 @@ Maximum Benefit Period:   To Age 65
 _________________________
 Robert Miller, Actuary                  Certified by MetLife Claims Group
 
-<span data-verify-line="disability">verify:metlife.com/benefits/v</span> <span verifiable-text="end" data-for="disability">]</span></pre>
+<span data-verify-line="disability">verify:metlife.com/benefits/v</span> <span verifiable-text="end" data-for="disability"></span></pre>
 </div>
 
 ## Data Verified

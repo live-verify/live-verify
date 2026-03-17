@@ -268,14 +268,14 @@ The delivery driver (second party) may hand the verified credential to various t
 
 <div style="max-width: 320px; margin: 24px auto; font-family: 'Courier New', monospace; border: 3px solid #232f3e; border-radius: 8px; background: #f5f5f0; padding: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
   <div style="font-size: 1em; color: #232f3e; font-weight: bold; margin-bottom: 8px;">AMAZON LOGISTICS</div>
-  <div style="font-size: 1em; font-weight: bold; color: #000; margin-bottom: 8px;"><span verifiable-text="start" data-for="eink-driver">[</span>Carlos R 42882</div>
+  <div style="font-size: 1em; font-weight: bold; color: #000; margin-bottom: 8px;"><span verifiable-text="start" data-for="eink-driver"></span>Carlos R 42882</div>
   <div style="font-size: 1em; color: #333; margin-bottom: 8px;">San Francisco Metro</div>
   <div style="font-size: 1em; color: #232f3e; margin-bottom: 12px;">
     Salt: 9m2k7x3p
   </div>
   <div data-verify-line="eink-driver" style="font-size: 1em; color: #555;"
     title="Demo only: Amazon doesn't yet offer verification endpoints">
-    vfy:logistics.amazon.com <span verifiable-text="end" data-for="eink-driver">]</span>
+    vfy:logistics.amazon.com <span verifiable-text="end" data-for="eink-driver"></span>
   </div>
 </div>
 

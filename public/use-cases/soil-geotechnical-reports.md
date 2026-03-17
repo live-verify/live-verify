@@ -16,7 +16,7 @@ In the construction industry, the **Geotechnical (Soil) Report** is the "Structu
 These reports are the foundation of all structural engineering. Fraud is high-stakes: a developer might "edit" a report to hide a landslide risk or to inflate the soil's bearing capacity to avoid the multi-million dollar cost of deep-foundation pylons. Verified hashes bind the **Borehole Data, Bearing Capacity, and Engineer's License** to the engineering firm's or the state's domain (e.g., `aecom.com` or `pe-registry.gov`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="geo">[</span>SUMMIT GEOTECHNICAL LTD.
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="geo"></span>SUMMIT GEOTECHNICAL LTD.
 Licensed Professional Engineers - Lab ID: #9922
 ═══════════════════════════════════════════════════════════════════
 
@@ -39,7 +39,7 @@ Groundwater Table:                                 -32 FT (Observed)
                     License: #PE-992288
                     SEAL VERIFIED
 
-<span data-verify-line="geo">verify:summit-geo.com/v</span> <span verifiable-text="end" data-for="geo">]</span></pre>
+<span data-verify-line="geo">verify:summit-geo.com/v</span> <span verifiable-text="end" data-for="geo"></span></pre>
 </div>
 
 ## Data Verified

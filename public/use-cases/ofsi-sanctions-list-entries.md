@@ -17,7 +17,7 @@ Currently, screening tools download the list in bulk and run matches locally. Bu
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #1a237e; background: #fff; padding: 0;">
   <div style="background: #1a237e; color: #fff; padding: 15px;">
-    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="ofsilst">[</span>UK SANCTIONS LIST — OFSI</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="ofsilst"></span>UK SANCTIONS LIST — OFSI</div>
     <div style="font-size: 0.8em;">Consolidated List Entry</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -36,7 +36,7 @@ Currently, screening tools download the list in bulk and run matches locally. Bu
     Statement of reasons: Involved in destabilising Ukraine.</p>
     <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="ofsilst" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #555;">
-        verify:ofsi.hm-treasury.gov.uk/sanctions-list <span verifiable-text="end" data-for="ofsilst">]</span>
+        verify:ofsi.hm-treasury.gov.uk/sanctions-list <span verifiable-text="end" data-for="ofsilst"></span>
       </div>
     </div>
   </div>

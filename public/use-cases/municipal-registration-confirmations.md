@@ -15,7 +15,7 @@ A municipal registration confirmation proves that a person, business, vehicle, o
 Municipal fraud includes fake business licenses to appear legitimate, forged registrations to avoid fees, and fraudulent permits to bypass requirements.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="biz">[</span>BUSINESS LICENSE ACTIVE<br>
+  <span verifiable-text="start" data-for="biz"></span>BUSINESS LICENSE ACTIVE<br>
   City of San Francisco<br>
   Office of the Treasurer<br>
   Business: Golden Gate Coffee LLC<br>
@@ -23,11 +23,11 @@ Municipal fraud includes fake business licenses to appear legitimate, forged reg
   Location: 123 Market Street<br>
   Type: Food Service Establishment<br>
   Valid: January 1, 2026 - December 31, 2026<br>
-  <span data-verify-line="biz">verify:sf.gov/business</span> <span verifiable-text="end" data-for="biz">]</span>
+  <span data-verify-line="biz">verify:sf.gov/business</span> <span verifiable-text="end" data-for="biz"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="vehicle">[</span>VEHICLE REGISTRATION<br>
+  <span verifiable-text="start" data-for="vehicle"></span>VEHICLE REGISTRATION<br>
   California Department of Motor Vehicles<br>
   Plate: 8ABC123<br>
   VIN: 1HGCM82633A004352<br>
@@ -35,11 +35,11 @@ Municipal fraud includes fake business licenses to appear legitimate, forged reg
   Registered Through: January 2027<br>
   Emissions: Current<br>
   Fees Paid: $312.00<br>
-  <span data-verify-line="vehicle">verify:dmv.ca.gov/registration</span> <span verifiable-text="end" data-for="vehicle">]</span>
+  <span data-verify-line="vehicle">verify:dmv.ca.gov/registration</span> <span verifiable-text="end" data-for="vehicle"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="voter">[</span>VOTER REGISTRATION CONFIRMED<br>
+  <span verifiable-text="start" data-for="voter"></span>VOTER REGISTRATION CONFIRMED<br>
   Los Angeles County Registrar<br>
   Voter: Maria Santos<br>
   Registration #: LA-2024-7741892<br>
@@ -47,11 +47,11 @@ Municipal fraud includes fake business licenses to appear legitimate, forged reg
   Precinct: 4412<br>
   Status: Active<br>
   Registered: October 15, 2024<br>
-  <span data-verify-line="voter">verify:lavote.gov/status</span> <span verifiable-text="end" data-for="voter">]</span>
+  <span data-verify-line="voter">verify:lavote.gov/status</span> <span verifiable-text="end" data-for="voter"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="pet">[</span>PET LICENSE<br>
+  <span verifiable-text="start" data-for="pet"></span>PET LICENSE<br>
   City of Seattle<br>
   Animal Services<br>
   Owner: Patricia Chen<br>
@@ -60,7 +60,7 @@ Municipal fraud includes fake business licenses to appear legitimate, forged reg
   Rabies Vaccination: Current<br>
   Microchip: 985141000123456<br>
   Valid Through: March 2027<br>
-  <span data-verify-line="pet">verify:seattle.gov/animallicenses</span> <span verifiable-text="end" data-for="pet">]</span>
+  <span data-verify-line="pet">verify:seattle.gov/animallicenses</span> <span verifiable-text="end" data-for="pet"></span>
 </div>
 
 ## Data Verified

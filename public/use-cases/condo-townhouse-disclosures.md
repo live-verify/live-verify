@@ -22,7 +22,7 @@ Sellers often "Delete" the scary pages of these reports to trick buyers. Verifie
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 1px solid #999; background: #fff; padding: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 25px;">
-    <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="condo">[</span>PREMIER PROPERTY MANAGEMENT, LLC</div>
+    <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="condo"></span>PREMIER PROPERTY MANAGEMENT, LLC</div>
     <div style="font-size: 0.85em; color: #666;">Official HOA Resale Disclosure</div>
   </div>
 <h3 style="text-align: center; text-transform: uppercase; margin-bottom: 20px;">Condominium Resale Certificate</h3>
@@ -47,7 +47,7 @@ Sellers often "Delete" the scary pages of these reports to trick buyers. Verifie
   </div>
 <div data-verify-line="condo" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Property manager doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:premier-mgmt.com/hoas/v <span verifiable-text="end" data-for="condo">]</span>
+      verify:premier-mgmt.com/hoas/v <span verifiable-text="end" data-for="condo"></span>
   </div>
 </div>
 

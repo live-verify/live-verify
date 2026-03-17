@@ -22,7 +22,7 @@ Live Verify turns any work permit into a live link to the issuing authority's da
 <div style="max-width: 420px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
   <div style="background: #1a5276; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
     <div>
-      <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="wp">[</span>REPUBLIC OF NORDIA</div>
+      <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="wp"></span>REPUBLIC OF NORDIA</div>
       <div style="font-size: 0.8em;">Employment Authorisation Permit</div>
     </div>
     <div style="width: 44px; height: 44px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #1a5276; font-weight: bold; font-size: 0.65em; text-align: center;">MoL</div>
@@ -44,7 +44,7 @@ Live Verify turns any work permit into a live link to the issuing authority's da
   <div style="padding: 0 20px 20px 20px;">
     <div style="font-size: 0.8em; font-weight: bold; color: #1a5276; text-align: center; margin-bottom: 5px;">MINISTRY OF LABOUR — NORDIA</div>
     <div data-verify-line="wp" style="border-top: 1px dashed #999; padding-top: 5px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;">
-      verify:labour.gov.nd/wp/v <span verifiable-text="end" data-for="wp">]</span>
+      verify:labour.gov.nd/wp/v <span verifiable-text="end" data-for="wp"></span>
     </div>
   </div>
 </div>

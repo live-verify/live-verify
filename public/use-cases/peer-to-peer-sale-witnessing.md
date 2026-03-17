@@ -20,7 +20,7 @@ When Peter sells his MacBook to Mary via Craigslist, they meet at a Starbucks. T
 This is a **notary for informal sales**—a witnessing organization that verifies identities and records the transaction, without touching the money.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="p2p">[</span>SAFESALE WITNESSED TRANSACTION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="p2p"></span>SAFESALE WITNESSED TRANSACTION
 
 Transaction ID: SS-2025-0114-7829
 Date: January 14, 2025, 2:15 PM EST
@@ -40,7 +40,7 @@ Identities verified via government ID.
                                     ───────────────────────
                                     SafeSale Witness Agent
 
-<span data-verify-line="p2p">verify:safesale.org/tx/v</span> <span verifiable-text="end" data-for="p2p">]</span></pre>
+<span data-verify-line="p2p">verify:safesale.org/tx/v</span> <span verifiable-text="end" data-for="p2p"></span></pre>
 </div>
 
 ## Data Verified

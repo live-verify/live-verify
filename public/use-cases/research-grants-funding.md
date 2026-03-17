@@ -17,7 +17,7 @@ These documents are the "Proof of Prestige." Researchers use them to secure tenu
 
 <div style="max-width: 650px; margin: 24px auto; font-family: 'Times New Roman', serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 20px; margin-bottom: 30px;">
-    <div style="font-weight: bold; font-size: 1.4em; color: #002d62;"><span verifiable-text="start" data-for="grant">[</span>NATIONAL SCIENCE FOUNDATION</div>
+    <div style="font-weight: bold; font-size: 1.4em; color: #002d62;"><span verifiable-text="start" data-for="grant"></span>NATIONAL SCIENCE FOUNDATION</div>
     <div style="font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px;">Office of Budget, Finance, and Award Management</div>
   </div>
 <div style="font-size: 0.95em; line-height: 1.6; color: #333;">
@@ -45,7 +45,7 @@ These documents are the "Proof of Prestige." Researchers use them to secure tenu
   </div>
 <div data-verify-line="grant" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Funding agencies don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:nsf.gov/awards/v <span verifiable-text="end" data-for="grant">]</span>
+      verify:nsf.gov/awards/v <span verifiable-text="end" data-for="grant"></span>
   </div>
 </div>
 

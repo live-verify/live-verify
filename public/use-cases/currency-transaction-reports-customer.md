@@ -18,7 +18,7 @@ This is the law's way of tracking money laundering and drug profits. The **Custo
 Lenders and tax auditors use these verified receipts to prove that a large "Gift" or "Cash Income" is legitimate and was properly reported to the government. Verified hashes prevent people from "Editing" these receipts to hide the true scale of their cash business.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="ctr">[</span>CURRENCY TRANSACTION REPORT
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="ctr"></span>CURRENCY TRANSACTION REPORT
 FinCEN Form 112 - Official Customer Receipt
 ═══════════════════════════════════════════════════════════════════
 
@@ -40,7 +40,7 @@ Account Number:                                     ****-****-9982
 This report is filed in accordance with the Bank Secrecy Act.
 Submission ID: 9988776655
 
-<span data-verify-line="ctr">verify:bankofamerica.com/compliance/v</span> <span verifiable-text="end" data-for="ctr">]</span></pre>
+<span data-verify-line="ctr">verify:bankofamerica.com/compliance/v</span> <span verifiable-text="end" data-for="ctr"></span></pre>
 </div>
 
 ## Data Verified

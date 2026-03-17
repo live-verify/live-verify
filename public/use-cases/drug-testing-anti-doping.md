@@ -19,7 +19,7 @@ Because a "Positive Test" can end a multimillion-dollar career, fraud is a high 
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #000; color: #fff; padding: 20px; text-align: center; display: flex; align-items: center; justify-content: center;">
-    <div style="width: 40px; height: 40px; background: #fff; color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px;"><span verifiable-text="start" data-for="doping">[</span>WADA</div>
+    <div style="width: 40px; height: 40px; background: #fff; color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px;"><span verifiable-text="start" data-for="doping"></span>WADA</div>
     <div>
       <h2 style="margin: 0; text-transform: uppercase; letter-spacing: 1px;">DOPING CONTROL RECORD</h2>
       <div style="font-size: 0.8em; opacity: 0.8;">OFFICIAL SAMPLE COLLECTION SUMMARY</div>
@@ -49,7 +49,7 @@ Because a "Positive Test" can end a multimillion-dollar career, fraud is a high 
     </p>
 <div data-verify-line="doping" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: WADA doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:wada-ama.org/adams/v <span verifiable-text="end" data-for="doping">]</span>
+      verify:wada-ama.org/adams/v <span verifiable-text="end" data-for="doping"></span>
     </div>
   </div>
 </div>

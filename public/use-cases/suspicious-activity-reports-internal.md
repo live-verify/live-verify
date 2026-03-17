@@ -18,7 +18,7 @@ These internal records are "Compliance Insurance." During a regulatory exam (e.g
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #d32f2f; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #d32f2f; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="sar">[</span>INTERNAL COMPLIANCE RECORD</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="sar"></span>INTERNAL COMPLIANCE RECORD</div>
       <div style="font-size: 0.8em; opacity: 0.9;">BSA/AML Monitoring Unit</div>
     </div>
     <div style="text-align: right;">
@@ -48,7 +48,7 @@ These internal records are "Compliance Insurance." During a regulatory exam (e.g
 <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #d32f2f; text-align: center;">
     <div data-verify-line="sar" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;"
       title="Demo only: Banks don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:goliathbank.com/aml/v <span verifiable-text="end" data-for="sar">]</span>
+      verify:goliathbank.com/aml/v <span verifiable-text="end" data-for="sar"></span>
     </div>
     <div style="font-size: 0.7em; color: #666; margin-top: 10px;">
       Scan to verify internal filing integrity and FinCEN confirmation status. Access restricted to authorized regulators.

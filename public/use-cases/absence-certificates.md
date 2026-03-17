@@ -13,7 +13,7 @@ tags: ["negative-proof", "absence", "no-claims", "clear-record", "due-diligence"
 Most documents prove something happened. An **Absence Certificate** proves something *didn't* happen—no complaints filed, no liens recorded, no adverse events reported. These are fundamentally harder to forge because they require access to a complete registry, not just a single record.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="abs1">[</span>CERTIFICATE OF NO COMPLAINTS<br>
+  <span verifiable-text="start" data-for="abs1"></span>CERTIFICATE OF NO COMPLAINTS<br>
   Trading Standards Office<br>
   Hertfordshire County Council<br>
   <br>
@@ -25,11 +25,11 @@ Most documents prove something happened. An **Absence Certificate** proves somet
   Enforcement Actions: NONE<br>
   <br>
   Certificate Date: 5 January 2026<br>
-  <span data-verify-line="abs1">verify:tradingstandards.gov.uk/clear</span> <span verifiable-text="end" data-for="abs1">]</span>
+  <span data-verify-line="abs1">verify:tradingstandards.gov.uk/clear</span> <span verifiable-text="end" data-for="abs1"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="abs2">[</span>LIEN-FREE CERTIFICATE<br>
+  <span verifiable-text="start" data-for="abs2"></span>LIEN-FREE CERTIFICATE<br>
   County Recorder's Office<br>
   Los Angeles County, California<br>
   <br>
@@ -42,11 +42,11 @@ Most documents prove something happened. An **Absence Certificate** proves somet
   Lis Pendens: NONE<br>
   <br>
   Certificate Date: January 8, 2026<br>
-  <span data-verify-line="abs2">verify:lavote.gov/recorder/clear</span> <span verifiable-text="end" data-for="abs2">]</span>
+  <span data-verify-line="abs2">verify:lavote.gov/recorder/clear</span> <span verifiable-text="end" data-for="abs2"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="abs3">[</span>PRODUCT SAFETY - NO ADVERSE EVENTS<br>
+  <span verifiable-text="start" data-for="abs3"></span>PRODUCT SAFETY - NO ADVERSE EVENTS<br>
   FDA MedWatch<br>
   <br>
   Product: CardioMonitor Pro (Model CM-500)<br>
@@ -59,11 +59,11 @@ Most documents prove something happened. An **Absence Certificate** proves somet
   Safety Alerts: NONE<br>
   <br>
   Certificate Date: January 6, 2026<br>
-  <span data-verify-line="abs3">verify:fda.gov/medwatch/clear</span> <span verifiable-text="end" data-for="abs3">]</span>
+  <span data-verify-line="abs3">verify:fda.gov/medwatch/clear</span> <span verifiable-text="end" data-for="abs3"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="abs4">[</span>NO SANCTIONS CERTIFICATE<br>
+  <span verifiable-text="start" data-for="abs4"></span>NO SANCTIONS CERTIFICATE<br>
   OFAC Compliance Check<br>
   U.S. Department of the Treasury<br>
   <br>
@@ -76,11 +76,11 @@ Most documents prove something happened. An **Absence Certificate** proves somet
   <br>
   Check Date: January 9, 2026 14:32 UTC<br>
   Valid For: 24 hours<br>
-  <span data-verify-line="abs4">verify:treasury.gov/ofac/clear</span> <span verifiable-text="end" data-for="abs4">]</span>
+  <span data-verify-line="abs4">verify:treasury.gov/ofac/clear</span> <span verifiable-text="end" data-for="abs4"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="abs5">[</span>MALPRACTICE CLAIMS - NONE<br>
+  <span verifiable-text="start" data-for="abs5"></span>MALPRACTICE CLAIMS - NONE<br>
   State Medical Board of Ohio<br>
   <br>
   Physician: Dr. Sarah Mitchell, MD<br>
@@ -93,7 +93,7 @@ Most documents prove something happened. An **Absence Certificate** proves somet
   License Restrictions: NONE<br>
   <br>
   Certificate Date: January 7, 2026<br>
-  <span data-verify-line="abs5">verify:med.ohio.gov/clear</span> <span verifiable-text="end" data-for="abs5">]</span>
+  <span data-verify-line="abs5">verify:med.ohio.gov/clear</span> <span verifiable-text="end" data-for="abs5"></span>
 </div>
 
 ## Why Absence is Hard to Prove

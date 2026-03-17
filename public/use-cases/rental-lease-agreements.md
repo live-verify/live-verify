@@ -21,7 +21,7 @@ Beyond the relationship between the two parties, a lease is used by third partie
 **"Lease Padding"** is a common financial fraud where a landlord "edits" a lease to show a higher rent (e.g., changing $1,500 to $2,500) to trick a bank into lending them more money. **"Fake Leases"** are also used by scammers to illegally occupy vacant homes or commit identity theft. Live Verify binds the **Tenant names, Rent amount, and Term dates** to the property management firm's or the landlord's domain.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="lease">[</span>
+  <span verifiable-text="start" data-for="lease"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">SKYLINE PROPERTY MGMT
 ═══════════════════════════════════════════════════════════════════
 
@@ -49,7 +49,7 @@ End Date:    March 31, 2027
 _________________________              _________________________
 Property Manager Signature             Tenant Signature
 </pre>
-<span data-verify-line="lease">verify:skyline-mgmt.com/v</span> <span verifiable-text="end" data-for="lease">]</span>
+<span data-verify-line="lease">verify:skyline-mgmt.com/v</span> <span verifiable-text="end" data-for="lease"></span>
 </div>
 
 ## Data Verified

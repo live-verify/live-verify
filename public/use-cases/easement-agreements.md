@@ -19,7 +19,7 @@ Fraud happens when sellers "Hide" easements from buyers by deleting pages from l
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 1px solid #000; background: #fff; padding: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 25px;">
-    <h2 style="margin: 0; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="easement">[</span>GRANT OF EASEMENT</h2>
+    <h2 style="margin: 0; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="easement"></span>GRANT OF EASEMENT</h2>
   </div>
 <div style="font-size: 1em; line-height: 1.6; color: #000; text-align: justify;">
     <p>This Grant of Easement is made on March 15, 2026, between <strong>Grantor:</strong> <strong>John Jacob Doe</strong> and <strong>Grantee:</strong> Pacific Gas & Electric Company.</p>
@@ -40,7 +40,7 @@ Fraud happens when sellers "Hide" easements from buyers by deleting pages from l
   </div>
 <div data-verify-line="easement" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: County Recorder doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:marincounty.gov/recorder/v <span verifiable-text="end" data-for="easement">]</span>
+      verify:marincounty.gov/recorder/v <span verifiable-text="end" data-for="easement"></span>
   </div>
 </div>
 

@@ -21,7 +21,7 @@ With Live Verify, the offer letter carries a `verify:` line bound to the employe
   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
     <div>
       <div style="font-family: 'Product Sans', 'Helvetica Neue', sans-serif; font-size: 1.6em; font-weight: bold;">
-        <span verifiable-text="start" data-for="offerletter">[</span><span style="color: #4285F4;">G</span><span style="color: #EA4335;">o</span><span style="color: #FBBC05;">o</span><span style="color: #4285F4;">g</span><span style="color: #34A853;">l</span><span style="color: #EA4335;">e</span>
+        <span verifiable-text="start" data-for="offerletter"></span><span style="color: #4285F4;">G</span><span style="color: #EA4335;">o</span><span style="color: #FBBC05;">o</span><span style="color: #4285F4;">g</span><span style="color: #34A853;">l</span><span style="color: #EA4335;">e</span>
       </div>
       <div style="font-family: sans-serif; font-size: 0.75em; color: #666; letter-spacing: 0.5px;">Google UK Ltd</div>
     </div>
@@ -62,7 +62,7 @@ With Live Verify, the offer letter carries a `verify:` line bound to the employe
 
   <div data-verify-line="offerletter" style="margin-top: 20px; padding-top: 10px; border-top: 1px dashed #999; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
     title="Demo only: Google doesn't yet offer verification&#10;endpoints, so this is illustrative">
-    verify:hr.google.com/offers/v <span verifiable-text="end" data-for="offerletter">]</span>
+    verify:hr.google.com/offers/v <span verifiable-text="end" data-for="offerletter"></span>
   </div>
 </div>
 

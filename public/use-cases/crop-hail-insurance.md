@@ -18,7 +18,7 @@ Unlike broader "Multi-Peril" insurance (which is subsidized by the government), 
 Farmers use these verified coverage schedules to secure "Operating Loans" from banks. If a farmer "Photoshops" their policy to show more insured acres, they are committing bank fraud. Verified hashes allow the bank to see the true, insurer-backed limits in the field.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="crop">[</span>RAIN & HAIL, LLC
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="crop"></span>RAIN & HAIL, LLC
 A Chubb Company                                   Policy #: CH-998877-26
 ═══════════════════════════════════════════════════════════════════
 
@@ -37,7 +37,7 @@ Effective Date:    May 01, 2026 (or upon emergence)
 
 Note: Coverage applies only to direct physical loss from Hail or Fire.
 
-<span data-verify-line="crop">verify:rainhail.com/v</span> <span verifiable-text="end" data-for="crop">]</span></pre>
+<span data-verify-line="crop">verify:rainhail.com/v</span> <span verifiable-text="end" data-for="crop"></span></pre>
 </div>
 
 ## Data Verified

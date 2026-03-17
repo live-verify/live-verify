@@ -19,7 +19,7 @@ The problem is that "Pest Control" is a high-trust, high-risk profession. Crimin
   <div style="background: #004d40; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
     <div style="font-size: 1.8em; margin-right: 15px;">🛡️</div>
     <div style="text-align: right;">
-      <div style="font-weight: bold; font-size: 1em; letter-spacing: 1px;"><span verifiable-text="start" data-for="pest">[</span>STATE DEPT OF AGRICULTURE</div>
+      <div style="font-weight: bold; font-size: 1em; letter-spacing: 1px;"><span verifiable-text="start" data-for="pest"></span>STATE DEPT OF AGRICULTURE</div>
       <div style="font-size: 0.75em; font-weight: bold; opacity: 0.9;">PEST CONTROL BOARD</div>
     </div>
   </div>
@@ -43,7 +43,7 @@ The problem is that "Pest Control" is a high-trust, high-risk profession. Crimin
 <div style="padding: 15px 20px 20px 20px; background: #fff; border-top: 1px dashed #999; text-align: center;">
     <div data-verify-line="pest" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #004d40; font-weight: bold;"
       title="Demo only: State boards don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:texasag.gov/v <span verifiable-text="end" data-for="pest">]</span>
+      verify:texasag.gov/v <span verifiable-text="end" data-for="pest"></span>
     </div>
     <div style="font-size: 0.65em; color: #999; margin-top: 8px; font-style: italic;">
       Scan to verify current license standing, chemical safety clearance, and background check validity.

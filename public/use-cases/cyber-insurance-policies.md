@@ -18,7 +18,7 @@ Large corporations (like Apple or Walmart) require all their vendors to have ver
 Fraudsters often "Photoshop" a low-limit policy ($100k) to look like a $10M policy to win big contracts. Live Verify allows a procurement officer to scan the vendor's policy and see the **true limits** on the insurer's domain instantly.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="cyber-pol">[</span>
+  <span verifiable-text="start" data-for="cyber-pol"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">AIG SPECIALTY INSURANCE
 CyberEdge Policy Declarations
 ═══════════════════════════════════════════════════════════════════
@@ -44,7 +44,7 @@ SECURITY ATTESTATION: Insured warrants that Multi-Factor
 Authentication (MFA) is active on all remote access points.
 
 </pre>
-<span data-verify-line="cyber-pol">verify:aig.com/cyber/v</span> <span verifiable-text="end" data-for="cyber-pol">]</span>
+<span data-verify-line="cyber-pol">verify:aig.com/cyber/v</span> <span verifiable-text="end" data-for="cyber-pol"></span>
 </div>
 
 ## Data Verified

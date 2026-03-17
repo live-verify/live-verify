@@ -19,7 +19,7 @@ A **Pickup Authorization** is a verifiable document proving: "Parent X has autho
 
 <div style="max-width: 500px; margin: 24px auto; font-family: sans-serif; border: 2px solid #2e7d32; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
   <div style="background: #2e7d32; color: #fff; padding: 15px; text-align: center;">
-    <div style="font-size: 1.2em; font-weight: bold;"><span verifiable-text="start" data-for="pickup">[</span>LINCOLN ELEMENTARY SCHOOL</div>
+    <div style="font-size: 1.2em; font-weight: bold;"><span verifiable-text="start" data-for="pickup"></span>LINCOLN ELEMENTARY SCHOOL</div>
     <div style="font-size: 0.85em; opacity: 0.9;">Authorized Pickup Credential</div>
   </div>
   <div style="padding: 20px; display: flex;">
@@ -40,7 +40,7 @@ A **Pickup Authorization** is a verifiable document proving: "Parent X has autho
     </div>
     <div data-verify-line="pickup" style="border-top: 1px dashed #999; margin-top: 15px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: School doesn't yet offer verification endpoints">
-      verify:lincoln-elementary.edu/pickup/v <span verifiable-text="end" data-for="pickup">]</span>
+      verify:lincoln-elementary.edu/pickup/v <span verifiable-text="end" data-for="pickup"></span>
     </div>
   </div>
 </div>

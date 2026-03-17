@@ -16,7 +16,7 @@ A **Warranty Certificate** or Service Agreement is the manufacturer's promise to
 Fraud is high-volume: consumers often "edit" a purchase date on a PDF receipt to bring a broken product back into the "Warranty Window." Similarly, unauthorized "Gray Market" sellers often provide fake warranty papers to trick buyers into thinking they have manufacturer protection. Verified hashes bind the **Serial Number, Purchase Date, and Coverage Tier** to the manufacturer's domain (e.g., `apple.com`, `sony.com`, or `carrier.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="warranty">[</span>PRECISION CHRONO
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="warranty"></span>PRECISION CHRONO
 INTERNATIONAL WARRANTY CARD
 ═══════════════════════════════════════════════════════════════════
 
@@ -31,7 +31,7 @@ Expires:                                            MARCH 15, 2031
 Verified via Precision Chrono Global Registry.
 Authorized Service Centers only.
 
-<span data-verify-line="warranty">verify:precisionchrono.com/v</span> <span verifiable-text="end" data-for="warranty">]</span></pre>
+<span data-verify-line="warranty">verify:precisionchrono.com/v</span> <span verifiable-text="end" data-for="warranty"></span></pre>
 </div>
 
 ## Data Verified

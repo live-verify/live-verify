@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Courier New', Courier, monospace; border: 1px solid #555; background: #fffdf5; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); position: relative;">
   <div style="text-align: center; border-bottom: 2px solid #555; padding-bottom: 10px; margin-bottom: 20px;">
-    <strong><span verifiable-text="start" data-for="lab-data">[</span>INSTITUTE FOR BIOMEDICAL RESEARCH</strong><br>
+    <strong><span verifiable-text="start" data-for="lab-data"></span>INSTITUTE FOR BIOMEDICAL RESEARCH</strong><br>
     CERTIFIED LABORATORY NOTEBOOK RECORD<br>
     --------------------------------------
   </div>
@@ -37,7 +37,7 @@ furtherDerivations: 1
     </div>
 <div data-verify-line="lab-data" style="border-top: 1px dashed #999; margin-top: 25px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: University doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:ibr-stanford.edu/notebooks/v <span verifiable-text="end" data-for="lab-data">]</span>
+      verify:ibr-stanford.edu/notebooks/v <span verifiable-text="end" data-for="lab-data"></span>
     </div>
   </div>
 </div>

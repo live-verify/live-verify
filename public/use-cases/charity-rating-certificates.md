@@ -19,7 +19,7 @@ Because a higher rating leads directly to more donations, some charities "Inflat
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 2px solid #004d40; border-radius: 8px; background: #fff; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="background: #004d40; color: #fff; padding: 20px; text-align: center;">
-    <h3 style="margin: 0; letter-spacing: 1px;"><span verifiable-text="start" data-for="rating">[</span>CHARITY NAVIGATOR</h3>
+    <h3 style="margin: 0; letter-spacing: 1px;"><span verifiable-text="start" data-for="rating"></span>CHARITY NAVIGATOR</h3>
     <div style="font-size: 0.8em; opacity: 0.8;">OFFICIAL ACCREDITATION CERTIFICATE</div>
   </div>
 <div style="padding: 30px; text-align: center;">
@@ -49,7 +49,7 @@ Because a higher rating leads directly to more donations, some charities "Inflat
     </div>
 <div data-verify-line="rating" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Charity Navigator doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:charitynavigator.org/v <span verifiable-text="end" data-for="rating">]</span>
+      verify:charitynavigator.org/v <span verifiable-text="end" data-for="rating"></span>
     </div>
   </div>
 </div>

@@ -18,7 +18,7 @@ Government regulators (like the FTC) now require these fees to be clearly disclo
 Verified hashes bind the **Mandatory Fee Amounts and Included Services** to the hotel brand's domain (e.g., `mgmresorts.com` or `hilton.com`), providing an immutable record of the price agreement. If the fees charged differ from what was disclosed at booking, the guest has cryptographic evidence of the discrepancy.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="resort">[</span>
+  <span verifiable-text="start" data-for="resort"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">THE GRAND AZURE RESORT
 Mandatory Fee Disclosure & Receipt
 ═══════════════════════════════════════════════════════════════════
@@ -41,7 +41,7 @@ TOTAL MANDATORY DAILY FEES:                                 $ 57.50
 Total mandatory fees for 3 nights:                         $ 172.50
 
 </pre>
-<span data-verify-line="resort">verify:grandazure.com/fees/v</span> <span verifiable-text="end" data-for="resort">]</span>
+<span data-verify-line="resort">verify:grandazure.com/fees/v</span> <span verifiable-text="end" data-for="resort"></span>
 </div>
 
 ## Data Verified

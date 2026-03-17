@@ -493,6 +493,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         // Verify text from content script
         verifyText(message.text).then(result => sendResponse(result));
         return true; // Keep channel open for async
+    } else if (message.type === 'showNotification') {
+        // Show OS notification for a verification result (from content script auto-scan)
+        showResult(message.result, sender.tab);
+        sendResponse({ success: true });
     }
     return true;
 });

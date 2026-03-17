@@ -22,7 +22,7 @@ Live Verify binds the **Guard's name, License Number, and Firearms Qualification
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #263238; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
   <div style="background: #263238; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
     <div>
-      <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="guard">[</span>STATE REGULATORY BOARD</div>
+      <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="guard"></span>STATE REGULATORY BOARD</div>
       <div style="font-size: 0.8em;">PRIVATE SECURITY SERVICES</div>
     </div>
     <div style="font-size: 1.2em;">🛡️</div>
@@ -47,7 +47,7 @@ Live Verify binds the **Guard's name, License Number, and Firearms Qualification
     </div>
     <div data-verify-line="guard" style="border-top: 1px dashed #999; padding-top: 5px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: State Bureau doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:securityboard.gov/v <span verifiable-text="end" data-for="guard">]</span>
+      verify:securityboard.gov/v <span verifiable-text="end" data-for="guard"></span>
     </div>
   </div>
 </div>

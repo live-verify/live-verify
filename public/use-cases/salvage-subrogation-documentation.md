@@ -16,7 +16,7 @@ In the insurance industry, **Salvage** refers to the value recovered from a "Tot
 These documents are the "Recovery Ledger" of the insurance world. Fraud is common in the "Secondary Car Market." Dishonest flippers "Wash" a salvage title by creating a fake PDF that shows the vehicle was "Repaired and Inspected" by a famous carrier like Allstate, when it actually should have been crushed. Similarly, a third party might "edit" a subrogation letter to hide that they owe $50,000 to an insurance pool. Verified hashes bind the **VIN, Salvage Value, and At-Fault Party ID** to the carrier's or the salvage yard's domain (e.g., `copart.com` or `geico.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="salvage">[</span>COPART SALVAGE SERVICES
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="salvage"></span>COPART SALVAGE SERVICES
 Total Loss Asset Management
 ═══════════════════════════════════════════════════════════════════
 
@@ -37,7 +37,7 @@ This certificate proves the asset has been legally declared a
 Total Loss. Verification protects against "Title Washing" and
 fraudulent re-sale as a "Clean" vehicle.
 
-<span data-verify-line="salvage">verify:copart.com/v</span> <span verifiable-text="end" data-for="salvage">]</span></pre>
+<span data-verify-line="salvage">verify:copart.com/v</span> <span verifiable-text="end" data-for="salvage"></span></pre>
 </div>
 
 ## Data Verified

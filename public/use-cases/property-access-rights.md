@@ -36,7 +36,7 @@ Property access rights verification provides **on-demand proof** that a person h
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #003366; background: #fff; padding: 0;">
   <div style="background: #003366; color: #fff; padding: 15px;">
-    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="propertyaccessrights">[</span>OFFICIAL COPY OF REGISTER OF TITLE</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="propertyaccessrights"></span>OFFICIAL COPY OF REGISTER OF TITLE</div>
     <div style="font-size: 0.8em;">HM Land Registry</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -55,7 +55,7 @@ Property access rights verification provides **on-demand proof** that a person h
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="propertyaccessrights" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:gov.uk/land-registry/titles <span verifiable-text="end" data-for="propertyaccessrights">]</span>
+        verify:gov.uk/land-registry/titles <span verifiable-text="end" data-for="propertyaccessrights"></span>
       </div>
     </div>
   </div>
@@ -91,7 +91,7 @@ Property access rights verification provides **on-demand proof** that a person h
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="propertyaccessrights" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:citylet-mgmt.co.uk/tenancies <span verifiable-text="end" data-for="propertyaccessrights">]</span>
+        verify:citylet-mgmt.co.uk/tenancies <span verifiable-text="end" data-for="propertyaccessrights"></span>
       </div>
     </div>
   </div>
@@ -125,7 +125,7 @@ Property access rights verification provides **on-demand proof** that a person h
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="propertyaccessrights" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:gardencottagebath.co.uk/bookings <span verifiable-text="end" data-for="propertyaccessrights">]</span>
+        verify:gardencottagebath.co.uk/bookings <span verifiable-text="end" data-for="propertyaccessrights"></span>
       </div>
     </div>
   </div>
@@ -158,7 +158,7 @@ Property access rights verification provides **on-demand proof** that a person h
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="propertyaccessrights" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:securekey-auth.co.uk/keyholders <span verifiable-text="end" data-for="propertyaccessrights">]</span>
+        verify:securekey-auth.co.uk/keyholders <span verifiable-text="end" data-for="propertyaccessrights"></span>
       </div>
     </div>
   </div>

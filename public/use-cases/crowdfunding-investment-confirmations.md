@@ -19,7 +19,7 @@ In the "Secondary Market" for gadgets, people often try to sell their "Reservati
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #05ce78; border-radius: 8px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #05ce78; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
-    <div style="font-weight: bold; font-size: 1.4em;"><span verifiable-text="start" data-for="crowd">[</span>KICKSTARTER</div>
+    <div style="font-weight: bold; font-size: 1.4em;"><span verifiable-text="start" data-for="crowd"></span>KICKSTARTER</div>
     <div style="font-size: 0.8em; font-weight: bold; text-transform: uppercase;">Pledge Confirmation</div>
   </div>
 <div style="padding: 30px;">
@@ -40,7 +40,7 @@ In the "Secondary Market" for gadgets, people often try to sell their "Reservati
     </div>
 <div data-verify-line="crowd" style="border-top: 1px dashed #05ce78; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Kickstarter doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:kickstarter.com/pledges/v <span verifiable-text="end" data-for="crowd">]</span>
+      verify:kickstarter.com/pledges/v <span verifiable-text="end" data-for="crowd"></span>
     </div>
   </div>
 </div>

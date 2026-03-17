@@ -21,7 +21,7 @@ It is a detailed breakdown showing:
 Verified EOBs are critical for stopping "Balance Billing"—when a hospital tries to charge a patient for the "Discount" amount that the insurance company already negotiated away.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="eob">[</span>UNITEDHEALTHCARE                         Claim #: 99228877-EOB
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="eob"></span>UNITEDHEALTHCARE                         Claim #: 99228877-EOB
 Explanation of Benefits (EOB)
 
 Patient:  SARAH J. DOE                Service Date:   Feb 10, 2026
@@ -38,7 +38,7 @@ YOU OWE (Patient Responsibility):                    $   160.00
 This is NOT a bill. This is your record of how the claim
 was processed.
 
-<span data-verify-line="eob">verify:uhc.com/claims/v</span> <span verifiable-text="end" data-for="eob">]</span></pre>
+<span data-verify-line="eob">verify:uhc.com/claims/v</span> <span verifiable-text="end" data-for="eob"></span></pre>
 </div>
 
 ## Data Verified
@@ -147,7 +147,7 @@ In lawsuits, these diaries are "Evidence Item #1." If an insurance company is ac
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #555; background: #fff; padding: 0; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
   <div style="padding: 20px; background: #fff;">
-    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="diary">[</span>ACE INDEMNITY GROUP
+    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="diary"></span>ACE INDEMNITY GROUP
 INTERNAL CLAIMS DIARY & RESERVE LOG
 ═══════════════════════════════════════════════════════════════════
 Claim #:   99228877-WC
@@ -166,7 +166,7 @@ significantly more severe than initially reported. Case now
 exceeds $100k threshold; escalated to supervisor for Large
 Loss Review.
 
-<span data-verify-line="diary">verify:ace-insurance.com/claims/v</span> <span verifiable-text="end" data-for="diary">]</span></pre>
+<span data-verify-line="diary">verify:ace-insurance.com/claims/v</span> <span verifiable-text="end" data-for="diary"></span></pre>
   </div>
 </div>
 
@@ -284,7 +284,7 @@ Because they trigger large payments, they are targets for "PDF alteration." A di
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #999; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
   <div style="padding: 25px; background: #fff;">
-    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="settle">[</span>SETTLEMENT AGREEMENT AND RELEASE
+    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="settle"></span>SETTLEMENT AGREEMENT AND RELEASE
 ═══════════════════════════════════════════════════════════════════
 
 This Settlement Agreement and Release (the "Agreement") is
@@ -306,7 +306,7 @@ the Releasee.
 Sarah J. Doe                     Michael Miller, Adjuster
 Releasor                         For Acme Indemnity
 
-<span data-verify-line="settle">verify:acme-insurance.com/legal/v</span> <span verifiable-text="end" data-for="settle">]</span></pre>
+<span data-verify-line="settle">verify:acme-insurance.com/legal/v</span> <span verifiable-text="end" data-for="settle"></span></pre>
   </div>
 </div>
 

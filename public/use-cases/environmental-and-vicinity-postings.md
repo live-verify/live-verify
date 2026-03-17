@@ -19,7 +19,7 @@ Live Verify allows a neighbor, tenant, or regulator to scan the posting to verif
 
 <div style="max-width: 500px; margin: 24px auto; font-family: sans-serif; border: 2px solid #2e7d32; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
   <div style="background: #2e7d32; color: #fff; padding: 20px; text-align: center;">
-    <h3 style="margin: 0; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="env">[</span>Energy Performance Certificate</h3>
+    <h3 style="margin: 0; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="env"></span>Energy Performance Certificate</h3>
     <div style="font-size: 0.8em; opacity: 0.9; margin-top: 5px;">OFFICIAL BUILDING RATING</div>
   </div>
 <div style="padding: 25px;">
@@ -57,7 +57,7 @@ Live Verify allows a neighbor, tenant, or regulator to scan the posting to verif
 <div style="padding: 20px; background: #fff; border-top: 1px dashed #2e7d32; text-align: center;">
     <div data-verify-line="env" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #2e7d32; font-weight: bold;"
       title="Demo only: Environmental agencies don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:gov.uk/epc/v <span verifiable-text="end" data-for="env">]</span>
+      verify:gov.uk/epc/v <span verifiable-text="end" data-for="env"></span>
     </div>
     <div style="font-size: 0.7em; color: #999; margin-top: 10px;">
       Scan to verify building energy efficiency, carbon footprint data, and auditor certification.

@@ -15,7 +15,7 @@ Election result certifications are the official documents that declare the outco
 Election result fraud includes altering vote counts, fabricating precinct reports, and misrepresenting certified outcomes. Verified result documents create an immutable audit trail from precinct to final certification.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="precinct">[</span>PRECINCT RESULTS<br>
+  <span verifiable-text="start" data-for="precinct"></span>PRECINCT RESULTS<br>
   Maricopa County Elections<br>
   Precinct: 402 - North High School<br>
   Election: November 5, 2026 General<br>
@@ -31,11 +31,11 @@ Election result fraud includes altering vote counts, fabricating precinct report
   <br>
   Certified by: Precinct Inspector<br>
   Time: Nov 5, 2026 10:42 PM<br>
-  <span data-verify-line="precinct">verify:elections.maricopa.gov/results</span> <span verifiable-text="end" data-for="precinct">]</span>
+  <span data-verify-line="precinct">verify:elections.maricopa.gov/results</span> <span verifiable-text="end" data-for="precinct"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="county">[</span>COUNTY CANVASS REPORT<br>
+  <span verifiable-text="start" data-for="county"></span>COUNTY CANVASS REPORT<br>
   Maricopa County Board of Supervisors<br>
   Election: November 5, 2026 General<br>
   Canvass Date: November 18, 2026<br>
@@ -50,11 +50,11 @@ Election result fraud includes altering vote counts, fabricating precinct report
   <br>
   Certified by Board Vote: 4-1<br>
   Chair: William Thompson<br>
-  <span data-verify-line="county">verify:elections.maricopa.gov/canvass</span> <span verifiable-text="end" data-for="county">]</span>
+  <span data-verify-line="county">verify:elections.maricopa.gov/canvass</span> <span verifiable-text="end" data-for="county"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="state">[</span>STATE CERTIFICATION<br>
+  <span verifiable-text="start" data-for="state"></span>STATE CERTIFICATION<br>
   Arizona Secretary of State<br>
   Official Canvass<br>
   Election: November 5, 2026 General<br>
@@ -70,7 +70,7 @@ Election result fraud includes altering vote counts, fabricating precinct report
   <br>
   Secretary of State: Maria Santos<br>
   Governor: James Wilson<br>
-  <span data-verify-line="state">verify:azsos.gov/elections/certified</span> <span verifiable-text="end" data-for="state">]</span>
+  <span data-verify-line="state">verify:azsos.gov/elections/certified</span> <span verifiable-text="end" data-for="state"></span>
 </div>
 
 ## Data Verified

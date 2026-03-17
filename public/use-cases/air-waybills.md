@@ -20,7 +20,7 @@ Unlike a passenger ticket which is digital-first, AWBs are often physically atta
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #000; background: #fff; padding: 0;">
   <div style="padding: 20px; background: #fff;">
-    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="awb">[</span>016-12345678                    UNITED AIRLINES                    SFO
+    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="awb"></span>016-12345678                    UNITED AIRLINES                    SFO
 ═══════════════════════════════════════════════════════════════════════
 Shipper:                            Consignee:
 Global Tech Exports, Inc.           EuroGadget GmbH
@@ -35,7 +35,7 @@ Pcs     Gross Wt    Chargeable    Nature of Goods
 Flight/Date:  UA926 / 15MAR26
 Executed on:  14MAR26 at SFO by Agent: Expeditors
 
-<span data-verify-line="awb">verify:unitedcargo.com/awb/v</span> <span verifiable-text="end" data-for="awb">]</span></pre>
+<span data-verify-line="awb">verify:unitedcargo.com/awb/v</span> <span verifiable-text="end" data-for="awb"></span></pre>
   </div>
 </div>
 
@@ -140,7 +140,7 @@ The forwarder gives them a **House Air Waybill (HAWB)**. It is the contract for 
 Fraud is common in the "Long Tail" of logistics: un-vetted forwarders sometimes create fake HAWBs to trick banks into releasing "Trade Financing" for goods that were never actually shipped. Verified hashes prove the forwarder's claim matches their official system.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="hawb">[</span>KUEHNE+NAGEL                            HAWB No: KN-9988776655
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="hawb"></span>KUEHNE+NAGEL                            HAWB No: KN-9988776655
 
 Shipper:                            Consignee:
 Precision Instruments, SA           Apex Research Lab, LLC
@@ -156,7 +156,7 @@ No. of Pieces    Description                      Weight (KG)
 The carrier certifies that the goods described above were
 received for carriage in apparent good order and condition.
 
-<span data-verify-line="hawb">verify:kuehne-nagel.com/hawb/v</span> <span verifiable-text="end" data-for="hawb">]</span></pre>
+<span data-verify-line="hawb">verify:kuehne-nagel.com/hawb/v</span> <span verifiable-text="end" data-for="hawb"></span></pre>
 </div>
 
 ## Data Verified

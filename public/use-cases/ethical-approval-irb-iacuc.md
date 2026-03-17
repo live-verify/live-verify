@@ -19,7 +19,7 @@ The committee reviews the plan to ensure people aren't being exploited and anima
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
   <div style="text-align: left; margin-bottom: 30px; border-bottom: 2px solid #1a237e; padding-bottom: 10px;">
-    <div style="font-weight: bold; font-size: 1.2em; color: #1a237e;"><span verifiable-text="start" data-for="ethics">[</span>STANFORD UNIVERSITY - RESEARCH COMPLIANCE</div>
+    <div style="font-weight: bold; font-size: 1.2em; color: #1a237e;"><span verifiable-text="start" data-for="ethics"></span>STANFORD UNIVERSITY - RESEARCH COMPLIANCE</div>
     <div style="font-size: 0.85em; color: #666;">Institutional Review Board (IRB)</div>
   </div>
 <h2 style="text-align: center; text-transform: uppercase; letter-spacing: 1px; color: #1a237e;">Notice of Ethical Approval</h2>
@@ -45,7 +45,7 @@ The committee reviews the plan to ensure people aren't being exploited and anima
   </div>
 <div data-verify-line="ethics" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Stanford doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:stanford.edu/compliance/v <span verifiable-text="end" data-for="ethics">]</span>
+      verify:stanford.edu/compliance/v <span verifiable-text="end" data-for="ethics"></span>
   </div>
 </div>
 

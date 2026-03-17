@@ -37,7 +37,7 @@ Whistleblowers aren't strangers needing identity verification. They're already c
 **How Hashed Claims Help:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="whis">[</span>WHISTLEBLOWER CLAIM PRE-COMMITMENT
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="whis"></span>WHISTLEBLOWER CLAIM PRE-COMMITMENT
 
 Commitment ID: WB-2025-0114-9921
 Timestamp: January 14, 2025, 3:45 PM EST
@@ -58,7 +58,7 @@ PURPOSE: Pre-commitment before formal report
 TO VERIFY: Claimant provides original document.
 Hash of document must match committed hash.
 
-<span data-verify-line="whis">verify:integritywatch.org/commit/v</span> <span verifiable-text="end" data-for="whis">]</span></pre>
+<span data-verify-line="whis">verify:integritywatch.org/commit/v</span> <span verifiable-text="end" data-for="whis"></span></pre>
 </div>
 
 **The Two-Part Sequence:**
@@ -77,7 +77,7 @@ This is inherently a two-part process:
 - **Crucially:** Acknowledgement is receipt only—no commitment to investigate or act
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="ack">[</span>WHISTLEBLOWER SUBMISSION ACKNOWLEDGEMENT
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="ack"></span>WHISTLEBLOWER SUBMISSION ACKNOWLEDGEMENT
 
 Acknowledgement ID: ACK-2025-0120-4472
 Received: January 20, 2025, 10:30 AM EST
@@ -99,7 +99,7 @@ STATUS: Received for review
 The SEC has received your submission. You will be
 contacted if additional information is required.
 
-<span data-verify-line="ack">verify:sec.gov/whistleblower/ack/v</span> <span verifiable-text="end" data-for="ack">]</span></pre>
+<span data-verify-line="ack">verify:sec.gov/whistleblower/ack/v</span> <span verifiable-text="end" data-for="ack"></span></pre>
 </div>
 
 **Why Both Parts Matter:**
@@ -252,7 +252,7 @@ Platforms struggle to balance free speech with accountability.
 Reviewers verify their identity and transaction before posting. The review appears anonymous, but if it's proven defamatory, the reviewer's identity can be disclosed.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="rev">[</span>VERIFIED CUSTOMER REVIEW
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="rev"></span>VERIFIED CUSTOMER REVIEW
 
 Review ID: VR-2025-0114-3347
 Posted: January 14, 2025
@@ -271,7 +271,7 @@ This review is from a verified customer whose
 identity is escrowed. Defamatory claims may
 result in identity disclosure via court order.
 
-<span data-verify-line="rev">verify:verifiedreviews.org/r/v</span> <span verifiable-text="end" data-for="rev">]</span></pre>
+<span data-verify-line="rev">verify:verifiedreviews.org/r/v</span> <span verifiable-text="end" data-for="rev"></span></pre>
 </div>
 
 **What Gets Verified:**
@@ -317,7 +317,7 @@ Journalists need to protect sources, but also need to verify they're real (not f
 Sources verify their identity with a trusted third party (press freedom organization, media lawyer). The journalist knows the source is real and in a position to know what they claim, but doesn't have identifying details that could be subpoenaed.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="src">[</span>SOURCE VERIFICATION CERTIFICATE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="src"></span>SOURCE VERIFICATION CERTIFICATE
 
 Verification ID: SV-2025-0114-7781
 Date: January 14, 2025
@@ -333,7 +333,7 @@ Source has demonstrated position to provide
 credible information on corporate practices.
 Identity protected under press shield laws.
 
-<span data-verify-line="src">verify:pressfreedom.org/source/v</span> <span verifiable-text="end" data-for="src">]</span></pre>
+<span data-verify-line="src">verify:pressfreedom.org/source/v</span> <span verifiable-text="end" data-for="src"></span></pre>
 </div>
 
 **What Gets Verified:**
@@ -379,7 +379,7 @@ Organizations receive anonymous tips (HR complaints, safety reports, ethics conc
 Tipsters verify identity and relevant affiliation (employee, customer, vendor) before submitting. The organization knows it's a real stakeholder, can relay follow-up questions, and has recourse for provably malicious tips.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="tip">[</span>VERIFIED ANONYMOUS TIP
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="tip"></span>VERIFIED ANONYMOUS TIP
 
 Tip ID: TIP-2025-0114-2298
 Submitted: January 14, 2025
@@ -398,7 +398,7 @@ I've mentioned it to staff but nothing changes."
 Follow-up questions will be relayed through
 the secure TipLine portal.
 
-<span data-verify-line="tip">verify:tipline.org/t/v</span> <span verifiable-text="end" data-for="tip">]</span></pre>
+<span data-verify-line="tip">verify:tipline.org/t/v</span> <span verifiable-text="end" data-for="tip"></span></pre>
 </div>
 
 **What Gets Verified:**

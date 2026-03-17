@@ -16,7 +16,7 @@ In the commercial trucking industry, **Hours of Service (HOS)** regulations limi
 Fraud is common and lethal: drivers or carrier managers often "edit" logbooks to hide the fact that a driver has been working for 20 hours straight to meet a deadline. This practice, known as "Ghost Logs," is a primary cause of highway fatalities. Verified hashes bind the **Driver ID, Duty Status Timestamps, and GPS Milestones** to the ELD provider's or the carrier's domain (e.g., `samsara.com` or `keep-truckin.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="tacho">[</span>DRIVER'S DAILY LOG
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="tacho"></span>DRIVER'S DAILY LOG
 In accordance with 49 CFR Part 395
 ═══════════════════════════════════════════════════════════════════
                                             DATE: 15 MAR 2026
@@ -38,7 +38,7 @@ Violations:    NONE DETECTED
 
 I certify that these entries are true and correct.
 
-<span data-verify-line="tacho">verify:samsara.com/logs/v</span> <span verifiable-text="end" data-for="tacho">]</span></pre>
+<span data-verify-line="tacho">verify:samsara.com/logs/v</span> <span verifiable-text="end" data-for="tacho"></span></pre>
 </div>
 
 ## Data Verified

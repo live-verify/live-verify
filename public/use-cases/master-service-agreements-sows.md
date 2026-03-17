@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 25px;">
-    <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="msa">[</span>MASTER SERVICE AGREEMENT</div>
+    <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="msa"></span>MASTER SERVICE AGREEMENT</div>
     <div style="font-size: 0.9em; margin-top: 5px;">BETWEEN THE PARTIES NAMED HEREIN</div>
   </div>
 <div style="font-size: 1em; line-height: 1.6; color: #333; text-align: justify;">
@@ -34,7 +34,7 @@ furtherDerivations: 1
   </div>
 <div data-verify-line="msa" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Legal department doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:apexcloud.com/legal/v <span verifiable-text="end" data-for="msa">]</span>
+      verify:apexcloud.com/legal/v <span verifiable-text="end" data-for="msa"></span>
   </div>
 </div>
 

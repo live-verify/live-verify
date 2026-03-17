@@ -16,7 +16,7 @@ In the business world, connectivity is oxygen. A **Service Level Agreement (SLA)
 The problem is that these agreements are often buried in 50-page PDFs. During a dispute, a provider might point to a "Standard SLA" on their website that is much weaker than the "Premium SLA" the customer actually signed. Similarly, a customer might "edit" their SLA to claim a higher credit for a minor outage. Verified hashes bind the **Uptime Percentages, Credit Formulas, and Contract Terms** to the provider's domain (e.g., `verizon.com` or `aws.amazon.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="telecom">[</span>VERIZON BUSINESS
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="telecom"></span>VERIZON BUSINESS
 Service Level Agreement
 ═══════════════════════════════════════════════════════════════════
 
@@ -37,7 +37,7 @@ SLA CREDITS: Failures to meet Availability targets result in a
 10% credit of the monthly recurring charge (MRC) for each hour
 of downtime, capped at 50% MRC per month.
 
-<span data-verify-line="telecom">verify:verizon.com/sla/v</span> <span verifiable-text="end" data-for="telecom">]</span></pre>
+<span data-verify-line="telecom">verify:verizon.com/sla/v</span> <span verifiable-text="end" data-for="telecom"></span></pre>
 </div>
 
 ## Data Verified

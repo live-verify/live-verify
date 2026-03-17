@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 2px solid #0056b3; background: #e0f2f7; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #0056b3; padding-bottom: 15px; margin-bottom: 25px;">
-    <h2 style="margin: 0; color: #0056b3; letter-spacing: 1px;"><span verifiable-text="start" data-for="med-cert">[</span>EU CE CERTIFICATE OF CONFORMITY</h2>
+    <h2 style="margin: 0; color: #0056b3; letter-spacing: 1px;"><span verifiable-text="start" data-for="med-cert"></span>EU CE CERTIFICATE OF CONFORMITY</h2>
     <div style="font-size: 0.85em; color: #555; margin-top: 5px;">Medical Device Regulation (EU) 2017/745</div>
   </div>
 <div style="font-size: 0.95em; line-height: 1.6; color: #333;">
@@ -35,7 +35,7 @@ furtherDerivations: 1
   </div>
 <div data-verify-line="med-cert" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: BSI doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:certs.bsigroup.com/mdr/v <span verifiable-text="end" data-for="med-cert">]</span>
+      verify:certs.bsigroup.com/mdr/v <span verifiable-text="end" data-for="med-cert"></span>
   </div>
 </div>
 

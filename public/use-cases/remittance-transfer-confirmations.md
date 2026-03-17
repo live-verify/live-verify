@@ -17,7 +17,7 @@ Because these papers are essentially vouchers for cash, they are high-stakes tar
 
 <div style="max-width: 400px; margin: 24px auto; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; border: 1px solid #ccc; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
   <div style="background: #ffcc00; color: #000; padding: 20px; text-align: center; border-bottom: 2px solid #000;">
-    <div style="font-weight: bold; font-size: 1.4em; letter-spacing: -1px;"><span verifiable-text="start" data-for="remit">[</span>WesternUnion \/</div>
+    <div style="font-weight: bold; font-size: 1.4em; letter-spacing: -1px;"><span verifiable-text="start" data-for="remit"></span>WesternUnion \/</div>
     <div style="font-size: 0.7em; font-weight: bold; text-transform: uppercase; margin-top: 5px;">Money Transfer Receipt</div>
   </div>
 <div style="padding: 20px; background: #fffbe6;">
@@ -47,7 +47,7 @@ Because these papers are essentially vouchers for cash, they are high-stakes tar
 <div style="padding: 20px; background: #fff; text-align: center;">
     <div data-verify-line="remit" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;"
       title="Demo only: Remittance firms don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:wu.com/v <span verifiable-text="end" data-for="remit">]</span>
+      verify:wu.com/v <span verifiable-text="end" data-for="remit"></span>
     </div>
     <div style="font-size: 0.65em; color: #999; margin-top: 10px; font-style: italic;">
       Scan to verify transfer status and payment integrity. Protect your MTCN like cash.

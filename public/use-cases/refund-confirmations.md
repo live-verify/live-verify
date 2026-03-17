@@ -15,7 +15,7 @@ A refund confirmation proves that money was returned to a customer, claimant, or
 Refund fraud is widespread: fake refund confirmations are used for double-dipping (claiming refund wasn't received), tax fraud, and warranty abuse.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="retail">[</span>RETURN REFUND<br>
+  <span verifiable-text="start" data-for="retail"></span>RETURN REFUND<br>
   Best Buy Co. Inc.<br>
   Order #BBY01-8847221<br>
   Customer: Emily Watson<br>
@@ -24,11 +24,11 @@ Refund fraud is widespread: fake refund confirmations are used for double-dippin
   Refund Amount: $349.99<br>
   Refund Method: Original Payment Card<br>
   Processed: January 8, 2026<br>
-  <span data-verify-line="retail">verify:bestbuy.com/returns</span> <span verifiable-text="end" data-for="retail">]</span>
+  <span data-verify-line="retail">verify:bestbuy.com/returns</span> <span verifiable-text="end" data-for="retail"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="warranty">[</span>WARRANTY REIMBURSEMENT<br>
+  <span verifiable-text="start" data-for="warranty"></span>WARRANTY REIMBURSEMENT<br>
   Samsung Electronics America<br>
   Claim #WC-2025-447821<br>
   Customer: David Park<br>
@@ -37,11 +37,11 @@ Refund fraud is widespread: fake refund confirmations are used for double-dippin
   Repair Cost Reimbursed: $189.00<br>
   Payment: Check #441892<br>
   Issued: January 6, 2026<br>
-  <span data-verify-line="warranty">verify:samsung.com/warranty</span> <span verifiable-text="end" data-for="warranty">]</span>
+  <span data-verify-line="warranty">verify:samsung.com/warranty</span> <span verifiable-text="end" data-for="warranty"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="tax">[</span>TAX REFUND ISSUED<br>
+  <span verifiable-text="start" data-for="tax"></span>TAX REFUND ISSUED<br>
   Internal Revenue Service<br>
   Tax Year: 2024<br>
   Taxpayer: Jennifer Adams<br>
@@ -49,7 +49,7 @@ Refund fraud is widespread: fake refund confirmations are used for double-dippin
   Refund Amount: $3,247.00<br>
   Deposit Date: February 15, 2025<br>
   Account: ****7721<br>
-  <span data-verify-line="tax">verify:irs.gov/refunds</span> <span verifiable-text="end" data-for="tax">]</span>
+  <span data-verify-line="tax">verify:irs.gov/refunds</span> <span verifiable-text="end" data-for="tax"></span>
 </div>
 
 ## Data Verified

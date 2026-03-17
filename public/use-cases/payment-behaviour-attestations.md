@@ -22,7 +22,7 @@ Two complementary attestation types make this work:
 The business stakes its own domain on a public commitment:
 
 <div style="max-width: 600px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="policy1">[</span>MERIDIAN COMPONENTS LTD
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="policy1"></span>MERIDIAN COMPONENTS LTD
 PAYMENT TERMS COMMITMENT
 ═══════════════════════════════════════════
 
@@ -37,7 +37,7 @@ dispute is raised within 14 days of invoice.
 Active suppliers may attest to our payment
 behaviour at their discretion.
 
-<span data-verify-line="policy1">verify:accounts.meridiancomponents.co.uk/v</span> <span verifiable-text="end" data-for="policy1">]</span></pre>
+<span data-verify-line="policy1">verify:accounts.meridiancomponents.co.uk/v</span> <span verifiable-text="end" data-for="policy1"></span></pre>
 </div>
 
 This doesn't prove they actually pay in 30 days. It's a public, domain-bound commitment — a stake in the ground. If they routinely pay in 90 while their domain says 30, that's a verifiable lie published on their own infrastructure. The reputational cost of being caught is borne by the business, not by a credit agency.
@@ -47,7 +47,7 @@ This doesn't prove they actually pay in 30 days. It's a public, domain-bound com
 Suppliers who trade with the business confirm the reality:
 
 <div style="max-width: 600px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="supplier1">[</span>SUPPLIER PAYMENT ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="supplier1"></span>SUPPLIER PAYMENT ATTESTATION
 ═══════════════════════════════════════════
 
 Attesting supplier: Precision Fasteners Ltd
@@ -62,7 +62,7 @@ Invoices paid within 30 days: 43 of 47 (91%)
 This attestation covers the period
 01 MAR 2025 to 28 FEB 2026.
 
-<span data-verify-line="supplier1">verify:accounts.precisionfasteners.co.uk/v</span> <span verifiable-text="end" data-for="supplier1">]</span></pre>
+<span data-verify-line="supplier1">verify:accounts.precisionfasteners.co.uk/v</span> <span verifiable-text="end" data-for="supplier1"></span></pre>
 </div>
 
 The supplier's domain stands behind these numbers. Precision Fasteners is saying, publicly and verifiably: "Meridian pays us on time." That attestation lives on Precision Fasteners' domain, not on Meridian's and not on a platform's.

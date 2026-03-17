@@ -21,7 +21,7 @@ Live Verify changes this. The warrant carries a `verify:` line bound to the issu
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Georgia', serif; border: 1px solid #333; background: #fff; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <div style="text-align: center; margin-bottom: 30px;">
-    <div style="font-size: 1.4em; font-weight: bold; text-transform: uppercase;"><span verifiable-text="start" data-for="warrant">[</span>United States District Court</div>
+    <div style="font-size: 1.4em; font-weight: bold; text-transform: uppercase;"><span verifiable-text="start" data-for="warrant"></span>United States District Court</div>
     <div style="font-size: 0.9em; letter-spacing: 1px;">SOUTHERN DISTRICT OF NEW YORK</div>
   </div>
 <div style="display: flex; justify-content: space-between; margin-bottom: 20px; font-size: 0.95em;">
@@ -52,7 +52,7 @@ Live Verify changes this. The warrant carries a `verify:` line bound to the issu
   </div>
 <div data-verify-line="warrant" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
     title="Demo only: Federal courts don't yet offer verification&#10;endpoints, so this is illustrative">
-    verify:warrants.uscourts.gov/v <span verifiable-text="end" data-for="warrant">]</span>
+    verify:warrants.uscourts.gov/v <span verifiable-text="end" data-for="warrant"></span>
   </div>
 </div>
 

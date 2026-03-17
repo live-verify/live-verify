@@ -16,7 +16,7 @@ In the travel industry, a **Trip Cancellation Confirmation** is the formal proof
 These documents are the primary evidence used for **Travel Insurance Claims**. A traveler claiming $5,000 for a missed vacation must prove the trip was actually cancelled and show exactly how much the airline *didn't* refund. Fraud is rampant: people "Photoshop" a standard cancellation email to hide a partial refund they already received, or they create fake "Cancellation Notices" for trips they never booked to scam their insurer. Verified hashes bind the **Refund Amounts, Cancellation Reason, and Booking Reference** to the provider's domain (e.g., `britishairways.com` or `booking.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="cancel">[</span>
+  <span verifiable-text="start" data-for="cancel"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">BRITISH AIRWAYS
 Official Cancellation Notice
 ═══════════════════════════════════════════════════════════════════
@@ -39,7 +39,7 @@ Base Fare (Non-Refundable / No Credit)                   $ 1,200.00
 TOTAL NON-REFUNDABLE LOSS:                               $ 1,200.00
 
 </pre>
-<span data-verify-line="cancel">verify:ba.com/cancel/v</span> <span verifiable-text="end" data-for="cancel">]</span>
+<span data-verify-line="cancel">verify:ba.com/cancel/v</span> <span verifiable-text="end" data-for="cancel"></span>
 </div>
 
 ## Data Verified

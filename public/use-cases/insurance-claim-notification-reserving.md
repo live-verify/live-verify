@@ -19,7 +19,7 @@ Live Verify with **Independent Witnessing** solves the "Completeness Problem." T
 
 <div style="max-width: 500px; margin: 24px auto; font-family: 'Courier New', Courier, monospace; border: 2px solid #002244; background: #fff; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #002244; padding-bottom: 10px; margin-bottom: 20px;">
-    <div style="font-weight: bold; font-size: 1.2em; color: #002244;"><span verifiable-text="start" data-for="claim">[</span>GLOBAL LIABILITY INSURERS</div>
+    <div style="font-weight: bold; font-size: 1.2em; color: #002244;"><span verifiable-text="start" data-for="claim"></span>GLOBAL LIABILITY INSURERS</div>
     <div style="font-size: 0.8em;">FIRST NOTICE OF LOSS (FNOL) RECEIPT</div>
   </div>
 <div style="font-size: 0.95em; line-height: 1.4;">
@@ -35,7 +35,7 @@ Live Verify with **Independent Witnessing** solves the "Completeness Problem." T
   </div>
 <div data-verify-line="claim" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Insurers don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:globalliability.com/v <span verifiable-text="end" data-for="claim">]</span>
+      verify:globalliability.com/v <span verifiable-text="end" data-for="claim"></span>
   </div>
   <div style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center; margin-top: 5px;">
       witness:regulator.gov.uk/w

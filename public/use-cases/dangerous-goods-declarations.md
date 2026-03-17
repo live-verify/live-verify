@@ -18,7 +18,7 @@ This document tells the pilot and the ground crew: "This box is dangerous. If it
 Shady shippers often "Mis-declare" cargo—calling dangerous batteries "Toys" on the paper form to save money or bypass safety rules. This has caused multiple plane crashes. Verified hashes ensure the safety data on the paper pallet matches the certified packer's official record.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="dgr">[</span>SHIPPER'S DECLARATION FOR DANGEROUS GOODS
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="dgr"></span>SHIPPER'S DECLARATION FOR DANGEROUS GOODS
 In Compliance with IATA Dangerous Goods Regulations (DGR)
 ═══════════════════════════════════════════════════════════════════
 
@@ -39,7 +39,7 @@ Government Regulations.
 Signatory:  Wang Wei (Certified Packer)
 Date:       15 MAR 2026
 
-<span data-verify-line="dgr">verify:iata-dgr.org/v</span> <span verifiable-text="end" data-for="dgr">]</span></pre>
+<span data-verify-line="dgr">verify:iata-dgr.org/v</span> <span verifiable-text="end" data-for="dgr"></span></pre>
 </div>
 
 ## Data Verified
@@ -145,7 +145,7 @@ The **IMO Dangerous Goods Declaration** is the "Safety Blueprint" for the contai
 Fraudsters often edit these PDFs to hide that a chemical is toxic, just to get it onto a faster ship or to save on port fees. Verified hashes allow the ship's captain and port firefighters to see the **un-altered hazard class** instantly, preventing catastrophic fires at sea.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="imo-dgd">[</span>DANGEROUS GOODS DECLARATION (IMO)
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="imo-dgd"></span>DANGEROUS GOODS DECLARATION (IMO)
 In accordance with the IMDG Code and SOLAS 74
 ═══════════════════════════════════════════════════════════════════
 
@@ -170,7 +170,7 @@ international and national governmental regulations.
 Signatory:  Hans Muller
 Date:       15 MAR 2026
 
-<span data-verify-line="imo-dgd">verify:hapaq-lloyd.com/dgd/v</span> <span verifiable-text="end" data-for="imo-dgd">]</span></pre>
+<span data-verify-line="imo-dgd">verify:hapaq-lloyd.com/dgd/v</span> <span verifiable-text="end" data-for="imo-dgd"></span></pre>
 </div>
 
 ## Data Verified
@@ -283,7 +283,7 @@ If the truck crashes, **First Responders** (Firefighters) look for this paper fi
 Fraudsters often "Downgrade" the hazard on the paper form to bypass tunnel restrictions or to save on insurance. Verified hashes allow firefighters to scan the paperwork at the crash site and see the **verified hazard class** from the shipper's domain instantly.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="road-dg">[</span>DANGEROUS GOODS TRANSPORT DOCUMENT
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="road-dg"></span>DANGEROUS GOODS TRANSPORT DOCUMENT
 In accordance with ADR 5.4.1 / DOT 172.200
 ═══════════════════════════════════════════════════════════════════
 
@@ -303,7 +303,7 @@ Quantity: 24,000 Liters (Bulk Tanker)
 The driver confirms the vehicle is equipped with mandatory
 fire extinguishers and ADR/DOT placards.
 
-<span data-verify-line="road-dg">verify:trans-euro.com/dg/v</span> <span verifiable-text="end" data-for="road-dg">]</span></pre>
+<span data-verify-line="road-dg">verify:trans-euro.com/dg/v</span> <span verifiable-text="end" data-for="road-dg"></span></pre>
 </div>
 
 ## Data Verified

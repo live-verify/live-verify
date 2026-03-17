@@ -16,7 +16,7 @@ In the commercial trucking industry, the **Annual Vehicle Inspection Report (AVI
 These documents are critical for highway safety. Fraud is rampant: shady carriers often "edit" a failed inspection report into a "PASS" to keep a dangerous truck on the road, or they use a fake certificate from a non-existent "Mobile Inspector." Verified hashes bind the **VIN, Inspector License, and Safety Results** to the inspection station's or the state's domain (e.g., `dot.gov` or `jiffy-lube-fleet.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="dot">[</span>ANNUAL VEHICLE INSPECTION REPORT
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="dot"></span>ANNUAL VEHICLE INSPECTION REPORT
 IN ACCORDANCE WITH 49 CFR PART 396.17
 ═══════════════════════════════════════════════════════════════════
 
@@ -35,7 +35,7 @@ Robert J. Miller, Certified Inspector             [CERTIFIED PASS]
 Inspector ID: #9922-NY
 Date: 15 MAR 2026
 
-<span data-verify-line="dot">verify:dot-inspect.com/v</span> <span verifiable-text="end" data-for="dot">]</span></pre>
+<span data-verify-line="dot">verify:dot-inspect.com/v</span> <span verifiable-text="end" data-for="dot"></span></pre>
 </div>
 
 ## Data Verified
@@ -165,7 +165,7 @@ The **MOT test** (Ministry of Transport) is the UK's annual roadworthiness inspe
 MOT fraud is a known problem: dodgy garages issue fake passes for vehicles that would fail, or backdate certificates to cover gaps in coverage.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="mot">[</span>MOT TEST CERTIFICATE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="mot"></span>MOT TEST CERTIFICATE
 Driver and Vehicle Standards Agency (DVSA)
 ═══════════════════════════════════════════════════════════════════
 
@@ -182,7 +182,7 @@ Test Result:            PASS
 Test Station:           Kwik Fit - Manchester
 Station ID:             MAN-9922
 
-<span data-verify-line="mot">verify:gov.uk/mot/v</span> <span verifiable-text="end" data-for="mot">]</span></pre>
+<span data-verify-line="mot">verify:gov.uk/mot/v</span> <span verifiable-text="end" data-for="mot"></span></pre>
 </div>
 
 **Note:** DVSA already provides a free MOT history lookup at gov.uk. Live Verify adds value by verifying the physical certificate itself — useful when the paper is presented but internet access is limited (e.g., roadside purchase).
@@ -218,7 +218,7 @@ Vehicle registration, VIN, make/model, test date, expiry date, pass/fail result,
 The **TÜV inspection** (Technischer Überwachungsverein) is Germany's biennial vehicle safety and emissions test. The famous TÜV sticker on the rear plate shows the expiry month/year.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="tuv">[</span>HAUPTUNTERSUCHUNG (HU)
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="tuv"></span>HAUPTUNTERSUCHUNG (HU)
 TÜV SÜD
 ═══════════════════════════════════════════════════════════════════
 
@@ -233,7 +233,7 @@ Ergebnis:               BESTANDEN
 Prüfstelle:             TÜV SÜD München
 Prüfer-Nr:              9922
 
-<span data-verify-line="tuv">verify:tuvsud.com/hu/v</span> <span verifiable-text="end" data-for="tuv">]</span></pre>
+<span data-verify-line="tuv">verify:tuvsud.com/hu/v</span> <span verifiable-text="end" data-for="tuv"></span></pre>
 </div>
 
 ## Verification Response (TÜV)

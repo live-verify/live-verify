@@ -15,7 +15,7 @@ A regulatory compliance attestation confirms that an entity has met specific reg
 Compliance attestation fraud is serious: fake inspection certificates can enable dangerous operations, and forged audit clearances can hide financial misconduct.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="osha">[</span>OSHA COMPLIANCE VERIFICATION<br>
+  <span verifiable-text="start" data-for="osha"></span>OSHA COMPLIANCE VERIFICATION<br>
   U.S. Department of Labor - OSHA<br>
   Establishment: Acme Manufacturing<br>
   Site: 1234 Industrial Blvd, Cleveland OH<br>
@@ -23,11 +23,11 @@ Compliance attestation fraud is serious: fake inspection certificates can enable
   Inspection Date: December 15, 2025<br>
   Result: No Violations Found<br>
   Next Scheduled: December 2026<br>
-  <span data-verify-line="osha">verify:osha.gov/inspections</span> <span verifiable-text="end" data-for="osha">]</span>
+  <span data-verify-line="osha">verify:osha.gov/inspections</span> <span verifiable-text="end" data-for="osha"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="fda">[</span>FDA FACILITY REGISTRATION<br>
+  <span verifiable-text="start" data-for="fda"></span>FDA FACILITY REGISTRATION<br>
   Food and Drug Administration<br>
   Facility: BioPharm Solutions Inc<br>
   FEI: 3004567890<br>
@@ -35,11 +35,11 @@ Compliance attestation fraud is serious: fake inspection certificates can enable
   Facility Type: Drug Manufacturer<br>
   Status: Active - Good Standing<br>
   Last Inspection: November 2025<br>
-  <span data-verify-line="fda">verify:fda.gov/facilities</span> <span verifiable-text="end" data-for="fda">]</span>
+  <span data-verify-line="fda">verify:fda.gov/facilities</span> <span verifiable-text="end" data-for="fda"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="pci">[</span>PCI DSS ATTESTATION<br>
+  <span verifiable-text="start" data-for="pci"></span>PCI DSS ATTESTATION<br>
   Payment Card Industry<br>
   Merchant: E-Commerce Plus LLC<br>
   Merchant ID: 4567-8901-2345<br>
@@ -47,18 +47,18 @@ Compliance attestation fraud is serious: fake inspection certificates can enable
   Assessment Type: SAQ-D<br>
   Validated By: SecurityFirst QSA<br>
   Valid Through: March 31, 2027<br>
-  <span data-verify-line="pci">verify:pcisecuritystandards.org/val</span> <span verifiable-text="end" data-for="pci">]</span>
+  <span data-verify-line="pci">verify:pcisecuritystandards.org/val</span> <span verifiable-text="end" data-for="pci"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="gdpr">[</span>GDPR COMPLIANCE CERTIFICATION<br>
+  <span verifiable-text="start" data-for="gdpr"></span>GDPR COMPLIANCE CERTIFICATION<br>
   EuroPriSe Certification Authority<br>
   Controller: DataTech Solutions GmbH<br>
   Certificate #: EP-2025-7741<br>
   Scope: Customer Data Processing<br>
   Assessment: Full Audit<br>
   Valid: January 2025 - January 2027<br>
-  <span data-verify-line="gdpr">verify:european-privacy-seal.eu/cert</span> <span verifiable-text="end" data-for="gdpr">]</span>
+  <span data-verify-line="gdpr">verify:european-privacy-seal.eu/cert</span> <span verifiable-text="end" data-for="gdpr"></span>
 </div>
 
 ## Data Verified

@@ -55,7 +55,7 @@ Corporate compliance training is a multi-billion dollar industry. Employees and 
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="harassment">[</span>COMPLIANCE TRAINING ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="harassment"></span>COMPLIANCE TRAINING ATTESTATION
 
 Employee: [Name on file]
 Training: Sexual Harassment Prevention - Supervisors
@@ -84,7 +84,7 @@ VALID FOR: 2 years (CA requirement)
 
 ATTESTATION HASH: 8f4a2c1e9b...
 
-<span data-verify-line="harassment">verify:traliant.com/training/v</span> <span verifiable-text="end" data-for="harassment">]</span></pre>
+<span data-verify-line="harassment">verify:traliant.com/training/v</span> <span verifiable-text="end" data-for="harassment"></span></pre>
 </div>
 
 **Why Attestation Matters:**
@@ -109,7 +109,7 @@ ATTESTATION HASH: 8f4a2c1e9b...
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="privacy">[</span>COMPLIANCE TRAINING ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="privacy"></span>COMPLIANCE TRAINING ATTESTATION
 
 Employee: [Name on file]
 Training: GDPR Awareness - Data Handlers
@@ -136,7 +136,7 @@ REFRESHER DUE: January 14, 2026
 
 ATTESTATION HASH: 2d7e4f1a8c...
 
-<span data-verify-line="privacy">verify:skillsoft.com/compliance/v</span> <span verifiable-text="end" data-for="privacy">]</span></pre>
+<span data-verify-line="privacy">verify:skillsoft.com/compliance/v</span> <span verifiable-text="end" data-for="privacy"></span></pre>
 </div>
 
 **Post-Breach Relevance:**
@@ -162,7 +162,7 @@ Attested records answer these questions with cryptographic proof.
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="security">[</span>SECURITY AWARENESS ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="security"></span>SECURITY AWARENESS ATTESTATION
 
 Employee: [Name on file]
 Training: Annual Security Awareness 2025
@@ -188,7 +188,7 @@ ASSESSMENT:
 
 ATTESTATION HASH: 5c9a3b2e7f...
 
-<span data-verify-line="security">verify:knowbe4.com/training/v</span> <span verifiable-text="end" data-for="security">]</span></pre>
+<span data-verify-line="security">verify:knowbe4.com/training/v</span> <span verifiable-text="end" data-for="security"></span></pre>
 </div>
 
 **Cyber Insurance Integration:**
@@ -213,7 +213,7 @@ Attested records satisfy these requirements with verifiable evidence.
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="bribery">[</span>COMPLIANCE TRAINING ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="bribery"></span>COMPLIANCE TRAINING ATTESTATION
 
 Employee: [Name on file]
 Training: Anti-Bribery & Anti-Corruption
@@ -244,7 +244,7 @@ CERTIFICATION STATEMENT:
 
 ATTESTATION HASH: 9x8y7z6w5v...
 
-<span data-verify-line="bribery">verify:navex.com/compliance/v</span> <span verifiable-text="end" data-for="bribery">]</span></pre>
+<span data-verify-line="bribery">verify:navex.com/compliance/v</span> <span verifiable-text="end" data-for="bribery"></span></pre>
 </div>
 
 **Prosecution Defense:**
@@ -272,7 +272,7 @@ Without portable credentials, contractors repeat identical training for every en
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="contractor">[</span>CONTRACTOR TRAINING PORTFOLIO
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="contractor"></span>CONTRACTOR TRAINING PORTFOLIO
 
 Contractor: [Name on file]
 Portfolio Date: January 14, 2025
@@ -304,7 +304,7 @@ CLIENT ACCEPTANCE:
   - Beta Industries: Accepted credentials 1, 2, 4
   - Gamma LLC: Requires additional site-specific
 
-<span data-verify-line="contractor">verify:contractor-credentials.net/v</span> <span verifiable-text="end" data-for="contractor">]</span></pre>
+<span data-verify-line="contractor">verify:contractor-credentials.net/v</span> <span verifiable-text="end" data-for="contractor"></span></pre>
 </div>
 
 **The Portable Credential Model:**

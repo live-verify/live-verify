@@ -18,7 +18,7 @@ The **Beneficiary Change Confirmation** is a receipt issued to the policyholder 
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #e91e63; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #e91e63; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="bcc">[</span>BENEFICIARY UPDATE CONFIRMATION</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="bcc"></span>BENEFICIARY UPDATE CONFIRMATION</div>
       <div style="font-size: 0.8em; opacity: 0.9;">Policy Administration</div>
     </div>
     <div style="text-align: right;">
@@ -41,7 +41,7 @@ The **Beneficiary Change Confirmation** is a receipt issued to the policyholder 
   </div>
 <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #e91e63; text-align: center;">
     <div data-verify-line="bcc" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:metlife.com/beneficiary/v <span verifiable-text="end" data-for="bcc">]</span>
+      verify:metlife.com/beneficiary/v <span verifiable-text="end" data-for="bcc"></span>
     </div>
   </div>
 </div>

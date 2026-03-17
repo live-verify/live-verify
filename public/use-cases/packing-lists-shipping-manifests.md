@@ -22,7 +22,7 @@ It is the primary document used by:
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #333; background: #fff; padding: 0; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
   <div style="padding: 20px; background: #fff;">
-    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="pack">[</span>CARGO SHIPPING MANIFEST
+    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="pack"></span>CARGO SHIPPING MANIFEST
 GLOBAL LOGISTICS SOLUTIONS, INC.
 ═══════════════════════════════════════════════════════════════════════
 Shipper:   Shenzhen Tech Components, Ltd.    Manifest #: M-992288-XK
@@ -37,7 +37,7 @@ TOTAL CARGO WEIGHT:                                        2,290.00 kg
 
 Seal Number: 000992288 (Verified Intact at Origin)
 
-<span data-verify-line="pack">verify:sz-tech.com/cargo/v</span> <span verifiable-text="end" data-for="pack">]</span></pre>
+<span data-verify-line="pack">verify:sz-tech.com/cargo/v</span> <span verifiable-text="end" data-for="pack"></span></pre>
   </div>
 </div>
 

@@ -18,7 +18,7 @@ The **Lending Agreement** (or Promissory Note) is the legal contract that says: 
 **"Loan Padding"** is a common financial fraud where a borrower "edits" a P2P agreement to show a smaller debt than they actually have, or a higher "verified income" stream, to trick a traditional bank into giving them a mortgage. **"Duplicate Financing"** occurs when a borrower uses the same set of un-verified paper documents to take out three different loans from three different platforms at once. Live Verify binds the **Loan ID, Amount, and APR** to the fintech platform's domain.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="p2p">[</span>
+  <span verifiable-text="start" data-for="p2p"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">LENDINGCLUB
 ═══════════════════════════════════════════════════════════════════
 
@@ -44,7 +44,7 @@ This electronic record is cryptographically bound to the LendingClub
 private ledger. Alteration is a violation of federal lending laws.
 
 </pre>
-<span data-verify-line="p2p">verify:lendingclub.com/v</span> <span verifiable-text="end" data-for="p2p">]</span>
+<span data-verify-line="p2p">verify:lendingclub.com/v</span> <span verifiable-text="end" data-for="p2p"></span>
 </div>
 
 ## Data Verified

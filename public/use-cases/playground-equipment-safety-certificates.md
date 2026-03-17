@@ -16,7 +16,7 @@ In schools and public parks, every slide, swing, and climbing frame is a potenti
 These documents are the "Shield of Public Trust." Fraud is high-stakes: un-certified vendors or negligent landlords often "pencil whip" a safety check, creating fake PDFs for equipment that hasn't been tested in years to avoid the high cost of surfacing replacement. In high-risk zones, a fake certificate can lead to preventable traumatic injuries. Verified hashes bind the **Equipment Serial Numbers, Surface Test Results (HIC), and Inspector ID** to the city's or the inspector's domain (e.g., `parks.city.gov` or `nrpa.org`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="play">[</span>
+  <span verifiable-text="start" data-for="play"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">CITY OF SPRINGFIELD - PARKS & REC
 ═══════════════════════════════════════════════════════════════════
 
@@ -39,7 +39,7 @@ CPSI License: #992288 - Exp: 2027
 Inspection Date: 15 MAR 2026
 
 </pre>
-<span data-verify-line="play">verify:austin-parks.gov/v</span> <span verifiable-text="end" data-for="play">]</span>
+<span data-verify-line="play">verify:austin-parks.gov/v</span> <span verifiable-text="end" data-for="play"></span>
 </div>
 
 ## Data Verified

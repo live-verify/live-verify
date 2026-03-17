@@ -21,7 +21,7 @@ It proves to your bank that your house is protected against fire, wind, and thef
 Fraud happens when owners "edit" the PDF to show a higher limit to satisfy a bank's loan requirements while actually paying for a cheaper, low-limit policy. Verified hashes allow lenders to see the **live coverage status** on the insurer's domain instantly.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="ho-dec">[</span>STATE FARM
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="ho-dec"></span>STATE FARM
 Homeowners Policy Declarations                  Policy #: 99-BC-9922-8
 ═══════════════════════════════════════════════════════════════════
 
@@ -42,7 +42,7 @@ Deductible (All Perils)                              $   1,000.00
 Mortgagee: Bank of America, N.A. (ISAOA/ATIMA)
            Loan #88776655
 
-<span data-verify-line="ho-dec">verify:statefarm.com/policy/v</span> <span verifiable-text="end" data-for="ho-dec">]</span></pre>
+<span data-verify-line="ho-dec">verify:statefarm.com/policy/v</span> <span verifiable-text="end" data-for="ho-dec"></span></pre>
 </div>
 
 ## Data Verified
@@ -162,7 +162,7 @@ This estimate is the "Checkbook" for the repairs. It tells the contractor exactl
 Fraud is common: dishonest contractors sometimes "edit" the PDF to add $5,000 in non-existent damage to get more money from the insurer. Verified hashes protect the **adjuster's original math**, ensuring that the money goes toward real repairs and not into a scammer's pocket.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="prop-claim">[</span>ALLSTATE INSURANCE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="prop-claim"></span>ALLSTATE INSURANCE
 Property Claims Services
 REPAIR ESTIMATE & PROOF OF LOSS               Claim #: 99228877-PROP
 ═══════════════════════════════════════════════════════════════════
@@ -180,7 +180,7 @@ NET CLAIM TOTAL:                                       $ 14,550.00
 Adjuster:         Robert Miller (ID #992)
 Restoration Firm: ServePro of Anytown (Verified)
 
-<span data-verify-line="prop-claim">verify:allstate.com/claims/v</span> <span verifiable-text="end" data-for="prop-claim">]</span></pre>
+<span data-verify-line="prop-claim">verify:allstate.com/claims/v</span> <span verifiable-text="end" data-for="prop-claim"></span></pre>
 </div>
 
 ## Data Verified
@@ -297,7 +297,7 @@ The **Declarations Page** is the "Proof of Safety." It shows the bank that the l
 Because these papers are required for every mortgage, "Ghost Policy" fraud is a major problem: people buy a policy to get the paper for the bank closing, then cancel it the next day for a refund. Verified hashes allow lenders to perform **automated annual audits** to ensure the policy is still active today.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="ho-pol">[</span>LIBERTY MUTUAL
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="ho-pol"></span>LIBERTY MUTUAL
 Home & Tenant Protection Policy
 INSURANCE DECLARATIONS                       Policy #: HO-99228877-26
 ═══════════════════════════════════════════════════════════════════
@@ -317,7 +317,7 @@ Annual Premium: $ 1,242.00
 Mortgagee: Wells Fargo Bank, N.A. (ISAOA/ATIMA)
            Loan #99887766
 
-<span data-verify-line="ho-pol">verify:libertymutual.com/policy/v</span> <span verifiable-text="end" data-for="ho-pol">]</span></pre>
+<span data-verify-line="ho-pol">verify:libertymutual.com/policy/v</span> <span verifiable-text="end" data-for="ho-pol"></span></pre>
 </div>
 
 ## Data Verified

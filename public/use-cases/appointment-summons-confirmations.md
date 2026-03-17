@@ -21,7 +21,7 @@ With Live Verify, the appointment confirmation carries a `verify:` line. The emp
 
 <div style="max-width: 500px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; border-radius: 8px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
   <div style="background: #003087; color: #fff; padding: 14px 18px;">
-    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="ap1">[ </span>St Thomas' Hospital</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="ap1"> </span>St Thomas' Hospital</div>
     <div style="font-size: 0.8em; margin-top: 2px;">Guy's and St Thomas' NHS Foundation Trust</div>
     <div style="font-size: 0.75em; margin-top: 2px;">Westminster Bridge Road, London SE1 7EH</div>
   </div>
@@ -41,14 +41,14 @@ With Live Verify, the appointment confirmation carries a `verify:` line. The emp
       <em style="font-size: 0.85em;">Please allow 2 hours for this appointment including tests.</em>
     </div>
     <div data-verify-line="ap1" style="border-top: 1px dashed #999; padding-top: 8px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;">
-      verify:gstt.nhs.uk/appointments <span verifiable-text="end" data-for="ap1">]</span>
+      verify:gstt.nhs.uk/appointments <span verifiable-text="end" data-for="ap1"></span>
     </div>
   </div>
 </div>
 
 <div style="max-width: 500px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; border-radius: 8px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
   <div style="background: #1a1a2e; color: #fff; padding: 14px 18px;">
-    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="ap2">[ </span>United States District Court</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="ap2"> </span>United States District Court</div>
     <div style="font-size: 0.8em; margin-top: 2px;">Northern District of Illinois, Eastern Division</div>
   </div>
   <div style="padding: 18px; font-size: 0.9em; line-height: 1.7; color: #222;">
@@ -71,14 +71,14 @@ With Live Verify, the appointment confirmation carries a `verify:` line. The emp
       <em style="font-size: 0.85em;">Issued: February 14, 2026</em>
     </div>
     <div data-verify-line="ap2" style="border-top: 1px dashed #999; padding-top: 8px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;">
-      verify:ilnd.uscourts.gov/jury <span verifiable-text="end" data-for="ap2">]</span>
+      verify:ilnd.uscourts.gov/jury <span verifiable-text="end" data-for="ap2"></span>
     </div>
   </div>
 </div>
 
 <div style="max-width: 500px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; border-radius: 8px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
   <div style="background: #2c3e50; color: #fff; padding: 14px 18px;">
-    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="ap3">[ </span>Magistrates' Court</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="ap3"> </span>Magistrates' Court</div>
     <div style="font-size: 0.8em; margin-top: 2px;">Thames Magistrates' Court, Bow Road, London E3 4DJ</div>
   </div>
   <div style="padding: 18px; font-size: 0.9em; line-height: 1.7; color: #222;">
@@ -95,7 +95,7 @@ With Live Verify, the appointment confirmation carries a `verify:` line. The emp
       <em style="font-size: 0.85em;">This summons is issued under Section 97 of the Magistrates' Courts Act 1980. Failure to attend without reasonable excuse is a criminal offence.</em>
     </div>
     <div data-verify-line="ap3" style="border-top: 1px dashed #999; padding-top: 8px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;">
-      verify:hmcts.gov.uk/summons <span verifiable-text="end" data-for="ap3">]</span>
+      verify:hmcts.gov.uk/summons <span verifiable-text="end" data-for="ap3"></span>
     </div>
   </div>
 </div>

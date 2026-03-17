@@ -16,7 +16,7 @@ In the global shipping industry, **Protection & Indemnity (P&I)** is a specializ
 These documents are the "Entry Ticket" to global trade. Fraud is high-stakes: owners of "Substandard Ships" (which legitimate clubs won't insure) often create fake certificates from non-existent or "Shadow" P&I clubs to trick port authorities. If such a ship has an oil spill, there is no money for cleanup, leaving the host nation with billions in damage. Verified hashes bind the **Vessel IMO Number, Gross Tonnage, and Club Name** to the International Group of P&I Clubs' or the individual club's domain (e.g., `ukpandi.com` or `gard.no`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="pi">[</span>THE UK P&I CLUB
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="pi"></span>THE UK P&I CLUB
 Member of the International Group of P&I Clubs
 ═══════════════════════════════════════════════════════════════════
 
@@ -34,7 +34,7 @@ Wreck Removal:                                           FULL COVER
 
 Subject to the Rules of the Association.
 
-<span data-verify-line="pi">verify:ukpandi.com/v</span> <span verifiable-text="end" data-for="pi">]</span></pre>
+<span data-verify-line="pi">verify:ukpandi.com/v</span> <span verifiable-text="end" data-for="pi"></span></pre>
 </div>
 
 ## Data Verified

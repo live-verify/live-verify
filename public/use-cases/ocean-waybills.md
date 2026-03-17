@@ -21,7 +21,7 @@ Whoever holds the original "negotiable" B/L effectively owns the cargo. This mak
 Losing the original B/L is a disaster (requires court bonds to fix), which is why verification of the paper is so critical.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="bol">[</span>MAERSK LINE                                   B/L No: MAE-9988776655
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="bol"></span>MAERSK LINE                                   B/L No: MAE-9988776655
 BILL OF LADING
 ═══════════════════════════════════════════════════════════════════
 
@@ -42,7 +42,7 @@ MSKU 123456-7       200 BAGS ARABICA COFFEE              12,000.00
 RECEIVED by the Carrier the Goods as specified above in
 apparent good order and condition.
 
-<span data-verify-line="bol">verify:maersk.com/bl/v</span> <span verifiable-text="end" data-for="bol">]</span></pre>
+<span data-verify-line="bol">verify:maersk.com/bl/v</span> <span verifiable-text="end" data-for="bol"></span></pre>
 </div>
 
 ## Data Verified
@@ -158,7 +158,7 @@ The **Ocean Bill of Lading (B/L)** is arguably the most critical document in glo
 This "Negotiable" status makes the B/L a prime target for high-stakes fraud. Criminals use "Phantom B/Ls" to steal entire shiploads of cargo, or "Double-Finance" the same B/L at two different banks to get two multimillion-dollar loans. Verified hashes bind the **Container IDs, Vessel Name, and Consignee** to the shipping line's domain (e.g., `maersk.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="bl">[</span>MAERSK LINE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="bl"></span>MAERSK LINE
 A.P. Moller-Maersk A/S - Esplanaden 50, Copenhagen
 BILL OF LADING - NEGOTIABLE ORIGINAL
 ═══════════════════════════════════════════════════════════════════
@@ -187,7 +187,7 @@ ML-BR-442211            (GRADE A / WASHED / 2026 CROP)
 Verification confirms the issuance of this title document by the
 carrier. Alteration of cargo details renders this B/L void.
 
-<span data-verify-line="bl">verify:maersk.com/bl/v</span> <span verifiable-text="end" data-for="bl">]</span></pre>
+<span data-verify-line="bl">verify:maersk.com/bl/v</span> <span verifiable-text="end" data-for="bl"></span></pre>
 </div>
 
 ## Data Verified
@@ -261,7 +261,7 @@ A **Sea Waybill** is a non-negotiable receipt for cargo loaded onto an ocean ves
 While simpler than a B/L, it is still a high-stakes legal proof of shipment. Fraud is common in **Trade Finance**: an exporter might "edit" a Sea Waybill to show 1,000 pallets instead of 100 to get a higher payout from a buyer or a bank. Similarly, shady shippers might hide the presence of dangerous goods. Verified hashes bind the **Container IDs, Gross Weight, and Shipped-on-Board Date** to the carrier's domain (e.g., `maersk.com` or `msc.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="way">[</span>MAERSK LINE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="way"></span>MAERSK LINE
 A.P. Moller-Maersk A/S - Copenhagen
 SEA WAYBILL - NON-NEGOTIABLE RECEIPT
 ═══════════════════════════════════════════════════════════════════
@@ -286,7 +286,7 @@ SEAL: 884422            (SMARTPHONES / TABLETS)
 
 SHIPPED ON BOARD: MARCH 15, 2026
 
-<span data-verify-line="way">verify:maersk.com/v</span> <span verifiable-text="end" data-for="way">]</span></pre>
+<span data-verify-line="way">verify:maersk.com/v</span> <span verifiable-text="end" data-for="way"></span></pre>
 </div>
 
 ## Data Verified

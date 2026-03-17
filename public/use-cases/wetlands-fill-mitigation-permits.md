@@ -16,7 +16,7 @@ Under **Section 404 of the Clean Water Act**, it is illegal to dump dirt (fill) 
 These permits are the "Final Barrier" to construction. Fraud is high-stakes: developers often "edit" a permit to turn a "0.1 Acre Fill" authorization into a "1.0 Acre" authorization, or they create fake "Mitigation Credit Receipts" to avoid paying hundreds of thousands of dollars into a conservation fund. Verified hashes bind the **Fill Acreage, Mitigation Ratio, and Permit Serial Number** to the USACE's or the state's domain (e.g., `usace.army.mil`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="fill">[</span>U.S. ARMY CORPS OF ENGINEERS
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="fill"></span>U.S. ARMY CORPS OF ENGINEERS
 Section 404 Fill & Dredge Authorization
 ═══════════════════════════════════════════════════════════════════
 
@@ -35,7 +35,7 @@ This permit authorizes the discharge of dredged or fill material
 into jurisdictional waters. Any expansion of fill beyond the
 verified acreage is a federal violation.
 
-<span data-verify-line="fill">verify:usace.army.mil/v</span> <span verifiable-text="end" data-for="fill">]</span></pre>
+<span data-verify-line="fill">verify:usace.army.mil/v</span> <span verifiable-text="end" data-for="fill"></span></pre>
 </div>
 
 ## Data Verified

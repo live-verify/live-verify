@@ -37,14 +37,14 @@ Live Verify solves this with an **officer-triggered SMS verification**. When a c
 <div style="max-width: 380px; margin: 24px auto; font-family: sans-serif; background: #e8f5e9; border: 1px solid #a5d6a7; border-radius: 16px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
   <div style="font-size: 0.8em; color: #555; margin-bottom: 8px; text-align: center;">SMS from 602-876-1011 (MCSO)</div>
   <div style="background: #fff; border-radius: 12px; padding: 16px; font-size: 0.95em; line-height: 1.5;">
-    <div style="font-weight: bold; margin-bottom: 8px;"><span verifiable-text="start" data-for="sms-call">[</span>Maricopa County Sheriff's Office</div>
+    <div style="font-weight: bold; margin-bottom: 8px;"><span verifiable-text="start" data-for="sms-call"></span>Maricopa County Sheriff's Office</div>
     <div>You are currently speaking to:</div>
     <div>Deputy R. Martinez, Badge MCSO-4417</div>
     <div>Concerning: Court Summons — Case CV-2026-03892</div>
     <div>Sent: 2:47 PM Feb 28 2026</div>
     <div>Expires: 3:17 PM</div>
     <div style="margin-top: 12px; font-family: 'Courier New', monospace; font-size: 0.85em; color: #555; border-top: 1px dashed #ccc; padding-top: 8px;">
-      verify:calls.mcso.maricopa.gov/v <span verifiable-text="end" data-for="sms-call">]</span>
+      verify:calls.mcso.maricopa.gov/v <span verifiable-text="end" data-for="sms-call"></span>
     </div>
   </div>
 </div>

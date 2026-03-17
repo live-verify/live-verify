@@ -21,7 +21,7 @@ The **Chain-of-Custody Form** is the paper that follows the box. It lists:
 If a box arrives at the counting center with a different count or seal than what is on the verified form, the alarm is raised immediately.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="ballot">[</span>
+  <span verifiable-text="start" data-for="ballot"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">MARICOPA COUNTY ELECTIONS
 Transfer Form #99228
 ═══════════════════════════════════════════════════════════════════
@@ -44,7 +44,7 @@ Received by:      Sarah Connor (Transport Deputy)
 Timestamp:        Nov 3, 2026 - 8:15 PM MST
 
 </pre>
-  <span data-verify-line="ballot">verify:elections.maricopa.gov/custody/v</span> <span verifiable-text="end" data-for="ballot">]</span>
+  <span data-verify-line="ballot">verify:elections.maricopa.gov/custody/v</span> <span verifiable-text="end" data-for="ballot"></span>
 </div>
 
 ## Data Verified

@@ -12,7 +12,7 @@ furtherDerivations: 1
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 2px solid #000; background: #fff; padding: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <div style="background: #1a1a1a; color: #d4af37; padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #d4af37;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em; letter-spacing: 1px;"><span verifiable-text="start" data-for="jewel">[</span>BERKLEY ASSET PROTECTION</div>
+      <div style="font-weight: bold; font-size: 1.2em; letter-spacing: 1px;"><span verifiable-text="start" data-for="jewel"></span>BERKLEY ASSET PROTECTION</div>
       <div style="font-size: 0.8em; color: #fff;">Specialist Jewelers Block Underwriters</div>
     </div>
     <div style="font-size: 1.5em;">💎</div>
@@ -35,7 +35,7 @@ furtherDerivations: 1
     </div>
 <div data-verify-line="jewel" style="border-top: 1px dashed #d4af37; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Berkley doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:berkleyassetpro.com/v <span verifiable-text="end" data-for="jewel">]</span>
+      verify:berkleyassetpro.com/v <span verifiable-text="end" data-for="jewel"></span>
     </div>
   </div>
 </div>

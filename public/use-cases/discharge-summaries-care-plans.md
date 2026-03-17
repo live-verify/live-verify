@@ -23,7 +23,7 @@ This paper is the #1 tool for preventing "Medical Errors" when a patient moves t
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #0277bd; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="discharge">[</span>CEDARS-SINAI MEDICAL CENTER</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="discharge"></span>CEDARS-SINAI MEDICAL CENTER</div>
       <div style="font-size: 0.8em;">Inpatient Discharge Summary</div>
     </div>
     <div style="text-align: right;">
@@ -53,7 +53,7 @@ This paper is the #1 tool for preventing "Medical Errors" when a patient moves t
     </div>
 <div data-verify-line="discharge" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Cedars-Sinai doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:cedars-sinai.org/discharge/v <span verifiable-text="end" data-for="discharge">]</span>
+      verify:cedars-sinai.org/discharge/v <span verifiable-text="end" data-for="discharge"></span>
     </div>
   </div>
 </div>

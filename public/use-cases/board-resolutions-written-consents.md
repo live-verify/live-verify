@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
   <div style="text-align: center; margin-bottom: 30px;">
-    <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="board">[</span>ACTION BY UNANIMOUS WRITTEN CONSENT</div>
+    <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="board"></span>ACTION BY UNANIMOUS WRITTEN CONSENT</div>
     <div style="font-size: 0.9em; margin-top: 5px;">OF THE BOARD OF DIRECTORS OF</div>
     <div style="font-weight: bold; font-size: 1.1em; margin-top: 5px;">INITECH HOLDINGS, INC.</div>
   </div>
@@ -32,7 +32,7 @@ furtherDerivations: 1
   </div>
 <div data-verify-line="board" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Law firm doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:wilson-sonsini.com/docs/v <span verifiable-text="end" data-for="board">]</span>
+      verify:wilson-sonsini.com/docs/v <span verifiable-text="end" data-for="board"></span>
   </div>
 </div>
 

@@ -33,7 +33,7 @@ There's no verification that attendees are there in good faith, and no accountab
 **How Identity Escrow Helps:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="aa">[</span>RECOVERY CIRCLE MEMBERSHIP
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="aa"></span>RECOVERY CIRCLE MEMBERSHIP
 
 Member ID: RC-MEM-REDACTED
 Member Since: March 2023
@@ -52,7 +52,7 @@ This member has agreed to:
   ✓ Not contact members outside group without consent
   ✓ Report any safety concerns to group facilitator
 
-<span data-verify-line="aa">verify:recoverycircle.org/member/v</span> <span verifiable-text="end" data-for="aa">]</span></pre>
+<span data-verify-line="aa">verify:recoverycircle.org/member/v</span> <span verifiable-text="end" data-for="aa"></span></pre>
 </div>
 
 **What Gets Escrowed:**
@@ -96,7 +96,7 @@ Therapy groups (grief, anger management, eating disorders, trauma) require vulne
 **How Identity Escrow Helps:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="therapy">[</span>THERAPY GROUP MEMBER VERIFICATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="therapy"></span>THERAPY GROUP MEMBER VERIFICATION
 
 Group: Grief Support Circle
 Facilitator: Dr. Sarah Chen, LCSW (License #12345)
@@ -113,7 +113,7 @@ MEMBER COMMITMENTS:
     explicit mutual consent
   ✓ Report boundary violations to facilitator
 
-<span data-verify-line="therapy">verify:therapygroups.org/member/v</span> <span verifiable-text="end" data-for="therapy">]</span></pre>
+<span data-verify-line="therapy">verify:therapygroups.org/member/v</span> <span verifiable-text="end" data-for="therapy"></span></pre>
 </div>
 
 **Eligibility Verification:**
@@ -146,7 +146,7 @@ Chronic illness forums, mental health subreddits, caregiver support groups—the
 **How Identity Escrow Helps:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="online">[</span>COMMUNITY MEMBER VERIFICATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="online"></span>COMMUNITY MEMBER VERIFICATION
 
 Community: Lupus Warriors Forum
 Platform: Verified Community Network
@@ -164,7 +164,7 @@ COMMUNITY STANDING: Trusted Member
   - No safety reports
   - Moderator commendations: 2
 
-<span data-verify-line="online">verify:verifiedcommunity.org/m/v</span> <span verifiable-text="end" data-for="online">]</span></pre>
+<span data-verify-line="online">verify:verifiedcommunity.org/m/v</span> <span verifiable-text="end" data-for="online"></span></pre>
 </div>
 
 **Verification Levels:**
@@ -199,7 +199,7 @@ Pure anonymity protects survivors but also protects abusers who infiltrate these
 **How Identity Escrow Helps:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="surv">[</span>SURVIVOR SUPPORT VERIFICATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="surv"></span>SURVIVOR SUPPORT VERIFICATION
 
 Group: Phoenix Rising DV Support
 Meeting Type: Closed (survivors only)
@@ -216,7 +216,7 @@ SAFETY FEATURES:
 
 Emergency contact on file with SafeSpace only.
 
-<span data-verify-line="surv">verify:safespace.org/member/v</span> <span verifiable-text="end" data-for="surv">]</span></pre>
+<span data-verify-line="surv">verify:safespace.org/member/v</span> <span verifiable-text="end" data-for="surv"></span></pre>
 </div>
 
 **Special Privacy Protections:**

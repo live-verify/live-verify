@@ -18,7 +18,7 @@ If a public company is sued by its shareholders (e.g., for a stock price drop), 
 High-profile executives won't join a board unless they see verified proof of this insurance. Fraud happens when a struggling company "Photoshops" its insurance papers to look like it has a $25M policy when it actually only has $1M (or none at all). Verified hashes ensure directors are actually protected.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="do-pol">[</span>
+  <span verifiable-text="start" data-for="do-pol"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">CHUBB SPECIALTY INSURANCE
 Executive Protection Portfolio
 ═══════════════════════════════════════════════════════════════════
@@ -46,7 +46,7 @@ applies to claims first made against the insured during the
 policy period.
 
 </pre>
-<span data-verify-line="do-pol">verify:chubb.com/do/v</span> <span verifiable-text="end" data-for="do-pol">]</span>
+<span data-verify-line="do-pol">verify:chubb.com/do/v</span> <span verifiable-text="end" data-for="do-pol"></span>
 </div>
 
 ## Data Verified

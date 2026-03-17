@@ -18,7 +18,7 @@ Every year, the bank sends you an **Annual Escrow Analysis**. It tells you if yo
 Because banks manage millions of these accounts, clerical errors are frequent. Verified statements allow homeowners to prove the bank's math is wrong if a "Shortage Notice" doesn't match the county's actual tax bill.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="escrow">[</span>
+  <span verifiable-text="start" data-for="escrow"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">MR. COOPER MORTGAGE
 Annual Escrow Account Disclosure Statement
 ═══════════════════════════════════════════════════════════════════
@@ -42,7 +42,7 @@ increase by $ 42.50 starting May 1st due to a projected escrow
 deficiency.
 
 </pre>
-<span data-verify-line="escrow">verify:mrcooper.com/escrow/v</span> <span verifiable-text="end" data-for="escrow">]</span>
+<span data-verify-line="escrow">verify:mrcooper.com/escrow/v</span> <span verifiable-text="end" data-for="escrow"></span>
 </div>
 
 ## Data Verified
@@ -153,7 +153,7 @@ Hackers often "spoof" an escrow officer's email and send "Updated Wire Instructi
 **Verified Wire Instructions** provide a "Digital Shield." By scanning the hash on the PDF, the buyer gets 100% confirmation from the title company's domain that the bank details are real *before* they hit "Send" at the bank.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="escrow-wire">[</span>
+  <span verifiable-text="start" data-for="escrow-wire"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">FIRST AMERICAN TITLE COMPANY
 Official Wire Instructions & Closing Package
 ═══════════════════════════════════════════════════════════════════
@@ -180,7 +180,7 @@ ________________________
 Elena Rossi, Escrow Officer                            [ESCROW SEAL]
 
 </pre>
-<span data-verify-line="escrow-wire">verify:firstam.com/escrow/v</span> <span verifiable-text="end" data-for="escrow-wire">]</span>
+<span data-verify-line="escrow-wire">verify:firstam.com/escrow/v</span> <span verifiable-text="end" data-for="escrow-wire"></span>
 </div>
 
 ## Data Verified
@@ -317,7 +317,7 @@ It lists:
 In high-stakes deals, fraudsters (or disgruntled partners) often "Edit" the PDF statement to hide secret fees or to trick a bank into believing a deal was larger than it actually was. Verified hashes turn these private legal papers into an un-erasable proof of the deal's final math.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="ma">[</span>
+  <span verifiable-text="start" data-for="ma"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">J.P. MORGAN ESCROW SERVICES
 ═══════════════════════════════════════════════════════════════════
 
@@ -336,7 +336,7 @@ NET CASH TO SELLERS                                 $ 44,250,000.00
 Closing Date: March 15, 2026
 
 </pre>
-<span data-verify-line="ma">verify:jpmorgan.com/escrow/v</span> <span verifiable-text="end" data-for="ma">]</span>
+<span data-verify-line="ma">verify:jpmorgan.com/escrow/v</span> <span verifiable-text="end" data-for="ma"></span>
 </div>
 
 ## Data Verified
@@ -403,7 +403,7 @@ These **Instructions** are the legal blueprints for the payout. They tell the of
 Fraud is rampant: scammers often send fake "Updated Instructions" to the escrow officer to divert the seller's money to a foreign bank account. Verified hashes allow the officer to verify the **authenticity of the signature and the bank details** on the paper instructions.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="escrow-inst">[</span>
+  <span verifiable-text="start" data-for="escrow-inst"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">STEWART TITLE GUARANTY
 ═══════════════════════════════════════════════════════════════════
 
@@ -426,7 +426,7 @@ ________________________                     Date: March 15, 2026
 Seller Signature
 
 </pre>
-<span data-verify-line="escrow-inst">verify:stewart.com/escrow/v</span> <span verifiable-text="end" data-for="escrow-inst">]</span>
+<span data-verify-line="escrow-inst">verify:stewart.com/escrow/v</span> <span verifiable-text="end" data-for="escrow-inst"></span>
 </div>
 
 ## Data Verified

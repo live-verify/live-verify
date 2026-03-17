@@ -16,7 +16,7 @@ In global shipping, standard hull insurance often excludes "War Risks" (e.g., mi
 These documents are the "Combat Passport" for a ship. Fraud is high-stakes: a shipowner might create a fake "Lloyd's" binder to trick a bank or a charterer into believing the ship is covered for a Red Sea transit, when it actually is not. Similarly, they might "edit" a policy to remove a mandatory "Armed Guard" requirement to save on security costs. Verified hashes bind the **Vessel IMO, Transit Dates, and Specific High-Risk Zones** to the specialist insurer's domain (e.g., `beazley.com` or `dnv.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="war">[</span>BEAZLEY SPECIALTY MARINE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="war"></span>BEAZLEY SPECIALTY MARINE
 War, Piracy & Terrorism Unit
 ═══════════════════════════════════════════════════════════════════
 
@@ -34,7 +34,7 @@ MANDATORY WARRANTIES: Minimum 3-person Private Armed Security Team
 (PMSC) required during HRA transit. Continuous AIS monitoring
 required.
 
-<span data-verify-line="war">verify:beazley.com/war/v</span> <span verifiable-text="end" data-for="war">]</span></pre>
+<span data-verify-line="war">verify:beazley.com/war/v</span> <span verifiable-text="end" data-for="war"></span></pre>
 </div>
 
 ## Data Verified

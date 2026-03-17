@@ -10,7 +10,7 @@ furtherDerivations: 1
 ---
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="build">[</span>
+  <span verifiable-text="start" data-for="build"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">ZURICH NORTH AMERICA
 Construction Specialty Underwriters
 ═══════════════════════════════════════════════════════════════════
@@ -39,7 +39,7 @@ NOTICE: Coverage automatically terminates upon substantial
 completion or occupancy.
 
 </pre>
-<span data-verify-line="build">verify:zurichna.com/construction/v</span> <span verifiable-text="end" data-for="build">]</span>
+<span data-verify-line="build">verify:zurichna.com/construction/v</span> <span verifiable-text="end" data-for="build"></span>
 </div>
 
 ## Data Verified

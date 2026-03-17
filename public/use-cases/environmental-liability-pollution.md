@@ -18,7 +18,7 @@ These policies are critical for "Brownfield" redevelopments (turning old factori
 Fraud is high-stakes here: sellers often edit the "Retroactive Date" on their policy to hide that they weren't insured back in 1985 when the original leak happened. Verified hashes ensure the bank and the public are looking at the **true history of the safety net**.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="pollution">[</span>
+  <span verifiable-text="start" data-for="pollution"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">ACE AMERICAN INSURANCE CO.
 Pollution Legal Liability
 ═══════════════════════════════════════════════════════════════════
@@ -43,7 +43,7 @@ Policy Period:    March 01, 2026 to March 01, 2036 (10-Year Term)
 Retroactive Date: January 01, 1985
 
 </pre>
-<span data-verify-line="pollution">verify:chubb.com/environmental/v</span> <span verifiable-text="end" data-for="pollution">]</span>
+<span data-verify-line="pollution">verify:chubb.com/environmental/v</span> <span verifiable-text="end" data-for="pollution"></span>
 </div>
 
 ## Data Verified

@@ -18,7 +18,7 @@ These reports are gatekeeping documents. They determine whether an immigrant can
 With Live Verify, the evaluation report carries a `verify:` line bound to the evaluation agency's domain. The immigration officer, the licensing board, the university admissions office scans it and confirms: WES actually issued this evaluation, for this person, with this equivalency determination.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Georgia', serif; border: 1px solid #ccc; background: #fff; padding: 30px 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="fce">[</span>
+  <span verifiable-text="start" data-for="fce"></span>
   <div style="text-align: center; margin-bottom: 20px;">
     <div style="font-family: sans-serif; font-weight: bold; font-size: 1.3em; color: #003366;">World Education Services</div>
     <div style="font-family: sans-serif; font-size: 0.85em; color: #555;">Bowling Green Station, P.O. Box 5087, New York, NY 10274-5087</div>
@@ -48,7 +48,7 @@ With Live Verify, the evaluation report carries a `verify:` line bound to the ev
   </div>
   <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
   <div data-verify-line="fce" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;">
-    verify:wes.org/eval/v <span verifiable-text="end" data-for="fce">]</span>
+    verify:wes.org/eval/v <span verifiable-text="end" data-for="fce"></span>
   </div>
 </div>
 

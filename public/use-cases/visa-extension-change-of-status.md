@@ -16,7 +16,7 @@ When a person in the US on a temporary visa (e.g., H-1B, F-1, or B-2) wants to s
 These documents are the "Proof of Legal Presence." Fraud is rampant: people whose extensions were denied often "edit" a 2024 approval into a 2026 approval to hide their illegal overstay and trick employers or landlords into believing they are still in status. Verified hashes bind the **Receipt Number, New Expiration Date, and Visa Class** to the `uscis.gov` domain.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="extension">[</span>I-797A | NOTICE OF ACTION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="extension"></span>I-797A | NOTICE OF ACTION
 DEPARTMENT OF HOMELAND SECURITY
 U.S. CITIZENSHIP AND IMMIGRATION SERVICES
 ═══════════════════════════════════════════════════════════════════
@@ -32,7 +32,7 @@ The beneficiary's status is extended from 03/15/2026 to 03/14/2029.
 
          [ NEW DETACHABLE I-94 RECORD ATTACHED BELOW ]
 
-<span data-verify-line="extension">verify:uscis.gov/v/i797</span> <span verifiable-text="end" data-for="extension">]</span></pre>
+<span data-verify-line="extension">verify:uscis.gov/v/i797</span> <span verifiable-text="end" data-for="extension"></span></pre>
 </div>
 
 ## Data Verified

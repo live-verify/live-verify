@@ -19,7 +19,7 @@ Live Verify allows a diner to scan the window sticker to verify: **"Is this the 
 
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 4px solid #000; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #333333; color: #fff; padding: 15px; text-align: center;">
-    <h3 style="margin: 0; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="food">[</span>Food Hygiene Rating</h3>
+    <h3 style="margin: 0; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="food"></span>Food Hygiene Rating</h3>
   </div>
 <div style="padding: 25px; text-align: center; background: #ffffcc;">
     <div style="font-size: 0.8em; color: #666; margin-bottom: 5px;">FOOD STANDARDS AGENCY</div>
@@ -41,7 +41,7 @@ Live Verify allows a diner to scan the window sticker to verify: **"Is this the 
 <div style="padding: 15px; background: #fff;">
     <div data-verify-line="food" style="border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #333; text-align: center; font-weight: bold;"
       title="Demo only: Health departments don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:food.gov.uk/ratings/v <span verifiable-text="end" data-for="food">]</span>
+      verify:food.gov.uk/ratings/v <span verifiable-text="end" data-for="food"></span>
     </div>
   </div>
 </div>

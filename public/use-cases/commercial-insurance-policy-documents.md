@@ -10,7 +10,7 @@ furtherDerivations: 1
 ---
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="ins-pol">[</span>MARSH McLENNAN
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="ins-pol"></span>MARSH McLENNAN
 Commercial Lines Placement Summary
 POLICY EVIDENCE PORTFOLIO                       Client Ref: 99228877
 ═══════════════════════════════════════════════════════════════════
@@ -28,7 +28,7 @@ Note: All policies include Waivers of Subrogation and
 Primary/Non-Contributory endorsements as required by
 Master Service Agreement.
 
-<span data-verify-line="ins-pol">verify:marsh.com/portfolio/v</span> <span verifiable-text="end" data-for="ins-pol">]</span></pre>
+<span data-verify-line="ins-pol">verify:marsh.com/portfolio/v</span> <span verifiable-text="end" data-for="ins-pol"></span></pre>
 </div>
 
 ## Data Verified

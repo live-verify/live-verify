@@ -130,7 +130,7 @@ In the logistics and retail industries, a **Warehouse Receipt** is the proof tha
 Because they represent high-value physical assets, these receipts are a primary target for "Phantom Inventory" fraud. A dishonest business owner might "edit" a receipt to show they have 1,000 units instead of 100 to get a bigger loan. Similarly, they might use a fake receipt from a non-existent warehouse to create "paper wealth." Verified hashes bind the **SKU Quantities, Storage Location, and Total Value** to the warehouse operator's domain (e.g., `prologis.com` or `ironmountain.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="warehouse">[</span>METRO STORAGE & LOGISTICS
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="warehouse"></span>METRO STORAGE & LOGISTICS
 Global Bonded Warehousing - Facility ID: ROT-42
 ═══════════════════════════════════════════════════════════════════
 
@@ -149,7 +149,7 @@ TOTAL VERIFIED ASSET VALUE (USD):                      $ 250,000.00
 TERMS: Goods are stored subject to the Standard Warehouse Contract.
 Negotiable only if endorsed. Lien active for unpaid storage fees.
 
-<span data-verify-line="warehouse">verify:metro-logistics.com/v</span> <span verifiable-text="end" data-for="warehouse">]</span></pre>
+<span data-verify-line="warehouse">verify:metro-logistics.com/v</span> <span verifiable-text="end" data-for="warehouse"></span></pre>
 </div>
 
 ## Data Verified

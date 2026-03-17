@@ -18,7 +18,7 @@ This one-page paper (usually an ACORD 25 form) is the "Proof of Protection." It 
 COI fraud is rampant. Contractors often buy a policy for one day, print the COI, and then cancel the policy immediately. They show the "valid" paper to get hired, but they are actually uninsured. Live Verify provides a "Live Status" check to see if the policy was cancelled yesterday.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="coi">[</span>
+  <span verifiable-text="start" data-for="coi"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">ACORD 25               CERTIFICATE OF LIABILITY INSURANCE
 ═══════════════════════════════════════════════════════════════════
 
@@ -39,7 +39,7 @@ The City of Oakland
 1 Frank Ogawa Plaza, Oakland, CA
 
 </pre>
-<span data-verify-line="coi">verify:marsh.com/coi/v</span> <span verifiable-text="end" data-for="coi">]</span>
+<span data-verify-line="coi">verify:marsh.com/coi/v</span> <span verifiable-text="end" data-for="coi"></span>
 </div>
 
 ## Data Verified

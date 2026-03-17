@@ -18,7 +18,7 @@ It lists your **Deductible**, your **Copay**, and what you pay for an **ER visit
 Fraud happens during the sales process: some brokers edit the SBC PDF to show a "$500 Deductible" when the actual plan has a "$5,000 Deductible." Verified hashes turn the SBC into a live link to the insurer's official filing, ensuring you are buying the coverage you were promised.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="health-sbc">[</span>
+  <span verifiable-text="start" data-for="health-sbc"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">AETNA HEALTH
 Summary of Benefits and Coverage (SBC)
 ═══════════════════════════════════════════════════════════════════
@@ -43,7 +43,7 @@ This SBC is a verified extract of the Aetna Bronze PPO policy
 filed with the NY Dept of Financial Services.
 
 </pre>
-<span data-verify-line="health-sbc">verify:aetna.com/sbc/v</span> <span verifiable-text="end" data-for="health-sbc">]</span>
+<span data-verify-line="health-sbc">verify:aetna.com/sbc/v</span> <span verifiable-text="end" data-for="health-sbc"></span>
 </div>
 
 ## Data Verified

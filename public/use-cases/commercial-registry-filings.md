@@ -15,7 +15,7 @@ A commercial registry filing confirms that a business entity has properly regist
 Commercial registry fraud is widespread: fake incorporation documents, forged good standing certificates, and fraudulent UCC filings are used in business scams, identity theft, and "paper terrorism."
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="corp">[</span>CERTIFICATE OF INCORPORATION<br>
+  <span verifiable-text="start" data-for="corp"></span>CERTIFICATE OF INCORPORATION<br>
   Delaware Secretary of State<br>
   Entity: TechVentures Inc<br>
   File #: 7741892<br>
@@ -28,7 +28,7 @@ Commercial registry fraud is widespread: fake incorporation documents, forged go
   - Sarah Chen (Chair) verify:corp.delaware.gov/d<br>
   - Michael Torres verify:corp.delaware.gov/d<br>
   - James Wilson verify:corp.delaware.gov/d<br>
-  <span data-verify-line="corp">verify:corp.delaware.gov/entity</span> <span verifiable-text="end" data-for="corp">]</span>
+  <span data-verify-line="corp">verify:corp.delaware.gov/entity</span> <span verifiable-text="end" data-for="corp"></span>
 </div>
 
 ## Director Appointments
@@ -36,7 +36,7 @@ Commercial registry fraud is widespread: fake incorporation documents, forged go
 Directors are verified separately from the entity. Each director appointment gets its own verification URL. When a director resigns or is removed, their appointment is marked **SUPERSEDED**—the hash remains valid (proving they *were* a director) but verification returns the superseded status.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="dir1">[</span>DIRECTOR APPOINTMENT<br>
+  <span verifiable-text="start" data-for="dir1"></span>DIRECTOR APPOINTMENT<br>
   Delaware Secretary of State<br>
   Entity: TechVentures Inc (File #7741892)<br>
   <br>
@@ -44,11 +44,11 @@ Directors are verified separately from the entity. Each director appointment get
   Role: Chair of the Board<br>
   Appointed: January 5, 2026<br>
   Status: CURRENT<br>
-  <span data-verify-line="dir1">verify:corp.delaware.gov/d</span> <span verifiable-text="end" data-for="dir1">]</span>
+  <span data-verify-line="dir1">verify:corp.delaware.gov/d</span> <span verifiable-text="end" data-for="dir1"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="dir2">[</span>DIRECTOR APPOINTMENT<br>
+  <span verifiable-text="start" data-for="dir2"></span>DIRECTOR APPOINTMENT<br>
   Companies House (UK)<br>
   Company: British Tech Solutions Ltd (#12345678)<br>
   <br>
@@ -57,13 +57,13 @@ Directors are verified separately from the entity. Each director appointment get
   Appointed: 15 March 2020<br>
   Resigned: 22 November 2025<br>
   Status: SUPERSEDED<br>
-  <span data-verify-line="dir2">verify:companieshouse.gov.uk/d</span> <span verifiable-text="end" data-for="dir2">]</span>
+  <span data-verify-line="dir2">verify:companieshouse.gov.uk/d</span> <span verifiable-text="end" data-for="dir2"></span>
 </div>
 
 **Why No Linking:** When a director is superseded, we don't link to their replacement. The company registry maintains the full historical record of director changes. Verification answers a simpler question: "Was this person a director, and are they still?" This avoids encoding complex succession graphs into hashes and respects that a former director's record stands on its own.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="ucc">[</span>UCC FINANCING STATEMENT<br>
+  <span verifiable-text="start" data-for="ucc"></span>UCC FINANCING STATEMENT<br>
   California Secretary of State<br>
   File #: 2026-7741892-1<br>
   Debtor: Johnson Manufacturing LLC<br>
@@ -71,11 +71,11 @@ Directors are verified separately from the entity. Each director appointment get
   Collateral: All inventory and equipment<br>
   Filed: January 6, 2026<br>
   Expires: January 6, 2031<br>
-  <span data-verify-line="ucc">verify:sos.ca.gov/ucc</span> <span verifiable-text="end" data-for="ucc">]</span>
+  <span data-verify-line="ucc">verify:sos.ca.gov/ucc</span> <span verifiable-text="end" data-for="ucc"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="trademark">[</span>TRADEMARK REGISTRATION<br>
+  <span verifiable-text="start" data-for="trademark"></span>TRADEMARK REGISTRATION<br>
   U.S. Patent and Trademark Office<br>
   Mark: LIVEVERIFY<br>
   Registration #: 7,884,221<br>
@@ -83,11 +83,11 @@ Directors are verified separately from the entity. Each director appointment get
   Class: 042 - Computer Software<br>
   Registered: December 15, 2025<br>
   Renewal Due: December 2035<br>
-  <span data-verify-line="trademark">verify:uspto.gov/trademarks</span> <span verifiable-text="end" data-for="trademark">]</span>
+  <span data-verify-line="trademark">verify:uspto.gov/trademarks</span> <span verifiable-text="end" data-for="trademark"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="uk">[</span>COMPANIES HOUSE CONFIRMATION<br>
+  <span verifiable-text="start" data-for="uk"></span>COMPANIES HOUSE CONFIRMATION<br>
   United Kingdom<br>
   Company: British Tech Solutions Ltd<br>
   Company #: 12345678<br>
@@ -95,11 +95,11 @@ Directors are verified separately from the entity. Each director appointment get
   Confirmation Statement Filed: January 3, 2026<br>
   Next Due: January 17, 2027<br>
   Status: Active<br>
-  <span data-verify-line="uk">verify:companieshouse.gov.uk/company</span> <span verifiable-text="end" data-for="uk">]</span>
+  <span data-verify-line="uk">verify:companieshouse.gov.uk/company</span> <span verifiable-text="end" data-for="uk"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="de">[</span>HANDELSREGISTERAUSZUG<br>
+  <span verifiable-text="start" data-for="de"></span>HANDELSREGISTERAUSZUG<br>
   Amtsgericht Munchen<br>
   HRB 123456<br>
   Firma: Deutsche Tech GmbH<br>
@@ -108,11 +108,11 @@ Directors are verified separately from the entity. Each director appointment get
   Geschaftsfuhrer: Hans Muller<br>
   Eingetragen: 15. Marz 2020<br>
   Status: Aktiv<br>
-  <span data-verify-line="de">verify:handelsregister.de/rp</span> <span verifiable-text="end" data-for="de">]</span>
+  <span data-verify-line="de">verify:handelsregister.de/rp</span> <span verifiable-text="end" data-for="de"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="fr">[</span>EXTRAIT KBIS<br>
+  <span verifiable-text="start" data-for="fr"></span>EXTRAIT KBIS<br>
   Greffe du Tribunal de Commerce de Paris<br>
   SIREN: 123 456 789<br>
   Denomination: Tech France SAS<br>
@@ -121,11 +121,11 @@ Directors are verified separately from the entity. Each director appointment get
   Siege Social: 75008 Paris<br>
   President: Marie Dupont<br>
   Immatriculation: 15/03/2020<br>
-  <span data-verify-line="fr">verify:infogreffe.fr/kbis</span> <span verifiable-text="end" data-for="fr">]</span>
+  <span data-verify-line="fr">verify:infogreffe.fr/kbis</span> <span verifiable-text="end" data-for="fr"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="nl">[</span>KVK UITTREKSEL<br>
+  <span verifiable-text="start" data-for="nl"></span>KVK UITTREKSEL<br>
   Kamer van Koophandel<br>
   KVK-nummer: 12345678<br>
   Handelsnaam: Tech Nederland B.V.<br>
@@ -133,22 +133,22 @@ Directors are verified separately from the entity. Each director appointment get
   Vestigingsplaats: Amsterdam<br>
   Inschrijving: 15-03-2020<br>
   Status: Actief<br>
-  <span data-verify-line="nl">verify:kvk.nl/company</span> <span verifiable-text="end" data-for="nl">]</span>
+  <span data-verify-line="nl">verify:kvk.nl/company</span> <span verifiable-text="end" data-for="nl"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="ca">[</span>CERTIFICATE OF STATUS<br>
+  <span verifiable-text="start" data-for="ca"></span>CERTIFICATE OF STATUS<br>
   Corporations Canada<br>
   Corporation #: 1234567-8<br>
   Name: TechCanada Inc<br>
   Jurisdiction: Federal<br>
   Date of Incorporation: March 15, 2020<br>
   Status: Active<br>
-  <span data-verify-line="ca">verify:corporationscanada.ic.gc.ca</span> <span verifiable-text="end" data-for="ca">]</span>
+  <span data-verify-line="ca">verify:corporationscanada.ic.gc.ca</span> <span verifiable-text="end" data-for="ca"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="au">[</span>ASIC COMPANY EXTRACT<br>
+  <span verifiable-text="start" data-for="au"></span>ASIC COMPANY EXTRACT<br>
   Australian Securities and Investments Commission<br>
   ACN: 123 456 789<br>
   Company Name: Tech Australia Pty Ltd<br>
@@ -156,33 +156,33 @@ Directors are verified separately from the entity. Each director appointment get
   Registration Date: 15/03/2020<br>
   Registered Office: Sydney NSW<br>
   Status: Registered<br>
-  <span data-verify-line="au">verify:asic.gov.au/company</span> <span verifiable-text="end" data-for="au">]</span>
+  <span data-verify-line="au">verify:asic.gov.au/company</span> <span verifiable-text="end" data-for="au"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="sg">[</span>ACRA BUSINESS PROFILE<br>
+  <span verifiable-text="start" data-for="sg"></span>ACRA BUSINESS PROFILE<br>
   Accounting and Corporate Regulatory Authority<br>
   UEN: 202012345A<br>
   Entity Name: Tech Singapore Pte Ltd<br>
   Entity Type: Private Limited Company<br>
   Registration Date: 15 Mar 2020<br>
   Status: Live<br>
-  <span data-verify-line="sg">verify:acra.gov.sg/company</span> <span verifiable-text="end" data-for="sg">]</span>
+  <span data-verify-line="sg">verify:acra.gov.sg/company</span> <span verifiable-text="end" data-for="sg"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="hk">[</span>CERTIFICATE OF INCORPORATION<br>
+  <span verifiable-text="start" data-for="hk"></span>CERTIFICATE OF INCORPORATION<br>
   Hong Kong Companies Registry<br>
   Company #: 1234567<br>
   Name: Tech Hong Kong Limited<br>
   Type: Private Company Limited by Shares<br>
   Incorporated: 15 March 2020<br>
   Status: Live<br>
-  <span data-verify-line="hk">verify:cr.gov.hk/company</span> <span verifiable-text="end" data-for="hk">]</span>
+  <span data-verify-line="hk">verify:cr.gov.hk/company</span> <span verifiable-text="end" data-for="hk"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="ie">[</span>CRO COMPANY PRINTOUT<br>
+  <span verifiable-text="start" data-for="ie"></span>CRO COMPANY PRINTOUT<br>
   Companies Registration Office Ireland<br>
   Company #: 123456<br>
   Name: Tech Ireland DAC<br>
@@ -190,11 +190,11 @@ Directors are verified separately from the entity. Each director appointment get
   Registered: 15/03/2020<br>
   Registered Office: Dublin 2<br>
   Status: Normal<br>
-  <span data-verify-line="ie">verify:cro.ie/company</span> <span verifiable-text="end" data-for="ie">]</span>
+  <span data-verify-line="ie">verify:cro.ie/company</span> <span verifiable-text="end" data-for="ie"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="ch">[</span>HANDELSREGISTERAUSZUG<br>
+  <span verifiable-text="start" data-for="ch"></span>HANDELSREGISTERAUSZUG<br>
   Handelsregisteramt Kanton Zurich<br>
   UID: CHE-123.456.789<br>
   Firma: Tech Switzerland AG<br>
@@ -202,13 +202,13 @@ Directors are verified separately from the entity. Each director appointment get
   Kapital: CHF 100.000<br>
   Sitz: Zurich<br>
   Eingetragen: 15.03.2020<br>
-  <span data-verify-line="ch">verify:zefix.ch/company</span> <span verifiable-text="end" data-for="ch">]</span>
+  <span data-verify-line="ch">verify:zefix.ch/company</span> <span verifiable-text="end" data-for="ch"></span>
 </div>
 
 ## Charities, Non-Profits, and Associations
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="charity">[</span>REGISTERED CHARITY<br>
+  <span verifiable-text="start" data-for="charity"></span>REGISTERED CHARITY<br>
   Charity Commission for England and Wales<br>
   Charity #: 1234567<br>
   Name: Community Health Foundation<br>
@@ -216,22 +216,22 @@ Directors are verified separately from the entity. Each director appointment get
   Registered: 15 March 2020<br>
   Trustees: 5<br>
   Status: Registered<br>
-  <span data-verify-line="charity">verify:charitycommission.gov.uk</span> <span verifiable-text="end" data-for="charity">]</span>
+  <span data-verify-line="charity">verify:charitycommission.gov.uk</span> <span verifiable-text="end" data-for="charity"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="nonprofit">[</span>501(c)(3) DETERMINATION LETTER<br>
+  <span verifiable-text="start" data-for="nonprofit"></span>501(c)(3) DETERMINATION LETTER<br>
   Internal Revenue Service<br>
   EIN: 12-3456789<br>
   Organization: Youth Education Fund Inc<br>
   Determination: Tax-Exempt Status Granted<br>
   Effective Date: March 15, 2020<br>
   Foundation Status: Public Charity<br>
-  <span data-verify-line="nonprofit">verify:irs.gov/eo</span> <span verifiable-text="end" data-for="nonprofit">]</span>
+  <span data-verify-line="nonprofit">verify:irs.gov/eo</span> <span verifiable-text="end" data-for="nonprofit"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="assoc">[</span>VEREINSREGISTERAUSZUG<br>
+  <span verifiable-text="start" data-for="assoc"></span>VEREINSREGISTERAUSZUG<br>
   Amtsgericht Charlottenburg Berlin<br>
   VR 12345 B<br>
   Name: Berliner Sportverein e.V.<br>
@@ -239,11 +239,11 @@ Directors are verified separately from the entity. Each director appointment get
   Vorstand: Petra Schmidt (1. Vorsitzende)<br>
   Eingetragen: 15.03.2020<br>
   Mitglieder: 450<br>
-  <span data-verify-line="assoc">verify:vereinsregister.de/v</span> <span verifiable-text="end" data-for="assoc">]</span>
+  <span data-verify-line="assoc">verify:vereinsregister.de/v</span> <span verifiable-text="end" data-for="assoc"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="nz">[</span>INCORPORATED SOCIETY<br>
+  <span verifiable-text="start" data-for="nz"></span>INCORPORATED SOCIETY<br>
   New Zealand Companies Office<br>
   Society #: 123456<br>
   Name: Auckland Community Sports Club Inc<br>
@@ -251,11 +251,11 @@ Directors are verified separately from the entity. Each director appointment get
   Incorporated: 15 March 2020<br>
   Address: Auckland<br>
   Status: Registered<br>
-  <span data-verify-line="nz">verify:societies.govt.nz</span> <span verifiable-text="end" data-for="nz">]</span>
+  <span data-verify-line="nz">verify:societies.govt.nz</span> <span verifiable-text="end" data-for="nz"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="coop">[</span>COOPERATIVE REGISTRATION<br>
+  <span verifiable-text="start" data-for="coop"></span>COOPERATIVE REGISTRATION<br>
   California Secretary of State<br>
   Entity #: C4567890<br>
   Name: Bay Area Housing Cooperative<br>
@@ -263,18 +263,18 @@ Directors are verified separately from the entity. Each director appointment get
   Formed: March 15, 2020<br>
   Members: 120<br>
   Status: Active<br>
-  <span data-verify-line="coop">verify:sos.ca.gov/coop</span> <span verifiable-text="end" data-for="coop">]</span>
+  <span data-verify-line="coop">verify:sos.ca.gov/coop</span> <span verifiable-text="end" data-for="coop"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="aus">[</span>REGISTERED AUSTRALIAN CHARITY<br>
+  <span verifiable-text="start" data-for="aus"></span>REGISTERED AUSTRALIAN CHARITY<br>
   Australian Charities and Not-for-profits Commission<br>
   ABN: 12 345 678 901<br>
   Charity Name: Melbourne Community Foundation<br>
   Charity Type: Public Benevolent Institution<br>
   DGR Status: Endorsed<br>
   Registered: 15/03/2020<br>
-  <span data-verify-line="aus">verify:acnc.gov.au/charity</span> <span verifiable-text="end" data-for="aus">]</span>
+  <span data-verify-line="aus">verify:acnc.gov.au/charity</span> <span verifiable-text="end" data-for="aus"></span>
 </div>
 
 ## Beneficial Ownership / PSC Disclosures
@@ -282,7 +282,7 @@ Directors are verified separately from the entity. Each director appointment get
 Who actually owns a company? Beneficial ownership registers attempt to answer this—but the answer is often another company, sometimes offshore.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="psc1">[</span>PSC REGISTER EXTRACT<br>
+  <span verifiable-text="start" data-for="psc1"></span>PSC REGISTER EXTRACT<br>
   Companies House (UK)<br>
   Company: Dbl Glazing Hertford Ltd (#09876543)<br>
   <br>
@@ -302,11 +302,11 @@ Who actually owns a company? Beneficial ownership registers attempt to answer th
      Ownership: 25% shares, 25% voting rights<br>
      Notified: 15 March 2022<br>
      verify:companieshouse.gov.uk/psc<br>
-  <span data-verify-line="psc1">verify:companieshouse.gov.uk/psc</span> <span verifiable-text="end" data-for="psc1">]</span>
+  <span data-verify-line="psc1">verify:companieshouse.gov.uk/psc</span> <span verifiable-text="end" data-for="psc1"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="boi1">[</span>BENEFICIAL OWNERSHIP INFORMATION<br>
+  <span verifiable-text="start" data-for="boi1"></span>BENEFICIAL OWNERSHIP INFORMATION<br>
   FinCEN BOI Report<br>
   Company: Sunrise Properties LLC<br>
   EIN: 84-7723991<br>
@@ -321,7 +321,7 @@ Who actually owns a company? Beneficial ownership registers attempt to answer th
      Filed: January 2, 2026<br>
   <br>
   Company Applicant: John Smith, Registered Agent<br>
-  <span data-verify-line="boi1">verify:fincen.gov/boi</span> <span verifiable-text="end" data-for="boi1">]</span>
+  <span data-verify-line="boi1">verify:fincen.gov/boi</span> <span verifiable-text="end" data-for="boi1"></span>
 </div>
 
 **What Verification Proves (and Doesn't)**

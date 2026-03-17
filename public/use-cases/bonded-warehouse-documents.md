@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Courier New', monospace; border: 2px solid #000; background: #fff; padding: 20px; box-shadow: 2px 2px 5px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 20px;">
-    <strong><span verifiable-text="start" data-for="bonded">[</span>GLOBAL LOGISTICS BONDED HUB</strong><br>
+    <strong><span verifiable-text="start" data-for="bonded"></span>GLOBAL LOGISTICS BONDED HUB</strong><br>
     U.S. CUSTOMS CLASS 3 WAREHOUSE (#998877)<br>
     -------------------------------------------
   </div>
@@ -33,7 +33,7 @@ furtherDerivations: 1
   </div>
 <div data-verify-line="bonded" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Warehouse operator doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:global-bonded.com/receipts/v <span verifiable-text="end" data-for="bonded">]</span>
+      verify:global-bonded.com/receipts/v <span verifiable-text="end" data-for="bonded"></span>
   </div>
 </div>
 

@@ -17,7 +17,7 @@ A **Verifiable Purchase Token (VPT)** is a "Single-Use Claim" (Criteria §2) gen
 
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #000; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
   <div style="background: #000; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
-    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="vpt">[</span>WELLS FARGO</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="vpt"></span>WELLS FARGO</div>
     <div style="font-size: 0.8em; opacity: 0.8;">PURCHASE AUTH</div>
   </div>
 <div style="padding: 20px; font-size: 0.9em; line-height: 1.6; color: #333;">
@@ -37,7 +37,7 @@ A **Verifiable Purchase Token (VPT)** is a "Single-Use Claim" (Criteria §2) gen
       VALID FOR 60 SECONDS
     </p>
 <div data-verify-line="vpt" style="border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold; text-align: center;">
-      verify:wellsfargo.com/pay/v <span verifiable-text="end" data-for="vpt">]</span>
+      verify:wellsfargo.com/pay/v <span verifiable-text="end" data-for="vpt"></span>
     </div>
   </div>
 </div>

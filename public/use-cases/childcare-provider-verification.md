@@ -24,7 +24,7 @@ Tragically, some people use "ID Swapping"—using a sibling's clear background c
   <div style="background: #e91e63; color: #fff; padding: 15px; text-align: center; display: flex; align-items: center; justify-content: center;">
     <div style="font-size: 1.5em; margin-right: 10px;">🧸</div>
     <div>
-      <h3 style="margin: 0; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="child">[</span>VERIFIED CHILDCARE</h3>
+      <h3 style="margin: 0; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="child"></span>VERIFIED CHILDCARE</h3>
       <div style="font-size: 0.8em;">TRUSTED PROVIDER NETWORK</div>
     </div>
   </div>
@@ -48,7 +48,7 @@ Tragically, some people use "ID Swapping"—using a sibling's clear background c
     </p>
     <div data-verify-line="child" style="border-top: 1px dashed #999; margin-top: 10px; padding-top: 5px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Care platform doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:care.com/providers/v <span verifiable-text="end" data-for="child">]</span>
+      verify:care.com/providers/v <span verifiable-text="end" data-for="child"></span>
     </div>
   </div>
 </div>

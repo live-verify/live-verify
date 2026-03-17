@@ -16,7 +16,7 @@ For manufacturers and distributors, **Product Liability Insurance** is the safet
 These documents are the "Proof of Solvency" for the supply chain. Large retailers (e.g., Target, Amazon) will not carry a product unless the manufacturer provides a verified **Certificate of Insurance (COI)**. Fraud is high-stakes: a manufacturer might "edit" a policy to add a dangerous product that the insurer actually excluded, or change a "Claims-Made" date to hide a gap in coverage. Verified hashes bind the **Covered Product List, Policy Limits, and Retroactive Dates** to the insurer's domain (e.g., `chubb.com` or `travelers.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="liab">[</span>CHUBB SPECIALTY
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="liab"></span>CHUBB SPECIALTY
 Commercial General & Product Liability
 ═══════════════════════════════════════════════════════════════════
 POLICY SUMMARY                                     Ref: PL-99228877
@@ -34,7 +34,7 @@ VERIFIED COVERED PRODUCTS
 
 Coverage expires: 15 MAR 2027
 
-<span data-verify-line="liab">verify:chubb.com/liab/v</span> <span verifiable-text="end" data-for="liab">]</span></pre>
+<span data-verify-line="liab">verify:chubb.com/liab/v</span> <span verifiable-text="end" data-for="liab"></span></pre>
 </div>
 
 ## Data Verified

@@ -20,7 +20,7 @@ A **Verifiable Pawn Transaction Record** is a receipt issued by the dealer at th
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #bf360c; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #bf360c; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="pawn">[</span>PAWN TRANSACTION RECORD</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="pawn"></span>PAWN TRANSACTION RECORD</div>
       <div style="font-size: 0.8em; opacity: 0.9;">Licensed Dealer — Statutory Record</div>
     </div>
     <div style="text-align: right;">
@@ -46,7 +46,7 @@ A **Verifiable Pawn Transaction Record** is a receipt issued by the dealer at th
   </div>
   <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #bf360c; text-align: center;">
     <div data-verify-line="pawn" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:empiregoldpawn.com/tx/v <span verifiable-text="end" data-for="pawn">]</span>
+      verify:empiregoldpawn.com/tx/v <span verifiable-text="end" data-for="pawn"></span>
     </div>
   </div>
 </div>
@@ -54,7 +54,7 @@ A **Verifiable Pawn Transaction Record** is a receipt issued by the dealer at th
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #37474f; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #37474f; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="buyback">[</span>ELECTRONICS BUY-BACK RECORD</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="buyback"></span>ELECTRONICS BUY-BACK RECORD</div>
       <div style="font-size: 0.8em; opacity: 0.9;">Licensed Second-Hand Dealer</div>
     </div>
     <div style="text-align: right;">
@@ -80,7 +80,7 @@ A **Verifiable Pawn Transaction Record** is a receipt issued by the dealer at th
   </div>
   <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #37474f; text-align: center;">
     <div data-verify-line="buyback" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:webuyelectronics.com/tx/v <span verifiable-text="end" data-for="buyback">]</span>
+      verify:webuyelectronics.com/tx/v <span verifiable-text="end" data-for="buyback"></span>
     </div>
   </div>
 </div>

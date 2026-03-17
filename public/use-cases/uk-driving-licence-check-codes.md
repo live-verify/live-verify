@@ -18,7 +18,7 @@ Currently, these codes (e.g., `aB123dEf`) are often dictated over the phone or s
 A **Verifiable Check Code Attestation** turns the share code into a cryptographic bridge. The third party verifies the code against the DVLA's domain instantly, ensuring the code is current and authentic.
 
 <div style="max-width: 500px; margin: 24px auto; font-family: 'Courier New', monospace; background: #f4f4f4; border: 1px solid #ccc; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="dvla">[</span>
+  <span verifiable-text="start" data-for="dvla"></span>
   <strong>DVLA SHARE DRIVING LICENCE</strong><br>
   ═══════════════════════════════════════<br>
   <br>
@@ -28,7 +28,7 @@ A **Verifiable Check Code Attestation** turns the share code into a cryptographi
   <strong>Generated:</strong> 05 MAR 2026 14:30 UTC<br>
   <strong>Expires:</strong> 26 MAR 2026 (21 days)<br>
   <br>
-  <span data-verify-line="dvla">verify:view-driving-licence.service.gov.uk/v</span> <span verifiable-text="end" data-for="dvla">]</span>
+  <span data-verify-line="dvla">verify:view-driving-licence.service.gov.uk/v</span> <span verifiable-text="end" data-for="dvla"></span>
 </div>
 
 ## Data Verified

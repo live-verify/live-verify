@@ -19,7 +19,7 @@ Unlike other insurance that covers *future* events (like fire), title insurance 
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px;">
-    <div style="font-weight: bold; font-size: 1.2em; color: #1a365d;"><span verifiable-text="start" data-for="title-ins">[</span>FIRST AMERICAN TITLE</div>
+    <div style="font-weight: bold; font-size: 1.2em; color: #1a365d;"><span verifiable-text="start" data-for="title-ins"></span>FIRST AMERICAN TITLE</div>
     <div style="text-align: right; font-size: 0.85em; color: #666;">
       Policy No: FA-99228877-TX<br>
       March 15, 2026
@@ -39,7 +39,7 @@ Unlike other insurance that covers *future* events (like fire), title insurance 
   </div>
 <div data-verify-line="title-ins" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: First American doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:firstam.com/v <span verifiable-text="end" data-for="title-ins">]</span>
+      verify:firstam.com/v <span verifiable-text="end" data-for="title-ins"></span>
   </div>
 </div>
 

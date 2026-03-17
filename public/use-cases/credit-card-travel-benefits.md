@@ -20,7 +20,7 @@ Rental agents often try to force you to buy their expensive $30/day insurance by
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; border-radius: 12px; background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%); color: #fff; padding: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.3); overflow: hidden;">
   <div style="padding: 25px; display: flex; justify-content: space-between; align-items: flex-start;">
     <div>
-      <div style="font-weight: bold; font-size: 1.4em; letter-spacing: 1px;"><span verifiable-text="start" data-for="card">[</span>CHASE SAPPHIRE PREFERRED</div>
+      <div style="font-weight: bold; font-size: 1.4em; letter-spacing: 1px;"><span verifiable-text="start" data-for="card"></span>CHASE SAPPHIRE PREFERRED</div>
       <div style="font-size: 0.8em; opacity: 0.8; margin-top: 5px;">VISA SIGNATURE®</div>
     </div>
     <div style="font-size: 1.2em;">💳</div>
@@ -39,7 +39,7 @@ Rental agents often try to force you to buy their expensive $30/day insurance by
     </div>
 <div data-verify-line="card" style="border-top: 1px dashed rgba(255,255,255,0.3); margin-top: 25px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #ccc; text-align: center;"
       title="Demo only: Chase doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:chase.com/benefits/v <span verifiable-text="end" data-for="card">]</span>
+      verify:chase.com/benefits/v <span verifiable-text="end" data-for="card"></span>
     </div>
   </div>
 </div>

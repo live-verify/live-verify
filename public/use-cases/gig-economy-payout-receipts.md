@@ -18,7 +18,7 @@ Because gig workers are "Self-Employed," they must show these receipts to landlo
 Fraud is common: drivers often edit a $400 payout to read $4,000 to trick a landlord into thinking they are high-earners. Live Verify allows a landlord to scan the receipt and see the **verified, un-altered weekly income** directly from the platform's domain.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="gig">[</span>Uber                                  Weekly Earnings Statement
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="gig"></span>Uber                                  Weekly Earnings Statement
 
 Driver:     SARAH JANE SMITH            Period: Mar 08 - Mar 15, 2026
 Partner ID: 99228877
@@ -35,7 +35,7 @@ NET PAYOUT:                                             $ 1,242.50
 This statement is a verified record of earnings for tax
 and income verification purposes.
 
-<span data-verify-line="gig">verify:uber.com/payouts/v</span> <span verifiable-text="end" data-for="gig">]</span></pre>
+<span data-verify-line="gig">verify:uber.com/payouts/v</span> <span verifiable-text="end" data-for="gig"></span></pre>
 </div>
 
 ## Data Verified

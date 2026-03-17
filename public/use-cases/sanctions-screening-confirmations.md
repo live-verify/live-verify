@@ -17,7 +17,7 @@ If you do business with a sanctioned party, even accidentally, the penalties are
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #8B0000; background: #fff; padding: 0;">
   <div style="background: #8B0000; color: #fff; padding: 15px;">
-    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="sanctionsscreeningco">[</span>SANCTIONS SCREENING CONFIRMATION</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="sanctionsscreeningco"></span>SANCTIONS SCREENING CONFIRMATION</div>
     <div style="font-size: 0.8em;">Financial Crime Compliance</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -37,7 +37,7 @@ If you do business with a sanctioned party, even accidentally, the penalties are
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="sanctionsscreeningco" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:sterling-bank.com/sanctions <span verifiable-text="end" data-for="sanctionsscreeningco">]</span>
+        verify:sterling-bank.com/sanctions <span verifiable-text="end" data-for="sanctionsscreeningco"></span>
       </div>
     </div>
   </div>

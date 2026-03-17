@@ -10,7 +10,7 @@ furtherDerivations: 1
 ---
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="ag-pol">[</span>NAU COUNTRY INSURANCE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="ag-pol"></span>NAU COUNTRY INSURANCE
 Multi-Peril Crop Insurance (MPCI)             Policy #: MPCI-99228877-26
 ═══════════════════════════════════════════════════════════════════
 
@@ -31,7 +31,7 @@ Period:          March 01, 2026 to February 28, 2027
 
 Underwritten in accordance with USDA Risk Management Agency (RMA).
 
-<span data-verify-line="ag-pol">verify:naucountry.com/policy/v</span> <span verifiable-text="end" data-for="ag-pol">]</span></pre>
+<span data-verify-line="ag-pol">verify:naucountry.com/policy/v</span> <span verifiable-text="end" data-for="ag-pol"></span></pre>
 </div>
 
 ## Data Verified

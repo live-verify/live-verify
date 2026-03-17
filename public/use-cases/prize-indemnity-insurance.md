@@ -16,7 +16,7 @@ In the world of marketing and sports, **Prize Indemnity Insurance** allows a com
 These documents are the "Proof of Payout." Fraud is rampant in "Small-Town Contests." A dishonest sponsor might claim they have insurance to lure in participants, but they actually have a fake "Zurich" or "Lloyd's" policy. If someone wins, the sponsor disappears, and the winner is left with a worthless piece of paper. Verified hashes bind the **Prize Amount, Event Date, and Required Witnesses** to the specialist insurer's domain (e.g., `hiscox.com` or `beazley.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="prize">[</span>HISCOX SPECIALTY
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="prize"></span>HISCOX SPECIALTY
 Prize Indemnity & Contingency Unit
 ═══════════════════════════════════════════════════════════════════
 CERTIFICATE OF COVERAGE                        Policy: PI-992288-XJ
@@ -34,7 +34,7 @@ MANDATORY WIN CONDITIONS
 
 Premium paid and coverage in force for the stated event.
 
-<span data-verify-line="prize">verify:hiscox.com/prize/v</span> <span verifiable-text="end" data-for="prize">]</span></pre>
+<span data-verify-line="prize">verify:hiscox.com/prize/v</span> <span verifiable-text="end" data-for="prize"></span></pre>
 </div>
 
 ## Data Verified

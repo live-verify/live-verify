@@ -16,7 +16,7 @@ In global finance and trade, every transaction must be checked against **Sanctio
 These documents are the "Legal Safe Harbor" for high-value trade. Fraud is high-stakes: a company might "edit" a screening report to hide that their customer is actually a sanctioned oligarch or a prohibited defense entity. Similarly, a bank might use an outdated "Snapshot" from 2023 to hide a sanction designated in 2025. Verified hashes bind the **Subject Name, Lists Searched, and Dataset Timestamp** to the screening provider's domain (e.g., `dowjones.com` or `refinitiv.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="sanc">[</span>DOW JONES RISK & COMPLIANCE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="sanc"></span>DOW JONES RISK & COMPLIANCE
 Official Screening Attestation
 ═══════════════════════════════════════════════════════════════════
 
@@ -37,7 +37,7 @@ This attestation confirms that the subject was screened against
 the datasets above with 100% fuzzy-match threshold. Verification
 confirms report integrity at the timestamp of issuance.
 
-<span data-verify-line="sanc">verify:dowjones.com/v</span> <span verifiable-text="end" data-for="sanc">]</span></pre>
+<span data-verify-line="sanc">verify:dowjones.com/v</span> <span verifiable-text="end" data-for="sanc"></span></pre>
 </div>
 
 ## Data Verified

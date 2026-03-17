@@ -10,7 +10,7 @@ furtherDerivations: 4
 ---
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="claim">[</span>ALLSTATE INSURANCE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="claim"></span>ALLSTATE INSURANCE
 Claims Processing Center
 REPAIR ESTIMATE SUMMARY                         Claim #: 99228877-X
 ═══════════════════════════════════════════════════════════════════
@@ -30,7 +30,7 @@ ESTIMATED REPAIR TOTAL:                                  $ 6,800.00
 
 Adjuster:   Sarah Miller (ID #992)
 
-<span data-verify-line="claim">verify:allstate.com/claims/v</span> <span verifiable-text="end" data-for="claim">]</span></pre>
+<span data-verify-line="claim">verify:allstate.com/claims/v</span> <span verifiable-text="end" data-for="claim"></span></pre>
 </div>
 
 ## Data Verified
@@ -138,7 +138,7 @@ The card proves three things:
 Because people often cancel their insurance right after printing the card, police and DMV agents need a way to verify that the policy is **live** and hasn't been terminated for non-payment.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="ins">[</span>GEICO                                        AUTO INSURANCE ID CARD
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="ins"></span>GEICO                                        AUTO INSURANCE ID CARD
 ═══════════════════════════════════════════════════════════════════
 
 Policy Number:    9988-77-66
@@ -154,7 +154,7 @@ Expiration Date:  JUL 01, 2026
 This card is for information only.
 Refer to your policy for actual coverage.
 
-<span data-verify-line="ins">verify:geico.com/v</span> <span verifiable-text="end" data-for="ins">]</span></pre>
+<span data-verify-line="ins">verify:geico.com/v</span> <span verifiable-text="end" data-for="ins"></span></pre>
 </div>
 
 ## Data Verified
@@ -276,7 +276,7 @@ An insurance policy can be 50 pages of legal jargon. The **Declarations Page** (
 Lenders (for car loans) and landlords often require a copy of the Dec Page. Fraudsters often "Photoshopping" these pages to show higher coverage limits than they actually have to win contracts or satisfy loan requirements.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="autodec">[</span>PROGRESSIVE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="autodec"></span>PROGRESSIVE
 POLICY DECLARATIONS                              Renewal: Mar 15, 2026
 ═══════════════════════════════════════════════════════════════════
 
@@ -291,7 +291,7 @@ Collision Deductible                                         $ 500
 
 Vehicle:        2024 Ford F-150 (VIN ...9922)
 
-<span data-verify-line="autodec">verify:progressive.com/v/dec</span> <span verifiable-text="end" data-for="autodec">]</span></pre>
+<span data-verify-line="autodec">verify:progressive.com/v/dec</span> <span verifiable-text="end" data-for="autodec"></span></pre>
 </div>
 
 ## Data Verified
@@ -390,7 +390,7 @@ This document is the only thing protecting you if the car arrives at the destina
 Fraud is common: drivers sometimes "edit" the digital report *after* they damage the car, adding a scratch to the "Origin" report so it looks like it was already there. Verified snapshots prevent this "after-the-fact" tampering.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="damage">[</span>RELIABLE CAR CARRIERS, INC.
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="damage"></span>RELIABLE CAR CARRIERS, INC.
 MC #123456 | DOT #998877
 VEHICLE INSPECTION REPORT (BOL)                 Order #: RCC-2026-992
 ═══════════════════════════════════════════════════════════════════
@@ -408,7 +408,7 @@ MAR 15, 2026                        MAR 20, 2026
 Damage Notations (Origin):
 Clean - no scratches, chips, or dents noted at time of pickup.
 
-<span data-verify-line="damage">verify:reliable-carriers.com/bol/v</span> <span verifiable-text="end" data-for="damage">]</span></pre>
+<span data-verify-line="damage">verify:reliable-carriers.com/bol/v</span> <span verifiable-text="end" data-for="damage"></span></pre>
 </div>
 
 ## Data Verified

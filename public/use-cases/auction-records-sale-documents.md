@@ -10,7 +10,7 @@ furtherDerivations: 1
 ---
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="auction">[</span>
+  <span verifiable-text="start" data-for="auction"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">PHILLIPS
 NEW YORK - 432 PARK AVENUE
 ═══════════════════════════════════════════════════════════════════
@@ -36,7 +36,7 @@ Payment received in full. Title transferred upon clearance of funds.
                     Invoice #: INV-9982-X
 
 </pre>
-  <span data-verify-line="auction">verify:phillips.com/sales/v</span> <span verifiable-text="end" data-for="auction">]</span>
+  <span data-verify-line="auction">verify:phillips.com/sales/v</span> <span verifiable-text="end" data-for="auction"></span>
 </div>
 
 ## Data Verified

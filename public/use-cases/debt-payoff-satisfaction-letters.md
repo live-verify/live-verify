@@ -15,7 +15,7 @@ A satisfaction letter (also called a payoff letter, release letter, or lien rele
 Fraud is common: altered payoff amounts, fake lien releases, and fraudulent "paid in full" letters are used in real estate fraud and identity theft schemes. Live Verify connects the verifier directly to the lender's domain.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="mortgage">[</span>MORTGAGE SATISFACTION<br>
+  <span verifiable-text="start" data-for="mortgage"></span>MORTGAGE SATISFACTION<br>
   First National Bank<br>
   Loan #4892-7741-003<br>
   Property: 742 Evergreen Terrace, Springfield<br>
@@ -23,22 +23,22 @@ Fraud is common: altered payoff amounts, fake lien releases, and fraudulent "pai
   Borrower: Homer J. Simpson<br>
   Paid in Full: December 15, 2025<br>
   Lien Released<br>
-  <span data-verify-line="mortgage">verify:firstnationalbank.com/loans</span> <span verifiable-text="end" data-for="mortgage">]</span>
+  <span data-verify-line="mortgage">verify:firstnationalbank.com/loans</span> <span verifiable-text="end" data-for="mortgage"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="auto">[</span>AUTO LOAN PAYOFF<br>
+  <span verifiable-text="start" data-for="auto"></span>AUTO LOAN PAYOFF<br>
   CarFinance Direct<br>
   Account: CF-2023-88412<br>
   Vehicle: 2023 Honda Civic VIN 2HGFC2F59PH501234<br>
   Borrower: Jane M. Doe<br>
   Final Payment: January 8, 2026<br>
   Title Released to Borrower<br>
-  <span data-verify-line="auto">verify:carfinancedirect.com/payoff</span> <span verifiable-text="end" data-for="auto">]</span>
+  <span data-verify-line="auto">verify:carfinancedirect.com/payoff</span> <span verifiable-text="end" data-for="auto"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="student">[</span>STUDENT LOAN DISCHARGE<br>
+  <span verifiable-text="start" data-for="student"></span>STUDENT LOAN DISCHARGE<br>
   Federal Student Aid<br>
   Account: 123-45-6789-001<br>
   Borrower: Michael Chen<br>
@@ -46,7 +46,7 @@ Fraud is common: altered payoff amounts, fake lien releases, and fraudulent "pai
   Qualifying Payments: 120<br>
   Balance Discharged: $47,823.41<br>
   Discharge Date: October 1, 2025<br>
-  <span data-verify-line="student">verify:studentaid.gov/discharge</span> <span verifiable-text="end" data-for="student">]</span>
+  <span data-verify-line="student">verify:studentaid.gov/discharge</span> <span verifiable-text="end" data-for="student"></span>
 </div>
 
 ## Data Verified

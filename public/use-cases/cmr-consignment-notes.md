@@ -21,7 +21,7 @@ It is the "Proof of Handoff." It records:
 Trucking is a fragmented industry. Verified CMRs prevent "Weight Fraud" (lying about how heavy the truck is to avoid tolls) and "Phantom Shipments" (faking deliveries to get paid for work never done).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="cmr">[</span>CMR - INTERNATIONAL CONSIGNMENT NOTE              No. 99887766
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="cmr"></span>CMR - INTERNATIONAL CONSIGNMENT NOTE              No. 99887766
 ═══════════════════════════════════════════════════════════════════
 
 1. Sender:              Deutsche Elektro GmbH
@@ -40,7 +40,7 @@ Trucking is a fragmented industry. Verified CMRs prevent "Weight Fraud" (lying a
 ───────────────────────────────────────────────────────────────────
 Sender Signature       Carrier Signature       Consignee Signature
 
-<span data-verify-line="cmr">verify:dhl-logistics.com/cmr/v</span> <span verifiable-text="end" data-for="cmr">]</span></pre>
+<span data-verify-line="cmr">verify:dhl-logistics.com/cmr/v</span> <span verifiable-text="end" data-for="cmr"></span></pre>
 </div>
 
 ## Data Verified

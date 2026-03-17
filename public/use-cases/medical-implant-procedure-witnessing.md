@@ -38,7 +38,7 @@ Medical work is often concealed by the body itself. A hip implant, a root canal,
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="hip">[</span>IMPLANT PROCEDURE ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="hip"></span>IMPLANT PROCEDURE ATTESTATION
 
 Patient: [ID on file - HIPAA protected]
 Procedure: Total Hip Arthroplasty, Right
@@ -62,7 +62,7 @@ ATTESTATION HASH: 8f4a2c1e9b...
 
 DEVICE REGISTRY: Submitted to National Joint Registry
 
-<span data-verify-line="hip">verify:stmarys-ortho.org/procedures/v</span> <span verifiable-text="end" data-for="hip">]</span></pre>
+<span data-verify-line="hip">verify:stmarys-ortho.org/procedures/v</span> <span verifiable-text="end" data-for="hip"></span></pre>
 </div>
 
 **Why This Matters:**
@@ -92,7 +92,7 @@ DEVICE REGISTRY: Submitted to National Joint Registry
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="dental">[</span>DENTAL PROCEDURE ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="dental"></span>DENTAL PROCEDURE ATTESTATION
 
 Patient: [ID on file]
 Procedure: Crown Preparation & Placement, Tooth #14
@@ -114,7 +114,7 @@ ATTESTATION HASH: 2d7e4f1a8c...
   - X-ray pre and post
   - Shade match documentation
 
-<span data-verify-line="dental">verify:smiledesign.com/records/v</span> <span verifiable-text="end" data-for="dental">]</span></pre>
+<span data-verify-line="dental">verify:smiledesign.com/records/v</span> <span verifiable-text="end" data-for="dental"></span></pre>
 </div>
 
 **The Dental-Specific Problem:**
@@ -194,7 +194,7 @@ Multiple recalls over decades:
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="breast">[</span>IMPLANT PROCEDURE ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="breast"></span>IMPLANT PROCEDURE ATTESTATION
 
 Patient: [ID on file]
 Procedure: Bilateral Breast Augmentation
@@ -218,7 +218,7 @@ ATTESTATION HASH: 5c9a3b2e7f...
   - Pocket creation documented
   - Pre/post measurements
 
-<span data-verify-line="breast">verify:advancedaesthetics.com/procedures/v</span> <span verifiable-text="end" data-for="breast">]</span></pre>
+<span data-verify-line="breast">verify:advancedaesthetics.com/procedures/v</span> <span verifiable-text="end" data-for="breast"></span></pre>
 </div>
 
 **Why Lot-Level Tracking Matters:**

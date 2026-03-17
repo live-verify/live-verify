@@ -18,7 +18,7 @@ High-earners keep these **Policy Schedules** for 30+ years. They use them to pro
 Fraud is high-stakes here: scammers often edit a cheap "Any Occupation" policy to look like a premium "Own Occupation" policy to look more credit-worthy. Verified hashes turn the policy folder into a live, trusted financial link that lasts a lifetime.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="dis-pol">[</span>
+  <span verifiable-text="start" data-for="dis-pol"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">UNUM PROVIDENT
 Individual Income Protection
 ═══════════════════════════════════════════════════════════════════
@@ -46,7 +46,7 @@ to perform the material and substantial duties of your specific
 specialty.
 
 </pre>
-<span data-verify-line="dis-pol">verify:unum.com/v</span> <span verifiable-text="end" data-for="dis-pol">]</span>
+<span data-verify-line="dis-pol">verify:unum.com/v</span> <span verifiable-text="end" data-for="dis-pol"></span>
 </div>
 
 ## Data Verified

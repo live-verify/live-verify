@@ -53,14 +53,14 @@ Impostors posing as maintenance workers use this as a pretense to gain entry: th
 
 <div style="max-width: 320px; margin: 24px auto; font-family: 'Courier New', monospace; border: 3px solid #2e7d32; border-radius: 8px; background: #f5f5f0; padding: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
   <div style="font-size: 1em; color: #2e7d32; font-weight: bold; margin-bottom: 8px;">EQUITY RESIDENTIAL</div>
-  <div style="font-size: 1em; font-weight: bold; color: #000; margin-bottom: 8px;"><span verifiable-text="start" data-for="eink-maint">[</span>Robert M.</div>
+  <div style="font-size: 1em; font-weight: bold; color: #000; margin-bottom: 8px;"><span verifiable-text="start" data-for="eink-maint"></span>Robert M.</div>
   <div style="font-size: 1em; color: #333; margin-bottom: 8px;">Maintenance Lead</div>
   <div style="font-size: 1em; color: #333; margin-bottom: 8px;">
     Salt: 7x2p9k4m
   </div>
   <div data-verify-line="eink-maint" style="font-size: 1em; color: #555;"
     title="Demo only: Equity Residential doesn't yet offer verification endpoints">
-    vfy:id.equityapartments.com <span verifiable-text="end" data-for="eink-maint">]</span>
+    vfy:id.equityapartments.com <span verifiable-text="end" data-for="eink-maint"></span>
   </div>
 </div>
 

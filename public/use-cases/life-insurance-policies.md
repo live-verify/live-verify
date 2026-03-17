@@ -10,7 +10,7 @@ furtherDerivations: 1
 ---
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="life-pol">[</span>NEW YORK LIFE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="life-pol"></span>NEW YORK LIFE
 Custom Whole Life Insurance Policy
 ═══════════════════════════════════════════════════════════════════
 
@@ -31,7 +31,7 @@ Riders:               Waiver of Premium, Accidental Death (2x)
 _________________________
 Sarah Miller, Secretary                              Est. 1845
 
-<span data-verify-line="life-pol">verify:newyorklife.com/policy/v</span> <span verifiable-text="end" data-for="life-pol">]</span></pre>
+<span data-verify-line="life-pol">verify:newyorklife.com/policy/v</span> <span verifiable-text="end" data-for="life-pol"></span></pre>
 </div>
 
 ## Data Verified

@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 1px solid #ccc; background: #fffdf8; padding: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); position: relative;">
   <div style="text-align: left; margin-bottom: 30px; border-bottom: 2px solid #333; padding-bottom: 10px;">
-    <div style="font-weight: bold; font-size: 1.2em; color: #1a1a1a;"><span verifiable-text="start" data-for="manu">[</span>PENGUIN RANDOM HOUSE</div>
+    <div style="font-weight: bold; font-size: 1.2em; color: #1a1a1a;"><span verifiable-text="start" data-for="manu"></span>PENGUIN RANDOM HOUSE</div>
     <div style="font-size: 0.85em; color: #666;">Editorial Operations • New York</div>
   </div>
 <h3 style="text-align: center; text-transform: uppercase; margin-bottom: 25px; letter-spacing: 1px;">Manuscript Attestation</h3>
@@ -37,7 +37,7 @@ furtherDerivations: 1
   </div>
 <div data-verify-line="manu" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Publisher doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:penguinrandomhouse.com/mss/v <span verifiable-text="end" data-for="manu">]</span>
+      verify:penguinrandomhouse.com/mss/v <span verifiable-text="end" data-for="manu"></span>
   </div>
 </div>
 

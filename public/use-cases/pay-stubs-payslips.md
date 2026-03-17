@@ -18,7 +18,7 @@ This isn't hypothetical. Fake pay stub generators are available online for $10. 
 With Live Verify, the pay stub carries a `verify:` line bound to the employer's payroll domain. The landlord scans it, gets confirmation that yes, this is the real pay stub issued to this person for this period, and moves on. No phone calls to HR. No guessing. No fraud.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="paystub">[</span>PINNACLE ENGINEERING GROUP, INC.
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="paystub"></span>PINNACLE ENGINEERING GROUP, INC.
 1200 Industrial Parkway, Suite 400
 Columbus, OH 43215
 EIN: 31-4829173
@@ -60,7 +60,7 @@ Direct Deposit: ****6847 (Checking)      $ 2,138.02
 This pay stub is a verified payroll record.
 Alteration of earnings information is fraud.
 
-<span data-verify-line="paystub">verify:payroll.pinnacle-eng.com/stubs/v</span> <span verifiable-text="end" data-for="paystub">]</span></pre>
+<span data-verify-line="paystub">verify:payroll.pinnacle-eng.com/stubs/v</span> <span verifiable-text="end" data-for="paystub"></span></pre>
 </div>
 
 ## Data Verified

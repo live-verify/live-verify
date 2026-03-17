@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <div style="text-align: right; margin-bottom: 30px;">
-    <div style="font-weight: bold; font-size: 1.2em; color: #003366;"><span verifiable-text="start" data-for="life-claim">[</span>NORTHWESTERN MUTUAL</div>
+    <div style="font-weight: bold; font-size: 1.2em; color: #003366;"><span verifiable-text="start" data-for="life-claim"></span>NORTHWESTERN MUTUAL</div>
     <div style="font-size: 0.85em; color: #666;">Life Claims Adjudication Office</div>
   </div>
 <h3 style="text-align: center; text-transform: uppercase; margin-bottom: 25px; letter-spacing: 1px;">Notice of Claim Approval</h3>
@@ -34,7 +34,7 @@ furtherDerivations: 1
   </div>
 <div data-verify-line="life-claim" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Northwestern Mutual doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:northwesternmutual.com/claims/v <span verifiable-text="end" data-for="life-claim">]</span>
+      verify:northwesternmutual.com/claims/v <span verifiable-text="end" data-for="life-claim"></span>
   </div>
 </div>
 

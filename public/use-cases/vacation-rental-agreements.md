@@ -16,7 +16,7 @@ In the short-term rental market (Airbnb, VRBO), the **Rental Agreement** or Book
 Fraud is rampant in the "Direct Booking" market. Scammers create "Phantom Listings" using photos of real homes and issue fake PDF agreements to steal security deposits. Similarly, guests might "edit" an agreement to remove a "No Pets" rule before showing it to a building manager. Verified hashes bind the **Property Address, Stay Dates, and Total Price** to the platform's or the property manager's domain (e.g., `airbnb.com` or `vacasa.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="rental">[</span>airbnb
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="rental"></span>airbnb
 RESERVATION CONFIRMED                              Ref: HM-99228877
 ═══════════════════════════════════════════════════════════════════
 
@@ -32,7 +32,7 @@ TOTAL PAID (USD):                                       $ 2,600.00
 
 House Rules: Maximum 4 guests. No smoking. No unauthorized pets.
 
-<span data-verify-line="rental">verify:airbnb.com/v</span> <span verifiable-text="end" data-for="rental">]</span></pre>
+<span data-verify-line="rental">verify:airbnb.com/v</span> <span verifiable-text="end" data-for="rental"></span></pre>
 </div>
 
 ## Data Verified

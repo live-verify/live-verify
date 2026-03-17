@@ -22,7 +22,7 @@ It isn't just about the price; it records:
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #000; background: #fff; padding: 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
   <div style="padding: 20px; background: #fff;">
-    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="freight-inv">[</span>SCHNEIDER NATIONAL                          Invoice #: INV-998877-SN
+    <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="freight-inv"></span>SCHNEIDER NATIONAL                          Invoice #: INV-998877-SN
                                              Date: 15 MAR 2026
 ═══════════════════════════════════════════════════════════════════
 Shipper:    Acme Manufacturing
@@ -39,7 +39,7 @@ TOTAL AMOUNT DUE:                                      $ 1,712.50
 
 Payment Terms: Net 30 Days. Remit to: Wells Fargo Lockbox #99228.
 
-<span data-verify-line="freight-inv">verify:schneider.com/invoices/v</span> <span verifiable-text="end" data-for="freight-inv">]</span></pre>
+<span data-verify-line="freight-inv">verify:schneider.com/invoices/v</span> <span verifiable-text="end" data-for="freight-inv"></span></pre>
   </div>
 </div>
 

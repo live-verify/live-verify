@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Georgia', serif; border: 1px solid #333; background: #fff; padding: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px;">
-    <div style="font-weight: bold; font-size: 1.1em; color: #1a237e;"><span verifiable-text="start" data-for="mortality">[</span>SOCIETY OF ACTUARIES (SOA)</div>
+    <div style="font-weight: bold; font-size: 1.1em; color: #1a237e;"><span verifiable-text="start" data-for="mortality"></span>SOCIETY OF ACTUARIES (SOA)</div>
     <div style="text-align: right; font-size: 0.8em; color: #666;">
       Standard ID: MORT-2026-V1<br>
       March 15, 2026
@@ -35,7 +35,7 @@ furtherDerivations: 1
   </div>
 <div data-verify-line="mortality" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: SOA doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:soa.org/tables/v <span verifiable-text="end" data-for="mortality">]</span>
+      verify:soa.org/tables/v <span verifiable-text="end" data-for="mortality"></span>
   </div>
 </div>
 

@@ -15,7 +15,7 @@ A No Claims Certificate (also called No Claims Bonus/NCB, No Claims Discount/NCD
 The certificate is essential when switching insurers, as the new insurer needs verified proof of claims history to apply the discount. Fraud is common: fake certificates claiming more years of claims-free driving than actually earned, or hiding claims that were made.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="ncb">[</span>NO CLAIMS BONUS CERTIFICATE<br>
+  <span verifiable-text="start" data-for="ncb"></span>NO CLAIMS BONUS CERTIFICATE<br>
   Direct Line Insurance<br>
   Policy #DL-8847221-MOT<br>
   Policyholder: James Wilson<br>
@@ -24,11 +24,11 @@ The certificate is essential when switching insurers, as the new insurer needs v
   Last Claim: None on Record<br>
   Policy Period: Jan 2025 - Jan 2026<br>
   Certificate Issued: January 5, 2026<br>
-  <span data-verify-line="ncb">verify:directline.com/ncb</span> <span verifiable-text="end" data-for="ncb">]</span>
+  <span data-verify-line="ncb">verify:directline.com/ncb</span> <span verifiable-text="end" data-for="ncb"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="home">[</span>CLAIMS-FREE LETTER<br>
+  <span verifiable-text="start" data-for="home"></span>CLAIMS-FREE LETTER<br>
   State Farm Insurance<br>
   Policy #HO-44-8892-71<br>
   Policyholder: Sarah Chen<br>
@@ -37,11 +37,11 @@ The certificate is essential when switching insurers, as the new insurer needs v
   Claims Filed: Zero<br>
   Claims Paid: Zero<br>
   Issued: January 6, 2026<br>
-  <span data-verify-line="home">verify:statefarm.com/claims</span> <span verifiable-text="end" data-for="home">]</span>
+  <span data-verify-line="home">verify:statefarm.com/claims</span> <span verifiable-text="end" data-for="home"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="protected">[</span>PROTECTED NO CLAIMS BONUS<br>
+  <span verifiable-text="start" data-for="protected"></span>PROTECTED NO CLAIMS BONUS<br>
   Admiral Insurance<br>
   Policy #ADM-2025-774412<br>
   Policyholder: Michael Torres<br>
@@ -50,7 +50,7 @@ The certificate is essential when switching insurers, as the new insurer needs v
   Fault Claims Allowed: 2 per 3 years<br>
   Current Fault Claims: 0<br>
   Valid Through: February 28, 2026<br>
-  <span data-verify-line="protected">verify:admiral.com/ncb</span> <span verifiable-text="end" data-for="protected">]</span>
+  <span data-verify-line="protected">verify:admiral.com/ncb</span> <span verifiable-text="end" data-for="protected"></span>
 </div>
 
 ## Data Verified

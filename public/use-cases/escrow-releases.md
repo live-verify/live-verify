@@ -15,7 +15,7 @@ An escrow release confirms that funds or documents held by a neutral third party
 Escrow releases are high-value fraud targets. Fake release letters can misdirect funds or trigger premature disbursements.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="real">[</span>ESCROW CLOSING STATEMENT<br>
+  <span verifiable-text="start" data-for="real"></span>ESCROW CLOSING STATEMENT<br>
   Chicago Title Insurance Company<br>
   File #CT-2025-88412<br>
   Property: 1428 Elm Street, Haddonfield IL<br>
@@ -24,11 +24,11 @@ Escrow releases are high-value fraud targets. Fake release letters can misdirect
   Sale Price: $425,000<br>
   Closing Date: January 6, 2026<br>
   Funds Disbursed<br>
-  <span data-verify-line="real">verify:chicagotitle.com/escrow</span> <span verifiable-text="end" data-for="real">]</span>
+  <span data-verify-line="real">verify:chicagotitle.com/escrow</span> <span verifiable-text="end" data-for="real"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="holdback">[</span>HOLDBACK RELEASE<br>
+  <span verifiable-text="start" data-for="holdback"></span>HOLDBACK RELEASE<br>
   Stewart Title Guaranty<br>
   File #STG-2025-00441<br>
   Property: 221B Baker Street, London ON<br>
@@ -36,11 +36,11 @@ Escrow releases are high-value fraud targets. Fake release letters can misdirect
   Purpose: Roof Repair Completion<br>
   Condition Satisfied: January 3, 2026<br>
   Released To: Seller - Sherlock Holmes<br>
-  <span data-verify-line="holdback">verify:stewart.com/escrow</span> <span verifiable-text="end" data-for="holdback">]</span>
+  <span data-verify-line="holdback">verify:stewart.com/escrow</span> <span verifiable-text="end" data-for="holdback"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="software">[</span>SOFTWARE ESCROW RELEASE<br>
+  <span verifiable-text="start" data-for="software"></span>SOFTWARE ESCROW RELEASE<br>
   Iron Mountain Intellectual Property<br>
   Agreement #IM-ESC-2021-7892<br>
   Depositor: TechCorp Solutions Inc<br>
@@ -48,7 +48,7 @@ Escrow releases are high-value fraud targets. Fake release letters can misdirect
   Materials: Source Code v4.2.1<br>
   Release Condition: Depositor Bankruptcy<br>
   Released: December 28, 2025<br>
-  <span data-verify-line="software">verify:ironmountain.com/escrow</span> <span verifiable-text="end" data-for="software">]</span>
+  <span data-verify-line="software">verify:ironmountain.com/escrow</span> <span verifiable-text="end" data-for="software"></span>
 </div>
 
 ## Data Verified

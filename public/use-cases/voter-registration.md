@@ -16,7 +16,7 @@ A **Voter Registration Card** (or Confirmation) is the official proof that a cit
 These cards are the "Ticket to the Ballot Box." Fraud is high-stakes: partisan actors or fraudsters might "edit" a registration card to show a fake address to illegally vote in a "swing" precinct, or they might create fake cards for non-citizens to bypass election security. Verified hashes bind the **Voter Name, Precinct ID, and Home Address** to the state's or the county's election domain (e.g., `sos.ca.gov` or `vote.county.org`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="vote">[</span>VOTER REGISTRATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="vote"></span>VOTER REGISTRATION
 STATE OF ILLINOIS - BOARD OF ELECTIONS
 ═══════════════════════════════════════════════════════════════════
 
@@ -28,7 +28,7 @@ Party:      INDEPENDENT                  Reg Date:   15 MAR 2026
 
 POLLING PLACE: Springfield Library, 1st Ave Entrance
 
-<span data-verify-line="vote">verify:elections.il.gov/v</span> <span verifiable-text="end" data-for="vote">]</span></pre>
+<span data-verify-line="vote">verify:elections.il.gov/v</span> <span verifiable-text="end" data-for="vote"></span></pre>
 </div>
 
 ## Data Verified

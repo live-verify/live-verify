@@ -17,7 +17,7 @@ This often involves "Tax-Loss Harvesting"—selling a losing stock just to captu
 These trades happen by the thousands every second. An **Automated Rebalancing Confirmation** is your receipt. It proves to the IRS that these trades were legitimate algorithmic moves and not a "wash sale" (an illegal tax dodge).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="rebal">[</span>
+  <span verifiable-text="start" data-for="rebal"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">WEALTHFRONT REBALANCING NOTICE
 Automated Portfolio Management
 ═══════════════════════════════════════════════════════════════════
@@ -40,7 +40,7 @@ ITOT (iShares Core S&P)               BOUGHT          $ 1,250.00
 Estimated Tax Savings: $ 312.50
 
 </pre>
-  <span data-verify-line="rebal">verify:wealthfront.com/confirms/v</span> <span verifiable-text="end" data-for="rebal">]</span>
+  <span data-verify-line="rebal">verify:wealthfront.com/confirms/v</span> <span verifiable-text="end" data-for="rebal"></span>
 </div>
 
 ## Data Verified

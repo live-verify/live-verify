@@ -23,7 +23,7 @@ The problem: retraction notices are easy to miss and easy to fake. A researcher 
     <div style="font-size: 0.8em; text-transform: uppercase; color: #666;">Published Online &mdash; Retraction Notice</div>
   </div>
   <div style="background: #ffebee; border: 1px solid #c62828; padding: 15px; text-align: center; margin-bottom: 20px; border-radius: 4px;">
-    <div style="font-size: 0.75em; color: #b71c1c; text-transform: uppercase; font-weight: bold; margin-bottom: 5px;"><span verifiable-text="start" data-for="retraction">[</span>Notice of Retraction</div>
+    <div style="font-size: 0.75em; color: #b71c1c; text-transform: uppercase; font-weight: bold; margin-bottom: 5px;"><span verifiable-text="start" data-for="retraction"></span>Notice of Retraction</div>
     <div style="font-size: 1.1em; font-weight: bold; color: #b71c1c;">RETRACTED</div>
   </div>
   <div style="font-size: 0.95em; line-height: 1.6; color: #333;">
@@ -41,7 +41,7 @@ The problem: retraction notices are easy to miss and easy to fake. A researcher 
   </div>
   <div style="margin-top: 25px; border-top: 1px dashed #999; padding-top: 10px; text-align: center;">
     <div data-verify-line="retraction" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #003366; font-weight: bold;">
-      verify:thelancet.com/retractions<span verifiable-text="end" data-for="retraction">]</span>
+      verify:thelancet.com/retractions<span verifiable-text="end" data-for="retraction"></span>
     </div>
     <div style="font-size: 0.7em; color: #999; margin-top: 8px; font-style: italic;">
       Scan to verify retraction status against the publisher's record.

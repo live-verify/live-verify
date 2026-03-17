@@ -18,7 +18,7 @@ A **Data Authorization Certificate** is a receipt for that digital handshake. It
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); overflow: hidden; background: #fff;">
   <div style="background: #004d40; color: #fff; padding: 20px; text-align: center;">
-    <h2 style="margin: 0; font-size: 1.4em; letter-spacing: 1px;"><span verifiable-text="start" data-for="agg">[</span>DATA ACCESS AUTHORIZATION</h2>
+    <h2 style="margin: 0; font-size: 1.4em; letter-spacing: 1px;"><span verifiable-text="start" data-for="agg"></span>DATA ACCESS AUTHORIZATION</h2>
     <div style="font-size: 0.8em; margin-top: 5px; opacity: 0.8;">FIRST NATIONAL BANK OF OMAHA</div>
   </div>
 <div style="padding: 30px;">
@@ -40,7 +40,7 @@ A **Data Authorization Certificate** is a receipt for that digital handshake. It
     </div>
 <div data-verify-line="agg" style="border-top: 1px dashed #ccc; margin-top: 30px; padding-top: 15px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #444; text-align: center;"
       title="Demo only: Bank doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:fnbo.com/auth/v <span verifiable-text="end" data-for="agg">]</span>
+      verify:fnbo.com/auth/v <span verifiable-text="end" data-for="agg"></span>
     </div>
   </div>
 </div>

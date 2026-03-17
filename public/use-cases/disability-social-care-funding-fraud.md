@@ -51,7 +51,7 @@ The problem: registering a business entity is often trivially easy. Government w
   <div style="background: #1565c0; color: #fff; padding: 16px 24px;">
     <div style="display: flex; justify-content: space-between; align-items: center;">
       <div>
-        <div style="font-size: 1.2em; font-weight: bold;"><span verifiable-text="start" data-for="provider">[</span>Department of Health and Social Care</div>
+        <div style="font-size: 1.2em; font-weight: bold;"><span verifiable-text="start" data-for="provider"></span>Department of Health and Social Care</div>
         <div style="font-size: 0.8em; opacity: 0.9;">Care Quality Commission — Registered Provider</div>
       </div>
     </div>
@@ -75,7 +75,7 @@ The problem: registering a business entity is often trivially easy. Government w
     <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
     <div data-verify-line="provider" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: CQC doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:cqc.org.uk/provider/v <span verifiable-text="end" data-for="provider">]</span>
+      verify:cqc.org.uk/provider/v <span verifiable-text="end" data-for="provider"></span>
     </div>
   </div>
 </div>
@@ -115,7 +115,7 @@ Today, the provider submits an invoice to the funding body. The participant may 
 
 <div style="max-width: 580px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="background: #2e7d32; color: #fff; padding: 14px 20px;">
-    <div style="font-size: 1.1em; font-weight: bold;"><span verifiable-text="start" data-for="receipt">[</span>Meadowbrook Home Care</div>
+    <div style="font-size: 1.1em; font-weight: bold;"><span verifiable-text="start" data-for="receipt"></span>Meadowbrook Home Care</div>
     <div style="font-size: 0.75em; opacity: 0.9;">CQC Provider ID: 1-2847193652</div>
   </div>
   <div style="padding: 20px;">
@@ -148,7 +148,7 @@ Today, the provider submits an invoice to the funding body. The participant may 
     <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
     <div data-verify-line="receipt" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: this provider doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:meadowbrookhomecare.co.uk/receipts/v <span verifiable-text="end" data-for="receipt">]</span>
+      verify:meadowbrookhomecare.co.uk/receipts/v <span verifiable-text="end" data-for="receipt"></span>
     </div>
   </div>
 </div>
@@ -189,7 +189,7 @@ This doesn't require the service user to be a forensic auditor. It requires the 
 A service agreement between provider and service user sets out what supports will be delivered, how often, at what cost, and under what terms. Funding bodies in most countries require these agreements, but audits have found providers keeping agreements on file with no evidence the service user understood or consented to them.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <div style="font-weight: bold; font-size: 1.1em; color: #1a365d; margin-bottom: 16px;"><span verifiable-text="start" data-for="agreement">[</span>SERVICE AGREEMENT</div>
+  <div style="font-weight: bold; font-size: 1.1em; color: #1a365d; margin-bottom: 16px;"><span verifiable-text="start" data-for="agreement"></span>SERVICE AGREEMENT</div>
   <div style="font-size: 0.88em; line-height: 1.8; color: #333; margin-bottom: 12px;">
     <p style="margin: 0;"><strong>Provider:</strong> Sunshine Community Services Inc.</p>
     <p style="margin: 0;"><strong>Provider ID:</strong> FL-HCBS-2024-08812</p>
@@ -209,7 +209,7 @@ A service agreement between provider and service user sets out what supports wil
   <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
   <div data-verify-line="agreement" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
     title="Demo only: this provider doesn't yet offer verification&#10;endpoints, so this is illustrative">
-    verify:sunshineservices.org/agreements/v <span verifiable-text="end" data-for="agreement">]</span>
+    verify:sunshineservices.org/agreements/v <span verifiable-text="end" data-for="agreement"></span>
   </div>
 </div>
 
@@ -245,7 +245,7 @@ Price gouging is most visible here. Suppliers routinely charge government-funded
 
 <div style="max-width: 580px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="background: #5c6bc0; color: #fff; padding: 14px 20px;">
-    <div style="font-size: 1.1em; font-weight: bold;"><span verifiable-text="start" data-for="atquote">[</span>Allied Medical Supplies</div>
+    <div style="font-size: 1.1em; font-weight: bold;"><span verifiable-text="start" data-for="atquote"></span>Allied Medical Supplies</div>
     <div style="font-size: 0.75em; opacity: 0.9;">Medicaid-enrolled supplier — NPI: 1234567890</div>
   </div>
   <div style="padding: 20px;">
@@ -285,7 +285,7 @@ Price gouging is most visible here. Suppliers routinely charge government-funded
     <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
     <div data-verify-line="atquote" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: this supplier doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:alliedmedicalsupplies.com/quotes/v <span verifiable-text="end" data-for="atquote">]</span>
+      verify:alliedmedicalsupplies.com/quotes/v <span verifiable-text="end" data-for="atquote"></span>
     </div>
   </div>
 </div>

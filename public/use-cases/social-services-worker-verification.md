@@ -21,7 +21,7 @@ Live Verify allows a family to scan the worker's ID card to verify: **"Is this a
   <div style="background: #2e7d32; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
     <div style="font-size: 1.8em; margin-right: 15px;">🏛️</div>
     <div style="text-align: right;">
-      <div style="font-weight: bold; font-size: 1.1em; letter-spacing: 1px;"><span verifiable-text="start" data-for="social">[</span>STATE OF ILLINOIS</div>
+      <div style="font-weight: bold; font-size: 1.1em; letter-spacing: 1px;"><span verifiable-text="start" data-for="social"></span>STATE OF ILLINOIS</div>
       <div style="font-size: 0.75em; font-weight: bold; opacity: 0.9;">DEPT. OF CHILDREN & FAMILY SERVICES</div>
     </div>
   </div>
@@ -44,7 +44,7 @@ Live Verify allows a family to scan the worker's ID card to verify: **"Is this a
     </div>
     <div data-verify-line="social" style="border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.85em; color: #2e7d32; text-align: center; font-weight: bold;"
       title="Demo only: Government agencies don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:dcfs.illinois.gov/v <span verifiable-text="end" data-for="social">]</span>
+      verify:dcfs.illinois.gov/v <span verifiable-text="end" data-for="social"></span>
     </div>
   </div>
 </div>

@@ -18,7 +18,7 @@ Lenders use them to approve mortgages. Governments use them to approve Visas. Fr
 Verifying a bank statement directly against the bank's domain ensures that the balance on the page is the **truth**, without forcing the user to give their bank password to a risky "data scraping" app.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="bank">[</span>CHASE                                              Page 1 of 4
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="bank"></span>CHASE                                              Page 1 of 4
 JPMorgan Chase Bank, N.A.
 
 Account Holder:                         Account Number:
@@ -37,7 +37,7 @@ ENDING BALANCE                               $ 1,500,000.42
 Verification protects every line of this statement.
 Alteration of balances is a federal crime.
 
-<span data-verify-line="bank">verify:chase.com/statements/v</span> <span verifiable-text="end" data-for="bank">]</span></pre>
+<span data-verify-line="bank">verify:chase.com/statements/v</span> <span verifiable-text="end" data-for="bank"></span></pre>
 </div>
 
 ## Data Verified

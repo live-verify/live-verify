@@ -20,7 +20,7 @@ If an owner "Photoshops" a $100k policy to look like a $10M policy, they can com
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 2px solid #002366; background: #fff; padding: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <div style="background: #002366; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="horse">[</span>LLOYD'S OF LONDON</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="horse"></span>LLOYD'S OF LONDON</div>
       <div style="font-size: 0.8em;">Specialist Bloodstock Syndicate 1967</div>
     </div>
     <div style="text-align: right;">
@@ -46,7 +46,7 @@ If an owner "Photoshops" a $100k policy to look like a $10M policy, they can com
     </div>
 <div data-verify-line="horse" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Lloyd's Syndicate doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:lloyds-bloodstock.com/v <span verifiable-text="end" data-for="horse">]</span>
+      verify:lloyds-bloodstock.com/v <span verifiable-text="end" data-for="horse"></span>
     </div>
   </div>
 </div>

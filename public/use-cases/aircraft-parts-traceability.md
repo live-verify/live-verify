@@ -19,11 +19,11 @@ A **Verifiable Part Marking** is a laser-etched verification line on the physica
 
 <div style="font-family: 'Courier New', monospace; background: #f0f0f0; padding: 15px; border: 2px solid #333; font-size: 0.9em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
   <div style="text-align: center; font-size: 0.7em; color: #666; margin-bottom: 10px;">— LASER ETCHED ON COMPONENT SURFACE —</div>
-  <span verifiable-text="start" data-for="turbine">[</span>ROLLS-ROYCE PLC<br>
+  <span verifiable-text="start" data-for="turbine"></span>ROLLS-ROYCE PLC<br>
   P/N: RB211-535E4-B07<br>
   S/N: ESN-884721<br>
   MFG: 2024-03-15<br>
-  <span data-verify-line="turbine">vfy:rolls-royce.com/parts/v</span> <span verifiable-text="end" data-for="turbine">]</span>
+  <span data-verify-line="turbine">vfy:rolls-royce.com/parts/v</span> <span verifiable-text="end" data-for="turbine"></span>
 </div>
 
 <div style="max-width: 550px; margin: 24px auto; font-family: sans-serif; border: 2px solid #1a237e; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">

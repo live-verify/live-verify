@@ -18,7 +18,7 @@ You need this "Official" paper to apply for Grad School or to prove to an employ
 "Transcript Padding" is a common fraud: people often edit a "C" to an "A" or add a "Computer Science" class they never actually took. Verified hashes allow an employer or university to scan the PDF and see the **un-altered grades** directly from the Registrar's database.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="transcript">[</span>
+  <span verifiable-text="start" data-for="transcript"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">UNIVERSITY OF OXFORD
 Office of the University Registrar
 ═══════════════════════════════════════════════════════════════════
@@ -42,7 +42,7 @@ Verification confirms the grades and credits match the student's
 official record.
 
 </pre>
-<span data-verify-line="transcript">verify:ox.ac.uk/registrar/v</span> <span verifiable-text="end" data-for="transcript">]</span>
+<span data-verify-line="transcript">verify:ox.ac.uk/registrar/v</span> <span verifiable-text="end" data-for="transcript"></span>
 </div>
 
 ## Data Verified

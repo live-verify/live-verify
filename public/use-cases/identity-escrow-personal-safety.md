@@ -23,7 +23,7 @@ Dating apps facilitate introductions but don't verify identities. "Catfishing" (
 **How Identity Escrow Helps:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="date">[</span>SAFEMEET VERIFIED ENCOUNTER
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="date"></span>SAFEMEET VERIFIED ENCOUNTER
 
 Encounter ID: SM-2025-0114-4421
 Date: January 14, 2025, 7:00 PM EST
@@ -39,7 +39,7 @@ other's personal information.
 In case of emergency or incident, contact:
 SafeMeet Trust & Safety: safety@safemeet.org
 
-<span data-verify-line="date">verify:safemeet.org/encounters/v</span> <span verifiable-text="end" data-for="date">]</span></pre>
+<span data-verify-line="date">verify:safemeet.org/encounters/v</span> <span verifiable-text="end" data-for="date"></span></pre>
 </div>
 
 **Data Flow:**
@@ -75,7 +75,7 @@ Finding a roommate through Craigslist or Facebook means living with a stranger. 
 Both prospective roommates verify identity with a witnessing org before signing the lease. Neither needs to share personal details until they've decided to move forward.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="room">[</span>ROOMMATE MATCH VERIFICATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="room"></span>ROOMMATE MATCH VERIFICATION
 
 Match ID: RM-2025-0114-7721
 Verified: January 14, 2025
@@ -91,7 +91,7 @@ TENANT B: Verified Identity #T-882134
 Both parties may proceed to lease signing.
 Full names released upon mutual consent.
 
-<span data-verify-line="room">verify:roomverify.org/match/v</span> <span verifiable-text="end" data-for="room">]</span></pre>
+<span data-verify-line="room">verify:roomverify.org/match/v</span> <span verifiable-text="end" data-for="room"></span></pre>
 </div>
 
 **What Gets Checked:**
@@ -129,7 +129,7 @@ High-conflict custody situations require neutral, documented exchanges. Parents 
 A witnessing service documents the exchange with verified identities, timestamps, and optional condition notes.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="cust">[</span>CUSTODY EXCHANGE RECORD
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="cust"></span>CUSTODY EXCHANGE RECORD
 
 Exchange ID: CX-2025-0114-1192
 Date: January 14, 2025, 6:00 PM EST
@@ -145,7 +145,7 @@ Notes: None
 
 Both parents verified via government ID.
 
-<span data-verify-line="cust">verify:safeexchange.org/custody/v</span> <span verifiable-text="end" data-for="cust">]</span></pre>
+<span data-verify-line="cust">verify:safeexchange.org/custody/v</span> <span verifiable-text="end" data-for="cust"></span></pre>
 </div>
 
 **What Gets Recorded:**
@@ -187,7 +187,7 @@ Hiring a babysitter, dog walker, or elderly caregiver through personal referrals
 Before the first visit, both parties verify identity with a witnessing org. The caregiver's identity is escrowed; if anything goes wrong (theft, neglect, injury), there's accountability.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="care">[</span>CAREGIVER IDENTITY VERIFICATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="care"></span>CAREGIVER IDENTITY VERIFICATION
 
 Verification ID: CV-2025-0114-8834
 Date: January 14, 2025
@@ -201,7 +201,7 @@ HOUSEHOLD: Verified Identity #H-449281
 Service Type: Babysitting (informal)
 First Visit: January 15, 2025
 
-<span data-verify-line="care">verify:carecheck.org/v</span> <span verifiable-text="end" data-for="care">]</span></pre>
+<span data-verify-line="care">verify:carecheck.org/v</span> <span verifiable-text="end" data-for="care"></span></pre>
 </div>
 
 **What Gets Verified:**

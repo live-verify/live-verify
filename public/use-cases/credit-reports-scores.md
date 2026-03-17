@@ -16,7 +16,7 @@ Your credit report is the single most consequential document most people never s
 With Live Verify, the credit report carries a verify line bound to the bureau's domain. The landlord or lender scans the report the applicant provided and gets confirmation from equifax.com or experian.com that this is the authentic, unaltered report for this individual as of the stated date.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="creditreport">[</span>EQUIFAX CREDIT REPORT SUMMARY<br>
+  <span verifiable-text="start" data-for="creditreport"></span>EQUIFAX CREDIT REPORT SUMMARY<br>
   ────────────────────────────────<br>
   Consumer: MARIA T. DELGADO<br>
   Report Date: February 15, 2026<br>
@@ -33,7 +33,7 @@ With Live Verify, the credit report carries a verify line bound to the bureau's 
   Oldest Account: 14 years 3 months<br>
   Credit Utilization: 22%<br>
   ────────────────────────────────<br>
-  <span data-verify-line="creditreport">verify:equifax.com/report</span> <span verifiable-text="end" data-for="creditreport">]</span>
+  <span data-verify-line="creditreport">verify:equifax.com/report</span> <span verifiable-text="end" data-for="creditreport"></span>
 </div>
 
 ## Data Verified

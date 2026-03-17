@@ -19,7 +19,7 @@ Fraud is common: people often "edit" their translated grades or court records to
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 1px solid #999; background: #fff; padding: 40px; box-shadow: 0 4px 10 rgba(0,0,0,0.05);">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 25px;">
-    <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="trans">[</span>LINGUISTIC ACCURACY, INC.</div>
+    <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="trans"></span>LINGUISTIC ACCURACY, INC.</div>
     <div style="font-size: 0.85em; color: #666;">CERTIFIED TRANSLATION SERVICES • ATA MEMBER #998877</div>
   </div>
 <h3 style="text-align: center; text-transform: uppercase; margin-bottom: 20px;">Certificate of Translation</h3>
@@ -42,7 +42,7 @@ Fraud is common: people often "edit" their translated grades or court records to
   </div>
 <div data-verify-line="trans" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Translation firm doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:linguisticaccuracy.com/v <span verifiable-text="end" data-for="trans">]</span>
+      verify:linguisticaccuracy.com/v <span verifiable-text="end" data-for="trans"></span>
   </div>
 </div>
 

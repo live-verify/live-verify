@@ -18,7 +18,7 @@ These declarations are the "Compliance Shield" for a bank. Fraud is common in th
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #8B0000; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
   <div style="background: #8B0000; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="pep">[</span>PEP / EDD DECLARATION</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="pep"></span>PEP / EDD DECLARATION</div>
       <div style="font-size: 0.8em; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px;">Compliance Risk Management</div>
     </div>
     <div style="font-size: 2em;">🏦</div>
@@ -49,7 +49,7 @@ These declarations are the "Compliance Shield" for a bank. Fraud is common in th
 <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #8B0000; text-align: center;">
     <div data-verify-line="pep" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #000; font-weight: bold;"
       title="Demo only: Banks don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:privatbank-kyc.com/v <span verifiable-text="end" data-for="pep">]</span>
+      verify:privatbank-kyc.com/v <span verifiable-text="end" data-for="pep"></span>
     </div>
     <div style="font-size: 0.7em; color: #777; margin-top: 10px;">
       Scan to verify declaration integrity, role classification, and Enhanced Due Diligence (EDD) status. Access restricted to authorized compliance officers.

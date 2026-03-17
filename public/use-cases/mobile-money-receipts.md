@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 <div style="max-width: 400px; margin: 24px auto; font-family: 'Courier New', Courier, monospace; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 1px solid #000; padding-bottom: 10px; margin-bottom: 15px;">
-    <strong><span verifiable-text="start" data-for="m-pesa">[</span>M-PESA SAFARICOM</strong><br>
+    <strong><span verifiable-text="start" data-for="m-pesa"></span>M-PESA SAFARICOM</strong><br>
     Transaction Confirmation Receipt<br>
     --------------------------------
   </div>
@@ -30,7 +30,7 @@ furtherDerivations: 1
     </div>
 <div data-verify-line="m-pesa" style="border-top: 1px dashed #999; margin-top: 15px; padding-top: 5px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Safaricom doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:safaricom.co.ke/mpesa/v <span verifiable-text="end" data-for="m-pesa">]</span>
+      verify:safaricom.co.ke/mpesa/v <span verifiable-text="end" data-for="m-pesa"></span>
     </div>
   </div>
 </div>

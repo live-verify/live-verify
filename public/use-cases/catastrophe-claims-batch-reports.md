@@ -18,7 +18,7 @@ To get their money back from **Reinsurance** companies (the "insurers for insure
 If a carrier "sneaks" a normal kitchen fire into a "Hurricane" batch, they are committing reinsurance fraud. Verified hashes allow the reinsurer to audit these multimillion-dollar lists instantly against the carrier's core database.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="cat">[</span>STATE FARM FIRE & CASUALTY
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="cat"></span>STATE FARM FIRE & CASUALTY
 Catastrophe Operations Unit                       Batch ID: CAT-2026-FL-04
 ═══════════════════════════════════════════════════════════════════
 
@@ -38,7 +38,7 @@ TOTAL INCURRED:                                      $ 22,650,000.00
 Audit Date: March 15, 2026
 Note: All claims verified as occurring within CAT date window.
 
-<span data-verify-line="cat">verify:statefarm.com/claims/v</span> <span verifiable-text="end" data-for="cat">]</span></pre>
+<span data-verify-line="cat">verify:statefarm.com/claims/v</span> <span verifiable-text="end" data-for="cat"></span></pre>
 </div>
 
 ## Data Verified

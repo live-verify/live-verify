@@ -20,7 +20,7 @@ With Live Verify, each certificate carries a verify line bound to the issuing po
 <div style="max-width: 520px; margin: 24px auto; font-family: sans-serif; border: 1px solid #999; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
   <div style="background: #1a2744; color: #fff; padding: 18px 20px; display: flex; align-items: center; justify-content: space-between;">
     <div>
-      <div style="font-weight: bold; font-size: 1.1em; letter-spacing: 0.5px;"><span verifiable-text="start" data-for="pcc">[</span>ACRO CRIMINAL RECORDS OFFICE</div>
+      <div style="font-weight: bold; font-size: 1.1em; letter-spacing: 0.5px;"><span verifiable-text="start" data-for="pcc"></span>ACRO CRIMINAL RECORDS OFFICE</div>
       <div style="font-size: 0.8em; opacity: 0.85; margin-top: 2px;">Police Clearance Certificate</div>
     </div>
     <div style="width: 46px; height: 46px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #1a2744; font-weight: bold; font-size: 0.55em; text-align: center; line-height: 1.2;">UK<br>POLICE</div>
@@ -48,7 +48,7 @@ With Live Verify, each certificate carries a verify line bound to the issuing po
     <div style="font-size: 0.8em; font-weight: bold; color: #1a2744; text-align: center; margin-bottom: 5px;">UNITED KINGDOM</div>
     <div data-verify-line="pcc" style="border-top: 1px dashed #999; padding-top: 5px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: ACRO doesn't yet offer verification endpoints, so this is illustrative">
-      verify:acro.police.uk/pcc/v <span verifiable-text="end" data-for="pcc">]</span>
+      verify:acro.police.uk/pcc/v <span verifiable-text="end" data-for="pcc"></span>
     </div>
   </div>
 </div>

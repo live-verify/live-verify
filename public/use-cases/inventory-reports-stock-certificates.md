@@ -10,7 +10,7 @@ furtherDerivations: 1
 ---
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="inventory">[</span>
+  <span verifiable-text="start" data-for="inventory"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">GLOBAL COLD STORAGE & LOGISTICS
 ═══════════════════════════════════════════════════════════════════
 
@@ -32,7 +32,7 @@ NOTE: This report is a verified record of inventory physically
 present in the warehouse as of the audit date.
 
 </pre>
-<span data-verify-line="inventory">verify:global-coldstorage.com/inventory/v</span> <span verifiable-text="end" data-for="inventory">]</span>
+<span data-verify-line="inventory">verify:global-coldstorage.com/inventory/v</span> <span verifiable-text="end" data-for="inventory"></span>
 </div>
 
 ## Data Verified

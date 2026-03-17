@@ -19,7 +19,7 @@ Verifying these declarations ensures that a company opening a bank account isn't
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #002d62; color: #fff; padding: 20px; text-align: center;">
-    <h2 style="margin: 0; font-size: 1.3em;"><span verifiable-text="start" data-for="ubo">[</span>BENEFICIAL OWNERSHIP DECLARATION</h2>
+    <h2 style="margin: 0; font-size: 1.3em;"><span verifiable-text="start" data-for="ubo"></span>BENEFICIAL OWNERSHIP DECLARATION</h2>
     <div style="font-size: 0.8em; margin-top: 5px;">FINANCIAL CRIMES ENFORCEMENT NETWORK (FinCEN)</div>
   </div>
 <div style="padding: 30px;">
@@ -46,7 +46,7 @@ Verifying these declarations ensures that a company opening a bank account isn't
     </p>
 <div data-verify-line="ubo" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: FinCEN doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:fincen.gov/boi/v <span verifiable-text="end" data-for="ubo">]</span>
+      verify:fincen.gov/boi/v <span verifiable-text="end" data-for="ubo"></span>
     </div>
   </div>
 </div>

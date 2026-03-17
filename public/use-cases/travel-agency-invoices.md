@@ -16,7 +16,7 @@ For complex, multi-city trips or luxury vacations, travelers often use a **Trave
 These documents are high-stakes because they are used as proof of "Intent to Travel" for **Visa Applications** at embassies and for **Corporate Expense Reimbursement**. Fraud is common: people create "Ghost Itineraries" using fake travel agency templates to fraudulently obtain visas or to "double-expense" a trip to their employer. Verified hashes bind the **Full Itinerary Details and Payment Status** to the agency's domain (e.g., `amextravel.com` or `abercrombiekent.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="travel">[</span>ELITE TRAVEL PARTNERS                       INVOICE # ETP-2026-8844
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="travel"></span>ELITE TRAVEL PARTNERS                       INVOICE # ETP-2026-8844
 Virtuoso Member - IATA #992288
 
 Traveler:    JOHN JACOB DOE
@@ -39,7 +39,7 @@ TOTAL PAID (USD):                                   $ 14,750.00
 Scan to verify itinerary authenticity, payment status,
 and Virtuoso protection.
 
-<span data-verify-line="travel">verify:elitetravel.com/v</span> <span verifiable-text="end" data-for="travel">]</span></pre>
+<span data-verify-line="travel">verify:elitetravel.com/v</span> <span verifiable-text="end" data-for="travel"></span></pre>
 </div>
 
 ## Data Verified

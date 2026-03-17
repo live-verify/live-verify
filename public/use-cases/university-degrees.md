@@ -19,7 +19,7 @@ Beyond the diploma on the wall, the **Academic Transcript** is the granular reco
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Old English Text MT', serif; border: 10px solid #d4af37; padding: 50px; text-align: center; background: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.1); position: relative;">
   <div style="margin-bottom: 40px;">
-    <h1 style="margin: 0; font-size: 2.2em; color: #000;"><span verifiable-text="start" data-for="degree">[</span>University of Cambridge</h1>
+    <h1 style="margin: 0; font-size: 2.2em; color: #000;"><span verifiable-text="start" data-for="degree"></span>University of Cambridge</h1>
     <div style="font-family: 'Times New Roman'; font-size: 1.1em; margin-top: 10px;">The Chancellor, Masters, and Scholars of the University</div>
   </div>
 <p style="font-family: 'Times New Roman'; font-size: 1.3em; font-style: italic;">This is to certify that</p>
@@ -36,7 +36,7 @@ Beyond the diploma on the wall, the **Academic Transcript** is the granular reco
   </div>
 <div data-verify-line="degree" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: University doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:degrees.cam.ac.uk/v <span verifiable-text="end" data-for="degree">]</span>
+      verify:degrees.cam.ac.uk/v <span verifiable-text="end" data-for="degree"></span>
   </div>
 </div>
 

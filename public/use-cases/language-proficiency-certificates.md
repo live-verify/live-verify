@@ -10,7 +10,7 @@ furtherDerivations: 1
 ---
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="lang-test">[</span>
+  <span verifiable-text="start" data-for="lang-test"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">ETS - TOEFL iBT
 Test-Taker Score Report
 ═══════════════════════════════════════════════════════════════════
@@ -33,7 +33,7 @@ This report is a verified record of the test-taker's English
 proficiency. Valid for 2 years from the test date.
 
 </pre>
-<span data-verify-line="lang-test">verify:ets.org/toefl/v</span> <span verifiable-text="end" data-for="lang-test">]</span>
+<span data-verify-line="lang-test">verify:ets.org/toefl/v</span> <span verifiable-text="end" data-for="lang-test"></span>
 </div>
 
 ## Data Verified

@@ -15,7 +15,7 @@ Machines generate data continuously—temperatures, locations, energy readings, 
 The machine doesn't lie. The question is whether the reading was tampered with between generation and verification.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="cold1">[</span>COLD CHAIN ATTESTATION<br>
+  <span verifiable-text="start" data-for="cold1"></span>COLD CHAIN ATTESTATION<br>
   ColdTrack Systems<br>
   <br>
   Shipment: VAC-2026-00847<br>
@@ -32,11 +32,11 @@ The machine doesn't lie. The question is whether the reading was tampered with b
   <br>
   Sensor ID: CT-44782-A<br>
   Readings: 847 (every 30 seconds)<br>
-  <span data-verify-line="cold1">verify:coldtrack.com/chain</span> <span verifiable-text="end" data-for="cold1">]</span>
+  <span data-verify-line="cold1">verify:coldtrack.com/chain</span> <span verifiable-text="end" data-for="cold1"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="meter1">[</span>SMART METER EXPORT CERTIFICATE<br>
+  <span verifiable-text="start" data-for="meter1"></span>SMART METER EXPORT CERTIFICATE<br>
   National Grid ESO<br>
   <br>
   Installation: 42 Oak Lane, Bristol BS8 1QU<br>
@@ -49,11 +49,11 @@ The machine doesn't lie. The question is whether the reading was tampered with b
   Net Position: +355.2 kWh (net exporter)<br>
   <br>
   Feed-in Tariff Due: £187.09<br>
-  <span data-verify-line="meter1">verify:nationalgrid.com/meter</span> <span verifiable-text="end" data-for="meter1">]</span>
+  <span data-verify-line="meter1">verify:nationalgrid.com/meter</span> <span verifiable-text="end" data-for="meter1"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="odo1">[</span>ODOMETER ATTESTATION<br>
+  <span verifiable-text="start" data-for="odo1"></span>ODOMETER ATTESTATION<br>
   MOT Testing Service (DVSA)<br>
   <br>
   Vehicle: AB12 CDE<br>
@@ -66,11 +66,11 @@ The machine doesn't lie. The question is whether the reading was tampered with b
   Annual Mileage: 8,776 miles<br>
   <br>
   Discrepancy Check: CONSISTENT<br>
-  <span data-verify-line="odo1">verify:mot.service.gov.uk/v</span> <span verifiable-text="end" data-for="odo1">]</span>
+  <span data-verify-line="odo1">verify:mot.service.gov.uk/v</span> <span verifiable-text="end" data-for="odo1"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="air1">[</span>AIR QUALITY ATTESTATION<br>
+  <span verifiable-text="start" data-for="air1"></span>AIR QUALITY ATTESTATION<br>
   EPA AirNow<br>
   <br>
   Station: Los Angeles - North Main Street<br>
@@ -82,11 +82,11 @@ The machine doesn't lie. The question is whether the reading was tampered with b
   AQI: 51 (Moderate)<br>
   <br>
   Reading Time: 14:00 PST<br>
-  <span data-verify-line="air1">verify:airnow.gov/station</span> <span verifiable-text="end" data-for="air1">]</span>
+  <span data-verify-line="air1">verify:airnow.gov/station</span> <span verifiable-text="end" data-for="air1"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="fleet1">[</span>FLEET TELEMETRY SNAPSHOT<br>
+  <span verifiable-text="start" data-for="fleet1"></span>FLEET TELEMETRY SNAPSHOT<br>
   Geotab Fleet Management<br>
   <br>
   Vehicle: Unit 2847 (Ford Transit)<br>
@@ -99,11 +99,11 @@ The machine doesn't lie. The question is whether the reading was tampered with b
   Fuel Level: 67%<br>
   <br>
   Driver: Badge #4421 (J. Martinez)<br>
-  <span data-verify-line="fleet1">verify:geotab.com/snap</span> <span verifiable-text="end" data-for="fleet1">]</span>
+  <span data-verify-line="fleet1">verify:geotab.com/snap</span> <span verifiable-text="end" data-for="fleet1"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="ev1">[</span>EV CHARGING SESSION<br>
+  <span verifiable-text="start" data-for="ev1"></span>EV CHARGING SESSION<br>
   ChargePoint Network<br>
   <br>
   Station: CP-SFO-TERM1-04<br>
@@ -118,7 +118,7 @@ The machine doesn't lie. The question is whether the reading was tampered with b
   Cost: $18.72<br>
   <br>
   Carbon Offset: 28.1 kg CO2e<br>
-  <span data-verify-line="ev1">verify:chargepoint.com/session</span> <span verifiable-text="end" data-for="ev1">]</span>
+  <span data-verify-line="ev1">verify:chargepoint.com/session</span> <span verifiable-text="end" data-for="ev1"></span>
 </div>
 
 ## Why Machine Attestations Matter

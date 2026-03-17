@@ -21,7 +21,7 @@ With Live Verify, the doctor's note carries a `verify:` line bound to the medica
 
 <div style="max-width: 500px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; border-radius: 8px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
   <div style="background: #2c3e50; color: #fff; padding: 14px 18px;">
-    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="dn1">[ </span>Riverside Family Practice</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="dn1"> </span>Riverside Family Practice</div>
     <div style="font-size: 0.8em; margin-top: 2px;">17 Thames Walk, Richmond, London TW9 1LR</div>
     <div style="font-size: 0.75em; margin-top: 2px;">Tel: 020 8940 0456</div>
   </div>
@@ -46,14 +46,14 @@ With Live Verify, the doctor's note carries a `verify:` line bound to the medica
       <em style="font-size: 0.85em; color: #555;">Signature: R. Patel (electronic)</em>
     </div>
     <div data-verify-line="dn1" style="border-top: 1px dashed #999; padding-top: 8px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;">
-      verify:riversidefp.nhs.uk/fit <span verifiable-text="end" data-for="dn1">]</span>
+      verify:riversidefp.nhs.uk/fit <span verifiable-text="end" data-for="dn1"></span>
     </div>
   </div>
 </div>
 
 <div style="max-width: 500px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; border-radius: 8px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
   <div style="background: #1a5276; color: #fff; padding: 14px 18px;">
-    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="dn2">[ </span>Maple Grove Pediatrics</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="dn2"> </span>Maple Grove Pediatrics</div>
     <div style="font-size: 0.8em; margin-top: 2px;">2200 Maple Avenue, Suite 150, Evanston, IL 60201</div>
     <div style="font-size: 0.75em; margin-top: 2px;">Tel: (847) 555-0198</div>
   </div>
@@ -78,7 +78,7 @@ With Live Verify, the doctor's note carries a `verify:` line bound to the medica
       <em style="font-size: 0.85em; color: #555;">Signature: L. Chen (electronic)</em>
     </div>
     <div data-verify-line="dn2" style="border-top: 1px dashed #999; padding-top: 8px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;">
-      verify:maplegrovepeds.com/notes <span verifiable-text="end" data-for="dn2">]</span>
+      verify:maplegrovepeds.com/notes <span verifiable-text="end" data-for="dn2"></span>
     </div>
   </div>
 </div>

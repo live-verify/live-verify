@@ -47,7 +47,7 @@ The parent or guardian receives **two separate plain-text messages per day** —
 
 <div style="max-width: 560px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="background: #e91e63; color: #fff; padding: 14px 20px;">
-    <div style="font-size: 1.1em; font-weight: bold;"><span verifiable-text="start" data-for="entry">[</span>Little Gum Tree Early Learning</div>
+    <div style="font-size: 1.1em; font-weight: bold;"><span verifiable-text="start" data-for="entry"></span>Little Gum Tree Early Learning</div>
     <div style="font-size: 0.75em; opacity: 0.9;">Provider Approval No: SE-00412 | ABN 55 903 118 442</div>
   </div>
   <div style="padding: 20px;">
@@ -62,14 +62,14 @@ The parent or guardian receives **two separate plain-text messages per day** —
     <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
     <div data-verify-line="entry" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: this provider doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:littlegumtree.com.au/attendance/v <span verifiable-text="end" data-for="entry">]</span>
+      verify:littlegumtree.com.au/attendance/v <span verifiable-text="end" data-for="entry"></span>
     </div>
   </div>
 </div>
 
 <div style="max-width: 560px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="background: #ad1457; color: #fff; padding: 14px 20px;">
-    <div style="font-size: 1.1em; font-weight: bold;"><span verifiable-text="start" data-for="exit">[</span>Little Gum Tree Early Learning</div>
+    <div style="font-size: 1.1em; font-weight: bold;"><span verifiable-text="start" data-for="exit"></span>Little Gum Tree Early Learning</div>
     <div style="font-size: 0.75em; opacity: 0.9;">Provider Approval No: SE-00412 | ABN 55 903 118 442</div>
   </div>
   <div style="padding: 20px;">
@@ -85,7 +85,7 @@ The parent or guardian receives **two separate plain-text messages per day** —
     <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
     <div data-verify-line="exit" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: this provider doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:littlegumtree.com.au/attendance/v <span verifiable-text="end" data-for="exit">]</span>
+      verify:littlegumtree.com.au/attendance/v <span verifiable-text="end" data-for="exit"></span>
     </div>
   </div>
 </div>
@@ -121,7 +121,7 @@ A student's daily attendance record at a school — arrival time, any absences, 
 
 <div style="max-width: 560px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="background: #1565c0; color: #fff; padding: 14px 20px;">
-    <div style="font-size: 1.1em; font-weight: bold;"><span verifiable-text="start" data-for="school">[</span>Westfield Community College</div>
+    <div style="font-size: 1.1em; font-weight: bold;"><span verifiable-text="start" data-for="school"></span>Westfield Community College</div>
     <div style="font-size: 0.75em; opacity: 0.9;">DfE URN: 137294</div>
   </div>
   <div style="padding: 20px;">
@@ -149,7 +149,7 @@ A student's daily attendance record at a school — arrival time, any absences, 
     <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
     <div data-verify-line="school" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: this school doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:westfield.school.uk/attendance/v <span verifiable-text="end" data-for="school">]</span>
+      verify:westfield.school.uk/attendance/v <span verifiable-text="end" data-for="school"></span>
     </div>
   </div>
 </div>
@@ -188,7 +188,7 @@ A specific record of who delivered and who collected a child, designed for situa
 
 <div style="max-width: 560px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="background: #6a1b9a; color: #fff; padding: 14px 20px;">
-    <div style="font-size: 1.1em; font-weight: bold;"><span verifiable-text="start" data-for="handover">[</span>Sunnybank State School</div>
+    <div style="font-size: 1.1em; font-weight: bold;"><span verifiable-text="start" data-for="handover"></span>Sunnybank State School</div>
     <div style="font-size: 0.75em; opacity: 0.9;">Queensland Department of Education</div>
   </div>
   <div style="padding: 20px;">
@@ -219,7 +219,7 @@ A specific record of who delivered and who collected a child, designed for situa
     <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
     <div data-verify-line="handover" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: this school doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:sunnybank-ss.eq.edu.au/handover/v <span verifiable-text="end" data-for="handover">]</span>
+      verify:sunnybank-ss.eq.edu.au/handover/v <span verifiable-text="end" data-for="handover"></span>
     </div>
   </div>
 </div>

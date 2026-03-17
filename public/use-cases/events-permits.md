@@ -17,7 +17,7 @@ The problem is that these permits are often temporary pieces of paper taped to a
 
 <div style="max-width: 500px; margin: 24px auto; font-family: sans-serif; border: 3px solid #1a237e; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
   <div style="background: #1a237e; color: #fff; padding: 15px; text-align: center;">
-    <h2 style="margin: 0; text-transform: uppercase; font-size: 1.3em; letter-spacing: 1px;"><span verifiable-text="start" data-for="event">[</span>Special Event Permit</h2>
+    <h2 style="margin: 0; text-transform: uppercase; font-size: 1.3em; letter-spacing: 1px;"><span verifiable-text="start" data-for="event"></span>Special Event Permit</h2>
     <div style="font-size: 0.8em; font-weight: bold; opacity: 0.9;">CITY OF SPRINGFIELD • DEPT OF PUBLIC WORKS</div>
   </div>
 <div style="padding: 25px;">
@@ -47,7 +47,7 @@ The problem is that these permits are often temporary pieces of paper taped to a
     </div>
 <div data-verify-line="event" style="margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #1a237e; text-align: center; font-weight: bold; border-top: 1px dashed #bbb;"
       title="Demo only: Municipalities don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:springfield.gov/events/v <span verifiable-text="end" data-for="event">]</span>
+      verify:springfield.gov/events/v <span verifiable-text="end" data-for="event"></span>
     </div>
   </div>
 </div>

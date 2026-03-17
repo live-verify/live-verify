@@ -10,7 +10,7 @@ furtherDerivations: 2
 ---
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="mort-voe">[</span>
+  <span verifiable-text="start" data-for="mort-voe"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">ACME GLOBAL HUB, INC.
 Human Resources - Employment Verification Office
 ═══════════════════════════════════════════════════════════════════
@@ -38,7 +38,7 @@ Sarah Miller, HR Director
 March 15, 2026
 
 </pre>
-<span data-verify-line="mort-voe">verify:acme-global.com/hr/v</span> <span verifiable-text="end" data-for="mort-voe">]</span>
+<span data-verify-line="mort-voe">verify:acme-global.com/hr/v</span> <span verifiable-text="end" data-for="mort-voe"></span>
 </div>
 
 ## Data Verified
@@ -141,7 +141,7 @@ _[Content merged from: mortgage-income-verification]_
 
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="income">[</span>
+  <span verifiable-text="start" data-for="income"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">ACME GLOBAL HUB, INC.
 ═══════════════════════════════════════════════════════════════════
 
@@ -165,7 +165,7 @@ Verification confirms the earnings and withholdings match the
 employer's certified payroll ledger.
 
 </pre>
-<span data-verify-line="income">verify:acme-global.com/payroll/v</span> <span verifiable-text="end" data-for="income">]</span>
+<span data-verify-line="income">verify:acme-global.com/payroll/v</span> <span verifiable-text="end" data-for="income"></span>
 </div>
 
 ## Data Verified

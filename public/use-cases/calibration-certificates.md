@@ -22,7 +22,7 @@ A **Calibration Certificate** is proof that a measuring device or tool is accura
 **The Fraud Problem:** Because these certificates are required by law (FDA, ISO, FAA), some shady companies "Dry-Lab" their results—meaning they just write down fake "perfect" numbers without actually testing the instrument. They also forge dates, edit PDFs to extend expiration, or claim NIST traceability when their own reference standards are expired. Verified hashes stop this dangerous fraud.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="cal-long">[</span>
+  <span verifiable-text="start" data-for="cal-long"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">NATIONAL METROLOGY SERVICES, LLC
 Accredited to ISO/IEC 17025:2017
 ═══════════════════════════════════════════════════════════════════
@@ -54,7 +54,7 @@ ________________________
 David Chen, Metrologist                                      [SEAL]
 
 </pre>
-<span data-verify-line="cal-long">verify:metrologyservices.com/v</span> <span verifiable-text="end" data-for="cal-long">]</span>
+<span data-verify-line="cal-long">verify:metrologyservices.com/v</span> <span verifiable-text="end" data-for="cal-long"></span>
 </div>
 
 ## Data Verified

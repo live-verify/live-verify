@@ -12,7 +12,7 @@ furtherDerivations: 1
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #1a1a1a; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="ind-cert">[</span>PROJECT MANAGEMENT INSTITUTE</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="ind-cert"></span>PROJECT MANAGEMENT INSTITUTE</div>
       <div style="font-size: 0.8em; opacity: 0.8;">PMP&reg; Project Management Professional</div>
     </div>
     <div style="width: 50px; height: 50px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #000; font-weight: bold; font-size: 0.8em;">PMI</div>
@@ -31,7 +31,7 @@ furtherDerivations: 1
     </div>
 <div data-verify-line="ind-cert" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: PMI doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:pmi.org/credentials/v <span verifiable-text="end" data-for="ind-cert">]</span>
+      verify:pmi.org/credentials/v <span verifiable-text="end" data-for="ind-cert"></span>
     </div>
   </div>
 </div>

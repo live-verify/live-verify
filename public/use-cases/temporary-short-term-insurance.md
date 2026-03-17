@@ -16,7 +16,7 @@ In the modern "Sharing Economy," **Temporary Insurance** (or On-Demand Insurance
 These documents are "High-Velocity" proofs. Fraud is rampant in "Post-Accident" scenarios: a person crashes a car, then instantly buys a 1-hour policy on their phone and tries to "edit" the start-time on the PDF to 10 minutes *before* the crash. Verified hashes bind the **Precise Activation Timestamp (hh:mm:ss), Vehicle VIN, and Driver ID** to the insurer's domain (e.g., `cuvva.com` or `geico.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="temp">[</span>CUVVA
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="temp"></span>CUVVA
 TEMPORARY AUTO INSURANCE BINDER
 ═══════════════════════════════════════════════════════════════════
 
@@ -31,7 +31,7 @@ Vehicle:         2024 Honda Accord (NY-ABC1234)
 VIN:             1ABC-9922-8877-Z
 Liability Limit: $ 100,000 / $ 300,000
 
-<span data-verify-line="temp">verify:cuvva.com/v</span> <span verifiable-text="end" data-for="temp">]</span></pre>
+<span data-verify-line="temp">verify:cuvva.com/v</span> <span verifiable-text="end" data-for="temp"></span></pre>
 </div>
 
 ## Data Verified

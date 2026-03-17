@@ -65,7 +65,7 @@ Live Verify allows a ticket holder to confirm their ticket is authentic before a
 <div style="max-width: 450px; margin: 24px auto; font-family: sans-serif; border: 2px solid #1a1a2e; background: #fff; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
   <div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #fff; padding: 20px; text-align: center;">
     <div style="font-size: 0.8em; letter-spacing: 2px; opacity: 0.8;">ADMIT ONE</div>
-    <h2 style="margin: 10px 0 5px 0; font-size: 1.5em;"><span verifiable-text="start" data-for="ticket">[</span>TAYLOR SWIFT</h2>
+    <h2 style="margin: 10px 0 5px 0; font-size: 1.5em;"><span verifiable-text="start" data-for="ticket"></span>TAYLOR SWIFT</h2>
     <div style="font-size: 0.9em; opacity: 0.9;">The Eras Tour</div>
   </div>
   <div style="padding: 20px;">
@@ -101,7 +101,7 @@ Live Verify allows a ticket holder to confirm their ticket is authentic before a
     </div>
     <div data-verify-line="ticket" style="margin-top: 15px; padding: 10px; font-family: 'Courier New', monospace; font-size: 0.85em; color: #1a1a2e; text-align: center; background: #f5f5f5;"
       title="Demo only: Ticketmaster doesn't yet offer verification endpoints">
-      verify:tickets.livenation.com/v <span verifiable-text="end" data-for="ticket">]</span>
+      verify:tickets.livenation.com/v <span verifiable-text="end" data-for="ticket"></span>
     </div>
   </div>
 </div>

@@ -19,7 +19,7 @@ If there is a gap in the log (a "Broken Chain"), the evidence might be thrown ou
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Courier New', Courier, monospace; border: 2px solid #555; background: #fdfdfd; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px dashed #555; padding-bottom: 10px; margin-bottom: 20px;">
-    <strong><span verifiable-text="start" data-for="custody">[</span>EVIDENCE TRANSFER RECORD</strong><br>
+    <strong><span verifiable-text="start" data-for="custody"></span>EVIDENCE TRANSFER RECORD</strong><br>
     STATE FORENSIC LABORATORY
   </div>
 <div style="font-size: 0.85em; line-height: 1.6;">
@@ -38,7 +38,7 @@ If there is a gap in the log (a "Broken Chain"), the evidence might be thrown ou
     </p>
 <div data-verify-line="custody" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: State Lab doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:statelab.gov/custody/v <span verifiable-text="end" data-for="custody">]</span>
+      verify:statelab.gov/custody/v <span verifiable-text="end" data-for="custody"></span>
     </div>
   </div>
 </div>

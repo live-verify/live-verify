@@ -17,7 +17,7 @@ Unlike a self-declaration ("I have no points"), an authority-issued record is **
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #003366; background: #fff; padding: 0;">
   <div style="background: #003366; color: #fff; padding: 15px;">
-    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="drivingrecords">[</span>DRIVING RECORD SUMMARY</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="drivingrecords"></span>DRIVING RECORD SUMMARY</div>
     <div style="font-size: 0.8em;">Driver and Vehicle Licensing Agency</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -43,7 +43,7 @@ Unlike a self-declaration ("I have no points"), an authority-issued record is **
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="drivingrecords" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:gov.uk/dvla/records <span verifiable-text="end" data-for="drivingrecords">]</span>
+        verify:gov.uk/dvla/records <span verifiable-text="end" data-for="drivingrecords"></span>
       </div>
     </div>
   </div>
@@ -75,7 +75,7 @@ Unlike a self-declaration ("I have no points"), an authority-issued record is **
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="drivingrecords" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:gov.uk/dvla/records <span verifiable-text="end" data-for="drivingrecords">]</span>
+        verify:gov.uk/dvla/records <span verifiable-text="end" data-for="drivingrecords"></span>
       </div>
     </div>
   </div>

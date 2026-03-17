@@ -29,7 +29,7 @@ Many people who need therapy don't seek it because they can't risk being seen en
 **How Identity Escrow Helps:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="ther">[</span>CONFIDENTIAL THERAPY CLIENT VERIFICATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="ther"></span>CONFIDENTIAL THERAPY CLIENT VERIFICATION
 
 Client ID: CT-CLT-REDACTED
 Relationship Established: March 2024
@@ -49,7 +49,7 @@ SESSION COUNT: 24 sessions to date
 Therapist does not have access to client's real
 identity. Emergency protocols through PrivateCare.
 
-<span data-verify-line="ther">verify:privatecare.org/client/v</span> <span verifiable-text="end" data-for="ther">]</span></pre>
+<span data-verify-line="ther">verify:privatecare.org/client/v</span> <span verifiable-text="end" data-for="ther"></span></pre>
 </div>
 
 **How It Works:**
@@ -99,7 +99,7 @@ But consulting a lawyer creates records. If the employer discovers the consultat
 **How Identity Escrow Helps:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="legal">[</span>CONFIDENTIAL LEGAL CONSULTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="legal"></span>CONFIDENTIAL LEGAL CONSULTATION
 
 Matter ID: CL-MTR-REDACTED
 Established: January 2025
@@ -120,7 +120,7 @@ Attorney-client privilege is fully preserved.
 Client identity protected unless client consents
 to disclosure or legal exception applies.
 
-<span data-verify-line="legal">verify:legalshield.org/matter/v</span> <span verifiable-text="end" data-for="legal">]</span></pre>
+<span data-verify-line="legal">verify:legalshield.org/matter/v</span> <span verifiable-text="end" data-for="legal"></span></pre>
 </div>
 
 **Privilege Preservation:**
@@ -161,7 +161,7 @@ But financial advisors keep records. If the abusive spouse discovers the consult
 **How Identity Escrow Helps:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="fin">[</span>CONFIDENTIAL FINANCIAL CONSULTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="fin"></span>CONFIDENTIAL FINANCIAL CONSULTATION
 
 Client ID: CF-CLT-REDACTED
 Established: January 2025
@@ -183,7 +183,7 @@ CONSULTATION TYPE: Safety planning
 All communications through secure channel.
 No records sent to shared household address.
 
-<span data-verify-line="fin">verify:safefinance.org/client/v</span> <span verifiable-text="end" data-for="fin">]</span></pre>
+<span data-verify-line="fin">verify:safefinance.org/client/v</span> <span verifiable-text="end" data-for="fin"></span></pre>
 </div>
 
 **Safety-First Features:**
@@ -220,7 +220,7 @@ Patients may avoid care or travel far to avoid being seen at certain clinics.
 **How Identity Escrow Helps:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="med">[</span>CONFIDENTIAL MEDICAL CONSULTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="med"></span>CONFIDENTIAL MEDICAL CONSULTATION
 
 Patient ID: CM-PAT-REDACTED
 Established: January 2025
@@ -240,7 +240,7 @@ INSURANCE: Not filed (direct pay)
 Medical records maintained under patient ID only.
 Real identity available for emergencies via escrow.
 
-<span data-verify-line="med">verify:privatemd.org/patient/v</span> <span verifiable-text="end" data-for="med">]</span></pre>
+<span data-verify-line="med">verify:privatemd.org/patient/v</span> <span verifiable-text="end" data-for="med"></span></pre>
 </div>
 
 **Medical Compliance Considerations:**

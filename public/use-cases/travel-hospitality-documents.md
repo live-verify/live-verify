@@ -18,7 +18,7 @@ This sector faces massive high-volume fraud. From **Expense Reimbursement Fraud*
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="background: #002d62; color: #fff; padding: 25px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.4em; letter-spacing: 1px;"><span verifiable-text="start" data-for="travel">[</span>SAP CONCUR</div>
+      <div style="font-weight: bold; font-size: 1.4em; letter-spacing: 1px;"><span verifiable-text="start" data-for="travel"></span>SAP CONCUR</div>
       <div style="font-size: 0.8em; opacity: 0.9; text-transform: uppercase;">Corporate Itinerary & Booking Summary</div>
     </div>
     <div style="font-size: 2em;">✈️</div>
@@ -52,7 +52,7 @@ This sector faces massive high-volume fraud. From **Expense Reimbursement Fraud*
 <div style="padding: 20px; background: #fff; border-top: 1px dashed #999; text-align: center;">
     <div data-verify-line="travel" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #002d62; font-weight: bold;"
       title="Demo only: Concur/Booking sites don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:concur.com/v <span verifiable-text="end" data-for="travel">]</span>
+      verify:concur.com/v <span verifiable-text="end" data-for="travel"></span>
     </div>
     <div style="font-size: 0.7em; color: #999; margin-top: 10px; font-style: italic;">
       Scan to verify itinerary integrity, approved corporate rates, and real-time cancellation status.

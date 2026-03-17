@@ -18,7 +18,7 @@ The **Verified Gross Mass (VGM)** is the official weight certificate for a conta
 Shippers often "Guess" the weight to save the $50 fee for a certified scale. This "Guesswork" has led to several high-profile shipwrecks. Verified hashes ensure that the weight on the paper matches the official scale record at the port.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="vgm">[</span>SOLAS VGM DECLARATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="vgm"></span>SOLAS VGM DECLARATION
 Verified Gross Mass Certificate
 ═══════════════════════════════════════════════════════════════════
 
@@ -38,7 +38,7 @@ verified using calibrated and certified equipment.
 
 Authorized Signatory: Robert J. Miller
 
-<span data-verify-line="vgm">verify:global-furniture.com/vgm/v</span> <span verifiable-text="end" data-for="vgm">]</span></pre>
+<span data-verify-line="vgm">verify:global-furniture.com/vgm/v</span> <span verifiable-text="end" data-for="vgm"></span></pre>
 </div>
 
 ## Data Verified

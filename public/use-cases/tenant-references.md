@@ -26,13 +26,13 @@ Fraud is rampant. Prospective tenants fabricate references from fictional landlo
     Here is my reference from my current landlord:
   </div>
   <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6;">
-    <span verifiable-text="start" data-for="ref">[</span>Riverside Lettings Ltd<br>
+    <span verifiable-text="start" data-for="ref"></span>Riverside Lettings Ltd<br>
     Sarah A. Jones<br>
     Flat 3, 27 Canal Road, Bristol BS1 5AH<br>
     September 2022 &nbsp;&ndash;&nbsp; Present<br>
     Rent: &pound;1,150 pcm &nbsp;&ndash;&nbsp; No arrears<br>
     Condition: Good<br>
-    Would let to again: Yes<span verifiable-text="end" data-for="ref">]</span><br>
+    Would let to again: Yes<span verifiable-text="end" data-for="ref"></span><br>
     <span data-verify-line="ref">verify:riverside-lettings.co.uk/tenants</span>
   </div>
   <div style="font-size: 0.95em; color: #333; margin-top: 15px;">

@@ -10,7 +10,7 @@ furtherDerivations: 1
 ---
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="bnpl">[</span>
+  <span verifiable-text="start" data-for="bnpl"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">AFFIRM
 Loan Agreement & Truth In Lending Disclosure
 ═══════════════════════════════════════════════════════════════════
@@ -31,7 +31,7 @@ Monthly Payment (12x):                                    $ 120.42
 By signing below, you agree to the terms of this installment loan.
 
 </pre>
-<span data-verify-line="bnpl">verify:affirm.com/loans/v</span> <span verifiable-text="end" data-for="bnpl">]</span>
+<span data-verify-line="bnpl">verify:affirm.com/loans/v</span> <span verifiable-text="end" data-for="bnpl"></span>
 </div>
 
 ## Data Verified

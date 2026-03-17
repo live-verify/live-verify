@@ -21,7 +21,7 @@ Meeting minutes fraud includes fabricating votes that never occurred, altering a
 Each page carries its own verification line, with the final page containing a rollup hash of all prior pages.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="min1">[</span>BOARD MEETING MINUTES<br>
+  <span verifiable-text="start" data-for="min1"></span>BOARD MEETING MINUTES<br>
   Acme Corporation<br>
   Date: January 5, 2026<br>
   Location: 123 Main Street, Conference Room A<br>
@@ -38,11 +38,11 @@ Each page carries its own verification line, with the final page containing a ro
   Vote: 3-0 in favor<br>
   <br>
   Page 1 of 3<br>
-  <span data-verify-line="min1">verify:acme-corp.com/governance</span> <span verifiable-text="end" data-for="min1">]</span>
+  <span data-verify-line="min1">verify:acme-corp.com/governance</span> <span verifiable-text="end" data-for="min1"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="min2">[</span>2. Financial Report<br>
+  <span verifiable-text="start" data-for="min2"></span>2. Financial Report<br>
   CFO presented Q4 2025 results<br>
   Revenue: $12.4M (up 15% YoY)<br>
   Discussion of 2026 budget allocation<br>
@@ -55,11 +55,11 @@ Each page carries its own verification line, with the final page containing a ro
   Vote: 3-0 in favor<br>
   <br>
   Page 2 of 3<br>
-  <span data-verify-line="min2">verify:acme-corp.com/governance</span> <span verifiable-text="end" data-for="min2">]</span>
+  <span data-verify-line="min2">verify:acme-corp.com/governance</span> <span verifiable-text="end" data-for="min2"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="min3">[</span>4. Adjournment<br>
+  <span verifiable-text="start" data-for="min3"></span>4. Adjournment<br>
   Motion to adjourn by R. Williams<br>
   Seconded by M. Johnson<br>
   Meeting adjourned: 11:45 AM<br>
@@ -74,7 +74,7 @@ Each page carries its own verification line, with the final page containing a ro
   Prior Page Hashes:<br>
   P1: 8a4f2c...<br>
   P2: 3b7e1d...<br>
-  <span data-verify-line="min3">verify:acme-corp.com/governance</span> <span verifiable-text="end" data-for="min3">]</span>
+  <span data-verify-line="min3">verify:acme-corp.com/governance</span> <span verifiable-text="end" data-for="min3"></span>
 </div>
 
 ## Data Verified

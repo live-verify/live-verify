@@ -13,7 +13,7 @@ furtherDerivations: 1
   <div style="background: #002d62; color: #fff; padding: 15px; text-align: center; display: flex; align-items: center; justify-content: center;">
     <div style="font-size: 1.5em; margin-right: 10px;">👐</div>
     <div>
-      <h3 style="margin: 0; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="massage">[</span>STATE OF FLORIDA</h3>
+      <h3 style="margin: 0; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="massage"></span>STATE OF FLORIDA</h3>
       <div style="font-size: 0.8em; opacity: 0.8;">BOARD OF MASSAGE THERAPY</div>
     </div>
   </div>
@@ -37,7 +37,7 @@ furtherDerivations: 1
     </p>
     <div data-verify-line="massage" style="border-top: 1px dashed #999; margin-top: 10px; padding-top: 5px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: FL Board of Massage doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:flhealthsource.gov/v <span verifiable-text="end" data-for="massage">]</span>
+      verify:flhealthsource.gov/v <span verifiable-text="end" data-for="massage"></span>
     </div>
   </div>
 </div>

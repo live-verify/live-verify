@@ -10,7 +10,7 @@ furtherDerivations: 5
 ---
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="receipt">[</span>
+  <span verifiable-text="start" data-for="receipt"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">DELTA AIR LINES
 ELECTRONIC RECEIPT
 ═══════════════════════════════════════════════════════════════════
@@ -33,7 +33,7 @@ Payment:     Visa ending in 1234
 Auth:        998877
 
 </pre>
-  <span data-verify-line="receipt">verify:delta.com/receipts/v</span> <span verifiable-text="end" data-for="receipt">]</span>
+  <span data-verify-line="receipt">verify:delta.com/receipts/v</span> <span verifiable-text="end" data-for="receipt"></span>
 </div>
 
 ## Data Verified
@@ -145,7 +145,7 @@ Verifying these letters prevents passengers from faking denials to defraud insur
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; border: 1px solid #ccc; background: #fff; padding: 40px;">
   <div style="text-align: right; margin-bottom: 30px;">
-    <div style="font-weight: bold; font-size: 1.2em; color: #002244;"><span verifiable-text="start" data-for="comp">[</span>BRITISH AIRWAYS</div>
+    <div style="font-weight: bold; font-size: 1.2em; color: #002244;"><span verifiable-text="start" data-for="comp"></span>BRITISH AIRWAYS</div>
     <div style="font-size: 0.8em; color: #555;">Customer Relations</div>
   </div>
 <div style="margin-bottom: 30px;">
@@ -166,7 +166,7 @@ Verifying these letters prevents passengers from faking denials to defraud insur
   </div>
 <div data-verify-line="comp" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Airline doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:ba.com/claims/v <span verifiable-text="end" data-for="comp">]</span>
+      verify:ba.com/claims/v <span verifiable-text="end" data-for="comp"></span>
   </div>
 </div>
 
@@ -236,7 +236,7 @@ _[Content merged from: airline-refund-confirmations]_
 
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="refund">[</span>LUFTHANSA
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="refund"></span>LUFTHANSA
 Passenger Receipt - REFUND
 ═══════════════════════════════════════════════════════════════════
 
@@ -255,7 +255,7 @@ TOTAL REFUND:                                           EUR 2,750.00
 Form of Payment:  Credited to Mastercard ending 5544
 Date:             20 March 2026
 
-<span data-verify-line="refund">verify:lufthansa.com/refunds/v</span> <span verifiable-text="end" data-for="refund">]</span></pre>
+<span data-verify-line="refund">verify:lufthansa.com/refunds/v</span> <span verifiable-text="end" data-for="refund"></span></pre>
 </div>
 
 ## Data Verified
@@ -325,7 +325,7 @@ _[Content merged from: airline-upgrade-confirmations]_
 
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="upgrade">[</span>UNITED AIRLINES
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="upgrade"></span>UNITED AIRLINES
 UPGRADE CONFIRMATION
 ═══════════════════════════════════════════════════════════════════
 
@@ -344,7 +344,7 @@ Miles Redeemed:                                        20,000 Miles
 Upgrade Status:  CONFIRMED
 Seat:            12A
 
-<span data-verify-line="upgrade">verify:united.com/receipts/v</span> <span verifiable-text="end" data-for="upgrade">]</span></pre>
+<span data-verify-line="upgrade">verify:united.com/receipts/v</span> <span verifiable-text="end" data-for="upgrade"></span></pre>
 </div>
 
 ## Data Verified
@@ -413,7 +413,7 @@ _[Content merged from: airport-lounge-access-confirmations]_
 
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="lounge">[</span>PRIORITY PASS
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="lounge"></span>PRIORITY PASS
 VISIT CONFIRMATION
 ═══════════════════════════════════════════════════════════════════
 
@@ -435,7 +435,7 @@ Guest Fee (x2):                                            $ 64.00
 ───────────────────────────────────────────────────────────────────
 TOTAL CHARGED:                                             $ 64.00
 
-<span data-verify-line="lounge">verify:prioritypass.com/visits/v</span> <span verifiable-text="end" data-for="lounge">]</span></pre>
+<span data-verify-line="lounge">verify:prioritypass.com/visits/v</span> <span verifiable-text="end" data-for="lounge"></span></pre>
 </div>
 
 ## Data Verified

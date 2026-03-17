@@ -16,7 +16,7 @@ In the commercial real estate and infrastructure sectors, **Terrorism Insurance*
 These documents are the "Proof of Backstop." Fraud is common in "High-Risk Urban Zones": a developer might create a fake insurance binder showing $100M in terrorism coverage to satisfy a lender's requirement for a skyscraper, when they actually only have standard property coverage. Similarly, they might "edit" a policy to remove a "Non-Certified Act" exclusion. Verified hashes bind the **Coverage Limits, Tripra Premium, and Property Location** to the carrier's domain (e.g., `zurich.com` or `lloyds.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="tripra">[</span>
+  <span verifiable-text="start" data-for="tripra"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">ZURICH AMERICAN INSURANCE
 TRIPRA Disclosure & Policy Summary
 ═══════════════════════════════════════════════════════════════════
@@ -40,7 +40,7 @@ certified acts of terrorism is $42,500.00."
                                                   └────────────────┘
 
 </pre>
-<span data-verify-line="tripra">verify:zurich.com/v</span> <span verifiable-text="end" data-for="tripra">]</span>
+<span data-verify-line="tripra">verify:zurich.com/v</span> <span verifiable-text="end" data-for="tripra"></span>
 </div>
 
 ## Data Verified

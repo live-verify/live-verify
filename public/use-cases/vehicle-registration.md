@@ -20,7 +20,7 @@ The registration card proves three things: this vehicle is legally allowed on pu
 With Live Verify, the registration card carries a QR code or `verify:` line bound to the state DMV's domain. The officer scans it with a phone camera and gets real-time confirmation: valid registration, insured, no wants or warrants on the plate — or not. No NCIC terminal needed. And the same scan works for parking enforcement, toll disputes, and anyone else who needs to confirm a vehicle is legally registered.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="reg">[</span>VEHICLE REGISTRATION CARD
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="reg"></span>VEHICLE REGISTRATION CARD
 STATE OF TEXAS — DEPARTMENT OF MOTOR VEHICLES
 ═══════════════════════════════════════════════════════════════════
 
@@ -37,7 +37,7 @@ Registered Owner: MARIA ELENA GARCIA
 Insurance:       STATE FARM — Policy #SF-229-884-771
                  Verified through 09/2026
 
-<span data-verify-line="reg">verify:dmv.texas.gov/reg/v</span> <span verifiable-text="end" data-for="reg">]</span></pre>
+<span data-verify-line="reg">verify:dmv.texas.gov/reg/v</span> <span verifiable-text="end" data-for="reg"></span></pre>
 </div>
 
 Several US states (Utah, Louisiana, Colorado) already issue digital vehicle registration accessible via mobile apps. A QR code on the digital card — or printed on the windshield sticker — is a natural fit for Live Verify's camera mode: point, scan, confirmed.

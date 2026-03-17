@@ -18,7 +18,7 @@ The most important step is **Retirement**. Once a credit is "retired," it is tak
 The **Retirement Certificate** is the only proof that the company actually did what it said. Without verification, a company could lie about retiring credits, leading to "Greenwashing" where the same tree is "sold" to 10 different companies.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="carbon">[</span>
+  <span verifiable-text="start" data-for="carbon"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">VERRA
 Verified Carbon Standard (VCS)
 ═══════════════════════════════════════════════════════════════════
@@ -44,7 +44,7 @@ re-sold or re-used.
 Date of Retirement: March 15, 2026
 
 </pre>
-<span data-verify-line="carbon">verify:verra.org/registry/v</span> <span verifiable-text="end" data-for="carbon">]</span>
+<span data-verify-line="carbon">verify:verra.org/registry/v</span> <span verifiable-text="end" data-for="carbon"></span>
 </div>
 
 ## Data Verified

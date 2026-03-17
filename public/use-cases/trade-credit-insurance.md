@@ -16,7 +16,7 @@ In the B2B world, most sales happen on "Net-30" or "Net-60" terms—meaning the 
 These documents are the "Green Light" for global trade. Fraud is high-stakes: a dishonest buyer might create a fake "Atradius" limit-approval letter for $1 million to trick a supplier into shipping a massive load of electronics on credit. Similarly, a seller might "edit" an old approval to hide that the insurer has recently revoked coverage for a failing customer. Verified hashes bind the **Approved Credit Limit, Buyer Tax ID, and Expiration Date** to the insurer's domain (e.g., `allianz-trade.com` or `coface.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="credit">[</span>ALLIANZ TRADE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="credit"></span>ALLIANZ TRADE
 Credit Risk Management & TCI
 ═══════════════════════════════════════════════════════════════════
 
@@ -38,7 +38,7 @@ Coverage is subject to the terms and conditions of the Master
 Policy. Verification confirms that this specific limit is
 currently authorized in the Allianz Trade system.
 
-<span data-verify-line="credit">verify:allianz-trade.com/v</span> <span verifiable-text="end" data-for="credit">]</span></pre>
+<span data-verify-line="credit">verify:allianz-trade.com/v</span> <span verifiable-text="end" data-for="credit"></span></pre>
 </div>
 
 ## Data Verified

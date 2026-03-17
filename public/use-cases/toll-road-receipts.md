@@ -17,7 +17,7 @@ Fraud is high-volume and low-detection: employees use "Toll Receipt Generator" a
 
 <div style="max-width: 400px; margin: 24px auto; font-family: 'Courier New', monospace; border: 1px solid #999; background: #fff; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 1px dashed #333; padding-bottom: 15px; margin-bottom: 15px;">
-    <strong><span verifiable-text="start" data-for="toll">[</span>E-ZPASS NEW YORK</strong><br>
+    <strong><span verifiable-text="start" data-for="toll"></span>E-ZPASS NEW YORK</strong><br>
     TRANSACTION RECEIPT<br>
     ---------------------------------
   </div>
@@ -36,7 +36,7 @@ Fraud is high-volume and low-detection: employees use "Toll Receipt Generator" a
   </div>
 <div data-verify-line="toll" style="margin-top: 20px; padding-top: 10px; border-top: 1px dashed #999; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Toll authorities don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:e-zpassny.com/v <span verifiable-text="end" data-for="toll">]</span>
+      verify:e-zpassny.com/v <span verifiable-text="end" data-for="toll"></span>
   </div>
 </div>
 

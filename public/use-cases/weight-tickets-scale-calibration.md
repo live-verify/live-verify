@@ -16,7 +16,7 @@ In the shipping and bulk commodity industries (e.g., grain, scrap metal, gravel)
 Because weight determines the price of multimillion-dollar shipments, these tickets are a primary target for **Weight Fraud**. A dishonest driver might "edit" a 40,000 lb ticket to read 45,000 lbs to over-charge a buyer. Similarly, they might use a "Ghost Ticket" from a non-existent scale to steal cargo. Verified hashes bind the **Gross/Tare Weights, Plate Number, and Timestamp** to the scale operator's domain (e.g., `catscale.com` or `pilotflyingj.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="weight">[</span>
+  <span verifiable-text="start" data-for="weight"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">MIDWEST CERTIFIED SCALES
 NIST Handbook 44 Compliant - Scale ID: #9922-A
 ═══════════════════════════════════════════════════════════════════
@@ -36,7 +36,7 @@ This weight is certified accurate by a licensed Weighmaster.
 Verification protects trade integrity.
 
 </pre>
-<span data-verify-line="weight">verify:midwest-scales.com/v</span> <span verifiable-text="end" data-for="weight">]</span>
+<span data-verify-line="weight">verify:midwest-scales.com/v</span> <span verifiable-text="end" data-for="weight"></span>
 </div>
 
 ## Data Verified

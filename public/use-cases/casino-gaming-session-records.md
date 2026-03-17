@@ -22,7 +22,7 @@ A **Verifiable Gaming Session Record** is a receipt issued by the casino cage at
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #1b5e20; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #1b5e20; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="gsr">[</span>GAMING SESSION RECORD</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="gsr"></span>GAMING SESSION RECORD</div>
       <div style="font-size: 0.8em; opacity: 0.9;">Cage Operations — AML Compliance</div>
     </div>
     <div style="text-align: right;">
@@ -47,7 +47,7 @@ A **Verifiable Gaming Session Record** is a receipt issued by the casino cage at
   </div>
   <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #1b5e20; text-align: center;">
     <div data-verify-line="gsr" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:bellagio.mgmresorts.com/cage/v <span verifiable-text="end" data-for="gsr">]</span>
+      verify:bellagio.mgmresorts.com/cage/v <span verifiable-text="end" data-for="gsr"></span>
     </div>
   </div>
 </div>
@@ -55,7 +55,7 @@ A **Verifiable Gaming Session Record** is a receipt issued by the casino cage at
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #4a148c; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #4a148c; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="ctrc">[</span>CTRC — CUSTOMER COPY</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="ctrc"></span>CTRC — CUSTOMER COPY</div>
       <div style="font-size: 0.8em; opacity: 0.9;">Currency Transaction Report (Casino)</div>
     </div>
     <div style="text-align: right;">
@@ -79,7 +79,7 @@ A **Verifiable Gaming Session Record** is a receipt issued by the casino cage at
   </div>
   <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #4a148c; text-align: center;">
     <div data-verify-line="ctrc" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:caesarspalace.com/compliance/v <span verifiable-text="end" data-for="ctrc">]</span>
+      verify:caesarspalace.com/compliance/v <span verifiable-text="end" data-for="ctrc"></span>
     </div>
   </div>
 </div>

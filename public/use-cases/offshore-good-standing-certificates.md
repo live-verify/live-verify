@@ -22,7 +22,7 @@ With Live Verify, the certificate carries a `verify:` line bound to the registry
 <div style="max-width: 550px; margin: 24px auto; font-family: 'Georgia', serif; border: 2px solid #1a3c5e; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #1a3c5e; color: #d4af37; padding: 16px; text-align: center;">
     <div style="font-size: 0.65em; letter-spacing: 3px; text-transform: uppercase;">British Virgin Islands</div>
-    <h2 style="margin: 6px 0 0; font-size: 1.1em; color: #fff;"><span verifiable-text="start" data-for="goodstanding">[ </span>CERTIFICATE OF GOOD STANDING</h2>
+    <h2 style="margin: 6px 0 0; font-size: 1.1em; color: #fff;"><span verifiable-text="start" data-for="goodstanding"> </span>CERTIFICATE OF GOOD STANDING</h2>
     <div style="font-size: 0.7em; margin-top: 4px; color: #c0c0c0;">BVI Financial Services Commission</div>
   </div>
   <div style="padding: 25px; font-size: 0.88em; line-height: 1.8; color: #333;">
@@ -44,7 +44,7 @@ With Live Verify, the certificate carries a `verify:` line bound to the registry
     </p>
     <div data-verify-line="goodstanding" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: BVI FSC doesn't yet offer verification endpoints">
-      verify:bvifsc.vg/standing <span verifiable-text="end" data-for="goodstanding">]</span>
+      verify:bvifsc.vg/standing <span verifiable-text="end" data-for="goodstanding"></span>
     </div>
   </div>
 </div>

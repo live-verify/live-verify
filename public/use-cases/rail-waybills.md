@@ -16,7 +16,7 @@ In the freight industry, the **Rail Waybill** is the primary contract of carriag
 Fraud is high-stakes in bulk commodities (e.g., grain, coal, chemicals). Shady shippers often "edit" a waybill to misrepresent the weight of the cargo to under-pay the railroad, or to hide the presence of **Hazardous Materials** to bypass safety fees. Verified hashes bind the **Railcar ID, Cargo Weight, and Consignee** to the railroad's domain (e.g., `up.com` or `bnsf.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="rail">[</span>UNION PACIFIC
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="rail"></span>UNION PACIFIC
 OFFICIAL INTERMODAL WAYBILL
 ═══════════════════════════════════════════════════════════════════
 
@@ -38,7 +38,7 @@ Hazmat Status: NON-HAZARDOUS
 Any deviation from the declared STCC code is a violation of
 Federal Rail Safety Standards.
 
-<span data-verify-line="rail">verify:up.com/waybill/v</span> <span verifiable-text="end" data-for="rail">]</span></pre>
+<span data-verify-line="rail">verify:up.com/waybill/v</span> <span verifiable-text="end" data-for="rail"></span></pre>
 </div>
 
 ## Data Verified

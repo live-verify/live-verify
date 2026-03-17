@@ -16,7 +16,7 @@ In the commercial space industry, **Satellite Insurance** covers some of the hig
 These documents are the "Proof of Mission." Fraud is extremely rare but high-impact: a startup might create a fake "Allianz" or "Swiss Re" policy to trick a launch provider (like SpaceX) or a telecommunications partner into believing the mission is fully bonded. Similarly, an operator might "edit" a policy to hide a "Collision Exclusion" before a high-risk orbital maneuver. Verified hashes bind the **Satellite ID (COSPAR), Launch Window, and In-Orbit Value** to the specialist insurer's domain (e.g., `axaxl.com` or `beazley.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="space">[</span>AXA XL SPACE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="space"></span>AXA XL SPACE
 Aviation & Space Risk Division
 ═══════════════════════════════════════════════════════════════════
 
@@ -35,7 +35,7 @@ In-Orbit Life:                                      15 Years (Guaranteed)
 This summary is a verified extract of Policy #SP-2026-8844.
 Coverage confirmed for Launch Window opening 15 MAR 2026.
 
-<span data-verify-line="space">verify:axaxl.com/space/v</span> <span verifiable-text="end" data-for="space">]</span></pre>
+<span data-verify-line="space">verify:axaxl.com/space/v</span> <span verifiable-text="end" data-for="space"></span></pre>
 </div>
 
 ## Data Verified

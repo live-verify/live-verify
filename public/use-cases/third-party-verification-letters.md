@@ -18,7 +18,7 @@ These letters are the "Seal of Solvency." Fraud is rampant: people create fake "
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #000; padding-bottom: 15px; margin-bottom: 30px;">
     <div>
-      <div style="font-weight: bold; font-size: 1.4em; color: #003366;"><span verifiable-text="start" data-for="verify">[</span>EQUIFAX WORKFORCE SOLUTIONS</div>
+      <div style="font-weight: bold; font-size: 1.4em; color: #003366;"><span verifiable-text="start" data-for="verify"></span>EQUIFAX WORKFORCE SOLUTIONS</div>
       <div style="font-size: 0.8em; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px;">The Work Number&reg; Verification Service</div>
     </div>
     <div style="width: 60px; height: 60px; background: #eee; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.6em; text-align: center;">EFX<br>LOGGED</div>
@@ -41,7 +41,7 @@ These letters are the "Seal of Solvency." Fraud is rampant: people create fake "
 <div style="margin-top: 40px; border-top: 1px dashed #999; padding-top: 15px; text-align: center;">
     <div data-verify-line="verify" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #000; font-weight: bold;"
       title="Demo only: Verifiers don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:theworknumber.com/v <span verifiable-text="end" data-for="verify">]</span>
+      verify:theworknumber.com/v <span verifiable-text="end" data-for="verify"></span>
     </div>
     <div style="font-size: 0.7em; color: #999; margin-top: 10px;">
       Scan to verify income data and verifier credentials. Access restricted to authorized financial institutions.

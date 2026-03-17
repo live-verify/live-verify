@@ -17,7 +17,7 @@ This matters from both sides: candidates want to know the offer is real, and com
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #2e5090; background: #fff; padding: 0;">
   <div style="background: #2e5090; color: #fff; padding: 15px;">
-    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="employmentauthorityc">[</span>HIRING AUTHORITY CONFIRMATION</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="employmentauthorityc"></span>HIRING AUTHORITY CONFIRMATION</div>
     <div style="font-size: 0.8em;">Employment Delegation</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -42,7 +42,7 @@ This matters from both sides: candidates want to know the offer is real, and com
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="employmentauthorityc" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:nexus-tech.com/hr-auth <span verifiable-text="end" data-for="employmentauthorityc">]</span>
+        verify:nexus-tech.com/hr-auth <span verifiable-text="end" data-for="employmentauthorityc"></span>
       </div>
     </div>
   </div>
@@ -84,7 +84,7 @@ This matters from both sides: candidates want to know the offer is real, and com
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="employmentauthorityc" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:nexus-tech.com/offers <span verifiable-text="end" data-for="employmentauthorityc">]</span>
+        verify:nexus-tech.com/offers <span verifiable-text="end" data-for="employmentauthorityc"></span>
       </div>
     </div>
   </div>
@@ -122,7 +122,7 @@ This matters from both sides: candidates want to know the offer is real, and com
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="employmentauthorityc" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:nexus-tech.com/hr-auth <span verifiable-text="end" data-for="employmentauthorityc">]</span>
+        verify:nexus-tech.com/hr-auth <span verifiable-text="end" data-for="employmentauthorityc"></span>
       </div>
     </div>
   </div>

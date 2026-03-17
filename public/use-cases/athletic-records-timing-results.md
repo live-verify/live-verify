@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 5px solid #003366; background: #fff; padding: 0; position: relative;">
   <div style="background: #003366; color: #fff; padding: 20px; text-align: center;">
-    <h2 style="margin: 0; letter-spacing: 2px;"><span verifiable-text="start" data-for="record">[</span>WORLD ATHLETICS</h2>
+    <h2 style="margin: 0; letter-spacing: 2px;"><span verifiable-text="start" data-for="record"></span>WORLD ATHLETICS</h2>
     <div style="font-size: 0.9em; margin-top: 5px;">OFFICIAL RECORD RATIFICATION</div>
   </div>
 <div style="padding: 40px; text-align: center;">
@@ -34,7 +34,7 @@ furtherDerivations: 1
     </div>
 <div data-verify-line="record" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: World Athletics doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:worldathletics.org/records/v <span verifiable-text="end" data-for="record">]</span>
+      verify:worldathletics.org/records/v <span verifiable-text="end" data-for="record"></span>
     </div>
   </div>
 </div>

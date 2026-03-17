@@ -17,7 +17,7 @@ Because vouchers are essentially "Digital Cash," they are a primary target for *
 
 <div style="max-width: 450px; margin: 24px auto; font-family: sans-serif; border: 2px solid #ccc; border-radius: 8px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #333; color: #fff; padding: 15px; text-align: center;">
-    <div style="font-weight: bold; font-size: 1.1em; letter-spacing: 1px;"><span verifiable-text="start" data-for="voucher">[</span>AMTRAK &reg;</div>
+    <div style="font-weight: bold; font-size: 1.1em; letter-spacing: 1px;"><span verifiable-text="start" data-for="voucher"></span>AMTRAK &reg;</div>
     <div style="font-size: 0.7em; opacity: 0.8; text-transform: uppercase;">Future Travel Credit Voucher</div>
   </div>
 <div style="padding: 25px; background: #fdfdfd; border-bottom: 1px solid #eee;">
@@ -43,7 +43,7 @@ Because vouchers are essentially "Digital Cash," they are a primary target for *
 <div style="padding: 15px; background: #fff; text-align: center;">
     <div data-verify-line="voucher" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #004a99; font-weight: bold;"
       title="Demo only: Amtrak doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:amtrak.com/v <span verifiable-text="end" data-for="voucher">]</span>
+      verify:amtrak.com/v <span verifiable-text="end" data-for="voucher"></span>
     </div>
     <div style="font-size: 0.65em; color: #999; margin-top: 8px; font-style: italic;">
       Scan to verify current remaining balance and transferability status. Not redeemable for cash.

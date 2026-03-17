@@ -15,7 +15,7 @@ A citation dismissal notice confirms that a traffic ticket, parking citation, co
 Citation fraud is common: fake dismissals to avoid insurance increases, fabricated "proof of correction" documents, and forged court orders to clear driving records.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="traffic">[</span>TRAFFIC CITATION DISMISSED<br>
+  <span verifiable-text="start" data-for="traffic"></span>TRAFFIC CITATION DISMISSED<br>
   Los Angeles Superior Court<br>
   Traffic Division<br>
   Citation #T-2025-8847221<br>
@@ -24,11 +24,11 @@ Citation fraud is common: fake dismissals to avoid insurance increases, fabricat
   Citation Date: November 15, 2025<br>
   Dismissed: January 6, 2026<br>
   Reason: Prosecution Failed to Appear<br>
-  <span data-verify-line="traffic">verify:courts.ca.gov/traffic</span> <span verifiable-text="end" data-for="traffic">]</span>
+  <span data-verify-line="traffic">verify:courts.ca.gov/traffic</span> <span verifiable-text="end" data-for="traffic"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="parking">[</span>PARKING CITATION VOIDED<br>
+  <span verifiable-text="start" data-for="parking"></span>PARKING CITATION VOIDED<br>
   City of Chicago<br>
   Department of Finance<br>
   Ticket #P-88412774<br>
@@ -37,11 +37,11 @@ Citation fraud is common: fake dismissals to avoid insurance increases, fabricat
   Original Violation: Expired Meter<br>
   Voided: January 4, 2026<br>
   Reason: Meter Malfunction Confirmed<br>
-  <span data-verify-line="parking">verify:chicago.gov/parking</span> <span verifiable-text="end" data-for="parking">]</span>
+  <span data-verify-line="parking">verify:chicago.gov/parking</span> <span verifiable-text="end" data-for="parking"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="code">[</span>CODE VIOLATION ABATED<br>
+  <span verifiable-text="start" data-for="code"></span>CODE VIOLATION ABATED<br>
   City of Austin<br>
   Code Enforcement Division<br>
   Case #CE-2025-3321<br>
@@ -50,11 +50,11 @@ Citation fraud is common: fake dismissals to avoid insurance increases, fabricat
   Violation: Overgrown Vegetation<br>
   Abated: January 3, 2026<br>
   Fine Waived<br>
-  <span data-verify-line="code">verify:austin.gov/code</span> <span verifiable-text="end" data-for="code">]</span>
+  <span data-verify-line="code">verify:austin.gov/code</span> <span verifiable-text="end" data-for="code"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="fix">[</span>PROOF OF CORRECTION ACCEPTED<br>
+  <span verifiable-text="start" data-for="fix"></span>PROOF OF CORRECTION ACCEPTED<br>
   California DMV<br>
   Citation #FTA-2025-77412<br>
   Driver: Thomas Williams<br>
@@ -63,7 +63,7 @@ Citation fraud is common: fake dismissals to avoid insurance increases, fabricat
   Correction Verified: January 5, 2026<br>
   Fine: $25 (Reduced from $287)<br>
   Points: None<br>
-  <span data-verify-line="fix">verify:dmv.ca.gov/citations</span> <span verifiable-text="end" data-for="fix">]</span>
+  <span data-verify-line="fix">verify:dmv.ca.gov/citations</span> <span verifiable-text="end" data-for="fix"></span>
 </div>
 
 ## Data Verified

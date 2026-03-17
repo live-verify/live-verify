@@ -17,7 +17,7 @@ These documents are the "Before and After" bridge for identity. Fraud is common:
 
 <div style="max-width: 600px; margin: 24px auto; font-family: Georgia, serif; border: 2px solid #1a365d; background: #fff; padding: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
   <div style="text-align: center; border-bottom: 2px solid #1a365d; padding-bottom: 15px; margin-bottom: 20px;">
-    <div style="font-size: 0.9em; color: #666; letter-spacing: 2px;"><span verifiable-text="start" data-for="namechange">[</span>HM COURTS & TRIBUNALS SERVICE</div>
+    <div style="font-size: 0.9em; color: #666; letter-spacing: 2px;"><span verifiable-text="start" data-for="namechange"></span>HM COURTS & TRIBUNALS SERVICE</div>
     <div style="font-size: 1.4em; font-weight: bold; color: #1a365d; margin-top: 5px;">ENROLLED DEED POLL</div>
     <div style="font-size: 0.85em; color: #666;">Certificate of Name Change</div>
   </div>
@@ -37,7 +37,7 @@ These documents are the "Before and After" bridge for identity. Fraud is common:
     </div>
   </div>
   <div data-verify-line="namechange" style="margin-top: 20px; padding-top: 10px; border-top: 1px dashed #999; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;">
-    verify:gov.uk/courts/enrolled-deeds/v <span verifiable-text="end" data-for="namechange">]</span>
+    verify:gov.uk/courts/enrolled-deeds/v <span verifiable-text="end" data-for="namechange"></span>
   </div>
 </div>
 

@@ -16,7 +16,7 @@ In the world of international banking, the **Negotiable Bill of Lading (B/L)** i
 These documents are the primary target for **Trade Finance Fraud**. Scammers use "Ghost B/Ls" to get banks to pay for cargo that doesn't exist, or they "Double-Finance" the same shipment at two different banks. Verified hashes bind the **Consignee (Bank Name), Cargo Value, and On-Board Date** to the shipping line's or the port's domain (e.g., `msc.com` or `hapag-lloyd.com`).
 
 <div style="max-width: 700px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="trade">[</span>MSC MEDITERRANEAN SHIPPING
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="trade"></span>MSC MEDITERRANEAN SHIPPING
 Avenue Eugene-Pittard 40, Geneva
 ═══════════════════════════════════════════════════════════════════
 
@@ -42,7 +42,7 @@ SEAL: 884422         (GRADE-A / 100% ORGANIC)
 
 This is a Document of Title.
 
-<span data-verify-line="trade">verify:msc.com/bl/v</span> <span verifiable-text="end" data-for="trade">]</span></pre>
+<span data-verify-line="trade">verify:msc.com/bl/v</span> <span verifiable-text="end" data-for="trade"></span></pre>
 </div>
 
 ## Data Verified
@@ -116,7 +116,7 @@ In global trade, the **Certificate of Origin (C/O)** is the "Nationality Passpor
 These papers are the primary tools for **Tariff Evasion**. Fraud is high-stakes: exporters often "edit" a C/O to change the origin from a high-tax country (e.g., China) to a low-tax one (e.g., Vietnam) to save millions in duties. This is known as "Transshipment" or "Origin Laundering." Verified hashes bind the **Exporter Name, Goods Description, and Country of Origin** to the issuing Chamber's domain (e.g., `londonchamber.com` or `vietnamchamber.gov`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="origin">[</span>LONDON CHAMBER OF COMMERCE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="origin"></span>LONDON CHAMBER OF COMMERCE
 Official Certificate of Origin
 ═══════════════════════════════════════════════════════════════════
 
@@ -141,7 +141,7 @@ country stated."
 
                       [CHAMBER OFFICIAL STAMP]
 
-<span data-verify-line="origin">verify:londonchamber.com/v</span> <span verifiable-text="end" data-for="origin">]</span></pre>
+<span data-verify-line="origin">verify:londonchamber.com/v</span> <span verifiable-text="end" data-for="origin"></span></pre>
 </div>
 
 ## Data Verified
@@ -215,7 +215,7 @@ In global commerce, the **Commercial Invoice** is the ultimate bill. It defines 
 This document is the primary engine for **Trade-Based Money Laundering (TBML)** and **Tax Evasion**. Scammers use "Under-Invoicing" (editing a $1M invoice to show $100k) to evade import duties, or "Over-Invoicing" (editing a $10k invoice to show $1M) to illegally move large sums of cash across borders. Verified hashes bind the **Total Value, Unit Prices, and Buyer/Seller IDs** to the exporter's or the platform's domain (e.g., `samsung.com` or `tradelens.com`).
 
 <div style="max-width: 700px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="invoice">[</span>GLOBAL TEXTILES EXPORT LTD.
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="invoice"></span>GLOBAL TEXTILES EXPORT LTD.
 VAT ID: AE-99228877 - Dubai, UAE
 ═══════════════════════════════════════════════════════════════════
 
@@ -236,7 +236,7 @@ TOTAL INVOICE VALUE (USD):                              $ 42,500.00
 Verification confirms the financial integrity of this billing
 record against the exporter's ledger.
 
-<span data-verify-line="invoice">verify:globaltextiles.ae/v</span> <span verifiable-text="end" data-for="invoice">]</span></pre>
+<span data-verify-line="invoice">verify:globaltextiles.ae/v</span> <span verifiable-text="end" data-for="invoice"></span></pre>
 </div>
 
 ## Data Verified

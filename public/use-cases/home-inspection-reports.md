@@ -20,7 +20,7 @@ Fraud is high-stakes here: sellers or dishonest agents sometimes "Delete" the sc
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #2c3e50; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="inspect">[</span>PREMIER HOME INSPECTIONS, LLC</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="inspect"></span>PREMIER HOME INSPECTIONS, LLC</div>
       <div style="font-size: 0.8em;">ASHI Certified Inspector #992288</div>
     </div>
     <div style="text-align: right;">
@@ -46,7 +46,7 @@ Fraud is high-stakes here: sellers or dishonest agents sometimes "Delete" the sc
     </div>
 <div data-verify-line="inspect" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Inspection firm doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:premier-inspections.com/v <span verifiable-text="end" data-for="inspect">]</span>
+      verify:premier-inspections.com/v <span verifiable-text="end" data-for="inspect"></span>
     </div>
   </div>
 </div>

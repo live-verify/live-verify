@@ -17,7 +17,7 @@ The problem is that "Tour Guide" is a low-barrier profession. Anyone can buy a g
 
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #0072b2; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
   <div style="background: #0072b2; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
-    <div style="font-weight: bold; font-size: 1.1em; letter-spacing: 1px;"><span verifiable-text="start" data-for="guide">[</span>OFFICIAL TOUR GUIDE</div>
+    <div style="font-weight: bold; font-size: 1.1em; letter-spacing: 1px;"><span verifiable-text="start" data-for="guide"></span>OFFICIAL TOUR GUIDE</div>
     <div style="font-size: 1.5em;">🏛️</div>
   </div>
 <div style="padding: 20px; display: flex; background: linear-gradient(to bottom, #fff, #f0f7ff);">
@@ -39,7 +39,7 @@ The problem is that "Tour Guide" is a low-barrier profession. Anyone can buy a g
     </div>
     <div data-verify-line="guide" style="border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.85em; color: #0072b2; text-align: center; font-weight: bold;"
       title="Demo only: Tourism boards don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:visitportugal.gov/v <span verifiable-text="end" data-for="guide">]</span>
+      verify:visitportugal.gov/v <span verifiable-text="end" data-for="guide"></span>
     </div>
   </div>
 </div>

@@ -19,7 +19,7 @@ Fraud is high-stakes: some "Salesmen" edit the FDD to hide lawsuits or to inflat
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
   <div style="text-align: center; margin-bottom: 30px; border-bottom: 2px solid #000; padding-bottom: 10px;">
-    <div style="font-weight: bold; font-size: 1.4em; color: #000;"><span verifiable-text="start" data-for="franchise">[</span>7-ELEVEN, INC.</div>
+    <div style="font-weight: bold; font-size: 1.4em; color: #000;"><span verifiable-text="start" data-for="franchise"></span>7-ELEVEN, INC.</div>
     <div style="font-size: 0.85em; color: #666; margin-top: 5px;">OFFICIAL FRANCHISE DISCLOSURE DOCUMENT (FDD)</div>
   </div>
 <h3 style="text-align: center; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px;">Disclosure Verification</h3>
@@ -44,7 +44,7 @@ Fraud is high-stakes: some "Salesmen" edit the FDD to hide lawsuits or to inflat
   </div>
 <div data-verify-line="franchise" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: 7-Eleven doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:7-eleven.com/franchise/v <span verifiable-text="end" data-for="franchise">]</span>
+      verify:7-eleven.com/franchise/v <span verifiable-text="end" data-for="franchise"></span>
     </div>
 </div>
 

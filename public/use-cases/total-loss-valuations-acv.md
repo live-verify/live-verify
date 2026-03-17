@@ -16,7 +16,7 @@ In the auto insurance industry, when a car is wrecked, the insurer must determin
 These reports are the "Final Settlement" for a vehicle. Fraud is high-volume: claimants often "edit" a valuation report to turn a $15,000 offer into a $25,000 claim to trick a second insurer or a lender. Similarly, flippers might "scrub" a total-loss record to hide that a car was salvaged. Verified hashes bind the **VIN, Mileage, and ACV Dollar Amount** to the valuation provider's or the insurer's domain (e.g., `cccis.com` or `geico.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="total-loss">[</span>CCC ONE VALUATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="total-loss"></span>CCC ONE VALUATION
 Official Market Valuation Report
 ═══════════════════════════════════════════════════════════════════
 
@@ -31,7 +31,7 @@ Vehicle:   2024 Honda Accord EX        Mileage:   12,450 (Verified)
 Comparables:   3 matching vehicles in 50-mile radius (Avg: $28,600)
 Adjustments:   - $150 (Tire Wear), + $0 (Equipment)
 
-<span data-verify-line="total-loss">verify:cccis.com/v</span> <span verifiable-text="end" data-for="total-loss">]</span></pre>
+<span data-verify-line="total-loss">verify:cccis.com/v</span> <span verifiable-text="end" data-for="total-loss"></span></pre>
 </div>
 
 ## Data Verified

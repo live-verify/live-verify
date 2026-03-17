@@ -382,6 +382,9 @@
                 text: region.text + '\n' + region.verifyUrl
             });
 
+            // Also fire OS notification so result is visible outside the page
+            chrome.runtime.sendMessage({ type: 'showNotification', result });
+
             if (result.success) {
                 region.status = 'verified';
                 badge.className = 'liveverify-badge verified';
@@ -652,10 +655,39 @@
         return true;
     }
 
+    // Watch for dynamically-inserted verifiable regions (e.g. SPA pages that
+    // fetch markdown and inject HTML after DOMContentLoaded)
+    let observerInitialized = false;
+    function observeForLateRegions() {
+        if (observerInitialized) return;
+        observerInitialized = true;
+
+        const observer = new MutationObserver(() => {
+            const regions = findVerifiableRegions();
+            if (regions.length > 0) {
+                observer.disconnect();
+                initialize();
+            }
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+    }
+
     // Initialize when DOM is ready
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initialize);
+        document.addEventListener('DOMContentLoaded', () => {
+            const regions = findVerifiableRegions();
+            if (regions.length > 0) {
+                initialize();
+            } else {
+                observeForLateRegions();
+            }
+        });
     } else {
-        initialize();
+        const regions = findVerifiableRegions();
+        if (regions.length > 0) {
+            initialize();
+        } else {
+            observeForLateRegions();
+        }
     }
 })();

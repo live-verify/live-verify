@@ -18,7 +18,7 @@ When the defendant shows up at the airport, the TSA agent has no way to know the
 With Live Verify, bail and bond documents carry a verify line bound to the court's domain. Law enforcement, employers, bondsmen, and the defendant themselves can verify: real bail, real terms, currently in effect.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="bail">[</span>BAIL ORDER AND CONDITIONS OF RELEASE<br>
+  <span verifiable-text="start" data-for="bail"></span>BAIL ORDER AND CONDITIONS OF RELEASE<br>
   Superior Court of Maricopa County<br>
   State of Arizona<br>
   Case #CR-2026-004418<br>
@@ -39,7 +39,7 @@ With Live Verify, bail and bond documents carry a verify line bound to the court
   Agent: Robert Hernandez, Lic #BBA-7741<br>
   Posted: February 28, 2026<br>
   Judge: Hon. David K. Nakamura<br>
-  <span data-verify-line="bail">verify:courts.maricopa.gov/bail</span> <span verifiable-text="end" data-for="bail">]</span>
+  <span data-verify-line="bail">verify:courts.maricopa.gov/bail</span> <span verifiable-text="end" data-for="bail"></span>
 </div>
 
 ## Data Verified

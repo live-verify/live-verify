@@ -54,14 +54,14 @@ Impostors pose multiple threats: they can steal high-value equipment (lighting r
 
 <div style="max-width: 320px; margin: 24px auto; font-family: 'Courier New', monospace; border: 4px solid #000; border-radius: 4px; background: #f0f0f0; padding: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
   <div style="font-size: 1.2em; color: #000; font-weight: 900; margin-bottom: 8px;">COACHELLA</div>
-  <div style="font-size: 1em; font-weight: bold; color: #000; margin-bottom: 8px;"><span verifiable-text="start" data-for="eink-crew">[</span>Mike D.</div>
+  <div style="font-size: 1em; font-weight: bold; color: #000; margin-bottom: 8px;"><span verifiable-text="start" data-for="eink-crew"></span>Mike D.</div>
   <div style="font-size: 1em; color: #333; margin-bottom: 8px;">Stage Crew - Zone A</div>
   <div style="font-size: 1em; color: #000; margin-bottom: 12px; display: inline-block; padding: 4px 8px; border: 1px solid #999;">
     Salt: 5k9x2m
   </div>
   <div data-verify-line="eink-crew" style="font-size: 1em; color: #555;"
     title="Demo only: Event promoters don't yet offer verification endpoints">
-    vfy:staff.coachella.com <span verifiable-text="end" data-for="eink-crew">]</span>
+    vfy:staff.coachella.com <span verifiable-text="end" data-for="eink-crew"></span>
   </div>
 </div>
 

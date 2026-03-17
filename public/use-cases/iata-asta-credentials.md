@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 4px solid #002d62; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #002d62; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
-    <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="iata">[</span>IATA ACCREDITED AGENCY</div>
+    <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="iata"></span>IATA ACCREDITED AGENCY</div>
     <div style="width: 50px; height: 50px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #002d62; font-weight: bold; font-size: 0.8em;">IATA</div>
   </div>
 <div style="padding: 30px;">
@@ -34,7 +34,7 @@ furtherDerivations: 1
     </div>
 <div data-verify-line="iata" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: IATA doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:iata.org/check-a-code/v <span verifiable-text="end" data-for="iata">]</span>
+      verify:iata.org/check-a-code/v <span verifiable-text="end" data-for="iata"></span>
     </div>
   </div>
 </div>

@@ -15,7 +15,7 @@ A no convictions declaration (also called a certificate of good standing, good c
 These certificates are high-value fraud targets. A fake "no convictions" certificate can enable someone with disqualifying convictions to obtain licenses, visas, or positions they're ineligible for.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="driver">[</span>CDL DRIVER CERTIFICATION<br>
+  <span verifiable-text="start" data-for="driver"></span>CDL DRIVER CERTIFICATION<br>
   California Department of Motor Vehicles<br>
   Driver: Robert Martinez<br>
   CDL: C1234567<br>
@@ -23,11 +23,11 @@ These certificates are high-value fraud targets. A fake "no convictions" certifi
   No DUI/DWI in past 10 years<br>
   No drug-related license suspension<br>
   Certification Date: January 5, 2026<br>
-  <span data-verify-line="driver">verify:dmv.ca.gov/cdl</span> <span verifiable-text="end" data-for="driver">]</span>
+  <span data-verify-line="driver">verify:dmv.ca.gov/cdl</span> <span verifiable-text="end" data-for="driver"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="childcare">[</span>CHILDCARE WORKER CLEARANCE<br>
+  <span verifiable-text="start" data-for="childcare"></span>CHILDCARE WORKER CLEARANCE<br>
   Pennsylvania Department of Human Services<br>
   Applicant: Jennifer Williams<br>
   Clearance #PA-CC-2026-88412<br>
@@ -36,11 +36,11 @@ These certificates are high-value fraud targets. A fake "no convictions" certifi
   State Police Criminal History<br>
   FBI Fingerprint Check<br>
   Valid Through: January 5, 2027<br>
-  <span data-verify-line="childcare">verify:dhs.pa.gov/clearance</span> <span verifiable-text="end" data-for="childcare">]</span>
+  <span data-verify-line="childcare">verify:dhs.pa.gov/clearance</span> <span verifiable-text="end" data-for="childcare"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="security">[</span>SECURITY INDUSTRY AUTHORITY<br>
+  <span verifiable-text="start" data-for="security"></span>SECURITY INDUSTRY AUTHORITY<br>
   United Kingdom<br>
   License Check<br>
   Holder: David Thompson<br>
@@ -48,11 +48,11 @@ These certificates are high-value fraud targets. A fake "no convictions" certifi
   Type: Door Supervisor<br>
   Status: No Objection to Employment<br>
   Verified: January 7, 2026<br>
-  <span data-verify-line="security">verify:sia.homeoffice.gov.uk</span> <span verifiable-text="end" data-for="security">]</span>
+  <span data-verify-line="security">verify:sia.homeoffice.gov.uk</span> <span verifiable-text="end" data-for="security"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="fin">[</span>FINRA DISCLOSURE CHECK<br>
+  <span verifiable-text="start" data-for="fin"></span>FINRA DISCLOSURE CHECK<br>
   Financial Industry Regulatory Authority<br>
   Representative: Marcus Chen<br>
   CRD #7741892<br>
@@ -60,7 +60,7 @@ These certificates are high-value fraud targets. A fake "no convictions" certifi
   Regulatory Actions: None<br>
   Customer Complaints: None<br>
   As of: January 6, 2026<br>
-  <span data-verify-line="fin">verify:finra.org/brokercheck</span> <span verifiable-text="end" data-for="fin">]</span>
+  <span data-verify-line="fin">verify:finra.org/brokercheck</span> <span verifiable-text="end" data-for="fin"></span>
 </div>
 
 ## Data Verified

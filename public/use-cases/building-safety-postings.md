@@ -19,7 +19,7 @@ Live Verify allows a tenant, visitor, or fire marshal to scan the posting to ver
 
 <div style="max-width: 500px; margin: 24px auto; font-family: 'Times New Roman', serif; border: 4px solid #000; background: #fff; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); position: relative;">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 15px; margin-bottom: 20px;">
-    <div style="font-weight: bold; font-size: 1.3em; text-transform: uppercase;"><span verifiable-text="start" data-for="elevator">[</span>Department of Buildings</div>
+    <div style="font-weight: bold; font-size: 1.3em; text-transform: uppercase;"><span verifiable-text="start" data-for="elevator"></span>Department of Buildings</div>
     <div style="font-size: 1em; letter-spacing: 1px;">ELEVATOR INSPECTION CERTIFICATE</div>
   </div>
 <div style="font-size: 0.9em; line-height: 1.6;">
@@ -36,7 +36,7 @@ Live Verify allows a tenant, visitor, or fire marshal to scan the posting to ver
   </div>
 <div data-verify-line="elevator" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Municipalities don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:dob.city.gov/v <span verifiable-text="end" data-for="elevator">]</span>
+      verify:dob.city.gov/v <span verifiable-text="end" data-for="elevator"></span>
   </div>
 </div>
 

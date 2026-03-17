@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ffb3c1; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #ffb3c1; color: #000; padding: 20px; display: flex; align-items: center; justify-content: space-between;">
-    <div style="font-weight: bold; font-size: 1.4em;"><span verifiable-text="start" data-for="bnpl-merch">[</span>Klarna.</div>
+    <div style="font-weight: bold; font-size: 1.4em;"><span verifiable-text="start" data-for="bnpl-merch"></span>Klarna.</div>
     <div style="font-size: 0.8em; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Verified Merchant</div>
   </div>
 <div style="padding: 30px;">
@@ -31,7 +31,7 @@ furtherDerivations: 1
     </div>
 <div data-verify-line="bnpl-merch" style="border-top: 1px dashed #ffb3c1; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Klarna doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:klarna.com/merchants/v <span verifiable-text="end" data-for="bnpl-merch">]</span>
+      verify:klarna.com/merchants/v <span verifiable-text="end" data-for="bnpl-merch"></span>
     </div>
   </div>
 </div>

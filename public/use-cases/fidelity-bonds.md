@@ -20,7 +20,7 @@ Companies that provide in-home services (like cleaning or IT repair) use these b
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 2px solid #1a237e; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="background: #1a237e; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="fidelity">[</span>TRAVELERS CASUALTY & SURETY</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="fidelity"></span>TRAVELERS CASUALTY & SURETY</div>
       <div style="font-size: 0.8em; opacity: 0.8;">Commercial Crime & Fidelity Bond</div>
     </div>
     <div style="text-align: right;">
@@ -44,7 +44,7 @@ Companies that provide in-home services (like cleaning or IT repair) use these b
     </div>
 <div data-verify-line="fidelity" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Travelers doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:travelers.com/surety/v <span verifiable-text="end" data-for="fidelity">]</span>
+      verify:travelers.com/surety/v <span verifiable-text="end" data-for="fidelity"></span>
     </div>
   </div>
 </div>

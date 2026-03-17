@@ -18,7 +18,7 @@ A **Disbursement Receipt** is an artifact issued at the "Last Mile" of aid deliv
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 2px solid #2e7d32; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #2e7d32; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="charity">[</span>DISBURSEMENT CONFIRMATION</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="charity"></span>DISBURSEMENT CONFIRMATION</div>
       <div style="font-size: 0.8em; opacity: 0.9;">Impact & Compliance Unit</div>
     </div>
     <div style="text-align: right;">
@@ -42,7 +42,7 @@ A **Disbursement Receipt** is an artifact issued at the "Last Mile" of aid deliv
   </div>
 <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #2e7d32; text-align: center;">
     <div data-verify-line="charity" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:globalwater.org/impact/v <span verifiable-text="end" data-for="charity">]</span>
+      verify:globalwater.org/impact/v <span verifiable-text="end" data-for="charity"></span>
     </div>
   </div>
 </div>

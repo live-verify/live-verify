@@ -20,7 +20,7 @@ The customer checks before paying. The trader carries proof. The tax authority g
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #1a237e; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #1a237e; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="vat-reg">[</span>TRADER TAX STATUS</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="vat-reg"></span>TRADER TAX STATUS</div>
       <div style="font-size: 0.8em; opacity: 0.9;">HM Revenue & Customs</div>
     </div>
     <div style="text-align: right;">
@@ -44,7 +44,7 @@ The customer checks before paying. The trader carries proof. The tax authority g
   </div>
   <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #1a237e; text-align: center;">
     <div data-verify-line="vat-reg" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:hmrc.gov.uk/trader/v <span verifiable-text="end" data-for="vat-reg">]</span>
+      verify:hmrc.gov.uk/trader/v <span verifiable-text="end" data-for="vat-reg"></span>
     </div>
   </div>
 </div>
@@ -52,7 +52,7 @@ The customer checks before paying. The trader carries proof. The tax authority g
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #2e7d32; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #2e7d32; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="below-threshold">[</span>TRADER TAX STATUS</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="below-threshold"></span>TRADER TAX STATUS</div>
       <div style="font-size: 0.8em; opacity: 0.9;">HM Revenue & Customs</div>
     </div>
     <div style="text-align: right;">
@@ -76,7 +76,7 @@ The customer checks before paying. The trader carries proof. The tax authority g
   </div>
   <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #2e7d32; text-align: center;">
     <div data-verify-line="below-threshold" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:hmrc.gov.uk/trader/v <span verifiable-text="end" data-for="below-threshold">]</span>
+      verify:hmrc.gov.uk/trader/v <span verifiable-text="end" data-for="below-threshold"></span>
     </div>
   </div>
 </div>
@@ -84,7 +84,7 @@ The customer checks before paying. The trader carries proof. The tax authority g
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #b71c1c; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #b71c1c; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="suspended">[</span>TRADER TAX STATUS</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="suspended"></span>TRADER TAX STATUS</div>
       <div style="font-size: 0.8em; opacity: 0.9;">HM Revenue & Customs</div>
     </div>
     <div style="text-align: right;">
@@ -108,7 +108,7 @@ The customer checks before paying. The trader carries proof. The tax authority g
   </div>
   <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #b71c1c; text-align: center;">
     <div data-verify-line="suspended" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:hmrc.gov.uk/trader/v <span verifiable-text="end" data-for="suspended">]</span>
+      verify:hmrc.gov.uk/trader/v <span verifiable-text="end" data-for="suspended"></span>
     </div>
   </div>
 </div>

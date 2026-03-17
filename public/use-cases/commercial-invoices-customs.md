@@ -21,7 +21,7 @@ Customs officers use this invoice to decide:
 **"Under-valuation"** is a massive global trade crime. Shady importers often have the exporter send two invoices: a "Real" one for payment, and a "Fake" one with a 90% discount to show Customs. This allows them to evade millions in import duties. **"Tariff Engineering"** is another risk, where the HS code is edited on the paper to a low-duty category. Verified hashes bind the **Exporters' ledger value and the HS Code** to the manufacturer's or the trade platform's domain.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="invoice">[</span>COMMERCIAL INVOICE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="invoice"></span>COMMERCIAL INVOICE
 ═══════════════════════════════════════════════════════════════════
 
 Invoice #:  INV-998877-XK
@@ -43,7 +43,7 @@ Incoterms:         CIP Zurich (2020)
 Country of Origin: CHINA
 Container:         MSKU-992288-0
 
-<span data-verify-line="invoice">verify:sz-tech.com/invoices/v</span> <span verifiable-text="end" data-for="invoice">]</span></pre>
+<span data-verify-line="invoice">verify:sz-tech.com/invoices/v</span> <span verifiable-text="end" data-for="invoice"></span></pre>
 </div>
 
 ## Data Verified

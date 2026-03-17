@@ -26,7 +26,7 @@ With Live Verify, the certificate carries a `verify:` line bound to the issuing 
   </div>
   <div style="padding: 20px 25px; line-height: 1.7;">
     <div style="text-align: center; margin-bottom: 15px;">
-      <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="taxres">[ </span>Eidgen&ouml;ssische Steuerverwaltung</div>
+      <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="taxres"> </span>Eidgen&ouml;ssische Steuerverwaltung</div>
       <div style="font-size: 0.85em; color: #555;">Swiss Federal Tax Administration</div>
       <div style="font-size: 0.95em; font-weight: bold; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px;">Certificate of Tax Residence</div>
     </div>
@@ -45,7 +45,7 @@ With Live Verify, the certificate carries a `verify:` line bound to the issuing 
     </div>
     <div data-verify-line="taxres" style="border-top: 1px dashed #999; margin-top: 15px; padding-top: 8px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: ESTV doesn't yet offer verification endpoints">
-      verify:estv.admin.ch/residence <span verifiable-text="end" data-for="taxres">]</span>
+      verify:estv.admin.ch/residence <span verifiable-text="end" data-for="taxres"></span>
     </div>
   </div>
 </div>

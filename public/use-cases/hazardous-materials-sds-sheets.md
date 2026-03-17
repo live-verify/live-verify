@@ -20,7 +20,7 @@ Fraud is dangerous here: some managers use a 10-year-old SDS to hide that a chem
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #333; color: #fff; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="sds">[</span>SAFETY DATA SHEET (SDS)</div>
+      <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="sds"></span>SAFETY DATA SHEET (SDS)</div>
       <div style="font-size: 0.8em; opacity: 0.8;">GHS / OSHA HCS 2012</div>
     </div>
     <div style="text-align: right;">
@@ -50,7 +50,7 @@ Fraud is dangerous here: some managers use a 10-year-old SDS to hide that a chem
     </div>
 <div data-verify-line="sds" style="border-top: 1px dashed #999; margin-top: 25px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Manufacturer doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:globalchem.com/sds/v <span verifiable-text="end" data-for="sds">]</span>
+      verify:globalchem.com/sds/v <span verifiable-text="end" data-for="sds"></span>
     </div>
   </div>
 </div>

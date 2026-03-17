@@ -21,7 +21,7 @@ It is used for high-stakes financial decisions:
 **"Phantom Audits"** are a major corporate crime. Fraudulent companies create fake "Unqualified Opinions" on stolen accounting firm letterhead (like PwC or EY) to hide insolvency or to trick lenders into funding a failing business. In other cases, executives "Scrub" a real audit to remove a **"Going Concern"** warning—the paragraph where the auditor warns that the company might go bankrupt. Live Verify binds the **Company name, Net Income, and Opinion Type** to the audit firm's domain.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="audit">[</span>
+  <span verifiable-text="start" data-for="audit"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">PRICEWATERHOUSECOOPERS LLP
 300 Madison Avenue, New York, NY 10017
 ═══════════════════════════════════════════════════════════════════
@@ -53,7 +53,7 @@ statements based on our audits.
                     February 24, 2026
 
 </pre>
-  <span data-verify-line="audit">verify:pwc.com/audit/v</span> <span verifiable-text="end" data-for="audit">]</span>
+  <span data-verify-line="audit">verify:pwc.com/audit/v</span> <span verifiable-text="end" data-for="audit"></span>
 </div>
 
 ## Data Verified

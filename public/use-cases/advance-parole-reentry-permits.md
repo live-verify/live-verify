@@ -21,7 +21,7 @@ If a traveler loses this paper, or if an airline agent in Paris thinks it looks 
   <div style="background: #eef; padding: 15px; border-bottom: 1px solid #ccc; display: flex; align-items: center;">
     <div style="width: 50px; height: 50px; background: #ccc; border-radius: 50%; margin-right: 15px; display: flex; align-items: center; justify-content: center; font-size: 0.8em; text-align: center;">[Seal]</div>
     <div>
-      <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="parole">[</span>Department of Homeland Security</div>
+      <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="parole"></span>Department of Homeland Security</div>
       <div style="font-size: 0.9em;">U.S. Citizenship and Immigration Services</div>
     </div>
   </div>
@@ -44,7 +44,7 @@ If a traveler loses this paper, or if an airline agent in Paris thinks it looks 
 <p style="font-size: 0.9em; text-align: justify;">Presentation of this authorization will permit the above named alien to seek parole at a port of entry. Officer at POE: Please endorse below.</p>
 <div data-verify-line="parole" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: USCIS doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:uscis.gov/v/i512 <span verifiable-text="end" data-for="parole">]</span>
+      verify:uscis.gov/v/i512 <span verifiable-text="end" data-for="parole"></span>
     </div>
   </div>
 </div>

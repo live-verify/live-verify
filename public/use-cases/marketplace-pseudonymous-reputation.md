@@ -27,7 +27,7 @@ You've built 5 years of reputation on eBay. Now you want to also sell on Poshmar
 **How Identity Escrow Helps:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="seller">[</span>VERIFIED SELLER PROFILE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="seller"></span>VERIFIED SELLER PROFILE
 
 Seller ID: VS-SLR-449281
 Verified Since: March 2020
@@ -48,7 +48,7 @@ CROSS-PLATFORM REPUTATION:
 
 DISPUTE HISTORY: 3 disputes, all resolved
 
-<span data-verify-line="seller">verify:sellerverify.org/profile/v</span> <span verifiable-text="end" data-for="seller">]</span></pre>
+<span data-verify-line="seller">verify:sellerverify.org/profile/v</span> <span verifiable-text="end" data-for="seller"></span></pre>
 </div>
 
 **Portable Reputation:**
@@ -83,7 +83,7 @@ Freelancers build reputation on platforms that take 20%+ fees. Leaving means sta
 **How Identity Escrow Helps:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="free">[</span>VERIFIED FREELANCER PROFILE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="free"></span>VERIFIED FREELANCER PROFILE
 
 Freelancer ID: VF-FRL-772918
 Verified Since: June 2021
@@ -106,7 +106,7 @@ CREDENTIALS:
   - AWS Certified (verified)
   - GitHub: 2,400+ contributions (linked)
 
-<span data-verify-line="free">verify:freelancerverify.org/profile/v</span> <span verifiable-text="end" data-for="free">]</span></pre>
+<span data-verify-line="free">verify:freelancerverify.org/profile/v</span> <span verifiable-text="end" data-for="free"></span></pre>
 </div>
 
 **Off-Platform Hiring:**
@@ -145,7 +145,7 @@ Content creators build audiences under pseudonyms. But platforms require real id
 **How Identity Escrow Helps:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="create">[</span>VERIFIED CREATOR PROFILE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="create"></span>VERIFIED CREATOR PROFILE
 
 Creator ID: VC-CRT-118294
 Verified Since: January 2022
@@ -166,7 +166,7 @@ PLATFORM PRESENCE:
 CONTENT HISTORY: 3 years verified
 PAYMENT RELIABILITY: 100% on-time payouts
 
-<span data-verify-line="create">verify:creatorverify.org/profile/v</span> <span verifiable-text="end" data-for="create">]</span></pre>
+<span data-verify-line="create">verify:creatorverify.org/profile/v</span> <span verifiable-text="end" data-for="create"></span></pre>
 </div>
 
 **Platform Independence:**
@@ -205,7 +205,7 @@ Experts offer consulting through platforms (Clarity.fm, Expert360, Maven). Build
 **How Identity Escrow Helps:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="expert">[</span>VERIFIED EXPERT PROFILE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="expert"></span>VERIFIED EXPERT PROFILE
 
 Expert ID: VE-EXP-556782
 Verified Since: September 2023
@@ -230,7 +230,7 @@ CONSULTING HISTORY:
 
 AVAILABILITY: Accepting new clients
 
-<span data-verify-line="expert">verify:expertverify.org/profile/v</span> <span verifiable-text="end" data-for="expert">]</span></pre>
+<span data-verify-line="expert">verify:expertverify.org/profile/v</span> <span verifiable-text="end" data-for="expert"></span></pre>
 </div>
 
 **Credential Verification:**

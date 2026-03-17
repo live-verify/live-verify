@@ -53,7 +53,7 @@ Forthcoming legislation (anticipated Q1 2026) will mandate:
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="office">[</span>INDOOR AIR QUALITY ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="office"></span>INDOOR AIR QUALITY ATTESTATION
 
 Building: Commerce Tower, Floor 14
 Tenant: TechCorp Inc.
@@ -81,7 +81,7 @@ ATTESTATION HASH: 8f4a2c1e9b...
   - HEPA CADR test results
   - UV-C intensity readings
 
-<span data-verify-line="office">verify:commerce-tower.com/airquality/v</span> <span verifiable-text="end" data-for="office">]</span></pre>
+<span data-verify-line="office">verify:commerce-tower.com/airquality/v</span> <span verifiable-text="end" data-for="office"></span></pre>
 </div>
 
 **Ongoing vs. Point-in-Time:**
@@ -106,7 +106,7 @@ Unlike construction witnessing (one concealment event), air quality requires con
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="school">[</span>SCHOOL AIR QUALITY ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="school"></span>SCHOOL AIR QUALITY ATTESTATION
 
 School: Lincoln Elementary
 Room: Classroom 204 (Grade 3)
@@ -132,7 +132,7 @@ ATTESTATION HASH: 2d7e4f1a8c...
   - Filter change photo
   - Window-open verification log
 
-<span data-verify-line="school">verify:lincoln-elementary.edu/air/v</span> <span verifiable-text="end" data-for="school">]</span></pre>
+<span data-verify-line="school">verify:lincoln-elementary.edu/air/v</span> <span verifiable-text="end" data-for="school"></span></pre>
 </div>
 
 **Parent Transparency:**
@@ -166,7 +166,7 @@ Hospitals have long had ventilation standards (negative pressure isolation, OR a
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="clinic">[</span>HEALTHCARE AIR QUALITY ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="clinic"></span>HEALTHCARE AIR QUALITY ATTESTATION
 
 Facility: Riverside Family Medicine
 Area: Waiting Room + Exam Rooms 1-4
@@ -191,7 +191,7 @@ ATTESTATION HASH: 5c9a3b2e7f...
   - UV-C dosimetry log
   - Negative pressure differential readings
 
-<span data-verify-line="clinic">verify:riverside-med.com/air/v</span> <span verifiable-text="end" data-for="clinic">]</span></pre>
+<span data-verify-line="clinic">verify:riverside-med.com/air/v</span> <span verifiable-text="end" data-for="clinic"></span></pre>
 </div>
 
 **Staff Protection:**
@@ -214,7 +214,7 @@ Healthcare workers have occupational exposure claims:
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="restaurant">[</span>HOSPITALITY AIR QUALITY ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="restaurant"></span>HOSPITALITY AIR QUALITY ATTESTATION
 
 Venue: The Golden Fork Restaurant
 Capacity: 120 seats
@@ -239,7 +239,7 @@ ATTESTATION HASH: 9x8y7z6w5v...
   - Peak occupancy correlation
   - Filter/UV maintenance log
 
-<span data-verify-line="restaurant">verify:goldenfork.com/air/v</span> <span verifiable-text="end" data-for="restaurant">]</span></pre>
+<span data-verify-line="restaurant">verify:goldenfork.com/air/v</span> <span verifiable-text="end" data-for="restaurant"></span></pre>
 </div>
 
 **Competitive Differentiation:**
@@ -264,7 +264,7 @@ Witnessing provides the credibility layer—claims are verifiable, not marketing
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="transit">[</span>TRANSIT AIR QUALITY ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="transit"></span>TRANSIT AIR QUALITY ATTESTATION
 
 Operator: Metro Transit Authority
 Vehicle: Bus #4721 (New Flyer XDE60)
@@ -289,7 +289,7 @@ ATTESTATION HASH: 3a4b5c6d7e...
   - Filter change record
   - UV-C intensity test
 
-<span data-verify-line="transit">verify:metrotransit.gov/fleet/v</span> <span verifiable-text="end" data-for="transit">]</span></pre>
+<span data-verify-line="transit">verify:metrotransit.gov/fleet/v</span> <span verifiable-text="end" data-for="transit"></span></pre>
 </div>
 
 **Fleet-Wide Patterns:**

@@ -16,7 +16,7 @@ In the logistics industry, the **Proof of Delivery (POD)** is the legal evidence
 Fraud is rampant in high-value shipping (electronics, pharmaceuticals). Dishonest receivers may claim **"Goods Never Received"** despite signing for them, or dishonest drivers may forge a signature to hide a theft or a late delivery. Verified hashes bind the **Tracking Number, Timestamp, and Recipient Name** to the carrier's domain, creating an indisputable audit trail.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="pod">[</span>DHL EXPRESS
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="pod"></span>DHL EXPRESS
 DELIVERY RECEIPT - Official Record of Handoff
 ═══════════════════════════════════════════════════════════════════
 
@@ -33,7 +33,7 @@ Network Server Rack - 4U           3                INTACT
 Signed By:          Sarah Jenkins
                     Security Supervisor (Emp #992)
 
-<span data-verify-line="pod">verify:dhl.com/pod/v</span> <span verifiable-text="end" data-for="pod">]</span></pre>
+<span data-verify-line="pod">verify:dhl.com/pod/v</span> <span verifiable-text="end" data-for="pod"></span></pre>
 </div>
 
 ## Data Verified

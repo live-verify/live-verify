@@ -16,7 +16,7 @@ An **Umbrella Liability Policy** is the "Final Line of Defense" for a person's n
 These policies are critical for **Asset Protection**. Fraud is high-stakes: high-net-worth individuals or professionals (e.g., Doctors, CEOs) might "edit" a policy to show a $5M limit instead of a $1M limit to qualify for a business partnership or a high-value lease. Similarly, they might hide that their "Underlying Policy" (Auto) was cancelled, which legally voids the Umbrella coverage. Verified hashes bind the **Excess Limits, Underlying Policy IDs, and Effective Dates** to the insurer's domain (e.g., `libertymutual.com` or `chubb.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="umbrella">[</span>CHUBB PERSONAL RISK
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="umbrella"></span>CHUBB PERSONAL RISK
 Master Umbrella & Excess Liability
 ═══════════════════════════════════════════════════════════════════
 
@@ -34,7 +34,7 @@ VERIFIED UNDERLYING POLICIES
 Automobile:   (GEICO #9922)                        $ 500,000 CSL
 Homeowners:   (CHUBB #8844)                  $ 1,000,000 Personal
 
-<span data-verify-line="umbrella">verify:chubb.com/umbrella/v</span> <span verifiable-text="end" data-for="umbrella">]</span></pre>
+<span data-verify-line="umbrella">verify:chubb.com/umbrella/v</span> <span verifiable-text="end" data-for="umbrella"></span></pre>
 </div>
 
 ## Data Verified

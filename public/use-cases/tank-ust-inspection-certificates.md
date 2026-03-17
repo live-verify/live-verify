@@ -16,7 +16,7 @@ An **Underground Storage Tank (UST)** certificate is the "Environmental Passport
 These documents are high-stakes environmental proofs. Fraud is common: owners often "edit" a failed leak test into a "PASS" to avoid the $50,000 cost of a tank replacement. Similarly, shady inspectors might "pencil whip" a report for a site they never visited. Verified hashes bind the **Facility ID, Tank Serial Numbers, and Leak Test Results** to the state's or the inspector's domain (e.g., `epa.gov` or `state-environment.gov`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="ust">[</span>ENVIRONMENTAL PROTECTION AGENCY
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="ust"></span>ENVIRONMENTAL PROTECTION AGENCY
 UST Compliance & Safety Division
 ═══════════════════════════════════════════════════════════════════
 
@@ -38,7 +38,7 @@ Cathodic Protection:                               ACTIVE / TESTED
 
                         [EPA COMPLIANT]
 
-<span data-verify-line="ust">verify:epa.gov/ust/v</span> <span verifiable-text="end" data-for="ust">]</span></pre>
+<span data-verify-line="ust">verify:epa.gov/ust/v</span> <span verifiable-text="end" data-for="ust"></span></pre>
 </div>
 
 ## Data Verified

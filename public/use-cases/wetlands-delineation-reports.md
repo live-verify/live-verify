@@ -16,7 +16,7 @@ In the land development industry, a **Wetlands Delineation Report** is the offic
 These reports are "Development Killers." If a property is 50% wetlands, it may be impossible to build on. Fraud is high-stakes: developers often "edit" a report to turn a "High-Quality Wetland" into "Dry Land" on a PDF, or they "shrink" the boundaries of a protected stream to fit a new building. Verified hashes bind the **Wetland Acreage, Delineation Date, and Scientist's License** to the environmental firm's or the US Army Corps of Engineers' (USACE) domain.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="wetland">[</span>ECO-STREAM ENVIRONMENTAL
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="wetland"></span>ECO-STREAM ENVIRONMENTAL
 Certified Wetlands & Natural Resource Consultants
 ═══════════════════════════════════════════════════════════════════
 
@@ -37,7 +37,7 @@ Soil Type:                                            Hydric (Gleyed)
 
                         [ECO VERIFIED]
 
-<span data-verify-line="wetland">verify:eco-stream.com/v</span> <span verifiable-text="end" data-for="wetland">]</span></pre>
+<span data-verify-line="wetland">verify:eco-stream.com/v</span> <span verifiable-text="end" data-for="wetland"></span></pre>
 </div>
 
 ## Data Verified

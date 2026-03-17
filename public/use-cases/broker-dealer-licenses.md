@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 4px solid #002d62; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #002d62; color: #fff; padding: 20px; text-align: center;">
-    <h2 style="margin: 0; font-size: 1.3em; letter-spacing: 1px;"><span verifiable-text="start" data-for="broker">[</span>CERTIFICATE OF REGISTRATION</h2>
+    <h2 style="margin: 0; font-size: 1.3em; letter-spacing: 1px;"><span verifiable-text="start" data-for="broker"></span>CERTIFICATE OF REGISTRATION</h2>
     <div style="font-size: 0.8em; margin-top: 5px;">FINANCIAL INDUSTRY REGULATORY AUTHORITY (FINRA)</div>
   </div>
 <div style="padding: 25px; display: flex;">
@@ -32,7 +32,7 @@ furtherDerivations: 1
   </div>
 <div data-verify-line="broker" style="border-top: 1px dashed #999; margin-top: 10px; padding: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center; background: #f9f9f9;"
       title="Demo only: FINRA doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:finra.org/brokercheck/v <span verifiable-text="end" data-for="broker">]</span>
+      verify:finra.org/brokercheck/v <span verifiable-text="end" data-for="broker"></span>
   </div>
 </div>
 

@@ -16,7 +16,7 @@ A **Simple Agreement for Future Equity (SAFE)** is the standard contract used by
 These documents are the "Keys to the Cap Table." Fraud is high-stakes: a founder might "edit" a SAFE to change a $10M valuation cap to a $20M cap before showing it to a new investor, effectively stealing equity from the original backer. Similarly, a founder might "hide" an existing SAFE to make the company look more attractive to a buyer. Verified hashes bind the **Valuation Cap, Purchase Amount, and Investor Name** to the startup's or the law firm's domain (e.g., `stripeatlas.com` or `ycombinator.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="safe">[</span>
+  <span verifiable-text="start" data-for="safe"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">SIMPLE AGREEMENT FOR FUTURE EQUITY
 (Post-Money Valuation Cap)
 ═══════════════════════════════════════════════════════════════════
@@ -43,7 +43,7 @@ _________________________              _________________________
 Founder Signature                      Investor Signature
 
 </pre>
-<span data-verify-line="safe">verify:verific.io/safe/v</span> <span verifiable-text="end" data-for="safe">]</span>
+<span data-verify-line="safe">verify:verific.io/safe/v</span> <span verifiable-text="end" data-for="safe"></span>
 </div>
 
 ## Data Verified

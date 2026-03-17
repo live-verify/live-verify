@@ -19,7 +19,7 @@ Because these cards are required for legal entry, scammers often sell "Fake Gree
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Helvetica', Arial, sans-serif; border: 2px solid #388e3c; background: #e8f5e9; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #388e3c; color: #fff; padding: 15px; text-align: center;">
-    <h2 style="margin: 0; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="green-card">[</span>INTERNATIONAL MOTOR INSURANCE CARD</h2>
+    <h2 style="margin: 0; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="green-card"></span>INTERNATIONAL MOTOR INSURANCE CARD</h2>
     <div style="font-size: 0.8em; font-weight: bold;">CARTE INTERNATIONALE D'ASSURANCE AUTOMOBILE</div>
   </div>
 <div style="padding: 25px; color: #1b5e20;">
@@ -47,7 +47,7 @@ Because these cards are required for legal entry, scammers often sell "Fake Gree
     </div>
 <div data-verify-line="green-card" style="border-top: 1px dashed #388e3c; margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #333; text-align: center;"
       title="Demo only: Allianz doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:allianz.co.uk/greencard/v <span verifiable-text="end" data-for="green-card">]</span>
+      verify:allianz.co.uk/greencard/v <span verifiable-text="end" data-for="green-card"></span>
     </div>
   </div>
 </div>

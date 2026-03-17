@@ -18,7 +18,7 @@ These documents are the "Legal Safe Harbor" for marketing. Fraud is high-stakes 
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ff6600; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
   <div style="background: #ff6600; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em; letter-spacing: 1px;"><span verifiable-text="start" data-for="promo">[</span>COMPLIANCE SIGN-OFF</div>
+      <div style="font-weight: bold; font-size: 1.2em; letter-spacing: 1px;"><span verifiable-text="start" data-for="promo"></span>COMPLIANCE SIGN-OFF</div>
       <div style="font-size: 0.75em; opacity: 0.9; text-transform: uppercase;">Financial Promotion Approval (s21)</div>
     </div>
     <div style="font-size: 2em;">📢</div>
@@ -56,7 +56,7 @@ These documents are the "Legal Safe Harbor" for marketing. Fraud is high-stakes 
 <div style="padding: 20px; background: #fdfdfd; border-top: 1px dashed #ff6600; text-align: center;">
     <div data-verify-line="promo" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #000; font-weight: bold;"
       title="Demo only: Regulated firms don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:meridian-funds.com/v <span verifiable-text="end" data-for="promo">]</span>
+      verify:meridian-funds.com/v <span verifiable-text="end" data-for="promo"></span>
     </div>
     <div style="font-size: 0.7em; color: #999; margin-top: 10px;">
       Scan to verify ad-integrity, required risk-warning text, and the authorizing firm's regulatory standing.

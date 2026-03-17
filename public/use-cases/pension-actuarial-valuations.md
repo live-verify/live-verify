@@ -16,7 +16,7 @@ For a defined-benefit pension plan (e.g., for teachers, police, or corporate emp
 These documents are the "Proof of Retirement Security." Fraud is high-stakes: corrupt trustees or managers might "edit" a valuation report to turn a 60% (dangerously underfunded) plan into a 90% (healthy) plan to avoid making mandatory "Catch-up Payments" or to hide a deficit during labor negotiations. Verified hashes bind the **Total Liabilities, Net Assets, and Funded Ratio** to the actuarial firm's domain (e.g., `mercer.com` or `wtwco.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="pension">[</span>WILLIS TOWERS WATSON
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="pension"></span>WILLIS TOWERS WATSON
 Actuarial Valuation & Solvency Certification
 ═══════════════════════════════════════════════════════════════════
 
@@ -42,7 +42,7 @@ current funding level meets the requirements of ERISA and the PBGC."
                                     Robert J. Miller, FSA, MAAA
                                     Enrolled Actuary #992288
 
-<span data-verify-line="pension">verify:wtwco.com/v</span> <span verifiable-text="end" data-for="pension">]</span></pre>
+<span data-verify-line="pension">verify:wtwco.com/v</span> <span verifiable-text="end" data-for="pension"></span></pre>
 </div>
 
 ## Data Verified

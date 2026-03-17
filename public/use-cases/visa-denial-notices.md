@@ -17,7 +17,7 @@ These notices are critical for future travel. Fraud is high-stakes: applicants o
 
 <div style="max-width: 500px; margin: 24px auto; font-family: 'Times New Roman', Times, serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 15px; margin-bottom: 30px;">
-    <div style="font-weight: bold; font-size: 1.2em; color: #002d62;"><span verifiable-text="start" data-for="visa">[</span>EMBASSY OF THE UNITED STATES</div>
+    <div style="font-weight: bold; font-size: 1.2em; color: #002d62;"><span verifiable-text="start" data-for="visa"></span>EMBASSY OF THE UNITED STATES</div>
     <div style="font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px;">Consular Section • Visa Unit</div>
   </div>
 <div style="font-size: 0.95em; line-height: 1.6; color: #333;">
@@ -37,7 +37,7 @@ These notices are critical for future travel. Fraud is high-stakes: applicants o
 <div style="margin-top: 40px; border-top: 1px dashed #999; padding-top: 15px; text-align: center;">
     <div data-verify-line="visa" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #002d62; font-weight: bold;"
       title="Demo only: Embassies don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:state.gov/v/visa <span verifiable-text="end" data-for="visa">]</span>
+      verify:state.gov/v/visa <span verifiable-text="end" data-for="visa"></span>
     </div>
     <div style="font-size: 0.7em; color: #999; margin-top: 10px; font-style: italic;">
       Scan to verify denial grounds and reapplication eligibility. This record is held in the Consular Consolidated Database (CCD).

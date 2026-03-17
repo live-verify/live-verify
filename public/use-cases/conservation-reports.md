@@ -20,7 +20,7 @@ Fraudsters often hide "Over-Restoration"—where so much new paint has been adde
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #546e7a; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #546e7a; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="conserve">[</span>GETTY CONSERVATION INSTITUTE</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="conserve"></span>GETTY CONSERVATION INSTITUTE</div>
       <div style="font-size: 0.8em;">Science & Analysis Department</div>
     </div>
     <div style="text-align: right;">
@@ -47,7 +47,7 @@ Fraudsters often hide "Over-Restoration"—where so much new paint has been adde
     </div>
 <div data-verify-line="conserve" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Getty Institute doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:getty.edu/conservation/v <span verifiable-text="end" data-for="conserve">]</span>
+      verify:getty.edu/conservation/v <span verifiable-text="end" data-for="conserve"></span>
     </div>
   </div>
 </div>

@@ -18,7 +18,7 @@ If a small supplier (like a parts maker) sells $100,000 of goods to a big buyer 
 Suppliers use these **Early Payment Confirmations** to prove their cash flow to local banks. Verified hashes prevent "Double Financing"—where a supplier sells the same invoice to a bank *and* takes the early discount from the buyer.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="discount">[</span>
+  <span verifiable-text="start" data-for="discount"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">C2FO DYNAMIC DISCOUNTING
 Working Capital Verification
 ═══════════════════════════════════════════════════════════════════
@@ -43,7 +43,7 @@ Original Due Date: April 30, 2026 (Net 45 Days)
 This confirmation is a verified extract of the C2FO market clearing.
 
 </pre>
-<span data-verify-line="discount">verify:c2fo.com/confirm/v</span> <span verifiable-text="end" data-for="discount">]</span>
+<span data-verify-line="discount">verify:c2fo.com/confirm/v</span> <span verifiable-text="end" data-for="discount"></span>
 </div>
 
 ## Data Verified

@@ -21,7 +21,7 @@ It is your "Central Itinerary." It proves:
 **"Itinerary Padding"** is a common corporate fraud where employees "edit" their confirmation PDF to show a higher price (e.g., changing $150 to $250) or a "First Class" ticket when they actually flew "Economy." They then submit this to their company for reimbursement. Verified hashes bind the **Confirmation ID, Price, and Class of Service** to the OTA's domain.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="ota">[</span>
+  <span verifiable-text="start" data-for="ota"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">Booking.com
 Official Confirmation Receipt
 ═══════════════════════════════════════════════════════════════════
@@ -41,7 +41,7 @@ Room Type:  Executive Suite (Non-Smoking)
 Total Price (including VAT):                          CHF 1,450.00
 
 </pre>
-<span data-verify-line="ota">verify:booking.com/v</span> <span verifiable-text="end" data-for="ota">]</span>
+<span data-verify-line="ota">verify:booking.com/v</span> <span verifiable-text="end" data-for="ota"></span>
 </div>
 
 ## Data Verified

@@ -39,7 +39,7 @@ Incomplete remediation may not be discovered for years or decades—when contami
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="asbestos">[</span>ASBESTOS ABATEMENT ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="asbestos"></span>ASBESTOS ABATEMENT ATTESTATION
 
 Property: 123 Industrial Ave, Building C
 Area: Mechanical Room, 2nd Floor
@@ -69,7 +69,7 @@ ATTESTATION HASH: 8f4a2c1e9b...
 
 CONCEALMENT: January 16, 2025 (new insulation installed)
 
-<span data-verify-line="asbestos">verify:safeair-abatement.com/projects/v</span> <span verifiable-text="end" data-for="asbestos">]</span></pre>
+<span data-verify-line="asbestos">verify:safeair-abatement.com/projects/v</span> <span verifiable-text="end" data-for="asbestos"></span></pre>
 </div>
 
 **Why This Matters:**
@@ -107,7 +107,7 @@ Many contaminated sites are remediated to "risk-based" standards:
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="soil">[</span>SOIL REMEDIATION ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="soil"></span>SOIL REMEDIATION ATTESTATION
 
 Site: Former Ajax Chemical, 500 River Road
 Area: Former Tank Farm (Operable Unit 2)
@@ -136,7 +136,7 @@ ATTESTATION HASH: 2d7e4f1a8c...
 
 CONCEALMENT: January 20, 2025 (clean fill placement)
 
-<span data-verify-line="soil">verify:enviroclean.com/sites/v</span> <span verifiable-text="end" data-for="soil">]</span></pre>
+<span data-verify-line="soil">verify:enviroclean.com/sites/v</span> <span verifiable-text="end" data-for="soil"></span></pre>
 </div>
 
 **Long-Term Stewardship:**
@@ -170,7 +170,7 @@ Witnessing creates baseline for:
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="tank">[</span>TANK LINING ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="tank"></span>TANK LINING ATTESTATION
 
 Facility: ChemCorp Terminal
 Tank: Tank 47 (Sulfuric Acid Service)
@@ -200,7 +200,7 @@ ATTESTATION HASH: 5c9a3b2e7f...
 
 CONCEALMENT: January 21, 2025 (tank returned to service)
 
-<span data-verify-line="tank">verify:tankpro.com/linings/v</span> <span verifiable-text="end" data-for="tank">]</span></pre>
+<span data-verify-line="tank">verify:tankpro.com/linings/v</span> <span verifiable-text="end" data-for="tank"></span></pre>
 </div>
 
 **Tank Inspection Cycles:**
@@ -232,7 +232,7 @@ Witnessing at lining installation creates baseline for:
 **What Gets Witnessed:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="gw">[</span>GROUNDWATER REMEDY ATTESTATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="gw"></span>GROUNDWATER REMEDY ATTESTATION
 
 Site: Former Dry Cleaner, 789 Main Street
 System: In-Situ Chemical Oxidation (ISCO)
@@ -259,7 +259,7 @@ ATTESTATION HASH: 9x8y7z6w5v...
   - Post-injection sample results
   - Injection well GPS coordinates
 
-<span data-verify-line="gw">verify:groundfix.com/sites/v</span> <span verifiable-text="end" data-for="gw">]</span></pre>
+<span data-verify-line="gw">verify:groundfix.com/sites/v</span> <span verifiable-text="end" data-for="gw"></span></pre>
 </div>
 
 **Long-Term Monitoring Value:**

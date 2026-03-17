@@ -18,7 +18,7 @@ This is your "Ticket" to meet the guide at a specific time and place (often a re
 Small tour operators often don't have real-time computers in the field. They rely on looking at your paper or PDF voucher. Fraud is common: people often "Photoshop" a fake voucher to join an expensive tour for free. Verified hashes allow the guide to scan your paper and see "PAID" on the operator's domain instantly, even in remote areas.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="tour">[</span>
+  <span verifiable-text="start" data-for="tour"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">SAHARA EXPEDITIONS, LTD.
 Official Booking Confirmation
 ═══════════════════════════════════════════════════════════════════
@@ -43,7 +43,7 @@ Please present this verified voucher to the lead guide at the
 meeting point.
 
 </pre>
-<span data-verify-line="tour">verify:sahara-expeditions.com/v</span> <span verifiable-text="end" data-for="tour">]</span>
+<span data-verify-line="tour">verify:sahara-expeditions.com/v</span> <span verifiable-text="end" data-for="tour"></span>
 </div>
 
 ## Data Verified

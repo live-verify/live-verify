@@ -15,7 +15,7 @@ A filing completion receipt confirms that a required document, form, or registra
 Filing receipt fraud includes fake receipts to claim timely submission when deadlines were missed, or altered receipts to hide late filings.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="tax">[</span>TAX RETURN FILED<br>
+  <span verifiable-text="start" data-for="tax"></span>TAX RETURN FILED<br>
   Internal Revenue Service<br>
   Form: 1040 Individual Income Tax<br>
   Tax Year: 2025<br>
@@ -24,11 +24,11 @@ Filing receipt fraud includes fake receipts to claim timely submission when dead
   Filed: January 15, 2026<br>
   Confirmation #: 2026011547821<br>
   Status: Accepted<br>
-  <span data-verify-line="tax">verify:irs.gov/efile</span> <span verifiable-text="end" data-for="tax">]</span>
+  <span data-verify-line="tax">verify:irs.gov/efile</span> <span verifiable-text="end" data-for="tax"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="sec">[</span>SEC FILING RECEIPT<br>
+  <span verifiable-text="start" data-for="sec"></span>SEC FILING RECEIPT<br>
   Securities and Exchange Commission<br>
   EDGAR System<br>
   Filer: TechCorp Inc<br>
@@ -36,11 +36,11 @@ Filing receipt fraud includes fake receipts to claim timely submission when dead
   Form Type: 10-K Annual Report<br>
   Filing Date: March 1, 2026<br>
   Accession #: 0001234567-26-000042<br>
-  <span data-verify-line="sec">verify:sec.gov/edgar</span> <span verifiable-text="end" data-for="sec">]</span>
+  <span data-verify-line="sec">verify:sec.gov/edgar</span> <span verifiable-text="end" data-for="sec"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="corp">[</span>ANNUAL REPORT FILED<br>
+  <span verifiable-text="start" data-for="corp"></span>ANNUAL REPORT FILED<br>
   Delaware Division of Corporations<br>
   Entity: Johnson Holdings LLC<br>
   File #: 7741892<br>
@@ -48,11 +48,11 @@ Filing receipt fraud includes fake receipts to claim timely submission when dead
   Filed: February 28, 2026<br>
   Franchise Tax Paid: $300.00<br>
   Good Standing: Yes<br>
-  <span data-verify-line="corp">verify:corp.delaware.gov/filing</span> <span verifiable-text="end" data-for="corp">]</span>
+  <span data-verify-line="corp">verify:corp.delaware.gov/filing</span> <span verifiable-text="end" data-for="corp"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="permit">[</span>PERMIT APPLICATION RECEIVED<br>
+  <span verifiable-text="start" data-for="permit"></span>PERMIT APPLICATION RECEIVED<br>
   City of Austin<br>
   Development Services<br>
   Application: Building Permit<br>
@@ -61,7 +61,7 @@ Filing receipt fraud includes fake receipts to claim timely submission when dead
   Received: January 7, 2026<br>
   Application #: BP-2026-00441<br>
   Review Status: In Queue<br>
-  <span data-verify-line="permit">verify:austin.gov/permits</span> <span verifiable-text="end" data-for="permit">]</span>
+  <span data-verify-line="permit">verify:austin.gov/permits</span> <span verifiable-text="end" data-for="permit"></span>
 </div>
 
 ## Data Verified

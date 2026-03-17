@@ -37,7 +37,7 @@ Paper ballots in a hall solve secrecy but require physical presence. Digital vot
 **How Identity Escrow Helps:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="union">[</span>UNION VOTE VERIFICATION RECEIPT
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="union"></span>UNION VOTE VERIFICATION RECEIPT
 
 Vote ID: UV-2025-0114-REDACTED
 Election: 2025 Contract Ratification
@@ -56,7 +56,7 @@ in the official tally.
 
 Election results: verify:local302.org/elections
 
-<span data-verify-line="union">verify:local302.org/vote/v</span> <span verifiable-text="end" data-for="union">]</span></pre>
+<span data-verify-line="union">verify:local302.org/vote/v</span> <span verifiable-text="end" data-for="union"></span></pre>
 </div>
 
 **How It Works:**
@@ -102,7 +102,7 @@ Neighbors know each other. Voting positions can create lasting conflicts. But on
 **How Identity Escrow Helps:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="hoa">[</span>HOA VOTE VERIFICATION RECEIPT
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="hoa"></span>HOA VOTE VERIFICATION RECEIPT
 
 Vote ID: HV-2025-0114-REDACTED
 Election: Special Assessment Vote - Pool Renovation
@@ -118,7 +118,7 @@ VOTE CONTENT: [Not stored - secret ballot]
 
 Results announced at next board meeting.
 
-<span data-verify-line="hoa">verify:oakwoodhoa.org/vote/v</span> <span verifiable-text="end" data-for="hoa">]</span></pre>
+<span data-verify-line="hoa">verify:oakwoodhoa.org/vote/v</span> <span verifiable-text="end" data-for="hoa"></span></pre>
 </div>
 
 **Ownership Verification:**
@@ -151,7 +151,7 @@ Companies want honest feedback from employees. But employees fear:
 **How Identity Escrow Helps:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="survey">[</span>EMPLOYEE SURVEY VERIFICATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="survey"></span>EMPLOYEE SURVEY VERIFICATION
 
 Survey: Q1 2025 Engagement Survey
 Company: Acme Corporation
@@ -168,7 +168,7 @@ Your employer receives only aggregate statistics.
 Individual responses are never shared.
 Free-text responses are reviewed for themes only.
 
-<span data-verify-line="survey">verify:surveyshield.org/response/v</span> <span verifiable-text="end" data-for="survey">]</span></pre>
+<span data-verify-line="survey">verify:surveyshield.org/response/v</span> <span verifiable-text="end" data-for="survey"></span></pre>
 </div>
 
 **Third-Party Escrow:**
@@ -214,7 +214,7 @@ Members may have varying stakes (shares, account sizes) but equal voting rights.
 **How Identity Escrow Helps:**
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="coop">[</span>MEMBER VOTE VERIFICATION
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="coop"></span>MEMBER VOTE VERIFICATION
 
 Organization: Green Valley Food Co-op
 Election: 2025 Board of Directors
@@ -229,7 +229,7 @@ VOTE CONTENT: [Not stored - secret ballot]
 
 Results announced at Annual Meeting, March 15.
 
-<span data-verify-line="coop">verify:greenvalley.coop/vote/v</span> <span verifiable-text="end" data-for="coop">]</span></pre>
+<span data-verify-line="coop">verify:greenvalley.coop/vote/v</span> <span verifiable-text="end" data-for="coop"></span></pre>
 </div>
 
 **Member Verification:**

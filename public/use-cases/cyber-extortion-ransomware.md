@@ -20,7 +20,7 @@ Because these authorizations trigger multimillion-dollar crypto-payments, they a
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Helvetica', Arial, sans-serif; border: 2px solid #333; background: #fff; padding: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
   <div style="background: #1a1a1a; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="cyber">[</span>BEAZLEY BREACH RESPONSE</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="cyber"></span>BEAZLEY BREACH RESPONSE</div>
       <div style="font-size: 0.8em; opacity: 0.8;">Specialist Cyber Underwriters</div>
     </div>
     <div style="text-align: right;">
@@ -44,7 +44,7 @@ Because these authorizations trigger multimillion-dollar crypto-payments, they a
     </div>
 <div data-verify-line="cyber" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Cyber underwriter doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:beazley.com/cyber/v <span verifiable-text="end" data-for="cyber">]</span>
+      verify:beazley.com/cyber/v <span verifiable-text="end" data-for="cyber"></span>
     </div>
   </div>
 </div>

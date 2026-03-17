@@ -15,7 +15,7 @@ A surety bond release confirms that a bond obligation has been satisfied and the
 Bond releases are critical for contractors, licensed professionals, and anyone who posted collateral. Fraud includes fake releases to recover collateral early or falsely claim project completion.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="perf">[</span>PERFORMANCE BOND RELEASE<br>
+  <span verifiable-text="start" data-for="perf"></span>PERFORMANCE BOND RELEASE<br>
   Travelers Surety & Casualty<br>
   Bond #SU-2023-445891<br>
   Principal: Acme Construction LLC<br>
@@ -24,11 +24,11 @@ Bond releases are critical for contractors, licensed professionals, and anyone w
   Bond Amount: $2,500,000<br>
   Substantial Completion: November 30, 2025<br>
   Released: December 15, 2025<br>
-  <span data-verify-line="perf">verify:travelers.com/surety</span> <span verifiable-text="end" data-for="perf">]</span>
+  <span data-verify-line="perf">verify:travelers.com/surety</span> <span verifiable-text="end" data-for="perf"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="license">[</span>LICENSE BOND RELEASE<br>
+  <span verifiable-text="start" data-for="license"></span>LICENSE BOND RELEASE<br>
   Hartford Bonding<br>
   Bond #LB-88-2019-3321<br>
   Principal: Sarah's Auto Sales<br>
@@ -37,11 +37,11 @@ Bond releases are critical for contractors, licensed professionals, and anyone w
   Bond Period: 2019-2024<br>
   Released: January 2, 2025<br>
   Reason: Business Closure - No Claims<br>
-  <span data-verify-line="license">verify:hartford.com/bonds</span> <span verifiable-text="end" data-for="license">]</span>
+  <span data-verify-line="license">verify:hartford.com/bonds</span> <span verifiable-text="end" data-for="license"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="collateral">[</span>COLLATERAL RELEASE<br>
+  <span verifiable-text="start" data-for="collateral"></span>COLLATERAL RELEASE<br>
   First Bank of Commerce<br>
   Bond Support Agreement #BSA-7741<br>
   Principal: Johnson Electrical Inc<br>
@@ -49,7 +49,7 @@ Bond releases are critical for contractors, licensed professionals, and anyone w
   Original Amount: $150,000<br>
   Released Amount: $150,000 plus accrued interest<br>
   Release Date: January 5, 2026<br>
-  <span data-verify-line="collateral">verify:firstbankcommerce.com/surety</span> <span verifiable-text="end" data-for="collateral">]</span>
+  <span data-verify-line="collateral">verify:firstbankcommerce.com/surety</span> <span verifiable-text="end" data-for="collateral"></span>
 </div>
 
 ## Data Verified

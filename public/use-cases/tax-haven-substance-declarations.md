@@ -22,7 +22,7 @@ With Live Verify, the declaration carries a `verify:` line bound to the jurisdic
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #1a5276; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #1a5276; color: #fff; padding: 18px; text-align: center;">
     <div style="font-size: 0.7em; letter-spacing: 2px; text-transform: uppercase;">Cayman Islands</div>
-    <h2 style="margin: 6px 0 0; font-size: 1.2em;"><span verifiable-text="start" data-for="substance">[ </span>ECONOMIC SUBSTANCE DECLARATION</h2>
+    <h2 style="margin: 6px 0 0; font-size: 1.2em;"><span verifiable-text="start" data-for="substance"> </span>ECONOMIC SUBSTANCE DECLARATION</h2>
     <div style="font-size: 0.75em; margin-top: 4px;">Department for International Tax Cooperation (DITC)</div>
   </div>
   <div style="padding: 25px; font-size: 0.9em; line-height: 1.7;">
@@ -54,7 +54,7 @@ With Live Verify, the declaration carries a `verify:` line bound to the jurisdic
     </p>
     <div data-verify-line="substance" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: DITC doesn't yet offer verification endpoints">
-      verify:ditc.ky/substance <span verifiable-text="end" data-for="substance">]</span>
+      verify:ditc.ky/substance <span verifiable-text="end" data-for="substance"></span>
     </div>
   </div>
 </div>

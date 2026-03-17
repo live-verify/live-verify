@@ -10,7 +10,7 @@ furtherDerivations: 1
 ---
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="sci-cal">[</span>
+  <span verifiable-text="start" data-for="sci-cal"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">QUANTUM ANALYTICS LABS
 Metrology & Calibration Services
 ═══════════════════════════════════════════════════════════════════
@@ -34,7 +34,7 @@ ________________________                        Log ID: CAL-9928-X
 Certified Digital Signature
 
 </pre>
-<span data-verify-line="sci-cal">verify:quantum-labs.com/calibration/v</span> <span verifiable-text="end" data-for="sci-cal">]</span>
+<span data-verify-line="sci-cal">verify:quantum-labs.com/calibration/v</span> <span verifiable-text="end" data-for="sci-cal"></span>
 </div>
 
 ## Data Verified

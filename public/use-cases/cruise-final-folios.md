@@ -18,7 +18,7 @@ For business travelers, the "Folio" is a nightmare to expense. They must "Scrub"
 Fraud happens when employees edit their folio to hide personal spending or to inflate business costs. Verified hashes allow a company's finance department to see the **un-altered line items**, ensuring that the company only pays for the work-related parts of the trip.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="cruise">[</span>ROYAL CARIBBEAN INTERNATIONAL              Folio #: 99228877-X
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="cruise"></span>ROYAL CARIBBEAN INTERNATIONAL              Folio #: 99228877-X
 Final Guest Folio - Wonder of the Seas
 
 Guest:        SARAH J. DOE              Voyage Dates: Mar 08 - Mar 15, 2026
@@ -34,7 +34,7 @@ TOTAL ONBOARD CHARGES:                                     $ 309.50
 
 This statement reflects all settled charges as of disembarkation.
 
-<span data-verify-line="cruise">verify:royalcaribbean.com/folios/v</span> <span verifiable-text="end" data-for="cruise">]</span></pre>
+<span data-verify-line="cruise">verify:royalcaribbean.com/folios/v</span> <span verifiable-text="end" data-for="cruise"></span></pre>
 </div>
 
 ## Data Verified

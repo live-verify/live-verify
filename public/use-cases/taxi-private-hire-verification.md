@@ -29,7 +29,7 @@ This happens in 10 seconds—the critical window between the car arriving and th
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #003366; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
   <div style="background: #003366; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
     <div style="text-align: left;">
-      <div style="font-weight: bold; font-size: 1.1em; letter-spacing: 1px;"><span verifiable-text="start" data-for="taxi">[</span>PRIVATE HIRE</div>
+      <div style="font-weight: bold; font-size: 1.1em; letter-spacing: 1px;"><span verifiable-text="start" data-for="taxi"></span>PRIVATE HIRE</div>
       <div style="font-size: 0.7em; opacity: 0.8;">DRIVER BADGE</div>
     </div>
   </div>
@@ -48,7 +48,7 @@ This happens in 10 seconds—the critical window between the car arriving and th
   </div>
 <div style="padding: 0 20px 20px 20px;">
     <div style="border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.9em; color: #666; text-align: center;">
-      verify://drivers.tfl.gov.uk/v <span verifiable-text="end" data-for="taxi">]</span>
+      verify://drivers.tfl.gov.uk/v <span verifiable-text="end" data-for="taxi"></span>
     </div>
   </div>
 </div>
@@ -60,7 +60,7 @@ When presented with a physical driver badge, a passenger must rely on visual ins
 
 <div style="max-width: 320px; margin: 24px auto; font-family: 'Courier New', monospace; border: 3px solid #003366; border-radius: 8px; background: #f5f5f0; padding: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
   <div style="font-size: 1em; color: #000; font-weight: bold; margin-bottom: 8px;">TFL PRIVATE HIRE</div>
-  <div style="font-size: 1em; color: #000; margin-bottom: 8px;"><span verifiable-text="start" data-for="eink-taxi">[</span>DRIVER BADGE</div>
+  <div style="font-size: 1em; color: #000; margin-bottom: 8px;"><span verifiable-text="start" data-for="eink-taxi"></span>DRIVER BADGE</div>
   <div style="font-size: 1em; font-weight: bold; color: #000; margin-bottom: 8px;">Mohammed A 8834</div>
   <div style="font-size: 1em; color: #000; margin-bottom: 8px;">PCO-992288</div>
   <div style="font-size: 1em; color: #000; margin-bottom: 8px;">
@@ -68,7 +68,7 @@ When presented with a physical driver badge, a passenger must rely on visual ins
   </div>
   <div data-verify-line="eink-taxi" style="font-size: 1em; color: #555;"
     title="TFL driver verification endpoint">
-    vfy:drivers.tfl.gov.uk <span verifiable-text="end" data-for="eink-taxi">]</span>
+    vfy:drivers.tfl.gov.uk <span verifiable-text="end" data-for="eink-taxi"></span>
   </div>
 </div>
 

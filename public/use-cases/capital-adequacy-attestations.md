@@ -17,7 +17,7 @@ These documents are the "Proof of Solvency" needed for high-stakes business. Cou
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 2px solid #003366; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
   <div style="background: #003366; color: #fff; padding: 20px; text-align: center;">
-    <div style="font-weight: bold; font-size: 1.2em; letter-spacing: 1px;"><span verifiable-text="start" data-for="capital">[</span>CAPITAL ADEQUACY ATTESTATION</div>
+    <div style="font-weight: bold; font-size: 1.2em; letter-spacing: 1px;"><span verifiable-text="start" data-for="capital"></span>CAPITAL ADEQUACY ATTESTATION</div>
     <div style="font-size: 0.8em; opacity: 0.8; text-transform: uppercase; margin-top: 5px;">Prudential Regulatory Confirmation</div>
   </div>
 <div style="padding: 30px; font-size: 0.95em; line-height: 1.6; color: #333;">
@@ -44,7 +44,7 @@ These documents are the "Proof of Solvency" needed for high-stakes business. Cou
 <div style="padding: 20px; background: #fdfdfd; border-top: 1px dashed #003366; text-align: center;">
     <div data-verify-line="capital" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #000; font-weight: bold;"
       title="Demo only: Banks don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:meridian-capital.com/v <span verifiable-text="end" data-for="capital">]</span>
+      verify:meridian-capital.com/v <span verifiable-text="end" data-for="capital"></span>
     </div>
     <div style="font-size: 0.7em; color: #777; margin-top: 10px;">
       Scan to verify ratio integrity, auditor counter-signature, and real-time regulatory standing.

@@ -17,7 +17,7 @@ Background check fraud is extensive: fake "no record found" letters, altered res
 In the UK, the **Disclosure and Barring Service (DBS)** operates a tiered system — Basic, Standard, and Enhanced — each revealing progressively more information. An Enhanced DBS with barred list checks is mandatory for anyone working with children or vulnerable adults. DBS certificates are paper documents posted to the applicant. The **DBS Update Service** (£13/year) lets employers do a status check online, but subscription is voluntary and uptake is patchy. Most DBS certificates are point-in-time paper snapshots that could be months or years old by the time they're presented to a new employer. The verification gap: a school receives a DBS certificate from a teaching candidate — is it genuine, is it current, has the person been convicted of something since it was issued?
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="fbi">[</span>FBI IDENTITY HISTORY SUMMARY<br>
+  <span verifiable-text="start" data-for="fbi"></span>FBI IDENTITY HISTORY SUMMARY<br>
   Federal Bureau of Investigation<br>
   Request #FBI-2025-8841772<br>
   Subject: Sarah Johnson<br>
@@ -25,11 +25,11 @@ In the UK, the **Disclosure and Barring Service (DBS)** operates a tiered system
   SSN: ***-**-4892<br>
   Result: No Criminal History Found<br>
   Search Date: January 5, 2026<br>
-  <span data-verify-line="fbi">verify:fbi.gov/background</span> <span verifiable-text="end" data-for="fbi">]</span>
+  <span data-verify-line="fbi">verify:fbi.gov/background</span> <span verifiable-text="end" data-for="fbi"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="state">[</span>STATE CRIMINAL HISTORY RECORD<br>
+  <span verifiable-text="start" data-for="state"></span>STATE CRIMINAL HISTORY RECORD<br>
   Texas Department of Public Safety<br>
   Request #TX-BCK-2026-00441<br>
   Subject: Michael Torres<br>
@@ -37,11 +37,11 @@ In the UK, the **Disclosure and Barring Service (DBS)** operates a tiered system
   Records Found: None<br>
   Search Scope: Texas Statewide<br>
   Valid Through: April 5, 2026<br>
-  <span data-verify-line="state">verify:dps.texas.gov/crimhist</span> <span verifiable-text="end" data-for="state">]</span>
+  <span data-verify-line="state">verify:dps.texas.gov/crimhist</span> <span verifiable-text="end" data-for="state"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="police">[</span>POLICE CLEARANCE CERTIFICATE<br>
+  <span verifiable-text="start" data-for="police"></span>POLICE CLEARANCE CERTIFICATE<br>
   Metropolitan Police Service<br>
   London, United Kingdom<br>
   Reference: ACRO/2026/884112<br>
@@ -50,11 +50,11 @@ In the UK, the **Disclosure and Barring Service (DBS)** operates a tiered system
   Result: No Trace<br>
   Purpose: Overseas Employment<br>
   Issue Date: January 6, 2026<br>
-  <span data-verify-line="police">verify:acro.police.uk/cert</span> <span verifiable-text="end" data-for="police">]</span>
+  <span data-verify-line="police">verify:acro.police.uk/cert</span> <span verifiable-text="end" data-for="police"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="muni">[</span>MUNICIPAL COURT RECORDS CHECK<br>
+  <span verifiable-text="start" data-for="muni"></span>MUNICIPAL COURT RECORDS CHECK<br>
   City of Phoenix Municipal Court<br>
   Search #MC-2026-7741<br>
   Subject: Lisa Martinez<br>
@@ -62,11 +62,11 @@ In the UK, the **Disclosure and Barring Service (DBS)** operates a tiered system
   No Warrants<br>
   No Unpaid Fines<br>
   Search Date: January 7, 2026<br>
-  <span data-verify-line="muni">verify:phoenix.gov/courts</span> <span verifiable-text="end" data-for="muni">]</span>
+  <span data-verify-line="muni">verify:phoenix.gov/courts</span> <span verifiable-text="end" data-for="muni"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="dbs-enhanced">[</span>DBS ENHANCED CERTIFICATE<br>
+  <span verifiable-text="start" data-for="dbs-enhanced"></span>DBS ENHANCED CERTIFICATE<br>
   Disclosure and Barring Service<br>
   Certificate No: 001847229482<br>
   DBS Update Service: Registered<br>
@@ -83,11 +83,11 @@ In the UK, the **Disclosure and Barring Service (DBS)** operates a tiered system
   Position: Teaching Assistant<br>
   Registered Body: Oxfordshire County Council<br>
   Date of Issue: 15 January 2026<br>
-  <span data-verify-line="dbs-enhanced">verify:gov.uk/dbs/v</span> <span verifiable-text="end" data-for="dbs-enhanced">]</span>
+  <span data-verify-line="dbs-enhanced">verify:gov.uk/dbs/v</span> <span verifiable-text="end" data-for="dbs-enhanced"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="dbs-basic">[</span>DBS BASIC CERTIFICATE<br>
+  <span verifiable-text="start" data-for="dbs-basic"></span>DBS BASIC CERTIFICATE<br>
   Disclosure and Barring Service<br>
   Certificate No: 001992448127<br>
   <br>
@@ -99,7 +99,7 @@ In the UK, the **Disclosure and Barring Service (DBS)** operates a tiered system
   Unspent Convictions: NONE RECORDED<br>
   <br>
   Date of Issue: 03 February 2026<br>
-  <span data-verify-line="dbs-basic">verify:gov.uk/dbs/v</span> <span verifiable-text="end" data-for="dbs-basic">]</span>
+  <span data-verify-line="dbs-basic">verify:gov.uk/dbs/v</span> <span verifiable-text="end" data-for="dbs-basic"></span>
 </div>
 
 ## Data Verified

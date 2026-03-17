@@ -16,7 +16,7 @@ A **Safe Deposit Box Access Log** is the physical record of every time a high-se
 In the world of **Estate Law**, these logs are "The Smoking Gun." If a box holder dies and their $100,000 diamond ring is missing, the family scans the access log to see if a greedy relative "visited" the box before the executor was appointed. Fraud is high-stakes: dishonest bank employees or relatives may try to "backdate" or "delete" a log entry to hide an unauthorized entry. Verified hashes bind the **Access Timestamp, Box Number, and Officer ID** to the bank's domain (e.g., `wellsfargo.com` or `barclays.co.uk`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <span verifiable-text="start" data-for="vault">[</span>
+  <span verifiable-text="start" data-for="vault"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">GOLIATH NATIONAL BANK
 Safe Deposit Vault Access Record
 ═══════════════════════════════════════════════════════════════════
@@ -39,7 +39,7 @@ James Gordon, Bank Officer
 Employee ID: #992288
 
 </pre>
-<span data-verify-line="vault">verify:goliathbank.com/v</span> <span verifiable-text="end" data-for="vault">]</span>
+<span data-verify-line="vault">verify:goliathbank.com/v</span> <span verifiable-text="end" data-for="vault"></span>
 </div>
 
 ## Data Verified

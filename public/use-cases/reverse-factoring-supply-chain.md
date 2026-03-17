@@ -16,7 +16,7 @@ In high-volume supply chains, **Reverse Factoring** (or Supply Chain Finance) al
 These documents are the "Trade Collateral." Fraud is high-stakes: a dishonest supplier might create "Phantom Invoices" using a buyer's branding to trick a bank into releasing multimillion-dollar early payments. Similarly, they might "double-factor" the same invoice at two different banks. Verified hashes bind the **Invoice ID, Approved Amount, and Payment Date** to the funding bank's or the buyer's domain (e.g., `citidirect.com` or `hsbc.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="factor">[</span>CITI SUPPLY CHAIN FINANCE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="factor"></span>CITI SUPPLY CHAIN FINANCE
 Trade & Working Capital Solutions
 ═══════════════════════════════════════════════════════════════════
 
@@ -38,7 +38,7 @@ This approval advice is a verified extract of the CitiDirect SCF
 portal. Any alteration of invoice amounts or dates renders this
 financing void.
 
-<span data-verify-line="factor">verify:citi.com/scf/v</span> <span verifiable-text="end" data-for="factor">]</span></pre>
+<span data-verify-line="factor">verify:citi.com/scf/v</span> <span verifiable-text="end" data-for="factor"></span></pre>
 </div>
 
 ## Data Verified

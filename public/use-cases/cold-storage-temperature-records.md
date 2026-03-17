@@ -19,7 +19,7 @@ If a shipment hits a "Temperature Spike" (Excursion), the product might be ruine
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Courier New', Courier, monospace; border: 2px solid #0277bd; background: #fff; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #0277bd; padding-bottom: 10px; margin-bottom: 20px;">
-    <strong><span verifiable-text="start" data-for="cold">[</span>ARCTIC LOGISTICS SOLUTIONS</strong><br>
+    <strong><span verifiable-text="start" data-for="cold"></span>ARCTIC LOGISTICS SOLUTIONS</strong><br>
     CERTIFIED COLD CHAIN COMPLIANCE REPORT<br>
     ---------------------------------------
   </div>
@@ -40,7 +40,7 @@ If a shipment hits a "Temperature Spike" (Excursion), the product might be ruine
   </div>
 <div data-verify-line="cold" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Logistics provider doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:arctic-logistics.com/v <span verifiable-text="end" data-for="cold">]</span>
+      verify:arctic-logistics.com/v <span verifiable-text="end" data-for="cold"></span>
   </div>
 </div>
 

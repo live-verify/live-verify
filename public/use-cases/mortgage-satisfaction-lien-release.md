@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 1px solid #000; background: #fff; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); position: relative;">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 25px;">
-    <h2 style="margin: 0; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="mort-rel">[</span>SATISFACTION OF MORTGAGE</h2>
+    <h2 style="margin: 0; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="mort-rel"></span>SATISFACTION OF MORTGAGE</h2>
   </div>
 <div style="font-size: 1em; line-height: 1.6; color: #000; text-align: justify;">
     <p>Know all men by these presents, that <strong>Lender:</strong> Wells Fargo Bank, N.A. (the "Mortgagee") does hereby certify that a certain mortgage made and executed by <strong>John Jacob Doe</strong> (the "Mortgagor") on <strong>January 1, 2010</strong>, is fully <strong>PAID, SATISFIED, AND DISCHARGED</strong>.</p>
@@ -33,7 +33,7 @@ furtherDerivations: 1
   </div>
 <div data-verify-line="mort-rel" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Wells Fargo doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:wellsfargo.com/mortgage/v <span verifiable-text="end" data-for="mort-rel">]</span>
+      verify:wellsfargo.com/mortgage/v <span verifiable-text="end" data-for="mort-rel"></span>
   </div>
 </div>
 

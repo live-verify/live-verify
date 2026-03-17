@@ -18,7 +18,7 @@ A **Specific Transaction Power of Attorney (ST-POA)** is a "Composable Primitive
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #311b92; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #311b92; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="stpoa">[</span>SPECIFIC TRANSACTION AUTHORIZATION</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="stpoa"></span>SPECIFIC TRANSACTION AUTHORIZATION</div>
       <div style="font-size: 0.8em; opacity: 0.9;">Limited Power of Attorney</div>
     </div>
     <div style="text-align: right;">
@@ -42,7 +42,7 @@ A **Specific Transaction Power of Attorney (ST-POA)** is a "Composable Primitive
   </div>
 <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #311b92; text-align: center;">
     <div data-verify-line="stpoa" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:notary.gov/v <span verifiable-text="end" data-for="stpoa">]</span>
+      verify:notary.gov/v <span verifiable-text="end" data-for="stpoa"></span>
     </div>
   </div>
 </div>

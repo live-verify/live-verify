@@ -28,7 +28,7 @@ With Live Verify, the letter carries a `verify:` line bound to the CSP's domain.
   </div>
   <div style="padding: 20px 25px; font-size: 0.88em; line-height: 1.8; color: #333;">
     <p style="text-align: right; font-size: 0.85em; color: #666;">22 January 2026</p>
-    <p><span verifiable-text="start" data-for="agentletter">[ </span>To Whom It May Concern,</p>
+    <p><span verifiable-text="start" data-for="agentletter"> </span>To Whom It May Concern,</p>
     <p>We, Harneys Corporate Services Ltd, confirm that we act as Registered Agent for the following BVI Business Company:</p>
     <div style="background: #f7f9fc; padding: 14px; border-left: 4px solid #2c3e50; margin: 12px 0;">
       <strong>Company:</strong> Pacific Rim Trading Ltd<br>
@@ -45,7 +45,7 @@ With Live Verify, the letter carries a `verify:` line bound to the CSP's domain.
     <p style="margin-top: 18px; font-style: italic; font-size: 0.82em; color: #777;">This confirmation is provided without liability on the part of Harneys Corporate Services Ltd.</p>
     <div data-verify-line="agentletter" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Harneys doesn't yet offer verification endpoints">
-      verify:harneys.com/letters <span verifiable-text="end" data-for="agentletter">]</span>
+      verify:harneys.com/letters <span verifiable-text="end" data-for="agentletter"></span>
     </div>
   </div>
 </div>

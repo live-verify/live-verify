@@ -21,7 +21,7 @@ This document is the **Identification Form**. It acts as a timestamped "snapshot
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 1px solid #999; box-shadow: 2px 2px 10px rgba(0,0,0,0.1); background: #fff; padding: 0;">
   <div style="padding: 30px 40px; text-align: left;">
-    <span verifiable-text="start" data-for="1031">[</span>
+    <span verifiable-text="start" data-for="1031"></span>
     <div style="border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 20px;">
       <div style="font-size: 1.2em; font-weight: bold; text-transform: uppercase;">Equitable Exchange Services, Inc.</div>
       <div style="font-size: 0.8em; color: #555;">A Qualified Intermediary</div>
@@ -48,7 +48,7 @@ This document is the **Identification Form**. It acts as a timestamped "snapshot
       title="Demo only: This is an illustrative example of the verification line">
       verify:equitable-exchange.com/v
     </div>
-    <span verifiable-text="end" data-for="1031">]</span>
+    <span verifiable-text="end" data-for="1031"></span>
   </div>
 </div>
 

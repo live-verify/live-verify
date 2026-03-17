@@ -19,7 +19,7 @@ These pages are the "Lifeblood of Title." Fraud is high-stakes: criminals create
   <div style="padding: 20px; border-bottom: 2px solid #000; display: flex; justify-content: space-between; align-items: flex-start; background: #fdfdfd;">
     <div style="width: 150px; border: 2px solid #000; padding: 10px; text-align: center; font-weight: bold; font-size: 0.8em; transform: rotate(-2deg);">
       RECORDED IN<br>OFFICIAL RECORDS<br>COUNTY OF COOK<br>
-      <div style="font-size: 1.2em; margin-top: 5px;"><span verifiable-text="start" data-for="record">[</span>15 MAR 2026</div>
+      <div style="font-size: 1.2em; margin-top: 5px;"><span verifiable-text="start" data-for="record"></span>15 MAR 2026</div>
     </div>
     <div style="text-align: right; font-size: 0.8em; line-height: 1.4;">
       <strong>INSTRUMENT #:</strong> 2026-R-992288<br>
@@ -41,7 +41,7 @@ These pages are the "Lifeblood of Title." Fraud is high-stakes: criminals create
 <div style="padding: 20px; background: #fffbe6; border-top: 1px solid #000; text-align: center;">
     <div data-verify-line="record" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #000; font-weight: bold;"
       title="Demo only: County recorders don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:cookcountyclerk.com/v <span verifiable-text="end" data-for="record">]</span>
+      verify:cookcountyclerk.com/v <span verifiable-text="end" data-for="record"></span>
     </div>
     <div style="font-size: 0.7em; color: #666; margin-top: 10px; font-style: italic;">
       Scan to verify instrument authenticity, view the full 4-page scanned image, and check for subsequent 'Notice of Rescission'.

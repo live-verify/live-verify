@@ -15,7 +15,7 @@ A gift card redemption receipt confirms that stored value has been spent, transf
 Gift card fraud is extensive: draining cards before legitimate use, fake balance claims, and redemption disputes. Verified receipts create an audit trail.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="retail">[</span>GIFT CARD REDEMPTION<br>
+  <span verifiable-text="start" data-for="retail"></span>GIFT CARD REDEMPTION<br>
   Target Corporation<br>
   Card: ****-****-****-8847<br>
   Original Value: $100.00<br>
@@ -24,22 +24,22 @@ Gift card fraud is extensive: draining cards before legitimate use, fake balance
   Remaining Balance: $0.00<br>
   Redeemed: January 7, 2026<br>
   Card Status: Exhausted<br>
-  <span data-verify-line="retail">verify:target.com/giftcards</span> <span verifiable-text="end" data-for="retail">]</span>
+  <span data-verify-line="retail">verify:target.com/giftcards</span> <span verifiable-text="end" data-for="retail"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="prepaid">[</span>PREPAID CARD CLOSURE<br>
+  <span verifiable-text="start" data-for="prepaid"></span>PREPAID CARD CLOSURE<br>
   Green Dot Corporation<br>
   Card: Visa Prepaid ****4421<br>
   Cardholder: Maria Santos<br>
   Final Balance: $247.83<br>
   Disbursement: Check Mailed<br>
   Card Closed: January 5, 2026<br>
-  <span data-verify-line="prepaid">verify:greendot.com/cards</span> <span verifiable-text="end" data-for="prepaid">]</span>
+  <span data-verify-line="prepaid">verify:greendot.com/cards</span> <span verifiable-text="end" data-for="prepaid"></span>
 </div>
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
-  <span verifiable-text="start" data-for="voucher">[</span>TRAVEL VOUCHER REDEEMED<br>
+  <span verifiable-text="start" data-for="voucher"></span>TRAVEL VOUCHER REDEEMED<br>
   Delta Air Lines<br>
   Voucher: DL-COMP-2025-88412<br>
   Original Value: $500.00<br>
@@ -48,7 +48,7 @@ Gift card fraud is extensive: draining cards before legitimate use, fake balance
   Route: ATL-LAX<br>
   Value Used: $500.00<br>
   Redeemed: January 6, 2026<br>
-  <span data-verify-line="voucher">verify:delta.com/vouchers</span> <span verifiable-text="end" data-for="voucher">]</span>
+  <span data-verify-line="voucher">verify:delta.com/vouchers</span> <span verifiable-text="end" data-for="voucher"></span>
 </div>
 
 ## Data Verified

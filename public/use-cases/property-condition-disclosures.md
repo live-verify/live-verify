@@ -16,7 +16,7 @@ When selling a home, the **Seller's Disclosure Statement** is the legally mandat
 These documents are the primary evidence in post-sale lawsuits. Fraud is high-frequency: sellers often "scrub" a disclosure form to remove mention of a $20,000 foundation issue before showing it to a potential buyer. Similarly, they might "edit" an old inspection report to look like a "Clean" disclosure. Verified hashes bind the **Defect Checklist, Property Address, and Seller Signature** to the real estate portal's or the title company's domain (e.g., `zillow.com` or `firstam.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="disclose">[</span>RESIDENTIAL PROPERTY DISCLOSURE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="disclose"></span>RESIDENTIAL PROPERTY DISCLOSURE
 STATE MANDATED SELLER STATEMENT
 ═══════════════════════════════════════════════════════════════════
 
@@ -35,7 +35,7 @@ KNOWN MATERIAL DEFECTS
 Seller certifies information is true and correct to the
 best of Seller's knowledge as of the date signed.
 
-<span data-verify-line="disclose">verify:springfield-realtors.org/v</span> <span verifiable-text="end" data-for="disclose">]</span></pre>
+<span data-verify-line="disclose">verify:springfield-realtors.org/v</span> <span verifiable-text="end" data-for="disclose"></span></pre>
 </div>
 
 ## Data Verified

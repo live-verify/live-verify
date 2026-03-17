@@ -19,7 +19,7 @@ Because these receipts are easy to forge with a basic printer, "baggage fraud" i
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Courier New', monospace; border: 1px solid #999; background: #fff; padding: 20px; box-shadow: 2px 2px 5px rgba(0,0,0,0.1);">
   <div style="text-align: center; margin-bottom: 15px; border-bottom: 1px solid #000; padding-bottom: 10px;">
-    <strong><span verifiable-text="start" data-for="bag">[</span>AIR FRANCE - BAGGAGE SERVICES</strong><br>
+    <strong><span verifiable-text="start" data-for="bag"></span>AIR FRANCE - BAGGAGE SERVICES</strong><br>
     PROPERTY IRREGULARITY REPORT (PIR)<br>
     -----------------------------------
   </div>
@@ -41,7 +41,7 @@ Because these receipts are easy to forge with a basic printer, "baggage fraud" i
   </div>
 <div data-verify-line="bag" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Air France doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:airfrance.com/baggage/v <span verifiable-text="end" data-for="bag">]</span>
+      verify:airfrance.com/baggage/v <span verifiable-text="end" data-for="bag"></span>
   </div>
 </div>
 

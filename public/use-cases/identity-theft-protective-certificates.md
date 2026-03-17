@@ -18,7 +18,7 @@ A **Identity Theft Protective Certificate** is a "Safe Harbor" document issued b
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #1a237e; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #1a237e; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="itpc">[</span>IDENTITY THEFT RECOVERY RECORD</div>
+      <div style="font-weight: bold; font-size: 1.2em;"><span verifiable-text="start" data-for="itpc"></span>IDENTITY THEFT RECOVERY RECORD</div>
       <div style="font-size: 0.8em; opacity: 0.9;">Consumer Protection Division</div>
     </div>
     <div style="text-align: right;">
@@ -41,7 +41,7 @@ A **Identity Theft Protective Certificate** is a "Safe Harbor" document issued b
   </div>
 <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #1a237e; text-align: center;">
     <div data-verify-line="itpc" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:identitytheft.gov/v <span verifiable-text="end" data-for="itpc">]</span>
+      verify:identitytheft.gov/v <span verifiable-text="end" data-for="itpc"></span>
     </div>
   </div>
 </div>

@@ -16,7 +16,7 @@ A **Workers' Compensation Certificate of Insurance (COI)** is the proof that a c
 Fraud is rampant in the construction industry. "Premium Evasion" is a multi-billion dollar problem: a contractor might "edit" a certificate to turn a 5-person policy into a 50-person policy to hide their true workforce size from the insurer. Similarly, they might use a fake certificate from a reputable carrier (like Liberty Mutual or Hartford) to bypass a general contractor's vetting process. Verified hashes bind the **FEIN Number, Employee Count, and Expiration Date** to the insurer's domain (e.g., `libertymutual.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="comp">[</span>LIBERTY MUTUAL INSURANCE
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="comp"></span>LIBERTY MUTUAL INSURANCE
 Workers' Compensation & Employers Liability
 ═══════════════════════════════════════════════════════════════════
 
@@ -33,7 +33,7 @@ Verified Employee Count:                             12 (Class 5445)
 Unauthorized alteration of class codes or employee counts
 renders this document void.
 
-<span data-verify-line="comp">verify:libertymutual.com/v</span> <span verifiable-text="end" data-for="comp">]</span></pre>
+<span data-verify-line="comp">verify:libertymutual.com/v</span> <span verifiable-text="end" data-for="comp"></span></pre>
 </div>
 
 ## Data Verified

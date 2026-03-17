@@ -16,7 +16,7 @@ For any manufactured product—especially electronics, toys, and building materi
 These documents are the "Entry Permit" for global commerce. US Customs, Amazon, and Walmart will not sell or import a product unless it has a verified **Certificate of Compliance (CoC)**. Fraud is a massive global issue: factories in unregulated regions often place fake "UL" or "CE" labels on un-tested, dangerous products to save on testing costs. Verified hashes bind the **Product Model, Testing Standard, and Lab ID** to the certifying body's domain (e.g., `ul.com` or `intertek.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="safety">[</span>UL SOLUTIONS
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="safety"></span>UL SOLUTIONS
 Certificate of Compliance
 ═══════════════════════════════════════════════════════════════════
 
@@ -32,7 +32,7 @@ VERIFIED SAFETY STANDARDS
 
 Representative samples tested and found to meet requirements.
 
-<span data-verify-line="safety">verify:ul.com/v</span> <span verifiable-text="end" data-for="safety">]</span></pre>
+<span data-verify-line="safety">verify:ul.com/v</span> <span verifiable-text="end" data-for="safety"></span></pre>
 </div>
 
 ## Data Verified

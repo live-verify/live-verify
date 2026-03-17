@@ -16,7 +16,7 @@ In the industrial and construction sectors, a **Stormwater Discharge Permit** (u
 These permits are the "Permission to Pollute" within legal bounds. Fraud is common in high-impact industries (e.g., Mining, Manufacturing): operators might "edit" a permit to hide a "Toxicity Limit" or to change the "Authorized Outfall" location to a less-monitored area. Verified hashes bind the **Facility ID, Pollutant Limits, and Discharge Points** to the state's or the EPA's domain (e.g., `epa.gov` or `water-quality.gov`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="water">[</span>STATE ENVIRONMENTAL BOARD
+  <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="water"></span>STATE ENVIRONMENTAL BOARD
 Stormwater General Permit (NPDES)
 ═══════════════════════════════════════════════════════════════════
 
@@ -36,7 +36,7 @@ This permit authorizes discharge only during storm events.
 Any un-verified discharge or limit violation is subject to
 federal penalties of up to $50,000 per day.
 
-<span data-verify-line="water">verify:state-water.gov/npdes/v</span> <span verifiable-text="end" data-for="water">]</span></pre>
+<span data-verify-line="water">verify:state-water.gov/npdes/v</span> <span verifiable-text="end" data-for="water"></span></pre>
 </div>
 
 ## Data Verified

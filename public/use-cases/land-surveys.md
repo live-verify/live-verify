@@ -22,7 +22,7 @@ It proves the "Dirt Integrity" of your investment:
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 2px solid #000; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #1a1a1a; color: #fff; padding: 15px; text-align: center;">
-    <h2 style="margin: 0; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="survey">[</span>Record of Survey</h2>
+    <h2 style="margin: 0; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="survey"></span>Record of Survey</h2>
     <div style="font-size: 0.8em; opacity: 0.8;">MILLER LAND SURVEYING, P.C.</div>
   </div>
 <div style="padding: 25px;">
@@ -46,7 +46,7 @@ It proves the "Dirt Integrity" of your investment:
     </div>
 <div data-verify-line="survey" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Surveyor doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:miller-surveying.com/v <span verifiable-text="end" data-for="survey">]</span>
+      verify:miller-surveying.com/v <span verifiable-text="end" data-for="survey"></span>
     </div>
   </div>
 </div>
@@ -155,7 +155,7 @@ _[Content merged from: land-surveys-property-boundaries]_
 <div style="padding: 25px;">
     <div style="text-align: center; border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 20px;">
       <h3 style="margin: 0; color: #333;">BOUNDARY PLAT MAP</h3>
-      <div style="font-size: 1.1em; font-weight: bold; margin-top: 5px;">Property: <span verifiable-text="start" data-for="survey">[</span>123 Desert Lane, Austin, TX</div>
+      <div style="font-size: 1.1em; font-weight: bold; margin-top: 5px;">Property: <span verifiable-text="start" data-for="survey"></span>123 Desert Lane, Austin, TX</div>
     </div>
 <div style="font-size: 0.9em; line-height: 1.5; color: #333;">
       <p><strong>Legal Description:</strong> Lot 42, Block 7, Map of Skyline Heights, recorded in Travis County Doc #992288.</p>
@@ -171,7 +171,7 @@ _[Content merged from: land-surveys-property-boundaries]_
     </div>
 <div data-verify-line="survey" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Surveyor doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:miller-surveying.com/v <span verifiable-text="end" data-for="survey">]</span>
+      verify:miller-surveying.com/v <span verifiable-text="end" data-for="survey"></span>
     </div>
   </div>
 </div>

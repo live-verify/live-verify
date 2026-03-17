@@ -21,7 +21,7 @@ Fixed electrical installations (wiring, fuse boxes, panels) are a primary source
   </div>
   <div style="padding: 20px;">
     <div style="font-size: 0.9em; margin-bottom: 10px;">
-      <strong><span verifiable-text="start" data-for="electric">[</span>Panel ID:</strong> MAIN-DB-04<br>
+      <strong><span verifiable-text="start" data-for="electric"></span>Panel ID:</strong> MAIN-DB-04<br>
       <strong>Location:</strong> Warehouse North Wall
     </div>
     <div style="background: #fff8e1; border: 1px solid #ffe082; padding: 10px; margin: 15px 0;">
@@ -30,7 +30,7 @@ Fixed electrical installations (wiring, fuse boxes, panels) are a primary source
       <strong>Electrician:</strong> Mike J. Miller (Lic #9922)
     </div>
     <div data-verify-line="electric" style="border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #e65100; text-align: center; font-weight: bold;">
-      verify:miller-electric.com/v <span verifiable-text="end" data-for="electric">]</span>
+      verify:miller-electric.com/v <span verifiable-text="end" data-for="electric"></span>
     </div>
   </div>
 </div>
