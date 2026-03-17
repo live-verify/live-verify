@@ -24,6 +24,20 @@ uses stale logic — this is a production bug, not just a test problem.
 the result. Symlinks aren't feasible because the sync applies ES module transformations.
 Full CI is too heavyweight for this project, so this is a manual discipline step.
 
+## Browser extension test failures: ESM import in Jest
+
+3 test suites fail because `apps/browser-extension/shared/verify.js` uses ES module `import`
+syntax, which Jest's default CommonJS `require()` cannot load. Affected file:
+`__tests__/browser-extension.test.js` (the `verify.js` imports at line 33).
+
+The 5 failing tests are in the `extractVerificationUrl`, `extractCertText`,
+`buildVerificationUrl`, `extractDomain`, and `fetchVerificationMeta` describe blocks.
+
+**Fix options:**
+- Configure Jest with `transform` or `extensionsToTreatAsEsm` for the shared modules
+- Add a CJS wrapper/re-export for the shared verify.js
+- Move browser-extension tests to a separate Jest project with ESM support
+
 ## Full-stack tests: iOS
 
 macOS only. Planned in `simulated-integration-tests/PLAN.md` but not yet implemented.

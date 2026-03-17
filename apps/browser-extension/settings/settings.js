@@ -17,7 +17,8 @@
 const DEFAULT_SETTINGS = {
     intrusiveness: 'maximum',
     autoScanPages: false,
-    autoVerify: false
+    autoVerify: false,
+    hideVerifyQuasiUrls: false
 };
 
 document.addEventListener('DOMContentLoaded', async () => {

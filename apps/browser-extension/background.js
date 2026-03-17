@@ -45,7 +45,8 @@ const RESULT_DISPLAY = 'notification'; // 'banner' or 'notification'
 const DEFAULT_SETTINGS = {
     intrusiveness: 'maximum', // 'maximum', 'standard', 'minimal'
     autoScanPages: false,     // Auto-scan pages for verifiable regions
-    autoVerify: false         // Auto-verify detected regions
+    autoVerify: false,        // Auto-verify detected regions
+    hideVerifyQuasiUrls: false // Hide verify: URL lines when regions are detected
 };
 
 // Maximum history items to store

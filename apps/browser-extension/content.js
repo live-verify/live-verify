@@ -129,6 +129,9 @@
         .liveverify-scan-btn.hidden {
             display: none;
         }
+        .liveverify-verify-line-hidden {
+            display: none !important;
+        }
     `;
 
     // Inject styles
@@ -464,6 +467,15 @@
         }
     }
 
+    // Hide verify: URL lines for all regions
+    function hideVerifyLines(regions) {
+        regions.forEach(region => {
+            if (region.verifyLineEl) {
+                region.verifyLineEl.classList.add('liveverify-verify-line-hidden');
+            }
+        });
+    }
+
     // Scan page and highlight all regions
     function scanPage() {
         const regions = findVerifiableRegions();
@@ -498,6 +510,11 @@
             const regions = findVerifiableRegions();
 
             if (regions.length === 0) return;
+
+            // Hide verify: lines if setting enabled
+            if (settings.hideVerifyQuasiUrls) {
+                hideVerifyLines(regions);
+            }
 
             // Show scan button or auto-scan based on settings
             if (settings.autoScanPages) {
