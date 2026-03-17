@@ -37,15 +37,15 @@ These capabilities are designed for building into camera apps, browsers (mobile/
 - `app/src/main/java/com/liveverify/app/MainActivity.kt` — Camera capture and verification UI
 - `app/build.gradle.kts` — Dependencies: ML Kit, CameraX, OkHttp, Coroutines
 
-Target SDK: 35 (Android 15), Min SDK: 26 (Android 8.0). Uses native Kotlin implementation for normalization (no JS engine) for performance and minimal APK size.
+Target SDK: 35 (Android 15), Min SDK: 26 (Android 8.0). Uses Mozilla Rhino JS engine to run canonical normalize.js — same approach as iOS's JSBridge.
 
-**CRITICAL - Keep normalization in sync:** Text normalization is implemented in FOUR places that must match:
-1. `public/normalize.js` (JavaScript, web app)
-2. `apps/browser-extension/shared/normalize.js` (JavaScript ES modules, browser extension)
-3. `apps/ios/LiveVerify/` uses JSBridge to run normalize.js directly
-4. `apps/android/app/src/main/java/com/liveverify/app/TextNormalizer.kt` (Kotlin, Android app)
+**Normalization sync:** Text normalization is implemented once in `public/normalize.js` and consumed everywhere:
+1. `public/normalize.js` (JavaScript, web app — canonical source)
+2. `apps/browser-extension/shared/normalize.js` (auto-generated ES module copy via `scripts/sync-shared.js`)
+3. `apps/ios/LiveVerify/` runs normalize.js via JavaScriptCore JSBridge
+4. `apps/android/app/src/main/assets/normalize.js` (copy of canonical — run via Rhino JS engine)
 
-If you change normalization logic, update ALL implementations. The web app version also has `public/ocr-cleanup.js` for OCR-specific artifact removal (not needed by Clip mode).
+If you change normalization logic, update `public/normalize.js` then run `npm run sync-shared` and copy to `apps/android/app/src/main/assets/`. The web app version also has `public/ocr-cleanup.js` for OCR-specific artifact removal (not needed by Clip mode).
 
 **Extension features:**
 - Right-click "Verify this claim" on selected text

@@ -238,4 +238,16 @@ for (const target of TARGETS) {
     console.log();
 }
 
-console.log('Done. Run "npm run test:unit" to verify.');
+// Copy canonical normalize.js to Android assets (no transformation needed — Rhino runs it as-is)
+{
+    const androidAssets = path.join(ROOT, 'apps', 'android', 'app', 'src', 'main', 'assets');
+    if (!fs.existsSync(androidAssets)) {
+        fs.mkdirSync(androidAssets, { recursive: true });
+    }
+    const source = fs.readFileSync(path.join(PUBLIC, 'normalize.js'), 'utf8');
+    const dest = path.join(androidAssets, 'normalize.js');
+    fs.writeFileSync(dest, source);
+    console.log(`Android: ${path.relative(ROOT, dest)} (plain copy for Rhino JS engine)`);
+}
+
+console.log('\nDone. Run "npm run test:unit" to verify.');

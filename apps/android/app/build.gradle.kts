@@ -43,6 +43,13 @@ android {
     testOptions {
         unitTests.isReturnDefaultValues = true
     }
+
+    sourceSets {
+        getByName("test") {
+            // Make normalize.js from assets available to unit tests via classpath
+            resources.srcDirs("src/main/assets")
+        }
+    }
 }
 
 dependencies {
@@ -68,6 +75,9 @@ dependencies {
 
     // OkHttp for API calls
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
+
+    // Rhino JS engine — runs canonical normalize.js on Android and in JVM unit tests
+    implementation("org.mozilla:rhino:1.7.15")
 
     // Coroutines Play Services (for ML Kit await())
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3")
