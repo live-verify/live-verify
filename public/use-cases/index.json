@@ -1,7 +1,7 @@
 {
-  "generated": "2026-03-15T13:40:07.024Z",
-  "totalUseCases": 483,
-  "totalFurtherDerivations": 582,
+  "generated": "2026-03-17T18:21:22.551Z",
+  "totalUseCases": 484,
+  "totalFurtherDerivations": 584,
   "categories": {
     "Real Estate & Property": 32,
     "Charitable & Non-Profit": 7,
@@ -40,7 +40,8 @@
     "Delegated Authority": 5,
     "Banking & Financial Services": 6,
     "Trade Finance": 5,
-    "Agriculture & Food": 7
+    "Agriculture & Food": 7,
+    "Identity & KYC": 1
   },
   "useCases": [
     {
@@ -7034,6 +7035,28 @@
       ]
     },
     {
+      "slug": "proof-of-address",
+      "title": "Proof of Address (Utility / Telco Confirmation)",
+      "category": "Identity & KYC",
+      "volume": "Very Large",
+      "retention": "Duration of account + 2 years",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Account holder full name, service address (full postal address), account active-since date, issuer identity (utility/telco name).",
+      "tags": [
+        "proof-of-address",
+        "utility-bill",
+        "telco",
+        "kyc",
+        "aml",
+        "address-verification",
+        "bank-account-opening",
+        "background-check",
+        "identity",
+        "onboarding"
+      ]
+    },
+    {
       "slug": "proof-of-delivery-pod",
       "title": "Proof of Delivery (POD) and Delivery Receipts",
       "category": "Chain of Custody & Logistics",
@@ -9899,7 +9922,11 @@
     {
       "name": "Permits & Approvals",
       "count": 4
+    },
+    {
+      "name": "Identity & KYC",
+      "count": 1
     }
   ],
-  "totalCategories": 38
+  "totalCategories": 39
 }
