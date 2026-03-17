@@ -109,7 +109,6 @@ function buildVerificationUrl(baseUrl, hash, meta) {
 
 /**
  * Extract certification text from raw OCR text (everything before the URL line)
- * Also strips [ and ] bracket markers used for visual cues
  * @param {string} rawText - Raw OCR text
  * @param {number} urlLineIndex - Index of the URL line
  * @returns {string} - Certification text (lines before URL, trailing blanks removed)
@@ -126,14 +125,7 @@ function extractCertText(rawText, urlLineIndex) {
         certLines.pop();
     }
 
-    let certText = certLines.join('\n');
-
-    // Strip [ and ] bracket markers (visual cues for users)
-    // These appear at start of verifiable text and end (before verify: line)
-    certText = certText.replace(/^\s*\[\s*/, '');  // Leading [
-    certText = certText.replace(/\s*\]\s*$/, '');  // Trailing ]
-
-    return certText;
+    return certLines.join('\n');
 }
 
 /**

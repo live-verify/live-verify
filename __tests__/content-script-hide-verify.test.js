@@ -85,11 +85,11 @@ describe('hideVerifyQuasiUrls', () => {
     test('hides verify line spans for style 1 (start/end markers)', () => {
         document.body.innerHTML = `
             <div>
-                <span verifiable-text="start" data-for="cert1">[</span>
+                <span verifiable-text="start" data-for="cert1"></span>
                 <p>University of Test</p>
                 <p>John Doe</p>
                 <span data-verify-line="cert1">verify:example.com/c</span>
-                <span verifiable-text="end" data-for="cert1">]</span>
+                <span verifiable-text="end" data-for="cert1"></span>
             </div>
         `;
 
@@ -127,10 +127,10 @@ describe('hideVerifyQuasiUrls', () => {
     test('hides multiple verify lines across mixed styles', () => {
         document.body.innerHTML = `
             <div>
-                <span verifiable-text="start" data-for="a">[</span>
+                <span verifiable-text="start" data-for="a"></span>
                 <p>Cert A</p>
                 <span data-verify-line="a">verify:example.com/c</span>
-                <span verifiable-text="end" data-for="a">]</span>
+                <span verifiable-text="end" data-for="a"></span>
             </div>
             <div verifiable-text-element="true">
                 <p>Cert B</p>

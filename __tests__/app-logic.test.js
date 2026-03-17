@@ -520,28 +520,8 @@ https://example.com`;
         });
     });
 
-    describe('extractCertText bracket stripping', () => {
-        it('should strip leading bracket marker', () => {
-            const rawText = `[University of Test\nJohn Doe\nverify:example.com/c`;
-            const result = extractCertText(rawText, 2);
-            expect(result).toBe('University of Test\nJohn Doe');
-            expect(result).not.toContain('[');
-        });
-
-        it('should strip trailing bracket marker', () => {
-            const rawText = `University of Test\nJohn Doe ]\nverify:example.com/c`;
-            const result = extractCertText(rawText, 2);
-            expect(result).toBe('University of Test\nJohn Doe');
-            expect(result).not.toContain(']');
-        });
-
-        it('should strip both bracket markers', () => {
-            const rawText = `[ University of Test\nJohn Doe ]\nverify:example.com/c`;
-            const result = extractCertText(rawText, 2);
-            expect(result).toBe('University of Test\nJohn Doe');
-        });
-
-        it('should not strip brackets in the middle of text', () => {
+    describe('extractCertText preserves brackets', () => {
+        it('should preserve brackets in text', () => {
             const rawText = `Test [inner] text\nverify:example.com/c`;
             const result = extractCertText(rawText, 1);
             expect(result).toBe('Test [inner] text');

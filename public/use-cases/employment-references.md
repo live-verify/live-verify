@@ -121,8 +121,7 @@ The verify URL points to the *referee's* domain, not the employer's. This reflec
 
 **Infrastructure reality:** Peer references are self-certified. The referee stands up hashes on their own domain — potentially a static site, a GitHub Pages folder, or a personal server. This is the opposite end of the spectrum from a high-availability vault used by banks or government identity systems. The trust model is correspondingly lighter: you're trusting the individual's domain, not an institution's infrastructure. That's the point — it's deliberately low-barrier, allowing anyone to make verifiable attestations without institutional backing.
 
-<div style="max-width: 550px; margin: 24px auto; font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; position: relative;">
-  <a href="slides/employment-references-1.html" style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%); background: #e0e0e0; border: 1px solid #999; border-radius: 4px; padding: 6px 8px; font-size: 0.75em; line-height: 1.2; cursor: pointer; color: #333; text-decoration: none;">show<br>me</a>
+<div verifiable-text-element="true" style="max-width: 550px; margin: 24px auto; font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; position: relative;">
   I, Paul Hammant, worked for Kevin Behr in<br>
   his role as CIO of HedgeServ in New York City<br>
   in 2015 and 2016<br>

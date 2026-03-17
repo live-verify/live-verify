@@ -66,11 +66,10 @@ Then visit:
 ## How It Works
 
 1. Extracts `verify:` or `vfy:` URL from selection
-2. Strips `[` and `]` visual markers
-3. Normalizes remaining text (Unicode, whitespace)
-4. Computes SHA-256 hash
-5. Fetches `https://{domain}/{path}/{hash}`
-6. Displays result based on HTTP response
+2. Normalizes remaining text (Unicode, whitespace)
+3. Computes SHA-256 hash
+4. Fetches `https://{domain}/{path}/{hash}`
+5. Displays result based on HTTP response
 
 ## File Structure
 

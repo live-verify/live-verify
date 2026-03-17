@@ -216,24 +216,10 @@ describe('Browser Extension: extractCertText', () => {
         expect(result).not.toContain('verify:');
     });
 
-    test('strips leading bracket marker', () => {
-        const text = '[University of Test\nJohn Doe\nverify:example.com/c';
-        const result = extractCertText(text, 2);
-        expect(result).toBe('University of Test\nJohn Doe');
-        expect(result).not.toContain('[');
-    });
-
-    test('strips trailing bracket marker', () => {
-        const text = 'University of Test\nJohn Doe ]\nverify:example.com/c';
-        const result = extractCertText(text, 2);
-        expect(result).toBe('University of Test\nJohn Doe');
-        expect(result).not.toContain(']');
-    });
-
-    test('strips both bracket markers', () => {
-        const text = '[ University of Test\nJohn Doe ]\nverify:example.com/c';
-        const result = extractCertText(text, 2);
-        expect(result).toBe('University of Test\nJohn Doe');
+    test('preserves brackets in text', () => {
+        const text = 'Test [inner] text\nverify:example.com/c';
+        const result = extractCertText(text, 1);
+        expect(result).toBe('Test [inner] text');
     });
 
     test('removes trailing blank lines', () => {
@@ -301,10 +287,10 @@ describe('Browser Extension: extractDomain', () => {
 
 describe('Browser Extension: Full verification flow', () => {
     test('extracts, normalizes, and hashes certificate text', async () => {
-        const selectedText = `[Global Tech Exports, Inc.
+        const selectedText = `Global Tech Exports, Inc.
 400 Silicon Valley Blvd
 San Jose, CA 95134
-verify:example.com/c ]`;
+verify:example.com/c`;
 
         // Extract URL
         const { url, urlLineIndex } = extractVerificationUrl(selectedText);
@@ -312,8 +298,6 @@ verify:example.com/c ]`;
 
         // Extract cert text
         const certText = extractCertText(selectedText, urlLineIndex);
-        expect(certText).not.toContain('[');
-        expect(certText).not.toContain(']');
         expect(certText).not.toContain('verify:');
 
         // Normalize
@@ -330,9 +314,9 @@ verify:example.com/c ]`;
     });
 
     test('handles unicode and special characters', async () => {
-        const selectedText = `[Café "La Maison" – Paris
+        const selectedText = `Café \u201CLa Maison\u201D \u2013 Paris
 Owner: François Müller
-verify:example.com/c ]`;
+verify:example.com/c`;
 
         const { url, urlLineIndex } = extractVerificationUrl(selectedText);
         const certText = extractCertText(selectedText, urlLineIndex);
