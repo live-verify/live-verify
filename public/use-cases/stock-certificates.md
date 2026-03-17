@@ -50,7 +50,7 @@ If you are buying a small business or investing in a private startup, you need t
   </div>
 <div data-verify-line="stock" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
     title="Demo only: Carta/transfer agents don't yet offer verification&#10;endpoints, so this is illustrative">
-    verify:carta.com/certs/v <span verifiable-text="end" data-for="stock"></span>
+    <span data-verify-line="stock">verify:carta.com/certs/v</span> <span verifiable-text="end" data-for="stock"></span>
   </div>
 </div>
 

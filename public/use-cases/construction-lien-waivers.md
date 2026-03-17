@@ -35,7 +35,7 @@ Banks won't release construction loans without these papers. Fraud is common: co
     </div>
 <div data-verify-line="waiver" style="margin-top: 30px; border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Subcontractor doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:fin.drywalldynamics.com/v <span verifiable-text="end" data-for="waiver"></span>
+      <span data-verify-line="waiver">verify:fin.drywalldynamics.com/v</span> <span verifiable-text="end" data-for="waiver"></span>
     </div>
   </div>
 </div>

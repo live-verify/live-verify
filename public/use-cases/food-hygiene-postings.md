@@ -41,7 +41,7 @@ Live Verify allows a diner to scan the window sticker to verify: **"Is this the 
 <div style="padding: 15px; background: #fff;">
     <div data-verify-line="food" style="border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #333; text-align: center; font-weight: bold;"
       title="Demo only: Health departments don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:food.gov.uk/ratings/v <span verifiable-text="end" data-for="food"></span>
+      <span data-verify-line="food">verify:food.gov.uk/ratings/v</span> <span verifiable-text="end" data-for="food"></span>
     </div>
   </div>
 </div>

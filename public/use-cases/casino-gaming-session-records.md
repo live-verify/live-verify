@@ -47,7 +47,7 @@ A **Verifiable Gaming Session Record** is a receipt issued by the casino cage at
   </div>
   <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #1b5e20; text-align: center;">
     <div data-verify-line="gsr" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:bellagio.mgmresorts.com/cage/v <span verifiable-text="end" data-for="gsr"></span>
+      <span data-verify-line="gsr">verify:bellagio.mgmresorts.com/cage/v</span> <span verifiable-text="end" data-for="gsr"></span>
     </div>
   </div>
 </div>
@@ -79,7 +79,7 @@ A **Verifiable Gaming Session Record** is a receipt issued by the casino cage at
   </div>
   <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #4a148c; text-align: center;">
     <div data-verify-line="ctrc" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:caesarspalace.com/compliance/v <span verifiable-text="end" data-for="ctrc"></span>
+      <span data-verify-line="ctrc">verify:caesarspalace.com/compliance/v</span> <span verifiable-text="end" data-for="ctrc"></span>
     </div>
   </div>
 </div>

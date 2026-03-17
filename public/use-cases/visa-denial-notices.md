@@ -37,7 +37,7 @@ These notices are critical for future travel. Fraud is high-stakes: applicants o
 <div style="margin-top: 40px; border-top: 1px dashed #999; padding-top: 15px; text-align: center;">
     <div data-verify-line="visa" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #002d62; font-weight: bold;"
       title="Demo only: Embassies don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:state.gov/v/visa <span verifiable-text="end" data-for="visa"></span>
+      <span data-verify-line="visa">verify:state.gov/v/visa</span> <span verifiable-text="end" data-for="visa"></span>
     </div>
     <div style="font-size: 0.7em; color: #999; margin-top: 10px; font-style: italic;">
       Scan to verify denial grounds and reapplication eligibility. This record is held in the Consular Consolidated Database (CCD).

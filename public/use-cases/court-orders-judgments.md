@@ -54,7 +54,7 @@ Live Verify binds the **Judge's name, the Case ID, and the exact verdict text** 
   </div>
 <div data-verify-line="court" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
     title="Demo only: Delaware Courts don't yet offer verification&#10;endpoints, so this is illustrative">
-    verify:courts.delaware.gov/v <span verifiable-text="end" data-for="court"></span>
+    <span data-verify-line="court">verify:courts.delaware.gov/v</span> <span verifiable-text="end" data-for="court"></span>
   </div>
 </div>
 

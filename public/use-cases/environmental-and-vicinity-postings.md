@@ -57,7 +57,7 @@ Live Verify allows a neighbor, tenant, or regulator to scan the posting to verif
 <div style="padding: 20px; background: #fff; border-top: 1px dashed #2e7d32; text-align: center;">
     <div data-verify-line="env" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #2e7d32; font-weight: bold;"
       title="Demo only: Environmental agencies don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:gov.uk/epc/v <span verifiable-text="end" data-for="env"></span>
+      <span data-verify-line="env">verify:gov.uk/epc/v</span> <span verifiable-text="end" data-for="env"></span>
     </div>
     <div style="font-size: 0.7em; color: #999; margin-top: 10px;">
       Scan to verify building energy efficiency, carbon footprint data, and auditor certification.

@@ -45,7 +45,7 @@ With Live Verify, the letter carries a `verify:` line bound to the CSP's domain.
     <p style="margin-top: 18px; font-style: italic; font-size: 0.82em; color: #777;">This confirmation is provided without liability on the part of Harneys Corporate Services Ltd.</p>
     <div data-verify-line="agentletter" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Harneys doesn't yet offer verification endpoints">
-      verify:harneys.com/letters <span verifiable-text="end" data-for="agentletter"></span>
+      <span data-verify-line="agentletter">verify:harneys.com/letters</span> <span verifiable-text="end" data-for="agentletter"></span>
     </div>
   </div>
 </div>

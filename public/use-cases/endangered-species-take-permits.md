@@ -46,7 +46,7 @@ This permit is a "Contract with the Earth." It says: "You are allowed to harm 15
     </div>
 <div data-verify-line="species" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: FWS doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:fws.gov/permits/v <span verifiable-text="end" data-for="species"></span>
+      <span data-verify-line="species">verify:fws.gov/permits/v</span> <span verifiable-text="end" data-for="species"></span>
     </div>
   </div>
 </div>

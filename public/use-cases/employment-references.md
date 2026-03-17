@@ -32,7 +32,7 @@ Fraud is common: "Reference Mills" sell fake employment letters. Live Verify con
     Senior Software Engineer<br>
     March 2020 &nbsp;&nbsp;–&nbsp;&nbsp; October 2025<br><br>
     Eligible for Rehire<br><br>
-    verify:acme-corp.com/staff
+    <span data-verify-line="bare9">verify:acme-corp.com/staff</span>
   </div>
   <div style="font-size: 0.95em; color: #333; margin-top: 15px;">
     Let me know if you need anything else.<br><br>
@@ -65,7 +65,7 @@ Fraud is common: "Reference Mills" sell fake employment letters. Live Verify con
       Senior Software Engineer<br>
       March 2020 – October 2025<br>
       Eligible for Rehire<br>
-      verify:acme-corp.com/staff
+      <span data-verify-line="bare10">verify:acme-corp.com/staff</span>
     </div>
   </div>
   <div style="position: absolute; bottom: 10px; left: 40px; right: 40px; font-size: 0.75em; color: #777; display: flex; justify-content: space-between;">

@@ -50,7 +50,7 @@ Fraud is common in the "Port Market." Unlicensed tour operators create fake "Off
 <div style="padding: 15px; background: #fff; text-align: center;">
     <div data-verify-line="shore" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #0072b2; font-weight: bold;"
       title="Demo only: Cruise lines don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:carnival.com/v <span verifiable-text="end" data-for="shore"></span>
+      <span data-verify-line="shore">verify:carnival.com/v</span> <span verifiable-text="end" data-for="shore"></span>
     </div>
     <div style="font-size: 0.65em; color: #999; margin-top: 8px; font-style: italic;">
       This ticket is non-transferable. Scan to verify booking authenticity and insurance coverage.

@@ -55,7 +55,7 @@ The annuity certification can arrive through different channels. Verification of
   </div>
   <div data-verify-line="annuity" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Prudential doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:prudential.com/actuarial/rates <span verifiable-text="end" data-for="annuity"></span>
+      <span data-verify-line="annuity">verify:prudential.com/actuarial/rates</span> <span verifiable-text="end" data-for="annuity"></span>
   </div>
 </div>
 </div>

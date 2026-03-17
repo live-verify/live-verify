@@ -34,7 +34,7 @@ OFSI publishes penalty notices on its website, but they're static PDFs. A verifi
     Appeal period: 28 days from date of notice.</p>
     <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="ofspenalty" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #555;">
-        verify:ofsi.hm-treasury.gov.uk/penalties <span verifiable-text="end" data-for="ofspenalty"></span>
+        <span data-verify-line="ofspenalty">verify:ofsi.hm-treasury.gov.uk/penalties</span> <span verifiable-text="end" data-for="ofspenalty"></span>
       </div>
     </div>
   </div>

@@ -45,7 +45,7 @@ These letters are the "Benefit Unlockers" of the student world. They are used to
 <div style="padding: 20px; background: #fffbe6; border: 1px dashed #999; margin-top: 30px; text-align: center;">
     <div data-verify-line="registrar" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #000; font-weight: bold;"
       title="Demo only: University registrars don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:berkeley.edu/v <span verifiable-text="end" data-for="registrar"></span>
+      <span data-verify-line="registrar">verify:berkeley.edu/v</span> <span verifiable-text="end" data-for="registrar"></span>
     </div>
     <div style="font-size: 0.7em; color: #666; margin-top: 8px;">
       Scan to verify enrollment intensity, legal residency status, and semester dates.

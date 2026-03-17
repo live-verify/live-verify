@@ -101,7 +101,7 @@ Live Verify allows a ticket holder to confirm their ticket is authentic before a
     </div>
     <div data-verify-line="ticket" style="margin-top: 15px; padding: 10px; font-family: 'Courier New', monospace; font-size: 0.85em; color: #1a1a2e; text-align: center; background: #f5f5f5;"
       title="Demo only: Ticketmaster doesn't yet offer verification endpoints">
-      verify:tickets.livenation.com/v <span verifiable-text="end" data-for="ticket"></span>
+      <span data-verify-line="ticket">verify:tickets.livenation.com/v</span> <span verifiable-text="end" data-for="ticket"></span>
     </div>
   </div>
 </div>

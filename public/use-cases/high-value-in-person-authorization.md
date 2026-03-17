@@ -37,7 +37,7 @@ A **Verifiable Purchase Token (VPT)** is a "Single-Use Claim" (Criteria §2) gen
       VALID FOR 60 SECONDS
     </p>
 <div data-verify-line="vpt" style="border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold; text-align: center;">
-      verify:wellsfargo.com/pay/v <span verifiable-text="end" data-for="vpt"></span>
+      <span data-verify-line="vpt">verify:wellsfargo.com/pay/v</span> <span verifiable-text="end" data-for="vpt"></span>
     </div>
   </div>
 </div>

@@ -48,7 +48,7 @@ With Live Verify, each certificate carries a verify line bound to the issuing po
     <div style="font-size: 0.8em; font-weight: bold; color: #1a2744; text-align: center; margin-bottom: 5px;">UNITED KINGDOM</div>
     <div data-verify-line="pcc" style="border-top: 1px dashed #999; padding-top: 5px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: ACRO doesn't yet offer verification endpoints, so this is illustrative">
-      verify:acro.police.uk/pcc/v <span verifiable-text="end" data-for="pcc"></span>
+      <span data-verify-line="pcc">verify:acro.police.uk/pcc/v</span> <span verifiable-text="end" data-for="pcc"></span>
     </div>
   </div>
 </div>

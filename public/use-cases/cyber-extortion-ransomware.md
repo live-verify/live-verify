@@ -44,7 +44,7 @@ Because these authorizations trigger multimillion-dollar crypto-payments, they a
     </div>
 <div data-verify-line="cyber" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Cyber underwriter doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:beazley.com/cyber/v <span verifiable-text="end" data-for="cyber"></span>
+      <span data-verify-line="cyber">verify:beazley.com/cyber/v</span> <span verifiable-text="end" data-for="cyber"></span>
     </div>
   </div>
 </div>

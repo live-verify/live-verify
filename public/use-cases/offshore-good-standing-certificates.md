@@ -44,7 +44,7 @@ With Live Verify, the certificate carries a `verify:` line bound to the registry
     </p>
     <div data-verify-line="goodstanding" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: BVI FSC doesn't yet offer verification endpoints">
-      verify:bvifsc.vg/standing <span verifiable-text="end" data-for="goodstanding"></span>
+      <span data-verify-line="goodstanding">verify:bvifsc.vg/standing</span> <span verifiable-text="end" data-for="goodstanding"></span>
     </div>
   </div>
 </div>

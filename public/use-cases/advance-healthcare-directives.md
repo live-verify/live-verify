@@ -51,7 +51,7 @@ Doctors in the ER need to see this *immediately* to know whether to resuscitate.
   </div>
 <div data-verify-line="directive" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Registry doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:uslivingwillregistry.com/v <span verifiable-text="end" data-for="directive"></span>
+      <span data-verify-line="directive">verify:uslivingwillregistry.com/v</span> <span verifiable-text="end" data-for="directive"></span>
   </div>
 </div>
 

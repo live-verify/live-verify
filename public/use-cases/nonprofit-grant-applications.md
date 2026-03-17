@@ -35,7 +35,7 @@ This letter is the "proof of income" for non-profits. They show it to other dono
     <em>Director of Global Health</em>
   </div>
 <div data-verify-line="grant" style="border-top: 1px dashed #ccc; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;">
-    verify:alliance.org/grants/v <span verifiable-text="end" data-for="grant"></span>
+    <span data-verify-line="grant">verify:alliance.org/grants/v</span> <span verifiable-text="end" data-for="grant"></span>
   </div>
 </div>
 

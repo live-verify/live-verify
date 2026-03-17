@@ -47,7 +47,7 @@ Live Verify allows a neighbor or building inspector to scan the permit from the 
     </div>
 <div data-verify-line="permit" style="margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.85em; color: #d32f2f; text-align: center; font-weight: bold; border-top: 1px dashed #bbb;"
       title="Demo only: Municipalities don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:springfield.gov/build/v <span verifiable-text="end" data-for="permit"></span>
+      <span data-verify-line="permit">verify:springfield.gov/build/v</span> <span verifiable-text="end" data-for="permit"></span>
     </div>
   </div>
 </div>

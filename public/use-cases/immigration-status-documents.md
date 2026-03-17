@@ -35,7 +35,7 @@ furtherDerivations: 1
     <div style="font-size: 0.8em; font-weight: bold; color: #002d62; text-align: center; margin-bottom: 5px;">UNITED STATES OF AMERICA</div>
     <div data-verify-line="im-status" style="border-top: 1px dashed #999; padding-top: 5px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: USCIS doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:uscis.gov/status/v <span verifiable-text="end" data-for="im-status"></span>
+      <span data-verify-line="im-status">verify:uscis.gov/status/v</span> <span verifiable-text="end" data-for="im-status"></span>
     </div>
   </div>
 </div>

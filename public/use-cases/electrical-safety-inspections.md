@@ -30,7 +30,7 @@ Fixed electrical installations (wiring, fuse boxes, panels) are a primary source
       <strong>Electrician:</strong> Mike J. Miller (Lic #9922)
     </div>
     <div data-verify-line="electric" style="border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #e65100; text-align: center; font-weight: bold;">
-      verify:miller-electric.com/v <span verifiable-text="end" data-for="electric"></span>
+      <span data-verify-line="electric">verify:miller-electric.com/v</span> <span verifiable-text="end" data-for="electric"></span>
     </div>
   </div>
 </div>

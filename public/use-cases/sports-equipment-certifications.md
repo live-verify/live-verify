@@ -42,7 +42,7 @@ These labels are the "Seal of Survival." Fraud is common in the "Budget Market":
 <div style="padding: 15px; background: #f9f9f9; border-top: 1px dashed #bbb; text-align: center;">
     <div data-verify-line="safety" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;"
       title="Demo only: Standards bodies don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:nocsae.org/v <span verifiable-text="end" data-for="safety"></span>
+      <span data-verify-line="safety">verify:nocsae.org/v</span> <span verifiable-text="end" data-for="safety"></span>
     </div>
     <div style="font-size: 0.65em; color: #999; margin-top: 8px;">
       Scan to verify product safety lab results, batch traceability, and recall status.

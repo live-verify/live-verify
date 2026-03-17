@@ -45,7 +45,7 @@ With Live Verify, the certificate carries a `verify:` line bound to the issuing 
     </div>
     <div data-verify-line="taxres" style="border-top: 1px dashed #999; margin-top: 15px; padding-top: 8px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: ESTV doesn't yet offer verification endpoints">
-      verify:estv.admin.ch/residence <span verifiable-text="end" data-for="taxres"></span>
+      <span data-verify-line="taxres">verify:estv.admin.ch/residence</span> <span verifiable-text="end" data-for="taxres"></span>
     </div>
   </div>
 </div>

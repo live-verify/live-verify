@@ -41,7 +41,7 @@ Because these receipts are easy to forge with a basic printer, "baggage fraud" i
   </div>
 <div data-verify-line="bag" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Air France doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:airfrance.com/baggage/v <span verifiable-text="end" data-for="bag"></span>
+      <span data-verify-line="bag">verify:airfrance.com/baggage/v</span> <span verifiable-text="end" data-for="bag"></span>
   </div>
 </div>
 

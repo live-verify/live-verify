@@ -44,7 +44,7 @@ Farmers use these verified eligibility letters to get "Operating Loans" from ban
     </div>
 <div data-verify-line="subsidy" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: USDA doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:fsa.usda.gov/compliance/v <span verifiable-text="end" data-for="subsidy"></span>
+      <span data-verify-line="subsidy">verify:fsa.usda.gov/compliance/v</span> <span verifiable-text="end" data-for="subsidy"></span>
     </div>
   </div>
 </div>

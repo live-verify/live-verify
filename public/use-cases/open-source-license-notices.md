@@ -28,7 +28,7 @@ A **Verified Compliance Notice** takes this static text and binds it to the manu
   </ul>
 <p>Written Offer: NetGearLink Corp will provide the source code for the GPL components upon request for a period of 3 years.</p>
 <div data-verify-line="oss" style="border-top: 1px dashed #666; margin-top: 20px; padding-top: 10px; font-size: 0.9em; text-align: center;">
-    verify:netgearlink.com/oss/v <span verifiable-text="end" data-for="oss"></span>
+    <span data-verify-line="oss">verify:netgearlink.com/oss/v</span> <span verifiable-text="end" data-for="oss"></span>
   </div>
 </div>
 

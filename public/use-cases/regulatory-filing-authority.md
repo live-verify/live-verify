@@ -43,7 +43,7 @@ Filing the wrong information, or filing without authority, can result in penalti
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="regulatoryfilingauth" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:ashford-holdings.com/cosec <span verifiable-text="end" data-for="regulatoryfilingauth"></span>
+        <span data-verify-line="regulatoryfilingauth">verify:ashford-holdings.com/cosec</span> <span verifiable-text="end" data-for="regulatoryfilingauth"></span>
       </div>
     </div>
   </div>
@@ -86,7 +86,7 @@ Filing the wrong information, or filing without authority, can result in penalti
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="regulatoryfilingauth" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:ashford-holdings.com/tax-auth <span verifiable-text="end" data-for="regulatoryfilingauth"></span>
+        <span data-verify-line="regulatoryfilingauth">verify:ashford-holdings.com/tax-auth</span> <span verifiable-text="end" data-for="regulatoryfilingauth"></span>
       </div>
     </div>
   </div>
@@ -115,7 +115,7 @@ Filing the wrong information, or filing without authority, can result in penalti
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="regulatoryfilingauth" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:ashford-holdings.com/audit <span verifiable-text="end" data-for="regulatoryfilingauth"></span>
+        <span data-verify-line="regulatoryfilingauth">verify:ashford-holdings.com/audit</span> <span verifiable-text="end" data-for="regulatoryfilingauth"></span>
       </div>
     </div>
   </div>

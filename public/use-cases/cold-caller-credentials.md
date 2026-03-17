@@ -40,7 +40,7 @@ Do you let them in?
 <div style="padding: 0 15px 15px 15px;">
     <div data-verify-line="badge" style="border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Thames Water doesn't yet offer verification endpoints, so this is illustrative">
-      verify:thameswater.co.uk/staff/v <span verifiable-text="end" data-for="badge"></span>
+      <span data-verify-line="badge">verify:thameswater.co.uk/staff/v</span> <span verifiable-text="end" data-for="badge"></span>
     </div>
   </div>
 </div>

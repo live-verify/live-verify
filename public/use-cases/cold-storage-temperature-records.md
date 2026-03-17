@@ -40,7 +40,7 @@ If a shipment hits a "Temperature Spike" (Excursion), the product might be ruine
   </div>
 <div data-verify-line="cold" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Logistics provider doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:arctic-logistics.com/v <span verifiable-text="end" data-for="cold"></span>
+      <span data-verify-line="cold">verify:arctic-logistics.com/v</span> <span verifiable-text="end" data-for="cold"></span>
   </div>
 </div>
 

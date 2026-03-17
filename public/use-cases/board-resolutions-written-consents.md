@@ -32,7 +32,7 @@ furtherDerivations: 1
   </div>
 <div data-verify-line="board" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Law firm doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:wilson-sonsini.com/docs/v <span verifiable-text="end" data-for="board"></span>
+      <span data-verify-line="board">verify:wilson-sonsini.com/docs/v</span> <span verifiable-text="end" data-for="board"></span>
   </div>
 </div>
 

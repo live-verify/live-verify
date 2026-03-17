@@ -57,7 +57,7 @@ With Live Verify, the court order carries a `verify:` line bound to the family c
   </div>
   <div data-verify-line="cs" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Court doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:nycourts.gov/family/v <span verifiable-text="end" data-for="cs"></span>
+      <span data-verify-line="cs">verify:nycourts.gov/family/v</span> <span verifiable-text="end" data-for="cs"></span>
   </div>
 </div>
 

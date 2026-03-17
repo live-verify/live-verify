@@ -36,7 +36,7 @@ These reports are the "Gold Standard" of credibility. Researchers use them to se
 <div style="margin-top: 40px; border-top: 1px dashed #999; padding-top: 10px; text-align: center;">
     <div data-verify-line="peer" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #003366; font-weight: bold;"
       title="Demo only: Academic journals don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:quantum-journal.org/v <span verifiable-text="end" data-for="peer"></span>
+      <span data-verify-line="peer">verify:quantum-journal.org/v</span> <span verifiable-text="end" data-for="peer"></span>
     </div>
     <div style="font-size: 0.7em; color: #999; margin-top: 10px; font-style: italic;">
       Scan to verify manuscript status, reviewer credentials, and the integrity of the editorial decision.

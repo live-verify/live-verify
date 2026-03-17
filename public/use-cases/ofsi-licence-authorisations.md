@@ -36,7 +36,7 @@ OFSI issues a licence letter specifying exactly what's permitted: the amount, th
     Issued by: Financial Sanctions Officer, OFSI</p>
     <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="ofsilicence" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #555;">
-        verify:ofsi.hm-treasury.gov.uk/licences <span verifiable-text="end" data-for="ofsilicence"></span>
+        <span data-verify-line="ofsilicence">verify:ofsi.hm-treasury.gov.uk/licences</span> <span verifiable-text="end" data-for="ofsilicence"></span>
       </div>
     </div>
   </div>

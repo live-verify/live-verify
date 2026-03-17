@@ -51,7 +51,7 @@ The problem is that these permits are often valid for 6 to 12 months. Shady vend
 <div style="padding: 15px 20px 20px 20px; background: #fdfdfd; border-top: 1px solid #eee; text-align: center;">
     <div data-verify-line="market" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;"
       title="Demo only: Market associations don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:springfieldmarket.org/v <span verifiable-text="end" data-for="market"></span>
+      <span data-verify-line="market">verify:springfieldmarket.org/v</span> <span verifiable-text="end" data-for="market"></span>
     </div>
     <div style="font-size: 0.65em; color: #999; margin-top: 10px;">
       Scan to verify producer origin, certified organic status, and daily market standing.

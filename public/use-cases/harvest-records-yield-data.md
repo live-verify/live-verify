@@ -45,7 +45,7 @@ Fraud happens when a farmer "Edits" the report to show a lower yield (to pay les
     </div>
 <div data-verify-line="harvest" style="border-top: 1px dashed #999; margin-top: 25px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: John Deere doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:operationscenter.deere.com/v <span verifiable-text="end" data-for="harvest"></span>
+      <span data-verify-line="harvest">verify:operationscenter.deere.com/v</span> <span verifiable-text="end" data-for="harvest"></span>
     </div>
   </div>
 </div>

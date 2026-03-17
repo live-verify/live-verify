@@ -41,7 +41,7 @@ A **Identity Theft Protective Certificate** is a "Safe Harbor" document issued b
   </div>
 <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #1a237e; text-align: center;">
     <div data-verify-line="itpc" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:identitytheft.gov/v <span verifiable-text="end" data-for="itpc"></span>
+      <span data-verify-line="itpc">verify:identitytheft.gov/v</span> <span verifiable-text="end" data-for="itpc"></span>
     </div>
   </div>
 </div>

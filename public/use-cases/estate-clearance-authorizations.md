@@ -51,7 +51,7 @@ The current system relies on self-declaration and trust. Criminals exploit this 
 <p style="font-size: 0.85em; color: #666; text-align: center;">
       <div data-verify-line="estateclearanceautho" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:gov.uk/probate <span verifiable-text="end" data-for="estateclearanceautho"></span>
+        <span data-verify-line="estateclearanceautho">verify:gov.uk/probate</span> <span verifiable-text="end" data-for="estateclearanceautho"></span>
       </div>
     </p>
 <p style="font-size: 0.8em; color: #8B0000; text-align: center; margin-top: 15px;">
@@ -60,7 +60,7 @@ The current system relies on self-declaration and trust. Criminals exploit this 
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="estateclearanceautho" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:belgravia-estates.co.uk/jobs <span verifiable-text="end" data-for="estateclearanceautho"></span>
+        <span data-verify-line="estateclearanceautho">verify:belgravia-estates.co.uk/jobs</span> <span verifiable-text="end" data-for="estateclearanceautho"></span>
       </div>
     </div>
   </div>
@@ -201,7 +201,7 @@ MANDATORY SITE NOTICE
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="estateclearanceautho" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:gov.uk/probate <span verifiable-text="end" data-for="estateclearanceautho"></span>
+        <span data-verify-line="estateclearanceautho">verify:gov.uk/probate</span> <span verifiable-text="end" data-for="estateclearanceautho"></span>
       </div>
     </div>
   </div>
@@ -243,11 +243,11 @@ MANDATORY SITE NOTICE
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="estateclearanceautho" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:gov.uk/probate<br> <span verifiable-text="end" data-for="estateclearanceautho"></span>
+        <span data-verify-line="bare11">verify:gov.uk/probate</span><br> <span verifiable-text="end" data-for="estateclearanceautho"></span>
       </div>
       <div data-verify-line="estateclearanceautho" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:belgravia-estates.co.uk/jobs <span verifiable-text="end" data-for="estateclearanceautho"></span>
+        <span data-verify-line="estateclearanceautho">verify:belgravia-estates.co.uk/jobs</span> <span verifiable-text="end" data-for="estateclearanceautho"></span>
       </div>
     </div>
   </div>
@@ -275,7 +275,7 @@ MANDATORY SITE NOTICE
 <p style="margin: 5px 0; font-size: 0.75em; font-family: monospace; color: #666;">
       <div data-verify-line="estateclearanceautho" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:belgravia-estates.co.uk/staff <span verifiable-text="end" data-for="estateclearanceautho"></span>
+        <span data-verify-line="estateclearanceautho">verify:belgravia-estates.co.uk/staff</span> <span verifiable-text="end" data-for="estateclearanceautho"></span>
       </div>
     </p>
   </div>

@@ -40,7 +40,7 @@ furtherDerivations: 1
 <p style="font-size: 0.8em;">Available with any bank by negotiation. Subject to UCP 600.</p>
 <div data-verify-line="lc" style="border-top: 1px dashed #999; margin-top: 25px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.85em; color: #555; text-align: center;"
       title="Demo only: HSBC doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:hsbc.com/trade/v <span verifiable-text="end" data-for="lc"></span>
+      <span data-verify-line="lc">verify:hsbc.com/trade/v</span> <span verifiable-text="end" data-for="lc"></span>
     </div>
   </div>
 </div>

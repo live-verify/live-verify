@@ -46,7 +46,7 @@ With Live Verify, the doctor's note carries a `verify:` line bound to the medica
       <em style="font-size: 0.85em; color: #555;">Signature: R. Patel (electronic)</em>
     </div>
     <div data-verify-line="dn1" style="border-top: 1px dashed #999; padding-top: 8px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;">
-      verify:riversidefp.nhs.uk/fit <span verifiable-text="end" data-for="dn1"></span>
+      <span data-verify-line="dn1">verify:riversidefp.nhs.uk/fit</span> <span verifiable-text="end" data-for="dn1"></span>
     </div>
   </div>
 </div>
@@ -78,7 +78,7 @@ With Live Verify, the doctor's note carries a `verify:` line bound to the medica
       <em style="font-size: 0.85em; color: #555;">Signature: L. Chen (electronic)</em>
     </div>
     <div data-verify-line="dn2" style="border-top: 1px dashed #999; padding-top: 8px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;">
-      verify:maplegrovepeds.com/notes <span verifiable-text="end" data-for="dn2"></span>
+      <span data-verify-line="dn2">verify:maplegrovepeds.com/notes</span> <span verifiable-text="end" data-for="dn2"></span>
     </div>
   </div>
 </div>

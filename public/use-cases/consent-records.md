@@ -68,7 +68,7 @@ Consent is given, withdrawn, modified—but rarely documented with verifiable pr
   Data Controller: Acme Marketing Ltd<br>
   <br>
   Original Consent: 2026-01-05<br>
-  verify:acme.com/consent<br>
+  <span data-verify-line="bare8">verify:acme.com/consent</span><br>
   <br>
   Withdrawal Scope: ALL PROCESSING<br>
   Withdrawal Date: 2026-01-09 09:15 UTC<br>

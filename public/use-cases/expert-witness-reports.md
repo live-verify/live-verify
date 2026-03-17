@@ -40,7 +40,7 @@ In high-stakes trials, lawyers sometimes "Edit" the expert's findings in the fin
   </div>
 <div data-verify-line="expert" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Engineering firm doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:roux-forensics.com/reports/v <span verifiable-text="end" data-for="expert"></span>
+      <span data-verify-line="expert">verify:roux-forensics.com/reports/v</span> <span verifiable-text="end" data-for="expert"></span>
   </div>
 </div>
 

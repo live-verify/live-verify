@@ -35,7 +35,7 @@ furtherDerivations: 1
   </div>
 <div data-verify-line="med-cert" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: BSI doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:certs.bsigroup.com/mdr/v <span verifiable-text="end" data-for="med-cert"></span>
+      <span data-verify-line="med-cert">verify:certs.bsigroup.com/mdr/v</span> <span verifiable-text="end" data-for="med-cert"></span>
   </div>
 </div>
 

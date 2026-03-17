@@ -37,7 +37,7 @@ furtherDerivations: 1
     </div>
 <div data-verify-line="lab-data" style="border-top: 1px dashed #999; margin-top: 25px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: University doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:ibr-stanford.edu/notebooks/v <span verifiable-text="end" data-for="lab-data"></span>
+      <span data-verify-line="lab-data">verify:ibr-stanford.edu/notebooks/v</span> <span verifiable-text="end" data-for="lab-data"></span>
     </div>
   </div>
 </div>

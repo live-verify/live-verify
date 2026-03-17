@@ -44,7 +44,7 @@ A **Verified Waste Carrier Licence** is the carrier's registration made scannabl
   </div>
   <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #1b5e20; text-align: center;">
     <div data-verify-line="upper" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:environment-agency.gov.uk/waste/v <span verifiable-text="end" data-for="upper"></span>
+      <span data-verify-line="upper">verify:environment-agency.gov.uk/waste/v</span> <span verifiable-text="end" data-for="upper"></span>
     </div>
   </div>
 </div>
@@ -76,7 +76,7 @@ A **Verified Waste Carrier Licence** is the carrier's registration made scannabl
   </div>
   <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #e65100; text-align: center;">
     <div data-verify-line="lower" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:environment-agency.gov.uk/waste/v <span verifiable-text="end" data-for="lower"></span>
+      <span data-verify-line="lower">verify:environment-agency.gov.uk/waste/v</span> <span verifiable-text="end" data-for="lower"></span>
     </div>
   </div>
 </div>
@@ -110,7 +110,7 @@ A **Verified Waste Carrier Licence** is the carrier's registration made scannabl
   </div>
   <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #37474f; text-align: center;">
     <div data-verify-line="wtn" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:clearawaywaste.co.uk/duty/v <span verifiable-text="end" data-for="wtn"></span>
+      <span data-verify-line="wtn">verify:clearawaywaste.co.uk/duty/v</span> <span verifiable-text="end" data-for="wtn"></span>
     </div>
   </div>
 </div>

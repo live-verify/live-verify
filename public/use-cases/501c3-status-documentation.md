@@ -47,7 +47,7 @@ Charities often have to fax, email, or mail this letter dozens of times a year t
   </div>
 <div data-verify-line="501c3" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: IRS doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:irs.gov/teos/v
+      <span data-verify-line="bare2">verify:irs.gov/teos/v</span>
   </div>
   <span verifiable-text="end" data-for="501c3"></span>
 </div>

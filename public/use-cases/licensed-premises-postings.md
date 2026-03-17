@@ -38,7 +38,7 @@ Live Verify allows a patron, neighbor, or police officer to scan the posting to 
     <div style="width: 100px; height: 100px; border: 2px solid #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.6em; font-weight: bold; text-align: center; opacity: 0.5;">OFFICIAL<br>STATE SEAL</div>
     <div data-verify-line="liquor" style="flex-grow: 1; margin-left: 20px; border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
         title="Demo only: ABC Boards don't yet offer verification&#10;endpoints, so this is illustrative">
-        verify:abc.ca.gov/v <span verifiable-text="end" data-for="liquor"></span>
+        <span data-verify-line="liquor">verify:abc.ca.gov/v</span> <span verifiable-text="end" data-for="liquor"></span>
     </div>
   </div>
 </div>

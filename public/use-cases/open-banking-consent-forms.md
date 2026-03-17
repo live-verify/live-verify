@@ -46,7 +46,7 @@ The **Consent Form** is the legal receipt for this digital handshake. It proves:
     </div>
 <div data-verify-line="ob-consent" style="border-top: 1px dashed #ccc; margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #444; text-align: center;"
       title="Demo only: HSBC doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:hsbc.com/v <span verifiable-text="end" data-for="ob-consent"></span>
+      <span data-verify-line="ob-consent">verify:hsbc.com/v</span> <span verifiable-text="end" data-for="ob-consent"></span>
     </div>
   </div>
 </div>

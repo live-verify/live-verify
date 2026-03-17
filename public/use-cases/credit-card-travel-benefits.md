@@ -39,7 +39,7 @@ Rental agents often try to force you to buy their expensive $30/day insurance by
     </div>
 <div data-verify-line="card" style="border-top: 1px dashed rgba(255,255,255,0.3); margin-top: 25px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #ccc; text-align: center;"
       title="Demo only: Chase doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:chase.com/benefits/v <span verifiable-text="end" data-for="card"></span>
+      <span data-verify-line="card">verify:chase.com/benefits/v</span> <span verifiable-text="end" data-for="card"></span>
     </div>
   </div>
 </div>

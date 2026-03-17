@@ -36,7 +36,7 @@ furtherDerivations: 1
     </div>
 <div data-verify-line="doc" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Manufacturer doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:cyberdyne.be/compliance/v <span verifiable-text="end" data-for="doc"></span>
+      <span data-verify-line="doc">verify:cyberdyne.be/compliance/v</span> <span verifiable-text="end" data-for="doc"></span>
     </div>
   </div>
 </div>

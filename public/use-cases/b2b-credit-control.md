@@ -40,7 +40,7 @@ The classic fraud: someone claims purchasing authority they don't have, places o
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="b2bcreditcontrol" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:meridian-mfg.co.uk/auth <span verifiable-text="end" data-for="b2bcreditcontrol"></span>
+        <span data-verify-line="b2bcreditcontrol">verify:meridian-mfg.co.uk/auth</span> <span verifiable-text="end" data-for="b2bcreditcontrol"></span>
       </div>
     </div>
   </div>
@@ -99,7 +99,7 @@ The classic fraud: someone claims purchasing authority they don't have, places o
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="b2bcreditcontrol" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:northern-components.com/credit <span verifiable-text="end" data-for="b2bcreditcontrol"></span>
+        <span data-verify-line="b2bcreditcontrol">verify:northern-components.com/credit</span> <span verifiable-text="end" data-for="b2bcreditcontrol"></span>
       </div>
     </div>
   </div>
@@ -134,7 +134,7 @@ The classic fraud: someone claims purchasing authority they don't have, places o
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="b2bcreditcontrol" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:abc-supplies.com/refs <span verifiable-text="end" data-for="b2bcreditcontrol"></span>
+        <span data-verify-line="b2bcreditcontrol">verify:abc-supplies.com/refs</span> <span verifiable-text="end" data-for="b2bcreditcontrol"></span>
       </div>
     </div>
   </div>

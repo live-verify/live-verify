@@ -57,7 +57,7 @@ Cargo theft via "Fictitious Pickup" is a huge problem. Thieves use forged paper 
     </div>
 <div data-verify-line="cargo" style="border-top: 1px dashed #999; margin-top: 25px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.85em; color: #555; text-align: center;"
       title="Demo only: Broker/Carrier doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:expeditors.com/do/v <span verifiable-text="end" data-for="cargo"></span>
+      <span data-verify-line="cargo">verify:expeditors.com/do/v</span> <span verifiable-text="end" data-for="cargo"></span>
     </div>
   </div>
 </div>

@@ -42,7 +42,7 @@ Stylists are required by law to post their license at their station. Some people
     </p>
     <div data-verify-line="beauty" style="border-top: 1px dashed #999; margin-top: 10px; padding-top: 5px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: State Board doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:barbercosmo.ca.gov/v <span verifiable-text="end" data-for="beauty"></span>
+      <span data-verify-line="beauty">verify:barbercosmo.ca.gov/v</span> <span verifiable-text="end" data-for="beauty"></span>
     </div>
   </div>
 </div>

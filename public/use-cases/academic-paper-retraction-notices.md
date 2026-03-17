@@ -41,7 +41,7 @@ The problem: retraction notices are easy to miss and easy to fake. A researcher 
   </div>
   <div style="margin-top: 25px; border-top: 1px dashed #999; padding-top: 10px; text-align: center;">
     <div data-verify-line="retraction" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #003366; font-weight: bold;">
-      verify:thelancet.com/retractions<span verifiable-text="end" data-for="retraction"></span>
+      <span data-verify-line="retraction">verify:thelancet.com/retractions</span> <span verifiable-text="end" data-for="retraction"></span>
     </div>
     <div style="font-size: 0.7em; color: #999; margin-top: 8px; font-style: italic;">
       Scan to verify retraction status against the publisher's record.

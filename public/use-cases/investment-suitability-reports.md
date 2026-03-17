@@ -40,7 +40,7 @@ If things go wrong, this report is critical evidence. Did the advisor understand
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="investmentsuitabilit" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:hartley-wealth.com/advice <span verifiable-text="end" data-for="investmentsuitabilit"></span>
+        <span data-verify-line="investmentsuitabilit">verify:hartley-wealth.com/advice</span> <span verifiable-text="end" data-for="investmentsuitabilit"></span>
       </div>
     </div>
   </div>

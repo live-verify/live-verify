@@ -44,7 +44,7 @@ Live Verify allows an employee to scan the poster to verify: **"Is this the curr
 <div style="padding: 15px; background: #fff; border-top: 1px dashed #999; text-align: center;">
     <div data-verify-line="osha" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #003366; font-weight: bold;"
       title="Demo only: OSHA doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:osha.gov/posters/v <span verifiable-text="end" data-for="osha"></span>
+      <span data-verify-line="osha">verify:osha.gov/posters/v</span> <span verifiable-text="end" data-for="osha"></span>
     </div>
     <div style="font-size: 0.65em; color: #999; margin-top: 8px; font-style: italic;">
       Scan to verify this is the current official version. Unauthorized alteration is a federal violation.

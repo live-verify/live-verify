@@ -46,7 +46,7 @@ Fraud is high-stakes here: sellers or dishonest agents sometimes "Delete" the sc
     </div>
 <div data-verify-line="inspect" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Inspection firm doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:premier-inspections.com/v <span verifiable-text="end" data-for="inspect"></span>
+      <span data-verify-line="inspect">verify:premier-inspections.com/v</span> <span verifiable-text="end" data-for="inspect"></span>
     </div>
   </div>
 </div>

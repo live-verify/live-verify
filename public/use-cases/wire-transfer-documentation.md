@@ -48,7 +48,7 @@ These documents are the "Trigger for Action" in high-value commerce. A title com
 <div style="padding: 20px; background: #fff; border-top: 1px dashed #999; margin-top: 30px; text-align: center;">
     <div data-verify-line="wire" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #000; font-weight: bold;"
       title="Demo only: Banks don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:wires.goliathbank.com/v <span verifiable-text="end" data-for="wire"></span>
+      <span data-verify-line="wire">verify:wires.goliathbank.com/v</span> <span verifiable-text="end" data-for="wire"></span>
     </div>
     <div style="font-size: 0.7em; color: #666; margin-top: 10px; font-style: italic;">
       Scan to verify execution status, beneficiary account match, and real-time OFAC clearance.

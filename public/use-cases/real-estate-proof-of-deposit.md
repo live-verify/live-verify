@@ -41,7 +41,7 @@ A **Source of Funds Attestation (SOFA)** is a document issued by the buyer's pri
   </div>
 <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #0d47a1; text-align: center;">
     <div data-verify-line="sofa" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:barclays.com/aml/v <span verifiable-text="end" data-for="sofa"></span>
+      <span data-verify-line="sofa">verify:barclays.com/aml/v</span> <span verifiable-text="end" data-for="sofa"></span>
     </div>
   </div>
 </div>

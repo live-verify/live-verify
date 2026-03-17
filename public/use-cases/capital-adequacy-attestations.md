@@ -44,7 +44,7 @@ These documents are the "Proof of Solvency" needed for high-stakes business. Cou
 <div style="padding: 20px; background: #fdfdfd; border-top: 1px dashed #003366; text-align: center;">
     <div data-verify-line="capital" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #000; font-weight: bold;"
       title="Demo only: Banks don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:meridian-capital.com/v <span verifiable-text="end" data-for="capital"></span>
+      <span data-verify-line="capital">verify:meridian-capital.com/v</span> <span verifiable-text="end" data-for="capital"></span>
     </div>
     <div style="font-size: 0.7em; color: #777; margin-top: 10px;">
       Scan to verify ratio integrity, auditor counter-signature, and real-time regulatory standing.

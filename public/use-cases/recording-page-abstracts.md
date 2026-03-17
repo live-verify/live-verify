@@ -41,7 +41,7 @@ These pages are the "Lifeblood of Title." Fraud is high-stakes: criminals create
 <div style="padding: 20px; background: #fffbe6; border-top: 1px solid #000; text-align: center;">
     <div data-verify-line="record" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #000; font-weight: bold;"
       title="Demo only: County recorders don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:cookcountyclerk.com/v <span verifiable-text="end" data-for="record"></span>
+      <span data-verify-line="record">verify:cookcountyclerk.com/v</span> <span verifiable-text="end" data-for="record"></span>
     </div>
     <div style="font-size: 0.7em; color: #666; margin-top: 10px; font-style: italic;">
       Scan to verify instrument authenticity, view the full 4-page scanned image, and check for subsequent 'Notice of Rescission'.

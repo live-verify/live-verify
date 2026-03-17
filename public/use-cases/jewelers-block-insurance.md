@@ -35,7 +35,7 @@ furtherDerivations: 1
     </div>
 <div data-verify-line="jewel" style="border-top: 1px dashed #d4af37; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Berkley doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:berkleyassetpro.com/v <span verifiable-text="end" data-for="jewel"></span>
+      <span data-verify-line="jewel">verify:berkleyassetpro.com/v</span> <span verifiable-text="end" data-for="jewel"></span>
     </div>
   </div>
 </div>

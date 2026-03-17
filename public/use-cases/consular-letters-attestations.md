@@ -40,7 +40,7 @@ Foreign governments (like Thailand or Spain) require these letters for visas. Be
   </div>
 <div data-verify-line="consul" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: US Embassy doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:usembassy.gov/london/v <span verifiable-text="end" data-for="consul"></span>
+      <span data-verify-line="consul">verify:usembassy.gov/london/v</span> <span verifiable-text="end" data-for="consul"></span>
   </div>
 </div>
 

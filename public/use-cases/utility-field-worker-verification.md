@@ -36,9 +36,6 @@ Live Verify allows a homeowner to scan the worker's ID badge to verify: **"Is th
     </div>
   </div>
 <div style="padding: 15px; background: #f9f9f9;">
-    <div style="font-size: 0.7em; color: #555; text-align: center; margin-bottom: 10px; line-height: 1.3;">
-      Scan to verify current employment status and field access authorization.
-    </div>
     <div data-verify-line="utility" style="border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #0066cc; text-align: center; font-weight: bold;"
       title="Demo only: Utility companies don't yet offer verification&#10;endpoints, so this is illustrative">
       <span data-verify-line="utility">verify:coned.com/v</span> <span verifiable-text="end" data-for="utility"></span>
@@ -167,9 +164,6 @@ _[Content merged from: meter-reader-surveyor-verification]_
     </div>
   </div>
 <div style="padding: 0 20px 20px 20px;">
-    <p style="font-size: 0.75em; color: #555; font-style: italic; text-align: center;">
-      Verified via Con-Edison Field Operations. Bearer is authorized to enter property for official utility business.
-    </p>
     <div data-verify-line="meter" style="border-top: 1px dashed #999; margin-top: 10px; padding-top: 5px; font-family: 'Courier New', monospace; font-size: 0.9em; color: #555; text-align: center;"
       title="Demo only: Con-Edison doesn't yet offer verification&#10;endpoints, so this is illustrative">
       vfy:field.coned.com <span verifiable-text="end" data-for="meter"></span>

@@ -294,14 +294,14 @@ Who actually owns a company? Beneficial ownership registers attempt to answer th
      Registration: Cayman #MC-445521<br>
      Nature: RLE (Relevant Legal Entity)<br>
      Notified: 15 March 2022<br>
-     verify:companieshouse.gov.uk/psc<br>
+     <span data-verify-line="bare4">verify:companieshouse.gov.uk/psc</span><br>
   <br>
   2. James Morrison<br>
      DOB: June 1978<br>
      Nationality: British<br>
      Ownership: 25% shares, 25% voting rights<br>
      Notified: 15 March 2022<br>
-     verify:companieshouse.gov.uk/psc<br>
+     <span data-verify-line="bare5">verify:companieshouse.gov.uk/psc</span><br>
   <span data-verify-line="psc1">verify:companieshouse.gov.uk/psc</span> <span verifiable-text="end" data-for="psc1"></span>
 </div>
 

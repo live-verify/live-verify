@@ -40,7 +40,7 @@ A **Pickup Authorization** is a verifiable document proving: "Parent X has autho
     </div>
     <div data-verify-line="pickup" style="border-top: 1px dashed #999; margin-top: 15px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: School doesn't yet offer verification endpoints">
-      verify:lincoln-elementary.edu/pickup/v <span verifiable-text="end" data-for="pickup"></span>
+      <span data-verify-line="pickup">verify:lincoln-elementary.edu/pickup/v</span> <span verifiable-text="end" data-for="pickup"></span>
     </div>
   </div>
 </div>

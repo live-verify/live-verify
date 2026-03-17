@@ -48,7 +48,7 @@ With Live Verify, the disability certification carries a `verify:` line bound to
   </div>
   <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
   <div data-verify-line="dcl" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;">
-    verify:lakeviewmedical.com/cert/v <span verifiable-text="end" data-for="dcl"></span>
+    <span data-verify-line="dcl">verify:lakeviewmedical.com/cert/v</span> <span verifiable-text="end" data-for="dcl"></span>
   </div>
 </div>
 

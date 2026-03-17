@@ -34,7 +34,7 @@ furtherDerivations: 1
     </div>
 <div data-verify-line="factor" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: BlueVine doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:bluevine.com/factoring/v <span verifiable-text="end" data-for="factor"></span>
+      <span data-verify-line="factor">verify:bluevine.com/factoring/v</span> <span verifiable-text="end" data-for="factor"></span>
     </div>
   </div>
 </div>

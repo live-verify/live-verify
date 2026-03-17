@@ -56,7 +56,7 @@ Fraud is common in the "Secondary Market." Scammers sell fake "Discounted Packag
 <div style="padding: 20px; background: #fdfdfd; border-top: 1px dashed #bbb; text-align: center;">
     <div data-verify-line="package" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #00838f; font-weight: bold;"
       title="Demo only: Tour operators don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:islandescapes.com/v <span verifiable-text="end" data-for="package"></span>
+      <span data-verify-line="package">verify:islandescapes.com/v</span> <span verifiable-text="end" data-for="package"></span>
     </div>
     <div style="font-size: 0.7em; color: #999; margin-top: 10px; font-style: italic;">
       This voucher is valid only for the named travelers. Scan to verify inclusions and resort access authority.

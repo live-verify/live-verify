@@ -41,7 +41,7 @@ Fraudsters often use "Fake Screenshots" to trick sellers into shipping goods bef
     </div>
 <div data-verify-line="remit" style="border-top: 1px dashed #00b9ff; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Wise doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:wise.com/v <span verifiable-text="end" data-for="remit"></span>
+      <span data-verify-line="remit">verify:wise.com/v</span> <span verifiable-text="end" data-for="remit"></span>
     </div>
   </div>
 </div>

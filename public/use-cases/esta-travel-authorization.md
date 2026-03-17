@@ -45,7 +45,7 @@ Airlines are fined thousands of dollars for every passenger they let onto a plan
     </div>
 <div data-verify-line="esta" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: CBP doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:esta.cbp.dhs.gov/v <span verifiable-text="end" data-for="esta"></span>
+      <span data-verify-line="esta">verify:esta.cbp.dhs.gov/v</span> <span verifiable-text="end" data-for="esta"></span>
     </div>
   </div>
 </div>

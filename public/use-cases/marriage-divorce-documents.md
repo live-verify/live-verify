@@ -45,7 +45,7 @@ furtherDerivations: 1
   </div>
 <div data-verify-line="marriage" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Clark County doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:clarkcountynv.gov/marriage/v <span verifiable-text="end" data-for="marriage"></span>
+      <span data-verify-line="marriage">verify:clarkcountynv.gov/marriage/v</span> <span verifiable-text="end" data-for="marriage"></span>
   </div>
 </div>
 

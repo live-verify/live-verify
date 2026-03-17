@@ -36,7 +36,7 @@ furtherDerivations: 1
   </div>
 <div data-verify-line="intl-title" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: First American doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:firstam.com/intl/v <span verifiable-text="end" data-for="intl-title"></span>
+      <span data-verify-line="intl-title">verify:firstam.com/intl/v</span> <span verifiable-text="end" data-for="intl-title"></span>
   </div>
 </div>
 

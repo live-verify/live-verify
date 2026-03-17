@@ -42,7 +42,7 @@ When you're about to sign a major deal, you need to know: does the person across
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="contractsigningautho" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:vertex-solutions.com/authority <span verifiable-text="end" data-for="contractsigningautho"></span>
+        <span data-verify-line="contractsigningautho">verify:vertex-solutions.com/authority</span> <span verifiable-text="end" data-for="contractsigningautho"></span>
       </div>
     </div>
   </div>

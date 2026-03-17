@@ -39,7 +39,7 @@ The NCA's consent response is one of the most critical compliance documents a fu
     <p style="font-size: 0.85em; color: #666;">This consent relates only to the specific transaction described in the SAR. It does not constitute a determination that the funds are not criminal property.</p>
     <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="daml" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #555;">
-        verify:nca.gov.uk/daml-consent <span verifiable-text="end" data-for="daml"></span>
+        <span data-verify-line="daml">verify:nca.gov.uk/daml-consent</span> <span verifiable-text="end" data-for="daml"></span>
       </div>
     </div>
   </div>

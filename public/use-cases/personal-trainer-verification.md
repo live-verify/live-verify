@@ -41,7 +41,7 @@ Live Verify allows a client to scan the trainer's digital badge or physical ID t
     </div>
     <div data-verify-line="fit" style="border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; text-align: center; font-weight: bold;"
       title="Demo only: Certification bodies don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:nasm.org/v <span verifiable-text="end" data-for="fit"></span>
+      <span data-verify-line="fit">verify:nasm.org/v</span> <span verifiable-text="end" data-for="fit"></span>
     </div>
   </div>
 </div>

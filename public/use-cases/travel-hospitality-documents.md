@@ -52,7 +52,7 @@ This sector faces massive high-volume fraud. From **Expense Reimbursement Fraud*
 <div style="padding: 20px; background: #fff; border-top: 1px dashed #999; text-align: center;">
     <div data-verify-line="travel" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #002d62; font-weight: bold;"
       title="Demo only: Concur/Booking sites don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:concur.com/v <span verifiable-text="end" data-for="travel"></span>
+      <span data-verify-line="travel">verify:concur.com/v</span> <span verifiable-text="end" data-for="travel"></span>
     </div>
     <div style="font-size: 0.7em; color: #999; margin-top: 10px; font-style: italic;">
       Scan to verify itinerary integrity, approved corporate rates, and real-time cancellation status.

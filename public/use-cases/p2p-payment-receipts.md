@@ -33,7 +33,7 @@ Because these apps move money instantly, they are the #1 target for **"Screensho
     </div>
 <div data-verify-line="p2p" style="border-top: 1px dashed #ccc; padding-top: 15px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #008CFF; font-weight: bold;"
       title="Demo only: P2P platforms don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:venmo.com/v <span verifiable-text="end" data-for="p2p"></span>
+      <span data-verify-line="p2p">verify:venmo.com/v</span> <span verifiable-text="end" data-for="p2p"></span>
     </div>
   </div>
 </div>

@@ -37,7 +37,7 @@ furtherDerivations: 1
     </div>
     <div data-verify-line="advisor" style="border-top: 1px dashed #999; margin-top: 15px; padding-top: 5px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: SEC/FINRA doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:adviserinfo.sec.gov/v <span verifiable-text="end" data-for="advisor"></span>
+      <span data-verify-line="advisor">verify:adviserinfo.sec.gov/v</span> <span verifiable-text="end" data-for="advisor"></span>
     </div>
   </div>
 </div>

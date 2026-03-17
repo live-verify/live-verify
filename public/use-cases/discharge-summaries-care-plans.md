@@ -53,7 +53,7 @@ This paper is the #1 tool for preventing "Medical Errors" when a patient moves t
     </div>
 <div data-verify-line="discharge" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Cedars-Sinai doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:cedars-sinai.org/discharge/v <span verifiable-text="end" data-for="discharge"></span>
+      <span data-verify-line="discharge">verify:cedars-sinai.org/discharge/v</span> <span verifiable-text="end" data-for="discharge"></span>
     </div>
   </div>
 </div>

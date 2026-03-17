@@ -43,7 +43,7 @@ furtherDerivations: 3
     </div>
 <div data-verify-line="cargo-ins" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 5px; font-family: 'Courier New', monospace; font-size: 0.85em; color: #555; text-align: center;"
       title="Demo only: Allianz doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:allianz.com/marine/v <span verifiable-text="end" data-for="cargo-ins"></span>
+      <span data-verify-line="cargo-ins">verify:allianz.com/marine/v</span> <span verifiable-text="end" data-for="cargo-ins"></span>
     </div>
   </div>
 </div>
@@ -171,7 +171,7 @@ _[Content merged from: marine-hull-machinery]_
     </div>
 <div data-verify-line="hull-ins" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Gard doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:gard.no/hull/v <span verifiable-text="end" data-for="hull-ins"></span>
+      <span data-verify-line="hull-ins">verify:gard.no/hull/v</span> <span verifiable-text="end" data-for="hull-ins"></span>
     </div>
   </div>
 </div>
@@ -297,7 +297,7 @@ Thieves use "Fake P&I Papers" to sneak dangerous or uninsured ships into ports. 
     <strong>Member:</strong> Global Maritime Holdings, Ltd.</p>
     <p>This certifies the above vessel is entered for Protection & Indemnity risks.</p>
     <div data-verify-line="pi" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;">
-      verify:londonpandi.com/v <span verifiable-text="end" data-for="pi"></span>
+      <span data-verify-line="pi">verify:londonpandi.com/v</span> <span verifiable-text="end" data-for="pi"></span>
     </div>
   </div>
 </div>

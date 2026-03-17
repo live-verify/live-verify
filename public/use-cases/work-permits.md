@@ -44,7 +44,7 @@ Live Verify turns any work permit into a live link to the issuing authority's da
   <div style="padding: 0 20px 20px 20px;">
     <div style="font-size: 0.8em; font-weight: bold; color: #1a5276; text-align: center; margin-bottom: 5px;">MINISTRY OF LABOUR — NORDIA</div>
     <div data-verify-line="wp" style="border-top: 1px dashed #999; padding-top: 5px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;">
-      verify:labour.gov.nd/wp/v <span verifiable-text="end" data-for="wp"></span>
+      <span data-verify-line="wp">verify:labour.gov.nd/wp/v</span> <span verifiable-text="end" data-for="wp"></span>
     </div>
   </div>
 </div>

@@ -40,7 +40,7 @@ In the "Secondary Market" for gadgets, people often try to sell their "Reservati
     </div>
 <div data-verify-line="crowd" style="border-top: 1px dashed #05ce78; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Kickstarter doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:kickstarter.com/pledges/v <span verifiable-text="end" data-for="crowd"></span>
+      <span data-verify-line="crowd">verify:kickstarter.com/pledges/v</span> <span verifiable-text="end" data-for="crowd"></span>
     </div>
   </div>
 </div>

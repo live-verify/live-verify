@@ -62,7 +62,7 @@ With Live Verify, the offer letter carries a `verify:` line bound to the employe
 
   <div data-verify-line="offerletter" style="margin-top: 20px; padding-top: 10px; border-top: 1px dashed #999; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
     title="Demo only: Google doesn't yet offer verification&#10;endpoints, so this is illustrative">
-    verify:hr.google.com/offers/v <span verifiable-text="end" data-for="offerletter"></span>
+    <span data-verify-line="offerletter">verify:hr.google.com/offers/v</span> <span verifiable-text="end" data-for="offerletter"></span>
   </div>
 </div>
 

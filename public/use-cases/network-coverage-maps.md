@@ -33,7 +33,7 @@ A **Verified Coverage Guarantee** is a specific, timestamped attestation by the 
       (Coordinates: 30.2672° N, 97.7431° W)
     </div>
 <div data-verify-line="net" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 10px; text-align: center; font-size: 0.85em;">
-      verify:verizonia.com/sla/v <span verifiable-text="end" data-for="net"></span>
+      <span data-verify-line="net">verify:verizonia.com/sla/v</span> <span verifiable-text="end" data-for="net"></span>
     </div>
   </div>
 </div>

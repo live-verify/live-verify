@@ -46,7 +46,7 @@ It proves the "Dirt Integrity" of your investment:
     </div>
 <div data-verify-line="survey" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Surveyor doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:miller-surveying.com/v <span verifiable-text="end" data-for="survey"></span>
+      <span data-verify-line="survey">verify:miller-surveying.com/v</span> <span verifiable-text="end" data-for="survey"></span>
     </div>
   </div>
 </div>
@@ -171,7 +171,7 @@ _[Content merged from: land-surveys-property-boundaries]_
     </div>
 <div data-verify-line="survey" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Surveyor doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:miller-surveying.com/v <span verifiable-text="end" data-for="survey"></span>
+      <span data-verify-line="survey">verify:miller-surveying.com/v</span> <span verifiable-text="end" data-for="survey"></span>
     </div>
   </div>
 </div>

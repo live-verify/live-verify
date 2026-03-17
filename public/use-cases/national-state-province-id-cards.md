@@ -35,7 +35,7 @@ furtherDerivations: 1
     <div style="font-size: 0.8em; font-weight: bold; color: #002d62; text-align: center; margin-bottom: 5px;">MINISTRY OF TRANSPORTATION</div>
     <div data-verify-line="nat-id" style="border-top: 1px dashed #999; padding-top: 5px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Ontario MTO doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:mto.gov.on.ca/v <span verifiable-text="end" data-for="nat-id"></span>
+      <span data-verify-line="nat-id">verify:mto.gov.on.ca/v</span> <span verifiable-text="end" data-for="nat-id"></span>
     </div>
   </div>
 </div>

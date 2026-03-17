@@ -62,7 +62,7 @@ The parent or guardian receives **two separate plain-text messages per day** —
     <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
     <div data-verify-line="entry" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: this provider doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:littlegumtree.com.au/attendance/v <span verifiable-text="end" data-for="entry"></span>
+      <span data-verify-line="entry">verify:littlegumtree.com.au/attendance/v</span> <span verifiable-text="end" data-for="entry"></span>
     </div>
   </div>
 </div>
@@ -85,7 +85,7 @@ The parent or guardian receives **two separate plain-text messages per day** —
     <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
     <div data-verify-line="exit" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: this provider doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:littlegumtree.com.au/attendance/v <span verifiable-text="end" data-for="exit"></span>
+      <span data-verify-line="exit">verify:littlegumtree.com.au/attendance/v</span> <span verifiable-text="end" data-for="exit"></span>
     </div>
   </div>
 </div>
@@ -149,7 +149,7 @@ A student's daily attendance record at a school — arrival time, any absences, 
     <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
     <div data-verify-line="school" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: this school doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:westfield.school.uk/attendance/v <span verifiable-text="end" data-for="school"></span>
+      <span data-verify-line="school">verify:westfield.school.uk/attendance/v</span> <span verifiable-text="end" data-for="school"></span>
     </div>
   </div>
 </div>
@@ -219,7 +219,7 @@ A specific record of who delivered and who collected a child, designed for situa
     <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
     <div data-verify-line="handover" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: this school doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:sunnybank-ss.eq.edu.au/handover/v <span verifiable-text="end" data-for="handover"></span>
+      <span data-verify-line="handover">verify:sunnybank-ss.eq.edu.au/handover/v</span> <span verifiable-text="end" data-for="handover"></span>
     </div>
   </div>
 </div>

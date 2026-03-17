@@ -41,7 +41,7 @@ These letters are the "Seal of Solvency." Fraud is rampant: people create fake "
 <div style="margin-top: 40px; border-top: 1px dashed #999; padding-top: 15px; text-align: center;">
     <div data-verify-line="verify" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #000; font-weight: bold;"
       title="Demo only: Verifiers don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:theworknumber.com/v <span verifiable-text="end" data-for="verify"></span>
+      <span data-verify-line="verify">verify:theworknumber.com/v</span> <span verifiable-text="end" data-for="verify"></span>
     </div>
     <div style="font-size: 0.7em; color: #999; margin-top: 10px;">
       Scan to verify income data and verifier credentials. Access restricted to authorized financial institutions.

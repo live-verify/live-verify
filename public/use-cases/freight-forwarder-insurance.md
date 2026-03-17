@@ -45,7 +45,7 @@ Big shippers (like Apple or Samsung) will not hire a forwarder without verified 
     </div>
 <div data-verify-line="forward" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: TT Club doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:ttclub.com/members/v <span verifiable-text="end" data-for="forward"></span>
+      <span data-verify-line="forward">verify:ttclub.com/members/v</span> <span verifiable-text="end" data-for="forward"></span>
     </div>
   </div>
 </div>

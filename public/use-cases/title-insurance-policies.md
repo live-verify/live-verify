@@ -39,7 +39,7 @@ Unlike other insurance that covers *future* events (like fire), title insurance 
   </div>
 <div data-verify-line="title-ins" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: First American doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:firstam.com/v <span verifiable-text="end" data-for="title-ins"></span>
+      <span data-verify-line="title-ins">verify:firstam.com/v</span> <span verifiable-text="end" data-for="title-ins"></span>
   </div>
 </div>
 

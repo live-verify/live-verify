@@ -34,7 +34,7 @@ furtherDerivations: 1
     </div>
 <div data-verify-line="im-med" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Civil Surgeon portal doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:gotham-health.org/uscis/v <span verifiable-text="end" data-for="im-med"></span>
+      <span data-verify-line="im-med">verify:gotham-health.org/uscis/v</span> <span verifiable-text="end" data-for="im-med"></span>
     </div>
   </div>
 </div>

@@ -33,7 +33,7 @@ Traditional ID fraud exploits the gap between document and person. A stolen pass
     <div style="font-size: 0.9em; color: #f8fafc; font-weight: 500;">12 Jan 2026</div>
   </div>
   <div data-verify-line="likeness" style="font-family: 'Courier New', monospace; font-size: 0.7em; color: #cbd5e1; text-align: center; padding: 8px; background: #0f172a; border-radius: 6px;">
-    verify:dmv.ca.gov/likeness/v <span verifiable-text="end" data-for="likeness"></span>
+    <span data-verify-line="likeness">verify:dmv.ca.gov/likeness/v</span> <span verifiable-text="end" data-for="likeness"></span>
   </div>
 </div>
 

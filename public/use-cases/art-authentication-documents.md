@@ -47,7 +47,7 @@ High-end art is a target for money laundering. Verified appraisals ensure that a
   </div>
 <div data-verify-line="appraisal" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Sotheby's doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:sothebys.com/valuation/v <span verifiable-text="end" data-for="appraisal"></span>
+      <span data-verify-line="appraisal">verify:sothebys.com/valuation/v</span> <span verifiable-text="end" data-for="appraisal"></span>
   </div>
 </div>
 
@@ -192,7 +192,7 @@ Forgeries are common. Fraudsters often forge the "paperwork" (the COA) using fak
   </div>
 <div data-verify-line="art" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Authentication committee doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:basquiat-estate.org/v <span verifiable-text="end" data-for="art"></span>
+      <span data-verify-line="art">verify:basquiat-estate.org/v</span> <span verifiable-text="end" data-for="art"></span>
   </div>
 </div>
 
@@ -338,7 +338,7 @@ Live Verify allows a collector to verify that their "14 / 50" is an officially r
   </div>
 <div data-verify-line="edition" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Publisher doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:pacegallery.com/editions/v <span verifiable-text="end" data-for="edition"></span>
+      <span data-verify-line="edition">verify:pacegallery.com/editions/v</span> <span verifiable-text="end" data-for="edition"></span>
   </div>
 </div>
 
@@ -477,7 +477,7 @@ These letters are high-value targets for forgery—criminals create fake "expert
   </div>
 <div data-verify-line="sig" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: IFAR doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:ifar.org/signatures/v <span verifiable-text="end" data-for="sig"></span>
+      <span data-verify-line="sig">verify:ifar.org/signatures/v</span> <span verifiable-text="end" data-for="sig"></span>
   </div>
 </div>
 
@@ -620,7 +620,7 @@ Verified provenance documentation is the "History of Truth" that allows million-
   </div>
 <div data-verify-line="prov" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Christie's doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:christies.com/provenance/v <span verifiable-text="end" data-for="prov"></span>
+      <span data-verify-line="prov">verify:christies.com/provenance/v</span> <span verifiable-text="end" data-for="prov"></span>
   </div>
 </div>
 

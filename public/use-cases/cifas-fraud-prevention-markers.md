@@ -46,7 +46,7 @@ A **Verifiable CIFAS Status Certificate** is a document issued by CIFAS to an in
   </div>
   <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #003366; text-align: center;">
     <div data-verify-line="cifas-clear" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:cifas.org.uk/status/v <span verifiable-text="end" data-for="cifas-clear"></span>
+      <span data-verify-line="cifas-clear">verify:cifas.org.uk/status/v</span> <span verifiable-text="end" data-for="cifas-clear"></span>
     </div>
   </div>
 </div>
@@ -79,7 +79,7 @@ A **Verifiable CIFAS Status Certificate** is a document issued by CIFAS to an in
   </div>
   <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #b71c1c; text-align: center;">
     <div data-verify-line="cifas-marker" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:cifas.org.uk/status/v <span verifiable-text="end" data-for="cifas-marker"></span>
+      <span data-verify-line="cifas-marker">verify:cifas.org.uk/status/v</span> <span verifiable-text="end" data-for="cifas-marker"></span>
     </div>
   </div>
 </div>
@@ -113,7 +113,7 @@ A **Verifiable CIFAS Status Certificate** is a document issued by CIFAS to an in
   </div>
   <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #e65100; text-align: center;">
     <div data-verify-line="cifas-removed" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:cifas.org.uk/status/v <span verifiable-text="end" data-for="cifas-removed"></span>
+      <span data-verify-line="cifas-removed">verify:cifas.org.uk/status/v</span> <span verifiable-text="end" data-for="cifas-removed"></span>
     </div>
   </div>
 </div>

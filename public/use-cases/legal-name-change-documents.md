@@ -37,7 +37,7 @@ These documents are the "Before and After" bridge for identity. Fraud is common:
     </div>
   </div>
   <div data-verify-line="namechange" style="margin-top: 20px; padding-top: 10px; border-top: 1px dashed #999; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;">
-    verify:gov.uk/courts/enrolled-deeds/v <span verifiable-text="end" data-for="namechange"></span>
+    <span data-verify-line="namechange">verify:gov.uk/courts/enrolled-deeds/v</span> <span verifiable-text="end" data-for="namechange"></span>
   </div>
 </div>
 

@@ -44,7 +44,7 @@ Fraud is high-stakes here: a collector might edit a $1M policy to read $100M to 
     </div>
 <div data-verify-line="art-ins" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: AXA Art doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:axa-art.com/v <span verifiable-text="end" data-for="art-ins"></span>
+      <span data-verify-line="art-ins">verify:axa-art.com/v</span> <span verifiable-text="end" data-for="art-ins"></span>
     </div>
   </div>
 </div>

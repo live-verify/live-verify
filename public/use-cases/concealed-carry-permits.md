@@ -45,7 +45,7 @@ Police officers at a traffic stop need to verify these permits in seconds. If a 
     <div style="font-size: 0.8em; font-weight: bold; color: #1a237e; text-align: center; margin-bottom: 5px;">WASHOE COUNTY SHERIFF</div>
     <div data-verify-line="ccw" style="border-top: 1px dashed #999; padding-top: 5px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Washoe Sheriff doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:washoesheriff.com/ccw/v <span verifiable-text="end" data-for="ccw"></span>
+      <span data-verify-line="ccw">verify:washoesheriff.com/ccw/v</span> <span verifiable-text="end" data-for="ccw"></span>
     </div>
   </div>
 </div>

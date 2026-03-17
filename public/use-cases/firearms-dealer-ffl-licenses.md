@@ -48,7 +48,7 @@ Scammers often create fake FFL PDF papers to trick online sellers into shipping 
     </div>
 <div data-verify-line="ffl" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: ATF doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:atf.gov/fflezcheck/v <span verifiable-text="end" data-for="ffl"></span>
+      <span data-verify-line="ffl">verify:atf.gov/fflezcheck/v</span> <span verifiable-text="end" data-for="ffl"></span>
     </div>
   </div>
 </div>

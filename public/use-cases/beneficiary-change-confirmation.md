@@ -41,7 +41,7 @@ The **Beneficiary Change Confirmation** is a receipt issued to the policyholder 
   </div>
 <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #e91e63; text-align: center;">
     <div data-verify-line="bcc" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:metlife.com/beneficiary/v <span verifiable-text="end" data-for="bcc"></span>
+      <span data-verify-line="bcc">verify:metlife.com/beneficiary/v</span> <span verifiable-text="end" data-for="bcc"></span>
     </div>
   </div>
 </div>

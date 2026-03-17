@@ -70,7 +70,7 @@ The person being added shouldn't just take the policyholder's word for it. Consi
    You are now covered to drive the 2024 Tesla Model Y
    from 15 Mar 2026 to 22 Mar 2026.
 
-   verify:safeguard-ins.com/v
+   <span data-verify-line="bare3">verify:safeguard-ins.com/v</span>
    ```
 
 2. **Show the App** — Policyholder shows their phone screen to the temp driver. A quick camera snap of the endorsement screen (with verify line visible) is sufficient proof—the temp driver can verify it themselves later.

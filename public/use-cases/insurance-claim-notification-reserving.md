@@ -35,7 +35,7 @@ Live Verify with **Independent Witnessing** solves the "Completeness Problem." T
   </div>
 <div data-verify-line="claim" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Insurers don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:globalliability.com/v <span verifiable-text="end" data-for="claim"></span>
+      <span data-verify-line="claim">verify:globalliability.com/v</span> <span verifiable-text="end" data-for="claim"></span>
   </div>
   <div style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center; margin-top: 5px;">
       witness:regulator.gov.uk/w

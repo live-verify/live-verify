@@ -41,7 +41,7 @@ A **Verifiable Account Ownership Certificate (VAOC)** is a document issued by a 
   </div>
 <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #004d40; text-align: center;">
     <div data-verify-line="vaoc" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:chase.com/gts/v <span verifiable-text="end" data-for="vaoc"></span>
+      <span data-verify-line="vaoc">verify:chase.com/gts/v</span> <span verifiable-text="end" data-for="vaoc"></span>
     </div>
   </div>
 </div>

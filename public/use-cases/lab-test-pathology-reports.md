@@ -38,7 +38,7 @@ furtherDerivations: 1
     </div>
 <div data-verify-line="lab-res" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Quest doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:questdiagnostics.com/v <span verifiable-text="end" data-for="lab-res"></span>
+      <span data-verify-line="lab-res">verify:questdiagnostics.com/v</span> <span verifiable-text="end" data-for="lab-res"></span>
     </div>
   </div>
 </div>

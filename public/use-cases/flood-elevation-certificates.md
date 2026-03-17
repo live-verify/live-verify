@@ -46,7 +46,7 @@ An **Elevation Certificate** is the official paper from a licensed surveyor that
     </div>
 <div data-verify-line="flood" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: FEMA/Surveyor doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:miller-surveying.com/v <span verifiable-text="end" data-for="flood"></span>
+      <span data-verify-line="flood">verify:miller-surveying.com/v</span> <span verifiable-text="end" data-for="flood"></span>
     </div>
   </div>
 </div>

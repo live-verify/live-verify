@@ -50,7 +50,7 @@ Fraud is dangerous here: some managers use a 10-year-old SDS to hide that a chem
     </div>
 <div data-verify-line="sds" style="border-top: 1px dashed #999; margin-top: 25px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Manufacturer doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:globalchem.com/sds/v <span verifiable-text="end" data-for="sds"></span>
+      <span data-verify-line="sds">verify:globalchem.com/sds/v</span> <span verifiable-text="end" data-for="sds"></span>
     </div>
   </div>
 </div>

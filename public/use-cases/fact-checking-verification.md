@@ -36,7 +36,7 @@ It allows a reader to scan the text and see a green "VERIFIED" status from an in
     </div>
 <div data-verify-line="fact" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Fact-checker network doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:fctchkrs.org/d-planet/v <span verifiable-text="end" data-for="fact"></span>
+      <span data-verify-line="fact">verify:fctchkrs.org/d-planet/v</span> <span verifiable-text="end" data-for="fact"></span>
     </div>
   </div>
 </div>

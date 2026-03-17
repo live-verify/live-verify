@@ -37,7 +37,7 @@ furtherDerivations: 1
     </p>
     <div data-verify-line="locksmith" style="border-top: 1px dashed #999; margin-top: 10px; padding-top: 5px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: BSIS doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:bsis.ca.gov/v <span verifiable-text="end" data-for="locksmith"></span>
+      <span data-verify-line="locksmith">verify:bsis.ca.gov/v</span> <span verifiable-text="end" data-for="locksmith"></span>
     </div>
   </div>
 </div>

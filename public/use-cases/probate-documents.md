@@ -44,7 +44,7 @@ The most critical document in this process is **Letters Testamentary** (or Lette
   </div>
 <div data-verify-line="probate" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: LA Superior Court doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:lacourt.org/probate/v <span verifiable-text="end" data-for="probate"></span>
+      <span data-verify-line="probate">verify:lacourt.org/probate/v</span> <span verifiable-text="end" data-for="probate"></span>
   </div>
 </div>
 

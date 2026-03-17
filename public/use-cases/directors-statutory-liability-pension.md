@@ -45,7 +45,7 @@ Because these claims can hit 20 years after a person retires, the paperwork must
     </div>
 <div data-verify-line="pension" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: AXA XL doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:axaxl.com/fiduciary/v <span verifiable-text="end" data-for="pension"></span>
+      <span data-verify-line="pension">verify:axaxl.com/fiduciary/v</span> <span verifiable-text="end" data-for="pension"></span>
     </div>
   </div>
 </div>

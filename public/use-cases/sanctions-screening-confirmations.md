@@ -37,7 +37,7 @@ If you do business with a sanctioned party, even accidentally, the penalties are
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="sanctionsscreeningco" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:sterling-bank.com/sanctions <span verifiable-text="end" data-for="sanctionsscreeningco"></span>
+        <span data-verify-line="sanctionsscreeningco">verify:sterling-bank.com/sanctions</span> <span verifiable-text="end" data-for="sanctionsscreeningco"></span>
       </div>
     </div>
   </div>

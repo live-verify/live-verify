@@ -42,7 +42,7 @@ Live Verify binds the **Grantor/Grantee names and the Legal Description** to the
     </div>
 <div data-verify-line="deed" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: King County doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:kingcounty.gov/recorder/v <span verifiable-text="end" data-for="deed"></span>
+      <span data-verify-line="deed">verify:kingcounty.gov/recorder/v</span> <span verifiable-text="end" data-for="deed"></span>
     </div>
   </div>
 </div>

@@ -49,7 +49,7 @@ Fraud is rampant. Prospective tenants fabricate references from fictional landlo
   January 2019 &ndash; August 2022<br>
   Rent: &pound;950 pcm &ndash; No arrears<br>
   Deposit returned in full<br>
-  verify:foxtons.co.uk/references
+  <span data-verify-line="bare23">verify:foxtons.co.uk/references</span>
 </div>
 
 ## Data Verified

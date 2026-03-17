@@ -43,7 +43,7 @@ Fraud is high-stakes in the digital economy. Scammers create "Phantom Registrati
 <div style="padding: 20px; background: #f9f9f9; border: 1px dashed #999; margin-top: 40px; text-align: center;">
       <div data-verify-line="tm" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #000; font-weight: bold;"
         title="Demo only: Trademark offices don't yet offer verification&#10;endpoints, so this is illustrative">
-        verify:uspto.gov/v/tm <span verifiable-text="end" data-for="tm"></span>
+        <span data-verify-line="tm">verify:uspto.gov/v/tm</span> <span verifiable-text="end" data-for="tm"></span>
       </div>
       <div style="font-size: 0.7em; color: #666; margin-top: 10px;">
         Scan to verify mark ownership, current renewal status, and view the original deposited design file.

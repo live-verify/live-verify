@@ -43,7 +43,7 @@ Witnessed hashes provide the immutable, third-party proof required to turn a "de
   </div>
 <div data-verify-line="lottery" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Lottery doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:statelottery.gov/v <span verifiable-text="end" data-for="lottery"></span>
+      <span data-verify-line="lottery">verify:statelottery.gov/v</span> <span verifiable-text="end" data-for="lottery"></span>
   </div>
   <div style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center; margin-top: 5px;">
       witness:independent-audit.org/w

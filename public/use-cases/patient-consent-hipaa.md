@@ -25,7 +25,7 @@ In the US, you also sign a **HIPAA Authorization**, which tells the hospital exa
     <p>I, <strong>JANE A. DOE</strong>, authorize Dr. Alex Smith to perform a Laparoscopic Appendectomy.</p>
     <p><strong>Version:</strong> AMC-ICF-V3.0 | <strong>Date:</strong> 2025-03-10</p>
     <div data-verify-line="consent" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;">
-      verify:consent.acmemedical.com/v <span verifiable-text="end" data-for="consent"></span>
+      <span data-verify-line="consent">verify:consent.acmemedical.com/v</span> <span verifiable-text="end" data-for="consent"></span>
     </div>
   </div>
 </div>

@@ -46,7 +46,7 @@ Verifying these declarations ensures that a company opening a bank account isn't
     </p>
 <div data-verify-line="ubo" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: FinCEN doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:fincen.gov/boi/v <span verifiable-text="end" data-for="ubo"></span>
+      <span data-verify-line="ubo">verify:fincen.gov/boi/v</span> <span verifiable-text="end" data-for="ubo"></span>
     </div>
   </div>
 </div>

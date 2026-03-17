@@ -43,7 +43,7 @@ This is a critical security frontier. Fraudsters or partisan actors might attemp
 <div style="padding: 15px 20px 20px 20px; background: #fff;">
     <div data-verify-line="poll" style="border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; text-align: center; font-weight: bold;"
       title="Demo only: Election boards don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:elections.springfield.gov/v <span verifiable-text="end" data-for="poll"></span>
+      <span data-verify-line="poll">verify:elections.springfield.gov/v</span> <span verifiable-text="end" data-for="poll"></span>
     </div>
     <div style="font-size: 0.65em; color: #999; margin-top: 8px; text-align: center; font-style: italic;">
       Verification confirms authorization for the current election cycle only.

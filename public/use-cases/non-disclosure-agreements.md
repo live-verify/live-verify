@@ -47,7 +47,7 @@ A **Verified NDA** adds a cryptographic hash to the signature page. This proves:
   </div>
 <div data-verify-line="nda" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
     title="Demo only: Acme doesn't yet offer verification&#10;endpoints, so this is illustrative">
-    verify:acme-corp.legal/v <span verifiable-text="end" data-for="nda"></span>
+    <span data-verify-line="nda">verify:acme-corp.legal/v</span> <span verifiable-text="end" data-for="nda"></span>
   </div>
 </div>
 

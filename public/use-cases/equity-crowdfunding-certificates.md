@@ -45,7 +45,7 @@ Because these shares aren't traded on the stock market (like Apple or Tesla), th
   </div>
 <div data-verify-line="equity" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: StartEngine doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:startengine.com/shares/v <span verifiable-text="end" data-for="equity"></span>
+      <span data-verify-line="equity">verify:startengine.com/shares/v</span> <span verifiable-text="end" data-for="equity"></span>
   </div>
 </div>
 

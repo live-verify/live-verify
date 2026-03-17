@@ -47,7 +47,7 @@ The seller thinks the check is real, hands over the car keys, and then discovers
   </div>
 <div data-verify-line="check" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Wells Fargo doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:wellsfargo.com/check/v <span verifiable-text="end" data-for="check"></span>
+      <span data-verify-line="check">verify:wellsfargo.com/check/v</span> <span verifiable-text="end" data-for="check"></span>
   </div>
 </div>
 

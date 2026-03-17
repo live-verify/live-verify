@@ -38,7 +38,7 @@ If there is a gap in the log (a "Broken Chain"), the evidence might be thrown ou
     </p>
 <div data-verify-line="custody" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: State Lab doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:statelab.gov/custody/v <span verifiable-text="end" data-for="custody"></span>
+      <span data-verify-line="custody">verify:statelab.gov/custody/v</span> <span verifiable-text="end" data-for="custody"></span>
     </div>
   </div>
 </div>

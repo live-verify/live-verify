@@ -37,7 +37,7 @@ furtherDerivations: 1
     </div>
 <div data-verify-line="adjuster" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Progressive doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:progressive.com/claims/v <span verifiable-text="end" data-for="adjuster"></span>
+      <span data-verify-line="adjuster">verify:progressive.com/claims/v</span> <span verifiable-text="end" data-for="adjuster"></span>
     </div>
   </div>
 </div>

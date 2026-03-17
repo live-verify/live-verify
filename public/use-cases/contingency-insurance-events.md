@@ -47,7 +47,7 @@ Promoters must show this verified proof of insurance to stadium owners and lende
     </div>
 <div data-verify-line="event" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Beazley doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:beazley.com/v <span verifiable-text="end" data-for="event"></span>
+      <span data-verify-line="event">verify:beazley.com/v</span> <span verifiable-text="end" data-for="event"></span>
     </div>
   </div>
 </div>

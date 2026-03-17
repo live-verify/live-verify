@@ -39,7 +39,7 @@ The problem is that "Tour Guide" is a low-barrier profession. Anyone can buy a g
     </div>
     <div data-verify-line="guide" style="border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.85em; color: #0072b2; text-align: center; font-weight: bold;"
       title="Demo only: Tourism boards don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:visitportugal.gov/v <span verifiable-text="end" data-for="guide"></span>
+      <span data-verify-line="guide">verify:visitportugal.gov/v</span> <span verifiable-text="end" data-for="guide"></span>
     </div>
   </div>
 </div>

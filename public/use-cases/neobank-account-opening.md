@@ -40,7 +40,7 @@ The problem? Anyone can inspect-element a PDF or email to change the numbers. A 
 <p>This letter confirms that the above individual maintains an active account with Mondo Bank since 2024.</p>
 <div data-verify-line="neo" style="border-top: 1px dashed #ccc; margin-top: 24px; padding-top: 12px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #666; text-align: center;"
       title="Demo only: Neobanks typically verify via app, this creates a bridge for paper">
-      verify:mondobank.com/v <span verifiable-text="end" data-for="neo"></span>
+      <span data-verify-line="neo">verify:mondobank.com/v</span> <span verifiable-text="end" data-for="neo"></span>
     </div>
   </div>
 </div>

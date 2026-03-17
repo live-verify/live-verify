@@ -61,7 +61,7 @@ With Live Verify, the restraining order carries a verify line bound to the issui
   </div>
   <div data-verify-line="ro" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Court doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:courts.ca.gov/restraining-order/v <span verifiable-text="end" data-for="ro"></span>
+      <span data-verify-line="ro">verify:courts.ca.gov/restraining-order/v</span> <span verifiable-text="end" data-for="ro"></span>
   </div>
 </div>
 

@@ -181,7 +181,7 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
     <strong>Total Value:</strong> $629,850.00<br>
     <strong>As of:</strong> December 31, 2025</p>
     <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      verify:breit.com/nav
+      <span data-verify-line="bare12">verify:breit.com/nav</span>
     </div>
   </div>
 </div>
@@ -206,7 +206,7 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
     <strong>Actuarial Value of Assets:</strong> $4.2B<br>
     <strong>Valuation Date:</strong> June 30, 2025</p>
     <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      verify:calpers.ca.gov/valuations
+      <span data-verify-line="bare13">verify:calpers.ca.gov/valuations</span>
     </div>
   </div>
 </div>
@@ -232,7 +232,7 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
     <strong>Annual Return:</strong> +9.6%<br>
     <strong>Distribution to University:</strong> $2.1 billion</p>
     <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      verify:hmc.harvard.edu/annual
+      <span data-verify-line="bare14">verify:hmc.harvard.edu/annual</span>
     </div>
   </div>
 </div>
@@ -260,7 +260,7 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
     <strong>Death Benefit:</strong> $425,000.00<br>
     <strong>As of:</strong> March 31, 2026</p>
     <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      verify:prudential.com/annuity
+      <span data-verify-line="bare15">verify:prudential.com/annuity</span>
     </div>
   </div>
 </div>
@@ -287,7 +287,7 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
     <strong>Total Value:</strong> $291,300.00<br>
     <strong>Repurchase Offer:</strong> 5% at NAV, Q2 2026</p>
     <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      verify:arescapitalcorp.com/nav
+      <span data-verify-line="bare16">verify:arescapitalcorp.com/nav</span>
     </div>
   </div>
 </div>
@@ -313,7 +313,7 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
     <strong>YTD Contributions:</strong> $15,500.00<br>
     <strong>As of:</strong> March 31, 2026</p>
     <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      verify:netbenefits.fidelity.com/stmt
+      <span data-verify-line="bare17">verify:netbenefits.fidelity.com/stmt</span>
     </div>
   </div>
 </div>
@@ -342,7 +342,7 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
     <strong>Net IRR:</strong> 28.4%<br>
     <strong>As of:</strong> December 31, 2025</p>
     <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      verify:sequoiacap.com/lp
+      <span data-verify-line="bare18">verify:sequoiacap.com/lp</span>
     </div>
   </div>
 </div>
@@ -370,7 +370,7 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
     <strong>YTD Return:</strong> +11.4%<br>
     <strong>Period:</strong> March 2026</p>
     <div style="margin-top: 15px; font-size: 0.8em; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      verify:winton.com/statements
+      <span data-verify-line="bare19">verify:winton.com/statements</span>
     </div>
   </div>
 </div>

@@ -69,7 +69,7 @@ This is the linchpin of body-shop fraud. Bench companies file hundreds of H-1B p
   <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
   <div data-verify-line="clientletter" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
     title="Demo only: JPMorgan doesn't yet offer verification&#10;endpoints, so this is illustrative">
-    verify:procurement.jpmorgan.com/engagements <span verifiable-text="end" data-for="clientletter"></span>
+    <span data-verify-line="clientletter">verify:procurement.jpmorgan.com/engagements</span> <span verifiable-text="end" data-for="clientletter"></span>
   </div>
 </div>
 
@@ -193,7 +193,7 @@ The letters are trivially forged. Company letterhead is downloadable. Phone numb
   <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
   <div data-verify-line="expletter" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
     title="Demo only: Infosys doesn't yet offer verification&#10;endpoints, so this is illustrative">
-    verify:hr.infosys.com/employment/v <span verifiable-text="end" data-for="expletter"></span>
+    <span data-verify-line="expletter">verify:hr.infosys.com/employment/v</span> <span verifiable-text="end" data-for="expletter"></span>
   </div>
 </div>
 
@@ -252,7 +252,7 @@ The certifications are forged routinely. Fake AWS certificates with plausible-lo
     <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
     <div data-verify-line="cert" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: AWS doesn't yet offer hash-based verification&#10;endpoints, so this is illustrative">
-      verify:aws.amazon.com/certification/v <span verifiable-text="end" data-for="cert"></span>
+      <span data-verify-line="cert">verify:aws.amazon.com/certification/v</span> <span verifiable-text="end" data-for="cert"></span>
     </div>
   </div>
 </div>

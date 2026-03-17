@@ -37,7 +37,7 @@ furtherDerivations: 1
     </p>
     <div data-verify-line="im-officer" style="border-top: 1px dashed #999; margin-top: 10px; padding-top: 5px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: DHS doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:dhs.gov/verify/v <span verifiable-text="end" data-for="im-officer"></span>
+      <span data-verify-line="im-officer">verify:dhs.gov/verify/v</span> <span verifiable-text="end" data-for="im-officer"></span>
     </div>
   </div>
 </div>

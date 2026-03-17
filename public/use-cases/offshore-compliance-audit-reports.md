@@ -49,7 +49,7 @@ With Live Verify, the compliance report carries a `verify:` line bound to the au
     </p>
     <div data-verify-line="compliance" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: fictional compliance firm">
-      verify:cicompliance.ky/reports <span verifiable-text="end" data-for="compliance"></span>
+      <span data-verify-line="compliance">verify:cicompliance.ky/reports</span> <span verifiable-text="end" data-for="compliance"></span>
     </div>
   </div>
 </div>

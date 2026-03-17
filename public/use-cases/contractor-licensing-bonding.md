@@ -45,7 +45,7 @@ Homeowners use these "Pocket Cards" to verify who they are letting onto their ro
     </div>
 <div data-verify-line="contractor" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: State Board doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:cslb.ca.gov/v <span verifiable-text="end" data-for="contractor"></span>
+      <span data-verify-line="contractor">verify:cslb.ca.gov/v</span> <span verifiable-text="end" data-for="contractor"></span>
     </div>
   </div>
 </div>

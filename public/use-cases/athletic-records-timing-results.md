@@ -34,7 +34,7 @@ furtherDerivations: 1
     </div>
 <div data-verify-line="record" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: World Athletics doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:worldathletics.org/records/v <span verifiable-text="end" data-for="record"></span>
+      <span data-verify-line="record">verify:worldathletics.org/records/v</span> <span verifiable-text="end" data-for="record"></span>
     </div>
   </div>
 </div>

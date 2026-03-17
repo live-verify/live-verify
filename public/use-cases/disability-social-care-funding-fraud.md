@@ -75,7 +75,7 @@ The problem: registering a business entity is often trivially easy. Government w
     <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
     <div data-verify-line="provider" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: CQC doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:cqc.org.uk/provider/v <span verifiable-text="end" data-for="provider"></span>
+      <span data-verify-line="provider">verify:cqc.org.uk/provider/v</span> <span verifiable-text="end" data-for="provider"></span>
     </div>
   </div>
 </div>
@@ -148,7 +148,7 @@ Today, the provider submits an invoice to the funding body. The participant may 
     <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
     <div data-verify-line="receipt" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: this provider doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:meadowbrookhomecare.co.uk/receipts/v <span verifiable-text="end" data-for="receipt"></span>
+      <span data-verify-line="receipt">verify:meadowbrookhomecare.co.uk/receipts/v</span> <span verifiable-text="end" data-for="receipt"></span>
     </div>
   </div>
 </div>
@@ -209,7 +209,7 @@ A service agreement between provider and service user sets out what supports wil
   <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
   <div data-verify-line="agreement" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
     title="Demo only: this provider doesn't yet offer verification&#10;endpoints, so this is illustrative">
-    verify:sunshineservices.org/agreements/v <span verifiable-text="end" data-for="agreement"></span>
+    <span data-verify-line="agreement">verify:sunshineservices.org/agreements/v</span> <span verifiable-text="end" data-for="agreement"></span>
   </div>
 </div>
 
@@ -285,7 +285,7 @@ Price gouging is most visible here. Suppliers routinely charge government-funded
     <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
     <div data-verify-line="atquote" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: this supplier doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:alliedmedicalsupplies.com/quotes/v <span verifiable-text="end" data-for="atquote"></span>
+      <span data-verify-line="atquote">verify:alliedmedicalsupplies.com/quotes/v</span> <span verifiable-text="end" data-for="atquote"></span>
     </div>
   </div>
 </div>

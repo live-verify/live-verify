@@ -38,7 +38,7 @@ Because attorneys often move between states for specific cases, they must show t
   </div>
 <div data-verify-line="bar" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: State Bar doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:nycourts.gov/attorneys/v <span verifiable-text="end" data-for="bar"></span>
+      <span data-verify-line="bar">verify:nycourts.gov/attorneys/v</span> <span verifiable-text="end" data-for="bar"></span>
   </div>
 </div>
 

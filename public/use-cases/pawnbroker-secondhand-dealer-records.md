@@ -46,7 +46,7 @@ A **Verifiable Pawn Transaction Record** is a receipt issued by the dealer at th
   </div>
   <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #bf360c; text-align: center;">
     <div data-verify-line="pawn" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:empiregoldpawn.com/tx/v <span verifiable-text="end" data-for="pawn"></span>
+      <span data-verify-line="pawn">verify:empiregoldpawn.com/tx/v</span> <span verifiable-text="end" data-for="pawn"></span>
     </div>
   </div>
 </div>
@@ -80,7 +80,7 @@ A **Verifiable Pawn Transaction Record** is a receipt issued by the dealer at th
   </div>
   <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #37474f; text-align: center;">
     <div data-verify-line="buyback" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:webuyelectronics.com/tx/v <span verifiable-text="end" data-for="buyback"></span>
+      <span data-verify-line="buyback">verify:webuyelectronics.com/tx/v</span> <span verifiable-text="end" data-for="buyback"></span>
     </div>
   </div>
 </div>

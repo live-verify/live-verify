@@ -45,7 +45,7 @@ The committee reviews the plan to ensure people aren't being exploited and anima
   </div>
 <div data-verify-line="ethics" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Stanford doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:stanford.edu/compliance/v <span verifiable-text="end" data-for="ethics"></span>
+      <span data-verify-line="ethics">verify:stanford.edu/compliance/v</span> <span verifiable-text="end" data-for="ethics"></span>
   </div>
 </div>
 

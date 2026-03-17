@@ -38,7 +38,7 @@ furtherDerivations: 1
     </div>
 <div style="margin-top: 15px; font-size: 0.8em; text-align: center;">
       <strong>Verify authenticity and lien status:</strong><br>
-      verify:warrants.metro-logistics.com/check
+      <span data-verify-line="bare24">verify:warrants.metro-logistics.com/check</span>
     </div>
   </div>
 </div>

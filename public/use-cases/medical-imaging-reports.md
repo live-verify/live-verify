@@ -40,7 +40,7 @@ furtherDerivations: 1
     </div>
 <div data-verify-line="imaging" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Radiology firm doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:radpartners.com/reports/v <span verifiable-text="end" data-for="imaging"></span>
+      <span data-verify-line="imaging">verify:radpartners.com/reports/v</span> <span verifiable-text="end" data-for="imaging"></span>
     </div>
   </div>
 </div>

@@ -33,7 +33,7 @@ furtherDerivations: 1
   </div>
 <div data-verify-line="bonded" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Warehouse operator doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:global-bonded.com/receipts/v <span verifiable-text="end" data-for="bonded"></span>
+      <span data-verify-line="bonded">verify:global-bonded.com/receipts/v</span> <span verifiable-text="end" data-for="bonded"></span>
   </div>
 </div>
 

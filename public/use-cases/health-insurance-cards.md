@@ -64,7 +64,7 @@ With Live Verify, the insurance card carries a `verify:` line bound to the insur
     </div>
     <div data-verify-line="healthins" style="border-top: 1px dashed #999; padding-top: 8px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: BCBS doesn't yet offer verification endpoints">
-      verify:bcbsil.com/member/v <span verifiable-text="end" data-for="healthins"></span>
+      <span data-verify-line="healthins">verify:bcbsil.com/member/v</span> <span verifiable-text="end" data-for="healthins"></span>
     </div>
   </div>
 </div>

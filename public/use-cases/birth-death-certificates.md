@@ -47,7 +47,7 @@ Verified vital records allow banks and agencies to check the **Live Status** of 
   </div>
 <div data-verify-line="birth" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: PA Health Dept doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:health.pa.gov/vital/v <span verifiable-text="end" data-for="birth"></span>
+      <span data-verify-line="birth">verify:health.pa.gov/vital/v</span> <span verifiable-text="end" data-for="birth"></span>
   </div>
 </div>
 

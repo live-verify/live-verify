@@ -38,7 +38,7 @@ Because these credits are mandatory, some busy professionals "Fake" the certific
     </div>
 <div data-verify-line="cle" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Provider doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:americanbar.org/cle/v <span verifiable-text="end" data-for="cle"></span>
+      <span data-verify-line="cle">verify:americanbar.org/cle/v</span> <span verifiable-text="end" data-for="cle"></span>
     </div>
   </div>
 </div>

@@ -44,7 +44,7 @@ Live Verify allows a family to scan the worker's ID card to verify: **"Is this a
     </div>
     <div data-verify-line="social" style="border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.85em; color: #2e7d32; text-align: center; font-weight: bold;"
       title="Demo only: Government agencies don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:dcfs.illinois.gov/v <span verifiable-text="end" data-for="social"></span>
+      <span data-verify-line="social">verify:dcfs.illinois.gov/v</span> <span verifiable-text="end" data-for="social"></span>
     </div>
   </div>
 </div>

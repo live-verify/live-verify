@@ -49,7 +49,7 @@ A **Verified Gas Safe Card** is the engineer's ID made scannable — the homeown
   </div>
   <div style="padding: 15px 20px; background: #f9f9f9; border-top: 1px dashed #999;">
     <div data-verify-line="gassafe" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; text-align: center; font-weight: bold;">
-      verify:gassaferegister.co.uk/v <span verifiable-text="end" data-for="gassafe"></span>
+      <span data-verify-line="gassafe">verify:gassaferegister.co.uk/v</span> <span verifiable-text="end" data-for="gassafe"></span>
     </div>
   </div>
 </div>
@@ -83,7 +83,7 @@ A **Verified Gas Safe Card** is the engineer's ID made scannable — the homeown
   </div>
   <div style="padding: 15px 20px; background: #f9f9f9; border-top: 1px dashed #999;">
     <div data-verify-line="niceic" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; text-align: center; font-weight: bold;">
-      verify:niceic.com/v <span verifiable-text="end" data-for="niceic"></span>
+      <span data-verify-line="niceic">verify:niceic.com/v</span> <span verifiable-text="end" data-for="niceic"></span>
     </div>
   </div>
 </div>

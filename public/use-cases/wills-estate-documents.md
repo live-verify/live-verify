@@ -36,7 +36,7 @@ It defines:
   </div>
 <div data-verify-line="will" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Law firm doesn't yet offer verification&#10;endpoints, so this is illustrative">
-    verify:willows-law.com/wills/v <span verifiable-text="end" data-for="will"></span>
+    <span data-verify-line="will">verify:willows-law.com/wills/v</span> <span verifiable-text="end" data-for="will"></span>
   </div>
 </div>
 

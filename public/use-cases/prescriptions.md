@@ -46,7 +46,7 @@ With Live Verify, the prescription carries a `verify:` line bound to the prescri
       <em style="font-size: 0.85em; color: #555;">Signature: E. Whitfield (electronic)</em>
     </div>
     <div data-verify-line="rx" style="border-top: 1px dashed #999; padding-top: 8px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;">
-      verify:elmstreetmedical.nhs.uk/rx/v <span verifiable-text="end" data-for="rx"></span>
+      <span data-verify-line="rx">verify:elmstreetmedical.nhs.uk/rx/v</span> <span verifiable-text="end" data-for="rx"></span>
     </div>
   </div>
 </div>

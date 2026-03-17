@@ -289,7 +289,7 @@ Dr. John Smith
 Arizona Medical License #3342
 Cardiologist
 Banner Health, Phoenix
-verify:azmedicalboard.gov/lic
+<span data-verify-line="bare20">verify:azmedicalboard.gov/lic</span>
 ```
 Problem: License number uniquely identifies the person and is easily cross-referenceable.
 
@@ -297,7 +297,7 @@ Problem: License number uniquely identifies the person and is easily cross-refer
 ```
 [Photo] Cardiologist
 Badge ID: [anonymized sequence]
-verify:bannerhealth.com/provider
+<span data-verify-line="bare21">verify:bannerhealth.com/provider</span>
 ```
 - Badge displays: "Cardiologist" role (visible on physical badge)
 - Live Verify verifies: "Arizona-licensed cardiologist, credentialed at Banner Health, on-duty in cardiac unit"

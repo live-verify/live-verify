@@ -58,7 +58,7 @@ These documents are presented to schools, police, doctors, and passport agents. 
   </div>
 <div data-verify-line="custody" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Court doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:cookcountycourt.org/orders/v <span verifiable-text="end" data-for="custody"></span>
+      <span data-verify-line="custody">verify:cookcountycourt.org/orders/v</span> <span verifiable-text="end" data-for="custody"></span>
   </div>
 </div>
 

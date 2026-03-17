@@ -28,7 +28,7 @@ Local Exhaust Ventilation (LEV) systems are critical for removing toxic fumes, d
       <strong>Next Test Due:</strong> MAY 2027
     </div>
     <div data-verify-line="hvac" style="border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #0277bd; text-align: center; font-weight: bold;">
-      verify:air-safety.com/v <span verifiable-text="end" data-for="hvac"></span>
+      <span data-verify-line="hvac">verify:air-safety.com/v</span> <span verifiable-text="end" data-for="hvac"></span>
     </div>
   </div>
 </div>

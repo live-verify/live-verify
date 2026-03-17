@@ -54,7 +54,7 @@ With Live Verify, the declaration carries a `verify:` line bound to the jurisdic
     </p>
     <div data-verify-line="substance" style="border-top: 1px dashed #999; margin-top: 20px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: DITC doesn't yet offer verification endpoints">
-      verify:ditc.ky/substance <span verifiable-text="end" data-for="substance"></span>
+      <span data-verify-line="substance">verify:ditc.ky/substance</span> <span verifiable-text="end" data-for="substance"></span>
     </div>
   </div>
 </div>

@@ -32,7 +32,7 @@ furtherDerivations: 1
     </div>
     <div data-verify-line="patent" style="border-top: 1px dashed #999; margin-top: 16px; padding-top: 12px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555;"
       title="Demo only: USPTO doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:uspto.gov/verify
+      <span data-verify-line="bare22">verify:uspto.gov/verify</span>
     </div>
   </div>
 </div>

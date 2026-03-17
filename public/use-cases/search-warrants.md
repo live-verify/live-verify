@@ -52,7 +52,7 @@ Live Verify changes this. The warrant carries a `verify:` line bound to the issu
   </div>
 <div data-verify-line="warrant" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
     title="Demo only: Federal courts don't yet offer verification&#10;endpoints, so this is illustrative">
-    verify:warrants.uscourts.gov/v <span verifiable-text="end" data-for="warrant"></span>
+    <span data-verify-line="warrant">verify:warrants.uscourts.gov/v</span> <span verifiable-text="end" data-for="warrant"></span>
   </div>
 </div>
 

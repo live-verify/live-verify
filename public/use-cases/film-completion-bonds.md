@@ -46,7 +46,7 @@ No bank will lend money to a film set without seeing a verified bond. Fraudsters
   </div>
 <div data-verify-line="film" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Film Finances doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:filmfinances.com/bonds/v <span verifiable-text="end" data-for="film"></span>
+      <span data-verify-line="film">verify:filmfinances.com/bonds/v</span> <span verifiable-text="end" data-for="film"></span>
   </div>
 </div>
 

@@ -67,7 +67,7 @@ With Live Verify, the bank issues a verified fraud report acknowledgment — a p
   <div style="padding: 0 20px 20px 20px;">
     <div style="border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Chase doesn't yet offer verification endpoints, so this is illustrative">
-      verify:chase.com/fraud/v <span verifiable-text="end" data-for="fraudack"></span>
+      <span data-verify-line="fraudack">verify:chase.com/fraud/v</span> <span verifiable-text="end" data-for="fraudack"></span>
     </div>
   </div>
 </div>

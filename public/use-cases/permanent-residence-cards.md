@@ -41,7 +41,7 @@ Because it grants broad rights, Green Cards are the #1 target for **High-End For
 <div style="padding: 0 20px 20px 20px; text-align: center;">
     <div data-verify-line="pr" style="border-top: 1px dashed #999; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #002d62; font-weight: bold;"
       title="Demo only: USCIS doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:uscis.gov/v/pr <span verifiable-text="end" data-for="pr"></span>
+      <span data-verify-line="pr">verify:uscis.gov/v/pr</span> <span verifiable-text="end" data-for="pr"></span>
     </div>
     <div style="font-size: 0.6em; color: #888; margin-top: 10px; font-style: italic;">
       Scan to verify residency status and work authorization. Responses include authoritative photo return.

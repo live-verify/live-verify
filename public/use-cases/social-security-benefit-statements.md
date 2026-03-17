@@ -42,7 +42,7 @@ It is the primary document used for **Income Verification**:
   </div>
 <div data-verify-line="ssa" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: SSA doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:ssa.gov/myaccount/v <span verifiable-text="end" data-for="ssa"></span>
+      <span data-verify-line="ssa">verify:ssa.gov/myaccount/v</span> <span verifiable-text="end" data-for="ssa"></span>
   </div>
 </div>
 

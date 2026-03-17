@@ -44,7 +44,7 @@ These documents are the "Safety Certificates" for an investor's cash. Fraud is h
 <div style="padding: 20px; background: #fdfdfd; border-top: 1px dashed #1a5f2a; text-align: center;">
     <div data-verify-line="cass" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #000; font-weight: bold;"
       title="Demo only: Investment firms don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:sterling-invest.co.uk/v <span verifiable-text="end" data-for="cass"></span>
+      <span data-verify-line="cass">verify:sterling-invest.co.uk/v</span> <span verifiable-text="end" data-for="cass"></span>
     </div>
     <div style="font-size: 0.7em; color: #777; margin-top: 10px;">
       Scan to verify segregation integrity, view the latest shortfall history, and check for CASS breach notifications.

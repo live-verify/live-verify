@@ -51,7 +51,7 @@ These documents are the "Keys to the Classroom." Fraud is high-stakes: individua
 <div style="padding: 20px; background: #fff; border-top: 1px dashed #999; text-align: center;">
     <div data-verify-line="teach" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #003366; font-weight: bold;"
       title="Demo only: Education boards don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:nysed.gov/v/teach <span verifiable-text="end" data-for="teach"></span>
+      <span data-verify-line="teach">verify:nysed.gov/v/teach</span> <span verifiable-text="end" data-for="teach"></span>
     </div>
   </div>
 </div>

@@ -42,7 +42,7 @@ A **Disbursement Receipt** is an artifact issued at the "Last Mile" of aid deliv
   </div>
 <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #2e7d32; text-align: center;">
     <div data-verify-line="charity" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;">
-      verify:globalwater.org/impact/v <span verifiable-text="end" data-for="charity"></span>
+      <span data-verify-line="charity">verify:globalwater.org/impact/v</span> <span verifiable-text="end" data-for="charity"></span>
     </div>
   </div>
 </div>

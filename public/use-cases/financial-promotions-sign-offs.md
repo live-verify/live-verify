@@ -56,7 +56,7 @@ These documents are the "Legal Safe Harbor" for marketing. Fraud is high-stakes 
 <div style="padding: 20px; background: #fdfdfd; border-top: 1px dashed #ff6600; text-align: center;">
     <div data-verify-line="promo" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #000; font-weight: bold;"
       title="Demo only: Regulated firms don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:meridian-funds.com/v <span verifiable-text="end" data-for="promo"></span>
+      <span data-verify-line="promo">verify:meridian-funds.com/v</span> <span verifiable-text="end" data-for="promo"></span>
     </div>
     <div style="font-size: 0.7em; color: #999; margin-top: 10px;">
       Scan to verify ad-integrity, required risk-warning text, and the authorizing firm's regulatory standing.

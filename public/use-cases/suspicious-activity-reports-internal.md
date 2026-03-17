@@ -48,7 +48,7 @@ These internal records are "Compliance Insurance." During a regulatory exam (e.g
 <div style="padding: 20px; background: #f9f9f9; border-top: 1px dashed #d32f2f; text-align: center;">
     <div data-verify-line="sar" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;"
       title="Demo only: Banks don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:goliathbank.com/aml/v <span verifiable-text="end" data-for="sar"></span>
+      <span data-verify-line="sar">verify:goliathbank.com/aml/v</span> <span verifiable-text="end" data-for="sar"></span>
     </div>
     <div style="font-size: 0.7em; color: #666; margin-top: 10px;">
       Scan to verify internal filing integrity and FinCEN confirmation status. Access restricted to authorized regulators.

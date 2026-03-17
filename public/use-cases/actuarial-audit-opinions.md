@@ -41,7 +41,7 @@ If this document is faked or altered, regulators might let a bankrupt insurance 
   </div>
 <div data-verify-line="actuarial" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Actuarial firm doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:milliman.com/opinions/v <span verifiable-text="end" data-for="actuarial"></span>
+      <span data-verify-line="actuarial">verify:milliman.com/opinions/v</span> <span verifiable-text="end" data-for="actuarial"></span>
   </div>
 </div>
 

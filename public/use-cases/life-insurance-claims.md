@@ -34,7 +34,7 @@ furtherDerivations: 1
   </div>
 <div data-verify-line="life-claim" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Northwestern Mutual doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:northwesternmutual.com/claims/v <span verifiable-text="end" data-for="life-claim"></span>
+      <span data-verify-line="life-claim">verify:northwesternmutual.com/claims/v</span> <span verifiable-text="end" data-for="life-claim"></span>
   </div>
 </div>
 

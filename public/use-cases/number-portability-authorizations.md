@@ -35,7 +35,7 @@ When you switch your phone number from one carrier to another (e.g., AT&T to T-M
 <div style="padding: 20px; background: #fdfdfd; border-top: 1px solid #eee; text-align: center;">
     <div data-verify-line="port" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;"
       title="Demo only: Carriers don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:att.com/porting/v <span verifiable-text="end" data-for="port"></span>
+      <span data-verify-line="port">verify:att.com/porting/v</span> <span verifiable-text="end" data-for="port"></span>
     </div>
     <div style="font-size: 0.7em; color: #999; margin-top: 10px;">
       Scan to verify porting intent, account standing, and anti-fraud status.

@@ -41,7 +41,7 @@ With Live Verify, the appointment confirmation carries a `verify:` line. The emp
       <em style="font-size: 0.85em;">Please allow 2 hours for this appointment including tests.</em>
     </div>
     <div data-verify-line="ap1" style="border-top: 1px dashed #999; padding-top: 8px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;">
-      verify:gstt.nhs.uk/appointments <span verifiable-text="end" data-for="ap1"></span>
+      <span data-verify-line="ap1">verify:gstt.nhs.uk/appointments</span> <span verifiable-text="end" data-for="ap1"></span>
     </div>
   </div>
 </div>
@@ -71,7 +71,7 @@ With Live Verify, the appointment confirmation carries a `verify:` line. The emp
       <em style="font-size: 0.85em;">Issued: February 14, 2026</em>
     </div>
     <div data-verify-line="ap2" style="border-top: 1px dashed #999; padding-top: 8px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;">
-      verify:ilnd.uscourts.gov/jury <span verifiable-text="end" data-for="ap2"></span>
+      <span data-verify-line="ap2">verify:ilnd.uscourts.gov/jury</span> <span verifiable-text="end" data-for="ap2"></span>
     </div>
   </div>
 </div>
@@ -95,7 +95,7 @@ With Live Verify, the appointment confirmation carries a `verify:` line. The emp
       <em style="font-size: 0.85em;">This summons is issued under Section 97 of the Magistrates' Courts Act 1980. Failure to attend without reasonable excuse is a criminal offence.</em>
     </div>
     <div data-verify-line="ap3" style="border-top: 1px dashed #999; padding-top: 8px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;">
-      verify:hmcts.gov.uk/summons <span verifiable-text="end" data-for="ap3"></span>
+      <span data-verify-line="ap3">verify:hmcts.gov.uk/summons</span> <span verifiable-text="end" data-for="ap3"></span>
     </div>
   </div>
 </div>

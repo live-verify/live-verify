@@ -48,7 +48,7 @@ The **Care Professional Badge** is their "Security Token." It proves:
     </p>
     <div data-verify-line="nurse" style="border-top: 1px dashed #999; margin-top: 10px; padding-top: 5px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Care agency doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:bayada.com/verify/v <span verifiable-text="end" data-for="nurse"></span>
+      <span data-verify-line="nurse">verify:bayada.com/verify/v</span> <span verifiable-text="end" data-for="nurse"></span>
     </div>
   </div>
 </div>

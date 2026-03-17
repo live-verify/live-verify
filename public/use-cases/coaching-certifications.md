@@ -46,7 +46,7 @@ Parents and clubs use these badges to ensure that the adult on the sideline is a
     </p>
     <div data-verify-line="coach" style="border-top: 1px dashed #999; margin-top: 15px; padding-top: 5px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: USSF doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:ussoccer.com/coaches/v <span verifiable-text="end" data-for="coach"></span>
+      <span data-verify-line="coach">verify:ussoccer.com/coaches/v</span> <span verifiable-text="end" data-for="coach"></span>
     </div>
   </div>
 </div>

@@ -37,7 +37,7 @@ Under regimes like SM&CR (UK) or FINRA (US), firms must annually attest that sta
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="fitandproperattestat" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:albion-am.com/smcr <span verifiable-text="end" data-for="fitandproperattestat"></span>
+        <span data-verify-line="fitandproperattestat">verify:albion-am.com/smcr</span> <span verifiable-text="end" data-for="fitandproperattestat"></span>
       </div>
     </div>
   </div>

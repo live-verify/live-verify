@@ -43,7 +43,7 @@ It is the "Lifeblood of Public Works." If a contractor goes bankrupt halfway thr
   </div>
 <div data-verify-line="surety" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Travelers doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:travelers.com/surety/v <span verifiable-text="end" data-for="surety"></span>
+      <span data-verify-line="surety">verify:travelers.com/surety/v</span> <span verifiable-text="end" data-for="surety"></span>
   </div>
 </div>
 

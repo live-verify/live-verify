@@ -166,7 +166,7 @@ Verifying these letters prevents passengers from faking denials to defraud insur
   </div>
 <div data-verify-line="comp" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Airline doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:ba.com/claims/v <span verifiable-text="end" data-for="comp"></span>
+      <span data-verify-line="comp">verify:ba.com/claims/v</span> <span verifiable-text="end" data-for="comp"></span>
   </div>
 </div>
 

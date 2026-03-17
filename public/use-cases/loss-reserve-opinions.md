@@ -35,7 +35,7 @@ furtherDerivations: 1
   </div>
 <div data-verify-line="loss-res" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: State Farm doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:statefarm.com/actuarial/v <span verifiable-text="end" data-for="loss-res"></span>
+      <span data-verify-line="loss-res">verify:statefarm.com/actuarial/v</span> <span verifiable-text="end" data-for="loss-res"></span>
   </div>
 </div>
 

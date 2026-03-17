@@ -44,7 +44,7 @@ Live Verify solves this with an **officer-triggered SMS verification**. When a c
     <div>Sent: 2:47 PM Feb 28 2026</div>
     <div>Expires: 3:17 PM</div>
     <div style="margin-top: 12px; font-family: 'Courier New', monospace; font-size: 0.85em; color: #555; border-top: 1px dashed #ccc; padding-top: 8px;">
-      verify:calls.mcso.maricopa.gov/v <span verifiable-text="end" data-for="sms-call"></span>
+      <span data-verify-line="sms-call">verify:calls.mcso.maricopa.gov/v</span> <span verifiable-text="end" data-for="sms-call"></span>
     </div>
   </div>
 </div>

@@ -44,7 +44,7 @@ It is one of the most powerful—and dangerous—documents in law. It allows an 
   </div>
 <div data-verify-line="poa" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
     title="Demo only: Law firm doesn't yet offer verification&#10;endpoints, so this is illustrative">
-    verify:willows-law.com/poa/v <span verifiable-text="end" data-for="poa"></span>
+    <span data-verify-line="poa">verify:willows-law.com/poa/v</span> <span verifiable-text="end" data-for="poa"></span>
   </div>
 </div>
 

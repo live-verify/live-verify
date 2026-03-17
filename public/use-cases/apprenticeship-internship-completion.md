@@ -42,7 +42,7 @@ Because these lead directly to high-paying jobs, "internship fraud" (faking a ce
     </div>
 <div data-verify-line="intern" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Company doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:techno-dynamic.com/interns/v <span verifiable-text="end" data-for="intern"></span>
+      <span data-verify-line="intern">verify:techno-dynamic.com/interns/v</span> <span verifiable-text="end" data-for="intern"></span>
     </div>
   </div>
 </div>

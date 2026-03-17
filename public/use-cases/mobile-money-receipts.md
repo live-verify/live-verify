@@ -30,7 +30,7 @@ furtherDerivations: 1
     </div>
 <div data-verify-line="m-pesa" style="border-top: 1px dashed #999; margin-top: 15px; padding-top: 5px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Safaricom doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:safaricom.co.ke/mpesa/v <span verifiable-text="end" data-for="m-pesa"></span>
+      <span data-verify-line="m-pesa">verify:safaricom.co.ke/mpesa/v</span> <span verifiable-text="end" data-for="m-pesa"></span>
     </div>
   </div>
 </div>

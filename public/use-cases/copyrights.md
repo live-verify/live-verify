@@ -51,7 +51,7 @@ Fraudsters often create fake certificates to claim ownership of hit songs or vir
   </div>
 <div data-verify-line="copyright" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Copyright Office doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:copyright.gov/v <span verifiable-text="end" data-for="copyright"></span>
+      <span data-verify-line="copyright">verify:copyright.gov/v</span> <span verifiable-text="end" data-for="copyright"></span>
   </div>
 </div>
 

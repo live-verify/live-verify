@@ -38,7 +38,7 @@ You can't. Not really. You might show a business card (anyone can print one), pu
   </div>
   <div data-verify-line="employment" style="margin-top: 15px; padding-top: 10px; border-top: 1px dashed #999; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
     title="Demo only: HSBC doesn't yet offer verification&#10;endpoints, so this is illustrative">
-    verify:hr.hsbc.co.uk/employment/v <span verifiable-text="end" data-for="employment"></span>
+    <span data-verify-line="employment">verify:hr.hsbc.co.uk/employment/v</span> <span verifiable-text="end" data-for="employment"></span>
   </div>
 </div>
 

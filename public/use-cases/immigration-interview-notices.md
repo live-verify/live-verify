@@ -36,7 +36,7 @@ furtherDerivations: 1
     </div>
 <div data-verify-line="im-inter" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: USCIS doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:uscis.gov/appointments/v <span verifiable-text="end" data-for="im-inter"></span>
+      <span data-verify-line="im-inter">verify:uscis.gov/appointments/v</span> <span verifiable-text="end" data-for="im-inter"></span>
     </div>
   </div>
 </div>

@@ -72,7 +72,7 @@ The output of this system is a **continuous, verified log of every care interact
     <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
     <div data-verify-line="start" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: this trust doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:rduh.nhs.uk/care/v <span verifiable-text="end" data-for="start"></span>
+      <span data-verify-line="start">verify:rduh.nhs.uk/care/v</span> <span verifiable-text="end" data-for="start"></span>
     </div>
   </div>
 </div>
@@ -94,7 +94,7 @@ The output of this system is a **continuous, verified log of every care interact
     <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0 8px 0;">
     <div data-verify-line="end" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: this trust doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:rduh.nhs.uk/care/v <span verifiable-text="end" data-for="end"></span>
+      <span data-verify-line="end">verify:rduh.nhs.uk/care/v</span> <span verifiable-text="end" data-for="end"></span>
     </div>
   </div>
 </div>

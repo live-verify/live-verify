@@ -35,7 +35,7 @@ The existing use case (`suspicious-activity-reports-internal.md`) covers the fir
     <p style="font-size: 0.85em; color: #666;">This acknowledgment confirms receipt only. The NCA will contact you if further information is required. You must not disclose the existence of this SAR to the subject (POCA s.333A — tipping off).</p>
     <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
       <div data-verify-line="ncasar" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #555;">
-        verify:nca.gov.uk/sar-receipts <span verifiable-text="end" data-for="ncasar"></span>
+        <span data-verify-line="ncasar">verify:nca.gov.uk/sar-receipts</span> <span verifiable-text="end" data-for="ncasar"></span>
       </div>
     </div>
   </div>

@@ -43,7 +43,7 @@ The problem is that "Pest Control" is a high-trust, high-risk profession. Crimin
 <div style="padding: 15px 20px 20px 20px; background: #fff; border-top: 1px dashed #999; text-align: center;">
     <div data-verify-line="pest" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #004d40; font-weight: bold;"
       title="Demo only: State boards don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:texasag.gov/v <span verifiable-text="end" data-for="pest"></span>
+      <span data-verify-line="pest">verify:texasag.gov/v</span> <span verifiable-text="end" data-for="pest"></span>
     </div>
     <div style="font-size: 0.65em; color: #999; margin-top: 8px; font-style: italic;">
       Scan to verify current license standing, chemical safety clearance, and background check validity.

@@ -45,7 +45,7 @@ In some areas, you need this verified receipt to get local benefits, register fo
     </div>
 <div data-verify-line="census" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Census Bureau doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:census.gov/verify/v <span verifiable-text="end" data-for="census"></span>
+      <span data-verify-line="census">verify:census.gov/verify/v</span> <span verifiable-text="end" data-for="census"></span>
     </div>
   </div>
 </div>

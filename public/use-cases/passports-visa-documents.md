@@ -50,7 +50,7 @@ Beyond the airport, passports are used as the "Primary ID" for:
     </div>
     <div data-verify-line="pass" style="border-top: 1px dashed #999; padding-top: 5px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: HM Passport Office doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:gov.uk/passport/v <span verifiable-text="end" data-for="pass"></span>
+      <span data-verify-line="pass">verify:gov.uk/passport/v</span> <span verifiable-text="end" data-for="pass"></span>
     </div>
   </div>
 </div>

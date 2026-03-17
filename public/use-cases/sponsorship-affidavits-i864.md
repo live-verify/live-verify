@@ -40,7 +40,7 @@ These documents are high-stakes legal instruments. Fraud is common: people often
 <div style="margin-top: 40px; border-top: 1px dashed #999; padding-top: 10px; text-align: center;">
     <div data-verify-line="i864" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;"
       title="Demo only: USCIS doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:uscis.gov/v/i864 <span verifiable-text="end" data-for="i864"></span>
+      <span data-verify-line="i864">verify:uscis.gov/v/i864</span> <span verifiable-text="end" data-for="i864"></span>
     </div>
     <div style="font-size: 0.7em; color: #999; margin-top: 10px; font-style: italic;">
       Scan to verify sponsorship authenticity and income threshold compliance.

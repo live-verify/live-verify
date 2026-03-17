@@ -48,7 +48,7 @@ This document is the "Trigger for Payout." Fraud is high-stakes: claimants often
 <div style="padding: 20px; background: #fffbe6; border: 1px dashed #999; margin-top: 30px; text-align: center;">
     <div data-verify-line="loss" style="font-family: 'Courier New', monospace; font-size: 0.8em; color: #000; font-weight: bold;"
       title="Demo only: Insurers don't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:goliathins.com/v <span verifiable-text="end" data-for="loss"></span>
+      <span data-verify-line="loss">verify:goliathins.com/v</span> <span verifiable-text="end" data-for="loss"></span>
     </div>
     <div style="font-size: 0.7em; color: #666; margin-top: 8px;">
       Scan to verify claimed amounts, cause of loss findings, and notary authority.

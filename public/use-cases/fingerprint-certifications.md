@@ -41,7 +41,7 @@ The **Certificate of Fingerprinting** is the paper signed by a Notary Public or 
   </div>
 <div data-verify-line="finger" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
       title="Demo only: Notary platform doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:notary-check.gov/biometrics/v <span verifiable-text="end" data-for="finger"></span>
+      <span data-verify-line="finger">verify:notary-check.gov/biometrics/v</span> <span verifiable-text="end" data-for="finger"></span>
   </div>
 </div>
 

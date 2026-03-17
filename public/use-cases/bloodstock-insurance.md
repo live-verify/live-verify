@@ -46,7 +46,7 @@ If an owner "Photoshops" a $100k policy to look like a $10M policy, they can com
     </div>
 <div data-verify-line="horse" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Lloyd's Syndicate doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      verify:lloyds-bloodstock.com/v <span verifiable-text="end" data-for="horse"></span>
+      <span data-verify-line="horse">verify:lloyds-bloodstock.com/v</span> <span verifiable-text="end" data-for="horse"></span>
     </div>
   </div>
 </div>

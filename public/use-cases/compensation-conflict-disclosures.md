@@ -47,7 +47,7 @@ Currently, these claims are unverifiable. Disclosures exist in fine print or reg
 <div style="margin-top: 15px; border-top: 1px dashed #ccc; padding-top: 10px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666;">
       <div data-verify-line="compensationconflict" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:disclosures.wellington-wealth.com/comp <span verifiable-text="end" data-for="compensationconflict"></span>
+        <span data-verify-line="compensationconflict">verify:disclosures.wellington-wealth.com/comp</span> <span verifiable-text="end" data-for="compensationconflict"></span>
       </div>
     </div>
   </div>
@@ -97,7 +97,7 @@ Verified disclosures make the information **scannable at the point of decision**
 <div style="margin-top: 20px; font-size: 0.8em; font-family: monospace; color: #888;">
       <div data-verify-line="compensationconflict" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:conflictfree.org/attest <span verifiable-text="end" data-for="compensationconflict"></span>
+        <span data-verify-line="compensationconflict">verify:conflictfree.org/attest</span> <span verifiable-text="end" data-for="compensationconflict"></span>
       </div>
     </div>
   </div>
@@ -142,7 +142,7 @@ You can't just take someone's word for it. But you can ask the entities that *wo
 <div style="margin-top: 15px; font-size: 0.8em; text-align: center; color: #888;">
       <div data-verify-line="compensationconflict" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        verify:openpaymentscheck.org/confirm <span verifiable-text="end" data-for="compensationconflict"></span>
+        <span data-verify-line="compensationconflict">verify:openpaymentscheck.org/confirm</span> <span verifiable-text="end" data-for="compensationconflict"></span>
       </div>
     </div>
   </div>
@@ -376,7 +376,7 @@ receive payments that only become conflicts *in a particular capacity*.
       I undertake to notify the Company Secretary of any material change within 14 days.
     </p>
     <div style="margin-top: 15px; border-top: 1px dashed #ccc; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;">
-      verify:governance.greenfieldwater.co.uk/disclosures
+      <span data-verify-line="bare6">verify:governance.greenfieldwater.co.uk/disclosures</span>
     </div>
   </div>
 </div>
@@ -438,7 +438,7 @@ without a deal?"
     <span style="color: #888;">#ad #sponsored</span>
   </div>
   <div style="padding: 10px 15px; border-top: 1px solid #eee; font-family: 'Courier New', monospace; font-size: 0.7em; color: #666; text-align: center;">
-    verify:creators.novapro.com/partnerships
+    <span data-verify-line="bare7">verify:creators.novapro.com/partnerships</span>
   </div>
 </div>
 
