@@ -262,6 +262,7 @@
             border-radius: 6px;
             border: 1px solid rgba(255, 255, 255, 0.18);
             display: block;
+            cursor: pointer;
         }
         .screenshot-strip .caption {
             font-size: 0.75em;
@@ -534,6 +535,11 @@
         </div>
     </div>
     <script>
+        // Click any screenshot to open full-size in a new tab
+        document.querySelectorAll('.screenshot-strip img').forEach(img => {
+            img.addEventListener('click', () => window.open(img.src, '_blank'));
+        });
+
         // Per-category concern descriptions for hover tooltips
         var categoryConcerns = {
             'Identity & Authority Verification': 'Mostly anti-fraud; some safety and security (e.g. verifying someone is who they claim before granting access)',
