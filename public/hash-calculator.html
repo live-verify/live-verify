@@ -1,0 +1,217 @@
+<!--
+    Copyright (C) 2025, Paul Hammant
+    SPDX-License-Identifier: Apache-2.0
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Verify Hash Calculator</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f5f5f0;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 6px;
+        }
+        .subtitle {
+            font-size: 0.9em;
+            color: #888;
+            margin-bottom: 24px;
+        }
+        label {
+            display: block;
+            font-size: 0.85em;
+            font-weight: 600;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        textarea {
+            width: 100%;
+            min-height: 180px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95em;
+            line-height: 1.6;
+            padding: 14px 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            resize: vertical;
+            background: #fff;
+            color: #333;
+        }
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+        }
+        .display-area {
+            width: 100%;
+            min-height: 100px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95em;
+            line-height: 1.6;
+            padding: 14px 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: #fafafa;
+            color: #333;
+            white-space: pre-wrap;
+            word-break: break-word;
+            margin-bottom: 24px;
+        }
+        .newline-marker {
+            color: #c0c0c0;
+            user-select: none;
+        }
+        .hash-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .hash-output {
+            flex: 1;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+            padding: 12px 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: #fff;
+            color: #333;
+            word-break: break-all;
+            min-height: 44px;
+        }
+        .hash-output.empty {
+            color: #bbb;
+            font-style: italic;
+            font-family: inherit;
+        }
+        .copy-btn {
+            padding: 10px 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: #fff;
+            color: #555;
+            font-size: 0.85em;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.15s, border-color 0.15s;
+        }
+        .copy-btn:hover {
+            background: #f0f0f0;
+            border-color: #999;
+        }
+        .copy-btn.copied {
+            background: #22c55e;
+            color: #fff;
+            border-color: #22c55e;
+        }
+        .section {
+            margin-bottom: 24px;
+        }
+        .note {
+            font-size: 0.8em;
+            color: #999;
+            margin-top: 8px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hash Calculator</h1>
+        <p class="subtitle">Paste claim text, see the normalized SHA-256 hash.</p>
+
+        <div class="section">
+            <label for="input">Claim text (without the verify: line)</label>
+            <textarea id="input" placeholder="Paste or type claim text here..."></textarea>
+        </div>
+
+        <div class="section">
+            <label>Text with visible newlines</label>
+            <div class="display-area" id="display"></div>
+        </div>
+
+        <div class="section">
+            <label>SHA-256 (after normalization)</label>
+            <div class="hash-row">
+                <div class="hash-output empty" id="hash">Type or paste text above</div>
+                <button class="copy-btn" id="copyBtn" disabled>Copy</button>
+            </div>
+            <p class="note">
+                Text is run through <code>normalizeText()</code> before hashing:
+                leading/trailing whitespace stripped per line, multiple spaces collapsed,
+                blank lines removed, Unicode quotes and dashes normalized.
+            </p>
+        </div>
+    </div>
+
+    <script src="normalize.js"></script>
+    <script>
+        const input = document.getElementById('input');
+        const display = document.getElementById('display');
+        const hashEl = document.getElementById('hash');
+        const copyBtn = document.getElementById('copyBtn');
+
+        let currentHash = '';
+
+        async function update() {
+            const raw = input.value;
+
+            // Display with visible newline markers
+            if (raw.length === 0) {
+                display.innerHTML = '';
+                hashEl.textContent = 'Type or paste text above';
+                hashEl.classList.add('empty');
+                copyBtn.disabled = true;
+                currentHash = '';
+                return;
+            }
+
+            // Build display with newline markers
+            const escaped = raw
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/\n/g, '<span class="newline-marker">\u21B5</span>\n');
+            display.innerHTML = escaped;
+
+            // Normalize and hash
+            const normalized = normalizeText(raw);
+            const hash = await sha256(normalized);
+            currentHash = hash;
+
+            hashEl.textContent = hash;
+            hashEl.classList.remove('empty');
+            copyBtn.disabled = false;
+        }
+
+        input.addEventListener('input', update);
+
+        copyBtn.addEventListener('click', () => {
+            if (!currentHash) return;
+            navigator.clipboard.writeText(currentHash).then(() => {
+                copyBtn.textContent = 'Copied!';
+                copyBtn.classList.add('copied');
+                setTimeout(() => {
+                    copyBtn.textContent = 'Copy';
+                    copyBtn.classList.remove('copied');
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html>
