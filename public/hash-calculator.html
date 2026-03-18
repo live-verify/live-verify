@@ -141,7 +141,7 @@
         </div>
 
         <div class="section">
-            <label>Text with visible newlines</label>
+            <label>Text with visible newlines &mdash; whether deliberate or accidental</label>
             <div class="display-area" id="display"></div>
         </div>
 
@@ -189,8 +189,15 @@
                 .replace(/\n/g, '<span class="newline-marker">\u21B5</span>\n');
             display.innerHTML = escaped;
 
+            // Strip verify: or vfy: line if accidentally pasted as the last line
+            const lines = raw.split('\n');
+            if (lines.length > 0 && /^\s*(verify|vfy)\s*:\s*/i.test(lines[lines.length - 1])) {
+                lines.pop();
+            }
+            const stripped = lines.join('\n');
+
             // Normalize and hash
-            const normalized = normalizeText(raw);
+            const normalized = normalizeText(stripped);
             const hash = await sha256(normalized);
             currentHash = hash;
 
