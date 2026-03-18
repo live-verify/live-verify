@@ -378,6 +378,40 @@
         region.badge = badge;
     }
 
+    // Track all known regions for badge count
+    let allRegions = [];
+
+    // Update the extension badge with verification progress
+    function updateBadgeCount() {
+        const total = allRegions.length;
+        if (total === 0) return;
+
+        const verified = allRegions.filter(r => r.status === 'verified').length;
+        const failed = allRegions.filter(r => r.status === 'failed').length;
+        const done = verified + failed;
+
+        let color;
+        if (done === 0) {
+            color = '#3b82f6'; // blue — none checked yet
+        } else if (failed === 0) {
+            color = '#22c55e'; // green — all verified
+        } else if (verified === 0) {
+            color = '#ef4444'; // red — all failed
+        } else {
+            color = '#f59e0b'; // amber — mixed
+        }
+
+        try {
+            chrome.runtime.sendMessage({
+                type: 'updateBadge',
+                text: `${verified}/${total}`,
+                color: color
+            });
+        } catch (e) {
+            // Extension context may not be available
+        }
+    }
+
     // Verify a single region
     async function verifyRegion(region, badge) {
         if (region.status === 'pending') return;
@@ -396,7 +430,8 @@
             });
 
             // Also fire OS notification so result is visible outside the page
-            chrome.runtime.sendMessage({ type: 'showNotification', result });
+            // skipBadge: true prevents showResult from overwriting the scan-mode X/N badge
+            chrome.runtime.sendMessage({ type: 'showNotification', result, skipBadge: true });
 
             if (result.success) {
                 region.status = 'verified';
@@ -442,6 +477,7 @@
                     panelEl.innerHTML = inner;
                     region.container.appendChild(panelEl);
                 }
+                updateBadgeCount();
             } else {
                 region.status = 'failed';
                 badge.className = 'liveverify-badge failed';
@@ -472,6 +508,7 @@
 
                 region.container.classList.remove('pending');
                 region.container.classList.add('failed');
+                updateBadgeCount();
             }
         } catch (error) {
             region.status = 'failed';
@@ -480,6 +517,7 @@
             badge.title = error.message;
             region.container.classList.remove('pending');
             region.container.classList.add('failed');
+            updateBadgeCount();
         }
     }
 
@@ -503,6 +541,9 @@
         regions.forEach(region => {
             highlightRegion(region);
         });
+
+        allRegions = regions;
+        updateBadgeCount();
 
         return regions;
     }

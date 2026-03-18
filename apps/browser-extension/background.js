@@ -259,19 +259,21 @@ function addToHistory(result) {
 }
 
 // Show result — inject a banner into the active tab so the user always sees it
-async function showResult(result, tab) {
-    // Update badge
-    await chrome.action.setBadgeText({
-        text: result.success ? '✓' : '✗'
-    });
-    await chrome.action.setBadgeBackgroundColor({
-        color: result.success ? '#22c55e' : '#ef4444'
-    });
+async function showResult(result, tab, skipBadge = false) {
+    // Update badge (unless scan-mode is managing its own X/N badge)
+    if (!skipBadge) {
+        await chrome.action.setBadgeText({
+            text: result.success ? '✓' : '✗'
+        });
+        await chrome.action.setBadgeBackgroundColor({
+            color: result.success ? '#22c55e' : '#ef4444'
+        });
 
-    // Clear badge after 30 seconds
-    setTimeout(async () => {
-        await chrome.action.setBadgeText({ text: '' });
-    }, 30000);
+        // Clear badge after 30 seconds
+        setTimeout(async () => {
+            await chrome.action.setBadgeText({ text: '' });
+        }, 30000);
+    }
 
     if (RESULT_DISPLAY === 'banner') {
         // Inject result banner into the active tab
@@ -403,6 +405,34 @@ function showResultBanner(result) {
         authorizationHtml = `<div style="font-size: 12px; color: ${aColor}; margin-top: 2px;">${aText}</div>`;
     }
 
+    // Build details section (extracted text, normalized text, SHA-256)
+    let detailsHtml = '';
+    if (result.certText || result.normalizedText || result.hash) {
+        const monoStyle = 'font-family: "SF Mono", Monaco, Consolas, monospace; font-size: 11px; background: rgba(0,0,0,0.2); padding: 8px 10px; border-radius: 4px; white-space: pre-wrap; word-break: break-word; max-height: 120px; overflow-y: auto; line-height: 1.4;';
+        const labelStyle = 'font-size: 10px; font-weight: 600; text-transform: uppercase; opacity: 0.7; margin-bottom: 3px;';
+        const itemStyle = 'margin-bottom: 10px;';
+
+        let items = '';
+        if (result.certText) {
+            items += `<div style="${itemStyle}"><div style="${labelStyle}">Extracted Text</div><div style="${monoStyle}">${result.certText.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div></div>`;
+        }
+        if (result.normalizedText) {
+            items += `<div style="${itemStyle}"><div style="${labelStyle}">Normalized Text</div><div style="${monoStyle}">${result.normalizedText.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div></div>`;
+        }
+        if (result.hash) {
+            items += `<div style="${itemStyle}"><div style="${labelStyle}">SHA-256</div><div style="${monoStyle}">${result.hash}</div></div>`;
+        }
+
+        detailsHtml = `
+            <div id="liveverify-details-toggle" style="padding: 0 20px 8px; cursor: pointer; font-size: 11px; opacity: 0.8; user-select: none;">
+                \u25B6 Details
+            </div>
+            <div id="liveverify-details-content" style="display: none; padding: 0 20px 12px;">
+                ${items}
+            </div>
+        `;
+    }
+
     banner.innerHTML = `
         <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 20px;">
             <div style="display: flex; align-items: center; gap: 14px;">
@@ -418,6 +448,7 @@ function showResultBanner(result) {
                 cursor: pointer; padding: 4px 8px; opacity: 0.7; line-height: 1;
             ">&times;</button>
         </div>
+        ${detailsHtml}
         <div style="padding: 4px 20px 6px; background: rgba(0,0,0,0.15); font-size: 11px; opacity: 0.8; text-align: center;">
             LiveVerify browser extension \u2014 screencaps of this are not proof of anything
         </div>
@@ -442,6 +473,17 @@ function showResultBanner(result) {
         banner.style.transform = 'translateY(-100%)';
         setTimeout(() => banner.remove(), 200);
     });
+
+    // Details toggle
+    const detailsToggle = banner.querySelector('#liveverify-details-toggle');
+    const detailsContent = banner.querySelector('#liveverify-details-content');
+    if (detailsToggle && detailsContent) {
+        detailsToggle.addEventListener('click', () => {
+            const visible = detailsContent.style.display !== 'none';
+            detailsContent.style.display = visible ? 'none' : 'block';
+            detailsToggle.innerHTML = visible ? '\u25B6 Details' : '\u25BC Details';
+        });
+    }
 
     // Auto-dismiss after 8 seconds for success, 15 for failures
     const dismissTime = isVerified ? 8000 : 15000;
@@ -495,7 +537,12 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         return true; // Keep channel open for async
     } else if (message.type === 'showNotification') {
         // Show OS notification for a verification result (from content script auto-scan)
-        showResult(message.result, sender.tab);
+        showResult(message.result, sender.tab, message.skipBadge);
+        sendResponse({ success: true });
+    } else if (message.type === 'updateBadge') {
+        // Update toolbar badge with verification count from content script
+        chrome.action.setBadgeText({ text: message.text, tabId: sender.tab?.id });
+        chrome.action.setBadgeBackgroundColor({ color: message.color, tabId: sender.tab?.id });
         sendResponse({ success: true });
     }
     return true;
