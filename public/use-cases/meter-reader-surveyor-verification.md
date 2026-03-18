@@ -21,7 +21,7 @@ The **Verified Badge** is the worker's digital or physical ID. It proves:
 "Bogus Caller" scams are a well-documented fraud pattern. Criminals pose as surveyors, meter readers, or appraisers to case properties for later burglary, steal valuables during the "survey," or commit mortgage fraud. Live Verify allows a homeowner to scan the credential at the door and see a green "ACTIVE" status from the regulatory authority, ensuring only legitimate professionals enter the home.
 
 <div style="max-width: 480px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; border-radius: 12px; background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.2); position: relative;">
-  <a href="slides/meter-reader-surveyor-verification-1.html" style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%); background: #e0e0e0; border: 1px solid #999; border-radius: 4px; padding: 6px 8px; font-size: 0.75em; line-height: 1.2; cursor: pointer; color: #333; text-decoration: none;">show<br>me</a>
+
   <div style="background: #1a237e; color: #fff; padding: 15px; text-align: center; display: flex; align-items: center; justify-content: center;">
     <div style="font-size: 1.5em; margin-right: 10px;">📋</div>
     <div>

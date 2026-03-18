@@ -16,7 +16,7 @@ A verified employment reference proves you actually worked somewhere. It can app
 Fraud is common: "Reference Mills" sell fake employment letters. Live Verify connects the verifier directly to the real employer's domain.
 
 <div style="max-width: 550px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 20px; position: relative;">
-  <a href="slides/employment-references-1.html" style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%); background: #e0e0e0; border: 1px solid #999; border-radius: 4px; padding: 6px 8px; font-size: 0.75em; line-height: 1.2; cursor: pointer; color: #333; text-decoration: none;">show<br>me</a>
+
   <div style="font-size: 0.85em; color: #555; border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 15px;">
     <strong>From:</strong> john.smith@gmail.com<br>
     <strong>To:</strong> miggins@newco.com<br>
@@ -42,7 +42,7 @@ Fraud is common: "Reference Mills" sell fake employment letters. Live Verify con
 </div>
 
 <div style="max-width: 550px; margin: 24px auto; font-family: 'Times New Roman', serif; border: 1px solid #999; background: #fff; padding: 40px 40px 20px 40px; position: relative;">
-  <a href="slides/employment-references-1.html" style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%); background: #e0e0e0; border: 1px solid #999; border-radius: 4px; padding: 6px 8px; font-size: 0.75em; line-height: 1.2; cursor: pointer; color: #333; text-decoration: none;">show<br>me</a>
+
   <h3 style="margin: 0 0 20px 0; font-size: 1.1em; text-transform: uppercase; letter-spacing: 1px;">References</h3>
   <div style="font-size: 0.95em; line-height: 1.6; color: #333;">
     <div style="font-family: 'Courier New', monospace; background: #f0f0f0; padding: 12px; border: 1px solid #ccc; font-size: 0.95em; color: #999; line-height: 1.5; margin-bottom: 15px;">

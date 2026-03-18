@@ -21,7 +21,7 @@ The **Verified Badge** is the worker's digital or physical ID. It proves:
 "Bogus Caller" fraud—criminals posing as utility workers to gain access to homes for burglary—is one of the most common crimes targeting elderly and vulnerable people in the UK. Police forces issue regular warnings. Live Verify allows the homeowner to scan the badge through the window before opening the door and instantly confirm the worker's legitimate employment status.
 
 <div style="max-width: 480px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; border-radius: 12px; background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.2); position: relative;">
-  <a href="slides/utility-worker-verification-1.html" style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%); background: #e0e0e0; border: 1px solid #999; border-radius: 4px; padding: 6px 8px; font-size: 0.75em; line-height: 1.2; cursor: pointer; color: #333; text-decoration: none;">show<br>me</a>
+
   <div style="background: #1a237e; color: #fff; padding: 15px; text-align: center; display: flex; align-items: center; justify-content: center;">
     <div style="font-size: 1.5em; margin-right: 10px;">⚡</div>
     <div>

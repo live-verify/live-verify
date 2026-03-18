@@ -21,7 +21,7 @@ The **Verified Badge** is the agent's digital credential. It proves:
 Documented cases in the USA, Canada, and Australia show criminals posing as agents to lure victims to empty properties for robbery or assault. Women are disproportionately targeted. Live Verify allows you to scan the agent's credential before entering the property, confirming they are a legitimate, verified professional.
 
 <div style="max-width: 480px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; border-radius: 12px; background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.2); position: relative;">
-  <a href="slides/real-estate-showing-agent-verification-1.html" style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%); background: #e0e0e0; border: 1px solid #999; border-radius: 4px; padding: 6px 8px; font-size: 0.75em; line-height: 1.2; cursor: pointer; color: #333; text-decoration: none;">show<br>me</a>
+
   <div style="background: #1a237e; color: #fff; padding: 15px; text-align: center; display: flex; align-items: center; justify-content: center;">
     <div style="font-size: 1.5em; margin-right: 10px;">🏠</div>
     <div>

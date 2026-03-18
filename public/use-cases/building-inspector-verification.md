@@ -18,7 +18,7 @@ Because these officials have the legal right to walk into your kitchen or baseme
 Live Verify allows a homeowner to scan the badge at the door and see a green "ACTIVE" status from the city's own domain, proving the person is a real employee and not a scammer.
 
 <div style="max-width: 480px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; border-radius: 12px; background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.2); display: flex; position: relative;">
-  <a href="slides/building-inspector-verification-1.html" style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%); background: #e0e0e0; border: 1px solid #999; border-radius: 4px; padding: 6px 8px; font-size: 0.75em; line-height: 1.2; cursor: pointer; color: #333; text-decoration: none;">show<br>me</a>
+
   <div style="background: #1a237e; padding: 15px; display: flex; flex-direction: column; align-items: center; border-radius: 10px 0 0 10px;">
     <div style="font-size: 2em; color: #fff; margin-bottom: 10px;">🏛</div>
     <div style="width: 100px; height: 125px; background: #eee; display: flex; align-items: center; justify-content: center; color: #000; border: 1px solid #ccc; border-radius: 4px;">[PHOTO ID]</div>
