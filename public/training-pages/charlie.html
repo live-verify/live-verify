@@ -69,6 +69,10 @@ EOF</pre>
   <p style="font-size: 0.9em; color: #666; line-height: 1.6; margin: 12px 0 0 0;">
     That computes the hash and writes a <code style="font-size: 0.9em; background: #eee; padding: 2px 4px; border-radius: 3px;">.json</code> endpoint file. Host the <code style="font-size: 0.9em; background: #eee; padding: 2px 4px; border-radius: 3px;">refs/</code> directory on your domain and you're an issuer &mdash; albeit without an authority chain that goes up to your government.
   </p>
+  <h3 style="font-size: 1em; color: #888; margin: 24px 0 8px 0;">Keep a record</h3>
+  <p style="font-size: 0.9em; color: #666; line-height: 1.6; margin: 0 0 0 0;">
+    Keep a note of the plain text and the SHA-256 hash for each reference you publish. One day you might need to revoke one &mdash; people change, relationships sour. To revoke, change the <code style="font-size: 0.9em; background: #eee; padding: 2px 4px; border-radius: 3px;">.json</code> file's content from <code style="font-size: 0.9em; background: #eee; padding: 2px 4px; border-radius: 3px;">{"status":"verified"}</code> to <code style="font-size: 0.9em; background: #eee; padding: 2px 4px; border-radius: 3px;">{"status":"revoked"}</code>, or just delete it. This isn't PII handled by an incorporated company &mdash; there's no compliance burden. An email to yourself with the claim text and hash is plenty.
+  </p>
   </div>
 </body>
 </html>
