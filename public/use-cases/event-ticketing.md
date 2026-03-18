@@ -321,6 +321,102 @@ Some events may offer "unbound" tickets at higher price or restricted availabili
 9. **Conference Tickets** — Tech conferences, trade shows; early bird tickets flipped at premium
 10. **Medical Specialist Appointments** — Months-long waitlists exploited; binding to patient identity
 
+## Authorized Ticket Partners (Delegated Bookings)
+
+A separate problem from individual ticket fraud: **fake ticket channels**. A scam website advertises seats for a sold-out show, collects payment, and vanishes. The buyer never had a chance — the seller had no relationship with the venue at all.
+
+Live Verify lets a venue publish plain-text claims naming its authorized ticket partners for each event or run. A consumer checking a third-party ticket site can verify whether that site is actually authorized to sell seats.
+
+### How It Works
+
+**The venue publishes a claim per partner per run:**
+
+<div style="max-width: 500px; margin: 24px auto; font-family: 'Courier New', monospace; border: 2px solid #1a1a2e; background: #fff; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+<div style="font-size: 0.95em; line-height: 1.8;">
+<div verifiable-text-element="true">
+Authorized ticket partner for Hamilton<br>
+14 Jul 2026 to 30 Aug 2026<br>
+ticketmaster.co.uk<br>
+<span data-verify-line="partner-demo" style="color: #667; font-size: 0.85em;">verify:royalalberthall.com/partners</span>
+</div>
+</div>
+</div>
+
+**What this proves:**
+- The Royal Albert Hall (on *their* domain) vouches for ticketmaster.co.uk as an authorized seller
+- The claim covers a specific show and date range — it's not a blanket endorsement
+- A scam site like `hamilton-tickets-cheap.com` cannot produce a claim verified by `royalalberthall.com`
+
+**Authority chain:**
+
+```
+✓ royalalberthall.com/partners — Royal Albert Hall box office
+    authorized by kensington.gov.uk (Royal Borough of Kensington and Chelsea)
+```
+
+The venue's own authority chain shows it is a real, registered venue — not a fake site impersonating one.
+
+### Multiple Partners, Same Event
+
+A venue may authorize several partners for the same run. Each gets its own claim and hash:
+
+```
+Authorized ticket partner for Hamilton
+14 Jul 2026 to 30 Aug 2026
+ticketmaster.co.uk
+verify:royalalberthall.com/partners
+
+Authorized ticket partner for Hamilton
+14 Jul 2026 to 30 Aug 2026
+seetickets.com
+verify:royalalberthall.com/partners
+
+Authorized ticket partner for Hamilton
+14 Jul 2026 to 30 Aug 2026
+stargreen.com
+verify:royalalberthall.com/partners
+```
+
+Three separate claims, three separate hashes, all verified by the same venue domain.
+
+### Post-Verification Action
+
+The verification response can include a link to the partner's actual booking page:
+
+```json
+{
+  "status": "verified",
+  "message": "Authorized ticket partner for Hamilton, 14 Jul – 30 Aug 2026",
+  "action": {
+    "label": "Book on ticketmaster.co.uk",
+    "url": "https://www.ticketmaster.co.uk/hamilton-london/..."
+  }
+}
+```
+
+This takes the consumer directly from "is this seller real?" to "book a seat" — no opportunity for a scam site to intercept.
+
+### Revocation
+
+If a partnership ends mid-run (commercial dispute, contract breach), the venue deletes the hash endpoint. Immediate effect: the partner's authorization no longer verifies. No certificate revocation lists, no expiry windows — just a 404.
+
+### What This Doesn't Do
+
+This verifies the **channel**, not an individual **ticket**. It tells a consumer "this seller is authorized to sell seats for this event" but not "this specific seat is available at this price." Seat availability and pricing is the partner's responsibility. The value is eliminating sellers who have *no* relationship with the venue and plan to abscond with booking money.
+
+### Artist/Promoter-Selected Partners
+
+The claim can also be issued by a **promoter or artist** rather than the venue, for tours where the act controls ticketing:
+
+```
+Authorized ticket partner for Radiohead UK Tour
+01 Sep 2026 to 15 Oct 2026
+dice.fm
+verify:radiohead.com/tour
+```
+
+Here `radiohead.com` is the issuer, authorized by their management or label. The authority chain adapts to whoever controls the ticketing relationship.
+
 ## Jurisdictional Witnessing
 
 A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
