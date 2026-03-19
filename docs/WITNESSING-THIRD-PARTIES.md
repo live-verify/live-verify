@@ -199,6 +199,28 @@ The cost of additional witnesses is marginal (it's just another HTTP GET), and t
 
 ---
 
+## Historical Prior Art: London Bullion Market
+
+The witnessing pattern predates Live Verify by decades. In London's over-the-counter gold market (LBMA), trades were agreed by phone between dealers at member banks. The trade confirmation — metal, weight, fineness, price, delivery date — was sent by email (earlier by telex or fax) to both counterparties **and CC'd to a Swiss entity** whose sole role was to hold the record.
+
+The Swiss firm didn't need to understand the trade. They didn't participate in it. They just held an unalterable copy of what both parties saw at the time of the agreement. If a dispute arose about price or quantity, the Swiss copy was the tiebreaker — neither London counterparty could claim different terms.
+
+Stuart, a bullion trader who worked the London OTC desk around 2001, described this system to Paul Hammant over dinner. His low-key punchline: nobody had ever actually asked the Swiss firm to adjudicate. The mere existence of the witness — the knowledge that an independent copy sat in a neutral jurisdiction — was enough to keep both sides honest. The disputes never happened because both parties knew they couldn't win one.
+
+The system evolved over the following two decades:
+
+- **2001-era:** Phone trading with fax/email confirmations CC'd to the Swiss witness
+- **2004:** LBMA introduced AurusGold electronic trading alongside phone
+- **2014:** The London Gold Fix — a 100-year-old twice-daily phone-based price-setting ritual among five banks — was replaced by ICE Benchmark Administration's electronic auction after the Barclays manipulation scandal
+- **2017:** LBMA-i launched — a centralized electronic trade reporting system requiring all members to report OTC trades
+- **2020s:** LMEprecious and other electronic venues, though significant OTC volume persists
+
+The electronic reporting systems largely replaced the informal email-confirmation and Swiss-witness model. But for the decades it operated, CC-to-Switzerland was a functional witnessing protocol built on trust in the Swiss firm's neutrality and record-keeping — the same properties that make witnessing valuable today.
+
+This is exactly the voluntary witnessing model: a credible third party in a neutral jurisdiction, holding a contemporaneous record, producing it if asked. And Stuart's observation — that the witness was never needed because its existence prevented disputes — is the strongest possible endorsement of the pattern. The weakness of the email approach was that either counterparty could claim the email was tampered after sending. With hash-based witnessing, tampering is provably detectable — the witness doesn't even need the plaintext, just the URL and the response.
+
+---
+
 ## Architecture Diagram
 
 ```
