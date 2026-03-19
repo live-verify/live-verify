@@ -1,6 +1,6 @@
 {
-  "generated": "2026-03-19T10:54:16.995Z",
-  "totalUseCases": 490,
+  "generated": "2026-03-19T12:41:48.404Z",
+  "totalUseCases": 494,
   "totalFurtherDerivations": 583,
   "categories": {
     "Real Estate & Property": 32,
@@ -12,20 +12,20 @@
     "Government & Civic Documents": 22,
     "Notary Services": 7,
     "Immigration & Visa Documents": 18,
-    "Financial & Legal Documents": 8,
+    "Financial & Legal Documents": 9,
     "Insurance Claims & Operations": 15,
     "Chain of Custody & Logistics": 18,
     "Travel & Hospitality": 21,
     "Professional & Occupational Licenses": 13,
     "Identity & Authority Verification": 39,
     "Healthcare & Medical Records": 13,
-    "Professional & Educational Qualifications": 19,
+    "Professional & Educational Qualifications": 20,
     "Art, Media & Publishing": 7,
     "Customs & Trade Compliance": 7,
     "Sports & Athletics": 6,
     "Specialty Insurance": 23,
-    "Business & Commerce": 16,
-    "Legal & Court Documents": 14,
+    "Business & Commerce": 17,
+    "Legal & Court Documents": 15,
     "Banking & Payments": 16,
     "Financial Compliance": 23,
     "Investment & Fintech": 11,
@@ -1814,6 +1814,26 @@
         "resale-certificate",
         "property-management",
         "special-assessment"
+      ]
+    },
+    {
+      "slug": "consent-and-agreement-chains",
+      "title": "Consent & Agreement Chains",
+      "category": "Legal & Court Documents",
+      "volume": "Very Large",
+      "retention": "Agreement term + statutory limitation period",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "Proposer identity, consenter identity, subject matter, material terms (dates, amounts, scope), elaboration reference, date of proposal, date of consent.",
+      "tags": [
+        "consent",
+        "agreement",
+        "medical-consent",
+        "rental-terms",
+        "two-party",
+        "cross-org",
+        "attestation-chain",
+        "dispute-resolution"
       ]
     },
     {
@@ -4933,6 +4953,27 @@
       ]
     },
     {
+      "slug": "job-offers-acceptance",
+      "title": "Job Offers & Acceptance Letters",
+      "category": "Professional & Educational Qualifications",
+      "volume": "Large",
+      "retention": "Employment term + dispute window",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "Employer name, candidate name, role/title, base compensation, start date, location, offer validity period, elaboration reference.",
+      "tags": [
+        "job-offer",
+        "acceptance",
+        "employment",
+        "compensation",
+        "start-date",
+        "immigration",
+        "mortgage",
+        "cross-org",
+        "hr"
+      ]
+    },
+    {
       "slug": "kidnap-ransom-insurance",
       "title": "Kidnap & Ransom (K&R) Insurance Policies",
       "category": "Specialty Insurance",
@@ -5113,6 +5154,27 @@
         "international-trade",
         "export-finance",
         "ucp-600"
+      ]
+    },
+    {
+      "slug": "letters-of-intent-term-sheets",
+      "title": "Letters of Intent & Term Sheets",
+      "category": "Financial & Legal Documents",
+      "volume": "Medium",
+      "retention": "Transaction completion + dispute window",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "Parties (acquirer/investor, target/company), transaction type, indicative price or valuation, key conditions, exclusivity period, elaboration reference, date.",
+      "tags": [
+        "loi",
+        "term-sheet",
+        "acquisition",
+        "investment",
+        "negotiation",
+        "revision-chain",
+        "cross-org",
+        "m-and-a",
+        "venture-capital"
       ]
     },
     {
@@ -7467,6 +7529,29 @@
         "iso-compliance",
         "batch-traceability",
         "engineering-audit"
+      ]
+    },
+    {
+      "slug": "quotes-estimates",
+      "title": "Quotes & Estimates",
+      "category": "Business & Commerce",
+      "volume": "Very Large",
+      "retention": "Quote validity period + dispute window",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "Contractor/company name, customer name, service address, scope summary, materials summary, price (including tax treatment), validity period, elaboration reference.",
+      "tags": [
+        "quote",
+        "estimate",
+        "proposal",
+        "contractor",
+        "pricing",
+        "scope",
+        "acceptance",
+        "cross-org",
+        "home-repair",
+        "freelance",
+        "small-business"
       ]
     },
     {
@@ -9941,7 +10026,7 @@
     },
     {
       "name": "Professional & Educational Qualifications",
-      "count": 19
+      "count": 20
     },
     {
       "name": "Immigration & Visa Documents",
@@ -9953,7 +10038,7 @@
     },
     {
       "name": "Business & Commerce",
-      "count": 16
+      "count": 17
     },
     {
       "name": "Banking & Payments",
@@ -9969,7 +10054,7 @@
     },
     {
       "name": "Legal & Court Documents",
-      "count": 14
+      "count": 15
     },
     {
       "name": "Professional & Occupational Licenses",
@@ -10004,15 +10089,15 @@
       "count": 10
     },
     {
+      "name": "Financial & Legal Documents",
+      "count": 9
+    },
+    {
       "name": "Professional Ethics & Compliance",
       "count": 9
     },
     {
       "name": "Scientific & Research",
-      "count": 8
-    },
-    {
-      "name": "Financial & Legal Documents",
       "count": 8
     },
     {

@@ -68,6 +68,23 @@ Open questions:
 
 No conclusion here. This needs real-world testing across carriers and devices before committing to a convention.
 
+## Open Question: Dual Hashing for Transport Tolerance
+
+An issuer could publish two hashes for the same claim: one computed from the multi-line version (with `\n` between fields) and one from the single-line version (newlines replaced with spaces). Both endpoints return the same status and payload. Whichever form the transport delivers, one of them verifies.
+
+Arguments for:
+- The claim text is identical in meaning — the only difference is `\n` vs ` ` between fields
+- Normalization already tolerates large surface variations (curly quotes, em dashes, non-breaking spaces). Newline-vs-space is the same category — same claim, different transport representation
+- The verifier never sees both hashes. They compute one hash from whatever text they received and hit one endpoint. The other hash is invisible to them
+- Revocation is straightforward: update both endpoints to the same status, or delete both
+
+Arguments against:
+- Two hashes per claim is more issuer-side complexity, even if trivial
+- It's a precedent: once you publish two representations, someone will ask for three (tabs? double spaces?)
+- The simpler rule — "author single-line if the claim needs to survive SMS" — avoids the problem entirely without any protocol-level accommodation
+
+No conclusion here. If dual hashing turns out to be needed, the tooling change is small: `generate-hash.js` emits both hashes and writes two `.json` files pointing to the same status. But it may be solving a problem that "just use single-line claims for SMS" already solves.
+
 ## Platform Integration Summary
 
 | Transport | Newline safety | Recommendation |
