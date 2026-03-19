@@ -113,9 +113,19 @@ Calendar events are the canonical "claim that travels outside the source system.
 
 **Relationship to iCal / CalDAV:**
 
-iCal is a format. CalDAV is a sync protocol. Neither is a trust system. Live Verify does not replace them for storage or sync — your calendar app still keeps events. It adds the layer that says "the organizer's domain currently stands behind these exact details." During transition, the verifiable text block can be embedded as a property inside an `.ics` file. Calendar apps that understand verification check the hash; those that don't just ignore it and show the event as usual. No flag day required.
+iCal is a format. CalDAV is a sync protocol. Neither is a trust system. Live Verify does not replace them for storage or sync — your calendar app still keeps events. It adds the layer that says "the organizer's domain currently stands behind these exact details."
 
-The real obsolescence comes later, when calendar apps stop trusting unsigned `.ics` blobs and start expecting verification.
+**Email transport — piggybacking on what's already there:**
+
+Calendar invitation emails are already multipart MIME: a `text/plain` part (human-readable summary), a `text/html` part (rich layout with Accept/Decline buttons), and a `text/calendar` attachment (the `.ics` file). The verifiable claim text and `verify:` line go unobtrusively into the existing `text/plain` part — no new MIME parts, no new attachment types. The `text/html` part gets `verifiable-text-element` markup for browser extension auto-detection. The `.ics` attachment stays unchanged for backward compatibility.
+
+This means:
+- Calendar apps that understand iCal still process the `.ics` as before
+- Email clients with Live Verify also verify the plain-text claim against the organizer's domain
+- Plain-text email readers (or anyone who views source) see the `verify:` line and can verify manually
+- Eventually, the verified plain text becomes the authoritative event and the `.ics` becomes redundant
+
+No flag day required. The transition is invisible to existing calendar apps.
 
 ## Authority Chain
 
