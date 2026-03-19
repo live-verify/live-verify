@@ -15,9 +15,9 @@ Police officer, at your open car window: "License and registration, please."
 
 You hand over your driver's license and a folded piece of paper from the glove box — or, increasingly, pull up your state's app on your phone. The officer walks back to the cruiser and types your plate number into NCIC. Five minutes pass. Ten. You sit there wondering if the registration you renewed online actually went through, or if the DMV website ate your payment again.
 
-The registration card proves three things: this vehicle is legally allowed on public roads, it has valid insurance, and the registered owner is known to the state. But paper registration cards are trivially forgeable — a colour printer and five minutes. And the officer's NCIC lookup only works because they have a laptop hardwired into a law enforcement network. Nobody else — not a parking warden, not a toll booth, not a used car buyer checking if the plates are legit — has that access.
+The registration card proves three things: this vehicle is legally allowed on public roads, it has valid insurance, and the registered owner is known to the state. But paper registration cards are trivially forgeable — a colour printer and five minutes. The strongest architecture is still the official state or operator system: DMV lookup, cruiser tools, parking-enforcement systems, insurer feeds, or issuer QR codes where they already exist.
 
-With Live Verify, the registration card carries a QR code or `verify:` line bound to the state DMV's domain. The officer scans it with a phone camera and gets real-time confirmation: valid registration, insured, no wants or warrants on the plate — or not. No NCIC terminal needed. And the same scan works for parking enforcement, toll disputes, and anyone else who needs to confirm a vehicle is legally registered.
+Live Verify is more plausible as a complementary bridge when a relying party is forced to work from the visible card, temp tag, or windshield artifact itself and lacks direct access to the official system of record.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="reg"></span>VEHICLE REGISTRATION CARD
@@ -77,7 +77,7 @@ The **Vehicle Owner** (second party) benefits from verification:
 ## Third-Party Use
 
 **Police Officers (Roadside)**
-The primary use case. Scan the registration QR code or `verify:` line instead of running the plate through NCIC. Works on any phone — no cruiser laptop needed. Bicycle patrol, foot patrol, motorcycle units all get the same instant access. Catches stolen plates, suspended registrations, and uninsured vehicles in seconds.
+Official law-enforcement systems should remain primary. Live Verify is more credible as a fallback for lower-capability contexts where the officer or verifier is working from the visible registration artifact and cannot easily reach the usual system.
 
 **Parking Enforcement**
 Parking wardens currently have handheld devices connected to municipal databases, but coverage is patchy and the devices are expensive. A phone camera scanning a windshield QR code gives the same information universally. Also useful for private parking operators (shopping centres, hospitals) who have no access to DMV databases.
@@ -142,11 +142,11 @@ Traditional registration cards carry a `verify:` text line like any other Live V
 3. **Temp tags.** Paper temporary plates are the single biggest registration fraud vector in the US. A QR code on the temp plate, bound to the issuing dealer's domain, would make every temp tag instantly verifiable. Texas alone has prosecuted dealers for issuing thousands of fraudulent temp tags.
 4. **Fleet scale.** Fleet operators managing hundreds of registrations benefit from scannable QR codes during yard audits — walk down the line, scan each windshield, flag any expired or suspended registrations.
 
-The camera-mode scan works identically to text-mode `verify:` lines — the QR code simply encodes the verification URL. No special app beyond the Live Verify browser extension or mobile app.
+The camera-mode scan works identically to text-mode `verify:` lines — the QR code simply encodes the verification URL. In this domain, that matters because QR may actually be the better primary surface. Registration is a case where Live Verify should generally ride on top of issuer QR or direct lookup patterns rather than argue against them.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen — which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (plate number, VIN, registration dates)
@@ -161,7 +161,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party" — infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuing state DMV
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -170,3 +170,8 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 ## Further Derivations
 
 1. **Disabled Person Placards** — Proving legitimate parking rights. Placard fraud is endemic — people use deceased relatives' placards, borrow others', or forge them. A verifiable placard bound to the issuing authority's domain (and optionally to the holder's identity) would let parking enforcement scan and confirm legitimacy instantly.
+
+## See Also
+
+- [Vehicle Display Postings](view.html?slug=vehicle-display-postings) — Stronger as visible safety/authority surfaces than as standalone core artifacts
+- [Auto Insurance Documents](view.html?slug=auto-insurance-documents) — Similar split between stronger portable claims and weaker card/status artifacts

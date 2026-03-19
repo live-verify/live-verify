@@ -149,9 +149,9 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 **Why Live Verify wins here:** The apostille chain — which is the current gold standard for cross-border certificate authentication — proves that a notary is real but says nothing about whether the certificate is current. A company struck off yesterday still has a valid apostille from last week. Live Verify's real-time status check is the missing piece.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (company number, jurisdiction, certificate type)
@@ -168,7 +168,7 @@ Good standing certificates have particular witnessing value for **banking disput
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction.
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 ## Further Derivations
 

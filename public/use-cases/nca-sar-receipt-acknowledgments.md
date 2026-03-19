@@ -147,9 +147,9 @@ NCA's National Cyber Crime Unit is a key consumer of cyber-flagged SARs, with gr
 - **UK:** NCA's Proceeds of Crime Centre uses SAR intelligence to identify assets for UWO applications and civil recovery; DAML consent refusals can lead directly to restraint orders and confiscation.
 - **Volume:** Of ~900,000 SARs/year, a small fraction lead to asset recovery — but those cases involve significant values; NCA recovered £345M in 2022/23 via POCA.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)

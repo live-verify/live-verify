@@ -20,6 +20,8 @@ The **Verified Badge** is the worker's digital or physical ID. It proves:
 
 "Bogus Caller" fraud—criminals posing as utility workers to gain access to homes for burglary—is one of the most common crimes targeting elderly and vulnerable people in the UK. Police forces issue regular warnings. Live Verify allows the homeowner to scan the badge through the window before opening the door and instantly confirm the worker's legitimate employment status.
 
+This is a strong Live Verify fit because the decision is immediate, physical, and safety-critical: a resident must decide whether to open the door to a stranger who claims a current right to be there.
+
 <div style="max-width: 480px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; border-radius: 12px; background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.2); position: relative;">
 
   <div style="background: #1a237e; color: #fff; padding: 15px; text-align: center; display: flex; align-items: center; justify-content: center;">
@@ -159,9 +161,9 @@ The regulatory chain anchors trust: the utility company is accountable to regula
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -176,7 +178,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the utility company
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -192,4 +194,4 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires phone call and conversation. | **Instant.** But unverifiable. |
 | **Safety Data** | **High.** Shows DBS status and current shift. | **None.** Only verbal confirmation. | **N/A.** No dynamic status. |
 
-**Why Live Verify wins here:** The "Threshold Moment." Vulnerable homeowners make the decision to open the door in seconds. They don't want to stay on the phone with someone claiming to be from the utility company while a stranger stands on their porch. Live Verify turns the **ID Badge** into a live, non-confrontational safety tool that provides instant, high-authority verification tied to regulated employment records and DBS checks.
+**Why this remains strong:** The threshold moment is the real workflow. Vulnerable homeowners decide whether to open the door in seconds and often do not want to stay on the phone while a stranger stands on the porch. Utility systems remain primary in the background, but the ID badge is the visible surface at the decision point. That makes this a strong complementary safety case rather than an attempt to replace the company's own records.

@@ -18,7 +18,7 @@ It is the primary document used for **Income Verification**:
 2.  **Housing:** Demonstrating eligibility for senior or subsidized apartments.
 3.  **Legal:** Calculating alimony or child support in family court.
 
-**"Benefit Padding"** is a common financial fraud where applicants "edit" their SSA PDF to show a higher monthly benefit (e.g., changing $1,200 to $3,200) to qualify for a larger loan. Because the SSA doesn't have a high-speed, public-facing API for private lenders, many banks rely on the "Paper Truth." Verified hashes bind the **Full Name, Monthly Payout, and Effective Date** to the `ssa.gov` domain.
+**"Benefit Padding"** is a common financial fraud where applicants "edit" their SSA PDF to show a higher monthly benefit (e.g., changing $1,200 to $3,200) to qualify for a larger loan. The strongest architecture is still the SSA's own account and benefit-verification systems where a verifier can use them directly. Live Verify is more plausible as a bridge when the PDF or mailed letter is already the artifact being shared outside the SSA workflow.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #000; padding-bottom: 15px; margin-bottom: 30px;">
@@ -70,9 +70,9 @@ Shows the issuer domain (`ssa.gov`) and current benefit status.
 
 The **Beneficiary** benefits from verification.
 
-**Mortgage / Car Loans:** Proving to a lender that their $2,450 income is a verified, stable, government-backed asset. This allows retirees to secure lower interest rates because their income is verified as "Risk-Free" by the federal government.
+**Mortgage / Car Loans:** Proving to a lender that their $2,450 income is a verified, stable, government-backed asset. This is strongest when the lender is working from the beneficiary's letter/PDF rather than a direct SSA-integrated channel.
 
-**Housing Applications:** Speeding up the approval for "Senior Housing" or rent-subsidized apartments by providing a verified income hash, bypassing the 10-day "Manual Letter Request" cycle.
+**Housing Applications:** Speeding up approval for senior housing or subsidized apartments by providing a bridge from the letter/PDF back to current SSA status, instead of relying on the paper alone.
 
 ## Third-Party Use
 
@@ -114,9 +114,9 @@ Administers US Social Security benefit statements and payments.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -131,7 +131,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -144,7 +144,11 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | :--- | :--- | :--- | :--- |
 | **Trust Anchor** | **Domain-Bound.** Bound to the SSA. | **Physical.** Trust the envelope. | **System-Bound.** |
 | **Integrity** | **Cryptographic.** Binds the $ amount. | **Zero.** Easily forged once opened. | **High.** |
-| **Speed** | **Instant.** 5-second scan. | **Very Slow.** Takes 7-10 days to arrive. | **Slow.** requires user password. |
-| **Availability** | **Universal.** Works for any bank/landlord. | **Low.** People lose their letters. | **Low.** Users hate sharing passwords. |
+| **Speed** | **Fast bridge from the shared artifact.** | **Very Slow.** Takes 7-10 days to arrive. | **Primary when used directly.** |
+| **Availability** | **Useful when the letter/PDF is what is being circulated.** | **Low.** People lose their letters. | **Primary when the beneficiary and verifier can use it directly.** |
 
-**Why Live Verify wins here:** The "Saturday Morning" reality. Most car and home shopping happens when the SSA phone lines are closed. Live Verify turns the **Permanent Paper Record** (or the PDF on the phone) into a live, trusted digital link, ensuring that "Retirement Security" is a cryptographically verified fact at the exact point of sale.
+**Narrower conclusion:** SSA systems should remain primary where direct use is practical. Live Verify is complementary when the letter or PDF is already the thing being handed to lenders, landlords, or agencies and the verifier needs a lightweight bridge back to current SSA status.
+
+## See Also
+
+- [Proof of Insurance (Policyholder Confirmation)](view.html?slug=proof-of-insurance-status) — Another strong portable-claim case where the verifier often lacks direct system access

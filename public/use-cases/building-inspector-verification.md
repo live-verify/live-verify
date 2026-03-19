@@ -149,9 +149,9 @@ Local authorities employ building inspectors authorized by the Building Act 1984
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -166,7 +166,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -182,4 +182,4 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | **Speed** | **Instant.** 5-second scan. | **N/A.** Just looking. | **Slow.** Often takes 5-10 minutes on hold. |
 | **Revocation** | **Real-time.** Suspended/stolen badges fail immediately. | **None.** Physical badge still looks valid. | **Maybe.** If office knows and tells you. |
 
-**Why Live Verify wins here:** The "Doorstep Workflow." Homeowners are often intimidated by officials. They don't want to engage in a long conversation or a phone call. Live Verify allows for a **non-confrontational verification**—the owner can simply ask to see the badge, scan it with their own phone, and see `OK` from the city domain before opening the door.
+**Why this remains strong:** The doorstep workflow is the real issue. Homeowners are often intimidated by officials and may not want a long conversation or phone call while someone waits outside. City systems remain primary in the background, but the badge is the visible surface at the decision point. That makes this a strong complementary case for non-confrontational verification before entry.

@@ -17,7 +17,7 @@ The core question is always the same: **is this person legally allowed to work h
 
 That question is asked thousands of times a day—by employers making hiring decisions, by labour inspectors visiting job sites, by banks opening accounts, by landlords signing leases. And in most countries, the answer still depends on staring at a physical card or printout and hoping it's genuine.
 
-Live Verify turns any work permit into a live link to the issuing authority's database. Scan the `verify:` line, get a real-time status. No government portal login, no phone calls, no guesswork.
+The strongest architecture is still the issuing state's own system: eVisa portals, share codes, employer right-to-work checks, or official status APIs. Live Verify is more plausible as a bridge when a relying party is holding a copied permit, grant notice, or screenshot outside that native system and needs a fast path back to current government status.
 
 <div style="max-width: 420px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
   <div style="background: #1a5276; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
@@ -121,7 +121,7 @@ The **Worker** benefits from verification.
 ## Third-Party Use
 
 **Employers (HR / Hiring Managers)**
-**Right-to-Work Compliance:** The primary use case globally. Employers face fines—sometimes criminal liability—for hiring unauthorized workers. In the UK, penalties reach £45,000 per illegal worker. In the US, I-9 violations can cost thousands per employee. Live Verify gives any employer instant, phone-based verification without needing access to government portals.
+**Right-to-Work Compliance:** The strongest production answer is still the official right-to-work or employer-verification system for that jurisdiction. Live Verify is better understood as a bridge when the employer is holding only a copied permit or grant notice and needs a direct path back to current government status.
 
 **Banks and Financial Institutions**
 **KYC / Account Opening:** Verifying that a non-citizen customer holds valid work authorization, as required by anti-money laundering regulations. Many banks currently accept photocopies—easily forged.
@@ -175,15 +175,21 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 | Feature | Live Verify | Government Portals (E-Verify, VEVO, Share Code) | Physical Document Inspection |
 | :--- | :--- | :--- | :--- |
-| **Access** | **Open.** Anyone with a phone camera. | **Restricted.** Requires employer registration, login credentials, training. | **Open.** Anyone can look at a card. |
+| **Access** | **Useful when working from a copied or forwarded permit.** | **Primary.** Official current-status path. | **Open.** Anyone can look at a card. |
 | **Trust** | **Domain-bound.** Cryptographically tied to issuing authority's domain. | **High.** Direct database access. | **Low.** Visual inspection only; forgeries pass. |
-| **Speed** | **Instant.** 5-second scan. | **Minutes to days.** Portal login, data entry, sometimes "manual review" queues. | **Instant.** But unreliable. |
-| **Coverage** | **International.** Any issuer in any country can publish. | **Single-country.** Each portal serves one jurisdiction. | **International.** But no verification. |
+| **Speed** | **Fast bridge from the document to status.** | **Varies by jurisdiction.** Sometimes excellent, sometimes cumbersome. | **Instant.** But unreliable. |
+| **Coverage** | **Best for portability across copied human workflows.** | **Single-country.** Each portal serves one jurisdiction. | **International.** But no verification. |
 | **Worker Privacy** | **High.** Hash-based; no data upload. | **Low.** Full personal data entered into government systems. | **Medium.** Photocopies often retained. |
-| **Small Business Access** | **Yes.** No registration needed. | **Often no.** Many small employers don't register for government portals. | **Yes.** But no fraud protection. |
+| **Small Business Access** | **Potentially easier.** | **Often no.** Many small employers don't register for government portals. | **Yes.** But no fraud protection. |
 
-**Why Live Verify wins here:** The problem isn't that verification systems don't exist—it's that they're siloed, complex, and inaccessible. A restaurant owner in London can't use Australia's VEVO. A Canadian farmer can't access E-Verify. A UAE construction foreman has no portal at all. Live Verify creates a universal pattern: scan the card, check the domain, get the status. Every country, every employer, every phone.
+**More realistic framing:** This is strongest where official systems are absent, fragmented, or hard for low-capability relying parties to use. Where a mature official system exists, that system should remain primary. Live Verify is a complementary portability layer for copied permits, grant notices, and forwarded status artifacts.
 
 ## Country-Specific Deep Dives
 
 - [Employment Authorization Documents (EAD) — United States](employment-authorization-ead)
+
+## See Also
+
+- [Passports & Visa Documents](view.html?slug=passports-visa-documents) — Narrowed to copied-document workflows outside native state systems
+- [Advance Parole and Re-Entry Permits](view.html?slug=advance-parole-reentry-permits) — Another immigration-status artifact where official systems remain primary
+- [Border Crossing Receipts (I-94)](view.html?slug=border-crossing-receipts-i94) — Direct DHS/CBP systems should remain the main current-status path

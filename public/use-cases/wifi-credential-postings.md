@@ -15,7 +15,7 @@ This use case is less about verifying a document and more about what happens *af
 
 The value is in the **post-verification action**: the venue's endpoint issues a network access token, and the access point's walled garden opens up. Before verification, you can reach exactly one domain. After verification, you have full internet access. The verification is the authentication step. The network access is the product.
 
-This makes Wi-Fi credential postings a **Live Verify Action** use case — the verification itself is a means to an end, not the end.
+This makes Wi-Fi credential postings a **Live Verify Action** use case — the verification itself is a means to an end, not the end. It is also a reminder that the hard problem here is product and platform integration: captive portals, OS onboarding, access-point token handling, and router setup flows. Without that integration, the verification layer alone does not solve much.
 
 ### The Problem It Solves
 
@@ -95,7 +95,7 @@ to 7 days and receive the next passphrase rotation.
 
 The access point runs a **walled garden** — the industry term for a captive portal's DNS/IP allow-list. Before the token exchange, a connected device can reach exactly one destination: the venue's verification endpoint. Every other DNS query resolves to the captive portal page. Every other IP is blocked.
 
-This is infrastructure that already exists. Hotel Wi-Fi and airport Wi-Fi work this way today — you connect, and until you accept terms or enter a room number, you can't reach anything. The captive portal is standard, widely deployed, and supported by every device OS. The only difference here is *what* gates the access: instead of clicking "I agree to terms" on a form that anyone could spoof, the customer verifies a physical posting through Live Verify and receives a cryptographic token.
+This is infrastructure that already exists. Hotel Wi-Fi and airport Wi-Fi work this way today. But the deployment burden is the point: the use case only works if the venue controls the captive portal, token validation, and OS onboarding flow. This is why the problem is primarily integration, not document integrity.
 
 The access point checks the token (a signed JWT or similar) against the venue's auth endpoint. Valid token → full DNS and routing opens up. No token → walled garden persists. The token is scoped to the device's MAC address and expires at the end of the credential rotation period.
 
@@ -292,7 +292,7 @@ For router manufacturers and ISPs, the brand domain is the quick-connect trust a
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
 Not typically required for Wi-Fi credential postings. The credentials are ephemeral (they rotate), non-personal (the SSID and password are the same for all guests), and the security value is in the real-time verification, not in a historical audit trail.
 

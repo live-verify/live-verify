@@ -164,9 +164,9 @@ The authority chain is what exposes ESA letter mills and other fraudulent certif
 
 **Why Live Verify wins here:** There is no functioning verification infrastructure for disability certifications. Calling the doctor is slow and runs into HIPAA walls. Trusting the letter is the default — and it's why fraud is rampant. Centralized disability registries don't exist in most jurisdictions, and where they've been proposed, privacy advocates have rightly raised alarms about creating government databases of disabled people. Live Verify threads the needle: verification without centralization, confirmation without diagnosis disclosure, trust without surveillance.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require certifying physicians to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the certifying physician, and any subsequent changes to the certification as they happen — which may manifest as a new hash, a status change (REVIEW_DUE, EXPIRED, REVOKED, SUPERSEDED), or even a 404 (record deleted)
 - Receives structured content/metadata (certification type, functional limitation category, accommodation type, validity dates)
@@ -181,7 +181,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party" — infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Certifying physician's domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp

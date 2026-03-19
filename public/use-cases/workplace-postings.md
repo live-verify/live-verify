@@ -13,9 +13,9 @@ furtherDerivations: 1
 
 Mandatory workplace postings are government-required notices that inform workers of their rights regarding safety, wages, discrimination, and leave. These must be posted in conspicuous locations accessible to all employees, typically employee breakrooms, hallways, or near time clocks.
 
-The problem is that these posters are often outdated or even fraudulent. Employers may fail to update posters when laws change (e.g., minimum wage increases), or shady managers might "edit" a poster to hide certain rights (e.g., changing "12 weeks" of FMLA leave to "4 weeks"). Additionally, private vendors often scam businesses into buying expensive poster bundles that are actually free from the government.
+The problem is that these posters are often outdated or even fraudulent. Employers may fail to update posters when laws change, or private vendors may sell expensive poster bundles that are actually free from the government.
 
-Live Verify allows an employee to scan the poster to verify: **"Is this the current, un-altered official version directly from the issuing authority (e.g., DOL, OSHA, EEOC)?"**
+This is therefore primarily a **publication-distribution** problem. The best fix is usually a direct official URL, QR code, or stable agency PDF page. Live Verify is only a secondary fit if the goal is to make the physical poster itself a human-readable bridge to the official source without relying on an opaque code.
 
 <div style="max-width: 500px; margin: 24px auto; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; border: 2px solid #003366; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
   <div style="background: #003366; color: #fff; padding: 15px; text-align: center;">
@@ -92,11 +92,11 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 ## Rationale
 
-Workplace postings are the "Bill of Rights" for the breakroom. By turning them into verifiable digital bridges, we ensure that employees are informed by the digital truth of the law, not the creative editing of a manager.
+Workplace postings are the "Bill of Rights" for the breakroom. But the main product here is still the agency's current poster page. A verification layer is only secondary to that simpler direct-link distribution model.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -111,7 +111,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp

@@ -19,6 +19,8 @@ The **Building Service Staff Badge** is the contractor's or employee's proof of 
 
 Impostors posing as maintenance workers use this as a pretense to gain entry: they case the apartment, steal valuables, follow residents inside to assess layout and security, or worse. E-Ink badges with real-time authorization status allow residents to verify a worker's credentials before opening the door—confirming they're assigned to that property, to that unit, and authorized to work at that time.
 
+This is one of the stronger Live Verify families precisely because it is not a decorative credential problem. The resident is making an immediate threshold decision about a stranger entering private space, and the verification claim is assignment-specific: this worker, this unit, this time window.
+
 ### Static Card (Traditional)
 
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #2e7d32; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
@@ -187,9 +189,9 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -204,7 +206,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -221,7 +223,7 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | **Freshness** | **Real-time.** Shows if work order is active *today*, if license is current. | **Static.** Badge never updates. | **Variable.** Management may not know latest updates. | **Static.** ID doesn't update if license expired overnight. |
 | **Works Alone** | **Yes.** Resident can verify without needing to call anyone. | **Questionable.** Resident must judge appearance and make a call. | **No.** Resident must open door or leave it open to call. | **Somewhat.** Resident can examine ID but can't verify authenticity. |
 
-**Why Live Verify wins here:** The **"Home Entry Workflow."** A resident must decide—alone, in seconds, at their front door—whether to allow a stranger entry to their private home. They can't easily call building management, can't safely leave their door open while verifying, and can't visually distinguish a legitimate contractor from an impostor. Live Verify gives residents a cryptographic proof of authorization they can verify in 3 seconds at the peephole.
+**Why this remains strong:** The real issue is the home-entry threshold decision. A resident must decide alone, in seconds, at the front door, whether to allow a stranger into a private home. Building management systems remain primary in the background, but they are often not comfortably accessible at that moment. That makes the badge or work-order credential a strong surface for immediate, resident-controlled verification.
 
 ---
 
@@ -250,4 +252,3 @@ This use case belongs to the **Mobile Service Staff in Ungated Facilities** patt
 - [Delivery & Courier Verification](view.html?doc=delivery-courier-verification) — Recipients verify delivery drivers.
 - [Healthcare Facility Staff](view.html?doc=healthcare-facility-staff) — Patients verify hospital staff.
 - [Event Venue & Contractor Staff](view.html?doc=event-venue-staff) — Security verify event crews.
-

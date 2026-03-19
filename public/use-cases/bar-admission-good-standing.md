@@ -15,7 +15,7 @@ Just because someone has a law degree doesn't mean they are allowed to practice 
 
 A **Certificate of Good Standing** is the "Live License" for a lawyer. It is issued by the Supreme Court of their state and proves they are active and compliant.
 
-Because attorneys often move between states for specific cases, they must show these letters to foreign judges. A verified letter ensures a "fake lawyer" (identity thief) can't walk into a courtroom and represent a client.
+The strongest architecture is still the court or bar's own public status page or registry where one exists. Live Verify is more credible as a bridge when the good-standing letter itself is the portable artifact being filed, emailed, or shown in court.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 1px solid #999; background: #fff; padding: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
   <div style="text-align: center; margin-bottom: 30px; border-bottom: 2px solid #000; padding-bottom: 20px;">
@@ -129,9 +129,9 @@ UK solicitors are regulated by the SRA under the Legal Services Act:
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -146,7 +146,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -158,7 +158,12 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | Feature | Live Verify | Public Attorney Search | Paper Certificate |
 | :--- | :--- | :--- | :--- |
 | **Integrity** | **Binds Date.** Proves standing *as of the letter date*. | **Live.** Shows standing *today*. | **Static.** Easily faked. |
-| **Efficiency** | **Instant.** Scan the paper in the courtroom. | **Slow.** Type in name, navigate results, find the right "John Smith." | **Manual.** Compare seals. |
+| **Efficiency** | **Fast bridge from the letter.** | **Primary.** Live status path. | **Manual.** Compare seals. |
 | **Trust** | **Domain-Bound.** Bound to `nycourts.gov`. | **High.** But prone to "Similar Name" errors. | **Medium.** |
 
-**Why Live Verify wins here:** Specificity. Public searches for common names (e.g., "Robert Smith") can return 50 results. Live Verify binds the verification to the **specific physical document** the lawyer is holding, eliminating the "wrong person" risk and the need for manual data entry in busy courtrooms.
+**Narrower conclusion:** Public attorney search should remain primary where it is practical. Live Verify is complementary when the good-standing letter is already the artifact in motion and the verifier wants to bind that specific letter to the correct lawyer without name-search ambiguity.
+
+## See Also
+
+- [Professional Licenses](view.html?slug=professional-licenses) — Broader registry-primary framing
+- [University Degrees and Transcripts](view.html?slug=university-degrees) — Another credential family where the portable artifact is useful but not dominant

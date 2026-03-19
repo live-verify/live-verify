@@ -112,9 +112,9 @@ Security alarm installers are licensed and monitored by the UK private security 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -129,7 +129,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -144,4 +144,4 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | **Photo ID** | **Strong.** Verification can display the official photo to compare with the person standing there. | **Weak.** Text-only lookups don't show the face, allowing ID theft (using a real name but wrong person). |
 | **Privacy** | **Targeted.** Checks *this* person. | **Open.** Anyone can scrape the whole database. |
 
-**Why Live Verify wins here:** The "Doorstep Scenario." A homeowner opening the door to a technician needs to verify them *now*, in seconds. They are not going to go to a computer, find the state DPS website, and navigate a search form while the person waits on the porch. Scanning the badge is the only viable workflow.
+**Why this remains strong:** State website lookup should remain primary where it is practical. But at the doorstep the homeowner is making an immediate entry decision from the badge in hand, often without a comfortable or realistic registry workflow. That makes this a strong threshold-verification case rather than an attempt to replace the licensing database.

@@ -13,9 +13,9 @@ furtherDerivations: 2
 
 You're a British citizen applying for permanent residence in Australia. Immigration requires a police clearance certificate from every country you've lived in for 12+ months in the past 10 years. You lived in the UK, France, and the UAE. You need three separate certificates — from ACRO (UK), the Casier Judiciaire (France), and Dubai Police. Each takes weeks to obtain, arrives in a different format, in a different language, and the Australian immigration officer has no way to verify any of them. Are they real? Are they current? Did you alter the French one to remove a conviction?
 
-Police clearance certificates are one of the most commonly required documents in international immigration — and one of the least verifiable. They're issued by national police forces, arrive as paper or PDF, and the receiving country's immigration authority has no practical way to confirm authenticity without bilateral law enforcement cooperation (which doesn't happen for routine visa applications).
+Police clearance certificates are one of the most commonly required documents in international immigration — and one of the least verifiable. They're issued by national police forces, arrive as paper or PDF, and the receiving country's immigration authority often has no practical way to confirm authenticity without bilateral law enforcement cooperation, direct issuer contact, or country-specific portals that are not built for foreign routine use.
 
-With Live Verify, each certificate carries a verify line bound to the issuing police authority's domain. The Australian immigration officer scans the ACRO certificate and verifies against `acro.police.uk`. Scans the French certificate and verifies against `casier-judiciaire.justice.gouv.fr`. Five seconds each.
+This is therefore a stronger portability case than most government-ID documents. The certificate is routinely exchanged outside the issuing authority's native system, and the receiving authority is often in another country altogether.
 
 <div style="max-width: 520px; margin: 24px auto; font-family: sans-serif; border: 1px solid #999; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
   <div style="background: #1a2744; color: #fff; padding: 18px 20px; display: flex; align-items: center; justify-content: space-between;">
@@ -192,11 +192,11 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Routine Use** | **Yes.** Designed for high-volume daily processing. | **No.** Reserved for serious cases. Not used for routine immigration. | **No.** Not available for visa processing. | **Yes.** But proves form, not substance. | **Yes.** The current default for most countries. |
 | **Coverage** | **Any participating authority.** Scales with adoption. | **Bilateral only.** Depends on which countries have agreements. | **194 member countries.** But access is restricted. | **Hague Convention members.** ~120 countries. | **Universal.** Every country issues paper. |
 
-**Why Live Verify wins here:** The current default for most immigration authorities worldwide is "trust the paper." Bilateral law enforcement channels exist but take months and aren't used for routine visa applications. Interpol channels are restricted to law enforcement — immigration caseworkers can't access them. Apostilles prove the signature is real but say nothing about whether the content was altered. Live Verify is the only option that gives an immigration officer real-time, content-level verification of a foreign police certificate — in five seconds, from any country, in any language.
+**Why this remains strong:** The current default for most immigration authorities worldwide is still "trust the paper." Bilateral law enforcement channels are too slow for routine processing, Interpol channels are restricted, and apostilles prove signature rather than content. That makes police clearance certificates one of the clearer cases where a portable verification bridge is genuinely doing work outside the issuer's native system.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen — which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (reference number, dates, issuing authority)
@@ -213,7 +213,7 @@ Particularly valuable for international certificates where the issuing authority
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party" — infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuing police authority
 2. **Witnessing firm** — Independent confirmation with timestamp

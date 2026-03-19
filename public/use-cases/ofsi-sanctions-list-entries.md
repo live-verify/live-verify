@@ -169,9 +169,9 @@ A significant proportion of sanctions designations relate to WMD proliferation �
 - **Switzerland:** *Goods Control Act (GKG)*; SECO administers proliferation sanctions; Swiss financial institutions must screen against proliferation-specific lists.
 - **South Korea:** *Foreign Trade Act* + Strategic Trade Controls; Korea Strategic Trade Institute (KOSTI) — proximity to DPRK drives extensive PF controls; unique position as both enforcer and potential target.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)

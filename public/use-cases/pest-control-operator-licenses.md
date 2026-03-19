@@ -11,9 +11,15 @@ furtherDerivations: 1
 
 ## What is a Pest Control License?
 
-If you hire someone to spray chemicals in your kitchen or drill into your foundation for termites, they must be a **Licensed Pest Control Operator (PCO)**. This license is the proof that the technician has been trained in the safe use of toxic pesticides, is background-checked to enter private homes, and is covered by mandatory liability insurance.
+If you hire someone to spray chemicals in your kitchen or drill into your foundation for termites, they must be a **Licensed Pest Control Operator (PCO)**. But at the door, the real question is narrower than "is this person in the trade?" It is:
 
-The problem is that "Pest Control" is a high-trust, high-risk profession. Criminals pose as "inspectors" to gain entry for burglary, or unlicensed workers use "homemade" poisons that can kill pets or sicken families. Physical badges are easily forged with a home printer. Live Verify allows a resident or restaurant manager to scan the technician's ID to verify: **"Is this person currently licensed by the state, and are they authorized for the specific chemicals they are using?"**
+- is this the company I booked?
+- is this the technician actually assigned to my property now?
+- does their license category cover the specific treatment they are proposing?
+
+That makes pest control a threshold-decision case as much as a professional-license case.
+
+The problem is that "Pest Control" is a high-trust, high-risk trade. Criminals pose as "inspectors" to gain entry for burglary, or unlicensed workers use "homemade" poisons that can kill pets or sicken families. Physical badges are easily forged with a home printer. Live Verify allows a resident or restaurant manager to scan the technician's ID to verify: **"Is this the right technician from the right firm, currently authorized for this visit and this treatment category?"**
 
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #004d40; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
   <div style="background: #004d40; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
@@ -50,7 +56,7 @@ The problem is that "Pest Control" is a high-trust, high-risk profession. Crimin
 
 ## Data Verified
 
-License number, licensee full name, photograph (via hash), company name (DBA), license categories (e.g., Structural, Lawn, Termite), expiration date, background check timestamp, insurance policy ID, issuing state board.
+License number, licensee full name, photograph (via hash), company name (DBA), assignment or work-order reference where applicable, license categories (e.g., Structural, Lawn, Termite), expiration date, background check timestamp, insurance policy ID, issuing state board.
 
 **Document Types:**
 - **PCO Pocket ID:** The primary field identification.
@@ -63,23 +69,26 @@ License number, licensee full name, photograph (via hash), company name (DBA), l
 Shows the issuer domain (`texasag.gov`, `fdacs.gov`, `agriculture.ny.gov`) and the professional status.
 
 **Status Indications:**
-- **Active / Clear** — License is valid and the technician is in good standing.
+- **Active / Clear** — License is valid and the technician is in good standing for the claimed service.
 - **Suspended** — **CRITICAL:** Practice authority is temporarily revoked (e.g., due to safety violation).
 - **Insurance Lapsed** — **ALERT:** The technician is not currently covered by a bond.
 - **Restricted** — **ALERT:** Technician is not authorized for certain categories (e.g., "No Termites").
+- **WRONG_COMPANY** — The person may be real, but not from the firm the customer expected.
+- **NOT_ASSIGNED** — The person may be licensed, but is not the technician assigned for this visit.
+- **OUT_OF_SCOPE** — The technician or firm is real, but not authorized for the claimed treatment class or chemical use.
 
 ## Second-Party Use
 
 The **Technician (Practitioner)** benefits from verification.
 
-**Customer Trust Speed:** When arriving at a "Late Night" emergency call (e.g., for a bed bug outbreak), the tech can proactively show their verified hash to the resident. "Verified by State Board" ensures the customer that the tech is a vetted pro, allowing them to enter the home without the common "Stranger Danger" delay.
+**Customer Trust Speed:** When arriving at a late-night emergency call (e.g., for a bed bug outbreak), the tech can proactively show a credential that confirms both licensure and company assignment. That lets the resident decide quickly without a long phone call or a risky guess.
 
 **Bid Credibility:** A small business owner can include verified license hashes in their service contracts. This proves to property managers that their crew is 100% licensed and background-checked, distinguishing them from "un-insured cash" competitors.
 
 ## Third-Party Use
 
 **Homeowners / Restaurant Managers**
-**Public Health Safety:** Before allowing someone to spray chemicals near food prep areas, a manager scans the badge. Verification ensures the tech isn't using a "Borrowed" license number to hide a lack of training or a criminal record.
+**Public Health Safety:** Before allowing someone to spray chemicals near food prep areas, a manager scans the badge. Verification ensures the tech isn't using a borrowed license number, arriving under the wrong company name, or claiming a treatment category they are not authorized to perform.
 
 **Real Estate Agents / Title Companies**
 **Closing Integrity:** Verifying that the "Termite Clearance" (WDI) report was actually signed by a licensed professional and isn't a "Photoshop forgery" designed to hide a $10,000 structural issue from a buyer.
@@ -92,6 +101,8 @@ The **Technician (Practitioner)** benefits from verification.
 **The "Fake Uniform" Fraud Problem**
 
 - **Identity Spoofing:** Scammers using a real company's logo and a fake ID badge to "inspect" homes for burglary.
+- **Company Substitution:** Customer books one firm, but a cheaper or unknown subcontractor shows up instead.
+- **Visit Misassignment:** Real technician, wrong property or wrong day.
 - **Category Padding:** Editing a PDF to add "Termite" authority to a license that only allows "Ant/Roach" spraying.
 - **Revocation Hiding:** Continuing to practice using a physical "Valid" card after the board revoked the license for poisoning a client's pet.
 
@@ -105,9 +116,9 @@ The **Technician (Practitioner)** benefits from verification.
 
 ## Authority Chain
 
-**Pattern:** Regulated
+**Pattern:** Regulated / commercial
 
-Pest control operators must be licensed and background-checked by health and safety authorities to ensure only trained professionals handle toxic pesticides in food facilities and homes.
+The strongest version is layered: the board or regulator confirms standing and treatment scope; the company or dispatch system confirms that this is the right technician for this address and visit.
 
 ```
 ✓ bpca.org.uk/member/verify — Maintains register of qualified pest control operators
@@ -119,11 +130,17 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 ## Rationale
 
-Pest control is a "Toxic Trust" domain. By turning static badges into live digital bridges, we protect the safety of homes and the health of the food supply, ensuring that those who handle poisons are held to the digital truth of the state record.
+Pest control is a "toxic trust" domain. The risk is not abstract credential inflation; it is letting the wrong person into a home or food-prep area to use dangerous chemicals. The strongest Live Verify version therefore combines live license scope with current company identity and visit legitimacy.
 
-## Jurisdictional Witnessing
+## See Also
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+- [Home Service Provider Verification](view.html?slug=home-service-provider-verification) — Broader doorstep company/assignment verification for trades
+- [Cold-Caller Credentials](view.html?slug=cold-caller-credentials) — Doorstep verification before opening the door
+- [Trades and Home-Visit Cluster](../../trades-home-visit-cluster.md) — Cluster note for threshold-decision cases
+
+## Jurisdictional Witnessing (Optional)
+
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -138,7 +155,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp

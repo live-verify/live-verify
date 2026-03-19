@@ -125,9 +125,9 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require property managers and landlord platforms to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the property manager, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change (terminated, eviction filing, renewed), or even a 404 (record deleted)
 - Receives structured content/metadata (agreement IDs, rent amounts, lease terms, property addresses)
@@ -142,7 +142,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Property manager domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -157,4 +157,4 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | **Privacy** | **High.** Verifies only what's scanned. | **Low.** Exposes whole contract. | **Low.** Requires login. |
 | **Field Use** | **Seamless.** Scan the paper at the DMV. | **Manual.** | **N/A.** |
 
-**Why Live Verify wins here:** The "Proof of Address" reality. Leases are needed in the physical world—at the school office, the DMV, or the bank. These places don't have logins to your private "Tenant Portal." Live Verify turns the **Paper Lease** into a live, high-authority trust anchor that works across different organizations.
+**Why this remains strong:** Leases are routinely carried into school offices, DMVs, banks, and other places that do not have access to the landlord's or tenant's private portal. This is a strong portability case: the paper or PDF lease is the artifact in motion, and the verifier needs a lightweight bridge back to issuer truth.

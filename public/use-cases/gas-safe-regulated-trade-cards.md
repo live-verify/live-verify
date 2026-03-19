@@ -200,9 +200,9 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 Gas Safe registration is one of the few trade credentials where failure to verify can directly result in death. The system already works — there is a register, there are ID cards, there is a website lookup. The gap is purely at the point of encounter: the doorstep, where the homeowner meets the engineer and has three seconds to decide whether to let them in. A scannable card that returns a photo and a live status is the difference between "I'll take your word for it" and "I can see you're registered, come in." The verification cost is trivial; the cost of not verifying is measured in lives.
 
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -217,7 +217,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp

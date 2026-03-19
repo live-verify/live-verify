@@ -171,9 +171,9 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 **Why Live Verify wins here:** The current system has a massive gap: offshore substance declarations are filed with the registrar but are essentially unverifiable by anyone except the registrar and (eventually, annually) the home jurisdiction's tax authority. Banks doing KYC, tax advisors doing due diligence, and counterparties assessing treaty eligibility must rely on self-attestation or registered agent letters. Live Verify puts the registrar's own confirmation in the hands of anyone who needs it, in seconds.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (entity registration number, filing period, relevant activity type)
@@ -190,7 +190,7 @@ Economic substance declarations have particular witnessing value for **cross-jur
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Registrar domain** — Direct check against the issuing authority
 2. **Witnessing firm** — Independent confirmation with timestamp

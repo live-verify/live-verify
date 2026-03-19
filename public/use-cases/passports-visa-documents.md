@@ -18,7 +18,9 @@ Beyond the airport, passports are used as the "Primary ID" for:
 2.  **Renting High-Value Assets:** Cars, apartments, or luxury equipment.
 3.  **Cross-Border Business:** Signing contracts as a foreign entity.
 
-**"High-Grade Clones"** are a major security threat. Sophisticated forgers can replicate holograms, security paper, and even RFID chips. However, they **cannot forge what the issuing government's server sends back**. Live Verify turns the **Physical Data Page** into a live link to the government's secure database, allowing anyone from a bouncer to a bank teller to see if the passport was **Revoked or Reported Stolen** today.
+**"High-Grade Clones"** are a major security threat. Sophisticated forgers can replicate holograms, security paper, and even RFID chips. But the strongest passport verification still belongs inside the passport's native machine-readable ecosystem: chip reads, MRZ checks, and official government systems.
+
+The Live Verify use case is narrower. It is for **third-party relying parties outside formal government verification channels**: hotels, employers, landlords, banks, remote onboarding teams, and background-check providers. Those parties often receive a scan, PDF, or phone photo of the data page but do not have chip-reading hardware or direct access to border-grade systems. In that setting, Live Verify turns the **Data Page Copy** into a live link back to the issuing authority's status.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #333; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
   <div style="background: #002d62; color: #fff; padding: 20px; display: flex; align-items: center; justify-content: space-between;">
@@ -85,22 +87,23 @@ The **Passport Holder (Traveler)** benefits from verification.
 
 ## Third-Party Use
 
-**Airlines and Carriers**
-**Check-in Integrity:** Before boarding a flight, the gate agent scans the data page. Verification ensures the passport hasn't been "reported stolen" in the last hour, reducing the carrier's liability for "Inadmissible Passenger" fines.
+**Hotels and Hospitality**
+**Remote Copy Trust:** A hotel receiving a passport image during pre-arrival check-in can verify that the copied data page still maps to an issuer-backed record rather than trusting a bare JPEG sent over email or chat.
 
-**Hospitality / Bouncers**
-**Age & Identity:** Instantly confirming that a "Novice Fake" ID isn't authentic. Standard fakes look perfect to the eye; Live Verify connects the bouncer directly to the government source in seconds.
+**Employers / Background Checks**
+**Identity and Work-History Support:** A foreign employer or screening firm reviewing a passport copy can verify that the document is not an obvious fabrication or stale replacement before proceeding to deeper checks.
 
-**Border Control (Land/Sea)**
-**Visual Augmentation:** Complementing chip-reading technology. If a passport's NFC chip is damaged or non-existent (as in many older or non-biometric passports), Live Verify provides a "Chip-Level" trust anchor for the visual zone.
+**Banks / KYC Teams**
+**Copy-of-Passport Workflows:** Many KYC teams still receive uploaded passport scans during onboarding. Live Verify gives them a stronger authenticity and status signal without requiring full passport-reader hardware.
 
 ## Verification Architecture
 
-**The "High-Grade Clone" Fraud Problem**
+**The "Copied Data Page" Fraud Problem**
 
 - **Identity Theft:** Using a real person's data on a cloned book with a different photo.
-- **Status Hiding:** Presenting a physically "Valid" passport that has been revoked by the government for legal or security reasons.
-- **The Doppelganger Attack:** Using a valid passport belonging to a similar-looking person. Live Verify with **Photo Return** (returning the official face on file) stops this instantly.
+- **Status Hiding:** Sending a scan of a passport that has since been reported lost, replaced, or revoked.
+- **Scan Reuse:** Reusing an old passport image in onboarding flows long after a replacement document was issued.
+- **The Doppelganger Attack:** Using a valid passport belonging to a similar-looking person. Live Verify with **Photo Return** (returning the official face on file) helps non-government verifiers detect this faster.
 
 **Issuer Types** (First Party)
 
@@ -121,16 +124,16 @@ The **Passport Holder (Traveler)** benefits from verification.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Photo Return: Defeating the "Woman in Cabin 10" Pattern
+## Photo Return: Stronger Copy-of-ID Checks
 
 Verification responses can include the **issuing authority's authoritative photo** of the holder — not just status, but the actual face on file.
 
 **Why This Matters:**
-A sophisticated forger can perfectly replicate holograms and security paper. But they **cannot forge what the government server sends back**. When the agent's phone displays the government's photo and it doesn't match the person at the counter, the fraud is exposed. This defeats "Sibling Lending" and sophisticated "Doppelganger" attacks (as dramatized in the 2025 film *The Woman in Cabin 10*).
+A sophisticated forger can perfectly replicate holograms and security paper. But they **cannot forge what the government server sends back**. When a hotel, employer, or KYC analyst sees a returned photo that does not match the submitted document or the live selfie they requested, the fraud is exposed.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -145,16 +148,16 @@ This provides:
 
 **Jurisdictional Requirements (International/US State Department)**
 
-US State Department guidance requires that visa and immigration documents verified for international travel use witnessing firms located in **different jurisdictions** than the issuing embassy/consulate to ensure independent verification and prevent conflicts of interest.
+This use case may justify an independent witness layer in some cross-border settings, but that should be treated as an optional enhancement rather than a baseline requirement.
 
-Documents crossing national borders require multi-jurisdictional witnessing:
-- **Treaty Partners:** When documents are shared between treaty partners (e.g., US-EU, Canada-US), witnessing firms must be located in neutral jurisdictions recognizable to both parties
-- **Non-Treaty Jurisdictions:** For documents involving non-OECD nations, use witnesses from OECD member states and consider blockchain rollups for immutable proof
-- **Diplomatic verification:** When embassy documents are questioned, independent witnesses from neutral territory prevent credibility attacks on either government
+Documents crossing national borders may benefit from an independent witness when:
+- several governments or carriers need a common audit trail
+- the issuer's system is not the only record likely to be consulted in a dispute
+- the parties want independent timestamping of issuance, revocation, or supersession events
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to passport or visa verification. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -165,12 +168,12 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 
 | Feature | Live Verify | NFC / e-Passport | Scanned PDF / Image |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Gov. | **Key-Bound.** Trust the PKI. | **Zero.** Easily forged. |
-| **Hardware** | **Universal.** Any smartphone camera. | **Restricted.** Requires NFC chips. | **Universal.** |
-| **Adoption** | **High.** Works for older/damaged books. | **Medium.** Many books have dead chips. | **High.** |
-| **Integrity** | **Cryptographic.** Binds photo to status. | **High.** | **Vulnerable.** |
+| **Primary Use Case** | **Third-party copy verification.** Good for uploaded scans and PDF workflows. | **Gold standard.** Best when native passport-reading infrastructure is available. | **Weak.** Easy to forge and replay. |
+| **Hardware** | **Universal.** Any smartphone camera or OCR-capable workflow. | **Restricted.** Requires NFC-capable devices and chip-reading support. | **Universal.** |
+| **Verifier Access** | **Broad.** Useful for hotels, employers, banks, and screening teams. | **Limited.** Best suited to formal travel and government workflows. | **Broad.** But untrusted. |
+| **Status Signal** | **Good.** Issuer-domain response can show replacement or revocation state. | **Strong.** Native passport trust path. | **None.** Static copy only. |
 
-**Why Live Verify wins here:** The "Damaged Chip" reality. Thousands of passports have broken or non-functioning NFC chips due to wear and tear. Live Verify turns the **Durable Printed Page** into a live digital credential, providing "Chip-Level" trust to even the oldest or most battered passport books.
+**Why Live Verify fits here:** It is the bridge for relying parties who handle passport copies outside the native passport ecosystem. It should not replace NFC or official border systems; it fills the gap where the verifier only has a copy and no access to passport-reader infrastructure.
 
 ## Further Reading
 

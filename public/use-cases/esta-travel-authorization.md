@@ -15,7 +15,7 @@ If you are a citizen of a "Visa Waiver" country (like the UK, Japan, or France),
 
 This is a digital permit that links your passport to the US border system. You apply online, and if approved, you print out a **Confirmation Notice**.
 
-Airlines are fined thousands of dollars for every passenger they let onto a plane without a valid ESTA. If your paper is fake or altered, you will be stopped at the airport. Verified hashes allow the airline to see the "Approved" status on the government's domain in seconds.
+Airlines are fined thousands of dollars for every passenger they let onto a plane without a valid ESTA. But the real source of truth is already the government's live status system. That makes ESTA a weak fit for standalone document verification: the better answer is usually easier access to the official status page or API, not a new printable verification layer.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 0; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
   <div style="background: #002d62; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
@@ -73,20 +73,20 @@ Shows the issuer domain (`cbp.dhs.gov`) and current travel standing.
 
 The **Traveler (Citizen of VWP Country)** benefits from verification.
 
-**Airline Boarding:** Proving to an airline check-in agent in London or Tokyo that the paper printout isn't a "Fake Approval." Airlines are fined heavily for boarding passengers without valid ESTAs; a verified hash prevents the "Denied Boarding" nightmare caused by system lag or clerical errors.
+**Airline Boarding:** In the narrow case where a traveler is holding only a printout and the carrier lacks a smoother official lookup flow, verification can act as a convenience wrapper around the official status record.
 
-**Hotel Check-In:** Proving legal entry status to a foreign hotel or car rental agency that requires proof of authorized stay.
+**Travel Administration:** A traveler or travel arranger can use the printout as a quick human-readable reference, while understanding that the real authority remains the official CBP status.
 
 ## Third-Party Use
 
 **Airlines (International Carriers)**
-**Liability Mitigation:** Instantly confirming the ESTA status of a passenger during check-in. Live Verify connects the airline directly to the CBP record, bypassing the need for manual data entry into the APIS system.
+The ideal answer is direct carrier integration with the official CBP status system. Live Verify would only be a convenience wrapper around that official state, not a replacement for it.
 
 **Embassies / Consulates**
-**Secondary Vetting:** Verifying the prior travel history of a visa applicant who previously traveled under the Visa Waiver Program (ESTA).
+**Secondary Vetting:** If they look at a printout at all, it should only be as a convenience surface. The substantive check still belongs in official government systems.
 
 **Private Security / Event Organizers**
-**Guest Vetting:** Ensuring that international VIP guests have verified, legal entry status for high-security events.
+This is weak as a core use. If legal-entry status matters, direct official documentation or official system checks are better.
 
 ## Verification Architecture
 
@@ -116,9 +116,9 @@ Authorizes visa-free travel for citizens of eligible countries.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -133,7 +133,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -149,4 +149,4 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | **Trust** | **Cryptographic.** Bound to `cbp.dhs.gov`. | **High.** But prone to phishing sites. | **Low.** Easily faked. |
 | **Hardware** | **Universal.** Any smartphone camera. | **Technical.** Requires laptop/stable 5G. | **Visual.** |
 
-**Why Live Verify wins here:** The "Airport Counter" reality. Check-in agents are under extreme time pressure. They don't have time to type 10-digit application numbers and 9-digit passport numbers into a website for every passenger. Live Verify turns the **Physical Printout** into a live, high-speed digital key, ensuring safety and efficiency in global travel.
+**Practical conclusion:** ESTA is primarily a direct-status-access problem. If convenience is the issue, the right fix is a shorter official check flow, airline integration, or a link/QR into the official page. Live Verify would only be a thin convenience layer over that existing source of truth.

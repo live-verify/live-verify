@@ -9,6 +9,12 @@ tags: ["national-id", "state-id", "provincial-id", "identity-verification", "kyc
 furtherDerivations: 1
 ---
 
+## What is a National or State ID Card?
+
+These cards are the core government identity credential for non-drivers, and in many countries they already sit inside a broader machine-readable ecosystem: barcode, chip, NFC, wallet, or issuer-operated identity apps.
+
+That makes Live Verify a **complementary** tool here, not the dominant one. Its best case is when a human-readable card image or copy is being checked outside the native infrastructure. If a verifier already has NFC, a structured code, or direct access to the issuer's system, those remain the primary path.
+
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
   <div style="background: #002d62; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
     <div>
@@ -137,9 +143,9 @@ States can monitor verification request patterns:
 
 Geo-checking won't stop a single clone use, but it detects systematic abuse and can trigger card revocation and investigation before major fraud occurs.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -154,7 +160,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -170,7 +176,7 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | **Hardware** | **Universal.** Any smartphone camera. | **Restricted.** Requires NFC-enabled phones. |
 | **Adoption** | **High.** Works for cards without chips. | **Low.** Many US/Canada IDs lack chips. |
 
-**Why Live Verify wins here:** The "Technology Gap." While high-end EU IDs have NFC chips, many state and provincial IDs in North America are still just "Smart Paper." Live Verify turn these **Low-Tech Cards** into live digital credentials, providing "Chip-Level" trust to billions of people without the cost of a hardware upgrade.
+**Practical conclusion:** Where NFC or official digital-ID infrastructure exists, that should dominate. Live Verify is more defensible in the technology-gap cases where the verifier only has a visible card or an image and needs a lightweight bridge to current issuer status.
 
 ## Further Reading
 

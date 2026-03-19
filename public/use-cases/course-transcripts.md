@@ -118,9 +118,9 @@ University registrars are governed by the Office for Students in the UK, which s
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require universities to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the university, and any subsequent changes to the transcript as they happen—which may manifest as a new hash, a status change (grade amendment), or even a 404 (record deleted)
 - Receives structured content/metadata (course codes, credit hours, degree programs, graduation dates)
@@ -135,7 +135,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **University domain** — Direct check against the Registrar
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -150,4 +150,4 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | **Speed** | **Instant.** Scan the paper/PDF. | **Slow.** Often takes 24-48 hours to "Process." | **Instant.** |
 | **Cost** | **Low.** Standard web infra. | **Medium.** Fees of $10-$20 per transcript are common. | **None.** |
 
-**Why Live Verify wins here:** The "Hiring Manager" reality. Recruiters want to verify a candidate *now*, during the interview. They don't want to wait 2 days for an "Official Parchment Link" to be emailed to them. Live Verify turns the **Candidate's PDF** into a live, trusted record that can be verified in seconds.
+**Narrower conclusion:** Official registrar delivery and transcript vendors should remain primary where they are available and accepted. Live Verify is complementary when the candidate's transcript PDF is already the artifact in circulation and the verifier otherwise falls back to trusting a scan or waiting for formal delivery.

@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 In the commercial trucking industry, the **Annual Vehicle Inspection Report (AVIR)** is the "Health Certificate" for a 40-ton truck. US federal law (FMCSR 396.17) requires every commercial vehicle to pass an annual safety audit of its brakes, tires, lighting, and steering.
 
-These documents are critical for highway safety. Fraud is rampant: shady carriers often "edit" a failed inspection report into a "PASS" to keep a dangerous truck on the road, or they use a fake certificate from a non-existent "Mobile Inspector." Verified hashes bind the **VIN, Inspector License, and Safety Results** to the inspection station's or the state's domain (e.g., `dot.gov` or `jiffy-lube-fleet.com`).
+These documents are critical for highway safety. Fraud is rampant: shady carriers often "edit" a failed inspection report into a "PASS" to keep a dangerous truck on the road, or they use a fake certificate from a non-existent "Mobile Inspector." The stronger architecture is still the transport authority or inspection-system lookup where one already exists. Live Verify is most useful when a relying party is staring at the report itself and needs a lightweight bridge back to issuer status.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="dot"></span>ANNUAL VEHICLE INSPECTION REPORT
@@ -80,14 +80,14 @@ If a verifier suspects an inspection station is issuing fake passes, the complai
 
 The **Fleet Manager / Owner-Operator** benefits from verification.
 
-**Roadside Enforcement Speed:** During a random DOT stop, the driver shows the verified hash of their annual inspection. The Trooper can instantly see **"VERIFIED PASS - EXPIRES 2027"** on their tablet, potentially skipping a lengthy "Level I" roadside inspection and getting the truck back on the road in minutes.
+**Roadside Enforcement Speed:** A lightweight bridge from the visible report can help lower-capability roadside checks, but formal roadside inspection systems and authority databases should remain primary where available.
 
 **Broker Onboarding:** Before a freight broker gives a high-value load to a carrier, they scan the carrier's verified inspection reports. "Verified by Penske" provides the broker with the proof needed to trust the carrier's safety posture without manual spreadsheet checks.
 
 ## Third-Party Use
 
 **State Troopers / Roadside Inspectors**
-**Rapid Vetting:** Instead of manually typing a 17-digit VIN into a database, the officer scans the dashboard placard hash. Verified hashes eliminate "VIN Typos" and expose "Clone Plates" where a bad truck uses a good truck's paperwork.
+**Rapid Vetting:** A bridge from the report can reduce VIN/keying errors when the document is what is in hand. Where transport-authority or fleet systems already expose direct lookup, those systems should remain primary.
 
 **Insurance Underwriters**
 **Risk Portfolio Audit:** Verifying that 100% of a trucking fleet has verified, active annual inspections before renewing a multi-million dollar liability policy.
@@ -127,11 +127,11 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 ## Rationale
 
-Truck safety is a "Life-and-Death" domain. By turning annual reports into verifiable digital bridges, we ensure that the "Chain of Safety" is backed by cryptographic proof, keeping dangerous vehicles off the highway and rewarding safe carriers.
+Truck safety is a life-and-death domain. The narrow claim is not that report verification should outrank transport-authority systems, but that copied or printed inspection artifacts should have a credible path back to current issuer status instead of relying on paper alone.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -146,7 +146,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -185,7 +185,7 @@ Station ID:             MAN-9922
 <span data-verify-line="mot">verify:gov.uk/mot/v</span> <span verifiable-text="end" data-for="mot"></span></pre>
 </div>
 
-**Note:** DVSA already provides a free MOT history lookup at gov.uk. Live Verify adds value by verifying the physical certificate itself — useful when the paper is presented but internet access is limited (e.g., roadside purchase).
+**Note:** DVSA already provides a free MOT history lookup at `gov.uk`. That official lookup should remain primary. Live Verify is only complementary here when the paper certificate is what is being exchanged and the goal is to bridge neatly back to the official record.
 
 ## Data Verified (MOT)
 
@@ -253,7 +253,12 @@ The same pattern applies to:
 - **Japan:** Shaken (車検) — biennial inspection, notoriously thorough
 - **US States:** Emissions/safety inspections vary by state (California smog check, Texas safety inspection, etc.)
 
-All follow the same verification model:
-- Status code confirms pass/fail/expired
-- No post-verification action needed — the status is the value
-- Fraudulent stations reported to transport authority, not via verification endpoint
+All follow the same narrow verification model:
+- official transport-authority lookup remains primary where it exists
+- status code confirms pass/fail/expired when working from the report artifact
+- fraudulent stations are still reported to the transport authority, not via the verification endpoint
+
+## See Also
+
+- [Vehicle Registration](view.html?slug=vehicle-registration) — A related vehicle-state use case where direct lookup or issuer QR is often primary
+- [Vehicle Display Postings](view.html?slug=vehicle-display-postings) — Visible roadside/parking surfaces bridging to live status

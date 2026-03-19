@@ -15,7 +15,7 @@ furtherDerivations: 1
 
 Because they are so powerful, they are the #1 target for identity thieves. A criminal can use the birth certificate of a child who died young to "become" that person, opening bank accounts and taking out loans.
 
-Verified vital records allow banks and agencies to check the **Live Status** of the person (e.g., "This birth certificate is real, but the person is marked as DECEASED in our database") to stop identity theft cold.
+The strongest architecture is still the issuing vital-records office or the formal government verification channel where one exists. Live Verify is more credible when the certificate itself is the artifact in hand and the verifier needs a practical path back to current record status outside that government workflow.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 3px double #1a365d; background: #fdfcf0; padding: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); position: relative; border-radius: 4px;">
   <div style="text-align: center; border-bottom: 2px solid #1a365d; padding-bottom: 15px; margin-bottom: 25px;">
@@ -75,9 +75,9 @@ Shows the issuer domain (`health.pa.gov`, `cdc.gov`) and current record status.
 
 The **Named Person** or **Next of Kin** benefits from verification.
 
-**Passport Applications:** Proving to the State Department that the birth certificate isn't a "High-Quality Forgery" (a common issue with older paper records).
+**Passport Applications:** The issuing authority's own government verification channel should remain primary. The complementary case is when the certificate itself is what is circulating and the verifier needs a direct bridge back to issuer status.
 
-**Real ID Licensing:** Speeding up DMV verification by providing a "Verified Link" to the birth record, reducing the chance of rejection due to "unclear paper."
+**Real ID Licensing:** Speeding up checks when staff are working from the certificate and unclear paper quality is the immediate problem, not replacing the underlying government lookup.
 
 **Estate Settlement:** Proving to a bank or life insurer that a family member has indeed passed away using a verified death certificate.
 
@@ -119,9 +119,9 @@ The **Named Person** or **Next of Kin** benefits from verification.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -136,7 +136,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -148,8 +148,13 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | Feature | Live Verify | Security Paper (Intaglio/Void) | EVVE (Gov-to-Gov) |
 | :--- | :--- | :--- | :--- |
 | **Integrity** | **Cryptographic.** Protects the *text*. | **Mechanical.** Protects the *paper*. | **Database.** Direct server check. |
-| **Public Access** | **Restricted.** Only person with the cert can verify. | **Visual.** Anyone can look at it. | **Zero.** Only Gov agencies have access. |
-| **Interoperability** | **High.** Any employer/bank can verify. | **Low.** Requires expert knowledge of 50 different state paper types. | **None.** Private Gov-only network. |
+| **Public Access** | **Useful when the certificate is the artifact being shared.** | **Visual.** Anyone can look at it. | **Primary for government channels.** |
+| **Interoperability** | **Potentially high outside gov-only systems.** | **Low.** Requires expert knowledge of 50 different state paper types. | **None.** Private Gov-only network. |
 | **Cost** | **Low.** Standard web infra. | **High.** Specialty printing and chemical paper. | **High.** Per-query fees are common. |
 
-**Why Live Verify wins here:** Reach. EVVE is great but only works for government agencies. Banks, employers, and foreign governments are locked out. Live Verify allows **private-sector verifiers** to have "Passport Agency Level" trust in a piece of paper, without compromising the central government database.
+**Narrower conclusion:** Government channels should remain primary where they exist and are usable. Live Verify is strongest only for private-sector and cross-jurisdiction workflows where the certificate itself is being presented outside those channels and the verifier otherwise falls back to paper inspection.
+
+## See Also
+
+- [Passports & Visa Documents](view.html?slug=passports-visa-documents) — Similar “copied/portable artifact outside native system” framing
+- [Probate Documents](view.html?slug=probate-documents) — Death-related authority workflows downstream of the vital record

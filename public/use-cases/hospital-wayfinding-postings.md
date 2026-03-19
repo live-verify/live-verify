@@ -17,7 +17,7 @@ Hospitals. Universities. Airports. Exhibition centres. Government complexes. Sho
 
 The problem isn't the signage itself — it's that static signs can't tell you where *you* need to go, and they can't update when rooms move. A printed sign is correct on the day it's hung and increasingly wrong thereafter.
 
-With Live Verify, every corridor intersection has a plain-text posting with a `verify:` line. You scan it with your phone. The building operator's domain confirms the sign is genuine — and the post-verification response tells you where you are and how to get where you're going.
+The main product here is still the building operator's live navigation service. Live Verify is a complementary layer: every corridor intersection can carry a plain-text posting with a `verify:` line, so a visitor who encounters a physical sign first can bridge into that live navigation system with more tamper transparency than an opaque code alone.
 
 ### The Hospital Example
 
@@ -76,7 +76,7 @@ This sign was last updated: 08 MAR 2026
 
 ## Why Text, Not QR
 
-QR codes would be the obvious choice for navigation. But in a public building with heavy foot traffic and limited supervision, QR codes have a critical vulnerability: **sticker overlay attacks.**
+QR codes are the obvious choice for navigation because they reduce friction sharply. But in a public building with heavy foot traffic and limited supervision, they also have a critical vulnerability: **sticker overlay attacks.**
 
 A malicious QR sticker placed over a legitimate QR code takes seconds to apply, is visually indistinguishable from the original, and redirects every scanner to a different URL. In a hospital context this could mean:
 
@@ -92,7 +92,12 @@ Plain text on a wall is much harder to tamper with at scale:
 3. **Hash integrity.** The verification hash covers the entire sign text. Change a single character — move "Outpatients" from "3 min" to "5 min," swap "east" for "west" — and the hash won't match. The verification fails, alerting the scanner that the sign has been altered.
 4. **Camera OCR is robust.** Modern phone cameras reliably OCR printed monospace text from a corridor sign at arm's length. No special app needed beyond the standard Live Verify browser extension.
 
-QR codes are appropriate where the surface is supervised (a till receipt in your hand, a badge worn by staff, a ticket you printed yourself). In an unsupervised public corridor, text is the safer choice.
+That does **not** mean text always beats QR. The trade-off is:
+
+- **QR:** faster and easier for most visitors
+- **Plain text + verification:** more transparent if tamperability and domain legibility matter
+
+In many real deployments, QR may still win on convenience. The Live Verify case is strongest where the operator wants the physical sign itself to be a human-readable, inspectable launch surface into the live navigation system.
 
 ## Data Verified
 
@@ -146,7 +151,7 @@ Accessibility: All routes have step-free access.
 
 The sign on the wall tells you where you are. The verification response tells you how to get where you're going. The app can render turn-by-turn walking directions — "Walk east 30m, turn right at the double doors, take Lift B to Level 0, follow the yellow line 50m to Main Entrance."
 
-This is indoor navigation without Bluetooth beacons, without Wi-Fi triangulation, without any infrastructure beyond printed signs and the hospital's verification endpoint. The signs are the beacons. Every junction scan updates the app's knowledge of where you are.
+This is indoor navigation without Bluetooth beacons, without Wi-Fi triangulation, and without specialised indoor-positioning infrastructure. The signs are the launch surfaces. Every junction scan updates the app's knowledge of where you are by handing off to the operator's live navigation endpoint.
 
 **Progressive navigation:** A visitor scans the sign at the entrance, selects "Cardiology Outpatients," and gets directions. Three junctions later they're unsure — they scan another sign. The app recalculates from the new position. No GPS needed. No battery-draining Bluetooth scanning. Just printed text and a verification endpoint.
 
@@ -182,7 +187,7 @@ Large buildings are not static. Hospital departments merge, split, relocate. Uni
 
 This is different from fraud. Nobody is tampering with corridor signs for profit. The problem is institutional inertia — updating hundreds of signs across a sprawling campus is expensive and slow, so it doesn't happen until a refurbishment forces it. Meanwhile, visitors follow outdated directions.
 
-Live Verify turns stale signs into self-correcting signs. The physical text becomes a reference point rather than an instruction. The verification response provides the current, authoritative navigation data.
+The core fix is the operator's live navigation service. Live Verify can turn stale signs into trustworthy launch surfaces for that service. The physical text becomes a reference point rather than an instruction, and the verification response provides the current navigation data.
 
 **Issuer Types** (First Party)
 
@@ -195,7 +200,7 @@ Live Verify turns stale signs into self-correcting signs. The physical text beco
 **Government Buildings and Courts:** HMRC offices, Crown Courts, Social Security offices. Visitors are often anxious, unfamiliar, and on a schedule (hearing times, appointment slots).
 **Corporate Campuses with Visitor Traffic:** Tech company headquarters, pharmaceutical R&D sites, financial district office complexes. Visitors arrive for meetings in buildings they've never entered and may not re-enter.
 
-**Privacy Salt:** Low. Wayfinding signs contain no personal data. The content is the same for every visitor. However, if the operator wishes to track individual navigation journeys (for accessibility research, for example), those analytics should be opt-in and anonymised.
+**Privacy Salt:** Low. Wayfinding signs contain no personal data. The content is the same for every visitor. However, if the operator wishes to track individual navigation journeys, those analytics should be opt-in and anonymised. This is primarily a navigation-service design question rather than a document-integrity question.
 
 ## Authority Chain
 
@@ -229,9 +234,9 @@ The pattern depends on who operates the building. NHS hospitals and government b
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen — which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (sign locations, department mappings, update dates)
@@ -246,7 +251,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party" — infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the hospital trust
 2. **Witnessing firm** — Independent confirmation with timestamp

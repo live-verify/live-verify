@@ -15,7 +15,7 @@ Immigrants waiting for a Green Card (or DACA recipients) cannot just fly home fo
 
 **Advance Parole (Form I-512)** is the permission slip to travel. It is a simple sheet of paper with a photo.
 
-If a traveler loses this paper, or if an airline agent in Paris thinks it looks "fake," the traveler is stranded abroad. Verifying this document instantly is literally a life-changing capability.
+If a traveler loses this paper, or if an airline agent in Paris thinks it looks "fake," the traveler is stranded abroad. The strongest answer is still direct access to current DHS/USCIS/CBP status where policy allows. Live Verify is only plausible as a bridge from the paper artifact to that official status for lower-capability relying parties outside the U.S. system.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fdfdfd; padding: 0;">
   <div style="background: #eef; padding: 15px; border-bottom: 1px solid #ccc; display: flex; align-items: center;">
@@ -71,7 +71,7 @@ Shows the issuer domain (`uscis.gov`) and the document status.
 
 The **Applicant** (traveler) benefits from verification.
 
-**Airline Boarding:** The biggest anxiety for Advance Parole holders is being denied boarding in a foreign country because the airline staff doesn't recognize the paper document. A verifiable link allowing staff to see "VALID" on `uscis.gov` provides the confidence needed to issue the boarding pass.
+**Airline Boarding:** The biggest anxiety for Advance Parole holders is being denied boarding in a foreign country because the airline staff doesn't recognize the paper document. A bridge from the paper to current official status may help in that edge case, but it should not be treated as a replacement for carrier-facing government document checks.
 
 **Employer I-9:** Proving work authorization (parole documents can sometimes be used for I-9 purposes).
 
@@ -79,7 +79,7 @@ The **Applicant** (traveler) benefits from verification.
 
 **Airlines (Foreign Airports)**
 
-**Carrier Sanctions:** Airlines are fined heavily for bringing passengers with invalid documents. They are risk-averse. Verifying the parole document instantly prevents wrongful denial of boarding.
+**Carrier Sanctions:** Airlines are fined heavily for bringing passengers with invalid documents. They are risk-averse. The dominant architecture should still be direct carrier access to official boarding-status systems. Live Verify is more defensible as a fallback when staff are working from the travel document itself and lack a clean official channel.
 
 **Social Security Administration**
 
@@ -116,9 +116,9 @@ Issues immigration travel permits for temporary protection.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -133,7 +133,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -144,10 +144,15 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 
 | Feature | Live Verify | CBP Systems (TECS) |
 | :--- | :--- | :--- |
-| **User Access** | **Public/Restricted.** Can be opened to Airlines/DMVs via URL. | **Internal Only.** Only CBP officers at the border have access. |
-| **Airline Check-in** | **Feasible.** Check-in agent can scan the paper. | **Impossible.** Agent in Frankfurt cannot query US DHS databases directly. |
+| **User Access** | **Potential bridge for lower-capability relying parties.** | **Primary for government/border use.** |
+| **Airline Check-in** | **Possible fallback from the paper artifact.** | **Dominant if direct carrier access exists.** |
 | **Physical Security** | **Tamper-Evident.** Hash protects the printed dates/names. | **None.** The paper itself has weak security features compared to a passport. |
 | **Cost** | **Low.** Standard web infrastructure. | **High.** Secure leased lines/VPNs required for database access. |
 
-**Why Live Verify wins here:** It extends the "Edge of the Network" to the airline check-in desk in a foreign country. It bridges the gap between the secure US database and the insecure physical world where the traveler actually encounters checkpoints.
+**Narrower conclusion:** This is only strong as an edge-case bridge for airlines, DMVs, or other relying parties that are staring at the paper and do not have a clean official status path. It is not a substitute for border systems, carrier document systems, or USCIS/CBP databases.
 
+## See Also
+
+- [Passports & Visa Documents](view.html?slug=passports-visa-documents) — Complementary only outside native travel-document systems
+- [Work Permits & Work Visas](view.html?slug=work-permits) — Similar “official system primary, copied artifact secondary” pattern
+- [Border Crossing Receipts (I-94)](view.html?slug=border-crossing-receipts-i94) — Another DHS/CBP status artifact

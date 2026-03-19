@@ -119,9 +119,9 @@ Security guard licenses are issued and monitored by the UK private security regu
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -136,7 +136,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -152,4 +152,4 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | **Speed** | **Instant.** 5-second scan at the door. | **N/A.** Just looking. | **Slow.** Requires typing 10-digit ID. |
 | **Hardware** | **Universal.** Any smartphone camera. | **Human Eye.** | **Technical.** Requires laptop/stable 5G. |
 
-**Why Live Verify wins here:** The "Night-Shift" reality. Bouncers and site managers often work in dark, high-pressure environments when government offices are closed. Live Verify turns the **Physical Guard Card** into a live, trusted safety link, ensuring that the person "Protecting the Building" is verified safe at the exact point of risk.
+**Why this remains strong:** Central registry lookup should remain primary where it is practical. But bouncers, site managers, and venue staff are often making a threshold decision at night, under pressure, with only the guard card in hand. That makes the displayed credential a real-world safety surface, and Live Verify a strong complementary bridge from that surface to current licensing status.

@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 When a person in the US on a temporary visa (e.g., H-1B, F-1, or B-2) wants to stay longer or switch to a different visa type, they file a **Change of Status (COS)** or **Extension of Stay (EOS)**. The approval arrives as an **I-797A Notice of Action**, often with a new paper I-94 attached at the bottom.
 
-These documents are the "Proof of Legal Presence." Fraud is rampant: people whose extensions were denied often "edit" a 2024 approval into a 2026 approval to hide their illegal overstay and trick employers or landlords into believing they are still in status. Verified hashes bind the **Receipt Number, New Expiration Date, and Visa Class** to the `uscis.gov` domain.
+These documents are the "Proof of Legal Presence." Fraud is rampant: people whose extensions were denied often "edit" a 2024 approval into a 2026 approval to hide their illegal overstay and trick employers or landlords into believing they are still in status. But the strongest answer is still the official USCIS/CBP/SAVE workflow where available. Live Verify is only credible as a bridge when a relying party is holding the paper notice or PDF outside that native government system.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="extension"></span>I-797A | NOTICE OF ACTION
@@ -59,20 +59,20 @@ Shows the issuer domain (`uscis.gov`) and the real-time case standing.
 
 The **Employee (Beneficiary)** benefits from verification.
 
-**Employment Onboarding (I-9):** An H-1B worker switching jobs can show the verified hash of their "Transfer Approval." The new employer's HR manager can instantly see **"APPROVED - H-1B"** on their phone, allowing the worker to start immediately without the fear of a $10,000 "Illegal Hiring" fine.
+**Employment Onboarding (I-9):** The strongest production path is still the official employer-verification workflow. Live Verify is more plausible when HR is holding only the approval notice or PDF and needs a lighter bridge back to current government status.
 
-**Driver's License Renewal:** DMVs require proof of legal stay to renew a Real ID. Providing a verified hash of the I-797A allows the DMV clerk to bypass the 10-day "SAVE" database delay and issue the license on the spot.
+**Driver's License Renewal:** DMVs require proof of legal stay to renew a Real ID. A bridge from the notice to current status may help when staff are working from the notice itself, but SAVE or other direct government checks should remain primary.
 
 ## Third-Party Use
 
 **Employers / HR Managers**
-**Zero-Trust Vetting:** Thousands of fake I-797s are sold globally every year. Live Verify connects the manager directly to the USCIS record in seconds, stopping "Status Hiding" where a terminated employee tries to get a new job using an edited notice.
+**Zero-Trust Vetting:** Thousands of fake I-797s are sold globally every year. The official government workflow should remain primary; Live Verify is only the portability layer when the document itself is what is circulating.
 
 **Landlords / Leasing Agents**
 **Eligibility Check:** Verifying that a non-citizen applicant has the verified legal status to remain in the US for the duration of a 12-month lease.
 
 **International Travel Checkpoints**
-**Boarding Prep:** Verifying that a traveler who has an expired visa in their passport actually has a verified, active extension notice before allowing them to board a flight back to the US.
+**Boarding Prep:** This is only defensible as an edge-case bridge from the paper notice to current status. Carrier-facing government document systems should remain dominant.
 
 ## Verification Architecture
 
@@ -104,11 +104,11 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 ## Rationale
 
-Visa extensions are the "Oxygen of Legal Presence." By turning notices into verifiable digital bridges, we protect the US labor market from fraud and ensure that legal residents can live and work without unfair administrative delays.
+Visa extensions are important status artifacts, but they should not displace official USCIS/CBP/SAVE channels. The narrower claim is that when a notice or PDF is already traveling outside those systems, a direct bridge back to issuer status is better than trusting the paper alone.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -121,19 +121,16 @@ This provides:
 - **Regulatory audit:** Jurisdictions can inspect the witness ledger for fraud detection
 - **Resilience:** Verification works even if issuer's systems go down
 
-**Jurisdictional Requirements (International/USCIS)**
-
-USCIS documents require independent witnessing firms located outside the US for cross-border verification, particularly when:
-- The applicant is in a non-treaty jurisdiction
-- The application involves multiple countries
-- The document is shared with foreign governments or international organizations
-
-**Geographic Separation Rule:** Witnessing firms must not be located in the applicant's destination country, preventing local collusion while ensuring neutral verification.
-
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
 3. **Public blockchain** — Decentralized trust anchor via rollup inclusion
+
+## See Also
+
+- [Employment Authorization Documents (EAD)](view.html?slug=employment-authorization-ead) — Similar “artifact bridge, official workflow primary” pattern
+- [Border Crossing Receipts (I-94)](view.html?slug=border-crossing-receipts-i94) — Direct DHS/CBP systems should remain the main current-status path
+- [Advance Parole and Re-Entry Permits](view.html?slug=advance-parole-reentry-permits) — Another immigration-status edge-case bridge

@@ -17,6 +17,8 @@ An Apostille is an "International Notary" certificate issued by the Secretary of
 
 It's a huge target for fraud—fake apostilles are often used to "legalize" fake degrees or stolen property documents for use in foreign courts.
 
+This remains a strong portability case because the apostille is specifically designed to cross borders into systems that usually do not share a native registry or direct lookup workflow.
+
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 3px solid #000; background: #fff; padding: 40px; position: relative;">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 20px;">
     <h2 style="margin: 0; text-transform: uppercase; letter-spacing: 2px;"><span verifiable-text="start" data-for="apostille"></span>APOSTILLE</h2>
@@ -117,9 +119,9 @@ The UK Foreign, Commonwealth & Development Office legalises and authenticates do
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -134,7 +136,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -145,8 +147,8 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 
 | Feature | Live Verify | e-Apostille Registry | Wet Ink / Embossed |
 | :--- | :--- | :--- | :--- |
-| **User Experience** | **Seamless.** Scan the paper you are holding. | **Difficult.** Must find the state website, type in the 12-digit ID, solve CAPTCHAs. | **Manual.** Compare seals to pictures in a book. |
+| **User Experience** | **Seamless.** Scan the paper you are holding. | **Primary where cleanly available.** Often still awkward across jurisdictions. | **Manual.** Compare seals to pictures in a book. |
 | **Trust Anchor** | **Domain-Bound.** `dos.ny.gov` is the source of truth. | **Centralized.** Only works if the specific registry is known. | **Visual.** Easily fooled by high-quality copies. |
 | **Offline Check** | **Medium.** Hash protects the printed text integrity. | **None.** Requires live DB access. | **Strong.** Physical security features (ribbons, grommets). |
 
-**Why Live Verify wins here:** International law is slow. The "Hague Convention" relies on paper certificates attached with ribbons or staples. Live Verify bridges this ancient physical process to the modern web, allowing a clerk in a small village in Italy to verify a document from California in seconds, using only their phone.
+**Why this remains strong:** e-Apostille registries are the right source of truth where they exist and are easy to use, but the practical problem is still cross-border portability from the paper artifact in hand. Live Verify is strongest as a cleaner bridge from that artifact to the issuing authority's current record.

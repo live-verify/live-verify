@@ -212,9 +212,9 @@ NHS hospitals issue staff badges under healthcare regulator authority (CQC in th
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -229,7 +229,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -247,7 +247,7 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | **Verifies License Status** | **Yes.** Shows if active, suspended, or expired. | **No.** Badge is silent on license status. | **Maybe.** Staff may confirm verbally but unverified. | **No.** Patient can't see license status. | **Yes but manual.** Patient can lookup but time-consuming. |
 | **Works When Patient is Alone** | **Yes.** Patient can verify without involving others. | **No.** Patient must judge visually. | **No.** Patient must call or use button; risky during medical procedures. | **No.** Patient must recognize person. | **No.** Requires internet access, privacy to lookup. |
 
-**Why Live Verify wins here:** Healthcare has **two critical workflows:**
+**Why this remains strong:** Healthcare has **two critical complementary workflows** where the badge or displayed credential is the surface the patient encounters, even though facility systems and state license registries remain primary in the background:
 
 1. **"Private Room Workflow"** (support staff): A patient cannot easily reach a phone, call a nurse station, or safely leave their room to verify a stranger's identity. Live Verify gives patients a non-invasive way to verify support staff at the moment of entry—from bed, through a doorway camera, or by viewing the badge through a partially open door.
 
@@ -349,4 +349,3 @@ This use case is part of the **Mobile Service Staff in Ungated Facilities** patt
 - [Delivery & Courier Verification](view.html?doc=delivery-courier-verification) — Recipients verify delivery persons.
 - [Residential Building Staff](view.html?doc=residential-building-staff) — Residents verify maintenance and contractors.
 - [Event Venue & Contractor Staff](view.html?doc=event-venue-staff) — Venue security verify temporary crews.
-

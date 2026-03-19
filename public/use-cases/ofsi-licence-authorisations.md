@@ -151,9 +151,9 @@ Licences under proliferation sanctions regimes (Iran, DPRK) carry additional con
 - **UN:** UNSCR 1718 Committee (DPRK) and JCPOA procurement channel (Iran, though currently suspended) — international licensing/approval mechanisms for specific proliferation-sensitive goods.
 - **Key distinction:** Proliferation licensing requires technical assessment of goods/technology — not just financial controls; licensing decisions involve export control experts, intelligence agencies, and sometimes international bodies (IAEA).
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)

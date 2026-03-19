@@ -152,9 +152,9 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 **Why Live Verify wins here:** The current default is trusting the PDF. Immigration officers processing hundreds of applications don't have time to individually contact WES or ECE for each evaluation. Checking NACES membership confirms the agency is real but says nothing about whether this specific report was issued. Live Verify gives every verifier — from an immigration officer in Ottawa to a medical licensing clerk in Sydney — instant confirmation that the evaluation is real, current, and unaltered.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the evaluation agency to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the evaluation agency, and any subsequent changes to the evaluation as they happen — which may manifest as a new hash, a status change (REVISED, WITHDRAWN), or even a 404 (record deleted)
 - Receives structured content/metadata (report number, applicant identifiers, equivalency determination, dates)
@@ -169,7 +169,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party" — infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Evaluation agency's domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp

@@ -163,9 +163,9 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 **Why Live Verify wins here:** The core problem is that agent letters are the most relied-upon document in offshore KYC, yet the most difficult to verify. Direct contact with the agent — the current verification method — is slow, doesn't scale, and fails when the agent declines to respond (which happens routinely for confidentiality reasons). Live Verify gives the agent a way to confirm its letters without breaking confidentiality — the response is "yes, we issued this exact letter" without revealing anything the letter doesn't already say.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (company number, letter type, agent name)
@@ -182,7 +182,7 @@ Agent letters have particular witnessing value for **AML investigations**. When 
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction.
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 ## Further Derivations
 

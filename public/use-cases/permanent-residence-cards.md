@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 The **Permanent Resident Card (Form I-551)**, commonly known as a **Green Card**, is the most high-value identity document in the United States. It proves that a non-citizen is authorized to live and work in the country indefinitely. It is the "Master Key" to employment, social security benefits, and international travel.
 
-Because it grants broad rights, Green Cards are the #1 target for **High-End Forgery**. Black-market "Super-Clones" can look pixel-perfect even to trained eyes. Live Verify turns the **Physical Card** into a live digital bridge to the USCIS vault. This allows an employer or a bank to see if the card has been **Revoked, Expired, or Reported Stolen** in real-time. Verified hashes bind the **USCIS Number, Category Code, and Resident Name** to the `uscis.gov` domain.
+Because it grants broad rights, Green Cards are a major target for high-end forgery. But the strongest verification paths are still the official ones: USCIS, DHS-backed systems, employer workflows like I-9/E-Verify, and carrier or border systems where available. Live Verify is therefore a **complementary** bridge for copy-based or lower-capability relying parties, not the dominant architecture.
 
 <div style="max-width: 450px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; border-radius: 15px; background: linear-gradient(135deg, #e8f5e9 0%, #fff 100%); overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.2); position: relative;">
   <div style="background: #002d62; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid #ce9e00;">
@@ -73,20 +73,20 @@ Shows the issuer domain (`uscis.gov`) and the real-time status.
 
 The **Permanent Resident (Holder)** benefits from verification.
 
-**Secure Employment (I-9):** When starting a new job, the resident provides the verified hash of their Green Card. The HR manager can instantly see **"AUTHORIZED - USCIS"** on their phone, removing the fear of a "High-Grade Forgery" and getting the worker on the payroll immediately.
+**Copy-Based Employment Prep:** Before formal I-9 completion, a worker may send a copy-based credential packet to HR or a recruiter. Live Verify can help the employer treat that copy more safely, while understanding that formal work-authorization systems remain primary.
 
-**Re-Entry Confidence:** A resident traveling abroad scans their own card before boarding a flight back to the US. "Verified by USCIS" ensures the traveler that their card hasn't been "administratively cancelled" while they were away, preventing a traumatic detention at the border.
+**Record Confidence:** A resident can check whether a card copy or linked extension notice still maps to a current USCIS record, while understanding that border and carrier systems remain authoritative.
 
 ## Third-Party Use
 
 **Employers / Federal Contractors**
-**Zero-Trust Compliance:** Verifying that a worker's "RE8" category is authentic. Live Verify connects the company directly to the DHS record, stopping "Social Security Card" fraud where stolen IDs are used to hide illegal hiring.
+For formal work authorization, official employment-verification workflows remain primary. Live Verify is more plausible as a bridge on copied card images or pre-hire packets before those formal checks run.
 
 **Mortgage Lenders / Banks**
 **Status Vetting:** Verifying that a borrower is a "Permanent Resident" before granting a 30-year mortgage, as non-resident loans carry significantly higher risk and different interest rates.
 
 **Airlines / Carrier Security**
-**Boarding Prep:** Instantly verifying the authenticity of a Green Card for a passenger boarding an international flight to the US, protecting the airline from a $5,000+ per-passenger "Inadmissible" fine.
+Official carrier and border systems should remain primary. A verified card copy is only a secondary convenience surface.
 
 ## Verification Architecture
 
@@ -118,11 +118,11 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 ## Rationale
 
-The Green Card is the "Gold Standard" of identity. By turning it into a verifiable digital bridge, we protect the US labor market and the banking system from the multi-billion dollar cost of high-grade identity fraud.
+The Green Card is a gold-standard identity artifact, but official immigration and employment systems still sit above any portable copy. Live Verify helps most when a human-readable or copied card needs to bridge back to current USCIS status outside those native systems.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -137,7 +137,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp

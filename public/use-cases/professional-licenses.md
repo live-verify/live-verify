@@ -13,7 +13,13 @@ furtherDerivations: 1
 
 A **Professional License** is the legal authorization to practice in a high-stakes field like medicine, law, engineering, or teaching. These licenses are the primary defense against "Unlicensed Practice," which can lead to medical malpractice, legal incompetence, or structural failures.
 
-The problem is that physical licenses—especially the wallet-sized cards carried by practitioners—are easily forged. Even a real card can't show if a license was revoked yesterday for misconduct. Live Verify allows a patient, client, or employer to scan the practitioner's ID card to verify: **"Is this person currently authorized to practice in this state, and are there any active restrictions on their license?"**
+The licensing board's registry remains the source of truth. Live Verify is strongest here as a **complementary bridge** when professional-status claims travel outside that registry in human workflows:
+
+- a patient scans a wall certificate in a waiting room before the consultation starts
+- a hospital receives a portable letter of good standing in a credential packet
+- a staffing firm or insurer receives a temporary-authority or status excerpt before opening the board lookup page
+
+That is a better fit than treating the pocket card or framed certificate as the core artifact of trust.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="prof"></span>MEDICAL BOARD
@@ -34,10 +40,10 @@ Authorized to practice medicine in the State of New York.
 Licensee name, license number, profession (e.g., Physician, Attorney, PE), primary specialty, issuing jurisdiction (State/Board), date of initial licensure, expiration date, photograph (via hash), disciplinary status (Clear/Flagged), background check timestamp.
 
 **Document Types:**
-- **License Pocket Card:** The primary ID for mobile professionals.
-- **Wall Certificate:** The formal decorative proof for office display.
-- **Letter of Good Standing:** For reciprocity in other states.
-- **Temporary Permit:** For locum tenens or emergency practice.
+- **Letter of Good Standing:** The strongest portable status document for reciprocity and credential packets.
+- **Temporary Permit / Temporary Authority Letter:** For locum tenens, supervised practice, or emergency deployment.
+- **Wall Certificate:** A visible surface in offices and waiting rooms that can bridge to current standing.
+- **License Pocket Card:** A lightweight in-person credential, but usually not the strongest substantive artifact.
 
 ## Verification Response
 
@@ -80,14 +86,14 @@ This mirrors the bar-admission pattern: verification proves standing, existing i
 
 The **Professional (Practitioner)** benefits from verification.
 
-**Credentialing Speed:** When a doctor applies for "Hospital Privileges" at a new facility, they can provide the verified hash of their state license. The hospital's Medical Staff Office can instantly see **"ACTIVE - NYSED"** on their phone, removing the 30-day "Primary Source Verification" delay and getting the doctor into the OR faster.
+**Credentialing Speed:** When a doctor applies for hospital privileges at a new facility, they can provide a portable good-standing or temporary-authority document with a verification line. The Medical Staff Office can pre-screen it immediately while formal primary-source verification continues through the board and the hospital's normal process.
 
 **Reciprocity Claims:** An engineer licensed in Ohio can show a verified hash to a client in Indiana to prove they meet the requirements for "Temporary Practice" without needing to mail physical documents.
 
 ## Third-Party Use
 
 **Patients and Clients**
-**Safety Verification:** Before undergoing a private medical procedure or signing a legal retainer, a client scans the practitioner's wall certificate. Verification ensures the "Doctor" hasn't been stripped of their license for misconduct in a different county.
+**Discreet Waiting-Room Verification:** Before undergoing a private procedure or signing a legal retainer, a patient or client can discreetly scan the visible wall certificate in a waiting room or reception area. The certificate works as a visible surface that bridges to current board status without interrupting the consultation itself.
 
 **Employers (Hospitals / Law Firms)**
 **Continuous Monitoring:** Instead of checking licenses once a year, HR software can automatically scan the hashes of all 500 staff members. If a nurse's license returns **"SUSPENDED"** on a random Tuesday, the system can instantly alert the shift manager to pull them from duty.
@@ -124,11 +130,11 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 ## Rationale
 
-Professional licensing is about "Public Protection." By turning static certificates into live digital bridges, we ensure that professional authority is always backed by real-time cryptographic proof, protecting the public from the devastating cost of unlicensed practice.
+Professional licensing is about public protection. The registry remains primary. Live Verify adds value when visible display artifacts or portable status documents need to bridge back to current board standing without assuming that the framed certificate itself is the thing being trusted.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -143,7 +149,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp

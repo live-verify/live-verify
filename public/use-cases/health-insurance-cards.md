@@ -13,9 +13,17 @@ furtherDerivations: 2
 
 Every visit to a doctor, dentist, urgent care, or emergency room in the US starts the same way: "Can I see your insurance card?" The front desk photocopies it, enters the member ID and group number, and bills your insurer. The problem: insurance cards are trivially faked. A card showing Blue Cross member ID and group number proves nothing — the person could be uninsured, their coverage could have lapsed, or the card could belong to someone else entirely.
 
-Healthcare providers lose billions annually to insurance fraud — fake cards, borrowed cards, lapsed coverage presented as active. The verification that exists (real-time eligibility checks via EDI 270/271) happens in the back office after the patient has already been seen. The front desk has no instant way to verify the card in their hand is legitimate and current.
+The payer's eligibility system remains the source of truth. Live Verify is strongest here as a **bridge into live payer status**, not as a claim that the plastic card itself is the important artifact.
 
-With Live Verify, the insurance card carries a `verify:` line bound to the insurer's domain. The front desk scans it and gets real-time eligibility confirmation before the patient is seen.
+There are really three artifacts in this family:
+
+- **Wallet card:** coarse in-person claim, "this person has cover"
+- **Portable coverage excerpt:** detailed human-readable claim, "this cover applies through this end date unless renewed"
+- **Wallet/app credential:** stronger in-person presentation, but less useful for email-forwarding and pre-visit planning
+
+The best Live Verify fit is the **portable coverage excerpt** used outside payer tooling for planned care, scheduling, estimates, and provider negotiation. That stronger case now has its own document: [Health Insurance Coverage Excerpts](view.html?doc=health-insurance-coverage-excerpts).
+
+This file is therefore focused on the **wallet card** use case: the thin, in-person claim that a person currently has cover.
 
 <div style="max-width: 420px; margin: 24px auto; font-family: sans-serif; border: 1px solid #005a9c; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
   <div style="background: linear-gradient(135deg, #005a9c 0%, #003d6b 100%); color: #fff; padding: 15px 20px; display: flex; align-items: center; justify-content: space-between;">
@@ -73,6 +81,10 @@ With Live Verify, the insurance card carries a `verify:` line bound to the insur
 
 Member name, member ID, group number, plan type (PPO/HMO/EPO), effective date, insurer name. NOT included in the hash: deductible amounts, out-of-pocket maximums, specific coverage details (those live in the Summary of Benefits and Coverage, a separate document).
 
+**Artifact roles:**
+- **Wallet card:** member ID, group number, plan family, coarse active/inactive status
+- **Coverage excerpt:** service class, effective period, renewal/end date, network notes, plan context for planned care
+
 ## Verification Response
 
 The endpoint returns a simple status code:
@@ -91,18 +103,18 @@ The issuer domain is visible from the `verify:` line on the card itself (e.g., `
 
 The **Insured Member** (second party) receives the insurance card from the insurer (first party), **keeps it**, and presents it whenever they access healthcare.
 
-**New Provider:** Moving to a new city, seeing a new doctor. The front desk scans the card and gets instant confirmation — no phone calls to the insurer, no "we'll verify your coverage and call you back."
+**New Provider:** Moving to a new city, seeing a new doctor. The front desk scans the card and gets coarse confirmation that coverage exists and is active, then uses the payer system only if deeper questions arise.
 
 **Emergency Treatment While Traveling:** At an ER in another state. The triage desk scans the card. Coverage confirmed in seconds, not hours. Treatment starts immediately instead of after billing department phone calls.
 
 **Job Change Verification:** You left your old job two weeks ago. Is your new employer's coverage active yet? Scan your own card and find out, instead of calling HR and being told "it takes 2-4 weeks to show up in the system."
 
-**Dependent Children (Custody Situations):** Parent with insurance needs to prove coverage for a child at the other parent's doctor's office. A verified card settles it instantly — no phone calls between ex-spouses and HR departments.
+**Dependent Children (Custody Situations):** Parent with insurance needs to prove coarse active coverage for a child at the other parent's doctor's office. A verified card settles the immediate question while the fuller excerpt can carry the detailed planning context.
 
 ## Third-Party Use
 
 **Healthcare Providers (Front Desk, ER Triage, Urgent Care)**
-The primary verifier. Front desk staff scan the card before the patient is seen. ACTIVE means proceed with check-in. INACTIVE or 404 means discuss self-pay options *before* services are rendered, not after a $3,000 bill goes to collections.
+The primary verifier. Front desk staff scan the card before the patient is seen. ACTIVE means proceed with check-in. INACTIVE or 404 means discuss self-pay options before services are rendered, not after a $3,000 bill goes to collections.
 
 **Pharmacies**
 Verifying prescription drug coverage before dispensing. The RxBIN/RxPCN/RxGrp on the card routes the claim, but a verified card confirms the member is eligible before the pharmacist fills a $400 specialty medication.
@@ -119,8 +131,8 @@ Therapists and psychiatrists verifying coverage before intake, particularly impo
 **Ambulance / EMS**
 Verifying coverage for transport billing. Ambulance bills routinely exceed $1,000; knowing coverage status before transport helps with billing decisions and patient communication.
 
-**Hospitals (Elective Procedures)**
-Verifying coverage before scheduled surgery. A hospital scheduling a $50,000 knee replacement needs ironclad confirmation that coverage is active on the date of surgery, not a photocopy of a card that might be six months out of date.
+**Hospitals and Specialist Practices (Elective Procedures)**
+The wallet card is only the opening move here. For the stronger planned-care use case, see [Health Insurance Coverage Excerpts](view.html?doc=health-insurance-coverage-excerpts).
 
 **Employer HR Departments**
 Verifying that an employee has actually activated their coverage after open enrollment. HR sees "enrolled" in their system but needs to confirm the insurer has processed it.
@@ -172,11 +184,17 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Point of Use** | **Front desk.** Before patient is seen. | **Back office.** After patient is seen. | **Anywhere.** But nobody has 30 minutes. | **Desktop only.** Not mobile-friendly. | **Front desk.** No verification. |
 | **Real-Time** | **Yes.** Current status at moment of scan. | **Mostly.** Some payers batch responses. | **Yes.** But 30 minutes later. | **Yes.** When portal is up. | **No.** Card could be months old. |
 
-**Why Live Verify wins here:** The 270/271 system exists but is locked behind clearinghouse enrollment, EDI software, and NPI credentialing — infrastructure that small practices, urgent care clinics, and front desk staff don't have. The front desk's only real option today is to trust the card and sort out billing problems later. Live Verify puts real-time eligibility confirmation in the hands of the person who actually needs it: the front desk staffer holding the card.
+**Why Live Verify helps here:** The 270/271 system exists but is locked behind clearinghouse enrollment, EDI software, and NPI credentialing. Live Verify is valuable when it exposes that live payer status through a simpler human workflow:
 
-## Jurisdictional Witnessing
+- a front desk checking a wallet card for coarse status
+- a provider reviewing a portable coverage excerpt before planned care
+- a patient sending detailed cover information outside the payer portal
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+The strongest claim is not "trust the card." It is "bridge human-readable coverage artifacts back to live payer status." The card remains the coarse in-person layer; the excerpt is the stronger portable layer.
+
+## Jurisdictional Witnessing (Optional)
+
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (member ID, group number, effective dates, plan type)
@@ -191,7 +209,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Insurer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp

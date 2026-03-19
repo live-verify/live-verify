@@ -106,9 +106,9 @@ The **Named Individual** benefits from verification.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -123,7 +123,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -139,4 +139,4 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Often flags for "Manual Review" taking 3-10 days. | **Instant.** |
 | **Interoperability** | **High.** Verified PDF works for banks/lawyers. | **Zero.** Data is trapped in the gov portal. | **Universal.** |
 
-**Why Live Verify wins here:** Reach and Portability. Most people who need to see a Green Card (Bankers, Landlords, DMV clerks) do not have access to the E-Verify system. They are forced to "Trust their eyes." Live Verify allows **every citizen and business** to have "Federal-Level" trust in an immigration document using only their phone.
+**Narrower conclusion:** USCIS, SAVE, and other official status systems should remain primary where they are directly available and legally appropriate. This use case is more credible as a complementary bridge for copy and card workflows, where banks, landlords, DMV clerks, or other third parties only have the immigration document in hand and would otherwise fall back to visual inspection.

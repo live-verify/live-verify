@@ -20,6 +20,8 @@ The **Care Professional Badge** is their "Security Token." It proves:
 
 "Fake Nurse" home invasions are a tragic reality. Scammers buy scrubs and fake IDs to gain entry into the homes of vulnerable seniors. Live Verify allows a family member to scan the badge and see the **verified photo and active duty status** from the agency's domain instantly.
 
+Like utility and contractor doorstep checks, this is strongest because it is a threshold-decision use case: the household needs to know whether this specific worker is authorized to enter this private home now.
+
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
   <div style="background: #0277bd; color: #fff; padding: 15px; text-align: center; display: flex; align-items: center; justify-content: center;">
     <div style="font-size: 1.5em; margin-right: 10px;">🩺</div>
@@ -168,9 +170,9 @@ Home health agencies issue care professional badges under healthcare regulator a
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -185,7 +187,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -201,4 +203,4 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Often takes 5-10 minutes on hold. | **Instant.** |
 | **Availability** | **24/7.** Works for "Late Night" emergency visits. | **Restricted.** Offices often closed at night. | **N/A.** |
 
-**Why Live Verify wins here:** The "Threshold Moment." Patients make the decision to let someone into their home in seconds. They don't want to engage in a long conversation or a phone call while an "Official" is standing at the door. Live Verify turns the **ID Badge** into a live, non-confrontational safety tool that provides instant, high-authority trust.
+**Why this remains strong:** The threshold moment is the real workflow. Patients decide whether to let someone into their home in seconds and often do not want to make a phone call while an official-looking visitor waits at the door. Agency systems remain primary in the background, but the badge is the visible surface at that moment. That makes this a strong complementary home-entry verification case.

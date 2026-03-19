@@ -167,7 +167,7 @@ The Sarah Everard case (2021) heightened awareness of predatory unlicensed drive
 
 **Privacy Salt:** Required. Private hire drivers work in high-risk environments, often alone with strangers. Badge information is visible to 10-20 passengers per day, plus doorbell cameras, CCTV, and pedestrians. More critically, salt prevents "Stalking" attacks where someone could enumerate driver badges and correlate them with GPS data to track individuals across shifts—creating serious safety risks. Salt also prevents "Competitor Reconnaissance" where rival platforms could map out a company's driver deployment and earnings patterns.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
 A jurisdiction (TfL, local council) may require issuing platforms to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
 
@@ -186,7 +186,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **TfL domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp

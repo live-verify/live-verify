@@ -70,7 +70,7 @@ The endpoint returns current employment status:
 
 **Pattern:** Regulated
 
-The employer is a registered entity with the tax authority, which chains to the government root. An immigration officer sees not just that the employer vouches for the employee, but that the government vouches for the employer.
+The employer is a registered entity with the tax authority, which chains to the government root. That chain helps the verifier assess whether the employer is a real organization operating inside a recognized legal framework. It does **not** by itself prove the employment claim; the employer endpoint still carries that attestation.
 
 UK employment (employer → HMRC → gov.uk):
 
@@ -90,10 +90,10 @@ US employment (employer → IRS → usa.gov):
 
 **What the chain proves:**
 1. Jane works at HSBC (employer attests)
-2. HSBC is a real, registered employer (HMRC attests)
+2. `hr.hsbc.co.uk` is tied to an employer that operates inside the HMRC framework
 3. HMRC is a statutory tax authority (gov.uk root)
 
-**What the absence of a chain means:** If `hr.acme-corp.example.com` confirms employment but has no `authorizedBy` link, the claim is self-attested only — no government body has confirmed this is a legitimate employer. The claim may still be genuine (new company, foreign employer), but the absence warrants additional scrutiny.
+**What the absence of a chain means:** If `hr.acme-corp.example.com` confirms employment but has no `authorizedBy` link, the claim is self-attested only. That does **not** make it false; it just means the verifier lacks the extra context that the issuer sits within a recognized regulatory or tax-registration chain.
 
 ### Other Employment Chain Examples
 
@@ -187,9 +187,9 @@ Moderate sensitivity. The employment claim includes the employee's name and empl
 | **Works at border** | **Yes.** 5-second scan. | **Impractical.** Immigration won't call your HR department. | **Unreliable.** | **Meaningless.** |
 | **Detects termination** | **Yes.** Real-time status. | **Maybe.** If HR updates are timely. | **No.** People leave old jobs on LinkedIn for months. | **Maybe.** If badge is deactivated. |
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -204,7 +204,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp

@@ -290,7 +290,7 @@ Personal issuer — individual attestation, no regulatory chain.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
 A jurisdiction may license or regulate identity escrow providers for consumer protection. Requirements might include:
 

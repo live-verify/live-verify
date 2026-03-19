@@ -15,7 +15,7 @@ A **University Degree** (Diploma) is the official credential proving that an ind
 
 Beyond the diploma on the wall, the **Academic Transcript** is the granular record of every class, grade, and credit hour earned.
 
-**"Diploma Mill"** fraud is a multi-billion dollar industry. Criminals create fake universities with real-sounding names or buy high-quality forged diplomas from prestigious schools like Harvard or Oxford for a few hundred dollars. Even more common is **"GPA Inflation,"** where applicants edit their PDF transcripts to turn a "C" in a critical math class into an "A." Live Verify binds the **Student name, Degree classification, and major** to the university registrar's domain (e.g., `.edu` or `.ac.uk`).
+**"Diploma Mill"** fraud is a multi-billion dollar industry. Criminals create fake universities with real-sounding names or buy high-quality forged diplomas from prestigious schools like Harvard or Oxford for a few hundred dollars. Even more common is **"GPA Inflation,"** where applicants edit their PDF transcripts to turn a "C" in a critical math class into an "A." The strongest architecture is still the university registrar, clearinghouse, or national education-verification system where one already exists. Live Verify is more credible as a bridge when the diploma, transcript PDF, or completion letter is already the artifact in circulation outside those systems.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Old English Text MT', serif; border: 10px solid #d4af37; padding: 50px; text-align: center; background: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.1); position: relative;">
   <div style="margin-bottom: 40px;">
@@ -82,7 +82,7 @@ If an employer needs the full transcript (GPA, specific courses), that's a separ
 
 The **Graduate (Alumnus)** benefits from verification.
 
-**Job Applications:** Proving to a potential employer that their "Distinction" grade isn't a fabrication. A verified hash allows the candidate to bypass the 2-week delay of traditional "Education Clearinghouses," potentially securing a job offer faster than competitors.
+**Job Applications:** Proving to a potential employer that a degree or honors classification isn't fabricated. This is strongest when the employer is working from the diploma or transcript artifact before a formal registrar or clearinghouse check completes.
 
 **Global Mobility:** Providing a verified hash to an international visa agency. This removes the need for expensive "Consular Legalization" or "Apostille" of physical diplomas, which can cost $500+ and take months.
 
@@ -123,9 +123,9 @@ The **Graduate (Alumnus)** benefits from verification.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -140,7 +140,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -152,11 +152,16 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | Feature | Live Verify | National Student Clearinghouse | Physical Diploma |
 | :--- | :--- | :--- | :--- |
 | **Trust Anchor** | **Domain-Bound.** Bound to the University. | **Data-Bound.** Trust the aggregator. | **Visual.** |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Often takes 3-10 days for a response. | **Instant.** |
+| **Speed** | **Fast bridge from the artifact.** | **Primary where integrated.** Often takes time. | **Instant.** |
 | **Cost** | **Low.** Standard web infra. | **High.** Employers pay $15-$50 per check. | **Zero.** |
 | **Integrity** | **Cryptographic.** Binds GPA and Honors. | **Data-Only.** | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Speed of Hiring." In a competitive labor market, high-quality candidates don't want to wait 10 days for a "Background Check Firm" to call a university registrar. Live Verify allows for **Instant Trust**, turning the diploma on the wall into a live, cryptographic bridge to the university's source of truth.
+**Narrower conclusion:** Registrar and clearinghouse systems should remain primary where they are available and accepted. Live Verify is complementary when the diploma, transcript, or completion letter is already being exchanged outside those systems and the verifier otherwise falls back to PDF trust or visual inspection.
+
+## See Also
+
+- [Professional Licenses](view.html?slug=professional-licenses) — Similar split between public registry primacy and portable artifact usefulness
+- [Bar Admission and Good-Standing Letters](view.html?slug=bar-admission-good-standing) — Another credential family where the portable status letter is stronger than a decorative certificate
 
 ## Further Reading
 

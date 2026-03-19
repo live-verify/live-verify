@@ -9,6 +9,18 @@ tags: ["address-verification", "aml", "bank-onboarding", "customer-due-diligence
 furtherDerivations: 2
 ---
 
+## What is a KYC Identity Verification Summary?
+
+This document represents a **vetted result**, not a raw identity credential. That distinction matters.
+
+Where strong digital-identity infrastructure already exists, it should dominate:
+
+- government digital identity platforms like MyInfo or SingPass
+- bank-to-bank or bank-to-KYC-provider APIs
+- direct issuer and registry checks
+
+Live Verify is more defensible where a human-readable KYC summary is being forwarded between institutions or retained by the customer outside those native integrations. It should not be treated as a replacement for direct KYC APIs or government digital identity.
+
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="kyc-id"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">REVOLUT BANK
@@ -67,7 +79,7 @@ The **Bank Customer** (second party) receives the KYC verification summary from 
 The customer (second party) may hand the verified document to various third parties:
 
 **Mortgage Lenders / Neobanks**
-**Reciprocal KYC:** Instantly verifying the identity claims of an applicant by scanning the hash from their primary bank. This allows for "One-Click Onboarding" across the financial ecosystem.
+**Reciprocal KYC:** This is only defensible where a direct API or government digital-ID path is not available. If stronger native integration exists, that should remain primary.
 
 **FinCEN / Regulators**
 **Compliance Audit:** During a bank examination, federal auditors can scan random customer files. "Verified by Revolut" ensures the bank isn't "Ghosting" their KYC duties by maintaining fake or un-vetted accounts.
@@ -138,9 +150,9 @@ AI-generated deepfake documents and synthetic identities are emerging as the nex
 - **Singapore:** MAS has issued guidance on technology risks in digital onboarding including deepfake detection requirements
 - **Biometric countermeasures:** India's Aadhaar, Singapore's SingPass, EU's eIDAS 2.0 — government-issued digital identities provide stronger assurance than document-based KYC against cyber fraud
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require banks and KYC providers to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the bank or KYC provider, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change (verified to suspended/blacklisted), or even a 404 (record deleted)
 - Receives structured content/metadata (verification dates, document types, PEP status, sanctions check results)
@@ -155,7 +167,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Bank domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -170,7 +182,7 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | **Interoperability** | **High.** Works across all banks. | **Low.** Every bank uses a different API vendor. | **Universal.** |
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires 30-120 seconds for AI processing. | **N/A.** |
 
-**Why Live Verify wins here:** The "Privacy Paradox." Banks don't want to store raw ID photos forever because of liability. Users don't want to upload them to 10 different sites. Live Verify turns the **Vetted Result** into a portable, cryptographically trusted asset that carries the bank's "Authority" without the bank's "Data Liability."
+**Practical conclusion:** when government digital identity or direct KYC APIs are available, they should dominate. Live Verify is most credible as a portability layer for a vetted summary traveling outside those integrations, not as the primary architecture for identity verification itself.
 
 
 ---

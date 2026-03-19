@@ -17,6 +17,12 @@ Do you let them in?
 
 **Cold-callers** are people who arrive at your door without prior appointment, claiming to represent an organization. Some are legitimate (meter readers, charity collectors, council workers). Others are criminals using uniforms and fake IDs to gain entry for burglary, fraud, or intimidation.
 
+At the threshold, the real question is not "is this a broadly legitimate worker category?" It is:
+
+- which company or authority is this person really from?
+- are they actually expected in this area, at this address, or for this campaign?
+- does their role match what they are asking to do?
+
 <div style="max-width: 350px; margin: 24px auto; font-family: sans-serif; border: 2px solid #0066cc; background: #fff; padding: 0; border-radius: 8px; overflow: hidden;">
   <div style="background: #0066cc; color: #fff; padding: 12px; display: flex; align-items: center; gap: 10px;">
     <div style="font-size: 1.5em;">💧</div>
@@ -168,7 +174,7 @@ This model lets platforms protect driver privacy while still enabling doorstep v
 
 ## Data Verified
 
-Employee name, photo, employee ID, employing organization, role/job title, authorized activities, geographic region, badge validity dates, DBS/background check status (where relevant).
+Employee name, photo, employee ID, employing organization, role/job title, authorized activities, geographic region, badge validity dates, visit or route entitlement where applicable, DBS/background check status (where relevant).
 
 **Document Types:**
 - **Employee ID Badge** — Photo ID with employer branding
@@ -186,6 +192,8 @@ Shows the issuer domain (`thameswater.co.uk`, `britishgas.co.uk`, `camden.gov.uk
 - **Not Found** — No matching record (likely fake).
 - **Suspended** — Employee under investigation or badge reported lost/stolen.
 - **Role Mismatch** — Badge is real but role doesn't match claimed purpose.
+- **WRONG_COMPANY** — Badge is real, but not for the company or authority being claimed at the door.
+- **NOT_EXPECTED_HERE** — Worker is real, but there is no current route, campaign, or visit authority for this address/area.
 
 ## The Verification Moment
 
@@ -193,7 +201,7 @@ Shows the issuer domain (`thameswater.co.uk`, `britishgas.co.uk`, `camden.gov.uk
 
 1. Cold-caller presents ID badge at window or holds it up to Ring/Nest doorbell camera
 2. Homeowner (or family member viewing remotely) scans the verification line
-3. Verification confirms: genuine employee of the claimed organization, or not
+3. Verification confirms: genuine employee of the claimed organization, and whether they are expected for this route, address, or campaign
 4. Decision to open door is informed by verified identity
 
 **Key Insight:** You can verify *before* opening the door. The badge can be scanned through a window or captured by a video doorbell. No need to let a stranger inside to check their credentials.
@@ -205,7 +213,7 @@ Adult children with access to parent's Ring doorbell can verify the cold-caller'
 
 The **Employee** benefits from verification.
 
-**Building Trust:** Legitimate workers face suspicion because of criminals who abuse uniforms. A verifiable badge lets them say: "Please scan my ID before you open the door — I understand you need to be careful."
+**Building Trust:** Legitimate workers face suspicion because of criminals who abuse uniforms. A verifiable badge lets them say: "Please scan my ID before you open the door — it will confirm both who I work for and whether I'm expected here."
 
 **Faster Access:** Homeowners who can verify instantly are more likely to grant access promptly, improving the worker's efficiency.
 
@@ -215,7 +223,7 @@ The **Employee** benefits from verification.
 
 **Homeowners (Potential Victims)**
 
-**Pre-Entry Verification:** Confirm the person at the door is who they claim to be before opening. Critical protection against distraction burglary.
+**Pre-Entry Verification:** Confirm the person at the door is who they claim to be before opening. The strongest version also answers whether they are expected at this property, in this route, or for this campaign.
 
 **Police and Trading Standards**
 
@@ -225,9 +233,9 @@ The **Employee** benefits from verification.
 
 **Legitimate Organizations**
 
-**Brand Protection:** When criminals impersonate British Gas workers, it damages British Gas's reputation. Verifiable badges make impersonation detectable.
+**Brand Protection:** When criminals impersonate British Gas workers, it damages British Gas's reputation. Verifiable badges make impersonation, wrong-company substitution, and stale credentials detectable.
 
-**Compliance Evidence:** Proof that workers were verified at addresses they visited, useful for regulatory compliance and dispute resolution.
+**Compliance Evidence:** Proof that workers were verified at addresses they visited, useful for regulatory compliance, dispute resolution, and route-assignment audits.
 
 **Charities and Fundraising Regulators**
 
@@ -240,6 +248,8 @@ The **Employee** benefits from verification.
 - **eBay Uniforms:** High-vis jackets, lanyards, and branded clothing are freely available
 - **Printed Badges:** Anyone with a color printer can create convincing-looking ID cards
 - **Cloned Badges:** Copying a real employee's badge details onto a fake card
+- **Wrong-Company Claim:** Visitor uses one firm's branding while really representing another firm or unaffiliated subcontractor
+- **Route/Visit Misrepresentation:** Real badge, but no current authority for this area, address, or collection campaign
 - **Expired Employees:** Using genuine credentials after leaving employment
 
 **Issuer Types:**
@@ -250,7 +260,7 @@ The **Employee** benefits from verification.
 **Trade Bodies:** (for verified tradespeople)
 
 **Real-Time Status:**
-Unlike a static ID card, verification checks current employment status. An employee terminated yesterday will show as "Not Found" or "Inactive" today — their physical badge is worthless.
+Unlike a static ID card, verification checks current employment status and, where available, current visit or route entitlement. An employee terminated yesterday or a collector operating outside their campaign area will fail today even if the plastic badge still looks convincing.
 
 ## Authority Chain
 
@@ -271,7 +281,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 **Password Schemes:**
 Some utilities offer password schemes where a pre-agreed password is shared with vulnerable customers. The worker must state the password to gain entry.
 
-*Limitation:* Passwords can be overheard, guessed, or socially engineered. Live Verify verification is cryptographically bound to the employer's domain — cannot be faked or transferred.
+*Limitation:* Passwords can be overheard, guessed, or socially engineered. Live Verify verification is cryptographically bound to the employer's domain and can answer who the visitor works for and whether they are expected — things a password alone cannot do.
 
 **Nominated Neighbour:**
 Some schemes allow a trusted neighbour to verify visitors.
@@ -318,9 +328,9 @@ Badge verification can include authorized work region. A London-region meter rea
 **Visit Authorization:**
 For specific appointments, verification can confirm: "Sarah Jenkins is authorized to visit 42 Oak Lane on January 15, 2026 for meter reading."
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -335,7 +345,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -357,3 +367,5 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 - [Property Access Rights](view.html?slug=property-access-rights) — Proving you have right to access a property (the other side of the verification)
 - [Authorized Agent Confirmations](view.html?slug=authorized-agent-confirmations) — Agents with legal authority to enter/seize
 - [Estate Clearance Authorizations](view.html?slug=estate-clearance-authorizations) — Authorized work at a property with posted notices
+- [Home Service Provider Verification](view.html?slug=home-service-provider-verification) — Scheduled contractor and tradesperson visits
+- [Trades and Home-Visit Cluster](../../trades-home-visit-cluster.md) — Cluster note for threshold-decision cases

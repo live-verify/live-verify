@@ -17,7 +17,11 @@ When someone buys a concert ticket, sports ticket, or theater seat, they receive
 - **Scalping:** Tickets bought in bulk by bots, resold at 5-10x face value; genuine fans priced out
 - **Duplicate sales:** Same ticket sold multiple times; first person in wins, others turned away
 
-Live Verify allows a ticket holder to confirm their ticket is authentic before arriving at the venue, and allows venues to verify authenticity and ownership at entry.
+The strongest ticketing systems already solve the hard admission problem inside the ticketing platform itself: issuer-controlled status, official transfer, dynamic barcodes, and wallet/app presentation. Live Verify is therefore usually a **complementary** layer rather than the dominant one. Its best fits are:
+
+- **Pre-event reassurance** for buyers who only have a forwarded PDF, email excerpt, or printable ticket summary
+- **Low-infrastructure venues** that lack strong official wallet or transfer tooling
+- **Authorized seller / partner claims**, where the buyer needs to know whether a booking channel is real before they pay
 
 ### Standard Ticket (Traditional)
 
@@ -58,7 +62,7 @@ Live Verify allows a ticket holder to confirm their ticket is authentic before a
   </div>
 </div>
 
-**Problem:** Barcodes can be photographed, duplicated, and resold. First scan wins; duplicate holders are turned away.
+**Problem:** Static barcodes can be photographed, duplicated, and resold. First scan wins; duplicate holders are turned away unless the platform already uses stronger app-native controls.
 
 ### Verifiable Ticket (Live Verify)
 
@@ -120,6 +124,8 @@ The core anti-scalping mechanism: **bind the ticket to a person, not just a barc
 | **Biometric** | Face hash from purchase | Live face scan at entry | No transfer possible |
 
 ### How Photo Binding Works
+
+This is an example of a stricter, platform-controlled ticketing policy. It can reduce screenshot fraud, but it also adds checkout friction and slows entry. In practice, many platforms will still prefer official app tickets, dynamic codes, and in-platform transfer over printable ticket verification.
 
 **At Purchase:**
 1. Buyer uploads selfie during checkout
@@ -188,7 +194,7 @@ Event name, venue, date/time, section/row/seat, ticket holder name, photo hash (
 
 ## Verification Response
 
-The endpoint returns status and context:
+The endpoint returns status and context. For admission-critical use, these states still need to come from the ticketing platform's live system of record:
 
 - **`{"status":"verified"}`** — Ticket is valid and unused
 - **ALREADY_SCANNED** — Ticket was used for entry (duplicate detected)
@@ -202,19 +208,19 @@ The endpoint returns status and context:
 
 The **Ticket Holder** (second party) benefits from verification:
 
-**Pre-Event Confidence:** Before traveling to the venue, holder can verify their ticket is authentic and hasn't been cancelled or transferred without their knowledge.
+**Pre-Event Confidence:** Before traveling to the venue, a holder who only has a forwarded PDF, email excerpt, or printable ticket summary can verify that it still maps to a live issuer record.
 
 **Proof of Purchase:** If disputes arise (credit card chargeback, refund claims), the verified ticket provides timestamped proof.
 
-**Resale Protection:** When buying from official resale, buyer can verify transfer was properly recorded before paying.
+**Resale Protection:** When buying from official resale, buyer can verify that transfer was properly recorded before paying, without treating the printable ticket as the primary source of truth.
 
 ## Third-Party Use
 
 **Venue Staff (Entry Control)**
-Scan ticket, verify status, check photo match. Instant detection of counterfeits and duplicates without relying solely on barcode scanning.
+At smaller or lower-infrastructure venues, staff can use verification as a backstop. At larger venues, official scanner infrastructure and platform-native admission controls remain the primary mechanism.
 
 **Event Organizers**
-Real-time visibility into ticket status. Can invalidate tickets if fraud detected, issue replacements, track transfer activity.
+Real-time visibility into ticket status. Can invalidate tickets if fraud is detected, issue replacements, and track transfer activity. The strongest version of this still lives inside the ticketing platform.
 
 **Artists/Rights Holders**
 Enforce anti-scalping policies. Verify that resale occurred at face value through official channels.
@@ -231,7 +237,7 @@ Investigate counterfeit ticket operations. Verified records show which tickets w
 - **Screenshot forwarding:** Same mobile ticket shared with multiple buyers
 - **Unauthorized resale:** Tickets sold on unofficial platforms at markup
 
-**Why Photo Binding Works**
+**Why Photo Binding Can Help**
 
 | Attack | Without Photo Binding | With Photo Binding |
 |--------|----------------------|-------------------|
@@ -239,6 +245,20 @@ Investigate counterfeit ticket operations. Verified records show which tickets w
 | Screenshot forwarding | First scan wins | Photo doesn't match |
 | Scalper markup | Buyer pays, gets in | Buyer pays, denied entry |
 | Bot purchasing | Scalpers buy, resell | Scalpers can't transfer binding |
+
+**Where Live Verify Fits Poorly vs. Well**
+
+**Usually poor fit as the dominant layer**
+
+- High-scale venues already operating official apps, dynamic QR/barcodes, wallet tickets, and issuer-controlled transfer
+- Turnstile-style entry where first-scan-wins and live admission state are already enforced centrally
+- Workflows where the real need is better official transfer UX, not printable-ticket integrity
+
+**Stronger complementary fit**
+
+- Buyers evaluating an emailed or forwarded ticket artifact before travel
+- Small venues with weak admission tooling
+- Delegated seller / promoter / venue partner claims, where the question is "is this channel authorized to sell?" rather than "is this exact seat still valid right now?"
 
 **Issuer Types** (First Party)
 
@@ -278,15 +298,15 @@ Some events may offer "unbound" tickets at higher price or restricted availabili
 
 ## Competition vs. Traditional Barcodes / QR Codes
 
-| Feature | Live Verify + Photo | Barcode/QR Only | "Verified Fan" (Ticketmaster) |
-|---------|---------------------|-----------------|------------------------------|
-| **Counterfeit Detection** | Hash mismatch = instant fail | Visual inspection only | Pre-sale filtering only |
-| **Duplicate Detection** | Real-time status check | First scan wins | First scan wins |
-| **Scalping Resistance** | Photo binding enforced at entry | Name on ticket (rarely checked) | Pre-sale allocation (circumvented) |
-| **Transfer Control** | Cryptographic rebinding | Screenshot sharing | App-based transfer |
-| **Pre-Event Verification** | Holder can verify anytime | No way to check before arrival | Limited visibility |
+| Feature | Live Verify | Barcode/QR Only | Official App/Wallet Ticket |
+|---------|-------------|-----------------|----------------------------|
+| **Pre-event reassurance on forwarded artifacts** | Strong | Weak | Medium |
+| **Low-friction gate entry at scale** | Weak | Strong | Strongest |
+| **Native transfer / rebinding** | Medium | Weak | Strongest |
+| **Issuer-controlled live admission state** | Medium | Medium | Strongest |
+| **Authorized seller / partner claims** | Strong | Weak | Weak |
 
-**Why Live Verify wins here:** The combination of **cryptographic authenticity** (hash verification) and **identity binding** (photo match) creates genuine scalping resistance. Name-on-ticket policies fail because entry staff rarely check ID; photo binding is visual and instant.
+**Practical conclusion:** For core admission control, official app/wallet tickets and issuer-managed dynamic codes are usually better. Live Verify is most credible where a human-readable ticket artifact or seller-authorization claim is being checked outside the native ticketing flow.
 
 ---
 
@@ -296,7 +316,7 @@ Some events may offer "unbound" tickets at higher price or restricted availabili
 
 **Fan Friction:** Photo upload at checkout adds friction. Some fans will abandon purchase. Conversion rate may drop 5-10% — but genuine fans get tickets instead of bots.
 
-**Entry Speed:** Photo comparison takes 3-5 seconds vs. 1 second for barcode scan. For 50,000-person stadium, this adds significant entry time. Consider express lanes for mobile tickets with app-based face match.
+**Entry Speed:** Photo comparison takes 3-5 seconds vs. 1 second for barcode scan. For 50,000-person stadium, this adds significant entry time. This is one reason official app/wallet tickets remain the dominant architecture for high-throughput venues.
 
 **Edge Cases:** What about buying tickets as gifts? Official transfer flow must be seamless. "Transfer to friend" should take <60 seconds.
 
@@ -325,7 +345,7 @@ Some events may offer "unbound" tickets at higher price or restricted availabili
 
 A separate problem from individual ticket fraud: **fake ticket channels**. A scam website advertises seats for a sold-out show, collects payment, and vanishes. The buyer never had a chance — the seller had no relationship with the venue at all.
 
-Live Verify lets a venue publish plain-text claims naming its authorized ticket partners for each event or run. A consumer checking a third-party ticket site can verify whether that site is actually authorized to sell seats.
+This is the strongest Live Verify use case in ticketing. A venue can publish plain-text claims naming its authorized ticket partners for each event or run. A consumer checking a third-party ticket site can verify whether that site is actually authorized to sell seats.
 
 ### How It Works
 
@@ -398,7 +418,7 @@ This takes the consumer directly from "is this seller real?" to "book a seat" �
 
 ### Revocation
 
-If a partnership ends mid-run (commercial dispute, contract breach), the venue deletes the hash endpoint. Immediate effect: the partner's authorization no longer verifies. No certificate revocation lists, no expiry windows — just a 404.
+If a partnership ends mid-run (commercial dispute, contract breach), the venue deletes the hash endpoint. Immediate effect: the partner's authorization no longer verifies. No certificate revocation lists, no expiry windows, just a 404 or explicit revocation status.
 
 ### What This Doesn't Do
 
@@ -417,9 +437,9 @@ verify:radiohead.com/tour
 
 Here `radiohead.com` is the issuer, authorized by their management or label. The authority chain adapts to whoever controls the ticketing relationship.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (event, date, seat)

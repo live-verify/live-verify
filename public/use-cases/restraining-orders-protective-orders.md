@@ -15,7 +15,7 @@ A restraining order is a court order that says: stay away from this person. It i
 
 On the flip side, fake restraining orders are used as weapons. Fabricated orders are presented to schools, employers, or landlords to harass the supposed "respondent" who never appeared in court because the order doesn't exist.
 
-With Live Verify, the restraining order carries a verify line bound to the issuing court's domain. Anyone who needs to enforce or respect the order scans it and gets real-time status: active, modified, expired, or dismissed.
+Court and law-enforcement systems remain primary for judges, clerks, and police dispatch. The strong Live Verify case is that schools, employers, landlords, shelters, building managers, and even the protected person themselves are usually outside those systems while still being asked to act on the order.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1);">
   <div style="text-align: center; margin-bottom: 30px;">
@@ -174,11 +174,15 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Freshness** | **Real-time.** Shows MODIFIED, DISMISSED, EXPIRED status. | **Good** but depends on court reporting speed to NCIC. | **Real-time** if the clerk checks the file. | **Frozen in time.** Paper shows the order as it was on the day it was printed. |
 | **Civilian Access** | **Yes.** Schools, employers, landlords, shelters, firearms dealers. | **No.** | **Theoretically.** In practice, clerks often refuse to confirm to non-parties. | **Yes, but meaningless.** |
 
-**Why Live Verify wins here:** The gap is civilian verification. Police can (eventually) verify through NCIC. But schools, employers, landlords, firearms dealers, victim shelters, and building managers cannot. These are exactly the people who encounter restraining orders in daily life and have no way to check if the paper in front of them is real, current, or fake. Live Verify closes that gap.
+**Why this remains strong:** The gap is civilian verification. Police can eventually verify through NCIC/CJIS, but schools, employers, landlords, firearms dealers, victim shelters, and building managers cannot. That makes protective orders another strong case where the portable document is doing real work outside the native justice systems rather than trying to replace them.
 
-## Jurisdictional Witnessing
+## See Also
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+- [Search Warrants](view.html?slug=search-warrants) — Similar court-order pattern where the affected civilian is outside official systems
+
+## Jurisdictional Witnessing (Optional)
+
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen -- which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -195,7 +199,7 @@ Restraining orders have particular witnessing value because the respondent may l
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party" -- infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** -- Direct check against the issuer
 2. **Witnessing firm** -- Independent confirmation with timestamp

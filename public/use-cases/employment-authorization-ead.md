@@ -17,7 +17,7 @@ An **Employment Authorization Document (EAD)** is the ID card issued by the US g
 
 For a business owner, this card is high-stakes. If they hire someone with a fake card, they can be fined thousands of dollars. The problem? High-quality fakes are everywhere.
 
-Live Verify turns the **Physical Card** into a live link to the USCIS database. This allows a small business owner to see if the card has been "Revoked" (e.g., if the person's visa was cancelled) in seconds, without needing expensive government software.
+The strongest production answer is still the official employer-verification workflow. Live Verify is only credible as a bridge when a relying party is holding the physical card, screenshot, or copied notice outside that native system and needs a lighter path back to current status.
 
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
   <div style="background: #002d62; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
@@ -94,7 +94,7 @@ The **Employee (Authorized Worker)** benefits from verification.
 ## Third-Party Use
 
 **Employers (HR Managers)**
-**I-9 Compliance:** Instantly confirming that the EAD isn't a "High-Quality Forgery." Standard cards are easily bought on the black market; Live Verify connects the manager directly to the USCIS record in seconds.
+**I-9 Compliance:** The strongest answer is still the official employer-verification workflow. Live Verify is more defensible when the employer is stuck working from the card itself and needs a lightweight bridge to current government status.
 
 **Social Security Administration**
 **SSN Issuance:** Verifying the work authorization before assigning an SSN.
@@ -130,9 +130,9 @@ Issues employment authorization documents for non-citizens.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -147,7 +147,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -159,8 +159,14 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | Feature | Live Verify | E-Verify (Employer System) | Physical EAD Card |
 | :--- | :--- | :--- | :--- |
 | **Trust Anchor** | **Domain-Bound.** Bound to `uscis.gov`. | **Direct DB Access.** High trust. | **Mechanical.** Prone to forgery. |
-| **User Access** | **Open.** Small businesses can verify. | **Restricted.** Requires federal registration and training. | **Manual.** |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Often flags for "Manual Review" taking days. | **Instant.** |
+| **User Access** | **Useful when working from the card or a copy.** | **Primary.** Official employer path. | **Manual.** |
+| **Speed** | **Fast bridge from the artifact.** | **Can be slower.** Sometimes manual review takes days. | **Instant.** |
 | **Privacy** | **High.** Verified at the point of use. | **Low.** Data resides in a federal monitoring system. | **N/A.** |
 
-**Why Live Verify wins here:** The "Small Employer" reality. Millions of small businesses (landscapers, restaurants, households) do not use E-Verify because it is complex and invasive. They rely on "Looking at the card." Live Verify allows **every employer** to have "E-Verify Level" trust using only their phone camera, stopping EAD fraud at the scale of the entire economy.
+**Narrower conclusion:** This is not a replacement for E-Verify, SAVE, or formal immigration-status adjudication. It is strongest only as a portability layer for copied or visually presented EAD artifacts in lower-capability workflows.
+
+## See Also
+
+- [Work Permits & Work Visas](view.html?slug=work-permits) — Broader international framing with official systems kept primary
+- [Border Crossing Receipts (I-94)](view.html?slug=border-crossing-receipts-i94) — Similar “artifact bridge, official system primary” pattern
+- [Advance Parole and Re-Entry Permits](view.html?slug=advance-parole-reentry-permits) — Another immigration-status edge-case bridge

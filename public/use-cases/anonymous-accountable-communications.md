@@ -471,7 +471,7 @@ Personal issuer — individual attestation, no regulatory chain.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
 Different use cases have different legal frameworks:
 

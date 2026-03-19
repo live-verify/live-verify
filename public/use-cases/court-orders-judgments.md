@@ -138,9 +138,9 @@ UK courts issue court orders and judgments authorized by the Courts Act 2003 and
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -155,7 +155,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -171,4 +171,4 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | **Accessibility** | **Open.** Scannable by anyone with the paper. | **Closed.** Requires account and professional knowledge. | **Open.** |
 | **Trust Anchor** | **Domain-Bound.** Bound to the Court. | **System-Bound.** | **The Paper.** |
 
-**Why Live Verify wins here:** The "Front Line" reality. Police officers, bank tellers, and landlords don't have time to log into complex court dockets and pay $0.10 per page to check a case. Live Verify turns the **Judge's Order** into a live digital checkpoint, ensuring that "The Voice of the Court" is heard and verified at the exact point of enforcement.
+**Why this remains strong:** Court dockets remain primary for judges, clerks, and lawyers who can use them directly. The gap is the front line: police officers, bank tellers, landlords, employers, and other recipients of court orders often cannot practically navigate those systems at the moment they need to act. That makes court orders another strong portability case rather than an attempt to replace the docket itself.

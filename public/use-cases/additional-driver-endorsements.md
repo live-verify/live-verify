@@ -100,9 +100,9 @@ The **Additional Driver / Vehicle Owner** benefits from verification.
 **Insurance Claims Adjusters**
 **Incident Investigation:** After an accident, the insurer verifies the exact "HH:MM:SS" of the endorsement activation to ensure the coverage wasn't bought *after* the crash occurred.
 
-## Why Not QR Code?
+## QR, Share Links, and Public Verification URLs
 
-A QR code seems faster to scan at a roadside stop, but consider the real-world scenario: a driver with Safeguard Insurance (Texas) is pulled over by a South Carolina highway patrol officer.
+A QR code often is faster to scan at a roadside stop. The real question is not "QR or Live Verify?" but "what does the QR resolve to, and can the verifier actually use it?"
 
 | QR Contains | What SC Officer Can Do |
 |-------------|------------------------|
@@ -111,7 +111,7 @@ A QR code seems faster to scan at a roadside stop, but consider the real-world s
 | Cryptographically signed token | Nothing—no shared PKI between insurers and police |
 | Public verification URL | Works—but this is just Live Verify with different encoding |
 
-**The uncomfortable truth:** QR codes assume system integration that doesn't exist. There's no federation between 50 state DMVs, hundreds of insurers, and thousands of police departments. A QR pointing to Safeguard's internal system is useless to an officer with no Safeguard account.
+**The real constraint:** There is no federation between 50 state DMVs, hundreds of insurers, and thousands of police departments. A QR pointing to Safeguard's internal system is useless to an officer with no Safeguard account.
 
 Live Verify with a **public verification endpoint** handles this correctly:
 - No integration required between insurers and police
@@ -119,7 +119,7 @@ Live Verify with a **public verification endpoint** handles this correctly:
 - Anyone with internet access can verify
 - Works across state lines, insurer boundaries, and app ecosystems
 
-QR could encode that same public URL—but then it's just Live Verify with a different barcode. The verification model is identical; only the scanning speed differs.
+QR can encode that same public URL, and in practice that may be the best surface. The verification model is identical; the real issue is whether the relying party lands on a public issuer-controlled status page rather than a closed insurer portal.
 
 ## Post-Verification Actions
 
@@ -208,11 +208,16 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 ## Rationale
 
-Driver endorsements are the "Permission Slips" of the sharing economy. By turning static amendments into verifiable digital bridges, we ensure that "Responsibility for the Road" is backed by cryptographic proof, protecting owners and rewarding safe, insured drivers.
+Driver endorsements are the "permission slips" of the sharing economy. The strong version is not anti-QR or anti-link. It is simply that whatever surface is used should resolve to a public insurer-controlled verification path that works across state lines and outside closed insurer systems.
 
-## Jurisdictional Witnessing
+## See Also
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+- [Auto Insurance Documents](view.html?slug=auto-insurance-documents) — Broader split between stronger portable claims and weaker card/status artifacts
+- [Proof of Insurance Status](view.html?slug=proof-of-insurance-status) — Stronger certificate/excerpt case where no central motor-status system exists
+
+## Jurisdictional Witnessing (Optional)
+
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -227,7 +232,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp

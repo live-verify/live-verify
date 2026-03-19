@@ -141,9 +141,9 @@ The UK's DAML consent mechanism is largely unique. Most peer jurisdictions opera
 - **Key distinction:** This is unique to the UK — no other jurisdiction has a pre-transaction consent mechanism that directly triggers asset restraint proceedings.
 - **Ireland:** Criminal Assets Bureau (CAB) model is different — CAB can seek interim orders without a SAR/DAML trigger, based on its own intelligence.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)

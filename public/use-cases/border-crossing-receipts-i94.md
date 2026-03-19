@@ -66,16 +66,16 @@ Shows the issuer domain (`cbp.gov`) and current admission status.
 
 The **Traveler** (Non-citizen) benefits from verification.
 
-**Employment (I-9):** Proving to a new employer that they are legally authorized to work in H-1B or L-1 status. A verified I-94 printout provides the HR manager with confidence that the PDF hasn't been altered.
+**Employment (I-9):** The authoritative answer should still come from the official employer-authorization workflow where one exists. Live Verify is more credible when the employer is holding only a copied I-94 printout and needs a bridge back to current government status.
 
-**Driver's License:** DMVs require proof of legal presence. Verification bypasses the frequent "SAVE" database delays by providing a direct link to the CBP record.
+**Driver's License:** DMVs require proof of legal presence. A document-to-status bridge may help when staff are working from the printout, but SAVE or other direct government checks should remain primary.
 
 **SSN Application:** Proving legal status to the Social Security Administration for number issuance.
 
 ## Third-Party Use
 
 **Employers (HR Departments)**
-**Compliance:** Ensuring they don't hire someone with an expired or fake I-94, which avoids massive federal fines. Verification allows for "Zero-Trust" onboarding of foreign nationals.
+**Compliance:** Ensuring they don't hire someone with an expired or fake I-94, which avoids massive federal fines. The strongest production path is still the official employer-authorization workflow; Live Verify is only the portability layer when the copied printout is what is actually circulating.
 
 **Universities (DSOs)**
 **Student Monitoring:** International Student Offices (DSOs) verify the I-94s of thousands of students every semester to maintain SEVIS compliance.
@@ -111,9 +111,9 @@ Records US border entry admissions and permits.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -128,7 +128,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -139,9 +139,14 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 
 | Feature | Live Verify | DHS SAVE System | Paper Printout |
 | :--- | :--- | :--- | :--- |
-| **Accessibility** | **Open.** Any employer or bank can verify. | **Restricted.** Only Gov agencies and some employers have access. | **Manual.** |
-| **Speed** | **Instant.** Scan the paper. | **Slow.** Often takes 3-10 days for "Manual Verification" step. | **Instant.** |
+| **Accessibility** | **Helpful when only the printout is in hand.** | **Primary for formal government/legal-presence checks.** | **Manual.** |
+| **Speed** | **Fast bridge from the printout.** | **Can be slow.** Often takes days for manual verification. | **Instant.** |
 | **Trust** | **Cryptographic.** Bound to `cbp.gov`. | **High.** Direct DB access. | **Low.** Easily faked. |
-| **Integration** | **Web-Native.** Easy to add to onboarding apps. | **Heavy.** Requires complex API integration and federal vetting. | **None.** |
+| **Integration** | **Lightweight.** | **Heavy.** Requires complex API integration and federal vetting. | **None.** |
 
-**Why Live Verify wins here:** The "Employer Gap." Most small businesses do not have access to the DHS SAVE system. They are forced to trust a piece of paper provided by the employee. Live Verify allows **every employer** to have "Government-Grade" trust in the I-94 record without needing a federal contract.
+**Narrower conclusion:** This is not a replacement for SAVE, CBP systems, or formal immigration-status adjudication. It is only defensible as a lighter bridge for relying parties who are already working from an emailed or printed I-94 outside those systems.
+
+## See Also
+
+- [Advance Parole and Re-Entry Permits](view.html?slug=advance-parole-reentry-permits) — Similar “official system primary, artifact bridge secondary” pattern
+- [Work Permits & Work Visas](view.html?slug=work-permits) — Broader right-to-work framing across jurisdictions

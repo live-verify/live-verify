@@ -535,28 +535,24 @@ Organize Third-Party stakeholders based on **document domain**:
 **"Couldn't someone just copy the text?"** — Copying text only helps if the issuer still attests to that exact normalized hash. Revocation and random-line hardening are the defenses against replay/guessing attacks. Note: the hash is not personal data, but the plaintext claim may be. In jurisdictions with GDPR-like legislation, anyone storing copied plaintext containing PII must meet those requirements—the hash-based approach means verifiers can check and discard without retaining PII. Caveat: not all jurisdictions have such legislation, and some entities (notably governments) won't honor DSAR or right-to-be-forgotten requests regardless of the requester's home jurisdiction.
 
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Include this section only when the use case genuinely benefits from an independent witness layer, or when a jurisdiction, contract, or regulator specifically requires one. Do **not** include it by default.
 
-- Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
-- Receives structured content/metadata (key identifiers and dates)
-- Does **NOT** receive plaintext or sensitive personal information
-- Provides an immutable, timestamped audit trail—available to the jurisdiction on demand, to document holders/third parties during disputes, or as expert witness testimony in legal proceedings
+When this section is present, keep the claims narrow:
+- State who would receive hashes and why
+- Explain what the witness adds beyond direct issuer-domain verification
+- Avoid asserting regulator requirements unless they are specific to the use case
+- Treat public-blockchain rollups as an optional implementation detail, not the default architecture
 
-This provides:
-- **Non-repudiation:** Issuer cannot deny issuing the document
-- **Timestamp proof:** Document existed at a specific time
-- **Regulatory audit:** Jurisdictions can inspect the witness ledger for fraud detection
-- **Resilience:** Verification works even if issuer's systems go down
+Good fits:
+- High-dispute records where independent timestamping matters
+- Multi-party workflows where the issuer is not trusted to be the sole historian
+- Cross-border or cross-regulator settings where an external audit trail adds real value
 
-**Public Blockchain (Non-Party)**
-
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
-
-1. **Issuer domain** — Direct check against the issuer
-2. **Witnessing firm** — Independent confirmation with timestamp
-3. **Public blockchain** — Decentralized trust anchor via rollup inclusion
+Poor fits:
+- Straightforward issuer-attestation documents where the issuer endpoint is already the source of truth
+- Use cases where the witness layer is speculative and not needed to explain the trust model
 
 ---
 

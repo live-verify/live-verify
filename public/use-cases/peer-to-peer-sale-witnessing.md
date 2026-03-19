@@ -149,9 +149,9 @@ No regulatory chain. Trust rests on the individual's domain.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require or license witnessing organizations for consumer protection. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Verifies government-issued ID for both parties
 - Records transaction details with timestamps

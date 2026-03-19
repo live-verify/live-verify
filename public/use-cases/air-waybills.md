@@ -90,9 +90,9 @@ The **Shipper** or **Consignee** benefits from verification.
 **Airlines:** (United Cargo, Lufthansa Cargo, etc.)
 **Freight Forwarders:** (DHL Global Forwarding, Kuehne+Nagel, etc.)
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -107,7 +107,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -223,9 +223,9 @@ The **Actual Shipper (SME / Manufacturer)** benefits from verification.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -240,25 +240,20 @@ This provides:
 
 **Jurisdictional Requirements (United States)**
 
-The IRS does not mandate or recognize third-party witnessing firms for federal tax documents. The IRS maintains authoritative records within its own systems, and verification occurs via direct query to IRS endpoints.
+There is no general US rule that air waybills require an independent witness firm. In practice, the primary trust anchors are the carrier's or forwarder's domain, customs filings, and the contractual shipment record.
 
-However:
-- **State tax authorities** may have different requirements (e.g., state-level charity registration requires independent witness firms)
-- **International stakeholders** (foreign tax authorities, treaty partners) may demand independent verification from witness firms not located in the US
-- **FATCA compliance** (Foreign Account Tax Compliance Act) may require US documents to be witnessed by non-US firms when shared across borders
+If a witness layer is used, it should be justified by a specific dispute or compliance need such as:
+- independent timestamping for cargo-release disputes
+- cross-border audit trails where several parties need the same event history
+- resilience where the issuer's own system is not the only trusted record
 
 **Jurisdictional Requirements (International Aviation)**
 
-Air waybills require witness firms from:
-- **Airline's domicile** jurisdiction
-- **Airport of origin** jurisdiction
-- **Airport of destination** jurisdiction
-
-**IATA compliance:** International air transport increasingly demands independent witness firms for cross-border cargo to prevent smuggling and AML violations.
+International air shipments often involve several jurisdictions, but that does not automatically mean they require separate witness firms. Where an independent witness is used, the rationale should be operational: multiple parties, multiple borders, and a need for a shared immutable event trail.
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the air-waybill use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp

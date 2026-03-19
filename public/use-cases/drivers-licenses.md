@@ -15,7 +15,7 @@ A **Driver License** is the world's most common ID. It proves you are allowed to
 
 The problem? "High-Quality Fakes" are now so good that even expert bouncers and police can be fooled.
 
-Live Verify turns the **Physical Card** into a live link to the DMV's database. This allows a bouncer or an officer to see if the license has been "Revoked" or "Suspended" *today*, something a static barcode on the back of the card can never do.
+But driver's licenses already have a native machine-readable layer: barcode/PDF417 on the card, and increasingly direct DMV or mobile-ID channels. That means Live Verify is at best a **complementary** path when the verifier only has a photo, scan, or visual presentation and lacks barcode or DMV tooling. It is not the natural dominant architecture for driver's licenses.
 
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 1px solid #333; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
   <div style="background: #1565c0; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
@@ -91,7 +91,7 @@ The **Named Individual** benefits from verification.
 ## Third-Party Use
 
 **Police Officers (Roadside)**
-**Identity Integrity:** Instantly confirming that the person handed them a real, non-suspended license. Fraudsters often use high-quality "Novice" fakes; Live Verify connects the officer directly to the DMV record in seconds.
+Where barcode scanners or direct DMV queries exist, those remain the primary path. Live Verify is more plausible in lower-capability visual or copy-based checks than as the replacement for native law-enforcement tooling.
 
 **Employers (HR Departments)**
 **Driving Jobs:** Verifying the "Commercial Endorsements" of a truck driver before they operate a multi-million dollar fleet vehicle.
@@ -153,9 +153,9 @@ DMVs can monitor verification request patterns:
 
 Geo-checking won't stop a single clone use, but it detects systematic abuse — a cloned license being used by a fraud ring across multiple venues triggers investigation before the victim even knows their identity was stolen.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -170,7 +170,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -186,7 +186,7 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | **Integrity** | **Cryptographic.** Binds photo to status. | **Medium.** Easy to "Clone" a real barcode onto a fake ID. | **Zero.** |
 | **Hardware** | **Universal.** Any smartphone browser. | **Specialized.** Requires expensive scanners or apps. | **Human Eye.** |
 
-**Why Live Verify wins here:** Freshness and Universality. A minor can buy a fake ID with a "Perfectly Scalable Barcode" that scans as 21+. But that minor **cannot** create a record on `dmv.ca.gov`. Live Verify allows a bouncer or a police officer to check the **Live Status** of the person, bypassing the "Static Data" flaws of barcodes.
+**Practical conclusion:** Barcode/PDF417 plus direct DMV access is usually the better primary architecture. Live Verify mainly helps when a relying party has only the visible card or a copied image and still wants a lightweight bridge back to the issuer domain.
 
 ## Further Reading
 

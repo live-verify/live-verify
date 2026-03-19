@@ -15,7 +15,7 @@ You're buying a used car from a private seller for $28,000. They hand you a titl
 
 Right now, you can't know any of this with certainty in a parking lot. You can check online databases, but the title in your hand could be a photocopy, an altered original, or a legitimate title from a state that conveniently erased the salvage history. Title fraud costs US consumers billions annually. Odometer rollbacks alone account for over $1 billion per year. After every major hurricane, thousands of flood-damaged cars get new titles in states that don't carry flood brands, then get sold to unsuspecting buyers hundreds of miles inland.
 
-With Live Verify, the title carries a `verify:` line bound to the state DMV's domain. You scan it in the parking lot and get confirmation: real title, this VIN, this owner, no liens, clean history — or not. Five seconds, on your phone, before you hand over $28,000.
+The strongest architecture is still the issuing DMV or title-registry system, and where issuer QR/direct lookup already exists it should remain primary. Live Verify is more plausible as a bridge when the buyer, lender, or mechanic is working from the paper title itself and needs a direct path back to current DMV status in the field.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="title"></span>CERTIFICATE OF TITLE
@@ -137,18 +137,18 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 | Feature | Live Verify | NMVTIS | Carfax / AutoCheck | Calling the DMV | Trusting the Paper |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Accessible to Consumers** | **Yes.** Phone camera in a parking lot. | **No.** Available to dealers and approved entities only. Consumers cannot query directly. | **Yes.** But it's a paid third-party report. | **Barely.** Business hours, long hold times, limited info by phone. | **Yes.** But meaningless without verification. |
+| **Accessible to Consumers** | **Potentially yes, when working from the title in hand.** | **No.** Available to dealers and approved entities only. Consumers cannot query directly. | **Yes.** But it's a paid third-party report. | **Barely.** Business hours, long hold times, limited info by phone. | **Yes.** But meaningless without verification. |
 | **Real-Time** | **Yes.** Instant response from issuing DMV. | **No.** Batch-updated; can lag weeks behind actual title events. | **No.** Depends on data feeds from insurers, shops, auctions. Gaps are common. | **No.** Minutes to hours, if they answer at all. | **N/A.** |
-| **Authoritative** | **Yes.** Response comes from the DMV that issued the title. | **Partially.** Federal aggregation of state data, but not all states participate fully. | **No.** Third-party compilation. Misses states, misses events, misses flood brands from certain jurisdictions. | **Yes.** But getting the info is the problem. | **No.** Paper can be forged. |
+| **Authoritative** | **Yes.** If it resolves to the issuing DMV. | **Partially.** Federal aggregation of state data, but not all states participate fully. | **No.** Third-party compilation. Misses states, misses events, misses flood brands from certain jurisdictions. | **Yes.** But getting the info is the problem. | **No.** Paper can be forged. |
 | **Catches Title Washing** | **Yes.** Receiving state can verify the surrendered title's brand history at the source. | **Partially.** Only if both states report fully. | **Sometimes.** Known gaps in flood/salvage brand reporting. | **Maybe.** If you call the right state and ask the right questions. | **No.** That's the entire point of washing. |
 | **Catches Stolen Vehicles** | **Yes.** STOLEN status returned immediately. | **Yes.** This is NMVTIS's strongest feature. | **Sometimes.** Depends on when theft was reported and data lag. | **Yes.** But slow. | **No.** |
 | **Cost to Consumer** | **Free.** The verification is a GET request. | **Not available to consumers.** | **$25-50 per report.** | **Free but costly in time.** | **Free.** |
 
-**Why Live Verify wins here:** NMVTIS exists but consumers can't use it. Carfax is useful but it's a third-party guess, not the authoritative source — and it misses things. Calling the DMV works in theory but fails in practice (business hours, hold times, limited info). Live Verify puts the DMV's own answer in the buyer's hand, in the parking lot, in five seconds, for free. That's the gap nothing else fills.
+**Narrower conclusion:** The registry remains the source of truth. This is strongest only where the relying party is in the field with the paper title and lacks a practical direct registry workflow. In that situation, the title becomes a bridge to DMV status rather than the core trust architecture by itself.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen — which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (VIN, title number, brand status, dates)
@@ -163,7 +163,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party" — infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuing state DMV
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -173,3 +173,8 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 
 1. **Boat / Watercraft Titles** — Similar ownership-and-brand structure, different registries. US Coast Guard for documented vessels, state DNR (Department of Natural Resources) for smaller craft. Hull Identification Numbers (HIN) instead of VINs. Same title washing problem exists — hurricane-damaged boats titled in lenient states.
 2. **Aircraft Titles** — FAA Aircraft Registry (N-number registration) for US civil aircraft, international civil aviation registries (ICAO member states) for foreign-registered aircraft. Higher value per unit, more complex lien structures, international ownership common.
+
+## See Also
+
+- [Vehicle Registration](view.html?slug=vehicle-registration) — Related vehicle-state artifact where issuer QR/direct lookup is often primary
+- [Vehicle Inspection Reports (DOT, MOT, TÜV)](view.html?slug=vehicle-inspection-reports-dot) — Another vehicle document family where official authority lookup may already dominate

@@ -177,9 +177,9 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 **Why Live Verify wins here:** The current system is binary — trust the paper completely or don't trust it at all. Calling the surgery is theoretically possible but practically impossible at scale. Employers accept fake notes because the alternative (challenging every note) destroys the employment relationship. Live Verify adds verification without confrontation — HR scans the note, it's confirmed or it isn't. No awkward phone calls, no accusations.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the medical practice to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the practice, and any subsequent changes to the payload as they happen — which may manifest as a new hash, a status change (EXTENDED, RETURNED, CANCELLED), or even a 404 (record deleted)
 - Receives structured content/metadata (date ranges, practice identifier, note type)
@@ -194,7 +194,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party" — infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Practice domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp

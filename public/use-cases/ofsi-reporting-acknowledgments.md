@@ -133,9 +133,9 @@ Breach reports under proliferation sanctions regimes (Iran, DPRK) carry heighten
 - **US:** OFAC voluntary self-disclosures for Iran/DPRK violations are treated more seriously than general sanctions breaches; DOJ criminal prosecution is more likely for proliferation-related violations.
 - **Key distinction:** General sanctions breaches are primarily regulatory; proliferation sanctions breaches have national security and intelligence dimensions.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)

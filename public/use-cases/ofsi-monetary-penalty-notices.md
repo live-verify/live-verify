@@ -135,9 +135,9 @@ Penalties for sanctions evasion differ materially from general AML fines — eva
 - **US:** OFAC penalties + DOJ criminal forfeiture are often pursued in parallel; plea agreements frequently include forfeiture of breach proceeds.
 - **EU:** Sanctions circumvention is now a criminal offence across all member states (Directive 2024/xxx); confiscation of circumvention proceeds is a new enforcement tool.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)

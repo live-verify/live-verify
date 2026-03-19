@@ -15,7 +15,7 @@ furtherDerivations: 1
 
 To get it, you must pass a rigorous federal background check and a face-to-face interview with a Customs officer. The **Membership Confirmation** is your proof of status.
 
-Fraud is common: scammers often create fake "Global Entry" PDFs to trick employers into thinking they have a clean criminal record. Verified hashes allow an employer or airline to scan the letter and see the "APPROVED" status on the `cbp.dhs.gov` domain in seconds.
+But Global Entry is already a government-held status record. The main question is not whether the letter's text is authentic in isolation; it is whether the official Trusted Traveler status is active now. That makes this a weak fit for standalone document verification and a better fit for direct official status checks.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #002d62; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
@@ -71,20 +71,20 @@ Shows the issuer domain (`cbp.dhs.gov`) and current membership standing.
 
 The **Trusted Traveler** benefits from verification.
 
-**Travel Booking:** Proving to an employer or travel agent that their "Known Traveler Number" is verified and active. This ensures the "TSA PreCheck" logo actually appears on their boarding pass, avoiding "Unverified" delays at security.
+**Travel Booking:** Proving to an employer or travel agent that a Known Traveler Number is current, while treating the official TTP system as the actual authority.
 
-**Employment Vetting:** Proving to a new employer (especially in aviation or high-security logistics) that they have passed the federal "Trusted Traveler" vetting process, which acts as a pre-verified background check.
+**Administrative Convenience:** The letter can support narrow human workflows around current membership status. It should not be treated as a substitute for a proper background check.
 
 ## Third-Party Use
 
 **Airline Counter Agents**
-**KTN Validation:** Instantly verifying a passenger's KTN status if it's missing from the boarding pass. Live Verify connects the agent directly to the CBP record, bypassing the need for the traveler to log into their private TTP portal.
+If they need a status check at all, the stronger answer is direct access to the official TTP state. A verified letter would only be a convenience layer.
 
 **TSA Officers (Security Checkpoint)**
-**Access Control:** Verifying that a "Priority Access" or "TSA Pre" claim on a printed itinerary matches the verified TTP status of the passenger.
+Official checkpoint systems should remain primary. A printed letter or itinerary should not become the main trust artifact.
 
 **International Employers**
-**Reputation Review:** Using the Global Entry status as a verified proxy for a clean federal criminal and customs record.
+At most, the letter can support a narrow convenience check that the person holds current Trusted Traveler status. It should not be treated as a broad substitute for a background check.
 
 ## Verification Architecture
 
@@ -115,9 +115,9 @@ Enrolls and verifies trusted traveler program members.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -132,7 +132,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -148,4 +148,4 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | **Field Access** | **High.** Works for airlines/employers. | **Zero.** Third parties never get TTP logins. | **Visual.** Trusted only via logo. |
 | **Trust Anchor** | **Domain-Bound.** Bound to `cbp.dhs.gov`. | **High.** | **Medium.** |
 
-**Why Live Verify wins here:** The "Counter Reality." Travelers encounter airlines, employers, and foreign authorities in the physical world. They don't want to log into a federal portal with 2FA while standing at a check-in desk. Live Verify turns the **Physical Confirmation Letter** into a high-speed digital dashboard that provides definitive proof of status in seconds.
+**Practical conclusion:** Global Entry is mainly a direct-official-status problem. The stronger answer is easier access to the TTP system for the relying party or a simpler official status page, not elevating the confirmation letter into a primary trust artifact.

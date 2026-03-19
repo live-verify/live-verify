@@ -20,6 +20,8 @@ Without this letter:
 
 Charities often have to fax, email, or mail this letter dozens of times a year to prove their legitimacy.
 
+The IRS's own database/search path should remain primary where the verifier is willing and able to use it. Live Verify is more credible as a bridge when the determination letter itself is the artifact being forwarded, attached to a grant packet, framed on a wall, or circulated as a PDF outside the IRS workflow.
+
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', serif; border: 1px solid #ccc; background: #fff; padding: 40px;">
   <span verifiable-text="start" data-for="501c3"></span>
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 20px; margin-bottom: 30px;">
@@ -119,9 +121,9 @@ Administers federal tax exemptions for charitable organizations.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the IRS (or state-level equivalents) to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the IRS, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change (revoked, suspended), or even a 404 (record deleted)
 - Receives structured content/metadata (organization name, EIN, exemption date, public charity classification)
@@ -134,39 +136,25 @@ This provides:
 - **Regulatory audit:** State charity bureaus can inspect the witness ledger for fraud detection
 - **Resilience:** Verification works even if IRS systems go down
 
-**Jurisdictional Requirements (United States / IRS)**
-
-The IRS does not mandate or recognize third-party witnessing firms for federal tax documents. The IRS maintains authoritative records within its own systems, and verification occurs via direct query to IRS endpoints.
-
-However:
-- **State tax authorities** may have different requirements (e.g., state-level charity registration requires independent witness firms)
-- **International stakeholders** (foreign tax authorities, treaty partners) may demand independent verification from witness firms not located in the US
-- **FATCA compliance** (Foreign Account Tax Compliance Act) may require US documents to be witnessed by non-US firms when shared across borders
-
-**Verification Framework Differences**
-
-The FATCA/CRS frameworks require geographic separation (independent witness firms outside the issuer's jurisdiction) for cross-border documents originating from certain financial centers. This reflects a principle of independent external verification for documents crossing regulatory jurisdictions.
-
-The IRS maintains its own verification infrastructure for federal tax documents (501(c)(3) determination letters, EIN assignments, tax rulings). These documents are verified through direct IRS system queries rather than through independent witness firms. This represents a different verification model—issuer-maintained records for domestic purposes, with the expectation that treaty partners will conduct direct verification with the IRS.
-
-Both models serve distinct purposes: FATCA/CRS-style geographic separation prevents collusion when documents enter non-issuing jurisdictions; issuer-maintained systems provide efficient verification for routine domestic transactions. As international document verification evolves, blockchain-based rollups and decentralized architectures may converge these models into infrastructure-neutral standards applicable across jurisdictions.
-
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **IRS domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
 3. **Public blockchain** — Decentralized trust anchor via rollup inclusion
 
-## Competition vs. QR/NFC
+## Competition vs. QR/NFC and IRS Search
 
-| Feature | Live Verify | QR Code | Public Database Search |
+| Feature | Live Verify | QR Code | IRS Search / TEOS |
 | :--- | :--- | :--- | :--- |
-| **Trust Model** | **Strong.** Links directly to `irs.gov`. | **Weak.** QR codes can point to `irs-gov-verify.com` (phishing site). | **Strong.** But requires manual data entry. |
-| **User Experience** | **Fast.** Scan the letter -> verified. | **Fast.** Scan the code. | **Slow.** Type in EIN, solve CAPTCHA, find record. |
+| **Trust Model** | **Strong.** Links directly to `irs.gov`. | **Depends on what it resolves to.** | **Primary.** Direct IRS status path. |
+| **User Experience** | **Fast.** Scan the letter -> verified. | **Fast.** Scan the code. | **Sometimes slower.** Search workflow and user error. |
 | **Offline Proof** | **Medium.** Hash proves integrity of the paper text. | **Low.** Just a link. | **None.** Requires internet to search DB. |
-| **Phishing Resistance** | **High.** `verify:` line is human-readable. | **Low.** URL often hidden or truncated. | **N/A.** |
+| **Phishing Resistance** | **High.** `verify:` line is human-readable. | **Variable.** Depends on visible domain and user behaviour. | **High.** If the user navigates directly to IRS. |
 
-**Why Live Verify wins here:** The "Determination Letter" is a totem of legitimacy in the non-profit world. It is framed on walls, attached to grant PDFs, and mailed to donors. Preserving its visual dignity while adding verification is superior to plastering a QR code on a formal government letter. Furthermore, database searches are prone to user error (typos in EINs), whereas scanning the document itself eliminates entry errors.
+**Narrower conclusion:** IRS search should remain the dominant answer when the verifier is prepared to use it directly. Live Verify is complementary when the determination letter itself is the thing being shared and the goal is to bridge that visible or portable artifact back to current IRS status without manual search friction.
 
+## See Also
+
+- [Professional Licenses](view.html?slug=professional-licenses) — Another case where a wall document is stronger as a visible surface than as the core artifact

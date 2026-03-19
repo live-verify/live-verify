@@ -129,9 +129,9 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 - **Switzerland (VQF/SROs)** — Financial intermediaries not supervised by FINMA must affiliate with a self-regulatory organisation (SRO) such as the VQF (Verein zur Qualitätssicherung von Finanzdienstleistungen) under the *Anti-Money Laundering Act (AMLA)*. Key difference: Switzerland uses a delegated supervision model — SROs conduct the day-to-day AML supervision under FINMA oversight, creating a two-tier structure that differs from the UK's direct HMRC supervision.
 - **Hong Kong (CCE)** — Money service operators must be licensed by the Commissioner of Customs and Excise (CCE) under the *Anti-Money Laundering and Counter-Terrorist Financing Ordinance (AMLO)*. Key difference: Hong Kong maintains a publicly searchable register of licensed money service operators; the licensing regime is enforced by Customs and Excise rather than the financial regulator (unlike Singapore's MAS-led approach).
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)

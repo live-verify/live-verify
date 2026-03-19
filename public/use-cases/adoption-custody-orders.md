@@ -124,7 +124,17 @@ The **Custodial Parent** or **Adoptive Parent** benefits from verification.
 
 **Pattern:** Sovereign
 
-Custody and adoption orders are issued by UK family courts authorized under the Children Act 1989 and Adoption and Children Act 2002.
+Example authority chains by jurisdiction:
+
+**US example (matching the sample artifact above):**
+
+```
+✓ cookcountycourt.org/orders/v — Issues Cook County family court orders
+  ✓ illinoiscourts.gov — Illinois judicial authority
+    ✓ illinois.gov — Illinois state government root namespace
+```
+
+**UK variant:**
 
 ```
 ✓ courts.gov.uk/family/verify — Issues UK custody and adoption orders
@@ -133,9 +143,9 @@ Custody and adoption orders are issued by UK family courts authorized under the 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -150,7 +160,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -166,7 +176,7 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 - Courts must update verification status in real-time when new orders are entered
 - Stale data is dangerous — a parent could present a verified order that was modified yesterday
 
-**Live Verify is a bridge technology here.** The ideal solution is live court integration where police, schools, and hospitals can query the case number directly for the *current* order. Until courts build those APIs, Live Verify provides a partial solution — but only if:
+**Live Verify is a bridge technology here.** This is only a strong use case where the court can maintain real-time status. The ideal solution is live court integration where police, schools, and hospitals can query the case number directly for the *current* order. Until courts build those APIs, Live Verify provides a partial solution — but only if:
 1. Courts commit to updating verification status immediately when orders change
 2. Verifiers understand "VALID" means "as of this moment" — not "forever"
 3. The `MODIFIED` status is treated as "do not enforce; obtain current order"

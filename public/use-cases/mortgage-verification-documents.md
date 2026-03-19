@@ -100,9 +100,9 @@ The borrower / employee (second party) may hand the verified document to various
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. Salary and employment status are highly sensitive. The hash MUST be salted to prevent "Guess-and-Check" searches for high-earning employees. Even though documents contain unique employee IDs and names, salary amounts and job titles are often enumerable (common salary bands like $50k, $75k, $100k, $145k combined with standard titles), making brute-force attacks feasible without salt.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require employers and payroll processors to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the employer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change (terminated, on-leave), or even a 404 (record deleted)
 - Receives structured content/metadata (job titles, salary ranges, employment dates, verification IDs)
@@ -117,7 +117,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Employer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -241,9 +241,9 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require payroll processors to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the payroll processor, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change (amended, void), or even a 404 (record deleted)
 - Receives structured content/metadata (pay periods, gross amounts, YTD totals, verification IDs)
@@ -267,7 +267,7 @@ However:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Payroll processor domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp

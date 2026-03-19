@@ -9,6 +9,16 @@ tags: ["locksmith", "professional-license", "physical-security", "public-safety"
 furtherDerivations: 1
 ---
 
+## What is a Locksmith Credential?
+
+Locksmiths are not just another licensed profession. They arrive at the door during a moment of acute vulnerability: lockout, after-hours distress, property access disputes, or urgent re-entry. The homeowner or driver is not really asking "is this person broadly in the profession?" They are asking:
+
+- is this the real company I called?
+- is this person actually authorized to represent that company?
+- do they have the right license scope and bonding for this work?
+
+That makes locksmithing a threshold-decision case, closer to home-service verification than to decorative professional licensing.
+
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
   <div style="background: #333; color: #fff; padding: 15px; text-align: center; display: flex; align-items: center; justify-content: center;">
     <div style="font-size: 1.5em; margin-right: 10px;">🔑</div>
@@ -27,7 +37,8 @@ furtherDerivations: 1
       <div style="font-size: 0.9em; color: #333; line-height: 1.4;">
         <strong>License #:</strong> LOC-992288<br>
         <strong>Company:</strong> Miller Security Solutions<br>
-        <strong>Status:</strong> ACTIVE / BONDED
+        <strong>Status:</strong> ACTIVE / BONDED<br>
+        <strong>Dispatch:</strong> Assigned via Miller Security Solutions
       </div>
     </div>
   </div>
@@ -44,10 +55,10 @@ furtherDerivations: 1
 
 ## Data Verified
 
-Licensee name, photo (hash), license number, business DBA name, expiration date, bonding status ($2,500 minimum typically), background check clearance date, issuing state bureau.
+Licensee name, photo (hash), license number, business DBA name, expiration date, bonding status, company/dispatch identity, and issuing state bureau.
 
 **Document Types:**
-- **Locksmith Pocket ID:** Carried by the technician in the field.
+- **Locksmith Field Credential:** Carried by the technician in the field.
 - **Company Registration:** For the locksmith storefront.
 - **Certificate of Bonding:** Proving the consumer is protected against theft.
 - **Apprentice Permit:** For locksmiths-in-training under supervision.
@@ -61,19 +72,21 @@ Shows the issuer domain (`bsis.ca.gov`, `nc-locksmithboard.org`) and current sta
 - **Suspended** — **ALERT:** Access revoked (e.g., due to criminal record or expired bond).
 - **Revoked** — Permanently barred from the profession.
 - **Expired** — Renewal application or fee overdue.
+- **WRONG_COMPANY** — Technician may be real, but not from the company the customer expected.
+- **NOT_ASSIGNED** — Technician identity may be real, but not dispatched for this call.
 
 ## Second-Party Use
 
 The **Locksmith (Practitioner)** benefits from verification.
 
-**Customer Trust:** Proving to a homeowner at 2 AM that they aren't just "Some guy from Craigslist with a drill," but a verified, background-checked professional. Verification removes the "Stranger Danger" friction and allows the worker to start the bypass process immediately.
+**Customer Trust:** Proving at 2 AM that they are not just "some guy from Craigslist with a drill," but the right technician from the right company with real standing and bonding.
 
 **Police Interaction:** If a locksmith is stopped by police while picking a lock (at a customer's request), the verified badge provides the officer with instant confirmation of their professional authority.
 
 ## Third-Party Use
 
 **Homeowners / Car Owners**
-**Burglary Prevention:** Criminals often pose as "Mobile Locksmiths" to gain entry to high-value properties or to duplicate keys for later use. Scanning the badge hash confirms the person is a "Verified On-Duty" professional, protecting the owner from "Fake Locksmith" scams.
+**Burglary Prevention:** Criminals often pose as mobile locksmiths to gain entry to properties or to duplicate keys for later use. The important check is not just active licensure, but company identity and dispatch legitimacy.
 
 **Service Marketplaces (Google / Yelp)**
 **Merchant Vetting:** Google currently "Local Services Verified" for locksmiths. Live Verify turns that one-time check into a **Continuous Audit Link**, ensuring that a merchant who is suspended by the state is instantly removed from the search results.
@@ -88,6 +101,7 @@ The **Locksmith (Practitioner)** benefits from verification.
 - **Identity Theft:** Burglars buying realistic uniforms and fake "Locksmith" badges to case homes or install "Backdoor" locks for future entry.
 - **Credential Hiding:** A technician whose license was revoked for stealing from a client keeping their physical ID to find work in a different county.
 - **Bond Forgery:** Creating a fake "Certificate of Bonding" PDF to trick a landlord into allowing a high-security lock change.
+- **Dispatch Substitution:** Customer calls one company but a different subcontractor or scam operation arrives.
 
 **Issuer Types** (First Party)
 
@@ -99,21 +113,20 @@ The **Locksmith (Practitioner)** benefits from verification.
 
 ## Authority Chain
 
-**Pattern:** Regulated
+**Pattern:** Regulated / commercial
 
-Locksmith licensing bodies issue credentials to qualified security professionals.
+Locksmith licensing bodies confirm standing and bonding. The dispatching firm or marketplace may separately need to confirm that this technician is the one actually assigned to the call.
 
 ```
 ✓ mla.com — Issues Master Locksmiths Association credentials
-  ✓ mla.com — UK locksmith professional body
-    ✓ gov.uk/verifiers — UK government root namespace
+✓ dispatch.example-locksmith.co.uk/verify — Confirms current company dispatch for this call
 ```
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -128,7 +141,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -145,3 +158,9 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | **Freshness** | **Real-time.** Shows if banned *today*. | **N/A.** | **Static.** |
 
 **Why Live Verify wins here:** The "Emergency Moment." Most people call a locksmith when they are locked out and stressed. They don't want to engage in a long conversation or a deep-dive on Yelp. Live Verify turns the **ID Badge** into a live, non-confrontational safety tool that provides instant, high-authority trust at the door.
+
+## See Also
+
+- [Home Service Provider Verification](view.html?slug=home-service-provider-verification) — Broader company/assignment verification for doorstep trades
+- [Cold-Caller Credentials](view.html?slug=cold-caller-credentials) — Pre-entry identity checks for unexpected visitors
+- [Trades and Home-Visit Cluster](../../trades-home-visit-cluster.md) — Cluster note for doorstep and threshold verification

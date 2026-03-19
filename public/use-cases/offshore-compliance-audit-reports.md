@@ -153,9 +153,9 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 **Why Live Verify wins here:** The fundamental problem is that compliance audit reports are produced by private firms for private clients, and the firms are bound by confidentiality. They can't publicly confirm they audited a specific entity without the entity's consent. Live Verify solves this: the entity presents the report (consenting to disclosure), and the auditor's domain confirms the report is genuine — without the auditor breaking any confidentiality obligation.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (entity registration number, audit period, report type)
@@ -172,7 +172,7 @@ Compliance audit reports have particular witnessing value for **regulatory enfor
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction.
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 ## Further Derivations
 

@@ -100,9 +100,9 @@ The courier (second party) may hand the verified credential to various third par
 
 **Privacy Salt:** Required. Courier badges combine predictable values—partial names, hub locations, and standard ID formats. More critically, the hash must be salted to prevent "Stalking" attacks where someone could enumerate driver IDs and routes, creating serious safety risks for drivers. Salt also prevents "Competitor Reconnaissance" where rival firms could map out a company's delivery density and staffing patterns.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require courier companies to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the courier company, and any subsequent changes to employment status as they happen—which may manifest as a new hash, a status change (off-duty, suspended, terminated), or even a 404 (record deleted)
 - Receives structured content/metadata (employee IDs, hub assignments, on-duty status, route zones)
@@ -117,7 +117,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Courier company domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp

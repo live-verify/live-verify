@@ -142,9 +142,9 @@ Trust registration is primarily a tax transparency measure. Trusts are a dominan
 - **Offshore jurisdictions:** Jersey, Guernsey, Cayman, BVI trust registers — increasing transparency requirements under FATF/EU/UK pressure; Economic Substance Requirements
 - **OECD:** Mandatory Disclosure Rules for CRS Avoidance Arrangements (MDR) — specifically targets trust structures used to circumvent CRS
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)

@@ -129,9 +129,9 @@ CPAs certify that financial statements accurately represent a company's financia
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require audit firms to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the audit firm, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change (withdrawn, superseded), or even a 404 (record deleted)
 - Receives structured content/metadata (company name, fiscal year, opinion type, consolidated totals)
@@ -146,7 +146,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Audit firm domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp

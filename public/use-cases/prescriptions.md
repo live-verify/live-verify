@@ -13,9 +13,9 @@ furtherDerivations: 2
 
 You're traveling from London to New York with a month's supply of codeine — legally prescribed by your GP for chronic pain. At US customs, the officer sees the medication. In the UK, codeine is a common prescription painkiller. In the US, it's a controlled substance. The officer asks for proof. You have a crumpled paper prescription from your GP. The officer has no way to verify it. Is this a real prescription from a real doctor? Was it actually prescribed to you? Is the quantity legitimate? Or did you buy a pad of blank prescriptions online?
 
-Prescription fraud is a public health crisis. The opioid epidemic was fueled in part by forged, altered, and doctor-shopped prescriptions. Pharmacies use PDMP databases internally, but the patient — and crucially, anyone outside the healthcare system (border agents, school administrators, sports officials) — has no way to verify a prescription is real.
+Prescription fraud is a public health crisis. The opioid epidemic was fueled in part by forged, altered, and doctor-shopped prescriptions. Pharmacies use PDMP databases and e-prescribing systems internally, but the patient — and crucially, anyone outside the healthcare system (border agents, school administrators, sports officials) — has no way to verify a prescription is real.
 
-With Live Verify, the prescription carries a `verify:` line bound to the prescriber's practice or healthcare organization domain. The pharmacist, the customs officer, the school nurse scans it and gets confirmation: real prescription, real prescriber, correct medication, correct patient, currently valid.
+Inside the healthcare system, PDMP and e-prescribing should remain primary. The strong Live Verify case is outside that system: the customs officer, school nurse, sports official, or emergency responder who only has the paper, PDF, or phone snapshot in front of them.
 
 <div style="max-width: 500px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; border-radius: 8px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
   <div style="background: #1a5276; color: #fff; padding: 14px 18px;">
@@ -87,8 +87,8 @@ The **Patient** (second party) receives the prescription from the prescriber (fi
 
 ## Third-Party Use
 
-**Pharmacies (Primary Verifier)**
-Currently use PDMP but this adds a direct issuer check. The pharmacist scans the prescription and gets confirmation from the prescriber's own domain — not a database that the prescriber may or may not have updated.
+**Pharmacies**
+PDMP and e-prescribing remain the primary production systems. A document-to-status bridge is more useful when pharmacies are forced to work from a paper or external prescription artifact outside the usual closed loop.
 
 **Border / Customs Agents**
 Controlled substances in luggage. This is where existing systems completely fail. No customs officer has access to PDMP. No customs officer can call a GP surgery in another country at 2am. A `verify:` line gives them an answer in seconds.
@@ -162,11 +162,11 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Detects forgery** | **Yes.** Hash mismatch = forgery. | **Partial.** Detects doctor shopping but not forged paper. | **Yes** (if you reach the doctor). | **Yes** (within the loop). | **No.** |
 | **Detects "FILLED" status** | **Yes.** Status changes on fill. | **Yes.** Core function. | **No.** Doctor may not know. | **Yes.** | **No.** |
 
-**Why Live Verify wins here:** PDMP is powerful but walled off. It exists inside the healthcare system for healthcare professionals. The people who most need to verify prescriptions outside that system — customs officers holding a bag of codeine, school administrators looking at a bottle of Ritalin, sports officials reviewing a TUE claim — have zero access to PDMP. Live Verify puts verification in the hands of anyone holding the document.
+**Why this remains strong:** PDMP is powerful but walled off. It exists inside the healthcare system for healthcare professionals. The people who most need to verify prescriptions outside that system — customs officers holding a bag of codeine, school administrators looking at a bottle of Ritalin, sports officials reviewing a TUE claim — have zero access to PDMP. That makes prescriptions a strong complementary case outside the native clinical systems.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the prescriber or healthcare organization to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the prescriber, and any subsequent changes to the payload as they happen — which may manifest as a new hash, a status change (FILLED, CANCELLED, FLAGGED), or even a 404 (record deleted)
 - Receives structured content/metadata (medication type, schedule classification, prescriber ID, fill dates)
@@ -179,11 +179,9 @@ This provides:
 - **Regulatory audit:** Healthcare regulators and law enforcement can inspect the witness ledger for prescribing pattern anomalies
 - **Resilience:** Verification works even if the prescriber's practice closes, their systems go down, or the prescriber dies
 
-Note: controlled substance prescriptions may have **mandatory witnessing requirements** imposed by DEA (US) or Home Office (UK), beyond what the jurisdiction requires for general prescriptions.
-
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party" — infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Prescriber's practice domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -194,3 +192,7 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 1. **Veterinary prescriptions** — Controlled substances for animals carry the same fraud risks as human prescriptions. Ketamine, tramadol, and gabapentin are all diverted from veterinary channels. A verified veterinary prescription bound to the practice domain (e.g., `parkviewvets.co.uk/rx/v`) confirms the animal, the medication, the dosage, and the prescribing veterinarian.
 
 2. **Therapeutic Use Exemptions (TUE) for athletes** — A TUE is the formal permission for an athlete to use a medication that would otherwise violate anti-doping rules. It's issued by a sport's anti-doping authority based on a verified prescription. A Live Verify chain runs from the prescriber's practice domain through to the anti-doping authority's domain (e.g., `ukad.org.uk/tue/v`), binding the underlying prescription to the exemption. Forged TUEs are a known problem in elite sport — this closes that gap.
+
+## See Also
+
+- [Proof of Insurance (Policyholder Confirmation)](view.html?slug=proof-of-insurance-status) — Another strong portable-claim case for relying parties outside the source system

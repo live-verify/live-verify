@@ -111,9 +111,9 @@ State cosmetology and barber boards license practitioners in personal care servi
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -128,7 +128,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -144,4 +144,4 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | **Integrity** | **Binds Identity.** Links face to status. | **Zero.** Easily swapped. | **None.** |
 | **User Privacy** | **Targeted.** Verifies *this* person. | **Open.** | **Open.** Scrape-able by data brokers. |
 
-**Why Live Verify wins here:** The "Service Point" reality. Customers are already sitting in the chair when they decide to trust a stylist. They won't type license numbers into a state portal while wearing a salon cape. Live Verify turns the **Station License** into a live "Safety Beacon," ensuring trust is verified at the moment of highest risk.
+**Why this remains strong:** State website lookup should remain primary where it is practical. But salon and barber trust decisions are often made from the displayed station license in the room, not from a planned registry search. That makes this a complementary surface-verification case rather than a replacement for the board database.

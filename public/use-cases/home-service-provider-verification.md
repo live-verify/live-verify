@@ -9,16 +9,17 @@ tags: ["plumber-verification", "electrician-license", "home-service-safety", "pe
 furtherDerivations: 1
 ---
 
-## What is a Tradesperson Badge?
+## What is a Home Service Credential?
 
 When you hire a plumber or electrician, you are letting a stranger into your private home.
 
-The **Verified Badge** is the worker's digital or physical ID. It proves:
-1.  **Licensure:** They are a real "Master Electrician" and not just an amateur.
-2.  **Insurance:** The company has active liability insurance if they break your house.
-3.  **Safety:** They have passed a recent criminal background check.
+The **Verified Credential** is the worker's digital or physical doorstep credential. It is strongest when it proves four narrow things:
+1.  **Which company is actually standing at the door** — so the homeowner can detect bait-and-switch or undisclosed subcontractor substitution.
+2.  **What task they are here to do** — not just "electrician," but whether the worker is assigned for this job at this address now.
+3.  **Whether their license scope matches the claimed work** — for example, whether the claimed trade authorization actually covers the service being offered.
+4.  **Whether the company stands behind the visit** — insurance, work order, and current authorization.
 
-"Fake Repairman" scams are a common way for burglars to case a house. Live Verify allows a homeowner to scan the badge at the door and see a green "ACTIVE" status from the state board, ensuring only legitimate professionals enter the home.
+"Fake Repairman" scams are a common way for burglars to case a house. Live Verify allows a homeowner to scan the credential at the door and answer the real threshold question: **"Is this the right worker from the right company, here for the right job, with the right scope of authorization?"**
 
 <div style="max-width: 480px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; border-radius: 12px; background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.2); position: relative;">
 
@@ -38,10 +39,7 @@ The **Verified Badge** is the worker's digital or physical ID. It proves:
       MIKE J. MILLER<br>
       License #: ELEC-992288 (TX)<br>
       Company: Sparky's Power, LLC<br>
-      Status: ACTIVE / INSURED<br>
-      Verified via the State Licensing Board.<br>
-      Includes current general liability insurance<br>
-      and criminal background clearance.<br>
+      Salt: a4e62b6<br>
       <span style="font-family: 'Courier New', monospace;"
         title="Demo only: Licensing board doesn't yet offer verification&#10;endpoints, so this is illustrative">verify:tx-license.gov/v</span>
     </div>
@@ -50,23 +48,30 @@ The **Verified Badge** is the worker's digital or physical ID. It proves:
 
 ## Data Verified
 
-Tradesperson name, photo (hash), professional license type (Master/Journeyman), license number, company name, insurance status (Liability/WC), background check date, issuing state board.
+Tradesperson name, professional license type (Master/Journeyman), license number, company name, salt. The badge text is deliberately minimal — it identifies the worker and company, not the job details.
+
+**What the badge does NOT carry:** job address, scope of work, assignment details. Those are live dispatch state and belong in the verification response payload, not baked into the badge text.
 
 **Document Types:**
-- **Pocket License Card:** Carried by the individual.
-- **Service Work Order:** (Linked hash) proving the authorized visit.
-- **Certificate of Insurance:** Proving the specific worker is covered.
-- **Background Clearance Summary:** For high-trust in-home services.
+- **Doorstep Badge (eInk or printed):** Carried by the individual worker. Contains the salted identity claim.
+- **Service Work Order / Visit Authorization:** Separate artifact, may also carry its own `verify:` line from the dispatching company.
+- **Certificate of Insurance:** Proving the company or visit is covered.
 
 ## Verification Response
 
-The endpoint returns a simple status code:
+The endpoint returns a status and an optional payload with live dispatch context:
 
-- **OK** — License is valid and insurance is in force
-- **SUSPENDED** — License removed due to disciplinary action; do not hire
+- **`{"status":"verified"}`** — Worker is currently licensed and active. The payload may include live details the issuer chooses to surface:
+  - `"message": "On call to job at: 14 Oak Street"` — current assignment
+  - `"scope": "Residential electrical"` — license scope
+  - `"insured": true` — current insurance status
+  - `"company": "Sparky's Power, LLC"` — confirming the employing company
+- **SUSPENDED** — License removed due to disciplinary action; do not admit
 - **EXPIRED** — Renewal or updated insurance required; do not proceed
 - **ALERT** — Unresolved consumer safety reports found; proceed with caution
-- **404** — License not found (forged badge, wrong state, or OCR error)
+- **404** — Badge not found (forged, wrong state, or OCR error)
+
+The homeowner reads the payload and makes their own judgment: does the address match mine? Does the scope match what I called about? Is the company the one I booked? These are human decisions informed by the payload, not protocol-level error codes.
 
 The issuer domain is visible from the `verify:` line on the badge itself (e.g., `tx-license.gov`).
 
@@ -96,10 +101,10 @@ Fields:
 
 **Why This Matters:**
 
-- **Pattern detection:** Tradesperson receiving frequent "concerns" across multiple jobs triggers board review
+- **Pattern detection:** Tradesperson or firm receiving frequent "wrong company," "not assigned," or safety concerns triggers review
 - **Consumer protection:** Creates contemporaneous record if dispute arises later
 - **Quality accountability:** Licensing boards see which contractors deliver quality work
-- **Scam deterrent:** Contractors know homeowners can easily report; reduces bait-and-switch pricing
+- **Scam deterrent:** Contractors know homeowners can easily report bait-and-switch, wrong-company substitution, or out-of-scope work
 - **Market signal:** Good contractors benefit from positive feedback patterns
 
 **The "Never Discouraged" Principle:**
@@ -110,17 +115,17 @@ Tradespeople should never tell homeowners "don't bother" or "that's not necessar
 
 The **Tradesperson (Plumber/Electrician)** benefits from verification.
 
-**Customer Trust:** Proving to a homeowner at the door that they aren't just "somebody with a van," but a verified professional who has passed a background check and has active insurance. This removes the "Stranger Danger" friction and allows the worker to start the job faster.
+**Customer Trust:** Proving to a homeowner at the door that they are not just licensed in the abstract, but are the right worker from the right company for the right job. This removes stranger-danger friction without forcing the homeowner into a long phone call.
 
 **Job Bidding:** Including a "Verified License Badge" in digital quotes to win more work from premium clients who value safety.
 
 ## Third-Party Use
 
 **Homeowners (Vulnerable Residents)**
-**Assault Prevention:** Before opening the door, a resident (or their remote family via doorbell cam) can scan the badge. "Verified by State Board" ensure the person at the door isn't a "Fake Repairman" predator with a stolen uniform.
+**Doorstep Decision:** Before opening the door, a resident or remote family member can scan the credential and see not just licensure, but company identity, assignment, and task scope. That is what prevents fake-repairman and bait-and-switch scams.
 
 **Service Marketplaces (Angi / Thumbtack)**
-**Merchant Vetting:** Automatically verifying the licenses of all service providers on the platform. A verified "Suspended" status triggers an immediate removal from the marketplace, protecting the brand's reputation.
+**Merchant Vetting:** Automatically verifying the licenses, company identity, and insurance position of listed providers. A verified "Suspended," "Wrong Company," or "Out of Scope" status should trigger review or removal.
 
 **Insurance Companies**
 **Claim Adjudication:** Verifying that a plumbing repair was performed by a verified, licensed professional before paying out a water-damage claim.
@@ -129,9 +134,11 @@ The **Tradesperson (Plumber/Electrician)** benefits from verification.
 
 **The "Fake Tradesman" Fraud Problem**
 
-- **Identity Theft:** Burglars posing as "Gas Inspectors" or "Water Repairmen" to gain entry to homes to steal or case the interior.
+- **Identity Theft:** Burglars posing as gas inspectors or repair workers to gain entry to homes to steal or case the interior.
 - **Licensure Hiding:** A contractor whose license was revoked for unsafe work keeping their physical card to find work through private Craigslist ads.
 - **Insurance Forgery:** Creating a fake COI PDF to trick a homeowner into thinking they are protected against accidents.
+- **Company Substitution:** Homeowner books one company, but a different and less trusted company arrives at the door.
+- **Scope Overreach:** Worker is licensed for one class of work but claims authority for a broader or more dangerous task.
 
 **Issuer Types** (First Party)
 
@@ -143,21 +150,20 @@ The **Tradesperson (Plumber/Electrician)** benefits from verification.
 
 ## Authority Chain
 
-**Pattern:** Commercial
+**Pattern:** Regulated / commercial
 
-A verified marketplace or state licensing board issues tradesperson credentials. The issuer (marketplace or board) is self-authorized to confirm license status.
+The strongest version is layered: the board or licensing body confirms scope and standing; the company or marketplace confirms assignment and firm identity for this visit.
 
 ```
-✓ pro.checkatrade.com/verify — Verifies tradesperson licenses and background clearance
+✓ pro.checkatrade.com/verify — Confirms company identity, assignment, and marketplace standing
+  ✓ gov.uk/verifiers — jurisdictional or board root where applicable
 ```
-
-Commercial issuer — self-authorized. Trust rests on the issuer's domain reputation.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing
+## Jurisdictional Witnessing (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -172,7 +178,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
@@ -189,3 +195,9 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | **Safety Data** | **High.** Shows background/insurance status. | **None.** Only shows quality of work. | **N/A.** |
 
 **Why Live Verify wins here:** The "Threshold Moment." Homeowners make the decision to open the door in seconds. They don't want to read 50 Yelp reviews while a stranger stands on their porch. Live Verify turns the **ID Badge** into a live, non-confrontational safety tool that provides instant, high-authority trust.
+
+## See Also
+
+- [Locksmith Licenses](view.html?slug=locksmith-licenses) — Another threshold-decision trade with company and dispatch checks
+- [Pest Control Operator Licenses](view.html?slug=pest-control-operator-licenses) — Task-scope and chemical-category variant
+- [Trades and Home-Visit Cluster](../../trades-home-visit-cluster.md) — Cluster note for doorstep and threshold verification

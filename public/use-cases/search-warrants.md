@@ -17,7 +17,7 @@ The core problem: **the person being searched has no practical way to verify the
 
 A search warrant is a piece of paper with a judge's signature — or, increasingly, a PDF displayed on an officer's phone. Both are trivially forged. The subject must comply immediately or face obstruction charges. Challenging a fake warrant after the fact means the damage is already done: property tossed, devices seized, privacy destroyed. And if the warrant was fabricated by a corrupt officer, a criminal impersonating police, or a state actor targeting a dissident — the victim has no recourse in the moment.
 
-Live Verify changes this. The warrant carries a `verify:` line bound to the issuing court's domain. The subject scans it, gets a real-time status in five seconds, and knows — before opening the door — whether the warrant is genuine, what it authorizes, and whether it's still valid.
+Court and law-enforcement warrant systems should remain primary for officers, clerks, and prosecutors. The strong Live Verify case is different: the subject of the search, landlord, or tech company often has no practical access to those systems even though they are the ones being confronted with the document.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Georgia', serif; border: 1px solid #333; background: #fff; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <div style="text-align: center; margin-bottom: 30px;">
@@ -192,11 +192,15 @@ The issuer-generated random salt line (printed on the warrant but not derivable 
 | **Subject Access** | **Yes.** The person being searched can verify. | **Theoretically.** In practice, not while officers are at the door. | **No verification possible.** | **No.** Subject has no access. |
 | **Trust Anchor** | **Domain-bound.** Court's own domain. | **Voice on a phone.** | **The paper.** | **System-bound.** Internal law enforcement network. |
 
-**Why Live Verify wins here:** Electronic warrant systems exist but are designed for law enforcement, not for the public. The person most affected by a warrant — the search subject — has zero access to verify it. Live Verify is the first system that puts verification in the hands of the person who needs it most, at the moment they need it most.
+**Why this remains strong:** Electronic warrant systems exist, but they are designed for law enforcement rather than the subject, landlord, or third-party recipient. That makes warrants one of the clearer cases where document-side verification is not replacing the native system; it is exposing a narrow civilian verification surface that the native system does not provide.
 
-## Jurisdictional Witnessing
+## See Also
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
+- [Restraining Orders and Protective Orders](view.html?slug=restraining-orders-protective-orders) — Another court-order family where civilian verifiers are outside the native justice systems
+
+## Jurisdictional Witnessing (Optional)
+
+Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
 - Receives structured content/metadata (key identifiers and dates)
@@ -211,7 +215,7 @@ This provides:
 
 **Public Blockchain (Non-Party)**
 
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
+If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:
 
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp

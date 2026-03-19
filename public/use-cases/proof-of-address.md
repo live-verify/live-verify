@@ -17,6 +17,8 @@ Utility bills, broadband bills, and mobile phone statements are the world's most
 
 Live Verify flips the model. Instead of the bank trusting a document the *customer* provides, the telco or energy provider publishes a salted hash confirming: **"We write to this person at this address concerning an active account."** The bank checks the hash against the provider's domain. The document becomes a carrier for the claim — the authority rests with the issuer's endpoint, not the PDF.
 
+This remains a strong case because the utility or telco is itself the source of truth for the narrow claim being checked. There usually is no better universal native system than the provider saying "yes, this account is active at this address."
+
 <div style="max-width: 550px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 20px; position: relative;">
   <div style="font-size: 0.85em; color: #555; border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 15px;">
     <strong>From:</strong> noreply@britishgas.co.uk<br>
@@ -157,4 +159,8 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Freshness** | **Real-time.** Status reflects current account state. | **Weeks-months.** Credit data updates on reporting cycles. | **Point-in-time.** Whatever the bill date says. |
 | **Coverage** | **Any provider with a domain.** | **Limited to reporting providers.** Many smaller utilities don't report. | **Universal but unreliable.** |
 
-**Why Live Verify wins here:** Credit bureau address data is a proxy — it reflects what providers *reported* weeks or months ago. Live Verify is a direct check against the provider's own current records. And unlike manual review, it's unforgeable: no amount of PDF editing produces a hash the provider has published.
+**Why this remains strong:** Credit bureau address data is a proxy — it reflects what providers *reported* weeks or months ago. Live Verify is a direct check against the provider's own current records. In this domain, that issuer-side confirmation is the native source of truth rather than a replacement for some better central system.
+
+## See Also
+
+- [Social Security Benefit Statements](view.html?slug=social-security-benefit-statements) — Another proof document often shared in onboarding workflows
