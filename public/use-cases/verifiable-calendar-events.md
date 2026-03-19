@@ -107,6 +107,8 @@ Deposition notices, hearing dates, filing deadlines — the court's domain attes
 - **Attendee injection:** Adding attendees to a forwarded invitation who were not on the original
 - **Stale events:** Forwarding a cancelled or superseded event as if it were still current
 
+**No post-verification actions:** Calendar event endpoints deliberately do not return Accept/Decline links or any other clickable actions. Responses (acceptance, rejection, counter-proposal) travel as separate verifiable emails from the attendee's own domain. Embedding action links in the verification response would be a phishing target — an attacker who compromised an endpoint could redirect Accept clicks to a credential-harvesting page. Keeping the response channel (email) separate from the verification channel (hash lookup) avoids this.
+
 **Why Live Verify fits:**
 
 Calendar events are the canonical "claim that travels outside the source system." They are emailed, forwarded, screenshot, printed, and pasted into other tools. The organizer's calendar system is the source of truth, but the recipient may be in a completely different system (or no system — just reading email). Live Verify bridges that gap without requiring both parties to share a calendar platform.

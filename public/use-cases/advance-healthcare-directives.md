@@ -112,7 +112,7 @@ The **Patient** benefits from verification.
 **Secretary of State Offices:** (Some states maintain directive registries)
 
 ## Authority Chain
-
+    
 **Pattern:** Regulated
 
 Solicitors draft and certify healthcare directives under mental capacity law.
