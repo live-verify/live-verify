@@ -1,14 +1,14 @@
 {
-  "generated": "2026-03-17T20:00:47.666Z",
-  "totalUseCases": 488,
-  "totalFurtherDerivations": 589,
+  "generated": "2026-03-19T10:54:16.995Z",
+  "totalUseCases": 490,
+  "totalFurtherDerivations": 583,
   "categories": {
     "Real Estate & Property": 32,
     "Charitable & Non-Profit": 7,
-    "Novel Document Types": 6,
+    "Novel Document Types": 7,
     "Scientific & Research": 8,
     "Actuarial & Insurance Mathematics": 10,
-    "Personal Lines Insurance": 14,
+    "Personal Lines Insurance": 15,
     "Government & Civic Documents": 22,
     "Notary Services": 7,
     "Immigration & Visa Documents": 18,
@@ -17,11 +17,11 @@
     "Chain of Custody & Logistics": 18,
     "Travel & Hospitality": 21,
     "Professional & Occupational Licenses": 13,
-    "Identity & Authority Verification": 40,
+    "Identity & Authority Verification": 39,
     "Healthcare & Medical Records": 13,
     "Professional & Educational Qualifications": 19,
     "Art, Media & Publishing": 7,
-    "Customs & Trade Compliance": 6,
+    "Customs & Trade Compliance": 7,
     "Sports & Athletics": 6,
     "Specialty Insurance": 23,
     "Business & Commerce": 16,
@@ -1587,7 +1587,7 @@
       "retention": "Employment period + badge validity",
       "verificationMode": "camera",
       "furtherDerivations": 2,
-      "snippet": "Employee name, photo, employee ID, employing organization, role/job title, authorized activities, geographic region, badge validity dates, DBS/background check status (where relevant).",
+      "snippet": "Employee name, photo, employee ID, employing organization, role/job title, authorized activities, geographic region, badge validity dates, visit or route entitlement where applicable, DBS/background c",
       "tags": [
         "doorstep",
         "cold-caller",
@@ -3250,27 +3250,6 @@
       ]
     },
     {
-      "slug": "event-ticketing",
-      "title": "Event Ticketing (Concerts, Sports, Theater)",
-      "category": "Identity & Authority Verification",
-      "volume": "Very Large",
-      "retention": "Event + 30 days (chargebacks/disputes)",
-      "verificationMode": "both",
-      "furtherDerivations": 10,
-      "snippet": "Event name, venue, date/time, section/row/seat, ticket holder name, photo hash (if bound), transfer status, resale policy, price paid, purchase timestamp.",
-      "tags": [
-        "tickets",
-        "concerts",
-        "sports",
-        "theater",
-        "festivals",
-        "scalping",
-        "counterfeit",
-        "admission",
-        "entertainment"
-      ]
-    },
-    {
       "slug": "event-venue-staff",
       "title": "Event Venue and Contractor Staff Verification",
       "category": "Identity & Authority Verification",
@@ -3326,6 +3305,32 @@
         "litigation-support",
         "court-evidence",
         "professional-liability"
+      ]
+    },
+    {
+      "slug": "export-controlled-goods-chain",
+      "title": "Export-Controlled Goods: Licence Chain & Onward Transfer",
+      "category": "Customs & Trade Compliance",
+      "volume": "Medium",
+      "retention": "10-30 years (licence term + statutory retention + enforcement)",
+      "verificationMode": "clip",
+      "furtherDerivations": 3,
+      "snippet": "Export Licence: Licence type (SIEL/OIEL/OGEL), licence reference, licensee name and country, consignee name and country, end-user name and country, controlled goods description, control list entry (fr",
+      "tags": [
+        "export-controls",
+        "dual-use",
+        "end-user-certificate",
+        "wassenaar",
+        "siel",
+        "ogel",
+        "itar",
+        "ear",
+        "re-export",
+        "onward-transfer",
+        "strategic-goods",
+        "sanctions",
+        "arms-trade",
+        "proliferation"
       ]
     },
     {
@@ -3960,6 +3965,25 @@
       ]
     },
     {
+      "slug": "health-insurance-coverage-excerpts",
+      "title": "Health Insurance Coverage Excerpts",
+      "category": "Personal Lines Insurance",
+      "volume": "Large",
+      "retention": "Policy term + dispute window",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Member name, partial member ID, plan family, active/inactive state, coverage period, recheck-after date, service class or benefit bucket, relevant network context, and insurer identity.",
+      "tags": [
+        "health-insurance",
+        "coverage-excerpt",
+        "eligibility",
+        "planned-care",
+        "benefit-summary",
+        "provider-negotiation",
+        "portable-claim"
+      ]
+    },
+    {
       "slug": "health-insurance-eobs",
       "title": "Health Insurance Explanation of Benefits (EOB)",
       "category": "Personal Lines Insurance",
@@ -4187,7 +4211,7 @@
       "retention": "Service + 3-7 years (liability/tax)",
       "verificationMode": "camera",
       "furtherDerivations": 1,
-      "snippet": "Tradesperson name, photo (hash), professional license type (Master/Journeyman), license number, company name, insurance status (Liability/WC), background check date, issuing state board.",
+      "snippet": "Tradesperson name, professional license type (Master/Journeyman), license number, company name, salt. The badge text is deliberately minimal — it identifies the worker and company, not the job details",
       "tags": [
         "plumber-verification",
         "electrician-license",
@@ -5216,7 +5240,7 @@
       "retention": "1-3 years (license term)",
       "verificationMode": "clip",
       "furtherDerivations": 1,
-      "snippet": "Licensee name, photo (hash), license number, business DBA name, expiration date, bonding status ($2,500 minimum typically), background check clearance date, issuing state bureau.",
+      "snippet": "Licensee name, photo (hash), license number, business DBA name, expiration date, bonding status, company/dispatch identity, and issuing state bureau.",
       "tags": [
         "locksmith",
         "professional-license",
@@ -6625,7 +6649,7 @@
       "retention": "License term (1-3 years)",
       "verificationMode": "clip",
       "furtherDerivations": 1,
-      "snippet": "License number, licensee full name, photograph (via hash), company name (DBA), license categories (e.g., Structural, Lawn, Termite), expiration date, background check timestamp, insurance policy ID, i",
+      "snippet": "License number, licensee full name, photograph (via hash), company name (DBA), assignment or work-order reference where applicable, license categories (e.g., Structural, Lawn, Termite), expiration dat",
       "tags": [
         "pest-control",
         "occupational-license",
@@ -9358,7 +9382,7 @@
     },
     {
       "slug": "vehicle-display-postings",
-      "title": "Vehicle Display Postings (Taxi, TNC, Permits)",
+      "title": "Vehicle Display Postings (Taxi, Parking, Access Permits)",
       "category": "Chain of Custody & Logistics",
       "volume": "Very Large",
       "retention": "License term (1-3 years)",
@@ -9373,7 +9397,9 @@
         "public-transport",
         "municipal-permit",
         "driver-verification",
-        "passenger-safety"
+        "passenger-safety",
+        "parking-placard",
+        "vehicle-access"
       ]
     },
     {
@@ -9460,6 +9486,30 @@
         "vendor-management",
         "bank-account-verification",
         "financial-crime"
+      ]
+    },
+    {
+      "slug": "verifiable-calendar-events",
+      "title": "Verifiable Calendar Events",
+      "category": "Novel Document Types",
+      "volume": "Very Large",
+      "retention": "Event + dispute window",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "Event type (invitation/acceptance/rejection/counter), event title, date, time, timezone, duration, location (physical and/or virtual), organizer name, attendee names, response status.",
+      "tags": [
+        "calendar",
+        "scheduling",
+        "ical",
+        "caldav",
+        "meeting",
+        "invitation",
+        "acceptance",
+        "rejection",
+        "cross-org",
+        "deposition",
+        "custody",
+        "appointment"
       ]
     },
     {
@@ -9867,7 +9917,7 @@
   "categoriesList": [
     {
       "name": "Identity & Authority Verification",
-      "count": 40
+      "count": 39
     },
     {
       "name": "Real Estate & Property",
@@ -9910,12 +9960,12 @@
       "count": 16
     },
     {
-      "name": "Insurance Claims & Operations",
+      "name": "Personal Lines Insurance",
       "count": 15
     },
     {
-      "name": "Personal Lines Insurance",
-      "count": 14
+      "name": "Insurance Claims & Operations",
+      "count": 15
     },
     {
       "name": "Legal & Court Documents",
@@ -9970,6 +10020,10 @@
       "count": 7
     },
     {
+      "name": "Novel Document Types",
+      "count": 7
+    },
+    {
       "name": "Notary Services",
       "count": 7
     },
@@ -9978,16 +10032,12 @@
       "count": 7
     },
     {
-      "name": "Agriculture & Food",
+      "name": "Customs & Trade Compliance",
       "count": 7
     },
     {
-      "name": "Novel Document Types",
-      "count": 6
-    },
-    {
-      "name": "Customs & Trade Compliance",
-      "count": 6
+      "name": "Agriculture & Food",
+      "count": 7
     },
     {
       "name": "Sports & Athletics",
