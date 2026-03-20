@@ -16,7 +16,7 @@ Sometimes a homeowner needs to prove they are the registered owner of a property
 Examples:
 
 - proving ownership to an insurer after a claim
-- proving occupancy/ownership to a school or local authority
+- proving ownership to a school or local authority
 - proving authority to instruct contractors, utilities, or surveyors
 - proving to a lender, platform, or court that they are the current registered proprietor
 
@@ -107,7 +107,6 @@ Property address or title reference, current ownership status, registry issue ti
 
 **Document Types:**
 - **24-Hour Ownership Confirmation**
-- **Owner-Occupier Confirmation**
 - **Current Registered Proprietor Extract**
 - **Title-Control Confirmation for Service / Utility / Repair Authorization**
 
@@ -125,7 +124,7 @@ Those belong to the permanent title layer, not the privacy-preserving proof laye
 
 Shows the issuer domain and the current ownership-proof result.
 
-**Important:** this page should answer the narrow question of **current home ownership**. It should not try to carry every property state. Occupancy/use, market status, and parcel/physical condition belong in a separate state-change layer.
+**Important:** this page answers the narrow question of **current registered ownership only**. It does not carry occupancy, use, market, or physical state — those belong in the [Property State Changes](view.html?doc=property-state-changes) layer.
 
 **Status Indications:**
 - **Current Registered Owner Confirmed** — Current ownership confirmed within validity window

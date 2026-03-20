@@ -70,7 +70,9 @@ That record hashes to `a]7f3b2e...`, which appears on the face of the deed inste
 - Stalking and doxxing via public property records
 - The current workaround of shell companies and trusts, which obscure ownership from *everyone* including legitimate parties
 
-This is not radical. It is how the financial system already works — your bank account number is not your name, your SWIFT transfer identifies you by reference, and the bank discloses the mapping under legal process. Property recording is simply behind on this because the paper-courthouse model never needed the indirection.
+**This requires recording-rule changes.** Most US states currently require deeds to identify parties by name on the face of the recorded instrument. Adopting hashed references would need statutory or recording-rule amendments to allow "identified by registry reference" as a valid form of party identification. This is a legal-design change, not a drop-in operational change.
+
+That said, the concept is not radical. It is how the financial system already works — your bank account number is not your name, your SWIFT transfer identifies you by reference, and the bank discloses the mapping under legal process. Property recording is simply behind on this because the paper-courthouse model never needed the indirection.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 1px solid #000; background: #fff; padding: 0; box-shadow: 5px 5px 15px rgba(0,0,0,0.1);">
   <div style="padding: 40px;">

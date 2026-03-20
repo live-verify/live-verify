@@ -80,17 +80,17 @@ This is much cleaner than trying to make one flat status field do four jobs at o
 
 Property:          14 Cedar Grove, York
 Title Ref:         YK-221133
-Title Status:      CURRENT TITLE
-Occupancy Status:  TENANTED
-Market Status:     NOT LISTED
-Parcel Status:     UNCHANGED
+Title Status:      CURRENT TITLE           [source: land registry]
+Occupancy Status:  TENANTED                [source: owner attestation]
+Market Status:     NOT LISTED              [source: owner attestation]
+Parcel Status:     UNCHANGED               [source: land registry]
 Effective From:    20 Mar 2026
 
 <span data-verify-line="propertystate1">verify:landregistry.gov.uk/property-state/v</span></pre>
   <span verifiable-text="end" data-for="propertystate1"></span>
 </div>
 
-## Example: Sale and Transfer Pending
+## Example: Property Listed for Sale
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #8a4b08; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="propertystate2"></span>
@@ -99,10 +99,10 @@ Effective From:    20 Mar 2026
 
 Property:          Flat 8, 29 North Street, Bristol
 Title Ref:         BR-882199
-Title Status:      CURRENT TITLE
-Occupancy Status:  OWNER-OCCUPIED
-Market Status:     FOR SALE
-Parcel Status:     UNCHANGED
+Title Status:      CURRENT TITLE           [source: land registry]
+Occupancy Status:  OWNER-OCCUPIED          [source: owner attestation]
+Market Status:     FOR SALE                [source: listing agent]
+Parcel Status:     UNCHANGED               [source: land registry]
 Effective From:    20 Mar 2026
 
 <span data-verify-line="propertystate2">verify:landregistry.gov.uk/property-state/v</span></pre>
@@ -118,10 +118,10 @@ Effective From:    20 Mar 2026
 
 Property:          Coast Cottage, West Bay
 Title Ref:         WB-114920
-Title Status:      CURRENT TITLE
-Occupancy Status:  VACANT
-Market Status:     NOT LISTED
-Parcel Status:     PARTIALLY LOST TO COASTAL EROSION
+Title Status:      CURRENT TITLE           [source: land registry]
+Occupancy Status:  VACANT                  [source: insurer report]
+Market Status:     NOT LISTED              [source: owner attestation]
+Parcel Status:     PARTIALLY LOST TO COASTAL EROSION [source: local authority]
 Effective From:    20 Mar 2026
 
 <span data-verify-line="propertystate3">verify:landregistry.gov.uk/property-state/v</span></pre>
@@ -210,11 +210,14 @@ The cleaner property model is:
 **Pattern:** Sovereign / Registry / Regulated reporting
 
 ```
-✓ landregistry.gov.uk/property-state/v — Property-state verification service
+✓ landregistry.gov.uk/property-state/v — Title and parcel status (authoritative)
   ✓ gov.uk/verifiers — UK government root namespace
+
+✓ landregistry.gov.uk/property-state/v — Occupancy and market status (aggregated)
+  Sources: owner attestation, lender inspection, listing agent, insurer report, local authority
 ```
 
-In practice, some state dimensions may be sourced from linked regulated reporters rather than the registry alone. The important point is that the verification object separates the dimensions instead of collapsing them.
+Each dimension carries its own source class. The registry may aggregate and publish the composite record, but it is not the original authority for every dimension. Title and parcel status come from the registry itself. Occupancy and market status come from attesting parties whose reports the registry collates.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
