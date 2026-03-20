@@ -1,7 +1,7 @@
 {
-  "generated": "2026-03-19T13:00:54.226Z",
-  "totalUseCases": 494,
-  "totalFurtherDerivations": 583,
+  "generated": "2026-03-20T09:52:31.512Z",
+  "totalUseCases": 502,
+  "totalFurtherDerivations": 594,
   "categories": {
     "Real Estate & Property": 32,
     "Charitable & Non-Profit": 7,
@@ -17,7 +17,7 @@
     "Chain of Custody & Logistics": 18,
     "Travel & Hospitality": 21,
     "Professional & Occupational Licenses": 13,
-    "Identity & Authority Verification": 39,
+    "Identity & Authority Verification": 40,
     "Healthcare & Medical Records": 13,
     "Professional & Educational Qualifications": 20,
     "Art, Media & Publishing": 7,
@@ -25,14 +25,14 @@
     "Sports & Athletics": 6,
     "Specialty Insurance": 23,
     "Business & Commerce": 17,
-    "Legal & Court Documents": 15,
+    "Legal & Court Documents": 18,
     "Banking & Payments": 16,
-    "Financial Compliance": 23,
-    "Investment & Fintech": 11,
+    "Financial Compliance": 24,
+    "Investment & Fintech": 12,
     "Site & Equipment Safety": 12,
     "Commercial Lines Insurance": 11,
     "Product Certifications & Compliance": 12,
-    "Professional Ethics & Compliance": 9,
+    "Professional Ethics & Compliance": 11,
     "Environmental Permits & Compliance": 10,
     "Warehousing & Inventory": 4,
     "Government & Regulatory": 6,
@@ -2757,6 +2757,28 @@
         "school",
         "employer",
         "fitness-to-work"
+      ]
+    },
+    {
+      "slug": "domestic-organized-fraud-controls",
+      "title": "Domestic Organized Fraud Control Stack",
+      "category": "Financial Compliance",
+      "volume": "Large",
+      "retention": "Programmatic / cross-domain",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "",
+      "tags": [
+        "fraud",
+        "organized-fraud",
+        "consumer-protection",
+        "identity-fraud",
+        "investment-fraud",
+        "release-fee",
+        "remote-worker-fraud",
+        "banking",
+        "payments",
+        "policy-rollup"
       ]
     },
     {
@@ -6905,6 +6927,28 @@
       ]
     },
     {
+      "slug": "portable-anti-scam-legal-objects",
+      "title": "Portable Anti-Scam Legal Objects",
+      "category": "Legal & Court Documents",
+      "volume": "Large",
+      "retention": "Programmatic / statutory",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "",
+      "tags": [
+        "consumer-protection",
+        "legal-objects",
+        "anti-scam",
+        "verification-chain",
+        "government-mandate",
+        "portable-proof",
+        "fraud-policy",
+        "payments",
+        "identity",
+        "regulation"
+      ]
+    },
+    {
       "slug": "postal-courier-worker-verification",
       "title": "Postal & Courier Worker Verification",
       "category": "Identity & Authority Verification",
@@ -7812,6 +7856,50 @@
       ]
     },
     {
+      "slug": "relationship-led-investment-scam-documents",
+      "title": "Relationship-Led Investment Scam Documents",
+      "category": "Investment & Fintech",
+      "volume": "Large",
+      "retention": "7-10 years (fraud investigation, complaints, recovery efforts)",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Platform name, regulated entity or operator name, client ID, account holder name or privacy-preserving form, product/account type, portfolio balance summary or withdrawal amount, request/reference num",
+      "tags": [
+        "investment-fraud",
+        "crypto-fraud",
+        "romance-scam",
+        "withdrawal-scam",
+        "fake-broker",
+        "authorized-push-payment",
+        "consumer-protection",
+        "fintech-fraud",
+        "social-engineering",
+        "retail-investor"
+      ]
+    },
+    {
+      "slug": "release-fee-demand-notices",
+      "title": "Release Fee Demand Notices",
+      "category": "Legal & Court Documents",
+      "volume": "Large",
+      "retention": "7-10 years (consumer protection, enforcement, audit, complaints)",
+      "verificationMode": "clip",
+      "furtherDerivations": 3,
+      "snippet": "Issuer name, legal authority or licensing basis, case/shipment/account reference, subject of release, fee type, amount due, due date, payment destination or collecting agent, current status, and wheth",
+      "tags": [
+        "release-fee",
+        "consumer-protection",
+        "scam-prevention",
+        "authorized-push-payment",
+        "customs-fee",
+        "withdrawal-fee",
+        "account-unfreeze",
+        "legal-demand",
+        "government-mandate",
+        "verification-chain"
+      ]
+    },
+    {
       "slug": "remittance-transfer-confirmations",
       "title": "Remittance Transfer Confirmations",
       "category": "Banking & Payments",
@@ -7829,6 +7917,28 @@
         "fintech-fraud",
         "money-laundering",
         "immigrant-services"
+      ]
+    },
+    {
+      "slug": "remote-worker-identity-and-access-verification",
+      "title": "Remote Worker Identity and Access Verification",
+      "category": "Identity & Authority Verification",
+      "volume": "Large",
+      "retention": "Employment/engagement term + 3-7 years (security, payroll, and audit records)",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Worker name or privacy-preserving badge form, worker ID, legal employer, client organization, role title, assignment start/end dates, approved working region, approved managed device ID (or device coh",
+      "tags": [
+        "remote-work",
+        "contractor-verification",
+        "identity-fraud",
+        "insider-risk",
+        "staffing",
+        "access-control",
+        "employment",
+        "vendor-risk",
+        "shell-company",
+        "dual-employment"
       ]
     },
     {
@@ -9208,6 +9318,28 @@
       ]
     },
     {
+      "slug": "transaction-linked-compensation-disclosures",
+      "title": "Transaction-Linked Compensation Disclosures",
+      "category": "Professional Ethics & Compliance",
+      "volume": "Large",
+      "retention": "7-10 years (regulatory, tax, complaints, litigation)",
+      "verificationMode": "clip",
+      "furtherDerivations": 3,
+      "snippet": "### General position",
+      "tags": [
+        "compensation",
+        "commission",
+        "trail-commission",
+        "financial-advice",
+        "ifa",
+        "broker",
+        "conflict-of-interest",
+        "referral-fee",
+        "revenue-share",
+        "inducement"
+      ]
+    },
+    {
       "slug": "travel-agency-invoices",
       "title": "Travel Agency Booking Invoices and Itineraries",
       "category": "Travel & Hospitality",
@@ -9598,6 +9730,28 @@
       ]
     },
     {
+      "slug": "verification-chain-civil-liberties-safeguards",
+      "title": "Verification Chain Civil Liberties Safeguards",
+      "category": "Legal & Court Documents",
+      "volume": "Large",
+      "retention": "Programmatic / constitutional / administrative",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "",
+      "tags": [
+        "civil-liberties",
+        "due-process",
+        "administrative-law",
+        "consumer-protection",
+        "appeals",
+        "proportionality",
+        "privacy",
+        "verification-chain",
+        "state-power",
+        "safeguards"
+      ]
+    },
+    {
       "slug": "visa-denial-notices",
       "title": "Visa Denial Notices",
       "category": "Immigration & Visa Documents",
@@ -9860,6 +10014,28 @@
       ]
     },
     {
+      "slug": "what-is-in-it-for-you-disclosures",
+      "title": "What Is In It For You? Disclosures",
+      "category": "Professional Ethics & Compliance",
+      "volume": "Large",
+      "retention": "Point of decision + complaint period",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "In its simplest form, the object verifies only the fields a customer actually needs at the point of decision:",
+      "tags": [
+        "consumer-protection",
+        "plain-english",
+        "commission",
+        "conflict-of-interest",
+        "financial-advice",
+        "broker",
+        "referral-fee",
+        "disclosure",
+        "ifa",
+        "transparency"
+      ]
+    },
+    {
       "slug": "wifi-credential-postings",
       "title": "Wi-Fi Credential Postings",
       "category": "Novel Document Types",
@@ -10002,18 +10178,18 @@
   "categoriesList": [
     {
       "name": "Identity & Authority Verification",
-      "count": 39
+      "count": 40
     },
     {
       "name": "Real Estate & Property",
       "count": 32
     },
     {
-      "name": "Specialty Insurance",
-      "count": 23
+      "name": "Financial Compliance",
+      "count": 24
     },
     {
-      "name": "Financial Compliance",
+      "name": "Specialty Insurance",
       "count": 23
     },
     {
@@ -10037,6 +10213,10 @@
       "count": 18
     },
     {
+      "name": "Legal & Court Documents",
+      "count": 18
+    },
+    {
       "name": "Business & Commerce",
       "count": 17
     },
@@ -10053,16 +10233,16 @@
       "count": 15
     },
     {
-      "name": "Legal & Court Documents",
-      "count": 15
-    },
-    {
       "name": "Professional & Occupational Licenses",
       "count": 13
     },
     {
       "name": "Healthcare & Medical Records",
       "count": 13
+    },
+    {
+      "name": "Investment & Fintech",
+      "count": 12
     },
     {
       "name": "Site & Equipment Safety",
@@ -10073,11 +10253,11 @@
       "count": 12
     },
     {
-      "name": "Investment & Fintech",
+      "name": "Commercial Lines Insurance",
       "count": 11
     },
     {
-      "name": "Commercial Lines Insurance",
+      "name": "Professional Ethics & Compliance",
       "count": 11
     },
     {
@@ -10090,10 +10270,6 @@
     },
     {
       "name": "Financial & Legal Documents",
-      "count": 9
-    },
-    {
-      "name": "Professional Ethics & Compliance",
       "count": 9
     },
     {
