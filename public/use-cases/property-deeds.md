@@ -37,9 +37,53 @@ In the US, most county recorder offices make deed records fully public — searc
 
 ## Title Theft
 
-**"Title Theft"** is a rapidly growing fraud where criminals forge a homeowner's signature on a "Quitclaim Deed," notarize it with a fake stamp, and record it at the county office. They then use this "Verified" (but fraudulent) record to take out massive home equity loans or even "sell" the house to an unsuspecting buyer.
+Title theft is a real and growing fraud pattern:
 
-Live Verify binds the **title reference, legal description, instrument details, and chain position** to the County Recorder's domain. A fraudulent deed would generate a hash that doesn't exist in the county's "Verified Index," alerting title companies and banks to the fraud.
+1. Criminal forges a quitclaim deed with the homeowner's name (or registry reference) as grantor
+2. Gets it notarized (fake notary, corrupt notary, or identity theft)
+3. Records it at the county — many counties have minimal verification at the counter
+4. Uses the recorded deed to take out a home equity loan or sell the property
+5. Homeowner often doesn't discover it for months
+
+### How Live Verify addresses each step
+
+**Step 1 — Forging the deed:** With hashed party references, the criminal cannot simply write "MARIA G. RODRIGUEZ" on the deed. They would need the victim's registry reference hash. However, if earlier deeds are on public record, the hash may be obtainable from them. Hashed references raise the bar but do not eliminate this step.
+
+**Step 2 — Notarization:** Live Verify does not fix corrupt or fake notaries. If the notary is complicit or deceived, the deed gets notarized regardless. This remains a weak point in the system.
+
+**Step 3 — Recording:** This is where Live Verify has the strongest effect. If the county recorder publishes verification hashes only after validating the incoming deed against the existing chain — confirming that the grantor's registry reference matches the current registered owner — then a fraudulent deed is never hashed. It may still be physically filed (counties are often required to accept documents presented for recording), but it receives no verification hash. Any subsequent check returns 404.
+
+**Step 4 — Using the deed:** The lender or buyer verifies the deed before committing money. No hash → 404 → the deed does not verify. The lender refuses the loan. The buyer walks away. The fraud collapses at the point where the criminal tries to extract value.
+
+**Step 5 — Discovery delay:** If the county offers a "watch" service (notify the registered owner when any new instrument is recorded against their parcel), the homeowner learns about the fraudulent filing quickly rather than months later. The watch service is complementary infrastructure, not part of Live Verify itself, but verification hashes make it more useful — the owner can immediately check whether the new instrument verifies.
+
+### Strengthening step 2: the notary as a verifiable link
+
+The notarial attestation is itself a verifiable claim (see [Notary Documents](view.html?doc=notary-documents)). If the notary's act is hashed and published to the notary's commissioning authority — say, `verify:flsos.gov/notary/v` — then the county recorder can require a verified notarial attestation before publishing the deed hash.
+
+That turns the chain into:
+
+1. Notary verifies the person's identity against the county's registry reference
+2. Notary issues a verifiable attestation: "I confirm the person behind `a]7f3b2e...` appeared and signed instrument 20260316000442"
+3. The notarial attestation is hashed and published to the notary's commissioning authority
+4. The county recorder checks: does this deed have a verified notarial attestation? If not, no deed hash is published.
+
+With this chain in place:
+
+- **Fake notary stamps** are caught — the stamp claims a commission number, but the commission doesn't verify at the Secretary of State's endpoint
+- **Corrupt notaries** create a stronger evidence trail — the notary's own verifiable attestation is on record and auditable. It doesn't prevent the corruption, but it makes it traceable and prosecutable.
+- **Stolen or expired commissions** are caught — the commissioning authority returns COMMISSION_REVOKED or COMMISSION_EXPIRED
+
+This does not eliminate the corrupt-notary problem entirely. A genuinely corrupt notary with a valid commission who knowingly attests a false identity will still produce a verifiable attestation. But the attestation is now a permanent, auditable, non-repudiable record of who claimed to witness whom — which makes investigation and prosecution far easier.
+
+### What Live Verify does NOT solve
+
+- A corrupt notary with a valid commission who knowingly attests a false identity (though the attestation creates an auditable evidence trail)
+- A county recorder who does not validate the chain before publishing a hash
+- Jurisdictions that accept and record any document presented, with no chain validation at intake
+- Social engineering attacks where the criminal impersonates the owner convincingly enough to pass both the notary's identity check and the registry reference verification
+
+The strongest configuration requires the county to treat hash publication as a validation step (not merely an index of everything filed), and to require a verified notarial attestation as a prerequisite. That is an operational change at the county level, not just a technology deployment.
 
 ## Hashed Party References
 
@@ -176,10 +220,11 @@ Title or parcel reference, full legal description (Metes and Bounds or Lot/Block
 **Party identification:** The deed references parties by hashed registry reference (see "Hashed Party References" above) rather than plaintext names. The registry holds the identity records and discloses them to authorised parties and under legal process. The public-facing verification surface carries property-centric identifiers and chain-of-title continuity, not owner identity.
 
 **Document Types:**
-- **Warranty Deed:** Highest protection; grantor warrants title is clear.
-- **Quitclaim Deed:** Low protection; grantor transfers whatever interest they have (common in fraud).
-- **Trustee's Deed:** Used in foreclosure or trust transfers.
-- **Correction Deed:** Issued to fix typos in previous filings.
+- **Warranty Deed:** Highest protection; grantor warrants clear title and will defend against all claims.
+- **Special / Limited Warranty Deed:** Grantor only warrants against defects during their own ownership period, not the full chain history.
+- **Quitclaim Deed:** Grantor transfers whatever interest they have, with zero warranties. The fraud weapon of choice because it is fast, cheap, and many counties do not scrutinize them.
+- **Trustee's / Executor's Deed:** Transfers from trusts, estates, or foreclosures.
+- **Correction Deed:** Issued to fix errors in previous filings.
 
 ## Data Visible After Verification
 
