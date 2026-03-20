@@ -6,6 +6,7 @@ retention: "7-10 years (credit reporting cycle)"
 slug: "debt-payoff-satisfaction-letters"
 verificationMode: "clip"
 tags: ["debt", "payoff", "satisfaction", "mortgage", "loan", "credit", "lien-release"]
+furtherDerivations: 3
 ---
 
 ## What is a Debt Payoff or Satisfaction Letter?

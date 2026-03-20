@@ -6,7 +6,7 @@ retention: "Duration of right + 1 year"
 slug: "property-access-rights"
 verificationMode: "clip"
 tags: ["property", "ownership", "tenancy", "access", "locksmith", "on-demand", "verification"]
-furtherDerivations: 0
+furtherDerivations: 1
 ---
 
 ## What is Property Access Rights Verification?

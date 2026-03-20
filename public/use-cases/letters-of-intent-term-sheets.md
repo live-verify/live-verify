@@ -6,7 +6,7 @@ retention: "Transaction completion + dispute window"
 slug: "letters-of-intent-term-sheets"
 verificationMode: "clip"
 tags: ["loi", "term-sheet", "acquisition", "investment", "negotiation", "revision-chain", "cross-org", "m-and-a", "venture-capital"]
-furtherDerivations: 0
+furtherDerivations: 2
 ---
 
 ## What is a Verifiable Term Sheet?

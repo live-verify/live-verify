@@ -6,7 +6,7 @@ retention: "7-10 years (regulatory requirements)"
 slug: "offshore-compliance-audit-reports"
 verificationMode: "clip"
 tags: ["compliance-audit", "offshore", "aml", "kyc", "substance-audit", "regulatory-compliance", "fatf", "shell-company", "cayman", "bvi", "money-laundering"]
-furtherDerivations: 3
+furtherDerivations: 1
 ---
 
 ## What is an Offshore Compliance Audit Report?

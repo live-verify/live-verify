@@ -6,7 +6,7 @@ retention: "7 years (Fair Credit Reporting Act)"
 slug: "credit-reports-scores"
 verificationMode: "clip"
 tags: ["credit-report", "credit-score", "fico", "equifax", "experian", "transunion", "lending", "rental-application", "employment-screening"]
-furtherDerivations: 2
+furtherDerivations: 1
 ---
 
 ## What is a Credit Report?

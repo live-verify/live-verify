@@ -6,7 +6,7 @@ retention: "Duration of contract + 6 years"
 slug: "contract-signing-authority"
 verificationMode: "clip"
 tags: ["signing-authority", "contracts", "nda", "legal", "delegation", "corporate-governance"]
-furtherDerivations: 0
+furtherDerivations: 1
 ---
 
 ## What is Contract Signing Authority?

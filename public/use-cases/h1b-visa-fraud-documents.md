@@ -7,7 +7,7 @@ retention: "Petition validity + 7 years (USCIS retention schedule)"
 slug: "h1b-visa-fraud-documents"
 verificationMode: "clip"
 tags: ["h1b", "visa-fraud", "body-shop", "bench-company", "client-letter", "lca", "labor-condition-application", "experience-letter", "it-certification", "immigration", "uscis", "dol", "staffing"]
-furtherDerivations: 3
+furtherDerivations: 4
 ---
 
 ## The H-1B Fraud Problem

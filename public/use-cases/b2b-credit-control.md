@@ -6,7 +6,7 @@ retention: "Duration of trading relationship + 6 years"
 slug: "b2b-credit-control"
 verificationMode: "clip"
 tags: ["purchasing-authority", "credit-control", "trade-credit", "b2b", "procurement", "fraud-prevention"]
-furtherDerivations: 0
+furtherDerivations: 1
 ---
 
 ## What is B2B Credit Control?

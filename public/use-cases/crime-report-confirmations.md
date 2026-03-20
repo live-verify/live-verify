@@ -6,7 +6,7 @@ retention: "Indefinite (report exists as long as case file exists)"
 slug: "crime-report-confirmations-and-progress"
 verificationMode: "clip"
 tags: ["crime-report", "police-report", "fraud-report", "insurance-claim", "action-fraud", "crime-reference-number", "law-enforcement", "victim-receipt"]
-furtherDerivations: 2
+furtherDerivations: 1
 ---
 
 ## What is a Crime Report Confirmation (and Progress)?

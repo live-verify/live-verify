@@ -6,7 +6,7 @@ retention: "10-30 years (licence term + statutory retention + enforcement)"
 slug: "export-controlled-goods-chain"
 verificationMode: "clip"
 tags: ["export-controls", "dual-use", "end-user-certificate", "wassenaar", "siel", "ogel", "itar", "ear", "re-export", "onward-transfer", "strategic-goods", "sanctions", "arms-trade", "proliferation"]
-furtherDerivations: 3
+furtherDerivations: 4
 ---
 
 ## What is an Export Control Licence Chain?

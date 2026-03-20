@@ -6,7 +6,7 @@ retention: "Permanent (legal status)"
 slug: "501c3-status-documentation"
 verificationMode: "clip"
 tags: ["501c3", "status", "documentation", "charitable", "non-profit", "IRS"]
-furtherDerivations: 1
+furtherDerivations: 2
 ---
 
 ## What is a 501(c)(3) Letter?

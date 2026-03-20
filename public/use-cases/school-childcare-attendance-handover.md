@@ -7,7 +7,7 @@ retention: "Academic year + 7 years (funding audit / safeguarding review)"
 slug: "school-childcare-attendance-handover"
 verificationMode: "both"
 tags: ["school", "childcare", "daycare", "attendance", "handover", "sign-in", "sign-out", "safeguarding", "custody", "funding", "subsidy", "child-safety", "autonomy", "kindergarten", "preschool"]
-furtherDerivations: 3
+furtherDerivations: 4
 ---
 
 ## The Problem

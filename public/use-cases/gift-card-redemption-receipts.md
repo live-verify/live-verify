@@ -6,6 +6,7 @@ retention: "1-3 years (consumer protection)"
 slug: "gift-card-redemption-receipts"
 verificationMode: "clip"
 tags: ["gift-card", "stored-value", "redemption", "balance", "prepaid", "voucher"]
+furtherDerivations: 3
 ---
 
 ## What is a Gift Card Redemption Receipt?

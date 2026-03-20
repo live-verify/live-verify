@@ -6,7 +6,7 @@ retention: "Service + 1-3 years (access records)"
 slug: "utility-worker-verification"
 verificationMode: "camera"
 tags: ["utility-worker", "meter-reader", "gas-engineer", "personal-safety", "home-security", "vulnerable-homeowners", "bogus-caller"]
-furtherDerivations: 1
+furtherDerivations: 0
 ---
 
 ## What is a Utility Worker Badge?

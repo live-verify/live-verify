@@ -59,6 +59,7 @@ Some scenarios benefit from **actionable context**—information the verifier ne
 |-------|------------------|-------------------|
 | `photo_url` | Identity credentials (badges) | Verifier compares to person in front of them |
 | `current_destination` | Delivery workers | Dynamic; confirms driver is at right address |
+| `allowedDomains` | Third-party site claims (reseller authorizations, panel membership, contractor registrations) | Enables domain-mismatch detection — see [Allowed Domains](#allowed-domains) |
 | `message` | Any failure status | Human-readable explanation of why verification failed |
 
 ### Photo URL Security
@@ -178,6 +179,65 @@ The bank confirms the proof-of-funds letter is authentic. The verifier already h
 ```
 
 For failures, `message` explains *why* verification failed—context the verifier wouldn't otherwise have.
+
+## Allowed Domains
+
+Some verifiable claims are designed to be displayed on a third party's website — for example, a manufacturer's reseller authorization embedded on a retailer's product page, or an insurer's panel membership badge on a healthcare provider's site.
+
+The risk is that a scam site copies the claim verbatim. The hash still verifies (the text is identical), but the buyer is not on the authorized site.
+
+The `allowedDomains` response field addresses this:
+
+```json
+{
+  "status": "verified",
+  "allowedDomains": ["foobar50xx.com", "*.foobar50xx.com"]
+}
+```
+
+### How it works
+
+1. The claim text typically includes the authorized domain in human-readable form — e.g., `FooBar Electronics Ltd (foobar50xx.com) is a licensed reseller of...`
+2. The verification response includes `allowedDomains` as a machine-readable confirmation
+3. The browser extension compares `window.location.hostname` against the allowed domains list
+4. **Match** → standard green "VERIFIED" result
+5. **Mismatch** → amber warning: "This claim verified, but it names foobar50xx.com and you are on scamgpus.com"
+
+### Field specification
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `allowedDomains` | `string[]` | Optional. Array of domain patterns where this claim is authorized to appear. Supports exact match (`foobar50xx.com`) and wildcard subdomains (`*.foobar50xx.com`). |
+
+### When to use
+
+- **Reseller / dealer authorizations** — manufacturer authorizes a retailer for a specific site
+- **Insurance panel membership** — insurer confirms a provider's web presence
+- **Certified repair center** — manufacturer authorizes a service center's site
+- **Software partner authorizations** — vendor confirms a reseller's domain
+- **Approved contractor registrations** — registry confirms a contractor's site
+- **Any claim where the issuer and the displayer are different entities**
+
+### When NOT to use
+
+- **Self-issued claims** — a company verifying its own documents on its own site doesn't need domain binding
+- **Physical/camera-mode claims** — a printed badge or certificate has no "current page" to check against. `allowedDomains` is a clip-mode / browser-extension feature only.
+
+### Domain in the claim text
+
+The `allowedDomains` response field is the machine-readable check. But the claim text itself should also include the authorized domain in human-readable form — typically in parentheses after the entity name:
+
+```
+FooBar Electronics Ltd (foobar50xx.com)
+is a licensed reseller of NVIDIA GeForce
+RTX 50 Series products on
+verify:nvidia.com/resellers
+```
+
+This serves as a fallback for:
+- Users without the browser extension
+- Users who read the verified detail
+- Camera-mode or screenshot scenarios where `allowedDomains` isn't available
 
 ## Status Codes
 

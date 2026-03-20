@@ -6,6 +6,7 @@ retention: "1-3 years (application cycles)"
 slug: "no-convictions-declarations"
 verificationMode: "clip"
 tags: ["no-convictions", "good-standing", "character-certificate", "police-check", "clearance"]
+furtherDerivations: 4
 ---
 
 ## What is a No Convictions Declaration?

@@ -6,7 +6,7 @@ retention: "Until obligation ends + statute of limitations (5-20 years)"
 slug: "child-support-alimony-orders"
 verificationMode: "clip"
 tags: ["child-support", "alimony", "spousal-support", "maintenance", "family-court", "garnishment", "income-withholding", "enforcement", "custody"]
-furtherDerivations: 2
+furtherDerivations: 1
 ---
 
 ## What is a Child Support or Alimony Order?

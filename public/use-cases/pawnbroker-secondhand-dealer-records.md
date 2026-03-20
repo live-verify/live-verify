@@ -6,7 +6,7 @@ retention: "3-7 years (varies by jurisdiction)"
 slug: "pawnbroker-secondhand-dealer-records"
 verificationMode: "both"
 tags: ["pawnbroker", "second-hand", "stolen-goods", "money-laundering", "structuring", "cash-economy", "police", "financial-crime"]
-furtherDerivations: 1
+furtherDerivations: 2
 ---
 
 ## What is a Pawnbroker Transaction Record?

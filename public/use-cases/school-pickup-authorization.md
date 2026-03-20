@@ -6,7 +6,7 @@ retention: "School year + 1 year"
 slug: "school-pickup-authorization"
 verificationMode: "clip"
 tags: ["school", "pickup", "child-safety", "custody", "authorization", "guardianship", "parental-consent", "education"]
-furtherDerivations: 0
+furtherDerivations: 1
 ---
 
 ## What is a Pickup Authorization?

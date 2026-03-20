@@ -6,7 +6,7 @@ retention: "7-10 years post-activity"
 slug: "tax-haven-substance-declarations"
 verificationMode: "clip"
 tags: ["economic-substance", "tax-haven", "beps", "oecd", "substance-requirement", "cayman", "bvi", "jersey", "bermuda", "shell-company", "eu-blacklist"]
-furtherDerivations: 3
+furtherDerivations: 1
 ---
 
 ## What is an Economic Substance Declaration?

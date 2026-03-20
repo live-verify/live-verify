@@ -6,6 +6,7 @@ retention: "Permanent (historical record)"
 slug: "election-results-certifications"
 verificationMode: "clip"
 tags: ["election", "voting", "results", "certification", "canvass", "democracy", "tally"]
+furtherDerivations: 3
 ---
 
 ## What are Election Result Certifications?

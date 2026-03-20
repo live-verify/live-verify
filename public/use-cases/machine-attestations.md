@@ -6,6 +6,7 @@ retention: "Varies by application"
 slug: "machine-attestations"
 verificationMode: "clip"
 tags: ["iot", "sensors", "telemetry", "cold-chain", "smart-meter", "vehicle", "novel", "machine-generated"]
+furtherDerivations: 6
 ---
 
 ## What is a Machine Attestation?

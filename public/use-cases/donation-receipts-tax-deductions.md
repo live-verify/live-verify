@@ -6,7 +6,7 @@ retention: "7-10 years (tax audit)"
 slug: "donation-receipts-tax-deductions"
 verificationMode: "clip"
 tags: ["non-profit", "donation-receipt", "irs-compliance", "tax-deduction", "charity-fraud", "philanthropy", "gift-aid", "hmrc", "uk"]
-furtherDerivations: 1
+furtherDerivations: 2
 ---
 
 ## What is a Donation Receipt?

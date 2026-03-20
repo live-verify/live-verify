@@ -6,7 +6,7 @@ retention: "7-10 years (tax, audit, dispute resolution)"
 slug: "fund-nav-statements"
 verificationMode: "clip"
 tags: ["hedge-fund", "private-equity", "nav-statement", "fund-administration", "wealth-management", "madoff-prevention", "asset-valuation", "reit", "pension", "endowment", "variable-annuity", "interval-fund", "bdc"]
-furtherDerivations: 1
+furtherDerivations: 9
 ---
 
 ## What is an NAV Statement?

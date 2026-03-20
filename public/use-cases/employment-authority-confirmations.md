@@ -6,7 +6,7 @@ retention: "Duration of employment + 6 years"
 slug: "employment-authority-confirmations"
 verificationMode: "clip"
 tags: ["hiring-authority", "job-offers", "employment", "hr", "recruitment", "delegation"]
-furtherDerivations: 0
+furtherDerivations: 1
 ---
 
 ## What is Employment Authority?

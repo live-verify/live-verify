@@ -6,7 +6,7 @@ retention: "7-10 years (regulatory requirement)"
 slug: "bank-fraud-report-acknowledgments"
 verificationMode: "clip"
 tags: ["bank-fraud", "unauthorized-transactions", "regulation-e", "fraud-report", "account-takeover", "ach-fraud", "wire-fraud", "provisional-credit", "consumer-protection"]
-furtherDerivations: 2
+furtherDerivations: 1
 ---
 
 ## What is a Bank Fraud Report Acknowledgment?

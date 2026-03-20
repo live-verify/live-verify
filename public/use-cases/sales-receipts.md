@@ -6,7 +6,7 @@ retention: "Transaction + 7 years (tax/audit)"
 slug: "sales-receipts"
 verificationMode: "clip+camera"
 tags: ["receipt", "retail", "hospitality", "expense", "duplicate-claim", "expense-fraud", "vat", "sales-tax", "point-of-sale"]
-furtherDerivations: 1
+furtherDerivations: 0
 ---
 
 ## What are Sales Receipts?

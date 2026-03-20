@@ -6,7 +6,7 @@ retention: "1-3 years (security & liability logs)"
 slug: "event-venue-staff"
 verificationMode: "camera"
 tags: ["event-security", "contractor-verification", "venue-security", "temporary-staff-verification", "equipment-protection", "backstage-access"]
-furtherDerivations: 0
+furtherDerivations: 1
 ---
 
 > **See also:** [E-Ink ID Cards](../e-ink-id-cards.md) — comprehensive guide to rotating-salt badges, security properties, and when they're needed.

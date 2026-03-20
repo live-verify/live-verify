@@ -6,6 +6,7 @@ retention: "7 years (transaction records)"
 slug: "escrow-releases"
 verificationMode: "clip"
 tags: ["escrow", "release", "real-estate", "closing", "holdback", "disbursement"]
+furtherDerivations: 3
 ---
 
 ## What is an Escrow Release?

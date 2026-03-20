@@ -5,7 +5,7 @@ type: "summary"
 slug: "membership-cards-external-benefits"
 verificationMode: "both"
 tags: ["membership", "club", "association", "benefits", "discounts", "reciprocal", "aaa", "professional-society", "union", "alumni"]
-furtherDerivations: 0
+furtherDerivations: 1
 ---
 
 # Membership Cards with External Benefits

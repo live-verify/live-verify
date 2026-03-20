@@ -6,7 +6,7 @@ retention: "Indefinite (public record)"
 slug: "ofsi-monetary-penalty-notices"
 verificationMode: "clip"
 tags: ["ofsi", "sanctions", "penalty", "enforcement", "hm-treasury", "compliance", "uk-sanctions", "due-diligence"]
-furtherDerivations: 0
+furtherDerivations: 1
 ---
 
 ## What is an OFSI Monetary Penalty Notice?

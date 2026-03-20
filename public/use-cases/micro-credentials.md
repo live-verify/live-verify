@@ -6,6 +6,7 @@ retention: "Permanent (career records)"
 slug: "micro-credentials"
 verificationMode: "clip"
 tags: ["skills", "credentials", "training", "competency", "badges", "peer-attestation", "novel"]
+furtherDerivations: 6
 ---
 
 ## What is a Micro-Credential?

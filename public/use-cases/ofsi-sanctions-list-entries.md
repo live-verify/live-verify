@@ -6,7 +6,7 @@ retention: "Indefinite (public record, continuously updated)"
 slug: "ofsi-sanctions-list-entries"
 verificationMode: "clip"
 tags: ["ofsi", "sanctions", "designated-persons", "hm-treasury", "consolidated-list", "screening", "compliance", "uk-sanctions"]
-furtherDerivations: 0
+furtherDerivations: 1
 ---
 
 ## What is an OFSI Sanctions List Entry?

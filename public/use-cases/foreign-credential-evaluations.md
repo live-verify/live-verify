@@ -6,7 +6,7 @@ retention: "Permanent (credential equivalency doesn't expire)"
 slug: "foreign-credential-evaluations"
 verificationMode: "clip"
 tags: ["credential-evaluation", "wes", "ece", "naces", "foreign-degree", "immigration", "professional-licensing", "university-admission", "equivalency"]
-furtherDerivations: 2
+furtherDerivations: 1
 ---
 
 ## What is a Foreign Credential Evaluation?

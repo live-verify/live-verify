@@ -6,6 +6,7 @@ retention: "1-7 years (varies by use)"
 slug: "criminal-background-check-results"
 verificationMode: "clip"
 tags: ["background-check", "criminal-history", "clearance", "NCIC", "fingerprint", "police-check", "dbs", "disclosure-and-barring", "safeguarding", "enhanced-dbs", "uk"]
+furtherDerivations: 6
 ---
 
 ## What is a Criminal Background Check Result?

@@ -6,7 +6,7 @@ retention: "Patient lifetime + statute of limitations"
 slug: "medical-implant-procedure-witnessing"
 verificationMode: "camera"
 tags: ["medical", "implant", "surgery", "dental", "concealment", "delayed-discovery", "malpractice", "product-liability"]
-furtherDerivations: 4
+furtherDerivations: 3
 ---
 
 ## What is Medical Implant & Procedure Witnessing?

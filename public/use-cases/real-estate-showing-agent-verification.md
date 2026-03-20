@@ -6,7 +6,7 @@ retention: "Showing + 1-3 years (liability)"
 slug: "real-estate-showing-agent-verification"
 verificationMode: "camera"
 tags: ["real-estate", "estate-agent", "property-showing", "personal-safety", "female-safety", "agent-verification", "vacant-property"]
-furtherDerivations: 1
+furtherDerivations: 0
 ---
 
 ## What is a Real Estate Agent Verification?

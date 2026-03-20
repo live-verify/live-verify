@@ -6,7 +6,7 @@ retention: "5-7 years (BSA/AML compliance)"
 slug: "casino-gaming-session-records"
 verificationMode: "clip"
 tags: ["casino", "gaming", "aml", "money-laundering", "structuring", "ctrc", "chip-redemption", "financial-crime"]
-furtherDerivations: 1
+furtherDerivations: 2
 ---
 
 ## What is a Casino Gaming Session Record?

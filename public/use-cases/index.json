@@ -1,12 +1,13 @@
 {
-  "generated": "2026-03-20T14:37:04.242Z",
-  "totalUseCases": 504,
-  "totalFurtherDerivations": 599,
+  "generated": "2026-03-20T16:47:59.059Z",
+  "totalUseCases": 515,
+  "totalFurtherDerivations": 793,
   "categories": {
     "Real Estate & Property": 34,
     "Charitable & Non-Profit": 7,
     "Novel Document Types": 7,
     "Scientific & Research": 8,
+    "Professional & Occupational Licenses": 17,
     "Actuarial & Insurance Mathematics": 10,
     "Personal Lines Insurance": 15,
     "Government & Civic Documents": 22,
@@ -16,15 +17,14 @@
     "Insurance Claims & Operations": 15,
     "Chain of Custody & Logistics": 18,
     "Travel & Hospitality": 21,
-    "Professional & Occupational Licenses": 13,
     "Identity & Authority Verification": 40,
     "Healthcare & Medical Records": 13,
     "Professional & Educational Qualifications": 20,
     "Art, Media & Publishing": 7,
     "Customs & Trade Compliance": 7,
     "Sports & Athletics": 6,
+    "Business & Commerce": 23,
     "Specialty Insurance": 23,
-    "Business & Commerce": 17,
     "Legal & Court Documents": 18,
     "Banking & Payments": 16,
     "Financial Compliance": 24,
@@ -41,9 +41,9 @@
     "Banking & Financial Services": 6,
     "Trade Finance": 5,
     "Agriculture & Food": 7,
+    "Insurance": 2,
     "Identity & KYC": 2,
-    "Healthcare & Medical": 1,
-    "Insurance": 1
+    "Healthcare & Medical": 1
   },
   "useCases": [
     {
@@ -53,7 +53,7 @@
       "volume": "Very Small",
       "retention": "7-10 years (IRS audit)",
       "verificationMode": "clip",
-      "furtherDerivations": 1,
+      "furtherDerivations": 2,
       "snippet": "Exchanger name, relinquished property address, date of transfer, identified replacement properties (addresses and fair market values), identification date, Qualified Intermediary (QI) name and license",
       "tags": [
         "1031",
@@ -72,7 +72,7 @@
       "volume": "Tiny",
       "retention": "Permanent (legal status)",
       "verificationMode": "clip",
-      "furtherDerivations": 1,
+      "furtherDerivations": 2,
       "snippet": "Organization name, EIN (Employer Identification Number), effective date of exemption, public charity status classification, address at time of issuance.",
       "tags": [
         "501c3",
@@ -90,7 +90,7 @@
       "volume": "Large (emerging)",
       "retention": "Varies by type",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 5,
       "snippet": "Registry authority, subject identifier (person, property, entity, product), search period, categories searched, negative result confirmation, certificate timestamp.",
       "tags": [
         "negative-proof",
@@ -122,6 +122,27 @@
       ]
     },
     {
+      "slug": "accredited-testing-laboratories",
+      "title": "Accredited Testing Laboratories",
+      "category": "Professional & Occupational Licenses",
+      "volume": "Medium",
+      "retention": "Accreditation cycle + 1-2 years (product liability, regulatory audit)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Laboratory legal name, website domain, accreditation body, accredited standard, test method scope, accreditation schedule reference, and current status.",
+      "tags": [
+        "accreditation",
+        "testing-laboratory",
+        "ISO-17025",
+        "UKAS",
+        "A2LA",
+        "ILAC",
+        "product-safety",
+        "materials-testing",
+        "domain-mismatch"
+      ]
+    },
+    {
       "slug": "actuarial-audit-opinions",
       "title": "Actuarial Audit Opinions",
       "category": "Actuarial & Insurance Mathematics",
@@ -146,7 +167,7 @@
       "volume": "Medium",
       "retention": "Endorsement validity period + 7 years (claims lifecycle)",
       "verificationMode": "clip",
-      "furtherDerivations": 1,
+      "furtherDerivations": 2,
       "snippet": "Policy number, policyholder name, additional driver full name, driver's license number (masked), vehicle license plate, effective start date/time, expiration date/time",
       "tags": [
         "insurance",
@@ -370,7 +391,7 @@
       "volume": "Very Small",
       "retention": "7-30 years (contract lifetime)",
       "verificationMode": "clip",
-      "furtherDerivations": 1,
+      "furtherDerivations": 2,
       "snippet": "Certifying actuary name/qualifications, product name/series, guaranteed interest rates, mortality table version, filing date, jurisdiction of approval.",
       "tags": [
         "actuarial",
@@ -388,7 +409,7 @@
       "volume": "Medium",
       "retention": "Varies by type (1-10 years)",
       "verificationMode": "clip",
-      "furtherDerivations": 4,
+      "furtherDerivations": 5,
       "snippet": "",
       "tags": [
         "identity-escrow",
@@ -475,6 +496,29 @@
         "trade",
         "skill",
         "certificate"
+      ]
+    },
+    {
+      "slug": "approved-trade-contractor-registrations",
+      "title": "Approved Trade Contractor Registrations",
+      "category": "Professional & Occupational Licenses",
+      "volume": "Large",
+      "retention": "Registration period + renewal cycle",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Contractor business name, registration number, registration body, registered site domain, scope of registered work (gas appliance categories, electrical work types, oil/solid fuel specialisms), and cu",
+      "tags": [
+        "gas-safe",
+        "niceic",
+        "napit",
+        "oftec",
+        "contractor-registration",
+        "regulated-trade",
+        "doorstep",
+        "consumer-protection",
+        "utility-work",
+        "government-work",
+        "competent-person-scheme"
       ]
     },
     {
@@ -594,7 +638,7 @@
       "volume": "Large",
       "retention": "Varies by action type",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Agent identity, firm/license details, authorizing party, authorization reference, scope of authorization (which property/vehicle/action), time window, ground truth verification performed (Land Registr",
       "tags": [
         "repo",
@@ -605,6 +649,72 @@
         "authorization",
         "agent",
         "indemnification"
+      ]
+    },
+    {
+      "slug": "authorized-immigration-advisers",
+      "title": "Authorized Immigration Advisers",
+      "category": "Professional & Occupational Licenses",
+      "volume": "Medium",
+      "retention": "Registration period + 2-5 years (complaints, disciplinary records, client redress)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Adviser or firm legal name, registered site domain, regulatory body, registration level or category, registration period, and current status.",
+      "tags": [
+        "immigration",
+        "adviser",
+        "OISC",
+        "MARA",
+        "IAA",
+        "professional-license",
+        "consumer-protection",
+        "regulatory",
+        "domain-mismatch"
+      ]
+    },
+    {
+      "slug": "authorized-spare-parts-suppliers",
+      "title": "Official Spare Parts Supplier Authorizations",
+      "category": "Business & Commerce",
+      "volume": "Large",
+      "retention": "Authorization period + 2-5 years (warranty claims, safety investigations, recall traceability)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Supplier legal name, authorized site domain, manufacturer or brand, parts category or product range, authorization period, and current status.",
+      "tags": [
+        "spare-parts",
+        "genuine-parts",
+        "counterfeit",
+        "supply-chain",
+        "safety",
+        "automotive",
+        "aviation",
+        "industrial",
+        "medical-devices",
+        "domain-mismatch"
+      ]
+    },
+    {
+      "slug": "authorized-training-and-testing-centers",
+      "title": "Training Provider / Certification Center Authorizations",
+      "category": "Professional & Occupational Licenses",
+      "volume": "Medium",
+      "retention": "Authorization period + 1-3 years (candidate disputes, audit trail)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Center legal name, authorized site domain, certification body, exam programs covered, authorization period, and current status.",
+      "tags": [
+        "training-center",
+        "testing-center",
+        "certification",
+        "professional-exam",
+        "authorized-provider",
+        "domain-mismatch",
+        "fraud-prevention",
+        "pearson-vue",
+        "comptia",
+        "cisco",
+        "aws"
       ]
     },
     {
@@ -666,7 +776,7 @@
       "volume": "Very Large",
       "retention": "Duration of trading relationship + 6 years",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Authorized person name, company name, company registration number, role/title, specific authority limits (monetary, category, duration), excluded authorities, issuing officer, issue date, expiry date.",
       "tags": [
         "purchasing-authority",
@@ -741,7 +851,7 @@
       "volume": "Large",
       "retention": "7-10 years (regulatory requirement)",
       "verificationMode": "clip",
-      "furtherDerivations": 2,
+      "furtherDerivations": 1,
       "snippet": "Account holder name, case number, date and time reported, reporting channel, affected account(s), transaction count and total disputed amount, actions taken, regulatory rights stated. The hash does NO",
       "tags": [
         "bank-fraud",
@@ -798,7 +908,7 @@
       "volume": "Very Large",
       "retention": "Interaction + 7–10 years (clinical negligence limitation)",
       "verificationMode": "both",
-      "furtherDerivations": 3,
+      "furtherDerivations": 2,
       "snippet": "",
       "tags": [
         "hospital",
@@ -1067,7 +1177,7 @@
       "volume": "Medium",
       "retention": "Inspection + 3-7 years (compliance)",
       "verificationMode": "camera",
-      "furtherDerivations": 1,
+      "furtherDerivations": 0,
       "snippet": "Inspector name, photo (hash), badge number, department/division (Electrical, Plumbing, Fire), authority statute, employment status (Active/Retired/Suspended), jurisdiction.",
       "tags": [
         "safety",
@@ -1204,7 +1314,7 @@
       "volume": "Large",
       "retention": "5-7 years (BSA/AML compliance)",
       "verificationMode": "clip",
-      "furtherDerivations": 1,
+      "furtherDerivations": 2,
       "snippet": "Casino/property name, patron name, player card number (masked), session start/end times, buy-in amount and method (cash/credit/wire), table/machine assignment, cash-out amount and method, net result, ",
       "tags": [
         "casino",
@@ -1314,6 +1424,27 @@
       ]
     },
     {
+      "slug": "certified-repair-center-authorizations",
+      "title": "Certified Service/Repair Center Authorizations",
+      "category": "Business & Commerce",
+      "volume": "Large",
+      "retention": "Authorization period + 1-3 years (warranty claims, liability, audit)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Service center legal name, authorized site domain, manufacturer or brand, product lines or service categories covered, authorization period, and current status.",
+      "tags": [
+        "repair-center",
+        "service-provider",
+        "authorized-service",
+        "warranty",
+        "counterfeit-parts",
+        "consumer-protection",
+        "manufacturer",
+        "right-to-repair",
+        "domain-mismatch"
+      ]
+    },
+    {
       "slug": "certified-translations",
       "title": "Certified Document Translations",
       "category": "Notary Services",
@@ -1413,7 +1544,7 @@
       "volume": "Large",
       "retention": "Until obligation ends + statute of limitations (5-20 years)",
       "verificationMode": "clip",
-      "furtherDerivations": 2,
+      "furtherDerivations": 1,
       "snippet": "Court name, case number, order type (child support / spousal support / both), petitioner name, respondent name, monthly amount, payment frequency, effective date, income withholding directive (yes/no)",
       "tags": [
         "child-support",
@@ -1453,7 +1584,7 @@
       "volume": "Medium",
       "retention": "6 years (marker duration) + appeal records",
       "verificationMode": "clip",
-      "furtherDerivations": 1,
+      "furtherDerivations": 3,
       "snippet": "Subject name, date of birth, certificate date, certificate reference number, marker status (none/protective/fraud), marker type (if present), filing date, expiry date, filing member (anonymised or nam",
       "tags": [
         "cifas",
@@ -1473,7 +1604,7 @@
       "volume": "Very Large",
       "retention": "3-7 years (DMV/court records)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 4,
       "snippet": "Issuing authority, citation/ticket number, defendant/violator name, violation type and code, citation date, dismissal date, reason for dismissal, any residual obligations.",
       "tags": [
         "citation",
@@ -1697,7 +1828,7 @@
       "volume": "Very Large",
       "retention": "Permanent (entity records)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 25,
       "snippet": "Registry authority, entity name, file/registration number, entity type, formation/registration date, current status, registered agent, key dates (renewal, expiration). For directors: name, appointment",
       "tags": [
         "commercial-registry",
@@ -1715,7 +1846,7 @@
       "volume": "Medium-Large",
       "retention": "7 years (regulatory), permanent (litigation)",
       "verificationMode": "clip",
-      "furtherDerivations": 5,
+      "furtherDerivations": 3,
       "snippet": "Advisor Name, Firm Name, Disclosure Date, Fee Structure (AUM, flat, hourly), Revenue Sharing Arrangements, Commissions by Product Type, Referral Fees, Soft Dollar Arrangements.",
       "tags": [
         "conflict-of-interest",
@@ -1823,7 +1954,7 @@
       "volume": "Very Large",
       "retention": "Agreement term + statutory limitation period",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 2,
       "snippet": "Proposer identity, consenter identity, subject matter, material terms (dates, amounts, scope), elaboration reference, date of proposal, date of consent.",
       "tags": [
         "consent",
@@ -1843,7 +1974,7 @@
       "volume": "Very Large (emerging)",
       "retention": "Permanent (legal protection)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 7,
       "snippet": "Consenting party (or hash), receiving party, scope of consent (what's being consented to), version of terms/disclosures, timestamp, method of consent, witness (if applicable).",
       "tags": [
         "consent",
@@ -1918,7 +2049,7 @@
       "volume": "High",
       "retention": "Life of structure + liability period (10-15 years typical)",
       "verificationMode": "camera",
-      "furtherDerivations": 7,
+      "furtherDerivations": 5,
       "snippet": "",
       "tags": [
         "construction",
@@ -2051,7 +2182,7 @@
       "volume": "Large",
       "retention": "Duration of contract + 6 years",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Authorized person name, company name, company registration, role/title, contract types authorized, monetary limits, duration limits, specific exclusions, delegating authority (board resolution referen",
       "tags": [
         "signing-authority",
@@ -2088,7 +2219,7 @@
       "volume": "Very Large",
       "retention": "Contract term + 6-10 years",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 4,
       "snippet": "Parties, effective date, key terms (compensation, term, obligations), signatures, page sequence integrity, exhibit references.",
       "tags": [
         "contract",
@@ -2107,7 +2238,7 @@
       "volume": "Medium",
       "retention": "Permanent (legal status)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 3,
       "snippet": "Court/issuing authority, case number, petitioner/defendant name, original offense(s), conviction date, type of relief (expungement/sealing/pardon), grant date, scope of relief, any exceptions or limit",
       "tags": [
         "expungement",
@@ -2256,7 +2387,7 @@
       "volume": "Very Large",
       "retention": "7 years (Fair Credit Reporting Act)",
       "verificationMode": "clip",
-      "furtherDerivations": 2,
+      "furtherDerivations": 1,
       "snippet": "Consumer name, report date, credit score, score model (FICO 8, VantageScore 3.0), number of open accounts, total balances, payment history percentage, number of hard inquiries, derogatory marks count.",
       "tags": [
         "credit-report",
@@ -2277,7 +2408,7 @@
       "volume": "Very Large",
       "retention": "Indefinite (report exists as long as case file exists)",
       "verificationMode": "clip",
-      "furtherDerivations": 2,
+      "furtherDerivations": 1,
       "snippet": "Reporting person's name, crime reference number, date reported, crime category, reporting body. The hash does NOT contain the details of the crime itself — only the confirmation receipt.",
       "tags": [
         "crime-report",
@@ -2297,7 +2428,7 @@
       "volume": "Very Large",
       "retention": "1-7 years (varies by use)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 6,
       "snippet": "Issuing agency, request/reference number, subject name, date of birth (or other identifiers), search scope, result (no record/records found), search date, validity period. For UK DBS: certificate numb",
       "tags": [
         "background-check",
@@ -2520,7 +2651,7 @@
       "volume": "Very Large",
       "retention": "7-10 years (credit reporting cycle)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 3,
       "snippet": "Lender name, loan/account number, borrower name, original loan amount, property/collateral description (if secured), payoff date, final payment amount, lien release status, any remaining obligations.",
       "tags": [
         "debt",
@@ -2539,7 +2670,7 @@
       "volume": "Very Large",
       "retention": "Delivery + 30 days",
       "verificationMode": "camera",
-      "furtherDerivations": 2,
+      "furtherDerivations": 1,
       "snippet": "Courier name, employee ID, company division (Express/Ground/Freight), hub location, photograph (via hash), expiration date, background check status.",
       "tags": [
         "logistics",
@@ -2582,7 +2713,7 @@
       "volume": "Unknown",
       "retention": "Unknown",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "",
       "tags": [
         "deposit",
@@ -2659,7 +2790,7 @@
       "volume": "Large",
       "retention": "Duration of condition + review period (1-5 years)",
       "verificationMode": "clip",
-      "furtherDerivations": 2,
+      "furtherDerivations": 1,
       "snippet": "Patient name, certifying physician name and credentials, certifying organization, certification type (e.g., Reasonable Accommodation — Workplace), functional limitation category (mobility, vision, hea",
       "tags": [
         "disability",
@@ -2788,7 +2919,7 @@
       "volume": "Medium",
       "retention": "7-10 years (tax audit)",
       "verificationMode": "clip",
-      "furtherDerivations": 1,
+      "furtherDerivations": 2,
       "snippet": "Donor name, donation amount, date received, charity registration (US: EIN / UK: Charity Commission number), charity name, donation type (Cash/Stock/In-Kind), tax status statement (US: 501(c)(3) / UK: ",
       "tags": [
         "non-profit",
@@ -2827,7 +2958,7 @@
       "volume": "Very Large",
       "retention": "Point-in-time (re-verify periodically)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Licence holder name, licence number, record date/time, penalty points total, endorsement codes and dates, disqualification status, licence categories held, category validity dates.",
       "tags": [
         "driving",
@@ -2923,7 +3054,7 @@
       "volume": "Medium",
       "retention": "Permanent (historical record)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 3,
       "snippet": "Election date and type, jurisdiction, office/contest, candidate names, vote counts, total ballots, turnout percentage, certification date, certifying officials, any recount/audit notes.",
       "tags": [
         "election",
@@ -2961,7 +3092,7 @@
       "volume": "Large",
       "retention": "Duration of employment + 6 years",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Authorized person, company, authority type (hiring/termination/compensation), scope (departments, grades, salary bands), limits (monetary, seniority), exclusions, escalation requirements, delegating o",
       "tags": [
         "hiring-authority",
@@ -2998,7 +3129,7 @@
       "volume": "Very Large",
       "retention": "1-7 years (hiring cycle)",
       "verificationMode": "clip",
-      "furtherDerivations": 1,
+      "furtherDerivations": 3,
       "snippet": "Employee name, legal employer name, job title/role, start date, end date (or \"Present\"), rehire eligibility status, reason for departure (voluntary/involuntary), salary (optional/linked hash), HRIS re",
       "tags": [
         "employment-verification",
@@ -3206,7 +3337,7 @@
       "volume": "Large",
       "retention": "7 years (transaction records)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 3,
       "snippet": "Escrow agent name, file/agreement number, parties (buyer/seller, depositor/beneficiary), property or materials description, escrow amount, release conditions, release date, recipient of disbursement.",
       "tags": [
         "escrow",
@@ -3243,7 +3374,7 @@
       "volume": "Medium",
       "retention": "7 years post-clearance",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 2,
       "snippet": "",
       "tags": [
         "estate-clearance",
@@ -3298,7 +3429,7 @@
       "volume": "Medium",
       "retention": "1-3 years (security & liability logs)",
       "verificationMode": "camera",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Staff or contractor name, photo (hash), company affiliation, role/position (Setup Crew, Security, AV Tech, Vendor, Catering, Talent Handler, etc.), assigned area/zone access (Backstage, VIP, Equipment",
       "tags": [
         "event-security",
@@ -3356,7 +3487,7 @@
       "volume": "Medium",
       "retention": "10-30 years (licence term + statutory retention + enforcement)",
       "verificationMode": "clip",
-      "furtherDerivations": 3,
+      "furtherDerivations": 4,
       "snippet": "Export Licence: Licence type (SIEL/OIEL/OGEL), licence reference, licensee name and country, consignee name and country, end-user name and country, controlled goods description, control list entry (fr",
       "tags": [
         "export-controls",
@@ -3458,7 +3589,7 @@
       "volume": "Very Large",
       "retention": "Varies by filing type (1 year - permanent)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 4,
       "snippet": "Receiving authority, filing type, filer name/entity, filing date and time, confirmation number, acceptance status, any fees paid.",
       "tags": [
         "filing",
@@ -3573,7 +3704,7 @@
       "volume": "Medium",
       "retention": "Duration of employment + 7 years",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Employee name, role/function, firm name, assessment date, certification period, competencies confirmed, certifying officers, next renewal date.",
       "tags": [
         "fit-proper",
@@ -3651,7 +3782,7 @@
       "volume": "Large",
       "retention": "Permanent (credential equivalency doesn't expire)",
       "verificationMode": "clip",
-      "furtherDerivations": 2,
+      "furtherDerivations": 1,
       "snippet": "Applicant name, evaluation agency, report number, country of education, institution name, credential earned (original), equivalency determination (the critical field), date of evaluation.",
       "tags": [
         "credential-evaluation",
@@ -3682,6 +3813,26 @@
         "corporate-compliance",
         "ftc-rule",
         "franchisor-verification"
+      ]
+    },
+    {
+      "slug": "franchise-location-verification",
+      "title": "Franchise Location Verification",
+      "category": "Business & Commerce",
+      "volume": "Large",
+      "retention": "License period + 1-2 years (brand protection, trading standards complaints)",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Franchisor brand, franchisee operator legal name, licensed location address, operator domain (for web claims), and current license status.",
+      "tags": [
+        "franchise",
+        "consumer-facing",
+        "brand-protection",
+        "licensed-location",
+        "trading-standards",
+        "delivery-platform",
+        "terminated-franchisee",
+        "counterfeit-location"
       ]
     },
     {
@@ -3768,7 +3919,7 @@
       "volume": "Medium",
       "retention": "7-10 years (tax, audit, dispute resolution)",
       "verificationMode": "clip",
-      "furtherDerivations": 1,
+      "furtherDerivations": 9,
       "snippet": "Fund name, investor name, account ID, period end date, Net Asset Value (NAV) per share, total units/shares held, ending capital balance, management/performance fees deducted, monthly/yearly performanc",
       "tags": [
         "hedge-fund",
@@ -3793,7 +3944,7 @@
       "volume": "Large",
       "retention": "Registration period + renewal",
       "verificationMode": "camera",
-      "furtherDerivations": 1,
+      "furtherDerivations": 2,
       "snippet": "Engineer's full name, registration number, registration body (Gas Safe, NICEIC, OFTEC, HETAS), employer/company name, expiry date, specific qualification categories (appliance types for gas, scope of ",
       "tags": [
         "gas-safe",
@@ -3817,7 +3968,7 @@
       "volume": "Very Large",
       "retention": "1-3 years (consumer protection)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 3,
       "snippet": "Issuer name, card/voucher number (masked), original value, transaction details, amount used, remaining balance, redemption date, card status.",
       "tags": [
         "gift-card",
@@ -3893,7 +4044,7 @@
       "volume": "Medium",
       "retention": "7-10 years (credit reporting cycle)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 4,
       "snippet": "Creditor/landlord name, loan/lease identifier, primary obligor name, guarantor name, original guarantee amount or terms, release date, release reason, any continuing obligations.",
       "tags": [
         "guarantor",
@@ -3930,7 +4081,7 @@
       "volume": "Large",
       "retention": "Petition validity + 7 years (USCIS retention schedule)",
       "verificationMode": "clip",
-      "furtherDerivations": 3,
+      "furtherDerivations": 4,
       "snippet": "Client company name, MSA/SOW reference number, staffing company name, consultant name, role title, engagement period (start/end), work location, reporting manager, specialty occupation statement.",
       "tags": [
         "h1b",
@@ -3993,7 +4144,7 @@
       "volume": "Very Large",
       "retention": "Policy term (typically 1 year, renewed)",
       "verificationMode": "both",
-      "furtherDerivations": 2,
+      "furtherDerivations": 1,
       "snippet": "Member name, member ID, group number, plan type (PPO/HMO/EPO), effective date, insurer name. NOT included in the hash: deductible amounts, out-of-pocket maximums, specific coverage details (those live",
       "tags": [
         "health-insurance",
@@ -4088,7 +4239,7 @@
       "volume": "Large",
       "retention": "2-7 years (security & incident records)",
       "verificationMode": "camera",
-      "furtherDerivations": 0,
+      "furtherDerivations": 3,
       "snippet": "For all staff:",
       "tags": [
         "hospital-safety",
@@ -4127,7 +4278,7 @@
       "volume": "Very High",
       "retention": "Variable by control type",
       "verificationMode": "camera",
-      "furtherDerivations": 5,
+      "furtherDerivations": 7,
       "snippet": "",
       "tags": [
         "safety",
@@ -4169,7 +4320,7 @@
       "volume": "Medium",
       "retention": "Duration of registration + 5 years",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Business name, HMRC supervision reference number, Companies House number, supervised activity type, registration date, registration status, fit and proper test status.",
       "tags": [
         "hmrc",
@@ -4190,7 +4341,7 @@
       "volume": "Large",
       "retention": "Lifetime of trust + 5 years (MLR 2017)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Trust name, UTR, date of registration, trust type (bare, discretionary, interest in possession, etc.), date of settlement, lead trustee name, number of beneficiaries disclosed, annual declaration stat",
       "tags": [
         "hmrc",
@@ -4252,7 +4403,7 @@
       "volume": "Large",
       "retention": "Service + 3-7 years (liability/tax)",
       "verificationMode": "camera",
-      "furtherDerivations": 1,
+      "furtherDerivations": 0,
       "snippet": "Tradesperson name, professional license type (Master/Journeyman), license number, company name, salt. The badge text is deliberately minimal — it identifies the worker and company, not the job details",
       "tags": [
         "plumber-verification",
@@ -4355,7 +4506,7 @@
       "volume": "Large",
       "retention": "Stay + 1-3 years (incident records)",
       "verificationMode": "camera",
-      "furtherDerivations": 3,
+      "furtherDerivations": 1,
       "snippet": "Staff name, photo (hash), employee ID, job role (e.g., Housekeeping, Maintenance, Room Service), property affiliation, current duty status (Active/Off-Duty), background check clearance date (hash).",
       "tags": [
         "hotel-safety",
@@ -4530,7 +4681,7 @@
       "volume": "Very Large",
       "retention": "Varies by underlying claim",
       "verificationMode": "clip",
-      "furtherDerivations": 2,
+      "furtherDerivations": 0,
       "snippet": "",
       "tags": [
         "impersonation",
@@ -4557,7 +4708,7 @@
       "volume": "Very Large",
       "retention": "Call record + 1-3 years (accountability)",
       "verificationMode": "clip",
-      "furtherDerivations": 3,
+      "furtherDerivations": 1,
       "snippet": "Calling agency, caller name/badge number, subject matter of the call (category, not details), case or reference number (if applicable), date and time of authorization, expiration time, calling phone n",
       "tags": [
         "phone-scam",
@@ -4580,7 +4731,7 @@
       "volume": "Very Large",
       "retention": "Permanent (safety records)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 10,
       "snippet": "Reporting organization, incident category, date/time, severity classification, immediate cause, contributing factors, injuries/damage/releases, corrective actions, regulatory notification timestamps, ",
       "tags": [
         "incidents",
@@ -4665,7 +4816,7 @@
       "volume": "Medium",
       "retention": "Design life of structure (50-100+ years)",
       "verificationMode": "camera",
-      "furtherDerivations": 5,
+      "furtherDerivations": 4,
       "snippet": "",
       "tags": [
         "infrastructure",
@@ -4773,7 +4924,7 @@
       "volume": "Large",
       "retention": "5-7 years (claims history)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 3,
       "snippet": "Insurer name, policy number, policyholder name, coverage type, claims-free years earned, last claim date (if any), policy period, protection status, certificate issue date.",
       "tags": [
         "no-claims",
@@ -4785,6 +4936,28 @@
         "insurance",
         "auto",
         "motor"
+      ]
+    },
+    {
+      "slug": "insurance-panel-membership",
+      "title": "Insurance Panel Membership",
+      "category": "Insurance",
+      "volume": "Very Large",
+      "retention": "Panel membership period + 1-3 years (billing disputes, complaint resolution)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Provider name, provider site domain (web claims only), insurer, network or plan name, and current panel membership status.",
+      "tags": [
+        "insurance",
+        "in-network",
+        "panel",
+        "healthcare",
+        "dentist",
+        "therapist",
+        "specialist",
+        "surprise-billing",
+        "consumer-protection",
+        "domain-mismatch"
       ]
     },
     {
@@ -4846,7 +5019,7 @@
       "volume": "Large",
       "retention": "Permanent (benefit entitlement)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 7,
       "snippet": "Taxpayer/worker identity, issuing authority, treaty/agreement referenced, coverage period, applicable country, exemption type, certificate number, issue date, expiration.",
       "tags": [
         "tax-treaty",
@@ -4925,7 +5098,7 @@
       "volume": "Large",
       "retention": "7-10 years (regulatory, litigation)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Client name, advisor name/credentials, firm name, report date, client profile summary (risk tolerance, objectives, experience), recommendation details, suitability rationale.",
       "tags": [
         "suitability",
@@ -4981,7 +5154,7 @@
       "volume": "Large",
       "retention": "Employment term + dispute window",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 2,
       "snippet": "Employer name, candidate name, role/title, base compensation, start date, location, offer validity period, elaboration reference.",
       "tags": [
         "job-offer",
@@ -5147,7 +5320,7 @@
       "volume": "Medium",
       "retention": "Permanent (lifetime identity document)",
       "verificationMode": "clip",
-      "furtherDerivations": 2,
+      "furtherDerivations": 1,
       "snippet": "Previous full name, new full name, date of name change, date of enrolment/registration, enrolment/certificate number, issuing authority, jurisdiction.",
       "tags": [
         "identity",
@@ -5185,7 +5358,7 @@
       "volume": "Medium",
       "retention": "Transaction completion + dispute window",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 2,
       "snippet": "Parties (acquirer/investor, target/company), transaction type, indicative price or valuation, key conditions, exclusivity period, elaboration reference, date.",
       "tags": [
         "loi",
@@ -5215,6 +5388,51 @@
         "operating-hours",
         "compliance",
         "public-safety"
+      ]
+    },
+    {
+      "slug": "licensed-reseller-authorizations",
+      "title": "Licensed Reseller Authorizations",
+      "category": "Business & Commerce",
+      "volume": "Large",
+      "retention": "Authorization period + 1-3 years (warranty, complaints, channel audit)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Reseller legal name, authorized site domain, manufacturer or brand, product line or category, authorization period, and current status.",
+      "tags": [
+        "reseller",
+        "authorized-dealer",
+        "channel-partner",
+        "counterfeit",
+        "grey-market",
+        "warranty",
+        "consumer-protection",
+        "manufacturer",
+        "retail",
+        "domain-mismatch"
+      ]
+    },
+    {
+      "slug": "licensed-tour-operators",
+      "title": "Licensed Tour Operators",
+      "category": "Business & Commerce",
+      "volume": "Medium",
+      "retention": "License period + 2-3 years (refund claims, repatriation disputes, regulatory audit)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Operator legal name, trading name, licensed site domain, ATOL or equivalent licence number, licensing body, licence period, and current status.",
+      "tags": [
+        "tour-operator",
+        "travel-agent",
+        "ATOL",
+        "ABTA",
+        "CAA",
+        "consumer-protection",
+        "bonding",
+        "licensing",
+        "domain-mismatch",
+        "holiday",
+        "travel"
       ]
     },
     {
@@ -5383,7 +5601,7 @@
       "volume": "Very Large (emerging)",
       "retention": "Varies by application",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 6,
       "snippet": "Sensor/device ID, reading timestamp, measurement values, units, acceptable ranges, excursion flags, chain of custody identifiers.",
       "tags": [
         "iot",
@@ -5403,7 +5621,7 @@
       "volume": "Large",
       "retention": "Permanent (legal records)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 12,
       "snippet": "Disclosing organization, disclosure type, regulatory authority, discovery date, notification date, deadline compliance, scope/impact, affected parties, remediation status.",
       "tags": [
         "disclosure",
@@ -5675,7 +5893,7 @@
       "volume": "High",
       "retention": "Patient lifetime + statute of limitations",
       "verificationMode": "camera",
-      "furtherDerivations": 4,
+      "furtherDerivations": 3,
       "snippet": "",
       "tags": [
         "medical",
@@ -5695,7 +5913,7 @@
       "volume": "Very Large",
       "retention": "Permanent (corporate records)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 3,
       "snippet": "Meeting date/time/location, attendees (present/absent), quorum status, agenda items, motions and seconds, resolutions passed, vote counts, signatures, page sequence integrity.",
       "tags": [
         "minutes",
@@ -5714,7 +5932,7 @@
       "volume": "Unknown",
       "retention": "Unknown",
       "verificationMode": "both",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Member Name, Member Number, Membership Tier (Basic, Plus, Premier), Valid Through Date, Home Club (regional affiliate), Covered Vehicles (if listed), Household Members (if applicable).",
       "tags": [
         "membership",
@@ -5736,7 +5954,7 @@
       "volume": "Large",
       "retention": "Visit + 1-3 years (access records)",
       "verificationMode": "camera",
-      "furtherDerivations": 1,
+      "furtherDerivations": 0,
       "snippet": "Worker name, photo (hash), professional registration number, firm affiliation, qualification level (MRICS/FRICS or equivalent), role (surveyor/appraiser/meter reader), current assignment status, issui",
       "tags": [
         "meter-reader",
@@ -5756,7 +5974,7 @@
       "volume": "Very Large (emerging)",
       "retention": "Permanent (career records)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 6,
       "snippet": "Issuing organization, holder identifier, credential name/code, level, assessment method, score/result, completion date, assessor (if applicable), expiration (if applicable).",
       "tags": [
         "skills",
@@ -5875,7 +6093,7 @@
       "volume": "Very Large",
       "retention": "1-5 years (renewal cycles)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 4,
       "snippet": "Issuing municipality, registration type, registrant name, registration number, validity period, any conditions or restrictions, fees paid.",
       "tags": [
         "municipal",
@@ -5933,7 +6151,7 @@
       "volume": "Large",
       "retention": "6 years minimum (MLR 2017 / POCA 2002)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "DAML reference number, linked SAR reference, date of decision, reporting entity name, FCA firm reference, consent decision (granted / refused / deemed granted by expiry of moratorium).",
       "tags": [
         "nca",
@@ -5955,7 +6173,7 @@
       "volume": "Very Large",
       "retention": "5-6 years (MLR 2017 / POCA 2002)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "SAR reference number, date and time received, reporting entity name, FCA firm reference number, report type (SAR under POCA s.338, or terrorism SAR under TA 2000 s.21A).",
       "tags": [
         "nca",
@@ -6015,7 +6233,7 @@
       "volume": "Large",
       "retention": "1-3 years (application cycles)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 4,
       "snippet": "Issuing authority, applicant/holder name, certificate/license number, scope of certification, specific disqualifying categories checked, certification date, validity period.",
       "tags": [
         "no-convictions",
@@ -6169,7 +6387,7 @@
       "volume": "Large",
       "retention": "Duration of employment + 2 years",
       "verificationMode": "clip",
-      "furtherDerivations": 2,
+      "furtherDerivations": 1,
       "snippet": "Candidate name, position title, employer name, start date, salary/compensation (base), employment type (full-time/part-time/contract), work location.",
       "tags": [
         "offer-letter",
@@ -6189,7 +6407,7 @@
       "volume": "Medium",
       "retention": "7-10 years (regulatory requirements)",
       "verificationMode": "clip",
-      "furtherDerivations": 3,
+      "furtherDerivations": 1,
       "snippet": "Entity name, registration number, audit period, report date, scope of audit, auditor's opinion (clean/qualified/adverse/disclaimer), auditor's name and license number.",
       "tags": [
         "compliance-audit",
@@ -6212,7 +6430,7 @@
       "volume": "Large",
       "retention": "Duration of entity + 7 years",
       "verificationMode": "clip",
-      "furtherDerivations": 3,
+      "furtherDerivations": 1,
       "snippet": "Company name, company number, date of incorporation, registered agent name, good standing status, date of issue, validity period.",
       "tags": [
         "good-standing",
@@ -6236,7 +6454,7 @@
       "volume": "Small",
       "retention": "6 years minimum (SAMLA 2018 / MLR 2017)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Licence reference number, date of issue, licence holder name, designated person reference (redacted or hashed), regulation under which licence is granted, authorised activity description, maximum amou",
       "tags": [
         "ofsi",
@@ -6256,7 +6474,7 @@
       "volume": "Very Small",
       "retention": "Indefinite (public record)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Case reference, date of notice, person/entity penalised, company registration number, penalty amount, regulation breached, nature of breach summary, appeal status.",
       "tags": [
         "ofsi",
@@ -6276,7 +6494,7 @@
       "volume": "Medium",
       "retention": "6 years minimum (SAMLA 2018)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Report reference number, date received by OFSI, reporting entity name, FCA firm reference number, regulation under which the report was made, acknowledgment date.",
       "tags": [
         "ofsi",
@@ -6296,7 +6514,7 @@
       "volume": "Large",
       "retention": "Indefinite (public record, continuously updated)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "List entry ID, designated person name and aliases, date of birth, nationality, designation regime, designation date, last update date, statement of reasons summary, sanctions measures in effect (asset",
       "tags": [
         "ofsi",
@@ -6354,7 +6572,7 @@
       "volume": "Very Large",
       "retention": "Project duration + 6 years",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Authorized person, company, authority type (vendor/project/SLA/exception), scope (regions, departments, customer tiers), limits (monetary, duration, parameters), escalation triggers, delegating office",
       "tags": [
         "operational-authority",
@@ -6491,7 +6709,7 @@
       "volume": "Medium",
       "retention": "20 years (utility/plant), 15 years (design)",
       "verificationMode": "clip",
-      "furtherDerivations": 1,
+      "furtherDerivations": 2,
       "snippet": "Patent number, title of invention, inventor name(s), assignee/owner (may differ from inventor), application date, issue date, patent type (utility, design, plant), jurisdiction, expiration date, maint",
       "tags": [
         "patent",
@@ -6529,7 +6747,7 @@
       "volume": "Large",
       "retention": "3-7 years (varies by jurisdiction)",
       "verificationMode": "both",
-      "furtherDerivations": 1,
+      "furtherDerivations": 2,
       "snippet": "Dealer name and license number, item description (category, material, weight, distinguishing marks), serial number (if present), amount paid, payment method, seller ID type and masked number, transact",
       "tags": [
         "pawnbroker",
@@ -6549,7 +6767,7 @@
       "volume": "Very Large",
       "retention": "3-7 years (tax + employment disputes)",
       "verificationMode": "clip",
-      "furtherDerivations": 2,
+      "furtherDerivations": 1,
       "snippet": "Employee name, employer name, pay period start and end dates, gross pay, net pay, pay frequency (weekly/bi-weekly/semi-monthly/monthly), employment status (full-time/part-time/contract).",
       "tags": [
         "pay-stub",
@@ -6852,7 +7070,7 @@
       "volume": "Large",
       "retention": "6-12 months (validity period) + immigration file retention",
       "verificationMode": "clip",
-      "furtherDerivations": 2,
+      "furtherDerivations": 1,
       "snippet": "Applicant name, date of birth, nationality/nationalities, issuing authority, country, reference number, date issued, validity period, result (no convictions / convictions found — but NOT the details o",
       "tags": [
         "police-clearance",
@@ -6955,7 +7173,7 @@
       "volume": "Very Large",
       "retention": "Delivery + 30 days",
       "verificationMode": "camera",
-      "furtherDerivations": 1,
+      "furtherDerivations": 0,
       "snippet": "Worker name, photo (hash), employee ID, company/service, depot assignment, role, current shift status.",
       "tags": [
         "postal-worker",
@@ -6993,7 +7211,7 @@
       "volume": "Medium (emerging)",
       "retention": "Permanent (reputation records)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 6,
       "snippet": "Forecaster identity, prediction question/scope, predicted value or probability, commitment timestamp, resolution criteria, resolution date, outcome (when resolved), accuracy metrics.",
       "tags": [
         "predictions",
@@ -7011,7 +7229,7 @@
       "volume": "Very Large",
       "retention": "2-7 years (varies by jurisdiction and substance schedule)",
       "verificationMode": "both",
-      "furtherDerivations": 2,
+      "furtherDerivations": 1,
       "snippet": "Patient name, prescriber name, prescriber credentials (medical degree, board certification), prescribing organization, medication name, dosage, quantity, date prescribed, number of refills authorized,",
       "tags": [
         "prescription",
@@ -7195,7 +7413,7 @@
       "volume": "Large",
       "retention": "Enrolment period + 3 years",
       "verificationMode": "clip",
-      "furtherDerivations": 1,
+      "furtherDerivations": 2,
       "snippet": "Childcare provider name, Ofsted registration number (or equivalent), child's full name, child's date of birth, enrolment start date, weekly attendance hours, funded hours allocation.",
       "tags": [
         "childcare",
@@ -7219,7 +7437,7 @@
       "volume": "Very Large",
       "retention": "Tax year + 6 years",
       "verificationMode": "clip",
-      "furtherDerivations": 1,
+      "furtherDerivations": 2,
       "snippet": "Local authority name, account holder full name, full property address, council tax band, payment status (current / arrears / exempt), applicable discounts or exemptions, tax year.",
       "tags": [
         "council-tax",
@@ -7260,7 +7478,7 @@
       "volume": "Very Large",
       "retention": "Duration of employment + 1 year",
       "verificationMode": "clip",
-      "furtherDerivations": 2,
+      "furtherDerivations": 1,
       "snippet": "Employee name, job title, employer name, employment start date, employment status (active/inactive), employment type (full-time/part-time/contract), work location (country/city), date of issuance.",
       "tags": [
         "employment",
@@ -7281,7 +7499,7 @@
       "volume": "Medium",
       "retention": "Transaction period (3-6 months / point-in-time)",
       "verificationMode": "clip",
-      "furtherDerivations": 1,
+      "furtherDerivations": 0,
       "snippet": "Account holder name, available liquid balance, currency type, account type (e.g., Savings/Money Market), date of issuance, issuing bank/branch, bank officer name/title, specific purpose (e.g., \"Real E",
       "tags": [
         "real-estate",
@@ -7301,7 +7519,7 @@
       "volume": "Large",
       "retention": "Registration period + 10 years",
       "verificationMode": "clip",
-      "furtherDerivations": 1,
+      "furtherDerivations": 2,
       "snippet": "GP practice name, NHS practice code, patient full name, registration date, address held on record.",
       "tags": [
         "gp",
@@ -7388,7 +7606,7 @@
       "volume": "Large",
       "retention": "Duration of right + 1 year",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Property address, right holder name, type of right (owner/tenant/guest/keyholder), validity period, any restrictions, issuing authority (Land Registry, landlord, owner).",
       "tags": [
         "property",
@@ -7625,7 +7843,7 @@
       "volume": "Very Large",
       "retention": "Quote validity period + dispute window",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 2,
       "snippet": "Contractor/company name, customer name, service address, scope summary, materials summary, price (including tax treatment), validity period, elaboration reference.",
       "tags": [
         "quote",
@@ -7707,7 +7925,7 @@
       "volume": "Medium",
       "retention": "Showing + 1-3 years (liability)",
       "verificationMode": "camera",
-      "furtherDerivations": 1,
+      "furtherDerivations": 0,
       "snippet": "Agent name, photo (hash), licence number, agency affiliation, licence status, professional indemnity insurance status, issuing regulatory body.",
       "tags": [
         "real-estate",
@@ -7807,7 +8025,7 @@
       "volume": "Very Large",
       "retention": "3-7 years (tax and warranty)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 3,
       "snippet": "Issuer name, transaction/claim number, recipient name, original purchase or claim details, refund amount, refund method, processing date, receiving account (masked).",
       "tags": [
         "refund",
@@ -7825,7 +8043,7 @@
       "volume": "Large",
       "retention": "Duration of relationship + 5 years",
       "verificationMode": "clip",
-      "furtherDerivations": 3,
+      "furtherDerivations": 1,
       "snippet": "Company name, company number, date of incorporation, entity status, registered agent identity, directors (names and appointment dates), registered office address, date of letter, validity period.",
       "tags": [
         "registered-agent",
@@ -7869,7 +8087,7 @@
       "volume": "Large",
       "retention": "5-10 years (regulatory cycles)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 4,
       "snippet": "Regulatory authority, entity name, site/facility identifier, inspection/audit date, result (pass/fail/conditional), scope of compliance, validity period, inspector/auditor identification.",
       "tags": [
         "compliance",
@@ -7887,7 +8105,7 @@
       "volume": "Medium",
       "retention": "Statutory period (varies by filing type)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Authorized person, company, registration number, filing types authorized, authority source (board resolution, delegation), portal credentials held (if applicable), excluded filings, validity period.",
       "tags": [
         "regulatory-filings",
@@ -7905,7 +8123,7 @@
       "volume": "Large",
       "retention": "7-10 years (fraud investigation, complaints, recovery efforts)",
       "verificationMode": "clip",
-      "furtherDerivations": 2,
+      "furtherDerivations": 1,
       "snippet": "Platform name, regulated entity or operator name, client ID, account holder name or privacy-preserving form, product/account type, portfolio balance summary or withdrawal amount, request/reference num",
       "tags": [
         "investment-fraud",
@@ -7927,7 +8145,7 @@
       "volume": "Large",
       "retention": "7-10 years (consumer protection, enforcement, audit, complaints)",
       "verificationMode": "clip",
-      "furtherDerivations": 3,
+      "furtherDerivations": 1,
       "snippet": "Issuer name, legal authority or licensing basis, case/shipment/account reference, subject of release, fee type, amount due, due date, payment destination or collecting agent, current status, and wheth",
       "tags": [
         "release-fee",
@@ -7969,7 +8187,7 @@
       "volume": "Large",
       "retention": "Employment/engagement term + 3-7 years (security, payroll, and audit records)",
       "verificationMode": "clip",
-      "furtherDerivations": 2,
+      "furtherDerivations": 1,
       "snippet": "Worker name or privacy-preserving badge form, worker ID, legal employer, client organization, role title, assignment start/end dates, approved working region, approved managed device ID (or device coh",
       "tags": [
         "remote-work",
@@ -8092,7 +8310,7 @@
       "volume": "Medium",
       "retention": "2-5 years (building security logs)",
       "verificationMode": "camera",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Staff or contractor name, photo (hash), license/credential number (for licensed trades), company affiliation, license status (Active/Expired/Suspended), assigned property and unit(s), work order numbe",
       "tags": [
         "apartment-safety",
@@ -8129,7 +8347,7 @@
       "volume": "Large",
       "retention": "Order duration + enforcement window (1-10 years)",
       "verificationMode": "clip",
-      "furtherDerivations": 2,
+      "furtherDerivations": 1,
       "snippet": "Court name, case number, order type (DVRO, civil harassment, stalking, elder abuse), petitioner name, respondent name, date issued, expiration date, conditions summary (stay-away distance, protected l",
       "tags": [
         "restraining-order",
@@ -8270,7 +8488,7 @@
       "volume": "Very Large",
       "retention": "Transaction + 7 years (tax/audit)",
       "verificationMode": "clip+camera",
-      "furtherDerivations": 1,
+      "furtherDerivations": 0,
       "snippet": "Receipt number, merchant name, location, date/time, itemized purchases with individual prices, subtotal, tax (VAT/sales tax rate and amount), total, payment method indicator, transaction reference.",
       "tags": [
         "receipt",
@@ -8331,7 +8549,7 @@
       "volume": "Large",
       "retention": "7-10 years (regulatory audit)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Screened party name, screening timestamp, reference number, lists checked (with versions), result (no match / potential match / confirmed match), screening provider, compliance officer sign-off.",
       "tags": [
         "sanctions",
@@ -8388,7 +8606,7 @@
       "volume": "Very Large",
       "retention": "Academic year + 7 years (funding audit / safeguarding review)",
       "verificationMode": "both",
-      "furtherDerivations": 3,
+      "furtherDerivations": 4,
       "snippet": "",
       "tags": [
         "school",
@@ -8415,7 +8633,7 @@
       "volume": "Very Large",
       "retention": "School year + 1 year",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Authorized person's name, photo (hash), relationship to child, child's name/grade, designating parent's name, authorization date, expiration date, any restrictions (e.g., \"Fridays only,\" \"after 3pm on",
       "tags": [
         "school",
@@ -8474,7 +8692,7 @@
       "volume": "Medium",
       "retention": "Duration of engagement + 6 years",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Client name, tester/firm name, engagement ID, scope (in-scope systems, out-of-scope exclusions), testing window (dates and times), authorizing officer, authorization date.",
       "tags": [
         "pentest",
@@ -8585,6 +8803,26 @@
       ]
     },
     {
+      "slug": "software-licensing-reseller-authorizations",
+      "title": "Software Licensing and Reseller Authorizations",
+      "category": "Business & Commerce",
+      "volume": "Large",
+      "retention": "Authorization period + 1-3 years (audit defence, compliance records)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Partner legal name, authorized site domain, software vendor, product line or licensing programme, authorization period, and current status.",
+      "tags": [
+        "software-licensing",
+        "reseller",
+        "authorized-partner",
+        "volume-licensing",
+        "grey-market",
+        "compliance-audit",
+        "enterprise-software",
+        "domain-mismatch"
+      ]
+    },
+    {
       "slug": "soil-geotechnical-reports",
       "title": "Soil and Geotechnical Reports",
       "category": "Real Estate & Property",
@@ -8650,7 +8888,7 @@
       "volume": "Medium",
       "retention": "5-10 years post-relationship",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Client name, transaction/account reference, declaration date, source description, amount, supporting document references, signatory confirmation.",
       "tags": [
         "source-of-funds",
@@ -8804,7 +9042,7 @@
       "volume": "Medium",
       "retention": "7 years (project completion + warranty)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 3,
       "snippet": "Surety company name, bond number, principal (contractor/licensee), obligee (protected party), bond type, bond amount, project or license description, release date, reason for release, any continuing o",
       "tags": [
         "surety",
@@ -8923,7 +9161,7 @@
       "volume": "Medium",
       "retention": "7-10 years post-activity",
       "verificationMode": "clip",
-      "furtherDerivations": 3,
+      "furtherDerivations": 1,
       "snippet": "Entity name, registration number, relevant activity type, filing period, employee count (FTE), operating expenditure, premises address, number of board meetings held in jurisdiction, directors residen",
       "tags": [
         "economic-substance",
@@ -9047,7 +9285,7 @@
       "volume": "Very Large",
       "retention": "3-7 years",
       "verificationMode": "clip",
-      "furtherDerivations": 1,
+      "furtherDerivations": 2,
       "snippet": "Tenant full name, property address, tenancy start date, tenancy end date (or \"Present\"), monthly rent amount, arrears status, property condition at departure, deposit return status, \"would let to agai",
       "tags": [
         "tenant-reference",
@@ -9283,7 +9521,7 @@
       "volume": "Very Large",
       "retention": "7 years (tax records)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 3,
       "snippet": "Tradesperson name/business, tax registration number (UTR, ABN, EIN), trade license number, insurance reference, customer address (hashed for privacy), service description, itemized costs, tax amounts,",
       "tags": [
         "trades",
@@ -9325,7 +9563,7 @@
       "volume": "Large",
       "retention": "Rolling (current status)",
       "verificationMode": "both",
-      "furtherDerivations": 0,
+      "furtherDerivations": 3,
       "snippet": "Business name, masked UTR (Unique Taxpayer Reference), VAT registration number (if registered), VAT registration status, registration date, Making Tax Digital compliance status, Self Assessment filing",
       "tags": [
         "vat",
@@ -9367,7 +9605,7 @@
       "volume": "Large",
       "retention": "7-10 years (regulatory, tax, complaints, litigation)",
       "verificationMode": "clip",
-      "furtherDerivations": 3,
+      "furtherDerivations": 2,
       "snippet": "### General position",
       "tags": [
         "compensation",
@@ -9588,7 +9826,7 @@
       "volume": "Large",
       "retention": "Service + 1-3 years (access records)",
       "verificationMode": "camera",
-      "furtherDerivations": 1,
+      "furtherDerivations": 0,
       "snippet": "Worker name, photo (hash), employee ID, company name, role (meter reader/engineer/installer), DBS check date, service area, current shift status.",
       "tags": [
         "utility-worker",
@@ -9669,7 +9907,7 @@
       "volume": "Large",
       "retention": "5-10 years (regulatory compliance / liability)",
       "verificationMode": "clip",
-      "furtherDerivations": 1,
+      "furtherDerivations": 3,
       "snippet": "VIN (Vehicle Identification Number), USDOT number, carrier name, unit number, plate number, inspection date, inspector name/license, facility ID, pass/fail status for 13+ safety categories (Brakes, St",
       "tags": [
         "transportation",
@@ -9716,7 +9954,7 @@
       "volume": "Very Large",
       "retention": "Permanent (ownership record)",
       "verificationMode": "clip",
-      "furtherDerivations": 2,
+      "furtherDerivations": 1,
       "snippet": "VIN, owner name, title number, state of issuance, title brand (CLEAN / SALVAGE / REBUILT / FLOOD / JUNK), lien holder (if any), odometer reading at title issuance, date issued, year/make/model, body s",
       "tags": [
         "vehicle-title",
@@ -9755,7 +9993,7 @@
       "volume": "Very Large",
       "retention": "Event + dispute window",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 3,
       "snippet": "Event type (invitation/acceptance/rejection/counter), event title, date, time, timezone, duration, location (physical and/or virtual), organizer name, attendee names, response status.",
       "tags": [
         "calendar",
@@ -9940,7 +10178,7 @@
       "volume": "Medium-Small",
       "retention": "7-10 years (financial audit, loan lifecycle)",
       "verificationMode": "clip",
-      "furtherDerivations": 1,
+      "furtherDerivations": 2,
       "snippet": "Warehouse Operator (Issuer), Depositor (Current Owner), Commodity Details (Grade, Brand, Crop Year), Weights (Gross/Net), Storage Location (Specific Shed/Bay), Warrant Number, Rent/Storage Paid To Dat",
       "tags": [
         "asset-verification",
@@ -9982,7 +10220,7 @@
       "volume": "Large",
       "retention": "3 years (waste transfer notes) / licence duration + renewal",
       "verificationMode": "camera",
-      "furtherDerivations": 1,
+      "furtherDerivations": 3,
       "snippet": "Licence: Carrier name, registration number, tier (Upper/Lower), registration date, renewal date, authorised waste types, registered address, company number or sole trader details.",
       "tags": [
         "waste-carrier",
@@ -10063,7 +10301,7 @@
       "volume": "Large",
       "retention": "Point of decision + complaint period",
       "verificationMode": "clip",
-      "furtherDerivations": 1,
+      "furtherDerivations": 3,
       "snippet": "In its simplest form, the object verifies only the fields a customer actually needs at the point of decision:",
       "tags": [
         "consumer-protection",
@@ -10232,6 +10470,10 @@
       "count": 24
     },
     {
+      "name": "Business & Commerce",
+      "count": 23
+    },
+    {
       "name": "Specialty Insurance",
       "count": 23
     },
@@ -10260,7 +10502,7 @@
       "count": 18
     },
     {
-      "name": "Business & Commerce",
+      "name": "Professional & Occupational Licenses",
       "count": 17
     },
     {
@@ -10274,10 +10516,6 @@
     {
       "name": "Insurance Claims & Operations",
       "count": 15
-    },
-    {
-      "name": "Professional & Occupational Licenses",
-      "count": 13
     },
     {
       "name": "Healthcare & Medical Records",
@@ -10372,15 +10610,15 @@
       "count": 4
     },
     {
+      "name": "Insurance",
+      "count": 2
+    },
+    {
       "name": "Identity & KYC",
       "count": 2
     },
     {
       "name": "Healthcare & Medical",
-      "count": 1
-    },
-    {
-      "name": "Insurance",
       "count": 1
     }
   ],

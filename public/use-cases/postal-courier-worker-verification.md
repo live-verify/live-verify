@@ -6,7 +6,7 @@ retention: "Delivery + 30 days"
 slug: "postal-courier-worker-verification"
 verificationMode: "camera"
 tags: ["postal-worker", "royal-mail", "usps", "courier", "personal-safety", "suspicious-packages", "doorstep-fraud", "package-security"]
-furtherDerivations: 1
+furtherDerivations: 0
 ---
 
 > **See also:** [E-Ink ID Cards](../e-ink-id-cards.md) — comprehensive guide to rotating-salt badges, security properties, and privacy protection for high-volume workers.

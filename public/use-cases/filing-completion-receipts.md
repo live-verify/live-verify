@@ -6,6 +6,7 @@ retention: "Varies by filing type (1 year - permanent)"
 slug: "filing-completion-receipts"
 verificationMode: "clip"
 tags: ["filing", "receipt", "submission", "deadline", "compliance", "registration", "government"]
+furtherDerivations: 4
 ---
 
 ## What is a Filing Completion Receipt?

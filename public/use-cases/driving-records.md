@@ -6,7 +6,7 @@ retention: "Point-in-time (re-verify periodically)"
 slug: "driving-records"
 verificationMode: "clip"
 tags: ["driving", "licence", "dvla", "dmv", "points", "endorsements", "fleet", "employment"]
-furtherDerivations: 0
+furtherDerivations: 1
 ---
 
 ## What is an Authority-Issued Driving Record?

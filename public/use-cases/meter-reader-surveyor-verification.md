@@ -6,7 +6,7 @@ retention: "Visit + 1-3 years (access records)"
 slug: "meter-reader-surveyor-verification"
 verificationMode: "camera"
 tags: ["meter-reader", "surveyor", "property-access", "appraiser", "personal-safety", "home-security", "bogus-caller", "property-valuation"]
-furtherDerivations: 1
+furtherDerivations: 0
 ---
 
 ## What is a Surveyor or Meter Reader Badge?

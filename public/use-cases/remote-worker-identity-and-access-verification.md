@@ -6,7 +6,7 @@ retention: "Employment/engagement term + 3-7 years (security, payroll, and audit
 slug: "remote-worker-identity-and-access-verification"
 verificationMode: "clip"
 tags: ["remote-work", "contractor-verification", "identity-fraud", "insider-risk", "staffing", "access-control", "employment", "vendor-risk", "shell-company", "dual-employment"]
-furtherDerivations: 2
+furtherDerivations: 1
 ---
 
 ## What is Remote Worker Identity and Access Verification?

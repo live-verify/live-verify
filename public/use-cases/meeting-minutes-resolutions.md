@@ -6,6 +6,7 @@ retention: "Permanent (corporate records)"
 slug: "meeting-minutes-resolutions"
 verificationMode: "clip"
 tags: ["minutes", "resolutions", "board", "shareholders", "AGM", "corporate-governance", "multi-page"]
+furtherDerivations: 3
 ---
 
 ## What are Meeting Minutes?

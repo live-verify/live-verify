@@ -6,6 +6,7 @@ retention: "Permanent (legal status)"
 slug: "conviction-expungement-certificates"
 verificationMode: "clip"
 tags: ["expungement", "sealing", "conviction", "criminal-record", "court-order", "clean-slate"]
+furtherDerivations: 3
 ---
 
 ## What is a Conviction Expungement Certificate?

@@ -6,7 +6,7 @@ retention: "Point of decision + complaint period"
 slug: "what-is-in-it-for-you-disclosures"
 verificationMode: "clip"
 tags: ["consumer-protection", "plain-english", "commission", "conflict-of-interest", "financial-advice", "broker", "referral-fee", "disclosure", "ifa", "transparency"]
-furtherDerivations: 1
+furtherDerivations: 3
 ---
 
 ## What is a "What Is In It For You?" Disclosure?

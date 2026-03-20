@@ -102,6 +102,22 @@ verify:moc.live‮good.example
 
 The user sees what appears to end with "good.example" but the actual string is different.
 
+### 7. Text-swap attack on third-party claims
+
+When a verifiable claim is designed to be displayed on a third party's site (e.g., a reseller authorization on a retailer's page), a scam site can attempt a more sophisticated attack:
+
+1. The scam site displays its own name visually ("ScamGPUs Ltd")
+2. When the buyer right-clicks to verify, page JavaScript intercepts the selection or clipboard and swaps the text for a genuine authorized reseller's claim
+3. The hash verifies — the buyer sees green "VERIFIED"
+4. The buyer may not notice the verified detail names a different reseller and a different domain
+
+**Techniques:**
+- JavaScript `copy` event interception to swap clipboard content
+- CSS tricks: `text-indent: -9999px` with a background image showing different text, or `::before` pseudo-elements with substituted content
+- Invisible overlapping elements where the selectable text layer differs from the visual layer
+
+This is specifically relevant to the "authority-issued claim on a third-party site" pattern — reseller authorizations, insurance panel membership, certified repair centers, approved contractors, etc.
+
 ## Defences
 
 ### Implemented
@@ -110,6 +126,25 @@ The user sees what appears to end with "good.example" but the actual string is d
 - **Domain emphasis**: The registrable domain is bolded in results (e.g., verify.**example.com**) to draw attention to the actual issuer.
 - **Banner disclaimer**: "screencaps of this are not proof of anything" reminds users that the in-page UI is not tamper-proof evidence.
 - **Badge count per tab**: The `X/N` toolbar badge is set via the Chrome extension API, which page JS cannot access or spoof.
+
+### Implemented: `allowedDomains` response field
+
+For claims designed to appear on third-party sites, the verification response includes an `allowedDomains` field:
+
+```json
+{
+  "status": "verified",
+  "allowedDomains": ["foobar50xx.com", "*.foobar50xx.com"]
+}
+```
+
+The extension compares the current page's hostname against the allowed domains. On mismatch, it shows an amber warning: "This claim verified, but it names foobar50xx.com and you are on scamgpus.com."
+
+This is the primary defence against the text-swap attack (§7 above). Even if the text swap succeeds and the hash verifies, the `allowedDomains` field catches the domain mismatch. The attacker would need to compromise the issuer's verification endpoint to inject their own domain — at which point the problem is infrastructure compromise, not a client-side attack.
+
+The claim text also includes the authorized domain in human-readable form (e.g., `FooBar Electronics Ltd (foobar50xx.com)`), providing a visual fallback for users who read the detail.
+
+See [Verification Response Format — Allowed Domains](./Verification-Response-Format.md#allowed-domains) for the full specification.
 
 ### Planned or recommended
 

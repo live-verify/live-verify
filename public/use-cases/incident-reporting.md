@@ -6,6 +6,7 @@ retention: "Permanent (safety records)"
 slug: "incident-reporting"
 verificationMode: "clip"
 tags: ["incidents", "safety", "near-miss", "blameless", "healthcare", "aviation", "nuclear", "construction", "maritime", "rail", "OSHA", "disclosure", "novel"]
+furtherDerivations: 10
 ---
 
 ## What is Incident Reporting?

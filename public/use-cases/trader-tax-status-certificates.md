@@ -6,7 +6,7 @@ retention: "Rolling (current status)"
 slug: "trader-tax-status-certificates"
 verificationMode: "both"
 tags: ["vat", "tax-status", "cash-economy", "hmrc", "making-tax-digital", "tradesperson", "consumer-protection", "uk", "eu", "cash-limit"]
-furtherDerivations: 0
+furtherDerivations: 3
 ---
 
 ## What is a Trader Tax Status Certificate?

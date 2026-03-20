@@ -6,6 +6,7 @@ retention: "Permanent (entity records)"
 slug: "commercial-registry-filings"
 verificationMode: "clip"
 tags: ["commercial-registry", "company-house", "secretary-of-state", "incorporation", "UCC", "trademark"]
+furtherDerivations: 25
 ---
 
 ## What is a Commercial Registry Filing?

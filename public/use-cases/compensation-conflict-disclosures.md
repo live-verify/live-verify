@@ -6,7 +6,7 @@ retention: "7 years (regulatory), permanent (litigation)"
 slug: "compensation-conflict-disclosures"
 verificationMode: "clip"
 tags: ["conflict-of-interest", "fiduciary", "commission", "compensation", "disclosure", "fee-only", "kickback", "transparency", "attestation", "influencer", "ftc-ad", "sponsorship", "esg", "greenwashing", "expert-witness", "board-governance", "lobbying"]
-furtherDerivations: 5
+furtherDerivations: 3
 ---
 
 # Compensation & Conflict-of-Interest Disclosures

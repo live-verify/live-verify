@@ -6,7 +6,7 @@ retention: "Enrolment period + 3 years"
 slug: "proof-of-childcare-enrolment"
 verificationMode: "clip"
 tags: ["childcare", "nursery", "daycare", "tax-credits", "benefits", "enrolment", "mandate", "hmrc", "tax-free-childcare", "universal-credit", "employer-vouchers", "proof"]
-furtherDerivations: 1
+furtherDerivations: 2
 ---
 
 ## What is Proof of Childcare Enrolment?

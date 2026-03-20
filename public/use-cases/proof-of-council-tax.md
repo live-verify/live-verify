@@ -6,7 +6,7 @@ retention: "Tax year + 6 years"
 slug: "proof-of-council-tax"
 verificationMode: "clip"
 tags: ["council-tax", "proof-of-address", "local-authority", "mandate", "kyc", "address-verification", "benefits", "electoral-roll", "single-person-discount", "payment-standing"]
-furtherDerivations: 1
+furtherDerivations: 2
 ---
 
 ## What is Proof of Council Tax?

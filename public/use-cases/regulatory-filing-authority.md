@@ -6,7 +6,7 @@ retention: "Statutory period (varies by filing type)"
 slug: "regulatory-filing-authority"
 verificationMode: "clip"
 tags: ["regulatory-filings", "companies-house", "tax-authority", "compliance", "statutory", "delegation"]
-furtherDerivations: 0
+furtherDerivations: 1
 ---
 
 ## What is Regulatory Filing Authority?

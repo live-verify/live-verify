@@ -6,7 +6,7 @@ retention: "Permanent (ownership record)"
 slug: "vehicle-titles"
 verificationMode: "clip"
 tags: ["vehicle-title", "car-title", "certificate-of-title", "dmv", "dvla", "ownership", "lien", "title-washing", "odometer"]
-furtherDerivations: 2
+furtherDerivations: 1
 ---
 
 ## What is a Vehicle Title?

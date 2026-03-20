@@ -6,7 +6,7 @@ retention: "Event + dispute window"
 slug: "verifiable-calendar-events"
 verificationMode: "clip"
 tags: ["calendar", "scheduling", "ical", "caldav", "meeting", "invitation", "acceptance", "rejection", "cross-org", "deposition", "custody", "appointment"]
-furtherDerivations: 0
+furtherDerivations: 3
 ---
 
 ## What is a Verifiable Calendar Event?

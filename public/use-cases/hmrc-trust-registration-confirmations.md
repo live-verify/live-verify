@@ -6,7 +6,7 @@ retention: "Lifetime of trust + 5 years (MLR 2017)"
 slug: "hmrc-trust-registration-confirmations"
 verificationMode: "clip"
 tags: ["hmrc", "trust", "trs", "beneficial-ownership", "aml", "compliance", "uk-trusts", "ubo", "5mld"]
-furtherDerivations: 0
+furtherDerivations: 1
 ---
 
 ## What is an HMRC Trust Registration Confirmation?

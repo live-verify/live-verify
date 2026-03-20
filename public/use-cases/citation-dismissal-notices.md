@@ -6,6 +6,7 @@ retention: "3-7 years (DMV/court records)"
 slug: "citation-dismissal-notices"
 verificationMode: "clip"
 tags: ["citation", "ticket", "dismissal", "traffic", "violation", "fine"]
+furtherDerivations: 4
 ---
 
 ## What is a Citation Dismissal Notice?

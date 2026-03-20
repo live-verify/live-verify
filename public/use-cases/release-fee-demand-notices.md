@@ -6,7 +6,7 @@ retention: "7-10 years (consumer protection, enforcement, audit, complaints)"
 slug: "release-fee-demand-notices"
 verificationMode: "clip"
 tags: ["release-fee", "consumer-protection", "scam-prevention", "authorized-push-payment", "customs-fee", "withdrawal-fee", "account-unfreeze", "legal-demand", "government-mandate", "verification-chain"]
-furtherDerivations: 3
+furtherDerivations: 1
 ---
 
 ## What is a Release Fee Demand Notice?

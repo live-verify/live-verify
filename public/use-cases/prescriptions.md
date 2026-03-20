@@ -6,7 +6,7 @@ retention: "2-7 years (varies by jurisdiction and substance schedule)"
 slug: "prescriptions"
 verificationMode: "both"
 tags: ["prescription", "medication", "pharmacy", "controlled-substance", "opioid", "prescriber", "dea", "gmc", "travel", "schedule-ii"]
-furtherDerivations: 2
+furtherDerivations: 1
 ---
 
 ## What is a Prescription?

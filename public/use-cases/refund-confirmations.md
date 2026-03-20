@@ -6,6 +6,7 @@ retention: "3-7 years (tax and warranty)"
 slug: "refund-confirmations"
 verificationMode: "clip"
 tags: ["refund", "reimbursement", "return", "chargeback", "credit", "warranty"]
+furtherDerivations: 3
 ---
 
 ## What is a Refund Confirmation?

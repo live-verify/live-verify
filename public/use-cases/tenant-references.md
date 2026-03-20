@@ -6,7 +6,7 @@ retention: "3-7 years"
 slug: "tenant-references"
 verificationMode: "clip"
 tags: ["tenant-reference", "landlord", "rental-history", "letting-agent", "background-check", "housing", "tenancy", "rental-fraud"]
-furtherDerivations: 1
+furtherDerivations: 2
 ---
 
 ## What is a Tenant Reference?

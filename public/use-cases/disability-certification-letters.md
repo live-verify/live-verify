@@ -6,7 +6,7 @@ retention: "Duration of condition + review period (1-5 years)"
 slug: "disability-certification-letters"
 verificationMode: "clip"
 tags: ["disability", "ada", "reasonable-accommodation", "disabled-parking", "accessibility", "workplace-accommodation", "esa", "service-animal", "benefits"]
-furtherDerivations: 2
+furtherDerivations: 1
 ---
 
 ## What is a Disability Certification Letter?

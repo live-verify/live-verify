@@ -6,7 +6,7 @@ retention: "Duration of registration + 5 years"
 slug: "hmrc-aml-supervision-registrations"
 verificationMode: "clip"
 tags: ["hmrc", "aml", "supervision", "mlr-2017", "money-service-business", "tcsp", "high-value-dealer", "compliance", "due-diligence"]
-furtherDerivations: 0
+furtherDerivations: 1
 ---
 
 ## What is an HMRC AML Supervision Registration?

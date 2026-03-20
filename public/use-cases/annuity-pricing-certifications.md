@@ -6,7 +6,7 @@ retention: "7-30 years (contract lifetime)"
 slug: "annuity-pricing-certifications"
 verificationMode: "clip"
 tags: ["actuarial", "annuity", "pricing", "insurance", "solvency", "compliance"]
-furtherDerivations: 1
+furtherDerivations: 2
 gmail: yes
 pdf: yes
 sms: no

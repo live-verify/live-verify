@@ -6,6 +6,7 @@ retention: "Permanent (legal protection)"
 slug: "consent-records"
 verificationMode: "clip"
 tags: ["consent", "gdpr", "hipaa", "privacy", "medical", "data-rights", "novel"]
+furtherDerivations: 7
 ---
 
 ## What is a Consent Record?

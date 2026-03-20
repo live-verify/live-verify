@@ -6,6 +6,7 @@ retention: "7-10 years (credit reporting cycle)"
 slug: "guarantor-releases"
 verificationMode: "clip"
 tags: ["guarantor", "co-signer", "release", "loan", "lease", "personal-guarantee"]
+furtherDerivations: 4
 ---
 
 ## What is a Guarantor Release?

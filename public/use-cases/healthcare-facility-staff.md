@@ -6,7 +6,7 @@ retention: "2-7 years (security & incident records)"
 slug: "healthcare-facility-staff"
 verificationMode: "camera"
 tags: ["hospital-safety", "patient-safety", "healthcare-security", "staff-verification", "credential-verification", "medical-facility-security", "doctor-verification", "nurse-verification"]
-furtherDerivations: 0
+furtherDerivations: 3
 ---
 
 > **See also:** [E-Ink ID Cards](../e-ink-id-cards.md) — comprehensive guide to rotating-salt badges, security properties, and when they're needed.

@@ -7,7 +7,7 @@ retention: "Interaction + 7–10 years (clinical negligence limitation)"
 slug: "bedside-care-interaction-records"
 verificationMode: "both"
 tags: ["hospital", "care-home", "nursing", "bedside", "patient", "procedure", "ward", "interaction", "lidar", "voice-ai", "care-log", "staffing", "nhs", "medicare", "worker-protection", "blockchain"]
-furtherDerivations: 3
+furtherDerivations: 2
 ---
 
 ## The Capability

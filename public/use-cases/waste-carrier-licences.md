@@ -6,7 +6,7 @@ retention: "3 years (waste transfer notes) / licence duration + renewal"
 slug: "waste-carrier-licences"
 verificationMode: "camera"
 tags: ["waste-carrier", "fly-tipping", "environment-agency", "duty-of-care", "waste-transfer-note", "illegal-dumping", "uk", "householder-liability", "environmental-crime"]
-furtherDerivations: 1
+furtherDerivations: 3
 ---
 
 ## What is a Waste Carrier Licence?

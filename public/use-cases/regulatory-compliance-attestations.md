@@ -6,6 +6,7 @@ retention: "5-10 years (regulatory cycles)"
 slug: "regulatory-compliance-attestations"
 verificationMode: "clip"
 tags: ["compliance", "attestation", "audit", "regulation", "certification", "inspection"]
+furtherDerivations: 4
 ---
 
 ## What is a Regulatory Compliance Attestation?

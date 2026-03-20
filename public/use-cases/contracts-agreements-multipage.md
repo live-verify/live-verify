@@ -6,6 +6,7 @@ retention: "Contract term + 6-10 years"
 slug: "contracts-agreements-multipage"
 verificationMode: "clip"
 tags: ["contract", "agreement", "multi-page", "signature", "terms", "legal", "page-substitution"]
+furtherDerivations: 4
 ---
 
 ## What are Multi-Page Contracts?

@@ -6,7 +6,7 @@ retention: "Delivery + 30 days"
 slug: "delivery-courier-verification"
 verificationMode: "camera"
 tags: ["logistics", "courier", "personal-safety", "amazon-delivery", "ups", "fedex", "home-security", "vulnerable-recipients", "postal", "verification", "delivery-fraud", "package-security"]
-furtherDerivations: 2
+furtherDerivations: 1
 ---
 
 > **See also:** [E-Ink ID Cards](../e-ink-id-cards.md) — comprehensive guide to rotating-salt badges, security properties, and privacy protection for high-volume workers.

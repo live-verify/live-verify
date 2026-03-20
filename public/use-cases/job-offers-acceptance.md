@@ -6,7 +6,7 @@ retention: "Employment term + dispute window"
 slug: "job-offers-acceptance"
 verificationMode: "clip"
 tags: ["job-offer", "acceptance", "employment", "compensation", "start-date", "immigration", "mortgage", "cross-org", "hr"]
-furtherDerivations: 0
+furtherDerivations: 2
 ---
 
 ## What is a Verifiable Job Offer?

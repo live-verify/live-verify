@@ -6,7 +6,7 @@ retention: "Variable by control type"
 slug: "hierarchy-of-controls-witnessing"
 verificationMode: "camera"
 tags: ["safety", "hierarchy-of-controls", "elimination", "substitution", "engineering-controls", "administrative-controls", "PPE", "inspection", "OSHA", "HSE"]
-furtherDerivations: 5
+furtherDerivations: 7
 ---
 
 ## What is Hierarchy of Controls Witnessing?

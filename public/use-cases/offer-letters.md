@@ -6,7 +6,7 @@ retention: "Duration of employment + 2 years"
 slug: "offer-letters"
 verificationMode: "clip"
 tags: ["offer-letter", "employment-offer", "job-offer", "hiring", "compensation", "visa", "mortgage", "relocation"]
-furtherDerivations: 2
+furtherDerivations: 1
 ---
 
 ## What is an Offer Letter?

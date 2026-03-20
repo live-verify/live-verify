@@ -6,7 +6,7 @@ retention: "2-5 years (building security logs)"
 slug: "residential-building-staff"
 verificationMode: "camera"
 tags: ["apartment-safety", "home-security", "maintenance-verification", "contractor-verification", "residential-security", "building-staff-verification"]
-furtherDerivations: 0
+furtherDerivations: 1
 ---
 
 > **See also:** [E-Ink ID Cards](../e-ink-id-cards.md) — comprehensive guide to rotating-salt badges, security properties, and when they're needed.

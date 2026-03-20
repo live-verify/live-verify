@@ -6,7 +6,7 @@ retention: "7-10 years (fraud investigation, complaints, recovery efforts)"
 slug: "relationship-led-investment-scam-documents"
 verificationMode: "clip"
 tags: ["investment-fraud", "crypto-fraud", "romance-scam", "withdrawal-scam", "fake-broker", "authorized-push-payment", "consumer-protection", "fintech-fraud", "social-engineering", "retail-investor"]
-furtherDerivations: 2
+furtherDerivations: 1
 ---
 
 ## What are Relationship-Led Investment Scam Documents?

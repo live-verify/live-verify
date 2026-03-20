@@ -6,7 +6,7 @@ retention: "Varies by type (1-10 years)"
 slug: "anonymous-accountable-communications"
 verificationMode: "clip"
 tags: ["identity-escrow", "whistleblowing", "anonymous-tips", "source-protection", "journalism", "reviews", "accountability"]
-furtherDerivations: 4
+furtherDerivations: 5
 ---
 
 ## What is Anonymous but Accountable Communication?

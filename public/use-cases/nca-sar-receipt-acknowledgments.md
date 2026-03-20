@@ -6,7 +6,7 @@ retention: "5-6 years (MLR 2017 / POCA 2002)"
 slug: "nca-sar-receipt-acknowledgments"
 verificationMode: "clip"
 tags: ["nca", "ukfiu", "sar", "suspicious-activity", "aml", "poca", "financial-crime", "compliance", "money-laundering"]
-furtherDerivations: 0
+furtherDerivations: 1
 ---
 
 ## What is an NCA SAR Receipt Acknowledgment?

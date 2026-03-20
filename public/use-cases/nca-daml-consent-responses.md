@@ -6,7 +6,7 @@ retention: "6 years minimum (MLR 2017 / POCA 2002)"
 slug: "nca-daml-consent-responses"
 verificationMode: "clip"
 tags: ["nca", "ukfiu", "daml", "consent", "aml", "poca", "financial-crime", "compliance", "money-laundering", "defence"]
-furtherDerivations: 0
+furtherDerivations: 1
 ---
 
 ## What is a DAML Consent Response?

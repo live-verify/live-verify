@@ -6,6 +6,7 @@ retention: "5-7 years (claims history)"
 slug: "insurance-no-claims-certificates"
 verificationMode: "clip"
 tags: ["no-claims", "NCB", "NCD", "bonus", "discount", "claims-free", "insurance", "auto", "motor"]
+furtherDerivations: 3
 ---
 
 ## What is a No Claims Certificate?

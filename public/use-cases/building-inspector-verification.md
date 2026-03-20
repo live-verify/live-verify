@@ -6,7 +6,7 @@ retention: "Inspection + 3-7 years (compliance)"
 slug: "building-inspector-verification"
 verificationMode: "camera"
 tags: ["safety", "inspector", "badge", "verification", "home-security", "municipal", "government"]
-furtherDerivations: 1
+furtherDerivations: 0
 ---
 
 ## What is an Inspector Badge?

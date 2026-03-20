@@ -6,7 +6,7 @@ retention: "Registration period + renewal"
 slug: "gas-safe-regulated-trade-cards"
 verificationMode: "camera"
 tags: ["gas-safe", "corgi", "niceic", "oftec", "hetas", "tradesperson", "regulated-trade", "uk", "doorstep", "consumer-protection", "photo-verification", "credential-stack"]
-furtherDerivations: 1
+furtherDerivations: 2
 ---
 
 ## What is a Gas Safe ID Card?

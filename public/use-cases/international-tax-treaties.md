@@ -6,6 +6,7 @@ retention: "Permanent (benefit entitlement)"
 slug: "international-tax-treaties"
 verificationMode: "clip"
 tags: ["tax-treaty", "totalization", "social-security", "expat", "foreign-tax-credit", "double-taxation", "pension", "cross-border", "residency"]
+furtherDerivations: 7
 ---
 
 ## What is International Tax & Social Security Coordination?

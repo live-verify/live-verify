@@ -6,6 +6,7 @@ retention: "Permanent (reputation records)"
 slug: "prediction-commitments"
 verificationMode: "clip"
 tags: ["predictions", "forecasting", "commitments", "accountability", "track-record", "novel"]
+furtherDerivations: 6
 ---
 
 ## What is a Prediction Commitment?

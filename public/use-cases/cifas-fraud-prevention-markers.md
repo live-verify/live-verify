@@ -6,7 +6,7 @@ retention: "6 years (marker duration) + appeal records"
 slug: "cifas-fraud-prevention-markers"
 verificationMode: "clip"
 tags: ["cifas", "fraud-marker", "protective-registration", "identity-fraud", "uk", "financial-crime", "banking", "unbanked"]
-furtherDerivations: 1
+furtherDerivations: 3
 ---
 
 ## What is a CIFAS Marker?

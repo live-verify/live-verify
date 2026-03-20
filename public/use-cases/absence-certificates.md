@@ -6,6 +6,7 @@ retention: "Varies by type"
 slug: "absence-certificates"
 verificationMode: "clip"
 tags: ["negative-proof", "absence", "no-claims", "clear-record", "due-diligence", "novel"]
+furtherDerivations: 5
 ---
 
 ## What is an Absence Certificate?

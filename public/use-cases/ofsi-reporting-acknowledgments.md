@@ -6,7 +6,7 @@ retention: "6 years minimum (SAMLA 2018)"
 slug: "ofsi-reporting-acknowledgments"
 verificationMode: "clip"
 tags: ["ofsi", "sanctions", "reporting", "frozen-funds", "hm-treasury", "compliance", "uk-sanctions", "designated-persons"]
-furtherDerivations: 0
+furtherDerivations: 1
 ---
 
 ## What is an OFSI Reporting Acknowledgment?

@@ -6,7 +6,7 @@ retention: "Stay + 1-3 years (incident records)"
 slug: "hotel-staff-verification"
 verificationMode: "camera"
 tags: ["hotel-safety", "staff-verification", "personal-safety", "airbnb-host-verification", "room-service-security", "hospitality-security", "home-security", "ungated-facilities", "mobile-staff"]
-furtherDerivations: 3
+furtherDerivations: 1
 ---
 
 > **See also:** [E-Ink ID Cards](../e-ink-id-cards.md) — comprehensive guide to rotating-salt badges, security properties, and when they're needed.

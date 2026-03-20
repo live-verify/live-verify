@@ -6,7 +6,7 @@ retention: "Registration period + 10 years"
 slug: "proof-of-gp-registration"
 verificationMode: "clip"
 tags: ["gp", "primary-care", "nhs", "registration", "proof-of-address", "mandate", "healthcare", "medical-registration", "patient", "benefits", "school-admission"]
-furtherDerivations: 1
+furtherDerivations: 2
 ---
 
 ## What is Proof of GP Registration?

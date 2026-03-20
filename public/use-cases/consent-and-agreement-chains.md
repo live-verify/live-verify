@@ -6,7 +6,7 @@ retention: "Agreement term + statutory limitation period"
 slug: "consent-and-agreement-chains"
 verificationMode: "clip"
 tags: ["consent", "agreement", "medical-consent", "rental-terms", "two-party", "cross-org", "attestation-chain", "dispute-resolution"]
-furtherDerivations: 0
+furtherDerivations: 2
 ---
 
 ## What is a Verifiable Consent Chain?

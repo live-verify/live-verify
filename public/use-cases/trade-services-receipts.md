@@ -6,6 +6,7 @@ retention: "7 years (tax records)"
 slug: "trade-services-receipts"
 verificationMode: "clip"
 tags: ["trades", "plumber", "electrician", "builder", "contractor", "receipt", "tax-compliance", "cash-economy", "consumer-protection", "B2C"]
+furtherDerivations: 3
 ---
 
 ## What is a Trade Service Receipt?

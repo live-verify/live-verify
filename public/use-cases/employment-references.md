@@ -6,7 +6,7 @@ retention: "1-7 years (hiring cycle)"
 slug: "employment-references"
 verificationMode: "clip"
 tags: ["employment-verification", "voe", "hr", "background-check", "hiring-fraud", "job-reference"]
-furtherDerivations: 1
+furtherDerivations: 3
 ---
 
 ## What is an Employment Reference?

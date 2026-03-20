@@ -6,7 +6,7 @@ retention: "7-10 years (regulatory, tax, complaints, litigation)"
 slug: "transaction-linked-compensation-disclosures"
 verificationMode: "clip"
 tags: ["compensation", "commission", "trail-commission", "financial-advice", "ifa", "broker", "conflict-of-interest", "referral-fee", "revenue-share", "inducement"]
-furtherDerivations: 3
+furtherDerivations: 2
 ---
 
 ## What is a Transaction-Linked Compensation Disclosure?

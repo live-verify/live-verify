@@ -6,7 +6,7 @@ retention: "6 years minimum (SAMLA 2018 / MLR 2017)"
 slug: "ofsi-licence-authorisations"
 verificationMode: "clip"
 tags: ["ofsi", "sanctions", "licence", "frozen-funds", "hm-treasury", "financial-crime", "compliance", "uk-sanctions"]
-furtherDerivations: 0
+furtherDerivations: 1
 ---
 
 ## What is an OFSI Licence Authorisation?

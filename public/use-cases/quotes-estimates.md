@@ -6,7 +6,7 @@ retention: "Quote validity period + dispute window"
 slug: "quotes-estimates"
 verificationMode: "clip"
 tags: ["quote", "estimate", "proposal", "contractor", "pricing", "scope", "acceptance", "cross-org", "home-repair", "freelance", "small-business"]
-furtherDerivations: 0
+furtherDerivations: 2
 ---
 
 ## What is a Verifiable Quote?
