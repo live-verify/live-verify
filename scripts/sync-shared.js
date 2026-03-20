@@ -238,16 +238,15 @@ for (const target of TARGETS) {
     console.log();
 }
 
-// Copy canonical normalize.js to Android assets (no transformation needed — Rhino runs it as-is)
+// Transpile canonical normalize.js to ES5 for Android's Rhino JS engine
 {
-    const androidAssets = path.join(ROOT, 'apps', 'android', 'app', 'src', 'main', 'assets');
-    if (!fs.existsSync(androidAssets)) {
-        fs.mkdirSync(androidAssets, { recursive: true });
+    const { execSync } = require('child_process');
+    try {
+        execSync('node scripts/transpile-normalize.js', { cwd: ROOT, stdio: 'inherit' });
+    } catch (e) {
+        console.error('Failed to transpile normalize.js for Android:', e.message);
+        process.exit(1);
     }
-    const source = fs.readFileSync(path.join(PUBLIC, 'normalize.js'), 'utf8');
-    const dest = path.join(androidAssets, 'normalize.js');
-    fs.writeFileSync(dest, source);
-    console.log(`Android: ${path.relative(ROOT, dest)} (plain copy for Rhino JS engine)`);
 }
 
 console.log('\nDone. Run "npm run test:unit" to verify.');
