@@ -1,9 +1,9 @@
 {
-  "generated": "2026-03-20T09:52:31.512Z",
-  "totalUseCases": 502,
-  "totalFurtherDerivations": 594,
+  "generated": "2026-03-20T10:39:24.789Z",
+  "totalUseCases": 504,
+  "totalFurtherDerivations": 599,
   "categories": {
-    "Real Estate & Property": 32,
+    "Real Estate & Property": 34,
     "Charitable & Non-Profit": 7,
     "Novel Document Types": 7,
     "Scientific & Research": 8,
@@ -7318,6 +7318,27 @@
       ]
     },
     {
+      "slug": "proof-of-home-ownership",
+      "title": "Proof of Home Ownership",
+      "category": "Real Estate & Property",
+      "volume": "Large",
+      "retention": "Hours to days (privacy-preserving proof window)",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Property address or title reference, current ownership status, registry issue timestamp, expiry timestamp, salt, and optionally a privacy-minimized holder label.",
+      "tags": [
+        "home-ownership",
+        "land-registry",
+        "property",
+        "ownership-proof",
+        "title",
+        "privacy",
+        "time-limited",
+        "salted-proof",
+        "registry-extract"
+      ]
+    },
+    {
       "slug": "proof-of-insurance-status",
       "title": "Proof of Insurance (Policyholder Confirmation)",
       "category": "Insurance",
@@ -7427,7 +7448,7 @@
       "retention": "Permanent (public record)",
       "verificationMode": "clip",
       "furtherDerivations": 1,
-      "snippet": "Grantor name, Grantee name, Full Legal Description (Metes and Bounds or Lot/Block), Tax Parcel ID (APN), Consideration amount, Notary name/commission, Recording timestamp, Instrument Number.",
+      "snippet": "Title or parcel reference, full legal description (Metes and Bounds or Lot/Block), tax parcel ID (APN), prior instrument reference, current instrument number, recording timestamp, transfer type, chain",
       "tags": [
         "deeds",
         "real-estate",
@@ -7435,6 +7456,28 @@
         "ownership",
         "property",
         "recording"
+      ]
+    },
+    {
+      "slug": "property-state-changes",
+      "title": "Property State Changes",
+      "category": "Real Estate & Property",
+      "volume": "Large",
+      "retention": "Life of loan / policy / regulatory relationship",
+      "verificationMode": "clip",
+      "furtherDerivations": 3,
+      "snippet": "Property address or title reference, effective date, title status, occupancy/use status, market status, parcel/physical status, and optionally the source class for each status (registry filing, owner ",
+      "tags": [
+        "property-state",
+        "mortgage-monitoring",
+        "owner-occupier",
+        "tenanted",
+        "vacant",
+        "for-sale",
+        "collateral-risk",
+        "registry",
+        "insurance",
+        "occupancy"
       ]
     },
     {
@@ -10182,7 +10225,7 @@
     },
     {
       "name": "Real Estate & Property",
-      "count": 32
+      "count": 34
     },
     {
       "name": "Financial Compliance",

@@ -11,13 +11,13 @@ furtherDerivations: 1
 
 ## What is a Property Deed?
 
-A **Deed** is the legal instrument that transfers ownership of real estate from one person (the Grantor) to another (the Grantee). It is the "Physical Proof" of who owns a piece of the earth.
+A **Deed** is the legal instrument that transfers ownership of real estate from one owner to another. It is the recorded step in the chain of title for a piece of land.
 
 In most jurisdictions, a deed is not fully effective against third parties until it is **Recorded** in the county's official land records.
 
 **"Title Theft"** is a rapidly growing fraud where criminals forge a homeowner's signature on a "Quitclaim Deed," notarize it with a fake stamp, and record it at the county office. They then use this "Verified" (but fraudulent) record to take out massive home equity loans or even "sell" the house to an unsuspecting buyer.
 
-Live Verify binds the **Grantor/Grantee names and the Legal Description** to the County Recorder's domain. A fraudulent deed would generate a hash that doesn't exist in the county's "Verified Index," instantly alerting title companies and banks to the scam.
+Live Verify binds the **title reference, legal description, instrument details, and chain position** to the County Recorder's domain. A fraudulent deed would generate a hash that doesn't exist in the county's "Verified Index," instantly alerting title companies and banks to the scam.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 1px solid #000; background: #fff; padding: 0; box-shadow: 5px 5px 15px rgba(0,0,0,0.1);">
   <div style="padding: 40px;">
@@ -25,11 +25,14 @@ Live Verify binds the **Grantor/Grantee names and the Legal Description** to the
       <h1 style="margin: 0; font-size: 1.8em; text-transform: uppercase; letter-spacing: 2px;"><span verifiable-text="start" data-for="deed"></span>Statutory Warranty Deed</h1>
     </div>
 <div style="font-size: 1.1em; line-height: 1.6; color: #000;">
-      <p>THE GRANTOR, <strong>MARIA G. RODRIGUEZ</strong>, a single person, for and in consideration of Ten Dollars ($10.00) and other good and valuable consideration in hand paid, conveys and warrants to <strong>ROBERT J. MILLER</strong>, the following described real estate:</p>
+      <p>THE PRIOR RECORDED OWNER conveys and warrants to THE NEW RECORDED OWNER the following described real estate:</p>
 <div style="margin: 20px 0; padding-left: 20px; font-style: italic; border-left: 3px solid #eee;">
         Lot 42, Block 7 of Skyline Heights Addition, according to the plat thereof recorded in Volume 12 of Plats, Page 88, records of King County, Washington.<br>
         Tax Parcel ID: 9922-8877-00
       </div>
+<p><strong>Prior Instrument:</strong> 20210422001991<br>
+      <strong>Current Instrument:</strong> 20260316000442<br>
+      <strong>Transfer History:</strong> Sale 2021 -> Sale 2026</p>
 <p>Dated this 15th day of March, 2026.</p>
     </div>
 <div style="margin-top: 40px; border: 2px solid #000; padding: 15px; width: 250px; text-align: center; font-family: sans-serif;">
@@ -47,9 +50,75 @@ Live Verify binds the **Grantor/Grantee names and the Legal Description** to the
   </div>
 </div>
 
+### Example: Last-in-Chain Summary
+
+<div style="max-width: 600px; margin: 24px auto; font-family: 'Courier New', monospace; border: 1px solid #555; background: #fcfcfc; padding: 20px;">
+  <pre style="margin: 0; white-space: pre; color: #000; line-height: 1.6;">VERIFIED TITLE CHAIN SUMMARY
+═══════════════════════════════════════════════════════════════════
+
+Parcel ID:        9922-8877-00
+Current Instrument: 20260316000442
+Prior Instrument:   20210422001991
+Transfer Type:      Sale
+Recorded:           16 Mar 2026 09:14
+Chain Status:       LAST IN CHAIN VERIFIED
+
+verify:kingcounty.gov/recorder/v
+</pre>
+</div>
+
+### Example: Sale History Extract
+
+<div style="max-width: 600px; margin: 24px auto; font-family: 'Courier New', monospace; border: 1px solid #555; background: #fcfcfc; padding: 20px;">
+  <pre style="margin: 0; white-space: pre; color: #000; line-height: 1.6;">PROPERTY TRANSFER HISTORY
+═══════════════════════════════════════════════════════════════════
+
+Parcel ID:        9922-8877-00
+2012 Transfer:    Sale recorded
+2021 Transfer:    Sale recorded
+2026 Transfer:    Sale recorded
+Current Chain:    Continuous / no gap detected
+
+verify:kingcounty.gov/recorder/v
+</pre>
+</div>
+
+### Example: Fraud / Void Alert
+
+<div style="max-width: 600px; margin: 24px auto; font-family: 'Courier New', monospace; border: 1px solid #8b0000; background: #fff8f8; padding: 20px;">
+  <pre style="margin: 0; white-space: pre; color: #000; line-height: 1.6;">TITLE VERIFICATION RESULT
+═══════════════════════════════════════════════════════════════════
+
+Parcel ID:        9922-8877-00
+Instrument:       20260316000442
+Status:           VOIDED / FRAUD ALERT
+Reason:           Court-ordered cancellation of recorded transfer
+
+verify:kingcounty.gov/recorder/v
+</pre>
+</div>
+
+### Example: Verified But Superseded
+
+<div style="max-width: 600px; margin: 24px auto; font-family: 'Courier New', monospace; border: 1px solid #7a5a00; background: #fffdf4; padding: 20px;">
+  <pre style="margin: 0; white-space: pre; color: #000; line-height: 1.6;">TITLE VERIFICATION RESULT
+═══════════════════════════════════════════════════════════════════
+
+Parcel ID:              9922-8877-00
+Instrument:             20210422001991
+Status:                 VERIFIED-BUT-SUPERSEDED
+Later Transfers:        3
+Current Chain Position: Historical only
+
+verify:kingcounty.gov/recorder/v
+</pre>
+</div>
+
 ## Data Verified
 
-Grantor name, Grantee name, Full Legal Description (Metes and Bounds or Lot/Block), Tax Parcel ID (APN), Consideration amount, Notary name/commission, Recording timestamp, Instrument Number.
+Title or parcel reference, full legal description (Metes and Bounds or Lot/Block), tax parcel ID (APN), prior instrument reference, current instrument number, recording timestamp, transfer type, chain position, and optionally sale-history summary.
+
+**What should usually NOT be foregrounded in the portable claim:** homeowner names. The registry may still hold them as the underlying source of truth, but the public-facing verification surface should prefer property-centric identifiers and chain-of-title continuity over broadcasting owner identity.
 
 **Document Types:**
 - **Warranty Deed:** Highest protection; grantor warrants title is clear.
@@ -59,10 +128,13 @@ Grantor name, Grantee name, Full Legal Description (Metes and Bounds or Lot/Bloc
 
 ## Data Visible After Verification
 
-Shows the issuer domain (the County Recorder or Registrar) and the current indexing status.
+Shows the issuer domain (the County Recorder or Registrar) and the current title-chain status.
+
+**Important:** this page should model the **title / chain-of-history layer**, not every possible property state. Occupancy, listing status, vacancy, physical destruction, and similar matters are better handled by a separate multidimensional property-state record.
 
 **Status Indications:**
 - **Recorded** — Document is authentic and part of the official chain of title.
+- **Verified-But-Superseded** — Document was authentic when recorded, but later recorded transfers mean it is now historical only. A privacy-preserving response may state that later transfers exist and how many, without disclosing current owner identity or successor instrument details.
 - **Voided/Fraud Alert** — **ALERT:** County has flagged this instrument as fraudulent or revoked by court order.
 - **Amended** — Superseded by a "Correction Deed" (linked hash).
 - **Pending** — Received by the county but not yet fully indexed.
@@ -71,7 +143,7 @@ Shows the issuer domain (the County Recorder or Registrar) and the current index
 
 The **Property Owner (Grantee)** benefits from verification.
 
-**Equity Protection:** Proving to a lender or a buyer that their deed is the "Verified Last-in-Chain" instrument. This stops "Title Theft" before it can happen, as the owner can set a "Watch" on their own property hash.
+**Equity Protection:** Proving to a lender or a buyer that the deed is the "Verified Last-in-Chain" instrument. This stops "Title Theft" before it can happen, as the owner can set a "Watch" on their own property hash.
 
 **Estate Planning:** Ensuring that a deed transferring a home into a family trust is verified and recorded correctly, preventing probate delays.
 
@@ -81,7 +153,7 @@ The **Property Owner (Grantee)** benefits from verification.
 **Chain of Title Integrity:** During a home sale, the title officer scans every deed in the 30-year history. "Verified by County" ensures no "Wild Deeds" or fake instruments were inserted into the records to hide a lien or steal ownership.
 
 **Mortgage Lenders**
-**Collateral Vetting:** Verifying that the person applying for a $500,000 loan is actually the **Verified Record Owner** of the property. This stops "Air Loan" fraud where scammers take out loans on properties they don't own.
+**Collateral Vetting:** Verifying that the property offered as collateral matches the current verified chain of title and last recorded transfer. This stops "Air Loan" fraud where scammers take out loans on properties they don't control.
 
 **Real Estate Attorneys**
 **Litigation Evidence:** In a "Quiet Title" action, providing the court with a cryptographically verified history of every transfer, making it impossible for opposing parties to present forged paper deeds.
@@ -90,7 +162,7 @@ The **Property Owner (Grantee)** benefits from verification.
 
 **The "Dirty Paper" Fraud Problem**
 
-- **Signature Forgery:** The #1 real estate fraud. Criminals signing the owner's name on a Quitclaim deed.
+- **Signature Forgery:** The #1 real estate fraud. Criminals forging transfer authority on a Quitclaim deed.
 - **"Wild Deeds":** Recording a deed that looks real but has no connection to the previous owner in the chain.
 - **Notary Fraud:** Using a stolen or fabricated notary seal to make a fake deed look "Official."
 
@@ -145,4 +217,9 @@ If a witness layer exists, it may periodically commit rollups to a public blockc
 | **Implementation** | **Cheap.** API over existing DB. | **Expensive.** Requires new legal framework. | **Manual.** |
 | **Trust Anchor** | **The County.** (Elected Official). | **The Network.** (Decentralized). | **The Paper.** |
 
-**Why Live Verify wins here:** The "Recorder's Counter" reality. Real estate law is 500 years old. It moves slowly. Live Verify provides **"Digital Integrity for Paper Reality"**—it gives the benefits of a blockchain (immutability and verification) without requiring the world to rewrite its property laws or abandon the physical deed.
+**Why Live Verify wins here:** The "Recorder's Counter" reality. Real estate law is 500 years old. It moves slowly. Live Verify provides **"Digital Integrity for Paper Reality"**—it gives the benefits of a blockchain (immutability and verification) without requiring the world to rewrite its property laws or abandon the physical deed. For ordinary homeowner privacy, a separate short-lived ownership-proof use case should sit on top of this permanent title layer rather than reusing the permanent deed artifact directly.
+
+## See Also
+
+- [Proof of Home Ownership](view.html?doc=proof-of-home-ownership) — short-lived, salted, privacy-preserving proof derived from the permanent title layer
+- [Property State Changes](view.html?doc=property-state-changes) — separate multidimensional status layer for owner-occupier vs tenanted, for-sale, damage, merger, erosion, and similar state changes
