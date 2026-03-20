@@ -436,7 +436,9 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch {
             try {
                 val meta = VerificationLogic.fetchVerificationMeta(urlResult.url)
-                val suffix = meta?.optString("appendToHashFileName") ?: ""
+                val suffix = meta?.optString("appendToHashResourceName")
+                    ?: meta?.optString("appendToHashFileName") ?: ""
+                val hostedAt = meta?.optString("hashesHostedAt")?.takeIf { it.isNotEmpty() }
 
                 // Try each candidate from smallest to largest until server confirms.
                 // Collect all attempts for diagnostic display.
@@ -447,7 +449,7 @@ class MainActivity : AppCompatActivity() {
                 for ((i, candidate) in candidates.withIndex()) {
                     val normalized = TextNormalizer.normalizeText(candidate)
                     val hash = TextNormalizer.sha256(normalized)
-                    val url = VerificationLogic.buildVerificationUrl(urlResult.url, hash, suffix)
+                    val url = VerificationLogic.buildVerificationUrl(urlResult.url, hash, suffix, hostedAt)
                     Log.d(TAG, "Trying candidate $i/${candidates.size}: hash=${hash.take(16)}... (${candidate.count { it == '\n' } + 1} lines)")
 
                     triedCandidates.add(DiagnosticAdapter.NormalizedCandidate(normalized, hash))
@@ -471,11 +473,11 @@ class MainActivity : AppCompatActivity() {
                     val first = triedCandidates.first()
                     result = VerificationResult.NotVerified(
                         VerificationLogic.getDomainFromUrl(
-                            VerificationLogic.buildVerificationUrl(urlResult.url, first.hash, suffix)
+                            VerificationLogic.buildVerificationUrl(urlResult.url, first.hash, suffix, hostedAt)
                         ),
                         "Hash not found on server"
                     )
-                    verificationUrl = VerificationLogic.buildVerificationUrl(urlResult.url, first.hash, suffix)
+                    verificationUrl = VerificationLogic.buildVerificationUrl(urlResult.url, first.hash, suffix, hostedAt)
                     normalizedText = first.text
                     computedHash = first.hash
                     diagnosticCandidates = triedCandidates

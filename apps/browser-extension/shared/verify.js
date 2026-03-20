@@ -86,8 +86,14 @@ function buildVerificationUrl(baseUrl, hash, meta) {
     const lowerBase = baseUrl.toLowerCase();
 
     // Get suffix from meta if available (e.g., ".json")
-    // Field name is "appendToHashFileName" in verification-meta.json
-    const suffix = (meta && meta.appendToHashFileName) ? meta.appendToHashFileName : '';
+    // Preferred field: "appendToHashResourceName"; legacy: "appendToHashFileName"
+    const suffix = (meta && (meta.appendToHashResourceName || meta.appendToHashFileName)) || '';
+
+    // If meta specifies hashesHostedAt, use that as the base URL instead
+    if (meta && meta.hashesHostedAt) {
+        const hostedBase = meta.hashesHostedAt.replace(/\/$/, '');
+        return `${hostedBase}/${hash}${suffix}`;
+    }
 
     // If it starts with verify:, convert to https:// (or http:// for local test)
     if (lowerBase.startsWith('verify:')) {

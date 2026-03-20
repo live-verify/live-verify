@@ -505,6 +505,47 @@ https://example.com`;
             expect(result).toBe(`https://example.com/${hash}`);
         });
 
+        it('should use hashesHostedAt when present in meta', () => {
+            const baseUrl = 'verify:paulhammant.com/refs';
+            const meta = { hashesHostedAt: 'https://paul-hammant.github.io/claims_i_verify/refs' };
+            const result = buildVerificationUrl(baseUrl, hash, meta);
+            expect(result).toBe(`https://paul-hammant.github.io/claims_i_verify/refs/${hash}`);
+        });
+
+        it('should use hashesHostedAt with appendToHashResourceName', () => {
+            const baseUrl = 'verify:paulhammant.com/refs';
+            const meta = {
+                hashesHostedAt: 'https://paul-hammant.github.io/claims_i_verify/refs',
+                appendToHashResourceName: '.json'
+            };
+            const result = buildVerificationUrl(baseUrl, hash, meta);
+            expect(result).toBe(`https://paul-hammant.github.io/claims_i_verify/refs/${hash}.json`);
+        });
+
+        it('should strip trailing slash from hashesHostedAt', () => {
+            const baseUrl = 'verify:paulhammant.com/refs';
+            const meta = { hashesHostedAt: 'https://example.com/hashes/' };
+            const result = buildVerificationUrl(baseUrl, hash, meta);
+            expect(result).toBe(`https://example.com/hashes/${hash}`);
+        });
+
+        it('should prefer appendToHashResourceName over appendToHashFileName', () => {
+            const baseUrl = 'verify:example.com/c';
+            const meta = {
+                appendToHashResourceName: '.json',
+                appendToHashFileName: '.old'
+            };
+            const result = buildVerificationUrl(baseUrl, hash, meta);
+            expect(result).toBe(`https://example.com/c/${hash}.json`);
+        });
+
+        it('should fall back to appendToHashFileName when appendToHashResourceName absent', () => {
+            const baseUrl = 'verify:example.com/c';
+            const meta = { appendToHashFileName: '.json' };
+            const result = buildVerificationUrl(baseUrl, hash, meta);
+            expect(result).toBe(`https://example.com/c/${hash}.json`);
+        });
+
         it('should correctly remove exactly 4 characters from vfy: prefix', () => {
             // vfy: is 4 characters, verify: is 7 characters
             const vfyUrl = 'vfy:domain.com/path';

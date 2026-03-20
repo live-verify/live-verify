@@ -73,6 +73,10 @@ EOF</pre>
   <p style="font-size: 0.9em; color: #666; line-height: 1.6; margin: 0 0 0 0;">
     Keep a note of the plain text and the SHA-256 hash for each reference you publish. One day you might need to revoke one &mdash; people change, relationships sour. To revoke, change the <code style="font-size: 0.9em; background: #eee; padding: 2px 4px; border-radius: 3px;">.json</code> file's content from <code style="font-size: 0.9em; background: #eee; padding: 2px 4px; border-radius: 3px;">{"status":"verified"}</code> to <code style="font-size: 0.9em; background: #eee; padding: 2px 4px; border-radius: 3px;">{"status":"revoked"}</code>, or just delete it. This isn't PII handled by an incorporated company &mdash; there's no compliance burden. An email to yourself with the claim text and hash is plenty.
   </p>
+  <h3 style="font-size: 1em; color: #888; margin: 24px 0 8px 0;">How paulhammant.com/refs works</h3>
+  <p style="font-size: 0.9em; color: #666; line-height: 1.6; margin: 0 0 0 0;">
+    The <code style="font-size: 0.9em; background: #eee; padding: 2px 4px; border-radius: 3px;">verify:paulhammant.com/refs</code> domain is the trust anchor, but the hashes are quietly stored in a separate GitHub Pages repo: <a href="https://github.com/paul-hammant/claims_i_verify" style="color: #667eea;">github.com/paul-hammant/claims_i_verify</a>. The <a href="https://paulhammant.com/refs/verification-meta.json" style="color: #667eea;">verification-meta.json</a> at <code style="font-size: 0.9em; background: #eee; padding: 2px 4px; border-radius: 3px;">paulhammant.com/refs/</code> tells the client to look up hashes at <a href="https://paul-hammant.github.io/claims_i_verify/" style="color: #667eea;">paul-hammant.github.io/claims_i_verify/</a> instead. You can browse the raw hash storage there if you're curious.
+  </p>
   </div>
 </body>
 </html>

@@ -129,7 +129,13 @@ object VerificationLogic {
      * @param suffix Optional suffix from meta (e.g., ".json")
      * @return Full HTTPS verification URL
      */
-    fun buildVerificationUrl(baseUrl: String, hash: String, suffix: String = ""): String {
+    fun buildVerificationUrl(baseUrl: String, hash: String, suffix: String = "", hashesHostedAt: String? = null): String {
+        // If meta specifies hashesHostedAt, use that as the base URL instead
+        if (hashesHostedAt != null) {
+            val hostedBase = hashesHostedAt.trimEnd('/')
+            return "$hostedBase/$hash$suffix"
+        }
+
         val lowerBase = baseUrl.lowercase()
 
         return when {
