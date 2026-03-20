@@ -1,5 +1,5 @@
 ---
-title: "Property Deeds (Warranty, Quitclaim)"
+title: "Property Title Deeds (Warranty, Quitclaim)"
 category: "Real Estate & Property"
 volume: "Medium"
 retention: "Permanent (public record)"
@@ -9,15 +9,68 @@ tags: ["deeds", "real-estate", "title", "ownership", "property", "recording"]
 furtherDerivations: 1
 ---
 
-## What is a Property Deed?
+## What is a Property Title Deed?
 
-A **Deed** is the legal instrument that transfers ownership of real estate from one owner to another. It is the recorded step in the chain of title for a piece of land.
+A **title deed** is the legal instrument that transfers ownership of real property from one owner to another. It is the recorded step in the chain of title for a piece of land.
 
 In most jurisdictions, a deed is not fully effective against third parties until it is **Recorded** in the county's official land records.
 
+## What property registries actually need to do
+
+The key services a property registry provides are:
+
+1. **Transactional verification** — parties about to commit money can confirm current ownership and encumbrances
+2. **Recovery and reconstitution** — the registry is the backup when private deeds are lost or destroyed
+3. **Priority resolution** — when competing claims exist, the registry determines who wins (first to record in good faith)
+4. **Lien enforcement** — creditors, tax authorities, and courts can attach claims to property and have them respected by future buyers
+5. **Boundary and parcel integrity** — the cadastral record defines what "Lot 42, Block 7" actually means physically
+
+And arguably:
+
+6. **Compulsory purchase / eminent domain** — the state needs to know who to compensate
+7. **Tax assessment** — the municipality needs to know who owes property tax on what
+8. **Fraud prevention** — the registry should make it difficult to record forged deeds, fabricate transfers, or extract loans against properties the borrower does not control. Title theft is almost always reversed eventually, but the damage is real: the legitimate owner faces months of legal costs, frozen equity, and disrupted sales while the fraud is unwound.
+
+Every one of these works with **authenticated access by parties with a legitimate interest.** None requires the records to be browsable by the general public as an open dataset.
+
+In the US, most county recorder offices make deed records fully public — searchable online, often with bulk download. That is an implementation choice inherited from the paper-courthouse era, not a legal necessity. It was the cheapest model when restricting access would have meant hiring someone to check credentials at the counter. That accident of convenience now supports a multi-billion-dollar data economy (CoreLogic, ATTOM, title insurance, Zillow, etc.) and has powerful constituencies defending it as though publicity were the point. But the *services* are the point.
+
+## Title Theft
+
 **"Title Theft"** is a rapidly growing fraud where criminals forge a homeowner's signature on a "Quitclaim Deed," notarize it with a fake stamp, and record it at the county office. They then use this "Verified" (but fraudulent) record to take out massive home equity loans or even "sell" the house to an unsuspecting buyer.
 
-Live Verify binds the **title reference, legal description, instrument details, and chain position** to the County Recorder's domain. A fraudulent deed would generate a hash that doesn't exist in the county's "Verified Index," instantly alerting title companies and banks to the scam.
+Live Verify binds the **title reference, legal description, instrument details, and chain position** to the County Recorder's domain. A fraudulent deed would generate a hash that doesn't exist in the county's "Verified Index," alerting title companies and banks to the fraud.
+
+## Hashed Party References
+
+A deed must identify its parties — but it does not need to broadcast their names on the public face of the instrument. The deed can reference each party by a **registry reference**: a truncated hash derived from an identity record held separately by the county.
+
+The county holds the identity record:
+
+```
+MARIA G. RODRIGUEZ
+SSN last four: 4418
+DOB: 1971-03-12
+Salt: 2a76be121b22a52
+```
+
+That record hashes to `a]7f3b2e...`, which appears on the face of the deed instead of the plaintext name.
+
+**How each registry service still works:**
+
+- **Notarization:** The notary still sees Maria G. Rodriguez in person with her ID. She signs, the notary attests, and the notarial record confirms she is the person behind `a]7f3b2e...`. The notarial function is preserved — it is just the public-facing artifact that carries the hash, not the name.
+- **Title search:** The county provides hash-based search to authorised parties (title companies, lenders, attorneys). The county already holds the name-to-reference mapping internally.
+- **Legal proceedings:** The jurisdiction discloses the plaintext identity record under subpoena, court order, or other legal process. The hash is an indirection layer, not an anonymisation layer.
+- **Cross-county liens:** A judgment in County B against "MARIA G. RODRIGUEZ" is linked to County A's hash via the identity resolution layer when the lien is filed. This requires systems plumbing across counties, not a conceptual change.
+
+**What this prevents:**
+
+- Casual name-search scraping by data brokers
+- Bulk download of owner identities
+- Stalking and doxxing via public property records
+- The current workaround of shell companies and trusts, which obscure ownership from *everyone* including legitimate parties
+
+This is not radical. It is how the financial system already works — your bank account number is not your name, your SWIFT transfer identifies you by reference, and the bank discloses the mapping under legal process. Property recording is simply behind on this because the paper-courthouse model never needed the indirection.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 1px solid #000; background: #fff; padding: 0; box-shadow: 5px 5px 15px rgba(0,0,0,0.1);">
   <div style="padding: 40px;">
@@ -25,7 +78,7 @@ Live Verify binds the **title reference, legal description, instrument details, 
       <h1 style="margin: 0; font-size: 1.8em; text-transform: uppercase; letter-spacing: 2px;"><span verifiable-text="start" data-for="deed"></span>Statutory Warranty Deed</h1>
     </div>
 <div style="font-size: 1.1em; line-height: 1.6; color: #000;">
-      <p>THE PRIOR RECORDED OWNER conveys and warrants to THE NEW RECORDED OWNER the following described real estate:</p>
+      <p>THE GRANTOR, identified by registry reference <strong>a]7f3b2e...</strong>, for and in consideration of Ten Dollars ($10.00) and other good and valuable consideration in hand paid, conveys and warrants to <strong>b]9e2c81...</strong>, the following described real estate:</p>
 <div style="margin: 20px 0; padding-left: 20px; font-style: italic; border-left: 3px solid #eee;">
         Lot 42, Block 7 of Skyline Heights Addition, according to the plat thereof recorded in Volume 12 of Plats, Page 88, records of King County, Washington.<br>
         Tax Parcel ID: 9922-8877-00
@@ -118,7 +171,7 @@ verify:kingcounty.gov/recorder/v
 
 Title or parcel reference, full legal description (Metes and Bounds or Lot/Block), tax parcel ID (APN), prior instrument reference, current instrument number, recording timestamp, transfer type, chain position, and optionally sale-history summary.
 
-**What should usually NOT be foregrounded in the portable claim:** homeowner names. The registry may still hold them as the underlying source of truth, but the public-facing verification surface should prefer property-centric identifiers and chain-of-title continuity over broadcasting owner identity.
+**Party identification:** The deed references parties by hashed registry reference (see "Hashed Party References" above) rather than plaintext names. The registry holds the identity records and discloses them to authorised parties and under legal process. The public-facing verification surface carries property-centric identifiers and chain-of-title continuity, not owner identity.
 
 **Document Types:**
 - **Warranty Deed:** Highest protection; grantor warrants title is clear.

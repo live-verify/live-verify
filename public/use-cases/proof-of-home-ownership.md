@@ -171,14 +171,14 @@ The **homeowner** benefits directly.
 - Shared title documents sit in inboxes and case-management systems for years.
 - Scrapers and data brokers gain value from stable, replayable ownership artifacts.
 
-This use case solves a narrower problem than [Property Deeds](view.html?doc=property-deeds):
+This use case solves a narrower problem than [Property Title Deeds](view.html?doc=property-deeds):
 
 - not chain-of-title integrity
 - but short-lived proof of **current home ownership**
 
-## Relationship to Property Deeds
+## Relationship to Property Title Deeds
 
-- [Property Deeds](view.html?doc=property-deeds) should model the **permanent title and chain-of-history** layer.
+- [Property Title Deeds](view.html?doc=property-deeds) should model the **permanent title and chain-of-history** layer.
 - This use case models the **short-lived derivative proof** layer.
 - [Property State Changes](view.html?doc=property-state-changes) should model the **occupancy / market / parcel / physical state** monitoring layer.
 

@@ -190,7 +190,7 @@ That produces too much paper and the wrong answers.
 
 The cleaner property model is:
 
-- [Property Deeds](view.html?doc=property-deeds) for permanent chain-of-title and recorded instruments
+- [Property Title Deeds](view.html?doc=property-deeds) for permanent chain-of-title and recorded instruments
 - [Proof of Home Ownership](view.html?doc=proof-of-home-ownership) for short-lived private proof of current ownership
 - this page for multidimensional state monitoring relevant to lenders, insurers, and other relying parties
 
