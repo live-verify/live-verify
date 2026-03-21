@@ -1,7 +1,7 @@
 {
-  "generated": "2026-03-21T16:44:36.337Z",
+  "generated": "2026-03-21T17:02:08.801Z",
   "totalUseCases": 521,
-  "totalFurtherDerivations": 796,
+  "totalFurtherDerivations": 801,
   "categories": {
     "Real Estate & Property": 34,
     "Charitable & Non-Profit": 7,
@@ -3159,7 +3159,7 @@
       "volume": "Medium",
       "retention": "Policy lifetime (25-30 years)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Policy number, provider name, maturity date, original target amount, actual maturity value, shortfall amount, with-profits bonus allocation, terminal bonus allocation.",
       "tags": [
         "endowment",
@@ -5497,7 +5497,7 @@
       "volume": "Medium",
       "retention": "Policy lifetime",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 2,
       "snippet": "Policy number, assignment status (unassigned or assigned), assignee type (commercial bank, credit union, etc.), assignment date (if applicable), assigned amount, remaining unencumbered death benefit, ",
       "tags": [
         "life-insurance",
@@ -5538,7 +5538,7 @@
       "retention": "Policy lifetime",
       "verificationMode": "clip",
       "furtherDerivations": 2,
-      "snippet": "Policy number, loan status (clear or active), current cash value, outstanding loan balance (if any), net value after deductions, loan interest rate (if applicable), and the as-at date of the snapshot.",
+      "snippet": "Policy number, loan status (clear or active), outstanding loan balance (if any), loan interest rate and basis (if applicable), and the as-at date of the snapshot. Cash value and net surrender value ar",
       "tags": [
         "life-insurance",
         "policy-loan",
@@ -5557,7 +5557,7 @@
       "volume": "Small",
       "retention": "Policy lifetime (until maturity or death benefit paid)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Carrier name, policy number, face amount (death benefit), policy status (in force, lapsed, paid-up), premium payment status and paid-through date, outstanding loan balance, prior assignment history, p",
       "tags": [
         "life-settlement",
@@ -10482,7 +10482,7 @@
       "volume": "Medium",
       "retention": "Policy lifetime (25-40 years)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Policy number, provider name, declaration year, reversionary bonus rate, value added (GBP), total guaranteed fund value, terminal bonus status, policy series identifier.",
       "tags": [
         "with-profits",
