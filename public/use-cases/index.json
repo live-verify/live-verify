@@ -1,11 +1,11 @@
 {
-  "generated": "2026-03-21T17:02:08.801Z",
-  "totalUseCases": 521,
-  "totalFurtherDerivations": 801,
+  "generated": "2026-03-21T17:11:08.636Z",
+  "totalUseCases": 533,
+  "totalFurtherDerivations": 821,
   "categories": {
-    "Real Estate & Property": 34,
+    "Real Estate & Property": 35,
     "Charitable & Non-Profit": 7,
-    "Novel Document Types": 7,
+    "Novel Document Types": 8,
     "Scientific & Research": 8,
     "Professional & Occupational Licenses": 17,
     "Actuarial & Insurance Mathematics": 10,
@@ -17,22 +17,22 @@
     "Insurance Claims & Operations": 15,
     "Chain of Custody & Logistics": 18,
     "Travel & Hospitality": 21,
-    "Identity & Authority Verification": 42,
+    "Identity & Authority Verification": 47,
     "Healthcare & Medical Records": 14,
     "Professional & Educational Qualifications": 20,
     "Art, Media & Publishing": 7,
     "Customs & Trade Compliance": 7,
     "Sports & Athletics": 6,
     "Financial Compliance": 26,
-    "Business & Commerce": 23,
+    "Business & Commerce": 24,
     "Specialty Insurance": 23,
-    "Banking & Payments": 23,
-    "Investment & Fintech": 20,
+    "Banking & Payments": 24,
+    "Investment & Fintech": 22,
     "Site & Equipment Safety": 12,
     "Commercial Lines Insurance": 11,
     "Product Certifications & Compliance": 12,
     "Professional Ethics & Compliance": 11,
-    "Environmental Permits & Compliance": 10,
+    "Environmental Permits & Compliance": 11,
     "Warehousing & Inventory": 4,
     "Delegated Authority": 5,
     "Trade Finance": 5,
@@ -267,6 +267,27 @@
         "risk",
         "management",
         "premium"
+      ]
+    },
+    {
+      "slug": "ai-training-data-opt-out-confirmations",
+      "title": "AI Training Data Opt-Out Confirmations",
+      "category": "Novel Document Types",
+      "volume": "Medium (growing rapidly)",
+      "retention": "Indefinite — opt-out status may be relevant years after issuance",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Creator identity (handle and domain), platform name, opt-out scope, date of opt-out, and current status.",
+      "tags": [
+        "ai",
+        "machine-learning",
+        "opt-out",
+        "copyright",
+        "data-rights",
+        "content-creator",
+        "eu-ai-act",
+        "platform-policy",
+        "novel"
       ]
     },
     {
@@ -1282,6 +1303,47 @@
       ]
     },
     {
+      "slug": "carbon-offset-retirement-confirmations",
+      "title": "Carbon Offset Retirement Confirmations",
+      "category": "Environmental Permits & Compliance",
+      "volume": "Medium",
+      "retention": "7-20 years (carbon accounting cycles)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Registry name and standard (Verra VCS, Gold Standard, American Carbon Registry), credit ID, project name, vintage year, quantity in tonnes CO2e, retirement status, the entity that retired the credits,",
+      "tags": [
+        "carbon-offset",
+        "retirement",
+        "double-counting",
+        "verra",
+        "gold-standard",
+        "esg",
+        "voluntary-carbon-market",
+        "greenwashing"
+      ]
+    },
+    {
+      "slug": "care-home-cqc-registration",
+      "title": "Care Home CQC Registration",
+      "category": "Identity & Authority Verification",
+      "volume": "Medium",
+      "retention": "Registration period + inspection cycle",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Care home name, CQC registration number, current registration status, current inspection rating, date of last inspection, registered services (e.g., accommodation for persons who require nursing or pe",
+      "tags": [
+        "cqc",
+        "care-home",
+        "care-quality-commission",
+        "social-care",
+        "elderly-care",
+        "safeguarding",
+        "registration",
+        "inspection-rating",
+        "vulnerable-adults"
+      ]
+    },
+    {
       "slug": "cashiers-checks-money-orders",
       "title": "Cashier's Checks and Money Orders",
       "category": "Real Estate & Property",
@@ -1549,6 +1611,28 @@
         "income-withholding",
         "enforcement",
         "custody"
+      ]
+    },
+    {
+      "slug": "childcare-ofsted-registration",
+      "title": "Childminder/Nursery Ofsted Registration",
+      "category": "Identity & Authority Verification",
+      "volume": "Medium",
+      "retention": "Registration period + inspection cycle",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Provider name, Ofsted registration number (URN), registration type (childminder, childcare on domestic/non-domestic premises), current rating, date of last inspection, registered website domain, and c",
+      "tags": [
+        "ofsted",
+        "childcare",
+        "nursery",
+        "childminder",
+        "early-years",
+        "registration",
+        "safeguarding",
+        "child-safety",
+        "inspection-rating",
+        "parental-due-diligence"
       ]
     },
     {
@@ -1830,6 +1914,26 @@
         "incorporation",
         "UCC",
         "trademark"
+      ]
+    },
+    {
+      "slug": "company-good-standing-status",
+      "title": "Company Good Standing / No Winding-Up Petition",
+      "category": "Business & Commerce",
+      "volume": "Large",
+      "retention": "Snapshot",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Company name, company number, active/inactive status, filed accounts status, CCJ count, winding-up petition status, administration status, and the as-at date of the snapshot.",
+      "tags": [
+        "company-status",
+        "good-standing",
+        "winding-up",
+        "ccj",
+        "administration",
+        "companies-house",
+        "secretary-of-state",
+        "due-diligence"
       ]
     },
     {
@@ -6979,6 +7083,29 @@
       ]
     },
     {
+      "slug": "pension-transfer-value-statements",
+      "title": "Pension Transfer Value Statements",
+      "category": "Investment & Fintech",
+      "volume": "Large",
+      "retention": "Guarantee period",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Scheme name, member reference, cash equivalent transfer value (CETV), guarantee date, guarantee expiry date, and scheme transfer status.",
+      "tags": [
+        "pension",
+        "transfer-value",
+        "CETV",
+        "pension-scam",
+        "defined-benefit",
+        "divorce",
+        "pension-sharing",
+        "retirement",
+        "IFA",
+        "FCA",
+        "TPR"
+      ]
+    },
+    {
       "slug": "pep-declarations",
       "title": "PEP Declarations (Politically Exposed Persons)",
       "category": "Professional Ethics & Compliance",
@@ -7098,6 +7225,27 @@
         "organic-verification",
         "farm-audit",
         "chemical-application"
+      ]
+    },
+    {
+      "slug": "pharmacy-gphc-registration",
+      "title": "Pharmacy GPhC Registration",
+      "category": "Identity & Authority Verification",
+      "volume": "Medium",
+      "retention": "Registration period + renewal cycle",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Pharmacy name, GPhC registration number, registered website domain, registered premises address, superintendent pharmacist on record, and current registration status.",
+      "tags": [
+        "gphc",
+        "pharmacy",
+        "online-pharmacy",
+        "pharmaceutical-council",
+        "counterfeit-medicine",
+        "consumer-protection",
+        "nhs",
+        "mhra",
+        "healthcare-regulation"
       ]
     },
     {
@@ -7733,6 +7881,26 @@
         "valuation-fraud",
         "property-tax-audit",
         "certified-appraiser"
+      ]
+    },
+    {
+      "slug": "property-charge-lien-status",
+      "title": "Property Charge/Lien Status",
+      "category": "Real Estate & Property",
+      "volume": "Large",
+      "retention": "Transaction lifetime",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Title reference number, number of registered charges, charge type for each entry (first legal mortgage, second charge, restriction, etc.), chargee category (residential lender, secured loan provider, ",
+      "tags": [
+        "property",
+        "conveyancing",
+        "land-registry",
+        "charges",
+        "lien",
+        "mortgage",
+        "title-search",
+        "real-estate"
       ]
     },
     {
@@ -8458,6 +8626,28 @@
       ]
     },
     {
+      "slug": "retirement-account-balance-confirmations",
+      "title": "ISA/401(k)/Retirement Account Balance Confirmations",
+      "category": "Investment & Fintech",
+      "volume": "Large",
+      "retention": "Hours to days (privacy-preserving proof window)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Account provider, account type, account reference, balance amount and currency, issue timestamp, expiry timestamp, and salt.",
+      "tags": [
+        "retirement",
+        "isa",
+        "401k",
+        "pension",
+        "balance",
+        "account",
+        "privacy",
+        "time-limited",
+        "salted-proof",
+        "investment"
+      ]
+    },
+    {
       "slug": "reverse-factoring-supply-chain",
       "title": "Reverse Factoring (Supply Chain Finance) Documentation",
       "category": "Trade Finance",
@@ -8495,6 +8685,27 @@
         "travel-fraud",
         "business-travel",
         "gig-economy"
+      ]
+    },
+    {
+      "slug": "right-to-work-verification",
+      "title": "Right to Work Verification",
+      "category": "Identity & Authority Verification",
+      "volume": "Very Large",
+      "retention": "Hours (privacy-preserving confirmation window)",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Subject reference, right to work status, work type (unrestricted or restricted with conditions), confirmation timestamp, expiry timestamp, and salt.",
+      "tags": [
+        "right-to-work",
+        "immigration",
+        "employment",
+        "home-office",
+        "privacy",
+        "time-limited",
+        "salted-proof",
+        "uk",
+        "hiring"
       ]
     },
     {
@@ -10024,6 +10235,25 @@
       ]
     },
     {
+      "slug": "vehicle-lien-status",
+      "title": "Vehicle Lien Status",
+      "category": "Banking & Payments",
+      "volume": "Large",
+      "retention": "Until settlement",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Vehicle registration, VIN, finance status (clear or active), outstanding balance (if any), agreement type (if applicable), and the as-at date of the snapshot. Vehicle condition, mileage, MOT history, ",
+      "tags": [
+        "vehicle-finance",
+        "lien-check",
+        "used-car",
+        "hire-purchase",
+        "pcp",
+        "auto-loan",
+        "canary"
+      ]
+    },
+    {
       "slug": "vehicle-registration",
       "title": "Vehicle Registration",
       "category": "Government & Civic Documents",
@@ -10127,6 +10357,26 @@
         "verification-chain",
         "state-power",
         "safeguards"
+      ]
+    },
+    {
+      "slug": "veterinary-practice-rcvs-registration",
+      "title": "Veterinary Practice RCVS Registration",
+      "category": "Identity & Authority Verification",
+      "volume": "Small",
+      "retention": "Registration period + renewal cycle",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Practice name, accreditation level (Emergency Service Clinic, General Practice, Veterinary Hospital), species scope (small animal, equine, farm), registered website domain, and current accreditation s",
+      "tags": [
+        "rcvs",
+        "veterinary",
+        "practice-standards-scheme",
+        "animal-health",
+        "accreditation",
+        "telemedicine",
+        "pet-owner",
+        "consumer-protection"
       ]
     },
     {
@@ -10577,11 +10827,11 @@
   "categoriesList": [
     {
       "name": "Identity & Authority Verification",
-      "count": 42
+      "count": 47
     },
     {
       "name": "Real Estate & Property",
-      "count": 34
+      "count": 35
     },
     {
       "name": "Government & Civic Documents",
@@ -10592,11 +10842,15 @@
       "count": 26
     },
     {
-      "name": "Legal & Court Documents",
-      "count": 23
+      "name": "Business & Commerce",
+      "count": 24
     },
     {
-      "name": "Business & Commerce",
+      "name": "Banking & Payments",
+      "count": 24
+    },
+    {
+      "name": "Legal & Court Documents",
       "count": 23
     },
     {
@@ -10604,8 +10858,8 @@
       "count": 23
     },
     {
-      "name": "Banking & Payments",
-      "count": 23
+      "name": "Investment & Fintech",
+      "count": 22
     },
     {
       "name": "Travel & Hospitality",
@@ -10613,10 +10867,6 @@
     },
     {
       "name": "Professional & Educational Qualifications",
-      "count": 20
-    },
-    {
-      "name": "Investment & Fintech",
       "count": 20
     },
     {
@@ -10660,12 +10910,16 @@
       "count": 11
     },
     {
+      "name": "Environmental Permits & Compliance",
+      "count": 11
+    },
+    {
       "name": "Actuarial & Insurance Mathematics",
       "count": 10
     },
     {
-      "name": "Environmental Permits & Compliance",
-      "count": 10
+      "name": "Novel Document Types",
+      "count": 8
     },
     {
       "name": "Scientific & Research",
@@ -10673,10 +10927,6 @@
     },
     {
       "name": "Charitable & Non-Profit",
-      "count": 7
-    },
-    {
-      "name": "Novel Document Types",
       "count": 7
     },
     {
