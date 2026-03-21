@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiveVerify Browser Extension — Privacy Policy</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 720px;
+            margin: 40px auto;
+            padding: 0 20px;
+            line-height: 1.7;
+            color: #222;
+        }
+        h1 { font-size: 1.5em; margin-bottom: 0.3em; }
+        h2 { font-size: 1.15em; margin-top: 2em; }
+        .updated { color: #666; font-size: 0.9em; }
+        table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+        th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; font-size: 0.95em; }
+        th { background: #f5f5f5; }
+        code { background: #f0f0f0; padding: 2px 5px; border-radius: 3px; font-size: 0.9em; }
+        a { color: #0066cc; }
+    </style>
+</head>
+<body>
+
+<h1>LiveVerify Browser Extension — Privacy Policy</h1>
+<p class="updated">Last updated: March 2026</p>
+
+<h2>What LiveVerify does</h2>
+<p>LiveVerify is a browser extension that lets you verify text claims on web pages against issuer endpoints. You select text, the extension computes a SHA-256 hash, and checks whether the issuer's domain confirms the claim is authentic.</p>
+
+<h2>Data we collect</h2>
+<p><strong>None.</strong> LiveVerify has no server, no analytics, no telemetry, and no user accounts. All processing happens locally in your browser.</p>
+
+<h2>Data that stays in your browser</h2>
+<table>
+    <tr>
+        <th>Data</th>
+        <th>Where it goes</th>
+        <th>How long it lasts</th>
+    </tr>
+    <tr>
+        <td>Selected text</td>
+        <td>Processed locally to compute hash</td>
+        <td>Discarded immediately after hashing</td>
+    </tr>
+    <tr>
+        <td>Computed hash</td>
+        <td>Sent as a URL path to the issuer's domain (e.g., <code>https://issuer.com/c/{hash}</code>)</td>
+        <td>Not stored</td>
+    </tr>
+    <tr>
+        <td>Verification result</td>
+        <td>Displayed in popup; stored in session-only history</td>
+        <td>Cleared when you close the browser</td>
+    </tr>
+    <tr>
+        <td>Settings (intrusiveness level, auto-scan preference)</td>
+        <td>Browser's local <code>chrome.storage</code></td>
+        <td>Until you change them or uninstall</td>
+    </tr>
+</table>
+
+<h2>Network requests</h2>
+<p>When you verify a claim, the extension makes a single HTTPS GET request to the issuer's domain — the URL printed on or embedded in the document. This request:</p>
+<ul>
+    <li>Goes directly from your browser to the issuer's server</li>
+    <li>Does not pass through any LiveVerify server (there is no LiveVerify server)</li>
+    <li>Contains only the hash in the URL path — no personal data, no cookies, no tracking parameters</li>
+    <li>May include standard browser headers (User-Agent, Accept, etc.) as with any web request</li>
+</ul>
+<p>The issuer's server may log the request. That is the issuer's privacy policy, not ours. LiveVerify does not control what issuers log.</p>
+
+<h2>Auto-scan behavior</h2>
+<p>If you enable auto-scan in settings, the extension scans page content for <code>verifiable-text</code> HTML markers and automatically verifies them. This generates the same HTTPS GET requests described above, without requiring you to select text manually. Auto-scan is off by default.</p>
+
+<h2>Permissions explained</h2>
+<table>
+    <tr>
+        <th>Permission</th>
+        <th>Why it's needed</th>
+    </tr>
+    <tr>
+        <td><code>contextMenus</code></td>
+        <td>Adds "Verify this claim" to the right-click menu</td>
+    </tr>
+    <tr>
+        <td><code>activeTab</code></td>
+        <td>Reads selected text from the current tab when you trigger verification</td>
+    </tr>
+    <tr>
+        <td><code>storage</code></td>
+        <td>Saves your settings (intrusiveness level, auto-scan preference)</td>
+    </tr>
+    <tr>
+        <td><code>notifications</code></td>
+        <td>Shows verification results as browser notifications (optional)</td>
+    </tr>
+    <tr>
+        <td><code>scripting</code></td>
+        <td>Injects the content script that scans for verifiable-text markers</td>
+    </tr>
+    <tr>
+        <td><code>https://*/*</code> (host permission)</td>
+        <td>Fetches verification endpoints on any HTTPS domain. Verification URLs can point to any issuer's domain — the extension cannot know in advance which domains will be used.</td>
+    </tr>
+</table>
+
+<h2>Third-party services</h2>
+<p>LiveVerify uses no third-party analytics, advertising, crash reporting, or tracking services.</p>
+
+<h2>Children's privacy</h2>
+<p>LiveVerify does not collect data from anyone, including children.</p>
+
+<h2>Changes to this policy</h2>
+<p>If this policy changes, the updated version will be published at this URL. The "last updated" date at the top will reflect the change.</p>
+
+<h2>Contact</h2>
+<p>LiveVerify is an open-source project. Source code, issues, and contact information are at <a href="https://github.com/live-verify/live-verify">github.com/live-verify/live-verify</a>.</p>
+
+<h2>License</h2>
+<p>LiveVerify is licensed under the Apache License, Version 2.0.</p>
+
+</body>
+</html>

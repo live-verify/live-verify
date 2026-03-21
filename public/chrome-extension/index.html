@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiveVerify Browser Extension</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 720px;
+            margin: 40px auto;
+            padding: 0 20px;
+            line-height: 1.7;
+            color: #222;
+        }
+        h1 { font-size: 1.5em; margin-bottom: 0.3em; }
+        h2 { font-size: 1.15em; margin-top: 2em; }
+        .tagline { color: #666; font-size: 1.05em; margin-bottom: 2em; }
+        .install-link {
+            display: inline-block;
+            background: #1a73e8;
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            margin: 1em 0;
+        }
+        .install-link:hover { background: #1557b0; }
+        .placeholder { color: #999; font-style: italic; }
+        code { background: #f0f0f0; padding: 2px 5px; border-radius: 3px; font-size: 0.9em; }
+        kbd {
+            background: #f0f0f0; border: 1px solid #ccc; border-radius: 3px;
+            padding: 2px 6px; font-size: 0.85em; font-family: inherit;
+        }
+        ul { padding-left: 1.5em; }
+        a { color: #0066cc; }
+        .screenshots { color: #999; border: 2px dashed #ddd; padding: 40px; text-align: center; margin: 1em 0; border-radius: 8px; }
+    </style>
+</head>
+<body>
+
+<h1>LiveVerify Browser Extension</h1>
+<p class="tagline">Verify claims on web pages with one click. Select text, right-click, check the hash against the issuer's domain.</p>
+
+<!-- TODO: Replace with actual Chrome Web Store link once published -->
+<a href="#" class="install-link placeholder">Install from Chrome Web Store (coming soon)</a>
+
+<h2>What it does</h2>
+<ul>
+    <li>Select any text on a web page that includes a <code>verify:</code> line</li>
+    <li>Right-click and choose "Verify this claim" (or press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>)</li>
+    <li>The extension normalizes the text, computes a SHA-256 hash, and checks the issuer's endpoint</li>
+    <li>Green = verified. Red = fails verification. The issuer's domain is always visible.</li>
+</ul>
+
+<h2>Features</h2>
+<ul>
+    <li><strong>Right-click verification</strong> — Select text, right-click, verify</li>
+    <li><strong>Keyboard shortcut</strong> — <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> (Mac: <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>)</li>
+    <li><strong>Auto-detect</strong> — Automatically finds and verifies <code>verifiable-text</code> HTML markers on pages</li>
+    <li><strong>Session history</strong> — See your recent verifications in the popup (cleared when you close the browser)</li>
+    <li><strong>"Show me" button</strong> — Scrolls to and highlights verified claims on the page</li>
+    <li><strong>Authority chain</strong> — See who vouches for the issuer's authority</li>
+    <li><strong>Domain mismatch detection</strong> — Warns when a verified claim names a different site than the one you're on</li>
+    <li><strong>Adjustable intrusiveness</strong> — Choose how prominently verification results are displayed</li>
+</ul>
+
+<h2>Screenshots</h2>
+<div class="screenshots">
+    <!-- TODO: Add screenshots of the extension in action -->
+    Screenshots will be added before Chrome Web Store submission
+</div>
+
+<h2>Roadmap</h2>
+
+<h3>Trustworthiness improvements</h3>
+<ul>
+    <li><strong>Tether line from toolbar badge to verified region</strong> — A visual line drawn from the extension's badge in the browser toolbar down to the verified claim in the page. This line crosses the boundary between browser chrome and page content — something page JavaScript cannot do. It provides unforgeable visual proof that the extension (not the page) produced the result. Requires a new browser API from Chrome/Firefox/Edge; we plan to propose this to browser vendors.</li>
+    <li><strong>Off-screen region hints</strong> — When verified claims are above or below the current scroll position, directional indicators (<code>↑</code> <code>↓</code>) appear on the toolbar badge. Clicking cycles through claims, scrolling each into view.</li>
+    <li><strong>Shadow DOM isolation</strong> — Move all extension-injected UI into a closed shadow root, making it impossible for page JavaScript to modify verification results via DOM manipulation or CSS overrides.</li>
+</ul>
+
+<h3>Security hardening</h3>
+<ul>
+    <li><strong>Invisible character stripping</strong> — Strip zero-width Unicode characters from selected text before hashing, preventing attackers from poisoning input to break legitimate verification.</li>
+    <li><strong>Homoglyph detection</strong> — Warn when a <code>verify:</code> URL contains mixed-script characters (e.g., Latin + Cyrillic), which could indicate a domain spoofing attempt.</li>
+    <li><strong>Domain mismatch warnings</strong> — For claims designed to appear on third-party sites (reseller authorizations, insurance panel membership, etc.), warn when the verified claim names a different site than the one you're on.</li>
+</ul>
+
+<h3>Integration</h3>
+<ul>
+    <li><strong>PDF verification</strong> — Verify claims in PDF documents opened in the browser, not just web pages.</li>
+    <li><strong>Email client integration</strong> — Verify claims in web-based email clients (Gmail, Outlook) without leaving the inbox.</li>
+    <li><strong>Contract exchange protocol</strong> — Support for the append-only contract signing protocol, where the browser extension participates in verifying signing receipts.</li>
+</ul>
+
+<p>See the <a href="https://github.com/live-verify/live-verify/issues">issue tracker</a> for current status and discussion.</p>
+
+<h2>Privacy</h2>
+<p>LiveVerify has no server, no analytics, no accounts, and no tracking. All processing happens in your browser. See the full <a href="privacy-policy.html">privacy policy</a>.</p>
+
+<h2>Compatibility</h2>
+<ul>
+    <li><strong>Chrome</strong> — Full support (Manifest V3)</li>
+    <li><strong>Edge</strong> — Full support (Chromium-based, same extension)</li>
+    <li><strong>Firefox</strong> — Compatible with minor manifest adjustments</li>
+</ul>
+
+<h2>Source code</h2>
+<p>LiveVerify is open source under the Apache 2.0 license. Source code and issues at <a href="https://github.com/live-verify/live-verify">github.com/live-verify/live-verify</a>.</p>
+
+<h2>What's in the extension</h2>
+<p>The packaged extension contains only the files listed below. No bundler, no minification, no obfuscation — the code that runs in your browser is the code you can read in the repository.</p>
+<table>
+    <tr><th>File</th><th>Purpose</th></tr>
+    <tr><td><code>manifest.json</code></td><td>Extension configuration (Manifest V3): permissions, content scripts, keyboard shortcuts, icons</td></tr>
+    <tr><td><code>background.js</code></td><td>Service worker: handles verification requests, context menu, notifications, authority chain lookups</td></tr>
+    <tr><td><code>content.js</code></td><td>Content script: scans pages for <code>verifiable-text</code> HTML markers, auto-verifies marked regions, highlights results</td></tr>
+    <tr><td><code>popup/popup.html</code></td><td>Popup UI: verification history for the current session</td></tr>
+    <tr><td><code>popup/popup.js</code></td><td>Popup logic: renders history, "Show me" scroll-to-claim feature</td></tr>
+    <tr><td><code>settings/settings.html</code></td><td>Settings page: intrusiveness level, auto-scan toggle</td></tr>
+    <tr><td><code>settings/settings.js</code></td><td>Settings logic: reads/writes preferences to <code>chrome.storage</code></td></tr>
+    <tr><td><code>shared/normalize.js</code></td><td>Text normalization and SHA-256 hashing — auto-generated from the canonical <code>public/normalize.js</code></td></tr>
+    <tr><td><code>shared/verify.js</code></td><td>Verification logic: URL extraction, endpoint fetching, hash comparison — auto-generated from <code>public/app-logic.js</code></td></tr>
+    <tr><td><code>shared/domain-authority.js</code></td><td>PSL-based registrable domain extraction — auto-generated from <code>public/domain-authority.js</code></td></tr>
+    <tr><td><code>shared/psl.js</code></td><td>Public Suffix List library (vendored UMD build of <a href="https://www.npmjs.com/package/psl">psl</a>)</td></tr>
+    <tr><td><code>shared/notification-message.js</code></td><td>Notification formatting helpers</td></tr>
+    <tr><td><code>icons/icon-16.png</code></td><td>Toolbar icon (16px)</td></tr>
+    <tr><td><code>icons/icon-48.png</code></td><td>Extension management icon (48px)</td></tr>
+    <tr><td><code>icons/icon-128.png</code></td><td>Chrome Web Store icon (128px)</td></tr>
+    <tr><td><code>icons/icon-verified-128.png</code></td><td>Verified state icon</td></tr>
+    <tr><td><code>icons/icon-failed-128.png</code></td><td>Failed state icon</td></tr>
+</table>
+<p>Files in <code>shared/</code> are auto-generated by <code>scripts/sync-shared.js</code> from the canonical sources in <code>public/</code>. They are not hand-edited. The SVG source files for icons are in the repository but excluded from the packaged extension.</p>
+
+<h2>Links</h2>
+<ul>
+    <li><a href="../">LiveVerify home</a></li>
+    <li><a href="privacy-policy.html">Privacy policy</a></li>
+    <li><a href="https://github.com/live-verify/live-verify">Source code</a></li>
+    <li><a href="https://github.com/live-verify/live-verify/issues">Report an issue</a></li>
+</ul>
+
+</body>
+</html>
