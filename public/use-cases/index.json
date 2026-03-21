@@ -1,9 +1,9 @@
 {
-  "generated": "2026-03-21T19:14:37.960Z",
-  "totalUseCases": 553,
-  "totalFurtherDerivations": 852,
+  "generated": "2026-03-21T19:28:52.852Z",
+  "totalUseCases": 565,
+  "totalFurtherDerivations": 857,
   "categories": {
-    "Real Estate & Property": 40,
+    "Real Estate & Property": 43,
     "Charitable & Non-Profit": 8,
     "Novel Document Types": 8,
     "Scientific & Research": 8,
@@ -16,17 +16,17 @@
     "Legal & Court Documents": 23,
     "Insurance Claims & Operations": 15,
     "Chain of Custody & Logistics": 18,
-    "Travel & Hospitality": 21,
+    "Travel & Hospitality": 22,
     "Identity & Authority Verification": 55,
     "Healthcare & Medical Records": 14,
-    "Professional & Educational Qualifications": 21,
+    "Professional & Educational Qualifications": 24,
     "Art, Media & Publishing": 7,
     "Customs & Trade Compliance": 7,
     "Sports & Athletics": 6,
     "Financial Compliance": 26,
-    "Business & Commerce": 25,
+    "Business & Commerce": 27,
     "Specialty Insurance": 23,
-    "Banking & Payments": 27,
+    "Banking & Payments": 28,
     "Investment & Fintech": 22,
     "Site & Equipment Safety": 12,
     "Commercial Lines Insurance": 11,
@@ -36,7 +36,7 @@
     "Warehousing & Inventory": 4,
     "Delegated Authority": 5,
     "Trade Finance": 5,
-    "Agriculture & Food": 7
+    "Agriculture & Food": 9
   },
   "useCases": [
     {
@@ -859,6 +859,28 @@
       ]
     },
     {
+      "slug": "bank-branch-and-call-center-verification",
+      "title": "Bank Branch and Call Center Verification",
+      "category": "Banking & Payments",
+      "volume": "Very Large",
+      "retention": "Ongoing (updated as branches open/close, numbers change)",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Branch name or call center name, address, branch/sort code, phone number(s), and current operational status. For correspondence: reference number, contact number, and issuing department.",
+      "tags": [
+        "vishing",
+        "impersonation",
+        "bank-fraud",
+        "call-center",
+        "branch",
+        "phishing",
+        "scam-calls",
+        "vulnerable-customers",
+        "anti-fraud",
+        "correspondence"
+      ]
+    },
+    {
       "slug": "bank-fraud-report-acknowledgments",
       "title": "Bank Fraud Report Acknowledgments",
       "category": "Banking & Payments",
@@ -1201,6 +1223,25 @@
         "home-security",
         "municipal",
         "government"
+      ]
+    },
+    {
+      "slug": "building-regulations-completion-certificate",
+      "title": "Building Regulations Completion Certificate",
+      "category": "Real Estate & Property",
+      "volume": "Large",
+      "retention": "Transaction lifetime",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "Property address, building control application reference, description of work, completion certificate status, date of issue (where a certificate exists), and the building control body that issued or w",
+      "tags": [
+        "property",
+        "building-control",
+        "conveyancing",
+        "completion-certificate",
+        "real-estate",
+        "construction",
+        "building-regulations"
       ]
     },
     {
@@ -3254,6 +3295,28 @@
       ]
     },
     {
+      "slug": "electrical-installation-certificate-status",
+      "title": "Electrical Installation Certificate Status",
+      "category": "Real Estate & Property",
+      "volume": "Large",
+      "retention": "5 years (EICR cycle)",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "Property address, report type, test result (satisfactory or unsatisfactory), testing contractor name and registration scheme, test date, validity expiry date (for satisfactory results), and remedial w",
+      "tags": [
+        "property",
+        "electrical",
+        "eicr",
+        "landlord",
+        "rental",
+        "conveyancing",
+        "safety",
+        "real-estate",
+        "niceic",
+        "napit"
+      ]
+    },
+    {
       "slug": "electrical-safety-inspections",
       "title": "Electrical System Inspections",
       "category": "Site & Equipment Safety",
@@ -3652,6 +3715,28 @@
       ]
     },
     {
+      "slug": "event-ticket-provenance",
+      "title": "Event Ticket Provenance",
+      "category": "Business & Commerce",
+      "volume": "Very Large",
+      "retention": "Event date + 30 days (chargebacks/disputes)",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "Event name, date/time, venue, section/row/seat, issuing platform, ticket reference number, and current status.",
+      "tags": [
+        "tickets",
+        "provenance",
+        "resale",
+        "secondary-market",
+        "fraud",
+        "concerts",
+        "sports",
+        "stubhub",
+        "viagogo",
+        "consumer-protection"
+      ]
+    },
+    {
       "slug": "event-venue-staff",
       "title": "Event Venue and Contractor Staff Verification",
       "category": "Identity & Authority Verification",
@@ -3927,6 +4012,28 @@
       ]
     },
     {
+      "slug": "first-aid-certificate-status",
+      "title": "First Aid Certificate Status",
+      "category": "Professional & Educational Qualifications",
+      "volume": "Large",
+      "retention": "Duration of certificate validity (typically 3 years)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Certificate reference, training provider, qualification type, status (current or expired), issue date, and expiry date.",
+      "tags": [
+        "first-aid",
+        "workplace-safety",
+        "childcare",
+        "sports-coaching",
+        "outdoor-activities",
+        "qualification-currency",
+        "expiry",
+        "training-provider",
+        "st-john-ambulance",
+        "red-cross"
+      ]
+    },
+    {
       "slug": "fit-and-proper-attestations",
       "title": "Fit and Proper Attestations",
       "category": "Professional Ethics & Compliance",
@@ -3962,6 +4069,31 @@
         "surveyor",
         "flood-zone",
         "coastal-resiliency"
+      ]
+    },
+    {
+      "slug": "food-handler-certificate-status",
+      "title": "Food Handler Certificate Status",
+      "category": "Professional & Educational Qualifications",
+      "volume": "Large",
+      "retention": "Standard",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Certificate reference, training provider, qualification level, current status, issue date, and renewal due date.",
+      "tags": [
+        "food-hygiene",
+        "food-safety",
+        "food-handler",
+        "certificate",
+        "qualification",
+        "training",
+        "hospitality",
+        "catering",
+        "uk",
+        "us",
+        "australia",
+        "employment",
+        "regulatory"
       ]
     },
     {
@@ -4377,6 +4509,27 @@
       ]
     },
     {
+      "slug": "halal-kosher-certification",
+      "title": "Halal/Kosher Certification",
+      "category": "Agriculture & Food",
+      "volume": "Medium",
+      "retention": "Certificate validity period + 1 year",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "Establishment name, registered business domain, certification body, certificate number, certification level or scope (e.g. \"Mehadrin,\" \"halal — poultry menu only\"), and current certification status.",
+      "tags": [
+        "food",
+        "halal",
+        "kosher",
+        "religious-certification",
+        "restaurants",
+        "food-producers",
+        "allowed-domains",
+        "third-party-site",
+        "dietary-compliance"
+      ]
+    },
+    {
       "slug": "harvest-records-yield-data",
       "title": "Harvest Records and Yield Data",
       "category": "Agriculture & Food",
@@ -4766,6 +4919,27 @@
         "accessibility",
         "post-verification-action",
         "anti-tampering"
+      ]
+    },
+    {
+      "slug": "hotel-booking-confirmation-verification",
+      "title": "Hotel Booking Confirmation Verification",
+      "category": "Travel & Hospitality",
+      "volume": "Large",
+      "retention": "Check-out + 1-3 years",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "Hotel name, booking reference, guest name, check-in date, check-out date, and current booking status. Room type and rate are deliberately excluded — this artifact answers \"does this booking exist?\" no",
+      "tags": [
+        "hotel-booking",
+        "booking-confirmation",
+        "visa-application",
+        "accommodation-proof",
+        "travel-fraud",
+        "expense-verification",
+        "embassy",
+        "hospitality",
+        "booking-existence"
       ]
     },
     {
@@ -7053,6 +7227,27 @@
       ]
     },
     {
+      "slug": "organic-certification-on-listings",
+      "title": "Organic Certification on Product Listings",
+      "category": "Agriculture & Food",
+      "volume": "Large",
+      "retention": "Certification period + 1 year (annual renewal cycle)",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "Producer name, registered business domain, certification body, licence or certificate number, product categories covered (e.g. dairy, arable, horticulture), and current certification status.",
+      "tags": [
+        "organic",
+        "certification",
+        "agriculture",
+        "food",
+        "retail-platforms",
+        "allowed-domains",
+        "third-party-site",
+        "soil-association",
+        "usda-organic"
+      ]
+    },
+    {
       "slug": "ota-booking-confirmations",
       "title": "OTA Booking Confirmations (Expedia, Booking.com)",
       "category": "Travel & Hospitality",
@@ -7556,6 +7751,33 @@
         "building-work",
         "real-estate",
         "permission"
+      ]
+    },
+    {
+      "slug": "plant-operator-licence-status",
+      "title": "Forklift/Plant Operator Licence Status",
+      "category": "Professional & Educational Qualifications",
+      "volume": "Medium",
+      "retention": "Permanent (card validity period)",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "Scheme name, card holder name and registration number, equipment category, competence status, card type, issue date, and expiry date.",
+      "tags": [
+        "plant-operator",
+        "forklift",
+        "cpcs",
+        "npors",
+        "crane",
+        "excavator",
+        "construction",
+        "warehouse",
+        "health-and-safety",
+        "uk",
+        "us",
+        "australia",
+        "osha",
+        "high-risk-work-licence",
+        "competence-card"
       ]
     },
     {
@@ -8534,6 +8756,28 @@
         "land-registry",
         "abstract-of-title",
         "e-recording"
+      ]
+    },
+    {
+      "slug": "recruitment-agency-verification",
+      "title": "Recruitment Agency Verification",
+      "category": "Business & Commerce",
+      "volume": "Large",
+      "retention": "Membership period + 1-2 years (complaints, audit trail)",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "Agency legal name, website domain, industry body, membership number, membership category, and current status.",
+      "tags": [
+        "recruitment",
+        "employment",
+        "staffing",
+        "anti-fraud",
+        "job-scam",
+        "identity-theft",
+        "personal-data",
+        "membership",
+        "industry-body",
+        "domain-mismatch"
       ]
     },
     {
@@ -9548,6 +9792,27 @@
         "green-energy-finance",
         "panel-warranty",
         "tier-1-solar"
+      ]
+    },
+    {
+      "slug": "solicitor-bank-details-verification",
+      "title": "Solicitor Bank Details Verification",
+      "category": "Real Estate & Property",
+      "volume": "Large",
+      "retention": "6 years (SRA record-keeping requirements, transaction completion + dispute period)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Solicitor firm name, client account sort code, client account number, and matter-specific payment reference.",
+      "tags": [
+        "conveyancing",
+        "solicitor",
+        "bank-details",
+        "friday-afternoon-fraud",
+        "property-purchase",
+        "email-interception",
+        "payment-redirection",
+        "real-estate",
+        "anti-fraud"
       ]
     },
     {
@@ -11283,7 +11548,7 @@
     },
     {
       "name": "Real Estate & Property",
-      "count": 40
+      "count": 43
     },
     {
       "name": "Government & Civic Documents",
@@ -11291,6 +11556,10 @@
     },
     {
       "name": "Banking & Payments",
+      "count": 28
+    },
+    {
+      "name": "Business & Commerce",
       "count": 27
     },
     {
@@ -11298,8 +11567,8 @@
       "count": 26
     },
     {
-      "name": "Business & Commerce",
-      "count": 25
+      "name": "Professional & Educational Qualifications",
+      "count": 24
     },
     {
       "name": "Legal & Court Documents",
@@ -11310,16 +11579,12 @@
       "count": 23
     },
     {
-      "name": "Investment & Fintech",
+      "name": "Travel & Hospitality",
       "count": 22
     },
     {
-      "name": "Travel & Hospitality",
-      "count": 21
-    },
-    {
-      "name": "Professional & Educational Qualifications",
-      "count": 21
+      "name": "Investment & Fintech",
+      "count": 22
     },
     {
       "name": "Professional & Occupational Licenses",
@@ -11370,6 +11635,10 @@
       "count": 10
     },
     {
+      "name": "Agriculture & Food",
+      "count": 9
+    },
+    {
       "name": "Charitable & Non-Profit",
       "count": 8
     },
@@ -11391,10 +11660,6 @@
     },
     {
       "name": "Customs & Trade Compliance",
-      "count": 7
-    },
-    {
-      "name": "Agriculture & Food",
       "count": 7
     },
     {
