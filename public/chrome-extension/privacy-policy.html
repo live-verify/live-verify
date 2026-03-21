@@ -53,8 +53,8 @@
     </tr>
     <tr>
         <td>Verification result</td>
-        <td>Displayed in popup; stored in session-only history</td>
-        <td>Cleared when you close the browser</td>
+        <td>Displayed in popup</td>
+        <td>Discarded when you navigate away or close the tab</td>
     </tr>
     <tr>
         <td>Settings (intrusiveness level, auto-scan preference)</td>
@@ -64,14 +64,43 @@
 </table>
 
 <h2>Network requests</h2>
-<p>When you verify a claim, the extension makes a single HTTPS GET request to the issuer's domain — the URL printed on or embedded in the document. This request:</p>
+<p>When you verify a claim, the extension makes up to two HTTPS GET requests:</p>
+<table>
+    <tr>
+        <th>Request</th>
+        <th>Purpose</th>
+        <th>Data sent</th>
+    </tr>
+    <tr>
+        <td>Metadata fetch</td>
+        <td>Fetches <code>verification-meta.json</code> from the issuer's domain for document-specific normalization rules and authority chain information</td>
+        <td>None (simple GET to a known path)</td>
+    </tr>
+    <tr>
+        <td>Hash verification</td>
+        <td>Checks whether the computed hash exists at the issuer's endpoint</td>
+        <td>SHA-256 hash only, in the URL path (e.g., <code>https://issuer.com/c/{hash}</code>)</td>
+    </tr>
+</table>
+<p>Both requests:</p>
 <ul>
-    <li>Goes directly from your browser to the issuer's server</li>
-    <li>Does not pass through any LiveVerify server (there is no LiveVerify server)</li>
-    <li>Contains only the hash in the URL path — no personal data, no cookies, no tracking parameters</li>
+    <li>Go directly from your browser to the issuer's server</li>
+    <li>Do not pass through any LiveVerify server (there is no LiveVerify server)</li>
+    <li>Contain no personal data, no cookies, no tracking parameters</li>
     <li>May include standard browser headers (User-Agent, Accept, etc.) as with any web request</li>
 </ul>
-<p>The issuer's server may log the request. That is the issuer's privacy policy, not ours. LiveVerify does not control what issuers log.</p>
+
+<h3>What is NOT sent</h3>
+<ul>
+    <li>Selected text or page content</li>
+    <li>Personal information or identifiers</li>
+    <li>Browsing history or page URLs</li>
+    <li>Geolocation data</li>
+    <li>Device fingerprints</li>
+</ul>
+
+<h3>Issuer logging</h3>
+<p>The issuer's server may log the request. LiveVerify does not control what issuers log. Even though only a hash is sent, request metadata (IP address, timestamp, user agent) can reveal that a verification was performed from a particular location at a particular time. This is ordinary web request behavior, not specific to LiveVerify. For the full discussion of issuer-side logging implications, see the <a href="../privacy_declaration.html">main Live Verify privacy declaration</a>.</p>
 
 <h2>Auto-scan behavior</h2>
 <p>If you enable auto-scan in settings, the extension scans page content for <code>verifiable-text</code> HTML markers and automatically verifies them. This generates the same HTTPS GET requests described above, without requiring you to select text manually. Auto-scan is off by default.</p>
@@ -92,7 +121,7 @@
     </tr>
     <tr>
         <td><code>storage</code></td>
-        <td>Saves your settings (intrusiveness level, auto-scan preference)</td>
+        <td>Saves your settings (intrusiveness level, auto-scan preference). No personal data or verification results are stored.</td>
     </tr>
     <tr>
         <td><code>notifications</code></td>
@@ -119,6 +148,9 @@
 
 <h2>Contact</h2>
 <p>LiveVerify is an open-source project. Source code, issues, and contact information are at <a href="https://github.com/live-verify/live-verify">github.com/live-verify/live-verify</a>.</p>
+
+<h2>Relationship to the main Live Verify privacy declaration</h2>
+<p>This policy covers the browser extension specifically. The broader Live Verify project (including the web app, iOS app, and Android app) has a separate, more detailed <a href="../privacy_declaration.html">privacy declaration</a> covering camera mode, OCR processing, verifier roles and retention, and issuer-side logging implications. The principles are the same: all processing is local, only hashes are sent to issuers, and no personal data is collected.</p>
 
 <h2>License</h2>
 <p>LiveVerify is licensed under the Apache License, Version 2.0.</p>
