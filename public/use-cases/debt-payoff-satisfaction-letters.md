@@ -1,6 +1,6 @@
 ---
 title: "Debt Payoff & Satisfaction Letters"
-category: "Banking & Financial Services"
+category: "Banking & Payments"
 volume: "Very Large"
 retention: "7-10 years (credit reporting cycle)"
 slug: "debt-payoff-satisfaction-letters"

@@ -1,6 +1,6 @@
 ---
 title: "Affidavits and Sworn Statements"
-category: "Financial & Legal Documents"
+category: "Legal & Court Documents"
 volume: "Small"
 retention: "10-30 years (legal proceedings)"
 slug: "affidavits-sworn-statements"

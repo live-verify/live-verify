@@ -1,6 +1,6 @@
 ---
 title: "Non-Disclosure Agreements (NDA)"
-category: "Financial & Legal Documents"
+category: "Legal & Court Documents"
 volume: "Very Large"
 retention: "Duration of agreement + 5-10 years"
 slug: "non-disclosure-agreements"

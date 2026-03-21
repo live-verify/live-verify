@@ -1,6 +1,6 @@
 ---
 title: "Credit Reports and Credit Scores"
-category: "Banking & Financial Services"
+category: "Banking & Payments"
 volume: "Very Large"
 retention: "7 years (Fair Credit Reporting Act)"
 slug: "credit-reports-scores"

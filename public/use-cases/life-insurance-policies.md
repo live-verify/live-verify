@@ -1,6 +1,6 @@
 ---
 title: "Individual Life Insurance Policies"
-category: "Personal Lines Insurance"
+category: "Investment & Fintech"
 volume: "Small"
 retention: "Policy lifetime (50+ years)"
 slug: "life-insurance-policies"

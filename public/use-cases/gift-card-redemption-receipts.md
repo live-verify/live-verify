@@ -1,6 +1,6 @@
 ---
 title: "Gift Card & Stored Value Redemption Receipts"
-category: "Banking & Financial Services"
+category: "Banking & Payments"
 volume: "Very Large"
 retention: "1-3 years (consumer protection)"
 slug: "gift-card-redemption-receipts"

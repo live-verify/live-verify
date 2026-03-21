@@ -1,6 +1,6 @@
 ---
 title: "Letters of Intent & Term Sheets"
-category: "Financial & Legal Documents"
+category: "Legal & Court Documents"
 volume: "Medium"
 retention: "Transaction completion + dispute window"
 slug: "letters-of-intent-term-sheets"

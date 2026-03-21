@@ -1,6 +1,6 @@
 ---
 title: "Proof of GP / Primary Care Registration"
-category: "Healthcare & Medical"
+category: "Healthcare & Medical Records"
 volume: "Large"
 retention: "Registration period + 10 years"
 slug: "proof-of-gp-registration"

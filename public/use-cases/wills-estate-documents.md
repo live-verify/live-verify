@@ -1,6 +1,6 @@
 ---
 title: "Last Will and Testament (Wills)"
-category: "Financial & Legal Documents"
+category: "Legal & Court Documents"
 volume: "Small"
 retention: "Permanent (estate records)"
 slug: "wills-estate-documents"

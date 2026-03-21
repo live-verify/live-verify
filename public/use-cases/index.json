@@ -1,7 +1,7 @@
 {
-  "generated": "2026-03-20T16:47:59.059Z",
-  "totalUseCases": 515,
-  "totalFurtherDerivations": 793,
+  "generated": "2026-03-21T16:44:36.337Z",
+  "totalUseCases": 521,
+  "totalFurtherDerivations": 796,
   "categories": {
     "Real Estate & Property": 34,
     "Charitable & Non-Profit": 7,
@@ -9,41 +9,34 @@
     "Scientific & Research": 8,
     "Professional & Occupational Licenses": 17,
     "Actuarial & Insurance Mathematics": 10,
-    "Personal Lines Insurance": 15,
-    "Government & Civic Documents": 22,
+    "Personal Lines Insurance": 16,
+    "Government & Civic Documents": 32,
     "Notary Services": 7,
     "Immigration & Visa Documents": 18,
-    "Financial & Legal Documents": 9,
+    "Legal & Court Documents": 23,
     "Insurance Claims & Operations": 15,
     "Chain of Custody & Logistics": 18,
     "Travel & Hospitality": 21,
-    "Identity & Authority Verification": 40,
-    "Healthcare & Medical Records": 13,
+    "Identity & Authority Verification": 42,
+    "Healthcare & Medical Records": 14,
     "Professional & Educational Qualifications": 20,
     "Art, Media & Publishing": 7,
     "Customs & Trade Compliance": 7,
     "Sports & Athletics": 6,
+    "Financial Compliance": 26,
     "Business & Commerce": 23,
     "Specialty Insurance": 23,
-    "Legal & Court Documents": 18,
-    "Banking & Payments": 16,
-    "Financial Compliance": 24,
-    "Investment & Fintech": 12,
+    "Banking & Payments": 23,
+    "Investment & Fintech": 20,
     "Site & Equipment Safety": 12,
     "Commercial Lines Insurance": 11,
     "Product Certifications & Compliance": 12,
     "Professional Ethics & Compliance": 11,
     "Environmental Permits & Compliance": 10,
     "Warehousing & Inventory": 4,
-    "Government & Regulatory": 6,
-    "Permits & Approvals": 4,
     "Delegated Authority": 5,
-    "Banking & Financial Services": 6,
     "Trade Finance": 5,
-    "Agriculture & Food": 7,
-    "Insurance": 2,
-    "Identity & KYC": 2,
-    "Healthcare & Medical": 1
+    "Agriculture & Food": 7
   },
   "useCases": [
     {
@@ -241,7 +234,7 @@
     {
       "slug": "affidavits-sworn-statements",
       "title": "Affidavits and Sworn Statements",
-      "category": "Financial & Legal Documents",
+      "category": "Legal & Court Documents",
       "volume": "Small",
       "retention": "10-30 years (legal proceedings)",
       "verificationMode": "clip",
@@ -614,7 +607,7 @@
     {
       "slug": "audit-reports-financial-statements",
       "title": "Audit Reports and Financial Statements",
-      "category": "Financial & Legal Documents",
+      "category": "Financial Compliance",
       "volume": "Small",
       "retention": "7-10 years (regulatory requirements)",
       "verificationMode": "clip",
@@ -1824,7 +1817,7 @@
     {
       "slug": "commercial-registry-filings",
       "title": "Commercial Registry Filings",
-      "category": "Government & Regulatory",
+      "category": "Government & Civic Documents",
       "volume": "Very Large",
       "retention": "Permanent (entity records)",
       "verificationMode": "clip",
@@ -2025,7 +2018,7 @@
     {
       "slug": "construction-site-permits",
       "title": "Construction Site Permits",
-      "category": "Permits & Approvals",
+      "category": "Government & Civic Documents",
       "volume": "Unknown",
       "retention": "Unknown",
       "verificationMode": "camera",
@@ -2383,7 +2376,7 @@
     {
       "slug": "credit-reports-scores",
       "title": "Credit Reports and Credit Scores",
-      "category": "Banking & Financial Services",
+      "category": "Banking & Payments",
       "volume": "Very Large",
       "retention": "7 years (Fair Credit Reporting Act)",
       "verificationMode": "clip",
@@ -2647,7 +2640,7 @@
     {
       "slug": "debt-payoff-satisfaction-letters",
       "title": "Debt Payoff & Satisfaction Letters",
-      "category": "Banking & Financial Services",
+      "category": "Banking & Payments",
       "volume": "Very Large",
       "retention": "7-10 years (credit reporting cycle)",
       "verificationMode": "clip",
@@ -3160,6 +3153,27 @@
       ]
     },
     {
+      "slug": "endowment-maturity-statements",
+      "title": "Endowment Maturity Statements",
+      "category": "Investment & Fintech",
+      "volume": "Medium",
+      "retention": "Policy lifetime (25-30 years)",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "Policy number, provider name, maturity date, original target amount, actual maturity value, shortfall amount, with-profits bonus allocation, terminal bonus allocation.",
+      "tags": [
+        "endowment",
+        "maturity",
+        "mortgage",
+        "shortfall",
+        "with-profits",
+        "insurance",
+        "uk-financial",
+        "compensation",
+        "mis-selling"
+      ]
+    },
+    {
       "slug": "environmental-and-vicinity-postings",
       "title": "Environmental and Vicinity Postings",
       "category": "Environmental Permits & Compliance",
@@ -3333,7 +3347,7 @@
     {
       "slug": "escrow-releases",
       "title": "Escrow Releases",
-      "category": "Banking & Financial Services",
+      "category": "Banking & Payments",
       "volume": "Large",
       "retention": "7 years (transaction records)",
       "verificationMode": "clip",
@@ -3443,7 +3457,7 @@
     {
       "slug": "events-permits",
       "title": "Events Permits",
-      "category": "Permits & Approvals",
+      "category": "Government & Civic Documents",
       "volume": "Unknown",
       "retention": "Unknown",
       "verificationMode": "clip",
@@ -3585,7 +3599,7 @@
     {
       "slug": "filing-completion-receipts",
       "title": "Filing Completion Receipts",
-      "category": "Government & Regulatory",
+      "category": "Government & Civic Documents",
       "volume": "Very Large",
       "retention": "Varies by filing type (1 year - permanent)",
       "verificationMode": "clip",
@@ -3964,7 +3978,7 @@
     {
       "slug": "gift-card-redemption-receipts",
       "title": "Gift Card & Stored Value Redemption Receipts",
-      "category": "Banking & Financial Services",
+      "category": "Banking & Payments",
       "volume": "Very Large",
       "retention": "1-3 years (consumer protection)",
       "verificationMode": "clip",
@@ -4040,7 +4054,7 @@
     {
       "slug": "guarantor-releases",
       "title": "Guarantor & Co-Signer Releases",
-      "category": "Banking & Financial Services",
+      "category": "Banking & Payments",
       "volume": "Medium",
       "retention": "7-10 years (credit reporting cycle)",
       "verificationMode": "clip",
@@ -4941,7 +4955,7 @@
     {
       "slug": "insurance-panel-membership",
       "title": "Insurance Panel Membership",
-      "category": "Insurance",
+      "category": "Personal Lines Insurance",
       "volume": "Very Large",
       "retention": "Panel membership period + 1-3 years (billing disputes, complaint resolution)",
       "verificationMode": "clip",
@@ -5015,7 +5029,7 @@
     {
       "slug": "international-tax-treaties",
       "title": "International Tax Treaties & Social Security Totalization",
-      "category": "Government & Regulatory",
+      "category": "Government & Civic Documents",
       "volume": "Large",
       "retention": "Permanent (benefit entitlement)",
       "verificationMode": "clip",
@@ -5354,7 +5368,7 @@
     {
       "slug": "letters-of-intent-term-sheets",
       "title": "Letters of Intent & Term Sheets",
-      "category": "Financial & Legal Documents",
+      "category": "Legal & Court Documents",
       "volume": "Medium",
       "retention": "Transaction completion + dispute window",
       "verificationMode": "clip",
@@ -5436,6 +5450,28 @@
       ]
     },
     {
+      "slug": "life-insurance-cash-surrender-values",
+      "title": "Cash Surrender Value Statements",
+      "category": "Investment & Fintech",
+      "volume": "Medium",
+      "retention": "Policy lifetime",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Policy number, policy type (Whole Life, Universal Life, Endowment), guaranteed cash value, non-guaranteed cash value, total cash value, applicable surrender charges, net surrender value, outstanding p",
+      "tags": [
+        "life-insurance",
+        "cash-value",
+        "surrender-value",
+        "whole-life",
+        "universal-life",
+        "estate-planning",
+        "divorce",
+        "collateral",
+        "life-settlement",
+        "financial-planning"
+      ]
+    },
+    {
       "slug": "life-insurance-claims",
       "title": "Life Insurance Claims and Death Benefits",
       "category": "Personal Lines Insurance",
@@ -5455,9 +5491,29 @@
       ]
     },
     {
+      "slug": "life-insurance-collateral-assignment-status",
+      "title": "Life Insurance Collateral Assignment Status",
+      "category": "Investment & Fintech",
+      "volume": "Medium",
+      "retention": "Policy lifetime",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "Policy number, assignment status (unassigned or assigned), assignee type (commercial bank, credit union, etc.), assignment date (if applicable), assigned amount, remaining unencumbered death benefit, ",
+      "tags": [
+        "life-insurance",
+        "collateral-assignment",
+        "whole-life",
+        "cash-value",
+        "lien-check",
+        "double-pledging",
+        "estate-planning",
+        "life-settlement"
+      ]
+    },
+    {
       "slug": "life-insurance-policies",
       "title": "Individual Life Insurance Policies",
-      "category": "Personal Lines Insurance",
+      "category": "Investment & Fintech",
       "volume": "Small",
       "retention": "Policy lifetime (50+ years)",
       "verificationMode": "clip",
@@ -5472,6 +5528,47 @@
         "financial-planning",
         "estate-asset",
         "insurance-policy"
+      ]
+    },
+    {
+      "slug": "life-insurance-policy-loan-status",
+      "title": "Life Insurance Policy Loan Status",
+      "category": "Investment & Fintech",
+      "volume": "Medium",
+      "retention": "Policy lifetime",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Policy number, loan status (clear or active), current cash value, outstanding loan balance (if any), net value after deductions, loan interest rate (if applicable), and the as-at date of the snapshot.",
+      "tags": [
+        "life-insurance",
+        "policy-loan",
+        "cash-value",
+        "collateral",
+        "whole-life",
+        "universal-life",
+        "lien-check",
+        "estate-planning"
+      ]
+    },
+    {
+      "slug": "life-settlement-verification",
+      "title": "Life Settlement / Policy Sale Verification",
+      "category": "Investment & Fintech",
+      "volume": "Small",
+      "retention": "Policy lifetime (until maturity or death benefit paid)",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "Carrier name, policy number, face amount (death benefit), policy status (in force, lapsed, paid-up), premium payment status and paid-through date, outstanding loan balance, prior assignment history, p",
+      "tags": [
+        "life-settlement",
+        "policy-sale",
+        "secondary-market",
+        "life-insurance",
+        "insurable-interest",
+        "STOLI",
+        "assignment",
+        "investment",
+        "longevity-risk"
       ]
     },
     {
@@ -6089,7 +6186,7 @@
     {
       "slug": "municipal-registration-confirmations",
       "title": "Municipal & Local Registration Confirmations",
-      "category": "Government & Regulatory",
+      "category": "Government & Civic Documents",
       "volume": "Very Large",
       "retention": "1-5 years (renewal cycles)",
       "verificationMode": "clip",
@@ -6246,7 +6343,7 @@
     {
       "slug": "non-disclosure-agreements",
       "title": "Non-Disclosure Agreements (NDA)",
-      "category": "Financial & Legal Documents",
+      "category": "Legal & Court Documents",
       "volume": "Very Large",
       "retention": "Duration of agreement + 5-10 years",
       "verificationMode": "clip",
@@ -7288,7 +7385,7 @@
     {
       "slug": "probate-documents",
       "title": "Probate Documents and Estate Proceedings",
-      "category": "Financial & Legal Documents",
+      "category": "Legal & Court Documents",
       "volume": "Small",
       "retention": "Permanent (estate records)",
       "verificationMode": "clip",
@@ -7367,7 +7464,7 @@
     {
       "slug": "promissory-notes",
       "title": "Promissory Notes and Loan Documents",
-      "category": "Financial & Legal Documents",
+      "category": "Banking & Payments",
       "volume": "Medium",
       "retention": "Loan term + 7-10 years (statute of limitations)",
       "verificationMode": "clip",
@@ -7387,7 +7484,7 @@
     {
       "slug": "proof-of-address",
       "title": "Proof of Address (Utility / Telco Confirmation)",
-      "category": "Identity & KYC",
+      "category": "Identity & Authority Verification",
       "volume": "Very Large",
       "retention": "Duration of account + 2 years",
       "verificationMode": "clip",
@@ -7433,7 +7530,7 @@
     {
       "slug": "proof-of-council-tax",
       "title": "Proof of Council Tax (Address & Payment Standing)",
-      "category": "Identity & KYC",
+      "category": "Identity & Authority Verification",
       "volume": "Very Large",
       "retention": "Tax year + 6 years",
       "verificationMode": "clip",
@@ -7515,7 +7612,7 @@
     {
       "slug": "proof-of-gp-registration",
       "title": "Proof of GP / Primary Care Registration",
-      "category": "Healthcare & Medical",
+      "category": "Healthcare & Medical Records",
       "volume": "Large",
       "retention": "Registration period + 10 years",
       "verificationMode": "clip",
@@ -7559,7 +7656,7 @@
     {
       "slug": "proof-of-insurance-status",
       "title": "Proof of Insurance (Policyholder Confirmation)",
-      "category": "Insurance",
+      "category": "Personal Lines Insurance",
       "volume": "Very Large",
       "retention": "Policy term + 2 years",
       "verificationMode": "clip",
@@ -7761,7 +7858,7 @@
     {
       "slug": "public-works-planning-notices",
       "title": "Public Works and Planning Notices",
-      "category": "Permits & Approvals",
+      "category": "Government & Civic Documents",
       "volume": "Large",
       "retention": "Project lifecycle + 5-10 years (appeal / legal record)",
       "verificationMode": "camera",
@@ -8021,7 +8118,7 @@
     {
       "slug": "refund-confirmations",
       "title": "Refund & Reimbursement Confirmations",
-      "category": "Banking & Financial Services",
+      "category": "Banking & Payments",
       "volume": "Very Large",
       "retention": "3-7 years (tax and warranty)",
       "verificationMode": "clip",
@@ -8083,7 +8180,7 @@
     {
       "slug": "regulatory-compliance-attestations",
       "title": "Regulatory Compliance Attestations",
-      "category": "Government & Regulatory",
+      "category": "Government & Civic Documents",
       "volume": "Large",
       "retention": "5-10 years (regulatory cycles)",
       "verificationMode": "clip",
@@ -8266,7 +8363,7 @@
     {
       "slug": "repeat-events-permits",
       "title": "Repeat Events Permits",
-      "category": "Permits & Approvals",
+      "category": "Government & Civic Documents",
       "volume": "Medium",
       "retention": "Season + 1-3 years (permit cycle / audit)",
       "verificationMode": "clip",
@@ -8981,7 +9078,7 @@
     {
       "slug": "stock-certificates",
       "title": "Stock Certificates and Share Transfer Documents",
-      "category": "Financial & Legal Documents",
+      "category": "Investment & Fintech",
       "volume": "Small",
       "retention": "Permanent (ownership records)",
       "verificationMode": "clip",
@@ -9136,7 +9233,7 @@
     {
       "slug": "tax-forms-receipts",
       "title": "Tax Forms and Wage Statements (W-2, 1099)",
-      "category": "Financial & Legal Documents",
+      "category": "Financial Compliance",
       "volume": "Very Large",
       "retention": "7-10 years (audit statute / social security lifecycle)",
       "verificationMode": "clip",
@@ -9180,7 +9277,7 @@
     {
       "slug": "tax-residency-certificates",
       "title": "Tax Residency Certificates",
-      "category": "Government & Regulatory",
+      "category": "Government & Civic Documents",
       "volume": "Large",
       "retention": "Tax year + statute of limitations (3-7 years)",
       "verificationMode": "clip",
@@ -10340,7 +10437,7 @@
     {
       "slug": "wills-estate-documents",
       "title": "Last Will and Testament (Wills)",
-      "category": "Financial & Legal Documents",
+      "category": "Legal & Court Documents",
       "volume": "Small",
       "retention": "Permanent (estate records)",
       "verificationMode": "clip",
@@ -10376,6 +10473,27 @@
         "transaction-verification",
         "trade-finance",
         "real-estate-closing"
+      ]
+    },
+    {
+      "slug": "with-profits-bonus-declarations",
+      "title": "With-Profits Bonus Declarations",
+      "category": "Investment & Fintech",
+      "volume": "Medium",
+      "retention": "Policy lifetime (25-40 years)",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "Policy number, provider name, declaration year, reversionary bonus rate, value added (GBP), total guaranteed fund value, terminal bonus status, policy series identifier.",
+      "tags": [
+        "with-profits",
+        "reversionary-bonus",
+        "terminal-bonus",
+        "life-assurance",
+        "endowment",
+        "pension",
+        "fund-value",
+        "bonus-declaration",
+        "uk-insurance"
       ]
     },
     {
@@ -10459,15 +10577,23 @@
   "categoriesList": [
     {
       "name": "Identity & Authority Verification",
-      "count": 40
+      "count": 42
     },
     {
       "name": "Real Estate & Property",
       "count": 34
     },
     {
+      "name": "Government & Civic Documents",
+      "count": 32
+    },
+    {
       "name": "Financial Compliance",
-      "count": 24
+      "count": 26
+    },
+    {
+      "name": "Legal & Court Documents",
+      "count": 23
     },
     {
       "name": "Business & Commerce",
@@ -10478,8 +10604,8 @@
       "count": 23
     },
     {
-      "name": "Government & Civic Documents",
-      "count": 22
+      "name": "Banking & Payments",
+      "count": 23
     },
     {
       "name": "Travel & Hospitality",
@@ -10487,6 +10613,10 @@
     },
     {
       "name": "Professional & Educational Qualifications",
+      "count": 20
+    },
+    {
+      "name": "Investment & Fintech",
       "count": 20
     },
     {
@@ -10498,20 +10628,12 @@
       "count": 18
     },
     {
-      "name": "Legal & Court Documents",
-      "count": 18
-    },
-    {
       "name": "Professional & Occupational Licenses",
       "count": 17
     },
     {
-      "name": "Banking & Payments",
-      "count": 16
-    },
-    {
       "name": "Personal Lines Insurance",
-      "count": 15
+      "count": 16
     },
     {
       "name": "Insurance Claims & Operations",
@@ -10519,11 +10641,7 @@
     },
     {
       "name": "Healthcare & Medical Records",
-      "count": 13
-    },
-    {
-      "name": "Investment & Fintech",
-      "count": 12
+      "count": 14
     },
     {
       "name": "Site & Equipment Safety",
@@ -10548,10 +10666,6 @@
     {
       "name": "Environmental Permits & Compliance",
       "count": 10
-    },
-    {
-      "name": "Financial & Legal Documents",
-      "count": 9
     },
     {
       "name": "Scientific & Research",
@@ -10586,14 +10700,6 @@
       "count": 6
     },
     {
-      "name": "Government & Regulatory",
-      "count": 6
-    },
-    {
-      "name": "Banking & Financial Services",
-      "count": 6
-    },
-    {
       "name": "Delegated Authority",
       "count": 5
     },
@@ -10604,23 +10710,7 @@
     {
       "name": "Warehousing & Inventory",
       "count": 4
-    },
-    {
-      "name": "Permits & Approvals",
-      "count": 4
-    },
-    {
-      "name": "Insurance",
-      "count": 2
-    },
-    {
-      "name": "Identity & KYC",
-      "count": 2
-    },
-    {
-      "name": "Healthcare & Medical",
-      "count": 1
     }
   ],
-  "totalCategories": 41
+  "totalCategories": 34
 }

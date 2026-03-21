@@ -1,6 +1,6 @@
 ---
 title: "International Tax Treaties & Social Security Totalization"
-category: "Government & Regulatory"
+category: "Government & Civic Documents"
 volume: "Large"
 retention: "Permanent (benefit entitlement)"
 slug: "international-tax-treaties"

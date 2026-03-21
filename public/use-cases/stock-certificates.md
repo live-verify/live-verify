@@ -1,6 +1,6 @@
 ---
 title: "Stock Certificates and Share Transfer Documents"
-category: "Financial & Legal Documents"
+category: "Investment & Fintech"
 volume: "Small"
 retention: "Permanent (ownership records)"
 slug: "stock-certificates"

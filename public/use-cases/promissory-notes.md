@@ -1,6 +1,6 @@
 ---
 title: "Promissory Notes and Loan Documents"
-category: "Financial & Legal Documents"
+category: "Banking & Payments"
 volume: "Medium"
 retention: "Loan term + 7-10 years (statute of limitations)"
 slug: "promissory-notes"

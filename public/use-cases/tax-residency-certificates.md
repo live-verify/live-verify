@@ -1,6 +1,6 @@
 ---
 title: "Tax Residency Certificates"
-category: "Government & Regulatory"
+category: "Government & Civic Documents"
 volume: "Large"
 retention: "Tax year + statute of limitations (3-7 years)"
 slug: "tax-residency-certificates"

@@ -1,6 +1,6 @@
 ---
 title: "Escrow Releases"
-category: "Banking & Financial Services"
+category: "Banking & Payments"
 volume: "Large"
 retention: "7 years (transaction records)"
 slug: "escrow-releases"

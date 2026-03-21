@@ -1,6 +1,6 @@
 ---
 title: "Refund & Reimbursement Confirmations"
-category: "Banking & Financial Services"
+category: "Banking & Payments"
 volume: "Very Large"
 retention: "3-7 years (tax and warranty)"
 slug: "refund-confirmations"

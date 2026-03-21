@@ -1,6 +1,6 @@
 ---
 title: "Municipal & Local Registration Confirmations"
-category: "Government & Regulatory"
+category: "Government & Civic Documents"
 volume: "Very Large"
 retention: "1-5 years (renewal cycles)"
 slug: "municipal-registration-confirmations"

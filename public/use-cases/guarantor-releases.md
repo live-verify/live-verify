@@ -1,6 +1,6 @@
 ---
 title: "Guarantor & Co-Signer Releases"
-category: "Banking & Financial Services"
+category: "Banking & Payments"
 volume: "Medium"
 retention: "7-10 years (credit reporting cycle)"
 slug: "guarantor-releases"

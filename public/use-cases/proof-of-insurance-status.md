@@ -1,6 +1,6 @@
 ---
 title: "Proof of Insurance (Policyholder Confirmation)"
-category: "Insurance"
+category: "Personal Lines Insurance"
 volume: "Very Large"
 retention: "Policy term + 2 years"
 slug: "proof-of-insurance-status"

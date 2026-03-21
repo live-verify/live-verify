@@ -1,6 +1,6 @@
 ---
 title: "Filing Completion Receipts"
-category: "Government & Regulatory"
+category: "Government & Civic Documents"
 volume: "Very Large"
 retention: "Varies by filing type (1 year - permanent)"
 slug: "filing-completion-receipts"

@@ -1,6 +1,6 @@
 ---
 title: "Probate Documents and Estate Proceedings"
-category: "Financial & Legal Documents"
+category: "Legal & Court Documents"
 volume: "Small"
 retention: "Permanent (estate records)"
 slug: "probate-documents"

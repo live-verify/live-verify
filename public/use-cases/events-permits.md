@@ -1,6 +1,6 @@
 ---
 title: "Events Permits"
-category: "Permits & Approvals"
+category: "Government & Civic Documents"
 type: "use-case"
 slug: "events-permits"
 beneficiary: "Organizers/Public"

@@ -1,6 +1,6 @@
 ---
 title: "Construction Site Permits"
-category: "Permits & Approvals"
+category: "Government & Civic Documents"
 type: "use-case"
 slug: "construction-site-permits"
 beneficiary: "Neighbors/Public"

@@ -1,6 +1,6 @@
 ---
 title: "Audit Reports and Financial Statements"
-category: "Financial & Legal Documents"
+category: "Financial Compliance"
 volume: "Small"
 retention: "7-10 years (regulatory requirements)"
 slug: "audit-reports-financial-statements"

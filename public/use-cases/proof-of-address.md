@@ -1,6 +1,6 @@
 ---
 title: "Proof of Address (Utility / Telco Confirmation)"
-category: "Identity & KYC"
+category: "Identity & Authority Verification"
 volume: "Very Large"
 retention: "Duration of account + 2 years"
 slug: "proof-of-address"

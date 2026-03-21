@@ -1,6 +1,6 @@
 ---
 title: "Regulatory Compliance Attestations"
-category: "Government & Regulatory"
+category: "Government & Civic Documents"
 volume: "Large"
 retention: "5-10 years (regulatory cycles)"
 slug: "regulatory-compliance-attestations"

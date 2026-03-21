@@ -1,6 +1,6 @@
 ---
 title: "Tax Forms and Wage Statements (W-2, 1099)"
-category: "Financial & Legal Documents"
+category: "Financial Compliance"
 volume: "Very Large"
 retention: "7-10 years (audit statute / social security lifecycle)"
 slug: "tax-forms-receipts"

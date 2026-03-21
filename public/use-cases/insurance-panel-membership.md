@@ -1,6 +1,6 @@
 ---
 title: "Insurance Panel Membership"
-category: "Insurance"
+category: "Personal Lines Insurance"
 volume: "Very Large"
 retention: "Panel membership period + 1-3 years (billing disputes, complaint resolution)"
 slug: "insurance-panel-membership"

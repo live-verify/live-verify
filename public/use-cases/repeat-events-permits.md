@@ -1,6 +1,6 @@
 ---
 title: "Repeat Events Permits"
-category: "Permits & Approvals"
+category: "Government & Civic Documents"
 volume: "Medium"
 retention: "Season + 1-3 years (permit cycle / audit)"
 slug: "repeat-events-permits"

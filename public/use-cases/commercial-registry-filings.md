@@ -1,6 +1,6 @@
 ---
 title: "Commercial Registry Filings"
-category: "Government & Regulatory"
+category: "Government & Civic Documents"
 volume: "Very Large"
 retention: "Permanent (entity records)"
 slug: "commercial-registry-filings"

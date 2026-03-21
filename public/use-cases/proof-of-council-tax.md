@@ -1,6 +1,6 @@
 ---
 title: "Proof of Council Tax (Address & Payment Standing)"
-category: "Identity & KYC"
+category: "Identity & Authority Verification"
 volume: "Very Large"
 retention: "Tax year + 6 years"
 slug: "proof-of-council-tax"
