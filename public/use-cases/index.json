@@ -1,13 +1,13 @@
 {
-  "generated": "2026-03-21T17:11:08.636Z",
-  "totalUseCases": 533,
-  "totalFurtherDerivations": 821,
+  "generated": "2026-03-21T18:34:11.907Z",
+  "totalUseCases": 541,
+  "totalFurtherDerivations": 828,
   "categories": {
-    "Real Estate & Property": 35,
-    "Charitable & Non-Profit": 7,
+    "Real Estate & Property": 37,
+    "Charitable & Non-Profit": 8,
     "Novel Document Types": 8,
     "Scientific & Research": 8,
-    "Professional & Occupational Licenses": 17,
+    "Professional & Occupational Licenses": 18,
     "Actuarial & Insurance Mathematics": 10,
     "Personal Lines Insurance": 16,
     "Government & Civic Documents": 32,
@@ -17,16 +17,16 @@
     "Insurance Claims & Operations": 15,
     "Chain of Custody & Logistics": 18,
     "Travel & Hospitality": 21,
-    "Identity & Authority Verification": 47,
+    "Identity & Authority Verification": 49,
     "Healthcare & Medical Records": 14,
     "Professional & Educational Qualifications": 20,
     "Art, Media & Publishing": 7,
     "Customs & Trade Compliance": 7,
     "Sports & Athletics": 6,
     "Financial Compliance": 26,
-    "Business & Commerce": 24,
+    "Business & Commerce": 25,
     "Specialty Insurance": 23,
-    "Banking & Payments": 24,
+    "Banking & Payments": 25,
     "Investment & Fintech": 22,
     "Site & Equipment Safety": 12,
     "Commercial Lines Insurance": 11,
@@ -1554,6 +1554,26 @@
       ]
     },
     {
+      "slug": "charity-commission-registration",
+      "title": "Charity Commission Registration Confirmation",
+      "category": "Charitable & Non-Profit",
+      "volume": "Medium",
+      "retention": "Registration period (ongoing while charity is active)",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "Charity name, registration number, registration body, registered website domain, and current registration status.",
+      "tags": [
+        "charity",
+        "non-profit",
+        "charity-commission",
+        "registration",
+        "donor-trust",
+        "fundraising",
+        "fraud-prevention",
+        "regulator"
+      ]
+    },
+    {
       "slug": "charity-disbursement-proof",
       "title": "Charity Disbursement Proof",
       "category": "Charitable & Non-Profit",
@@ -1924,7 +1944,7 @@
       "retention": "Snapshot",
       "verificationMode": "clip",
       "furtherDerivations": 2,
-      "snippet": "Company name, company number, active/inactive status, filed accounts status, CCJ count, winding-up petition status, administration status, and the as-at date of the snapshot.",
+      "snippet": "Company name, company number, active/inactive status, filed accounts status, CCJ count, winding-up petition status, administration status, source authority for each dimension, and the as-at date of th",
       "tags": [
         "company-status",
         "good-standing",
@@ -2739,6 +2759,28 @@
         "privacy-policy",
         "academic-collaboration",
         "legal-contract"
+      ]
+    },
+    {
+      "slug": "dbs-update-service-status",
+      "title": "DBS Update Service Status Confirmation",
+      "category": "Identity & Authority Verification",
+      "volume": "Large",
+      "retention": "Hours (24-hour confirmation window)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Certificate reference number, check level (Basic, Standard, Enhanced, Enhanced with Barred Lists), status result, confirmation timestamp, expiry timestamp, and salt.",
+      "tags": [
+        "dbs",
+        "disclosure-and-barring",
+        "update-service",
+        "safeguarding",
+        "criminal-record",
+        "uk",
+        "privacy",
+        "time-limited",
+        "salted-proof",
+        "employment"
       ]
     },
     {
@@ -3871,6 +3913,27 @@
         "customers",
         "health-grades",
         "food-handler"
+      ]
+    },
+    {
+      "slug": "food-hygiene-rating-on-platforms",
+      "title": "Food Hygiene Rating on Delivery Platforms",
+      "category": "Identity & Authority Verification",
+      "volume": "Large",
+      "retention": "Rating period + 1 year (re-inspection cycle)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Restaurant name, registered business domain, hygiene rating (0–5), inspection date, local authority that conducted the inspection, and current status.",
+      "tags": [
+        "food-safety",
+        "hygiene",
+        "ratings",
+        "delivery-platforms",
+        "restaurants",
+        "public-health",
+        "allowed-domains",
+        "third-party-site",
+        "fsa"
       ]
     },
     {
@@ -6246,6 +6309,26 @@
       ]
     },
     {
+      "slug": "mortgage-redemption-statements",
+      "title": "Mortgage Redemption Statements",
+      "category": "Real Estate & Property",
+      "volume": "Large",
+      "retention": "Short-lived (7–28 days typical validity)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Lender name, mortgage account number, property address, outstanding balance, daily interest rate, validity window, early repayment charge status, and the as-at date of the snapshot. The verified hash ",
+      "tags": [
+        "mortgage-redemption",
+        "conveyancing",
+        "property-sale",
+        "outstanding-balance",
+        "completion-statement",
+        "solicitor",
+        "redemption-figure",
+        "daily-interest"
+      ]
+    },
+    {
       "slug": "mortgage-satisfaction-lien-release",
       "title": "Mortgage Satisfaction and Lien Release",
       "category": "Real Estate & Property",
@@ -7269,6 +7352,25 @@
       ]
     },
     {
+      "slug": "planning-permission-status",
+      "title": "Planning Permission Status",
+      "category": "Real Estate & Property",
+      "volume": "Large",
+      "retention": "Transaction lifetime",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Property address, application reference number, description of development, permission status and date of decision, number of conditions and how many are discharged or outstanding, implementation expi",
+      "tags": [
+        "property",
+        "planning",
+        "conveyancing",
+        "council",
+        "building-work",
+        "real-estate",
+        "permission"
+      ]
+    },
+    {
       "slug": "platform-lending-agreements",
       "title": "Platform Lending and Financing Agreements",
       "category": "Investment & Fintech",
@@ -7568,6 +7670,30 @@
         "supply-chain-insurance",
         "retailer-compliance",
         "product-recall"
+      ]
+    },
+    {
+      "slug": "professional-indemnity-live-status",
+      "title": "Professional Indemnity Insurance Live Status",
+      "category": "Professional & Occupational Licenses",
+      "volume": "Large",
+      "retention": "Policy period + 6 years (statute of limitations for negligence claims)",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "Firm name, firm website domain, insurer, coverage limit, and current policy status.",
+      "tags": [
+        "professional-indemnity",
+        "PI-insurance",
+        "solicitor",
+        "architect",
+        "surveyor",
+        "accountant",
+        "SRA",
+        "RICS",
+        "ICAEW",
+        "live-status",
+        "domain-mismatch",
+        "insurer-issued-claim"
       ]
     },
     {
@@ -8668,6 +8794,27 @@
       ]
     },
     {
+      "slug": "review-platform-rating-verification",
+      "title": "Review Platform Rating Verification",
+      "category": "Business & Commerce",
+      "volume": "Very Large",
+      "retention": "Rating validity period (typically 30-90 days, re-issued on each recalculation)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Business legal name, business site domain, review platform name, aggregate star rating, review count, recalculation date (\"as of\" date), and current claim status.",
+      "tags": [
+        "reviews",
+        "ratings",
+        "trustpilot",
+        "google-reviews",
+        "consumer-trust",
+        "business-reputation",
+        "domain-mismatch",
+        "allowedDomains",
+        "time-limited"
+      ]
+    },
+    {
       "slug": "ride-sharing-receipts",
       "title": "Ride-Sharing Receipts (Uber, Lyft, Taxi)",
       "category": "Travel & Hospitality",
@@ -9341,6 +9488,27 @@
         "financial-planning",
         "legal-judgment",
         "long-term-care"
+      ]
+    },
+    {
+      "slug": "student-loan-balance-confirmations",
+      "title": "Student Loan Balance Confirmations",
+      "category": "Banking & Payments",
+      "volume": "Large",
+      "retention": "Hours to days (privacy-preserving proof window)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Loan servicer, plan type, balance amount and currency, monthly deduction amount and method, issue timestamp, expiry timestamp, and salt.",
+      "tags": [
+        "student-loan",
+        "balance",
+        "debt",
+        "affordability",
+        "privacy",
+        "time-limited",
+        "salted-proof",
+        "mortgage",
+        "slc"
       ]
     },
     {
@@ -10827,11 +10995,11 @@
   "categoriesList": [
     {
       "name": "Identity & Authority Verification",
-      "count": 47
+      "count": 49
     },
     {
       "name": "Real Estate & Property",
-      "count": 35
+      "count": 37
     },
     {
       "name": "Government & Civic Documents",
@@ -10843,11 +11011,11 @@
     },
     {
       "name": "Business & Commerce",
-      "count": 24
+      "count": 25
     },
     {
       "name": "Banking & Payments",
-      "count": 24
+      "count": 25
     },
     {
       "name": "Legal & Court Documents",
@@ -10870,16 +11038,16 @@
       "count": 20
     },
     {
+      "name": "Professional & Occupational Licenses",
+      "count": 18
+    },
+    {
       "name": "Immigration & Visa Documents",
       "count": 18
     },
     {
       "name": "Chain of Custody & Logistics",
       "count": 18
-    },
-    {
-      "name": "Professional & Occupational Licenses",
-      "count": 17
     },
     {
       "name": "Personal Lines Insurance",
@@ -10918,16 +11086,16 @@
       "count": 10
     },
     {
+      "name": "Charitable & Non-Profit",
+      "count": 8
+    },
+    {
       "name": "Novel Document Types",
       "count": 8
     },
     {
       "name": "Scientific & Research",
       "count": 8
-    },
-    {
-      "name": "Charitable & Non-Profit",
-      "count": 7
     },
     {
       "name": "Notary Services",
