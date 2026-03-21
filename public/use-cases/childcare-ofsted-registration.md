@@ -1,23 +1,35 @@
 ---
-title: "Childminder/Nursery Ofsted Registration"
+title: "Childcare Provider Registration"
 category: "Identity & Authority Verification"
 volume: "Medium"
 retention: "Registration period + inspection cycle"
 slug: "childcare-ofsted-registration"
 verificationMode: "clip"
-tags: ["ofsted", "childcare", "nursery", "childminder", "early-years", "registration", "safeguarding", "child-safety", "inspection-rating", "parental-due-diligence"]
+tags: ["ofsted", "childcare", "nursery", "childminder", "early-years", "registration", "safeguarding", "child-safety", "inspection-rating", "parental-due-diligence", "acecqa", "state-licensing"]
 furtherDerivations: 2
 ---
 
-## What is a Childminder/Nursery Ofsted Registration?
+## What is a Childcare Provider Registration?
 
-Ofsted (the Office for Standards in Education, Children's Services and Skills) maintains a register of all childcare providers in England who are legally permitted to care for children. Childminders, nurseries, pre-schools, and out-of-school clubs must register with Ofsted and are inspected periodically. Each provider receives a rating: Outstanding, Good, Requires Improvement, or Inadequate.
+Every jurisdiction regulates who may care for children commercially. A government body or delegated authority maintains a register of approved providers — childminders, nurseries, pre-schools, after-school clubs — and inspects them periodically. Providers display their registration status and any rating on websites, printed materials, and premises certificates. Parents encounter these claims when choosing childcare, but the claims are self-asserted. Confirming them requires navigating to the regulator's own search tool, finding the provider, and checking the details manually.
 
-The provider displays their Ofsted registration and rating on their own website, on printed materials, and on a certificate displayed at their premises. Parents encounter this claim when choosing childcare — typically on the nursery's website or during a visit to the setting. The claim is self-asserted by the provider. A parent who wants to confirm it must navigate to Ofsted's own search tool, find the provider, and check the details manually.
+A verifiable registration claim is text issued by the regulator, embedded on the provider's website or displayed at their premises. The parent verifies it in place — by clipping the text on the website, or by clipping text from a photo of the displayed certificate — without navigating to the regulator's search tool.
 
-A verifiable registration claim is text issued by Ofsted, embedded on the provider's website or displayed at the premises. The parent verifies it in place — by clipping the text on the website, or by clipping text from a photo of the displayed certificate — without navigating to the Ofsted search tool.
+### Jurisdictional Regulators
 
-## Example: Website Registration Claim
+| Jurisdiction | Regulator(s) | Rating System | Verification Domain |
+| :--- | :--- | :--- | :--- |
+| **UK — England** | Ofsted | Outstanding / Good / Requires Improvement / Inadequate | `ofsted.gov.uk/childcare/v` |
+| **UK — Wales** | Care Inspectorate Wales (CIW) | Inspection reports (no summary rating) | `careinspectorate.wales/v` |
+| **UK — Scotland** | Care Inspectorate | Grades 1-6 across quality themes | `careinspectorate.com/v` |
+| **UK — N. Ireland** | RQIA | Inspection reports | `rqia.org.uk/v` |
+| **US** | State licensing agencies (vary by state) | QRIS star ratings in some states; inspection reports in others | e.g. `childcare.texas.gov/v`, `cdss.ca.gov/childcare/v` |
+| **Australia** | ACECQA / state regulatory authorities | Exceeding / Meeting / Working Towards / Significant Improvement Required | `acecqa.gov.au/services/v` |
+| **Canada** | Provincial licensing bodies | Varies by province | e.g. `ontario.ca/childcare/v` |
+
+The examples below use Ofsted (England) as the primary illustration. The pattern is identical for other regulators — only the issuing authority, rating vocabulary, and verification domain change.
+
+## Example: Website Registration Claim (UK — Ofsted)
 
 Ofsted supplies the childcare provider with an HTML snippet to embed on their website. The styling is controlled by the provider to match their site design; only the text content matters for hashing.
 
@@ -49,7 +61,7 @@ verify:ofsted.gov.uk/childcare/v
 
 Ofsted controls the claim text. The provider embeds it. The hash is unaffected by styling changes the provider makes to match their site design.
 
-## Example: Physical Premises Display
+## Example: Physical Premises Display (UK — Ofsted)
 
 The same registration is displayed on a certificate or printed notice at the provider's premises — typically near the entrance where parents sign children in and out. A parent can photograph it and clip the text from the photo.
 
@@ -119,7 +131,7 @@ A provider whose rating has changed may continue displaying an outdated claim on
 
 ## Data Verified
 
-Provider name, Ofsted registration number (URN), registration type (childminder, childcare on domestic/non-domestic premises), current rating, date of last inspection, registered website domain, and current registration status.
+Provider name, regulator-assigned registration number (e.g. Ofsted URN), registration type (childminder, childcare on domestic/non-domestic premises), current rating (where the regulator issues one), date of last inspection, registered website domain, and current registration status.
 
 **Document Types:**
 - **Ofsted Early Years Registration** — Provider registered on the Early Years Register to care for children from birth to age 5. Mandatory for all paid childcare of this age group operating for more than two hours a day.
@@ -210,37 +222,19 @@ The verifiable claim addresses these because:
 
 **Practical conclusion:** The Ofsted search tool works for parents who use it. The problem is that many parents do not — they see "Ofsted rated Good" on a nursery website and take it at face value. A verifiable claim embedded on the provider's own site turns a self-asserted rating into a checkable one at the moment the parent is deciding where to entrust their child.
 
-<details>
-<summary>Other Jurisdictions</summary>
-
-**United States — State Childcare Licensing**
-
-Each US state operates its own childcare licensing authority. Providers must be licensed by the state to operate legally. Ratings and inspection systems vary by state — some use Quality Rating and Improvement Systems (QRIS) with star ratings, others publish inspection reports without summary ratings. The same pattern applies: the licensing authority issues a verifiable claim that the provider embeds on their website. The verification endpoint is operated by the state licensing body (e.g., `childcare.texas.gov/v`, `cdss.ca.gov/childcare/v`).
-
-**Australia — ACECQA National Quality Framework**
-
-The Australian Children's Education and Care Quality Authority (ACECQA) oversees the National Quality Framework. Providers are assessed against the National Quality Standard and receive a rating: Exceeding, Meeting, Working Towards, or Significant Improvement Required. State and territory regulatory authorities conduct assessments. The claim pattern is the same: `verify:acecqa.gov.au/services/v` with the rating and assessment date in the claim text.
-
-**Other UK Nations**
-
-Ofsted covers England only. Equivalent bodies exist for the other UK nations:
-- **Wales** — Care Inspectorate Wales (CIW): `verify:careinspectorate.wales/v`
-- **Scotland** — Care Inspectorate: `verify:careinspectorate.com/v`
-- **Northern Ireland** — Health and Social Care Trusts, overseen by the Regulation and Quality Improvement Authority (RQIA): `verify:rqia.org.uk/v`
-
-</details>
-
 ## Authority Chain
 
 **Pattern:** Regulated
 
-Ofsted is a non-ministerial government department reporting directly to Parliament. It has sole authority to register and inspect childcare providers in England.
+Each jurisdiction's childcare regulator operates its own verification endpoint. The authority chain for the UK (Ofsted) example:
 
 ```
 ✓ ofsted.gov.uk/childcare/v — Childcare provider registration and rating
   ✓ gov.uk — UK government oversight
     ✓ gov.uk/verifiers — UK government root namespace
 ```
+
+Other regulators follow the same pattern under their own government root namespace (e.g. `acecqa.gov.au` under `gov.au`, state licensing agencies under their respective `.gov` domains).
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 

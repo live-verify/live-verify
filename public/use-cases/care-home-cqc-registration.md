@@ -1,21 +1,40 @@
 ---
-title: "Care Home CQC Registration"
+title: "Residential Care Facility Registration"
 category: "Identity & Authority Verification"
 volume: "Medium"
 retention: "Registration period + inspection cycle"
 slug: "care-home-cqc-registration"
 verificationMode: "clip"
-tags: ["cqc", "care-home", "care-quality-commission", "social-care", "elderly-care", "safeguarding", "registration", "inspection-rating", "vulnerable-adults"]
+tags: ["cqc", "care-home", "care-quality-commission", "social-care", "elderly-care", "safeguarding", "registration", "inspection-rating", "vulnerable-adults", "residential-care", "nursing-home", "aged-care", "long-term-care"]
 furtherDerivations: 2
 ---
 
-## What is a Care Home CQC Registration?
+## What is a Residential Care Facility Registration?
+
+Every country regulates residential care facilities — nursing homes, aged care homes, assisted living residences — through a public registration and inspection regime. The regulator issues a licence or registration, conducts periodic inspections, and publishes findings. Families choosing care for a vulnerable relative encounter the facility's claimed status on its own website or marketing materials, not on the regulator's, and have no easy way to confirm that the claim is current and genuine.
+
+A verifiable registration claim is a short statement, issued by the regulator, naming the facility, its registration number, its current status or rating, and when it was last inspected. The family member verifies it on the facility's website by clipping the text, or from a photograph of printed materials — without navigating to the regulator's own search tool.
+
+### Regulatory Equivalents by Jurisdiction
+
+| Jurisdiction | Regulator(s) | Scope |
+| :--- | :--- | :--- |
+| **UK — England** | Care Quality Commission (CQC) | All health and social care providers |
+| **UK — Scotland** | Care Inspectorate | Care homes, care at home, childcare |
+| **UK — Wales** | Care Inspectorate Wales (CIW) | Social care and childcare |
+| **UK — Northern Ireland** | Regulation and Quality Improvement Authority (RQIA) | Health and social care services |
+| **USA** | State health departments; CMS (federal oversight) | Nursing homes, assisted living (state-level licensing varies) |
+| **Australia** | Aged Care Quality & Safety Commission | Residential and home care for older people |
+| **Canada** | Provincial health authorities (e.g., Ontario MLTC, BC Licensing) | Long-term care homes, assisted living |
+| **Ireland** | Health Information and Quality Authority (HIQA) | Residential care for older people and people with disabilities |
+
+The examples below use England's CQC as the primary illustration, but the verification pattern applies identically to any regulator that issues registrations and ratings.
+
+### UK Example: CQC Registration (England)
 
 The Care Quality Commission (CQC) is the independent regulator of health and social care in England. Every care home operating legally must be registered with the CQC and is subject to periodic inspection. Inspections produce a rating: Outstanding, Good, Requires Improvement, or Inadequate.
 
 Care homes display their CQC registration and rating on their own websites and in printed marketing materials — brochures, reception signage, and information packs given to prospective residents and their families. The CQC maintains a public register at cqc.org.uk where anyone can look up a provider, but in practice, families encounter the rating claim on the care home's own site or in its printed materials, not on the regulator's.
-
-A verifiable registration claim is a short statement, issued by the CQC, naming the care home, its registration number, its current rating, and when it was last inspected. The family member verifies it on the care home's website by clipping the text, or from a photograph of printed materials — without navigating to the CQC's own search tool.
 
 ## Example: Website Registration Claim
 
@@ -134,7 +153,7 @@ A family relying on the care home's own marketing materials would see the regist
 
 ## Data Verified
 
-Care home name, CQC registration number, current registration status, current inspection rating, date of last inspection, registered services (e.g., accommodation for persons who require nursing or personal care), and the registered site domain.
+Facility name, registration or licence number, current registration status, current inspection rating or accreditation level, date of last inspection, registered services (e.g., accommodation for persons who require nursing or personal care), and the registered site domain. The specific fields vary by jurisdiction — for example, CQC registration number in England, CMS certification number in the US, or HIQA registration number in Ireland.
 
 **Privacy Salt:** Generally not required. CQC registrations and inspection ratings are public information that care homes are legally required to display.
 
@@ -195,7 +214,7 @@ The **care home** benefits by proving its status to prospective families.
 
 **The Unregistered and Misrated Care Home Problem**
 
-The CQC register is public and searchable, but families typically encounter a care home's rating on the home's own website or marketing materials, not on the CQC's site. This creates several fraud and error patterns:
+In every jurisdiction, the regulator's register is public and searchable, but families typically encounter a care home's rating on the home's own website or marketing materials, not on the regulator's site. The following patterns use CQC as the example, but apply universally:
 
 - **Unregistered care homes** operating without CQC registration. This is a criminal offence but it happens, particularly with smaller providers offering domiciliary care or supported living that blurs the boundary with regulated activity.
 - **Outdated ratings** — a care home was rated "Good" two years ago but has since been reinspected and downgraded. The website still shows the old rating because nobody updated the page, or because the home deliberately chose not to update it.
@@ -225,6 +244,8 @@ The verifiable claim addresses these because:
 
 **Pattern:** Regulated
 
+Each jurisdiction's regulator forms its own authority chain. The CQC example for England:
+
 The CQC is an independent regulator established by the Health and Social Care Act 2008, accountable to Parliament through the Department of Health and Social Care.
 
 ```
@@ -236,14 +257,15 @@ The CQC is an independent regulator established by the Health and Social Care Ac
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
 <details>
-<summary>Other jurisdictions</summary>
+<summary>Other UK and international authority chains</summary>
 
 - **Scotland:** Care Inspectorate (careinspectorate.com) — regulates care homes under the Public Services Reform (Scotland) Act 2010
 - **Wales:** Care Inspectorate Wales (CIW) — regulates under the Regulation and Inspection of Social Care (Wales) Act 2016
 - **Northern Ireland:** Regulation and Quality Improvement Authority (RQIA) — regulates under the Health and Personal Social Services (Quality, Improvement and Regulation) (Northern Ireland) Order 2003
 - **Ireland:** Health Information and Quality Authority (HIQA) — regulates residential care under the Health Act 2007
-- **USA:** State-level licensing varies; Centers for Medicare & Medicaid Services (CMS) maintains federal certification and star ratings for nursing homes
+- **USA:** State-level licensing varies; Centers for Medicare & Medicaid Services (CMS) maintains federal certification and star ratings for nursing homes via medicare.gov
 - **Australia:** Aged Care Quality and Safety Commission — regulates under the Aged Care Quality and Safety Commission Act 2018
+- **Canada:** Provincial health authorities (e.g., Ontario Ministry of Long-Term Care, BC Community Care and Assisted Living Act)
 
 </details>
 

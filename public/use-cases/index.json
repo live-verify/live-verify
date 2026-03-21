@@ -1,9 +1,9 @@
 {
-  "generated": "2026-03-21T18:34:11.907Z",
-  "totalUseCases": 541,
-  "totalFurtherDerivations": 828,
+  "generated": "2026-03-21T19:14:37.960Z",
+  "totalUseCases": 553,
+  "totalFurtherDerivations": 852,
   "categories": {
-    "Real Estate & Property": 37,
+    "Real Estate & Property": 40,
     "Charitable & Non-Profit": 8,
     "Novel Document Types": 8,
     "Scientific & Research": 8,
@@ -17,16 +17,16 @@
     "Insurance Claims & Operations": 15,
     "Chain of Custody & Logistics": 18,
     "Travel & Hospitality": 21,
-    "Identity & Authority Verification": 49,
+    "Identity & Authority Verification": 55,
     "Healthcare & Medical Records": 14,
-    "Professional & Educational Qualifications": 20,
+    "Professional & Educational Qualifications": 21,
     "Art, Media & Publishing": 7,
     "Customs & Trade Compliance": 7,
     "Sports & Athletics": 6,
     "Financial Compliance": 26,
     "Business & Commerce": 25,
     "Specialty Insurance": 23,
-    "Banking & Payments": 25,
+    "Banking & Payments": 27,
     "Investment & Fintech": 22,
     "Site & Equipment Safety": 12,
     "Commercial Lines Insurance": 11,
@@ -1324,13 +1324,13 @@
     },
     {
       "slug": "care-home-cqc-registration",
-      "title": "Care Home CQC Registration",
+      "title": "Residential Care Facility Registration",
       "category": "Identity & Authority Verification",
       "volume": "Medium",
       "retention": "Registration period + inspection cycle",
       "verificationMode": "clip",
       "furtherDerivations": 2,
-      "snippet": "Care home name, CQC registration number, current registration status, current inspection rating, date of last inspection, registered services (e.g., accommodation for persons who require nursing or pe",
+      "snippet": "Facility name, registration or licence number, current registration status, current inspection rating or accreditation level, date of last inspection, registered services (e.g., accommodation for pers",
       "tags": [
         "cqc",
         "care-home",
@@ -1340,7 +1340,11 @@
         "safeguarding",
         "registration",
         "inspection-rating",
-        "vulnerable-adults"
+        "vulnerable-adults",
+        "residential-care",
+        "nursing-home",
+        "aged-care",
+        "long-term-care"
       ]
     },
     {
@@ -1560,7 +1564,7 @@
       "volume": "Medium",
       "retention": "Registration period (ongoing while charity is active)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 2,
       "snippet": "Charity name, registration number, registration body, registered website domain, and current registration status.",
       "tags": [
         "charity",
@@ -1635,13 +1639,13 @@
     },
     {
       "slug": "childcare-ofsted-registration",
-      "title": "Childminder/Nursery Ofsted Registration",
+      "title": "Childcare Provider Registration",
       "category": "Identity & Authority Verification",
       "volume": "Medium",
       "retention": "Registration period + inspection cycle",
       "verificationMode": "clip",
       "furtherDerivations": 2,
-      "snippet": "Provider name, Ofsted registration number (URN), registration type (childminder, childcare on domestic/non-domestic premises), current rating, date of last inspection, registered website domain, and c",
+      "snippet": "Provider name, regulator-assigned registration number (e.g. Ofsted URN), registration type (childminder, childcare on domestic/non-domestic premises), current rating (where the regulator issues one), ",
       "tags": [
         "ofsted",
         "childcare",
@@ -1652,7 +1656,9 @@
         "safeguarding",
         "child-safety",
         "inspection-rating",
-        "parental-due-diligence"
+        "parental-due-diligence",
+        "acecqa",
+        "state-licensing"
       ]
     },
     {
@@ -2479,6 +2485,25 @@
       ]
     },
     {
+      "slug": "credit-card-chargeback-status",
+      "title": "Credit Card Chargeback Status",
+      "category": "Banking & Payments",
+      "volume": "Medium",
+      "retention": "6 years (dispute records)",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Card issuer name, chargeback reference number, disputed amount and currency, merchant name, dispute reason category, status (upheld/rejected/in progress), and resolution date. The cardholder's name, f",
+      "tags": [
+        "chargeback",
+        "credit-card",
+        "card-issuer",
+        "dispute-status",
+        "refund",
+        "consumer-protection",
+        "small-claims"
+      ]
+    },
+    {
       "slug": "credit-card-travel-benefits",
       "title": "Credit Card Travel Benefits and Coverage",
       "category": "Travel & Hospitality",
@@ -2763,7 +2788,7 @@
     },
     {
       "slug": "dbs-update-service-status",
-      "title": "DBS Update Service Status Confirmation",
+      "title": "Criminal Record Check Status",
       "category": "Identity & Authority Verification",
       "volume": "Large",
       "retention": "Hours (24-hour confirmation window)",
@@ -2777,6 +2802,10 @@
         "safeguarding",
         "criminal-record",
         "uk",
+        "australia",
+        "canada",
+        "new-zealand",
+        "us",
         "privacy",
         "time-limited",
         "salted-proof",
@@ -2864,6 +2893,25 @@
         "sinking-fund",
         "fiduciary",
         "prepaid"
+      ]
+    },
+    {
+      "slug": "direct-debit-guarantee-confirmation",
+      "title": "Direct Debit Guarantee Confirmation",
+      "category": "Banking & Payments",
+      "volume": "Very Large",
+      "retention": "Mandate lifetime",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Bank name, sort code, originator name and ID, guarantee protection status, and instruction status (active, cancelled, or suspended).",
+      "tags": [
+        "direct-debit",
+        "guarantee",
+        "bacs",
+        "mandate",
+        "consumer-protection",
+        "recurring-payments",
+        "uk-banking"
       ]
     },
     {
@@ -3414,6 +3462,27 @@
         "phase-ii-esa",
         "contamination",
         "due-diligence"
+      ]
+    },
+    {
+      "slug": "epc-rating-on-listings",
+      "title": "Energy Performance Rating on Listings",
+      "category": "Real Estate & Property",
+      "volume": "Very Large",
+      "retention": "Certificate validity period (10 years)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Property address, EPC rating band (A–G), energy efficiency score, certificate validity dates, and current status.",
+      "tags": [
+        "property",
+        "energy",
+        "epc",
+        "real-estate",
+        "listings",
+        "allowed-domains",
+        "third-party-site",
+        "rightmove",
+        "zoopla"
       ]
     },
     {
@@ -4120,7 +4189,7 @@
     },
     {
       "slug": "gas-safe-regulated-trade-cards",
-      "title": "Gas Safe & Regulated Trade ID Cards",
+      "title": "Regulated Trade Worker Credentials",
       "category": "Professional & Occupational Licenses",
       "volume": "Large",
       "retention": "Registration period + renewal",
@@ -4135,11 +4204,15 @@
         "hetas",
         "tradesperson",
         "regulated-trade",
-        "uk",
         "doorstep",
         "consumer-protection",
         "photo-verification",
-        "credential-stack"
+        "credential-stack",
+        "international",
+        "licensing",
+        "hvac",
+        "plumbing",
+        "electrical"
       ]
     },
     {
@@ -4197,6 +4270,29 @@
         "trusted-traveler",
         "border-security",
         "membership-verification"
+      ]
+    },
+    {
+      "slug": "gmc-doctor-registration-status",
+      "title": "Doctor Registration Status",
+      "category": "Identity & Authority Verification",
+      "volume": "Large",
+      "retention": "Registration period + revalidation cycle",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Doctor's name, GMC registration number, registration status, licence to practise status, and any conditions or restrictions on practice.",
+      "tags": [
+        "gmc",
+        "doctor",
+        "medical-register",
+        "licence-to-practise",
+        "patient-safety",
+        "nhs",
+        "healthcare-regulation",
+        "cqc",
+        "ahpra",
+        "state-medical-board",
+        "fsmb"
       ]
     },
     {
@@ -4316,6 +4412,30 @@
         "ghs",
         "emergency-response",
         "product-stewardship"
+      ]
+    },
+    {
+      "slug": "hcpc-allied-health-registration",
+      "title": "Allied Health Practitioner Registration",
+      "category": "Identity & Authority Verification",
+      "volume": "Medium",
+      "retention": "Registration period + renewal cycle",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Practitioner name, HCPC registration number, registered profession, and current registration status.",
+      "tags": [
+        "hcpc",
+        "ahpra",
+        "allied-health",
+        "physiotherapy",
+        "occupational-therapy",
+        "paramedic",
+        "radiography",
+        "dietetics",
+        "speech-therapy",
+        "biomedical-science",
+        "healthcare-regulation",
+        "patient-safety"
       ]
     },
     {
@@ -5456,6 +5576,28 @@
       ]
     },
     {
+      "slug": "landlord-licensing-status",
+      "title": "Landlord Licensing Status",
+      "category": "Real Estate & Property",
+      "volume": "Large",
+      "retention": "Licence period + renewal cycle",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Landlord name, property address, licence type (selective, additional HMO, mandatory HMO), licence number, issuing council, and current licence status.",
+      "tags": [
+        "landlord",
+        "licensing",
+        "selective-licensing",
+        "hmo",
+        "council",
+        "tenant",
+        "rental",
+        "property",
+        "letting-agent",
+        "housing"
+      ]
+    },
+    {
       "slug": "language-proficiency-certificates",
       "title": "Language Proficiency Certificates (TOEFL, IELTS)",
       "category": "Professional & Educational Qualifications",
@@ -6371,6 +6513,27 @@
       ]
     },
     {
+      "slug": "mot-status-confirmation",
+      "title": "Vehicle Safety Inspection Status",
+      "category": "Identity & Authority Verification",
+      "volume": "Very Large",
+      "retention": "Until expiry date",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Vehicle registration, MOT status (valid or expired), expiry or expiration date, date of last test, recorded mileage at the time of the last test, and the number of advisory items. The specific advisor",
+      "tags": [
+        "mot",
+        "tuv",
+        "controle-technique",
+        "shaken",
+        "vehicle-inspection",
+        "roadworthiness",
+        "used-car",
+        "time-limited",
+        "government"
+      ]
+    },
+    {
       "slug": "municipal-registration-confirmations",
       "title": "Municipal & Local Registration Confirmations",
       "category": "Government & Civic Documents",
@@ -6508,6 +6671,28 @@
         "telecommunications",
         "SLA",
         "5G"
+      ]
+    },
+    {
+      "slug": "nmc-nurse-registration-status",
+      "title": "Nurse and Midwife Registration Status",
+      "category": "Identity & Authority Verification",
+      "volume": "Large",
+      "retention": "Registration period + annual renewal",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Nurse or midwife name, registration number (NMC PIN in the UK, licence number elsewhere), field of practice, and current registration status.",
+      "tags": [
+        "nmc",
+        "nursing",
+        "midwifery",
+        "nurse-registration",
+        "healthcare-regulation",
+        "nhs",
+        "cqc",
+        "ahpra",
+        "nursing-agency",
+        "patient-safety"
       ]
     },
     {
@@ -7312,7 +7497,7 @@
     },
     {
       "slug": "pharmacy-gphc-registration",
-      "title": "Pharmacy GPhC Registration",
+      "title": "Pharmacy Registration",
       "category": "Identity & Authority Verification",
       "volume": "Medium",
       "retention": "Registration period + renewal cycle",
@@ -7328,7 +7513,10 @@
         "consumer-protection",
         "nhs",
         "mhra",
-        "healthcare-regulation"
+        "healthcare-regulation",
+        "nabp",
+        "ahpra",
+        "falsified-medicines-directive"
       ]
     },
     {
@@ -7679,7 +7867,7 @@
       "volume": "Large",
       "retention": "Policy period + 6 years (statute of limitations for negligence claims)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Firm name, firm website domain, insurer, coverage limit, and current policy status.",
       "tags": [
         "professional-indemnity",
@@ -9082,6 +9270,32 @@
       ]
     },
     {
+      "slug": "school-ofsted-rating",
+      "title": "School Inspection Rating",
+      "category": "Identity & Authority Verification",
+      "volume": "Large",
+      "retention": "Inspection cycle (typically 4-5 years)",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "School name, URN, school type (maintained, academy, free school), current Ofsted rating, date of last inspection, registered website domain, and current status.",
+      "tags": [
+        "ofsted",
+        "school",
+        "education",
+        "inspection-rating",
+        "parental-due-diligence",
+        "academy",
+        "free-school",
+        "maintained-school",
+        "estyn",
+        "education-scotland",
+        "eti",
+        "greatschools",
+        "myschool",
+        "acara"
+      ]
+    },
+    {
       "slug": "school-pickup-authorization",
       "title": "School Pickup Authorization",
       "category": "Identity & Authority Verification",
@@ -9755,6 +9969,27 @@
       ]
     },
     {
+      "slug": "tenancy-deposit-protection-status",
+      "title": "Tenancy Deposit Protection Status",
+      "category": "Real Estate & Property",
+      "volume": "Large",
+      "retention": "Tenancy lifetime",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Scheme name, deposit reference number, deposit amount, property address, protection status, and date of protection. For a \"not found\" result, only the negative status and the scheme searched are confi",
+      "tags": [
+        "tenancy-deposit",
+        "deposit-protection",
+        "DPS",
+        "MyDeposits",
+        "TDS",
+        "landlord",
+        "tenant",
+        "renting",
+        "UK-housing"
+      ]
+    },
+    {
       "slug": "tenant-references",
       "title": "Tenant References from Landlords",
       "category": "Real Estate & Property",
@@ -10272,6 +10507,31 @@
       ]
     },
     {
+      "slug": "university-programme-accreditation",
+      "title": "University Programme Accreditation Status",
+      "category": "Professional & Educational Qualifications",
+      "volume": "Medium",
+      "retention": "Accreditation cycle + 2-3 years (student disputes, regulatory audit)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "University name, programme title, accrediting body, accreditation level or type, site domain, and current status.",
+      "tags": [
+        "accreditation",
+        "university",
+        "programme",
+        "professional-body",
+        "ABET",
+        "BCS",
+        "RICS",
+        "GMC",
+        "RIBA",
+        "IChemE",
+        "degree-recognition",
+        "domain-mismatch",
+        "fraud-prevention"
+      ]
+    },
+    {
       "slug": "utility-field-worker-verification",
       "title": "Utility & Field Worker Verification",
       "category": "Identity & Authority Verification",
@@ -10443,6 +10703,30 @@
       ]
     },
     {
+      "slug": "vehicle-tax-ved-status",
+      "title": "Vehicle Road Tax / Registration Status",
+      "category": "Identity & Authority Verification",
+      "volume": "Very Large",
+      "retention": "Until expiry",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Vehicle registration, road-tax or registration status (current, expired, or declared off-road), expiry/renewal date, and tax class where applicable. Vehicle condition, mileage, inspection history, fin",
+      "tags": [
+        "vehicle-tax",
+        "ved",
+        "dvla",
+        "road-tax",
+        "sorn",
+        "used-car",
+        "fleet-management",
+        "listing-platform",
+        "kfz-steuer",
+        "carte-grise",
+        "dmv",
+        "rego"
+      ]
+    },
+    {
       "slug": "vehicle-titles",
       "title": "Vehicle Titles",
       "category": "Government & Civic Documents",
@@ -10529,7 +10813,7 @@
     },
     {
       "slug": "veterinary-practice-rcvs-registration",
-      "title": "Veterinary Practice RCVS Registration",
+      "title": "Veterinary Practice Registration",
       "category": "Identity & Authority Verification",
       "volume": "Small",
       "retention": "Registration period + renewal cycle",
@@ -10537,14 +10821,14 @@
       "furtherDerivations": 2,
       "snippet": "Practice name, accreditation level (Emergency Service Clinic, General Practice, Veterinary Hospital), species scope (small animal, equine, farm), registered website domain, and current accreditation s",
       "tags": [
-        "rcvs",
         "veterinary",
-        "practice-standards-scheme",
+        "practice-registration",
         "animal-health",
         "accreditation",
         "telemedicine",
         "pet-owner",
-        "consumer-protection"
+        "consumer-protection",
+        "rcvs"
       ]
     },
     {
@@ -10995,15 +11279,19 @@
   "categoriesList": [
     {
       "name": "Identity & Authority Verification",
-      "count": 49
+      "count": 55
     },
     {
       "name": "Real Estate & Property",
-      "count": 37
+      "count": 40
     },
     {
       "name": "Government & Civic Documents",
       "count": 32
+    },
+    {
+      "name": "Banking & Payments",
+      "count": 27
     },
     {
       "name": "Financial Compliance",
@@ -11011,10 +11299,6 @@
     },
     {
       "name": "Business & Commerce",
-      "count": 25
-    },
-    {
-      "name": "Banking & Payments",
       "count": 25
     },
     {
@@ -11035,7 +11319,7 @@
     },
     {
       "name": "Professional & Educational Qualifications",
-      "count": 20
+      "count": 21
     },
     {
       "name": "Professional & Occupational Licenses",

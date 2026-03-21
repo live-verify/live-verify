@@ -1,23 +1,81 @@
 ---
-title: "Gas Safe & Regulated Trade ID Cards"
+title: "Regulated Trade Worker Credentials"
 category: "Professional & Occupational Licenses"
 volume: "Large"
 retention: "Registration period + renewal"
 slug: "gas-safe-regulated-trade-cards"
 verificationMode: "camera"
-tags: ["gas-safe", "corgi", "niceic", "oftec", "hetas", "tradesperson", "regulated-trade", "uk", "doorstep", "consumer-protection", "photo-verification", "credential-stack"]
+tags: ["gas-safe", "corgi", "niceic", "oftec", "hetas", "tradesperson", "regulated-trade", "doorstep", "consumer-protection", "photo-verification", "credential-stack", "international", "licensing", "hvac", "plumbing", "electrical"]
 furtherDerivations: 2
 ---
 
-## What is a Gas Safe ID Card?
+## The Problem
+
+Most countries require tradespeople who work on gas, electrical, plumbing, or HVAC systems to hold a licence or registration issued by a government body or an authorised industry register. The details vary enormously — a single national register in some countries, state or provincial licensing in others, guild-based master craftsman systems in others still — but the core pattern is the same everywhere: a worker carries a credential that says "I am qualified to do this work," and the customer is expected to check it before the work begins.
+
+In practice, customers almost never check. The credential is a plastic card or a paper certificate. It has no live link to the register. It shows the worker's status *at the time of printing*, not their status today. Fake cards are cheap to produce. Expired or restricted registrations go undetected. The gap between "the register exists" and "the customer actually checks" is where fraud, incompetence, and danger live.
+
+A **Verified Trade Credential** makes the card scannable — the customer scans it, and the issuing register returns the worker's photo, current status, and current scope of qualification. Not what was on the card when it was printed — what's true *right now*.
+
+### Regulated Trade Credentials by Jurisdiction
+
+<details open>
+<summary><strong>United Kingdom</strong></summary>
+
+- **Gas Safe Register** — Legal monopoly for gas engineer registration (replaced CORGI in 2009). Operated under Health and Safety Executive (HSE) authority. ~130,000 registered engineers.
+- **NICEIC / NAPIT** — Electrical contractor registration bodies operating as Competent Person Schemes. Registered contractors can self-certify notifiable electrical work.
+- **OFTEC** — Oil Firing Technical Association. Registration body for oil heating engineers.
+- **HETAS** — Heating Equipment Testing and Approval Scheme. Solid fuel installers (wood burners, biomass, chimneys).
+- **MCS** — Microgeneration Certification Scheme. Renewable energy installers (solar PV, heat pumps).
+
+</details>
+
+<details>
+<summary><strong>United States</strong></summary>
+
+- Licensing is **state and local** — there is no single national register. Requirements vary enormously by state and even by county or municipality.
+- **Plumbers, electricians, HVAC technicians** typically require a state licence, often with journeyman and master tiers.
+- Some states have reciprocity agreements; most do not. A master electrician in Texas cannot automatically work in California.
+- Verification is fragmented: each state licensing board maintains its own lookup, with no standard format.
+
+</details>
+
+<details>
+<summary><strong>Australia</strong></summary>
+
+- Licensing is **state and territory** based. Each state has its own licensing authority (e.g., NSW Fair Trading, Victorian Building Authority, QBCC in Queensland).
+- **Gas fitters, electricians, plumbers** all require state-issued licences with specific classes and endorsements.
+- Some states issue photo ID cards; others issue certificates. Live verification portals exist but are rarely used at the doorstep.
+
+</details>
+
+<details>
+<summary><strong>Germany</strong></summary>
+
+- The **Handwerkskammer** (Chambers of Crafts) system regulates skilled trades. Many trades require a **Meisterbrief** (master craftsman certificate) to operate independently.
+- Gas and electrical installation work falls under regulated trades (*zulassungspflichtige Handwerke*) — you cannot open a business without master-level qualification.
+- The chamber issues trade cards and maintains a publicly searchable register (*Handwerksrolle*).
+
+</details>
+
+<details>
+<summary><strong>Canada</strong></summary>
+
+- Trades licensing is **provincial/territorial**. Each province has its own apprenticeship and certification authority.
+- The **Red Seal Program** provides interprovincial recognition — a Red Seal endorsement on a provincial certificate allows the tradesperson to work in any province without re-examination.
+- Gas fitters (Class A/B), electricians, plumbers, and HVAC technicians are compulsory certification trades in most provinces.
+
+</details>
+
+The examples below use the UK's Gas Safe Register as the primary illustration, but the verification pattern applies identically to any jurisdiction's trade licensing system.
+
+### Gas Safe in Detail
 
 Every gas engineer in the UK must be on the **Gas Safe Register** — it's a criminal offence to carry out gas work without registration. When a Gas Safe registered engineer arrives at your door, they carry a plastic ID card showing their name, photo, registration number, and the specific appliance categories they're qualified to work on (boilers, cookers, fires, LPG, etc.). The homeowner is supposed to check this card before letting them work.
 
 Gas Safe replaced **CORGI** (Council for Registered Gas Installers) in 2009. CORGI had operated since 1970, and the name stuck in public consciousness — many homeowners still say "Are you CORGI registered?" a decade and a half after the change. The replacement happened because CORGI's enforcement was considered too weak; Gas Safe operates under a legal monopoly granted by the Health and Safety Executive (HSE).
 
 The problem: Gas Safe ID cards are plastic cards with no anti-forgery features beyond a hologram. Fake cards are easily produced. The card shows the engineer's qualifications *at the time of printing* — if they've had categories removed, failed an inspection, or been struck off, the card doesn't update. The Gas Safe website offers a lookup (`gassaferegister.co.uk`) but nobody uses it at the doorstep. An unregistered gas fitter can kill a family with a faulty boiler installation — carbon monoxide doesn't smell, doesn't taste, and doesn't warn.
-
-A **Verified Gas Safe Card** is the engineer's ID made scannable — the homeowner scans the card, and `gassaferegister.co.uk` returns the engineer's photo, current registration status, and the specific appliance categories they're currently qualified for. Not what was on the card when it was printed — what's true *right now*.
 
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #000; background: #fff; padding: 0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
   <div style="background: #000; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">

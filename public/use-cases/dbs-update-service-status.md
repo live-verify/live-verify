@@ -1,23 +1,35 @@
 ---
-title: "DBS Update Service Status Confirmation"
+title: "Criminal Record Check Status"
 category: "Identity & Authority Verification"
 volume: "Large"
 retention: "Hours (24-hour confirmation window)"
 slug: "dbs-update-service-status"
 verificationMode: "clip"
-tags: ["dbs", "disclosure-and-barring", "update-service", "safeguarding", "criminal-record", "uk", "privacy", "time-limited", "salted-proof", "employment"]
+tags: ["dbs", "disclosure-and-barring", "update-service", "safeguarding", "criminal-record", "uk", "australia", "canada", "new-zealand", "us", "privacy", "time-limited", "salted-proof", "employment"]
 furtherDerivations: 1
 ---
 
-## What is a DBS Update Service Status Confirmation?
+## What is a Criminal Record Check Status Confirmation?
 
-The DBS Update Service is a subscription service (£13/year) that lets holders of DBS certificates keep their certificate up to date. Employers can check the service online to see whether a certificate is still current — meaning no new information has come to light since it was issued.
+Many jurisdictions operate criminal record check systems where workers in sensitive roles — teaching, healthcare, care work, volunteering with children — must obtain clearance before starting work. Some of these systems offer an ongoing or portable status: a way for employers to confirm that a previously issued check is still current without running a new one from scratch.
 
-The service answers a narrow question: **has anything changed since this certificate was issued?**
+The core question these systems answer is narrow: **has anything changed since this check was issued?**
 
-Currently, the result of that check is a screen on a government website. The employer sees it as part of their safeguarding duty. The worker has no portable, verifiable proof of the result.
+Currently, the result of that status check is typically a screen on a government website. The employer sees it as part of their safeguarding duty. The worker has no portable, verifiable proof of the result.
 
-A **DBS Update Service Status Confirmation** is a short-lived, salted derivative proof of that status check. It confirms the certificate reference, the check level, and the result — and then expires after 24 hours.
+A **Criminal Record Check Status Confirmation** is a short-lived, salted derivative proof of that status check. It confirms the check reference, the check level, and the result — and then expires after 24 hours.
+
+### Jurisdiction Comparison
+
+| Jurisdiction | System | Portable/Ongoing Status? |
+| :--- | :--- | :--- |
+| **UK** | DBS Update Service (£13/year subscription) | **Yes.** Employers can check online whether a certificate is still current. |
+| **Australia** | National Police Check via ACIC; some states have ongoing monitoring | **Partial.** No single national update service, but some state schemes support continuous monitoring. |
+| **Canada** | RCMP criminal record checks; Vulnerable Sector checks | **No.** Each check is a point-in-time request. No ongoing status service. |
+| **New Zealand** | Ministry of Justice criminal record checks | **No.** Point-in-time checks only. |
+| **US** | FBI fingerprint-based checks; state-level background checks | **No.** The most fragmented system — no federal equivalent of the DBS Update Service exists. Each state operates independently, and checks are point-in-time. |
+
+The examples below use the UK's DBS Update Service as the primary illustration, since it is the most mature ongoing-status system and the best fit for a portable, verifiable status confirmation.
 
 **Important:** This is a convenience proof layered on top of the employer's own safeguarding duty, not a substitute for it. The employer remains responsible for performing their own DBS check through proper channels. A worker sharing a verifiable status confirmation can speed up onboarding and reduce friction when moving between roles, but it does not relieve the employer of their statutory obligation to conduct the check themselves. The confirmation helps the worker demonstrate readiness; the employer's own verification is what satisfies the legal requirement.
 
@@ -145,7 +157,7 @@ This use case provides the missing piece: a short-lived, verifiable proof of the
 
 ## Privacy Salt
 
-Required. Criminal record status is classified as special category data under UK GDPR. The salt ensures each confirmation instance produces a unique hash, preventing cross-correlation between different checking occasions. Without the salt, an observer collecting hashes could determine that the same certificate was checked on multiple dates and correlate those checks with job applications.
+Required. Criminal record status is classified as special category data under UK GDPR (and equivalently sensitive under most jurisdictions' data protection frameworks). The salt ensures each confirmation instance produces a unique hash, preventing cross-correlation between different checking occasions. Without the salt, an observer collecting hashes could determine that the same certificate was checked on multiple dates and correlate those checks with job applications.
 
 ## Competition vs. Current Practice
 

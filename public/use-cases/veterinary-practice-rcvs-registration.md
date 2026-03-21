@@ -1,21 +1,31 @@
 ---
-title: "Veterinary Practice RCVS Registration"
+title: "Veterinary Practice Registration"
 category: "Identity & Authority Verification"
 volume: "Small"
 retention: "Registration period + renewal cycle"
 slug: "veterinary-practice-rcvs-registration"
 verificationMode: "clip"
-tags: ["rcvs", "veterinary", "practice-standards-scheme", "animal-health", "accreditation", "telemedicine", "pet-owner", "consumer-protection"]
+tags: ["veterinary", "practice-registration", "animal-health", "accreditation", "telemedicine", "pet-owner", "consumer-protection", "rcvs"]
 furtherDerivations: 2
 ---
 
-## What is an RCVS Practice Standards Scheme Registration?
+## What is Veterinary Practice Registration?
 
-The Royal College of Veterinary Surgeons (RCVS) maintains the Practice Standards Scheme (PSS) in the UK. Veterinary practices voluntarily submit to inspection and accreditation at defined levels — Emergency Service Clinic, General Practice (small animal, equine, farm), and Veterinary Hospital. The scheme sets standards for premises, equipment, staffing, and clinical governance.
+In most jurisdictions, veterinary practices must register with or be accredited by a regulatory body before they can operate. The regulator sets standards for premises, equipment, staffing, and clinical governance — and issues credentials that practices display on their websites, in waiting rooms, and on printed materials. Pet owners encounter these claims when choosing a vet — increasingly online, as telemedicine and remote triage services grow.
 
-A practice that holds PSS accreditation displays this on its website, in its waiting room, and on printed materials. Pet owners encounter this claim when choosing a vet — increasingly online, as telemedicine and remote triage services grow. The accreditation level matters: a practice accredited for small animal general practice is not accredited to perform equine surgery.
+A verifiable registration claim is text issued by the regulatory body, embedded on the practice's website or displayed on physical premises signage. The pet owner verifies it in place — by clipping the text on the website — without navigating to the regulator's lookup tool.
 
-A verifiable registration claim is text issued by the RCVS, embedded on the practice's website or displayed on physical premises signage. The pet owner verifies it in place — by clipping the text on the website — without navigating to the RCVS Find a Vet tool.
+### Regulatory Bodies by Jurisdiction
+
+| Jurisdiction | Regulatory Body | Notes |
+| :--- | :--- | :--- |
+| **UK** | Royal College of Veterinary Surgeons (RCVS) | Operates the Practice Standards Scheme (PSS) with defined accreditation levels |
+| **US** | State veterinary licensing boards | Each state has its own board; no single national practice accreditation |
+| **Australia** | State/territory veterinary boards | e.g., Veterinary Practitioners Registration Board of Victoria |
+| **EU** | National veterinary councils (varies) | e.g., Ordre National des Vétérinaires (France), Bundestierärztekammer (Germany) |
+| **Canada** | Provincial veterinary regulatory bodies | e.g., College of Veterinarians of Ontario |
+
+The examples below use the UK's RCVS Practice Standards Scheme, where practices voluntarily submit to inspection and accreditation at defined levels — Emergency Service Clinic, General Practice (small animal, equine, farm), and Veterinary Hospital. The accreditation level matters: a practice accredited for small animal general practice is not accredited to perform equine surgery. The same verification pattern applies to any jurisdiction's regulatory body.
 
 ## Example: Website Registration Claim
 
@@ -184,7 +194,7 @@ The verifiable claim addresses these because:
 
 **Pattern:** Regulated (statutory body)
 
-The RCVS is established by Royal Charter and the Veterinary Surgeons Act 1966. It is the statutory regulator of veterinary surgeons and veterinary nurses in the UK, and operates the Practice Standards Scheme.
+Each jurisdiction's veterinary regulatory body sits in its own authority chain. The RCVS example below is representative — the RCVS is established by Royal Charter and the Veterinary Surgeons Act 1966, and is the statutory regulator of veterinary surgeons and veterinary nurses in the UK.
 
 ```
 ✓ rcvs.org.uk/practices/v — Veterinary practice accreditation

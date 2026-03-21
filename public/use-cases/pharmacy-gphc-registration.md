@@ -1,17 +1,29 @@
 ---
-title: "Pharmacy GPhC Registration"
+title: "Pharmacy Registration"
 category: "Identity & Authority Verification"
 volume: "Medium"
 retention: "Registration period + renewal cycle"
 slug: "pharmacy-gphc-registration"
 verificationMode: "clip"
-tags: ["gphc", "pharmacy", "online-pharmacy", "pharmaceutical-council", "counterfeit-medicine", "consumer-protection", "nhs", "mhra", "healthcare-regulation"]
+tags: ["gphc", "pharmacy", "online-pharmacy", "pharmaceutical-council", "counterfeit-medicine", "consumer-protection", "nhs", "mhra", "healthcare-regulation", "nabp", "ahpra", "falsified-medicines-directive"]
 furtherDerivations: 2
 ---
 
-## What is a Pharmacy GPhC Registration?
+## What is a Pharmacy Registration?
 
-The General Pharmaceutical Council (GPhC) is the independent regulator for pharmacies in Great Britain. Every pharmacy — whether a physical premises on the high street or an online-only operation — must be registered with the GPhC to legally dispense prescription medicines. The GPhC maintains a public register of pharmacies at `pharmacyregulation.org`.
+Every country regulates who may operate a pharmacy. National or regional authorities maintain registers of licensed pharmacies, inspect premises, and can suspend or revoke registrations. This matters most for online pharmacies, where the patient has no physical premises to inspect and must trust a website. Fake online pharmacy websites are a global public health problem — they sell counterfeit, substandard, or dangerous medication, often with no registration at all or with a registration number copied from a legitimate pharmacy.
+
+| Jurisdiction | Regulator(s) | Online pharmacy programme |
+| :--- | :--- | :--- |
+| **UK** | General Pharmaceutical Council (GPhC) | GPhC internet pharmacy registration |
+| **US** | State boards of pharmacy | NABP VIPPS / `.pharmacy` TLD |
+| **EU** | National competent authorities per member state | Falsified Medicines Directive common logo |
+| **Australia** | Pharmacy Board of Australia / AHPRA | AHPRA online services registration |
+| **Canada** | Provincial pharmacy regulatory authorities | Province-level internet pharmacy licensing |
+
+The examples below use the UK's GPhC as the primary illustration, but the pattern applies to any jurisdiction's pharmacy regulator.
+
+In the UK, the General Pharmaceutical Council (GPhC) is the independent regulator for pharmacies in Great Britain. Every pharmacy — whether a physical premises on the high street or an online-only operation — must be registered with the GPhC to legally dispense prescription medicines. The GPhC maintains a public register of pharmacies at `pharmacyregulation.org`.
 
 Online pharmacies are a significant fraud vector. Fake pharmacy websites sell counterfeit, substandard, or dangerous medication. Some operate without any registration. Others use a genuine registration number belonging to a different pharmacy. The GPhC register exists, but the consumer encounters the pharmacy's own website — not the register. Few patients navigate to `pharmacyregulation.org` and look up the registration number before placing an order.
 
@@ -242,6 +254,24 @@ EU member states implement the Falsified Medicines Directive (2011/62/EU), which
 ✓ [national-authority]/pharmacies/v — National pharmacy registration
   ✓ [national-authority] — National competent authority (e.g., DIMDI for Germany, AIFA for Italy)
     ✓ ec.europa.eu/health — EU health authority coordination
+```
+
+**Australia — Pharmacy Board of Australia / AHPRA**
+
+The Pharmacy Board of Australia, operating under the Australian Health Practitioner Regulation Agency (AHPRA), registers pharmacies and pharmacists nationally. AHPRA maintains a public register of practitioners and regulated premises.
+
+```
+✓ ahpra.gov.au/pharmacies/v — Pharmacy premises registration
+  ✓ ahpra.gov.au — Australian Health Practitioner Regulation Agency
+```
+
+**Canada — Provincial Pharmacy Regulatory Authorities**
+
+Pharmacy regulation in Canada is provincial. Each province has its own pharmacy regulatory authority (e.g., Ontario College of Pharmacists, Ordre des pharmaciens du Québec, College of Pharmacists of British Columbia). There is no single national register. A verifiable claim would be issued by the relevant provincial authority.
+
+```
+✓ [provincial-authority]/pharmacies/v — Provincial pharmacy registration
+  ✓ [provincial-authority] — Provincial pharmacy regulatory authority
 ```
 
 </details>
