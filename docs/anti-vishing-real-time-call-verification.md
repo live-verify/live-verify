@@ -1,5 +1,7 @@
 # Anti-Vishing: Real-Time Call Verification
 
+The defence: make the claimed authority produce a verifiable object during the call. See [Channel Impersonation Fraud Controls](channel-impersonation-fraud-controls.md) for the family overview.
+
 ## The Problem
 
 Vishing (voice phishing) is one of the most effective fraud techniques because it exploits a structural asymmetry: when a bank genuinely calls a customer, the customer has no way to confirm the call is real. Banks tell customers "never give your PIN to anyone who calls you" and then call customers and ask for identity verification. The customer is trained to be suspicious but given no tool to resolve that suspicion in the moment.
