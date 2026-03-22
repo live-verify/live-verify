@@ -90,6 +90,7 @@ The common design principle: make the decisive fraud artifact portable, current,
 
 - [Portable Anti-Scam Legal Objects](view.html?doc=portable-anti-scam-legal-objects) — the policy pattern behind this stack
 - [Verification Chain Civil Liberties Safeguards](view.html?doc=verification-chain-civil-liberties-safeguards) — the due-process and privacy limits needed if these controls become mandatory
+- [Anti-Vishing: Real-Time Call Verification](../../docs/anti-vishing-real-time-call-verification.md) — real-time call authentication using RCS-delivered Live Verify claims with one-time code words
 
 ---
 

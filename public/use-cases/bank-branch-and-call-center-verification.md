@@ -21,6 +21,10 @@ This is defensive. The bank is not verifying something about the customer — it
 
 This artifact proves that a branch or call center reference belongs to the bank. It does not prove that a specific inbound call was genuinely initiated by the bank — a scammer who knows the branch reference could quote it.
 
+**Perspective:** This page covers static bank contact points and references from the customer's perspective, not full live-call authentication.
+
+**Verification asymmetry:** The customer can see a branch, letter, number, or callback reference, but still lacks a reliable way to tell whether it genuinely belongs to the bank unless it verifies against the bank's domain.
+
 The stronger anti-vishing control is **real-time call verification via RCS** (see below and [Anti-Vishing: Real-Time Call Verification](../../docs/anti-vishing-real-time-call-verification.md)), where the bank sends a verified RCS message simultaneously with the call, containing a Live Verify claim that the customer's phone checks automatically. The branch/correspondence verification is a foundation layer for letters, in-branch, and static contacts; the RCS-delivered per-call verification is the full solution for live phone calls.
 
 ## Example: Branch Verification (In-Branch Signage or Card)

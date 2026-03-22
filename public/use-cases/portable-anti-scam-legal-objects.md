@@ -120,6 +120,7 @@ This rollup is useful for:
 
 - [Domestic Organized Fraud Control Stack](view.html?doc=domestic-organized-fraud-controls) — the operational fraud family this policy pattern supports
 - [Verification Chain Civil Liberties Safeguards](view.html?doc=verification-chain-civil-liberties-safeguards) — the counterweight needed if these objects gain legal force
+- [Anti-Vishing: Real-Time Call Verification](../../docs/anti-vishing-real-time-call-verification.md) — real-time authentication of genuine outbound calls, complementing the portable legal objects that travel by post and email
 
 ---
 

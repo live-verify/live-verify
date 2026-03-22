@@ -23,6 +23,12 @@ At the threshold, the real question is not "is this a broadly legitimate worker 
 - are they actually expected in this area, at this address, or for this campaign?
 - does their role match what they are asking to do?
 
+**Perspective:** This use case is written from the householder's or occupant's perspective. The interaction is an in-person interruption at the door, even though it is initiated by someone claiming to act for an authority, utility, employer, or service provider.
+
+**Institutional power asymmetry:** The claimed visitor may invoke operational authority, urgency, embarrassment, or fear of non-compliance to gain entry, attention, money, or information.
+
+**Verification asymmetry:** The recipient must decide immediately whether the person at the door really has the role, scope, and local authorization they claim, but usually has no fast independent way to check in the moment.
+
 <div style="max-width: 350px; margin: 24px auto; font-family: sans-serif; border: 2px solid #0066cc; background: #fff; padding: 0; border-radius: 8px; overflow: hidden;">
   <div style="background: #0066cc; color: #fff; padding: 12px; display: flex; align-items: center; gap: 10px;">
     <div style="font-size: 1.5em;">💧</div>
@@ -369,3 +375,4 @@ If a witness layer exists, it may periodically commit rollups to a public blockc
 - [Estate Clearance Authorizations](view.html?slug=estate-clearance-authorizations) — Authorized work at a property with posted notices
 - [Home Service Provider Verification](view.html?slug=home-service-provider-verification) — Scheduled contractor and tradesperson visits
 - [Trades and Home-Visit Cluster](../../trades-home-visit-cluster.md) — Cluster note for threshold-decision cases
+- [Anti-Vishing: Real-Time Call Verification](../../docs/anti-vishing-real-time-call-verification.md) — extends the cold-caller credential concept to phone calls using RCS-delivered verification with one-time code words

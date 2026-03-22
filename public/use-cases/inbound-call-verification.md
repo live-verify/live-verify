@@ -21,6 +21,12 @@ This is **vishing** (voice phishing), and it is one of the most common fraud pat
 
 The problem is that **legitimate government calls use the exact same pattern.** A real deputy calling about a real summons sounds identical to a scammer. The citizen cannot tell the difference.
 
+**Perspective:** This use case is written from the recipient's perspective. The call is inbound to the citizen or customer, even though it is outbound from the authority.
+
+**Institutional power asymmetry:** The authority can threaten or impose legal, financial, or administrative consequences that the recipient cannot safely ignore.
+
+**Verification asymmetry:** The recipient is being asked to respond in the moment, but lacks a fast independent way to verify legitimacy unless the authority issues a live verification object during the interaction.
+
 Live Verify solves this with an **officer-triggered SMS verification**. When a citizen picks up a legitimate government call and expresses skepticism — as they should — the officer presses a button in their call management system. An SMS arrives on the citizen's phone *while they're on the line*, in present tense: "You are currently speaking to Deputy R. Martinez concerning court summons CV-2026-03892." The citizen taps the verify line, confirms the call is genuine, and the conversation proceeds with trust established.
 
 **Why officer-triggered, not automatic?** If the SMS fires automatically when the call connects, every unanswered call and voicemail dumps a cryptic verification text on the citizen's phone with no context. Wasted verifications, confused recipients, noise. The officer presses the button only after a human picks up and the conversation has started — no voicemail pollution, no wasted hashes.
@@ -475,3 +481,7 @@ If a witness layer exists, it may periodically commit rollups to a public blockc
 1. **Video call verification** — For government video appointments (immigration interviews, remote court appearances) or commercial video calls (telehealth, financial advisor), an SMS verification confirming the video link is genuine and who will be on the other end.
 2. **Automated call verification** — Robocalls and automated calls from government systems (prescription refill notifications, appointment reminders, emergency alerts) or commercial systems (bank fraud alerts, utility outage notifications) that carry a verify line confirming the call is from the stated organization.
 3. **Inbound text/chat verification** — The same pattern applied to SMS, WhatsApp, or chat messages claiming to be from an organization. "This is your bank — reply with your PIN to unlock your account." A verification link in the message, bound to the bank's domain, proves (or disproves) it's real.
+
+## See Also
+
+- [Anti-Vishing: Real-Time Call Verification](../../docs/anti-vishing-real-time-call-verification.md) — the complement to inbound call verification: how organizations authenticate their outbound calls to customers using RCS-delivered Live Verify claims

@@ -23,6 +23,10 @@ The channel doesn't matter. The same scam — say, a fake bank fraud alert — c
 
 This document catalogs the major scam types that rely on impersonation, describes where in each scam's lifecycle verification applies, and notes that the channel of contact is a secondary detail — not the defining characteristic.
 
+**Perspective:** This is a recipient-side taxonomy. It is written from the point of view of the person or organization being asked to trust a claimed identity, authority, or demand.
+
+**Verification asymmetry:** Across channels, the common fraud pattern is the same: the impersonator can demand trust immediately, while the target lacks a fast independent way to verify the claim unless the claimed organization can produce a verifiable object bound to its domain.
+
 ## Scam Types
 
 ### Authority Impersonation
@@ -259,3 +263,7 @@ If a witness layer exists, it may periodically commit rollups to a public blockc
 
 1. **AI-generated impersonation** — Deepfake voice and video used to impersonate specific individuals (CEO fraud, family member impersonation). The verification principle extends: can the "CEO" produce a verifiable claim from the company's domain? Can the "family member" verify through a pre-established channel?
 2. **Cross-border impersonation** — Foreign actors fabricating legal documents or impersonating officials from a different country's government (the China/OpenAI scenario). Verification against the actual foreign government's domain exposes the fabrication regardless of how convincing the document or caller appears.
+
+## See Also
+
+- [Anti-Vishing: Real-Time Call Verification](../../docs/anti-vishing-real-time-call-verification.md) — RCS-delivered Live Verify claims with one-time code words for authenticating genuine outbound calls during the call itself

@@ -21,6 +21,12 @@ In practice, these obligations are routinely violated or obscured. The customer 
 
 With Live Verify, the bank issues a verified fraud report acknowledgment — a plain-text document carrying a verify line. The customer has cryptographic proof of exactly what was reported, what the bank's initial findings were, and what regulatory protections apply. If the bank later drags its feet, denies the report, or fails to issue provisional credit, the customer has a timestamped, domain-verified receipt.
 
+**Perspective:** This use case is written from the account holder's perspective. The report is made to the bank, but the key problem is whether the customer receives a portable, verifiable acknowledgment of what the bank accepted and when.
+
+**Institutional power asymmetry:** The bank controls investigation timing, provisional credit, refund decisions, account restrictions, and the quality of the record later relied on in disputes.
+
+**Verification asymmetry:** The customer is often in crisis and needs an immediate, trustworthy record of what was reported, what actions were promised, and when the regulatory clock started. Without a verifiable acknowledgment, the bank can later dispute timing, scope, or even receipt of the report.
+
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #0a3d7c; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
@@ -250,3 +256,7 @@ See [Witnessing and Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for t
 
 1. **Investigation status updates** — As the investigation progresses, the bank issues updated acknowledgments with new statuses. Each is independently verifiable, creating a timestamped audit trail of the bank's investigation timeline. A customer who received `UNDER_INVESTIGATION` on March 6 and still has no `RESOLVED_*` status 30 days later has verified proof of Reg E violation.
 2. **Cross-institution fraud reports** — When fraud spans multiple banks (e.g., unauthorized wire from Chase to a mule account at another bank), each bank's fraud acknowledgment is independently verifiable. A coordinated recovery effort can be documented with verified receipts from all involved institutions.
+
+## See Also
+
+- [Anti-Vishing: Real-Time Call Verification](../../docs/anti-vishing-real-time-call-verification.md) — vishing is often the attack that precedes a fraud report. Real-time call verification aims to prevent the fraud before a report is needed.
