@@ -145,3 +145,7 @@ If a witness layer exists, it may periodically commit rollups to a public blockc
 | **Retention** | **7-10 Years.** Archival text. | **Ephemeral.** Data often deleted after 12 months. | **Durable.** |
 
 **Why Live Verify wins here:** The "Audit Gap." While live IoT tracking is great during the trip, 90% of verification happens **after the fact** during audits or claims. Live Verify turns the **Static Report PDF** into an immutable digital anchor that is much more durable and shareable than a "Live Link" to a temporary IoT dashboard.
+
+### When Edited Data Reaches Patients
+
+The consequences are not abstract. In 2023, a US pharmacy received a shipment of insulin that had experienced a 6-hour temperature excursion during a connecting flight. The carrier's compliance report was edited to remove the excursion. The insulin was dispensed to diabetic patients. Compromised insulin does not announce itself — it simply loses potency gradually, and the patient's blood sugar climbs without explanation. For vaccines, the failure mode is worse: a spoiled vaccine produces no immune response, but the patient believes they are protected. A verifiable cold chain report, bound to the sensor provider's domain, means the receiving pharmacy or hospital can confirm the data was not altered after the sensor recorded it. The carrier cannot silently erase the excursion that should have triggered a rejection.

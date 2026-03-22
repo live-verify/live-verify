@@ -15,6 +15,12 @@ A satisfaction letter (also called a payoff letter, release letter, or lien rele
 
 Fraud is common: altered payoff amounts, fake lien releases, and fraudulent "paid in full" letters are used in real estate fraud and identity theft schemes. Live Verify connects the verifier directly to the lender's domain.
 
+**Why verification matters here:**
+
+- **A fake lien release clears the way for fraudulent property sales.** A seller presents a forged mortgage satisfaction letter to a title company. The title search shows the lien as released. The property sells. The buyer discovers months later that the original mortgage was never paid off — and the lender's lien is still attached to the property.
+- **Fake payoff letters conceal debt during lending.** A borrower seeking a new loan presents a fabricated satisfaction letter for an existing debt. The new lender, seeing the debt as "paid," approves a larger loan than the borrower can service. The original debt is still accruing interest.
+- **Borrowers need proof their debt is genuinely cleared.** After paying off a student loan, auto loan, or mortgage, the borrower needs authoritative proof that the balance is zero and the lien is released. A verified hash from the lender's domain is that proof — useful for years afterward when applying for new credit, selling property, or disputing credit bureau errors.
+
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
   <span verifiable-text="start" data-for="mortgage"></span>MORTGAGE SATISFACTION<br>
   First National Bank<br>

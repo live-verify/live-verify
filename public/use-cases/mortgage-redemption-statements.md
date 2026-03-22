@@ -17,6 +17,12 @@ Currently, solicitors request redemption figures by post or through lender porta
 
 The redemption figure is not a single static number — it is a time-bounded calculation that depends on the completion date, daily interest accrual, any applicable fees, and the method and timing of payment. The verified statement pins these variables to a specific date and validity window. The operational question is more precisely: "what will discharge this mortgage if paid in the permitted way by this deadline?" An incorrect or fabricated redemption figure can derail a transaction chain involving multiple buyers and sellers.
 
+**Why verification matters here:**
+
+- **A wrong figure breaks the chain.** Property transactions in England frequently involve chains of four or more linked sales. If the redemption figure is stale, altered, or fabricated, the seller's solicitor remits the wrong amount. The lender refuses to release the charge. Completion fails. Every transaction downstream collapses on the same day, affecting families who have booked removal vans and exchanged contracts.
+- **Daily interest accrual means precision matters.** At £19.22 per day, a redemption figure that is 14 days out of date is £269 short. The lender will not release the charge for a shortfall of any amount. The buyer's solicitor must obtain a fresh figure, which can take days — during which the daily interest continues to accrue.
+- **Fabricated statements enable equity release fraud.** A fraudster posing as the homeowner obtains a fake redemption statement showing a low outstanding balance, uses it to demonstrate high equity, and borrows against the property. The genuine lender's charge remains, and the second lender discovers the true position only at enforcement.
+
 This page covers the mid-term "here is what you owe as of today" statement. For the post-payoff confirmation that the mortgage is fully discharged and the lien released, see [Mortgage Satisfaction and Lien Release](view.html?doc=mortgage-satisfaction-lien-release).
 
 ## Mortgage Redemption Statement

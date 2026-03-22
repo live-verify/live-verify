@@ -15,6 +15,8 @@ A franchisor authorizes specific locations to trade under its brand. The locatio
 
 The customer has no practical way to verify that claim. The brand's "find a store" page may exist, but it is often incomplete, slow to update after terminations, and irrelevant when the customer is already standing in the shop or browsing a delivery app. Meanwhile, the signage or listing — "Costa Coffee" or "Subway" — is trivially easy to reproduce.
 
+**Why would you bother verifying?** Because the brand name on the sign is doing all the trust work. When you walk into a Costa Coffee, you are implicitly trusting that the beans, the hygiene standards, the staff training, the food safety procedures, and the complaints process all meet the standards the brand promises. If the location was terminated six months ago for failing hygiene inspections but kept the signage up, none of that applies — and you have no way to know. For delivery platforms, the problem is worse: you cannot even see the premises, and the platform itself may not have checked the franchise relationship since the restaurant was first listed. A food safety incident at a terminated franchise creates a liability mess for the brand, the platform, and the customer.
+
 This matters because:
 
 - terminated franchisees sometimes continue operating under the brand after their license expires or is revoked, with no ongoing quality oversight

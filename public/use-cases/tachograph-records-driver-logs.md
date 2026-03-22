@@ -137,3 +137,7 @@ If a witness layer exists, it may periodically commit rollups to a public blockc
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
 3. **Public blockchain** — Decentralized trust anchor via rollup inclusion
+
+### The Specific Consequence
+
+A driver who has been awake for 18 hours has reaction times comparable to someone at twice the legal blood-alcohol limit. When a 40-ton truck at highway speed drifts across the median, the outcome is not a fender-bender — it is a multi-vehicle fatality. In 2024, the FMCSA reported that driver fatigue was a factor in over 13% of fatal large-truck crashes in the US. The falsified log — the "ghost log" that shows the driver resting when they were actually driving — is the specific document failure that enables this. A verifiable driver log, bound to the ELD provider's domain, means a weigh-station officer or a carrier's own safety manager can confirm the hours are what the device actually recorded, not what someone edited afterward.

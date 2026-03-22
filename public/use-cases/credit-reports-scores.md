@@ -15,6 +15,12 @@ Your credit report is the single most consequential document most people never s
 
 With Live Verify, the credit report carries a verify line bound to the bureau's domain. The landlord or lender scans the report the applicant provided and gets confirmation from equifax.com or experian.com that this is the authentic, unaltered report for this individual as of the stated date.
 
+**Why verification matters here:**
+
+- **A 520 becomes a 780 in seconds.** Credit report PDFs are trivially editable. The score, the number of derogatory marks, the utilization percentage — all can be changed with basic PDF tools or browser developer tools. The landlord or lender receiving the PDF has no way to confirm it matches what the bureau actually issued.
+- **The consequences fall on the relying party.** A landlord who accepts a tenant based on a fabricated 780 score discovers the reality when rent stops arriving. A lender who funds a loan based on an altered report holds a loan the borrower cannot service. The fraud is discovered months later, after the damage is done.
+- **Pulling your own copy requires the subject's SSN.** The current alternative — having the landlord or lender pull their own credit report — requires the applicant to provide their Social Security Number and consent to a hard inquiry. A verified hash eliminates the need for SSN disclosure while still confirming the report is authentic.
+
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
   <span verifiable-text="start" data-for="creditreport"></span>EQUIFAX CREDIT REPORT SUMMARY<br>
   ────────────────────────────────<br>

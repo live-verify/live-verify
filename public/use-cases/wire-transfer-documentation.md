@@ -15,6 +15,12 @@ In the banking world, a **Wire Transfer Confirmation** (often called a "Debit Ad
 
 These documents are the "Trigger for Action" in high-value commerce. A title company releases a house deed, or a supplier ships a $1M load of electronics, only *after* they see this confirmation. Fraud is rampant: **Business Email Compromise (BEC)** scammers use Photoshop to create pixel-perfect fake "Sent" confirmations to trick victims into releasing goods before the fraud is discovered. Verified hashes bind the **Reference Number, Beneficiary Account, and Amount** to the sending bank's domain (e.g., `goliathbank.com`).
 
+**Why verification matters here:**
+
+- **The fake confirmation triggers irreversible action.** A supplier ships $1.2M of goods. A title company releases a deed. A contractor begins demolition. All because a PDF with a Fedwire reference number said the money was sent. The goods are gone, the deed is transferred, the building is torn down — and the wire never existed.
+- **BEC losses are measured in billions.** The FBI's IC3 reports over $2.9 billion in BEC losses annually in the US alone. Wire transfer confirmations are the single highest-value document type exploited in these schemes.
+- **Callback verification is slow and fallible.** The current practice — calling the bank to confirm a wire — requires reaching the right department, quoting the reference number, and waiting for manual confirmation. It takes 30 minutes to 2 hours. A hash check against the bank's domain takes seconds and provides cryptographic certainty rather than a verbal "yes."
+
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Courier New', Courier, monospace; border: 1px solid #333; background: #fff; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="border-bottom: 1px dashed #333; padding-bottom: 15px; margin-bottom: 20px; text-align: center;">
     <div style="font-weight: bold; font-size: 1.3em;"><span verifiable-text="start" data-for="wire"></span>GOLIATH NATIONAL BANK</div>

@@ -23,7 +23,7 @@ There are also adjacent cases using email, text, or direct message rather than a
 This note is a working simplification for use-case writing.
 
 
-## Keep the actor model small
+## Keep the actor model small 
 
 Where possible, use only these actors:
 

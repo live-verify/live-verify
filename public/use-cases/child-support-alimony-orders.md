@@ -189,6 +189,10 @@ If a witness layer exists, it may periodically commit rollups to a public blockc
 2. **Witnessing firm** — Independent confirmation with timestamp
 3. **Public blockchain** — Decentralized trust anchor via rollup inclusion
 
+### This Protects Both Parents
+
+The custodial parent needs the employer to garnish the correct amount — not a lower figure from an outdated or altered order. The paying parent needs protection against a fabricated order that inflates the amount, or an old order presented to a new employer after the court reduced the obligation. Both sides are vulnerable to document manipulation in opposite directions, and both benefit from the same verification mechanism: the employer scans the order, the court's domain confirms it is current, and the amount is what the judge actually ordered. Neither parent can game the system, and neither parent is victimized by the other's forgery.
+
 ## Further Derivations
 
 1. **Property division orders** — Court orders dividing marital assets (real estate, retirement accounts, business interests). Banks, title companies, and pension administrators all need to verify these orders before transferring assets. Same verification architecture: court issues the order, parties and institutions scan to confirm authenticity and current status.

@@ -20,6 +20,8 @@ The **Provider ID Badge** is the digital or physical card the nanny carries. It 
 
 Tragically, some people use "ID Swapping"—using a sibling's clear background check to get work while they themselves have a criminal history. Scanning the badge at the door and seeing the "Verified" photo from the network stops this instantly.
 
+**The substitution problem is the critical risk here.** The credential may be genuine — a real background check, a real first aid certificate — but worn by the wrong person. A verified badge with a `photo_url` in the verification response catches this: the parent sees the platform's photo of the person who passed the check and compares it to the person standing in their kitchen. This is not a background check bypass; it is identity binding at the moment of care. The consequences of getting this wrong are not financial — they are the safety of a child left alone with a stranger whose real identity is unknown.
+
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
   <div style="background: #e91e63; color: #fff; padding: 15px; text-align: center; display: flex; align-items: center; justify-content: center;">
     <div style="font-size: 1.5em; margin-right: 10px;">🧸</div>

@@ -15,6 +15,12 @@ In the modern mobile economy, **P2P (Peer-to-Peer) Payments** move money in seco
 
 Because these apps move money instantly, they are the #1 target for **"Screenshot Scams."** A dishonest buyer shows a seller a pixel-perfect fake "Sent" screenshot to trick them into handing over a high-value item (like a phone or a car), when in reality, no money was ever moved. Verified hashes bind the **Transaction ID, Receiver @Handle, and Amount** to the payment platform's domain (e.g., `venmo.com` or `zellepay.com`).
 
+**Why you should bother verifying:**
+
+- **The scam happens at the curb.** You are selling a phone, a gaming console, or a bicycle. The buyer shows you their screen: "Payment Sent — $450.00." You hand over the item. You check your account later — nothing arrived. The screenshot was fabricated. The buyer is gone.
+- **There is no recourse.** Unlike credit card chargebacks or bank transfers, P2P payments that were never made cannot be reversed — because there is nothing to reverse. You gave away physical goods based on a screenshot. The police will file a report; the money is not coming back.
+- **Checking your own account is not enough.** Cellular dead spots, app delays, and pending statuses create a window where "it hasn't arrived yet" sounds plausible. A verified hash against the platform's domain confirms the transaction exists *before* you hand over the goods — regardless of whether your notification has arrived.
+
 <div style="max-width: 400px; margin: 24px auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; border: 1px solid #eee; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="background: #008CFF; color: #fff; padding: 25px; text-align: center;">
     <div style="font-size: 1.1em; font-weight: bold;"><span verifiable-text="start" data-for="p2p"></span>Payment Sent</div>

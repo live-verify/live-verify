@@ -42,6 +42,12 @@ furtherDerivations: 1
   </div>
 </div>
 
+## Framing Insights
+
+**Specific consequences (Pattern E):** A radiologist who performs an MRI on a patient with an "MRI Unsafe" pacemaker can kill them. The magnetic field can heat the device leads, move the generator, or reset the firmware. This is not a theoretical risk — it is a known cause of patient death. The radiologist's only protection is the wallet card the patient carries, and that card is a piece of unverifiable paper. If the card has been forged, altered, or belongs to someone else, the radiologist has no way to know until the patient is in the bore. A `verify:` line that returns "MRI Conditional — Verified by Medtronic" is the difference between proceeding safely and a catastrophic outcome.
+
+**Protects both sides (Pattern D):** The patient needs the scan. The radiologist needs to know the implant is safe for MRI. Without verification, radiologists routinely refuse scans for patients with implants — not because the device is unsafe, but because they cannot confirm it is safe. Patients wait weeks for manufacturer phone calls or surgical records. Verification unlocks access to care for the patient and removes legal exposure for the radiologist, in one scan.
+
 ## Data Verified
 
 Patient name, date of birth, device serial number, UDI (Unique Device Identifier), implanting surgeon name, hospital/facility ID, date of implantation, MRI safety status (e.g., "MRI Conditional"), issuing manufacturer name.

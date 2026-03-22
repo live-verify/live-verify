@@ -15,6 +15,8 @@ Just because someone has a law degree doesn't mean they are allowed to practice 
 
 A **Certificate of Good Standing** is the "Live License" for a lawyer. It is issued by the Supreme Court of their state and proves they are active and compliant.
 
+**Why would you bother verifying?** Because the consequences of engaging a suspended or disbarred lawyer are severe and often irreversible. Contracts drafted by an unauthorized practitioner may be voidable. Court filings made by someone not in good standing can be struck, causing missed deadlines that cannot be recovered. A client who discovers their lawyer was suspended only after losing a case or a property transaction has limited recourse — malpractice insurance typically does not cover unauthorized practice, and the disciplinary system is designed to protect future clients, not to compensate past ones. The harm compounds: the client loses the case, loses the fees paid, and may face costs awarded to the other side — all because the person standing in court was not actually permitted to be there.
+
 The strongest architecture is still the court or bar's own public status page or registry where one exists. Live Verify is more credible as a bridge when the good-standing letter itself is the portable artifact being filed, emailed, or shown in court.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 1px solid #999; background: #fff; padding: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">

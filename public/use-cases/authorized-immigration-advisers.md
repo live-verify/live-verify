@@ -23,6 +23,8 @@ This matters because:
 - suspended or struck-off advisers may continue advertising as registered for months after enforcement action
 - "immigration consultants" operating with no registration at all use professional-looking websites to appear legitimate
 
+**Why would you bother verifying?** Immigration advice is one of the highest-stakes professional relationships a person can enter. A botched visa application does not just waste the fee — it can trigger a refusal that must be declared on all future applications, create an overstay record, or lead to removal from the country. The client may lose their job, their housing, and their right to remain. For asylum seekers, the consequences are even more severe: a poorly prepared claim can result in deportation to the country they fled. Unlicensed advisers are disproportionately active in communities with limited English, where clients are least able to verify credentials independently. Verification protects both sides: the legitimate adviser proves their registration to prospective clients, and the client avoids handing their immigration future to someone who was never authorized — or who was struck off last month and is still advertising.
+
 A verifiable registration claim is a short statement, issued by the regulatory body, naming the adviser and the site where the claim is displayed. The client can verify it in place — on the adviser's own website — without searching the regulator's register separately.
 
 ## Example: OISC Registration Claim

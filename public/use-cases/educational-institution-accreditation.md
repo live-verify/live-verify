@@ -70,6 +70,10 @@ Shows the issuer domain (`msche.org`, `hlcommission.org`) and current standing.
 - **Show-Cause** — Final warning before withdrawal of accreditation.
 - **Resigned/Withdrawn** — Institution is no longer accredited.
 
+## Why Would You Bother Verifying?
+
+Because a degree from an unaccredited institution is often worthless — and the student discovers this only after spending years and tens of thousands of dollars. Credits from unaccredited schools do not transfer. Graduate schools will not accept the undergraduate degree as a qualifying credential. Professional licensing boards in medicine, law, engineering, and education will not consider the degree at all. In the worst case, an employer discovers the accreditation was fake during a background check, and the employee — who may have genuinely believed their school was legitimate — loses their job and their professional reputation. The diploma mill industry specifically targets students who are the first in their family to attend university and least likely to know what accreditation means.
+
 ## Second-Party Use
 
 The **University / College** benefits from verification.

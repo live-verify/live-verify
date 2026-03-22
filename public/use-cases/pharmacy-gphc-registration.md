@@ -27,6 +27,8 @@ In the UK, the General Pharmaceutical Council (GPhC) is the independent regulato
 
 Online pharmacies are a significant fraud vector. Fake pharmacy websites sell counterfeit, substandard, or dangerous medication. Some operate without any registration. Others use a genuine registration number belonging to a different pharmacy. The GPhC register exists, but the consumer encounters the pharmacy's own website — not the register. Few patients navigate to `pharmacyregulation.org` and look up the registration number before placing an order.
 
+**"Why would you bother?"** For a high-street pharmacy you've used for years, you probably wouldn't. Verification matters when buying medication online — which a growing number of people do for convenience, privacy, or price. Fake online pharmacies are not a minor fraud category: they sell counterfeit, substandard, or entirely fabricated medication. The WHO estimates that up to 1 in 10 medical products in low- and middle-income countries is substandard or falsified, and fake online pharmacies are a primary distribution channel. Counterfeit antibiotics that contain no active ingredient, blood pressure medication with the wrong dosage, or pain relief contaminated with fentanyl — these are documented harms, not hypothetical ones. A patient ordering from an unregistered online pharmacy has no recourse and no regulatory protection. The consequences can be fatal.
+
 A verifiable registration claim is text issued by the GPhC, embedded on the pharmacy's website or displayed at the physical premises. The patient verifies it in place — by clipping the text on the website — without navigating away to the GPhC register.
 
 ## Example: Online Pharmacy Website

@@ -9,6 +9,16 @@ tags: ["employment-verification", "fannie-mae-compliance", "fraud-prevention", "
 furtherDerivations: 2
 ---
 
+## The Problem
+
+A Verification of Employment (VOE) letter confirms that a person works where they say they work and earns what they say they earn. It is one of the core documents in mortgage underwriting — the lender will not fund the loan without it.
+
+**Why verification matters here:**
+
+- **Fabricated employment letters are a primary mortgage fraud vector.** "Employment mills" sell fake VOE letters on letterhead of real companies, complete with HR contact details that route to the fraudster. The lender calls the number on the letter and gets a convincing confirmation of a job that does not exist. The loan is funded against fabricated income.
+- **Income inflation is simple and effective.** Changing "$85,000 / Annual" to "$145,000 / Annual" on a PDF takes seconds. The borrower qualifies for a larger loan, buys a more expensive property, and defaults when the real income cannot service the debt. The lender holds the loss.
+- **The employer benefits too.** When a fraudulent VOE is attributed to a company, the employer may be contacted during investigations or litigation. A verified hash on the employer's domain proves what the HR department actually issued — protecting the company from association with fraudulent loan applications.
+
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="mort-voe"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">ACME GLOBAL HUB, INC.

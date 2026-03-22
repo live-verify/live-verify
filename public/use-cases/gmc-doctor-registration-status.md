@@ -27,6 +27,8 @@ The examples below use the UK's GMC as the primary illustration, but the pattern
 
 This is the first of a cluster of health professional registration use cases. The same pattern applies to nursing and midwifery registers (e.g., NMC in the UK, state boards of nursing in the US) and allied health professional registers (e.g., HCPC in the UK, AHPRA disciplines in Australia).
 
+**"Why would you bother?"** For NHS patients in a hospital, the institutional context provides trust — the hospital employs the doctor. But for private healthcare, the patient chooses and pays directly, often finding the doctor through a website or a recommendation. A private clinic website that states "Dr Smith is GMC registered" is a self-assertion. A suspended or erased doctor may continue operating a private practice for weeks before enforcement catches up. The consequences are direct: a doctor erased from the register after a Fitness to Practise hearing may have been found guilty of serious clinical failures — misdiagnosis, surgical errors, prescribing dangerous drug combinations. Patients of private clinics and telemedicine platforms have the weakest institutional protection and the strongest reason to verify independently.
+
 ## Example: Clinic Website
 
 The GMC supplies the doctor (or the clinic) with an HTML snippet to embed on the clinic's website. The styling is ignored by clip mode — only the text content matters for hashing.

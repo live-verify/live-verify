@@ -55,6 +55,12 @@ This paper is the #1 tool for preventing "Medical Errors" when a patient moves t
   </div>
 </div>
 
+## Framing Insights
+
+**Specific consequences (Pattern E):** Medication errors during care transitions are the number one cause of preventable hospital readmissions. A patient discharged on warfarin (blood thinner) whose summary is altered — intentionally or accidentally — to omit that medication will not have it reconciled at the nursing home. They develop a blood clot. They are readmitted or they die. The discharge summary is the single document that travels with the patient across the care boundary, and it is currently an unverifiable piece of paper.
+
+**"Why would you bother?" (Pattern A):** Patients and families edit discharge summaries more often than clinicians realize. A patient removes "Alcohol Dependency" before showing the summary to a new GP. A family member deletes "Psychiatric Consultation" before sending it to an employer. A patient adds an opioid to the medication list to obtain it from a new pharmacy. None of these edits are detectable from the paper alone.
+
 ## Data Verified
 
 Patient name, MRN (Medical Record Number), admission/discharge dates, primary diagnosis, list of new medications (dose/frequency), follow-up requirements, attending physician name, facility ID.

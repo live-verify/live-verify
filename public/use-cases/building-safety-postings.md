@@ -183,6 +183,10 @@ This provides:
 - **Regulatory audit:** Jurisdictions can inspect the witness ledger for fraud detection
 - **Resilience:** Verification works even if issuer's systems go down
 
+### Why Would You Scan an Elevator Certificate?
+
+You wouldn't — until the day something feels wrong. The elevator jerks between floors. The fire extinguisher in the hallway looks ancient. The carbon monoxide detector in your apartment has a blank inspection sticker. In that moment, the posted certificate is the only artifact connecting you to the inspector's actual finding. If the certificate is stale or fabricated, you have no way to know. If it is verifiable, a five-second scan from your phone tells you whether the inspection actually happened, when it happened, and whether the equipment passed. The person most likely to scan is not a regulator on a scheduled visit — it is a tenant, a parent in a daycare, or a hotel guest who noticed something off and wants a fast, independent answer.
+
 **Public Blockchain (Non-Party)**
 
 If a witness layer exists, it may periodically commit rollups to a public blockchain as an additional timestamping mechanism. That is optional, not inherent to the use case. The verification paths would then be:

@@ -15,6 +15,12 @@ A tenant reference is a statement from a previous landlord or letting agent conf
 
 Fraud is rampant. Prospective tenants fabricate references from fictional landlords, use friends' phone numbers as "landlord contacts," or edit PDFs to hide eviction history. Landlords accepting these at face value lose thousands in unpaid rent and property damage. Live Verify binds the **tenant name, property address, tenancy dates, and departure status** to the landlord's or letting agent's domain.
 
+**Why you should care — from both sides:**
+
+- **Landlords lose real money.** A tenant with fabricated references who stops paying rent can cost the landlord £5,000–£15,000 in lost rent, legal fees, and property damage before eviction completes — a process that takes 6–12 months in England. In the US, the timeline and costs are comparable or worse depending on the state.
+- **Good tenants benefit too.** In competitive rental markets, a verifiable reference from a recognised letting agent's domain is a genuine advantage. It separates applicants with real track records from those relying on unverifiable PDFs. The tenant who paid rent on time for three years deserves a credential that proves it.
+- **The reference is only as trustworthy as the source.** Current practice asks the new landlord to call a phone number *provided by the applicant*. The applicant's friend confirms everything. A domain-bound hash removes the applicant from the verification loop — the check goes to the letting agent's actual domain, not to whoever answers a mobile number.
+
 <div style="max-width: 550px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 20px; position: relative;">
   <div style="font-size: 0.85em; color: #555; border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 15px;">
     <strong>From:</strong> sarah.jones@gmail.com<br>

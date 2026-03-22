@@ -15,6 +15,12 @@ UK law requires landlords to protect tenancy deposits in one of three government
 
 The trouble is that tenants have no fast way to confirm this actually happened. Each scheme has its own lookup tool, and a tenant would need to search all three to confirm protection — or to confirm that their deposit is unprotected. Many landlords fail to protect deposits at all. Under the Housing Act 2004, tenants whose deposits are not protected can claim compensation of one to three times the deposit amount, and landlords cannot serve a Section 21 "no fault" eviction notice until the deposit is properly protected. But tenants can only exercise these rights if they know their deposit is unprotected.
 
+**Why verification matters — for both sides:**
+
+- **Tenants can claim 1-3x the deposit in compensation.** A £1,200 deposit that was never protected can result in a tribunal award of £1,200–£3,600, plus the return of the deposit itself. But the tenant must first prove the deposit was unprotected — which currently requires searching three separate scheme websites.
+- **Compliant landlords benefit from proof.** A landlord who has protected the deposit within 30 days and served the prescribed information has met their legal obligation. A verifiable claim from the scheme's domain proves this — protecting the landlord from spurious claims that the deposit was never protected, and preserving their ability to serve a Section 21 notice.
+- **The prescribed information requirement is often missed.** Protecting the deposit is only half the obligation. The landlord must also serve the tenant with prescribed information about the scheme within 30 days. A verifiable claim that includes the scheme details and protection date provides evidence of compliance with both requirements.
+
 **Scope limitation:** A single-scheme verifiable claim can only say "protected here" or "not found here." It does not answer the broader question "is my deposit protected anywhere?" — that would require either a cross-scheme aggregator that queries all three schemes and issues a composite response, or the tenant checking each scheme individually. This page models the single-scheme artifact: deposit status at DPS, MyDeposits, or TDS. A "NOT FOUND" result from one scheme means the deposit is not held at that scheme — the tenant would need to check the other two before concluding it is unprotected.
 
 ## Deposit Status — Protected

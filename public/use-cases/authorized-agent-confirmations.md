@@ -25,6 +25,8 @@ Certain people are authorized to do things that would otherwise be illegal:
 
 When challenged by police, property owners, or bystanders, these agents need proof of authorization — instantly verifiable, not a PDF that could be forged.
 
+**"Why would you bother?"** Most people will never encounter a repo agent or a bailiff. But when you do, the encounter is immediate and high-stakes — someone is taking your car, entering your property, or seizing your goods. There is no time for a callback number or a website lookup. Fake bailiff scams target vulnerable people: criminals in high-vis jackets present forged paperwork and demand cash payments or access to the property. The consequences of admitting a fake agent range from theft to home invasion. Equally, a genuine agent benefits from instant verification — it resolves challenges on the spot, reduces confrontations, and provides a clear evidence trail that the agent was authorized at the time of the action.
+
 ## The Verification Challenge
 
 | Role | Who authorizes | Who stores hash | Who verifies in moment |

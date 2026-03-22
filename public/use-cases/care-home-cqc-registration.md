@@ -15,6 +15,8 @@ Every country regulates residential care facilities — nursing homes, aged care
 
 A verifiable registration claim is a short statement, issued by the regulator, naming the facility, its registration number, its current status or rating, and when it was last inspected. The family member verifies it on the facility's website by clipping the text, or from a photograph of printed materials — without navigating to the regulator's own search tool.
 
+**Concrete consequences of misrepresentation:** Placing a vulnerable relative in an unregistered or poorly-rated care home can be irreversible. Residents with dementia or limited mobility cannot advocate for themselves or easily move once placed. Safeguarding failures in care homes — medication errors, neglect, abuse — are documented every year by the CQC and its international equivalents. An unregistered provider operates outside the inspection regime entirely: no mandatory reporting, no safeguarding framework, no regulatory oversight. A family relying on an outdated "Good" rating may be placing a parent in a facility that has since been downgraded or suspended for the kinds of failings that cause serious harm or death.
+
 ### Regulatory Equivalents by Jurisdiction
 
 | Jurisdiction | Regulator(s) | Scope |

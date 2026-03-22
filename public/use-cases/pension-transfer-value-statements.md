@@ -93,6 +93,10 @@ Northbridge DB Pension Scheme, a UK occupational pension scheme, is authorized b
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
+### Why This Destroys Retirements
+
+Pension transfer scams are not abstract. A worker with 30 years of service receives a call from a "pension adviser" showing a transfer value of GBP 400,000 and an "investment opportunity" returning 8% annually. The transfer value statement looks real — same scheme name, same format, plausible numbers. The worker signs. The money leaves the DB scheme and enters a fraudulent SIPP or offshore structure. Six months later the "investment" is worthless and the defined benefit pension is gone permanently. There is no undo. The worker loses their retirement income for life, and the state picks up the cost through means-tested benefits. A verifiable transfer value statement — one the worker or their legitimate IFA can scan and confirm came from the actual scheme administrator — would have stopped the fraud at the moment of decision, before the irreversible transfer was signed.
+
 ## Competition vs. Manual Verification
 
 | Feature | Live Verify | Direct Scheme Contact | Scanned PDF / Letter |

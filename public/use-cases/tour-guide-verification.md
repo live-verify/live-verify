@@ -44,6 +44,14 @@ The problem is that "Tour Guide" is a low-barrier profession. Anyone can buy a g
   </div>
 </div>
 
+## Framing Insights
+
+**"Why would you bother?" (Pattern A):** A "tour guide" who approaches you at a train station in Lisbon, Marrakech, or Bangkok is not necessarily a guide. Unlicensed operators use this role as cover for theft, scams (leading tourists to overpriced shops for kickbacks), and — in the worst cases — assault. "Official Guide" badges cost a few dollars on AliExpress. The question is not whether legitimate guides exist; it is whether you can distinguish one from a predator wearing the same lanyard.
+
+**Photo catches substitution (Pattern C):** The verified badge includes a photo hash. A guide whose license was revoked for harassment cannot lend their badge to a friend or buy a copy. The photo on the badge must match the person standing in front of you, and the hash confirms the photo has not been swapped. This matters most for solo travelers meeting a guide for the first time in an unfamiliar location.
+
+**Protects both sides (Pattern D):** Licensed guides benefit too. In tourist areas saturated with unlicensed operators, legitimate guides compete against people who undercut on price because they carry no insurance, have no training, and have passed no background check. A verified badge is the guide's proof of professionalism — to the traveler, to heritage sites that restrict access to licensed guides, and to platforms that list them.
+
 ## Data Verified
 
 Guide name, license ID, issuing tourism board, photograph (via hash), languages spoken, first aid certification status, insurance policy ID, expiration date, background check timestamp, specialized site access (e.g., "MUSEUM AUTHORIZED").

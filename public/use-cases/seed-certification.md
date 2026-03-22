@@ -135,6 +135,10 @@ If a witness layer exists, it may periodically commit rollups to a public blockc
 2. **Witnessing firm** — Independent confirmation with timestamp
 3. **Public blockchain** — Decentralized trust anchor via rollup inclusion
 
+### When a Farmer Plants the Wrong Seed
+
+The consequence is not immediate — it unfolds over an entire growing season. A farmer buys 500 bags of "certified drought-resistant hybrid corn" at a significant premium. The tags look genuine. The seed goes into the ground. Four months later, during a dry spell, the crop fails — because the seed was actually a cheaper, non-drought-resistant variety repackaged with forged certification tags. The farmer has lost the entire season's income, the planting window has closed, and crop insurance may not cover a loss caused by fraudulent seed. A verifiable certification tag, bound to the certifying agency's domain, would have let the farmer or the co-op confirm the variety and lot number before planting. The five-second scan at the warehouse prevents a six-month catastrophe in the field.
+
 ## Rationale
 
 Seed is the "Software of the Earth." By turning tags into verifiable digital bridges, we protect the billions of dollars in R&D that go into crop breeding and ensure that farmers are planting the high-performance genetics they were promised.

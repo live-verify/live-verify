@@ -768,3 +768,7 @@ Art documentation circulates digitally far more often than physically:
 **Physical OCR is secondary:** Useful when examining original paper certificates during in-person inspections, but the digital workflow is primary for art market participants.
 
 This is an ideal text-to-hash use case.
+
+### The Substitution Problem
+
+Art fraud does not always mean creating a forgery from scratch. The more sophisticated pattern is substitution: a genuine painting is appraised, a genuine certificate of authenticity is issued, and then the painting is swapped for a copy while the original certificate continues to circulate with the fake. The certificate is real — it just no longer describes the object it accompanies. A verifiable appraisal or COA does not solve the physical substitution on its own, but it eliminates one critical enabler: the ability to detach a certificate from its context. If the verification response includes the appraised dimensions, medium, and a photo of the work, the buyer viewing the physical piece can compare what they see against what the institution attested — and a mismatch between the described work and the object in front of them becomes immediately visible.

@@ -39,6 +39,12 @@ furtherDerivations: 1
   </div>
 </div>
 
+## Framing Insights
+
+**"Why would you bother?" (Pattern A):** The I-693 is completed in a sealed envelope that the applicant carries — unopened — to their USCIS interview. The seal is the only tamper evidence. But fake civil surgeons and fraudulent clinics exist: they charge for an "exam" that never happens, produce a clean I-693 for applicants who would fail the real screening (communicable diseases, incomplete vaccinations), and pocket the fee. The applicant gets a sealed envelope containing a fabricated result. USCIS has no fast way to distinguish this from a legitimate exam without contacting the clinic. A `verify:` line bound to the civil surgeon's clinic domain gives the adjudicator instant confirmation that the exam was actually performed by a designated physician.
+
+**Specific consequences (Pattern E):** The I-693 screens for communicable diseases (tuberculosis, syphilis) and required vaccinations. A fraudulent clean result means an applicant with active TB enters the general population without treatment. Public health depends on these exams being real, not just on the paperwork looking real.
+
 ## Data Verified
 
 Applicant name, Alien Registration Number (A-Number), Date of birth, Civil Surgeon name/ID, Clinic location, Date of medical examination, Vaccination status (Complete/Waiver), presence of Class A/B medical conditions, signature of surgeon, date of signature.

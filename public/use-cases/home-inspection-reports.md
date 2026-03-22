@@ -17,6 +17,12 @@ It lists every defect—from a leaky faucet to a cracked foundation. This report
 
 Fraud is high-stakes here: sellers or dishonest agents sometimes "Delete" the scary pages (like the ones about mold or foundation failure) before sending the PDF to the buyer's bank. Verified hashes protect the **inspector's actual findings**, ensuring the buyer knows exactly what they are moving into.
 
+**Why verification matters here:**
+
+- **The report is the negotiation lever.** A home inspection finding of "foundation settlement" or "active water intrusion" can shift the purchase price by $20,000–$80,000. If the seller or their agent removes that page from the PDF before it reaches the lender, the buyer loses their negotiating position — and the lender funds a loan against a property with undisclosed structural defects.
+- **Buyers discover the truth after closing — when it's too late.** The new homeowner finds mould behind the drywall six months in. The seller's disclosure said "no known issues." The original inspection report said otherwise — but the version in the closing file had the page removed. Without a verified hash, the buyer's only recourse is expensive litigation to prove the document was altered.
+- **Protects the inspector too.** Inspectors face professional liability claims when their reports are altered and then attributed to them. A verified hash proves what the inspector actually wrote, protecting them from claims based on tampered versions of their work.
+
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #2c3e50; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>

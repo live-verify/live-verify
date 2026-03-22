@@ -15,6 +15,12 @@ A **Promissory Note** is a legal "Promise to Pay." It is a financial instrument 
 
 These documents are the "Paper Gold" of the lending industry. In the **Secondary Market**, promissory notes are bought and sold for millions of dollars. Fraud is high-stakes: a dishonest person might "edit" a note to change a 5% interest rate to 15%, or to increase the principal amount. Similarly, a borrower might use a fake "Satisfied" stamp to hide a debt. Verified hashes bind the **Principal, Interest Rate, and Maturity Date** to the lender's or the servicing agent's domain (e.g., `chase.com` or `fanniemae.com`).
 
+**Why verification matters here:**
+
+- **Altered terms shift millions in the secondary market.** A $125,000 note at 5% trades at a different price than the same note at 6.5%. Changing the interest rate or principal on a note before selling it on the secondary market defrauds the purchaser — who only discovers the real terms when they try to enforce collection.
+- **Borrowers need proof of what they signed.** A lender who alters a promissory note after signing — adding a prepayment penalty, changing the rate from fixed to variable, or modifying the maturity date — can extract payments the borrower never agreed to. A verified hash on the lender's domain locks the original terms.
+- **"Satisfied" stamps can be fabricated.** A borrower presenting a fake paid-in-full stamp on a promissory note can conceal outstanding debt from a new lender or during a property transaction. Verification against the lender's domain confirms whether the note is genuinely satisfied or still active.
+
 <div style="max-width: 650px; margin: 24px auto; font-family: 'Times New Roman', Times, serif; border: 1px solid #000; background: #fff; padding: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 30px;">
     <h2 style="margin: 0; font-size: 1.4em; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="note"></span>PROMISSORY NOTE</h2>

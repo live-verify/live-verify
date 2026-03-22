@@ -20,6 +20,12 @@ Beyond the relationship between the two parties, a lease is used by third partie
 
 **"Lease Padding"** is a common financial fraud where a landlord "edits" a lease to show a higher rent (e.g., changing $1,500 to $2,500) to trick a bank into lending them more money. **"Fake Leases"** are also used by scammers to illegally occupy vacant homes or commit identity theft. Live Verify binds the **Tenant names, Rent amount, and Term dates** to the property management firm's or the landlord's domain.
 
+**Why verification matters here:**
+
+- **Lease padding inflates income to secure fraudulent loans.** A landlord applying for a mortgage on an investment property changes the lease from $1,500/month to $2,500/month, showing $12,000/year more rental income than exists. The lender approves a larger loan. When the actual rent cannot service the debt, the loan defaults.
+- **Fake leases enable property occupation fraud.** A scammer creates a fake lease for a vacant property, changes the locks, and moves in — or sublets it to unsuspecting tenants who pay rent to someone who has no right to the property. The real owner discovers the fraud weeks or months later.
+- **Tenants need proof of their lease terms too.** In disputes over rent increases, deposit amounts, or lease duration, the tenant needs to prove what was agreed. A verified hash of the original lease on the property management firm's domain is conclusive — no argument over which PDF is the "real" one.
+
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="lease"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;">SKYLINE PROPERTY MGMT

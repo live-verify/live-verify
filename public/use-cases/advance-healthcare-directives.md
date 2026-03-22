@@ -55,6 +55,12 @@ Doctors in the ER need to see this *immediately* to know whether to resuscitate.
   </div>
 </div>
 
+## Framing Insights
+
+**Specific consequences (Pattern E):** An ER doctor who ignores a valid DNR and resuscitates a patient subjects them to exactly the suffering they legally chose to avoid — broken ribs from chest compressions, ventilator dependence, prolonged dying in an ICU. An ER doctor who honors a forged or outdated directive and withholds treatment lets a patient die who wanted to live. Both outcomes are catastrophic and both happen because the doctor has no fast way to verify the paper in front of them. The stakes are binary and irreversible: there is no "undo" for either decision.
+
+**"Why would you bother?" (Pattern A):** Family disputes drive directive fraud. An estranged sibling presents an old directive naming themselves as agent, hiding the current one that names someone else. A family member who disagrees with the patient's wishes produces a "revised" directive with different instructions. These are not hypothetical — probate courts see these cases routinely. The question is whether the ER doctor, under time pressure, can distinguish the real directive from the fraudulent one.
+
 ## Data Verified
 
 Patient name, date of birth, designated healthcare agent (proxy) and alternates, specific life-sustaining treatment wishes (DNR/DNI), organ donation preference, notary/witness attestation, date of execution.

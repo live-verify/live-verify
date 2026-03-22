@@ -17,6 +17,8 @@ The license matters because it determines whether the consumer is protected if t
 
 Tour operators display license numbers and protection logos on their booking sites. These are trivially easy to fabricate. A scam travel site can copy a legitimate ATOL number and protection logo, take bookings, and disappear. The consumer discovers the operator was never licensed only when trying to claim under the scheme.
 
+**Why would you bother verifying?** Because holidays are paid for weeks or months in advance, and the sums are large — often the biggest single purchase a family makes in a year after housing and transport. When a licensed operator fails, the bonding scheme pays for repatriation and refunds. When an unlicensed operator fails — or simply never existed — the consumer loses everything: the money, the holiday, and any connecting flights or accommodation booked separately. The urgency is highest when the deal looks too good to be true, which is precisely when it most often is.
+
 A verifiable licensing claim is a short statement, issued by the licensing body, naming the operator and the site where the claim applies. The consumer can verify it on the booking page before paying — without navigating to the regulator's search tool.
 
 ## Example: ATOL Licensed Tour Operator

@@ -90,6 +90,10 @@ The endpoint returns a status code:
 - **SEALED** -- Order exists but details are sealed (e.g., minor involved). Confirms existence without revealing details.
 - **404** -- No matching record. The order is forged or the details don't match.
 
+### Photo in Verification Response
+
+For restraining orders, a photo of the respondent in the verification response has direct safety value. A school administrator receives the order naming "David Garza" — but what does David Garza look like? If the verification response includes the respondent's photo (sourced from the court file, which typically includes one), the administrator can recognise the person on sight without requiring the protected person to provide a photo, which may not be current or may not exist. This is especially relevant for workplace security guards, shelter intake workers, and building managers who need to exclude a specific individual they have never met.
+
 ## Second-Party Use
 
 The **Protected Person (Petitioner)** benefits from verification.

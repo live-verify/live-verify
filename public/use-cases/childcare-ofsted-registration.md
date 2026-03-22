@@ -15,6 +15,8 @@ Every jurisdiction regulates who may care for children commercially. A governmen
 
 A verifiable registration claim is text issued by the regulator, embedded on the provider's website or displayed at their premises. The parent verifies it in place — by clipping the text on the website, or by clipping text from a photo of the displayed certificate — without navigating to the regulator's search tool.
 
+**Concrete consequences:** Parents are entrusting pre-school children — the most vulnerable age group — to a provider's care for hours each day. An unregistered childminder operates outside the safeguarding framework entirely: no DBS checks on staff, no ratio requirements, no accident reporting, no regulatory oversight. Providers whose registration has been suspended mid-year (typically for safeguarding concerns) may continue operating because parents don't check the register. The consequences are not abstract — children have been seriously harmed in settings where registration had lapsed or been fabricated.
+
 ### Jurisdictional Regulators
 
 | Jurisdiction | Regulator(s) | Rating System | Verification Domain |

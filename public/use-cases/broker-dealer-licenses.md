@@ -55,6 +55,10 @@ Shows the issuer domain (`finra.org`, `sec.gov`) and current regulatory standing
 - **Suspended** — Temporarily prohibited (dates provided).
 - **Inactive** — Not currently affiliated with a firm.
 
+## Why Would You Bother Verifying?
+
+Because the person sitting across the table is asking you to hand over your retirement savings. FINRA bars roughly 500 individuals per year for fraud, theft, or unauthorized trading. A barred broker who keeps their old registration certificate can open a new "advisory firm," target communities where word-of-mouth referrals substitute for due diligence, and run the same scheme again. The consequences for the investor are not abstract: retirees lose homes, college funds disappear, and recovery through FINRA arbitration — where it is available — takes years and often returns pennies on the dollar. BrokerCheck exists precisely because the industry knows this happens. Verification at the point of the meeting, from the credential itself, closes the gap between "I should check" and "I actually did."
+
 ## Second-Party Use
 
 The **Broker / Representative** benefits from verification.

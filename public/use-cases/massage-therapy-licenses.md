@@ -66,6 +66,8 @@ Shows the issuer domain (`flhealthsource.gov`, `camtc.org`) and current standing
 
 The **Massage Therapist (Practitioner)** benefits from verification.
 
+**Protects both sides.** This is one of the few professions where verification genuinely protects both parties equally. The client needs to know the therapist has passed background checks before entering a private room. The therapist — particularly mobile therapists who visit clients' homes — needs a credible, state-backed credential to establish their professionalism immediately. The licensed therapist benefits because every unlicensed operator who cannot be distinguished from a professional drags the entire industry's trust downward.
+
 **Employment Portability:** Proving to a new spa manager or luxury hotel that their "Active License" claim is verified by the state. This separates the professional from "Unlicensed Operators" who try to work in the industry without a background check.
 
 **Personal Safety:** For mobile therapists entering private homes, having a verified, state-backed ID badge provides an extra layer of professional authority and safety.

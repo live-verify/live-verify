@@ -117,6 +117,10 @@ Charities verify that donated funds are properly distributed to beneficiaries.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
+### Why Would a Donor Bother?
+
+A donor gives GBP 50,000 to build a school in rural Kenya. Six months later, the charity sends a PDF report with photos and a disbursement receipt. The donor has no way to confirm the receipt is real — did the local partner actually receive the funds, or did an intermediary skim them? The charity itself may not know; last-mile leakage is notoriously difficult to detect from headquarters. A verifiable disbursement receipt, confirmed by the local recipient against the NGO's domain, turns the donor's trust from "I hope my money arrived" into "I can see that it did." For institutional donors and grant-making foundations, this is not optional — it is the difference between continued funding and withdrawal.
+
 ## Rationale
 
 Charity fraud thrives on the "Fog of Aid"—the distance between the donor and the recipient. By turning local witness receipts into verifiable digital bridges, we bring "Last Mile" accountability to the entire philanthropy ecosystem.

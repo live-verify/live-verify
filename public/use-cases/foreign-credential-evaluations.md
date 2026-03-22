@@ -70,6 +70,10 @@ The endpoint returns a status code:
 
 The issuer domain is visible from the `verify:` line on the report itself (e.g., `wes.org`).
 
+## Why Would You Bother Verifying?
+
+Because a forged credential evaluation can unlock an entire professional career that the applicant is not qualified for. The evaluation report is the single document that translates a foreign qualification into domestic equivalency — and it is the document that immigration officers, licensing boards, and employers trust without usually being able to check independently. A fabricated WES report showing "equivalent to a U.S. bachelor's degree" when the actual determination was lower can be the difference between a visa being granted or denied, between being allowed to sit a medical licensing exam or not. For the applicant who genuinely earned their qualification, verification protects against a different risk: that the receiving authority doubts the report's authenticity and delays or rejects the application while trying to confirm it manually — a process that can take weeks and may cost the applicant a job offer or a visa deadline.
+
 ## Second-Party Use
 
 The **applicant** (second party) receives the evaluation from the evaluation agency (first party), **keeps it**, and presents it to third parties as needed.

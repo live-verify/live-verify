@@ -17,6 +17,12 @@ Tenants have no practical way to verify that their landlord is licensed. Some co
 
 An unlicensed landlord faces penalties — including rent repayment orders where a tribunal can order the landlord to repay up to twelve months' rent — but the tenant must first establish that the property was unlicensed. A verifiable licensing claim issued by the council and displayed on the letting agent's listing or in the property itself would let tenants, agents, and enforcement officers confirm licensing status at the point it matters.
 
+**Why verification matters — for both sides:**
+
+- **Tenants can claim up to 12 months' rent back.** Under the Housing and Planning Act 2016, a tenant in an unlicensed property can apply to a First-tier Tribunal for a Rent Repayment Order. At £1,200/month, that is £14,400 the landlord must repay — plus the landlord cannot serve a Section 21 eviction notice while the property is unlicensed.
+- **Licensed landlords benefit from proof.** A landlord who has paid the licence fee and met the conditions has an interest in being visibly compliant. Prospective tenants can see the licence is genuine and current. In enforcement actions, the licensed landlord has a verifiable record from the council's domain — not a self-asserted claim on a listing page.
+- **Letting agents need to check before marketing.** An agent who markets an unlicensed property in a selective licensing area faces their own regulatory risk. A verifiable licence status check at listing time protects the agent from unknowingly facilitating an offence.
+
 ## Landlord Licensing Status — Web Version
 
 Displayed on the letting agent's property listing or the landlord's own website. The council issues the claim text; the landlord or agent embeds it.

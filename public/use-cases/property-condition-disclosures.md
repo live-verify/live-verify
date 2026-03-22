@@ -15,6 +15,12 @@ When selling a home, the **Seller's Disclosure Statement** is the legally mandat
 
 These documents are the primary evidence in post-sale lawsuits. Fraud is high-frequency: sellers often "scrub" a disclosure form to remove mention of a $20,000 foundation issue before showing it to a potential buyer. Similarly, they might "edit" an old inspection report to look like a "Clean" disclosure. Verified hashes bind the **Defect Checklist, Property Address, and Seller Signature** to the real estate portal's or the title company's domain (e.g., `zillow.com` or `firstam.com`).
 
+**Why verification matters here:**
+
+- **The buyer discovers the defect after closing.** Basement flooding that the seller knew about and removed from the disclosure. Foundation cracks that were photographed during inspection and then scrubbed from the form. The buyer now owns a $40,000 problem that should have been negotiated before closing — or that should have caused them to walk away.
+- **Protects honest sellers too.** After closing, buyers sometimes claim the seller "hid" defects that were actually disclosed. A verified hash of the original disclosure proves what the seller declared at the time. The seller's defence in a post-sale lawsuit is the hash on the title company's domain, not a he-said-she-said argument over which PDF is authentic.
+- **Post-sale litigation is expensive and uncertain.** Proving a document was altered requires forensic analysis, expert witnesses, and years in court. A hash mismatch is immediate and unambiguous.
+
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="disclose"></span>RESIDENTIAL PROPERTY DISCLOSURE
 STATE MANDATED SELLER STATEMENT

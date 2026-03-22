@@ -152,3 +152,7 @@ If a witness layer exists, it may periodically commit rollups to a public blockc
 | **User Control** | **High.** Victim chooses when to share. | **Low.** Data controlled by the Insurer. | **High.** |
 
 **Why Live Verify wins here:** The "Fog of War." During a ransomware attack, the victim's internal systems are often **down**. They are communicating via personal phones and printed papers. Live Verify allows them to have **cryptographic trust** in the emergency papers they are receiving from their insurer, even when their own network is encrypted.
+
+### Why Would You Bother Verifying in a Crisis?
+
+Because the crisis itself creates the vulnerability. The company's email is down. The CISO is communicating on a personal phone. A PDF arrives claiming to be from the insurer, authorizing a USD 2.4 million Bitcoin payment to a specific wallet. In a normal week, the CFO would verify through multiple channels. During a ransomware attack, normal channels are destroyed — and the pressure to pay before the attacker's deadline creates urgency that overrides caution. A rogue IT staffer or a social engineer who has infiltrated the incident-response communication channel can insert a fabricated authorization pointing to their own wallet. The five-second verification against the insurer's domain is the one check that works when every other internal control has been compromised.

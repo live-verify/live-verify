@@ -165,3 +165,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Coverage** | **Any publisher with a domain.** | **~40,000 entries.** Growing but not exhaustive. | **Broad but incomplete.** Not all publishers update promptly. |
 
 **Why Live Verify adds value here:** Retraction Watch is invaluable but it's a third-party watchdog with curation lag. CrossRef metadata depends on publishers updating their feeds. Live Verify makes the *publisher themselves* the real-time source of truth — and makes it impossible to fabricate a retraction notice that doesn't resolve against the real publisher's domain.
+
+### Why Would You Bother Checking Retraction Status?
+
+A drug approval dossier cites 47 papers. A systematic review includes 120 studies. A policy document references 15 key findings. Nobody checks all of those citations against retraction databases — the workflow is too manual, too slow, and too disconnected from the reading experience. The result: retracted papers continue to be cited at scale. Studies have found that retracted papers accumulate thousands of post-retraction citations, and some of those citations directly influence clinical guidelines and regulatory decisions. A verifiable retraction status embedded in the paper itself — one that a reviewer, a regulator, or an automated pipeline can check as part of the normal reading workflow — turns retraction from a passive notice buried in a journal archive into an active, unavoidable signal at the point of use.

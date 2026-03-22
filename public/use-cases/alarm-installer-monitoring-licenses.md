@@ -66,6 +66,10 @@ Shows the issuer domain (`dps.texas.gov`, `bsis.ca.gov`) and current status.
 - **Revoked** — Permanently barred from the industry.
 - **Expired** — Renewal fee not paid.
 
+## Why Would You Bother Verifying?
+
+An alarm installer is not just another tradesperson. They learn the layout of your home, the location of every sensor and camera, the bypass codes, the monitoring schedule, and which entry points are covered. An impostor with that information does not need to break in — they know exactly how to walk in undetected. This makes alarm installation one of the highest-trust home-access professions, alongside locksmiths and gas engineers. The difference is that the consequences of a compromised alarm system may not be discovered until a burglary occurs — and even then, the connection to the "installer" who visited months earlier may never be made.
+
 ## Second-Party Use
 
 The **Homeowner** or **Business Owner** benefits from verification.

@@ -79,6 +79,8 @@ Shows the issuer domain (`bsis.ca.gov`, `nc-locksmithboard.org`) and current sta
 
 The **Locksmith (Practitioner)** benefits from verification.
 
+**Protects both sides.** The homeowner locked out at midnight needs to know the person at the door is legitimate before handing over access to their entire home. The locksmith needs the homeowner to trust them quickly — otherwise the job takes longer, the interaction is tense, and neighbours may call the police. A verified credential resolves both problems in seconds. Legitimate locksmiths suffer disproportionately from the "bandit locksmith" problem: every scam operator who overcharges or cases homes for burglary makes the next genuine locksmith's job harder.
+
 **Customer Trust:** Proving at 2 AM that they are not just "some guy from Craigslist with a drill," but the right technician from the right company with real standing and bonding.
 
 **Police Interaction:** If a locksmith is stopped by police while picking a lock (at a customer's request), the verified badge provides the officer with instant confirmation of their professional authority.

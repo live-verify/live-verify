@@ -17,6 +17,12 @@ Unlike other insurance that covers *future* events (like fire), title insurance 
 
 **"Policy Scrubbing"** is a sophisticated fraud where a seller or shady developer "edits" a title policy PDF to remove **Schedule B Exceptions**. For example, they might delete a line showing a $50,000 IRS tax lien or a "Shared Driveway" easement. They then present this "Clean" policy to a buyer or a bank to close a sale illegally. Live Verify binds the **Policy Number and the specific list of Exceptions** to the underwriter's domain.
 
+**Why verification matters here:**
+
+- **Hidden liens become the buyer's problem.** A $50,000 IRS tax lien or a $30,000 contractor's lien removed from the Schedule B exceptions means the buyer discovers — after closing — that the property has debts attached to it that must be satisfied before it can be resold or refinanced.
+- **Easement surprises block construction.** A removed "shared driveway" easement or utility right-of-way means the buyer discovers they cannot build the extension, fence, or pool they planned — after they have already paid for architectural drawings and permits.
+- **Title insurance is supposed to be the safety net.** The entire point of the policy is to enumerate the exceptions. If the exceptions list has been tampered with, the buyer's understanding of what is covered and what is excluded is wrong. A verified hash of the policy confirms the underwriter's actual exceptions, not an edited version.
+
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px;">
     <div style="font-weight: bold; font-size: 1.2em; color: #1a365d;"><span verifiable-text="start" data-for="title-ins"></span>FIRST AMERICAN TITLE</div>

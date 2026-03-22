@@ -18,6 +18,8 @@ In most states, a "General Contractor" isn't just someone with a truck and a ham
 
 Homeowners use these "Pocket Cards" to verify who they are letting onto their roof or into their basement. Verified licenses ensure the person at the door isn't using a "Borrowed" license from a friend or a fake number from a defunct company.
 
+**Why would you bother verifying?** Because when an unlicensed contractor abandons a half-finished job, the homeowner has no surety bond to claim against, no licensing board to complain to, and no practical legal recourse — the contractor often operates through a shell company that dissolves overnight. Worse, work performed by an unlicensed contractor may not pass building inspection, requiring the homeowner to pay a second contractor to tear it out and redo it. Insurance claims for property damage caused by unlicensed work are routinely denied. The $5,000 the homeowner "saved" by hiring someone cheaper becomes a $30,000 loss.
+
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 4px solid #004d40; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #004d40; color: #fff; padding: 15px; text-align: center;">
     <h2 style="margin: 0; text-transform: uppercase;"><span verifiable-text="start" data-for="contractor"></span>STATE CONTRACTORS BOARD</h2>

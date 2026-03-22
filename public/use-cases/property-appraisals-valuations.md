@@ -15,6 +15,12 @@ A **Property Appraisal** is the professional "Opinion of Value" for a piece of r
 
 Because the appraisal determines how much money a bank will lend, it is a primary target for **Valuation Fraud**. Shady owners or "Fix-and-Flip" scammers often "edit" an appraisal to turn a $400,000 value into a $600,000 one to bypass equity requirements. Similarly, they might use a fake "Certified" letter from a non-existent appraiser. Verified hashes bind the **Final Opinion of Value, Property Condition, and Appraiser License** to the appraisal firm's or the state's domain (e.g., `corelogic.com` or `state-appraisal-board.gov`).
 
+**Why verification matters here:**
+
+- **Inflated appraisals caused the 2008 crisis.** Valuation fraud was a primary enabler of the subprime mortgage collapse. Lenders funded loans against properties worth far less than the appraised value. The pattern has not disappeared — it has moved to fix-and-flip schemes and private lending.
+- **The lender bears the loss.** When a borrower defaults on a $600,000 mortgage backed by a property worth $400,000, the lender absorbs a $200,000 loss at foreclosure. The inflated appraisal is the document that made this possible.
+- **Appraisers face licence revocation.** When a forged or altered appraisal is attributed to a licensed appraiser, the appraiser faces state board investigation, licence suspension, and personal liability — even though they never issued the inflated version. A verified hash on the appraiser's domain proves what they actually certified.
+
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="appraise"></span>SUMMIT APPRAISAL GROUP
 USPAP Compliant Valuations                      License: #TX-9922

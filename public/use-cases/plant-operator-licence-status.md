@@ -25,6 +25,8 @@ The core question a site manager needs answered is narrow: **is this person curr
 
 ### The Problem
 
+**Why would you bother verifying?** Because a forklift through a warehouse wall, an excavator striking a gas main, or a crane collapse does not produce minor injuries. Construction and warehouse plant accidents kill and permanently disable workers every year, and a disproportionate number involve operators who were unqualified for the specific equipment they were operating. The site manager who waves someone through the gate on the strength of a plastic card they glanced at for two seconds carries personal criminal liability under health and safety law if that operator was not competent and someone dies. "I checked the card" is a defence. "The card was forged and I had no way to verify it" is a harder one to sustain when verification technology exists.
+
 Currently, operator competence is demonstrated by presenting a plastic card. This creates several problems:
 
 - **Forgery.** Plastic cards with no digital verification are straightforward to counterfeit. Fraudulent CPCS cards are a known problem in the UK construction industry.

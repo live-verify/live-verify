@@ -17,6 +17,12 @@ Because people trust them, they are the #1 tool for scammers. Fraudsters create 
 
 The seller thinks the check is real, hands over the car keys, and then discovers 3 days later that the check was a forgery. Verified hashes allow a seller to scan the check at the curb and see "VERIFIED OUTSTANDING" on the bank's own website *before* handing over the keys.
 
+**Why you should bother verifying:**
+
+- **The 3-day hold is a trap.** Your bank accepts the deposit and may even show provisional credit. Three to five days later, the check bounces. The bank reverses the deposit. The car, the laptop, or the furniture is gone. You are out the item *and* any "change" you gave back if the check was for more than the asking price.
+- **The "overpayment" scam relies on this delay.** The buyer sends a cashier's check for $5,000 more than the price, asks you to wire back the difference, and the check is fake. You wire $5,000 of real money before the forgery is discovered.
+- **Verification at the point of exchange changes everything.** Scanning the check before handing over the goods takes seconds. A confirmed "OUTSTANDING" status from the issuing bank's domain means the check is real and has not been cashed. A 404 or "NOT FOUND" means the check number does not exist. Either way, you know before you hand over the keys.
+
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Courier New', Courier, monospace; border: 1px solid #999; background: #fdfdfd; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
   <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
     <div style="font-weight: bold; font-size: 1.2em; color: #003366;"><span verifiable-text="start" data-for="check"></span>WELLS FARGO BANK, N.A.</div>

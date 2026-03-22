@@ -15,6 +15,12 @@ furtherDerivations: 1
 
 A **Verifiable Account Ownership Certificate (VAOC)** is a document issued by a bank to its corporate client. It proves that a specific account number belongs to a specific entity. The vendor includes this verified claim on their invoices or in their vendor onboarding package.
 
+**Why verification matters here:**
+
+- **A single altered invoice can drain six figures.** The attacker intercepts or spoofs an email from a legitimate vendor and changes the bank details. The accounts payable team processes the invoice, wires $150,000 to the fraudulent account, and discovers the error only when the real vendor calls asking why they have not been paid. The money is gone within hours.
+- **The legitimate vendor suffers too.** The vendor did the work, delivered the goods, and sent the invoice. They are now unpaid — and the customer may dispute liability, arguing the invoice was "from" the vendor's email address. The vendor is caught between chasing payment and preserving the commercial relationship.
+- **Manual verification does not scale.** Calling the vendor to confirm bank details before every payment is impractical for companies processing thousands of invoices monthly. A VAOC verified against the vendor's bank domain provides automated, scalable confirmation that the account number on the invoice matches the vendor's actual account.
+
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 1px solid #004d40; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #004d40; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>

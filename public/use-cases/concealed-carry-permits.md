@@ -19,6 +19,8 @@ It proves the person has:
 
 Police officers at a traffic stop need to verify these permits in seconds. If a permit has been "Revoked" (e.g., after a recent arrest), but the person still has the physical card, it is a major public safety risk. Live Verify provides the "Live Status" check that saves lives.
 
+**Why would you bother verifying?** Because a revoked permit holder carrying a concealed weapon is committing a felony, and the officer has no way to know from the plastic card alone. Permits are revoked for reasons that directly affect safety: domestic violence protective orders, felony charges, mental health commitments. The gap between revocation and physical card surrender can be days, weeks, or indefinite — some jurisdictions have no mechanism to recover the card at all. For the legitimate permit holder, fast verification also matters: it shortens a tense roadside encounter and confirms to the officer that the armed citizen in the vehicle is exactly who they claim to be.
+
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
   <div style="background: #1a237e; color: #fff; padding: 15px; text-align: center; display: flex; align-items: center; justify-content: center;">
     <div style="font-size: 1.5em; margin-right: 10px;">⭐</div>

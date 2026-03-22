@@ -15,6 +15,12 @@ A **Settlement Statement** (typically the **ALTA** or **HUD-1**) is the "Final S
 
 Because this document governs the distribution of hundreds of thousands of dollars, it is a primary target for **Mortgage and Wire Fraud**. Criminals use fake settlement statements to trick banks into releasing loan funds to "Phantom Payees," or they "edit" a statement to hide illegal "Kickbacks" to unlicensed parties. Verified hashes bind the **Net Payouts, Loan Amounts, and Settlement Agent ID** to the title company's or the lender's domain (e.g., `firstam.com` or `stewart.com`).
 
+**Why verification matters here:**
+
+- **A single altered line item redirects six-figure sums.** Changing the payoff amount to one lender, inserting a phantom "consulting fee," or modifying the wire instructions for the seller's proceeds — any of these can divert $50,000–$500,000 to a fraudulent account. The settlement statement is the instruction set for the money; altering it alters where the money goes.
+- **Everyone in the chain relies on this document.** The buyer, seller, lender, title company, and real estate agents all use the settlement statement to confirm the numbers. If one party receives a tampered version, the entire closing proceeds on false information.
+- **Discovery comes too late.** The seller expects $482,000 in proceeds. The funds are wired. Three days later, the seller's account shows nothing — because the statement was altered to redirect the wire. The money is in a foreign account and unrecoverable.
+
 <div style="max-width: 700px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="settle"></span>ALTA SETTLEMENT STATEMENT                    File #: ESC-99228877-XJ
                                              Date: 15 MAR 2026

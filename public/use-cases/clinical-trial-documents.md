@@ -299,3 +299,7 @@ This extends the witnessing model from *consent documents* to *the entire intera
 **Why Live Verify wins here:** The Hybrid Reality. While eConsent is growing, many global sites still rely on paper due to local laws or tech barriers. Live Verify provides **Digital Audit-ability** for physical paper, ensuring that even "Low-Tech" sites meet "High-Tech" integrity standards.
 
 **The No-Integration Reality:** US healthcare is fragmented. A QR code pointing to UC San Francisco's clinical trial system is useless to a South Carolina ER with no federation agreement, no login credentials, and no shared PKI. Live Verify with a *public* verification endpoint works across health system boundaries because the trust anchor is the domain itself, not a shared backend.
+
+### This Protects Both Sides
+
+The participant needs to know they signed the current version of the consent form — the one that includes the newly discovered cardiac side effect, not the version from three months ago that omitted it. The research institution needs proof that the participant received the correct version, because if an adverse event occurs and the consent form version is disputed, the institution faces regulatory sanctions, litigation, and reputational damage. Both sides benefit from an independently verifiable record. The participant can scan their copy and confirm it matches what the institution filed with the IRB. The institution can demonstrate, years later during an FDA audit, that the consent form the participant held was genuinely version 4.2 and not a printout of version 3.1.

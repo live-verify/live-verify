@@ -156,3 +156,7 @@ If a witness layer exists, it may periodically commit rollups to a public blockc
 | **Interoperability** | **High.** Works across non-SWIFT fintechs. | **Limited.** Only for legacy banks. | **Universal.** |
 
 **Why Live Verify wins here:** The "Non-Bank" reality. Trade finance involves non-banks (freight forwarders, insurance agents, small suppliers) who **do not have SWIFT access**. They are forced to trust a piece of paper or a PDF. Live Verify turns that **Human-Readable PDF** into a cryptographically trusted artifact that anyone can verify without a $50,000/year SWIFT terminal.
+
+### The Substitution Fraud
+
+A letter of credit is a promise from a bank to pay the seller when the seller presents conforming documents. The fraud is not in the L/C itself — it is in the documents presented against it. A seller ships inferior goods but presents a forged inspection certificate, a fabricated bill of lading, or an altered commercial invoice that matches the L/C terms perfectly. The advising bank examines the documents "on their face" and pays out. The buyer opens the container and finds waste instead of electronics. If the inspection certificate, the bill of lading, and the commercial invoice are each independently verifiable against their respective issuers' domains, the document substitution becomes detectable before the bank releases payment — not months later in an arbitration proceeding.

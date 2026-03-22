@@ -17,6 +17,12 @@ This creates several problems. A certificate could be fabricated entirely. It co
 
 The testing body's registration scheme (NICEIC, NAPIT, or equivalent) is the natural authority. If the scheme operator issued a verifiable claim confirming the certificate's existence, the property it relates to, the result, and the validity period, any recipient could check it in seconds against the scheme operator's domain. This would not replace the full EICR document, but it would confirm the key facts that matter during a letting or sale: was this property tested, did it pass, and is the certificate still current.
 
+**Why verification matters here:**
+
+- **Faulty electrics kill and cause fires.** Electrical faults are the single largest cause of accidental house fires in the UK. An unsatisfactory EICR with C1 codes means "danger present" — exposed live conductors, absent earthing, or overloaded circuits. A fabricated "satisfactory" certificate conceals conditions that can kill occupants.
+- **Landlords face unlimited fines.** Since July 2020, landlords in England must obtain an EICR before letting and renew every five years. Failure carries fines of up to £30,000 per breach. A fabricated or expired certificate does not constitute compliance — and the local authority can require the landlord to obtain a genuine one within 28 days.
+- **Tenants have the right to see it.** Tenants can request the EICR and should receive a copy within 28 days of the test. A verifiable status from the scheme operator's domain lets the tenant confirm the certificate is genuine and current without having to trust a PDF provided by the landlord.
+
 ## Electrical Installation Status — Satisfactory
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">

@@ -43,6 +43,12 @@ furtherDerivations: 1
   </div>
 </div>
 
+## Framing Insights
+
+**Specific consequences (Pattern E):** An oncologist who begins chemotherapy based on a pathology report that has been altered — "Grade 2" changed to "Grade 3," or a benign finding edited to malignant — subjects the patient to months of toxic treatment they do not need. Conversely, a patient who edits a malignant result to benign to avoid treatment, then presents the altered report to a new doctor, delays life-saving intervention. In both directions, the unverifiable paper report is the weak link between the laboratory finding and the clinical decision.
+
+**"Why would you bother?" (Pattern A):** Insurance fraud and denial drive most alterations. A patient scrubs a positive drug test before a custody hearing. A pilot edits a cardiac finding to pass a flight physical. A disability claimant adds findings that do not exist to support a claim. A life insurance applicant removes a cancer diagnosis to qualify for coverage. The lab's internal system is unaltered, but the paper that travels to the third party is trivially editable.
+
 ## Data Verified
 
 Patient name, MRN/Accession number, specimen type (e.g., Blood/Tissue), specific test names, numerical results (e.g., TSH levels), qualitative diagnosis (e.g., "Malignant"), reference ranges, pathologist name/license, collection date, report date.

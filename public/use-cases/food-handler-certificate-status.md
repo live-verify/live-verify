@@ -15,6 +15,8 @@ Workers in the food industry — from restaurant kitchens and catering companies
 
 The core question is narrow: **is this person's food hygiene qualification current?**
 
+**Why would you bother verifying?** Because an expired or fabricated food hygiene certificate means the person handling food in your kitchen may not know how to prevent cross-contamination, may not understand allergen protocols, and may not have been trained on temperature control for high-risk foods. A norovirus outbreak traced to a restaurant can shut the business for weeks, result in prosecution of the food business operator, and — in serious cases involving allergen deaths — lead to manslaughter charges. The employer has a legal duty to ensure staff are trained; "they showed me a certificate" is a weaker defence than "I verified it was current with the training provider."
+
 Currently, workers carry paper certificates or PDF copies. An employer must trust the document on sight, phone the training provider, or check a web portal. The worker has no portable, verifiable proof of their certificate's current status.
 
 A **Food Handler Certificate Status** is a verifiable claim from the training provider or accrediting body confirming the certificate reference, qualification level, and whether it remains current.

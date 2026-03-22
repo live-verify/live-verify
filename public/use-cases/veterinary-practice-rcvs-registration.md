@@ -13,6 +13,8 @@ furtherDerivations: 2
 
 In most jurisdictions, veterinary practices must register with or be accredited by a regulatory body before they can operate. The regulator sets standards for premises, equipment, staffing, and clinical governance — and issues credentials that practices display on their websites, in waiting rooms, and on printed materials. Pet owners encounter these claims when choosing a vet — increasingly online, as telemedicine and remote triage services grow.
 
+**"Why would you bother?"** For a physical vet practice you've visited and trust, you probably wouldn't. But online veterinary services are growing — telemedicine consultations, remote triage, prescription-only medication sold online. In these contexts, the pet owner has no premises to inspect and no face-to-face relationship. A practice claiming RCVS accreditation on a website may have let its accreditation lapse, may never have held the accreditation level it claims, or may be operating entirely outside the regulatory framework. The consequences for a pet owner are wrong diagnoses, inappropriate treatment, or medication purchased from an unaccredited source. Accreditation level matters too — a practice accredited for small animal general practice is not equipped for equine surgery or emergency out-of-hours care, and a pet owner who doesn't check may discover this at the worst possible moment.
+
 A verifiable registration claim is text issued by the regulatory body, embedded on the practice's website or displayed on physical premises signage. The pet owner verifies it in place — by clipping the text on the website — without navigating to the regulator's lookup tool.
 
 ### Regulatory Bodies by Jurisdiction

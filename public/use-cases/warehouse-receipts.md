@@ -247,3 +247,7 @@ If a witness layer exists, it may periodically commit rollups to a public blockc
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
 3. **Public blockchain** — Decentralized trust anchor via rollup inclusion
+
+### The Double-Pledge Problem
+
+A warehouse receipt for 500 metric tons of copper cathodes is a bearer-like instrument: whoever holds it can pledge it as collateral. The fraud pattern is simple — the commodity owner pledges the receipt to Bank A, then presents a copy (or a subtly altered version showing different lot numbers) to Bank B. Both banks believe they have a secured interest in the same copper. When the owner defaults, the banks discover they are fighting over one pile of metal with two claims. This is not hypothetical: the 2014 Qingdao port scandal involved billions of dollars in multiply-pledged metal receipts. A verifiable receipt with real-time status — showing "PLEDGED - JPMorgan" the moment Bank B tries to verify — stops the double-pledge at the point of the second transaction, before the second bank extends credit.

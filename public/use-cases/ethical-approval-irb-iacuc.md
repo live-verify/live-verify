@@ -154,3 +154,7 @@ If a witness layer exists, it may periodically commit rollups to a public blockc
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires manual search by ID. | **N/A.** |
 
 **Why Live Verify wins here:** The "External Review" gap. Ethics committees operate in private silos. Journals, funders, and the public are locked out. Live Verify turns the **Internal Ethical Approval** into a portable, cryptographically trusted artifact that bridges the gap between institutional oversight and the global scientific community.
+
+### Why Would a Journal Editor Bother?
+
+The reproducibility crisis has a document layer that nobody talks about. A journal receives a manuscript claiming "IRB-approved" with a protocol number. The editor has no practical way to check — they are outside the institution's ethics system, and no university gives journal editors login access to their IRB portal. The editor trusts the author. In 2024, investigations revealed paper mills fabricating entire ethics approval letters, complete with letterheads and protocol numbers, for studies that were never reviewed. A verifiable ethics approval — one the editor can scan and confirm against the university's own domain — closes the gap between institutional oversight and the global scientific publishing system. The five-second check replaces a trust assumption that has been systematically exploited.

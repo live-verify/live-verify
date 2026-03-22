@@ -15,6 +15,8 @@ A seller on a secondary-market platform lists a ticket for a sold-out concert. T
 
 This is a provenance problem, not an admission-control problem. The question is not "will this barcode scan at the gate?" — that is the ticketing platform's job. The question is: "was this ticket genuinely issued, and what is its current status?"
 
+**Why would you bother verifying?** Because you discover a ticket is fake at the worst possible moment — standing at the venue entrance, having paid a stranger hundreds of pounds, with no recourse. The event is sold out, you cannot buy a replacement, and the seller has disappeared. Secondary ticket fraud is not a niche problem: in the UK alone, Action Fraud reports millions of pounds lost annually to ticket scams, with the average loss per victim around 100-200 pounds. The harm is not just financial — it is the birthday, the anniversary, or the once-in-a-decade reunion tour that the buyer cannot get back.
+
 The distinction matters. The [rejected event-ticketing use case](../rejected-use-cases/event-ticketing.md) explored Live Verify as a ticket-validity and admission mechanism — binding tickets to holders, controlling transfers, replacing barcodes. That overlaps with what ticketing platforms already do well. Provenance verification is narrower: a read-only check against the issuer's system of record, confirming that a ticket with specific attributes was issued and has not been cancelled or already used.
 
 ## Example: Ticket Provenance Claim
