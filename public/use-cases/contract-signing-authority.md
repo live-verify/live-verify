@@ -1,11 +1,11 @@
 ---
-title: "Contract Signing Authority"
+title: "Corporate Signing Authority and Delegation Limits"
 category: "Delegated Authority"
 volume: "Large"
 retention: "Duration of contract + 6 years"
 slug: "contract-signing-authority"
 verificationMode: "clip"
-tags: ["signing-authority", "contracts", "nda", "legal", "delegation", "corporate-governance"]
+tags: ["signing-authority", "contracts", "nda", "legal", "delegation", "corporate-governance", "purchasing-authority", "self-inflation", "rogue-employee", "apparent-authority"]
 furtherDerivations: 1
 ---
 
@@ -47,6 +47,72 @@ When you're about to sign a major deal, you need to know: does the person across
     </div>
   </div>
 </div>
+
+## The Company Policy Declaration
+
+The strongest version of this use case is not just individual authority claims — it is a **company-wide policy declaration** that all officers carry verifiable authority claims, and that nothing outside the verified claims is recognised.
+
+The company publishes a policy statement (on its website, in its terms of business, in its supplier onboarding materials):
+
+> All officers and employees of Northbridge Services Ltd carry verifiable authority claims. Before relying on any commitment made on our behalf, check the officer's claim at `verify:northbridge.com/authority/`. If a person claims to act on our behalf and cannot produce a verifiable authority claim at that domain, we do not recognise their commitment.
+
+This shifts the default. Without the policy, a counterparty who deals with an unauthorized person may invoke "apparent authority" — the legal doctrine that the company held someone out as authorized. With the policy, the company has explicitly told the world: **check the claim, and if there isn't one, don't rely on it.**
+
+**Key design points:**
+
+- **The company does not publish a directory of all authorized people.** That would be a security and competitive intelligence risk. There is no browsable list at `northbridge.com/authority/`.
+- **The individual officer carries the claim.** They present it to the counterparty, who verifies the hash. The company publishes the hash at its domain but does not expose a roster.
+- **Absence is the signal.** If an officer cannot produce a verifiable claim, the counterparty knows to escalate before committing. The claim's absence is pre-emptive disownment.
+- **Revocation is immediate.** When an officer leaves the company, is demoted, or has their authority reduced, the endpoint returns REVOKED or the new, narrower claim. The former officer's old claim stops verifying instantly — no waiting for business cards to be collected or LinkedIn titles to be updated.
+
+## Purchasing Authority
+
+Contract signing authority is one layer. **Purchasing authority** — the ability to commit the company to spending — is a related but separate delegation:
+
+- **Purchase order limits** — "Jane can raise POs up to £50,000. Anything above requires finance director approval."
+- **Capital expenditure** — "The operations director can approve capex up to £100,000 per item."
+- **Supplier onboarding** — "Only procurement can commit to a new supplier relationship."
+
+A supplier receiving a £200,000 PO from Jane can verify whether she actually has authority to commit that amount. If her verifiable claim shows a £50,000 limit, the supplier knows to ask for escalation before shipping goods.
+
+The mockup for purchasing authority follows the same pattern as contract signing:
+
+<div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #2d5f2d; background: #fff; padding: 0;">
+  <div style="background: #2d5f2d; color: #fff; padding: 15px;">
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="purchaseauth"></span>PURCHASING AUTHORITY</div>
+    <div style="font-size: 0.8em;">Delegation of Purchasing Power</div>
+  </div>
+  <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
+    <p><strong>Company:</strong> Northbridge Services Ltd<br>
+    <strong>Authorized Person:</strong> Jane Kowalski<br>
+    <strong>Role:</strong> Operations Manager<br>
+    <strong>Issued:</strong> January 1, 2026</p>
+<div style="background: #f0f5f0; padding: 15px; margin: 15px 0; border-left: 3px solid #2d5f2d;">
+      <p style="margin: 0;"><strong>Authority to purchase:</strong></p>
+      <p style="margin: 10px 0 0;">Purchase orders up to GBP 50,000 per order</p>
+      <p style="margin: 5px 0 0;">Recurring service contracts up to GBP 20,000 annually</p>
+      <p style="margin: 10px 0 0;"><strong>Excluded:</strong></p>
+      <p style="margin: 5px 0 0;">Capital expenditure above GBP 10,000</p>
+      <p style="margin: 5px 0 0;">New supplier onboarding (procurement only)</p>
+    </div>
+<p style="font-size: 0.85em; color: #666;">Delegated by: Finance Director<br>
+    Valid until: December 31, 2026</p>
+<div data-verify-line="purchaseauth" style="border-top: 1px dashed #999; margin-top: 15px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;">
+      <span data-verify-line="purchaseauth">verify:northbridge.com/authority/</span> <span verifiable-text="end" data-for="purchaseauth"></span>
+    </div>
+  </div>
+</div>
+
+## The Self-Inflation Problem
+
+Some authority disputes are honest mistakes — someone genuinely believes they can sign. But others are deliberate:
+
+- **The ambitious employee** — wants to close a deal bigger than their authority allows, hoping the company will ratify it after the fact because unwinding would be expensive. They assure the counterparty "I can sign this" knowing they can't.
+- **The departing employee** — knows they're leaving and commits the company to obligations they won't be around to manage. By the time the company discovers it, the employee is gone and the commitment is made.
+- **The shell-company operator** — represents a small company as bigger than it is, claiming authority over resources or commitments the company can't actually back. A verifiable authority claim that shows the real scope — "purchase orders up to £5,000" — punctures the inflation instantly.
+- **The consultant or agent** — claims to represent a company with broad authority when their actual delegation is narrow (e.g., authorized to negotiate but not to commit).
+
+In each case, the counterparty's defence is the same: **ask for the verifiable authority claim before relying on the commitment.** If the claim doesn't cover what's being promised, escalate. If there's no claim at all, the company's policy declaration means the commitment isn't recognised.
 
 ## The Authority Problem
 

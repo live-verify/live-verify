@@ -1,7 +1,7 @@
 {
-  "generated": "2026-03-21T19:28:52.852Z",
+  "generated": "2026-03-22T20:18:27.857Z",
   "totalUseCases": 565,
-  "totalFurtherDerivations": 857,
+  "totalFurtherDerivations": 869,
   "categories": {
     "Real Estate & Property": 43,
     "Charitable & Non-Profit": 8,
@@ -1232,7 +1232,7 @@
       "volume": "Large",
       "retention": "Transaction lifetime",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 2,
       "snippet": "Property address, building control application reference, description of work, completion certificate status, date of issue (where a certificate exists), and the building control body that issued or w",
       "tags": [
         "property",
@@ -2341,7 +2341,7 @@
     },
     {
       "slug": "contract-signing-authority",
-      "title": "Contract Signing Authority",
+      "title": "Corporate Signing Authority and Delegation Limits",
       "category": "Delegated Authority",
       "volume": "Large",
       "retention": "Duration of contract + 6 years",
@@ -2354,7 +2354,11 @@
         "nda",
         "legal",
         "delegation",
-        "corporate-governance"
+        "corporate-governance",
+        "purchasing-authority",
+        "self-inflation",
+        "rogue-employee",
+        "apparent-authority"
       ]
     },
     {
@@ -3301,7 +3305,7 @@
       "volume": "Large",
       "retention": "5 years (EICR cycle)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 2,
       "snippet": "Property address, report type, test result (satisfactory or unsatisfactory), testing contractor name and registration scheme, test date, validity expiry date (for satisfactory results), and remedial w",
       "tags": [
         "property",
@@ -3721,7 +3725,7 @@
       "volume": "Very Large",
       "retention": "Event date + 30 days (chargebacks/disputes)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Event name, date/time, venue, section/row/seat, issuing platform, ticket reference number, and current status.",
       "tags": [
         "tickets",
@@ -4515,7 +4519,7 @@
       "volume": "Medium",
       "retention": "Certificate validity period + 1 year",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 2,
       "snippet": "Establishment name, registered business domain, certification body, certificate number, certification level or scope (e.g. \"Mehadrin,\" \"halal — poultry menu only\"), and current certification status.",
       "tags": [
         "food",
@@ -4928,7 +4932,7 @@
       "volume": "Large",
       "retention": "Check-out + 1-3 years",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 2,
       "snippet": "Hotel name, booking reference, guest name, check-in date, check-out date, and current booking status. Room type and rate are deliberately excluded — this artifact answers \"does this booking exist?\" no",
       "tags": [
         "hotel-booking",
@@ -7233,7 +7237,7 @@
       "volume": "Large",
       "retention": "Certification period + 1 year (annual renewal cycle)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Producer name, registered business domain, certification body, licence or certificate number, product categories covered (e.g. dairy, arable, horticulture), and current certification status.",
       "tags": [
         "organic",
@@ -7760,7 +7764,7 @@
       "volume": "Medium",
       "retention": "Permanent (card validity period)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Scheme name, card holder name and registration number, equipment category, competence status, card type, issue date, and expiry date.",
       "tags": [
         "plant-operator",
@@ -8765,7 +8769,7 @@
       "volume": "Large",
       "retention": "Membership period + 1-2 years (complaints, audit trail)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Agency legal name, website domain, industry body, membership number, membership category, and current status.",
       "tags": [
         "recruitment",
