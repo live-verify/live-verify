@@ -17,6 +17,12 @@ An unexpected knock. Someone in a Royal Mail uniform with a package requiring a 
 
 **Package scams and fake postal worker doorstep fraud target vulnerable people.** Fraudsters pose as postal workers to gain entry, claim fake customs fees, or steal packages. Live Verify lets you scan the worker's badge before opening the door to instantly confirm they are a verified postal worker or courier currently on duty.
 
+**Perspective:** This use case is written from the resident's perspective. The knock at the door is initiated by someone in a postal uniform.
+
+**Institutional power asymmetry:** The postal worker controls whether the package is delivered, returned to depot, or marked as refused — and the resident may be expecting something important or time-sensitive.
+
+**Verification asymmetry:** The resident is being asked to open the door, accept a package, or sign for a delivery, but lacks a fast independent way to confirm the person is a current postal worker or courier on an active delivery route.
+
 ### ID Card (dynamic e-ink)
 
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; border-radius: 8px; background: #fff; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">

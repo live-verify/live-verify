@@ -17,6 +17,14 @@ Schools maintain "authorized pickup lists" — but these are often paper binders
 
 A **Pickup Authorization** is a verifiable document proving: "Parent X has authorized Person Y to pick up Child Z from this school until Date D."
 
+**Perspective:** This use case is written from the school staff's perspective. An adult arrives claiming authorization to collect a child.
+
+**Institutional power asymmetry:** The school is legally responsible for the child's safety — releasing to the wrong person can result in harm, abduction, or custody violation.
+
+**Verification asymmetry:** Staff are being asked to release a child in a busy 30-second interaction, but lack a fast independent way to confirm the adult's current authorization beyond checking a paper list or recognizing a face.
+
+**Substitution is the fundamental danger.** The credential may be valid — Grandma is on the authorized list — but the person presenting it may not be Grandma. In a busy dismissal line, staff who don't recognize the adult are making a high-stakes identity judgment in seconds. The verification response includes a `photo_url` field, and staff must compare the face at the door to the photo on record. This is not a nice-to-have: releasing a child to the wrong person can constitute a safeguarding failure, triggering regulatory investigation (Ofsted, state licensing boards), potential criminal liability for the school, and — in custody-dispute cases — contempt of court proceedings.
+
 <div style="max-width: 500px; margin: 24px auto; font-family: sans-serif; border: 2px solid #2e7d32; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
   <div style="background: #2e7d32; color: #fff; padding: 15px; text-align: center;">
     <div style="font-size: 1.2em; font-weight: bold;"><span verifiable-text="start" data-for="pickup"></span>LINCOLN ELEMENTARY SCHOOL</div>

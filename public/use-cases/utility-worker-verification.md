@@ -22,6 +22,14 @@ The **Verified Badge** is the worker's digital or physical ID. It proves:
 
 This is a strong Live Verify fit because the decision is immediate, physical, and safety-critical: a resident must decide whether to open the door to a stranger who claims a current right to be there.
 
+**Perspective:** This use case is written from the homeowner's perspective. The visit is initiated by the utility company.
+
+**Institutional power asymmetry:** The utility can disconnect supply, charge for missed appointments, or escalate access demands — consequences that are costly and disruptive to challenge.
+
+**Verification asymmetry:** The homeowner is being asked to open the door immediately, but lacks a fast independent way to confirm the person outside is a current employee of the claimed utility with a valid reason to be there.
+
+**Why would you bother checking?** Because they need to enter your home. If the meter is external and they stay outside, the risk is low. But when they need interior access — to read an internal meter, inspect gas appliances, or work on wiring — you are letting a stranger into private space where you and your family are present. The person at the door may not be the person the company sent: a terminated worker keeps their badge, or the company subcontracts the job to an unvetted individual. The verification response includes a `photo_url` field — the badge verifies as "ON_DUTY" but the face doesn't match, and the substitution is caught before the door opens.
+
 <div style="max-width: 480px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; border-radius: 12px; background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.2); position: relative;">
 
   <div style="background: #1a237e; color: #fff; padding: 15px; text-align: center; display: flex; align-items: center; justify-content: center;">

@@ -17,6 +17,14 @@ Legitimate utility workers often have badges that are easily forged with a home 
 
 Live Verify allows a homeowner to scan the worker's ID badge to verify: **"Is this person an active employee of this specific utility, and is there a valid service order for this address today?"**
 
+**Perspective:** This use case is written from the homeowner's perspective. The visit is initiated by the utility company's field operations.
+
+**Institutional power asymmetry:** The utility can shut off gas, electricity, or water, and can charge for missed or refused access — consequences the homeowner cannot easily ignore.
+
+**Verification asymmetry:** The homeowner is being asked to grant entry immediately, but lacks a fast independent way to confirm the worker is a current employee with a valid service order for this address.
+
+**Why would you bother checking?** Because they need to enter your property. An external meter reader who stays at the meter box is low-risk. But when the worker needs to come inside — to access an internal meter, inspect pipework, or work in the basement — you are granting a stranger access to private space. The person who turns up may not be the person dispatched: a terminated employee keeps their badge, or a subcontractor sends an unvetted worker. The verification response includes a `photo_url` field — the badge verifies as "OK" but the face doesn't match, and the substitution is caught at the door.
+
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #0066cc; border-radius: 10px; background: #fff; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
   <div style="background: #0066cc; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
     <div style="font-weight: bold; font-size: 1.2em; letter-spacing: 1px;"><span verifiable-text="start" data-for="utility"></span>CONSOLIDATED EDISON</div>

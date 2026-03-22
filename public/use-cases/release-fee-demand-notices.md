@@ -35,6 +35,12 @@ The narrative changes. The document type does not.
 
 A verifiable notice binds the demand to the issuer's domain and makes it checkable by anyone who receives it.
 
+**Perspective:** This use case is written from the recipient's perspective. The fee demand arrives by email, message, or letter, often with a deadline.
+
+**Institutional power asymmetry:** The claimed authority (customs, court, bank, exchange) can allegedly withhold, destroy, or forfeit the thing of value — creating pressure to pay before thinking.
+
+**Verification asymmetry:** The recipient is being asked to pay immediately to unlock something they believe they own, but lacks a fast independent way to confirm the demand was issued by the claimed organization and that the fee is real.
+
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #7a1f1f; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="releasefee"></span>
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.84em; white-space: pre; color: #000; line-height: 1.6;">STATUTORY RELEASE FEE DEMAND NOTICE

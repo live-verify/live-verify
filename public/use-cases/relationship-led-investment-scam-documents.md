@@ -19,7 +19,15 @@ Then the trap closes.
 
 Larger deposits are demanded. The platform claims taxes are due before release. A "security deposit" is required. A wallet address changes. A compliance team appears. A withdrawal receipt is shown. A profits statement looks official. None of it is real.
 
+The consequences are specific and devastating: victims lose life savings, retirement funds, and money borrowed against their homes. Many are victimized repeatedly — first by the fake platform, then by "recovery" scams that promise to retrieve the lost funds for an upfront fee. The psychological harm is severe: shame, relationship breakdown, depression, and in documented cases, suicide.
+
 Live Verify applies here because the scam runs on portable artifacts that look authoritative outside the true system of record: account statements, profit screenshots, withdrawal notices, tax-demand letters, and payment instructions. Victims, family members, banks, and police often see only those artifacts.
+
+**Perspective:** This use case is written from the victim's perspective. The pressure to act comes from a person or platform the victim has been groomed to trust.
+
+**Institutional power asymmetry:** The fake platform controls the victim's apparent wealth — it can show balances, freeze withdrawals, and demand fees, all without any real regulatory accountability.
+
+**Verification asymmetry:** The victim is being pressured to send money urgently (as a "release fee," "tax payment," or "security deposit"), but lacks a fast independent way to confirm whether the platform, the withdrawal notice, or the fee demand is issued by a real regulated entity.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #0c4a6e; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="relscam"></span>

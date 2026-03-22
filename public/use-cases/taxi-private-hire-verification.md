@@ -24,6 +24,14 @@ Live Verify allows her to scan the driver's badge and instantly see:
 
 This happens in 10 seconds—the critical window between the car arriving and the passenger getting in. She can then share the verified driver details with an emergency contact before entering the vehicle.
 
+**Perspective:** This use case is written from the passenger's perspective. The vehicle arrives and the driver claims to be the booked car.
+
+**Institutional power asymmetry:** The driver controls the vehicle and the route — once inside, the passenger's options are limited, especially late at night or in an unfamiliar area.
+
+**Verification asymmetry:** The passenger is being asked to get into the car immediately, but lacks a fast independent way to confirm the driver is currently licensed, the vehicle is registered to an operator, and the person matches the booking.
+
+**Why would you bother checking?** Because you are about to get into a stranger's car, alone, often late at night. Once inside, your options are limited. The specific consequences of getting into an unlicensed vehicle are well-documented: sexual assault, robbery, unlicensed and uninsured driving (meaning no liability cover if there is an accident), and — in extreme cases — kidnapping. The driver swap is a known pattern: a licensed driver passes the background check but routinely subcontracts evening shifts to an unlicensed friend or family member. The verification response includes a `photo_url` field — the badge verifies as "LICENSED" but the face behind the wheel doesn't match the photo on record, and the substitution is caught before the passenger gets in.
+
 ### Static Card (Traditional)
 
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #003366; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">

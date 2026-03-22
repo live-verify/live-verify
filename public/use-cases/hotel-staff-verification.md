@@ -21,6 +21,16 @@ The **Staff ID Badge** is the worker's proof that they are authorized to be in t
 
 **This pattern also applies** to hospitals, apartment buildings, and event venues—anywhere mobile service staff enter private spaces in ungated, high-turnover environments.
 
+**Perspective:** This use case is written from the hotel guest's perspective. The knock on the door is initiated by staff or someone claiming to be staff.
+
+**Institutional power asymmetry:** Hotel staff hold master keys and can enter rooms; a guest in an unfamiliar city, especially late at night, has limited options if something goes wrong.
+
+**Verification asymmetry:** The guest is being asked to open the door immediately, but lacks a fast independent way to confirm the person outside is a current, on-duty employee of the hotel.
+
+**Photo catches substitution:** The verification response includes a `photo_url` field. A badge may verify as "ON-DUTY" but the face at the door doesn't match the photo on record — that catches the scenario where someone borrows or steals a colleague's badge. Staff scanning through a peephole or doorbell camera can compare the face before opening.
+
+**Verification protects the worker too.** Hotel staff — particularly housekeeping and room-service workers — are vulnerable to false accusations from guests: theft claims, inappropriate-conduct complaints, or allegations that the worker entered uninvited. A verified interaction log with a timestamp proves the worker was legitimately on-duty and assigned to that floor, providing contemporaneous evidence if a dispute arises later.
+
 ### Static Card (Traditional)
 
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">

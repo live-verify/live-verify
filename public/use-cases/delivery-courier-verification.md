@@ -13,11 +13,25 @@ furtherDerivations: 1
 
 ## What is Courier Verification?
 
-As e-commerce delivery volumes explode, "Delivery Driver" has become the most common uniform seen in residential neighborhoods. This provides a perfect cover for criminals: **"Package Theft"** (porch piracy) and **"Home Entry Scams."**
+Most deliveries don't need verification. An Amazon envelope dropped at the door, a letterbox parcel, a "leave in safe place" delivery — the courier comes and goes without meaningful interaction. The package is the point, and it either arrives or it doesn't.
 
-Fraudsters often wear high-visibility vests or fake corporate shirts to walk up to porches and steal packages, or knock on doors claiming a "Signature Required" or "Address Correction" to gain entry to a home.
+Verification matters when the delivery requires the resident to **open the door and engage with the courier** — and especially when the courier needs to **enter the property**:
 
-Live Verify allows a resident or security guard to scan the driver's ID badge or a printed delivery manifest to verify: **"Is this person an authorized employee of this company, and are they assigned to this route today?"**
+- **Signature-required deliveries** — the courier needs face-to-face interaction. This is the entry point for home-invasion attempts disguised as deliveries.
+- **Large or heavy items requiring indoor delivery** — furniture, appliances, white goods. "We need to bring this to your kitchen" is a different trust decision from accepting an envelope.
+- **High-value deliveries** — jewellery, electronics, medication. The courier may know what's in the box. A fake courier with a real tracking number is a targeted theft.
+- **Elderly or vulnerable residents** — someone living alone, previously targeted, or with carers visiting. Any unexpected knock at the door is higher-stakes.
+- **Rural or isolated properties** — no neighbours, no CCTV, longer emergency response time.
+
+Different residents will view these risks differently. A young professional in a city flat may never feel the need to verify a courier. An elderly person living alone in a rural area may want to verify anyone who knocks. The verification is available for those who want it, not mandated for everyone.
+
+Live Verify allows a resident to scan the driver's ID badge or a printed delivery manifest to confirm: **"Is this person a current employee of this company, and are they assigned to deliver here today?"**
+
+**Perspective:** This use case is written from the resident's perspective. The doorstep interaction is initiated by the courier.
+
+**Institutional power asymmetry:** The courier controls whether a package is delivered, returned, or marked as refused — and the resident may be expecting something time-sensitive or valuable.
+
+**Verification asymmetry:** The resident is being asked to open the door or allow someone into their home, but lacks a fast independent way to confirm the person is a current employee of the claimed company on an assigned route. This asymmetry is sharpest for deliveries that require indoor access or face-to-face interaction, and for residents who are vulnerable or isolated.
 
 ### ID Card (dynaamic e-ink)
 

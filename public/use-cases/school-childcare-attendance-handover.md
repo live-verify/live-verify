@@ -14,6 +14,14 @@ furtherDerivations: 4
 
 Every school day, tens of millions of children are handed from one responsible adult to another — parent to teacher, teacher to grandparent, childcare worker to bus driver. Each handover is a moment of legal responsibility transfer. And yet the records of these handovers are overwhelmingly paper sign-in sheets, closed-ecosystem apps, or nothing at all.
 
+**Perspective:** This use case is written from the parent's and provider's perspectives. Each handover transfers legal responsibility for a child between adults.
+
+**Institutional power asymmetry:** The childcare provider controls the child's environment during the day, and the funding body controls subsidy payments — both depend on attendance records that neither the parent nor an auditor can independently verify.
+
+**Verification asymmetry:** At each handover, one adult is entrusting a child to another, but neither party has a fast independent way to produce a tamper-resistant record of who handed over, who received, and when.
+
+**Substitution is the core risk.** The wrong person collecting a child is the ultimate substitution scenario — and unlike a misidentified plumber, the consequences are immediate and potentially catastrophic. A credential may be genuine (the grandmother is on the authorized list) but presented by the wrong person (someone else claims to be the grandmother). The verification response includes a `photo_url` field, and staff must compare the face in front of them to the photo on record. This is not optional: in a child safeguarding context, photo-matching is the minimum standard. Releasing a child to an unauthorized person exposes the school to regulatory sanction (Ofsted in the UK, state licensing boards in the US and Australia), criminal liability, and — in custody-dispute cases — contempt of court.
+
 This creates three distinct problems:
 
 **Safeguarding:** When something goes wrong — a child goes missing, a custody violation occurs, an injury happens — the first question is always: *who had the child, and when?* Paper sign-in sheets are easily falsified after the fact. App-based records belong to the provider, not the parent.

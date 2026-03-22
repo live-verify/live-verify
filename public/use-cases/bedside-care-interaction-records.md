@@ -18,6 +18,14 @@ Three converging technologies make something new possible: **a hands-free, priva
 
 Live Verify's role here is narrow: it is the **output format**, not the system. The system is LiDAR + voice + AI. Live Verify is the mechanism that makes each log entry a human-centric record that is independently, machine-verifiable later — plain text, SHA-256 hash, `GET /v/{hash}` against the institution's domain. The larger system captures what happened; Live Verify ensures the record can't be quietly rewritten afterwards.
 
+**Perspective:** This use case is written from both the patient's and the care worker's perspective. Care interactions happen on the institution's schedule, often while the patient is immobile or sedated.
+
+**Institutional power asymmetry (patient side):** The hospital controls the patient's environment, records, and care — the patient has no independent record of who visited, what was done, or when.
+
+**Institutional power asymmetry (worker side):** The employer controls the worker's shift records, performance assessments, and disciplinary process. In a dispute — whether with a patient, a family member, or the employer itself — the worker's account of what happened at the bedside is unsupported unless the institution's own records corroborate it.
+
+**Verification asymmetry:** Both patient and worker may later need to demonstrate what happened during a care interaction, but neither holds an independently verifiable record. The patient is asked to accept the institution's account; the worker is asked to accept the institution's interpretation of that account. A verified interaction log protects both: the patient against institutional rewriting, and the worker against false complaints, misattributed errors, or unfair disciplinary action.
+
 This only works inside a culture of **owning your mistakes**. If a wound dressing took 8 minutes instead of 25, the honest response might be "we need more staff on this shift" — not "discipline that nurse." If a worker was short with a patient's family, the log may also show they'd been verbally abused three times that shift. Honest records serve everyone when the institution uses them honestly — for learning, for staffing decisions, for systemic improvement. A system that generates verified records and then uses them punitively will be resisted and gamed. A system that uses them to understand what's actually happening on the ward will be valued by the workers who generate them.
 
 ### LiDAR — Who Is Where, Without Cameras

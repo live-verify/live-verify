@@ -25,6 +25,12 @@ The **Healthcare Staff ID Badge** serves two purposes:
 
 **Credentialing example:** "Dr. Smith, Cardiologist, License #3342" — verify the person is actually a credentialed cardiologist with an active, non-suspended license before they order medications for you.
 
+**Perspective:** This use case is written from the patient's perspective. Staff enter the room on the facility's schedule, not the patient's.
+
+**Institutional power asymmetry:** Hospital staff control access to care, medication, and the patient's physical environment — a patient who is medicated, immobile, or post-surgery is in no position to resist or leave.
+
+**Verification asymmetry:** The patient is being asked to trust a stranger entering their room, often at night, but lacks a fast independent way to confirm the person is a current, authorized employee of the facility.
+
 ### Static Card (Traditional)
 
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; border-radius: 8px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
@@ -252,6 +258,44 @@ If a witness layer exists, it may periodically commit rollups to a public blockc
 1. **"Private Room Workflow"** (support staff): A patient cannot easily reach a phone, call a nurse station, or safely leave their room to verify a stranger's identity. Live Verify gives patients a non-invasive way to verify support staff at the moment of entry—from bed, through a doorway camera, or by viewing the badge through a partially open door.
 
 2. **"Bedside Credential Verification"** (clinical staff): Before allowing a physician to order medications, perform procedures, or access your medical record, a patient can instantly verify their license status—no manual state board lookup, no awkward conversation, just a quick scan. This is particularly important for patients about to undergo treatment, high-acuity patients unable to advocate for themselves, or family members protecting vulnerable relatives.
+
+## Bedside NFC: Verification Without the Patient Lifting a Phone
+
+Camera-based badge scanning assumes the patient can hold a phone, point it at a badge, and read the result. Many hospital patients cannot — they are immobile, sedated, post-surgical, visually impaired, or simply too weak. A bedside NFC reader changes the interaction model entirely.
+
+### How it works
+
+A small, non-removable NFC reader is fixed to the bed rail or bedside unit — part of the hospital infrastructure, like the call button or the oxygen port. It has a status LED and optionally a small display or a beep.
+
+1. Staff member approaches the bed and taps their badge on the bedside NFC reader
+2. The reader beeps and flashes to alert the patient that someone has identified themselves
+3. The reader sends the badge data to the hospital's verification system
+4. The result appears on one of three surfaces:
+   - **The patient's own phone** — if they have a hospital patient app installed, a push notification shows: "Nurse J. Williams, NMC 21A4418, Ward 7 Night Shift — verified"
+   - **The bedside entertainment/info screen** — most modern hospital beds have a screen for TV, menus, and patient information. The verification result can appear there.
+   - **The NFC reader's own display** — a small screen on the reader itself, visible to the patient from their pillow
+
+### Why NFC is better than camera scanning in this context
+
+- **No phone required.** The reader is hospital infrastructure, not a patient device.
+- **No dexterity required.** The patient doesn't hold, aim, or tap anything. The staff member taps; the patient sees the result.
+- **Works at 2 AM.** A patient woken by someone entering their room sees the reader flash and the screen show who just identified themselves — without reaching for a phone or putting on glasses.
+- **Faster.** NFC tap is sub-second. Camera OCR or QR scanning takes 3-5 seconds and requires positioning.
+- **Always on.** The reader is powered by the hospital, not by the patient's phone battery.
+
+### The Live Verify tie-in
+
+The NFC reader extracts the badge data and the hospital's system performs the standard Live Verify flow: normalize the text, hash it, check the hash against the issuer's verification endpoint. The result is the same as a camera scan — verified or not verified, with the worker's photo, name, role, and registration status. The NFC reader is just a different input path to the same verification pipeline.
+
+For patients who are not hospital-app users, the bedside screen or the reader's own display is the output. The verification is happening on the hospital's infrastructure, not on the patient's device — but the result is visible to the patient.
+
+### What the staff member sees
+
+Nothing changes for the staff member. They tap their badge as they approach — the same gesture they already make at door-access readers throughout the hospital. The verification is a byproduct of the tap, not an additional step.
+
+### Infrastructure note
+
+Bedside NFC readers are a hospital capital investment, not a Live Verify product. The readers connect to the hospital's existing network and identity systems. Live Verify's role is the verification protocol — the hash check against the issuer's endpoint — not the hardware. Hospitals that already have bedside NFC for other purposes (patient wristband scanning, medication administration) could extend the same infrastructure.
 
 ---
 

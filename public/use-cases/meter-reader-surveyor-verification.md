@@ -20,6 +20,14 @@ The **Verified Badge** is the worker's digital or physical ID. It proves:
 
 "Bogus Caller" scams are a well-documented fraud pattern. Criminals pose as surveyors, meter readers, or appraisers to case properties for later burglary, steal valuables during the "survey," or commit mortgage fraud. Live Verify allows a homeowner to scan the credential at the door and see a green "ACTIVE" status from the regulatory authority, ensuring only legitimate professionals enter the home.
 
+**Perspective:** This use case is written from the homeowner's perspective. The visit is initiated by the utility company, council, or surveying firm.
+
+**Institutional power asymmetry:** The utility or council can restrict services, delay valuations, or report non-access — and the homeowner may face penalties or delays for refusing entry.
+
+**Verification asymmetry:** The homeowner is being asked to grant access to private property immediately, but lacks a fast independent way to confirm the person at the door is a current, authorized professional with a legitimate reason to enter.
+
+**Why would you bother checking?** Because they need to enter your home. A meter reader who stays outside at the external meter box is low-risk. But when the meter is inside, or the surveyor needs to inspect every room, you are granting a stranger unsupervised access to private space. The person who arrives may not be the person the company dispatched: a registered surveyor subcontracts to an unqualified assistant, or a terminated meter reader keeps their old badge. The verification response includes a `photo_url` field — the badge verifies, but the face doesn't match, and the substitution is caught before entry.
+
 <div style="max-width: 480px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; border-radius: 12px; background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.2); position: relative;">
 
   <div style="background: #1a237e; color: #fff; padding: 15px; text-align: center; display: flex; align-items: center; justify-content: center;">

@@ -19,6 +19,12 @@ A **"Credential" or "Access Badge"** issued for the event proves the wearer is a
 
 Impostors pose multiple threats: they can steal high-value equipment (lighting rigs, sound systems, cameras), pirate backstage access to VIP areas, plant security threats, or exploit temporary chaos to commit fraud. E-Ink badges with real-time access status allow security teams to instantly verify any person's authorization, role, and access level—preventing unauthorized equipment theft, access escalation, and security breaches.
 
+**Perspective:** This use case is written from the security team's perspective. Workers, contractors, and vendors arrive throughout setup and the event itself.
+
+**Institutional power asymmetry:** Anyone with apparent backstage access can reach high-value equipment, VIP areas, and restricted zones — and challenging them slows operations during a time-pressured event.
+
+**Verification asymmetry:** Security staff are being asked to admit or challenge people in real time across a large venue, but lack a fast independent way to confirm whether a given badge is current, the person matches the role, and their access level is correct for that zone.
+
 ### Static Card (Traditional)
 
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 3px solid #000; border-radius: 0; background: #fff; overflow: hidden; box-shadow: 0 6px 15px rgba(0,0,0,0.3);">
@@ -88,6 +94,17 @@ Shows the event/venue domain (e.g., `coachella-festival.com`, `metcenter-events.
 - **Suspended** — **ALERT:** Access revoked due to security incident, suspected theft, or removed from event
 - **Unauthorized Area** — Staff trying to access a restricted area they're not credentialed for (e.g., crew member trying to enter VIP)
 
+**Photo in verification response:** The verification endpoint should return a `photo_url` — a hash-based, no-cache photo of the credential holder. This is the primary defence against credential sharing and lanyard passing: security scans the badge, the photo appears, and they compare it to the person wearing the badge. Without the photo, a passed lanyard verifies correctly (the credential is genuine) but the person wearing it is not the person it was issued to.
+
+```json
+{
+  "status": "verified",
+  "photo_url": "/photos/a3f2b8c9d4e5f6a7.jpg"
+}
+```
+
+See [Verification Response Format — Photo URL Security](../../docs/Verification-Response-Format.md#photo-url-security) for hash-based filenames, no-cache headers, and screen-capture prevention.
+
 ## Second-Party Use
 
 The **Event Staff Member or Contractor** benefits from verification.
@@ -121,6 +138,7 @@ The **Event Staff Member or Contractor** benefits from verification.
 - **Equipment Theft:** Impostors wearing credentials (or stolen/forged badges) gain access to equipment areas and load out high-value lighting, sound, or camera equipment
 - **VIP/Talent Access:** Impostors pretending to be security, handlers, or managers gain unauthorized access to VIP areas, artist green rooms, or dressing rooms
 - **Credential Fraud:** Counterfeit or duplicate badges created before the event; stolen badges from legitimate contractors
+- **Credential Sharing / Lanyard Passing:** A legitimate VIP or "special guest" hands their lanyard or pass to a friend, assuming their status entitles them to share access. This is one of the most common credential compromises at events — it isn't malicious, but it defeats access control just as effectively as a forgery. The person wearing the pass is not the person it was issued to.
 - **Social Engineering:** Impostors with basic knowledge of event operations blend in, following legitimate staff into restricted areas
 - **Security Threat:** Unknown operatives gain event access for reconnaissance or to plant threats
 

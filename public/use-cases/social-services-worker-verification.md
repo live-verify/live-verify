@@ -17,6 +17,18 @@ This high-stakes authority is a primary weapon for criminals. Scammers pose as "
 
 Live Verify allows a family to scan the worker's ID card to verify: **"Is this a legitimate government employee, and are they currently authorized to conduct field investigations?"**
 
+**Perspective:** This use case is written from the household's perspective. The home visit is initiated by the social services agency.
+
+**Institutional power asymmetry:** The caseworker can escalate to court orders, recommend child removal, or trigger investigations — consequences that families cannot safely ignore, even when suspicious.
+
+**Verification asymmetry:** The family is being asked to cooperate and grant entry immediately, but lacks a fast independent way to confirm the person at the door is a current, authorized government caseworker.
+
+**Substitution compounds the risk.** A social services agency may send a different caseworker than the one the family expects — a locum, a trainee, or an unqualified stand-in. The credential may be genuine (issued by the agency) but worn by someone who lacks the training, clearance, or case knowledge to conduct the visit safely. In cases involving vulnerable adults or children on safeguarding plans, an unqualified worker entering a home creates immediate risk: missed warning signs, improper assessments, or escalation of a volatile situation.
+
+**Verification protects the worker too.** Social workers conducting home visits face false allegations from families — fabricated claims of misconduct, intimidation, or unauthorized removal of children. These complaints can end careers. A verified interaction log with a timestamp proves the worker was a current, authorized government employee at the time and place of the visit, providing contemporaneous evidence against false accusations.
+
+**The consequences are specific and severe.** A family that admits a fake social worker may suffer home invasion, theft of identity documents, or — in documented cases — child abduction by someone claiming state authority. A genuine caseworker visiting the wrong household without proper identification may trigger panic, confrontation, or flight by a family already under stress.
+
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #2e7d32; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
   <div style="background: #2e7d32; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
     <div style="font-size: 1.8em; margin-right: 15px;">🏛️</div>

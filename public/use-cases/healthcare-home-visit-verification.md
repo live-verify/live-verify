@@ -18,9 +18,21 @@ The **Care Professional Badge** is their "Security Token." It proves:
 2.  **Licensure:** They are a verified Registered Nurse (RN) or Certified Aide.
 3.  **Background:** They have passed a recent criminal background check.
 
-"Fake Nurse" home invasions are a tragic reality. Scammers buy scrubs and fake IDs to gain entry into the homes of vulnerable seniors. Live Verify allows a family member to scan the badge and see the **verified photo and active duty status** from the agency's domain instantly.
+"Fake Nurse" home invasions are a tragic reality. Scammers buy scrubs and fake IDs to gain entry into the homes of vulnerable seniors. But outright impersonation is not the only risk:
 
-Like utility and contractor doorstep checks, this is strongest because it is a threshold-decision use case: the household needs to know whether this specific worker is authorized to enter this private home now.
+- **Worker substitution.** The agency schedules Nurse Williams but sends a different person — an unqualified aide, a trainee without the right registration, or someone who hasn't passed the required background check. The patient or family was told to expect one person; a different person arrives. The substitute may be well-meaning but may not hold the qualifications (RN vs. aide, specific clinical competencies) that the patient's care plan requires.
+- **Expired or suspended registration.** The worker was qualified when the agency hired them, but their registration has since lapsed, or they are subject to conditions of practice that restrict what they can do. The agency's records may not be current. The patient has no way to know.
+- **No background check or an outdated one.** The worker's DBS/background check was done years ago, or the agency cut corners on a new hire. The patient — often elderly, alone, and physically unable to resist — is admitting someone whose suitability hasn't been recently confirmed.
+
+Verification at the door addresses all three: the badge carries the worker's name, photo, registration number, and current status. The photo catches substitution. The live status check catches expired or restricted registrations. The background-check status (where the agency includes it) catches the third.
+
+Like utility and contractor doorstep checks, this is strongest because it is a threshold-decision use case: the household needs to know whether this specific worker is the qualified, background-checked professional the agency actually sent — not just whether someone from the agency turned up.
+
+**Perspective:** This use case is written from the patient's or family member's perspective. The home visit is initiated by the care agency.
+
+**Institutional power asymmetry:** The agency controls access to ongoing care — refusing entry or challenging a worker risks disrupting treatment for a vulnerable person who depends on it.
+
+**Verification asymmetry:** The household is being asked to admit a stranger immediately, but lacks a fast independent way to confirm the person at the door is the licensed, background-checked professional the agency actually sent.
 
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
   <div style="background: #0277bd; color: #fff; padding: 15px; text-align: center; display: flex; align-items: center; justify-content: center;">

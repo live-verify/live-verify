@@ -21,6 +21,14 @@ The **Verified Credential** is the worker's digital or physical doorstep credent
 
 "Fake Repairman" scams are a common way for burglars to case a house. Live Verify allows a homeowner to scan the credential at the door and answer the real threshold question: **"Is this the right worker from the right company, here for the right job, with the right scope of authorization?"**
 
+**Perspective:** This use case is written from the homeowner's perspective. The service visit is initiated by the dispatching company or booked by the homeowner but fulfilled by an unknown worker.
+
+**Institutional power asymmetry:** The service company controls whether the repair happens — and the homeowner may have an urgent problem (burst pipe, power fault) that creates pressure to admit whoever arrives.
+
+**Verification asymmetry:** The homeowner is being asked to open the door to a stranger immediately, but lacks a fast independent way to confirm this is the right worker from the right company, with the right licence scope, actually dispatched for this job.
+
+**Why would you bother checking?** Most plumber visits are uneventful and legitimate. You wouldn't verify a worker arriving at a commercial office during business hours. But when someone enters your private home — where you, your family, and your belongings are — the calculus changes. The credential may also be genuine but worn by the wrong person: the licensed electrician subcontracts the job to an unqualified friend, or the company sends whoever is available rather than the worker whose licence covers the task. The verification response includes a `photo_url` field, so the homeowner can compare the face at the door to the photo on file. The badge verifies, but the photo doesn't match — that is the substitution caught.
+
 <div style="max-width: 480px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; border-radius: 12px; background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.2); position: relative;">
 
   <div style="background: #1a237e; color: #fff; padding: 15px; text-align: center; display: flex; align-items: center; justify-content: center;">

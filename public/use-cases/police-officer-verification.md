@@ -19,6 +19,14 @@ Criminals frequently use fake badges, uniforms, and dashboard lights to imperson
 
 Live Verify allows a citizen to scan the officer's ID card to get a real-time "Authenticated" status directly from the department's official domain (e.g., `nypd.gov` or `met.police.uk`), without requiring the officer to divulge personal home addresses or private details.
 
+**Perspective:** This use case is written from the citizen's perspective. The traffic stop or home visit is initiated by the officer.
+
+**Institutional power asymmetry:** The officer can detain, search, arrest, or compel compliance — consequences a citizen cannot safely ignore or resist in the moment.
+
+**Verification asymmetry:** The citizen is being asked to comply immediately, but lacks a fast independent way to confirm the officer is a current, authorized member of the force they claim to represent.
+
+**Verification protects the officer too.** Officers face false impersonation complaints ("that person wasn't a real officer"), fabricated misconduct allegations, and "sovereign citizen" challenges to their authority. A verified interaction log — timestamped and authority-chained to the department's domain — provides contemporaneous proof that the officer was genuine, on-duty, and authorized at the time and place of the encounter. This is exoneration evidence, not just citizen protection.
+
 ### Static Card (Traditional)
 
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #002d62; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">

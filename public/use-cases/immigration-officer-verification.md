@@ -9,6 +9,14 @@ tags: ["immigration-enforcement", "ice-officer", "cbp-officer", "officer-badge",
 furtherDerivations: 1
 ---
 
+**Perspective:** This use case is written from the resident's or traveller's perspective. The enforcement visit is initiated by the immigration officer.
+
+**Institutional power asymmetry:** The officer can detain, arrest, or initiate deportation proceedings — consequences that cannot be safely ignored or resisted at the door.
+
+**Verification asymmetry:** The person contacted is being asked to cooperate immediately, but lacks a fast independent way to confirm the officer's identity, agency, and current enforcement authority.
+
+**Why would you bother checking?** Because the power asymmetry is extreme and the consequences of complying with a fake officer are irreversible. A person who follows instructions from a fraudulent "immigration agent" may be illegally detained, coerced into paying cash "fines," have identity documents confiscated, or — in the worst cases documented by law enforcement — be trafficked. Verification doesn't obstruct a legitimate officer; it protects the resident from criminals exploiting the fear of state authority to extract compliance.
+
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #002d62; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
   <div style="background: #002d62; color: #fff; padding: 15px; text-align: center; display: flex; align-items: center; justify-content: center;">
     <div style="width: 40px; height: 40px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #002d62; font-weight: bold; font-size: 0.7em; margin-right: 15px;"><span verifiable-text="start" data-for="im-officer"></span>DHS</div>

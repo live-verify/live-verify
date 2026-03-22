@@ -17,6 +17,12 @@ Because these officials have the legal right to walk into your kitchen or baseme
 
 Live Verify allows a homeowner to scan the badge at the door and see a green "ACTIVE" status from the city's own domain, proving the person is a real employee and not a scammer.
 
+**Perspective:** This use case is written from the homeowner's or occupier's perspective. The inspection visit is initiated by the municipal authority.
+
+**Institutional power asymmetry:** The inspector can cite code violations, impose fines, condemn work, or require costly remediation — consequences that are difficult and expensive to challenge after the fact.
+
+**Verification asymmetry:** The occupier is being asked to grant entry immediately, but lacks a fast independent way to confirm the person at the door is a current, authorized inspector for the claimed department.
+
 <div style="max-width: 480px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; border-radius: 12px; background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.2); display: flex; position: relative;">
 
   <div style="background: #1a237e; padding: 15px; display: flex; flex-direction: column; align-items: center; border-radius: 10px 0 0 10px;">

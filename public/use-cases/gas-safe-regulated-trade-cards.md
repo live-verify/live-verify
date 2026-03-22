@@ -13,9 +13,25 @@ furtherDerivations: 2
 
 Most countries require tradespeople who work on gas, electrical, plumbing, or HVAC systems to hold a licence or registration issued by a government body or an authorised industry register. The details vary enormously — a single national register in some countries, state or provincial licensing in others, guild-based master craftsman systems in others still — but the core pattern is the same everywhere: a worker carries a credential that says "I am qualified to do this work," and the customer is expected to check it before the work begins.
 
-In practice, customers almost never check. The credential is a plastic card or a paper certificate. It has no live link to the register. It shows the worker's status *at the time of printing*, not their status today. Fake cards are cheap to produce. Expired or restricted registrations go undetected. The gap between "the register exists" and "the customer actually checks" is where fraud, incompetence, and danger live.
+In practice, customers almost never check. The credential is a plastic card or a paper certificate. It has no live link to the register. It shows the worker's status *at the time of printing*, not their status today. Fake cards are cheap to produce. Expired or restricted registrations go undetected.
+
+**Why the homeowner should care:**
+
+- **People die from bad gas work.** Carbon monoxide poisoning from incorrectly installed or serviced boilers kills people every year. An unregistered gas fitter may be competent — or may not. The registration exists because the consequences of incompetence are lethal, not merely expensive.
+- **Insurance may not pay out.** If a fire, explosion, or CO incident results from work by an unregistered tradesperson, the homeowner's building or contents insurer may decline the claim on the grounds that the work was not carried out by a qualified person. The homeowner bears the loss.
+- **Landlords have a legal obligation.** In the UK, landlords must use Gas Safe registered engineers for all gas work and hold a current Gas Safety Certificate (CP12) for every rental property. Using an unregistered engineer is a criminal offence. The tenant can — and should — ask to verify the engineer's registration.
+- **Electrical work has similar risks.** Faulty electrical installations cause fires. Work notified through a Competent Person Scheme (NICEIC, NAPIT) is self-certified to building regulations. Work done outside these schemes may require a separate building control inspection — which the homeowner pays for.
+- **The worker at the door may not be the person on the card.** A registered engineer may send an unregistered employee or subcontractor. The card belongs to the business or the named individual, not to whoever happens to turn up. A photo returned by the verification endpoint (see below) is the check against this.
+
+The gap between "the register exists" and "the customer actually checks" is where fraud, incompetence, and danger live.
 
 A **Verified Trade Credential** makes the card scannable — the customer scans it, and the issuing register returns the worker's photo, current status, and current scope of qualification. Not what was on the card when it was printed — what's true *right now*.
+
+**Perspective:** This use case is written from the customer's perspective. The tradesperson arrives at the door to carry out booked or emergency work.
+
+**Institutional power asymmetry:** The trade worker controls whether safety-critical work (gas, electrical, plumbing) proceeds — and the customer may be without heating, hot water, or power until it does.
+
+**Verification asymmetry:** The customer is being asked to admit the worker and authorize work immediately, but lacks a fast independent way to confirm the worker's current registration, qualification scope, and whether the card they are holding reflects today's status on the register.
 
 ### Regulated Trade Credentials by Jurisdiction
 

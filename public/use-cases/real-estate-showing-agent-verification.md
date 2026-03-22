@@ -20,6 +20,14 @@ The **Verified Badge** is the agent's digital credential. It proves:
 
 Documented cases in the USA, Canada, and Australia show criminals posing as agents to lure victims to empty properties for robbery or assault. Women are disproportionately targeted. Live Verify allows you to scan the agent's credential before entering the property, confirming they are a legitimate, verified professional.
 
+**Perspective:** This use case is written from the prospective buyer's or renter's perspective. The showing is at a vacant property with a stranger claiming to be the agent.
+
+**Institutional power asymmetry:** The agent controls access to the property and sets the terms of the viewing — the viewer has travelled to an unfamiliar, often empty location on the agent's invitation.
+
+**Verification asymmetry:** The viewer is being asked to enter a vacant property with a stranger immediately, but lacks a fast independent way to confirm the person is a currently licensed agent affiliated with the agency that listed the property.
+
+**Why would you bother checking?** Because this is a personal safety issue, not just a fraud issue. You are meeting a stranger you found on the internet, at an empty property, often alone. There are no witnesses, no staff, no CCTV in most residential showings. Documented cases in the US, Canada, and Australia involve victims lured to vacant properties by people posing as agents for robbery, sexual assault, or worse. A 5-second scan before stepping inside is the lowest-friction safety check available in that moment.
+
 <div style="max-width: 480px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; border-radius: 12px; background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.2); position: relative;">
 
   <div style="background: #1a237e; color: #fff; padding: 15px; text-align: center; display: flex; align-items: center; justify-content: center;">

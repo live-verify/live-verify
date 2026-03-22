@@ -21,6 +21,16 @@ Impostors posing as maintenance workers use this as a pretense to gain entry: th
 
 This is one of the stronger Live Verify families precisely because it is not a decorative credential problem. The resident is making an immediate threshold decision about a stranger entering private space, and the verification claim is assignment-specific: this worker, this unit, this time window.
 
+**Perspective:** This use case is written from the resident's perspective. The maintenance visit is initiated by building management or a service request.
+
+**Institutional power asymmetry:** Building management can enter units under maintenance authority, and residents who refuse access may face lease consequences or delayed repairs.
+
+**Verification asymmetry:** The resident is being asked to open the door immediately, but lacks a fast independent way to confirm the worker is authorized by building management, assigned to this unit, and cleared to work at this time.
+
+**Photo catches substitution:** The verification response includes a `photo_url` field. The badge may verify as "OK" for this unit and time window, but if the face at the door doesn't match the photo on file, the resident has caught a substitution — a different person using a legitimate worker's credential. This matters because building contractors routinely send whoever is available rather than the specific worker who was vetted and scheduled.
+
+**Verification protects the worker too.** Contractors entering residents' private apartments are exposed to false accusations — theft claims, property damage allegations, or complaints about conduct. A verified interaction log with a timestamp proves the worker was legitimately authorized, assigned to that unit, and present during a specific window, providing contemporaneous evidence if a resident dispute arises later.
+
 ### Static Card (Traditional)
 
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #2e7d32; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
