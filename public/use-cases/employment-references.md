@@ -6,7 +6,7 @@ retention: "1-7 years (hiring cycle)"
 slug: "employment-references"
 verificationMode: "clip"
 tags: ["employment-verification", "voe", "hr", "background-check", "hiring-fraud", "job-reference"]
-furtherDerivations: 3
+furtherDerivations: 4
 ---
 
 ## What is an Employment Reference?
@@ -132,6 +132,49 @@ The verify URL points to the *referee's* domain, not the employer's. This reflec
 - **Professional Networking:** A former colleague attests to working with you, verifiable against their personal site.
 - **Freelance/Contract Work:** When no formal HR department exists, peers can vouch for project collaboration.
 - **Reference Chains:** Multiple peer attestations from different people build a web of trust.
+
+## Academic Recommendation Letters
+
+The same peer-reference pattern applies to academic recommendations — and at much higher volume.
+
+A professor writes a recommendation letter for a student applying to graduate school, a scholarship, or a faculty position. The letter is currently a PDF or email attachment. The admissions committee has no way to verify it was actually written by the named professor — they trust the letterhead, the email address, or the submission platform.
+
+**The fabrication problem is growing.** AI can generate convincing recommendation letters. A student who fabricates a letter from a professor who never taught them — or who edits a genuine letter to strengthen it — faces no technical barrier. The admissions committee reads it at face value.
+
+A verifiable recommendation follows the same model as the peer reference above: the professor issues the claim from their own domain.
+
+<div style="font-family: 'Courier New', monospace; max-width: 550px; margin: 24px auto; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6;">
+  <span verifiable-text="start" data-for="acadref"></span>
+  I, Professor Sarah Chen, recommend
+  James Williams for admission to the
+  MSc Computer Science programme.
+  I supervised his final-year project
+  at the University of York, 2025-2026.
+  <span data-verify-line="acadref">verify:sarahchen.ac.uk/recommendations</span>
+  <span verifiable-text="end" data-for="acadref"></span>
+</div>
+
+The verify URL points to the **professor's** domain, not the university's. The claim is personal: "I recommend this person." The university didn't write it; the professor did.
+
+**Institutional vs. personal attestation:**
+
+| Type | Issuer | Domain | Example |
+|:---|:---|:---|:---|
+| Employment VOE | HR department | `acme-corp.com/staff` | "This person worked here" |
+| Employment peer reference | Individual colleague | `paulhammant.com/refs` | "I worked with this person" |
+| Academic recommendation | Individual professor | `sarahchen.ac.uk/recommendations` | "I recommend this person" |
+| Academic transcript | University registrar | `york.ac.uk/transcripts` | "This person earned these grades" |
+
+The first and last are institutional. The middle two are personal. Live Verify handles both, but the trust model is different: an institutional claim carries the institution's reputation; a personal claim carries the individual's.
+
+**Where this matters most:**
+- Graduate school admissions (millions of letters per year globally)
+- Scholarship applications (high-value, competitive)
+- Faculty hiring and tenure review (career-defining)
+- Professional programme applications (medicine, law, MBA)
+- Post-doctoral and research positions
+
+**What it does NOT replace:** the content of the recommendation. The verified claim proves the professor actually wrote and published this letter. It does not prove the letter's claims about the student are true — that remains the professor's professional judgment and reputation.
 
 ## Verification Architecture
 

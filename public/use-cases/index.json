@@ -1,7 +1,7 @@
 {
-  "generated": "2026-03-22T20:18:27.857Z",
-  "totalUseCases": 565,
-  "totalFurtherDerivations": 869,
+  "generated": "2026-03-23T20:29:55.495Z",
+  "totalUseCases": 572,
+  "totalFurtherDerivations": 880,
   "categories": {
     "Real Estate & Property": 43,
     "Charitable & Non-Profit": 8,
@@ -10,7 +10,7 @@
     "Professional & Occupational Licenses": 18,
     "Actuarial & Insurance Mathematics": 10,
     "Personal Lines Insurance": 16,
-    "Government & Civic Documents": 32,
+    "Government & Civic Documents": 33,
     "Notary Services": 7,
     "Immigration & Visa Documents": 18,
     "Legal & Court Documents": 23,
@@ -18,23 +18,23 @@
     "Chain of Custody & Logistics": 18,
     "Travel & Hospitality": 22,
     "Identity & Authority Verification": 55,
-    "Healthcare & Medical Records": 14,
-    "Professional & Educational Qualifications": 24,
+    "Healthcare & Medical Records": 15,
+    "Professional & Educational Qualifications": 25,
     "Art, Media & Publishing": 7,
     "Customs & Trade Compliance": 7,
     "Sports & Athletics": 6,
     "Financial Compliance": 26,
-    "Business & Commerce": 27,
+    "Business & Commerce": 28,
     "Specialty Insurance": 23,
-    "Banking & Payments": 28,
-    "Investment & Fintech": 22,
+    "Banking & Payments": 29,
+    "Investment & Fintech": 23,
     "Site & Equipment Safety": 12,
     "Commercial Lines Insurance": 11,
     "Product Certifications & Compliance": 12,
     "Professional Ethics & Compliance": 11,
     "Environmental Permits & Compliance": 11,
     "Warehousing & Inventory": 4,
-    "Delegated Authority": 5,
+    "Delegated Authority": 6,
     "Trade Finance": 5,
     "Agriculture & Food": 9
   },
@@ -899,6 +899,25 @@
         "wire-fraud",
         "provisional-credit",
         "consumer-protection"
+      ]
+    },
+    {
+      "slug": "bank-reference-letters",
+      "title": "Bank Reference Letters",
+      "category": "Banking & Payments",
+      "volume": "Large",
+      "retention": "1-3 years (reference validity)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Customer reference number, issuing bank name, relationship type (current account, savings, business), relationship start date, standing (satisfactory/unsatisfactory), conduct summary, date of issue.",
+      "tags": [
+        "bank",
+        "reference",
+        "kyc",
+        "rental",
+        "visa",
+        "trade-credit",
+        "cross-border"
       ]
     },
     {
@@ -2346,7 +2365,7 @@
       "volume": "Large",
       "retention": "Duration of contract + 6 years",
       "verificationMode": "clip",
-      "furtherDerivations": 1,
+      "furtherDerivations": 2,
       "snippet": "Authorized person name, company name, company registration, role/title, contract types authorized, monetary limits, duration limits, specific exclusions, delegating authority (board resolution referen",
       "tags": [
         "signing-authority",
@@ -2997,6 +3016,28 @@
       ]
     },
     {
+      "slug": "disability-badge-verification",
+      "title": "Disability Badge Verification",
+      "category": "Government & Civic Documents",
+      "volume": "Large",
+      "retention": "Badge validity period (typically 3 years)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "",
+      "tags": [
+        "blue-badge",
+        "disabled-parking",
+        "disability",
+        "parking-permit",
+        "council",
+        "dmv",
+        "accessibility",
+        "fraud-prevention",
+        "privacy",
+        "international"
+      ]
+    },
+    {
       "slug": "disability-benefit-calculations",
       "title": "Disability Insurance Benefit Calculations",
       "category": "Actuarial & Insurance Mathematics",
@@ -3383,7 +3424,7 @@
       "volume": "Very Large",
       "retention": "1-7 years (hiring cycle)",
       "verificationMode": "clip",
-      "furtherDerivations": 3,
+      "furtherDerivations": 4,
       "snippet": "Employee name, legal employer name, job title/role, start date, end date (or \"Present\"), rehire eligibility status, reason for departure (voluntary/involuntary), salary (optional/linked hash), HRIS re",
       "tags": [
         "employment-verification",
@@ -3777,6 +3818,33 @@
         "fireworks",
         "noise",
         "temporary"
+      ]
+    },
+    {
+      "slug": "exam-test-results-verification",
+      "title": "Exam and Test Results Verification",
+      "category": "Professional & Educational Qualifications",
+      "volume": "Very Large",
+      "retention": "Variable (score validity period — 2 years for TOEFL, permanent for bar admission)",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Examining body name, exam name, candidate reference number, test date or sitting period, score or pass/fail result, and current status.",
+      "tags": [
+        "exam-results",
+        "test-scores",
+        "SAT",
+        "ACT",
+        "GRE",
+        "GMAT",
+        "A-levels",
+        "GCSE",
+        "bar-exam",
+        "USMLE",
+        "CPA",
+        "SQE",
+        "professional-certification",
+        "score-verification",
+        "fraud-prevention"
       ]
     },
     {
@@ -5329,6 +5397,28 @@
       ]
     },
     {
+      "slug": "insurance-broker-letter-of-authority",
+      "title": "Insurance Broker Letter of Authority",
+      "category": "Delegated Authority",
+      "volume": "Medium",
+      "retention": "Authority period + 6 years (regulatory record-keeping, dispute resolution)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "",
+      "tags": [
+        "insurance",
+        "broker",
+        "letter-of-authority",
+        "broker-of-record",
+        "delegated-authority",
+        "london-market",
+        "lloyds",
+        "surplus-lines",
+        "sub-brokering",
+        "scope-of-authority"
+      ]
+    },
+    {
       "slug": "insurance-claim-notification-reserving",
       "title": "Insurance Claim Notification & Reserving",
       "category": "Actuarial & Insurance Mathematics",
@@ -6488,6 +6578,30 @@
         "delayed-discovery",
         "malpractice",
         "product-liability"
+      ]
+    },
+    {
+      "slug": "medical-referral-letters",
+      "title": "Medical Referral Letters",
+      "category": "Healthcare & Medical Records",
+      "volume": "Large",
+      "retention": "3-7 years (clinical correspondence)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Referring clinician name, referring practice name and address, patient reference number, referred-to specialty and institution, urgency level, reason for referral, date of referral.",
+      "tags": [
+        "medical-referral",
+        "gp-referral",
+        "specialist-referral",
+        "clinical-correspondence",
+        "e-referral",
+        "queue-jumping",
+        "insurance-fraud",
+        "patient-pathway",
+        "prior-authorization",
+        "medicare-rebate",
+        "cross-border",
+        "international"
       ]
     },
     {
@@ -8623,6 +8737,30 @@
       ]
     },
     {
+      "slug": "qualified-investor-attestations",
+      "title": "Qualified Investor and Accredited Status Attestations",
+      "category": "Investment & Fintech",
+      "volume": "Large",
+      "retention": "Audit cycle + 7 years",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Investor name, investor status category (QIB, accredited, professional client, wholesale, qualified purchaser), regulatory basis (Rule 144A, Reg D, MiFID II, etc.), attestor name and regulatory status",
+      "tags": [
+        "qib",
+        "qualified-institutional-buyer",
+        "accredited-investor",
+        "rule-144a",
+        "reg-d",
+        "institutional-access",
+        "onboarding",
+        "kyc",
+        "aifmd",
+        "mifid",
+        "wholesale-investor",
+        "platform-access"
+      ]
+    },
+    {
       "slug": "quality-control-inspection-reports",
       "title": "Quality Control Inspection Reports",
       "category": "Product Certifications & Compliance",
@@ -9992,6 +10130,30 @@
         "salted-proof",
         "mortgage",
         "slc"
+      ]
+    },
+    {
+      "slug": "supplier-pre-qualification-status",
+      "title": "Supplier Pre-Qualification Status",
+      "category": "Business & Commerce",
+      "volume": "Large",
+      "retention": "Contract period + 6 years",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Buyer name, supplier name, supplier domain, work category, contract value limit, health and safety assessment status, insurance confirmation, and validity period.",
+      "tags": [
+        "pre-qualification",
+        "approved-supplier",
+        "procurement",
+        "constructionline",
+        "achilles",
+        "RISQS",
+        "SAM-gov",
+        "ESPD",
+        "tender",
+        "supply-chain",
+        "domain-mismatch",
+        "allowedDomains"
       ]
     },
     {
@@ -11556,15 +11718,15 @@
     },
     {
       "name": "Government & Civic Documents",
-      "count": 32
+      "count": 33
     },
     {
       "name": "Banking & Payments",
-      "count": 28
+      "count": 29
     },
     {
       "name": "Business & Commerce",
-      "count": 27
+      "count": 28
     },
     {
       "name": "Financial Compliance",
@@ -11572,7 +11734,7 @@
     },
     {
       "name": "Professional & Educational Qualifications",
-      "count": 24
+      "count": 25
     },
     {
       "name": "Legal & Court Documents",
@@ -11583,11 +11745,11 @@
       "count": 23
     },
     {
-      "name": "Travel & Hospitality",
-      "count": 22
+      "name": "Investment & Fintech",
+      "count": 23
     },
     {
-      "name": "Investment & Fintech",
+      "name": "Travel & Hospitality",
       "count": 22
     },
     {
@@ -11612,7 +11774,7 @@
     },
     {
       "name": "Healthcare & Medical Records",
-      "count": 14
+      "count": 15
     },
     {
       "name": "Site & Equipment Safety",
@@ -11672,7 +11834,7 @@
     },
     {
       "name": "Delegated Authority",
-      "count": 5
+      "count": 6
     },
     {
       "name": "Trade Finance",

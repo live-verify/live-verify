@@ -391,6 +391,40 @@ These vehicles add a layer of complexity: the fund-of-funds NAV depends on under
 
 ---
 
+### Verified Trade Confirmations on Electronic Platforms
+
+Across many markets, trades happen on proprietary platforms where the post-trade record is platform-controlled. The counterparties negotiate, match, and execute through the platform's infrastructure — and then depend on the platform's version of events for accounting, NAV calculation, regulatory reporting, and dispute resolution.
+
+A verified trade confirmation at execution — hashed by both counterparties at the moment of binding — changes this dependency. The platform still does the matching; the verified confirmation becomes the accounting truth.
+
+**Markets where this pattern applies:**
+
+| Market | Platforms | What's traded | Post-trade reliance |
+|:---|:---|:---|:---|
+| **Reinsurance / ILS** | Tremor (Wordings, TremorTalk), Guy Carpenter GC Gateway, Aon ReinsurTech | Reinsurance placements, cat bonds, ILS | Premium, terms, layers, limits |
+| **OTC derivatives & fixed income** | Tradeweb, MarketAxess, Bloomberg TOMS, ICE BondPoint | Interest rate swaps, corporate bonds, CDS, munis | Notional, rate, maturity, counterparty terms |
+| **Energy & commodities** | ICE, CME Clearport, Trayport, TP ICAP, BGC | Oil, gas, power, emissions, agricultural | Price, volume, delivery, settlement terms |
+| **Private markets** | Carta, Forge, Nasdaq Private Market, Juniper Square | Pre-IPO secondary shares, LP interests, fund commitments | Share price, quantity, transfer terms |
+| **Carbon & environmental** | Xpansiv CBL, AirCarbon Exchange (ACX), ICE voluntary carbon | Carbon credits, RECs, biodiversity credits | Credit ID, vintage, quantity, retirement status |
+| **Structured finance** | Intex, Bloomberg PORT, dealer platforms | CLO tranches, RMBS, CMBS, ABS | Tranche terms, pricing, cash flow assumptions |
+| **Voice-brokered OTC** | TP ICAP, Tullett Prebon, BGC (with electronic confirm) | Any OTC product brokered by voice with electronic post-trade | Everything — voice trading has the weakest confirm trail |
+
+**How verified confirmations change the dependency:**
+
+- **The platform remains valuable** for price discovery, matching, and execution. Nothing about verified confirmations diminishes that.
+- **The platform's logs become supplementary** — useful for audit trail and dispute context, but no longer the primary source of truth for what was committed.
+- **Daily NAV calculations** can reference verified confirmations directly, rather than depending on the platform's API or data exports for the binding terms. For ILS funds, this means the fund administrator verifies placement terms against the cedent's and reinsurer's domains, not against Tremor's logs.
+- **Reconciliation disputes** become simpler: both counterparties hold a verified confirmation with the same hash. If the terms match, there's nothing to dispute. If they don't, the discrepancy is visible immediately — not months later during a commutation, maturity, or claim.
+- **Voice-brokered OTC** benefits most. A voice trade confirmed by phone and followed up with an email or chat message is the weakest form of trade record. A verified confirmation issued at the point of agreement — even if the negotiation was voice-brokered — gives both sides an independently verifiable record from the moment of commitment.
+
+**What this does NOT do:**
+
+- Does not replace the platform for execution. The platform's matching engine, auction mechanics, and price discovery are unaffected.
+- Does not eliminate platform logs. They remain useful for operational context, regulatory audit trail, and reconstructing negotiation history.
+- Does not address valuation disputes. A verified confirmation proves what terms were agreed; it does not prove the terms were fair or the valuation was correct.
+
+**Historical echo:** This is the same pattern as the London Bullion Market in the early 2000s, where OTC gold trades were CC'd to a Swiss entity whose sole role was to hold the record. The Swiss firm didn't participate in the trade — they just held an unalterable copy of what both parties agreed. See [Witnessing and Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md#historical-prior-art-london-bullion-market) for the full story.
+
 ## The Common Pattern
 
 | Vehicle Type | Valuation Frequency | Who Calculates | Why Verification Matters |
@@ -423,3 +457,8 @@ Unlike ID cards (where photo return defeats cloning), NAV verification **must no
 **Why:** Financial privacy. If anyone who scans a statement could query the administrator and receive "$12.5 million NAV," it would create a target list for criminals, let competitors map fund sizes, and violate basic confidentiality.
 
 The document holder already has the numbers — verification just proves those numbers came from the administrator and haven't been altered. The verifier (bank, auditor, attorney) sees the document; verification confirms it's real.
+
+## See Also
+
+- [Qualified Investor and Accredited Status Attestations](view.html?doc=qualified-investor-attestations) — reusable QIB/accredited investor attestations that accelerate platform onboarding and fund subscription compliance
+- [Corporate Signing Authority and Delegation Limits](view.html?doc=contract-signing-authority) — verifiable authority claims for who can commit a fund or company to obligations
