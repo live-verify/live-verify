@@ -1,7 +1,7 @@
 {
-  "generated": "2026-03-23T20:29:55.495Z",
-  "totalUseCases": 572,
-  "totalFurtherDerivations": 880,
+  "generated": "2026-03-24T07:46:15.097Z",
+  "totalUseCases": 573,
+  "totalFurtherDerivations": 881,
   "categories": {
     "Real Estate & Property": 43,
     "Charitable & Non-Profit": 8,
@@ -10,7 +10,7 @@
     "Professional & Occupational Licenses": 18,
     "Actuarial & Insurance Mathematics": 10,
     "Personal Lines Insurance": 16,
-    "Government & Civic Documents": 33,
+    "Government & Civic Documents": 34,
     "Notary Services": 7,
     "Immigration & Visa Documents": 18,
     "Legal & Court Documents": 23,
@@ -10133,6 +10133,28 @@
       ]
     },
     {
+      "slug": "student-loan-enrollment-attestations",
+      "title": "Student Loan Enrollment Attestations",
+      "category": "Government & Civic Documents",
+      "volume": "Large",
+      "retention": "Duration of loan + 7 years",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Institution name, student reference, programme title, mode of study (full-time/part-time), start date, expected end date, loan eligibility status, and the name and role of the attesting individual.",
+      "tags": [
+        "student-loans",
+        "enrollment-fraud",
+        "degree-mills",
+        "named-accountability",
+        "witnessing",
+        "regulatory",
+        "ofs",
+        "fsa",
+        "vet-fee-help",
+        "for-profit-college"
+      ]
+    },
+    {
       "slug": "supplier-pre-qualification-status",
       "title": "Supplier Pre-Qualification Status",
       "category": "Business & Commerce",
@@ -11718,7 +11740,7 @@
     },
     {
       "name": "Government & Civic Documents",
-      "count": 33
+      "count": 34
     },
     {
       "name": "Banking & Payments",
