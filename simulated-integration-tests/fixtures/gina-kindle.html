@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<!--
+
+Kindle v3 e-ink test fixture.
+Screen: 600x800 native, held at 90 degrees = 800x600 landscape.
+167 PPI. High contrast for e-ink readability.
+
+Police logos from Midsomer Murders screen clips (same as gina-claim.html).
+
+Verifiable block matches gina-claim.html pattern:
+  MIDSOMER CONSTABULARY / POLICE OFFICER / DETECTIVE GINA COULBY / Salt: ...
+
+To convert to PDF:
+  node simulated-integration-tests/fixtures/kindle-to-pdf.js
+
+-->
+
+<html>
+<head>
+    <title>Gina Coulby Warrant Card - Kindle e-ink</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        @page {
+            size: 800px 600px;
+            margin: 0;
+        }
+
+        body {
+            width: 800px;
+            height: 600px;
+            background: #fff;
+            color: #000;
+            font-family: Georgia, 'Times New Roman', serif;
+            overflow: hidden;
+        }
+
+        .card {
+            width: 800px;
+            height: 600px;
+            display: flex;
+            flex-direction: row;
+            border: 4px solid #000;
+        }
+
+        /* Left panel: logo stack */
+        .logo-panel {
+            width: 220px;
+            height: 100%;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            gap: 0;
+        }
+
+        .logo-panel img {
+            width: 170px;
+            height: auto;
+            filter: brightness(1.3) contrast(1.5);
+        }
+
+        /* Right panel: details */
+        .details-panel {
+            flex: 1;
+            padding: 15px 30px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .header {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+        }
+
+        .claim-block .force {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .claim-block .role {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        .claim-block .name {
+            font-size: 40px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            line-height: 1.1;
+            margin-top: 8px;
+        }
+
+        .claim-block .salt {
+            font-size: 24px;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        .claim-block .verify-line {
+            font-size: 24px;
+            font-weight: 900;
+            margin-top: 6px;
+        }
+
+        /* Verifiable text markers - near invisible */
+        .marker {
+            color: rgba(0,0,0,0.02);
+            font-size: 1px;
+        }
+
+        /* Hidden test locators */
+        .test-locator { display: none; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- Left: logo panel -->
+        <div class="logo-panel">
+            <img src="logo_top.jpg" alt="Crown">
+            <img src="logo_bottom.jpg" alt="Midsomer Constabulary">
+        </div>
+
+        <!-- Right: details -->
+        <div class="details-panel">
+            <div class="header">WARRANT CARD</div>
+
+            <div class="claim-block">
+                <span class="marker" verifiable-text="start" data-for="police">[</span>
+                <div class="force">MIDSOMER CONSTABULARY</div>
+                <div class="role">POLICE OFFICER</div>
+                <div class="name">DETECTIVE GINA COULBY</div>
+                <div class="salt">Salt: 9f4q7w1n</div>
+                <span class="marker" verifiable-text="end" data-for="police">]</span>
+                <div class="verify-line">
+                    <span data-verify-line="police">verify:midsomer.police.uk/id</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Test locators -->
+    <div class="test-locator name">DETECTIVE GINA COULBY</div>
+    <div class="test-locator force">MIDSOMER CONSTABULARY</div>
+</body>
+</html>
