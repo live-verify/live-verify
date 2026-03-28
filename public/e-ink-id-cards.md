@@ -24,11 +24,11 @@ An **e-ink badge** with a **rotating salt** solves both problems:
 └─────────────────────────────┘
 ```
 
-The salt changes:
-- **Every 10 minutes** (time-based rotation)
-- **After each Live Verify scan** (verification-triggered rotation)
+The salt changes via two named patterns (see [Technical Concepts: Salt Patterns](../docs/Technical_Concepts.md#comparison-with-other-salt-patterns)):
+- **Every 10 minutes** — **Time-Rotating Salt**: clock-driven rotation regardless of activity, the safety net for badges that are photographed but never scanned
+- **After each Live Verify scan** — **Verification-Consumed Re-Salting (VCRS)**: a successful verification burns the current hash after a 60-second grace period, so a photograph taken during or after the scan is immediately useless
 
-This means a photographed badge becomes invalid almost immediately.
+VCRS is the primary defense; the timer is the backstop. Most badge interactions are VCRS-driven, with time-rotation only firing during idle periods. This is more efficient than pure time-rotation — a badge sitting in a pocket for hours consumes zero salt cycles.
 
 ## Use Cases Implementing E-Ink Badges
 
@@ -374,11 +374,12 @@ Salts should be 8+ alphanumeric characters (48+ bits of entropy). This prevents:
 
 ### Rotation Timing
 
-Two rotation triggers:
-1. **Time-based:** Every 10 minutes regardless of activity
-2. **Verification-triggered:** 60 seconds after each scan
+Two named rotation triggers run simultaneously (belt and suspenders):
 
-The verification trigger prevents "photograph and immediately use" attacks. The time-based rotation handles badges that aren't being scanned.
+1. **Time-Rotating Salt:** Every 10 minutes regardless of activity. The safety net — ensures a photographed badge expires even if the badge is never scanned. Only fires during idle periods when VCRS hasn't already rotated the salt.
+2. **Verification-Consumed Re-Salting (VCRS):** 60 seconds after each successful scan. The primary defense — burns the hash so a photograph taken during or after the interaction is immediately useless. More efficient than pure time-rotation because idle badges consume zero salt cycles.
+
+See [Technical Concepts: VCRS](../docs/Technical_Concepts.md#verification-consumed-re-salting-vcrs) for the full specification and comparison with other salt patterns.
 
 ### Offline Scenarios
 

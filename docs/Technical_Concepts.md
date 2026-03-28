@@ -12,6 +12,9 @@ This document explains technical concepts referenced across multiple use case do
 5. [Standard Libraries & Native Integration](#standard-libraries--native-integration)
 6. [Deployment Architecture](#deployment-architecture-air-gapped-originals-public-hashes)
 
+6. [Owner-Initiated Re-Salting with Timeout (OIRST)](#owner-initiated-re-salting-with-timeout-oirst)
+7. [Verification-Consumed Re-Salting (VCRS)](#verification-consumed-re-salting-vcrs)
+
 **Stubs (see linked docs for detail):**
 7. [Text Normalization](#text-normalization) → [NORMALIZATION.md](NORMALIZATION.md)
 8. [Response Formats](#response-formats) → [Verification-Response-Format.md](Verification-Response-Format.md)
@@ -167,6 +170,139 @@ Organizations specify their hash algorithm choice in the root-level configuratio
 
 **Hash not printed on document:**
 Critical privacy property - the hash is **never** printed on the physical document. Only the base verification URL (`verify:example.com/c`) appears. This prevents hash enumeration from public photos and ensures privacy.
+
+---
+
+## Owner-Initiated Re-Salting with Timeout (OIRST)
+
+**Problem:** For some document types, the inputs to the hash are publicly guessable. If an attacker knows the document format and can guess the content (e.g., a famous racehorse's name, sire/dam, and registration number are all in public databases), they can compute the hash themselves and probe the verification endpoint. This enables enumeration attacks — mapping which high-value assets exist at which locations, or confirming that a specific animal/person/asset has a current credential.
+
+**When OIRST is needed:** When all three conditions are met:
+1. **Guessable inputs** — The document content can be reconstructed from public information (racing databases, auction catalogues, public registries, company filings).
+2. **High-value target** — Confirming the credential's existence creates a real-world incentive for theft, fraud, or surveillance.
+3. **Persistent endpoint would be dangerous** — A hash that never expires gives attackers unlimited time to probe.
+
+**When OIRST is NOT needed:** When document content has high entropy that cannot be guessed — microchip numbers, DNA profile references, internal serial numbers, or multi-generation registered names for pets. Standard persistent verification endpoints are fine in these cases.
+
+### How It Works
+
+1. **Holder requests a verification link.** The holder — the registered owner, or a delegate they have authorized (trainer, syndicate manager, solicitor, estate agent) — logs into the registry's portal or app and requests a time-limited verification for a specific asset.
+
+2. **Registry generates a fresh salt.** The registry creates a new random salt, prepends or appends it to the document content, computes the hash, and publishes it at a new endpoint. The salt is embedded in the verification link itself (as a path segment or query parameter), so the verifier's app can reconstruct the salted hash from the document text.
+
+3. **Registry sets a TTL.** The endpoint is configured to return 404 after a short window (e.g., 24-48 hours). The TTL is chosen by the issuer and may be configurable by the owner within issuer-defined bounds.
+
+4. **Holder sends the link.** The holder shares the verification link with the prospective buyer/inspector via email, RCS, WhatsApp, or any messaging channel.
+
+5. **Buyer verifies within the window.** The buyer scans or clips the document and verifies against the ephemeral endpoint. The app handles the salted hash transparently — the buyer experience is identical to standard verification.
+
+6. **Endpoint expires.** After the TTL, the endpoint returns 404. The salt is discarded. No permanent hash exists to enumerate.
+
+### Properties
+
+- **No permanent attack surface.** There is no long-lived hash for an attacker to discover or probe at leisure.
+- **Holder controls disclosure.** Verification is only available when the holder (or their authorized delegate) explicitly chooses to share it, and only for the duration they choose.
+- **Each interaction is independent.** Every prospective buyer gets a unique link with a unique salt. Links cannot be accumulated to build an inventory map.
+- **Audit trail.** The registry can log who requested verification, when, and (optionally) for whom — creating a record of interest in the asset.
+- **No change to verifier experience.** The buyer's app works identically; the salt is carried in the link, not entered manually.
+
+### Link Format
+
+The ephemeral link carries the salt so the verifier's app can reconstruct the hash:
+
+```
+verify:registry.example.com/c?s=a8f3e9b1
+```
+
+The app:
+1. Extracts salt `a8f3e9b1` from the query parameter
+2. Reads the document text, normalizes it
+3. Computes `SHA-256(salt + normalizedText)` (or as specified in `verification-meta.json`)
+4. Requests `https://registry.example.com/c/{saltedHash}`
+5. Endpoint returns `{"status":"verified"}` (within TTL) or 404 (expired)
+
+### Example Use Cases
+
+| Domain | Why OIRST | Typical TTL |
+|--------|-----------|-------------|
+| **Thoroughbred pedigrees** | Horse names, sire/dam, registry IDs are public. Confirming a champion stallion's location enables targeted theft. | 24-48 hours |
+| **Bloodstock insurance** | Insured values for named horses are high-value intelligence for fraud syndicates. | 24-48 hours |
+| **High-value livestock** | Prize bulls and breeding stock worth $100K+ are theft targets; locations are sensitive. | 48-72 hours |
+| **Art authentication** | Confirming a specific artwork's provenance certificate exists at a location enables targeted burglary. | 24 hours |
+| **High-net-worth personal assets** | Jewellery valuations, classic car certifications — confirming existence and location. | 24 hours |
+
+### Comparison with Other Salt Patterns
+
+| Pattern | Salt Lifetime | Who Controls | Trigger | Use Case |
+|---------|--------------|--------------|---------|----------|
+| **No salt** | N/A | N/A | N/A | High-entropy documents (pet pedigrees, medical records with internal IDs) |
+| **Persistent salt** | Permanent | Issuer | Issuance | Documents where enumeration risk is low but content is partially guessable |
+| **Time-Rotating salt** | Minutes | Device/Issuer | Clock (every N minutes) | Physical e-Ink badges needing anti-replay (police, delivery workers) |
+| **OIRST** | Hours/days | Holder | Holder requests link | High-value assets where the holder controls when verification is available |
+| **VCRS** | Single use | Automatic | Successful verification | Credentials where each check should be fresh; prevents replay of intercepted links |
+
+See also: [Dynamic Badges](../public/e-ink-id-cards.md) for time-rotating and VCRS patterns in worker verification, and [Breed Pedigree and Registration](../public/use-cases/breed-pedigree-registration.md) for the OIRST motivating use case.
+
+---
+
+## Verification-Consumed Re-Salting (VCRS)
+
+**Problem:** Some credentials should not survive verification. Once a verifier has confirmed authenticity, the hash should be burned — preventing replay by anyone who intercepted, screenshotted, or forwarded the verification link.
+
+**When VCRS is needed:** When any of these conditions apply:
+1. **Single-use verification moments** — The credential is presented once to one verifier at one point in time (customs checkpoint, call verification, doorstep check).
+2. **Replay is the primary threat** — An attacker who obtains a valid verification link (screenshot, forwarded message, shoulder-surfing) could use it to impersonate the credential holder.
+3. **The holder can easily obtain a fresh hash** — Either automatically (e-Ink badge syncs a new salt after scan) or on demand (holder taps a button to regenerate).
+
+**When VCRS is NOT needed:**
+- Documents that multiple independent parties need to verify at different times against the same hash (university degrees, professional licenses with persistent endpoints).
+- High-volume public credentials where burning after each check would create unacceptable friction.
+
+### How It Works
+
+1. **Issuer publishes a salted hash** at the verification endpoint (salt may be time-rotating or holder-initiated — VCRS is compatible with both).
+2. **Verifier scans/clips the credential** and the app queries the endpoint.
+3. **Endpoint returns `{"status":"verified"}`** (or other valid status).
+4. **Endpoint burns the hash.** After a short grace period (e.g., 60 seconds — to handle network retries and allow the verifier's app to fully render the result), the endpoint returns 404 for that hash.
+5. **A new salt is generated.** Either automatically (badge syncs new salt via Bluetooth) or on holder request (OIRST-style).
+
+### Properties
+
+- **Anti-replay.** A screenshotted or forwarded verification link is worthless — by the time the attacker uses it, the hash is already burned.
+- **Anti-surveillance.** Historical hashes return 404. No one can retroactively confirm that a credential was verified at a specific time and place.
+- **Efficient.** Unlike time-based rotation (which churns through salts whether or not anyone scans), VCRS only generates a new salt when needed. A badge sitting idle in a pocket consumes zero salt cycles.
+- **Composable.** VCRS works alongside time-based rotation as a belt-and-suspenders approach (as in e-Ink badges), or standalone for non-badge credentials.
+
+### Example Use Cases
+
+| Domain | Why VCRS | Re-salt mechanism |
+|--------|----------|-------------------|
+| **E-Ink badges (police, delivery, utility)** | Photographed badge must be useless within seconds | Automatic: badge syncs new salt via Bluetooth after scan |
+| **Inbound call verification** | Deputy's SMS hash should be single-use; screenshotted verification can't be replayed by scammer | Automatic: system generates fresh hash per call |
+| **Art in transit** | Each customs checkpoint burns the hash; courier must request fresh verification from shipper for next checkpoint | Holder-initiated: shipper generates new OIRST link per checkpoint |
+| **High-security facility access** | Visitor credential verified at gate; same credential can't be re-presented at a second entrance | Automatic: facility system burns hash on successful gate scan |
+| **One-time prescription fills** | Pharmacy verifies prescription; burned hash prevents same script being presented at a second pharmacy | Automatic: prescriber system burns hash on successful fill verification |
+
+### VCRS + Time-Rotating (Belt and Suspenders)
+
+For e-Ink badges, both patterns run simultaneously:
+
+| Trigger | What happens | Why |
+|---------|-------------|-----|
+| **Successful scan** | Salt rotates after 60-second grace period | Burns the current hash so a photograph is immediately useless |
+| **10-minute timer** | Salt rotates regardless | Handles the case where a badge is photographed but never scanned — the timer ensures the photo expires even without a verification event |
+
+Time-based rotation is the safety net; VCRS is the primary defense. Most badge interactions will be VCRS-driven, with the timer only firing during idle periods.
+
+### VCRS + OIRST (Sequential)
+
+For high-value asset verification (art, racehorses), the two patterns chain naturally:
+
+1. Holder generates an OIRST link (salted, time-limited) and sends it to the buyer
+2. Buyer verifies — VCRS burns the hash immediately
+3. If the buyer needs to re-verify (e.g., brought a partner to inspect), the holder generates a new OIRST link
+
+The TTL acts as a backstop (hash expires even if never used), while VCRS ensures a used hash can't be replayed within the TTL window.
 
 ---
 

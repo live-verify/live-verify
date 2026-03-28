@@ -1,6 +1,6 @@
 {
-  "generated": "2026-03-24T07:46:15.097Z",
-  "totalUseCases": 573,
+  "generated": "2026-03-28T08:18:57.546Z",
+  "totalUseCases": 574,
   "totalFurtherDerivations": 881,
   "categories": {
     "Real Estate & Property": 43,
@@ -28,6 +28,7 @@
     "Specialty Insurance": 23,
     "Banking & Payments": 29,
     "Investment & Fintech": 23,
+    "Agriculture & Food": 10,
     "Site & Equipment Safety": 12,
     "Commercial Lines Insurance": 11,
     "Product Certifications & Compliance": 12,
@@ -35,8 +36,7 @@
     "Environmental Permits & Compliance": 11,
     "Warehousing & Inventory": 4,
     "Delegated Authority": 6,
-    "Trade Finance": 5,
-    "Agriculture & Food": 9
+    "Trade Finance": 5
   },
   "useCases": [
     {
@@ -1168,6 +1168,28 @@
         "border-crossing",
         "entry-record",
         "employment-eligibility"
+      ]
+    },
+    {
+      "slug": "breed-pedigree-registration",
+      "title": "Breed Pedigree and Registration",
+      "category": "Agriculture & Food",
+      "volume": "Medium",
+      "retention": "Animal lifetime + breeding records permanent",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "Registered name, breed, sex, date of birth, microchip/tattoo ID, DNA profile reference, sire and dam (with their registration numbers), extended pedigree (3-5 generations), breeder name, current owner",
+      "tags": [
+        "pedigree",
+        "breed-registry",
+        "lineage",
+        "kennel-club",
+        "jockey-club",
+        "akc",
+        "stud-book",
+        "microchip",
+        "dna-verification",
+        "pet-fraud"
       ]
     },
     {
@@ -6170,7 +6192,7 @@
     },
     {
       "slug": "livestock-health-certificates",
-      "title": "Livestock Health Certificates and Pedigrees",
+      "title": "Livestock Health Certificates",
       "category": "Agriculture & Food",
       "volume": "Small",
       "retention": "Animal lifetime + 5-10 years",
@@ -6182,10 +6204,9 @@
         "cvi-certificate",
         "veterinary-inspection",
         "usda-aphis",
-        "breed-pedigree",
-        "horse-racing",
         "cattle-trade",
-        "animal-welfare"
+        "animal-welfare",
+        "biosecurity"
       ]
     },
     {
@@ -11824,7 +11845,7 @@
     },
     {
       "name": "Agriculture & Food",
-      "count": 9
+      "count": 10
     },
     {
       "name": "Charitable & Non-Profit",

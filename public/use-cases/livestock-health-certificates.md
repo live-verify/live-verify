@@ -1,11 +1,11 @@
 ---
-title: "Livestock Health Certificates and Pedigrees"
+title: "Livestock Health Certificates"
 category: "Agriculture & Food"
 volume: "Small"
 retention: "Animal lifetime + 5-10 years"
 slug: "livestock-health-certificates"
 verificationMode: "clip"
-tags: ["livestock-health", "cvi-certificate", "veterinary-inspection", "usda-aphis", "breed-pedigree", "horse-racing", "cattle-trade", "animal-welfare"]
+tags: ["livestock-health", "cvi-certificate", "veterinary-inspection", "usda-aphis", "cattle-trade", "animal-welfare", "biosecurity"]
 furtherDerivations: 1
 ---
 
@@ -47,19 +47,19 @@ Animal unique ID (Microchip/Tag), Consignor/Consignee names, Species/Breed, Gend
 
 **Document Types:**
 - **Certificate of Veterinary Inspection (CVI):** Mandatory for interstate/international move.
-- **Breed Pedigree / Registration:** Proving lineage and value.
 - **Equine Infectious Anemia (Coggins) Lab Report:** Essential for horse travel.
 - **Import/Export Health Certificate:** (Form 7001 equivalent).
 
+See also: [Breed Pedigree and Registration](breed-pedigree-registration.md) for lineage/registry verification.
+
 ## Data Visible After Verification
 
-Shows the issuer domain (`tahc.texas.gov`, `usda.gov`, `aqha.com`) and current health/legal standing.
+Shows the issuer domain (`tahc.texas.gov`, `usda.gov`) and current health/legal standing.
 
 **Status Indications:**
 - **Certified** — Health certificate matches the state vet's official digital filing.
 - **Quarantined** — **ALERT:** Disease detected at origin; movement prohibited.
 - **Expired** — CVIs are typically only valid for 30 days.
-- **Verified Pedigree** — Lineage confirmed by the breed registry database.
 
 ## Second-Party Use
 
@@ -67,15 +67,12 @@ The **Animal Owner / Shipper** benefits from verification.
 
 **Interstate Transport:** Proving to a State Police or Ag-Inspector at a roadside checkpoint that the 10 horses in the trailer have verified "Negative Coggins" and active CVIs. This prevents the truck from being impounded or the animals being forced into a 14-day mandatory quarantine.
 
-**Auction Sales:** Proving to potential buyers at a high-value cattle or horse auction that the animal's "Verified Health" and "Pedigree" aren't fabricated. A verified hash from the breed registry increases the sale price by ensuring the bloodline is real.
+**Auction Sales:** Proving to potential buyers at a high-value cattle or horse auction that the animal's health status isn't fabricated.
 
 ## Third-Party Use
 
 **Roadside Ag-Inspectors (CBP / State Troopers)**
 **Disease Control:** Instantly verifying the health status of animals at the border. Live Verify allows the officer to focus on trucks with unverified or "Forged" paper, stopping outbreaks of Foot-and-Mouth or Avian Flu before they spread.
-
-**Equine / Bovine Buyers**
-**Due Diligence:** Verifying the "Soundness" and "Lineage" of an animal before wiring $100,000+.
 
 **Show Organizers**
 **Entry Vetting:** Ensuring that all 500 horses at a national show have verified vaccinations, protecting the entire population from contagious outbreaks.
@@ -86,13 +83,11 @@ The **Animal Owner / Shipper** benefits from verification.
 
 - **Certificate Forgery:** Using a color printer to create a "Clean CVI" for a sick horse to sneak it into a prestigious show or across a state line.
 - **Microchip Swapping:** Claiming a health certificate belongs to a healthy animal when the person is actually shipping a sick one. Verification of the *Microchip ID Hash* prevents this.
-- **Pedigree Padding:** Fabricating a lineage to sell a "Grade" horse as a "Thoroughbred" for 10x the price.
 
 **Issuer Types** (First Party)
 
 **State Veterinarian Offices.**
 **USDA APHIS.**
-**Breed Registries:** (e.g., AQHA, The Jockey Club, American Angus Assoc).
 **Electronic CVI Platforms:** (e.g., GlobalVetLink - hosting the hashes).
 
 **Privacy Salt:** Critical. Livestock owner names and farm locations are sensitive. The hash must be salted to prevent "Cattle Rustling" groups from mapping high-value herds.
@@ -144,4 +139,4 @@ If a witness layer exists, it may periodically commit rollups to a public blockc
 | **Adoption** | **High.** Works with existing paper workflows. | **Medium.** Requires all vets to use the same software. | **Universal.** |
 | **Integrity** | **Binds Microchip.** Protects the data. | **Data-Only.** | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Roadside Realities." Border inspectors work in booths with limited time. They don't have logins to 15 different private veterinary platforms. Live Verify turn the **Mandatory Paper Certificate** into a universal digital bridge, bringing "Blockchain-level" biosecurity to the physical checkpoint.
+**Why Live Verify wins here:** The "Roadside Realities." Border inspectors work in booths with limited time. They don't have logins to 15 different private veterinary platforms. Live Verify turns the **Mandatory Paper Certificate** into a universal digital bridge, bringing "Blockchain-level" biosecurity to the physical checkpoint.
