@@ -4,7 +4,7 @@ category: "Business & Commerce"
 volume: "Very Large"
 retention: "Transaction + 7 years (tax/audit)"
 slug: "sales-receipts"
-verificationMode: "clip+camera"
+verificationMode: "both"
 tags: ["receipt", "retail", "hospitality", "expense", "duplicate-claim", "expense-fraud", "vat", "sales-tax", "point-of-sale"]
 furtherDerivations: 0
 ---

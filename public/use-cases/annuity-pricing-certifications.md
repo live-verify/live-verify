@@ -7,11 +7,6 @@ slug: "annuity-pricing-certifications"
 verificationMode: "clip"
 tags: ["actuarial", "annuity", "pricing", "insurance", "solvency", "compliance"]
 furtherDerivations: 2
-gmail: yes
-pdf: yes
-sms: no
-discord: no
-whatsapp: yes
 ---
 
 ## What is an Annuity Rate Certification?

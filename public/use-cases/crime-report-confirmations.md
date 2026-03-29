@@ -3,7 +3,7 @@ title: "Crime Report Confirmations and Progress"
 category: "Government & Civic Documents"
 volume: "Very Large"
 retention: "Indefinite (report exists as long as case file exists)"
-slug: "crime-report-confirmations-and-progress"
+slug: "crime-report-confirmations"
 verificationMode: "clip"
 tags: ["crime-report", "police-report", "fraud-report", "insurance-claim", "action-fraud", "crime-reference-number", "law-enforcement", "victim-receipt"]
 furtherDerivations: 1

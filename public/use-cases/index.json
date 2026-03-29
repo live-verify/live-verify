@@ -1,6 +1,6 @@
 {
-  "generated": "2026-03-28T08:18:57.546Z",
-  "totalUseCases": 574,
+  "generated": "2026-03-29T09:50:06.766Z",
+  "totalUseCases": 575,
   "totalFurtherDerivations": 881,
   "categories": {
     "Real Estate & Property": 43,
@@ -13,7 +13,7 @@
     "Government & Civic Documents": 34,
     "Notary Services": 7,
     "Immigration & Visa Documents": 18,
-    "Legal & Court Documents": 23,
+    "Legal & Court Documents": 24,
     "Insurance Claims & Operations": 15,
     "Chain of Custody & Logistics": 18,
     "Travel & Hospitality": 22,
@@ -2630,7 +2630,7 @@
       ]
     },
     {
-      "slug": "crime-report-confirmations-and-progress",
+      "slug": "crime-report-confirmations",
       "title": "Crime Report Confirmations and Progress",
       "category": "Government & Civic Documents",
       "volume": "Very Large",
@@ -5244,7 +5244,7 @@
       ]
     },
     {
-      "slug": "impersonation-scam-verification",
+      "slug": "impersonation-scam-patterns",
       "title": "Impersonation Scam Verification",
       "category": "Identity & Authority Verification",
       "volume": "Very Large",
@@ -7135,7 +7135,7 @@
       ]
     },
     {
-      "slug": "ocean-shipping-waybills",
+      "slug": "ocean-waybills",
       "title": "Bills of Lading",
       "category": "Chain of Custody & Logistics",
       "volume": "Large",
@@ -8824,7 +8824,7 @@
       ]
     },
     {
-      "slug": "rail-waybills-shipping-orders",
+      "slug": "rail-waybills",
       "title": "Rail Waybills and Shipping Orders",
       "category": "Chain of Custody & Logistics",
       "volume": "Medium-Large",
@@ -9537,7 +9537,7 @@
       "category": "Business & Commerce",
       "volume": "Very Large",
       "retention": "Transaction + 7 years (tax/audit)",
-      "verificationMode": "clip+camera",
+      "verificationMode": "both",
       "furtherDerivations": 0,
       "snippet": "Receipt number, merchant name, location, date/time, itemized purchases with individual prices, subtotal, tax (VAT/sales tax rate and amount), total, payment method indicator, transaction reference.",
       "tags": [
@@ -9976,6 +9976,28 @@
         "payment-redirection",
         "real-estate",
         "anti-fraud"
+      ]
+    },
+    {
+      "slug": "solicitor-letters-cease-desist",
+      "title": "Solicitor and Lawyer Letters (Cease-and-Desist, Demand Letters)",
+      "category": "Legal & Court Documents",
+      "volume": "Large",
+      "retention": "6 years (limitation periods for contract/tort claims; longer if litigation follows)",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "Firm name, SRA/bar registration number, partner name, matter reference, client name, date of letter, summary of demand (cease use, payment amount, deadline), recipient identifier (redacted or hashed i",
+      "tags": [
+        "solicitor",
+        "lawyer",
+        "cease-and-desist",
+        "demand-letter",
+        "legal-correspondence",
+        "intimidation-fraud",
+        "law-firm",
+        "barrister",
+        "attorney",
+        "fake-legal-letter"
       ]
     },
     {
@@ -11781,7 +11803,7 @@
     },
     {
       "name": "Legal & Court Documents",
-      "count": 23
+      "count": 24
     },
     {
       "name": "Specialty Insurance",

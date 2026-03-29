@@ -141,6 +141,9 @@ If a witness layer exists, it may periodically commit rollups to a public blockc
 | **Physical World** | **Native.** Works on the printed page at an embassy desk. | **Non-existent.** Cannot "click" a link on paper. | **Low.** Requires digital handshake. |
 | **Cost** | **Zero/Low.** Static web hosting. | **High.** Aggregators charge per connection. | **High.** Development cost. |
 
-**Why Live Verify wins here:**
-For **ad-hoc, low-tech interactions** (like handing a paper to a landlord or a visa officer), Open Banking is overkill and technically difficult. Live Verify bridges the gap: it makes the *paper* smart without forcing the landlord to integrate with Plaid.
+**Where Open Banking wins:** In the UK, EU, and US, Open Banking APIs (Plaid, TrueLayer, Yodlee) are the superior solution for institutional verifiers (mortgage lenders, large employers, visa processing centres) who can integrate programmatically. Live Verify does not replace this infrastructure where it exists.
+
+**Where Live Verify wins:** For **ad-hoc, low-tech interactions** (handing a paper to a landlord or a visa officer), Open Banking is overkill and technically difficult. Live Verify makes the *paper* smart without forcing the landlord to integrate with Plaid.
+
+**Where Live Verify is the only option:** In markets without Open Banking infrastructure — much of Africa (M-Pesa, Airtel Money), Southeast Asia (GCash, GrabPay, Dana), Latin America outside Brazil (Mercantil, Nequi, Ualá), and parts of South Asia — there is no Plaid equivalent. A Kenyan freelancer proving income to a Nairobi landlord, or a Filipino worker providing bank proof for a visa application, has no API-based verification channel. The neobank publishing hashes on its own domain is the only verification path that works at the paper-and-phone level. These neobanks also have a strong issuer incentive: they are competing for legitimacy against traditional banks and *want* their statements to be independently verifiable.
 
