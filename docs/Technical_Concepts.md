@@ -14,6 +14,7 @@ This document explains technical concepts referenced across multiple use case do
 
 6. [Owner-Initiated Re-Salting with Timeout (OIRST)](#owner-initiated-re-salting-with-timeout-oirst)
 7. [Verification-Consumed Re-Salting (VCRS)](#verification-consumed-re-salting-vcrs)
+8. [Multi-Page Document Manifests](#multi-page-document-manifests)
 
 **Stubs (see linked docs for detail):**
 7. [Text Normalization](#text-normalization) → [NORMALIZATION.md](NORMALIZATION.md)
@@ -780,3 +781,88 @@ Implementation timelines and key friction points vary by sector. These are plann
 | **Event venues** | 6–9 months | Just-in-time badge issuance (24 hr turnaround), multi-company coordination problem, post-event badge destruction (GDPR) |
 
 See also [e-ink-id-cards.md](../public/e-ink-id-cards.md) for the privacy tiers and risk assessment across these sectors.
+
+---
+
+## Multi-Page Document Manifests
+
+**Problem:** Many real-world documents are multi-page — bank statements, contracts, medical records, insurance policies. A verifier may clip (select) text from just one page. How does the system communicate that the verified page is part of a larger document, and provide integrity for the whole?
+
+**Solution: Page manifests with a composite hash.** Each page is independently hashable. The issuer also computes a composite hash — the SHA-256 of all page hashes concatenated in order (a Merkle-like root). When a verifier checks any single page, the response includes a `manifest` indicating which page they verified, how many pages exist, and the composite hash of the complete document.
+
+### Terminology
+
+| Term | Meaning |
+|------|---------|
+| **Page hash** | SHA-256 of a single page's normalized text |
+| **Composite hash** | SHA-256 of all page hashes concatenated in page order — covers the whole document |
+| **Manifest** | The metadata in the verification response that describes the document's page structure |
+
+**Why "manifest":** The term is established in software (JAR manifests, cargo manifests, IIIF manifests for digitized documents) and means exactly this — an inventory of parts with their integrity hashes plus a root hash for the whole.
+
+**Why not other terms:**
+- **"Collection"** — implies unrelated, heterogeneous items. A bank statement's pages aren't a collection; they're ordered parts of one document.
+- **"Bundle"** — informal, no prior art in integrity/hashing contexts.
+- **"Tree"** — too implementation-specific; exposes the Merkle structure to the verifier who doesn't need to know.
+
+**Why "compositeHash":** The field name should immediately tell a human reader "this hash is composed from multiple parts" without being jargon-heavy. Alternatives considered: `rootHash` (accurate but Merkle jargon), `fullHash` (ambiguous), `wholeDocumentHash` (verbose), `combinedHash` (vague). "Composite" signals "made up of parts" at a glance.
+
+### Response Format
+
+When a verifier clips page 1 of a 4-page bank statement:
+
+```json
+{
+  "status": "verified",
+  "manifest": {
+    "compositeHash": "e8b7c2...sha256 of all four page hashes concatenated...",
+    "totalPages": 4,
+    "thisPage": 1
+  }
+}
+```
+
+This tells the verifier three things:
+1. **Page 1 is authentic** — the hash they computed matches the issuer's record
+2. **It belongs to a 4-page document** — they're not seeing the complete picture
+3. **The complete document has composite hash `e8b7c2...`** — if they verify all 4 pages, they can independently confirm they're looking at the same document, not pages cherry-picked from different statements
+
+### Computing the Composite Hash
+
+The composite hash is computed by concatenating page hashes in page order and hashing the result:
+
+```
+pageHash1 = SHA256(normalizedText of page 1)
+pageHash2 = SHA256(normalizedText of page 2)
+pageHash3 = SHA256(normalizedText of page 3)
+pageHash4 = SHA256(normalizedText of page 4)
+
+compositeHash = SHA256(pageHash1 + pageHash2 + pageHash3 + pageHash4)
+```
+
+Where `+` is string concatenation of the hex-encoded hashes. This is a flat Merkle tree (one level) — simple to implement, simple to explain, and sufficient for documents with a small number of pages. A deeper tree structure adds no practical benefit for typical document sizes (2–50 pages).
+
+### Use Cases
+
+| Document | Typical Pages | Why Manifest Matters |
+|----------|--------------|---------------------|
+| **Bank statement** | 2–8 | Verifier clips one transaction; manifest shows it's part of a complete statement |
+| **Insurance policy** | 10–30 | Verifier clips the coverage summary; manifest confirms the full policy is intact |
+| **Contract** | 5–50 | Verifier clips a specific clause; manifest proves the clause belongs to the complete, unaltered contract |
+| **Medical record** | Variable | Verifier clips a diagnosis page; manifest shows it's part of a complete record, not an isolated excerpt |
+| **Court filing** | 3–20 | Verifier clips the ruling; manifest proves it's part of the full filing |
+
+### Partial vs. Complete Verification
+
+The manifest enables a spectrum of verification confidence:
+
+- **Single page verified:** "This page is authentic and belongs to a 4-page document." Sufficient for many purposes (e.g., checking a specific transaction on a bank statement).
+- **All pages verified independently:** The verifier can concatenate the page hashes they computed and confirm the result matches `compositeHash`. This proves the entire document is intact and unaltered.
+- **Some pages verified:** The verifier knows which pages they've checked and which they haven't. They can make a risk-based decision about whether partial verification is sufficient.
+
+### Design Principles
+
+1. **Minimal response** — the manifest adds only three fields. No page content is echoed.
+2. **No mandatory full verification** — the verifier decides how many pages to check based on their risk tolerance.
+3. **Independent page hashes** — each page stands alone for verification. The composite hash is additive assurance, not a prerequisite.
+4. **Page order matters** — the composite hash is sensitive to page ordering, preventing reordering attacks (e.g., swapping pages to change a contract's meaning).

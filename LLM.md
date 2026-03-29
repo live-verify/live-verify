@@ -177,7 +177,7 @@ live-verify/
 │
 ├── docs/                            # Detailed documentation (32 files)
 │   ├── NORMALIZATION.md             # Detailed normalization rules
-│   ├── Technical_Concepts.md        # Registration marks, domain binding, OCR challenges
+│   ├── Technical_Concepts.md        # Registration marks, domain binding, OCR challenges, multi-page manifests
 │   ├── Verification-Response-Format.md # Response format specification
 │   ├── VERIFICATION-MODES.md        # Clip, Camera, Image modes
 │   ├── weaknesses_audit.md          # Self-critical audit of protocol weaknesses
@@ -850,6 +850,14 @@ More: https://issuer.com/public-profile/{id}
 - NFT-less verification (no blockchain needed for basic use case)
 - The Medpro/Intertek fraud case that inspired this
 - Independent Witnessing and Stateful Verification (see docs/Technical_Concepts.md)
+- Multi-page document manifests: `compositeHash` + `totalPages` + `thisPage` (see docs/Technical_Concepts.md)
+- OIRST (Owner-Initiated Re-Salting with Timeout): ephemeral salted links preventing inventory enumeration (see docs/Technical_Concepts.md)
+- VCRS (Verification-Consumed Re-Salting): single-use links that auto-rotate after each scan, prevents replay (see docs/Technical_Concepts.md)
+- Deployment architecture: air-gapped originals in secure zone, public hash database in DMZ (see docs/Technical_Concepts.md)
+- Channel impersonation fraud: phishing, smishing, quishing, vishing — Live Verify as countermeasure (see docs/channel-impersonation-fraud-controls.md)
+- Urgent verification framing: power asymmetry and directionality in pressured situations (see docs/urgent-verification-framing.md)
+- Quantum computing threat assessment: SHA-256 longevity under quantum attack (see docs/quantum-computing-threat-assessment.md)
+- E-Ink badges: physical rotating-salt credentials, Kindle simulation for prototyping (see public/e-ink-id-cards.md)
 
 ## License
 
