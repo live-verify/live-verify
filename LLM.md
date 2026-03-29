@@ -861,6 +861,7 @@ More: https://issuer.com/public-profile/{id}
 - Urgent verification framing: power asymmetry and directionality in pressured situations (see docs/urgent-verification-framing.md)
 - Quantum computing threat assessment: SHA-256 longevity under quantum attack (see docs/quantum-computing-threat-assessment.md)
 - E-Ink badges: physical rotating-salt credentials, Kindle simulation for prototyping (see public/e-ink-id-cards.md)
+- Legal witnessing future: hash-based witnessing ceremonies with three roles (lawyer confirms hash, witness attests ceremony, registry holds record) (see docs/legal-witnessing-future-architecture.md)
 
 ## License
 

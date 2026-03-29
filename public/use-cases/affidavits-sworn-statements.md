@@ -147,3 +147,5 @@ If a witness layer exists, it may periodically commit rollups to a public blockc
 | **Long-Term** | **Durable.** Text is readable in 50 years. | **Fragile.** Root certificates expire; proprietary formats become obsolete. | **Durable.** |
 
 **Why Live Verify wins here:** The legal world is "Paper-Persistent." Even if a document starts digital, it often ends up printed for a judge, scanned into a case file, or mailed to a defendant. Live Verify ensures the chain of verification survives these format shifts.
+
+See also [Legal Witnessing Future Architecture](../../docs/legal-witnessing-future-architecture.md) for a generalised model where the commissioner/notary confirms the hash corresponds to the sworn statement, and the attestation is published to an independent registry.

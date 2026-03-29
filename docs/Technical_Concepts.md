@@ -23,6 +23,7 @@ This document explains technical concepts referenced across multiple use case do
 10. [Dynamic Badges](#dynamic-badges--worker-verification) → [e-ink-id-cards.md](../public/e-ink-id-cards.md)
 11. [Witnessing](#independent-witnessing--stateful-verification) → [WITNESSING-THIRD-PARTIES.md](WITNESSING-THIRD-PARTIES.md)
 12. [Sector-Specific Nuances](#sector-specific-implementation-nuances) (condensed table)
+13. [Legal Witnessing Future Architecture](legal-witnessing-future-architecture.md) — hash-based witnessing ceremonies with three attestation roles
 
 ---
 

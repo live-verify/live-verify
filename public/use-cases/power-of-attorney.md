@@ -162,4 +162,6 @@ If a witness layer exists, it may periodically commit rollups to a public blockc
 | **Readability** | **High.** Full text is protected. | **None.** Seals don't protect text. | **None.** |
 | **Privacy** | **High.** Hash protects details. | **Low.** Anyone can see the seal. | **Variable.** |
 
-**Why Live Verify wins here:** The "Saturday Morning" reality. Banks are open when law offices are closed. A teller needs to know *right now* if a document is authentic. Live Verify turns the **Lawyer's Letterhead** into a live, high-authority trust anchor, stopping elder abuse and fraud at the teller window.
+**Why Live Verify wins here:** The "Saturday Morning" reality. Banks are open when law offices are closed. A teller needs to know *right now* if a document is authentic. Live Verify turns the **Lawyer's Letterhead** into a live, high-authority trust anchor, enabling detection of elder abuse and fraud at the teller window.
+
+See also [Legal Witnessing Future Architecture](../../docs/legal-witnessing-future-architecture.md) for a generalised model where witnesses attest to hash-specific documents and attestations are published to an independent registry — particularly relevant for LPAs where the donor's capacity is later contested.
