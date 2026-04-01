@@ -6,7 +6,7 @@ retention: "Animal lifetime + breeding records permanent"
 slug: "breed-pedigree-registration"
 verificationMode: "clip"
 tags: ["pedigree", "breed-registry", "lineage", "kennel-club", "jockey-club", "akc", "stud-book", "microchip", "dna-verification", "pet-fraud"]
-furtherDerivations: 0
+furtherDerivations: 1
 ---
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Georgia', serif; border: 2px solid #4a0e0e; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.12);">

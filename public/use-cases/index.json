@@ -1,7 +1,7 @@
 {
-  "generated": "2026-03-29T09:50:06.766Z",
-  "totalUseCases": 575,
-  "totalFurtherDerivations": 881,
+  "generated": "2026-03-31T17:32:36.818Z",
+  "totalUseCases": 577,
+  "totalFurtherDerivations": 885,
   "categories": {
     "Real Estate & Property": 43,
     "Charitable & Non-Profit": 8,
@@ -10,7 +10,7 @@
     "Professional & Occupational Licenses": 18,
     "Actuarial & Insurance Mathematics": 10,
     "Personal Lines Insurance": 16,
-    "Government & Civic Documents": 34,
+    "Government & Civic Documents": 35,
     "Notary Services": 7,
     "Immigration & Visa Documents": 18,
     "Legal & Court Documents": 24,
@@ -31,7 +31,7 @@
     "Agriculture & Food": 10,
     "Site & Equipment Safety": 12,
     "Commercial Lines Insurance": 11,
-    "Product Certifications & Compliance": 12,
+    "Product Certifications & Compliance": 13,
     "Professional Ethics & Compliance": 11,
     "Environmental Permits & Compliance": 11,
     "Warehousing & Inventory": 4,
@@ -859,6 +859,27 @@
       ]
     },
     {
+      "slug": "ballot-receipt-confirmations",
+      "title": "Ballot Receipt & Voting Record Confirmations",
+      "category": "Government & Civic Documents",
+      "volume": "Very Large",
+      "retention": "Election cycle + 4 years",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Variant 1 (Participation): Voter name, voter ID, precinct, election name and date, ballot status (received/counted/rejected), voting method (in-person/mail/drop-box), receipt timestamp.",
+      "tags": [
+        "election",
+        "voting",
+        "ballot-receipt",
+        "i-voted",
+        "ballot-tracking",
+        "democracy",
+        "voter-confirmation",
+        "rcs",
+        "email"
+      ]
+    },
+    {
       "slug": "bank-branch-and-call-center-verification",
       "title": "Bank Branch and Call Center Verification",
       "category": "Banking & Payments",
@@ -1177,7 +1198,7 @@
       "volume": "Medium",
       "retention": "Animal lifetime + breeding records permanent",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Registered name, breed, sex, date of birth, microchip/tattoo ID, DNA profile reference, sire and dam (with their registration numbers), extended pedigree (3-5 generations), breeder name, current owner",
       "tags": [
         "pedigree",
@@ -9899,6 +9920,30 @@
       ]
     },
     {
+      "slug": "software-release-announcements",
+      "title": "Software Release Announcements & Package Provenance",
+      "category": "Product Certifications & Compliance",
+      "volume": "Very Large",
+      "retention": "Release lifecycle + 5 years",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "Variant 1 (Release Announcement): Project name, version, release date, git commit/tag, release manager name, tarball SHA-256, CVE fixes, changelog reference.",
+      "tags": [
+        "software",
+        "release",
+        "provenance",
+        "supply-chain",
+        "open-source",
+        "npm",
+        "maven",
+        "pypi",
+        "sigstore",
+        "slsa",
+        "gpg",
+        "tarball"
+      ]
+    },
+    {
       "slug": "soil-geotechnical-reports",
       "title": "Soil and Geotechnical Reports",
       "category": "Real Estate & Property",
@@ -9985,7 +10030,7 @@
       "volume": "Large",
       "retention": "6 years (limitation periods for contract/tort claims; longer if litigation follows)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 1,
       "snippet": "Firm name, SRA/bar registration number, partner name, matter reference, client name, date of letter, summary of demand (cease use, payment amount, deadline), recipient identifier (redacted or hashed i",
       "tags": [
         "solicitor",
@@ -11783,7 +11828,7 @@
     },
     {
       "name": "Government & Civic Documents",
-      "count": 34
+      "count": 35
     },
     {
       "name": "Banking & Payments",
@@ -11842,11 +11887,11 @@
       "count": 15
     },
     {
-      "name": "Site & Equipment Safety",
-      "count": 12
+      "name": "Product Certifications & Compliance",
+      "count": 13
     },
     {
-      "name": "Product Certifications & Compliance",
+      "name": "Site & Equipment Safety",
       "count": 12
     },
     {

@@ -7,7 +7,7 @@ retention: "6 years (limitation periods for contract/tort claims; longer if liti
 slug: "solicitor-letters-cease-desist"
 verificationMode: "clip"
 tags: ["solicitor", "lawyer", "cease-and-desist", "demand-letter", "legal-correspondence", "intimidation-fraud", "law-firm", "barrister", "attorney", "fake-legal-letter"]
-furtherDerivations: 0
+furtherDerivations: 1
 ---
 
 ## What is a Solicitor Letter?
