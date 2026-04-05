@@ -1,7 +1,7 @@
 {
-  "generated": "2026-04-04T15:21:47.846Z",
-  "totalUseCases": 579,
-  "totalFurtherDerivations": 898,
+  "generated": "2026-04-05T16:13:37.555Z",
+  "totalUseCases": 580,
+  "totalFurtherDerivations": 899,
   "categories": {
     "Real Estate & Property": 43,
     "Charitable & Non-Profit": 8,
@@ -18,7 +18,7 @@
     "Chain of Custody & Logistics": 18,
     "Travel & Hospitality": 22,
     "Identity & Authority Verification": 55,
-    "Healthcare & Medical Records": 15,
+    "Healthcare & Medical Records": 16,
     "Professional & Educational Qualifications": 25,
     "Art, Media & Publishing": 7,
     "Customs & Trade Compliance": 7,
@@ -2053,7 +2053,7 @@
       "volume": "Very Large",
       "retention": "Permanent (entity lifecycle)",
       "verificationMode": "clip",
-      "furtherDerivations": 9,
+      "furtherDerivations": 10,
       "snippet": "Certificate of Incorporation: Company name, company number, jurisdiction, date of incorporation, company type (limited by shares, limited by guarantee, corporation, LLC, etc.), registered office locat",
       "tags": [
         "incorporation",
@@ -6586,6 +6586,32 @@
         "asme-compliance",
         "metallurgy",
         "supply-chain-traceability"
+      ]
+    },
+    {
+      "slug": "medicaid-medi-cal-billing-fraud",
+      "title": "Medicaid / Medi-Cal Billing Fraud Prevention",
+      "category": "Healthcare & Medical Records",
+      "volume": "Very Large",
+      "retention": "10 years (federal False Claims Act statute of limitations + audit)",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "Provider identity (NPI, name, license number, domain), beneficiary identity (Medi-Cal ID, managed care plan, PCP assignment), date of service, CPT/HCPCS codes for services rendered, rendering provider",
+      "tags": [
+        "medicaid",
+        "medi-cal",
+        "billing-fraud",
+        "false-claims",
+        "upcoding",
+        "phantom-billing",
+        "kickbacks",
+        "provider-verification",
+        "beneficiary-verification",
+        "healthcare-fraud",
+        "cms",
+        "dhcs",
+        "npi",
+        "cpt-codes"
       ]
     },
     {
@@ -11924,11 +11950,11 @@
       "count": 16
     },
     {
-      "name": "Insurance Claims & Operations",
-      "count": 15
+      "name": "Healthcare & Medical Records",
+      "count": 16
     },
     {
-      "name": "Healthcare & Medical Records",
+      "name": "Insurance Claims & Operations",
       "count": 15
     },
     {
