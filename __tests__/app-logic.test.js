@@ -42,6 +42,7 @@ global.document = {
 const {
     rotateCanvas,
     extractVerificationUrl,
+    trimToFirstLinePattern,
     extractCertText,
     hashMatchesUrl,
     buildVerificationUrl,
@@ -407,6 +408,79 @@ https://example.com`;
 
             const result = extractCertText(rawText, 3);
             expect(result).toBe('Line 1\n\nLine 3');
+        });
+    });
+
+    describe('trimToFirstLinePattern', () => {
+        it('should trim OCR text to the first matching line', () => {
+            const text = 'NOISE FROM ABOVE\nRandom stuff\nAccount Number: 12345678\nBalance: $1,000.00';
+            const meta = { firstLinePatterns: ['^Account Number:'] };
+            expect(trimToFirstLinePattern(text, meta)).toBe('Account Number: 12345678\nBalance: $1,000.00');
+        });
+
+        it('should try multiple patterns and match the first occurrence', () => {
+            const text = 'Header junk\nLoan Reference: LN-9876\nAmount: $50,000';
+            const meta = { firstLinePatterns: ['^Account Number:', '^Loan Reference:'] };
+            expect(trimToFirstLinePattern(text, meta)).toBe('Loan Reference: LN-9876\nAmount: $50,000');
+        });
+
+        it('should return text unchanged when no patterns match', () => {
+            const text = 'Line 1\nLine 2\nLine 3';
+            const meta = { firstLinePatterns: ['^Account Number:'] };
+            expect(trimToFirstLinePattern(text, meta)).toBe(text);
+        });
+
+        it('should return text unchanged when meta is null', () => {
+            const text = 'Line 1\nLine 2';
+            expect(trimToFirstLinePattern(text, null)).toBe(text);
+        });
+
+        it('should return text unchanged when firstLinePatterns is absent', () => {
+            const text = 'Line 1\nLine 2';
+            expect(trimToFirstLinePattern(text, { issuer: 'Test' })).toBe(text);
+        });
+
+        it('should return text unchanged when firstLinePatterns is empty', () => {
+            const text = 'Line 1\nLine 2';
+            expect(trimToFirstLinePattern(text, { firstLinePatterns: [] })).toBe(text);
+        });
+
+        it('should match first line if it already matches', () => {
+            const text = 'Account Number: 12345678\nBalance: $1,000.00';
+            const meta = { firstLinePatterns: ['^Account Number:'] };
+            expect(trimToFirstLinePattern(text, meta)).toBe(text);
+        });
+
+        it('should trim whitespace before matching', () => {
+            const text = 'Noise\n  Account Number: 12345678\nBalance: $1,000.00';
+            const meta = { firstLinePatterns: ['^Account Number:'] };
+            expect(trimToFirstLinePattern(text, meta)).toBe('  Account Number: 12345678\nBalance: $1,000.00');
+        });
+
+        it('should support object entries with pattern field', () => {
+            const text = 'Noise\n8 Market Square\nHenley-on-Thames';
+            const meta = {
+                firstLinePatterns: [
+                    { pattern: '^\\d+\\s+\\w+\\s+Square', description: 'Street address' }
+                ]
+            };
+            expect(trimToFirstLinePattern(text, meta)).toBe('8 Market Square\nHenley-on-Thames');
+        });
+
+        it('should skip invalid regex patterns gracefully', () => {
+            const consoleSpy = jest.spyOn(console, 'warn').mockImplementation();
+            const text = 'Noise\nAccount Number: 123';
+            const meta = { firstLinePatterns: ['(invalid', '^Account Number:'] };
+            expect(trimToFirstLinePattern(text, meta)).toBe('Account Number: 123');
+            expect(consoleSpy).toHaveBeenCalled();
+            consoleSpy.mockRestore();
+        });
+
+        it('should pick the earliest matching line across multiple patterns', () => {
+            const text = 'Noise\nReceipt: DG-001\nAccount Number: 123\nMore stuff';
+            const meta = { firstLinePatterns: ['^Account Number:', '^Receipt:'] };
+            // Receipt: appears on line 2, Account Number: on line 3 — should pick line 2
+            expect(trimToFirstLinePattern(text, meta)).toBe('Receipt: DG-001\nAccount Number: 123\nMore stuff');
         });
     });
 

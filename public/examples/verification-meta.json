@@ -1,5 +1,9 @@
 {
   "description": "Example verification-meta.json for hotel receipts with Swiss Franc formatting",
+  "firstLinePatterns": [
+    "^Hotel Schéidegg",
+    { "pattern": "^Reservation:", "description": "Booking confirmation letters" }
+  ],
   "charNormalization": "éèêë→e àáâä→a ìíîï→i òóôö→o ùúûü→u ñ→n ç→c",
   "ocrNormalizationRules": [
     {

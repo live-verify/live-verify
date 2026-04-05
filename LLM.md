@@ -315,7 +315,21 @@ Issuers can optionally provide document-specific normalization rules and OCR opt
 
 **Optional: `hashSuffix`** — Specifies what to append to the hash when building the lookup URL. If omitted, the app requests the bare hash path (e.g., `https://example.com/c/{hash}`). GitHub Pages users typically use `{hash}/index.html` directories, which GitHub serves at the bare path via 302 — so no `hashSuffix` is needed. Issuers on other infrastructure can set `"hashSuffix": ".json"` to produce `https://example.com/c/{hash}.json`, or any other suffix appropriate to their server configuration.
 
+**Optional: `firstLinePatterns`** — Array of regex patterns (strings or `{pattern, description}` objects) that identify the first line of verifiable text. Primarily for camera mode: when OCR captures noise above the verifiable region and the `⌝` (U+231D) registration mark is absent or unrecognized, the app scans OCR lines top-to-bottom and discards everything above the first match. If no pattern matches, the text is used as-is (same as when the field is absent). Issuers with multiple document types from the same base URL can list several patterns:
+
+```json
+{
+  "firstLinePatterns": [
+    "^Account Number:",
+    { "pattern": "^Loan Reference:", "description": "Loan confirmation letters" }
+  ]
+}
+```
+
 If the app finds this file at `https://example.com/c/verification-meta.json`, it applies the rules in this order:
+
+**0. First-Line Trimming (camera mode, applied before normalization):**
+- `firstLinePatterns`: Regex array as described above. Applied to OCR text after URL extraction but before any normalization. The `⌝` registration mark remains the universal visual cue; this field is a text-content fallback.
 
 **1. Text Normalization Rules (applied before standard normalization):**
 - `charNormalization`: Compact notation for character mappings (e.g., `éèêë→e` means é→e, è→e, ê→e, ë→e)

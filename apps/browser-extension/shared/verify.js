@@ -114,6 +114,50 @@ function buildVerificationUrl(baseUrl, hash, meta) {
 }
 
 /**
+ * Trim OCR text to start at the first line matching a firstLinePatterns entry.
+ * Used primarily by camera mode where OCR captures surrounding noise above the
+ * verifiable region. The ⌝ (U+231D) registration mark is the universal fallback;
+ * this provides a text-content hint when the mark is absent or not recognized.
+ *
+ * @param {string} text - OCR text (already URL-stripped, i.e. cert text only)
+ * @param {Object} meta - Parsed verification-meta.json (may contain firstLinePatterns)
+ * @returns {string} - Text trimmed from the first matching line onward, or unchanged if no match / no patterns
+ */
+function trimToFirstLinePattern(text, meta) {
+    if (!meta || !Array.isArray(meta.firstLinePatterns) || meta.firstLinePatterns.length === 0) {
+        return text;
+    }
+
+    const lines = text.split('\n');
+
+    // Compile patterns once
+    const regexes = [];
+    for (const entry of meta.firstLinePatterns) {
+        const pattern = typeof entry === 'string' ? entry : entry.pattern;
+        if (!pattern) continue;
+        try {
+            regexes.push(new RegExp(pattern));
+        } catch (e) {
+            console.warn(`Invalid firstLinePatterns regex: ${pattern}`, e);
+        }
+    }
+
+    if (regexes.length === 0) return text;
+
+    for (let i = 0; i < lines.length; i++) {
+        const trimmedLine = lines[i].trim();
+        for (const rx of regexes) {
+            if (rx.test(trimmedLine)) {
+                return lines.slice(i).join('\n');
+            }
+        }
+    }
+
+    // No match — return unchanged
+    return text;
+}
+
+/**
  * Extract certification text from raw OCR text (everything before the URL line)
  * @param {string} rawText - Raw OCR text
  * @param {number} urlLineIndex - Index of the URL line
@@ -432,9 +476,9 @@ async function walkAuthorizationChain(authorizedByUrl, primaryConfirmed, hashFn,
 
 
 // ES module exports (for browser extension)
-export { extractVerificationUrl, buildVerificationUrl, extractCertText, extractDomain, buildMetaUrl, fetchVerificationMeta, verifyHash, checkAuthorization, walkAuthorizationChain };
+export { extractVerificationUrl, buildVerificationUrl, trimToFirstLinePattern, extractCertText, extractDomain, buildMetaUrl, fetchVerificationMeta, verifyHash, checkAuthorization, walkAuthorizationChain };
 
 // CommonJS exports (for Node.js testing)
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { extractVerificationUrl, buildVerificationUrl, extractCertText, extractDomain, buildMetaUrl, fetchVerificationMeta, verifyHash, checkAuthorization, walkAuthorizationChain };
+    module.exports = { extractVerificationUrl, buildVerificationUrl, trimToFirstLinePattern, extractCertText, extractDomain, buildMetaUrl, fetchVerificationMeta, verifyHash, checkAuthorization, walkAuthorizationChain };
 }

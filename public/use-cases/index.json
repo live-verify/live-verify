@@ -1,7 +1,7 @@
 {
-  "generated": "2026-03-31T17:32:36.818Z",
-  "totalUseCases": 577,
-  "totalFurtherDerivations": 885,
+  "generated": "2026-04-04T15:21:47.846Z",
+  "totalUseCases": 579,
+  "totalFurtherDerivations": 898,
   "categories": {
     "Real Estate & Property": 43,
     "Charitable & Non-Profit": 8,
@@ -24,7 +24,7 @@
     "Customs & Trade Compliance": 7,
     "Sports & Athletics": 6,
     "Financial Compliance": 26,
-    "Business & Commerce": 28,
+    "Business & Commerce": 29,
     "Specialty Insurance": 23,
     "Banking & Payments": 29,
     "Investment & Fintech": 23,
@@ -36,7 +36,8 @@
     "Environmental Permits & Compliance": 11,
     "Warehousing & Inventory": 4,
     "Delegated Authority": 6,
-    "Trade Finance": 5
+    "Trade Finance": 5,
+    "Consumer Protection & Trade": 1
   },
   "useCases": [
     {
@@ -2043,6 +2044,29 @@
         "incorporation",
         "UCC",
         "trademark"
+      ]
+    },
+    {
+      "slug": "company-formation-constitutional-documents",
+      "title": "Company Formation and Constitutional Documents",
+      "category": "Business & Commerce",
+      "volume": "Very Large",
+      "retention": "Permanent (entity lifecycle)",
+      "verificationMode": "clip",
+      "furtherDerivations": 9,
+      "snippet": "Certificate of Incorporation: Company name, company number, jurisdiction, date of incorporation, company type (limited by shares, limited by guarantee, corporation, LLC, etc.), registered office locat",
+      "tags": [
+        "incorporation",
+        "memorandum-articles",
+        "articles-of-association",
+        "bylaws",
+        "shareholder-register",
+        "director-register",
+        "statutory-registers",
+        "company-formation",
+        "corporate-governance",
+        "due-diligence",
+        "kyc"
       ]
     },
     {
@@ -6331,6 +6355,27 @@
       ]
     },
     {
+      "slug": "made-in-country-product-origin",
+      "title": "Made-in-Country Product Origin Claims",
+      "category": "Consumer Protection & Trade",
+      "volume": "Large",
+      "retention": "Certification period + 2 years (renewal cycle, enforcement records)",
+      "verificationMode": "clip+camera",
+      "furtherDerivations": 1,
+      "snippet": "Manufacturer name, registered business domain, certification body, certificate number, product categories covered (e.g. leather goods, watches, power tools), country/region of origin, and current cert",
+      "tags": [
+        "consumer-protection",
+        "product-origin",
+        "made-in",
+        "trade-standards",
+        "labeling",
+        "manufacturing",
+        "country-of-origin",
+        "enforcement",
+        "allowed-domains"
+      ]
+    },
+    {
       "slug": "mandatory-disclosures",
       "title": "Mandatory Disclosures (Breaches, Recalls, Material Events)",
       "category": "Financial Compliance",
@@ -9926,7 +9971,7 @@
       "volume": "Very Large",
       "retention": "Release lifecycle + 5 years",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 3,
       "snippet": "Variant 1 (Release Announcement): Project name, version, release date, git commit/tag, release manager name, tarball SHA-256, CVE fixes, changelog reference.",
       "tags": [
         "software",
@@ -11831,12 +11876,12 @@
       "count": 35
     },
     {
-      "name": "Banking & Payments",
+      "name": "Business & Commerce",
       "count": 29
     },
     {
-      "name": "Business & Commerce",
-      "count": 28
+      "name": "Banking & Payments",
+      "count": 29
     },
     {
       "name": "Financial Compliance",
@@ -11953,7 +11998,11 @@
     {
       "name": "Warehousing & Inventory",
       "count": 4
+    },
+    {
+      "name": "Consumer Protection & Trade",
+      "count": 1
     }
   ],
-  "totalCategories": 34
+  "totalCategories": 35
 }

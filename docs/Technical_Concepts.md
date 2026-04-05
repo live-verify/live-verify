@@ -14,7 +14,8 @@ This document explains technical concepts referenced across multiple use case do
 
 6. [Owner-Initiated Re-Salting with Timeout (OIRST)](#owner-initiated-re-salting-with-timeout-oirst)
 7. [Verification-Consumed Re-Salting (VCRS)](#verification-consumed-re-salting-vcrs)
-8. [Multi-Page Document Manifests](#multi-page-document-manifests)
+8. [PIN-Protected Verification](#pin-protected-verification)
+9. [Multi-Page Document Manifests](#multi-page-document-manifests)
 
 **Stubs (see linked docs for detail):**
 7. [Text Normalization](#text-normalization) → [NORMALIZATION.md](NORMALIZATION.md)
@@ -782,6 +783,216 @@ Implementation timelines and key friction points vary by sector. These are plann
 | **Event venues** | 6–9 months | Just-in-time badge issuance (24 hr turnaround), multi-company coordination problem, post-event badge destruction (GDPR) |
 
 See also [e-ink-id-cards.md](../public/e-ink-id-cards.md) for the privacy tiers and risk assessment across these sectors.
+
+---
+
+## PIN-Protected Verification
+
+**Problem:** Some document types are sensitive enough that the hash alone should not be sufficient to retrieve the verification status. A bank statement, a medical record, or a trust deed contains information that — while not recoverable from the hash — the holder may not want anyone with access to the document to verify without their knowledge or consent. The hash is a credential: if someone has the document (or a photo of it), they can compute the hash and query the endpoint. For certain document classes, the holder should be able to gate that query with a PIN.
+
+**When PIN protection is needed:**
+1. **Holder consent required** — The holder wants to know when and by whom their document is being verified (e.g., a patient's medical record, a client's trust deed)
+2. **Access control beyond possession** — Having the document should not automatically grant verification access (e.g., a stolen bank statement shouldn't be verifiable by the thief)
+3. **Selective disclosure** — The holder shares the PIN with specific parties (their solicitor, their fund manager) and withholds it from others
+
+**When PIN protection is NOT needed:**
+- Public credentials (professional licenses, company registrations) — verification should be frictionless
+- Documents where the hash alone is already high-entropy and non-sensitive (university degrees, receipts)
+- E-Ink badges and other real-time credentials — adding a PIN would defeat the purpose of instant verification
+
+### How It Works
+
+1. **Issuer declares PIN requirement** in `verification-meta.json`:
+
+```json
+{
+  "issuer": "Meridian National Bank",
+  "claimType": "BankStatement",
+  "pinRequired": true,
+  "pinDescription": "4-6 digit PIN set by the account holder"
+}
+```
+
+2. **Holder sets or receives a PIN** when the document is issued. The PIN may be chosen by the holder, assigned by the issuer, or derived from an existing credential (e.g., the last 4 digits of the account number).
+
+3. **Verifier's app detects PIN requirement** by reading `verification-meta.json` for the domain. Before making the GET request, the app prompts the verifier to enter the PIN.
+
+4. **PIN is sent as an HTTP header** on the GET request:
+
+```
+GET /statements/a3f2b8c9d4e5f6a7... HTTP/1.1
+Host: meridian-national.bank.us
+X-Verify-Pin: 8834
+```
+
+5. **Endpoint evaluates PIN + hash together:**
+   - Correct PIN + valid hash → `200 OK` with `{"status": "verified"}`
+   - Wrong PIN (regardless of hash validity) → `404 Not Found`
+   - No PIN header (on a PIN-required endpoint) → `404 Not Found`
+
+### Why 404 for Wrong PIN (Not 401 or 403)
+
+A wrong PIN returns `404` — the same response as "hash not found." This is deliberate:
+
+- **No information leakage:** An attacker probing with a valid hash but no PIN cannot distinguish "hash exists but PIN wrong" from "hash doesn't exist." There is no signal to confirm the document is real.
+- **No brute-force signal:** A 401 or 403 would confirm the hash exists and invite PIN guessing. A 404 gives nothing to work with.
+- **Consistent with the protocol's existing semantics:** 404 already means "cannot verify this document." Wrong PIN is functionally the same — the endpoint cannot verify the document for this requester.
+
+### Rate Limiting
+
+PIN-protected endpoints should apply stricter rate limiting than standard endpoints:
+
+- **Per-hash rate limiting:** After N failed attempts (e.g., 5) for the same hash within a time window, the endpoint should temporarily block further attempts for that hash. The response is still `404` — no signal that a limit was hit.
+- **Global rate limiting:** Standard per-IP / per-ASN rate limiting applies as for any endpoint.
+
+### Configuring via verification-meta.json
+
+The `pinRequired` field is a boolean. When `true`, verifier apps must prompt for a PIN before making the GET request. The `pinDescription` field is a human-readable hint displayed to the verifier (e.g., "Enter the 4-digit PIN provided by the account holder").
+
+```json
+{
+  "issuer": "Meridian National Bank",
+  "claimType": "BankStatement",
+  "pinRequired": true,
+  "pinDescription": "4-6 digit PIN set by the account holder"
+}
+```
+
+### PIN on Physical Documents
+
+For camera mode, the PIN is not printed on the document — that would defeat the purpose. The holder communicates the PIN to the verifier separately: verbally, via a messaging channel, or as part of a secure handoff. The verifier's app prompts for the PIN after OCR captures the text, before making the verification request.
+
+### Interaction with Other Patterns
+
+| Pattern | Compatible with PIN? | Notes |
+|---------|---------------------|-------|
+| **OIRST (time-limited salt)** | Yes, but redundant | OIRST already gates access via holder-controlled ephemeral links. Adding a PIN is belt-and-suspenders. |
+| **VCRS (single-use)** | Yes, but unusual | The hash is already burned after one use. A PIN adds little. |
+| **allowedDomains** | Yes | Domain checking and PIN are orthogonal — one checks where the claim is displayed, the other gates who can verify it. |
+| **Multi-page manifests** | Yes | Each page's GET requires the same PIN. |
+| **Static file hosting** | **No** | PIN verification requires server-side logic. Static file hosts (GitHub Pages, S3) cannot evaluate a PIN header. PIN-protected endpoints must use dynamic hosting. |
+
+### Example Use Cases
+
+| Document | Why PIN | Who Gets the PIN |
+|----------|---------|-----------------|
+| **Bank statements** | Prevents a stolen statement from being verified by the thief, confirming the account is real and active | Account holder shares PIN with mortgage broker |
+| **Medical records** | Patient controls who can verify their health records | Patient shares PIN with new doctor or insurer |
+| **Trust deeds** | Settlor/trustees control who can confirm the trust's existence and status | Trustees share PIN with fund manager during KYC |
+| **Tax returns** | Taxpayer controls who can verify their filing status | Taxpayer shares PIN with landlord for rental application |
+| **Salary confirmations** | Employee controls who can verify their compensation | Employee shares PIN with mortgage lender |
+
+### Time-Limited PINs and Regulatory Lodgement
+
+The most powerful variant of PIN-protected verification combines a **time-limited PIN** with **regulatory pre-caching** — allowing a regulator to lock in a verification result during the PIN window, so that months later at audit, the evidence is already there.
+
+#### The Scenario
+
+A high-net-worth individual, James R. Whitfield, is onboarding with Machina Capital, a quant hedge fund based in Paris. Machina Capital needs source-of-wealth verification. Whitfield banks with Meridian National Bank in the US.
+
+**Step 1 — Whitfield gets a time-limited PIN from his bank.**
+
+Whitfield logs into Meridian National's online banking and requests a verification PIN. The bank generates a PIN valid for 6 hours:
+
+```
+PIN: 27323
+Valid: 2026-04-05 09:00 UTC to 2026-04-05 15:00 UTC
+Scope: Source of wealth summary — account statements
+```
+
+The bank publishes a one-page source-of-wealth summary as a verifiable claim on its endpoint. The PIN gates access to the verification.
+
+**Step 2 — Machina Capital verifies the document.**
+
+Whitfield shares the document and the PIN with Machina Capital's compliance team. They clip the source-of-wealth summary and verify it:
+
+```
+GET /statements/7abe7d19b3ba13296ce5a2bbe6cde9a280579865a8bd434ef14460423c4e2a57 HTTP/1.1
+Host: meridian-national.bank.us
+X-Verify-Pin: 27323
+
+→ 200 OK
+→ {"status": "verified"}
+```
+
+Machina Capital records the verification result internally: document verified, timestamp, issuer domain.
+
+**Step 3 — Machina Capital lodges the verification with the regulator.**
+
+Machina Capital submits a lodgement to the Autorité des marchés financiers (AMF) — not the plaintext of the document, just:
+
+| Field | Value |
+|-------|-------|
+| **Verification URL** | `https://meridian-national.bank.us/statements/7abe7d19...` |
+| **PIN** | `27323` |
+| **Date/time of verification** | `2026-04-05T10:14:22Z` |
+| **Regulated entity** | Machina Capital SAS (AMF #GP-2019-0847) |
+
+Crucially, **not** lodged: the plaintext, the client's name, the reason for verifying, or any other identifying information at this stage. The lodgement is a minimal record: "we verified this URL with this PIN at this time."
+
+**Step 4 — AMF's systems verify within the PIN window.**
+
+AMF's automated compliance system receives the lodgement and — within the same 6-hour PIN window — makes its own GET request:
+
+```
+GET /statements/7abe7d19b3ba13296ce5a2bbe6cde9a280579865a8bd434ef14460423c4e2a57 HTTP/1.1
+Host: meridian-national.bank.us
+X-Verify-Pin: 27323
+
+→ 200 OK
+→ {"status": "verified"}
+```
+
+AMF stores the result: **verified**, at this URL, at this timestamp. The PIN is discarded — it's no longer needed. AMF now has an independent, first-hand verification receipt.
+
+**Step 5 — Six months later: audit.**
+
+AMF is auditing Machina Capital. The sampling strategy selects the Whitfield onboarding. Questions are asked: "How did you come to approve this client?"
+
+Machina Capital now turns over the **plaintext** of the claims that were verified — the source-of-wealth summary text. The meridian-national.bank.us endpoint no longer accepts the old PIN (it expired 6 months ago), so re-verification is impossible. But AMF doesn't need to re-verify — **they already did**, within the PIN window, and stored the result.
+
+AMF's audit tool confirms: "Verification of `meridian-national.bank.us/statements/7abe7d19...` was performed by AMF systems on 2026-04-05T10:18:41Z. Result: VERIFIED. Lodged by Machina Capital SAS at 2026-04-05T10:14:22Z."
+
+If the lodgement was never made, or the PIN was invalid, or the URL returned 404 — AMF has no stored verification. The excuses and apologies start.
+
+#### Why This Matters
+
+**For the high-net-worth individual:** Personal financial details are never exposed to the regulator at onboarding time. The regulator gets a verification receipt — "this bank confirms the claims in this document" — but not the document itself. The plaintext is only disclosed later, during a specific audit, under regulatory compulsion. This is a significant privacy improvement over the current model where fund managers routinely share client bank statements with regulators proactively.
+
+**For the fund manager:** The lodgement is proof of diligence. At audit, the fund manager can demonstrate: "We verified this document, we lodged the verification with you within hours, and your own systems confirmed it." This is stronger evidence than "we have a PDF in our files."
+
+**For the regulator:** The pre-cached verification is first-hand evidence. AMF didn't take Machina Capital's word that the document was verified — AMF verified it independently, using the same PIN, within the same window. The regulator's verification receipt is their own, not a copy of the fund manager's.
+
+**For the banking industry and privacy advocates:** Time-limited PINs address the objection that universal verification erodes personal secrecy. The account holder controls when and for how long the verification window is open. Outside the window, the endpoint returns 404 regardless of hash. The PIN is not permanent — it is a consent mechanism with a built-in expiry.
+
+#### The "Failing Bank Account Verification" Problem
+
+Current KYC processes rely on the client providing bank statements as PDFs. These PDFs are trivially forged. A [video demonstration](https://www.youtube.com/shorts/FyWTzZXiZeo) shows how easily fake bank statements pass manual review. If every onshore country mandated Live Verify for bank account verification, this class of fraud would be eliminated — the forged statement's hash wouldn't exist at the bank's endpoint.
+
+The resistance comes from high-net-worth individuals who perceive any bank verification mandate as erosion of financial privacy. Time-limited PINs counter this: the verification is only available when the account holder explicitly opens the window, for a duration they control, for a specific purpose. The bank sees who requested the PIN (audit trail). The account holder can refuse to generate a PIN at all — though a fund manager who cannot verify source of wealth may decline to onboard.
+
+#### Implementation Notes
+
+**PIN expiry and endpoint behavior:**
+
+Whether a PIN is permanent or time-limited is an issuer-side decision — the verifier app doesn't need to know. The `verification-meta.json` declares `pinRequired: true` and a `pinDescription` hint; the description can mention the time limit in human-readable terms (e.g., "Time-limited PIN from online banking"). The app's behavior is the same either way: prompt for PIN, send it as the `X-Verify-Pin` header with the GET of the hash, process the result.
+
+After a time-limited PIN expires, the endpoint returns 404 for all requests with that hash — whether the PIN was once valid, is incorrect, or is missing. All of those yield wholly identical responses. The hash itself may remain in the bank's system (the statement is still real), but it is no longer accessible without a fresh PIN.
+
+**What AMF lodges vs. what it doesn't:**
+
+| Lodged at onboarding | NOT lodged at onboarding |
+|---------------------|-------------------------|
+| Verification URL (including hash) | Plaintext of the document |
+| PIN (used once, discarded after AMF verifies) | Client name or identity |
+| Timestamp of fund manager's verification | Reason for verification |
+| Identity of the regulated entity (fund manager) | Account balances or transaction details |
+
+The plaintext is disclosed only at audit, under regulatory authority, to the specific auditor examining the specific client. This is a meaningful privacy boundary.
+
+**Regulator's verification tool:**
+
+AMF's system for processing lodgements and performing automated verification is operationally simple — a queue that processes incoming lodgements, makes the GET request with the PIN header, stores the result, and discards the PIN. The tool described in [fca-audits-and-batch-audit-tools.md](fca-audits-and-batch-audit-tools.md) covers the audit-day verification scenario; this lodgement pattern covers the **pre-audit evidence accumulation** scenario.
 
 ---
 

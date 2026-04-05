@@ -5,6 +5,9 @@
   "description": "Independent coffee shop, Henley-on-Thames",
   "claimType": "SalesReceipt",
   "authorizedBy": "hmrc.gov.uk/vat",
+  "firstLinePatterns": [
+    "^\\d+\\s+Market Square"
+  ],
   "responseTypes": {
     "VERIFIED": {
       "class": "affirming",

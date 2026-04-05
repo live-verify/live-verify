@@ -287,6 +287,36 @@ This serves as a fallback for:
 - Users who read the verified detail
 - Camera-mode or screenshot scenarios where `allowedDomains` isn't available
 
+## PIN-Protected Endpoints
+
+Some document classes require a PIN before the verification endpoint will confirm or deny the hash. The issuer declares `"pinRequired": true` in their `verification-meta.json`. When the verifier's app detects this, it prompts for a PIN before making the GET request.
+
+**Request flow:**
+
+```
+1. App reads verification-meta.json for the domain
+2. Sees pinRequired: true
+3. Prompts verifier: "Enter PIN (4-6 digit PIN set by the account holder)"
+4. Sends GET with header: X-Verify-Pin: 8834
+5. Endpoint evaluates PIN + hash together
+```
+
+**Response behavior:**
+
+| Scenario | HTTP Status | Body | Why |
+|----------|------------|------|-----|
+| Correct PIN, valid hash | `200` | `{"status": "verified"}` | Normal verified response |
+| Correct PIN, revoked hash | `200` | `{"status": "revoked"}` | Normal status response |
+| Wrong PIN, valid hash | `404` | (none or standard 404) | No information leakage — indistinguishable from "hash not found" |
+| No PIN header, PIN required | `404` | (none or standard 404) | Same as wrong PIN — no signal that a PIN is needed (the app already knows from verification-meta.json) |
+| Correct PIN, hash not found | `404` | (none or standard 404) | Standard "not found" |
+
+The key design decision: **wrong PIN always returns 404**. The endpoint never signals "your PIN is wrong" or "this hash exists but you're not authorized." An attacker probing with a valid hash learns nothing — they cannot distinguish "hash doesn't exist" from "hash exists but PIN wrong." This prevents confirmation attacks where a stolen document's hash is used to confirm the account/record is real.
+
+**Incompatible with static hosting:** PIN-protected endpoints require server-side logic to evaluate the PIN header. Issuers using static file hosting (GitHub Pages, S3 without a Lambda@Edge layer) cannot support PIN protection. The `pinRequired` field in `verification-meta.json` implicitly signals that this endpoint uses dynamic hosting.
+
+See [PIN-Protected Verification](Technical_Concepts.md#pin-protected-verification) for the full specification, including interaction with OIRST/VCRS, rate limiting, time-limited PINs with regulatory lodgement, and use case examples.
+
 ## Status Codes
 
 ### Universal Statuses
@@ -1036,6 +1066,12 @@ Every field that may appear in a verification response body (JSON) or HTTP heade
 | `X-Verify-Case-Ref` | No | Retention (Pattern 4) | Reference identifier linking to the underlying legal/business matter |
 | `Cache-Control` | No | All | Caching guidance; `no-cache, must-revalidate` for most use cases |
 
+### HTTP Request Headers (Verifier → Endpoint)
+
+| Header | Required | When | Description |
+|--------|----------|------|-------------|
+| `X-Verify-Pin` | When `pinRequired: true` in `verification-meta.json` | PIN-protected documents | PIN entered by the verifier, sent with the GET request. Wrong PIN returns `404` (no information leakage). See [PIN-Protected Verification](Technical_Concepts.md#pin-protected-verification). |
+
 ### `verification-meta.json` Fields
 
 | Field | Type | Required | Description |
@@ -1056,6 +1092,8 @@ Every field that may appear in a verification response body (JSON) or HTTP heade
 | `parentAuthorities` | array of URLs | No | Passive links for human browsing (Wikipedia, accreditor website) |
 | `responseTypes` | object | No | Maps status strings to `{class, text, link}` for client display |
 | `retentionLaws` | array of objects | No | Jurisdiction-specific data retention rules: `{jurisdiction, law, link, summary}` |
+| `pinRequired` | boolean | No | When `true`, verifier apps must prompt for a PIN before making the GET request |
+| `pinDescription` | string | No | Human-readable hint for the PIN prompt (e.g., "4-6 digit PIN set by the account holder") |
 | `delegateTo` | string (base URL) | No | SaaS provider handling verification on behalf of this domain |
 | `successor` | string (base URL) | No | Replacement endorser when current endorsement is sunsetting |
 
