@@ -153,7 +153,7 @@ Expires: 0
 This prevents:
 - **Enumeration attacks** — Can't iterate through `/photos/1.jpg`, `/photos/2.jpg`
 - **Stale photo caching** — Revoked credentials don't leave cached photos behind
-- **Dynamic photo serving** — if the e-ink ID for the holder has a salt that is changing on some basis, then the photos with the same hash appear/disappear on the same basis (or last only seconds longer)
+- **Dynamic photo serving** — for an e-ink ID, the server rotates the salt (after a successful scan via VCRS, or on TTL expiry of an unscanned salt) and the badge re-renders to match; the photo tied to the old hash disappears as the salt rotates, so a photographed credential is worthless unless verified in the moment
 - **Roster building** — Can't scrape all employee photos by guessing URLs
 
 ### Screen Capture Prevention
@@ -879,7 +879,7 @@ For identity credentials (badges), endpoints may vary what **actionable context*
 
 Note: Even "full disclosure" scenarios don't echo document content—the verifier already has that. The question is whether to include a photo URL for visual confirmation.
 
-See [E-Ink ID Cards: Privacy Tiers](../public/use-cases/e-ink-id-cards.md#privacy-tiers-stakes-and-risk) for guidance on when each tier is appropriate.
+See [E-Ink ID Cards: Privacy Tiers](../public/e-ink-id-cards.md#privacy-tiers-stakes-and-risk) for guidance on when each tier is appropriate.
 
 ## Client Response Handling
 

@@ -240,11 +240,13 @@ The app:
 |---------|--------------|--------------|---------|----------|
 | **No salt** | N/A | N/A | N/A | High-entropy documents (pet pedigrees, medical records with internal IDs) |
 | **Persistent salt** | Permanent | Issuer | Issuance | Documents where enumeration risk is low but content is partially guessable |
-| **Time-Rotating salt** | Minutes | Device/Issuer | Clock (every N minutes) | Physical e-Ink badges needing anti-replay (police, delivery workers) |
+| **TTL expiry** | Minutes/hours | Issuer endpoint | Clock (endpoint expires the salt) | Backstop for e-Ink badges — expires an unscanned salt; the server then rotates and re-renders the badge |
 | **OIRST** | Hours/days | Holder | Holder requests link | High-value assets where the holder controls when verification is available |
-| **VCRS** | Single use | Automatic | Successful verification | Credentials where each check should be fresh; prevents replay of intercepted links |
+| **VCRS** | Single use | Automatic | Successful verification | Credentials where each check should be fresh; prevents replay of intercepted links. For e-Ink badges, re-renders the screen after each scan |
 
-See also: [Dynamic Badges](../public/e-ink-id-cards.md) for time-rotating and VCRS patterns in worker verification, and [Breed Pedigree and Registration](../public/use-cases/breed-pedigree-registration.md) for the OIRST motivating use case.
+For e-Ink badges, VCRS and a TTL run together. The server owns the salt; both triggers cause it to rotate, and **every rotation is pushed to the badge so the screen re-renders.** The badge is always in lockstep with the salt the server will honour — so a photograph of the screen is worthless unless verified in the moment.
+
+See also: [Dynamic Badges](../public/e-ink-id-cards.md) for the VCRS-plus-TTL model in worker verification, and [Breed Pedigree and Registration](../public/use-cases/breed-pedigree-registration.md) for the OIRST motivating use case.
 
 ---
 
@@ -286,16 +288,16 @@ See also: [Dynamic Badges](../public/e-ink-id-cards.md) for time-rotating and VC
 | **High-security facility access** | Visitor credential verified at gate; same credential can't be re-presented at a second entrance | Automatic: facility system burns hash on successful gate scan |
 | **One-time prescription fills** | Pharmacy verifies prescription; burned hash prevents same script being presented at a second pharmacy | Automatic: prescriber system burns hash on successful fill verification |
 
-### VCRS + Time-Rotating (Belt and Suspenders)
+### VCRS + TTL (Belt and Suspenders)
 
-For e-Ink badges, both patterns run simultaneously:
+For e-Ink badges, the server owns the salt and two triggers cause it to rotate. **Whichever trigger fires, the rotation is pushed to the badge and the e-ink screen re-renders** — the screen and the server's accepted salt are always in lockstep:
 
-| Trigger | What happens | Why |
-|---------|-------------|-----|
-| **Successful scan** | Salt rotates after 60-second grace period | Burns the current hash so a photograph is immediately useless |
-| **10-minute timer** | Salt rotates regardless | Handles the case where a badge is photographed but never scanned — the timer ensures the photo expires even without a verification event |
+| Trigger | What happens | Screen re-renders? | Why |
+|---------|-------------|--------------------|-----|
+| **Successful scan (VCRS)** | Server burns the consumed hash after a 60-second grace period and issues a new salt | **Yes** | A photograph taken during or after the interaction is useless within the grace period |
+| **TTL expiry** | Server expires an issued salt after a fixed window even if it was never scanned, then issues a new one | **Yes — MUST** | Covers the photographed-but-never-scanned case; the server must not leave a server-invalid salt on the display |
 
-Time-based rotation is the safety net; VCRS is the primary defense. Most badge interactions will be VCRS-driven, with the timer only firing during idle periods.
+VCRS is the primary defense; TTL is the backstop. The invariant binding them: **the badge never displays a salt the server has already expired.** When the server expires an unscanned salt, it is required to rotate and re-render the screen, not leave the badge stale. This is what makes the *caveat emptor* hold — a photograph of the screen captures one salt, and by the time anyone tries to verify it the server (and the badge) have moved on via VCRS or TTL. A stored image that isn't verified in the moment is a picture of an expired credential. The only honest exception is loss of connectivity: an offline badge may briefly show a stale salt, which must fail safe (`404`, never a false positive) and be shown with a "synced at [time]" marker so the staleness is visible.
 
 ### VCRS + OIRST (Sequential)
 
@@ -327,7 +329,7 @@ See [Verification-Response-Format.md](Verification-Response-Format.md) for the f
 
 ## Dynamic Badges & Worker Verification
 
-For high-volume use cases (delivery drivers, utility workers, police officers), the "document" being verified is a **dynamic e-Ink badge** with a rotating salt synced via Bluetooth. The salt rotates every 10 minutes, preventing photograph-and-replay attacks. A photocopy of a badge stops working within minutes.
+For high-volume use cases (delivery drivers, utility workers, police officers), the "document" being verified is a **dynamic e-Ink badge** whose displayed salt is synced via Bluetooth. The server owns the salt and rotates it on two triggers — a successful scan (VCRS) or TTL expiry of an unscanned salt — and **every rotation is pushed to the badge so the screen re-renders to match.** A photocopy therefore stops working as soon as the server rotates, which a stored image cannot prevent. Caveat emptor: a photograph of the badge is worthless unless Live Verify is run in the same moment.
 
 See [e-ink-id-cards.md](../public/e-ink-id-cards.md) for the complete specification: hardware architecture, salt mechanics, anti-cloning/anti-tracking properties, six use cases (police, delivery, utility, social services, hotel staff, residential buildings), privacy tiers, and when e-Ink badges are and aren't necessary.
 

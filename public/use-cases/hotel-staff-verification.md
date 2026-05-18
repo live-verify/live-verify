@@ -80,7 +80,7 @@ The **Staff ID Badge** is the worker's proof that they are authorized to be in t
   </div>
 </div>
 
-*Salt rotates every 10 mins or per-room entry. See [E-Ink ID Cards](../e-ink-id-cards.md) for how rotating salts prevent cloning and tracking.*
+*The server rotates the salt — after each successful scan (VCRS) or on TTL expiry of an unscanned salt — and the badge re-renders to match. The screen is always in lockstep with the salt the server will honour, so a photograph is worthless unless verified in the moment. See [E-Ink ID Cards](../e-ink-id-cards.md) for how this prevents cloning and tracking.*
 
 ## Data Verified
 

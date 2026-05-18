@@ -24,11 +24,19 @@ An **e-ink badge** with a **rotating salt** solves both problems:
 └─────────────────────────────┘
 ```
 
-The salt changes via two named patterns (see [Technical Concepts: Salt Patterns](../docs/Technical_Concepts.md#comparison-with-other-salt-patterns)):
-- **Every 10 minutes** — **Time-Rotating Salt**: clock-driven rotation regardless of activity, the safety net for badges that are photographed but never scanned
-- **After each Live Verify scan** — **Verification-Consumed Re-Salting (VCRS)**: a successful verification burns the current hash after a 60-second grace period, so a photograph taken during or after the scan is immediately useless
+**The screen and the server's accepted salt are always in lockstep.** Whenever the server rotates the salt, the new salt is pushed to the badge and the e-ink screen re-renders. There is never a state where the badge displays a salt the server has already expired.
 
-VCRS is the primary defense; the timer is the backstop. Most badge interactions are VCRS-driven, with time-rotation only firing during idle periods. This is more efficient than pure time-rotation — a badge sitting in a pocket for hours consumes zero salt cycles.
+The server rotates the salt on two triggers:
+- **Verification-Consumed Re-Salting (VCRS) — primary.** A successful Live Verify scan burns the current hash after a 60-second grace period. The server issues a new salt and the screen re-renders.
+- **Time-to-live (TTL) expiry — backstop.** If a salt is *never* scanned, the server expires it after a fixed window anyway. **The server MUST then rotate the salt and re-render the screen** — it does not leave a stale, server-invalid salt on display. This closes the photographed-but-never-scanned gap that VCRS alone cannot cover.
+
+The key invariant: a salt shown on the badge is always a salt the server will currently honour. The screen does not drift ahead of the server, and the server does not silently expire something the screen still shows.
+
+### Caveat Emptor: A Photograph Is Not a Verification
+
+Because the screen and server move together, **photographing the e-ink display does nothing useful unless Live Verify is run immediately, in the same moment.** A stored PNG freezes one salt; by the time anyone tries to verify that captured hash, the server has almost certainly rotated — via VCRS (if the badge was scanned) or via TTL (if it wasn't) — and the badge itself has re-rendered to match. The photograph is then a picture of an expired credential: it returns `404`, proves nothing, and cannot be replayed.
+
+The burden is on the person doing the verifying: **scan now, or don't bother.** A photo "for later" is worthless by design.
 
 ## Use Cases Implementing E-Ink Badges
 
@@ -166,12 +174,14 @@ More information returned because more information is appropriate in cordial con
 
 ### Anti-Cloning
 
-A static badge can be photographed and reprinted in minutes. With rotating salts:
+A static badge can be photographed and reprinted in minutes. With re-salting:
 
 1. Attacker photographs badge at 2:00 PM (salt: `7k3m9x2p`)
 2. Attacker prints replica
-3. By 2:10 PM, real badge shows salt: `9m4k2x8q`
-4. Replica fails verification—wrong salt
+3. The real badge is scanned during a legitimate interaction at 2:05 PM — VCRS burns `7k3m9x2p`; the server rotates and the badge re-renders with salt `9m4k2x8q`
+4. Replica fails verification — its hash is now `404`
+
+If the badge is photographed but **never scanned**, the replica still fails: the server's TTL expires `7k3m9x2p` on its own, rotates the salt, and re-renders the screen — so the badge and the server move on together, and the replica's hash lapses just the same. Either path leaves the photograph a picture of an expired credential.
 
 ### Anti-Tracking
 
@@ -212,7 +222,7 @@ The badge syncs with the issuer's backend:
 ```
 ┌─────────────┐      Bluetooth/NFC       ┌─────────────┐
 │  Officer's  │ ◄──────────────────────► │   E-Ink     │
-│    Phone    │    Salt sync every 10m   │   Badge     │
+│    Phone    │  Salt sync after a scan  │   Badge     │
 └─────────────┘                          └─────────────┘
        │
        │ HTTPS
@@ -222,6 +232,8 @@ The badge syncs with the issuer's backend:
 │   Backend   │ ─── Generates salts, tracks verifications
 └─────────────┘
 ```
+
+The badge re-renders its screen whenever the phone pushes a new salt. The phone fetches a new salt whenever the server rotates — after a successful scan (VCRS) or when a TTL expires an unscanned salt. Either way the rotation propagates to the screen, so the badge and the server stay in lockstep: the display is never ahead of, or behind, the salt the server will honour.
 
 ### Hash Calculation
 
@@ -235,7 +247,7 @@ Salt: 7k3m9x2p
 vfy:officers.police.uk
 ```
 
-Normalization and hashing proceed as usual. The salt ensures each time window produces a unique hash.
+Normalization and hashing proceed as usual. The salt ensures each issued credential produces a unique hash, and re-salting after a scan ensures the next interaction produces a different one.
 
 ### Verification Flow
 
@@ -270,7 +282,7 @@ The officer's/staff member's phone is already coupled to the e-ink badge for sal
 - **Landscape mode:** Optimized for verifier's camera (high contrast, large text)
 - **Backup role:** Works if physical badge is damaged, lost, or impractical
 
-The phone and e-ink badge are **interchangeable**—either produces a valid hash for the current time window. For plainclothes personnel who don't wear visible badges, the phone may be the primary credential.
+The phone and e-ink badge are **interchangeable**—both display the current salt and produce the same valid hash, and both re-render together when a scan consumes that salt. For plainclothes personnel who don't wear visible badges, the phone may be the primary credential.
 
 ## Privacy Tiers: Stakes and Risk
 
@@ -326,10 +338,10 @@ Without rotating salts, a hostile subject could:
 4. Crowdsource the officer's patrol patterns, vehicle, home address
 5. Target the officer or their family
 
-With rotating salts:
-- The photographed hash is invalid within minutes
+With server-driven re-salting:
+- The salt in the photograph is rotated out — by VCRS if the badge is scanned, by TTL if it isn't — and the screen re-renders to match. The photographed hash is dead either way
 - Old hashes return 404—no confirmation possible
-- The officer's identity cannot be crowdsourced from the image
+- The officer's identity cannot be crowdsourced from the image: a stored PNG is a picture of an expired credential unless verified the instant it was taken
 
 This protection is **essential** for roles where the interaction itself may generate enemies.
 
@@ -358,10 +370,10 @@ This gives verifiers what they need while protecting staff from the privacy risk
 
 | Attack Vector | Static Badge | E-Ink with Salt |
 |--------------|--------------|-----------------|
-| Photography + reprint | Works indefinitely | Invalid in <10 minutes |
+| Photography + reprint | Works indefinitely | Useless unless verified in the moment — VCRS or TTL rotates the salt and re-renders the screen; the photo becomes a picture of an expired hash |
 | Badge theft | Works until reported | Remote blank + instant revocation |
 | Historical tracking | Query anytime | Old hashes return 404 |
-| Movement profiling | Log verifications | Each verification uses new salt |
+| Movement profiling | Log verifications | Each scan consumes the salt; server rotates and screen re-renders |
 | Credential enumeration | Brute-force possible | Salt entropy blocks enumeration |
 
 ## Implementation Notes
@@ -374,19 +386,26 @@ Salts should be 8+ alphanumeric characters (48+ bits of entropy). This prevents:
 
 ### Rotation Timing
 
-Two named rotation triggers run simultaneously (belt and suspenders):
+The server owns the salt. Every rotation it performs is pushed to the badge, and the e-ink screen re-renders to match. There are two triggers:
 
-1. **Time-Rotating Salt:** Every 10 minutes regardless of activity. The safety net — ensures a photographed badge expires even if the badge is never scanned. Only fires during idle periods when VCRS hasn't already rotated the salt.
-2. **Verification-Consumed Re-Salting (VCRS):** 60 seconds after each successful scan. The primary defense — burns the hash so a photograph taken during or after the interaction is immediately useless. More efficient than pure time-rotation because idle badges consume zero salt cycles.
+1. **Verification-Consumed Re-Salting (VCRS) — primary.** 60 seconds after each *successful* scan, the server burns the consumed hash, issues a new salt, and the badge re-renders. A photograph taken during or after the interaction is useless within the grace period.
+2. **TTL expiry — backstop.** The server expires each issued salt after a fixed window even if it was never scanned. **On expiry the server MUST rotate the salt and re-render the screen** — it never leaves a server-invalid salt on display. This covers the photographed-but-never-scanned case that VCRS alone misses.
+
+The invariant that makes this work: **the screen and the server's accepted salt are always in lockstep.** The screen never drifts ahead of the server, and the server never silently expires a salt the screen still shows. A verifier reading the badge can trust that the salt in front of them is one the server will currently honour — *if they verify it now*. The moment they walk away, both VCRS and TTL may move on.
 
 See [Technical Concepts: VCRS](../docs/Technical_Concepts.md#verification-consumed-re-salting-vcrs) for the full specification and comparison with other salt patterns.
 
 ### Offline Scenarios
 
-If the badge cannot sync (no connectivity):
-- Display the last known salt with a timestamp
-- Verifier sees "Salt generated at [time]"
-- Accept if timestamp is recent; request fresh salt if stale
+The screen/server lockstep depends on the badge being able to receive pushed rotations. **Loss of connectivity is the one case where lockstep can temporarily break:** the server may rotate a salt (VCRS or TTL) while the badge, unable to sync, keeps showing the old one.
+
+This must fail safe and fail visibly:
+- The badge displays the last known salt **alongside the time it was synced**
+- The verifier's app shows "Salt synced at [time]", so a stale badge is obviously stale rather than silently wrong
+- A stale salt fails verification (`404`) — a false negative, never a false positive. The verifier is told the credential could not be confirmed, not that it is valid
+- As soon as the badge reaches the holder's phone again, the latest server salt is pushed and the screen re-renders, restoring lockstep
+
+The verifier should treat a stale-sync badge the way they would treat any unverifiable credential: not confirmed. The caveat-emptor principle still holds — only a salt verified live, against a currently-synced badge, proves anything.
 
 ### Audit Logging
 
