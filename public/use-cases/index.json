@@ -1,7 +1,7 @@
 {
-  "generated": "2026-04-05T16:13:37.555Z",
-  "totalUseCases": 580,
-  "totalFurtherDerivations": 899,
+  "generated": "2026-05-26T17:38:31.492Z",
+  "totalUseCases": 581,
+  "totalFurtherDerivations": 903,
   "categories": {
     "Real Estate & Property": 43,
     "Charitable & Non-Profit": 8,
@@ -31,7 +31,7 @@
     "Agriculture & Food": 10,
     "Site & Equipment Safety": 12,
     "Commercial Lines Insurance": 11,
-    "Product Certifications & Compliance": 13,
+    "Product Certifications & Compliance": 14,
     "Professional Ethics & Compliance": 11,
     "Environmental Permits & Compliance": 11,
     "Warehousing & Inventory": 4,
@@ -5765,6 +5765,33 @@
       ]
     },
     {
+      "slug": "iso-26262-safety-evidence-traceability",
+      "title": "ISO 26262 Functional-Safety Evidence Traceability",
+      "category": "Product Certifications & Compliance",
+      "volume": "Medium",
+      "retention": "15+ years (vehicle production lifecycle + liability tail)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Item/ECU identifier, software release, safety goal and ASIL level, supplier and OEM identity, the coverage counts (requirements traced, static-analysis findings resolved, bench runs executed and passe",
+      "tags": [
+        "iso-26262",
+        "functional-safety",
+        "asil",
+        "automotive",
+        "tier-1",
+        "oem",
+        "test-evidence",
+        "traceability",
+        "safety-case",
+        "polarion",
+        "polyspace",
+        "canoe",
+        "qtest",
+        "safety-critical",
+        "merkle-tree"
+      ]
+    },
+    {
       "slug": "jewelers-block-insurance",
       "title": "Jewelers Block Insurance (Stock & Transit)",
       "category": "Specialty Insurance",
@@ -6595,7 +6622,7 @@
       "volume": "Very Large",
       "retention": "10 years (federal False Claims Act statute of limitations + audit)",
       "verificationMode": "clip",
-      "furtherDerivations": 0,
+      "furtherDerivations": 3,
       "snippet": "Provider identity (NPI, name, license number, domain), beneficiary identity (Medi-Cal ID, managed care plan, PCP assignment), date of service, CPT/HCPCS codes for services rendered, rendering provider",
       "tags": [
         "medicaid",
@@ -10190,7 +10217,9 @@
         "visa-sponsorship",
         "public-charge",
         "legal-contract",
-        "financial-sponsorship"
+        "financial-sponsorship",
+        "uk-cos",
+        "certificate-of-sponsorship"
       ]
     },
     {
@@ -11959,7 +11988,7 @@
     },
     {
       "name": "Product Certifications & Compliance",
-      "count": 13
+      "count": 14
     },
     {
       "name": "Site & Equipment Safety",

@@ -5,7 +5,7 @@ volume: "Medium"
 retention: "Permanent (until citizenship or 10 years of work)"
 slug: "sponsorship-affidavits-i864"
 verificationMode: "clip"
-tags: ["immigration", "i-864", "affidavit-of-support", "uscis", "visa-sponsorship", "public-charge", "legal-contract", "financial-sponsorship"]
+tags: ["immigration", "i-864", "affidavit-of-support", "uscis", "visa-sponsorship", "public-charge", "legal-contract", "financial-sponsorship", "uk-cos", "certificate-of-sponsorship"]
 furtherDerivations: 1
 ---
 
@@ -138,3 +138,17 @@ If a witness layer exists, it may periodically commit rollups to a public blockc
 1. **Issuer domain** — Direct check against the issuer
 2. **Witnessing firm** — Independent confirmation with timestamp
 3. **Public blockchain** — Decentralized trust anchor via rollup inclusion
+
+---
+
+## Footnote: UK Certificate of Sponsorship (CoS)
+
+The UK's **Certificate of Sponsorship** is the functional equivalent of the I-864 for employer-sponsored work visas (Skilled Worker, Health & Care Worker, Senior or Specialist Worker, etc.). It is not a physical document — it is an electronic record issued by a Home Office–licensed sponsor via the **Sponsorship Management System (SMS)**, referenced by a unique CoS number.
+
+**Key fraud vectors:**
+- **Fake CoS numbers** — Applicants are given fabricated reference numbers by unlicensed "immigration consultants" who charge fees for non-existent sponsorships.
+- **Shell company sponsors** — Entities obtain a sponsor licence with no genuine vacancy, selling CoS assignments to migrants.
+- **Salary inflation** — The CoS states a salary meeting the going rate threshold, but the actual employment pays below it (or the job doesn't exist).
+- **Post-assignment changes** — Sponsor assigns CoS then withdraws or changes the role after the visa is granted.
+
+**How Live Verify would help:** A verifiable hash binding the **CoS reference number, sponsor name, job title, SOC code, and salary** to a `gov.uk` endpoint would let visa applicants, UKVI caseworkers, and third parties (banks, landlords checking right-to-work) instantly confirm the sponsorship is genuine — without exposing the full SMS record. Status values could include **Assigned**, **Used**, **Withdrawn**, or **Expired**.
