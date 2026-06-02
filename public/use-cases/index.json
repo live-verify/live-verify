@@ -1,16 +1,16 @@
 {
-  "generated": "2026-05-26T17:38:31.492Z",
-  "totalUseCases": 581,
-  "totalFurtherDerivations": 903,
+  "generated": "2026-06-02T06:33:12.511Z",
+  "totalUseCases": 587,
+  "totalFurtherDerivations": 921,
   "categories": {
     "Real Estate & Property": 43,
     "Charitable & Non-Profit": 8,
     "Novel Document Types": 8,
     "Scientific & Research": 8,
-    "Professional & Occupational Licenses": 18,
+    "Professional & Occupational Licenses": 19,
     "Actuarial & Insurance Mathematics": 10,
-    "Personal Lines Insurance": 16,
-    "Government & Civic Documents": 35,
+    "Personal Lines Insurance": 17,
+    "Government & Civic Documents": 36,
     "Notary Services": 7,
     "Immigration & Visa Documents": 18,
     "Legal & Court Documents": 24,
@@ -24,15 +24,15 @@
     "Customs & Trade Compliance": 7,
     "Sports & Athletics": 6,
     "Financial Compliance": 26,
-    "Business & Commerce": 29,
+    "Business & Commerce": 30,
     "Specialty Insurance": 23,
-    "Banking & Payments": 29,
+    "Banking & Payments": 30,
     "Investment & Fintech": 23,
     "Agriculture & Food": 10,
     "Site & Equipment Safety": 12,
     "Commercial Lines Insurance": 11,
     "Product Certifications & Compliance": 14,
-    "Professional Ethics & Compliance": 11,
+    "Professional Ethics & Compliance": 12,
     "Environmental Permits & Compliance": 11,
     "Warehousing & Inventory": 4,
     "Delegated Authority": 6,
@@ -496,6 +496,33 @@
       ]
     },
     {
+      "slug": "appraiser-registration-status",
+      "title": "Appraiser Registration & Credential Status",
+      "category": "Professional & Occupational Licenses",
+      "volume": "Medium",
+      "retention": "Registration period + renewal cycle",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Appraiser's name, registration/licence/member number, issuing authority, credential level or designation (e.g., Certified Residential, GG, ISA AM, MRICS), scope of practice where recorded (real estate",
+      "tags": [
+        "appraiser",
+        "valuer",
+        "credential",
+        "registration-status",
+        "good-standing",
+        "asc",
+        "rics",
+        "asa",
+        "isa",
+        "gia",
+        "naj",
+        "uspap",
+        "phantom-appraiser",
+        "valuation-fraud",
+        "professional-licence"
+      ]
+    },
+    {
       "slug": "apprenticeship-internship-completion",
       "title": "Apprenticeship and Internship Completion",
       "category": "Professional & Educational Qualifications",
@@ -538,12 +565,12 @@
     },
     {
       "slug": "art-authentication-documents",
-      "title": "Art Appraisals and Valuations",
+      "title": "Appraisals & Valuations (Art, Antiques, Jewelry & Collectibles)",
       "category": "Art, Media & Publishing",
       "volume": "Small",
       "retention": "5-10 years (insurance/tax)",
       "verificationMode": "clip",
-      "furtherDerivations": 5,
+      "furtherDerivations": 6,
       "snippet": "Appraiser name/credentials (AAA/ISA), client name, artwork details (Artist, Title, Medium), effective date of valuation, Purpose (Insurance/Tax/Collateral), Fair Market Value (FMV) or Replacement Valu",
       "tags": [
         "appraisal",
@@ -552,14 +579,21 @@
         "artist",
         "auction",
         "authenticity",
+        "antiques",
+        "chattel",
         "coa",
+        "coins",
         "collectibles",
         "connoisseurship",
         "edition",
         "gallery",
+        "gemstone",
         "history",
         "insurance",
+        "jewelry",
+        "numismatics",
         "ownership",
+        "personal-property",
         "print",
         "provenance",
         "sculpture",
@@ -568,7 +602,8 @@
         "tax",
         "title",
         "uspap",
-        "valuation"
+        "valuation",
+        "watches"
       ]
     },
     {
@@ -1040,6 +1075,37 @@
         "fraud-prevention",
         "ghost-redirection",
         "financial-crime"
+      ]
+    },
+    {
+      "slug": "beneficiary-designations",
+      "title": "Beneficiary Designations (Payable-on-Death)",
+      "category": "Personal Lines Insurance",
+      "volume": "Very Large",
+      "retention": "Permanent (life of the account / until claim)",
+      "verificationMode": "clip",
+      "furtherDerivations": 3,
+      "snippet": "Provider name, account/policy type and number, account holder name, primary beneficiary (name, relationship, share %), contingent beneficiary, the date the designation was recorded, and a reference nu",
+      "tags": [
+        "beneficiary",
+        "payable-on-death",
+        "transfer-on-death",
+        "401k",
+        "ira",
+        "rrsp",
+        "superannuation",
+        "sipp",
+        "assurance-vie",
+        "nominee",
+        "expression-of-wish",
+        "retirement",
+        "life-insurance",
+        "annuity",
+        "pension",
+        "survivor",
+        "estate-planning",
+        "death-benefit",
+        "fraud-prevention"
       ]
     },
     {
@@ -1843,6 +1909,28 @@
       ]
     },
     {
+      "slug": "civil-administrative-approvals",
+      "title": "Civil & Administrative Approvals",
+      "category": "Government & Civic Documents",
+      "volume": "Large",
+      "retention": "Decision period + appeal window / statutory record (often permanent)",
+      "verificationMode": "clip",
+      "furtherDerivations": 3,
+      "snippet": "Issuing authority, application/decision reference, applicant/recipient, the subject of the decision (site, project, claim), the decision itself (granted/refused/varied), the conditions (or a binding r",
+      "tags": [
+        "approval",
+        "planning-consent",
+        "grant-award",
+        "benefit-decision",
+        "zoning-variance",
+        "regulatory-clearance",
+        "administrative-decision",
+        "government",
+        "decision-letter",
+        "approval-fraud"
+      ]
+    },
+    {
       "slug": "client-money-segregation-confirmations",
       "title": "Client Money Segregation Confirmations",
       "category": "Professional Ethics & Compliance",
@@ -2519,6 +2607,29 @@
         "creative-works",
         "licensing",
         "dmca"
+      ]
+    },
+    {
+      "slug": "corporate-internal-approvals",
+      "title": "Corporate Internal Approvals",
+      "category": "Business & Commerce",
+      "volume": "Very Large",
+      "retention": "Duration of commitment + 6-7 years (audit)",
+      "verificationMode": "clip",
+      "furtherDerivations": 3,
+      "snippet": "Company name and registration, approval type, reference number (PO/expense/change ID), the item or counterparty, the amount or scope, the named approver and their role, the date of approval, any secon",
+      "tags": [
+        "approval",
+        "purchase-order",
+        "spend-approval",
+        "expense-sign-off",
+        "credit-limit",
+        "change-approval",
+        "deployment-approval",
+        "internal-controls",
+        "segregation-of-duties",
+        "corporate-governance",
+        "approval-fraud"
       ]
     },
     {
@@ -8220,6 +8331,28 @@
       ]
     },
     {
+      "slug": "pre-authorizations-and-holds",
+      "title": "Pre-Authorizations & Holds",
+      "category": "Banking & Payments",
+      "volume": "Very Large",
+      "retention": "Authorization window + transaction record (varies; 7 years typical)",
+      "verificationMode": "clip",
+      "furtherDerivations": 3,
+      "snippet": "Issuer, authorization number, the approved service/purpose, the approved limit (amount and/or units), the validity window, single-use vs. multi-use, the provider/merchant it applies to, and the date a",
+      "tags": [
+        "approval",
+        "pre-authorization",
+        "prior-authorization",
+        "payment-hold",
+        "single-use",
+        "vcrs",
+        "expiry",
+        "rma-approval",
+        "medical-pre-auth",
+        "approval-fraud"
+      ]
+    },
+    {
       "slug": "prediction-commitments",
       "title": "Prediction Commitments",
       "category": "Novel Document Types",
@@ -8338,6 +8471,29 @@
         "supply-chain-insurance",
         "retailer-compliance",
         "product-recall"
+      ]
+    },
+    {
+      "slug": "professional-approvals",
+      "title": "Professional Approvals & Sign-Offs",
+      "category": "Professional Ethics & Compliance",
+      "volume": "Large",
+      "retention": "Life of the asset / regulatory period (often 6-15 years)",
+      "verificationMode": "clip",
+      "furtherDerivations": 3,
+      "snippet": "Professional's name and credential/licence, firm, the specific deliverable and its revision/identifier, the scope of what is approved (and excluded), the applicable code or standard, the date, any sup",
+      "tags": [
+        "approval",
+        "sign-off",
+        "professional-stamp",
+        "engineer-seal",
+        "architect-approval",
+        "qualified-person",
+        "batch-release",
+        "audit-opinion",
+        "responsible-professional",
+        "liability",
+        "approval-fraud"
       ]
     },
     {
@@ -11928,15 +12084,15 @@
     },
     {
       "name": "Government & Civic Documents",
-      "count": 35
+      "count": 36
     },
     {
       "name": "Business & Commerce",
-      "count": 29
+      "count": 30
     },
     {
       "name": "Banking & Payments",
-      "count": 29
+      "count": 30
     },
     {
       "name": "Financial Compliance",
@@ -11964,7 +12120,7 @@
     },
     {
       "name": "Professional & Occupational Licenses",
-      "count": 18
+      "count": 19
     },
     {
       "name": "Immigration & Visa Documents",
@@ -11976,7 +12132,7 @@
     },
     {
       "name": "Personal Lines Insurance",
-      "count": 16
+      "count": 17
     },
     {
       "name": "Healthcare & Medical Records",
@@ -11995,11 +12151,11 @@
       "count": 12
     },
     {
-      "name": "Commercial Lines Insurance",
-      "count": 11
+      "name": "Professional Ethics & Compliance",
+      "count": 12
     },
     {
-      "name": "Professional Ethics & Compliance",
+      "name": "Commercial Lines Insurance",
       "count": 11
     },
     {

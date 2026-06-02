@@ -114,6 +114,11 @@ Prudential processes beneficiary changes for UK life insurance and pension polic
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
+## See Also
+
+- [Beneficiary Designations (Payable-on-Death)](view.html?doc=beneficiary-designations) — the standing designation record this confirmation is a *change receipt* for, covering 401(k)/IRA, POD/TOD, life, annuity, and pension survivor designations
+- [Life Insurance Claims and Death Benefits](view.html?doc=life-insurance-claims) — the payout side, after death
+
 ## Rationale
 
 Insurance and pensions are often the largest assets in an estate. By turning beneficiary records into verifiable digital bridges, we protect the "Final Intent" of the policyholder and prevent billions in "Ghost" fraud.

@@ -1,13 +1,28 @@
 ---
-title: "Art Appraisals and Valuations"
+title: "Appraisals & Valuations (Art, Antiques, Jewelry & Collectibles)"
 category: "Art, Media & Publishing"
 volume: "Small"
 retention: "5-10 years (insurance/tax)"
 slug: "art-authentication-documents"
 verificationMode: "clip"
-tags: ["appraisal", "art", "art-market", "artist", "auction", "authenticity", "coa", "collectibles", "connoisseurship", "edition", "gallery", "history", "insurance", "ownership", "print", "provenance", "sculpture", "signature", "stamp", "tax", "title", "uspap", "valuation"]
-furtherDerivations: 5
+tags: ["appraisal", "art", "art-market", "artist", "auction", "authenticity", "antiques", "chattel", "coa", "coins", "collectibles", "connoisseurship", "edition", "gallery", "gemstone", "history", "insurance", "jewelry", "numismatics", "ownership", "personal-property", "print", "provenance", "sculpture", "signature", "stamp", "tax", "title", "uspap", "valuation", "watches"]
+furtherDerivations: 6
 ---
+
+## What is an Appraisal?
+
+An **appraisal** (or **valuation**) is a formal document where a qualified expert states what a thing is worth. The thing can be a multimillion-dollar painting — or a far smaller item: a diamond ring, a vintage watch, a Georgian writing desk, a rare coin, a first-edition book, a violin. The dollar figure differs by orders of magnitude, but the document does the same job and faces the same fraud.
+
+Appraisals are used for:
+
+1.  **Insurance:** To "schedule" a valuable item on a policy (and set premiums and payout limits).
+2.  **Taxes:** When an item is donated for a deduction, or passes through an estate and must be valued for probate or estate tax.
+3.  **Loans / Collateral:** When the item is pledged to secure borrowing.
+4.  **Sale / Division:** To set a reserve, or to divide assets fairly in a divorce or inheritance.
+
+The fraud is identical across the value spectrum: **inflate the number** (to over-insure, over-deduct, or over-borrow), or **fabricate the appraiser** (a fake "certified" letter from a non-existent firm). A verified hash binds the **stated value, the item description, and the appraiser's credentials** to the appraisal firm's or authority's domain — whether that domain is `sothebys.com` for a Rothko or a local independent gemologist for a ring.
+
+This document covers the high-end **art** case in depth (the richest example), then the broader **personal-property / chattel** case for the smaller items most people actually own. See the [Personal Property & Chattel Appraisals](#chattel) section below for jewelry, watches, antiques, coins, and collectibles.
 
 ## What is an Art Appraisal?
 
@@ -772,3 +787,108 @@ This is an ideal text-to-hash use case.
 ### The Substitution Problem
 
 Art fraud does not always mean creating a forgery from scratch. The more sophisticated pattern is substitution: a genuine painting is appraised, a genuine certificate of authenticity is issued, and then the painting is swapped for a copy while the original certificate continues to circulate with the fake. The certificate is real — it just no longer describes the object it accompanies. A verifiable appraisal or COA does not solve the physical substitution on its own, but it eliminates one critical enabler: the ability to detach a certificate from its context. If the verification response includes the appraised dimensions, medium, and a photo of the work, the buyer viewing the physical piece can compare what they see against what the institution attested — and a mismatch between the described work and the object in front of them becomes immediately visible.
+
+
+---
+
+<a id="chattel"></a>
+
+_[Content merged from: personal-property-chattel-appraisals]_
+
+
+## What is a Personal Property (Chattel) Appraisal?
+
+Most appraisals are not for Rothkos. They are for the ordinary high-value objects people own: an engagement ring, an inherited watch, a coin collection, a piece of antique furniture, a designer handbag, a musical instrument. A **personal property** (or **chattel**) appraisal is the document a gemologist, antiques dealer, or independent appraiser issues stating what such an item is worth — most often so it can be **scheduled** on a homeowner's or renter's insurance policy, valued for **probate or estate division**, or claimed as a **charitable-donation tax deduction**.
+
+The fraud is the everyday version of art's "value padding": a $1,800 ring "appraised" at $18,000 to inflate an insurance payout after a staged loss, a modest estate's contents over-valued (or under-valued) to manipulate inheritance shares, or a thrift-store donation written up at boutique prices for an outsized tax deduction. The appraiser's signature and credentials are the trust anchor — and a forged letterhead from a "certified gemologist" who does not exist is far easier to produce than a forged diamond. A verified hash binds the **item description, the appraised value, and the appraiser's credentials** to the appraiser's or trade body's domain.
+
+<div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 2px 2px 12px rgba(0,0,0,0.06);">
+  <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 15px; margin-bottom: 25px;">
+    <div style="font-weight: bold; font-size: 1.3em; letter-spacing: 1px;"><span verifiable-text="start" data-for="chattel"></span>MERIDIAN APPRAISAL ASSOCIATES</div>
+    <div style="font-size: 0.8em; color: #666; margin-top: 5px;">GEMOLOGY &amp; PERSONAL PROPERTY VALUATION</div>
+  </div>
+<div style="font-size: 0.95em; line-height: 1.6; color: #333;">
+    <h3 style="text-align: center; margin: 0 0 20px;">APPRAISAL FOR INSURANCE SCHEDULING</h3>
+<p><strong>Date of Appraisal:</strong> March 18, 2026<br>
+    <strong>Client:</strong> Eleanor M. Hartley<br>
+    <strong>Report ID:</strong> MAA-2026-3317</p>
+<div style="margin: 20px 0; padding: 15px; background: #fafafa; border: 1px solid #eee;">
+      <p style="margin-top: 0;"><strong>Item:</strong> Ladies' platinum solitaire ring<br>
+      <strong>Center Stone:</strong> Round brilliant diamond, 1.52 ct<br>
+      <strong>Color / Clarity:</strong> F / VS1 (GIA 2185047722)<br>
+      <strong>Mounting:</strong> Platinum 950, six-prong</p>
+<p style="border-top: 1px solid #ddd; padding-top: 10px; font-size: 1.1em;">
+        <strong>Replacement Value:</strong> $ 24,500.00
+      </p>
+    </div>
+<p><strong>Purpose:</strong> Insurance scheduling (replacement cost, retail)<br>
+    <strong>Standards:</strong> Prepared in conformity with USPAP.</p>
+<div style="margin-top: 40px; display: flex; justify-content: space-between; align-items: flex-end;">
+      <div style="border-top: 1px solid #000; width: 210px; padding-top: 5px; font-style: italic;">D. Okafor, GG (GIA), ISA AM</div>
+      <div style="font-size: 0.8em; color: #777;">Cert. Gemologist Appraiser</div>
+    </div>
+  </div>
+<div data-verify-line="chattel" style="border-top: 1px dashed #999; margin-top: 40px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
+      title="Demo only: appraisal firms don't yet offer verification&#10;endpoints, so this is illustrative">
+      <span data-verify-line="chattel">verify:meridian-appraisal.com/reports/v</span> <span verifiable-text="end" data-for="chattel"></span>
+  </div>
+</div>
+
+## Data Verified
+
+Appraiser name and credentials (GG, ISA, ASA, NAJA), client name, item description (type, materials, weights, grades, hallmarks, serial numbers), grading-lab reference where applicable (e.g. GIA report number), effective date, purpose (insurance / estate / donation / collateral), value type (replacement cost / fair market value), the appraised amount, and report ID.
+
+**Document Types:**
+- **Insurance Schedule Appraisal:** Single-item or itemized list for "scheduling" valuables on a policy.
+- **Estate / Probate Appraisal:** Fair-market valuation of a deceased person's personal property.
+- **Charitable Donation Appraisal:** Qualified appraisal supporting a tax deduction (IRS Form 8283 territory).
+- **Equipment / Instrument Appraisal:** Musical instruments, cameras, tools, collectibles.
+
+## Verification Response (Chattel)
+
+The endpoint returns a simple status code:
+
+- **OK** — Report is current and matches the appraiser's file
+- **SUPERSEDED** — A more recent valuation exists (values drift with gold/gem markets); request the updated report
+- **RETRACTED** — Report was withdrawn (e.g., re-grading revealed an error or the appraiser was deceived about the item)
+- **404** — Report not found (never issued, or OCR error)
+
+The issuer domain is visible from the `verify:` line on the document itself (e.g., `meridian-appraisal.com`).
+
+## Second-Party Use
+
+The **Owner** benefits from verification.
+
+**Insurance Scheduling:** Proving to the insurer's underwriter that the $24,500 ring valuation is a genuine appraiser's report and not a self-edited PDF — preventing later "we never agreed that value" disputes at claim time.
+
+**Estate Fairness:** An executor or beneficiary can show co-heirs that the valuations used to divide an estate are the appraiser's actual figures, defusing the common "you under-valued grandma's silver so you could keep it" accusation.
+
+## Third-Party Use
+
+**Insurance Underwriters / Claims Adjusters**
+**Anti-Padding:** Adjusters see endless inflated appraisals after thefts and fires. Verification confirms the scheduled value matches the appraiser's record, blunting staged-loss and over-valuation fraud on jewelry and collectibles — one of the most common personal-lines fraud vectors.
+
+**The IRS / Tax Authorities**
+**Donation Audit Defense:** Inflated non-cash donation appraisals are a perennial audit target. A verified report from the appraiser's domain reduces friction on a Form 8283 deduction.
+
+**Probate Courts / Estate Attorneys**
+**Asset Valuation:** Confirming that the personal-property valuations filed with the court are the genuine, unaltered figures from a qualified appraiser.
+
+## Verification Architecture
+
+**The "Padded Schedule" Fraud Problem**
+
+- **Value Inflation:** Editing a $1,800 valuation to $18,000 to over-insure, then staging a loss.
+- **Phantom Appraisers:** A fake "certified gemologist" letterhead — easier to forge than the stone itself.
+- **Stale Valuations:** Presenting a peak-of-the-market 2011 gold/coin valuation as current to inflate an estate or a claim.
+- **Item Swapping:** A real appraisal for a real 1.52 ct diamond, re-used to insure a cubic-zirconia replica after the original is sold. Including the GIA report number and stone specifics in the verified payload lets an adjuster catch the mismatch.
+
+**Issuer Types** (First Party)
+
+**Independent Appraisers:** (Members of ISA, ASA, NAJA, AAA).
+**Grading Laboratories:** (GIA, AGS for gemstones; PCGS, NGC for coins).
+**Auction Houses / Specialist Dealers:** (For antiques, instruments, collectibles).
+
+## Text-to-Hash Suitability
+
+Chattel appraisals circulate as PDFs emailed to insurers, estate attorneys, and tax preparers, and as paper certificates handed over with the item. Browser/PDF text selection is the primary path (the recipient is reading the report on a screen); physical OCR is the secondary path when an adjuster or executor inspects the original paper certificate alongside the item. Either way, the clean typed text of an appraisal report is an ideal text-to-hash target.
