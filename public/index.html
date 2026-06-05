@@ -69,6 +69,14 @@
             margin-bottom: 12px;
             color: var(--ink);
         }
+        .subhead {
+            font-size: clamp(1.15em, 2.6vw, 1.5em);
+            font-weight: 650;
+            letter-spacing: -0.01em;
+            line-height: 1.25;
+            color: var(--accent-dark);
+            margin: 2px 0 12px;
+        }
         .lede {
             font-size: 1.12em;
             line-height: 1.6;
@@ -319,7 +327,8 @@
             <span>Home</span>
         </nav>
         <h1>Don't just trust. Verify.</h1>
-        <p class="lede">An open standard for checking documents and claims against the issuer's own domain &mdash; select or snap the text, and a SHA-256 lookup tells you whether the issuer stands behind it right now. No central database, no blockchain.</p>
+        <p class="subhead">Verify any document against its source.</p>
+        <p class="lede">An open standard: select or snap the text, and a SHA-256 lookup tells you whether the issuer stands behind it right now &mdash; no central database, no blockchain.</p>
 
         <div class="cta-row">
             <a class="cta" href="examples/">Clip Mode Examples</a>
@@ -374,7 +383,7 @@
             <ul>
                 <li><strong>It's a standard, not a company.</strong> The rule is simply <code>text &rarr; normalize &rarr; SHA-256 &rarr; GET the issuer's domain</code>. Any issuer can adopt it without permission, accounts, or fees.</li>
                 <li><strong>No central database.</strong> There is no master registry of valid documents and no single operator to trust, subpoena, breach, or switch off. Nobody &mdash; including us &mdash; holds a list of who verified what.</li>
-                <li><strong>Tens of thousands of separate web servers.</strong> Each issuer hosts its own hash endpoints on its own domain. A hospital, a council, an insurer, and an auction house each answer only for <em>their</em> claims, on <em>their</em> infrastructure. The "system" is the sum of all those independent web servers.</li>
+                <li><strong>Under ~195 sovereign roots at the top.</strong> A trust chain terminates at whoever has actual jurisdiction over the issuer &mdash; the sovereign that could subpoena or raid them under a court order. There are fewer than 195 such national roots, one per country. Beneath each, countless issuers &mdash; a hospital, a council, an insurer, an appraisal board &mdash; run their own hash endpoints on their own domains, answering only for <em>their</em> claims, with the sovereign above them able to vouch for (or disown) them. A handful of <strong>intergovernmental organizations</strong> (the UN, WHO, WIPO) are roots in their own right &mdash; not because they're large, but because <strong>no single nation has jurisdiction over them</strong>: the UN headquarters in Manhattan sits on international territory no US court order can reach. The "system" is the sum of all these independent servers under a small set of sovereign roots.</li>
                 <li><strong>Definitively decentralized.</strong> Trust is rooted in DNS &mdash; the same globally distributed namespace that already decides that <code>gov.uk</code> is the UK government and <code>irs.gov</code> is the US tax authority. Verification inherits that.</li>
                 <li><strong>Each country runs its own trust chain.</strong> Each issuer endpoint names the URL of the authority that endorses it, and a verifier walks those links upward to a national root &mdash; e.g. <code>law-society.org.uk/v/&hellip; &rarr; gov.uk/verifiers/&hellip;</code>, or a US state board <code>&rarr; asc.gov/v/&hellip;</code>. The chain is built from these declared endorsement URLs, not from domain structure: a multinational's <code>uk.</code> and <code>us.</code> endpoints can point at entirely different national authorities. Jurisdictions keep their own authorities; nothing is centralized across borders, and no country depends on another's infrastructure.</li>
                 <li><strong>Human in the loop.</strong> Verification and human judgement happen <em>together</em>, not in sequence. The machine does the maths &mdash; normalize, hash, look up &mdash; and the person weighs the result: <em>&ldquo;it came back verified, the issuer's domain (<code>gmc-uk.org</code>) is one I accept, and the endorsement chain makes sense &mdash; so I'll trust this, for now.&rdquo;</em> Equally, the human is the one who balks at <em>&ldquo;verified, but by <code>djwgwbdss.com</code>, with no chain behind it &mdash; I've no basis to trust that domain on its own.&rdquo;</em> A green tick is an input to a human decision, not the decision itself &mdash; and because issuers can revoke, that trust is only ever for <em>this moment</em>.</li>
