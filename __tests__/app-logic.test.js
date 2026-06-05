@@ -701,7 +701,7 @@ https://example.com`;
             const canonicalJson = JSON.stringify(JSON.parse(metaJson));
 
             // Mock fetch: first call returns the meta JSON (re-fetch for hashing),
-            // second call returns OK (authorization confirmation),
+            // second call returns the verified status (authorization confirmation),
             // third call is the chain walk (authorizer's own meta)
             global.fetch = jest.fn()
                 .mockResolvedValueOnce({
@@ -711,7 +711,7 @@ https://example.com`;
                 .mockResolvedValueOnce({
                     ok: true,
                     status: 200,
-                    text: () => Promise.resolve('OK')
+                    text: () => Promise.resolve('{"status":"verified"}')
                 })
                 .mockResolvedValueOnce({
                     ok: true,
@@ -792,7 +792,7 @@ https://example.com`;
                 .mockResolvedValueOnce({
                     ok: true,
                     status: 200,
-                    text: () => Promise.resolve('OK')
+                    text: () => Promise.resolve('{"status":"verified"}')
                 })
                 .mockResolvedValueOnce({
                     ok: true,
