@@ -450,19 +450,40 @@
 
             if (response.status === 200) {
                 const body = await response.text();
-                const trimmedBody = body.trim().toUpperCase();
+                const trimmedBody = body.trim();
 
                 console.log('[TSV] Response body:', trimmedBody);
 
-                if (trimmedBody.includes('"VERIFIED"') || trimmedBody.includes('"verified"')) {
+                // Parse the response. Endpoints return JSON like
+                // {"status":"verified"} or {"status":"revoked","message":"..."}.
+                // Pull out a clean status + human-readable message rather than
+                // dumping the raw JSON into the result UI.
+                let status = null;
+                let message = null;
+                try {
+                    const parsed = JSON.parse(trimmedBody);
+                    status = parsed.status || parsed.STATUS || null;
+                    message = parsed.message || parsed.MESSAGE || null;
+                } catch (e) {
+                    // Non-JSON body — treat the whole thing as the status text
+                    status = trimmedBody || null;
+                }
+
+                const statusUpper = (status || '').toUpperCase();
+
+                if (statusUpper === 'VERIFIED') {
                     console.log('[TSV] ✓ VERIFICATION SUCCESSFUL - hash matches and endpoint confirmed');
                     showResult('verified', 'VERIFIED', `by ${domain}`, normalizedText, hash,
                         registrableDomain, domainNotListed, authorization, domain);
                 } else {
-                    // Show the actual status from the response (e.g., REVOKED)
+                    // Show the actual status from the response (e.g., REVOKED),
+                    // with the issuer's message and domain as the detail line.
                     console.log('[TSV] ✗ VERIFICATION FAILED - endpoint returned non-OK status');
-                    showResult('denied', trimmedBody || 'UNKNOWN STATUS',
-                        `from ${domain}`, normalizedText, hash,
+                    const headline = statusUpper || 'UNKNOWN STATUS';
+                    const detail = message
+                        ? `${message} — from ${domain}`
+                        : `from ${domain}`;
+                    showResult('denied', headline, detail, normalizedText, hash,
                         registrableDomain, domainNotListed, authorization, domain);
                 }
             } else if (response.status === 404) {
