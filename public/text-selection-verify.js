@@ -378,8 +378,10 @@
         const hash = await sha256(normalizedText);
         console.log('[TSV] Computed SHA-256 hash:', hash);
 
-        // Step 6: Build verification URL
-        const verificationUrl = buildVerificationUrl(baseUrl, hash);
+        // Step 6: Build verification URL.
+        // Pass metadata so appendToHashResourceName (e.g. ".json") and
+        // hashesHostedAt (hashes hosted on a different host/path) are honored.
+        const verificationUrl = buildVerificationUrl(baseUrl, hash, metadata);
         console.log('[TSV] Verification URL:', verificationUrl);
 
         // Step 7: Extract domain for display
