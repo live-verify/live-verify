@@ -500,8 +500,13 @@
         } catch (error) {
             console.error('[TSV] Verification error:', error);
             if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
+                // A browser cannot distinguish DNS failure / unreachable host /
+                // CORS block — fetch reports the same opaque TypeError. The most
+                // common real cause is that the issuer hasn't set up Live Verify,
+                // so lead with that while staying honest about the alternatives.
                 showResult('error', 'CANNOT VERIFY',
-                    `Network error or CORS restriction for ${domain}`, normalizedText, hash,
+                    `Couldn't reach a verification endpoint at ${domain} — the issuer may not have set up Live Verify (or a network/CORS issue blocked the check)`,
+                    normalizedText, hash,
                     registrableDomain, domainNotListed);
             } else {
                 throw error;
