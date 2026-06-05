@@ -102,45 +102,47 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                padding: 12px 20px;
+                padding: 16px 24px;
                 border-bottom: 1px solid #333;
             ">
-                <div style="display: flex; align-items: center; gap: 16px;">
-                    <span id="tsv-status-icon" style="font-size: 32px; line-height: 1; display: flex; align-items: center; justify-content: center;"></span>
+                <div style="display: flex; align-items: center; gap: 18px;">
+                    <span id="tsv-status-icon" style="font-size: 40px; line-height: 1; display: flex; align-items: center; justify-content: center;"></span>
                     <div style="flex: 1;">
-                        <div id="tsv-status-text" style="font-weight: 600; font-size: 16px;"></div>
-                        <div id="tsv-domain" style="font-size: 13px; opacity: 0.8;"></div>
+                        <div id="tsv-status-text" style="font-weight: 700; font-size: 22px;"></div>
+                        <div id="tsv-domain" style="font-size: 16px; opacity: 0.85; margin-top: 2px;"></div>
                     </div>
                 </div>
                 <button id="tsv-close-btn" style="
                     background: none;
                     border: none;
                     color: white;
-                    font-size: 24px;
+                    font-size: 30px;
+                    line-height: 1;
                     cursor: pointer;
-                    padding: 4px 8px;
+                    padding: 4px 10px;
                     opacity: 0.7;
                     transition: opacity 0.2s;
                 ">&times;</button>
             </div>
             <div id="tsv-modal-simulation-note" style="
-                padding: 8px 20px;
+                padding: 10px 24px;
                 background: rgba(100, 100, 100, 0.2);
                 border-bottom: 1px solid #333;
-                font-size: 11px;
-                color: #aaa;
+                font-size: 13px;
+                color: #bbb;
                 text-align: center;
             ">
                 Simulation of a future first-class feature of browsers, but a single browser extension today
             </div>
             <div id="tsv-modal-disclaimer" style="
                 display: none;
-                padding: 12px 20px;
+                padding: 12px 24px;
                 background: rgba(72, 187, 120, 0.15);
                 border-bottom: 1px solid #333;
-                font-size: 12px;
+                font-size: 13px;
                 color: #48bb78;
                 font-style: italic;
+                text-align: center;
             ">
                 Screencaps of this verified message are not proof of anything
             </div>
@@ -547,10 +549,10 @@
                 trustWarning = document.createElement('div');
                 trustWarning.id = 'tsv-trust-warning';
                 trustWarning.style.cssText = `
-                    padding: 8px 20px;
+                    padding: 10px 24px;
                     background: rgba(255, 152, 0, 0.2);
                     border-bottom: 1px solid #333;
-                    font-size: 12px;
+                    font-size: 14px;
                     color: #ffb74d;
                     text-align: center;
                 `;
@@ -570,9 +572,9 @@
                 authorizationEl = document.createElement('div');
                 authorizationEl.id = 'tsv-authorization';
                 authorizationEl.style.cssText = `
-                    padding: 8px 20px;
+                    padding: 10px 24px;
                     border-bottom: 1px solid #333;
-                    font-size: 12px;
+                    font-size: 14px;
                     text-align: center;
                 `;
                 // Insert after domain element
@@ -623,9 +625,9 @@
                 authorizationEl = document.createElement('div');
                 authorizationEl.id = 'tsv-authorization';
                 authorizationEl.style.cssText = `
-                    padding: 8px 20px;
+                    padding: 10px 24px;
                     border-bottom: 1px solid #333;
-                    font-size: 12px;
+                    font-size: 14px;
                     text-align: center;
                 `;
                 domainEl.parentNode.insertBefore(authorizationEl, domainEl.nextSibling);
@@ -649,7 +651,7 @@
                 statusIcon.style.color = '#fff';
                 // Match camera app's green color scheme
                 header.style.background = 'linear-gradient(135deg, #48bb78 0%, #38a169 100%)';
-                statusText.style.fontSize = '20px';
+                statusText.style.fontSize = '24px';
                 statusText.style.fontWeight = '700';
                 statusText.style.letterSpacing = '0.5px';
                 disclaimer.style.display = 'block';
@@ -657,25 +659,25 @@
             case 'denied':
                 statusIcon.textContent = '\u2717';
                 header.style.background = 'linear-gradient(135deg, #c62828 0%, #b71c1c 100%)';
-                statusText.style.fontSize = '16px';
+                statusText.style.fontSize = '22px';
                 disclaimer.style.display = 'none';
                 break;
             case 'failed':
                 statusIcon.textContent = '\u2717';
                 header.style.background = 'linear-gradient(135deg, #d32f2f 0%, #c62828 100%)';
-                statusText.style.fontSize = '16px';
+                statusText.style.fontSize = '22px';
                 disclaimer.style.display = 'none';
                 break;
             case 'error':
                 statusIcon.textContent = '\u26A0';
                 header.style.background = 'linear-gradient(135deg, #f57c00 0%, #e65100 100%)';
-                statusText.style.fontSize = '16px';
+                statusText.style.fontSize = '22px';
                 disclaimer.style.display = 'none';
                 break;
             case 'loading':
                 statusIcon.textContent = '\u23F3';
                 header.style.background = 'linear-gradient(135deg, #1976d2 0%, #1565c0 100%)';
-                statusText.style.fontSize = '16px';
+                statusText.style.fontSize = '20px';
                 disclaimer.style.display = 'none';
                 break;
         }
