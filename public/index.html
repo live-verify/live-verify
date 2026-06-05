@@ -329,6 +329,22 @@
             </div>
         </div>
 
+        <!-- Global anti-fraud system -->
+        <div class="card" id="globalSystem">
+            <h2>A global anti-fraud system</h2>
+            <p>Taken together, the use cases describe something bigger than a single product: a <strong>global, decentralized anti-fraud system</strong> for documents and claims of every kind. It works the way the web and email do &mdash; as an <strong>open standard</strong> anyone can implement, not a service anyone signs up to.</p>
+            <ul>
+                <li><strong>It's a standard, not a company.</strong> The rule is simply <code>text &rarr; normalize &rarr; SHA-256 &rarr; GET the issuer's domain</code>. Any issuer can adopt it without permission, accounts, or fees.</li>
+                <li><strong>No central database.</strong> There is no master registry of valid documents and no single operator to trust, subpoena, breach, or switch off. Nobody &mdash; including us &mdash; holds a list of who verified what.</li>
+                <li><strong>Tens of thousands of separate servers.</strong> Each issuer hosts its own hash endpoints on its own domain. A hospital, a council, an insurer, and an auction house each answer only for <em>their</em> claims, on <em>their</em> infrastructure. The "system" is the sum of all those independent servers.</li>
+                <li><strong>Definitively decentralized.</strong> Trust is rooted in DNS &mdash; the same globally distributed namespace that already decides that <code>gov.uk</code> is the UK government and <code>irs.gov</code> is the US tax authority. Verification inherits that.</li>
+                <li><strong>Each country runs its own trust chain.</strong> A claim chains up to a national root: <code>law-society.org.uk &rarr; gov.uk</code>, or a US state board <code>&rarr; asc.gov</code>. Jurisdictions keep their own authorities; nothing is centralized across borders, and no country depends on another's infrastructure.</li>
+            </ul>
+            <p class="note" style="margin-top: 14px;">
+                <strong>This is not a blockchain.</strong> There is no ledger, no token, no mining, no consensus network, and no shared global state. A verification is a plain HTTPS lookup against the issuer's own server, answered live &mdash; which is exactly why claims can be <em>revoked</em> the instant an issuer changes its mind. A blockchain's permanence is the opposite of what fraud-fighting needs; the authority you trust is a domain name, not a chain.
+            </p>
+        </div>
+
         <!-- Roadmap -->
         <div class="card" id="roadmap">
             <h2>Roadmap</h2>
