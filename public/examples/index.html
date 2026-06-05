@@ -117,6 +117,7 @@
 
         .example-section {
             margin-bottom: 40px;
+            overflow: hidden; /* contain the floated .sim-caveat within its section */
         }
 
         .example-section h3 {
@@ -174,6 +175,34 @@
             margin-top: 20px;
             color: #2e7d32;
             font-size: 0.95rem;
+        }
+
+        .sim-caveat {
+            float: right;
+            width: 260px;
+            margin: 0 0 12px 20px;
+            padding: 12px 14px;
+            background: #fff8e1;
+            border: 1px solid #ffe082;
+            border-left: 4px solid #ffa000;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            line-height: 1.5;
+            color: #5d4037;
+        }
+
+        .sim-caveat strong {
+            display: block;
+            margin-bottom: 6px;
+            color: #e65100;
+        }
+
+        @media (max-width: 600px) {
+            .sim-caveat {
+                float: none;
+                width: auto;
+                margin: 0 0 16px 0;
+            }
         }
 
         .note strong {
@@ -249,6 +278,10 @@ verify:paulhammant.com/refs</div>
         <div class="example-section">
             <h3>Example 2: Revoked Employment Reference</h3>
             <span class="claim-label revoked">Should verify as REVOKED</span>
+            <aside class="sim-caveat">
+                <strong>Sim caveat</strong>
+                Ignore the mismatch between <em>MERIDIAN CONSULTING GROUP</em> and <code>live-verify.github.io</code> in this simulation. Normally a verifier should notice that an issuer is being checked against a domain that isn't theirs — that mismatch is a real signal. Here it's only because the demo hashes are hosted on the project's own GitHub Pages site.
+            </aside>
             <div class="verifiable-claim">MERIDIAN CONSULTING GROUP
 
 EMPLOYMENT REFERENCE
