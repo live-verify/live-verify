@@ -58,7 +58,7 @@
             text-rendering: optimizeLegibility;
         }
         .container {
-            max-width: 820px;
+            max-width: 960px;
             margin: 0 auto;
         }
         h1 {
@@ -97,6 +97,11 @@
         .card p, .card li {
             line-height: 1.72;
             color: var(--ink-soft);
+        }
+        /* Cap prose to a comfortable measure even as the column widens;
+           wide elements (diagram, SVGs, category grid, screenshots) opt out below. */
+        .card > p, .card > ul {
+            max-width: 72ch;
         }
         .card ul {
             margin: 12px 0 0 18px;
