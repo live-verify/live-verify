@@ -41,7 +41,7 @@ This warranty is a valuable financial asset that stays with the house for 10 yea
   </div>
 <div style="margin-top: 40px; display: flex; justify-content: space-between; align-items: flex-end;">
     <div>
-      <div style="width: 80px; height: 80px; border: 2px solid #1a365d; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.6em; color: #1a365d; font-weight: bold; text-align: center;">OFFICIAL<br>COVERAGE<br>SEAL</div>
+      <img src="https://www.2-10.com/img/logos/logomark.svg" alt="" width="80" height="80" style="display: block;">
     </div>
     <div style="text-align: right; font-size: 0.8em; color: #777;">
       Administered by HBW Services, LLC
