@@ -1,9 +1,9 @@
 {
-  "generated": "2026-06-02T06:33:12.511Z",
-  "totalUseCases": 587,
-  "totalFurtherDerivations": 921,
+  "generated": "2026-06-11T20:45:46.810Z",
+  "totalUseCases": 588,
+  "totalFurtherDerivations": 926,
   "categories": {
-    "Real Estate & Property": 43,
+    "Real Estate & Property": 44,
     "Charitable & Non-Profit": 8,
     "Novel Document Types": 8,
     "Scientific & Research": 8,
@@ -9525,6 +9525,28 @@
       ]
     },
     {
+      "slug": "rental-listing-deposit-authority",
+      "title": "Rental Listing and Deposit Authority",
+      "category": "Real Estate & Property",
+      "volume": "Very Large",
+      "retention": "Listing life plus tenancy limitation period (typically 6-7 years)",
+      "verificationMode": "both",
+      "furtherDerivations": 5,
+      "snippet": "Property address, listing reference, issuer name, agent or landlord identity, authorization basis, permitted payment recipient, deposit amount or cap, deposit scheme or client-money account reference,",
+      "tags": [
+        "rental",
+        "letting-agent",
+        "landlord",
+        "tenant",
+        "deposit",
+        "property-listing",
+        "client-money",
+        "authorized-agent",
+        "wire-fraud",
+        "housing-fraud"
+      ]
+    },
+    {
       "slug": "repeat-events-permits",
       "title": "Repeat Events Permits",
       "category": "Government & Civic Documents",
@@ -12080,7 +12102,7 @@
     },
     {
       "name": "Real Estate & Property",
-      "count": 43
+      "count": 44
     },
     {
       "name": "Government & Civic Documents",
