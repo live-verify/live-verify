@@ -1,0 +1,204 @@
+<!--
+    Copyright (C) 2025, Paul Hammant
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Issuers - Live Verify</title>
+    <meta name="description" content="Your documents are being forged in your name. One footer line and static hash hosting makes every document you issue instantly checkable.">
+    <style>
+        :root {
+            --bg: #f6f8fb; --surface: #ffffff; --ink: #0f172a; --ink-soft: #475569;
+            --ink-faint: #64748b; --line: #e2e8f0; --accent: #2563eb; --accent-dark: #1d4ed8;
+            --accent-soft: #eff4ff; --radius: 16px;
+            --shadow-sm: 0 1px 2px rgba(15,23,42,0.06), 0 1px 3px rgba(15,23,42,0.08);
+            --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font); background: var(--bg);
+            background-image: radial-gradient(1200px 500px at 50% -120px, #eef2f9 0%, var(--bg) 70%);
+            min-height: 100vh; padding: 28px 20px 56px; color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 880px; margin: 0 auto; }
+        .breadcrumbs { font-size: 0.85em; color: var(--ink-faint); margin-bottom: 18px; }
+        .breadcrumbs a { color: var(--ink-faint); text-decoration: none; }
+        .breadcrumbs a:hover { text-decoration: underline; }
+        .breadcrumbs .sep { margin: 0 8px; opacity: 0.6; }
+        .badge {
+            display: inline-block; background: var(--accent-soft); color: var(--accent-dark);
+            border: 1px solid #e3ebfb; padding: 7px 15px; border-radius: 999px;
+            font-size: 0.8em; font-weight: 700; letter-spacing: 1px; margin-bottom: 18px;
+        }
+        h1 { font-size: clamp(1.9em, 5vw, 2.6em); font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; margin-bottom: 14px; }
+        .lede { font-size: 1.12em; line-height: 1.65; color: var(--ink-soft); max-width: 62ch; margin-bottom: 10px; }
+        .card {
+            background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+            padding: 26px 28px; margin: 18px 0; box-shadow: var(--shadow-sm);
+        }
+        .card h2 { font-size: 1.28em; font-weight: 750; letter-spacing: -0.01em; margin-bottom: 12px; }
+        .card p, .card li { line-height: 1.72; color: var(--ink-soft); max-width: 72ch; }
+        .card p + p { margin-top: 10px; }
+        .card ul, .card ol { margin: 12px 0 0 20px; }
+        .card li { margin-bottom: 8px; }
+        .card strong { color: var(--ink); }
+        a { color: var(--accent); }
+        code {
+            font-family: var(--mono); font-size: 0.88em; background: var(--accent-soft);
+            color: var(--accent-dark); padding: 0.12em 0.4em; border-radius: 6px; border: 1px solid #e3ebfb;
+        }
+        .note {
+            font-size: 0.96em; line-height: 1.65; color: var(--ink-soft); margin-top: 14px;
+            background: var(--accent-soft); border: 1px solid #e3ebfb;
+            border-left: 3px solid var(--accent); border-radius: 10px; padding: 14px 16px;
+        }
+        .doc-mock {
+            font-family: var(--mono); font-size: 0.85em; background: #f8fafc; color: var(--ink-soft);
+            border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px;
+            margin-top: 14px; line-height: 1.7; white-space: pre-wrap; overflow-x: auto;
+        }
+        .doc-mock .vline { color: var(--accent-dark); font-weight: 700; }
+        .cta-box { text-align: center; margin: 30px 0 8px; }
+        .cta {
+            display: inline-block; background: var(--accent); color: #fff; padding: 14px 36px;
+            border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1em;
+            box-shadow: var(--shadow-sm); margin: 6px; transition: transform 0.15s, background 0.15s;
+        }
+        .cta:hover { transform: translateY(-2px); background: var(--accent-dark); }
+        .cta.secondary { background: var(--surface); color: var(--accent); border: 1px solid var(--line); }
+        .cta.secondary:hover { background: var(--accent-soft); }
+        .site-foot { margin-top: 30px; text-align: center; color: var(--ink-faint); font-size: 0.92em; line-height: 1.7; }
+        .site-foot a { color: var(--accent); text-decoration: none; font-weight: 600; }
+        .forward-hint { text-align: center; font-size: 0.88em; color: var(--ink-faint); margin-top: 6px; }
+        @media print {
+            body { background: #fff; padding: 0; }
+            .breadcrumbs, .cta-box, .forward-hint { display: none; }
+            .card { box-shadow: none; break-inside: avoid; }
+        }
+        @media (max-width: 520px) { .card { padding: 20px 18px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="index.html">Home</a><span class="sep">›</span><span>For Issuers</span>
+        </nav>
+
+        <div class="badge">FOR ORGANIZATIONS THAT ISSUE DOCUMENTS</div>
+        <h1>Your documents are being forged in your name.</h1>
+        <p class="lede">
+            Universities, regulators, insurers, certifiers, councils, hospitals: every certificate, licence,
+            letter, and permit you issue can be reproduced perfectly by anyone with a chatbot and ten minutes.
+            When the forgery surfaces, it carries <em>your</em> name &mdash; and today, nobody can check it without
+            phoning you.
+        </p>
+
+        <div class="card">
+            <h2>The cost you're already paying</h2>
+            <ul>
+                <li><strong>Brand damage you don't control.</strong> When PPE Medpro supplied the NHS against a
+                    test report bearing Intertek's name &mdash; a report Intertek never issued &mdash; the forgery sat
+                    undetected through 72 shipments. Courts later ordered &pound;122m repaid, but the goods were
+                    already landfill. The fake was checkable in principle from day one; there was just no way to check it.</li>
+                <li><strong>A verification call centre you never wanted.</strong> Employers, landlords, embassies, and
+                    procurement teams email and phone you to ask "did you really issue this?" &mdash; a manual workload
+                    that scales with your success.</li>
+                <li><strong>No way to revoke.</strong> A paper certificate you issued in 2019 to someone since struck
+                    off looks exactly as valid as one issued yesterday.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>What adopting looks like (smaller than you think)</h2>
+            <p>You add one footer line to documents you issue:</p>
+            <div class="doc-mock">This certifies that Sarah Chen was awarded
+MSc Computer Science on 28 June 2024.
+<span class="vline">verify:degrees.youruniversity.ac.uk/c</span></div>
+            <p style="margin-top: 14px;">
+                And you publish a SHA-256 hash of each document's text at that URL on your own domain.
+                <strong>Static file hosting is enough</strong> &mdash; a hash lookup is a plain HTTPS GET.
+                No login system, no API platform, no blockchain, no per-verification fees, no vendor.
+            </p>
+            <p>
+                Anyone &mdash; an employer, a border officer, a procurement clerk &mdash; selects the text on screen or
+                points a phone camera at the paper, and in about four seconds learns whether you stand behind it
+                <em>right now</em>. Change the status file and it's revoked everywhere, instantly.
+            </p>
+            <p class="note">
+                <strong>Effort estimate: a sprint, not a migration.</strong> The pipeline is
+                <code>text &rarr; normalize &rarr; SHA-256 &rarr; publish</code>. Reference implementations,
+                normalization rules, and cross-platform test fixtures are all Apache-2.0 on
+                <a href="https://github.com/live-verify/live-verify">GitHub</a>. A small engineering team can pilot
+                with one document class in one to two weeks.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Your back catalog counts too</h2>
+            <p>
+                You don't need to wait for the next issuance cycle. Any record you already hold &mdash; degrees granted
+                in 2020, licences still in force, certificates still active &mdash; can be made verifiable
+                retrospectively: reconstruct the claim text from your system of record, hash it, publish.
+                Start with <strong>the 100,000 records people keep asking you to verify</strong>, and the manual
+                verification workload starts falling immediately.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>What you are <em>not</em> signing up for</h2>
+            <ul>
+                <li><strong>No PII leaves your systems.</strong> You publish one-way hashes, not document contents.
+                    The plaintext stays in your private systems; the public tier holds only hash &rarr; status.</li>
+                <li><strong>No vendor, no fees, no lock-in.</strong> This is an open standard (Apache 2.0), like email
+                    or RSS. Adopt without permission; stop whenever you like &mdash; delete the files and you're out.</li>
+                <li><strong>No change to how documents look.</strong> One footer line. No QR codes, special ink,
+                    NFC chips, or new hardware for you or for verifiers.</li>
+                <li><strong>No central registry.</strong> Your hashes live on your domain, under your control and your
+                    jurisdiction. Nobody &mdash; including this project &mdash; sees who verifies what.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Be a founding issuer</h2>
+            <p>
+                The <strong>first ten pilot issuers</strong> get free advisory support from the standard's author
+                &mdash; design review of canonical text templates, normalization fixtures, endpoint setup, and
+                revocation workflow, by email, up to a sensible advice limit &mdash; in exchange for being nameable
+                as an early adopter. Sustained implementation work is beyond the free scope and can be referred to
+                commercial integration partners. Founding issuers are listed permanently on the
+                <a href="founding-adopters.html">founding adopters page</a>.
+            </p>
+        </div>
+
+        <div class="cta-box">
+            <a class="cta" href="quickstart.html">Publish a verifiable claim in 15 minutes</a>
+            <a class="cta secondary" href="mailto:paul@hammant.org?subject=Live%20Verify%20pilot%20(issuer)">Talk about a pilot</a>
+            <a class="cta secondary" href="use-cases/">Find your document type</a>
+        </div>
+        <p class="forward-hint">This page is print-friendly &mdash; forward it to whoever owns this decision.</p>
+
+        <div class="site-foot">
+            Live Verify is an open standard begun by <a href="https://paulhammant.com">Paul Hammant</a>
+            &middot; <a href="mailto:paul@hammant.org">paul@hammant.org</a>
+            &middot; <a href="https://github.com/live-verify/live-verify">Source &amp; spec on GitHub</a>
+        </div>
+    </div>
+</body>
+</html>

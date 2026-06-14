@@ -148,6 +148,52 @@
             border-color: rgba(255,255,255,0.12);
         }
 
+        /* ---- Story card ---- */
+        .story-card { border-left: 4px solid var(--accent); }
+
+        /* ---- Audience doors ---- */
+        .door-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+            margin: 22px 0 10px;
+        }
+        .door {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 20px 22px;
+            text-decoration: none;
+            color: var(--ink);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+        }
+        .door:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-ring);
+        }
+        .door-kicker {
+            font-weight: 800;
+            font-size: 1.05em;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+        }
+        .door-desc {
+            font-size: 0.9em;
+            line-height: 1.55;
+            color: var(--ink-soft);
+            flex: 1;
+        }
+        .door-go {
+            font-weight: 700;
+            font-size: 0.92em;
+            color: var(--accent);
+        }
+
         /* ---- Hero CTAs ---- */
         .cta-row {
             display: grid;
@@ -330,12 +376,74 @@
         <p class="subhead">Verify any document against its source.</p>
         <p class="lede">An open standard: select or snap the text, and a SHA-256 lookup tells you whether the issuer stands behind it right now &mdash; no central database, no blockchain.</p>
 
+        <!-- The story that started it -->
+        <div class="card story-card" id="why">
+            <h2>The &pound;122m document nobody could check</h2>
+            <p>
+                During the pandemic, PPE Medpro supplied the NHS against a safety test report bearing
+                <strong>Intertek's</strong> name &mdash; report code <code>SHAT06648491</code>. Intertek never issued it.
+                The forgery rode through procurement and <strong>72 shipments</strong> before anyone could establish
+                it was fake; courts later ordered <strong>&pound;122m repaid</strong>, and the unusable goods went to
+                landfill anyway.
+            </p>
+            <p>
+                If Intertek had published a hash of every genuine report on <code>intertek.com</code>, any procurement
+                clerk could have caught the fake in <strong>four seconds, on day one</strong>. That gap &mdash; between a
+                document that <em>names</em> an authority and a way to <em>ask</em> that authority &mdash; is what Live
+                Verify closes, for every document type, in every industry.
+            </p>
+        </div>
+
+        <!-- Audience doors -->
+        <div class="door-row" aria-label="Choose your role">
+            <a class="door" href="for-issuers.html">
+                <span class="door-kicker">I issue documents</span>
+                <span class="door-desc">Universities, regulators, insurers, certifiers, councils &mdash; stop forgeries that carry your name.</span>
+                <span class="door-go">For issuers &rarr;</span>
+            </a>
+            <a class="door" href="for-saas.html">
+                <span class="door-kicker">I build software that issues documents</span>
+                <span class="door-desc">Invoicing, HR, insurance, credentialing platforms &mdash; ship verifiability your competitors don't have.</span>
+                <span class="door-go">For SaaS builders &rarr;</span>
+            </a>
+            <a class="door" href="for-platforms.html">
+                <span class="door-kicker">I build platforms</span>
+                <span class="door-desc">Camera, browser, OS, PDF vendors &mdash; the step after Live Text is whether the text is true.</span>
+                <span class="door-go">For platforms &rarr;</span>
+            </a>
+            <a class="door" href="for-verifiers.html">
+                <span class="door-kicker">I sell verification today</span>
+                <span class="door-desc">Degree checks, document authentication, KYC &mdash; the unsentimental read on what gets commoditized and where the durable value moves.</span>
+                <span class="door-go">For incumbents &amp; investors &rarr;</span>
+            </a>
+        </div>
+
         <div class="cta-row">
-            <a class="cta" href="examples/">Clip Mode Examples</a>
-            <a class="cta" href="use-cases/">Use Cases</a>
+            <a class="cta secondary" href="quickstart.html">15-Minute Quickstart</a>
+            <a class="cta secondary" href="examples/">Clip Mode Examples</a>
+            <a class="cta secondary" href="use-cases/">Use Cases</a>
             <a class="cta secondary" href="opportunity.html">Opportunity</a>
             <a class="cta secondary" href="privacy_declaration.html">Privacy</a>
             <a class="cta secondary" href="https://github.com/live-verify/live-verify" target="_blank" rel="noreferrer">Source Code</a>
+        </div>
+
+        <!-- Urgency: the GenAI argument -->
+        <div class="card" id="forgeryIsFree">
+            <h2>Forgery is now free</h2>
+            <p>
+                Until recently, a convincing forged certificate took skill, software, and nerve. Today anyone can ask
+                a chatbot for a pixel-perfect insurance certificate, bank statement, employment letter, or test
+                report &mdash; correct letterhead, plausible reference numbers, clean typography &mdash; in under a minute,
+                at zero cost. <strong>Every control that relies on a document <em>looking</em> right is already
+                obsolete.</strong>
+            </p>
+            <p>
+                Detection is an arms race that defenders lose: each generation of fakes is trained against the last
+                generation of detectors. Attestation doesn't play that game. A document either hashes to a value the
+                issuer's own domain stands behind right now, or it doesn't &mdash; and no improvement in generative
+                models changes that arithmetic. The organizations that adopt issuer-side verification early aren't
+                taking a bet on a trend; they're exiting an arms race they can't win.
+            </p>
         </div>
 
         <!-- How it works: pipeline diagram -->
@@ -434,7 +542,7 @@
             </svg>
 
             <h3 style="margin-top: 22px; font-size: 1em; opacity: 0.9;">Issuer side &mdash; whose claims get verified</h3>
-            <svg viewBox="0 0 720 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Issuer-side roadmap: PoC done, scaled tech reference done, pilot issuer deployments next, 500+ SaaS vendors goal" style="width: 100%; height: auto; margin-top: 8px;">
+            <svg viewBox="0 0 720 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Issuer-side roadmap: PoC done, scaled tech reference done, pilot issuer deployments next, 1,000 SaaS vendors goal" style="width: 100%; height: auto; margin-top: 8px;">
                 <defs>
                     <marker id="arrowIssuer" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
                         <path d="M0,0 L10,5 L0,10 z" fill="rgba(255,255,255,0.7)"/>
@@ -468,10 +576,15 @@
                 <circle cx="660" cy="60" r="22" fill="rgba(255,255,255,0.12)" stroke="white" stroke-width="2" stroke-dasharray="3 3"/>
                 <text x="660" y="66" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="16" font-weight="800" fill="white">4</text>
                 <text x="660" y="22" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="11" font-weight="700" fill="white" opacity="0.85">GOAL</text>
-                <text x="660" y="105" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="white">500+ SaaS vendors</text>
+                <text x="660" y="105" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="white">1,000 SaaS vendors</text>
                 <text x="660" y="122" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="11" fill="white" opacity="0.8">Verification baked into</text>
                 <text x="660" y="137" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="11" fill="white" opacity="0.8">document-issuing platforms</text>
             </svg>
+            <p class="note" style="margin-top: 14px;">
+                Stage 3 is open now: the first ten pilot issuers and first ten SaaS integrations get free advisory
+                support from the author (up to an advice limit) and a permanent listing &mdash; see the
+                <a href="founding-adopters.html" style="color: #aecbff;">founding adopter program</a>.
+            </p>
         </div>
 
         <!-- Use case categories grid -->
@@ -502,9 +615,37 @@
             </p>
         </div>
 
-        <!-- Simulated integration test results -->
+        <!-- Proof: real hardware first, then simulated chains -->
         <div class="card dark" id="testResults">
-            <h2>Simulated integration tests</h2>
+            <h2>Watch it work</h2>
+
+            <h3 style="margin-top: 16px; font-size: 1em; opacity: 0.85;">Real documents, real phones</h3>
+
+            <div class="screenshot-scenario">
+                <h4>A real peer reference &mdash; hash live on the referee's own website, today</h4>
+                <div class="scenario-videos">
+                    <a href="https://youtu.be/NfUqKxSZ_V0" target="_blank" rel="noreferrer">Real iPhone</a> <span class="video-duration">0:51</span>
+                    &middot; <a href="https://youtu.be/UpMEKDH42Q4" target="_blank" rel="noreferrer">Real Android</a> <span class="video-duration">0:18</span>
+                </div>
+                <p style="font-size: 0.85em; opacity: 0.85; margin-top: 8px; line-height: 1.6;">
+                    Not a simulation: a professional reference whose hash is published on the issuer's personal
+                    domain, verified end-to-end by pointing a phone at it.
+                </p>
+            </div>
+
+            <div class="screenshot-scenario">
+                <h4>Genuine ID verified, fake ID rejected &mdash; on real hardware</h4>
+                <div class="scenario-videos">
+                    Genuine warrant card:
+                    <a href="https://youtu.be/Ut8GV-KSdNI" target="_blank" rel="noreferrer">Real Android</a> <span class="video-duration">0:30</span>
+                    &middot; <a href="https://youtu.be/MxA3c4AfEQc" target="_blank" rel="noreferrer">Real iPhone</a> <span class="video-duration">0:30</span>
+                    &nbsp;|&nbsp; Fake rejected:
+                    <a href="https://youtu.be/J5aeYZwoipM" target="_blank" rel="noreferrer">Real Android</a> <span class="video-duration">0:22</span>
+                    &middot; <a href="https://youtu.be/pHDVBcjKb6U" target="_blank" rel="noreferrer">Real iPhone</a> <span class="video-duration">0:39</span>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 24px; font-size: 1em; opacity: 0.85;">Simulated authority chains (automated tests)</h3>
             <p>Screenshots captured by Playwright during automated tests against simulated authority chains in Docker. All organisations and people are fictitious. The Chrome extension is being itself or simulating something built-in to Outlook, Adobe or operating systems.</p>
 
             <h3 style="margin-top: 16px; font-size: 1em; opacity: 0.85;">Clip mode (browser extension)</h3>
@@ -605,8 +746,6 @@
                 </div>
                 <div class="scenario-videos">
                     <a href="https://www.youtube.com/watch?v=kbPRq4tdoMM" target="_blank" rel="noreferrer">Video: automated test simulation</a> <span class="video-duration">0:12</span>
-                    &middot; <a href="https://youtu.be/Ut8GV-KSdNI" target="_blank" rel="noreferrer">Real Android phone</a> <span class="video-duration">0:30</span>
-                    &middot; <a href="https://youtu.be/MxA3c4AfEQc" target="_blank" rel="noreferrer">Real iPhone</a> <span class="video-duration">0:30</span>
                 </div>
             </div>
 
@@ -619,8 +758,6 @@
                 </div>
                 <div class="scenario-videos">
                     <a href="https://youtu.be/OcuH4WLsYe8" target="_blank" rel="noreferrer">Video: automated test simulation</a> <span class="video-duration">0:30</span>
-                    &middot; <a href="https://youtu.be/J5aeYZwoipM" target="_blank" rel="noreferrer">Real Android phone</a> <span class="video-duration">0:22</span>
-                    &middot; <a href="https://youtu.be/pHDVBcjKb6U" target="_blank" rel="noreferrer">Real iPhone</a> <span class="video-duration">0:39</span>
                 </div>
             </div>
 
@@ -658,13 +795,6 @@
                 </p>
             </div>
 
-            <div class="screenshot-scenario">
-                <h4>Real peer reference (hash live on issuer's personal website)</h4>
-                <div class="scenario-videos">
-                    <a href="https://youtu.be/NfUqKxSZ_V0" target="_blank" rel="noreferrer">Real iPhone</a> <span class="video-duration">0:51</span>
-                    &middot; <a href="https://youtu.be/UpMEKDH42Q4" target="_blank" rel="noreferrer">Real Android</a> <span class="video-duration">0:18</span>
-                </div>
-            </div>
         </div>
 
         <!-- Privacy model -->
@@ -677,6 +807,11 @@
         </div>
         <div class="site-foot">
             <a href="https://github.com/live-verify/live-verify" target="_blank" rel="noreferrer">Source code &amp; technical documentation on GitHub</a>
+            <p style="margin-top: 10px;">
+                Live Verify is an open standard begun by <a href="https://paulhammant.com" target="_blank" rel="noreferrer">Paul Hammant</a>,
+                prompted by the PPE Medpro / Intertek forgery case.
+                Pilots, integrations, questions: <a href="mailto:paul@hammant.org">paul@hammant.org</a>
+            </p>
         </div>
     </div>
     <script>

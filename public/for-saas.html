@@ -1,0 +1,226 @@
+<!--
+    Copyright (C) 2025, Paul Hammant
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For SaaS Builders - Live Verify</title>
+    <meta name="description" content="Every document your product generates can carry proof it's real. Your competitors' can't. One footer line at render time plus a hash endpoint.">
+    <style>
+        :root {
+            --bg: #f6f8fb; --surface: #ffffff; --ink: #0f172a; --ink-soft: #475569;
+            --ink-faint: #64748b; --line: #e2e8f0; --accent: #2563eb; --accent-dark: #1d4ed8;
+            --accent-soft: #eff4ff; --radius: 16px;
+            --shadow-sm: 0 1px 2px rgba(15,23,42,0.06), 0 1px 3px rgba(15,23,42,0.08);
+            --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font); background: var(--bg);
+            background-image: radial-gradient(1200px 500px at 50% -120px, #eef2f9 0%, var(--bg) 70%);
+            min-height: 100vh; padding: 28px 20px 56px; color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 880px; margin: 0 auto; }
+        .breadcrumbs { font-size: 0.85em; color: var(--ink-faint); margin-bottom: 18px; }
+        .breadcrumbs a { color: var(--ink-faint); text-decoration: none; }
+        .breadcrumbs a:hover { text-decoration: underline; }
+        .breadcrumbs .sep { margin: 0 8px; opacity: 0.6; }
+        .badge {
+            display: inline-block; background: var(--accent-soft); color: var(--accent-dark);
+            border: 1px solid #e3ebfb; padding: 7px 15px; border-radius: 999px;
+            font-size: 0.8em; font-weight: 700; letter-spacing: 1px; margin-bottom: 18px;
+        }
+        h1 { font-size: clamp(1.9em, 5vw, 2.6em); font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; margin-bottom: 14px; }
+        .lede { font-size: 1.12em; line-height: 1.65; color: var(--ink-soft); max-width: 62ch; margin-bottom: 10px; }
+        .card {
+            background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+            padding: 26px 28px; margin: 18px 0; box-shadow: var(--shadow-sm);
+        }
+        .card h2 { font-size: 1.28em; font-weight: 750; letter-spacing: -0.01em; margin-bottom: 12px; }
+        .card p, .card li { line-height: 1.72; color: var(--ink-soft); max-width: 72ch; }
+        .card p + p { margin-top: 10px; }
+        .card ul, .card ol { margin: 12px 0 0 20px; }
+        .card li { margin-bottom: 8px; }
+        .card strong { color: var(--ink); }
+        a { color: var(--accent); }
+        code {
+            font-family: var(--mono); font-size: 0.88em; background: var(--accent-soft);
+            color: var(--accent-dark); padding: 0.12em 0.4em; border-radius: 6px; border: 1px solid #e3ebfb;
+        }
+        .note {
+            font-size: 0.96em; line-height: 1.65; color: var(--ink-soft); margin-top: 14px;
+            background: var(--accent-soft); border: 1px solid #e3ebfb;
+            border-left: 3px solid var(--accent); border-radius: 10px; padding: 14px 16px;
+        }
+        .vertical-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; margin-top: 14px; }
+        .vertical {
+            background: var(--accent-soft); border: 1px solid #e3ebfb; border-radius: 10px;
+            padding: 13px 15px; font-size: 0.92em; line-height: 1.55; color: var(--ink-soft);
+        }
+        .vertical strong { display: block; color: var(--ink); margin-bottom: 3px; }
+        .cta-box { text-align: center; margin: 30px 0 8px; }
+        .cta {
+            display: inline-block; background: var(--accent); color: #fff; padding: 14px 36px;
+            border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1em;
+            box-shadow: var(--shadow-sm); margin: 6px; transition: transform 0.15s, background 0.15s;
+        }
+        .cta:hover { transform: translateY(-2px); background: var(--accent-dark); }
+        .cta.secondary { background: var(--surface); color: var(--accent); border: 1px solid var(--line); }
+        .cta.secondary:hover { background: var(--accent-soft); }
+        .site-foot { margin-top: 30px; text-align: center; color: var(--ink-faint); font-size: 0.92em; line-height: 1.7; }
+        .site-foot a { color: var(--accent); text-decoration: none; font-weight: 600; }
+        .forward-hint { text-align: center; font-size: 0.88em; color: var(--ink-faint); margin-top: 6px; }
+        @media print {
+            body { background: #fff; padding: 0; }
+            .breadcrumbs, .cta-box, .forward-hint { display: none; }
+            .card { box-shadow: none; break-inside: avoid; }
+        }
+        @media (max-width: 520px) { .card { padding: 20px 18px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="index.html">Home</a><span class="sep">›</span><span>For SaaS Builders</span>
+        </nav>
+
+        <div class="badge">FOR SOFTWARE THAT ISSUES DOCUMENTS</div>
+        <h1>Every document your product generates can carry proof it's real.<br>Your competitors' can't.</h1>
+        <p class="lede">
+            If your product renders invoices, payslips, certificates, policies, references, or receipts on behalf
+            of your customers, those documents are being forged in your customers' names &mdash; and generative AI
+            just made the forgeries free and flawless. Shipping verifiability is one footer line at render time
+            plus a hash endpoint. That's a sales slide your competitors don't have.
+        </p>
+
+        <div class="card">
+            <h2>Where this bites, by vertical</h2>
+            <div class="vertical-grid">
+                <div class="vertical"><strong>Invoicing &amp; AP</strong>Payment-redirection fraud rides on doctored invoices. A verified invoice kills the swapped-IBAN attack.</div>
+                <div class="vertical"><strong>HR &amp; payroll</strong>Fake employment letters and payslips defraud landlords and lenders &mdash; in your customers' names.</div>
+                <div class="vertical"><strong>Insurance platforms</strong>Forged certificates of insurance get uninsured contractors onto sites. Procurement can check a real COI in seconds.</div>
+                <div class="vertical"><strong>Credentialing &amp; edtech</strong>Diploma mills photocopy your customers' certificates. Verified credentials make the real ones provable.</div>
+                <div class="vertical"><strong>Property &amp; proptech</strong>Forged tenancy agreements, references, and deposit confirmations are routine rental fraud.</div>
+                <div class="vertical"><strong>Logistics &amp; trade</strong>Fake bills of lading and certificates of origin move counterfeit and sanctioned goods.</div>
+                <div class="vertical"><strong>Legal tech</strong>Fabricated court orders and letters circulate by email. Verified ones are checkable by any recipient.</div>
+                <div class="vertical"><strong>Health admin</strong>Forged fit notes, prescriptions, and clinic letters &mdash; verification without exposing patient data.</div>
+            </div>
+            <p style="margin-top: 14px;">
+                Not your vertical? There are <a href="use-cases/">589 documented use cases across 40 categories</a> &mdash;
+                one of them is your roadmap item.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>The implementation, honestly scoped</h2>
+            <ol>
+                <li><strong>At document render time:</strong> append a <code>verify:yourcustomer.com/c</code> footer
+                    line (or a delegated subdomain you operate for them), normalize the document text, SHA-256 it.</li>
+                <li><strong>Publish the hash:</strong> a static file at <code>/c/{hash}</code> returning
+                    <code>{"status":"verified"}</code>. Static hosting is enough; a CDN makes it free at scale.</li>
+                <li><strong>Wire revocation:</strong> when a record changes in your system, update the status file.
+                    That's the whole lifecycle.</li>
+            </ol>
+            <p class="note">
+                <strong>Scope: a sprint, not a quarter.</strong> Normalization rules, reference implementations
+                (JS, iOS, Android, browser extension), and cross-platform hash fixtures are Apache-2.0 on
+                <a href="https://github.com/live-verify/live-verify">GitHub</a>. The protocol is
+                <code>text &rarr; normalize &rarr; SHA-256 &rarr; GET</code> &mdash; there is intentionally nothing
+                clever to integrate against.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>The business case</h2>
+            <ul>
+                <li><strong>Differentiation that demos in 30 seconds.</strong> "Documents from our platform can be
+                    verified by anyone, instantly. Documents from theirs can't." Sales teams know what to do with that.</li>
+                <li><strong>Retention.</strong> Once a customer's auditors, banks, and counterparties start verifying
+                    documents against your endpoints, switching away has a visible cost.</li>
+                <li><strong>A premium tier that costs you almost nothing.</strong> Hash hosting is static files;
+                    the margin on a "verified documents" plan is essentially 100%.</li>
+                <li><strong>Co-branding on every document.</strong> Each verification response can carry issuer
+                    metadata &mdash; your customers' documents quietly advertise your platform to every verifier.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>The second product: retrospective backfill</h2>
+            <p>
+                Most valuable documents already exist. Your customers hold systems of record &mdash; student records,
+                licence registers, HR databases, receipt archives &mdash; full of documents people keep phoning them to
+                verify. <strong>Turning legacy records into verification endpoints is a product in itself</strong>:
+                bulk hash generation, canonical text templates, status management, delegated-domain setup, audit
+                logs. The deeper sketch of that business is written up in
+                <a href="https://github.com/live-verify/live-verify/blob/main/public/retrospective-verification-saas.md">Retrospective Verification SaaS</a>.
+            </p>
+            <p>
+                One half of the market sells availability ("we host fast verification endpoints by the million").
+                The other half sells adoption ("we turn your legacy records into verifiable claims"). Both are open.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>"If it's an open standard, what do we own?"</h2>
+            <p>
+                The rails are free and not patent-locked &mdash; deliberately, because that's why the standard can win.
+                What's defensible is everything around the rails: integration into systems of record, revocation
+                workflow, compliance and audit posture, uptime, and being the vendor institutions trust. Email is an
+                open standard too; nobody thinks that made email products a bad business. The closest precedent is
+                Let's Encrypt: free certificates commoditized the bottom of the CA market, and the durable money
+                moved to certificate <em>management</em> &mdash; the same up-stack shape sketched in
+                <a href="https://github.com/live-verify/live-verify/blob/main/docs/lets-encrypt-precedent.md">our
+                write-up of that episode</a>.
+            </p>
+            <p>
+                And the platform risk runs the other way: when phone cameras and browsers ship verification UX
+                natively &mdash; the way Live Text went from third-party apps to the native camera &mdash; the question is
+                whose endpoints exist for them to query. The vendors who wired up issuers early will own those
+                relationships.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Be a founding integration</h2>
+            <p>
+                The <strong>first ten SaaS integrations</strong> get free advisory support from the standard's author
+                &mdash; review of normalization templates for your document types, fixture generation, and endpoint
+                design, by email, up to a sensible advice limit &mdash; in exchange for being nameable. Sustained
+                implementation work is beyond the free scope and can be referred to commercial integration partners.
+                Founding integrations are listed permanently on the
+                <a href="founding-adopters.html">founding adopters page</a>.
+            </p>
+        </div>
+
+        <div class="cta-box">
+            <a class="cta" href="quickstart.html">Ship a proof-of-concept in 15 minutes</a>
+            <a class="cta secondary" href="mailto:paul@hammant.org?subject=Live%20Verify%20integration%20(SaaS)">Talk about an integration</a>
+            <a class="cta secondary" href="examples/">See the working demo</a>
+        </div>
+        <p class="forward-hint">This page is print-friendly &mdash; forward it to your head of product.</p>
+
+        <div class="site-foot">
+            Live Verify is an open standard begun by <a href="https://paulhammant.com">Paul Hammant</a>
+            &middot; <a href="mailto:paul@hammant.org">paul@hammant.org</a>
+            &middot; <a href="https://github.com/live-verify/live-verify">Source &amp; spec on GitHub</a>
+        </div>
+    </div>
+</body>
+</html>

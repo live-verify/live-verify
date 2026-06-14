@@ -58,6 +58,46 @@
         .meta span {
             margin-right: 20px;
         }
+        .action-footer {
+            margin-top: 36px;
+            padding: 22px 24px;
+            background: #f6f3fc;
+            border: 1px solid #e2d9f3;
+            border-left: 4px solid #6b46c1;
+            border-radius: 10px;
+        }
+        .action-footer h2 {
+            margin-top: 0 !important;
+            font-size: 1.15em !important;
+        }
+        .action-footer p {
+            font-size: 0.95em;
+            color: #4a5568;
+        }
+        .action-footer .action-links {
+            margin-top: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .action-footer .action-links a {
+            display: inline-block;
+            padding: 9px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            background: #6b46c1;
+            color: #fff;
+        }
+        .action-footer .action-links a.secondary {
+            background: #fff;
+            color: #6b46c1;
+            border: 1px solid #d6c9ee;
+        }
+        .action-footer .action-links a:hover {
+            opacity: 0.92;
+        }
         .content-card h2 {
             color: #553c9a;
             margin-top: 28px;
@@ -266,6 +306,25 @@
 
                     // Render markdown (marked.js handles inline HTML automatically)
                     html += marked.parse(content);
+
+                    // Action footer: turn every use-case page into a landing page
+                    const docName = meta.title || 'this document type';
+                    html += `
+                    <div class="action-footer">
+                        <h2>Make ${docName} verifiable</h2>
+                        <p><strong>Who acts:</strong> the organization that issues these documents &mdash; or the
+                        software platform that generates them on its behalf.
+                        <strong>Effort:</strong> a pilot is a sprint, not a migration; one footer line on the
+                        document plus static hash hosting is enough.
+                        <strong>Cost:</strong> the standard is open (Apache 2.0) &mdash; no fees, no vendor, no
+                        lock-in.</p>
+                        <div class="action-links">
+                            <a href="../quickstart.html">15-minute quickstart</a>
+                            <a class="secondary" href="../for-issuers.html">For issuers</a>
+                            <a class="secondary" href="../for-saas.html">For SaaS builders</a>
+                            <a class="secondary" href="mailto:paul@hammant.org?subject=Live%20Verify%3A%20${encodeURIComponent(docName)}">Talk about a pilot</a>
+                        </div>
+                    </div>`;
 
                     const contentEl = document.getElementById('content');
                     contentEl.classList.remove('loading');

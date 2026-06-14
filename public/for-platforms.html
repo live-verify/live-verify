@@ -1,0 +1,176 @@
+<!--
+    Copyright (C) 2025, Paul Hammant
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Platforms - Live Verify</title>
+    <meta name="description" content="Live Text told users what a document says. The next step is whether it's true. An open standard ready for camera, browser, and PDF integration.">
+    <style>
+        :root {
+            --bg: #f6f8fb; --surface: #ffffff; --ink: #0f172a; --ink-soft: #475569;
+            --ink-faint: #64748b; --line: #e2e8f0; --accent: #2563eb; --accent-dark: #1d4ed8;
+            --accent-soft: #eff4ff; --radius: 16px;
+            --shadow-sm: 0 1px 2px rgba(15,23,42,0.06), 0 1px 3px rgba(15,23,42,0.08);
+            --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font); background: var(--bg);
+            background-image: radial-gradient(1200px 500px at 50% -120px, #eef2f9 0%, var(--bg) 70%);
+            min-height: 100vh; padding: 28px 20px 56px; color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 880px; margin: 0 auto; }
+        .breadcrumbs { font-size: 0.85em; color: var(--ink-faint); margin-bottom: 18px; }
+        .breadcrumbs a { color: var(--ink-faint); text-decoration: none; }
+        .breadcrumbs a:hover { text-decoration: underline; }
+        .breadcrumbs .sep { margin: 0 8px; opacity: 0.6; }
+        .badge {
+            display: inline-block; background: var(--accent-soft); color: var(--accent-dark);
+            border: 1px solid #e3ebfb; padding: 7px 15px; border-radius: 999px;
+            font-size: 0.8em; font-weight: 700; letter-spacing: 1px; margin-bottom: 18px;
+        }
+        h1 { font-size: clamp(1.9em, 5vw, 2.6em); font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; margin-bottom: 14px; }
+        .lede { font-size: 1.12em; line-height: 1.65; color: var(--ink-soft); max-width: 62ch; margin-bottom: 10px; }
+        .card {
+            background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+            padding: 26px 28px; margin: 18px 0; box-shadow: var(--shadow-sm);
+        }
+        .card h2 { font-size: 1.28em; font-weight: 750; letter-spacing: -0.01em; margin-bottom: 12px; }
+        .card p, .card li { line-height: 1.72; color: var(--ink-soft); max-width: 72ch; }
+        .card p + p { margin-top: 10px; }
+        .card ul, .card ol { margin: 12px 0 0 20px; }
+        .card li { margin-bottom: 8px; }
+        .card strong { color: var(--ink); }
+        a { color: var(--accent); }
+        code {
+            font-family: var(--mono); font-size: 0.88em; background: var(--accent-soft);
+            color: var(--accent-dark); padding: 0.12em 0.4em; border-radius: 6px; border: 1px solid #e3ebfb;
+        }
+        .note {
+            font-size: 0.96em; line-height: 1.65; color: var(--ink-soft); margin-top: 14px;
+            background: var(--accent-soft); border: 1px solid #e3ebfb;
+            border-left: 3px solid var(--accent); border-radius: 10px; padding: 14px 16px;
+        }
+        .cta-box { text-align: center; margin: 30px 0 8px; }
+        .cta {
+            display: inline-block; background: var(--accent); color: #fff; padding: 14px 36px;
+            border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1em;
+            box-shadow: var(--shadow-sm); margin: 6px; transition: transform 0.15s, background 0.15s;
+        }
+        .cta:hover { transform: translateY(-2px); background: var(--accent-dark); }
+        .cta.secondary { background: var(--surface); color: var(--accent); border: 1px solid var(--line); }
+        .cta.secondary:hover { background: var(--accent-soft); }
+        .site-foot { margin-top: 30px; text-align: center; color: var(--ink-faint); font-size: 0.92em; line-height: 1.7; }
+        .site-foot a { color: var(--accent); text-decoration: none; font-weight: 600; }
+        .forward-hint { text-align: center; font-size: 0.88em; color: var(--ink-faint); margin-top: 6px; }
+        @media print {
+            body { background: #fff; padding: 0; }
+            .breadcrumbs, .cta-box, .forward-hint { display: none; }
+            .card { box-shadow: none; break-inside: avoid; }
+        }
+        @media (max-width: 520px) { .card { padding: 20px 18px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="index.html">Home</a><span class="sep">›</span><span>For Platforms</span>
+        </nav>
+
+        <div class="badge">FOR CAMERA, BROWSER, OS &amp; PDF VENDORS</div>
+        <h1>Live Text told users what a document says.<br>The next step is whether it's true.</h1>
+        <p class="lede">
+            Your platform already does the hard part: on-device OCR in the camera, text selection in the browser
+            and PDF viewer. Issuer-attested verification is the increment &mdash; normalize the text the user already
+            selected or scanned, SHA-256 it, GET the issuer's domain, overlay the answer. Four seconds, fully
+            on-device until a single hash lookup.
+        </p>
+
+        <div class="card">
+            <h2>Why this belongs in the platform</h2>
+            <ul>
+                <li><strong>It follows a path you've walked before.</strong> OCR graduated from third-party apps into
+                    the native camera as Live Text; verification of what the OCR read is the same graduation, one
+                    step later. "Verified / Revoked / Not found" is a natural camera and text-selection overlay.</li>
+                <li><strong>The timing is forced.</strong> Generative AI has made visually perfect document forgery
+                    effectively free. Detection-based responses are an arms race; attestation by the issuer's own
+                    domain is not. Users will need a "is this real?" gesture, and the platform owns the gesture.</li>
+                <li><strong>It's a safety feature, not a service.</strong> No accounts, no server you must run, no
+                    data leaves the device except one hash lookup to the issuer the document itself names.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Why it's safe to adopt</h2>
+            <ul>
+                <li><strong>No gatekeeper to become, no gatekeeper to fear.</strong> Trust roots in DNS: the same
+                    namespace that already says <code>gov.uk</code> is the UK government. There is no central registry,
+                    no consortium to join, no operator to depend on &mdash; and adopting it does not put you in the
+                    business of deciding which documents are true.</li>
+                <li><strong>Privacy-preserving by construction.</strong> Normalization and hashing happen on-device.
+                    The issuer sees a hash, never the document; you see nothing at all.</li>
+                <li><strong>Not a blockchain.</strong> No ledger, token, or consensus network. A verification is a
+                    plain HTTPS GET against the issuer's server &mdash; which is precisely what makes claims revocable
+                    the moment an issuer changes its mind.</li>
+                <li><strong>The standard is small.</strong> <code>text &rarr; normalize &rarr; SHA-256 &rarr; GET</code>,
+                    a <code>verify:</code> URL scheme, and a response format. The full spec, normalization rules, and
+                    authority-chain model are documented in the
+                    <a href="https://github.com/live-verify/live-verify">repository</a>.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>What already exists for your team to take</h2>
+            <ul>
+                <li><strong>Reference implementations, Apache 2.0:</strong> iOS (Vision + JavaScriptCore), Android
+                    (ML Kit + Rhino), and a Manifest V3 browser extension &mdash; all running the same canonical
+                    normalization code.</li>
+                <li><strong>Cross-platform conformance fixtures:</strong> shared hash test vectors that all
+                    implementations must reproduce byte-for-byte, so your implementation can prove interop on day one.</li>
+                <li><strong>Working demos on real hardware:</strong> real-iPhone and real-Android verification of
+                    physical documents, plus automated Playwright runs against simulated national authority chains
+                    &mdash; <a href="index.html#testResults">videos and screenshots here</a>.</li>
+                <li><strong>A mapped demand landscape:</strong> <a href="use-cases/">589 documented use cases</a>
+                    across fraud, safety, and compliance, for the product brief you'll inevitably be asked to write.</li>
+            </ul>
+            <p class="note">
+                <strong>The intent is for platforms to take this over.</strong> It's an open standard with no
+                trademark ambitions and no tollbooth. The roadmap's end state is your camera, your browser, your
+                PDF viewer shipping the UX natively &mdash; this project supplies the spec, the fixtures, and the
+                evidence of demand.
+            </p>
+        </div>
+
+        <div class="cta-box">
+            <a class="cta" href="https://github.com/live-verify/live-verify">Read the spec &amp; take the code</a>
+            <a class="cta secondary" href="mailto:paul@hammant.org?subject=Live%20Verify%20(platform)">Talk to the author</a>
+            <a class="cta secondary" href="examples/">Try the browser demo</a>
+        </div>
+        <p class="forward-hint">This page is print-friendly &mdash; forward it to whoever writes your camera or browser roadmap.</p>
+
+        <div class="site-foot">
+            Live Verify is an open standard begun by <a href="https://paulhammant.com">Paul Hammant</a>
+            &middot; <a href="mailto:paul@hammant.org">paul@hammant.org</a>
+            &middot; <a href="https://github.com/live-verify/live-verify">Source &amp; spec on GitHub</a>
+        </div>
+    </div>
+</body>
+</html>

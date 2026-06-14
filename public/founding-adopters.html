@@ -1,0 +1,161 @@
+<!--
+    Copyright (C) 2025, Paul Hammant
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Founding Adopters - Live Verify</title>
+    <meta name="description" content="The first ten pilot issuers and the first ten SaaS integrations get free advisory support from the author, up to an advice limit, and a permanent place on this page.">
+    <style>
+        :root {
+            --bg: #f6f8fb; --surface: #ffffff; --ink: #0f172a; --ink-soft: #475569;
+            --ink-faint: #64748b; --line: #e2e8f0; --accent: #2563eb; --accent-dark: #1d4ed8;
+            --accent-soft: #eff4ff; --radius: 16px;
+            --shadow-sm: 0 1px 2px rgba(15,23,42,0.06), 0 1px 3px rgba(15,23,42,0.08);
+            --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font); background: var(--bg);
+            background-image: radial-gradient(1200px 500px at 50% -120px, #eef2f9 0%, var(--bg) 70%);
+            min-height: 100vh; padding: 28px 20px 56px; color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 880px; margin: 0 auto; }
+        .breadcrumbs { font-size: 0.85em; color: var(--ink-faint); margin-bottom: 18px; }
+        .breadcrumbs a { color: var(--ink-faint); text-decoration: none; }
+        .breadcrumbs a:hover { text-decoration: underline; }
+        .breadcrumbs .sep { margin: 0 8px; opacity: 0.6; }
+        .badge {
+            display: inline-block; background: var(--accent-soft); color: var(--accent-dark);
+            border: 1px solid #e3ebfb; padding: 7px 15px; border-radius: 999px;
+            font-size: 0.8em; font-weight: 700; letter-spacing: 1px; margin-bottom: 18px;
+        }
+        h1 { font-size: clamp(1.9em, 5vw, 2.6em); font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; margin-bottom: 14px; }
+        .lede { font-size: 1.12em; line-height: 1.65; color: var(--ink-soft); max-width: 62ch; margin-bottom: 10px; }
+        .card {
+            background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+            padding: 26px 28px; margin: 18px 0; box-shadow: var(--shadow-sm);
+        }
+        .card h2 { font-size: 1.28em; font-weight: 750; letter-spacing: -0.01em; margin-bottom: 12px; }
+        .card p, .card li { line-height: 1.72; color: var(--ink-soft); max-width: 72ch; }
+        .card p + p { margin-top: 10px; }
+        .card ul { margin: 12px 0 0 20px; }
+        .card li { margin-bottom: 8px; }
+        .card strong { color: var(--ink); }
+        a { color: var(--accent); }
+        .slot-list { list-style: none; margin: 14px 0 0 0 !important; counter-reset: slot; }
+        .slot-list li {
+            border: 1px dashed var(--line); border-radius: 10px; padding: 12px 16px;
+            margin-bottom: 8px; color: var(--ink-faint); counter-increment: slot;
+            display: flex; gap: 12px; align-items: baseline;
+        }
+        .slot-list li::before {
+            content: counter(slot); font-weight: 800; color: var(--accent);
+            font-size: 1.05em; min-width: 1.4em;
+        }
+        .slot-list li.taken { border-style: solid; background: var(--accent-soft); color: var(--ink-soft); }
+        .slot-list li.taken strong { color: var(--ink); }
+        .cta-box { text-align: center; margin: 30px 0 8px; }
+        .cta {
+            display: inline-block; background: var(--accent); color: #fff; padding: 14px 36px;
+            border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1em;
+            box-shadow: var(--shadow-sm); margin: 6px; transition: transform 0.15s, background 0.15s;
+        }
+        .cta:hover { transform: translateY(-2px); background: var(--accent-dark); }
+        .cta.secondary { background: var(--surface); color: var(--accent); border: 1px solid var(--line); }
+        .cta.secondary:hover { background: var(--accent-soft); }
+        .site-foot { margin-top: 30px; text-align: center; color: var(--ink-faint); font-size: 0.92em; line-height: 1.7; }
+        .site-foot a { color: var(--accent); text-decoration: none; font-weight: 600; }
+        @media (max-width: 520px) { .card { padding: 20px 18px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="index.html">Home</a><span class="sep">›</span><span>Founding Adopters</span>
+        </nav>
+
+        <div class="badge">FOUNDING ADOPTER PROGRAM</div>
+        <h1>The first ten get the author's ear. And this page, permanently.</h1>
+        <p class="lede">
+            Every standard has a moment when adopting it stops being brave. Until then, the organizations that move
+            first deserve more than a thank-you &mdash; they get the author's advisory attention and a permanent,
+            dated place in the history of the standard.
+        </p>
+
+        <div class="card">
+            <h2>The deal</h2>
+            <ul>
+                <li><strong>Who:</strong> the first ten pilot <em>issuers</em> (organizations publishing verification
+                    endpoints for documents they stand behind) and the first ten <em>SaaS integrations</em> (products
+                    that emit verifiable documents for their customers).</li>
+                <li><strong>You get:</strong> free advisory support from the standard's author, by email &mdash; design
+                    review of your canonical text templates, normalization fixtures, endpoint setup, and revocation
+                    workflow, up to a sensible advice limit: think a handful of focused exchanges that get your team
+                    unstuck, not embedded consulting.</li>
+                <li><strong>The boundary, stated plainly:</strong> this is a personal open-source project run in
+                    evenings-and-weekends capacity &mdash; expect responses within a few days, not hours. If your
+                    deployment needs sustained, hands-on implementation work, that's beyond the free scope; I'll say
+                    so when we reach it and can refer you to commercial integration partners.</li>
+                <li><strong>We get:</strong> permission to name you here and in talks/posts about the standard, and
+                    your feedback folded into the spec while it's still cheap to change.</li>
+                <li><strong>Exit anytime:</strong> it's an open standard on your own domain. If you stop, you delete
+                    files &mdash; there is no contract, dependency, or fee at any point.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Founding issuers</h2>
+            <ul class="slot-list">
+                <li class="taken"><span><strong>Peer reference, live on a personal domain</strong> &mdash; the first
+                    real-world deployment: a professional reference whose hash is published on the referee's own
+                    website, verified on real phones
+                    (<a href="https://youtu.be/NfUqKxSZ_V0" target="_blank" rel="noreferrer">iPhone, 0:51</a> &middot;
+                    <a href="https://youtu.be/UpMEKDH42Q4" target="_blank" rel="noreferrer">Android, 0:18</a>).</span></li>
+                <li><span>Open &mdash; could be your registrar's office, licensing board, or certification body.</span></li>
+                <li><span>Open</span></li>
+                <li><span>Open</span></li>
+                <li><span>Open</span></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Founding SaaS integrations</h2>
+            <ul class="slot-list">
+                <li><span>Open &mdash; invoicing, HR, insurance, credentialing, proptech, logistics, legal, health admin&hellip;
+                    <a href="for-saas.html">the pitch for your vertical is here</a>.</span></li>
+                <li><span>Open</span></li>
+                <li><span>Open</span></li>
+            </ul>
+        </div>
+
+        <div class="cta-box">
+            <a class="cta" href="mailto:paul@hammant.org?subject=Founding%20adopter%20(Live%20Verify)">Claim a slot</a>
+            <a class="cta secondary" href="quickstart.html">Try it first (15 minutes)</a>
+        </div>
+
+        <div class="site-foot">
+            Live Verify is an open standard begun by <a href="https://paulhammant.com">Paul Hammant</a>
+            &middot; <a href="mailto:paul@hammant.org">paul@hammant.org</a>
+            &middot; <a href="https://github.com/live-verify/live-verify">Source &amp; spec on GitHub</a>
+        </div>
+    </div>
+</body>
+</html>

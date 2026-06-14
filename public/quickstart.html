@@ -1,0 +1,205 @@
+<!--
+    Copyright (C) 2025, Paul Hammant
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15-Minute Quickstart - Live Verify</title>
+    <meta name="description" content="Publish your first verifiable claim before your coffee cools. Free static hosting is enough.">
+    <style>
+        :root {
+            --bg: #f6f8fb; --surface: #ffffff; --ink: #0f172a; --ink-soft: #475569;
+            --ink-faint: #64748b; --line: #e2e8f0; --accent: #2563eb; --accent-dark: #1d4ed8;
+            --accent-soft: #eff4ff; --radius: 16px;
+            --shadow-sm: 0 1px 2px rgba(15,23,42,0.06), 0 1px 3px rgba(15,23,42,0.08);
+            --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font); background: var(--bg);
+            background-image: radial-gradient(1200px 500px at 50% -120px, #eef2f9 0%, var(--bg) 70%);
+            min-height: 100vh; padding: 28px 20px 56px; color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 880px; margin: 0 auto; }
+        .breadcrumbs { font-size: 0.85em; color: var(--ink-faint); margin-bottom: 18px; }
+        .breadcrumbs a { color: var(--ink-faint); text-decoration: none; }
+        .breadcrumbs a:hover { text-decoration: underline; }
+        .breadcrumbs .sep { margin: 0 8px; opacity: 0.6; }
+        .badge {
+            display: inline-block; background: var(--accent-soft); color: var(--accent-dark);
+            border: 1px solid #e3ebfb; padding: 7px 15px; border-radius: 999px;
+            font-size: 0.8em; font-weight: 700; letter-spacing: 1px; margin-bottom: 18px;
+        }
+        h1 { font-size: clamp(1.9em, 5vw, 2.6em); font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; margin-bottom: 14px; }
+        .lede { font-size: 1.12em; line-height: 1.65; color: var(--ink-soft); max-width: 62ch; margin-bottom: 10px; }
+        .step-card {
+            background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+            padding: 26px 28px; margin: 18px 0; box-shadow: var(--shadow-sm);
+            display: flex; gap: 18px; align-items: flex-start;
+        }
+        .step-number {
+            width: 42px; height: 42px; flex-shrink: 0; border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1em; background: var(--accent); color: #fff;
+        }
+        .step-body { flex: 1; min-width: 0; }
+        .step-body h2 { font-size: 1.22em; font-weight: 750; letter-spacing: -0.01em; margin-bottom: 10px; }
+        .step-body h2 .mins { font-size: 0.72em; font-weight: 700; color: var(--ink-faint); margin-left: 8px; }
+        .step-body p, .step-body li { line-height: 1.7; color: var(--ink-soft); max-width: 68ch; }
+        .step-body p + p { margin-top: 10px; }
+        .step-body ul { margin: 10px 0 0 18px; }
+        .step-body li { margin-bottom: 6px; }
+        .step-body strong { color: var(--ink); }
+        a { color: var(--accent); }
+        code {
+            font-family: var(--mono); font-size: 0.88em; background: var(--accent-soft);
+            color: var(--accent-dark); padding: 0.12em 0.4em; border-radius: 6px; border: 1px solid #e3ebfb;
+        }
+        pre {
+            font-family: var(--mono); font-size: 0.85em; background: #f8fafc; color: var(--ink-soft);
+            border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px;
+            margin-top: 12px; line-height: 1.7; overflow-x: auto; white-space: pre-wrap;
+        }
+        pre .vline { color: var(--accent-dark); font-weight: 700; }
+        .note {
+            font-size: 0.94em; line-height: 1.65; color: var(--ink-soft); margin-top: 12px;
+            background: var(--accent-soft); border: 1px solid #e3ebfb;
+            border-left: 3px solid var(--accent); border-radius: 10px; padding: 12px 14px;
+            max-width: 68ch;
+        }
+        .cta-box { text-align: center; margin: 30px 0 8px; }
+        .cta {
+            display: inline-block; background: var(--accent); color: #fff; padding: 14px 36px;
+            border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1em;
+            box-shadow: var(--shadow-sm); margin: 6px; transition: transform 0.15s, background 0.15s;
+        }
+        .cta:hover { transform: translateY(-2px); background: var(--accent-dark); }
+        .cta.secondary { background: var(--surface); color: var(--accent); border: 1px solid var(--line); }
+        .cta.secondary:hover { background: var(--accent-soft); }
+        .site-foot { margin-top: 30px; text-align: center; color: var(--ink-faint); font-size: 0.92em; line-height: 1.7; }
+        .site-foot a { color: var(--accent); text-decoration: none; font-weight: 600; }
+        @media (max-width: 520px) { .step-card { padding: 20px 18px; flex-direction: column; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="index.html">Home</a><span class="sep">›</span><span>Quickstart</span>
+        </nav>
+
+        <div class="badge">15-MINUTE QUICKSTART</div>
+        <h1>Publish your first verifiable claim before your coffee cools.</h1>
+        <p class="lede">
+            "Static hosting is enough" is a claim until you've done it. This walkthrough takes you from a sentence
+            of text to a live, revocable, verifiable claim on free hosting &mdash; the exact mechanics an issuer at any
+            scale uses, just smaller.
+        </p>
+
+        <div class="step-card">
+            <span class="step-number">1</span>
+            <div class="step-body">
+                <h2>Write the claim<span class="mins">~2 min</span></h2>
+                <p>Pick something true that you'd stand behind. Keep it to a few short lines, and add a
+                <code>verify:</code> line naming where you'll publish (your GitHub Pages address works):</p>
+                <pre>Jo Smith completed the Anytown 10K
+on 14 May 2026 in 52:31.
+<span class="vline">verify:yourname.github.io/verify-demo/c</span></pre>
+                <p class="note">The <code>verify:</code> line is the pointer, not part of the claim &mdash; it's excluded
+                from the hash. Anything works for a first run: a reference you'd give a colleague, a fact about
+                your business, your conference talk acceptance.</p>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <span class="step-number">2</span>
+            <div class="step-body">
+                <h2>Hash it<span class="mins">~1 min</span></h2>
+                <p>Paste the claim (without the <code>verify:</code> line &mdash; though the calculator strips it if you
+                forget) into the <a href="hash-calculator.html" target="_blank" rel="noopener">hash calculator</a>.
+                It normalizes the text (whitespace, quotes, dashes) and shows the SHA-256. Copy the hash.</p>
+                <p class="note">Normalization is why a verifier's slightly-mangled copy &mdash; extra spaces, curly
+                quotes &mdash; still matches your hash. The rules are part of the
+                <a href="https://github.com/live-verify/live-verify">open spec</a>.</p>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <span class="step-number">3</span>
+            <div class="step-body">
+                <h2>Publish the hash endpoint<span class="mins">~8 min</span></h2>
+                <p>Create a public GitHub repository named <code>verify-demo</code>, enable GitHub Pages
+                (Settings &rarr; Pages &rarr; deploy from branch), and add one file, where <code>{hash}</code> is the
+                hex string you copied:</p>
+                <pre>c/{hash}/index.html</pre>
+                <p>containing:</p>
+                <pre>{"status":"verified"}</pre>
+                <p>That's the entire issuer-side infrastructure. GitHub Pages serves it with the CORS header
+                verification clients need, for free, at
+                <code>https://yourname.github.io/verify-demo/c/{hash}</code>.</p>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <span class="step-number">4</span>
+            <div class="step-body">
+                <h2>Verify it<span class="mins">~3 min</span></h2>
+                <p>Open <code>https://yourname.github.io/verify-demo/c/{hash}</code> in a browser &mdash; that 200
+                response with <code>{"status":"verified"}</code> is what every verification client checks for.
+                Then do it the way a stranger would:</p>
+                <ul>
+                    <li>Put the claim text (with its <code>verify:</code> line) on any web page, your CV, or an email.</li>
+                    <li>Install the <a href="https://github.com/live-verify/live-verify/tree/main/apps/browser-extension">browser
+                        extension</a>, select the text, right-click &rarr; "Verify this claim" &mdash; green banner.</li>
+                    <li>Now edit one character of the claim and verify again &mdash; it fails. That's the whole security model,
+                        felt firsthand.</li>
+                </ul>
+                <p class="note"><strong>Revocation, while you're there:</strong> change the file contents to
+                <code>{"status":"revoked"}</code> and verify again. You've just exercised the lifecycle that paper
+                documents never had.</p>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <span class="step-number">5</span>
+            <div class="step-body">
+                <h2>What production adds (when you're ready)</h2>
+                <p>Everything past this point is operational depth, not new concepts: your own domain instead of
+                <code>github.io</code> (authority lives in DNS), bulk hash generation from your system of record,
+                richer statuses and response metadata, authority chains so verifiers can walk endorsements up to a
+                national root, and document-specific normalization via <code>verification-meta.json</code>. All
+                documented in the <a href="https://github.com/live-verify/live-verify">repository</a>.</p>
+            </div>
+        </div>
+
+        <div class="cta-box">
+            <a class="cta" href="hash-calculator.html">Open the hash calculator</a>
+            <a class="cta secondary" href="for-issuers.html">I issue documents</a>
+            <a class="cta secondary" href="for-saas.html">I build document software</a>
+            <a class="cta secondary" href="mailto:paul@hammant.org?subject=Live%20Verify%20quickstart">Stuck? Email Paul</a>
+        </div>
+
+        <div class="site-foot">
+            Live Verify is an open standard begun by <a href="https://paulhammant.com">Paul Hammant</a>
+            &middot; <a href="mailto:paul@hammant.org">paul@hammant.org</a>
+            &middot; <a href="https://github.com/live-verify/live-verify">Source &amp; spec on GitHub</a>
+        </div>
+    </div>
+</body>
+</html>

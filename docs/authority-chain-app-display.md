@@ -259,6 +259,12 @@ This list is small (~10-15 national/federal government roots, US `.gov` TLD as a
 
 **Why hardcode?** The root is the one node in the chain that *cannot* prove itself by reference to something higher. Its legitimacy is axiomatic — `gov.uk` is the UK Government because it is. The app doesn't discover this; it knows it. Everything else in the chain is verified by walking upward to the root.
 
+> **The list's format, three-state (anchored / amber-unanchored / no-chain) UI semantics, the
+> jurisdiction-mismatch heuristic, PSL-style governance, and the root-compromise/update-channel
+> requirement are specified in [sovereign-roots.md](sovereign-roots.md).** The tables above are the
+> seed contents that doc governs. Without that anchor list, rendering chains at all is trust theater
+> — a self-endorsing fake chain renders as handsomely as a real one.
+
 ## Implementation Notes
 
 The chain is built from `verification-meta.json` at each node:

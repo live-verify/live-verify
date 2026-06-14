@@ -1,0 +1,228 @@
+<!--
+    Copyright (C) 2025, Paul Hammant
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>If You Sell Verification Today - Live Verify</title>
+    <meta name="description" content="An honest note to verification incumbents: the bottom tier of paid verification gets commoditized. Here's where the durable value moves, and why being early beats being defensive.">
+    <style>
+        :root {
+            --bg: #f6f8fb; --surface: #ffffff; --ink: #0f172a; --ink-soft: #475569;
+            --ink-faint: #64748b; --line: #e2e8f0; --accent: #2563eb; --accent-dark: #1d4ed8;
+            --accent-soft: #eff4ff; --radius: 16px;
+            --shadow-sm: 0 1px 2px rgba(15,23,42,0.06), 0 1px 3px rgba(15,23,42,0.08);
+            --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font); background: var(--bg);
+            background-image: radial-gradient(1200px 500px at 50% -120px, #eef2f9 0%, var(--bg) 70%);
+            min-height: 100vh; padding: 28px 20px 56px; color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 880px; margin: 0 auto; }
+        .breadcrumbs { font-size: 0.85em; color: var(--ink-faint); margin-bottom: 18px; }
+        .breadcrumbs a { color: var(--ink-faint); text-decoration: none; }
+        .breadcrumbs a:hover { text-decoration: underline; }
+        .breadcrumbs .sep { margin: 0 8px; opacity: 0.6; }
+        .badge {
+            display: inline-block; background: var(--accent-soft); color: var(--accent-dark);
+            border: 1px solid #e3ebfb; padding: 7px 15px; border-radius: 999px;
+            font-size: 0.8em; font-weight: 700; letter-spacing: 1px; margin-bottom: 18px;
+        }
+        h1 { font-size: clamp(1.9em, 5vw, 2.6em); font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; margin-bottom: 14px; }
+        .lede { font-size: 1.12em; line-height: 1.65; color: var(--ink-soft); max-width: 62ch; margin-bottom: 10px; }
+        .card {
+            background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+            padding: 26px 28px; margin: 18px 0; box-shadow: var(--shadow-sm);
+        }
+        .card h2 { font-size: 1.28em; font-weight: 750; letter-spacing: -0.01em; margin-bottom: 12px; }
+        .card p, .card li { line-height: 1.72; color: var(--ink-soft); max-width: 72ch; }
+        .card p + p { margin-top: 10px; }
+        .card ul, .card ol { margin: 12px 0 0 20px; }
+        .card li { margin-bottom: 8px; }
+        .card strong { color: var(--ink); }
+        a { color: var(--accent); }
+        code {
+            font-family: var(--mono); font-size: 0.88em; background: var(--accent-soft);
+            color: var(--accent-dark); padding: 0.12em 0.4em; border-radius: 6px; border: 1px solid #e3ebfb;
+        }
+        .note {
+            font-size: 0.96em; line-height: 1.65; color: var(--ink-soft); margin-top: 14px;
+            background: var(--accent-soft); border: 1px solid #e3ebfb;
+            border-left: 3px solid var(--accent); border-radius: 10px; padding: 14px 16px;
+        }
+        table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 0.95em; }
+        th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.6; color: var(--ink-soft); }
+        th { color: var(--ink); font-weight: 700; }
+        td strong { color: var(--ink); }
+        .layer-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; margin-top: 14px; }
+        .layer {
+            background: var(--accent-soft); border: 1px solid #e3ebfb; border-radius: 10px;
+            padding: 13px 15px; font-size: 0.92em; line-height: 1.55; color: var(--ink-soft);
+        }
+        .layer strong { display: block; color: var(--ink); margin-bottom: 3px; }
+        .cta-box { text-align: center; margin: 30px 0 8px; }
+        .cta {
+            display: inline-block; background: var(--accent); color: #fff; padding: 14px 36px;
+            border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1em;
+            box-shadow: var(--shadow-sm); margin: 6px; transition: transform 0.15s, background 0.15s;
+        }
+        .cta:hover { transform: translateY(-2px); background: var(--accent-dark); }
+        .cta.secondary { background: var(--surface); color: var(--accent); border: 1px solid var(--line); }
+        .cta.secondary:hover { background: var(--accent-soft); }
+        .site-foot { margin-top: 30px; text-align: center; color: var(--ink-faint); font-size: 0.92em; line-height: 1.7; }
+        .site-foot a { color: var(--accent); text-decoration: none; font-weight: 600; }
+        .forward-hint { text-align: center; font-size: 0.88em; color: var(--ink-faint); margin-top: 6px; }
+        @media print {
+            body { background: #fff; padding: 0; }
+            .breadcrumbs, .cta-box, .forward-hint { display: none; }
+            .card { box-shadow: none; break-inside: avoid; }
+        }
+        @media (max-width: 520px) { .card { padding: 20px 18px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="index.html">Home</a><span class="sep">›</span><span>If You Sell Verification Today</span>
+        </nav>
+
+        <div class="badge">FOR INCUMBENTS &amp; INVESTORS</div>
+        <h1>If your business is verification, this page is the one written for you.</h1>
+        <p class="lede">
+            Most of this site argues that documents should carry their own proof. If you sell verification
+            &mdash; degree checks, employment confirmations, document authentication, parts of the KYC and
+            background-check stack &mdash; that argument is a threat to a revenue line, and you already know it.
+            So here is the unsentimental version, with the quiet part said first.
+        </p>
+
+        <div class="card">
+            <h2>What an open standard does to a paid-verification toll booth</h2>
+            <p>
+                Live Verify lets the holder of a document prove it's genuine without phoning anyone. The protocol
+                is <code>text &rarr; normalize &rarr; SHA-256 &rarr; GET</code>: the issuer publishes a hash, and any
+                recipient checks it for free, on-device, with no intermediary. Where your product is
+                <em>&ldquo;we'll phone the university for you, for &pound;30,&rdquo;</em> that specific transaction has a
+                marginal cost approaching zero once the issuer publishes. We are not going to pretend otherwise. The
+                bottom tier of paid verification &mdash; the rote &ldquo;is this real?&rdquo; lookup &mdash; gets
+                commoditized, the way Domain Validation certificates did after Let's Encrypt.
+            </p>
+            <p class="note">
+                <strong>This has happened before, and the record is public.</strong> Free, automated TLS certificates
+                commoditized the bottom of the certificate-authority market within a decade. The incumbents who fought
+                it lost; the ones who moved up-stack to certificate <em>management</em> (DigiCert today) thrive. The full
+                episode &mdash; who funded it, how incumbents reacted, and where the analogy breaks &mdash; is documented
+                in <a href="https://github.com/live-verify/live-verify/blob/main/docs/lets-encrypt-precedent.md">Let's
+                Encrypt as precedent</a>. We'd rather you read it than have it deployed against you.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>The part that isn't commoditized &mdash; and where the durable money is</h2>
+            <p>
+                A hash check is a feature, not a business. The hard, sticky, defensible work sits <em>around</em> the
+                free rails &mdash; and it is work the incumbent who already holds the relationships, the data, and the
+                compliance posture is best placed to do:
+            </p>
+            <div class="layer-grid">
+                <div class="layer"><strong>Issuer registry &amp; operations</strong>Running publication and revocation endpoints at scale, with uptime and audit guarantees, for issuers who won't host their own.</div>
+                <div class="layer"><strong>Retrospective backfill</strong>Turning decades of legacy records &mdash; registers, archives, databases &mdash; into verifiable endpoints. Bulk hashing, canonical text templates, status management.</div>
+                <div class="layer"><strong>Integration into systems of record</strong>Wiring verification into SIS, HRIS, policy admin, and case-management systems so status stays live as records change. This is the moat.</div>
+                <div class="layer"><strong>Compliance &amp; liability wrapping</strong>The thing a bank's procurement actually buys: an accountable party, an SLA, data-handling guarantees, and a name on the contract.</div>
+                <div class="layer"><strong>Authority-chain &amp; anchoring</strong>Operating and attesting the chains that prove an issuer is who it claims &mdash; registry-grade trust services the open spec deliberately does not centralize.</div>
+                <div class="layer"><strong>Dispute &amp; assurance services</strong>When a verified-but-contested document reaches a tribunal, the standard produces a receipt; someone still has to stand behind the process.</div>
+            </div>
+            <p style="margin-top: 14px;">
+                Notice the shape: the lookup gets cheap, but <strong>being the party institutions trust to operate the
+                lookup at scale gets more valuable</strong>, because there is now a standard worth operating against.
+                That is the DigiCert move &mdash; conceding the commodity and owning the management layer above it.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>The reaction that doesn't work, and the one that does</h2>
+            <p>
+                The incumbent playbook against open trust standards is on the record, and it failed last time:
+            </p>
+            <table>
+                <thead><tr><th>The defensive move</th><th>Why it fails here</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>FUD</strong> &mdash; &ldquo;unaudited&rdquo;, &ldquo;no liability framework&rdquo;, &ldquo;who stands behind this?&rdquo;</td><td>Attacking free fraud-prevention infrastructure looks exactly as bad as it sounds. The Let's Encrypt FUD aged badly within two years.</td></tr>
+                    <tr><td><strong>Name or standard capture</strong> &mdash; trademark grabs, accredited-provider-only schemes</td><td>The spec is Apache-2.0 and already public on thousands of machines. It cannot be acquired, shelved, or patent-blocked. Comodo tried to trademark &ldquo;Let's Encrypt&rdquo; and retreated under public outcry.</td></tr>
+                    <tr><td><strong>Wait and see</strong></td><td>The standard's beachhead is the documents <em>no one verifies today</em> &mdash; the unserved long tail, where you have no position to defend. By the time it reaches your tier, the integration relationships are already someone's.</td></tr>
+                    <tr><td><strong>Be the IdenTrust</strong> &mdash; lend early legitimacy, anchor a chain, backfill your own records first</td><td><strong>This is the one that works.</strong> One incumbent certifier cross-signed Let's Encrypt and bridged it into every browser. The equivalent move here makes you the trusted operator of the layer that does survive &mdash; on your terms, while the terms are still open.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>A note for the investor reading over the operator's shoulder</h2>
+            <p>
+                If you hold verification-services assets in a portfolio, the standard reframes the question from
+                <em>&ldquo;do we adopt this?&rdquo;</em> to <em>&ldquo;which side of it does our portfolio end up
+                on?&rdquo;</em> Document-emitting SaaS, issuers, insurers and banks who <em>bear</em> fraud losses gain;
+                pure verification toll booths get commoditized from below. The standard exists publicly now and is not
+                contingent on anyone's permission &mdash; so the live decision is whether your portfolio owns the
+                integration and operations layer that survives, or watches a competitor take it. That is the
+                disrupt-yourself-before-someone-else-does argument, and it is stronger precisely because the genie is
+                already out of the bottle.
+            </p>
+            <p class="note">
+                The Let's Encrypt incumbents were substantially PE-owned through the disruption &mdash; Thoma Bravo took
+                DigiCert, Francisco Partners rolled Comodo's CA business into Sectigo. Private equity didn't stop the open
+                standard; it rolled up the survivors and <em>repositioned them around the up-stack services</em>. That is
+                the playbook that worked. The full history is in the
+                <a href="https://github.com/live-verify/live-verify/blob/main/docs/lets-encrypt-precedent.md">precedent
+                write-up</a>.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Why we're telling you this instead of hiding it</h2>
+            <p>
+                Two reasons. First, saying the quiet part first is the cheapest defense against FUD &mdash; it is hard to
+                spread doubt about a project that has already published the case against itself. Second, this is genuinely
+                not winner-take-all in the way a proprietary product would be: an open standard wins by being adopted, and
+                an incumbent who operates the durable layer well is an asset to it, not a casualty. The only outcome that
+                serves no one is a year of slow-walking while the long tail gets verified by someone else and your
+                relationships quietly migrate.
+            </p>
+            <p>
+                If your honest read is &ldquo;our entire product is the commodity lookup and there is no up-stack for us,&rdquo;
+                that's worth knowing now too &mdash; and worth a candid conversation rather than a pitch.
+            </p>
+        </div>
+
+        <div class="cta-box">
+            <a class="cta" href="https://github.com/live-verify/live-verify/blob/main/docs/lets-encrypt-precedent.md">Read the precedent in full</a>
+            <a class="cta secondary" href="mailto:paul@hammant.org?subject=Live%20Verify%20(verification%20incumbent)">Have the candid conversation</a>
+            <a class="cta secondary" href="opportunity.html">See where the value moves</a>
+        </div>
+        <p class="forward-hint">This page is print-friendly &mdash; forward it to whoever owns the verification P&amp;L.</p>
+
+        <div class="site-foot">
+            Live Verify is an open standard begun by <a href="https://paulhammant.com">Paul Hammant</a>
+            &middot; <a href="mailto:paul@hammant.org">paul@hammant.org</a>
+            &middot; <a href="https://github.com/live-verify/live-verify">Source &amp; spec on GitHub</a>
+        </div>
+    </div>
+</body>
+</html>
