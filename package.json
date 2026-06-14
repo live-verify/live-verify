@@ -2,14 +2,10 @@
   "name": "ocr-hash-verifier",
   "version": "1.0.0",
   "description": "Live Verify: select claims on screen, or scan them on paper — both with quick mathematical verification",
-  "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js",
     "test": "npm run test:unit && npm run test:playwright",
     "test:unit": "jest",
     "test:playwright": "playwright test",
-    "generate:saas-leads": "node generate-saas-leads.js",
     "build": "webpack",
     "serve": "cd public && python3 -m http.server 8000",
     "sync-shared": "node scripts/sync-shared.js",
@@ -26,8 +22,6 @@
   "author": "",
   "license": "Apache-2.0",
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.18.2",
     "glob": "^13.0.0",
     "psl": "^1.15.0"
   },
