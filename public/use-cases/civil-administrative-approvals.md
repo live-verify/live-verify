@@ -6,7 +6,7 @@ retention: "Decision period + appeal window / statutory record (often permanent)
 slug: "civil-administrative-approvals"
 verificationMode: "clip"
 tags: ["approval", "planning-consent", "grant-award", "benefit-decision", "zoning-variance", "regulatory-clearance", "administrative-decision", "government", "decision-letter", "approval-fraud"]
-furtherDerivations: 3
+furtherDerivations: 1
 ---
 
 ## What is a Civil or Administrative Approval?

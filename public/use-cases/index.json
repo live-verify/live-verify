@@ -1,11 +1,11 @@
 {
-  "generated": "2026-06-11T20:45:46.810Z",
-  "totalUseCases": 588,
-  "totalFurtherDerivations": 926,
+  "generated": "2026-06-15T06:21:47.726Z",
+  "totalUseCases": 597,
+  "totalFurtherDerivations": 924,
   "categories": {
     "Real Estate & Property": 44,
     "Charitable & Non-Profit": 8,
-    "Novel Document Types": 8,
+    "Novel Document Types": 11,
     "Scientific & Research": 8,
     "Professional & Occupational Licenses": 19,
     "Actuarial & Insurance Mathematics": 10,
@@ -14,24 +14,24 @@
     "Notary Services": 7,
     "Immigration & Visa Documents": 18,
     "Legal & Court Documents": 24,
+    "Identity & Authority Verification": 58,
     "Insurance Claims & Operations": 15,
     "Chain of Custody & Logistics": 18,
     "Travel & Hospitality": 22,
-    "Identity & Authority Verification": 55,
     "Healthcare & Medical Records": 16,
     "Professional & Educational Qualifications": 25,
     "Art, Media & Publishing": 7,
-    "Customs & Trade Compliance": 7,
+    "Customs & Trade Compliance": 8,
     "Sports & Athletics": 6,
     "Financial Compliance": 26,
     "Business & Commerce": 30,
     "Specialty Insurance": 23,
-    "Banking & Payments": 30,
+    "Banking & Payments": 31,
     "Investment & Fintech": 23,
     "Agriculture & Food": 10,
     "Site & Equipment Safety": 12,
     "Commercial Lines Insurance": 11,
-    "Product Certifications & Compliance": 14,
+    "Product Certifications & Compliance": 15,
     "Professional Ethics & Compliance": 12,
     "Environmental Permits & Compliance": 11,
     "Warehousing & Inventory": 4,
@@ -155,6 +155,27 @@
       ]
     },
     {
+      "slug": "ad-placement-provenance",
+      "title": "Ad Placement Provenance (Who Placed This?)",
+      "category": "Novel Document Types",
+      "volume": "Very Large",
+      "retention": "Per-impression (ephemeral) to campaign-duration",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "The placement reference, the publisher slot, the issue timestamp, the ordered provenance chain",
+      "tags": [
+        "advertising",
+        "provenance",
+        "ad-network",
+        "malvertising",
+        "accountability",
+        "authority-chain",
+        "browser",
+        "liability",
+        "supply-chain"
+      ]
+    },
+    {
       "slug": "additional-driver-endorsements",
       "title": "Additional Driver Endorsements",
       "category": "Personal Lines Insurance",
@@ -252,6 +273,26 @@
       ]
     },
     {
+      "slug": "age-gating-without-dob",
+      "title": "Age-Gating Without Revealing Date of Birth",
+      "category": "Identity & Authority Verification",
+      "volume": "Very Large",
+      "retention": "Short-lived (per-use proof window)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "The threshold result (`OVER 18` / `OVER 21` / `OVER 16`), the issuing provider's",
+      "tags": [
+        "age-verification",
+        "age-gating",
+        "privacy",
+        "selective-disclosure",
+        "over-18",
+        "minimal-disclosure",
+        "salted-proof",
+        "single-use"
+      ]
+    },
+    {
       "slug": "aggregate-deductible-retrospective",
       "title": "Aggregate Deductible and Retrospective Rating Documentation",
       "category": "Insurance Claims & Operations",
@@ -268,6 +309,27 @@
         "risk",
         "management",
         "premium"
+      ]
+    },
+    {
+      "slug": "ai-content-provenance-disclosure",
+      "title": "AI Content Provenance Disclosure",
+      "category": "Novel Document Types",
+      "volume": "Very Large",
+      "retention": "Content lifecycle (permanent for published works)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "The asset reference (and perceptual identifier), the origin classification (`AI-GENERATED` with model",
+      "tags": [
+        "ai-generated",
+        "content-provenance",
+        "c2pa",
+        "content-credentials",
+        "deepfake",
+        "synthetic-media",
+        "journalism",
+        "disclosure",
+        "authenticity"
       ]
     },
     {
@@ -1084,7 +1146,7 @@
       "volume": "Very Large",
       "retention": "Permanent (life of the account / until claim)",
       "verificationMode": "clip",
-      "furtherDerivations": 3,
+      "furtherDerivations": 1,
       "snippet": "Provider name, account/policy type and number, account holder name, primary beneficiary (name, relationship, share %), contingent beneficiary, the date the designation was recorded, and a reference nu",
       "tags": [
         "beneficiary",
@@ -1915,7 +1977,7 @@
       "volume": "Large",
       "retention": "Decision period + appeal window / statutory record (often permanent)",
       "verificationMode": "clip",
-      "furtherDerivations": 3,
+      "furtherDerivations": 1,
       "snippet": "Issuing authority, application/decision reference, applicant/recipient, the subject of the decision (site, project, claim), the decision itself (granted/refused/varied), the conditions (or a binding r",
       "tags": [
         "approval",
@@ -2286,6 +2348,28 @@
       ]
     },
     {
+      "slug": "conflict-minerals-origin",
+      "title": "Conflict Minerals & Responsible Sourcing Origin",
+      "category": "Customs & Trade Compliance",
+      "volume": "Large",
+      "retention": "Audit lifecycle + 5-7 years (due-diligence record retention)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Metal type, smelter / refiner name and facility ID (e.g. an RMI CID number), the scheme and audit body the claim rests on, batch/lot reference, declared country-of-origin basis, conformance status, va",
+      "tags": [
+        "conflict-minerals",
+        "3tg",
+        "responsible-sourcing",
+        "oecd-due-diligence",
+        "rmi-rmap",
+        "dodd-frank-1502",
+        "eu-conflict-minerals",
+        "cobalt",
+        "supply-chain",
+        "chain-of-custody"
+      ]
+    },
+    {
       "slug": "consent-and-agreement-chains",
       "title": "Consent & Agreement Chains",
       "category": "Legal & Court Documents",
@@ -2616,7 +2700,7 @@
       "volume": "Very Large",
       "retention": "Duration of commitment + 6-7 years (audit)",
       "verificationMode": "clip",
-      "furtherDerivations": 3,
+      "furtherDerivations": 1,
       "snippet": "Company name and registration, approval type, reference number (PO/expense/change ID), the item or counterparty, the amount or scope, the named approver and their role, the date of approval, any secon",
       "tags": [
         "approval",
@@ -7540,6 +7624,27 @@
       ]
     },
     {
+      "slug": "on-duty-status-lone-worker-checkins",
+      "title": "On-Duty Status & Lone-Worker Check-Ins",
+      "category": "Identity & Authority Verification",
+      "volume": "Large",
+      "retention": "Shift duration (ephemeral) to roster-record retention",
+      "verificationMode": "both",
+      "furtherDerivations": 2,
+      "snippet": "Worker role/reference (not necessarily full name), issuing employer or dispatch domain, shift window or check-in window, the live status token, the `As At` / `Last Check-In` timestamp, and the rotatin",
+      "tags": [
+        "on-duty",
+        "shift-status",
+        "lone-worker",
+        "check-in",
+        "roster",
+        "worker-safety",
+        "real-time-status",
+        "field-worker",
+        "time-current"
+      ]
+    },
+    {
       "slug": "open-banking-consent-forms",
       "title": "Open Banking Consent Forms (PSD2 / Dodd-Frank 1033)",
       "category": "Banking & Payments",
@@ -8337,7 +8442,7 @@
       "volume": "Very Large",
       "retention": "Authorization window + transaction record (varies; 7 years typical)",
       "verificationMode": "clip",
-      "furtherDerivations": 3,
+      "furtherDerivations": 1,
       "snippet": "Issuer, authorization number, the approved service/purpose, the approved limit (amount and/or units), the validity window, single-use vs. multi-use, the provider/merchant it applies to, and the date a",
       "tags": [
         "approval",
@@ -8390,6 +8495,27 @@
         "gmc",
         "travel",
         "schedule-ii"
+      ]
+    },
+    {
+      "slug": "press-credentials-embargo",
+      "title": "Press Credentials & Embargo Confirmation",
+      "category": "Identity & Authority Verification",
+      "volume": "Large",
+      "retention": "Credential validity period; embargo until release time + archive",
+      "verificationMode": "both",
+      "furtherDerivations": 2,
+      "snippet": "Press credential: holder name, outlet, accreditation body, validity period, issue date, current accreditation status, salt.",
+      "tags": [
+        "press",
+        "journalism",
+        "credential",
+        "embargo",
+        "media-accreditation",
+        "press-release",
+        "checkpoint",
+        "newsroom",
+        "revocation"
       ]
     },
     {
@@ -8474,13 +8600,34 @@
       ]
     },
     {
+      "slug": "product-recall-status",
+      "title": "Product Recall Status",
+      "category": "Product Certifications & Compliance",
+      "volume": "Very Large",
+      "retention": "Product lifetime (recalls can issue years after sale)",
+      "verificationMode": "both",
+      "furtherDerivations": 1,
+      "snippet": "Product name/description, identifier (VIN, batch/lot, model+serial, or GTIN), manufacturer name, recall status, recall reference(s) (the official NHTSA/CPSC/MHRA/RAPEX notice numbers), the remedy, the",
+      "tags": [
+        "product-recall",
+        "safety",
+        "consumer-protection",
+        "vin",
+        "batch-number",
+        "serial-number",
+        "recall-status",
+        "traceability",
+        "live-status"
+      ]
+    },
+    {
       "slug": "professional-approvals",
       "title": "Professional Approvals & Sign-Offs",
       "category": "Professional Ethics & Compliance",
       "volume": "Large",
       "retention": "Life of the asset / regulatory period (often 6-15 years)",
       "verificationMode": "clip",
-      "furtherDerivations": 3,
+      "furtherDerivations": 1,
       "snippet": "Professional's name and credential/licence, firm, the specific deliverable and its revision/identifier, the scope of what is approved (and excluded), the applicable code or standard, the date, any sup",
       "tags": [
         "approval",
@@ -9400,6 +9547,29 @@
       ]
     },
     {
+      "slug": "release-approval-execution-gates",
+      "title": "Release Approval Execution Gates (ITIL Change Re-Verification)",
+      "category": "Novel Document Types",
+      "volume": "Large",
+      "retention": "Change record lifecycle + 1-7 years (audit)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "Change reference, release title, the exact artifact/build hash approved, the approved deployment",
+      "tags": [
+        "release-approval",
+        "itil",
+        "change-management",
+        "cab",
+        "ci-cd",
+        "deployment-gate",
+        "as-code",
+        "deferred-verification",
+        "devops",
+        "segregation-of-duties",
+        "audit"
+      ]
+    },
+    {
       "slug": "release-fee-demand-notices",
       "title": "Release Fee Demand Notices",
       "category": "Legal & Court Documents",
@@ -9531,7 +9701,7 @@
       "volume": "Very Large",
       "retention": "Listing life plus tenancy limitation period (typically 6-7 years)",
       "verificationMode": "both",
-      "furtherDerivations": 5,
+      "furtherDerivations": 1,
       "snippet": "Property address, listing reference, issuer name, agent or landlord identity, authorization basis, permitted payment recipient, deposit amount or cap, deposit scheme or client-money account reference,",
       "tags": [
         "rental",
@@ -10475,6 +10645,29 @@
         "financial-planning",
         "legal-judgment",
         "long-term-care"
+      ]
+    },
+    {
+      "slug": "student-finance-good-standing",
+      "title": "Student Finance Good-Standing & Clearance",
+      "category": "Banking & Payments",
+      "volume": "Large",
+      "retention": "Hours to days (privacy-preserving proof window)",
+      "verificationMode": "clip",
+      "furtherDerivations": 2,
+      "snippet": "Loan servicer/provider, standing result (in good standing / settled / no loan on record), plan",
+      "tags": [
+        "student-loan",
+        "good-standing",
+        "clearance",
+        "no-debt",
+        "scholarship",
+        "self-funded",
+        "privacy",
+        "time-limited",
+        "salted-proof",
+        "emigration",
+        "slc"
       ]
     },
     {
@@ -12098,7 +12291,7 @@
   "categoriesList": [
     {
       "name": "Identity & Authority Verification",
-      "count": 55
+      "count": 58
     },
     {
       "name": "Real Estate & Property",
@@ -12109,11 +12302,11 @@
       "count": 36
     },
     {
-      "name": "Business & Commerce",
-      "count": 30
+      "name": "Banking & Payments",
+      "count": 31
     },
     {
-      "name": "Banking & Payments",
+      "name": "Business & Commerce",
       "count": 30
     },
     {
@@ -12166,7 +12359,7 @@
     },
     {
       "name": "Product Certifications & Compliance",
-      "count": 14
+      "count": 15
     },
     {
       "name": "Site & Equipment Safety",
@@ -12175,6 +12368,10 @@
     {
       "name": "Professional Ethics & Compliance",
       "count": 12
+    },
+    {
+      "name": "Novel Document Types",
+      "count": 11
     },
     {
       "name": "Commercial Lines Insurance",
@@ -12197,11 +12394,11 @@
       "count": 8
     },
     {
-      "name": "Novel Document Types",
+      "name": "Scientific & Research",
       "count": 8
     },
     {
-      "name": "Scientific & Research",
+      "name": "Customs & Trade Compliance",
       "count": 8
     },
     {
@@ -12210,10 +12407,6 @@
     },
     {
       "name": "Art, Media & Publishing",
-      "count": 7
-    },
-    {
-      "name": "Customs & Trade Compliance",
       "count": 7
     },
     {

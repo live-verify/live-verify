@@ -6,7 +6,7 @@ retention: "Listing life plus tenancy limitation period (typically 6-7 years)"
 slug: "rental-listing-deposit-authority"
 verificationMode: "both"
 tags: ["rental", "letting-agent", "landlord", "tenant", "deposit", "property-listing", "client-money", "authorized-agent", "wire-fraud", "housing-fraud"]
-furtherDerivations: 5
+furtherDerivations: 1
 ---
 
 # Rental Listing and Deposit Authority

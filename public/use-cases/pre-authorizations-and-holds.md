@@ -6,7 +6,7 @@ retention: "Authorization window + transaction record (varies; 7 years typical)"
 slug: "pre-authorizations-and-holds"
 verificationMode: "clip"
 tags: ["approval", "pre-authorization", "prior-authorization", "payment-hold", "single-use", "vcrs", "expiry", "rma-approval", "medical-pre-auth", "approval-fraud"]
-furtherDerivations: 3
+furtherDerivations: 1
 ---
 
 ## What is a Pre-Authorization or Hold?

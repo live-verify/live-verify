@@ -6,7 +6,7 @@ retention: "Permanent (life of the account / until claim)"
 slug: "beneficiary-designations"
 verificationMode: "clip"
 tags: ["beneficiary", "payable-on-death", "transfer-on-death", "401k", "ira", "rrsp", "superannuation", "sipp", "assurance-vie", "nominee", "expression-of-wish", "retirement", "life-insurance", "annuity", "pension", "survivor", "estate-planning", "death-benefit", "fraud-prevention"]
-furtherDerivations: 3
+furtherDerivations: 1
 ---
 
 ## What is a Beneficiary Designation?

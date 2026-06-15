@@ -6,7 +6,7 @@ retention: "Life of the asset / regulatory period (often 6-15 years)"
 slug: "professional-approvals"
 verificationMode: "clip"
 tags: ["approval", "sign-off", "professional-stamp", "engineer-seal", "architect-approval", "qualified-person", "batch-release", "audit-opinion", "responsible-professional", "liability", "approval-fraud"]
-furtherDerivations: 3
+furtherDerivations: 1
 ---
 
 ## What is a Professional Approval?
