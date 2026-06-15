@@ -34,6 +34,25 @@ the venue, off-licence, platform, or machine can confirm the threshold is met
 **without learning the birthdate, the name, or the document number**. The
 endpoint confirms status only; it never echoes back who the person is.
 
+### The bank as the natural issuer
+
+The most under-used issuer is the one with the oldest, strongest evidence: a
+person's **own bank**. A customer of thirty years, holding a credit card the bank
+underwrote, has been age-verified more thoroughly than any sign-up flow could
+manage — the bank *cannot* have issued that card to a minor. Asking the bank to
+attest the single bit it already knows — "this customer is over 18" — is far less
+disclosure than handing a passport to a website. The bank reveals **one bit, not
+an identity**: not the account, not the name, not how long they've banked there,
+just the threshold answer, bound to the bank's domain.
+
+This also fixes the platform side of the privacy problem. When Reddit accepts a
+bank-issued "over 18" confirmation, the only thing Reddit needs to **remember** is
+that bit — *over 18: yes* — not who the user is, not which bank, not any document.
+The platform stores the answer to its one question and nothing it would later have
+to protect, breach-disclose, or hand to a data broker. The issuer holds the
+identity (it already had it); the platform holds the bit; nobody in between learns
+more than they need.
+
 ## Limitations — read before relying on this
 
 This is a **hash-bound attestation, not a zero-knowledge proof**, and the

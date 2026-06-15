@@ -104,6 +104,35 @@ A platform that did no real age assurance cannot produce a verifiable claim that
 signal a parent or regulator is looking for. This is the inverse of most verification: here, *failing
 to verify is the informative outcome*, not an error.
 
+## The state-sanctioned minors' tier
+
+The "no assurance" result is the worst case. There is also a *best* case worth naming, because it is
+where this is heading. Rather than serving a minor the full adult product with bolt-on restrictions,
+a platform can serve a genuinely **cut-down children's version** — the way YouTube offers a separate
+Kids experience — whose content scope and safety design are **signed off by the nation-state**. As
+the legislation and licence-to-operate regimes that the new age-assurance laws imply come into force,
+that sign-off becomes a thing an authority *grants and can revoke*: a licence that *this* children's
+tier is approved for minors in *this* jurisdiction.
+
+That licence is exactly an authority-chain claim. When a parent runs the safe-sequence audit on a
+child's account, the strongest possible answer is not merely "the platform thinks this is a minor" but
+**"this account runs on the state-sanctioned children's tier, and here is the licence proving it"** —
+the platform's claim chaining up to the regulator that approved the tier:
+
+```
+✓ kids.videoapp.example/age-assurance/v — Account is on the children's tier
+  ✓ videoapp.example/childrens-tier-licence — Operates a licensed minors' service
+    ✓ ofcom.org.uk — Approved this children's tier for UK minors
+      ✓ gov.uk — UK government root namespace
+```
+
+The parent can now distinguish three materially different worlds with one gesture: an account on a
+*licensed, state-approved* children's tier (green), an account the platform *believes* is a minor and
+restricts on its own say-so (amber-ish — trust the platform), and an account with *no assurance at
+all* (the damning case). Today a parent cannot tell these apart; the verifiable chain makes the
+difference legible — and makes a *claimed* "child-safe mode" with no licence behind it fail to verify,
+just as a fabricated assurance does.
+
 ## Data Verified
 
 The platform, a salted account token (never the username or content), the age band the platform
@@ -130,6 +159,9 @@ chain status.
   threshold, via a named assurance method.
 - **Assured — Under Threshold** — The platform understands the account as a minor and (per its duty)
   applies minor protections.
+- **State-Sanctioned Minors' Tier** — The account runs on a cut-down, children's version of the
+  service whose suitability is signed off by the nation-state (see below). The strongest positive
+  result a parent can get.
 - **Self-Declared / Unverified** — The age was typed at sign-up and never checked. Surfaced plainly,
   not hidden.
 - **No Assurance On Record (404)** — No verifiable age-assurance claim exists for this account. Per
