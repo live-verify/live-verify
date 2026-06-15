@@ -202,4 +202,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 ## Further Derivations
 
-None currently.
+For the related *status* question — whether a borrower is in good standing, settled, or holds no loan
+at all (scholarship- or self-funded) — without disclosing the balance, see
+[Student Finance Good-Standing & Clearance](student-finance-good-standing.md).

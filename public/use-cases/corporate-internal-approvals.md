@@ -6,7 +6,7 @@ retention: "Duration of commitment + 6-7 years (audit)"
 slug: "corporate-internal-approvals"
 verificationMode: "clip"
 tags: ["approval", "purchase-order", "spend-approval", "expense-sign-off", "credit-limit", "change-approval", "deployment-approval", "internal-controls", "segregation-of-duties", "corporate-governance", "approval-fraud"]
-furtherDerivations: 3
+furtherDerivations: 1
 ---
 
 ## What is a Corporate Internal Approval?
@@ -185,4 +185,4 @@ If a witness layer exists, it may periodically commit rollups to a public blockc
 
 1. **Dual-control / four-eyes approvals** — Records that bind *both* required approvers, so a recipient can confirm a high-value item carried a genuine second signature and was not single-approved in breach of policy.
 2. **Capital-expenditure approvals** — Capex authorizations with committee references and phased release conditions, verifiable by the vendor at each release gate.
-3. **Change-advisory-board (CAB) approvals** — Production-change/deployment approvals tied to a change ticket, verifiable by auditors and operations as part of ITGC evidence.
+3. **Change-advisory-board (CAB) approvals** — Production-change/deployment approvals tied to a change ticket, verifiable by auditors and operations as part of ITGC evidence. When the approval is re-checked automatically by the deployment pipeline at execution time (not just read by a human), see [Release Approval Execution Gates](release-approval-execution-gates.md).
