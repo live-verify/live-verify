@@ -1,7 +1,7 @@
 {
-  "generated": "2026-06-15T06:21:47.726Z",
-  "totalUseCases": 597,
-  "totalFurtherDerivations": 924,
+  "generated": "2026-06-15T19:12:23.304Z",
+  "totalUseCases": 598,
+  "totalFurtherDerivations": 925,
   "categories": {
     "Real Estate & Property": 44,
     "Charitable & Non-Profit": 8,
@@ -14,7 +14,7 @@
     "Notary Services": 7,
     "Immigration & Visa Documents": 18,
     "Legal & Court Documents": 24,
-    "Identity & Authority Verification": 58,
+    "Identity & Authority Verification": 59,
     "Insurance Claims & Operations": 15,
     "Chain of Custody & Logistics": 18,
     "Travel & Hospitality": 22,
@@ -8255,6 +8255,27 @@
       ]
     },
     {
+      "slug": "platform-age-assurance-parental-audit",
+      "title": "Platform Age-Assurance Parental Audit",
+      "category": "Identity & Authority Verification",
+      "volume": "Very Large",
+      "retention": "While the account exists; re-checkable on demand",
+      "verificationMode": "both",
+      "furtherDerivations": 1,
+      "snippet": "The platform, a salted account token (never the username or content), the age band the platform",
+      "tags": [
+        "age-assurance",
+        "online-safety-act",
+        "parental-controls",
+        "social-media",
+        "child-safety",
+        "platform-attestation",
+        "absence-as-finding",
+        "safe-sequence",
+        "regulatory"
+      ]
+    },
+    {
       "slug": "platform-lending-agreements",
       "title": "Platform Lending and Financing Agreements",
       "category": "Investment & Fintech",
@@ -12291,7 +12312,7 @@
   "categoriesList": [
     {
       "name": "Identity & Authority Verification",
-      "count": 58
+      "count": 59
     },
     {
       "name": "Real Estate & Property",

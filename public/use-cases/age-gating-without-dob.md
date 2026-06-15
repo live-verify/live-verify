@@ -270,4 +270,7 @@ full protocol.
 
 ## Further Derivations
 
-None currently.
+1. **Platform age-assurance parental audit** — the inverse direction: instead of a subject proving
+   age outward to a gatekeeper, a parent audits the age belief a platform *already holds* about a
+   child's account (including the case where no assurance was ever done). See
+   [Platform Age-Assurance Parental Audit](platform-age-assurance-parental-audit.md).
