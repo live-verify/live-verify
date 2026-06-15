@@ -348,6 +348,90 @@ Endpoints may return statuses specific to their document type. These should be s
 3. **Conservative:** When in doubt, return a more cautious status
 4. **No false positives:** Never return `verified` unless the document is genuinely valid
 
+## Revocation Cause: Administrative vs. Punitive
+
+Not all non-`verified` statuses mean the same thing about the holder, and conflating them is a
+real harm. There are two distinct causes:
+
+- **Punitive** — the holder did something wrong. A licence `REVOKED` for malpractice, a reference
+  `WITHDRAWN` for misconduct, a registration `SUSPENDED` pending a disciplinary hearing. The status
+  is a judgement about the holder's conduct.
+- **Administrative** — nothing is alleged about the holder's conduct; the credential simply isn't
+  current. The commonest case is **non-payment of fees**: a membership, certification, or insurance
+  policy that has `LAPSED` because a renewal invoice went unpaid. It is typically reversible the
+  moment the holder pays, and implies no wrongdoing.
+
+A verifier reading a single red "REVOKED" cannot tell these apart — and treating "their direct
+debit bounced" identically to "they were struck off for negligence" over-punishes the holder and
+misinforms the verifier. **Administrative non-currency should be its own status class, not folded
+into `revoked`.**
+
+### Use the administrative statuses; don't reach for `REVOKED`
+
+Where a credential lapses for non-payment, return the administrative status, not the punitive one:
+
+| Situation | Correct status | Wrong status |
+|---|---|---|
+| Insurance premium unpaid, cover not in force | `LAPSED` | `REVOKED` |
+| Professional membership renewal unpaid | `LAPSED` or `EXPIRED` | `REVOKED` |
+| Certification fee overdue, awaiting payment | `LAPSED` | `SUSPENDED` |
+| Licence pulled by a board for misconduct | `REVOKED` / `SUSPENDED` | — (punitive is correct here) |
+
+**UI treatment.** Administrative non-currency is closer to `expired` than to `revoked`: it is a
+warning, not an accusation. Clients should render `LAPSED` (and similar administrative statuses)
+**amber — "not currently in force; may be reinstated"** — not the red "do not trust" reserved for
+punitive `REVOKED`. (See the three-state amber/red distinction in
+[sovereign-roots.md](sovereign-roots.md), which makes the same "inform, don't condemn" choice.)
+
+### Built-up debt and revocation-as-debt-collection
+
+The administrative case has a hazard the protocol's owners should name explicitly, because the
+verification endpoint can quietly become a **debt-collection lever**.
+
+When a body that both *issues* a credential and *bills* for it can flip the holder's public status
+to "not verified" the instant an invoice is overdue, the live endpoint stops being a neutral
+statement of fact and becomes dunning infrastructure: *"pay the arrears or your customers see you
+as unverified."* For a tradesperson whose work depends on showing an in-force certification, that is
+coercive leverage over **built-up debt** — and the coercion lands hardest on exactly the
+small-outfit holder least able to absorb it.
+
+This is a *policy* hazard, not a protocol bug. Live Verify cannot and should not stop an issuer from
+choosing to delist a non-paying member — that is the issuer's prerogative and sometimes entirely
+legitimate (an insurer genuinely cannot vouch for cover the customer stopped paying for). What the
+standard can do is set expectations for issuers who don't want their endpoint to read as a cudgel:
+
+- **Honour a grace period before changing public status.** If the holder has, say, 30 days to pay a
+  renewal, the public status should stay `verified` (or move to a soft `EXPIRING_SOON`) during that
+  window — not flip to `LAPSED` on the invoice due-date. Delisting someone publicly over a debt
+  that isn't yet final misrepresents the situation and applies pressure the dispute hasn't earned.
+  (This grace period is an issuer *policy* about when to change a status file — distinct from, and
+  not in conflict with, the protocol's deliberate rejection of PKI-style propagation grace periods
+  in [benefits_of_merkle_tree.md](benefits_of_merkle_tree.md); that doc concerns how fast a *decided*
+  status reaches verifiers, this concerns when a status is *decided*.)
+- **Separate "not in force" from "amount owed."** The endpoint should state the credential's
+  currency, never the holder's account balance or arrears. A verifier needs to know whether the
+  cover/membership is live; they have no business learning that the holder owes £340.
+- **Keep the lapse reversible and silent.** When the holder pays, the status returns to `verified`
+  with no residual mark. An administrative lapse is not a disciplinary record and must not leave one.
+
+### Don't leak the financial reason
+
+The existing rule — return the bare status and direct inquiries to official channels, never the
+underlying cause (see the *"Don't include detailed revocation information"* anti-pattern later in
+this document) — applies with extra force to non-payment. "Lapsed because the holder is in arrears" is a financial-circumstance
+disclosure the verifier has no need for and the holder would not consent to. Return
+`{"status": "LAPSED"}` and nothing about money:
+
+❌ **Don't:**
+```json
+{ "status": "LAPSED", "reason": "Premium unpaid", "arrears": "£340.00", "daysOverdue": 47 }
+```
+
+✅ **Do:**
+```json
+{ "status": "LAPSED" }
+```
+
 ## Error Responses
 
 For errors (as opposed to negative verification results), return appropriate HTTP status codes:
