@@ -741,6 +741,7 @@ More: https://issuer.com/public-profile/{id}
 - Legal witnessing future: hash-based witnessing ceremonies with three roles (lawyer confirms hash, witness attests ceremony, registry holds record) (see docs/legal-witnessing-future-architecture.md)
 - Transaction records (`tx` field): verification receipt with ID, timestamp, hash — citable in due-process proceedings (see docs/Verification-Response-Format.md)
 - Sovereign roots anchor list: the known-roots list that makes authority-chain display meaningful (vs. trust theater); three-state anchored/amber-unanchored/no-chain UI, jurisdiction-mismatch heuristic (country from locale/SIM/timezone, never GPS), PSL-style governance, root-compromise/update-channel (see docs/sovereign-roots.md)
+- Safe-Sequence Platform Disclosure: a new protocol direction — verification turned BACK onto the platform (platform is the subject), invoked via a non-overridable OS/browser "safe sequence" the app can't suppress, where absence-of-chain is the informative finding; compelled by regulation. Member use cases: ad-placement-provenance, platform-age-assurance-parental-audit; frontier: location/blue-check/consent/sponsored-content disclosure (see docs/safe-sequence-platform-disclosure.md)
 
 ## License
 

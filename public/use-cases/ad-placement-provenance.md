@@ -170,6 +170,10 @@ rewards the diligent intermediary and isolates the murky re-seller who refuses t
 
 ## Verification Architecture
 
+This use case is an instance of [Safe-Sequence Platform Disclosure](../../docs/safe-sequence-platform-disclosure.md):
+the platform (the ad supply chain) is the subject, the user turns verification inward via a
+browser-drawn gesture the ad cannot intercept, and the *absence* of a manifest is itself the finding.
+
 The placement manifest is a small signed document bound to the ad slot at render time, carrying the
 ordered chain of vouching parties. The end-user verification is a deliberate **clip-style action** —
 the user invokes it; it does not run automatically. The walk reuses Live Verify's existing

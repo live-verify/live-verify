@@ -208,6 +208,10 @@ protections to a known minor's account — without surveilling the account's con
 
 ## Verification Architecture
 
+This use case is an instance of [Safe-Sequence Platform Disclosure](../../docs/safe-sequence-platform-disclosure.md):
+the platform is the subject of scrutiny, the parent turns verification inward via an OS-drawn gesture
+the child's app cannot suppress, and the *absence* of an assurance chain is the finding that matters.
+
 The verifiable artifact is the **platform's own age-assurance statement**, published as canonical
 text bound to the platform's domain, surfaced through an OS-level safe-sequence gesture the child
 cannot intercept. The parent's device runs the standard `text → normalize → SHA-256 → GET` check and
