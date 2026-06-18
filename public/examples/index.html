@@ -22,6 +22,23 @@
     <title>Text Selection Verification - Live Verify</title>
     <script src='https://unpkg.com/psl@1.15.0/dist/psl.umd.cjs'></script>
     <style>
+        :root {
+            --bg: #f6f8fb;
+            --bg-grad-top: #eef2f9;
+            --surface: #ffffff;
+            --ink: #0f172a;
+            --ink-soft: #475569;
+            --ink-faint: #64748b;
+            --line: #e2e8f0;
+            --accent: #2563eb;
+            --accent-dark: #1d4ed8;
+            --accent-soft: #eff4ff;
+            --radius: 16px;
+            --shadow-sm: 0 1px 2px rgba(15,23,42,0.06), 0 1px 3px rgba(15,23,42,0.08);
+            --shadow-md: 0 6px 18px rgba(15,23,42,0.08);
+            --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -29,8 +46,9 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f5f5f5;
+            font-family: var(--font);
+            background: var(--bg);
+            background: radial-gradient(1200px 500px at 50% -120px, var(--bg-grad-top), var(--bg));
             padding: 40px 20px;
             line-height: 1.6;
         }
@@ -38,10 +56,11 @@
         .container {
             max-width: 900px;
             margin: 0 auto;
-            background: white;
+            background: var(--surface);
             padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+            border-radius: var(--radius);
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow-md);
         }
 
         .breadcrumbs {
@@ -65,7 +84,7 @@
         }
 
         h1 {
-            color: #1a1a2e;
+            color: var(--ink);
             margin-bottom: 10px;
         }
 
@@ -76,21 +95,21 @@
         }
 
         .intro-box {
-            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            background: var(--accent-soft);
             padding: 24px;
-            border-radius: 12px;
+            border-radius: var(--radius);
             margin-bottom: 30px;
-            border-left: 4px solid #5c6bc0;
+            border-left: 4px solid var(--accent);
         }
 
         .intro-box h2 {
-            color: #3949ab;
+            color: var(--accent-dark);
             margin-bottom: 12px;
             font-size: 1.2rem;
         }
 
         .intro-box p {
-            color: #37474f;
+            color: var(--ink-soft);
         }
 
         .how-to {
@@ -147,7 +166,7 @@
 
         .claim-label {
             display: inline-block;
-            background: #667eea;
+            background: var(--accent);
             color: white;
             padding: 4px 12px;
             border-radius: 4px;
@@ -211,19 +230,20 @@
         }
 
         .future-vision {
-            background: linear-gradient(135deg, #f3e5f5 0%, #e1f5fe 100%);
+            background: var(--accent-soft);
             padding: 24px;
-            border-radius: 12px;
+            border-radius: var(--radius);
             margin-top: 40px;
+            border: 1px solid var(--line);
         }
 
         .future-vision h3 {
-            color: #6a1b9a;
+            color: var(--accent-dark);
             margin-bottom: 12px;
         }
 
         .future-vision p {
-            color: #4a148c;
+            color: var(--ink-soft);
         }
 
         footer {
@@ -236,7 +256,7 @@
         }
 
         footer a {
-            color: #667eea;
+            color: var(--accent);
             text-decoration: none;
         }
     </style>
@@ -336,10 +356,10 @@ verify:live-verify.github.io/live-verify/c</div>
             <p style="margin-top: 10px;">This page simulates that experience. The green bar at the top acts as the browser chrome where verification results would appear in a native implementation.</p>
         </div>
 
-        <div style="margin-top: 30px; padding: 16px; background: #f8fafc; border-radius: 8px; font-size: 0.9rem; color: #475569;">
+        <div style="margin-top: 30px; padding: 16px; background: var(--accent-soft); border-radius: 8px; font-size: 0.9rem; color: var(--ink-soft);">
             <strong>More demos:</strong>
-            The <a href="https://github.com/live-verify/live-verify/tree/main/simulated-integration-tests" style="color: #667eea;">simulated integration tests</a> run full-stack verification with authority chains, fake TLS domains, and real browser extension — police IDs, bank statements, OFSI sanctions licences, and revoked references. See the repo for demo videos.
-            <span style="margin-left: 4px;">The <a href="../training-pages/" style="color: #667eea;">training pages</a> have additional fictional documents for OCR testing.</span>
+            The <a href="https://github.com/live-verify/live-verify/tree/main/simulated-integration-tests" style="color: #2563eb;">simulated integration tests</a> run full-stack verification with authority chains, fake TLS domains, and real browser extension — police IDs, bank statements, OFSI sanctions licences, and revoked references. See the repo for demo videos.
+            <span style="margin-left: 4px;">The <a href="../training-pages/" style="color: #2563eb;">training pages</a> have additional fictional documents for OCR testing.</span>
         </div>
 
         <footer>

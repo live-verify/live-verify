@@ -7,17 +7,38 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="../formatShowcaseInjector.js"></script>
     <style>
+        :root {
+            --bg: #f6f8fb;
+            --bg-grad-top: #eef2f9;
+            --surface: #ffffff;
+            --ink: #0f172a;
+            --ink-soft: #475569;
+            --ink-faint: #64748b;
+            --line: #e2e8f0;
+            --accent: #2563eb;
+            --accent-dark: #1d4ed8;
+            --accent-soft: #eff4ff;
+            --accent-ring: rgba(37, 99, 235, 0.18);
+            --radius: 16px;
+            --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.08);
+            --shadow-md: 0 6px 18px rgba(15, 23, 42, 0.08);
+            --shadow-lg: 0 18px 40px rgba(37, 99, 235, 0.18);
+            --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: var(--font);
+            background: var(--bg);
+            background-image: radial-gradient(1200px 500px at 50% -120px, var(--bg-grad-top) 0%, var(--bg) 70%);
             min-height: 100vh;
-            padding: 20px;
-            color: white;
+            padding: 28px 20px 56px;
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
         }
         .container {
             max-width: 900px;
@@ -25,35 +46,35 @@
         }
         .back-link {
             display: inline-block;
-            color: white;
+            color: var(--accent);
             text-decoration: none;
             margin-bottom: 20px;
-            font-weight: 500;
-            opacity: 0.9;
+            font-weight: 600;
         }
         .back-link:hover {
-            opacity: 1;
             text-decoration: underline;
         }
         .content-card {
-            background: white;
-            color: #333;
-            border-radius: 12px;
+            background: var(--surface);
+            color: var(--ink-soft);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
             padding: 32px 40px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            box-shadow: var(--shadow-md);
             text-align: left;
         }
         .content-card h1 {
-            color: #4a5568;
+            color: var(--ink);
+            letter-spacing: -0.02em;
             margin-bottom: 8px;
             font-size: 1.8em;
         }
         .meta {
-            color: #718096;
+            color: var(--ink-faint);
             font-size: 0.9em;
             margin-bottom: 24px;
             padding-bottom: 16px;
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 1px solid var(--line);
         }
         .meta span {
             margin-right: 20px;
@@ -61,9 +82,9 @@
         .action-footer {
             margin-top: 36px;
             padding: 22px 24px;
-            background: #f6f3fc;
-            border: 1px solid #e2d9f3;
-            border-left: 4px solid #6b46c1;
+            background: var(--accent-soft);
+            border: 1px solid #e3ebfb;
+            border-left: 4px solid var(--accent);
             border-radius: 10px;
         }
         .action-footer h2 {
@@ -72,7 +93,7 @@
         }
         .action-footer p {
             font-size: 0.95em;
-            color: #4a5568;
+            color: var(--ink-soft);
         }
         .action-footer .action-links {
             margin-top: 12px;
@@ -87,25 +108,26 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9em;
-            background: #6b46c1;
+            background: var(--accent);
             color: #fff;
         }
         .action-footer .action-links a.secondary {
-            background: #fff;
-            color: #6b46c1;
-            border: 1px solid #d6c9ee;
+            background: var(--surface);
+            color: var(--accent);
+            border: 1px solid var(--line);
         }
         .action-footer .action-links a:hover {
             opacity: 0.92;
         }
         .content-card h2 {
-            color: #553c9a;
+            color: var(--ink);
             margin-top: 28px;
             margin-bottom: 12px;
             font-size: 1.4em;
+            letter-spacing: -0.01em;
         }
         .content-card h3 {
-            color: #6b46c1;
+            color: var(--accent-dark);
             margin-top: 20px;
             margin-bottom: 8px;
             font-size: 1.15em;
@@ -123,13 +145,16 @@
             margin-bottom: 4px;
         }
         .content-card strong {
-            color: #4a5568;
+            color: var(--ink);
         }
         .content-card code {
-            background: #f1f5f9;
+            font-family: var(--mono);
+            background: var(--accent-soft);
+            color: var(--accent-dark);
+            border: 1px solid #e3ebfb;
             padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 0.9em;
+            border-radius: 6px;
+            font-size: 0.88em;
         }
         .content-card pre {
             background: #fff;
@@ -146,7 +171,7 @@
         .loading {
             text-align: center;
             padding: 60px;
-            color: #718096;
+            color: var(--ink-faint);
         }
         .error {
             background: #fed7d7;
