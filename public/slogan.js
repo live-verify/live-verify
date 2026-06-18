@@ -1,3 +1,19 @@
+/*
+    Copyright (C) 2025, Paul Hammant
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/
+
 (() => {
     const roots = document.querySelectorAll('[data-slogan-root]');
     if (!roots.length) return;
@@ -19,7 +35,9 @@
                 font-size: 0.98em;
                 opacity: 0.95;
                 line-height: 1.6;
-                margin: 8px 0 18px;
+                margin: 8px auto 18px;
+                max-width: 640px;
+                text-align: center;
             }
             [data-slogan-toggle] {
                 background: transparent;
