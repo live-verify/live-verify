@@ -174,8 +174,13 @@
         </div>
 
         <div class="section">
-            <label>Text with visible newlines &mdash; whether deliberate or accidental</label>
+            <label>What you typed &mdash; with visible newlines, whether deliberate or accidental</label>
             <div class="display-area" id="display"></div>
+        </div>
+
+        <div class="section">
+            <label>After normalization &mdash; this is what gets hashed</label>
+            <div class="display-area" id="normalizedDisplay"></div>
         </div>
 
         <div class="section">
@@ -196,10 +201,20 @@
     <script>
         const input = document.getElementById('input');
         const display = document.getElementById('display');
+        const normalizedDisplay = document.getElementById('normalizedDisplay');
         const hashEl = document.getElementById('hash');
         const copyBtn = document.getElementById('copyBtn');
 
         let currentHash = '';
+
+        // Escape HTML and render newlines as a visible blue ↵ marker
+        function withNewlineMarkers(text) {
+            return text
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/\n/g, '<span class="newline-marker">↵</span>\n');
+        }
 
         async function update() {
             const raw = input.value;
@@ -207,6 +222,7 @@
             // Display with visible newline markers
             if (raw.length === 0) {
                 display.innerHTML = '';
+                normalizedDisplay.innerHTML = '';
                 hashEl.textContent = 'Type or paste text above';
                 hashEl.classList.add('empty');
                 copyBtn.disabled = true;
@@ -215,12 +231,7 @@
             }
 
             // Build display with newline markers
-            const escaped = raw
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/\n/g, '<span class="newline-marker">\u21B5</span>\n');
-            display.innerHTML = escaped;
+            display.innerHTML = withNewlineMarkers(raw);
 
             // Strip verify: or vfy: line if accidentally pasted as the last line
             const lines = raw.split('\n');
@@ -231,6 +242,10 @@
 
             // Normalize and hash
             const normalized = normalizeText(stripped);
+
+            // Show the normalized text — this is what actually gets hashed
+            normalizedDisplay.innerHTML = withNewlineMarkers(normalized);
+
             const hash = await sha256(normalized);
             currentHash = hash;
 
