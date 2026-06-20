@@ -107,7 +107,10 @@ were people the incumbents had never served at all.
 - **Expect the playbook.** FUD ("unaudited", "no liability framework", "who stands behind
   this?"), name/standard capture attempts, lobbying for accredited-provider verification schemes,
   and up-stack repositioning. Pre-empt in writing — saying the quiet part first is the cheapest
-  defense.
+  defense. (Cloudflare's [Merkle Tree Certificates](merkle-tree-certificates-precedent.md) experiment
+  shows the "who vouches for you?" problem from the inside: even Cloudflare can't self-anchor and
+  bootstraps off an existing trusted CA — which both validates the need for a curated roots list and
+  hands critics a line to pre-empt.)
 - **A neutral steward matters.** ISRG's nonprofit neutrality is what let competitors co-fund it.
   If Live Verify reaches the stage of a maintained sovereign-roots list or conformance fixtures
   with multiple corporate adopters, a comparable neutral home (even a lightweight one, in the

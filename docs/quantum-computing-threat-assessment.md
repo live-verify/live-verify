@@ -50,6 +50,8 @@ Grover's algorithm halves the effective security bits. For SHA-256, this means a
 
 Live Verify does not need to migrate to post-quantum hashing. SHA-256 is safe. The quantum migration that matters — TLS and certificate signatures — happens at the infrastructure layer (browsers, servers, CAs) and Live Verify inherits the protection automatically because it runs over HTTPS.
 
+This is corroborated by where the industry is spending its post-quantum effort: the WebPKI redesign behind [Merkle Tree Certificates](merkle-tree-certificates-precedent.md) exists specifically to shrink the *signature* burden of PQ migration, leaning on Merkle *hashing* to carry the trust. The expensive, urgent problem is signatures; hashes are cheap and safe — which is why Live Verify's hash-lookup core, with no signature in the base path, largely sidesteps the migration the rest of web trust is undergoing.
+
 ## The real threat to Live Verify hashes is not quantum
 
 The practical attack on a Live Verify hash is not quantum pre-image search. It is **classical brute-force of low-entropy plaintext**.

@@ -1,5 +1,9 @@
 # Benefits of the Merkle Endorsement Design
 
+> **Industry convergence:** the same primitive — Merkle inclusion proofs as the unit of trust, with
+> per-issuer transparency logs — is what Cloudflare, Chrome, and the IETF are using to redesign the
+> WebPKI for the post-quantum era. See [Merkle Tree Certificates as precedent](merkle-tree-certificates-precedent.md).
+
 ## No Two-Phase Commit Problem
 
 A natural concern with endorsement chains:
