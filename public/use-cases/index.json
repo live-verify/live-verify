@@ -1,7 +1,7 @@
 {
-  "generated": "2026-06-15T19:15:01.474Z",
-  "totalUseCases": 598,
-  "totalFurtherDerivations": 925,
+  "generated": "2026-06-20T06:56:35.550Z",
+  "totalUseCases": 599,
+  "totalFurtherDerivations": 926,
   "categories": {
     "Real Estate & Property": 44,
     "Charitable & Non-Profit": 8,
@@ -20,7 +20,7 @@
     "Travel & Hospitality": 22,
     "Healthcare & Medical Records": 16,
     "Professional & Educational Qualifications": 25,
-    "Art, Media & Publishing": 7,
+    "Art, Media & Publishing": 8,
     "Customs & Trade Compliance": 8,
     "Sports & Athletics": 6,
     "Financial Compliance": 26,
@@ -10288,6 +10288,27 @@
       ]
     },
     {
+      "slug": "self-attested-authorship-copyright",
+      "title": "Self-Attested Authorship & Copyright Claims",
+      "category": "Art, Media & Publishing",
+      "volume": "Very Large",
+      "retention": "Work lifetime (copyright term; often life + 70 years)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "That the controller of the named domain asserts this authorship/copyright notice; the asserted name",
+      "tags": [
+        "copyright",
+        "authorship",
+        "attribution",
+        "identity-disambiguation",
+        "creator",
+        "self-attested",
+        "ai-provenance",
+        "personal-domain",
+        "post-verification-disclosure"
+      ]
+    },
+    {
       "slug": "settlement-statements",
       "title": "Settlement Statements (HUD-1, ALTA)",
       "category": "Real Estate & Property",
@@ -12419,15 +12440,15 @@
       "count": 8
     },
     {
+      "name": "Art, Media & Publishing",
+      "count": 8
+    },
+    {
       "name": "Customs & Trade Compliance",
       "count": 8
     },
     {
       "name": "Notary Services",
-      "count": 7
-    },
-    {
-      "name": "Art, Media & Publishing",
       "count": 7
     },
     {

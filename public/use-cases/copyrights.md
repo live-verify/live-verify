@@ -155,3 +155,10 @@ If a witness layer exists, it may periodically commit rollups to a public blockc
 | **Durability** | **Archival.** Text lasts centuries. | **Fragile.** Requires the chain to exist in 2100. | **Durable.** |
 
 **Why Live Verify wins here:** Standing. Copyright is a state-granted legal monopoly. While "Blockchain Timestamping" proves *you had it first*, only a **Government Registration** gives you the right to sue for statutory damages ($150k per infringement). Live Verify turns that powerful legal document into a high-speed digital weapon for protecting creators.
+
+## Related
+
+For the lightweight, everyday case — a creator self-attesting a `© Name Year` notice on their own
+domain (no federal registration), with verification that disambiguates same-named authors — see
+[Self-Attested Authorship & Copyright Claims](self-attested-authorship-copyright.md). This page covers
+official national-office registrations; that one covers the unregistered footer notice.

@@ -195,4 +195,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 ## Further Derivations
 
-None currently.
+1. **Self-attested authorship from the creator side** — the inverse direction: instead of a
+   platform/issuer attesting AI-vs-human origin, the author affirmatively asserts a work as their
+   own, disambiguated by domain. See
+   [Self-Attested Authorship & Copyright Claims](self-attested-authorship-copyright.md).
