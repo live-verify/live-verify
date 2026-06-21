@@ -260,6 +260,42 @@ Endorsers compose: a chain can pass through several, each adding a distinct dime
 wherever the assurance legitimately runs out (and remaining honestly *unanchored* if it stops at a
 personal or community level — that is a valid state, not a failure).
 
+## Limitations & misuse risks — read before enriching
+
+This use case deliberately suspends Live Verify's usual "never echo content" rule: verification
+*adds* identity information the terse footer withheld. That is justified (the name is exactly what the
+verifier cannot resolve), but it is also the one place the project lifts its own minimal-disclosure
+floor — so it carries risks the default model doesn't. Enrich with these in mind:
+
+- **Disclosure-creep.** The footer is minimal *on the page*, but verification resolves to a richer
+  bundle (bio, employer, registry IDs). Anyone who can see the work can pull it; at scale it is a
+  harvesting surface. The minimalism of the visible claim is not the minimalism of what verification
+  reveals.
+- **Correlation.** Each endorser links the name to a *different* real-world anchor (employer, ORCID,
+  project org, notary). Individually innocuous; together they triangulate. The endorsement ladder,
+  viewed adversarially, is a pre-assembled identity graph — the more weight you add, the more you
+  expose.
+- **Stale enrichment.** Enrichment served today (employer, "works at Y") keeps circulating in copies
+  of the work and caches after you've left, fallen out, or want to go quiet. Revocation updates the
+  endpoint; it does **not** reach copies already in the wild — and here the stale data is *who you
+  are*, not just a status string.
+- **Endorsement laundering.** An endorsement granted for one work can be contextually re-used to lend
+  weight to another the endorser never vetted. Pin each endorsement's scope so its credibility can't
+  be borrowed onto uncovered works.
+- **The endorser gains a hold.** Adding an employer or notary to your chain is durable: they now hold
+  an attestation about you that can be breached, subpoenaed, or used as leverage, and that you can't
+  fully retract. Treat *adding* an endorser as one-directional.
+
+**The unfixable part:** public enrichment is permanent. Anything the endpoint serves publicly can be
+cached, indexed, and used in ways you didn't intend, including after you'd want it gone. The
+discipline is therefore to **disclose only the minimum that resolves the verifier's question** —
+"which Paul Hammant?" needs a disambiguator, not a CV. Every extra field is a permanent, harvestable,
+correlatable disclosure.
+
+The full hazard analysis, the test for when enrichment is legitimate at all, and the mitigations
+(with their limits) are in
+[Verification Enrichment: hazards](../../docs/verification-enrichment-hazards.md).
+
 ## Authority Chain
 
 **Pattern:** Personal / Self-Attested — optionally endorsed.
