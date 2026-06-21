@@ -1,7 +1,7 @@
 {
-  "generated": "2026-06-21T15:23:50.744Z",
-  "totalUseCases": 602,
-  "totalFurtherDerivations": 929,
+  "generated": "2026-06-21T15:41:33.873Z",
+  "totalUseCases": 603,
+  "totalFurtherDerivations": 930,
   "categories": {
     "Real Estate & Property": 44,
     "Charitable & Non-Profit": 8,
@@ -31,7 +31,7 @@
     "Agriculture & Food": 10,
     "Site & Equipment Safety": 12,
     "Commercial Lines Insurance": 11,
-    "Product Certifications & Compliance": 15,
+    "Product Certifications & Compliance": 16,
     "Professional Ethics & Compliance": 12,
     "Environmental Permits & Compliance": 11,
     "Warehousing & Inventory": 4,
@@ -3523,6 +3523,28 @@
         "athlete-integrity",
         "doping-control",
         "forensic-lab"
+      ]
+    },
+    {
+      "slug": "durable-marked-identifiers",
+      "title": "Durable Marked Identifiers (Rating Plates, VINs, Hallmarks, Monuments)",
+      "category": "Product Certifications & Compliance",
+      "volume": "Very Large",
+      "retention": "Life of the object (often decades to permanent)",
+      "verificationMode": "camera",
+      "furtherDerivations": 1,
+      "snippet": "The marked identifier and the claim it carries (rating, identity, fineness, registration, provenance),",
+      "tags": [
+        "durable-marking",
+        "laser-etching",
+        "rating-plate",
+        "data-plate",
+        "vin",
+        "firearm-serial",
+        "hallmark",
+        "monument",
+        "text-is-king",
+        "physical-medium"
       ]
     },
     {
@@ -12461,11 +12483,11 @@
       "count": 16
     },
     {
-      "name": "Insurance Claims & Operations",
-      "count": 15
+      "name": "Product Certifications & Compliance",
+      "count": 16
     },
     {
-      "name": "Product Certifications & Compliance",
+      "name": "Insurance Claims & Operations",
       "count": 15
     },
     {

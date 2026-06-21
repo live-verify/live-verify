@@ -20,6 +20,17 @@ QR codes are popular. They are also fundamentally wrong for document verificatio
 
 Live Verify has none of these problems. The interviewer reads "Edinburgh University, First Class Honours in Computer Science" on a CV. If they want to verify, they select the text. The hash is computed from what they just read. The domain in the `verify:` URL tells them who is attesting — before they even click. No scanning, no redirects, no address bar inspection.
 
+## The Durability Argument: text survives where geometry fails
+
+The arguments above are about *paper and screens*. There is a fifth, **physical** reason human-readable text is the right primitive, and it is the strongest of all: **text degrades gracefully; machine-readable geometry does not.**
+
+A QR code or barcode depends on precise geometry — clean squares or bars at exact positions. Lose a few squares to wear, heat, corrosion, or weathering and the code becomes unreadable: it fails as a cliff, not a slope. Human-readable text fails gracefully — a partially worn character is still recognisable to OCR *and* to the human eye. This matters enormously the moment the verification claim has to live on something more permanent than paper:
+
+- **Marked into metal.** A `vfy:` line laser-annealed or engraved onto a part survives an environment a QR code cannot: thermal cycling, vibration, abrasion, chemical exposure. This is fully worked out for aerospace in [Aircraft Parts Traceability](../public/use-cases/aircraft-parts-traceability.md) — laser etching at 1.5–2mm character height under SAE AMS2431 / MIL-STD-130, with a `vfy:` short prefix invented specifically to save etched characters where every millimetre of surface matters. The same logic carries to marine engines, rail axles, nuclear components, and serial-marked medical implants.
+- **The same principle, many durable media.** The durability argument is not aviation-specific. Wherever a verifiable claim is *marked into the object itself* rather than printed on accompanying paper, human-readable text is the medium that lasts: machinery **rating / data plates** (electrical equipment, pressure vessels, lifting gear), **VIN** etching, **firearm receiver** serials, jewellery **hallmarks**, building **foundation stones**, monuments and provenance **plaques** on sculpture. Each is a surface where a stamped or etched `vfy:` line outlives — and out-reads, as it wears — any geometry-dependent code.
+
+The general rule: **the harsher or longer-lived the medium, the more decisively human-readable text wins.** Paper favours it for clutter and privacy; metal and stone favour it for survival. (The "[born-digital only, no physical bridge](#existing-verification-technologies)" weakness of pure hash-anchoring is exactly what this physical bridge closes.)
+
 ## The Blockchain Non-Problem
 
 Blockchain verification solves a problem that does not exist here.
