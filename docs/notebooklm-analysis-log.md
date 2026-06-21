@@ -70,6 +70,34 @@ a "Harry B" badge chaining `lapdonline.org → lacity.gov → ca.gov → usa.gov
   names the gesture as dual-channel; `for-verifiers`/homepage lead harder with the threshold "click").
 - This log, so the validated-vs-invented distinction is preserved.
 
+## Round 3 — flagship use-case prioritization
+
+NotebookLM grouped the corpus into **five strategic-resonance clusters**, each mapped to an audience:
+(1) high-stakes "threshold" verification (police, bogus-caller, childcare) — societal; (2) financial &
+integrity audit (KYC counter, mortgage, census audit) — bankers/regulators; (3) professional/academic
+qualifications, the unserved long tail (ornate certificate, license portability) — intellectuals;
+(4) high-value asset provenance (art, livestock) — business; (5) novel post-GenAI primitives (AI
+disclosure, safe-sequence, ad provenance) — policy makers.
+
+**Scrutiny verdict:** trustworthy synthesis. All 14 cited use cases were checked against the repo and
+**all exist and are accurately described** — including precise details (`workday.com` in
+mortgage-verification, the W-2 transcript, the USB-boot batch audit, sanctions licences). The only
+correction: **multi-representation ("ornate certificate") is a `docs/` concept, not a standalone use
+case** — fair to surface as impactful, but not a clickable use case (the flagship section links it to
+`foreign-credential-evaluations` instead). The "Harry B / lapdonline.org" chain remains the same
+labelled illustrative dramatization from round 2.
+
+**Important caveat recorded:** NotebookLM optimized for *demo-ability / narrative punch*, which
+correlates with impact but is **not identical to ROI**. The boring high-volume cases (insurance certs,
+customs docs) may move more actual fraud value while being poor video material. So treat this as the
+**best-storytelling set, not the best-ROI set** — a flagship curation for adoption, not a signal to
+deprioritize the rest.
+
+**Action taken:** built a "Start here: the flagship cases" section on `public/use-cases/index.html` —
+the five clusters as a skeptic's entry point, so a visitor sees five punchy stories before the ~600-item
+grid. The census-audit item points at `ofsi-licence-authorisations` (the sanctions-licence use case the
+batch audit processes) plus the batch-audit doc.
+
 ## How to read NotebookLM output (lesson for next round)
 
 This round was unusually faithful — but treat every specific claim as *to-be-verified*, not ground

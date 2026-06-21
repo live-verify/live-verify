@@ -370,6 +370,27 @@
             font-weight: 800;
             color: var(--accent);
         }
+        .flagship {
+            margin: 8px 0 36px;
+        }
+        .flagship > p.flagship-intro {
+            max-width: 70ch; color: var(--ink-soft); line-height: 1.65; margin-bottom: 20px;
+        }
+        .flagship-cluster {
+            background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent);
+            border-radius: 14px; padding: 20px 24px; margin-bottom: 16px; box-shadow: var(--shadow-sm);
+        }
+        .flagship-cluster h3 {
+            font-size: 1.15em; color: var(--ink); margin-bottom: 4px;
+        }
+        .flagship-cluster .cluster-audience {
+            font-size: 0.85em; color: var(--accent); font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.5px; margin-bottom: 10px;
+        }
+        .flagship-cluster ul { margin: 0; padding-left: 0; list-style: none; }
+        .flagship-cluster li { margin-bottom: 8px; line-height: 1.55; color: var(--ink-soft); }
+        .flagship-cluster li a { color: var(--accent); font-weight: 600; text-decoration: none; }
+        .flagship-cluster li a:hover { text-decoration: underline; }
         @keyframes dialogSlideIn {
             from {
                 opacity: 0;
@@ -712,10 +733,67 @@
     </div>
 
     <div class="story-nav">
+        <a href="#flagship">Start here</a>
         <a href="#how">How it works</a>
         <a href="#trust">What “Verified” means</a>
         <a href="#userPrivacy">Privacy model</a>
         <a href="#use-cases">Explore use cases</a>
+    </div>
+
+    <div class="story-section flagship" id="flagship">
+        <h2>Start here: the flagship cases</h2>
+        <p class="flagship-intro">
+            There are hundreds of use cases below. If you have a few minutes, start with these &mdash; the five
+            clusters where issuer-attested verification is most consequential, each speaking to a different audience.
+        </p>
+
+        <div class="flagship-cluster">
+            <h3>1. High-stakes “threshold” verification</h3>
+            <div class="cluster-audience">Protecting the vulnerable at the door</div>
+            <ul>
+                <li><a href="view.html?doc=police-officer-verification">Police-officer verification</a> &mdash; a citizen verifies the badge at a traffic stop or home visit; the device walks the authority chain to a sovereign root while the human judges the domain (dual-channel trust).</li>
+                <li><a href="view.html?doc=utility-field-worker-verification">Utility / field-worker verification</a> &mdash; the “bogus caller” defence: an elderly homeowner confirms through the window that the worker is on-duty and assigned to <em>this</em> address right now.</li>
+                <li><a href="view.html?doc=school-pickup-authorization">School pickup authorization</a> &mdash; staff confirm a third party (grandparent, nanny) is currently authorized to collect a child.</li>
+            </ul>
+        </div>
+
+        <div class="flagship-cluster">
+            <h3>2. Financial &amp; integrity audit</h3>
+            <div class="cluster-audience">For bankers, lenders, and regulators</div>
+            <ul>
+                <li><a href="view.html?doc=bank-statements">Bank statements (the KYC counter)</a> &mdash; page-at-a-time hashing includes the transaction rows, so a deleted withdrawal or padded balance fails to verify, not just an altered total.</li>
+                <li><a href="view.html?doc=mortgage-verification-documents">Mortgage / income verification</a> &mdash; lenders verify pay stubs and W-2s against the payroll provider’s own domain, stopping income-padding at the source.</li>
+                <li><a href="view.html?doc=ofsi-licence-authorisations">Regulatory census audits (e.g. sanctions licences)</a> &mdash; 100% verification of every document in a firm’s evidence set (<a href="https://github.com/live-verify/live-verify/blob/main/docs/fca-audits-and-batch-audit-tools.md">Merkle rollups on a USB stick</a>), replacing the 5%-sampling “forgery gamble”.</li>
+            </ul>
+        </div>
+
+        <div class="flagship-cluster">
+            <h3>3. Professional &amp; academic qualifications</h3>
+            <div class="cluster-audience">Serving the unserved long tail</div>
+            <ul>
+                <li><a href="view.html?doc=foreign-credential-evaluations">Credential evaluations &amp; the “ornate certificate”</a> &mdash; an institution keeps its traditional diploma <em>and</em> offers a plain-text hash an HR manager can verify in seconds.</li>
+                <li><a href="view.html?doc=bar-admission-good-standing">Letters of good standing</a> &mdash; doctors, lawyers, engineers carry portable proof that bridges back to their licensing board’s registry, defeating “state-hopping” by struck-off practitioners.</li>
+            </ul>
+        </div>
+
+        <div class="flagship-cluster">
+            <h3>4. High-value asset provenance</h3>
+            <div class="cluster-audience">Portable trust between private silos</div>
+            <ul>
+                <li><a href="view.html?doc=art-authentication-documents">Fine art &amp; collectibles</a> &mdash; a certificate of authenticity or appraisal proves provenance against the auction house’s domain, enabling high-value loans without public-database exposure.</li>
+                <li><a href="view.html?doc=breed-pedigree-registration">Thoroughbred &amp; livestock pedigrees</a> &mdash; a buyer verifies the lineage and health of a high-value animal on a doorstep or at auction, where social pressure discourages manual lookups.</li>
+            </ul>
+        </div>
+
+        <div class="flagship-cluster">
+            <h3>5. Novel post-GenAI primitives</h3>
+            <div class="cluster-audience">For policy makers and platforms</div>
+            <ul>
+                <li><a href="view.html?doc=ai-content-provenance-disclosure">AI content disclosure</a> &mdash; a platform self-attests whether media is AI-generated or camera-original, a domain-bound claim that survives screenshotting and re-hosting.</li>
+                <li><a href="view.html?doc=platform-age-assurance-parental-audit">Platform age-assurance audit</a> &mdash; a parent performs a non-overridable OS gesture on a child’s app icon to see what age the platform claims to believe they are (verification turned back on the platform).</li>
+                <li><a href="view.html?doc=ad-placement-provenance">Ad-placement provenance</a> &mdash; a user right-clicks an ad to see which network is liable for placing it, removing the anonymity that fuels malvertising.</li>
+            </ul>
+        </div>
     </div>
 
     <div class="story-section" id="how">
