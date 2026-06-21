@@ -80,7 +80,7 @@ generalized: you added the endorser for weight, and also handed them a hold over
 | **Revocable / mutable enrichment** (`Withdrawn` status; update the served bundle) | Lets the author retract going forward | Copies of the work and cached enrichment persist |
 | **Per-claim salt + scoping** | Stops enumeration of *which* claims exist | No protection once the attacker has the work-in-hand (they have the footer) |
 | **Pinned endorser scope** (endorsement A covers work A only) | Blocks laundering | Requires verifiers to actually check scope, not just chain presence |
-| **Subject control node** (the subject holds a node they can restrict/revoke — see below) | Lets the subject retract stale enrichment ("I no longer work there") without the issuer's cooperation | Updates the endpoint only, not copies in the wild; must be authenticated to the real subject or it becomes a censorship vector |
+| **Subject control node** (the subject holds a node they can **recant** wholly or **restrict** with a reason code — see below) | Lets the subject retract stale enrichment ("I no longer work there") without the issuer's cooperation | Updates the endpoint only, not copies in the wild; must be authenticated to the real subject or it becomes a censorship vector |
 | **Treat adding an endorser as durable** | Sets correct expectations | Does not undo the hold an endorser now has |
 
 ## Mode-specific binding: tie enrichment to its capture context
@@ -139,29 +139,52 @@ This generalizes beyond enrichment: **any claim made *about* a person can carry 
 node** — a consent/control point the subject holds. It is worth treating as a reusable protocol
 concept, not a one-off for authorship.
 
-### Fixed verbs, open scopes
+### Affirmation is the default; there are only two control verbs
 
-The question "is this a fixed list of modifications?" resolves cleanly: the **verbs are a small fixed
-vocabulary** (so a verifier can reason about what a subject node's status *means*), but the **scope
-each verb applies to is open** (so the subject isn't boxed into pre-enumerated facets). The verbs map
-onto the status codes the protocol already has:
+The question "is this a fixed list of modifications?" resolves more tightly than it first appears,
+once you notice **affirmation is not a verb the subject needs — it is the precondition.**
+
+A subject control node only exists because the subject put their verification node in the chain. That
+act *is* the affirmation: there was a moment in time when the subject wholly agreed with the claim,
+because otherwise they would not have inserted the hash at all. So:
+
+- **"Affirm" is not a control action** — it is the default state, encoded by the node simply existing
+  and verifying. Nothing to express.
+- **"Dispute" cannot apply** — you cannot contest a claim you affirmed by inserting your own node into
+  it. (And an unauthenticated dispute was the censorship vector anyway.)
+- **"Supersede" is the issuer's act, not the subject's** — issuing a new version is upstream; it is
+  not the subject exercising control over the existing claim.
+
+That leaves exactly **two** things a subject can do to a claim they once affirmed, both meaning "I no
+longer fully stand where I did":
 
 | Subject verb | Meaning | Maps to status |
 |---|---|---|
-| **Affirm** | "I stand behind this claim about me." | `verified` |
-| **Restrict / narrow** | "This still holds, but a scoped part no longer applies" (e.g. the employer-portion). | `suspended` (scoped) |
-| **Supersede** | "A current version replaces this" — points to the live claim. | `superseded` |
-| **Withdraw / revoke** | "I no longer associate myself with this claim." | `revoked` |
-| **Dispute** | "I contest this claim made about me" — surfaced, not silently dropped. | `disputed` |
+| **Recant** | "I once agreed; I wholly no longer do." Withdraws the subject's affirmation in full. | `revoked` |
+| **Restrict** | "I still affirm the claim, but a specific, enumerated condition has changed." | `suspended` (with a reason code) |
 
-The verbs are closed and legible; the *scope* a verb targets ("the employer-portion", "the
-2024-onward portion", "the licence terms") is free-form and per-claim. Verifiers interpret the verb;
-the scope text tells them what it bites on.
+**Recant is total; restrict is partial and reason-coded.** The crucial refinement over a free-form
+scope: a restriction carries a **fixed, enumerated set of reasons**, not arbitrary text — because a
+verifier has to be able to *interpret* why a claim is restricted, and free-form prose can't be reasoned
+about. The initial reason set (extensible by the same process that governs any shared list, like the
+sovereign-roots list):
+
+- `no-longer-employed-there` — the employer-portion of an enrichment no longer holds.
+- `relationship-ended` — a co-author / collaborator / endorser relationship has ended.
+- `superseded-by-newer` — the subject points to a current claim that replaces this one's standing.
+- `scope-changed` — the licence or terms the subject affirmed have changed.
+- `under-review` — the subject has flagged the claim as being re-examined (a soft, temporary
+  restriction).
+
+Recant needs no reason — it is the subject withdrawing, full stop. Restrict *requires* one of the
+enumerated reasons, so the verifier learns not just *that* the subject narrowed the claim but *why*,
+in a form software can act on. The reason list is fixed-but-extensible; the verbs are fixed and
+closed.
 
 ### The guardrail: a control node is also a censorship surface
 
-A subject-controlled revoke is double-edged. If anyone could insert themselves as a subject node and
-revoke, a *malicious* party could suppress a **true** claim — disputing a genuine bad-conduct
+A subject-controlled recant is double-edged. If anyone could insert themselves as a subject node and
+recant, a *malicious* party could suppress a **true** claim — recanting a genuine bad-conduct
 attestation to bury it. So a subject control node must be **authenticated to the actual subject**:
 either the subject demonstrates domain control of their node, or the issuer co-signs that this is the
 subject's legitimate control point. An unauthenticated "subject" node is a censorship vector and must
