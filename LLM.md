@@ -755,3 +755,5 @@ More: https://issuer.com/public-profile/{id}
 Apache License, Version 2.0 (Apache-2.0)
 
 All code requires Apache 2.0 license header.
+
+**Patents:** none and none possible — the method was publicly disclosed on 17 January 2023 (a dated blog post: "OCR-to-Hash: A Simple Audit Trail for Physical Documents"), so it is unpatentable prior art in every jurisdiction. This is a defensive-publication fact, not a promise. See docs/no-patents-declaration.md. (Distinct from the Apache licence, which is a patent grant on the code; this concerns whether the invention can be patented at all — it can't.)

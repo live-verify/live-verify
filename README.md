@@ -133,6 +133,8 @@ See [docs/issuer-guide.md](docs/issuer-guide.md) for the complete implementation
 
 This isn't patent-locked, and the protocol is intentionally simple. The commercial opportunity is execution: issuer adoption, integrations, and operations.
 
+The method is not merely unencumbered — it is **unpatentable**: it was publicly disclosed in a dated blog post on 17 January 2023, so the novelty window for patenting it has closed in every jurisdiction, for everyone. Adopters can build on it freely with no risk of a later patent. See [No Patents: Defensive Publication Declaration](docs/no-patents-declaration.md).
+
 - **Issuer Registry SaaS**: integrate with systems of record, publish hashes, support revocation, provide response-code meaning pages, meet governance/compliance expectations.
 - **Verifier Ops SaaS**: managed app/SDK distribution, device management, allowlists of issuer domains, optional caching and logging/retention controls (where authorized).
 
@@ -183,3 +185,5 @@ All verification happens client-side — no PII ever leaves your device.
 Apache License, Version 2.0 (Apache-2.0)
 
 See LICENSE file for full text.
+
+**Patents:** none, and none possible. The method was publicly disclosed on 17 January 2023, placing it in the public domain as prior art before any patent could be filed — see [No Patents: Defensive Publication Declaration](docs/no-patents-declaration.md).
