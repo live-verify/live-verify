@@ -1,11 +1,11 @@
 ---
-title: "Self-Attested Authorship & Copyright Claims"
+title: "Self-Attested Authorship, Bylines & Copyright (Decentralized Author Identity)"
 category: "Art, Media & Publishing"
 volume: "Very Large"
 retention: "Work lifetime (copyright term; often life + 70 years)"
 slug: "self-attested-authorship-copyright"
 verificationMode: "clip"
-tags: ["copyright", "authorship", "attribution", "identity-disambiguation", "creator", "self-attested", "ai-provenance", "personal-domain", "post-verification-disclosure"]
+tags: ["copyright", "authorship", "attribution", "identity-disambiguation", "creator", "self-attested", "ai-provenance", "personal-domain", "post-verification-disclosure", "byline", "journalist", "decentralized-identity", "orcid-alternative"]
 furtherDerivations: 1
 ---
 
@@ -50,6 +50,62 @@ verification line — so it can sit unobtrusively in a footer. The verification 
    domain-anchored identity, with whatever disambiguating detail the author chooses to publish.
 
 This combines two faces of one pattern: **the creator asserts; the domain disambiguates.**
+
+## The byline as a decentralized author identity (an ORCID alternative)
+
+For journalists, writers, and researchers, the same primitive does something bigger than mark a
+copyright notice: a **`vfy:` byline becomes a persistent, self-sovereign author identity** — what ORCID
+is for academics, but decentralized and rooted in domain control rather than a single central registry.
+
+A piece carries `Written by Jane Doe — vfy:janedoe.com/me/v`. Resolving that line does the three things
+an author-identity system exists to do:
+
+- **Persistent identifier.** `janedoe.com` *is* the durable, resolvable ID — the role
+  `orcid.org/0000-…` plays, but it's a domain the author already controls, not a record in someone
+  else's database.
+- **Disambiguation.** The domain is unique where the name is not (the "which Paul Hammant?" problem),
+  exactly what an ORCID iD resolves.
+- **Enrichment.** On verification it discloses the author's bio, affiliation, a canonical list of works
+  and the outlets/bylines they stand behind — the equivalent of an ORCID profile, but published by the
+  author on their own domain.
+
+### Where the decentralized version wins — and the one place it doesn't
+
+This is a genuine **ORCID alternative**, and for journalists in particular it is *stronger* on the
+properties that matter most:
+
+| Property | ORCID (central registry) | `vfy:` byline (decentralized) |
+|---|---|---|
+| **Persistent author ID** | Yes — `orcid.org/0000-…` | Yes — the author's own domain |
+| **Disambiguates same names** | Yes | Yes — the domain is unique |
+| **Anti-impersonation** | Weak — anyone can *type* an ORCID iD onto a paper | **Strong** — a forged byline pointing at a domain the forger doesn't control fails to verify |
+| **Self-sovereign / non-revocable** | **No** — the registry (or pressure on it) can suspend, delist, or alter your record | **Yes** — nobody can delist you from your own domain. For journalists in hostile environments this is a press-freedom property, not a convenience |
+| **Survives the registry going away** | No — single point of failure | Yes — no central operator to defund or capture |
+| **Central discovery / aggregation** | **Yes** — one namespace everyone searches to find all of an author's work | **No** — a thousand author-domains are not a searchable index. This is the honest tradeoff |
+
+The one thing a purely decentralized scheme **cannot** match is ORCID's central-discovery value: there
+is no single place to query "everything Jane ever wrote." A domain-anchored byline gives you
+**verification and anti-impersonation** (is *this* byline genuinely hers?) but not **discovery** (find
+all her work). That limit is real and stated plainly rather than glossed.
+
+**The resolution is to compose, not choose.** The domain-anchored byline is the self-sovereign *root*
+of the author's identity (verification, anti-impersonation, non-revocable); ORCID/ISNI then sit as
+**optional endorsers in the chain** (see "Adding weight" below) for authors who *also* want to be found
+in the academic discovery graph. You get decentralized standing by default, with a bridge into the
+central index where it's useful — and you never *depend* on the central registry to prove who wrote
+what.
+
+### Why journalism is the sharpest case
+
+- **Byline integrity in the AI era** — proving a human journalist wrote a piece, not a content farm or
+  an LLM re-byline (complementary to platform-side
+  [AI content provenance disclosure](ai-content-provenance-disclosure.md)).
+- **Stripped-attribution defence** — a syndicated or scraped article that drops the byline no longer
+  verifies as the journalist's; the byline can't be silently swapped without breaking the hash.
+- **Portable reputation** — a freelancer's identity travels with them outlet to outlet, anchored to
+  their own domain rather than locked inside any one masthead's CMS.
+- **Press freedom** — an author identity no central authority can revoke is a meaningful protection for
+  reporters under pressure.
 
 ## The deliberate post-verification disclosure (a named exception to the no-echo rule)
 

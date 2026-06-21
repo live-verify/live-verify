@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-21T12:11:36.458Z",
+  "generated": "2026-06-21T13:07:38.345Z",
   "totalUseCases": 600,
   "totalFurtherDerivations": 927,
   "categories": {
@@ -10289,7 +10289,7 @@
     },
     {
       "slug": "self-attested-authorship-copyright",
-      "title": "Self-Attested Authorship & Copyright Claims",
+      "title": "Self-Attested Authorship, Bylines & Copyright (Decentralized Author Identity)",
       "category": "Art, Media & Publishing",
       "volume": "Very Large",
       "retention": "Work lifetime (copyright term; often life + 70 years)",
@@ -10305,7 +10305,11 @@
         "self-attested",
         "ai-provenance",
         "personal-domain",
-        "post-verification-disclosure"
+        "post-verification-disclosure",
+        "byline",
+        "journalist",
+        "decentralized-identity",
+        "orcid-alternative"
       ]
     },
     {
