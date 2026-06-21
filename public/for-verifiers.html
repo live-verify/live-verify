@@ -174,6 +174,26 @@
         </div>
 
         <div class="card">
+            <h2>It's further ahead than "a hash in a footer" sounds</h2>
+            <p>
+                If you're picturing a static QR-code knockoff, look closer &mdash; the design already answers the
+                attacks an incumbent would raise. Take the obvious one: <em>"a fraudster just photographs the
+                credential and reuses it."</em> The answer is <strong>burn-on-verify</strong>: a high-risk
+                credential (an officer's e-ink badge, a single-use access token) carries a rotating cryptographic
+                salt, and the moment it is verified, that proof is consumed &mdash; the badge re-renders and the
+                photograph is worthless seconds later. A stored image is a picture of a dead credential.
+            </p>
+            <p>
+                And the thing being delivered at the point of use isn't a yes/no &mdash; it's a
+                <strong>jurisdictional reveal</strong>. At a doorstep or a traffic stop, the human reads the domain
+                and trusts their gut while the device walks the authority chain to a sovereign root, both resolving
+                in the same instant (we call it <em>dual-channel trust</em>). This is the kind of "ahead of the
+                curve" detail worth respecting before deciding the space is a commodity: the floor is a hash lookup;
+                the ceiling is real-world physical-safety infrastructure.
+            </p>
+        </div>
+
+        <div class="card">
             <h2>A note for the investor reading over the operator's shoulder</h2>
             <p>
                 If you hold verification-services assets in a portfolio, the standard reframes the question from
