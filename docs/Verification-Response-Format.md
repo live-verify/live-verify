@@ -323,11 +323,20 @@ See [PIN-Protected Verification](Technical_Concepts.md#pin-protected-verificatio
 
 | Status       | Meaning                                           | Verifier Action                                     |
 |--------------|---------------------------------------------------|-----------------------------------------------------|
-| `verified`   | Document is authentic and current                 | Show green "VERIFIED"                               |
+| `verified`   | Document is authentic as of its stated date (see note) | Show green "VERIFIED"                          |
 | `expired`    | Document was valid but has passed its expiry date | Show amber warning; request fresh document          |
 | `revoked`    | Document was explicitly invalidated by issuer     | Show red "REVOKED"; do not trust                    |
 | `superseded` | A newer version of this document exists           | Show amber; request updated document                |
 | `404`        | Hash not found                                    | Show red "NOT FOUND"; possible forgery or OCR error |
+
+> **Note on `verified` — authentic is not the same as current.** `verified` attests that the issuer
+> produced this document, unaltered, **as of its stated date**. It does *not* guarantee the document
+> still reflects current reality. A genuine bank statement for a since-closed account, or a real
+> insurance certificate for a since-lapsed policy, both return `verified` and are both misleading if
+> read as present truth. Whether a document is *current* is a separate question the verifier must ask —
+> via the as-at date, proof expiry, or a live status re-check. See
+> [Point-in-Time vs Current](point-in-time-vs-current.md) for the distinction between *staleness* (a
+> never-revoked snapshot that has aged) and *revocation* (the issuer affirmatively withdrew the claim).
 
 ### Domain-Specific Statuses
 
