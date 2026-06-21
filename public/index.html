@@ -310,6 +310,46 @@
         .scenario-videos a:hover { text-decoration-color: #aecbff; }
         .scenario-videos .video-duration { opacity: 0.75; }
 
+        /* ---- Intro-video launchpad (animated explainers, open in an in-page lightbox) ---- */
+        .intro-videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin: 14px 0 8px; }
+        .intro-video {
+            display: block; text-align: left; cursor: pointer; color: inherit;
+            background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 12px; padding: 0; overflow: hidden; font: inherit;
+            transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease; width: 100%;
+        }
+        .intro-video:hover { transform: translateY(-2px); border-color: var(--accent-ring); box-shadow: var(--shadow-md); }
+        .intro-video .iv-thumb {
+            position: relative; aspect-ratio: 16 / 9; background-size: cover; background-position: center;
+            background-color: #0b1730; display: flex; align-items: center; justify-content: center;
+        }
+        .intro-video .iv-play {
+            width: 54px; height: 54px; border-radius: 50%; background: rgba(0,0,0,0.55);
+            border: 2px solid rgba(255,255,255,0.85); display: flex; align-items: center; justify-content: center;
+        }
+        .intro-video .iv-play::after { content: ""; border-style: solid; border-width: 9px 0 9px 15px; border-color: transparent transparent transparent #fff; margin-left: 3px; }
+        .intro-video:hover .iv-play { background: var(--accent); border-color: #fff; }
+        .intro-video .iv-meta { padding: 12px 14px 14px; }
+        .intro-video .iv-title { font-weight: 700; font-size: 0.98em; color: #fff; }
+        .intro-video .iv-sub { font-size: 0.84em; color: rgba(230,237,248,0.7); margin-top: 3px; }
+
+        /* ---- Video lightbox overlay ---- */
+        .video-lightbox {
+            position: fixed; inset: 0; z-index: 1000; display: none;
+            align-items: center; justify-content: center; padding: 24px;
+            background: rgba(6, 12, 26, 0.86);
+        }
+        .video-lightbox[aria-hidden="false"] { display: flex; }
+        .video-lightbox .vl-frame { position: relative; width: min(960px, 100%); aspect-ratio: 16 / 9; }
+        .video-lightbox iframe { width: 100%; height: 100%; border: 0; border-radius: 12px; box-shadow: 0 24px 60px rgba(0,0,0,0.6); background: #000; }
+        .video-lightbox .vl-close {
+            position: absolute; top: -14px; right: -14px; width: 40px; height: 40px; border-radius: 50%;
+            background: #fff; color: #0f172a; border: 0; font-size: 1.4em; line-height: 1; cursor: pointer;
+            box-shadow: var(--shadow-md); display: flex; align-items: center; justify-content: center;
+        }
+        .video-lightbox .vl-close:hover { background: var(--accent); color: #fff; }
+        @media (max-width: 520px) { .video-lightbox .vl-close { top: -48px; right: 0; } }
+
         /* ---- Use-case category grid ---- */
         .category-grid {
             display: grid;
@@ -619,7 +659,26 @@
         <div class="card dark" id="testResults">
             <h2>Watch it work</h2>
 
-            <h3 style="margin-top: 16px; font-size: 1em; opacity: 0.85;">Real documents, real phones</h3>
+            <h3 style="margin-top: 16px; font-size: 1em; opacity: 0.85;">Start here &mdash; two short explainers</h3>
+            <p style="font-size: 0.92em; opacity: 0.8; margin-top: 4px;">Animated walkthroughs of the two highest-stakes moments. They play here, in the page.</p>
+            <div class="intro-videos">
+                <button type="button" class="intro-video" data-yt="EUI27wJnAQM" aria-label="Play: The Threshold Problem">
+                    <span class="iv-thumb" style="background-image: url('https://i.ytimg.com/vi/EUI27wJnAQM/hqdefault.jpg');"><span class="iv-play" aria-hidden="true"></span></span>
+                    <span class="iv-meta">
+                        <span class="iv-title">The Threshold Problem</span>
+                        <span class="iv-sub">Midnight at the door &mdash; is this really a police officer? Dual-channel trust &amp; burn-on-verify.</span>
+                    </span>
+                </button>
+                <button type="button" class="intro-video" data-yt="cGRqqKLnxFQ" aria-label="Play: The KYC Counter">
+                    <span class="iv-thumb" style="background-image: url('https://i.ytimg.com/vi/cGRqqKLnxFQ/hqdefault.jpg');"><span class="iv-play" aria-hidden="true"></span></span>
+                    <span class="iv-meta">
+                        <span class="iv-title">The KYC Counter</span>
+                        <span class="iv-sub">A bank official verifies a presented statement &mdash; page-at-a-time, rows and all.</span>
+                    </span>
+                </button>
+            </div>
+
+            <h3 style="margin-top: 24px; font-size: 1em; opacity: 0.85;">Real documents, real phones</h3>
 
             <div class="screenshot-scenario">
                 <h4>A real peer reference &mdash; hash live on the referee's own website, today</h4>
@@ -896,6 +955,48 @@
             .catch(() => {
                 // Silently degrade — stats just show "..."
             });
+    </script>
+
+    <!-- In-page video lightbox (for the intro explainer videos) -->
+    <div class="video-lightbox" id="videoLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Video player">
+        <div class="vl-frame">
+            <button type="button" class="vl-close" id="videoLightboxClose" aria-label="Close video">&times;</button>
+            <div id="videoLightboxMount"></div>
+        </div>
+    </div>
+    <script>
+        (function () {
+            var box = document.getElementById('videoLightbox');
+            var mount = document.getElementById('videoLightboxMount');
+            var closeBtn = document.getElementById('videoLightboxClose');
+            if (!box || !mount || !closeBtn) return;
+
+            function open(id) {
+                // youtube-nocookie + autoplay only on explicit user click
+                var iframe = document.createElement('iframe');
+                iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?autoplay=1&rel=0';
+                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                iframe.allowFullscreen = true;
+                iframe.setAttribute('title', 'Live Verify intro video');
+                mount.innerHTML = '';
+                mount.appendChild(iframe);
+                box.setAttribute('aria-hidden', 'false');
+                closeBtn.focus();
+            }
+            function close() {
+                box.setAttribute('aria-hidden', 'true');
+                mount.innerHTML = ''; // stop playback
+            }
+
+            document.querySelectorAll('.intro-video[data-yt]').forEach(function (btn) {
+                btn.addEventListener('click', function () { open(btn.getAttribute('data-yt')); });
+            });
+            closeBtn.addEventListener('click', close);
+            box.addEventListener('click', function (e) { if (e.target === box) close(); });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && box.getAttribute('aria-hidden') === 'false') close();
+            });
+        })();
     </script>
 </body>
 </html>
