@@ -11,11 +11,13 @@ furtherDerivations: 2
 
 > **See also:** [E-Ink ID Cards](../e-ink-id-cards.md) — comprehensive guide to rotating-salt badges, security properties, and high-risk interactions.
 
-## What is Police Officer Verification?
+## The Threshold Moment
 
-When a citizen is pulled over in a traffic stop (especially by an unmarked vehicle) or is visited at home by someone claiming to be a police officer, they have a critical need to know: **"Is this person actually a law enforcement officer?"**
+It is midnight. A loud knock. Through the peephole, a stranger claiming to be a police officer. In that split-second window — open the door or not, comply or not — a citizen has to make a safety decision they cannot take back, and they have to make it *now*, not after ten minutes on hold with a dispatch centre while someone is banging on the door. This is the **threshold moment**, and it is the same moment in a traffic stop by an unmarked vehicle: **"Is this person actually a law enforcement officer?"**
 
-Criminals frequently use fake badges, uniforms, and dashboard lights to impersonate officers. Even legitimate officers may sometimes be under suspension or have had their authority revoked.
+Live Verify resolves it through [dual-channel trust](../../docs/dual-channel-trust.md) — two checks that land at the same instant. The citizen reads the plain-text claim on the officer's badge (a name, a rank, and a `vfy:` line), and *their own judgement* runs the **human channel**: "`met.police.uk` — that's a real police domain; if this checks out, I'm safer," versus balking at "`realpoliceverified.com` — that's not government, I don't trust that." At the same moment their phone runs the **machine channel**: it walks the [authority chain](../../docs/authority-chain-app-display.md) from the department's domain up to a [sovereign root](../../docs/sovereign-roots.md), cryptographically proving which jurisdiction stands behind the badge — in under a second. When the gut read and the proof click into place together, a sovereign government stands behind the person on the porch.
+
+Criminals frequently use fake badges, uniforms, and dashboard lights to impersonate officers. Even legitimate officers may sometimes be under suspension or have had their authority revoked. And with **burn-on-verify** badges (see [E-Ink ID Cards](../e-ink-id-cards.md)), a photograph of a credential is worthless seconds after it is taken — the credential the citizen verifies must be live, in the moment.
 
 Live Verify allows a citizen to scan the officer's ID card to get a real-time "Authenticated" status directly from the department's official domain (e.g., `nypd.gov` or `met.police.uk`), without requiring the officer to divulge personal home addresses or private details.
 
