@@ -42,7 +42,11 @@ Alteration of balances is a federal crime.
 
 ## Data Verified
 
-Account holder name, account number (masked), ending balance, total deposits, total withdrawals, statement date range, issuing branch/entity.
+The full visible text of the **verified page** — account holder name, account number (masked), the summary block (balances, deposits, withdrawals, statement date range, issuing entity), **and the transaction rows on that page**. This is [page-at-a-time hashing](../../docs/page-at-a-time-hashing.md): the verifiable unit is one rendered page, so a deleted withdrawal or inserted deposit *on a page you check* changes that page's hash and fails to verify — not just the summary balance. A multi-page statement has one hash per page.
+
+**Reliability depends on how the page is read.** In Chrome-extension mode (DOM text, no OCR) and future PDF mode (text-layer extraction), a full page of dense rows hashes deterministically — this is the strong path, and the one to prefer for a presented statement. Camera-OCR on a *printed* dense page is more fragile: every misread row breaks the page hash, so on paper the reliable unit may fall back to the summary block. The app should tell the verifier which was checked, never imply the rows were verified when OCR couldn't read them.
+
+**The "removed page" caveat.** Verifying the pages you are *shown* does not prove you were shown *all* of them — a fraudster could present pages 1, 2, and 4 and omit page 3. Where completeness matters (as in KYC), the optional `compositeHash` manifest reports `thisPage` / `totalPages`, so a missing page is detectable. See [page-at-a-time hashing](../../docs/page-at-a-time-hashing.md).
 
 **Document Types:**
 - **Monthly Account Statement:** Standard retail/commercial proof.
