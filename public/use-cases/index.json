@@ -1,7 +1,7 @@
 {
-  "generated": "2026-06-21T05:36:36.638Z",
-  "totalUseCases": 599,
-  "totalFurtherDerivations": 926,
+  "generated": "2026-06-21T12:11:36.458Z",
+  "totalUseCases": 600,
+  "totalFurtherDerivations": 927,
   "categories": {
     "Real Estate & Property": 44,
     "Charitable & Non-Profit": 8,
@@ -13,7 +13,7 @@
     "Government & Civic Documents": 36,
     "Notary Services": 7,
     "Immigration & Visa Documents": 18,
-    "Legal & Court Documents": 24,
+    "Legal & Court Documents": 25,
     "Identity & Authority Verification": 59,
     "Insurance Claims & Operations": 15,
     "Chain of Custody & Logistics": 18,
@@ -1047,7 +1047,7 @@
       "retention": "7-10 years (loan term + disputes)",
       "verificationMode": "clip",
       "furtherDerivations": 1,
-      "snippet": "Account holder name, account number (masked), ending balance, total deposits, total withdrawals, statement date range, issuing branch/entity.",
+      "snippet": "The full visible text of the verified page — account holder name, account number (masked), the summary block (balances, deposits, withdrawals, statement date range, issuing entity), and the transactio",
       "tags": [
         "bank",
         "statement",
@@ -12289,6 +12289,26 @@
       ]
     },
     {
+      "slug": "worker-status-in-law-enforcement-encounters",
+      "title": "Worker Status in Law-Enforcement Encounters (Worker-Initiated De-Escalation)",
+      "category": "Legal & Court Documents",
+      "volume": "Medium",
+      "retention": "Encounter only (ephemeral); no log of the check by default",
+      "verificationMode": "both",
+      "furtherDerivations": 1,
+      "snippet": "",
+      "tags": [
+        "gig-economy",
+        "de-escalation",
+        "right-to-decline",
+        "civil-liberties",
+        "on-duty",
+        "power-asymmetry",
+        "papers-please",
+        "worker-safety"
+      ]
+    },
+    {
       "slug": "workers-comp-certificates",
       "title": "Workers' Compensation Insurance Certificates",
       "category": "Commercial Lines Insurance",
@@ -12356,12 +12376,12 @@
       "count": 26
     },
     {
-      "name": "Professional & Educational Qualifications",
+      "name": "Legal & Court Documents",
       "count": 25
     },
     {
-      "name": "Legal & Court Documents",
-      "count": 24
+      "name": "Professional & Educational Qualifications",
+      "count": 25
     },
     {
       "name": "Specialty Insurance",

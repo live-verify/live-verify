@@ -134,4 +134,4 @@ Self-authorized: a commercial entity attesting facts about its own workforce. Se
 
 ## Further Derivations
 
-None currently.
+1. **Worker status in law-enforcement encounters** — the same on-duty primitive used *by the worker, on their own initiative*, to de-escalate a police stop ("I'm on an active shift right now"), with strict civil-liberties guardrails: it is declinable, and its absence is never suspicion. See [Worker Status in Law-Enforcement Encounters](worker-status-in-law-enforcement-encounters.md).

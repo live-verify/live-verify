@@ -147,8 +147,9 @@ and can prove the difference to others.
 ### Worker verification becoming labor surveillance
 
 - [Remote Worker Identity and Access Verification](view.html?doc=remote-worker-identity-and-access-verification)
+- [Worker Status in Law-Enforcement Encounters](view.html?doc=worker-status-in-law-enforcement-encounters)
 
-This control is strongest when narrowly targeted to assignment, access, and substitution risk. It becomes problematic if expanded into generalized worker-tracking or disproportionate location monitoring.
+This control is strongest when narrowly targeted to assignment, access, and substitution risk. It becomes problematic if expanded into generalized worker-tracking or disproportionate location monitoring. The law-enforcement-encounter case is the sharpest instance: it is legitimate only as **worker-initiated** de-escalation that the citizen may decline with no adverse inference, and turns into "papers, please" the moment an authority can compel it or read its absence as suspicion.
 
 ### Release-fee mandates becoming coercive bottlenecks
 
