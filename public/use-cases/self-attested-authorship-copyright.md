@@ -197,18 +197,93 @@ per-claim salt an attacker could enumerate or pre-compute likely notices. The sa
 author and present in the verifiable text — makes each claim's hash unique and unguessable, while the
 disclosure exposes only the identity information the author chose to publish.
 
+## Adding weight: who can endorse the claim
+
+A bare self-attestation is the floor, not the ceiling. The author can layer **endorsers** into the
+authority chain, each adding a *different kind* of weight — so you choose the endorser that matches
+the assurance the situation actually needs. The crucial point is that different endorsers attest
+different things; they are not interchangeable.
+
+**A. Co-authorship weight — "others independently agree on who made this"**
+- **Co-authors / collaborators / band members / co-maintainers** — another creator's domain endorses
+  "we made this together; this person's portion is X." Two independent domains agreeing is far harder
+  to forge than one asserting. For open source, the contributor/commit graph is itself a form of
+  distributed co-attestation.
+
+**B. Witnessing weight — "a neutral third party saw this, identity-checked, at a time"**
+- **Notary** — attests "this identity-verified person asserted this claim on this date," adding
+  identity + timestamp weight (see [Notary Services](notary-documents.md)).
+- **Solicitor / witnessing firm / timestamping service** — non-repudiation and proof the claim
+  existed at time T (the project's [legal-witnessing](../../docs/legal-witnessing-future-architecture.md)
+  three-role model).
+
+**C. Institutional / employment weight — "the entity that owns or sponsors the work confirms it"**
+- **Employer** — attests whether the work was done in the course of employment. This decides the
+  single most consequential copyright question — **work-for-hire vs. personal** — and is the sharpest
+  way to disambiguate corporate from individual authorship.
+- **University / research institution** — affiliation plus that the work is the author's.
+- **Publisher / label / studio** — attests it holds or licensed rights from this author (ties to
+  [Publishing Contracts & Royalties](publishing-contracts-royalties.md)).
+
+**D. Stewardship / governance weight — "the project or community vouches for the contributor"**
+- **Open-source foundation** (Apache, Linux Foundation, FSF) or **the project's own org** — attests
+  "a recognized maintainer/contributor under our governance." For this repository, the `live-verify`
+  GitHub org is the natural endorser of "Paul Hammant maintains this."
+- **Standards body / working group** — for spec authorship; **collective / DAO** — for
+  community-owned works.
+
+**E. Registry / official weight — "an authority has it on record"**
+- **Author-identity registries — ORCID, ISNI** — purpose-built *disambiguators*. An ORCID endorsement
+  is arguably the single most natural answer to the "which Paul Hammant?" problem, because resolving
+  same-name ambiguity is exactly what these registries exist to do.
+- **National copyright office** (`copyright.gov`, `ipo.gov.uk`) — the strongest, but only for
+  *registered* works; this is the bridge to [Copyright Registrations](copyrights.md).
+- **Collective management orgs** (PRS, ASCAP, BMI) — for music rights specifically.
+
+**F. Platform / distribution weight — "where the work lives confirms the uploader"**
+- **Spotify / app store / repository host** — attests "the account that uploaded this is
+  domain-linked to this author." This directly resolves the two-Paul-Hammants case: the musician's
+  domain is endorsed by Spotify, this author's by the GitHub org, and the two never collide.
+
+### Choosing — match the endorser to how contested the work is
+
+| Assurance needed | Endorser to add |
+|---|---|
+| Disambiguate same-name creators | **ORCID / ISNI**, or the distribution platform |
+| Shared / collaborative work | **Co-author** cross-attestation |
+| Personal vs. work-for-hire | **Employer** |
+| "Existed at date T, identity-checked" | **Notary / witnessing firm** |
+| Community / project recognition | **Open-source foundation** or project org |
+| Legal standing to sue | **National copyright office** (→ registration) |
+
+Endorsers compose: a chain can pass through several, each adding a distinct dimension, terminating
+wherever the assurance legitimately runs out (and remaining honestly *unanchored* if it stops at a
+personal or community level — that is a valid state, not a failure).
+
 ## Authority Chain
 
-**Pattern:** Personal / Self-Attested.
+**Pattern:** Personal / Self-Attested — optionally endorsed.
 
-The claim is asserted by the creator from their own domain. There is no regulatory chain — and that
-is appropriate: a self-attested copyright notice is a personal assertion, judged on the credibility
-of the domain, not endorsed by an authority.
+In its base form the claim is asserted by the creator from their own domain, with no regulatory chain
+— appropriate for a personal copyright notice, judged on the credibility of the domain:
 
 ```
 ✓ paulhammant.com/cr/lvfy — Asserts authorship/copyright for this work
   (self-attested; legitimately unanchored — judged on the domain itself)
 ```
+
+With endorsers layered in (see "Adding weight" above), the chain gains independent corroboration —
+here a project org and an author-identity registry, each attesting a different thing:
+
+```
+✓ paulhammant.com/cr/lvfy — Asserts authorship/copyright for this work
+  ✓ github.com/live-verify — Confirms this person maintains the project (stewardship)
+  ✓ orcid.org/0000-0000-0000-0000 — Resolves "which Paul Hammant" (identity registry)
+```
+
+Each endorsement is independently verified (an endorser's 404 breaks only that link, surfaced as a
+broken chain — never silently dropped). Endorsers are additive: an employer link could establish
+work-for-hire scope, a notary link could add an identity-checked timestamp, and so on.
 
 For works that *are* officially registered, the chain instead runs through the national copyright
 office; see [Copyright Registrations](copyrights.md) and
