@@ -2,6 +2,10 @@
 
 How Live Verify claims behave when sent over SMS, RCS, WhatsApp, iMessage, and similar messaging systems.
 
+> For carrying a claim with a *phone call* rather than a message — SIP signaling headers on
+> VoIP/VoLTE/VoNR, with the RCS side-channel as the legacy fallback — see the sibling
+> [Voice-Call Transport](voice-call-transport.md).
+
 ## The Line-Ending Question
 
 `normalizeText()` handles `\r\n` vs `\n` vs `\r` identically — all three normalize the same way. It also strips leading/trailing whitespace per line, collapses multiple spaces, and removes blank lines. So a claim that arrives with different line endings than it was authored with will still produce the same hash.

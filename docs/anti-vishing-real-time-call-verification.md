@@ -15,6 +15,12 @@ Current defences all fail at the point of decision:
 
 ## The Design: RCS-Delivered Live Verify Claim with One-Time Code Words
 
+> This RCS path is one of two voice-call delivery channels. On VoIP/VoLTE/VoNR calls the claim can ride
+> the **SIP signaling layer** silently, surfacing a verified status on the incoming-call screen *before*
+> the user answers; RCS (below) is the robust fallback for PSTN/legacy legs. Both are compared in
+> [Voice-Call Transport](voice-call-transport.md). The one-time code words remain the recommendation
+> for high-stakes calls regardless of delivery path — they bind the claim to the actual voice.
+
 The solution has two components:
 
 1. **RCS (Rich Communication Services)** as the delivery mechanism — gets a verifiable claim onto the customer's phone screen during the call, without requiring the customer to hang up or switch apps
