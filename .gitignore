@@ -28,3 +28,6 @@ target/
 .terraform/
 terraform.tfstate*
 *.tfvars
+
+# Generated NotebookLM upload bundle (regenerate via scripts/package-for-notebooklm.js)
+package-notebooklm/
