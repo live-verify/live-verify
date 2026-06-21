@@ -235,6 +235,9 @@ Pay-per-mile insurance requires verified odometer readings. Telematics attestati
 **Supply Chain Transparency**
 Each handler adds their attestation. Final recipient sees complete verified journey.
 
+**Live Environmental Status Displays (defeating the "pencil-whipped" sheet)**
+Static "Last Cleaned / Last Inspected" sheets on a wall are trivially falsified — signed off without the work being done (the "pencil-whipped" problem). A machine attestation bound to a *live* sensor feed replaces the plaque with a verifiable, current claim: an e-ink display in a hospital ward, hotel gym, food-prep area, or office lobby shows a hash bound to real readings — HEPA-filter pressure, CO2 level, water temperature, or recent autonomous cleaning-bot cycles. An occupant scans it and gets metrology-grade trust that the environment meets standard **right now**, not a static sheet from three months ago. Because the attestation is the sensor's own (machine-signed), and because it is a [point-in-time reading](../../docs/point-in-time-vs-current.md), it should carry an as-at timestamp and a short validity window — a captured photo of the display is a reading of a past moment, not the present state.
+
 
 ## Jurisdictional Witnessing (Optional)
 

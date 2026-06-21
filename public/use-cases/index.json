@@ -1,7 +1,7 @@
 {
-  "generated": "2026-06-21T13:07:38.345Z",
-  "totalUseCases": 600,
-  "totalFurtherDerivations": 927,
+  "generated": "2026-06-21T15:23:50.744Z",
+  "totalUseCases": 602,
+  "totalFurtherDerivations": 929,
   "categories": {
     "Real Estate & Property": 44,
     "Charitable & Non-Profit": 8,
@@ -13,7 +13,7 @@
     "Government & Civic Documents": 36,
     "Notary Services": 7,
     "Immigration & Visa Documents": 18,
-    "Legal & Court Documents": 25,
+    "Legal & Court Documents": 26,
     "Identity & Authority Verification": 59,
     "Insurance Claims & Operations": 15,
     "Chain of Custody & Logistics": 18,
@@ -24,7 +24,7 @@
     "Customs & Trade Compliance": 8,
     "Sports & Athletics": 6,
     "Financial Compliance": 26,
-    "Business & Commerce": 30,
+    "Business & Commerce": 31,
     "Specialty Insurance": 23,
     "Banking & Payments": 31,
     "Investment & Fintech": 23,
@@ -10313,6 +10313,27 @@
       ]
     },
     {
+      "slug": "service-of-process-verification",
+      "title": "Service of Process & Legal Document Authenticity",
+      "category": "Legal & Court Documents",
+      "volume": "Large",
+      "retention": "Life of the case + appeal periods",
+      "verificationMode": "both",
+      "furtherDerivations": 1,
+      "snippet": "Court name and jurisdiction, case number, plaintiff and defendant names, document type, response deadline and hearing date, issuing clerk, and the random salt. The endpoint never echoes any of this ba",
+      "tags": [
+        "service-of-process",
+        "summons",
+        "subpoena",
+        "court",
+        "legal-document",
+        "evidence-of-receipt",
+        "anti-scam",
+        "tx-receipt",
+        "messaging-delivery"
+      ]
+    },
+    {
       "slug": "settlement-statements",
       "title": "Settlement Statements (HUD-1, ALTA)",
       "category": "Real Estate & Property",
@@ -10331,6 +10352,26 @@
         "escrow-audit",
         "tax-compliance",
         "property-transfer"
+      ]
+    },
+    {
+      "slug": "shelf-edge-price-verification",
+      "title": "Shelf-Edge Price Verification (Truth in Pricing)",
+      "category": "Business & Commerce",
+      "volume": "Very Large",
+      "retention": "Price validity window (short-lived; re-published on change)",
+      "verificationMode": "camera",
+      "furtherDerivations": 1,
+      "snippet": "Product description, SKU (the canonical product identity), the displayed price, the previous (\"was\") price where a promotion applies, the promotional end-date, the issuing retailer, the as-at date the",
+      "tags": [
+        "retail",
+        "pricing",
+        "price-switch-fraud",
+        "shelf-edge",
+        "trading-standards",
+        "consumer-protection",
+        "point-in-time",
+        "sku"
       ]
     },
     {
@@ -12368,20 +12409,20 @@
       "count": 36
     },
     {
+      "name": "Business & Commerce",
+      "count": 31
+    },
+    {
       "name": "Banking & Payments",
       "count": 31
     },
     {
-      "name": "Business & Commerce",
-      "count": 30
+      "name": "Legal & Court Documents",
+      "count": 26
     },
     {
       "name": "Financial Compliance",
       "count": 26
-    },
-    {
-      "name": "Legal & Court Documents",
-      "count": 25
     },
     {
       "name": "Professional & Educational Qualifications",

@@ -246,6 +246,9 @@ Political promises as commitments. Verified resolution at term end.
 **Research Pre-Registration**
 Scientific predictions committed before experiments. Prevents p-hacking and HARKing.
 
+**Whistleblower Pre-Commitment ("dead man's switch of truth")**
+The same hash-now-reveal-later primitive lets someone document an observation *before* they are ready to disclose it. A whistleblower hashes a detailed account of misconduct and publishes only the hash (timestamped, verifiable) — disclosing nothing yet. If they are later retaliated against, they can produce the plaintext that matches the years-old verified hash, proving they knew, and *when*, without having had to go public earlier. This pairs with [Identity Escrow & Personal Safety](identity-escrow-personal-safety.md) for the protective-disclosure side: the hash establishes prior knowledge; the escrow governs if and when the identity behind it is revealed.
+
 
 ## Jurisdictional Witnessing (Optional)
 

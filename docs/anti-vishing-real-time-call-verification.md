@@ -193,3 +193,7 @@ The same RCS + Live Verify model applies to any organisation that makes outbound
 - **Delivery companies** — "your parcel is held, pay a fee" scams
 
 Each organisation registers as a verified RCS sender, generates per-call Live Verify claims, and publishes them to its own domain. The customer experience is the same regardless of who is calling: a verified notification arrives during the call, or it doesn't.
+
+### Outbound AI agents (the deepfake-voice case)
+
+This becomes sharper as organisations deploy **autonomous AI agents** for outbound calls. An AI voice is, by construction, a perfect synthetic voice — so "does the caller *sound* legitimate?" stops being any signal at all, and the structural asymmetry this doc addresses gets worse, not better. The defence is unchanged and, if anything, more necessary: the AI agent must produce a verifiable Live Verify claim (RCS-delivered, bound to the provider's domain) and **speak back the one-time code words** that appear in it. A deepfake voice cannot fake a code word it was never given, and cannot publish a hash to a domain it does not control. The customer (or their phone) sets the cryptographic terms; the synthetic voice either satisfies them in the moment or it doesn't — exactly the [dual-channel trust](dual-channel-trust.md) reversal applied to a call the human can no longer judge by ear.
