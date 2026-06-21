@@ -71,7 +71,7 @@ Impostors pose multiple threats: they can steal high-value equipment (lighting r
   </div>
 </div>
 
-*The server rotates the salt — after each successful scan (VCRS) or on TTL expiry of an unscanned salt — and the badge re-renders to match. The screen is always in lockstep with the salt the server will honour, so a photograph is worthless unless verified in the moment. See [E-Ink ID Cards](../e-ink-id-cards.md) for how this prevents cloning and zone-hopping.*
+*The server rotates the salt — after each successful scan (burn-on-verify) or on TTL expiry of an unscanned salt — and the badge re-renders to match. The screen is always in lockstep with the salt the server will honour, so a photograph is worthless unless verified in the moment. See [E-Ink ID Cards](../e-ink-id-cards.md) for how this prevents cloning and zone-hopping.*
 
 ## Data Verified
 

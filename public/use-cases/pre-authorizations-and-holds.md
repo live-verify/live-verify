@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 Most approvals are open-ended: once granted, they stand until rescinded. A **pre-authorization** is different — it is *conditional, time-boxed, and often single-use*. It says: *this is approved in advance, up to this limit, for this purpose, until this moment.* A health insurer pre-authorizes a procedure. A card network places a pre-auth hold for a hotel or fuel purchase. A retailer approves a return (RMA) before goods are sent back. A lender pre-approves a borrower up to a ceiling. A travel authorization clears entry for a window.
 
-This is the **"other dynamic"** of approvals — the one whose defining features are *expiry* and *consumption*. A pre-authorization is meant to be used once (or within a window) and then to stop being valid. That makes it a natural fit for Live Verify's re-salting mechanisms: [Verification-Consumed Re-Salting (VCRS)](../../docs/Technical_Concepts.md#verification-consumed-re-salting-vcrs) for single-use approvals that should not be replayable, and [Owner-Initiated Re-Salting with Timeout (OIRST)](../../docs/Technical_Concepts.md#owner-initiated-re-salting-with-timeout-oirst) for holder-controlled, time-limited validity.
+This is the **"other dynamic"** of approvals — the one whose defining features are *expiry* and *consumption*. A pre-authorization is meant to be used once (or within a window) and then to stop being valid. That makes it a natural fit for Live Verify's re-salting mechanisms: [burn-on-verify](../../docs/Technical_Concepts.md#burn-on-verify) (the salt is consumed the moment it's verified) for single-use approvals that should not be replayable, and [owner-issued expiring links](../../docs/Technical_Concepts.md#owner-issued-expiring-links) for holder-controlled, time-limited validity.
 
 The fraud surface is precisely the time-and-use dimension: a pre-authorization that was already used, has expired, or never existed, presented as live to obtain treatment, goods, money, or a refund.
 
@@ -55,7 +55,7 @@ Each shares the structure: approved in advance, capped, time-limited, and freque
 
 ## The Approval Fraud Problem
 
-- **Replay** — A genuine, already-used authorization is presented again to obtain a second service, capture, or refund. **VCRS** defeats this: the link is consumed on first successful verification and re-salts, so a replayed copy fails.
+- **Replay** — A genuine, already-used authorization is presented again to obtain a second service, capture, or refund. **Burn-on-verify** defeats this: the link is consumed on first successful verification and re-salts, so a replayed copy fails.
 - **Expired-as-live** — An authorization whose window has closed is presented as current. The endpoint returns EXPIRED rather than verifying.
 - **Limit / scope inflation** — A pre-auth for one MRI or a £400 hold is edited to cover more units or a higher amount. Binding units and limits into the hash breaks the tampered copy.
 - **Phantom authorization** — A fabricated "approved" letter or hold confirmation with no real record behind it.
@@ -67,7 +67,7 @@ Issuer, authorization number, the approved service/purpose, the approved limit (
 
 ## Privacy Salt
 
-Pre-authorizations frequently concern sensitive matters (a named person's medical procedure, a cardholder's spending). Where the verifiable text would otherwise let an interceptor enumerate or reconstruct sensitive facts, the issuer salts the record and minimizes plaintext (e.g., "[name on file]"). For single-use authorizations, **VCRS** additionally rotates the salt on each successful verification, so an intercepted link cannot be replayed or used to probe.
+Pre-authorizations frequently concern sensitive matters (a named person's medical procedure, a cardholder's spending). Where the verifiable text would otherwise let an interceptor enumerate or reconstruct sensitive facts, the issuer salts the record and minimizes plaintext (e.g., "[name on file]"). For single-use authorizations, **burn-on-verify** additionally rotates the salt on each successful verification, so an intercepted link cannot be replayed or used to probe.
 
 ## Data Visible After Verification
 
@@ -85,7 +85,7 @@ Shows the issuer domain (e.g., `meridianhealth.com`) and the current status of t
 **Status Indications:**
 - **Approved — valid** — Within the window, not yet consumed; safe to act on.
 - **Pending capture / not yet used** — A hold is in place but not finalized.
-- **Consumed / captured** — The single-use authorization has already been used; further use is invalid (VCRS returns this on replay).
+- **Consumed / captured** — The single-use authorization has already been used; further use is invalid (burn-on-verify returns this on replay).
 - **Expired** — The validity window has closed.
 - **Revoked** — Withdrawn before use (eligibility lapse, fraud flag, cancellation).
 - **404** — No such authorization exists (never issued, forged, or OCR error).
@@ -96,7 +96,7 @@ The **holder** (patient, cardholder, borrower, returning customer) benefits.
 
 **Proof at the point of service:** A patient arriving for a procedure can show the provider a verifiable, in-window authorization rather than a screenshot the front desk must phone to confirm. A pre-approved borrower can prove their ceiling to a seller on the spot.
 
-**Holder-controlled exposure (OIRST):** For high-value or sensitive pre-approvals, the holder can use a timed, holder-initiated link so the authorization is only verifiable when they choose, and only for a short window — preventing standing exposure of a sensitive approval.
+**Holder-controlled exposure (owner-issued expiring links):** For high-value or sensitive pre-approvals, the holder can use a timed, holder-initiated link so the authorization is only verifiable when they choose, and only for a short window — preventing standing exposure of a sensitive approval.
 
 ## Third-Party Use
 
@@ -124,7 +124,7 @@ The **holder** (patient, cardholder, borrower, returning customer) benefits.
 - Limits and units are edited to inflate what was approved
 - Sensitive pre-auths (medical, financial) risk exposure if left as standing, enumerable links
 
-**The Fix:** The issuer publishes a verifiable authorization record at its domain with an explicit window and single-use flag. **VCRS** consumes and re-salts single-use authorizations on first verification; **OIRST** gives holders timed, on-demand validity for sensitive cases. The relying party's decision is driven by the live status, not by reading a printed date.
+**The Fix:** The issuer publishes a verifiable authorization record at its domain with an explicit window and single-use flag. **Burn-on-verify** consumes and re-salts single-use authorizations on first verification; **owner-issued expiring links** give holders timed, on-demand validity for sensitive cases. The relying party's decision is driven by the live status, not by reading a printed date.
 
 **The reliance flow:**
 1. The issuer approves a request in advance, with a limit and window
@@ -180,6 +180,6 @@ If a witness layer exists, it may periodically commit rollups to a public blockc
 
 ## Further Derivations
 
-1. **Single-use medical prior authorizations (VCRS)** — Procedure/drug authorizations consumed on first verification at the point of service, so they cannot be replayed for a second claim.
+1. **Single-use medical prior authorizations (burn-on-verify)** — Procedure/drug authorizations consumed on first verification at the point of service, so they cannot be replayed for a second claim.
 2. **Payment pre-auth hold confirmations** — Time-boxed hold records that merchants verify before capture and that expire automatically with the hold.
 3. **RMA / return-authorization verification** — Single-use return approvals that warehouses verify on intake, defeating unauthorized and double returns.

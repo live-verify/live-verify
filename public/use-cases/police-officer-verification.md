@@ -74,7 +74,7 @@ When presented with a physical warrant card, a citizen must rely on visual inspe
   </div>
 </div>
 
-*The server rotates the salt — after each successful verification (VCRS) or on TTL expiry of an unscanned salt — and the badge re-renders to match. The screen is always in lockstep with the salt the server will honour, so a photograph is worthless unless verified in the moment. See [E-Ink ID Cards](../e-ink-id-cards.md) for how this prevents cloning and the "photograph and dox" attack.*
+*The server rotates the salt — after each successful verification (burn-on-verify) or on TTL expiry of an unscanned salt — and the badge re-renders to match. The screen is always in lockstep with the salt the server will honour, so a photograph is worthless unless verified in the moment. See [E-Ink ID Cards](../e-ink-id-cards.md) for how this prevents cloning and the "photograph and dox" attack.*
 
 ### Digital Warrant Card (Mobile Phone - Backup)
 
@@ -108,7 +108,7 @@ Officers also carry a secure mobile app that generates the same verifiable displ
 - **Exact Parity:** The app generates the *exact same hash* as the e-ink badge for the currently displayed salt, and re-renders alongside it when a scan consumes that salt.
 - **High-Contrast Mode:** Designed with pure black text on white background to ensure 100% OCR accuracy even in low light or through a car window.
 - **Biometric Unlock:** Officer must FaceID/fingerprint to preventing unauthorized use of a lost phone.
-- **Cloning Protection:** The server rotates the salt one minute after each successful scan (VCRS), or on TTL expiry if the badge is never scanned, and the badge re-renders both times. A photographed copy is worthless unless verified the instant the photo is taken — by the time anyone tries the captured hash, the server and the badge have moved on.
+- **Cloning Protection:** The server rotates the salt one minute after each successful scan (burn-on-verify), or on TTL expiry if the badge is never scanned, and the badge re-renders both times. A photographed copy is worthless unless verified the instant the photo is taken — by the time anyone tries the captured hash, the server and the badge have moved on.
 - **Location Verification:** The verification display shows a map of the officer's current location, which the verifier can confirm matches where they are.
 - **Real-time Status:** If an officer is suspended or the card is stolen, the e-ink display shows nothing; verification returns invalid.
 

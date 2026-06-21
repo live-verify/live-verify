@@ -80,7 +80,7 @@ When presented with a physical driver badge, a passenger must rely on visual ins
   </div>
 </div>
 
-*The server rotates the salt — after each successful scan (VCRS) or on TTL expiry of an unscanned salt — and the badge re-renders to match. The screen is always in lockstep with the salt the server will honour, so a photograph is worthless unless verified in the moment. See [E-Ink ID Cards](../e-ink-id-cards.md) for how this prevents cloning and protects driver privacy.*
+*The server rotates the salt — after each successful scan (burn-on-verify) or on TTL expiry of an unscanned salt — and the badge re-renders to match. The screen is always in lockstep with the salt the server will honour, so a photograph is worthless unless verified in the moment. See [E-Ink ID Cards](../e-ink-id-cards.md) for how this prevents cloning and protects driver privacy.*
 
 ## Data Verified
 

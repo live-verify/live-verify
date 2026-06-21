@@ -69,7 +69,7 @@ for everyone, not only defaulters.
 **It inverts a core privacy property.** Live Verify is explicitly designed so that *nobody — including
 the issuer or this project — learns who verifies what.* The architecture goes to deliberate lengths
 to prevent exactly this kind of enumeration and location inference (see
-[OIRST and the air-gapped/DMZ deployment model](../../docs/Technical_Concepts.md)). A
+[owner-issued expiring links and the air-gapped/DMZ deployment model](../../docs/Technical_Concepts.md)). A
 verification-tracking feature would require tearing out that property by design. The standard cannot
 both promise "the verifier is never watched" and ship a tap on the verifier.
 

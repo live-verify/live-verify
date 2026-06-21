@@ -102,7 +102,7 @@ Shows the issuer domain (e.g., `fidelity.com`, `prudential.com`) and the designa
 
 ## Privacy Salt
 
-Highly critical. Beneficiary identities and allocations are extremely sensitive — they reveal family structure, intent, and asset distribution. The hash must be **salted** so an interceptor cannot guess or enumerate beneficiary names, and providers should minimize plaintext in any widely shared extract. For account holders who want the record verifiable only on demand, the [Owner-Initiated Re-Salting with Timeout (OIRST)](../../docs/Technical_Concepts.md#owner-initiated-re-salting-with-timeout-oirst) pattern keeps the designation private until the holder chooses to expose it.
+Highly critical. Beneficiary identities and allocations are extremely sensitive — they reveal family structure, intent, and asset distribution. The hash must be **salted** so an interceptor cannot guess or enumerate beneficiary names, and providers should minimize plaintext in any widely shared extract. For account holders who want the record verifiable only on demand, the [owner-issued expiring links](../../docs/Technical_Concepts.md#owner-issued-expiring-links) pattern keeps the designation private until the holder chooses to expose it.
 
 ## Second-Party Use
 

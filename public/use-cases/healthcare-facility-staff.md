@@ -77,7 +77,7 @@ The **Healthcare Staff ID Badge** serves two purposes:
   </div>
 </div>
 
-*The server rotates the salt — after each successful scan (VCRS) or on TTL expiry of an unscanned salt — and the badge re-renders to match. The screen is always in lockstep with the salt the server will honour, so a photograph is worthless unless verified in the moment. See [E-Ink ID Cards](../e-ink-id-cards.md) for how this prevents cloning, tracking, and protects staff from hostile patients.*
+*The server rotates the salt — after each successful scan (burn-on-verify) or on TTL expiry of an unscanned salt — and the badge re-renders to match. The screen is always in lockstep with the salt the server will honour, so a photograph is worthless unless verified in the moment. See [E-Ink ID Cards](../e-ink-id-cards.md) for how this prevents cloning, tracking, and protects staff from hostile patients.*
 
 ## Data Verified
 

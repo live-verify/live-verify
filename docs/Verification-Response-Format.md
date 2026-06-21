@@ -153,7 +153,7 @@ Expires: 0
 This prevents:
 - **Enumeration attacks** — Can't iterate through `/photos/1.jpg`, `/photos/2.jpg`
 - **Stale photo caching** — Revoked credentials don't leave cached photos behind
-- **Dynamic photo serving** — for an e-ink ID, the server rotates the salt (after a successful scan via VCRS, or on TTL expiry of an unscanned salt) and the badge re-renders to match; the photo tied to the old hash disappears as the salt rotates, so a photographed credential is worthless unless verified in the moment
+- **Dynamic photo serving** — for an e-ink ID, the server rotates the salt (after a successful scan via burn-on-verify, or on TTL expiry of an unscanned salt) and the badge re-renders to match; the photo tied to the old hash disappears as the salt rotates, so a photographed credential is worthless unless verified in the moment
 - **Roster building** — Can't scrape all employee photos by guessing URLs
 
 ### Screen Capture Prevention
@@ -315,7 +315,7 @@ The key design decision: **wrong PIN always returns 404**. The endpoint never si
 
 **Incompatible with static hosting:** PIN-protected endpoints require server-side logic to evaluate the PIN header. Issuers using static file hosting (GitHub Pages, S3 without a Lambda@Edge layer) cannot support PIN protection. The `pinRequired` field in `verification-meta.json` implicitly signals that this endpoint uses dynamic hosting.
 
-See [PIN-Protected Verification](Technical_Concepts.md#pin-protected-verification) for the full specification, including interaction with OIRST/VCRS, rate limiting, time-limited PINs with regulatory lodgement, and use case examples.
+See [PIN-Protected Verification](Technical_Concepts.md#pin-protected-verification) for the full specification, including interaction with owner-issued expiring links and burn-on-verify, rate limiting, time-limited PINs with regulatory lodgement, and use case examples.
 
 ## Status Codes
 

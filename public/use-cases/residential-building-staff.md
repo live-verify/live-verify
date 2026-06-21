@@ -76,7 +76,7 @@ This is one of the stronger Live Verify families precisely because it is not a d
   </div>
 </div>
 
-*The server rotates the salt — after each successful scan (VCRS) or on TTL expiry of an unscanned salt — and the badge re-renders to match. The screen is always in lockstep with the salt the server will honour, so a photograph is worthless unless verified in the moment. See [E-Ink ID Cards](../e-ink-id-cards.md) for how this prevents cloning and tracking.*
+*The server rotates the salt — after each successful scan (burn-on-verify) or on TTL expiry of an unscanned salt — and the badge re-renders to match. The screen is always in lockstep with the salt the server will honour, so a photograph is worthless unless verified in the moment. See [E-Ink ID Cards](../e-ink-id-cards.md) for how this prevents cloning and tracking.*
 
 ## Data Verified
 

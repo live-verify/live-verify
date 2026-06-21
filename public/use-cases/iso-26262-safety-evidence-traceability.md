@@ -111,7 +111,7 @@ A delivered safety-case package is a directory of files. A headless tool can ver
 - Approved test houses and ISO 17025 labs issuing bench-test evidence
 - Tool-output aggregators hosting hashes on behalf of the supplier's safety org
 
-**Privacy Salt:** Required. Coverage counts, ASIL levels, and release identifiers are enumerable — a competitor or adversary could probe combinations to infer a supplier's defect rates or release cadence. Salt protects the supplier's quality metrics and roadmap. See [Owner-Initiated Re-Salting with Timeout](../../docs/Technical_Concepts.md) for inventory-enumeration resistance.
+**Privacy Salt:** Required. Coverage counts, ASIL levels, and release identifiers are enumerable — a competitor or adversary could probe combinations to infer a supplier's defect rates or release cadence. Salt protects the supplier's quality metrics and roadmap. See [Owner-Issued Expiring Links](../../docs/Technical_Concepts.md#owner-issued-expiring-links) for inventory-enumeration resistance.
 
 ## Authority Chain
 

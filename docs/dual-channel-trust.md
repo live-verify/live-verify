@@ -89,7 +89,7 @@ at the point of use:
   [sovereign roots](sovereign-roots.md).
 - The **human channel** is the human-in-the-loop domain judgement the homepage and app-display docs
   already describe.
-- **Burn-on-verify** ([VCRS](Technical_Concepts.md), e-ink badges) ensures the thing the human is
+- **Burn-on-verify** ([see Technical Concepts](Technical_Concepts.md#burn-on-verify), e-ink badges) ensures the thing the human is
   gazing at is current — a photographed badge is a dead credential, so the gaze isn't fooled by a
   stale image.
 - **Fail-loudly** ensures the machine channel never returns false comfort, keeping the human channel

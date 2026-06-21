@@ -135,13 +135,13 @@ The **Animal Owner / Breeder** benefits from verification.
 
 **Racehorses and high-value livestock: Salt is CRITICAL.** Horse names, sire/dam combinations, and registration numbers are public knowledge (racing databases, auction catalogues, breed society records). Without a salt, an attacker can hash known horse identities and probe the registry's verification endpoint to map which champion stallions are at which yards — enabling targeted theft of animals worth millions. Because the inputs are guessable, the salt is the only thing preventing enumeration.
 
-To protect against this, racehorse and high-value livestock registries should support **Owner-Initiated Re-Salting with Timeout (OIRST)**: the holder — the registered owner, or a delegate they have authorized (trainer, syndicate manager, solicitor) — logs into the registry portal (or app), requests a time-limited verification for a specific animal, and receives a freshly salted hash with a short TTL (e.g., 24-48 hours). The holder sends this link by email, RCS, or message to the prospective buyer. The buyer verifies within the window; after expiry the endpoint returns 404. This means:
+To protect against this, racehorse and high-value livestock registries should support **owner-issued expiring links** (owner-initiated re-salting with timeout): the holder — the registered owner, or a delegate they have authorized (trainer, syndicate manager, solicitor) — logs into the registry portal (or app), requests a time-limited verification for a specific animal, and receives a freshly salted hash with a short TTL (e.g., 24-48 hours). The holder sends this link by email, RCS, or message to the prospective buyer. The buyer verifies within the window; after expiry the endpoint returns 404. This means:
 - The holder controls exactly when and to whom verification is available
 - There is no permanent hash sitting on a long-lived endpoint for attackers to discover
 - Each prospective buyer interaction gets its own ephemeral link — no link accumulation
 - The registry can log who requested verification and when, creating an audit trail
 
-See [Technical Concepts: OIRST](../../docs/Technical_Concepts.md#owner-initiated-re-salting-with-timeout-oirst) for the full specification, link format, and comparison with other salt patterns.
+See [Technical Concepts: Owner-Issued Expiring Links](../../docs/Technical_Concepts.md#owner-issued-expiring-links) for the full specification, link format, and comparison with other salt patterns.
 
 **Dogs, cats, and small pets: Salt is unnecessary.** Pet pedigree certificates contain high-entropy data that cannot be guessed: microchip numbers, DNA profile references, and multi-generation registered names (e.g., "CH Doversong Master Craftsman" x "Hartfield Summer Breeze"). Brute-forcing these combinations is impractical even without a salt. The standard persistent verification endpoint is fine — there is no theft incentive comparable to a million-dollar stallion, and no public database of pet microchip numbers to enumerate from.
 
