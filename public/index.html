@@ -111,8 +111,10 @@
         .card > p, .card > ul {
             max-width: 72ch;
         }
-        /* The story card is a featured callout, not body prose — let it fill the column. */
-        .story-card > p {
+        /* The featured lead sections are callouts, not body prose — let them fill the column. */
+        .story-card > p,
+        #forgeryIsFree > p,
+        #globalSystem > p {
             max-width: none;
         }
         .card ul {
