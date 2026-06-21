@@ -38,6 +38,10 @@ const DRY = process.argv.includes('--dry-run');
 const USE_CASES_DIR = path.join(ROOT, 'public', 'use-cases');
 const REJECTED_DIR = path.join(ROOT, 'public', 'rejected-use-cases');
 const DOCS_DIR = path.join(ROOT, 'docs');
+// Hand/agent-authored descriptions of things NotebookLM can't read from the
+// repo: the native apps (summaries), the canonical JS (source + description),
+// and the website's pages/flows/overlays. See README in that dir.
+const EXTRA_DIR = path.join(ROOT, 'package-notebooklm-extra');
 
 // Files in use-cases/ that are not actual use cases.
 const USE_CASE_SKIP = new Set([
@@ -269,16 +273,55 @@ function main() {
     writeOut(name, b);
   });
 
+  // ---- System architecture descriptions (apps, JS, website) ----
+  // These describe what NotebookLM cannot read from the repo itself: the native
+  // apps (prose summaries — Swift/Kotlin can't be parsed), the canonical JS
+  // (description + real source, since it's small and reasoning-useful), and the
+  // website's pages/flows/overlays. Ordered most-foundational first.
+  const EXTRA_ORDER = [
+    'canonical-verification-logic.md',
+    'apps-architecture.md',
+    'website-pages-and-flows.md',
+    'verification-flows-and-overlays.md',
+  ];
+  const extraAll = listMd(EXTRA_DIR, new Set(['README.md']));
+  const extraFiles = [
+    ...EXTRA_ORDER.filter((f) => extraAll.includes(f)),
+    ...extraAll.filter((f) => !EXTRA_ORDER.includes(f)),
+  ];
+  let extraCount = 0;
+  if (extraFiles.length) {
+    let archHeader = `# Live Verify — System Architecture: Apps, Code & Website\n\n` +
+      `NotebookLM cannot read the source repository, so these documents describe what the rest of ` +
+      `the corpus references but cannot show directly: the three client applications (iOS, Android, ` +
+      `browser extension), the canonical JavaScript verification logic (with real source — it is the ` +
+      `reproducible heart of the system), and the public website's pages, flows, and on-screen ` +
+      `verification overlays. Native-app source is summarized; JavaScript is included verbatim where ` +
+      `small enough to be useful.\n`;
+    const archItems = extraFiles.map((f) =>
+      renderPlainDoc(`package-notebooklm-extra/${f}`, fs.readFileSync(path.join(EXTRA_DIR, f), 'utf8'))
+    );
+    const archBundles = bundle(archHeader, archItems);
+    console.log('\nSystem architecture bundles:');
+    archBundles.forEach((b, i) => {
+      const name = archBundles.length === 1 ? 'system-architecture.md' : `system-architecture-${i + 1}.md`;
+      writeOut(name, b);
+    });
+    extraCount = extraFiles.length;
+  } else {
+    console.log('\n(no package-notebooklm-extra/ descriptions found — skipping system-architecture bundle)');
+  }
+
   // ---- Corpus guide / README for NotebookLM ----
-  const guide = buildGuide(cats, totalUc, rejFiles.length, docFiles.length, docBundles.length);
+  const guide = buildGuide(cats, totalUc, rejFiles.length, docFiles.length, docBundles.length, extraCount);
   console.log('\nCorpus guide:');
   writeOut('00-README-corpus-guide.md', guide);
 
   console.log(`\nDone. ${DRY ? 'Dry run — nothing written.' : `Output in ${path.relative(ROOT, OUT)}/`}`);
-  console.log(`Bundled: ${totalUc} use cases across ${cats.length} categories, ${rejFiles.length} rejected, ${docFiles.length} docs.`);
+  console.log(`Bundled: ${totalUc} use cases across ${cats.length} categories, ${rejFiles.length} rejected, ${docFiles.length} docs, ${extraCount} architecture descriptions.`);
 }
 
-function buildGuide(cats, totalUc, rejN, docN, docBundles) {
+function buildGuide(cats, totalUc, rejN, docN, docBundles, extraN) {
   let g = `# Live Verify — Corpus Guide (for NotebookLM)\n\n`;
   g += `## What Live Verify is\n\n`;
   g += `Live Verify is an open standard that makes documents and claims verifiable without a central `;
@@ -296,7 +339,15 @@ function buildGuide(cats, totalUc, rejN, docN, docBundles) {
   g += `- **design-and-strategy-docs${docBundles > 1 ? ' (+ parts)' : ''}.md** — ${docN} documents covering the `;
   g += `architecture, trust model, normalization, post-quantum threat assessment, and the strategic case `;
   g += `(why an open verification standard is needed now, modeled on Let's Encrypt; how the industry is `;
-  g += `converging on the same Merkle primitives). **Start here for "why this technology needs to exist."**\n\n`;
+  g += `converging on the same Merkle primitives). **Start here for "why this technology needs to exist."**\n`;
+  if (extraN) {
+    g += `- **system-architecture.md** — descriptions of what cannot be shown directly from the repo: the `;
+    g += `three client apps (iOS/Android/browser-extension, summarized), the **canonical JavaScript** that `;
+    g += `does the verifying (with real source — the exact normalization rules and hashing), and the public `;
+    g += `website's pages, user flows, and on-screen verification overlays. Read this to understand *how the `;
+    g += `system actually works* as built, not just the concept.\n`;
+  }
+  g += `\n`;
   g += `## Suggested questions for analysis\n\n`;
   g += `- What problem does Live Verify solve that existing tools (PDFs, QR codes, blockchains, paid `;
   g += `verification bureaus) do not?\n`;
