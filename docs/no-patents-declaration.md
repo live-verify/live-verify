@@ -53,11 +53,12 @@ later be asserted to rug-pull adopters or toll-gate the rails.
 
 ## Relationship to the licence
 
-This is distinct from, and additional to, the [Apache 2.0 licence](../LICENSE). The licence governs
-how the **code** may be used and includes an explicit patent grant from contributors. This declaration
-addresses a different question — whether the **invention** could be patent-encumbered by anyone at all
-— and answers it with prior art rather than a grant. Together: the code is openly licensed, *and* the
-underlying method is unpatentable.
+This is distinct from, and additional to, the project's licenses (see [LICENSING.md](../LICENSING.md):
+[Apache 2.0](../LICENSE) for code, [CC BY-SA 4.0](../LICENSE-CONTENT) for content). Those licenses
+govern how the **code and content** may be used; the Apache licence also includes an explicit patent
+grant from code contributors. This declaration addresses a different question — whether the
+**invention** could be patent-encumbered by anyone at all — and answers it with prior art rather than a
+grant. Together: the work is openly licensed, *and* the underlying method is unpatentable.
 
 ## One-line version
 

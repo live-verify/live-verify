@@ -3,7 +3,7 @@
 **Verify digital and printed claims**
 
 ![Jest and Playwright tests, then deploy to GitHub Pages](https://github.com/live-verify/live-verify/actions/workflows/deploy.yml/badge.svg)
-![License](https://img.shields.io/badge/license-Apache--2.0-blue)
+![Code License](https://img.shields.io/badge/code-Apache--2.0-blue) ![Content License](https://img.shields.io/badge/content-CC--BY--SA--4.0-lightgrey)
 
 **Issuer-attested verification of on-screen and printed claims.** Select text on screen or scan it on paper — both produce instant cryptographic verification.
 
@@ -182,8 +182,9 @@ All verification happens client-side — no PII ever leaves your device.
 
 ## License
 
-Apache License, Version 2.0 (Apache-2.0)
+Two licenses, split by kind of work (see [LICENSING.md](LICENSING.md) for the full explanation):
 
-See LICENSE file for full text.
+- **Code** (the `apps/`, the canonical JavaScript, scripts, build tooling) — **Apache License 2.0** (see [LICENSE](LICENSE)).
+- **Content** (use-cases in `public/use-cases/`, the docs in `docs/`, website prose) — **Creative Commons Attribution-ShareAlike 4.0** (CC BY-SA 4.0; see [LICENSE-CONTENT](LICENSE-CONTENT)). Free to copy, adapt, and build on with attribution, as long as derivatives stay under the same open license.
 
 **Patents:** none, and none possible. The method was publicly disclosed on 17 January 2023, placing it in the public domain as prior art before any patent could be filed — see [No Patents: Defensive Publication Declaration](docs/no-patents-declaration.md).

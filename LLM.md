@@ -752,8 +752,8 @@ More: https://issuer.com/public-profile/{id}
 
 ## License
 
-Apache License, Version 2.0 (Apache-2.0)
-
-All code requires Apache 2.0 license header.
+Two licenses, split by kind of work (see LICENSING.md):
+- **Code** (`apps/`, `public/*.js`, `scripts/`, build tooling) — **Apache 2.0** (`LICENSE`). All code files require the Apache 2.0 header.
+- **Content** (`public/use-cases/`, `public/rejected-use-cases/`, `docs/`, website prose) — **CC BY-SA 4.0** (`LICENSE-CONTENT`). Content files do NOT carry a code license header; the share-alike content license covers them. Don't add Apache headers to .md content files.
 
 **Patents:** none and none possible — the method was publicly disclosed on 17 January 2023 (a dated blog post: "OCR-to-Hash: A Simple Audit Trail for Physical Documents"), so it is unpatentable prior art in every jurisdiction. This is a defensive-publication fact, not a promise. See docs/no-patents-declaration.md. (Distinct from the Apache licence, which is a patent grant on the code; this concerns whether the invention can be patented at all — it can't.)
