@@ -95,6 +95,25 @@ in the academic discovery graph. You get decentralized standing by default, with
 central index where it's useful — and you never *depend* on the central registry to prove who wrote
 what.
 
+### And the registry's own path: rest *on* it, don't compete with it
+
+There is a longer-run move available to an author-identity registry, and it is the same one incumbents
+in adjacent trust markets are already making. ORCID's durable value was never "we hold the database
+that *asserts* who you are" — that assertion layer is exactly what domain-anchored identity
+commoditizes (anyone can verify a byline against its own domain, for free, with no registry). Its
+durable value is **discovery and aggregation**: one query that finds everything an author wrote. Those
+are separable. So the registry's strongest position is not to compete with self-sovereign identity but
+to **rest on it** — to stop being the *root* of trust and become the *index* over roots the authors
+own: ORCID iDs that resolve *to* a domain-anchored identity rather than standing in place of one.
+
+That is the **up-stack move** the [Let's Encrypt](../../docs/lets-encrypt-precedent.md) and
+[Merkle Tree Certificates](../../docs/merkle-tree-certificates-precedent.md) precedents describe — the
+incumbent concedes the commodity (assertion) and keeps the durable layer (discovery/operations) — and
+it is exactly the thesis of [decentralized trust graphs](../../docs/decentralized-trust-graphs.md):
+*the attestations are the web; the aggregators are search engines.* An identity registry that bridges
+onto domain-anchored identity early is the "find your IdenTrust" bridge for author identity. (Stated as
+the path *available* to such a registry, not a prediction about any particular organization's strategy.)
+
 ### Why journalism is the sharpest case
 
 - **Byline integrity in the AI era** — proving a human journalist wrote a piece, not a content farm or
