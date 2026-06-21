@@ -80,6 +80,7 @@ generalized: you added the endorser for weight, and also handed them a hold over
 | **Revocable / mutable enrichment** (`Withdrawn` status; update the served bundle) | Lets the author retract going forward | Copies of the work and cached enrichment persist |
 | **Per-claim salt + scoping** | Stops enumeration of *which* claims exist | No protection once the attacker has the work-in-hand (they have the footer) |
 | **Pinned endorser scope** (endorsement A covers work A only) | Blocks laundering | Requires verifiers to actually check scope, not just chain presence |
+| **Subject control node** (the subject holds a node they can restrict/revoke — see below) | Lets the subject retract stale enrichment ("I no longer work there") without the issuer's cooperation | Updates the endpoint only, not copies in the wild; must be authenticated to the real subject or it becomes a censorship vector |
 | **Treat adding an endorser as durable** | Sets correct expectations | Does not undo the hold an endorser now has |
 
 ## Mode-specific binding: tie enrichment to its capture context
@@ -120,6 +121,56 @@ The common principle: **enrichment should be no more portable than the context t
 Where a mode can bind more context (PDF file hash, page URL), it should; where it can bind less
 (camera), it should warn. None of this is a substitute for minimal disclosure — it limits *replay*,
 not *harvesting*.
+
+## The subject as a control node
+
+So far the chain has been read as *issuer → endorsers → root*, where the **subject** — the person a
+claim is *about* — is passive. There is a distinct, useful role the subject can take: inserting
+**themselves** into the chain not to *add weight*, but to retain *control* over a claim that someone
+else issued or enriched about them.
+
+The motivating case is hazard 3 directly. An employer enriched an authorship claim with "works at
+X." You leave. The employer is slow to update *their* attestation — but if **you** are a node in the
+chain, you can mark your own link to say *"I no longer work there"* and the stale portion stops
+verifying through you, without waiting on the employer's cooperation. This gives the subject their
+own handle on staleness, which the mitigations table otherwise leaves weak.
+
+This generalizes beyond enrichment: **any claim made *about* a person can carry a subject control
+node** — a consent/control point the subject holds. It is worth treating as a reusable protocol
+concept, not a one-off for authorship.
+
+### Fixed verbs, open scopes
+
+The question "is this a fixed list of modifications?" resolves cleanly: the **verbs are a small fixed
+vocabulary** (so a verifier can reason about what a subject node's status *means*), but the **scope
+each verb applies to is open** (so the subject isn't boxed into pre-enumerated facets). The verbs map
+onto the status codes the protocol already has:
+
+| Subject verb | Meaning | Maps to status |
+|---|---|---|
+| **Affirm** | "I stand behind this claim about me." | `verified` |
+| **Restrict / narrow** | "This still holds, but a scoped part no longer applies" (e.g. the employer-portion). | `suspended` (scoped) |
+| **Supersede** | "A current version replaces this" — points to the live claim. | `superseded` |
+| **Withdraw / revoke** | "I no longer associate myself with this claim." | `revoked` |
+| **Dispute** | "I contest this claim made about me" — surfaced, not silently dropped. | `disputed` |
+
+The verbs are closed and legible; the *scope* a verb targets ("the employer-portion", "the
+2024-onward portion", "the licence terms") is free-form and per-claim. Verifiers interpret the verb;
+the scope text tells them what it bites on.
+
+### The guardrail: a control node is also a censorship surface
+
+A subject-controlled revoke is double-edged. If anyone could insert themselves as a subject node and
+revoke, a *malicious* party could suppress a **true** claim — disputing a genuine bad-conduct
+attestation to bury it. So a subject control node must be **authenticated to the actual subject**:
+either the subject demonstrates domain control of their node, or the issuer co-signs that this is the
+subject's legitimate control point. An unauthenticated "subject" node is a censorship vector and must
+not be honoured.
+
+A second honesty: a subject control node updates the *endpoint*; it does **not** reach copies of the
+work already in the wild, exactly like every other revocation. It limits what verifies *now*, not what
+was cached *then*. It is a genuine improvement to the stale-enrichment hazard — the subject no longer
+depends on the issuer to act — but it is not a takedown.
 
 ## The truth that does not have a mitigation
 
