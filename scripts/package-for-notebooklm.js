@@ -312,6 +312,10 @@ function main() {
     console.log('\n(no package-notebooklm-extra/ descriptions found — skipping system-architecture bundle)');
   }
 
+  // ---- Site map of the published static site ----
+  console.log('\nSite map:');
+  writeOut('site-map.md', buildSiteMap(byCategory, totalUc));
+
   // ---- Corpus guide / README for NotebookLM ----
   const guide = buildGuide(cats, totalUc, rejFiles.length, docFiles.length, docBundles.length, extraCount);
   console.log('\nCorpus guide:');
@@ -319,6 +323,88 @@ function main() {
 
   console.log(`\nDone. ${DRY ? 'Dry run — nothing written.' : `Output in ${path.relative(ROOT, OUT)}/`}`);
   console.log(`Bundled: ${totalUc} use cases across ${cats.length} categories, ${rejFiles.length} rejected, ${docFiles.length} docs, ${extraCount} architecture descriptions.`);
+}
+
+function buildSiteMap(byCategory, totalUc) {
+  const BASE = 'https://live-verify.github.io/live-verify';
+  const PUBLIC = path.join(ROOT, 'public');
+
+  // Real published HTML pages (the static site = the public/ tree, deployed
+  // verbatim to GitHub Pages — there is no Jekyll build despite the Gemfile).
+  function htmlIn(rel) {
+    const dir = path.join(PUBLIC, rel);
+    if (!fs.existsSync(dir)) return [];
+    return fs.readdirSync(dir).filter((f) => f.endsWith('.html')).sort();
+  }
+
+  let m = `# Live Verify — Site Map (published static site)\n\n`;
+  m += `Base URL: **${BASE}/**\n\n`;
+  m += `The site is the \`public/\` directory deployed verbatim to GitHub Pages as static files `;
+  m += `(the GitHub Actions workflow uploads \`./public\` directly — there is no Jekyll build step, `;
+  m += `despite a Gemfile being present). This map lists what is actually reachable and how. The most `;
+  m += `important routing fact: the ~${totalUc} use cases are **not** separate HTML files — they are all `;
+  m += `rendered client-side by one viewer, \`use-cases/view.html\`, addressed as `;
+  m += `\`view.html?doc={slug}\`. The list of those virtual URLs is at the end.\n\n`;
+
+  m += `## Landing & audience pages\n\n`;
+  const landing = [
+    ['index.html', 'Landing page — Medpro/Intertek fraud story, audience doors, GenAI-urgency, proof section, roadmap'],
+    ['for-issuers.html', 'For organizations that issue documents (universities, regulators, insurers, councils)'],
+    ['for-saas.html', 'For SaaS builders whose products emit documents'],
+    ['for-platforms.html', 'For camera/browser/OS/PDF platform vendors'],
+    ['for-verifiers.html', 'For incumbents who sell verification today ("if you sell verification…")'],
+    ['founding-adopters.html', 'Founding adopter program (first ten issuers / integrations)'],
+    ['opportunity.html', 'Wide-angle opportunity & business case'],
+    ['quickstart.html', '15-minute "ship a verifiable claim" walkthrough'],
+  ];
+  for (const [f, d] of landing) m += `- [${f}](${BASE}/${f}) — ${d}\n`;
+
+  m += `\n## Explainers & tools\n\n`;
+  const tools = [
+    ['one-way-hash.html', 'SHA-256 / one-way-hash explainer'],
+    ['hash-calculator.html', 'Interactive: paste text → see normalized text → live SHA-256'],
+    ['privacy_declaration.html', 'Privacy declaration'],
+    ['test-normalization.html', 'Interactive normalization test page'],
+    ['test-cors-paulhammant.html', 'CORS test harness'],
+  ];
+  for (const [f, d] of tools) m += `- [${f}](${BASE}/${f}) — ${d}\n`;
+
+  m += `\n## Use cases\n\n`;
+  m += `- [use-cases/](${BASE}/use-cases/) — the use-case index/browser (\`use-cases/index.html\`)\n`;
+  m += `- [use-cases/view.html](${BASE}/use-cases/view.html) — client-side viewer; each use case is `;
+  m += `\`view.html?doc={slug}\`. All ${totalUc} slugs are listed under "Use-case URLs" below.\n`;
+
+  m += `\n## Demos & examples\n\n`;
+  m += `- [examples/](${BASE}/examples/) — the Clip-mode text-selection verification demo\n`;
+  for (const f of htmlIn('examples').filter((f) => f !== 'index.html')) {
+    m += `- [examples/${f}](${BASE}/examples/${f})\n`;
+  }
+  m += `- [training-pages/](${BASE}/training-pages/) — fictional test documents carrying real \`verify:\` lines and known hashes:\n`;
+  for (const f of htmlIn('training-pages').filter((f) => f !== 'index.html')) {
+    m += `  - [training-pages/${f}](${BASE}/training-pages/${f})\n`;
+  }
+
+  m += `\n## Browser extension pages\n\n`;
+  for (const f of htmlIn('chrome-extension')) m += `- [chrome-extension/${f}](${BASE}/chrome-extension/${f})\n`;
+
+  m += `\n## Verification endpoints\n\n`;
+  m += `Static hash-lookup endpoints live at \`/c/{sha256}/\` and return \`{"status":"verified"}\` (etc.). `;
+  m += `These are the targets the apps GET after computing a hash; \`/c/verification-meta.json\` holds demo `;
+  m += `issuer metadata. They are machine endpoints, not pages to read.\n`;
+
+  m += `\n## Use-case URLs (\`view.html?doc={slug}\`), grouped by category\n\n`;
+  const cats = [...byCategory.entries()].sort((a, b) => b[1].length - a[1].length);
+  for (const [cat, files] of cats) {
+    m += `### ${cat} (${files.length})\n\n`;
+    for (const { f } of files) {
+      const slug = f.replace(/\.md$/, '');
+      m += `- [${slug}](${BASE}/use-cases/view.html?doc=${slug})\n`;
+    }
+    m += `\n`;
+  }
+  m += `*Generated by scripts/package-for-notebooklm.js. The full prose of each page is in the other `;
+  m += `bundles; this map is the navigational structure only.*\n`;
+  return m;
 }
 
 function buildGuide(cats, totalUc, rejN, docN, docBundles, extraN) {
@@ -347,6 +433,9 @@ function buildGuide(cats, totalUc, rejN, docN, docBundles, extraN) {
     g += `website's pages, user flows, and on-screen verification overlays. Read this to understand *how the `;
     g += `system actually works* as built, not just the concept.\n`;
   }
+  g += `- **site-map.md** — the navigational structure of the published static site `;
+  g += `(\`https://live-verify.github.io/live-verify/\`): every reachable page and the `;
+  g += `\`view.html?doc={slug}\` URL of each use case.\n`;
   g += `\n`;
   g += `## Suggested questions for analysis\n\n`;
   g += `- What problem does Live Verify solve that existing tools (PDFs, QR codes, blockchains, paid `;
