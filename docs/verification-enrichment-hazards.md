@@ -82,6 +82,45 @@ generalized: you added the endorser for weight, and also handed them a hold over
 | **Pinned endorser scope** (endorsement A covers work A only) | Blocks laundering | Requires verifiers to actually check scope, not just chain presence |
 | **Treat adding an endorser as durable** | Sets correct expectations | Does not undo the hold an endorser now has |
 
+## Mode-specific binding: tie enrichment to its capture context
+
+The hazards above are worse when enriched information can be **detached from where it was captured and
+replayed elsewhere** — a screenshot of a disclosure presented as if it verified a different work, on a
+different page, from a different file. The defence is for each verification mode to **bind the
+enrichment to the context it was actually captured in**, and to *warn* when that binding is weak or
+absent. The richer the disclosure, the more this matters — so it belongs specifically to enrichment
+use cases, not just the base verify.
+
+Each mode has a different amount of context available, and therefore a different obligation:
+
+- **Camera mode (Live Verify - Camera) — verify with extra warnings.** Camera capture is the weakest
+  context: OCR can misread, the lens sees only what is in frame, and the surrounding work cannot be
+  bound. When a *camera* verification returns enriched identity disclosure, the app should surface
+  **additional warnings** that the disclosure is not bound to the surrounding document — "this
+  identity was confirmed for the captured text; the app cannot confirm it belongs to the rest of this
+  page/object." Enrichment over camera should be treated as the lowest-assurance path and flagged as
+  such, precisely because the human is often in an in-person, time-pressured setting where over-trust
+  is most damaging.
+
+- **PDF mode (future) — bind the file's SHA-256 too.** A PDF viewer holds the *entire file*, so it can
+  do something camera and clip cannot: confirm that the **SHA-256 of the PDF itself matches** the file
+  the enrichment was issued against, not just the selected text. When PDF mode ships, an enriched
+  verification should check both the claim-text hash *and* the document-file hash, so a disclosure
+  cannot be lifted from one PDF and presented inside a different file that happens to contain the same
+  footer text. The whole-file hash binds the enrichment to *this* document.
+
+- **Chrome-extension / clip mode — make the claim's URL part of the verification.** The extension
+  knows the page URL the claim was selected on; that origin should be **included in the verification**
+  so the disclosure is bound to where it actually appeared. A footer lifted from the author's own site
+  and pasted onto an impersonating page should not silently produce the same enriched, reassuring
+  result — the URL mismatch is a signal the verifier deserves to see. Binding the claim to its origin
+  URL turns "this disclosure verified *somewhere*" into "this disclosure verified *on this page*."
+
+The common principle: **enrichment should be no more portable than the context that earned it.**
+Where a mode can bind more context (PDF file hash, page URL), it should; where it can bind less
+(camera), it should warn. None of this is a substitute for minimal disclosure — it limits *replay*,
+not *harvesting*.
+
 ## The truth that does not have a mitigation
 
 **Public enrichment is forever.** Anything a verification endpoint serves publicly can be cached,
@@ -104,6 +143,9 @@ every extra field is a permanent, harvestable, correlatable disclosure.
 - Is the disclosure **revocable**, and does the use case state plainly that revocation *won't reach
   cached copies*?
 - Are endorsers **scope-pinned**, so their weight can't be laundered onto uncovered works?
+- Does the verifying mode **bind enrichment to its capture context** — PDF file-hash in PDF mode,
+  page URL in the extension, **extra warnings** in camera mode — so the disclosure can't be replayed
+  out of context?
 - Does the author understand that **adding an endorser is durable** and that **public enrichment is
   permanent**?
 
@@ -116,3 +158,5 @@ every extra field is a permanent, harvestable, correlatable disclosure.
   the exceptions to, and the revocation-cause / debt-cudgel hazard generalized in hazard 5.
 - [Benefits of the Merkle Endorsement Design](benefits_of_merkle_tree.md) — content pinning, the
   mechanism behind scope-pinned endorsements.
+- [Verification Modes](VERIFICATION-MODES.md) — Clip, Camera, and future PDF modes; the per-mode
+  context-binding obligations above attach to these.
