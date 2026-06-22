@@ -35,6 +35,8 @@ const contentScriptSource = fs.readFileSync(
 
 // Capture all sendMessage calls
 let sendMessageCalls;
+let activeObservers = [];
+const OriginalMutationObserver = global.MutationObserver;
 
 function setupChromeApi(verifyResponder) {
     sendMessageCalls = [];
@@ -70,7 +72,22 @@ let rectCallCount = 0;
 
 beforeEach(() => {
     rectCallCount = 0;
-
+    activeObservers = [];
+    global.MutationObserver = class MockMutationObserver {
+        constructor(callback) {
+            this.observer = new OriginalMutationObserver(callback);
+            activeObservers.push(this.observer);
+        }
+        observe(target, options) {
+            this.observer.observe(target, options);
+        }
+        disconnect() {
+            this.observer.disconnect();
+        }
+        takeRecords() {
+            return this.observer.takeRecords();
+        }
+    };
     Range.prototype.getBoundingClientRect = function() {
         rectCallCount++;
         return { top: rectCallCount * 20, left: 10, right: 110, bottom: rectCallCount * 20 + 16, width: 100, height: 16 };
@@ -80,6 +97,11 @@ beforeEach(() => {
         rectCallCount++;
         return { top: rectCallCount * 20, left: 10, right: 110, bottom: rectCallCount * 20 + 16, width: 100, height: 16 };
     };
+});
+
+afterEach(() => {
+    activeObservers.forEach(obs => obs.disconnect());
+    global.MutationObserver = OriginalMutationObserver;
 });
 
 function getBadgeMessages() {
