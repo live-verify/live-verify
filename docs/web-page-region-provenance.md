@@ -87,36 +87,71 @@ For the bot-spam case, the distinction is essential and is the same one drawn fo
   out of scope everywhere.** Live Verify routes accountability for the region; it does not adjudicate
   whether the bytes inside it were typed by a human. Don't let the provenance layer imply otherwise.
 
-### The chain stops at the accountable host, never the author — by design
+### Each node declares its own posture — the chain surfaces the claims, it does not adjudicate them
 
 There is a hard, important terminus for user-generated regions, and it is a *feature*: **the chain
-stops at the entity accountable for the region, and never surfaces the individual who typed the
-content.**
+never surfaces the individual who typed the content; the last host → human hop is gated behind a court
+order.** But *which* node is that terminus is not a single tidy answer the protocol gets to decide —
+because §230 is a per-node, contestable, factual matter. So the chain's job is to **surface what each
+node asserts about its own liability and identity custody**, and let courts and regulators adjudicate.
+
+§230 immunity is not one badge worn by one party. It attaches to whoever acts as an *interactive
+computer service* w.r.t. the content and *not* as its *information content provider* — and it can be
+**claimed by more than one node, lost by a node that materially contributes to the content's
+illegality** (the amplifier edge), and never held by the author. Baking "this is *the* §230 node" into
+the chain would be the protocol making a legal ruling. It must not. Instead, each node declares, on
+**three axes**:
+
+1. **Role** — host, embedder, amplifier/ranker, relay/conduit, or author.
+2. **§230 posture** — claims immunity, no immunity (author), or a contested claim (e.g. an
+   amplifier-for-the-economics that *also* claims to be a neutral conduit).
+3. **Identity custody — do I hold the author's ID?** This is the decisive one for where the chain can
+   actually terminate.
+
+### "§230-exempt — conduit, ID upstream": a node that doesn't hold the identity must say so
+
+A node can only be the **unmasking terminus** if it actually *holds the author's identity*. A node
+that merely **received the content (and its provenance) from an upstream node and passed it on** does
+**not** hold the ID — and it must declare itself **"§230-exempt — conduit, identity held upstream,"**
+pointing the question further up the chain rather than absorbing it as if the buck stopped there.
+
+This is what stops a relay from being a **false terminus**. A complicit conduit cannot say "it stops
+with me, and I'm immune" to bury a report, because it is *factually* obligated to declare that it
+doesn't hold the ID — and the [escalated-reporting](chain-escalated-reporting.md) cascade therefore
+**keeps walking past it** until it reaches the node that genuinely holds the author's identity. Only
+*that* node — the real §230-shielded host who can be **compelled by court order** to take the final
+host → human step — is the unmaskable terminus.
+
+The declarations are **self-evidencing and self-policing**, like the rest of the chain: a node that
+*lies* — claiming to hold the ID when it doesn't, or claiming exempt-conduit when it actually holds
+the ID to dodge a subpoena — is making a checkable assertion the upstream node either corroborates or
+contradicts.
+
+### Why this is correct
 
 Consider a user invoking the safe sequence on a fabricated, defamatory comment — *"Nigel Farage
-donates \$1m a month to immigration-welfare groups."* The provenance reveal surfaces the **platform /
-host** operating the comment region — the party that, under **Section 230** (US) and equivalents, is
-*shielded from liability for user content and is correspondingly not its author*, but **is** the
-accountable operator and the lawful recipient of legal process. It **stops just short of the person
-who typed it.**
-
-That last hop — host → human — is **gated behind a court order**, not exposed to the reporter. This
-is doubly correct:
+donates \$1m a month to immigration-welfare groups."* The provenance reveal surfaces the **chain of
+nodes and what each claims**: relays declaring "exempt — ID upstream", the host that actually holds
+the identity claiming §230 as the accountable operator, and any amplifier whose immunity claim is
+*contested*. It **stops short of the person who typed it** in every case. This is:
 
 - **Privacy / anti-doxxing.** A safe sequence that unmasked commenters would be a doxxing machine —
   the exact privacy inversion this project refuses elsewhere (the *papers-please* worker-status line,
   the [enrichment hazards](verification-enrichment-hazards.md)). The typist's identity stays protected
   until a court says otherwise.
-- **It mirrors how the law actually works.** In a defamation action you subpoena the platform to
-  unmask a John Doe; you do not get to unmask them yourself. The chain terminating at the §230-shielded
-  host — who holds the identity and can be *compelled* by court order to take the final step — lands
-  the report and any legal process at exactly the right, lawful destination.
+- **It mirrors how the law actually works.** In a defamation action you subpoena the party that holds
+  the identity to unmask a John Doe; you do not get to unmask them yourself, and you have to find the
+  *right* party to subpoena. The chain hands a plaintiff or regulator exactly that map: who claims what,
+  who holds the ID, and which immunity claims are contestable.
+- **It exposes the contested node, which is the point.** An amplifier monetising the "thousand eyes
+  for a cent" economics *while* claiming neutral-conduit immunity is precisely the node a court most
+  needs surfaced — and a single "the §230 node" framing would hide exactly that. Surfacing every
+  node's claims, rather than picking a winner, is what makes the contested claim legible.
 
-So the design property is: **accountable terminus, not anonymous-all-the-way-down, and not a doxxing
-tool.** There is always a named, reachable party (the host); there is never a self-service unmasking of
-the author. The complicit case — a platform *knowingly* amplifying bot-spam for the "thousand eyes for
-a cent" economics — is reached by the [escalated-reporting](chain-escalated-reporting.md) cascade like
-any other party below the honest root; the individual author is reached only by due process.
+So the design property is: **accountable, identity-custody-honest terminus — not anonymous-all-the-way-
+down, and not a doxxing tool.** There is always a reachable map of who-claims-what; the node that holds
+the ID is the court-order-gated unmasking point; relays must declare they are not it; and the
+individual author is reached only by due process.
 
 ## Existing instances
 
