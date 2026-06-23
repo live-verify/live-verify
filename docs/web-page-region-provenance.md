@@ -52,30 +52,71 @@ Where a region's provenance forms a chain of responsible parties, it can also ca
 [chain-escalated reporting](chain-escalated-reporting.md): a user report routed root-first to honest
 parties before the possibly-complicit injector.
 
-## The discipline: the apparatus scales with the stakes
+## The discipline: it scales with whether there's an accountable chain — not with "importance"
 
 This is the part that keeps the generalization honest, and it is a deliberate boundary, not a
 hedge: **naming a general primitive is not a mandate to bolt the full machinery onto every region.**
+But the boundary is *not* "ads matter, comment widgets don't" — that would be wrong, because
+**user-generated and algorithmically-ranked regions have a very real fraud economy of their own.**
 
-The full provenance-and-reporting apparatus earns its keep where there is a real **accountability
-chain, a fraud economy, and (often) a regulatory duty**:
+What actually varies is whether a region has an **accountability chain worth routing to** — and,
+separately, what Live Verify can and cannot do about the fraud:
 
-- **Ads** — a genuine liability chain (advertiser → network → exchange → publisher) with
-  back-to-back indemnity and a large fraud economy. Warrants the full chain + escalated reporting.
-- **Sponsored / native content** — a real disclosure duty (FTC/ASA) and a real harm (editorial
-  disguise). Warrants verifiable disclosure.
+- **Ads** — a genuine liability chain (advertiser → network → exchange → publisher) with back-to-back
+  indemnity. Warrants the full chain + escalated reporting.
+- **Sponsored / native content** — a real disclosure duty (FTC/ASA) and editorial-disguise harm.
+  Warrants verifiable disclosure.
+- **Comment / recommendation / review / feed regions** — these are **not** low-stakes. They carry a
+  large bot-driven manipulation economy: spam posted to elevate prominence, astroturf sentiment,
+  manufacture consensus, plant links — *"a thousand sets of eyes for a cent."* They absolutely warrant
+  the **provenance + escalated-reporting** layer (there is a clear party accountable for *operating
+  the region* to report to). See the crucial limit below on what that layer does and doesn't catch.
+- **Truly static / known components** — a plain embedded map tile, a payment iframe, a share bar with
+  no user-generated content. At most a light *"embedded by"* disclosure; often nothing, because the
+  publisher visibly included a known component and there is no manipulation economy.
 
-For lower-stakes regions the right answer is *less*, not the same:
+### What the provenance layer catches here — and what it doesn't
 
-- An embedded map, a comment widget, a share bar — there is no fraud supply chain and weak
-  accountability stakes. At most these warrant a **light "who embedded this" disclosure** (the
-  publisher names the third party they chose to include) — and often they warrant **nothing at all**,
-  because the publisher has simply, visibly, included a known component.
+For the bot-spam case, the distinction is essential and is the same one drawn for ads:
 
-So region provenance is a *spectrum*: full liability-chain provenance at the ad end, a one-line
-"embedded by" disclosure in the middle, and silence at the trivial end. Applying ad-grade machinery
-to a comment box would be over-engineering — the same way verifying a thing nobody disputes adds
-nothing. The primitive is general; the *weight* is proportional to what is actually at stake.
+- **Region provenance answers "who is *accountable* for this region?"** — the publisher embedded the
+  comment system; a platform operates it. That chain is real and verifiable, and it gives a
+  user-report somewhere to go.
+- **It does *not* answer "is this specific comment a bot?"** — content-level bot/spam *detection* is
+  statistical, server-side, traffic-pattern analysis, the **same shape as ad/click fraud, which is
+  out of scope everywhere.** Live Verify routes accountability for the region; it does not adjudicate
+  whether the bytes inside it were typed by a human. Don't let the provenance layer imply otherwise.
+
+### The chain stops at the accountable host, never the author — by design
+
+There is a hard, important terminus for user-generated regions, and it is a *feature*: **the chain
+stops at the entity accountable for the region, and never surfaces the individual who typed the
+content.**
+
+Consider a user invoking the safe sequence on a fabricated, defamatory comment — *"Nigel Farage
+donates \$1m a month to immigration-welfare groups."* The provenance reveal surfaces the **platform /
+host** operating the comment region — the party that, under **Section 230** (US) and equivalents, is
+*shielded from liability for user content and is correspondingly not its author*, but **is** the
+accountable operator and the lawful recipient of legal process. It **stops just short of the person
+who typed it.**
+
+That last hop — host → human — is **gated behind a court order**, not exposed to the reporter. This
+is doubly correct:
+
+- **Privacy / anti-doxxing.** A safe sequence that unmasked commenters would be a doxxing machine —
+  the exact privacy inversion this project refuses elsewhere (the *papers-please* worker-status line,
+  the [enrichment hazards](verification-enrichment-hazards.md)). The typist's identity stays protected
+  until a court says otherwise.
+- **It mirrors how the law actually works.** In a defamation action you subpoena the platform to
+  unmask a John Doe; you do not get to unmask them yourself. The chain terminating at the §230-shielded
+  host — who holds the identity and can be *compelled* by court order to take the final step — lands
+  the report and any legal process at exactly the right, lawful destination.
+
+So the design property is: **accountable terminus, not anonymous-all-the-way-down, and not a doxxing
+tool.** There is always a named, reachable party (the host); there is never a self-service unmasking of
+the author. The complicit case — a platform *knowingly* amplifying bot-spam for the "thousand eyes for
+a cent" economics — is reached by the [escalated-reporting](chain-escalated-reporting.md) cascade like
+any other party below the honest root; the individual author is reached only by due process.
 
 ## Existing instances
 
