@@ -227,4 +227,9 @@ display model this use case reuses.
 
 ## Further Derivations
 
-None currently.
+1. **Political ad funding disclosure** — the sibling that answers *"who paid for this?"* (funding
+   transparency, chained to the electoral regulator) rather than *"who placed this?"* (this page's
+   liability chain). See [Political Ad Funding Disclosure](political-ad-funding-disclosure.md).
+2. **Sponsored content & native-ad disclosure** — the platform/publisher discloses whether
+   editorial-looking content is paid placement. See
+   [Sponsored Content & Native-Ad Disclosure](sponsored-content-disclosure.md).

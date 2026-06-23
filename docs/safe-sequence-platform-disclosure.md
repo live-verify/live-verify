@@ -77,7 +77,7 @@ signal, not an error state to be smoothed over.** A Safe-Sequence Platform Discl
 
 ## Member use cases
 
-Two exist today; both should be read as instances of this branch rather than one-offs:
+These exist today; each should be read as an instance of this branch rather than a one-off:
 
 - **[Ad Placement Provenance](../public/use-cases/ad-placement-provenance.md)** — browser safe
   sequence; subject is the ad supply chain; absence = no one signed for this placement; surfaces the
@@ -85,6 +85,14 @@ Two exist today; both should be read as instances of this branch rather than one
 - **[Platform Age-Assurance Parental Audit](../public/use-cases/platform-age-assurance-parental-audit.md)**
   — OS safe sequence; subject is the platform's age belief; absence = no assurance was done; surfaces
   who performed the check, up to a state-sanctioned children's-tier licence.
+- **[Political Ad Funding Disclosure](../public/use-cases/political-ad-funding-disclosure.md)** —
+  subject is the political ad's funding; the user asks "who paid for this?"; absence of a checkable
+  sponsor disclosure is the dark-money finding; surfaces the funding entity chained to the electoral
+  regulator.
+- **[Sponsored Content & Native-Ad Disclosure](../public/use-cases/sponsored-content-disclosure.md)**
+  — subject is whether content disguised as editorial is paid placement; the user asks "is this
+  sponsored?"; absence of a disclosure where there should be one is the finding; the platform/publisher
+  is the discloser (distinct from creator-side #ad).
 
 ## The frontier
 
@@ -100,10 +108,12 @@ surface it can't fake"* questions. Each is a candidate member use case:
 - **"What consent does this service claim I gave?"** — a user audits the data-processing or
   marketing consent a platform asserts it holds, surfaced and checkable rather than buried in a
   settings dashboard the platform controls.
-- **"Is this content/recommendation sponsored?"** — the platform discloses paid-placement status for
-  a specific item, bound to its domain, via the same provenance machinery as ad placement.
 - **"Is this account a bot / automated?"** — the platform discloses what it knows or asserts about an
   account's automated status.
+
+(*"Is this content/recommendation sponsored?"* graduated from this frontier list to a written-up
+member use case — see [Sponsored Content & Native-Ad Disclosure](../public/use-cases/sponsored-content-disclosure.md)
+above.)
 
 In each, the test for membership is the four properties: platform as subject, user turns verification
 inward, a non-overridable safe sequence, and absence-as-finding. Anything that is really "the user
@@ -131,6 +141,10 @@ behaviour of the platforms they use — surfaced through a gesture those platfor
 - [Ad Placement Provenance](../public/use-cases/ad-placement-provenance.md) — member use case.
 - [Platform Age-Assurance Parental Audit](../public/use-cases/platform-age-assurance-parental-audit.md)
   — member use case.
+- [Political Ad Funding Disclosure](../public/use-cases/political-ad-funding-disclosure.md) — member
+  use case.
+- [Sponsored Content & Native-Ad Disclosure](../public/use-cases/sponsored-content-disclosure.md) —
+  member use case.
 - [Authority Chain: App Display](authority-chain-app-display.md) — the chain-walk and display model
   this branch reuses.
 - [Sovereign Roots](sovereign-roots.md) — where a state-licence disclosure anchors.

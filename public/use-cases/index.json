@@ -1,16 +1,16 @@
 {
-  "generated": "2026-06-21T15:46:06.815Z",
-  "totalUseCases": 603,
-  "totalFurtherDerivations": 930,
+  "generated": "2026-06-23T06:32:04.390Z",
+  "totalUseCases": 605,
+  "totalFurtherDerivations": 932,
   "categories": {
     "Real Estate & Property": 44,
     "Charitable & Non-Profit": 8,
-    "Novel Document Types": 11,
+    "Novel Document Types": 12,
     "Scientific & Research": 8,
     "Professional & Occupational Licenses": 19,
     "Actuarial & Insurance Mathematics": 10,
     "Personal Lines Insurance": 17,
-    "Government & Civic Documents": 36,
+    "Government & Civic Documents": 37,
     "Notary Services": 7,
     "Immigration & Visa Documents": 18,
     "Legal & Court Documents": 26,
@@ -8379,6 +8379,28 @@
       ]
     },
     {
+      "slug": "political-ad-funding-disclosure",
+      "title": "Political Ad Funding Disclosure (Who Paid For This?)",
+      "category": "Government & Civic Documents",
+      "volume": "Very Large",
+      "retention": "Campaign + statutory retention (often years for electoral records)",
+      "verificationMode": "both",
+      "furtherDerivations": 1,
+      "snippet": "The paying committee/entity name, its electoral-regulator registration identifier, the sponsor, the",
+      "tags": [
+        "political-advertising",
+        "funding-disclosure",
+        "dark-money",
+        "electoral-transparency",
+        "disclaimer",
+        "digital-imprint",
+        "safe-sequence-platform-disclosure",
+        "fec",
+        "eu-political-ads",
+        "sponsor-identity"
+      ]
+    },
+    {
       "slug": "political-risk-insurance",
       "title": "Political Risk Insurance (PRI) Policies",
       "category": "Specialty Insurance",
@@ -10658,6 +10680,27 @@
       ]
     },
     {
+      "slug": "sponsored-content-disclosure",
+      "title": "Sponsored Content & Native-Ad Disclosure (Is This Sponsored?)",
+      "category": "Novel Document Types",
+      "volume": "Very Large",
+      "retention": "Content lifecycle",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "The content reference and human-readable title, the paid-placement status, the advertiser/payer who",
+      "tags": [
+        "native-advertising",
+        "sponsored-content",
+        "paid-placement",
+        "disclosure",
+        "ftc-native-ad",
+        "advertorial",
+        "safe-sequence-platform-disclosure",
+        "platform-integrity",
+        "editorial-integrity"
+      ]
+    },
+    {
       "slug": "sponsorship-affidavits-i864",
       "title": "Sponsorship Affidavits (I-864)",
       "category": "Immigration & Visa Documents",
@@ -12428,7 +12471,7 @@
     },
     {
       "name": "Government & Civic Documents",
-      "count": 36
+      "count": 37
     },
     {
       "name": "Business & Commerce",
@@ -12491,16 +12534,16 @@
       "count": 15
     },
     {
+      "name": "Novel Document Types",
+      "count": 12
+    },
+    {
       "name": "Site & Equipment Safety",
       "count": 12
     },
     {
       "name": "Professional Ethics & Compliance",
       "count": 12
-    },
-    {
-      "name": "Novel Document Types",
-      "count": 11
     },
     {
       "name": "Commercial Lines Insurance",
