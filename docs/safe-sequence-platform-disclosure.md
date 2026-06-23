@@ -145,6 +145,8 @@ behaviour of the platforms they use — surfaced through a gesture those platfor
   use case.
 - [Sponsored Content & Native-Ad Disclosure](../public/use-cases/sponsored-content-disclosure.md) —
   member use case.
+- [Web-Page Region Provenance](web-page-region-provenance.md) — the general "who placed this part of
+  the page?" primitive the ad/sponsored-content instances sit under.
 - [Authority Chain: App Display](authority-chain-app-display.md) — the chain-walk and display model
   this branch reuses.
 - [Sovereign Roots](sovereign-roots.md) — where a state-licence disclosure anchors.

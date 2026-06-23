@@ -19,6 +19,11 @@ decision to place a single ad. (For a working illustration of that recursion, se
 [ad-infinitum demo](https://github.com/paul-hammant/ad-infinitum), which simulates the chain of
 advertising-service domains that can inject content into an arbitrary page.)
 
+> Ads are the highest-stakes instance of a more general thing: **[web-page region
+> provenance](../../docs/web-page-region-provenance.md)** — *who placed any third-party-injected
+> region of a page here, and who stands behind it?* This use case applies that primitive where the
+> fraud, liability, and regulatory stakes are greatest.
+
 When something goes wrong — a malvertising payload, a scam creative, a deceptive "you've won"
 banner — the end user has **no way to ask "who placed this?"** The publisher washes their hands ("we
 didn't serve it"); the ad network is invisible; the exchange is invisible; the re-seller is
