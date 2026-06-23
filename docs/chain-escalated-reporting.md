@@ -16,35 +16,77 @@ have already had their chance to act.
 
 ## The mechanism
 
-A user invokes a safe-sequence "report this" gesture on the ad (or content). The report is then
-escalated **root-first** down the resolved provenance chain:
+A user (or an advertiser's own tooling) invokes a "report this" action on the ad or content. The
+report carries the **whole resolved provenance chain plus the page URL**, from the reporter's point of
+view — **self-evidencing**, so any recipient can re-walk and re-verify the exact chain the reporter
+saw and it can't be dismissed as hearsay. *How* it routes, though, depends on **what kind of harm is
+being reported** — because different ad-supply harms have different victims at opposite ends of the
+chain.
 
-1. **The report payload is the whole chain, from the browser's point of view** — the complete
-   resolved provenance chain (advertiser → network → exchange → publisher proxy → …), plus the page
-   URL where it appeared. This is **self-evidencing**: any recipient can re-walk and re-verify the
-   exact chain the reporter saw, so the report can't be dismissed as hearsay.
-2. **The root gets first dibs.** The report goes to the chain's **root** first (see *Who is the
-   root?* below — crucially, **not** the publisher who served it).
-3. **Consume-and-stop.** If a party **consumes** the report — acknowledges it and takes
-   responsibility for acting on it — escalation stops; it does not bubble further.
-4. **Otherwise it steps down the chain.** If the root doesn't consume it, the report goes to the
-   next entry toward the leaf (the exchange, then the network, then the re-seller…), one step at a
-   time, until someone consumes it.
+## The general rule: the defrauded party is a guaranteed recipient
 
-### Why root-first is the whole point
+Two different harms ride the same chain, with their victims at **opposite ends**:
 
-The party *knowingly complicit* in fraud is typically **far from the root** — a rogue re-seller or
-network deep in the chain. Root-first routing deliberately sends the report **past** them to the
-honest parties above them *first*. A complicit re-seller cannot quietly swallow a complaint about
-their own fraud, because:
+| Harm | Victim | Where in the chain | Routing |
+|---|---|---|---|
+| **Malvertising / bad placement** | the end user and the publisher | near the **root** | root-first (below) |
+| **Click / impression fraud** | the **advertiser** — the party *paying* for the ad | the **leaf** end | advertiser is a **guaranteed recipient** (below) |
 
-- the report reaches the parties who hold **indemnity contracts over them** and who would want to
-  **cut them off** *before* it reaches the re-seller themselves;
-- by the time the report could reach the complicit party, the honest parties above have already had
-  the opportunity to act on and isolate them.
+The unifying principle is **not** "root-first" — that was only the malvertising *instance* of it. The
+real rule is: **the party defrauded by the harm is a guaranteed recipient of the report, and no other
+node may consume-to-suppress it away from them.** Which end of the chain that party sits at depends on
+the harm — so the report **declares its harm-type**, and the harm-type sets who must receive it.
 
-It inverts who controls the complaint: today the bad actor often sees it first; here the bad actor
-is **last** to see it, behind everyone with reputation and contracts to protect.
+## Instance A — malvertising / bad placement: root-first
+
+The user reports a harmful ad (a malware dropper, a scam). The victim is the **end user / publisher**,
+who sit near the **root**, and the complicit party (a rogue re-seller) is typically *far down* the
+chain. So the report escalates **root-first**:
+
+1. **The honest root gets first dibs** (see *Who is the root?* below — crucially **not** the publisher
+   who served it).
+2. **Consume-and-stop.** The first party to **consume** the report — acknowledge it and take
+   responsibility for acting — stops the cascade.
+3. **Otherwise step down toward the leaf** one party at a time until someone consumes it.
+
+**Why root-first is the whole point here:** the knowingly-complicit party is typically far from the
+root, so root-first routing sends the report **past** them to the honest parties above *first* — the
+ones holding indemnity over them, who would want to cut them off — *before* it reaches the complicit
+party themselves. The bad actor is the **last** to see a complaint about their own conduct, not the
+first. It inverts who controls the complaint.
+
+## Instance B — click / impression fraud: the advertiser is guaranteed the report
+
+Here the cascade's assumption flips, and root-first would be **wrong**. The victim is the
+**advertiser** — the company whose *money* is being taken by fake clicks/impressions — and they sit at
+the **leaf** end of the chain, *furthest from the root*. The fraud is often committed by or with the
+complicity of the intermediaries *between* the advertiser and the publisher (an exchange, a network, or
+a fraudulent publisher inflating numbers) — the parties who profit from the advertiser's spend.
+
+If a click-fraud report bubbled root-first, the **advertiser — the actual victim — would be the *last*
+to hear about a fraud against their own budget.** That is backwards. So for a click/impression-fraud
+report:
+
+- **The advertiser (the defrauded payer) is a mandatory recipient**, notified directly — *not* placed
+  at the back of a bubble queue. They have the strongest incentive and the standing to audit, claw
+  back, and cut off the offending intermediary.
+- **No consuming node may suppress the report from reaching the advertiser.** Consume-to-suppress is
+  the hazard again, but the protected party is now the *payer*: an intermediary profiting from the
+  fraud must not be able to "consume" the report and quietly keep it from the company being stolen
+  from. The advertiser's receipt is guaranteed regardless of what any other node does.
+- The report **still cascades to the honest intermediaries** who would want to police it (the honest
+  root and indemnity-holders above the complicit party) — guaranteeing the advertiser does not
+  *replace* honest-party routing; it adds the victim as a non-suppressible endpoint.
+
+### The honest limit (same as everywhere)
+
+Live Verify routes the **report and the accountability**; it does **not** prove the clicks were fake.
+Click-fraud *detection* — "is this traffic bot-driven?" — is the statistical, server-side problem that
+is [out of scope](../public/use-cases/ad-placement-provenance.md) (the same shape as content-level bot
+detection). What the chain hands the advertiser is a **verifiable record of the exact placement chain a
+report concerned, delivered to them as the defrauded payer** — so they can audit, claw back, and cut
+off — *not* a verdict that fraud occurred. The advertiser's own analytics decide that; the chain gives
+them the provenance to act on.
 
 ## Who is the root? — an honest, curated anchor, not the publisher
 
@@ -78,8 +120,11 @@ parties above them first.
 ## Consumption
 
 "Consume" means a party formally accepts the report and responsibility for acting on it, stopping
-escalation. Because the root is honest by construction, consumption is safe to treat as terminal —
-the concern is no longer a bad actor swallowing it, but ensuring the act is on the record:
+escalation. Because the root is honest by construction, consumption is safe to treat as terminal for
+the **root-first (malvertising) routing** — the concern is no longer a bad actor swallowing it, but
+ensuring the act is on the record. (The one exception is the guaranteed-recipient rule: in the
+click-fraud case, no consuming node may suppress the report from reaching the defrauded advertiser —
+consumption stops the *cascade*, never the victim's guaranteed copy.)
 
 - The reporter receives a **receipt** (a `tx`-style verification receipt — see
   [Verification Response Format](Verification-Response-Format.md)) recording that the report was made,
