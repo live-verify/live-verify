@@ -168,6 +168,31 @@ without the regulator having to subpoena the auction logs of every intermediary.
 A network that signs its placements and carries real indemnity can *prove* it did so. Provenance
 rewards the diligent intermediary and isolates the murky re-seller who refuses to sign.
 
+## Reporting up the chain (a post-verification action)
+
+Seeing a bad ad, a user can do more than read its provenance — they can **report it**, and the
+resolved chain becomes the report's routing table. The report is a
+[post-verification action](../../docs/post-verification-actions.md): the user invokes a "report this"
+gesture and the complaint is escalated **root-first** down the chain.
+
+- **The report is the whole chain plus the URL**, from the browser's point of view — self-evidencing,
+  so any recipient can re-walk and re-verify exactly what the reporter saw.
+- **The honest root gets first dibs**, then the report steps down toward the leaf one party at a time;
+  the first party to **consume** it (accept responsibility for acting) stops the cascade.
+- **Why root-first:** the party knowingly complicit in fraud is usually *far from the root* — a rogue
+  re-seller deep in the chain. Routing root-first sends the report *past* them to the honest parties
+  above first, the ones holding indemnity over them and able to cut them off. The bad actor is the
+  **last** to see a complaint about their own conduct, not the first.
+- **No complicit root.** The root is *not* the publisher who served the ad (a complicit publisher
+  could otherwise consume-to-suppress). It is a **curated, neutrally-governed list of honest
+  ad-placement roots** — the platform running the gesture (e.g. Chrome) must not anoint itself, and
+  the list is ideally maintained by a 501(c)(3) association, the same way
+  [sovereign roots](../../docs/sovereign-roots.md) anchor credential chains. The publisher remains the
+  *liability* anchor of the chain; the honest curated root is the *reporting* anchor.
+
+The full mechanism — payload, escalation order, the honest-roots list, and consumption receipts — is
+specified in [Chain-Escalated Reporting](../../docs/chain-escalated-reporting.md).
+
 ## Verification Architecture
 
 This use case is an instance of [Safe-Sequence Platform Disclosure](../../docs/safe-sequence-platform-disclosure.md):
