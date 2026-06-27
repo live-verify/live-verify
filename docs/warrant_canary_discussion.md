@@ -55,3 +55,12 @@ Canaries could move back into the active catalogue if:
 3. **The verification-of-absence problem** gets a clean architectural answer that fits Verific's existing model — perhaps a "scheduled attestation" primitive where the *expectation* of a future document is itself a verifiable claim
 
 Until then, canaries remain an interesting idea with a long pedigree and not enough real-world traction to justify a production use case.
+
+## The affirmative successor (point 3, realised)
+
+Point 3 above has since been taken up — not by rehabilitating the absence-based canary, but by inverting it. The **affirmative** form sidesteps the verifying-absence problem that benched the warrant canary: instead of *going silent and hoping observers infer trouble*, the owner publishes a **currently-true, freshly-timestamped claim with an explicit "as of" and a stated re-attestation cadence baked into the verifiable text.** Freshness is then precise and machine-checkable rather than an inferred schedule. Two production use cases implement this:
+
+- [Live Incident & Ongoing-Warning Status](../public/use-cases/live-incident-status-attestations.md) — an affirmative *warning* ("I've lost control of my account — ongoing as of …"), domain-anchored so a hacked-channel victim can warn from a channel the attacker doesn't control.
+- [Live All-Clear / Affirmative Canary Status](../public/use-cases/live-allclear-canary-status.md) — the affirmative *all-clear* ("operating normally as of …, re-attested daily"), where staleness relative to the stated cadence is the alarm.
+
+These are honestly **better-specified, not perfect**: a stale all-clear is still ambiguous in attenuated form (stopped because something's wrong, or because someone got bored?). But the explicit timestamp and cadence give "stale" a defined meaning the silence-based canary never had.

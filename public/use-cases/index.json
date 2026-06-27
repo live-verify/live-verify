@@ -1,11 +1,11 @@
 {
-  "generated": "2026-06-23T06:42:28.162Z",
-  "totalUseCases": 605,
-  "totalFurtherDerivations": 932,
+  "generated": "2026-06-27T08:24:11.062Z",
+  "totalUseCases": 607,
+  "totalFurtherDerivations": 934,
   "categories": {
     "Real Estate & Property": 44,
     "Charitable & Non-Profit": 8,
-    "Novel Document Types": 12,
+    "Novel Document Types": 14,
     "Scientific & Research": 8,
     "Professional & Occupational Licenses": 19,
     "Actuarial & Insurance Mathematics": 10,
@@ -6460,6 +6460,50 @@
       ]
     },
     {
+      "slug": "live-allclear-canary-status",
+      "title": "Live All-Clear / Affirmative Canary Status (Self-Attested)",
+      "category": "Novel Document Types",
+      "volume": "Large",
+      "retention": "Continuous (re-attested on cadence)",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "That the controller of the named domain currently asserts this affirmative all-clear; the subject (a",
+      "tags": [
+        "live-status",
+        "canary",
+        "all-clear",
+        "freshness",
+        "self-attested",
+        "affirmative-canary",
+        "liveness",
+        "scheduled-attestation",
+        "system-status",
+        "operational-status"
+      ]
+    },
+    {
+      "slug": "live-incident-status-attestations",
+      "title": "Live Incident & Ongoing-Warning Status (Self-Attested)",
+      "category": "Novel Document Types",
+      "volume": "Large",
+      "retention": "Incident duration (ongoing) + archival record",
+      "verificationMode": "clip",
+      "furtherDerivations": 1,
+      "snippet": "That the controller of the named domain currently asserts this incident/warning; the subject (a",
+      "tags": [
+        "live-status",
+        "incident",
+        "account-compromise",
+        "ongoing-warning",
+        "freshness",
+        "self-attested",
+        "affirmative-canary",
+        "liveness",
+        "cross-channel-trust",
+        "system-status"
+      ]
+    },
+    {
       "slug": "livestock-crop-insurance",
       "title": "Livestock and Crop Insurance Policies",
       "category": "Specialty Insurance",
@@ -12535,7 +12579,7 @@
     },
     {
       "name": "Novel Document Types",
-      "count": 12
+      "count": 14
     },
     {
       "name": "Site & Equipment Safety",
