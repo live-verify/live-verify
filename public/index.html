@@ -157,6 +157,66 @@
         /* ---- Story card ---- */
         .story-card { border-left: 4px solid var(--accent); }
 
+        /* ---- Live in-page demo ---- */
+        .demo-card { border-left: 4px solid #16a34a; }
+        .demo-doc {
+            font-family: var(--mono);
+            font-size: 0.92em;
+            line-height: 1.7;
+            white-space: pre-wrap;
+            word-break: break-word;
+            background: #f8fafc;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 16px 18px;
+            margin-top: 14px;
+            color: var(--ink);
+        }
+        .demo-doc:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-ring);
+        }
+        .demo-vline { color: var(--accent-dark); font-weight: 700; }
+        .demo-controls { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+        .demo-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            border: 1px solid transparent;
+            padding: 12px 22px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.98em;
+            font-family: var(--font);
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.15s ease, background 0.15s ease;
+        }
+        .demo-btn:hover { transform: translateY(-2px); background: var(--accent-dark); }
+        .demo-btn.secondary {
+            background: var(--surface);
+            color: var(--accent);
+            border-color: var(--line);
+        }
+        .demo-btn.secondary:hover { background: var(--accent-soft); color: var(--accent-dark); }
+        .demo-btn:disabled { opacity: 0.6; cursor: default; transform: none; }
+        .demo-btn[hidden] { display: none; }
+        .demo-result {
+            margin-top: 14px;
+            padding: 14px 16px;
+            border-radius: 12px;
+            font-weight: 650;
+            line-height: 1.55;
+            border: 1px solid transparent;
+        }
+        .demo-result .demo-result-detail { display: block; font-weight: 400; font-size: 0.9em; margin-top: 4px; }
+        .demo-result .demo-hash { font-family: var(--mono); font-size: 0.82em; word-break: break-all; opacity: 0.85; }
+        .demo-result.is-verified { background: #f0fdf4; border-color: #bbf7d0; color: #14532d; }
+        .demo-result.is-failed { background: #fef2f2; border-color: #fecaca; color: #7f1d1d; }
+        .demo-result.is-error { background: #fffbeb; border-color: #fde68a; color: #78350f; }
+        .demo-result.is-pending { background: var(--accent-soft); border-color: #e3ebfb; color: var(--accent-dark); }
+
         /* ---- Audience doors ---- */
         .door-row {
             display: grid;
@@ -418,9 +478,28 @@
         <nav class="breadcrumbs" aria-label="Breadcrumb">
             <span>Home</span>
         </nav>
-        <h1>Don't just trust. Verify.</h1>
-        <p class="subhead">Verify any document against its source.</p>
-        <p class="lede">Generative AI made forging any document free. Live Verify is the open standard that answers the only question that still matters &mdash; <em>does the issuer stand behind this, right now?</em> Select or snap the text; a SHA-256 lookup against the issuer's own domain answers in seconds. No central database, no blockchain.</p>
+        <h1>Ask any document: does your issuer stand behind this?</h1>
+        <p class="subhead">Select the text of a certificate, licence, or receipt &mdash; and get the issuer's own answer in four seconds. No phone call, no account.</p>
+        <p class="lede">Live Verify is the open standard that answers the only question that still matters when a document lands in front of you &mdash; <em>does the issuer stand behind this, right now?</em> Select or snap the text; a SHA-256 lookup against the issuer's own domain answers in seconds. Try it below &mdash; then break it.</p>
+
+        <!-- Live in-page demo: verify a real claim, then edit it and watch it fail -->
+        <div class="card demo-card" id="tryIt">
+            <h2>Verify this claim &mdash; then change one character</h2>
+            <p style="margin-bottom: 4px;">This is a real verifiable claim. The <code>verify:</code> line points at this
+                site's own domain, where a hash of the text above it is published. Hit <strong>Verify</strong>. Then
+                edit any character &mdash; a digit of the time, a letter of the name &mdash; and verify again: the hash
+                no longer matches, and the issuer's domain has never heard of it. That's the whole security model, felt
+                in ten seconds. No install, nothing leaves your device but a single hash lookup.</p>
+            <div class="demo-doc" id="demoDoc" contenteditable="true" spellcheck="false" aria-label="Editable verifiable claim">Riverside Athletics Club confirms that
+Jordan Avery completed the Riverside Half Marathon
+on 4 May 2025 in a chip time of 1:47:32.
+<span class="demo-vline">verify:live-verify.github.io/live-verify/c</span></div>
+            <div class="demo-controls">
+                <button type="button" class="demo-btn" id="demoVerifyBtn">Verify this claim</button>
+                <button type="button" class="demo-btn secondary" id="demoRestoreBtn" hidden>Restore original</button>
+            </div>
+            <div class="demo-result" id="demoResult" role="status" aria-live="polite" hidden></div>
+        </div>
 
         <!-- The story that started it -->
         <div class="card story-card" id="why">
@@ -469,6 +548,7 @@
             <a class="cta secondary" href="quickstart.html">15-Minute Quickstart</a>
             <a class="cta secondary" href="examples/">Clip Mode Examples</a>
             <a class="cta secondary" href="use-cases/">Use Cases</a>
+            <a class="cta secondary" href="how-is-this-different.html">How Is This Different?</a>
             <a class="cta secondary" href="opportunity.html">Opportunity</a>
             <a class="cta secondary" href="privacy_declaration.html">Privacy</a>
             <a class="cta secondary" href="https://github.com/live-verify/live-verify" target="_blank" rel="noreferrer">Source Code</a>
@@ -533,8 +613,8 @@
 
         <!-- Global anti-fraud system -->
         <div class="card" id="globalSystem">
-            <h2>A global anti-fraud system</h2>
-            <p>Taken together, the use cases describe something bigger than a single product: a <strong>global, decentralized anti-fraud system</strong> for documents and claims of every kind. It works the way the web and email do &mdash; as an <strong>open standard</strong> anyone can implement, not a service anyone signs up to.</p>
+            <h2>The bigger picture (once the basics click)</h2>
+            <p>Taken together, the use cases add up to more than a single product: a decentralized way to check documents and claims of every kind. It works the way the web and email do &mdash; as an <strong>open standard</strong> anyone can implement, not a service anyone signs up to.</p>
             <ul>
                 <li><strong>It's a standard, not a company.</strong> The rule is simply <code>text &rarr; normalize &rarr; SHA-256 &rarr; GET the issuer's domain</code>. Any issuer can adopt it without permission, accounts, or fees.</li>
                 <li><strong>No central database.</strong> There is no master registry of valid documents and no single operator to trust, subpoena, breach, or switch off. Nobody &mdash; including us &mdash; holds a list of who verified what.</li>
@@ -544,7 +624,7 @@
                 <li><strong>Human in the loop &mdash; dual-channel trust.</strong> Verification and human judgement happen <em>together</em>, not in sequence, on two channels at once: the person reads the domain and trusts their gut, while the device walks the authority chain to a sovereign root. The machine does the maths &mdash; normalize, hash, look up &mdash; and the person weighs the result: <em>&ldquo;it came back verified, the issuer's domain (<code>gmc-uk.org</code>) is one I accept, and the endorsement chain makes sense &mdash; so I'll trust this, for now.&rdquo;</em> Equally, the human is the one who balks at <em>&ldquo;verified, but by <code>djwgwbdss.com</code>, with no chain behind it &mdash; I've no basis to trust that domain on its own.&rdquo;</em> A green tick is an input to a human decision, not the decision itself &mdash; and because issuers can revoke, that trust is only ever for <em>this moment</em>.</li>
             </ul>
             <p class="note" style="margin-top: 14px;">
-                <strong>This is not a blockchain.</strong> There is no ledger, no token, no mining, no consensus network, and no shared global state. A verification is a plain HTTPS lookup against the issuer's own server, answered live &mdash; which is exactly why claims can be <em>revoked</em> the instant an issuer changes its mind. A blockchain's permanence is the opposite of what fraud-fighting needs; the authority you trust is a domain name, not a chain.
+                <strong>The plumbing is deliberately boring:</strong> a verification is a plain HTTPS lookup against the issuer's own server, answered live &mdash; the document carries a link, and checking it is like checking a tracking number. That live answer is exactly why a claim can be <em>revoked</em> the instant an issuer changes its mind. (No ledger, token, or consensus network is involved; if you're weighing this against a blockchain or an NFT credential, that comparison is on the <a href="how-is-this-different.html">how&nbsp;is&nbsp;this&nbsp;different</a> page.)
             </p>
         </div>
 
@@ -872,6 +952,18 @@
                 <a href="privacy_declaration.html">Privacy Declaration</a>.
             </p>
         </div>
+
+        <!-- Adoption-risk answer: the standard doesn't depend on its author continuing -->
+        <div class="card" id="outlivesAuthor">
+            <h2>Does this depend on one person sticking around?</h2>
+            <p>No &mdash; by design. It's an open standard (Apache&nbsp;2.0), publicly disclosed as
+                <a href="https://github.com/live-verify/live-verify/blob/main/docs/no-patents-declaration.md">unpatentable prior art</a>,
+                with no trademark to capture. Every verification endpoint is a static file on the <em>issuer's</em> own
+                domain, not on any infrastructure this project runs. If the project stopped tomorrow, every deployed
+                endpoint keeps answering, and anyone can carry the spec forward. That's the opposite of the usual
+                &ldquo;what if the vendor disappears?&rdquo; risk.</p>
+        </div>
+
         <div class="site-foot">
             <a href="https://github.com/live-verify/live-verify" target="_blank" rel="noreferrer">Source code &amp; technical documentation on GitHub</a>
             <p style="margin-top: 10px;">
@@ -881,6 +973,101 @@
             </p>
         </div>
     </div>
+    <!-- Live in-page demo: real pipeline, canonical modules only -->
+    <script src="normalize.js"></script>
+    <script src="app-logic.js"></script>
+    <script>
+        (function () {
+            var doc = document.getElementById('demoDoc');
+            var verifyBtn = document.getElementById('demoVerifyBtn');
+            var restoreBtn = document.getElementById('demoRestoreBtn');
+            var resultEl = document.getElementById('demoResult');
+            if (!doc || !verifyBtn || !restoreBtn || !resultEl) return;
+
+            // The pristine claim, captured from the markup so it stays in sync with the HTML.
+            var ORIGINAL = doc.innerText;
+
+            function setResult(kind, headline, detailHtml) {
+                resultEl.hidden = false;
+                resultEl.className = 'demo-result is-' + kind;
+                resultEl.innerHTML = '<span>' + headline + '</span>' +
+                    (detailHtml ? '<span class="demo-result-detail">' + detailHtml + '</span>' : '');
+            }
+
+            function esc(s) {
+                return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            }
+
+            async function runVerify() {
+                var rawText = doc.innerText;
+
+                // Show/hide the restore button based on whether the claim was edited.
+                restoreBtn.hidden = (rawText === ORIGINAL);
+
+                setResult('pending', 'Checking…', 'Normalizing, hashing, and asking the issuer’s domain.');
+                verifyBtn.disabled = true;
+
+                try {
+                    // Canonical pipeline — no re-implemented normalization or hashing.
+                    var extracted = extractVerificationUrl(rawText);
+                    if (!extracted.url) {
+                        setResult('error', 'No verify: line found',
+                            'The claim needs a <code>verify:</code> line naming the issuer’s domain. Restore the original to try again.');
+                        return;
+                    }
+
+                    var certText = extractCertText(rawText, extracted.urlLineIndex);
+                    var normalized = normalizeText(certText);
+                    var hash = await sha256(normalized);
+                    var fullUrl = buildVerificationUrl(extracted.url, hash);
+
+                    var response = await fetch(fullUrl);
+
+                    if (response.status === 404) {
+                        setResult('failed', '❌ Fails verification',
+                            'The issuer’s domain has no record of this exact text. Changing a single character changes the hash, so the lookup misses — that is the tamper-evidence.' +
+                            '<br><span class="demo-hash">computed hash: ' + esc(hash) + '</span>');
+                        return;
+                    }
+
+                    if (response.status !== 200) {
+                        setResult('error', 'Verification could not complete',
+                            'The issuer’s domain returned HTTP ' + response.status + '. This is an infrastructure signal, not a pass or a fail.');
+                        return;
+                    }
+
+                    var body = await response.text();
+                    if (body.indexOf('"verified"') !== -1) {
+                        setResult('verified', '✅ Verified',
+                            'Riverside Athletics Club’s domain currently stands behind this exact text.' +
+                            '<br><span class="demo-hash">matched hash: ' + esc(hash) + '</span>');
+                    } else {
+                        var status = body.trim().toUpperCase().substring(0, 60);
+                        setResult('failed', 'Status: ' + esc(status),
+                            'The issuer answered, but with a status other than verified (e.g. revoked or expired).');
+                    }
+                } catch (err) {
+                    // Fail loudly and honestly — never fake a result or silently degrade.
+                    setResult('error', 'Could not reach the issuer',
+                        'Network error or the lookup was blocked (CORS/offline). This is not a pass or a fail — it means the check itself did not run.');
+                } finally {
+                    verifyBtn.disabled = false;
+                }
+            }
+
+            function restoreOriginal() {
+                doc.innerText = ORIGINAL;
+                restoreBtn.hidden = true;
+                resultEl.hidden = true;
+                resultEl.className = 'demo-result';
+                resultEl.innerHTML = '';
+                doc.focus();
+            }
+
+            verifyBtn.addEventListener('click', runVerify);
+            restoreBtn.addEventListener('click', restoreOriginal);
+        })();
+    </script>
     <script>
         // Click any screenshot to open full-size in a new tab
         document.querySelectorAll('.screenshot-strip img').forEach(img => {

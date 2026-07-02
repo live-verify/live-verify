@@ -130,9 +130,10 @@
                     business of deciding which documents are true.</li>
                 <li><strong>Privacy-preserving by construction.</strong> Normalization and hashing happen on-device.
                     The issuer sees a hash, never the document; you see nothing at all.</li>
-                <li><strong>Not a blockchain.</strong> No ledger, token, or consensus network. A verification is a
-                    plain HTTPS GET against the issuer's server &mdash; which is precisely what makes claims revocable
-                    the moment an issuer changes its mind.</li>
+                <li><strong>A plain HTTPS GET, nothing exotic.</strong> A verification is one request to the issuer's
+                    server &mdash; which is precisely what makes claims revocable the moment an issuer changes its mind.
+                    No ledger, token, or consensus network; if that comparison comes up, it's on the
+                    <a href="how-is-this-different.html">how is this different</a> page.</li>
                 <li><strong>The standard is small.</strong> <code>text &rarr; normalize &rarr; SHA-256 &rarr; GET</code>,
                     a <code>verify:</code> URL scheme, and a response format. The full spec, normalization rules, and
                     authority-chain model are documented in the

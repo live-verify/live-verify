@@ -136,17 +136,20 @@
         <div class="card">
             <h2>The cost you're already paying</h2>
             <ul>
+                <li><strong>A verification call centre you never wanted.</strong> Employers, landlords, embassies, and
+                    procurement teams email and phone you to ask "did you really issue this?" &mdash; a manual workload
+                    that scales with your success. Put a number on it: if one office fields 40 of these requests a week,
+                    that's a part-time salary spent confirming what a static file could confirm in four seconds, with no
+                    one on the phone. (Illustrative &mdash; but count your own inbox before you dismiss it.)</li>
+                <li><strong>No way to revoke.</strong> A paper certificate you issued in 2019 to someone since struck
+                    off looks exactly as valid as one issued yesterday. Today you have no lever to pull; a live lookup
+                    lets you flip a genuine-but-no-longer-valid document to <code>revoked</code> everywhere, instantly.</li>
                 <li><strong>Brand damage you don't control.</strong> When PPE Medpro supplied the NHS against a
                     test report bearing Intertek's name &mdash; a report Intertek never issued &mdash; the forgery
                     rode through goods-inwards across 72 shipments. The UK government established it was fake only much
                     later, and that finding became a pivot of its lawsuit: courts ordered &pound;122m repaid, but the
                     goods were already landfill. The fake was checkable in principle from day one; there was just no
                     way to check it.</li>
-                <li><strong>A verification call centre you never wanted.</strong> Employers, landlords, embassies, and
-                    procurement teams email and phone you to ask "did you really issue this?" &mdash; a manual workload
-                    that scales with your success.</li>
-                <li><strong>No way to revoke.</strong> A paper certificate you issued in 2019 to someone since struck
-                    off looks exactly as valid as one issued yesterday.</li>
             </ul>
         </div>
 
@@ -209,6 +212,18 @@ MSc Computer Science on 28 June 2024.
                 as an early adopter. Sustained implementation work is beyond the free scope and can be referred to
                 commercial integration partners. Founding issuers are listed permanently on the
                 <a href="founding-adopters.html">founding adopters page</a>.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Doesn't this depend on one person sticking around?</h2>
+            <p>
+                Reasonable question for anything you'd put in a footer for years. The answer is no, by construction:
+                it's an open standard (Apache&nbsp;2.0), publicly disclosed as
+                <a href="https://github.com/live-verify/live-verify/blob/main/docs/no-patents-declaration.md">unpatentable prior art</a>,
+                with no trademark to capture. Your verification endpoints are static files on <em>your</em> domain, not
+                on anything this project runs &mdash; so even if the project stopped tomorrow, every document you've made
+                verifiable stays verifiable, and anyone can carry the spec forward.
             </p>
         </div>
 

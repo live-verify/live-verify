@@ -1,0 +1,260 @@
+<!--
+    Copyright (C) 2025, Paul Hammant
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How is this different? - Live Verify</title>
+    <meta name="description" content="Honest comparison of Live Verify to W3C Verifiable Credentials, C2PA, e-signatures, QR-code portals, government verification portals, Certificate Transparency, and blockchain credentials.">
+    <style>
+        :root {
+            --bg: #f6f8fb; --surface: #ffffff; --ink: #0f172a; --ink-soft: #475569;
+            --ink-faint: #64748b; --line: #e2e8f0; --accent: #2563eb; --accent-dark: #1d4ed8;
+            --accent-soft: #eff4ff; --radius: 16px;
+            --shadow-sm: 0 1px 2px rgba(15,23,42,0.06), 0 1px 3px rgba(15,23,42,0.08);
+            --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font); background: var(--bg);
+            background-image: radial-gradient(1200px 500px at 50% -120px, #eef2f9 0%, var(--bg) 70%);
+            min-height: 100vh; padding: 28px 20px 56px; color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 880px; margin: 0 auto; }
+        .breadcrumbs { font-size: 0.85em; color: var(--ink-faint); margin-bottom: 18px; }
+        .breadcrumbs a { color: var(--ink-faint); text-decoration: none; }
+        .breadcrumbs a:hover { text-decoration: underline; }
+        .breadcrumbs .sep { margin: 0 8px; opacity: 0.6; }
+        .badge {
+            display: inline-block; background: var(--accent-soft); color: var(--accent-dark);
+            border: 1px solid #e3ebfb; padding: 7px 15px; border-radius: 999px;
+            font-size: 0.8em; font-weight: 700; letter-spacing: 1px; margin-bottom: 18px;
+        }
+        h1 { font-size: clamp(1.9em, 5vw, 2.6em); font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; margin-bottom: 14px; }
+        .lede { font-size: 1.12em; line-height: 1.65; color: var(--ink-soft); max-width: 64ch; margin-bottom: 10px; }
+        .card {
+            background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+            padding: 24px 26px; margin: 16px 0; box-shadow: var(--shadow-sm);
+        }
+        .card h2 { font-size: 1.26em; font-weight: 750; letter-spacing: -0.01em; margin-bottom: 6px; }
+        .card .what { font-size: 0.88em; color: var(--ink-faint); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+        .card p, .card li { line-height: 1.7; color: var(--ink-soft); max-width: 72ch; }
+        .card p + p { margin-top: 10px; }
+        .card .diff { margin-top: 12px; padding: 12px 14px; background: var(--accent-soft); border: 1px solid #e3ebfb; border-left: 3px solid var(--accent); border-radius: 10px; }
+        .card .diff strong { color: var(--accent-dark); }
+        .card strong { color: var(--ink); }
+        a { color: var(--accent); }
+        code {
+            font-family: var(--mono); font-size: 0.88em; background: var(--accent-soft);
+            color: var(--accent-dark); padding: 0.12em 0.4em; border-radius: 6px; border: 1px solid #e3ebfb;
+        }
+        .intro-note {
+            font-size: 0.96em; line-height: 1.65; color: var(--ink-soft); margin: 8px 0 4px;
+            background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 3px solid #16a34a;
+            border-radius: var(--radius); padding: 16px 20px;
+        }
+        .intro-note strong { color: #052e16; }
+        .cta-box { text-align: center; margin: 30px 0 8px; }
+        .cta {
+            display: inline-block; background: var(--accent); color: #fff; padding: 14px 36px;
+            border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1em;
+            box-shadow: var(--shadow-sm); margin: 6px; transition: transform 0.15s, background 0.15s;
+        }
+        .cta:hover { transform: translateY(-2px); background: var(--accent-dark); }
+        .cta.secondary { background: var(--surface); color: var(--accent); border: 1px solid var(--line); }
+        .cta.secondary:hover { background: var(--accent-soft); }
+        .site-foot { margin-top: 30px; text-align: center; color: var(--ink-faint); font-size: 0.92em; line-height: 1.7; }
+        .site-foot a { color: var(--accent); text-decoration: none; font-weight: 600; }
+        .forward-hint { text-align: center; font-size: 0.88em; color: var(--ink-faint); margin-top: 6px; }
+        @media print {
+            body { background: #fff; padding: 0; }
+            .breadcrumbs, .cta-box, .forward-hint { display: none; }
+            .card { box-shadow: none; break-inside: avoid; }
+        }
+        @media (max-width: 520px) { .card { padding: 20px 18px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="index.html">Home</a><span class="sep">&rsaquo;</span><span>How is this different?</span>
+        </nav>
+
+        <div class="badge">HONEST COMPARISONS</div>
+        <h1>How is this different from&hellip;?</h1>
+        <p class="lede">
+            The right first reaction to any trust standard is &ldquo;how is this not one of the ten that already
+            exist?&rdquo; Here is the honest answer for each system Live Verify gets compared to &mdash; what it's
+            genuinely good at, and the specific gap Live Verify sits in. Several of these are complementary; where
+            that's true, we say so.
+        </p>
+
+        <div class="intro-note">
+            <strong>The one-line frame:</strong> most of these systems secure a <em>channel</em>, a <em>signature</em>,
+            or a <em>wallet</em>. Live Verify secures the <em>document itself</em> &mdash; a printed or on-screen claim
+            that a stranger can check against the issuer's own domain in four seconds, with no account, no app store,
+            no key ceremony, and no coordination between issuer and verifier beforehand. The pipeline is just
+            <code>text &rarr; normalize &rarr; SHA-256 &rarr; GET</code>.
+        </div>
+
+        <div class="card">
+            <h2>W3C Verifiable Credentials &amp; DIDs</h2>
+            <p class="what">The W3C standard for cryptographically signed claims held in a digital wallet</p>
+            <p>
+                Verifiable Credentials (VCs) are the most serious standards effort in this space: an issuer signs a
+                structured claim, the holder stores it in a wallet, and a verifier checks the signature against the
+                issuer's decentralized identifier (DID). It is genuinely strong for <strong>selective disclosure</strong>
+                (prove you're over 18 without revealing your birthdate) and for fully digital, wallet-to-verifier flows.
+            </p>
+            <div class="diff">
+                <strong>Where Live Verify differs:</strong> VCs assume a wallet, a signing-key infrastructure, and a
+                verifier that speaks the same DID methods as the issuer &mdash; three coordination problems Live Verify
+                doesn't have. A Live Verify claim is plain text on paper or a screen; the &ldquo;wallet&rdquo; is your
+                camera or a text selection, and the trust root is DNS, which every party already agrees on. Live Verify
+                gives up selective disclosure and rich signed schemas; in exchange it works on a photocopied certificate
+                held by someone who has never heard of the standard. The two can coexist &mdash; a VC issuer could publish
+                Live Verify hashes for the human-readable printout of the same credential.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>C2PA / Content Credentials</h2>
+            <p class="what">Cryptographically signed provenance metadata embedded in media files</p>
+            <p>
+                C2PA (the standard behind Adobe's Content Credentials) attaches a signed manifest to an image or video
+                recording its origin and edit history. It is the right tool for <strong>&ldquo;where did this photo come
+                from and what was done to it?&rdquo;</strong> and is being adopted by camera makers and AI image tools.
+            </p>
+            <div class="diff">
+                <strong>Where Live Verify differs:</strong> C2PA lives <em>inside the file</em> and answers a
+                provenance question about media. It doesn't survive a screenshot, a printout, or a re-photograph, and it
+                says nothing about a plain-text claim on a certificate. Live Verify binds to the <em>readable text</em>,
+                so it survives print, photocopy, and re-photograph &mdash; the exact transformations that strip C2PA
+                metadata. Different questions: C2PA asks &ldquo;is this pixel history intact?&rdquo;; Live Verify asks
+                &ldquo;does the named issuer stand behind this claim right now?&rdquo;
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>DocuSign &amp; e-signatures</h2>
+            <p class="what">Platforms for signing agreements and proving who signed what</p>
+            <p>
+                E-signature platforms are excellent at their job: capturing legally weighty consent to a contract, with
+                an audit trail of who signed and when. Under regulations like eIDAS and the US ESIGN Act, a qualified
+                e-signature carries real legal force.
+            </p>
+            <div class="diff">
+                <strong>Where Live Verify differs:</strong> an e-signature proves <em>a party agreed to a document</em>;
+                Live Verify proves <em>the issuer currently attests to a claim</em> &mdash; and can revoke it. A signed
+                PDF is fixed at signing time; a Live Verify lookup is answered live, so a licence can go from
+                <code>verified</code> to <code>revoked</code> the moment the issuer changes its records. Live Verify also
+                needs no signing account for the person checking, and works on a paper document no one ever put through a
+                signing workflow. They're complementary: sign the agreement with DocuSign, publish a Live Verify hash so
+                anyone handed a copy later can confirm it's the genuine, still-valid version.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>QR-code verification portals</h2>
+            <p class="what">A QR code on a document linking to an issuer's &ldquo;is this real?&rdquo; web page</p>
+            <p>
+                A QR code that opens the issuer's verification page is the closest thing to Live Verify in spirit, and
+                for many documents it's a reasonable control. It's familiar and needs no special app.
+            </p>
+            <div class="diff">
+                <strong>Where Live Verify differs:</strong> a QR code is a pointer, not a proof. It links to
+                <em>a</em> page, but nothing ties that page to the <em>specific text</em> printed on the document &mdash;
+                a forger can copy a genuine QR code onto a fake certificate and the portal still says &ldquo;valid.&rdquo;
+                Live Verify hashes the actual claim text, so altering a single character breaks the match. And a QR code
+                commits you to a live web portal per issuer; Live Verify's endpoint is a static file, and the check runs
+                against the plain text even with no QR code present at all.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Government verification portals (E-Verify, UK Share Code, VEVO)</h2>
+            <p class="what">Official government sites for checking work eligibility, immigration, or licence status</p>
+            <p>
+                Government portals are authoritative for what they cover &mdash; E-Verify for US work eligibility, the UK
+                right-to-work Share Code system, Australia's VEVO for visa status. When one exists for your exact
+                question, it is usually the right primary source.
+            </p>
+            <div class="diff">
+                <strong>Where Live Verify differs:</strong> these portals are per-jurisdiction, per-document-type silos,
+                each with its own login, workflow, and coverage gaps &mdash; and most document types have no portal at
+                all. Live Verify is one uniform gesture across every issuer that adopts it, from a national government to
+                a one-person training provider, with the authority still rooted in each issuer's own domain. It doesn't
+                replace E-Verify; it extends the same &ldquo;check it against the source&rdquo; idea to the vast majority
+                of documents that will never get a government portal.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Certificate Transparency &amp; Merkle Tree Certificates</h2>
+            <p class="what">The transparency-log and Merkle-proof machinery securing the web's TLS certificates</p>
+            <p>
+                Certificate Transparency (Google's approach to making TLS certificate issuance auditable) and the newer
+                Merkle Tree Certificates (Cloudflare, Chrome, and the IETF, for the post-quantum era) are the most
+                credible players in web trust &mdash; and they reach for the <em>same primitives</em> Live Verify uses:
+                Merkle inclusion proofs and per-issuer transparency logs. That's validation, not competition.
+            </p>
+            <div class="diff">
+                <strong>Where Live Verify differs:</strong> all of this machinery secures the <em>channel</em> &mdash; it
+                proves you're talking to the genuine server. It says nothing about whether the <em>document that server
+                hands you</em> is genuine, which is Live Verify's entire job. They're two layers: CT/MTC secure the pipe,
+                Live Verify secures the paper that comes through it. (More detail in
+                <a href="https://github.com/live-verify/live-verify/blob/main/docs/merkle-tree-certificates-precedent.md">Merkle
+                Tree Certificates as precedent</a>.)
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Blockchain &amp; NFT credentials</h2>
+            <p class="what">Credentials anchored to a distributed ledger or minted as tokens</p>
+            <p>
+                Blockchain credential schemes aim at the same goal &mdash; tamper-evident, independently checkable claims
+                &mdash; and a ledger does give you an immutable, publicly auditable record.
+            </p>
+            <div class="diff">
+                <strong>Where Live Verify differs:</strong> a blockchain's permanence is the wrong property for
+                fraud-fighting. The most important thing an issuer must be able to do is <em>revoke</em> a claim when
+                someone is struck off, a licence lapses, or a document is superseded &mdash; and a live HTTPS lookup does
+                that instantly, while a ledger entry is forever. Live Verify has no ledger, token, mining, or consensus
+                network: a verification is a plain HTTPS GET against the issuer's own server, and the authority you trust
+                is a domain name (<code>gov.uk</code>, <code>intertek.com</code>), not a chain. It's the boring plumbing
+                on purpose &mdash; the document carries a link, and checking it is like checking a tracking number.
+            </p>
+        </div>
+
+        <div class="cta-box">
+            <a class="cta" href="index.html#tryIt">Try the ten-second demo</a>
+            <a class="cta secondary" href="https://github.com/live-verify/live-verify/blob/main/docs/weaknesses_audit.md">Read the case against Live Verify</a>
+            <a class="cta secondary" href="index.html">Back to home</a>
+        </div>
+        <p class="forward-hint">This page is print-friendly &mdash; forward it to whoever's doing the technical due diligence.</p>
+
+        <div class="site-foot">
+            Live Verify is an open standard begun by <a href="https://paulhammant.com">Paul Hammant</a>
+            &middot; <a href="mailto:paul@hammant.org">paul@hammant.org</a>
+            &middot; <a href="https://github.com/live-verify/live-verify">Source &amp; spec on GitHub</a>
+        </div>
+    </div>
+</body>
+</html>
