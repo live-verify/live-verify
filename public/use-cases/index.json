@@ -1,9 +1,9 @@
 {
-  "generated": "2026-06-27T08:24:11.062Z",
-  "totalUseCases": 607,
+  "generated": "2026-07-05T13:47:05.258Z",
+  "totalUseCases": 608,
   "totalFurtherDerivations": 934,
   "categories": {
-    "Real Estate & Property": 44,
+    "Real Estate & Property": 45,
     "Charitable & Non-Profit": 8,
     "Novel Document Types": 14,
     "Scientific & Research": 8,
@@ -6275,6 +6275,31 @@
       ]
     },
     {
+      "slug": "letting-agent-redress-scheme-verification",
+      "title": "Letting Agent & Redress-Scheme Verification",
+      "category": "Real Estate & Property",
+      "volume": "Very Large",
+      "retention": "Listing life + tenancy limitation period (typically 6-7 years)",
+      "verificationMode": "both",
+      "furtherDerivations": 0,
+      "snippet": "Verifying a rental letting safely means combining three independent verifiable claims — about the agent, the scheme membership, and the property — each hashed and looked up against a *different* issue",
+      "tags": [
+        "rental",
+        "letting-agent",
+        "redress-scheme",
+        "property-redress-scheme",
+        "mydeposits",
+        "deposit",
+        "short-let",
+        "airbnb",
+        "companies-house",
+        "domain-mismatch",
+        "housing-fraud",
+        "tenant",
+        "london"
+      ]
+    },
+    {
       "slug": "licensed-premises-postings",
       "title": "Licensed Premises Postings",
       "category": "Professional & Occupational Licenses",
@@ -12511,7 +12536,7 @@
     },
     {
       "name": "Real Estate & Property",
-      "count": 44
+      "count": 45
     },
     {
       "name": "Government & Civic Documents",
