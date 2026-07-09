@@ -100,6 +100,8 @@ The endpoint returns a status code:
 
 The issuer domain is visible from the `verify:` line on the permit itself (e.g., `labour.gov.nd`).
 
+**Enforcement limitation:** A verification response can prove that the status record says the person is authorized, restricted, employer-tied, or sponsored. It can also return structured fields such as sponsor, occupation, role, and worksite where the jurisdiction exposes them. It cannot, by itself, prove that the person is actually performing the sponsored role or being paid according to the sponsored terms. That requires comparison with live workplace facts, worker interview, rota, payroll, job description, sponsor records, and any formal sponsor compliance process.
+
 ## Post-Verification Actions
 
 None typically. The verification confirms work authorization status; that's the decision point.
@@ -135,6 +137,9 @@ The **Worker** benefits from verification.
 **Law Enforcement**
 **Identity and Status Checks:** During routine encounters or investigations, officers can verify work authorization status without contacting immigration authorities by phone.
 
+**Sponsored-Role Compliance**
+In employer-sponsored routes, the official check should begin with a neutral status-routing question suited to the jurisdiction, such as: "Which applies to your right to work here: citizen or permanent resident, unrestricted work authorization, or permission tied to a visa, sponsor, employer, occupation, location, hours, or other condition?" The answer routes the check but does not decide it. A sponsored result should lead to sponsor, occupation or role, salary or wage floor where relevant, permitted worksite or region, and employer-record comparison against observed duties. A mismatch is a compliance lead, not automatic proof of worker misconduct.
+
 ## Verification Architecture
 
 **The Work Permit Fraud Problem**
@@ -164,7 +169,7 @@ Work permits are issued exclusively by government authorities:
 Immigration and labour authorities hold statutory power to grant work permits and employment authorizations.
 
 ```
-✓ gov.uk/check-work-permit/verify — Issues work permits and employment authorizations
+✓ labour.gov.example/work-permits/verify — Issues work permits and employment authorizations
 ```
 
 Self-authorized — this is a sovereign body whose authority derives from statute.
