@@ -1,6 +1,6 @@
 {
-  "generated": "2026-07-05T13:47:05.258Z",
-  "totalUseCases": 608,
+  "generated": "2026-07-23T07:21:19.474Z",
+  "totalUseCases": 609,
   "totalFurtherDerivations": 934,
   "categories": {
     "Real Estate & Property": 45,
@@ -33,7 +33,7 @@
     "Commercial Lines Insurance": 11,
     "Product Certifications & Compliance": 16,
     "Professional Ethics & Compliance": 12,
-    "Environmental Permits & Compliance": 11,
+    "Environmental Permits & Compliance": 12,
     "Warehousing & Inventory": 4,
     "Delegated Authority": 6,
     "Trade Finance": 5,
@@ -7792,6 +7792,26 @@
       ]
     },
     {
+      "slug": "operator-self-monitoring-reports",
+      "title": "Operator Self-Monitoring Reports",
+      "category": "Environmental Permits & Compliance",
+      "volume": "Large",
+      "retention": "5-7 years (regulatory audit cycle)",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "Operator name, permit number, site and outfall identifiers, reporting period (start/end), sample basis (continuous / spot / self-monitored), each reported parameter with its regulatory limit and the s",
+      "tags": [
+        "self-reporting",
+        "self-monitoring",
+        "environmental",
+        "discharge-monitoring",
+        "regulatory-data",
+        "tamper-evidence",
+        "watchdog",
+        "accountability"
+      ]
+    },
+    {
       "slug": "organic-certification-on-listings",
       "title": "Organic Certification on Product Listings",
       "category": "Agriculture & Food",
@@ -10038,7 +10058,7 @@
       "retention": "Hours (privacy-preserving confirmation window)",
       "verificationMode": "clip",
       "furtherDerivations": 2,
-      "snippet": "Subject reference, right to work status, work type (unrestricted or restricted with conditions), confirmation timestamp, expiry timestamp, and salt.",
+      "snippet": "Subject reference, right to work status, work type (citizen, unrestricted, restricted, or sponsored), confirmation timestamp, expiry timestamp, and salt. For sponsored or restricted work, the proof ma",
       "tags": [
         "right-to-work",
         "immigration",
@@ -12615,11 +12635,11 @@
       "count": 12
     },
     {
-      "name": "Commercial Lines Insurance",
-      "count": 11
+      "name": "Environmental Permits & Compliance",
+      "count": 12
     },
     {
-      "name": "Environmental Permits & Compliance",
+      "name": "Commercial Lines Insurance",
       "count": 11
     },
     {
