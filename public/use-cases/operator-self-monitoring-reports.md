@@ -40,7 +40,7 @@ Reported by the operator under permit conditions. Values are
 self-measured. This return is verifiable but NOT independently
 audited by its existence alone.
 
-<span data-verify-line="dmr">verify:southern-counties-water.co.uk/returns/v</span> <span verifiable-text="end" data-for="dmr"></span></pre>
+<span data-verify-line="dmr">verify:southernwater.co.uk/returns/v</span> <span verifiable-text="end" data-for="dmr"></span></pre>
 </div>
 
 ## Data Verified
@@ -55,7 +55,7 @@ Operator name, permit number, site and outfall identifiers, reporting period (st
 
 ## Data Visible After Verification
 
-Shows the operator's domain (e.g. `southern-counties-water.co.uk`) and the standing of *this specific return*. The endpoint confirms authenticity and state — it does **not** re-echo the figures (the verifier already has them on the page or placard).
+Shows the operator's domain (e.g. `southernwater.co.uk`) and the standing of *this specific return*. The endpoint confirms authenticity and state — it does **not** re-echo the figures (the verifier already has them on the page or placard).
 
 **Status Indications:**
 - **Published / Current** — This return is the operator's live figure for the period.
@@ -103,7 +103,7 @@ The **operator itself** is the issuer here — that is the defining feature of s
 Because the operator is the issuer, the chain deliberately shows the **regulator as the anchoring root** — the operator's self-published return resolves upward to the authority whose limits it is reporting against. This keeps the human judgement honest: an operator vouching only for itself is the *amber* case; a return that also resolves to the regulator's namespace is the anchored case.
 
 ```
-? southern-counties-water.co.uk/returns/v — Operator self-published monitoring return (self-anchored)
+? southernwater.co.uk/returns/v — Operator self-published monitoring return (self-anchored)
   ✓ environment-agency.gov.uk/permits/verify — Environment Agency, permit ENV-2026-44120
     ✓ gov.uk/verifiers — UK government root namespace
 ```
