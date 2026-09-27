@@ -233,6 +233,33 @@ object VerificationLogic {
     }
 
     /**
+     * Convert fetched verification-meta.json into the typed metadata that the
+     * normalization bridge marshals to canonical normalize.js. Every field here
+     * is a canonicalization input — dropping one hashes under the wrong rules.
+     */
+    fun metadataFromJson(json: JSONObject?): TextNormalizer.Metadata? {
+        if (json == null) return null
+
+        val charNorm = json.optString("charNormalization").takeIf { it.isNotEmpty() }
+
+        val ocrRules = json.optJSONArray("ocrNormalizationRules")?.let { arr ->
+            (0 until arr.length()).mapNotNull { i ->
+                val rule = arr.optJSONObject(i) ?: return@mapNotNull null
+                val pattern = rule.optString("pattern")
+                if (pattern.isNotEmpty()) TextNormalizer.OcrRule(pattern, rule.optString("replacement")) else null
+            }
+        }?.takeIf { it.isNotEmpty() }
+
+        val lineBreaks = json.optString("lineBreaks").takeIf { it.isNotEmpty() }
+
+        return if (charNorm != null || ocrRules != null || lineBreaks != null) {
+            TextNormalizer.Metadata(charNorm, ocrRules, lineBreaks)
+        } else {
+            null
+        }
+    }
+
+    /**
      * Fetch verification-meta.json from the base URL
      *
      * @param baseUrl Base URL (verify: or vfy:)

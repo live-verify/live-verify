@@ -439,6 +439,10 @@ class MainActivity : AppCompatActivity() {
                 val suffix = meta?.optString("appendToHashResourceName")
                     ?: meta?.optString("appendToHashFileName") ?: ""
                 val hostedAt = meta?.optString("hashesHostedAt")?.takeIf { it.isNotEmpty() }
+                // Canonicalization inputs from the issuer's meta (charNormalization,
+                // ocrNormalizationRules, lineBreaks) must reach normalizeText, or the
+                // hash is computed under the wrong rules.
+                val normMeta = VerificationLogic.metadataFromJson(meta)
 
                 // Try each candidate from smallest to largest until server confirms.
                 // Collect all attempts for diagnostic display.
@@ -447,7 +451,7 @@ class MainActivity : AppCompatActivity() {
                 val triedCandidates = mutableListOf<DiagnosticAdapter.NormalizedCandidate>()
 
                 for ((i, candidate) in candidates.withIndex()) {
-                    val normalized = TextNormalizer.normalizeText(candidate)
+                    val normalized = TextNormalizer.normalizeText(candidate, normMeta)
                     val hash = TextNormalizer.sha256(normalized)
                     val url = VerificationLogic.buildVerificationUrl(urlResult.url, hash, suffix, hostedAt)
                     Log.d(TAG, "Trying candidate $i/${candidates.size}: hash=${hash.take(16)}... (${candidate.count { it == '\n' } + 1} lines)")
