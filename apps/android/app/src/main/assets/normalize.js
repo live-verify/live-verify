@@ -124,13 +124,26 @@ function normalizeText(text) {
   text = text.replace(/\u00A0/g, ' '); // Non-breaking space → space
   text = text.replace(/\u2026/g, '...'); // Ellipsis → three periods
 
+  // Line-break regime, declared by the issuer in verification-meta.json.
+  // "faithful" (default): every line break is load-bearing — right for tabular
+  // documents where row structure is meaning. "flow": a single newline is a soft
+  // break (rendering arrangement, e.g. viewport wrap) and collapses to a space;
+  // only a blank line separates paragraphs — right for prose, where soft wrap
+  // would otherwise change the hash with the reader's screen width.
+  // Unrecognised values throw: silently defaulting would hash under the wrong
+  // regime and report a false mismatch (or worse, a false match) downstream.
+  var lineBreaks = metadata && metadata.lineBreaks || 'faithful';
+  if (lineBreaks !== 'faithful' && lineBreaks !== 'flow') {
+    throw new Error("Unrecognised lineBreaks mode \"".concat(lineBreaks, "\" \u2014 expected \"faithful\" or \"flow\""));
+  }
+
   // Split into lines
   var lines = text.split('\n');
 
   // Apply normalization rules to each line
   // Note: OCR artifact cleanup (border chars, trailing letters) is in ocr-cleanup.js
   // and should be applied BEFORE this function for OCR'd text
-  var normalizedLines = lines.map(function (line) {
+  var trimmedLines = lines.map(function (line) {
     // Remove leading spaces
     line = line.replace(/^\s+/, '');
     // Remove trailing spaces
@@ -138,12 +151,41 @@ function normalizeText(text) {
     // Collapse multiple spaces into single space
     line = line.replace(/\s+/g, ' ');
     return line;
-  }).filter(function (line) {
-    return line.length > 0;
-  }); // Remove blank lines
+  });
+  if (lineBreaks === 'flow') {
+    // Group runs of non-blank lines into paragraphs (blank line = separator),
+    // join lines within a paragraph with a single space, paragraphs with LF.
+    var paragraphs = [];
+    var current = [];
+    var _iterator4 = _createForOfIteratorHelper(trimmedLines),
+      _step4;
+    try {
+      for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+        var line = _step4.value;
+        if (line.length === 0) {
+          if (current.length > 0) {
+            paragraphs.push(current.join(' '));
+            current = [];
+          }
+        } else {
+          current.push(line);
+        }
+      }
+    } catch (err) {
+      _iterator4.e(err);
+    } finally {
+      _iterator4.f();
+    }
+    if (current.length > 0) {
+      paragraphs.push(current.join(' '));
+    }
+    return paragraphs.join('\n');
+  }
 
-  // Join back with newlines, no trailing newline
-  return normalizedLines.join('\n');
+  // faithful: remove blank lines, join with newlines, no trailing newline
+  return trimmedLines.filter(function (line) {
+    return line.length > 0;
+  }).join('\n');
 }
 
 // SHA-256 hash function (works in both browser and Node.js)

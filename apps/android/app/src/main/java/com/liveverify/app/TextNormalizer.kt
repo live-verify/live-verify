@@ -36,7 +36,8 @@ object TextNormalizer {
      */
     data class Metadata(
         val charNormalization: String? = null,
-        val ocrNormalizationRules: List<OcrRule>? = null
+        val ocrNormalizationRules: List<OcrRule>? = null,
+        val lineBreaks: String? = null
     )
 
     data class OcrRule(
@@ -125,6 +126,10 @@ object TextNormalizer {
                 "{ pattern: '${jsEscape(rule.pattern)}', replacement: '${jsEscape(rule.replacement)}' }"
             }
             parts.add("ocrNormalizationRules: [$rulesJs]")
+        }
+
+        metadata.lineBreaks?.let {
+            parts.add("lineBreaks: '${jsEscape(it)}'")
         }
 
         return "{ ${parts.joinToString(", ")} }"

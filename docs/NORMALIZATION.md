@@ -118,13 +118,21 @@ After Unicode character normalization, each line is processed:
 
 ## 4. Blank Line Removal
 
-After line normalization:
+After line normalization, behaviour depends on the issuer's declared line-break regime
+(`lineBreaks` in `verification-meta.json`; default `faithful` — see
+[flow-proposal.md](flow-proposal.md) for the rationale):
 
-- **Remove all blank lines** - Any line that is empty (length 0) after trimming is removed
+- **`faithful`** (default): **Remove all blank lines** - Any line that is empty (length 0) after
+  trimming is removed. Every remaining line break is load-bearing.
+- **`flow`**: Blank lines are **paragraph separators**. Consecutive non-blank lines are joined
+  into one line with single spaces (a lone newline is a soft break — rendering arrangement, not
+  authored structure). Runs of blank lines collapse to one separator.
+
+An unrecognised `lineBreaks` value is an error, never a silent fallback.
 
 ## 5. Final Assembly
 
-- Lines are joined with newline characters (`\n` U+000A)
+- Lines (in `flow` mode: paragraphs, one line each) are joined with newline characters (`\n` U+000A)
 - **No trailing newline** is added to the final text
 
 ## Example

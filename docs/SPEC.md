@@ -101,8 +101,20 @@ meaning-preservation requirement on issuers.
 
 **Step 6 — Line processing.** Split on LF (U+000A). For each line: remove leading whitespace,
 remove trailing whitespace (this also removes any CR from CRLF input), collapse each internal
-whitespace run to a single space. Discard lines that are then empty. Rejoin the remaining lines
-with single LFs. The canonical text has **no trailing newline**.
+whitespace run to a single space. Then apply the issuer's declared line-break regime
+(`lineBreaks` in `verification-meta.json`, default `faithful`):
+
+- **`faithful`** (default): discard lines that are empty after trimming; rejoin the remaining
+  lines with single LFs. Every line break in the source is load-bearing — the regime for tabular
+  documents, where row structure is meaning.
+- **`flow`**: one or more blank lines separate paragraphs; within a paragraph, lines are joined
+  with a single space (a lone newline is rendering arrangement, not authored structure). Paragraphs
+  are rejoined with single LFs — one canonical line per paragraph. The regime for prose, where a
+  soft wrap at the reader's viewport width must not change the hash.
+
+Implementations MUST reject an unrecognised `lineBreaks` value as an error; silently falling back
+to either regime hashes under the wrong rules and misreports the claim. In both regimes the
+canonical text has **no trailing newline**.
 
 ## 5. Hash
 

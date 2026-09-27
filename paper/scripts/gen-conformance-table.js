@@ -40,6 +40,8 @@ function parseFrontmatter(content) {
     if (desc) metadata.description = desc[1].trim();
     const charNorm = frontmatter.match(/^charNormalization:\s*"(.+)"$/m);
     if (charNorm) metadata.charNormalization = charNorm[1];
+    const lineBreaks = frontmatter.match(/^lineBreaks:\s*"?([a-z]+)"?\s*$/m);
+    if (lineBreaks) metadata.lineBreaks = lineBreaks[1];
     const ocrRules = frontmatter.match(/ocrNormalizationRules:\n((?:\s+-[^\n]+\n?)+)/);
     if (ocrRules) {
         const pattern = ocrRules[1].match(/pattern:\s*"(.+)"/);

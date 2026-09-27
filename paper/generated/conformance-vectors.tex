@@ -10,6 +10,7 @@ Bachelor of Thaumatology training page certificate & \texttt{1cddfbb2adfa} & \ch
 Curly double quotes normalized to straight quotes & \texttt{30c6d7a77f52} & \checkmark \\
 NFC canonicalization - body uses decomposed Unicode (base letters + combining accents), curly quotes, ellipsis and em-dash; implementations must apply NFC then the standard folds before hashing, or this vector fails & \texttt{4970a05e322a} & \checkmark \\
 En-dash and em-dash normalized to hyphen & \texttt{50093137b7cc} & \checkmark \\
+lineBreaks flow mode - single newlines are soft breaks that collapse to spaces, blank lines separate paragraphs (one canonical line per paragraph); an implementation that ignores the lineBreaks declaration joins with newlines and computes 28d4a572... instead & \texttt{600787006897} & \checkmark \\
 Master of Applied Anthropics training page certificate & \texttt{6725b845dcdf} & \checkmark \\
 Simple text - baseline test & \texttt{a591a6d40bf4} & \checkmark \\
 Document-specific character normalization (diacritics) & \texttt{ea9837801631} & \checkmark \\

@@ -49,6 +49,12 @@ function parseFrontmatter(content) {
         metadata.charNormalization = charNormMatch[1];
     }
 
+    // Parse lineBreaks (faithful | flow)
+    const lineBreaksMatch = frontmatter.match(/^lineBreaks:\s*"?([a-z]+)"?\s*$/m);
+    if (lineBreaksMatch) {
+        metadata.lineBreaks = lineBreaksMatch[1];
+    }
+
     // Parse ocrNormalizationRules (simple single-rule case)
     const ocrRulesMatch = frontmatter.match(/ocrNormalizationRules:\n((?:\s+-[^\n]+\n?)+)/);
     if (ocrRulesMatch) {

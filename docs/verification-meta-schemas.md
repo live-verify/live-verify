@@ -25,6 +25,7 @@ Hosted at the `verify:` domain — the organization that creates and verifies cl
       "description": "Remove space between CHF currency code and amount"
     }
   ],
+  "lineBreaks": "faithful",
   "responseTypes": {
     "verified": {
       "class": "affirming",
@@ -85,6 +86,7 @@ Hosted at the `verify:` domain — the organization that creates and verifies cl
 | `endorsementLabel` | Optional | Locale-map overriding the displayed verb for this endorsement relationship (e.g. `{"en-GB": "Endorsed by", "en-US": "Authorized by"}`). The `endorsedBy`/`authorizedBy` **field name** never changes; only the human word shown does. See below. |
 | `charNormalization` | Optional | Character mappings for OCR error tolerance (e.g., accented → ASCII) |
 | `ocrNormalizationRules` | Optional | Array of regex pattern/replacement rules for OCR cleanup |
+| `lineBreaks` | Optional | Line-break regime for claims under this path: `"faithful"` (default — every line break is load-bearing; right for tabular documents where row structure is meaning) or `"flow"` (a single newline is a soft break and collapses to a space; only a blank line separates paragraphs; right for prose, where viewport soft-wrap must not change the hash). **Hash-affecting.** Clients MUST fail loudly on an unrecognised value, never silently default. The meta file is path-scoped and the path is named on the in-text `verify:` line, so the regime is committed to by the hashed text itself — see [flow-proposal](flow-proposal.md). |
 | `responseTypes` | Optional | Custom verification statuses beyond "verified" |
 | `retentionLaws` | Optional | Laws governing the **issuer's own** retention of the source record, for transparency |
 | `dataHandling` | Optional | Laws and issuer policy that apply to the **verifier/handler** once they read the plaintext — including a requested delete-within-N-days obligation on behalf of the subject. See below. |

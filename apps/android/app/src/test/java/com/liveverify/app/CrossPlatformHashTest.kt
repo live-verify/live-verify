@@ -80,6 +80,11 @@ class CrossPlatformHashTest(
                 metadata["charNormalization"] = it.groupValues[1]
             }
 
+            // Parse lineBreaks (faithful | flow)
+            Regex("^lineBreaks:\\s*\"?([a-z]+)\"?\\s*$", RegexOption.MULTILINE).find(frontmatter)?.let {
+                metadata["lineBreaks"] = it.groupValues[1]
+            }
+
             // Parse ocrNormalizationRules (simple single-rule case)
             Regex("ocrNormalizationRules:\\n((?:\\s+-[^\\n]+\\n?)+)").find(frontmatter)?.let { rulesMatch ->
                 val ruleText = rulesMatch.groupValues[1]
@@ -109,9 +114,10 @@ class CrossPlatformHashTest(
             val ocrRules = (map["ocrNormalizationRules"] as? List<Map<String, String>>)?.map {
                 TextNormalizer.OcrRule(it["pattern"]!!, it["replacement"]!!)
             }
+            val lineBreaks = map["lineBreaks"] as? String
 
-            return if (charNorm != null || ocrRules != null) {
-                TextNormalizer.Metadata(charNorm, ocrRules)
+            return if (charNorm != null || ocrRules != null || lineBreaks != null) {
+                TextNormalizer.Metadata(charNorm, ocrRules, lineBreaks)
             } else {
                 null
             }

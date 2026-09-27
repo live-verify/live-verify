@@ -26,7 +26,8 @@ Rules that make the corpus trustworthy as a reference:
 
 Coverage currently includes: line/whitespace collapsing, blank-line removal, curly-quote /
 en-em-dash / NBSP / ellipsis folds, Unicode NFC canonical composition (decomposed input), issuer
-`charNormalization` folds, `ocrNormalizationRules`, and full-pipeline OCR image vectors.
+`charNormalization` folds, `ocrNormalizationRules`, the `lineBreaks: flow` regime (soft-wrapped
+prose collapsing to one line per paragraph), and full-pipeline OCR image vectors.
 
 ## Fixture Types
 
