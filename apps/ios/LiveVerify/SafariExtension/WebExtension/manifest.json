@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Live Verify",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Select a claim on a page and check it against the issuer's own domain.",
   "permissions": [
     "activeTab",
