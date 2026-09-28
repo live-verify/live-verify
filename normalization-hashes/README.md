@@ -46,9 +46,25 @@ Test full OCR pipeline: `image → OCR → cleanOcrArtifacts → normalizeText �
 ---
 description: Brief description of what this tests
 charNormalization: "éè→e" (optional)
+lineBreaks: "flow" (optional; default faithful)
+encodedForms: basename (optional; see Encoded-Forms Fixtures)
 ---
 The actual text to normalize goes here.
 ```
+
+### Encoded-Forms Fixtures (the decode boundary)
+
+A text fixture may declare `encodedForms: <basename>`, naming sibling files
+`encoded-forms/<basename>.<encoding>.txt` that carry **the same text in different byte
+encodings** (`utf8`, `utf8bom`, `utf16le`, `utf16be`, `cp1252`). A conforming implementation
+decodes each file per its declared encoding, canonicalizes, and MUST reach the **same pinned
+hash** — input encoding is transport, never content. Each sibling's *raw file bytes* hash to
+something else entirely: `sha256sum <file>` is the wrong tool, because it digests BOMs,
+encoding, and line-ending bytes that Live Verify's decode → canonicalize → UTF-8 → SHA-256
+pipeline deliberately sees through. (Aware loaders test the siblings; legacy loaders just hash
+the fixture body as usual — the mechanism is backward compatible. Beware platform decoders:
+some Node builds silently decode `windows-1252` with latin1 semantics; the JS suite ships its
+own WHATWG 0x80–0x9F table for exactly that reason.)
 
 ### Image Fixture
 ```markdown
