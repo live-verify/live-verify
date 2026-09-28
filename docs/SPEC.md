@@ -121,6 +121,42 @@ canonical text has **no trailing newline**.
 The hash is **SHA-256** over the **UTF-8 encoding** of the canonical text, rendered as **64
 lowercase hexadecimal characters**.
 
+### 5.1 Hash-input invariant
+
+Canonicalization (§4) and byte serialization are different layers with different rules.
+Canonicalization is where issuer-configurable policy lives (`charNormalization`,
+`ocrNormalizationRules`, `lineBreaks`). Serialization is **fixed protocol and is never
+configurable**: no issuer metadata field selects an encoding, and none ever will.
+
+The canonical text is a well-formed sequence of Unicode scalar values, fully determined by §4
+(NFC in step 2 pins the code-point form, so the bytes are deterministic). The hash input is
+exactly its UTF-8 encoding:
+
+- **no byte-order mark** — U+FEFF is never prepended (and survives §4 only as collapsible
+  whitespace);
+- **no terminator** — no trailing NUL, no trailing newline (§4 step 6);
+- **no alternative encodings** — not UTF-16, not the platform default charset, not Latin-1;
+- **standard UTF-8 only** — astral-plane characters (above U+FFFF) encode as one four-byte
+  sequence, never as CESU-8 / Java "modified UTF-8" six-byte surrogate pairs.
+
+### 5.2 Note for independent implementers
+
+If you are not reusing the reference `public/normalize.js`, the historical traps below have
+each broken real systems; the conformance corpus contains an astral-plane vector that fails
+all of them:
+
+- **In-memory string types are not UTF-8.** JavaScript, Java/Kotlin, and C# strings are
+  UTF-16 code units. Hashing code units, or bytes obtained without naming an encoding
+  (Java's `String.getBytes()` with no argument uses the *platform default* charset),
+  produces wrong digests that pass every ASCII-only test.
+- **CESU-8 / modified UTF-8.** Java's `DataOutputStream.writeUTF` and MySQL's legacy 3-byte
+  `utf8` (vs `utf8mb4`) mis-encode characters above U+FFFF.
+- **Hash the string, not a representation of it.** Never hash a JSON-escaped, HTML-escaped,
+  or quoted serialization of the canonical text.
+- The reference implementations hash: JS `TextEncoder`/`crypto` with `'utf8'`, Kotlin
+  `toByteArray(Charsets.UTF_8)`, Swift `Data(text.utf8)` — all explicit, none rely on a
+  default.
+
 ## 6. Lookup URL construction
 
 From a verify line with target `host[/path]` and hash `H`:

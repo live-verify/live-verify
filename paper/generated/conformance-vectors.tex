@@ -13,6 +13,7 @@ En-dash and em-dash normalized to hyphen & \texttt{50093137b7cc} & \checkmark \\
 lineBreaks flow mode - single newlines are soft breaks that collapse to spaces, blank lines separate paragraphs (one canonical line per paragraph); an implementation that ignores the lineBreaks declaration joins with newlines and computes 28d4a572... instead & \texttt{600787006897} & \checkmark \\
 Master of Applied Anthropics training page certificate & \texttt{6725b845dcdf} & \checkmark \\
 Simple text - baseline test & \texttt{a591a6d40bf4} & \checkmark \\
+Hash-input invariant (SPEC 5.1) - astral-plane characters (U+1D11E, U+1F512) must encode as single four-byte UTF-8 sequences; hashing UTF-16 code units computes ccaed941..., CESU-8/Java modified-UTF-8 computes 92852583..., and both fail this vector; also NFC precomposition and em-dash fold alongside astral content & \texttt{ab7abf52db2d} & \checkmark \\
 Document-specific character normalization (diacritics) & \texttt{ea9837801631} & \checkmark \\
 Whitespace normalization - leading, trailing, multiple spaces, blank lines & \texttt{eb4108396033} & \checkmark \\
 lineBreaks flow mode blank-line edges - runs of several blank lines collapse to one paragraph separator, and leading/trailing blank lines produce no empty paragraphs; implementations that emit a separator per blank line, or empty leading/trailing paragraphs, fail this vector & \texttt{f22a0c9d041f} & \checkmark \\
