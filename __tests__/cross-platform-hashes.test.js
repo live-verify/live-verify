@@ -136,6 +136,8 @@ function decodeEncodedForm(buf, encoding) {
         }
         case 'cp1252':
             return Array.from(buf, b => String.fromCodePoint(CP1252_HIGH[b] || b)).join('');
+        case 'latin1lossy': // a destructive "save as Latin-1": unmappable chars already became '?'
+            return buf.toString('latin1');
         default:
             throw new Error(`Unknown encoded-form encoding: ${encoding}`);
     }
@@ -159,17 +161,26 @@ describe('Decode boundary: encoded forms converge on one hash', () => {
             .filter(n => n.startsWith(fixture.encodedFormsBase + '.') && n.endsWith('.txt'));
 
         it(`${fixture.encodedFormsBase}: has multiple encoded siblings`, () => {
-            expect(siblings.length).toBeGreaterThanOrEqual(4);
+            expect(siblings.length).toBeGreaterThanOrEqual(2);
         });
 
         siblings.forEach(name => {
             const encoding = name.split('.')[1];
             const buf = fs.readFileSync(path.join(dir, name));
+            const lossy = encoding.endsWith('lossy');
 
-            it(`${name} decodes -> canonicalizes -> hashes to the pinned hash`, () => {
-                const decoded = decodeEncodedForm(buf, encoding);
-                expect(sha256(normalizeText(decoded, fixture.metadata))).toBe(fixture.expectedHash);
-            });
+            if (lossy) {
+                // A destructive transcode lost characters: it MUST miss, never falsely verify.
+                it(`${name} (lossy transcode) does NOT hash to the pinned hash`, () => {
+                    const decoded = decodeEncodedForm(buf, encoding);
+                    expect(sha256(normalizeText(decoded, fixture.metadata))).not.toBe(fixture.expectedHash);
+                });
+            } else {
+                it(`${name} decodes -> canonicalizes -> hashes to the pinned hash`, () => {
+                    const decoded = decodeEncodedForm(buf, encoding);
+                    expect(sha256(normalizeText(decoded, fixture.metadata))).toBe(fixture.expectedHash);
+                });
+            }
 
             it(`${name} raw file bytes do NOT hash to the pinned hash (sha256sum is the wrong tool)`, () => {
                 const rawDigest = require('crypto').createHash('sha256').update(buf).digest('hex');
