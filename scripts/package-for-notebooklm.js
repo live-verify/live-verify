@@ -26,7 +26,8 @@
 //
 // Each concatenated source file is preceded by a banner naming its original path.
 //
-// Usage:  node scripts/package-for-notebooklm.js [--dry-run]
+// Usage:  node scripts/package-for-notebooklm.js [--dry-run] [--txt]
+//   --txt  write bundles with .txt extensions (for uploaders that reject .md)
 
 const fs = require('fs');
 const path = require('path');
@@ -34,6 +35,7 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const OUT = path.join(ROOT, 'package-notebooklm');
 const DRY = process.argv.includes('--dry-run');
+const TXT = process.argv.includes('--txt');
 
 const USE_CASES_DIR = path.join(ROOT, 'public', 'use-cases');
 const REJECTED_DIR = path.join(ROOT, 'public', 'rejected-use-cases');
@@ -167,6 +169,7 @@ function listMd(dir, skip = new Set()) {
 }
 
 function writeOut(relName, content) {
+  if (TXT) relName = relName.replace(/\.md$/, '.txt');
   const dest = path.join(OUT, relName);
   if (DRY) {
     console.log(`  would write ${relName.padEnd(46)} ${(Buffer.byteLength(content) / 1024).toFixed(0)} KB`);
