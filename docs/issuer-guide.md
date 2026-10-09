@@ -62,6 +62,7 @@ The `verification-meta.json` file can provide document-specific normalization ru
 {
   "issuer": "Your Organization Name",
   "claimType": "Employment verification",
+  "ocrFonts": ["Courier New"],
   "charNormalization": "éèêë→e àáâä→a ìíîï→i òóôö→o ùúûü→u ñ→n ç→c",
   "ocrNormalizationRules": [
     {
@@ -114,6 +115,7 @@ The `verification-meta.json` file can provide document-specific normalization ru
 
 - `issuer` (optional) — Name of the issuing organization
 - `claimType` (optional) — Type of claim (e.g., "degree", "license", "certification")
+- `ocrFonts` (recommended for printed/camera-OCR claims) — Array of font-family names used inside the OCR region, including the verification line, e.g. `["Courier New"]`. Omit for browser-extension/text-selection-only claims. This is an advisory hint, not a normalization rule or authenticity check; current clients do not yet use it to configure OCR. See the [field definition](verification-meta-schemas.md#ocrfonts--typography-for-printed-and-camera-ocr-claims).
 - `parentAuthorities` (optional) — Array of URLs linking to parent/accrediting organizations that authorize this issuer
 - `responseTypes` (optional) — Dictionary defining possible response statuses beyond "verified", each with:
   - `class` — Either "affirming" or "denying" (determines UI color/icon)

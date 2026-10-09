@@ -1,7 +1,7 @@
 {
-  "generated": "2026-08-29T12:35:41.504Z",
-  "totalUseCases": 612,
-  "totalFurtherDerivations": 936,
+  "generated": "2026-10-08T20:50:08.678Z",
+  "totalUseCases": 613,
+  "totalFurtherDerivations": 941,
   "categories": {
     "Real Estate & Property": 45,
     "Charitable & Non-Profit": 8,
@@ -24,7 +24,7 @@
     "Customs & Trade Compliance": 8,
     "Sports & Athletics": 6,
     "Financial Compliance": 26,
-    "Business & Commerce": 31,
+    "Business & Commerce": 32,
     "Specialty Insurance": 23,
     "Banking & Payments": 32,
     "Investment & Fintech": 23,
@@ -5911,6 +5911,26 @@
       ]
     },
     {
+      "slug": "intermediary-action-confirmations",
+      "title": "Intermediary Action Confirmations",
+      "category": "Business & Commerce",
+      "volume": "Large",
+      "retention": "Transaction or assignment term plus applicable dispute retention",
+      "verificationMode": "clip",
+      "furtherDerivations": 4,
+      "snippet": "Issuer, principal or subject reference, intermediary identity, receiving party, specific action, transaction or assignment reference, document version, scope, event date and time, qualifications, and ",
+      "tags": [
+        "intermediaries",
+        "agents",
+        "brokers",
+        "recruitment",
+        "commission",
+        "handoffs",
+        "receipts",
+        "delegated-authority"
+      ]
+    },
+    {
       "slug": "intermodal-equipment-receipts",
       "title": "Intermodal Equipment Interchange Receipts (EIR)",
       "category": "Chain of Custody & Logistics",
@@ -6179,9 +6199,9 @@
       "category": "Healthcare & Medical Records",
       "volume": "Medium",
       "retention": "10-30 years (medical necessity)",
-      "verificationMode": "clip",
-      "furtherDerivations": 1,
-      "snippet": "Patient name, MRN/Accession number, specimen type (e.g., Blood/Tissue), specific test names, numerical results (e.g., TSH levels), qualitative diagnosis (e.g., \"Malignant\"), reference ranges, patholog",
+      "verificationMode": "both",
+      "furtherDerivations": 2,
+      "snippet": "Patient identifiers, accession number, specimen type, test names, numerical results and units, qualitative findings, laboratory reference intervals and flags, reporting professional where applicable, ",
       "tags": [
         "medical-diagnostics",
         "pathology-report",
@@ -6190,7 +6210,11 @@
         "biopsy-verification",
         "healthcare-data-integrity",
         "labcorp",
-        "quest-diagnostics"
+        "quest-diagnostics",
+        "blood-tests",
+        "patient-carried-results",
+        "primary-care",
+        "clinical-handoff"
       ]
     },
     {
@@ -12628,12 +12652,12 @@
       "count": 37
     },
     {
-      "name": "Banking & Payments",
+      "name": "Business & Commerce",
       "count": 32
     },
     {
-      "name": "Business & Commerce",
-      "count": 31
+      "name": "Banking & Payments",
+      "count": 32
     },
     {
       "name": "Legal & Court Documents",

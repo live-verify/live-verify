@@ -354,6 +354,8 @@ This is a **hosting hint, not a delegation of authority.** The domain shown to t
 
 **Optional: `authorityBasis`** — One short line (under 80 chars) stating what kind of authority backs this issuer's verifications, shown to the verifier so they can tell a sovereign attestation from a personal opinion. Personal attestations must include "Individual" or "personal". Displayed as "Authority claimed" — claimed, because with no `authorizedBy` nobody has endorsed the wording. See docs/authorityBasis_and_authorizedBy_patterns.md.
 
+**Optional: `ocrFonts`** — Non-empty array of font-family names used in printed/camera-OCR claim regions, including the verification line (e.g., `["Arial", "Courier New"]`). Omit for text-selection-only claims. Advisory, not hash-affecting; current clients do not yet use it to configure OCR. See docs/verification-meta-schemas.md.
+
 **Optional: `firstLinePatterns`** — Array of regex patterns (strings or `{pattern, description}` objects) that identify the first line of verifiable text. Primarily for camera mode: when OCR captures noise above the verifiable region and the `⌝` (U+231D) registration mark is absent or unrecognized, the app scans OCR lines top-to-bottom and discards everything above the first match. If no pattern matches, the text is used as-is (same as when the field is absent). Issuers with multiple document types from the same base URL can list several patterns:
 
 ```json

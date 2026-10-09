@@ -2,6 +2,7 @@
   "schemaVersion": 1,
   "issuer": "Live Verify Demo",
   "claimType": "Mixed demonstration claims",
+  "ocrFonts": ["Arial", "Courier New"],
   "lineBreaks": "faithful",
   "responseTypes": {
     "verified": {

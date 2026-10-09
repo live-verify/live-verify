@@ -1178,6 +1178,7 @@ Every field that may appear in a verification response body (JSON) or HTTP heade
 | `url` | string (URL) | No | Issuer's website (for personal domains, peer references) |
 | `industry` | string | No | Issuer's industry sector |
 | `claimType` | string | No | Type of claims this endpoint verifies |
+| `ocrFonts` | array of strings | No | Font families used in printed/camera-OCR claim regions, including the verification line. Advisory; omitted for text-selection-only claims; does not affect hashing. See [metadata schema](verification-meta-schemas.md#ocrfonts--typography-for-printed-and-camera-ocr-claims). |
 | `authorityBasis` | string | No | Statute, license, or accreditation underpinning the issuer's authority |
 | `authorizedBy` | string (base URL) | No | Endorsing authority — verifiable via the `verify:` protocol (merkle-committed) |
 | `authorizedFrom` | string (date) | No | Start of endorsement validity period |

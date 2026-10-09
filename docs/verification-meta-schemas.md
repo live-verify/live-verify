@@ -13,6 +13,7 @@ Hosted at the `verify:` domain — the organization that creates and verifies cl
   "issuer": "Midsomer Constabulary",
   "description": "Police force for the county of Midsomer",
   "claimType": "PoliceWarrant",
+  "ocrFonts": ["Arial", "Courier New"],
   "authorizedBy": "policing.gov.uk/v1",
   "authorizedFrom": "2023-01-01",
   "authorizedTo": "2028-12-31",
@@ -86,6 +87,7 @@ Hosted at the `verify:` domain — the organization that creates and verifies cl
 | `endorsementLabel` | Optional | Locale-map overriding the displayed verb for this endorsement relationship (e.g. `{"en-GB": "Endorsed by", "en-US": "Authorized by"}`). The `endorsedBy`/`authorizedBy` **field name** never changes; only the human word shown does. See below. |
 | `charNormalization` | Optional | Character mappings for OCR error tolerance (e.g., accented → ASCII) |
 | `ocrNormalizationRules` | Optional | Array of regex pattern/replacement rules for OCR cleanup |
+| `ocrFonts` | Optional | Non-empty array of font-family names used for claim text and the verification line in printed/camera-OCR renditions (e.g., `["Arial", "Courier New"]`). Advisory OCR metadata; omit for text-selection-only claims. See below. |
 | `lineBreaks` | Optional | Line-break regime for claims under this path: `"faithful"` (default — every line break is load-bearing; right for tabular documents where row structure is meaning) or `"flow"` (a single newline is a soft break and collapses to a space; only a blank line separates paragraphs; right for prose, where viewport soft-wrap must not change the hash). **Hash-affecting.** Clients MUST fail loudly on an unrecognised value, never silently default. The meta file is path-scoped and the path is named on the in-text `verify:` line, so the regime is committed to by the hashed text itself — see [flow-proposal](flow-proposal.md). |
 | `responseTypes` | Optional | Custom verification statuses beyond "verified" |
 | `retentionLaws` | Optional | Laws governing the **issuer's own** retention of the source record, for transparency |
@@ -93,6 +95,39 @@ Hosted at the `verify:` domain — the organization that creates and verifies cl
 | `parentAuthorities` | Optional | Human-browsable URLs to accrediting/licensing bodies |
 | `schemaVersion` | Optional | Schema version number |
 | `successor` | Optional | URL of successor authority if this endorsement expires |
+
+### `ocrFonts` — typography for printed and camera-OCR claims
+
+An issuer SHOULD declare `ocrFonts` when claims under this verification path are intended
+to be printed or read by camera OCR. The value is a non-empty array of non-empty font-family
+name strings, even when only one font is used: `"ocrFonts": ["OCR-B"]`. Include fonts used
+inside the OCR capture region, including the verification line; omit decorative headings or
+other typography outside that region. Names describe the issuer's intended printed fonts,
+not a CSS fallback stack, font download URLs, or an instruction to change a displayed document.
+Issuers should check the actual print output, since browser or printer substitutions may differ
+from the intended font.
+
+The declaration is scoped to the same verification path as the rest of the metadata. If several
+printed templates share that path, list the families used across those templates. Use separate
+verification paths and metadata files when a client needs a template-specific font hint. The
+[demo metadata](../public/c/verification-meta.json) lists Arial and Courier New because its
+printed training claims use Arial for the body and Courier New for the verification line.
+
+For claims intended only for browser-extension/text-selection verification, omit this field:
+the client reads text directly and does not need a font hint. For claims supporting both modes,
+the field describes the printed/OCR rendition and is ignored in text-selection mode.
+
+This is **advisory, not hash-affecting**. Camera clients MAY use it to select locally available
+OCR profiles where their OCR engine supports that. It does not prescribe character replacements,
+prove that a photographed document uses those fonts, or make a font mismatch a verification
+failure. Clients without font-hint support, or encountering an unknown font or malformed hint,
+continue with their normal OCR behaviour. Font information must not change normalization or
+the resulting hash for identical extracted text. As with every metadata field, changing it
+changes any endorsement commitment over the whole metadata file.
+
+**Implementation status:** the field is documented here and declared in the demo metadata.
+Current clients do not yet use it to configure OCR. No font download or font-based authenticity
+check is introduced.
 
 ### `retentionLaws` vs. `dataHandling` — two different subjects
 
@@ -235,7 +270,7 @@ With `hidePathInDisplay: true`, the chain UI shows `gov.uk` instead of `gov.uk/v
 | `authorizedBy` | Endorser only | `verify:` URL of the parent authority. Absent for root authorities. |
 | `hidePathInDisplay` | Optional | Boolean. When `true`, the chain UI shows only the domain (e.g., `fca.org.uk`) rather than the full path (`fca.org.uk/verified`). Useful when the path component is an implementation detail (e.g., `/verified/`, `/v1/`) that adds noise to the display without helping the verifier assess trust. |
 
-Authority files deliberately omit issuer-only fields: no `claimType`, `charNormalization`, `ocrNormalizationRules`, `responseTypes`, `retentionLaws`, `dataHandling`, or `parentAuthorities`. These fields only make sense for domains that issue and verify claims.
+Authority files deliberately omit issuer-only fields: no `claimType`, `charNormalization`, `ocrNormalizationRules`, `ocrFonts`, `responseTypes`, `retentionLaws`, `dataHandling`, or `parentAuthorities`. These fields only make sense for domains that issue and verify claims.
 
 ---
 

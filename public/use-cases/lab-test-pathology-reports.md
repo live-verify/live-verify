@@ -4,10 +4,69 @@ category: "Healthcare & Medical Records"
 volume: "Medium"
 retention: "10-30 years (medical necessity)"
 slug: "lab-test-pathology-reports"
-verificationMode: "clip"
-tags: ["medical-diagnostics", "pathology-report", "lab-results", "cancer-screening", "biopsy-verification", "healthcare-data-integrity", "labcorp", "quest-diagnostics"]
-furtherDerivations: 1
+verificationMode: "both"
+tags: ["medical-diagnostics", "pathology-report", "lab-results", "cancer-screening", "biopsy-verification", "healthcare-data-integrity", "labcorp", "quest-diagnostics", "blood-tests", "patient-carried-results", "primary-care", "clinical-handoff"]
+furtherDerivations: 2
 ---
+
+## The Patient-Carried Results Problem
+
+A patient downloads blood-test results from a laboratory such as Labcorp, prints them at home, and takes them to a GP, primary care physician (PCP), or specialist. The receiving clinician may work outside the laboratory's connected health-record network. They can read the results, but a logo and plausible layout do not establish who issued the text or whether someone changed a value.
+
+**Printing your own copy is legitimate. The question is whether the copy contains the laboratory's unaltered report.** [Labcorp supports viewing, downloading and printing test results](https://www.labcorp.com/patients/tests/results), and [suggests bringing a downloaded or printed copy to a provider visit](https://www.ondemand.labcorp.com/blog/test-results-with-your-provider-five-tips-to-make-the-most). Live Verify is a proposed addition to that existing handoff, not a claim that Labcorp currently offers these endpoints.
+
+The pattern is global: a reference laboratory, hospital laboratory or performing laboratory issues results; the patient carries them; another clinician verifies the presented text against the issuing laboratory's domain. The clinical report may arrive as paper, an emailed PDF or text on screen.
+
+## Blood Tests Taken to a GP or PCP
+
+1. The laboratory issues a report containing a verification line and an unpredictable receipt ID, and publishes the corresponding hash/status.
+2. The patient prints or forwards the report, including its verification region. No laboratory login credentials need to be shared with the clinician for this proposed check.
+3. The clinician captures the region by camera or selects its digital text where supported. The device normalizes the extracted text, hashes it and checks the laboratory's endpoint.
+4. A matching response establishes that the laboratory stands behind that exact text. The clinician checks the patient identifiers, collection date, report version and status alongside the results.
+5. No match calls for checking extraction and the issuer, or obtaining the original report. It is not by itself proof that the patient falsified anything.
+
+### Illustrative blood-result extract
+
+This fictional extract demonstrates the verification fields, not clinical interpretation. Its reserved `.example` domain has no live endpoint. A production report should include the laboratory's full relevant reporting fields.
+
+<div style="font-family: Arial, sans-serif; border: 1px solid #999; padding: 18px; max-width: 650px; margin: 24px auto;">
+<span verifiable-text="start" data-for="blood-panel"></span>
+BLOOD TEST RESULT EXTRACT<br>
+Issuer: Meridian Reference Laboratory — lab.meridian.example<br>
+Patient: Alex Morgan; DOB: 1985-05-15<br>
+Accession: MR-2026-7148<br>
+Specimen: Blood<br>
+Collected: 2026-10-05 08:40 UTC<br>
+Reported: 2026-10-06 12:10 UTC<br>
+Version: 1; laboratory report status: FINAL<br>
+Test: Haemoglobin<br>
+Result: 142 g/L<br>
+Laboratory reference interval: 130–170 g/L<br>
+Laboratory flag: None<br>
+Extract scope: This result only; not the complete blood panel<br>
+Receipt ID: c71f5e02496a4e829db381a70562f4cd<br>
+<span data-verify-line="blood-panel" style="font-family: 'Courier New', monospace;">verify:lab.meridian.example/results</span>
+<span verifiable-text="end" data-for="blood-panel"></span>
+</div>
+
+For this rendition, the issuer's metadata would declare `"ocrFonts": ["Arial", "Courier New"]`. That is an OCR hint, not a font-based authenticity test. The numerical result, unit, laboratory reference interval and flag are all inside the hashed region. A report number alone would not protect the result from alteration. The extract deliberately states its limited scope; it cannot stand in for the whole panel.
+
+### What the check addresses
+
+| Presented document or problem | Contribution and limit |
+|---|---|
+| Entirely invented report using a real laboratory's logo | The invented text has no corresponding entry at the real lab, assuming it has adopted verification |
+| Changed result, decimal point, unit, reference interval or flag | The altered text does not match the issuer's hash |
+| Changed patient identifiers, collection date or report version | These fields are bound when included in the verified region |
+| Genuine results belonging to someone else | Bound identifiers help the clinician match the report to the patient; the hash alone does not establish the presenter's identity |
+| Genuine but old results | Collection/report dates remain visible; authenticity is not a finding that results reflect today's condition |
+| Corrected report presented in its original form | Issuer status can flag the earlier version as amended or withdrawn; the corrected report needs its own verification |
+| Abnormal rows or additional pages omitted | A checked extract proves only its declared scope. Full-page or manifest verification is needed to check a defined report's completeness |
+| Fake laboratory operating its own domain | Successful lookup there only authenticates that issuer's statement. The clinician must assess the laboratory's identity and authority |
+
+Dense tables are a harder camera-OCR case than a short extract. See [page-at-a-time hashing](../../docs/page-at-a-time-hashing.md): bind the relevant page text or use a short, explicitly scoped lab-issued extract; do not imply that checking the header authenticates every result row or omitted page.
+
+## Pathology Report Example
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #004a99; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
@@ -34,7 +93,7 @@ furtherDerivations: 1
       <strong>Date of Report:</strong> March 15, 2026</p>
     </div>
 <div style="margin-top: 25px; padding: 10px; background: #f9f9f9; border: 1px solid #eee; font-size: 0.8em; color: #555; font-style: italic; text-align: center;">
-      Verification confirms the diagnosis and specimen ID match the laboratory's secure clinical ledger.
+      Verification authenticates this report text against the issuing laboratory; it does not establish diagnostic accuracy.
     </div>
 <div data-verify-line="lab-res" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Quest doesn't yet offer verification&#10;endpoints, so this is illustrative">
@@ -51,7 +110,7 @@ furtherDerivations: 1
 
 ## Data Verified
 
-Patient name, MRN/Accession number, specimen type (e.g., Blood/Tissue), specific test names, numerical results (e.g., TSH levels), qualitative diagnosis (e.g., "Malignant"), reference ranges, pathologist name/license, collection date, report date.
+Patient identifiers, accession number, specimen type, test names, numerical results and units, qualitative findings, laboratory reference intervals and flags, reporting professional where applicable, collection date/time, report date/time, version, declared page/extract scope, and unpredictable receipt ID.
 
 **Document Types:**
 - **Pathology Report:** The high-stakes "Biopsy Result."
@@ -66,21 +125,23 @@ Shows the issuer domain (`questdiagnostics.com`, `labcorp.com`) and current repo
 **Status Indications:**
 - **Final** — Report is complete and verified by the medical director.
 - **Amended** — **ALERT:** Original result was corrected; this version is void.
-- **Preliminary** — Initial findings only; do not base surgery on this version.
+- **Preliminary** — Initial findings; this is not the final report.
 - **Cancelled** — Specimen was compromised; no result issued.
 
 ## Second-Party Use
 
 The **Patient** benefits from verification.
 
-**Second Opinions:** Proving to a specialist at a different hospital (e.g., MD Anderson) that the "Grade 2" diagnosis isn't a misprint. A verified hash from the original lab provides the consulting doctor with instant trust, bypassing the need for a manual wait for physical slides or redundant re-tests.
+**Primary-care consultations:** Taking externally obtained blood-test results to a GP or PCP without relying on an unverifiable printout or giving the clinician access to the patient's laboratory account.
 
-**Personal Health Records:** Carrying a verified, cryptographically trusted "Source of Truth" about their health, which can be shared with insurers or travel providers without revealing the entire medical history.
+**Second Opinions:** Giving another clinician a report whose text can be authenticated against the original lab. This does not replace slide review, repeat testing or other clinical checks where those are appropriate.
+
+**Personal Health Records:** Carrying a source-attributed report and choosing whom to share it with. A verified report is an issuer's statement about a specimen and date, not a complete or current account of a person's health.
 
 ## Third-Party Use
 
 **Specialist Physicians / Oncologists**
-**Treatment Decisions:** Before starting chemotherapy or scheduling surgery, the doctor scans the pathology hash. "Verified by Quest" ensure the diagnosis hasn't been "Edited" by a patient in denial or a confused relative.
+**Report provenance:** A consulting clinician checks the presented report against the laboratory's published hash/status. This helps detect altered text; it does not establish diagnostic accuracy or make the report sufficient for a treatment decision.
 
 **Life & Disability Insurers**
 **Risk Underwriting:** Verifying high-stakes health markers (like cancer staging) before issuing multimillion-dollar policies. Live Verify connects the underwriter directly to the performing lab.
@@ -93,7 +154,7 @@ The **Patient** benefits from verification.
 **The "Medical Denial" Fraud Problem**
 
 - **Diagnosis Scrubbing:** A patient editing a "Positive" cancer report to "Negative" to pass a life insurance exam or to hide a condition from a family member.
-- **Result Padding:** Editing a "Normal" drug test to hide the presence of controlled substances.
+- **Result Alteration:** Changing a positive finding to negative, changing a number, or removing an abnormal-result flag.
 - **Pathologist Impersonation:** Creating a fake report on the letterhead of a reputable lab to justify an experimental or unauthorized treatment.
 
 **Issuer Types** (First Party)
@@ -102,7 +163,7 @@ The **Patient** benefits from verification.
 **Hospital Labs:** (Academic medical center pathology units).
 **Direct-to-Consumer Labs:** (e.g., Everlywell, Thorne).
 
-**Privacy Salt:** ABSOLUTELY CRITICAL. Pathology data is the most sensitive PII. The hash MUST be salted to prevent "Guess-and-Check" attacks to find specific people with cancer or rare diseases.
+**Privacy Salt:** Include an issuer-generated unpredictable receipt ID (at least 128 random bits) in the hashed report text to reduce guess-and-check enumeration of patient results. Do not echo patient names or results in public verification responses. A random ID does not prevent someone who already possesses the report from forwarding it, and lookup privacy still needs consideration.
 
 ## Authority Chain
 
@@ -128,8 +189,10 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | Feature | Live Verify | Patient Portal (MyQuest) | Health Info Exchange (HIE) |
 | :--- | :--- | :--- | :--- |
 | **Trust Anchor** | **Domain-Bound.** Bound to the Lab. | **System-Bound.** Requires login. | **Network-Bound.** |
-| **User Access** | **Instant.** Scan the paper in the clinic. | **Slow.** Requires patient to log in and find PDF. | **Difficult.** Requires clinical integration. |
+| **User Access** | Capture the paper or select supported digital text; depends on issuer adoption and extraction. | Patient or authorised provider accesses the original results. | Receiving provider accesses connected records. |
 | **Integrity** | **Cryptographic.** Binds the *Diagnosis*. | **High.** Direct DB access. | **High.** |
-| **Cross-System** | **Universal.** Works across any health system. | **Siloed.** Hard to share with non-network doctors. | **Limited.** Regional only. |
+| **Cross-System** | Portable text check where the lab publishes hashes and the verifier supports it. | Downloads can travel beyond the portal. | Depends on participating systems and access arrangements. |
 
-**Why Live Verify wins here:** The "Clinical Handoff." Surgeons and Oncologists often meet patients who bring paper reports from outside labs. They don't have time to log into the patient's private Quest account. Live Verify turns the **Physical Pathology Report** into a live, trusted clinical link that provides "Oncology-Grade" trust in seconds.
+**Practical fit:** Patient-carried results are useful precisely because they travel outside the issuing laboratory's system. Live Verify could authenticate that travelling text without requiring every receiving practice to integrate with the same portal or health-information exchange. Existing authenticated clinical exchange remains preferable where available; verification complements it.
+
+**Clinical limit:** An authentic report can contain a laboratory error, refer to a misidentified specimen, be outdated, or omit other relevant tests. Verification does not establish specimen identity, diagnostic accuracy, clinical relevance or completeness beyond the checked scope. The receiving clinician retains responsibility for interpretation and any further checks.

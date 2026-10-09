@@ -230,6 +230,10 @@ unreachable. The field registry — issuer identity, `authorizedBy` and endorsem
 `responseTypes`, normalization fields, hosting fields, data-handling declarations — is specified in
 [verification-meta-schemas.md](verification-meta-schemas.md).
 
+For printed/camera-OCR claims, issuers SHOULD declare the font families in `ocrFonts` as
+specified in that registry. This optional hint does not affect canonicalization or hashing;
+text-selection clients ignore it.
+
 ## 9. Endorsement (`authorizedBy`) walk
 
 An issuer's meta MAY name an endorser via `authorizedBy`. The endorsement commitment is a hash over
