@@ -486,9 +486,9 @@
         <nav class="breadcrumbs" aria-label="Breadcrumb">
             <span>Home</span>
         </nav>
-        <h1>Ask any document: does your issuer stand behind this?</h1>
-        <p class="subhead">Select the text of a certificate, licence, or receipt &mdash; and get the issuer's own answer in four seconds. No phone call, no account.</p>
-        <p class="lede">Live Verify is the open standard that answers the only question that still matters when a document lands in front of you &mdash; <em>does the issuer stand behind this, right now?</em> Select or snap the text; a SHA-256 lookup against the issuer's own domain answers in seconds. Build one below &mdash; then break it.</p>
+        <h1>Is this document genuine? Ask whoever issued it.</h1>
+        <p class="subhead">Select the text of a bank statement, certificate, or licence &mdash; and get the answer from the bank, university, or regulator that issued it, in four seconds. No phone call, no account.</p>
+        <p class="lede">Live Verify is an open standard for checking a document with the organisation that issued it. The issuer publishes a fingerprint (a SHA-256 hash) of each genuine document on its own website. Your browser or phone computes the same fingerprint from the text in front of you and looks it up there. Change one digit of the document and the lookup finds nothing. Try it below &mdash; then break it.</p>
 
         <!-- In-page demo: hash a real claim and hand you the issuer's URL.
              This page deliberately does NOT render a verdict. A page asserting its own
@@ -496,7 +496,7 @@
              draw a green tick, including a copy of this one. The answer has to come from
              the issuer's domain, in your own address bar. -->
         <div class="card demo-card" id="tryIt">
-            <h2>Hash this claim &mdash; then change one character</h2>
+            <h2>Try it: check this claim &mdash; then change one character</h2>
             <p style="margin-bottom: 4px;">This is a real verifiable claim. The <code>verify:</code> line points at this
                 site's own domain, where a hash of the text above it is published. Hit <strong>Build the lookup</strong>
                 and follow the link: <em>the issuer's domain answers, not this page.</em> Then edit any character
@@ -595,35 +595,35 @@ on 4 May 2025 in a chip time of 1:47:32.
         <div class="card" id="howItWorks">
             <h2>How it works</h2>
             <p>Documents carry a <code>verify:</code> line pointing at the issuer's domain, e.g.
-                <code>verify:issuer.example.com/claims</code>. <strong>Clip mode:</strong> select the text. <strong>Camera mode:</strong> snap and OCR it.
-                Either way, the text is normalized, hashed with SHA-256, and looked up at the issuer's URL. You decide upfront whether that domain is an authority on the claim.</p>
+                <code>verify:issuer.example.com/claims</code>. <strong>On screen</strong> (a PDF, web page, or email): select the text. <strong>On paper:</strong> point a phone camera at it.
+                Either way, the text is normalized, hashed with SHA-256, and looked up at the issuer's URL. You decide whether that domain is an authority on the claim.</p>
             <div class="diagram">
                 <div class="diagram-step">
                     <span class="step-number">1</span>
                     <div>
-                        <strong>Get text</strong><br>
-                        Select (Clip) or snap &amp; OCR (Camera).
+                        <strong>Get the text</strong><br>
+                        Select it on screen, or photograph it on paper.
                     </div>
                 </div>
                 <div class="diagram-step">
                     <span class="step-number">2</span>
                     <div>
                         <strong>Normalize</strong><br>
-                        Apply text normalization rules locally.
+                        Tidy spacing and character variants on your device, so the same text always gives the same hash.
                     </div>
                 </div>
                 <div class="diagram-step">
                     <span class="step-number">3</span>
                     <div>
                         <strong>SHA-256</strong><br>
-                        Hash the normalized text.
+                        Hash the normalized text. Only the hash leaves your device.
                     </div>
                 </div>
                 <div class="diagram-step">
                     <span class="step-number">4</span>
                     <div>
                         <strong>Verify</strong><br>
-                        GET the issuer URL; 200 = status returned (OK / REVOKED / etc.), 404 = not found.
+                        Look the hash up at the issuer's URL. Found (200) returns a status such as OK or REVOKED; not found (404) means the issuer does not stand behind this text.
                     </div>
                 </div>
             </div>
@@ -640,6 +640,7 @@ on 4 May 2025 in a chip time of 1:47:32.
                 <li><strong>Definitively decentralized.</strong> Trust is rooted in DNS &mdash; the same globally distributed namespace that already decides that <code>gov.uk</code> is the UK government and <code>irs.gov</code> is the US tax authority. Verification inherits that.</li>
                 <li><strong>Each country runs its own trust chain.</strong> Each issuer endpoint names the URL of the authority that endorses it, and a verifier walks those links upward to a national root &mdash; e.g. <code>law-society.org.uk/v/&hellip; &rarr; gov.uk/verifiers/&hellip;</code>, or a US state board <code>&rarr; asc.gov/v/&hellip;</code>. The chain is built from these declared endorsement URLs, not from domain structure: a multinational's <code>uk.</code> and <code>us.</code> endpoints can point at entirely different national authorities. Jurisdictions keep their own authorities; nothing is centralized across borders, and no country depends on another's infrastructure.</li>
                 <li><strong>Human in the loop &mdash; dual-channel trust.</strong> Verification and human judgement happen <em>together</em>, not in sequence, on two channels at once: the person reads the domain and trusts their gut, while the device walks the authority chain to a sovereign root. The machine does the maths &mdash; normalize, hash, look up &mdash; and the person weighs the result: <em>&ldquo;it came back verified, the issuer's domain (<code>gmc-uk.org</code>) is one I accept, and the endorsement chain makes sense &mdash; so I'll trust this, for now.&rdquo;</em> Equally, the human is the one who balks at <em>&ldquo;verified, but by <code>djwgwbdss.com</code>, with no chain behind it &mdash; I've no basis to trust that domain on its own.&rdquo;</em> A green tick is an input to a human decision, not the decision itself &mdash; and because issuers can revoke, that trust is only ever for <em>this moment</em>.</li>
+                <li><strong>Beyond documents &mdash; people at the door.</strong> The same primitive extends from paper and PDFs to the person presenting them: a <a href="use-cases/view.html?doc=police-officer-verification">police officer</a> or <a href="use-cases/view.html?doc=utility-field-worker-verification">utility worker</a> carrying an e-ink badge whose text carries a rotating salt, checked with a phone camera against the force's or the utility's own domain &mdash; the "bogus caller" defence. This is further out than document verification: it needs issued hardware, camera OCR rather than selectable text, and a public used to checking. Documents come first; the badge is where it leads.</li>
             </ul>
             <p class="note" style="margin-top: 14px;">
                 <strong>The plumbing is deliberately boring:</strong> a verification is a plain HTTPS lookup against the issuer's own server, answered live &mdash; the document carries a link, and checking it is like checking a tracking number. That live answer is exactly why a claim can be <em>revoked</em> the instant an issuer changes its mind. (No ledger, token, or consensus network is involved; if you're weighing this against a blockchain or an NFT credential, that comparison is on the <a href="how-is-this-different.html">how&nbsp;is&nbsp;this&nbsp;different</a> page.)
@@ -708,7 +709,7 @@ on 4 May 2025 in a chip time of 1:47:32.
                 <text x="290" y="66" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="18" font-weight="800" fill="white">&#10003;</text>
                 <text x="290" y="22" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="11" font-weight="700" fill="white" opacity="0.85">DONE</text>
                 <text x="290" y="105" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="white">Scaled tech reference</text>
-                <text x="290" y="122" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="11" fill="white" opacity="0.8">Authority chains, burn-on-verify, expiring links</text>
+                <text x="290" y="122" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="11" fill="white" opacity="0.8">Authority chains, single-use codes, expiring links</text>
 
                 <!-- Stage 3: Pilot issuer deployments -->
                 <circle cx="480" cy="60" r="22" fill="rgba(255,200,80,0.85)" stroke="white" stroke-width="2"/>
@@ -736,11 +737,8 @@ on 4 May 2025 in a chip time of 1:47:32.
         <div class="card" id="useCases">
             <h2>What problems does this solve?</h2>
             <p>Fraud, safety, security, compliance, authenticity &mdash; unverified documents cause harm across every
-            sector. Start with the flagship cases, where issuer-attested verification is most consequential:</p>
+            sector. Start with the flagship cases, where being able to ask the issuer matters most:</p>
             <ul style="margin: 14px 0 6px 0; padding-left: 22px; line-height: 1.7;">
-                <li><a href="use-cases/view.html?doc=police-officer-verification">Police-officer</a> and
-                    <a href="use-cases/view.html?doc=utility-field-worker-verification">utility-worker</a> verification
-                    &mdash; the "bogus caller" defence, trust at the door</li>
                 <li><a href="use-cases/view.html?doc=bank-statements">Bank statements</a> and
                     <a href="use-cases/view.html?doc=mortgage-verification-documents">income documents</a>
                     &mdash; forgery-proof KYC against the issuer's own domain</li>
@@ -753,6 +751,9 @@ on 4 May 2025 in a chip time of 1:47:32.
                 <li><a href="use-cases/view.html?doc=ai-content-provenance-disclosure">AI-content disclosure</a> and
                     <a href="use-cases/view.html?doc=ad-placement-provenance">ad-placement provenance</a>
                     &mdash; post-GenAI primitives for platforms and policy makers</li>
+                <li><a href="use-cases/view.html?doc=police-officer-verification">Police-officer</a> and
+                    <a href="use-cases/view.html?doc=utility-field-worker-verification">utility-worker</a> verification
+                    &mdash; the "bogus caller" defence, trust at the door (further out: see <a href="#globalSystem">the bigger picture</a>)</li>
             </ul>
             <p style="margin-top: 12px;"><a href="use-cases/#flagship" style="text-decoration: underline; font-weight: 700;">Take the flagship tour &rarr;</a></p>
             <details style="margin-top: 16px;">
@@ -788,18 +789,18 @@ on 4 May 2025 in a chip time of 1:47:32.
             <h3 style="margin-top: 16px; font-size: 1em; opacity: 0.85;">Start here &mdash; two short explainers</h3>
             <p style="font-size: 0.92em; opacity: 0.8; margin-top: 4px;">Animated walkthroughs of the two highest-stakes moments. They play here, in the page.</p>
             <div class="intro-videos">
-                <button type="button" class="intro-video" data-yt="EUI27wJnAQM" aria-label="Play: The Threshold Problem">
-                    <span class="iv-thumb" style="background-image: url('https://i.ytimg.com/vi/EUI27wJnAQM/hqdefault.jpg');"><span class="iv-play" aria-hidden="true"></span></span>
-                    <span class="iv-meta">
-                        <span class="iv-title">The Threshold Problem</span>
-                        <span class="iv-sub">Midnight at the door &mdash; is this really a police officer? Dual-channel trust &amp; burn-on-verify.</span>
-                    </span>
-                </button>
                 <button type="button" class="intro-video" data-yt="cGRqqKLnxFQ" aria-label="Play: The KYC Counter">
                     <span class="iv-thumb" style="background-image: url('https://i.ytimg.com/vi/cGRqqKLnxFQ/hqdefault.jpg');"><span class="iv-play" aria-hidden="true"></span></span>
                     <span class="iv-meta">
                         <span class="iv-title">The KYC Counter</span>
                         <span class="iv-sub">A bank official verifies a presented statement &mdash; page-at-a-time, rows and all.</span>
+                    </span>
+                </button>
+                <button type="button" class="intro-video" data-yt="EUI27wJnAQM" aria-label="Play: The Threshold Problem">
+                    <span class="iv-thumb" style="background-image: url('https://i.ytimg.com/vi/EUI27wJnAQM/hqdefault.jpg');"><span class="iv-play" aria-hidden="true"></span></span>
+                    <span class="iv-meta">
+                        <span class="iv-title">The Threshold Problem</span>
+                        <span class="iv-sub">Midnight at the door &mdash; is this really a police officer? A badge you can check on the spot, and that a photograph of it can't reuse.</span>
                     </span>
                 </button>
             </div>

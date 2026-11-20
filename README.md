@@ -92,11 +92,11 @@ If a claim is aimed at humans reading it — whether digital or printed — it i
 
 **Start with the flagship cases** — the five clusters where issuer-attested verification is most consequential:
 
-1. [Police-officer](https://live-verify.github.io/live-verify/use-cases/view.html?doc=police-officer-verification) / [utility-worker](https://live-verify.github.io/live-verify/use-cases/view.html?doc=utility-field-worker-verification) verification — trust at the door
-2. [Bank statements](https://live-verify.github.io/live-verify/use-cases/view.html?doc=bank-statements) / [income documents](https://live-verify.github.io/live-verify/use-cases/view.html?doc=mortgage-verification-documents) — forgery-proof KYC
-3. [Credential evaluations](https://live-verify.github.io/live-verify/use-cases/view.html?doc=foreign-credential-evaluations) / [letters of good standing](https://live-verify.github.io/live-verify/use-cases/view.html?doc=bar-admission-good-standing) — portable professional proof
-4. [Fine art](https://live-verify.github.io/live-verify/use-cases/view.html?doc=art-authentication-documents) / [pedigree](https://live-verify.github.io/live-verify/use-cases/view.html?doc=breed-pedigree-registration) provenance — high-value trust between private silos
-5. [AI-content disclosure](https://live-verify.github.io/live-verify/use-cases/view.html?doc=ai-content-provenance-disclosure) / [ad-placement provenance](https://live-verify.github.io/live-verify/use-cases/view.html?doc=ad-placement-provenance) — post-GenAI primitives
+1. [Bank statements](https://live-verify.github.io/live-verify/use-cases/view.html?doc=bank-statements) / [income documents](https://live-verify.github.io/live-verify/use-cases/view.html?doc=mortgage-verification-documents) — forgery-proof KYC
+2. [Credential evaluations](https://live-verify.github.io/live-verify/use-cases/view.html?doc=foreign-credential-evaluations) / [letters of good standing](https://live-verify.github.io/live-verify/use-cases/view.html?doc=bar-admission-good-standing) — portable professional proof
+3. [Fine art](https://live-verify.github.io/live-verify/use-cases/view.html?doc=art-authentication-documents) / [pedigree](https://live-verify.github.io/live-verify/use-cases/view.html?doc=breed-pedigree-registration) provenance — high-value trust between private silos
+4. [AI-content disclosure](https://live-verify.github.io/live-verify/use-cases/view.html?doc=ai-content-provenance-disclosure) / [ad-placement provenance](https://live-verify.github.io/live-verify/use-cases/view.html?doc=ad-placement-provenance) — post-GenAI primitives
+5. [Police-officer](https://live-verify.github.io/live-verify/use-cases/view.html?doc=police-officer-verification) / [utility-worker](https://live-verify.github.io/live-verify/use-cases/view.html?doc=utility-field-worker-verification) verification — trust at the door
 
 **Full searchable catalog** (a breadth survey of everywhere the primitive applies, documented to one template): https://live-verify.github.io/live-verify/use-cases/
 

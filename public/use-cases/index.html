@@ -19,7 +19,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Use Cases - OCR Verification</title>
+    <title>Use Cases - Live Verify</title>
     <style>
         * {
             margin: 0;
@@ -712,7 +712,7 @@
 	            <button type="button" data-slogan-toggle></button>
 	        </p>
 	        <p class="hero-lede">
-	            Live Verify turns a printed claim into a trustable handshake: snap the document, OCR locally, hash it, and confirm the issuer domain still serves that hash.
+	            Live Verify lets anyone check a document with the organisation that issued it: select the text on screen, or photograph it on paper, and the issuer&rsquo;s own domain confirms whether it still stands behind that exact text.
 	            Five flagship clusters below show where that matters most; the full landscape survey follows them.
 	        </p>
     </div>
@@ -729,21 +729,11 @@
         <h2>Start here: the flagship cases</h2>
         <p class="flagship-intro">
             There are hundreds of use cases below. If you have a few minutes, start with these &mdash; the five
-            clusters where issuer-attested verification is most consequential, each speaking to a different audience.
+            clusters where being able to ask the issuer matters most, each speaking to a different audience.
         </p>
 
         <div class="flagship-cluster">
-            <h3>1. High-stakes “threshold” verification</h3>
-            <div class="cluster-audience">Protecting the vulnerable at the door</div>
-            <ul>
-                <li><a href="view.html?doc=police-officer-verification">Police-officer verification</a> &mdash; a citizen verifies the badge at a traffic stop or home visit; the device walks the authority chain to a sovereign root while the human judges the domain (dual-channel trust).</li>
-                <li><a href="view.html?doc=utility-field-worker-verification">Utility / field-worker verification</a> &mdash; the “bogus caller” defence: an elderly homeowner confirms through the window that the worker is on-duty and assigned to <em>this</em> address right now.</li>
-                <li><a href="view.html?doc=school-pickup-authorization">School pickup authorization</a> &mdash; staff confirm a third party (grandparent, nanny) is currently authorized to collect a child.</li>
-            </ul>
-        </div>
-
-        <div class="flagship-cluster">
-            <h3>2. Financial &amp; integrity audit</h3>
+            <h3>1. Financial &amp; integrity audit</h3>
             <div class="cluster-audience">For bankers, lenders, and regulators</div>
             <ul>
                 <li><a href="view.html?doc=bank-statements">Bank statements (the KYC counter)</a> &mdash; page-at-a-time hashing includes the transaction rows, so a deleted withdrawal or padded balance fails to verify, not just an altered total.</li>
@@ -753,7 +743,7 @@
         </div>
 
         <div class="flagship-cluster">
-            <h3>3. Professional &amp; academic qualifications</h3>
+            <h3>2. Professional &amp; academic qualifications</h3>
             <div class="cluster-audience">Serving the unserved long tail</div>
             <ul>
                 <li><a href="view.html?doc=foreign-credential-evaluations">Credential evaluations &amp; the “ornate certificate”</a> &mdash; an institution keeps its traditional diploma <em>and</em> offers a plain-text hash an HR manager can verify in seconds.</li>
@@ -762,7 +752,7 @@
         </div>
 
         <div class="flagship-cluster">
-            <h3>4. High-value asset provenance</h3>
+            <h3>3. High-value asset provenance</h3>
             <div class="cluster-audience">Portable trust between private silos</div>
             <ul>
                 <li><a href="view.html?doc=art-authentication-documents">Fine art &amp; collectibles</a> &mdash; a certificate of authenticity or appraisal proves provenance against the auction house’s domain, enabling high-value loans without public-database exposure.</li>
@@ -771,7 +761,7 @@
         </div>
 
         <div class="flagship-cluster">
-            <h3>5. Novel post-GenAI primitives</h3>
+            <h3>4. Novel post-GenAI primitives</h3>
             <div class="cluster-audience">For policy makers and platforms</div>
             <ul>
                 <li><a href="view.html?doc=ai-content-provenance-disclosure">AI content disclosure</a> &mdash; a platform self-attests whether media is AI-generated or camera-original, a domain-bound claim that survives screenshotting and re-hosting.</li>
@@ -779,25 +769,35 @@
                 <li><a href="view.html?doc=ad-placement-provenance">Ad-placement provenance</a> &mdash; a user right-clicks an ad to see which network is liable for placing it, removing the anonymity that fuels malvertising.</li>
             </ul>
         </div>
+
+        <div class="flagship-cluster">
+            <h3>5. Identity at the door</h3>
+            <div class="cluster-audience">Protecting the vulnerable from bogus callers &mdash; further out: needs issued badges and camera reading</div>
+            <ul>
+                <li><a href="view.html?doc=police-officer-verification">Police-officer verification</a> &mdash; a citizen verifies the badge at a traffic stop or home visit; the device walks the authority chain to a sovereign root while the human judges the domain (dual-channel trust).</li>
+                <li><a href="view.html?doc=utility-field-worker-verification">Utility / field-worker verification</a> &mdash; the “bogus caller” defence: an elderly homeowner confirms through the window that the worker is on-duty and assigned to <em>this</em> address right now.</li>
+                <li><a href="view.html?doc=school-pickup-authorization">School pickup authorization</a> &mdash; staff confirm a third party (grandparent, nanny) is currently authorized to collect a child.</li>
+            </ul>
+        </div>
     </div>
 
     <div class="story-section" id="how">
-        <h2>Snap → OCR → hash → check</h2>
+        <h2>Text → normalize → hash → check</h2>
         <p>
-            Documents carry a <code>verify:</code> line that points to the issuer’s domain. Live Verify automates the rest: capture, OCR, normalization rules, SHA-256, then GET the issuer URL with the hash. The app flashes “Claim Verified” only if that domain currently vows to that exact text hash.
+            Documents carry a <code>verify:</code> line that points to the issuer’s domain. Live Verify does the rest: it takes the text (selected on screen, or read from a photo), applies the normalization rules, computes SHA-256, then GETs the issuer URL with the hash. The result is “verified” only if that domain currently stands behind that exact text.
         </p>
         <div class="diagram">
             <div class="diagram-step">
                 <span class="step-number">1</span>
                 <div>
-                    <strong>Snap</strong><br>
-                    Use the camera app to frame the verification mark.
+                    <strong>Get the text</strong><br>
+                    Select it on screen (PDF, web page, email), or photograph it on paper.
                 </div>
             </div>
             <div class="diagram-step">
                 <span class="step-number">2</span>
                 <div>
-                    <strong>OCR + normalize</strong><br>
+                    <strong>Normalize</strong><br>
                     Text is normalized on-device (rules only) before hashing.
                 </div>
             </div>
@@ -821,7 +821,7 @@
             <code>verify:issuer.example.com/claims</code>
                 ... implies a lookup at ...<br>
             <code>https://issuer.example.com/claims/&lt;sha256&gt;</code><br>
-	            The phone trusts the domain only if the hash matches and the issuer returns an affirming status (e.g., “OK”). Status meanings can be described in <code>verification-meta.json</code>.
+	            The claim counts as verified only if the hash is found and the issuer returns an affirming status (e.g., “OK”). Status meanings can be described in <code>verification-meta.json</code>.
 	        </div>
 	    </div>
 
@@ -836,7 +836,7 @@
             </ul>
             <h3 style="margin-top: 18px;">Verifications are revocable</h3>
             <p style="margin: 0;">
-                <strong>Revocation is part of trust.</strong> If an ID is stolen, a license suspended, or a credential withdrawn, the issuer can change the response so verifiers stop treating the printed claim as current.
+                <strong>Revocation is part of trust.</strong> If an ID is stolen, a license suspended, or a credential withdrawn, the issuer can change the response so verifiers stop treating the claim as current.
                 Some issuers may return an operational instruction, e.g. <code>Stolen ID — please retain/cut in half and contact &lt;policy URL&gt; (quoting reference Nnnnnnn)</code>.
             </p>
         </div>
@@ -847,13 +847,13 @@
                 There’s no single global registry to control access—at the cheapest end, a static web server can host the hash lookups.
             </p>
             <p>
-                The result is anti-fraud without friction: the familiar camera flow becomes “Snap → Verified / Denied” at the point of use.
+                The result is anti-fraud without friction: select or snap, and see whether the issuer stands behind it, at the point of use.
             </p>
         </div>
         <div class="info-card" id="userPrivacy">
             <h3>Privacy</h3>
             <p>
-                OCR, normalization, and SHA-256 run entirely on-device, and the only outbound call is the hash lookup. Learn why one-way hashes are safe to publish via our
+                Text extraction (including any OCR), normalization, and SHA-256 run entirely on-device, and the only outbound call is the hash lookup. Learn why one-way hashes are safe to publish via our
                 <a href="../one-way-hash.html" target="_blank" rel="noreferrer noopener">one-way hash explainer</a> and see the full protocol in the
                 <a href="../privacy_declaration.html" target="_blank" rel="noreferrer noopener">Privacy Declaration</a>.
             </p>
