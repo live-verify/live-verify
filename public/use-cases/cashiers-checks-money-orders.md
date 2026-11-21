@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Cashier's Check?
 
-A **Cashier's Check** is a "Guaranteed Check" written by the bank itself, not by a person. Because the bank takes the money from the sender's account *immediately*, the check is supposedly "as good as cash."
+A Cashier's Check is a "Guaranteed Check" written by the bank itself, not by a person. Because the bank takes the money from the sender's account *immediately*, the check is supposedly "as good as cash."
 
 Because people trust them, they are the #1 tool for scammers. Fraudsters create high-quality fake checks to buy cars on Craigslist or to send "overpayments" to victims.
 
@@ -57,7 +57,13 @@ The seller thinks the check is real, hands over the car keys, and then discovers
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Check Fraud
+
+- **High-Quality Forgeries:** Scammers using high-end printers to create near-perfect copies of bank checks. The "Check Number" might be real, but the "Amount" or "Payee" is altered.
+- **Closed Accounts:** Issuing a check from an account that is about to be closed.
+- **Overpayment Scams:** Sending a fake $5,000 check for a $2,000 item and asking for the $3,000 "difference" to be wired back before the bank realizes the check is fake.
+
+## What Is Checked
 
 Payee name, dollar amount (numerical and text), check/serial number, issuing bank routing number, date of issuance, purchaser name (remitter), memo/reference details.
 
@@ -67,7 +73,7 @@ Payee name, dollar amount (numerical and text), check/serial number, issuing ban
 - **Money Order:** (Western Union, USPS, MoneyGram).
 - **Certified Check:** Personal check with bank-guaranteed funds.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Bank) and current payment status.
 
@@ -77,15 +83,15 @@ Shows the issuer domain (the Bank) and current payment status.
 - **Stop Payment** — Payment blocked (e.g., due to loss/theft).
 - **Void** — Re-issued or cancelled by the remitter.
 
-## Second-Party Use
+## Who Holds It
 
-The **Remitter** (Purchaser) benefits from verification.
+The Remitter (Purchaser) benefits from verification.
 
 **Anti-Fraud:** Proving to a seller (e.g., a car seller or landlord) that the check is 100% genuine and the funds are "Verified Outstanding" at the bank. This prevents the seller from being victimized by the common "Fake Cashier's Check" scam.
 
 **Loss Recovery:** Instantly verifying the "Stop Payment" status if the check is lost in the mail, allowing for a faster re-issuance process.
 
-## Third-Party Use
+## Who Checks It
 
 **Attorneys / Escrow Agents**
 **Real Estate Closings:** Verifying that the multimillion-dollar cashier's check for a house purchase is real *before* signing over the deed. This stops the most high-stakes form of wire/check fraud in the legal industry.
@@ -96,13 +102,7 @@ The **Remitter** (Purchaser) benefits from verification.
 **Banks (Deposit Intake)**
 **Risk Reduction:** When a customer deposits a large cashier's check from another bank, the receiving bank can verify it instantly via the hash, allowing them to release the funds faster (reducing the standard 3-5 day "hold" period).
 
-## Verification Architecture
-
-**The "Fake Check" Fraud Problem**
-
-- **High-Quality Forgeries:** Scammers using high-end printers to create near-perfect copies of bank checks. The "Check Number" might be real, but the "Amount" or "Payee" is altered.
-- **Closed Accounts:** Issuing a check from an account that is about to be closed.
-- **Overpayment Scams:** Sending a fake $5,000 check for a $2,000 item and asking for the $3,000 "difference" to be wired back before the bank realizes the check is fake.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -129,7 +129,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the instrument it issued.
 
 
-## Competition vs. Positive Pay / Call-In
+## Compared With Positive Pay / Call-In
 
 | Feature | Live Verify | Positive Pay (Corporate) | Calling the Bank |
 | :--- | :--- | :--- | :--- |
@@ -138,4 +138,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds All Fields.** Payee + Amount + Date. | **High.** | **Vague.** "Yes, check #123 is valid." |
 | **Speed** | **Instant.** 5-second scan. | **Fast.** | **Very Slow.** |
 
-**Why Live Verify wins here:** The "Kitchen Table" transaction. Most cashier's check fraud happens in private transactions where the seller doesn't have access to "Corporate Positive Pay" systems and the bank's fraud department is closed (weekends/evenings). Live Verify provides **24/7, expert-level verification** to anyone with a smartphone.
+**Where each fits:** positive pay is the right control for businesses that have it through their bank, and a call to the issuing bank during opening hours is still a sound check. A private seller accepting a cashier's check in the evening or at a weekend has neither. Live Verify lets that seller confirm the bank issued the check with that payee, amount and date, while positive pay goes on protecting commercial accounts.

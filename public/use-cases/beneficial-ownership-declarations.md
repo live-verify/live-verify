@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 Criminals and sanctioned oligarchs often hide behind "Shell Companies." They might own 10 different companies that own each other, making it impossible to see who is really in control.
 
-The **Ultimate Beneficial Owner (UBO)** Declaration is the document where a company must "unmask" its true human owners to the government (like FinCEN in the US).
+The Ultimate Beneficial Owner (UBO) Declaration is the document where a company must "unmask" its true human owners to the government (like FinCEN in the US).
 
 Verifying these declarations ensures that a company opening a bank account isn't lying about who owns it, which is the primary way the world stops money laundering and terrorism financing.
 
@@ -51,7 +51,13 @@ Verifying these declarations ensures that a company opening a bank account isn't
   </div>
 </div>
 
-## Data Verified
+## The Problem: Shell Game Fraud
+
+- **Layering:** Creating 10 levels of shell companies to hide that a sanctioned oligarch actually owns the business.
+- **Front-Men:** Listing a secretary or lawyer as the "Owner" on the paper declaration while the real owner remains hidden in the background.
+- **Fabricated Filings:** Showing a fake "FinCEN Receipt" to a bank to hide that the company never actually filed its ownership report.
+
+## What Is Checked
 
 Reporting company name, Tax ID (EIN), Beneficial Owner names, ownership percentages, control relationships, identifying document numbers (redacted), date of filing.
 
@@ -60,7 +66,7 @@ Reporting company name, Tax ID (EIN), Beneficial Owner names, ownership percenta
 - **UBO Self-Certification:** For bank onboarding.
 - **Complex Ownership Diagram:** Visual chart of parent/subsidiary links.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`fincen.gov`, `registry.gov.uk`) and current filing status.
 
@@ -70,15 +76,15 @@ Shows the issuer domain (`fincen.gov`, `registry.gov.uk`) and current filing sta
 - **In-Dispute** — Control contest reported.
 - **Flagged** — Associated with a sanctioned entity or person.
 
-## Second-Party Use
+## Who Holds It
 
-The **Business Owner** benefits from verification.
+The Business Owner benefits from verification.
 
 **Bank Onboarding:** Proving to a bank during KYC (Know Your Customer) that the ownership structure they are presenting is the *exact same one* filed with the government. This prevents the "2-week delay" while the bank manually verifies ownership.
 
 **Contract Bidding:** Proving transparency to a government contractor or a major corporation that the company isn't a front for a sanctioned individual.
 
-## Third-Party Use
+## Who Checks It
 
 **Bank Compliance Officers (AML)**
 **Instant KYC:** Verification allows the bank to instantly trust the paper/PDF "Declaration of Ownership" provided by the customer, as it links directly to the FinCEN or Companies House domain record.
@@ -89,13 +95,7 @@ The **Business Owner** benefits from verification.
 **Investigative Journalists**
 **Corruption Tracking:** Verifying the "Official" ownership claims of shell companies involved in public projects.
 
-## Verification Architecture
-
-**The "Shell Game" Fraud Problem**
-
-- **Layering:** Creating 10 levels of shell companies to hide that a sanctioned oligarch actually owns the business.
-- **Front-Men:** Listing a secretary or lawyer as the "Owner" on the paper declaration while the real owner remains hidden in the background.
-- **Fabricated Filings:** Showing a fake "FinCEN Receipt" to a bank to hide that the company never actually filed its ownership report.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -192,7 +192,7 @@ Opaque beneficial ownership is the primary obstacle to asset recovery — klepto
 ## Jurisdictional Witnessing (Optional)
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the filing authority's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the declaration.
-## Competition vs. Registry Portals
+## Compared With Registry Portals
 
 | Feature | Live Verify | Public Registry Portal | Private KYC Utility (Swift) |
 | :--- | :--- | :--- | :--- |
@@ -200,4 +200,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Trust** | **Cryptographic.** Bound to the Gov domain. | **Medium.** Prone to UI spoofing/phishing. | **High.** But requires expensive membership. |
 | **Immediacy** | **Instant.** Scan the document during onboarding. | **Slow.** Login, search, pay fee, download PDF. | **Fast.** But siloed. |
 
-**Why Live Verify wins here:** It bridges the gap between the **Private Corporate File** and the **Public Government Record**. It allows a company to prove its status to a partner *without* the partner needing to independently navigate a foreign, complex, and potentially expensive government registry website.
+**Where each fits:** the government registry is the record itself, and a regulated firm doing full due diligence will still consult it or a shared KYC utility it belongs to. A counterparty abroad, faced with an unfamiliar registry site in another language and a fee to pay, often relies on the extract the company hands over. Live Verify lets that counterparty confirm the registry issued the extract as it reads, as a first check that works alongside a fuller registry search.

@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is Cyber Insurance?
 
-If a company is hacked and customer data is stolen, they can be sued for millions. **Cyber Insurance** covers these legal fees, government fines, and the cost of "breach response" (like mailing notices to customers).
+If a company is hacked and customer data is stolen, they can be sued for millions. Cyber Insurance covers these legal fees, government fines, and the cost of "breach response" (like mailing notices to customers).
 
 Large corporations (like Apple or Walmart) require all their vendors to have verified cyber insurance policies.
 
-Fraudsters often "Photoshop" a low-limit policy ($100k) to look like a $10M policy to win big contracts. Live Verify allows a procurement officer to scan the vendor's policy and see the **true limits** on the insurer's domain instantly.
+Fraudsters often "Photoshop" a low-limit policy ($100k) to look like a $10M policy to win big contracts. Live Verify allows a procurement officer to scan the vendor's policy and see the true limits on the insurer's domain instantly.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="cyber-pol"></span>
@@ -47,7 +47,13 @@ Authentication (MFA) is active on all remote access points.
 <span data-verify-line="cyber-pol">verify:aig.com/cyber/v</span> <span verifiable-text="end" data-for="cyber-pol"></span>
 </div>
 
-## Data Verified
+## The Problem: MFA Misrepresentation Fraud
+
+- **Warrant Falsification:** A company editing their policy PDF to hide the fact that the insurer *excluded* coverage because the company didn't have MFA.
+- **Ghost Policies:** Buying a policy, printing the papers, then cancelling it immediately to bypass vendor security requirements.
+- **Limit Inflation:** Changing a $1M "Incident Response" limit to $10M to win a prestigious tech contract.
+
+## What Is Checked
 
 Named insured, industry class code, specific coverage module limits (Liability, Response, Extortion), business interruption daily limit, effective/expiration dates, security warrants (e.g., "MFA active"), issuing carrier.
 
@@ -56,7 +62,7 @@ Named insured, industry class code, specific coverage module limits (Liability, 
 - **Forensic Case Report:** Summary of a verified breach investigation.
 - **Remediation Certification:** Proving that security gaps were fixed post-breach.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`aetna.com`, `chubb.com`, `aig.com`) and current policy status.
 
@@ -66,9 +72,9 @@ Shows the issuer domain (`aetna.com`, `chubb.com`, `aig.com`) and current policy
 - **Cancelled** — Policy terminated (e.g., for misrepresentation of security posture).
 - **Claim Active** — Incident response currently being funded.
 
-## Second-Party Use
+## Who Holds It
 
-The **Insured Business** (second party) receives the policy from the insurer (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Insured Business (second party) receives the policy from the insurer (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of the coverage terms. Most of the time, the policy sits in their business records—the verification value is latent, there *if needed*.
 
@@ -76,7 +82,7 @@ The **Insured Business** (second party) receives the policy from the insurer (fi
 
 **Future Optionality:** If a cyber incident occurs or a dispute arises about coverage, they have cryptographic proof of the policy terms ready without needing to contact the insurer.
 
-## Third-Party Use
+## Who Checks It
 
 The insured business (second party) may hand the verified document to various third parties:
 
@@ -89,13 +95,7 @@ The insured business (second party) may hand the verified document to various th
 **Regulators (State Insurance Depts)**
 **Market Oversight:** Ensuring carriers are accurately reporting their "Cyber Exposure" totals by verifying the hashes of issued policies.
 
-## Verification Architecture
-
-**The "MFA Misrepresentation" Fraud Problem**
-
-- **Warrant Falsification:** A company editing their policy PDF to hide the fact that the insurer *excluded* coverage because the company didn't have MFA.
-- **Ghost Policies:** Buying a policy, printing the papers, then cancelling it immediately to bypass vendor security requirements.
-- **Limit Inflation:** Changing a $1M "Incident Response" limit to $10M to win a prestigious tech contract.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -123,7 +123,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (policy number, coverage limits, policy period, issue date, industry codes) — never company names, system details, or breach history — providing non-repudiation of the cyber insurance policy issuance and immutable proof of coverage terms critical for breach disputes.
 
-## Competition vs. Automated Security Scans (Bitsight)
+## Compared With Automated Security Scans (Bitsight)
 
 | Feature | Live Verify | Security Rating (Bitsight/SecurityScorecard) | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -132,4 +132,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Context** | **Legal.** Shows the actual contract limits. | **Predictive.** Guesses the risk from the outside. | **Full.** |
 | **Freshness** | **Real-time.** Queries the carrier's live file. | **Weekly/Monthly.** Scans take time to refresh. | **Static.** |
 
-**Why Live Verify wins here:** The "Contractual Reality." A Bitsight score says a company *looks* safe. A verified insurance policy says the company *is backed by $10M in cash* if they aren't safe. Live Verify turns the **Financial Contract** into a verifiable digital artifact that is much more important for legal liability than a technical "Security Score."
+**Where each fits:** Security ratings services such as Bitsight and SecurityScorecard measure something a policy document cannot: how a company's defences look from the outside, tracked over time. A counterparty weighing technical risk should keep using them. What a rating does not show is whether cover is in place and at what limits, and that is the question a contract clause usually asks. Live Verify lets a customer or partner with no relationship to the insurer confirm that the policy text they were handed is the insurer's own, so the two answer different questions about the same vendor.

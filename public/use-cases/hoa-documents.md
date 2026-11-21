@@ -11,11 +11,11 @@ furtherDerivations: 2
 
 ## What are HOA Bylaws?
 
-If you live in a condo or a planned community, your daily life is governed by **HOA Bylaws** and **CC&Rs** (Covenants, Conditions & Restrictions). These are the "Constitution" of your neighborhood.
+If you live in a condo or a planned community, your daily life is governed by HOA Bylaws and CC&Rs (Covenants, Conditions & Restrictions). These are the "Constitution" of your neighborhood.
 
 They define everything from how many pets you can have to whether you can paint your front door blue.
 
-When you buy a house, you need the **Verified Current Version** of these rules. Sellers often "Hide" pages that mention expensive upcoming fees or strict rental bans to trick buyers. Verified hashes turn these 50-page PDFs into a live, trusted link to the association's official archive.
+When you buy a house, you need the Verified Current Version of these rules. Sellers often "Hide" pages that mention expensive upcoming fees or strict rental bans to trick buyers. Verified hashes turn these 50-page PDFs into a live, trusted link to the association's official archive.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 1px solid #333; background: #fff; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 25px;">
@@ -47,7 +47,13 @@ When you buy a house, you need the **Verified Current Version** of these rules. 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Quiet Rule Fraud
+
+- **Selective Omission:** A seller "deleting" the page of the bylaws that mentions a $50,000 special assessment to trick a buyer into closing the deal.
+- **Version Skew:** A Board member using an old 2015 version of the pet rules to target a neighbor with a dog, while the 2026 version allows pets.
+- **Fabricated Signatures:** Forging the Secretary's signature on a rule change that was never actually voted on by the members.
+
+## What Is Checked
 
 HOA legal name, document title (Bylaws/CC&Rs), adoption date, revision version, total page count, Secretary's name, county recording reference number, principal office address.
 
@@ -57,28 +63,28 @@ HOA legal name, document title (Bylaws/CC&Rs), adoption date, revision version, 
 - **Articles of Incorporation:** Proving the HOA is a legal entity.
 - **Plat Map:** (Linked hash) for legal boundary descriptions.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`skylinetowers-hoa.com`, `associa.com`) and current document status.
 
 **Status Indications:**
 - **In Force** — This is the current, legally binding version of the bylaws.
-- **Superseded** — **ALERT:** A newer version has been adopted; this version is void.
+- **Superseded** — A newer version has been adopted; this version is void.
 - **Proposed** — Draft version under member review; not yet binding.
 - **Archival** — Historical version for research only.
 
-## Second-Party Use
+## Who Holds It
 
-The **Homeowner (Member)** benefits from verification.
+The Homeowner (Member) benefits from verification.
 
-**Governance Defense:** Proving to the Board that the rule they are enforcing (e.g., "No blue front doors") isn't actually in the **Verified Current Bylaws**. Verification prevents "Rogue Board Members" from fabricating or misrepresenting the rules during a dispute.
+**Governance Defense:** Proving to the Board that the rule they are enforcing (e.g., "No blue front doors") isn't actually in the Verified Current Bylaws. Verification prevents "Rogue Board Members" from fabricating or misrepresenting the rules during a dispute.
 
 **Refinancing:** Providing verified governing documents to a lender's legal department. Lenders often delay closings for weeks because of "Incomplete" or "Unsigned" HOA packets; a verified hash from the HOA domain removes this barrier.
 
-## Third-Party Use
+## Who Checks It
 
 **Real Estate Attorneys / Title Companies**
-**Title Clearance:** Ensuring that the buyer is receiving the **absolute latest version** of the CC&Rs. Title companies currently spend thousands of hours manually checking county records; Live Verify allows for instant, document-level verification.
+**Title Clearance:** Ensuring that the buyer is receiving the absolute latest version of the CC&Rs. Title companies currently spend thousands of hours manually checking county records; Live Verify allows for instant, document-level verification.
 
 **Mortgage Underwriters**
 **Risk Management:** Verifying the "Rental Restrictions" or "Assessment Triggers" in the bylaws before approving a high-value condo loan.
@@ -86,13 +92,7 @@ The **Homeowner (Member)** benefits from verification.
 **Property Management Firms**
 **Transition Integrity:** When a new management firm takes over a building, they use verified hashes to ensure the "Digital Archive" they received from the previous firm hasn't been tampered with or corrupted.
 
-## Verification Architecture
-
-**The "Quiet Rule" Fraud Problem**
-
-- **Selective Omission:** A seller "deleting" the page of the bylaws that mentions a $50,000 special assessment to trick a buyer into closing the deal.
-- **Version Skew:** A Board member using an old 2015 version of the pet rules to target a neighbor with a dog, while the 2026 version allows pets.
-- **Fabricated Signatures:** Forging the Secretary's signature on a rule change that was never actually voted on by the members.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -104,7 +104,7 @@ The **Homeowner (Member)** benefits from verification.
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the HOA's hashes and status changes plus structured metadata (HOA legal name, adoption dates, revision versions, recording reference numbers) — never plaintext or sensitive personal information — providing non-repudiation of the bylaws and governance documents.
 
-## Competition vs. Private Portals
+## Compared With Private Portals
 
 | Feature | Live Verify | Resident Portal (Associa) | Scanned PDF / Email |
 | :--- | :--- | :--- | :--- |
@@ -113,7 +113,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Content.** Protects the fine-print. | **Vulnerable.** Portal can be "Cleaned up" by admins. | **Zero.** |
 | **Persistence** | **High.** Remains verifiable after sale. | **Low.** Access cut off after move-out. | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "External Trust" problem. HOA portals are private silos for current residents. But most verification happens for **Non-Residents** (Buyers, Banks, Title Co). Live Verify turns the **Private Governing Document** into a portable, cryptographically trusted artifact that bridges the gap between the building and the market.
+**Where each fits:** A resident portal is the natural home for an association's documents, and owners and managers should keep using it for notices, payments and current rules. Buyers, lenders, title companies and lawyers are not residents and are not given logins; they receive documents by email. Live Verify lets them confirm that the association stands behind the copy they were sent, without the portal having to open up to outsiders.
 
 ---
 
@@ -122,7 +122,7 @@ _[Content merged from: hoa-bylaws-revisions]_
 
 ## What is a Rule Change Notice?
 
-When a Homeowners Association (HOA) board decides to change the rules (e.g., "No more Airbnbs" or "Fines for loud music increase to $500"), they must send a formal **Notice of Rule Change** to all residents.
+When a Homeowners Association (HOA) board decides to change the rules (e.g., "No more Airbnbs" or "Fines for loud music increase to $500"), they must send a formal Notice of Rule Change to all residents.
 
 This notice is the "Legal Snapshot" of the new law.
 
@@ -158,7 +158,7 @@ Fraud happens when "Rogue Board Members" fabricate a rule change to target a spe
   </div>
 </div>
 
-## Data Verified
+## What Is Checked
 
 HOA legal name, community name, specific Article/Section number being revised, exact text of the revision, date of board approval, date of adoption, revision version ID, Secretary's name, jurisdiction of recording.
 
@@ -168,7 +168,7 @@ HOA legal name, community name, specific Article/Section number being revised, e
 - **CC&R Extract:** Covenants, Conditions & Restrictions.
 - **Board Meeting Minutes:** (Linked hash) proving the legal vote.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`skylinetowers-hoa.com`, `associa.com`) and current rule status.
 
@@ -178,15 +178,15 @@ Shows the issuer domain (`skylinetowers-hoa.com`, `associa.com`) and current rul
 - **Rescinded** — The rule has been cancelled by the Board.
 - **Under Challenge** — Rule status disputed in court or by homeowners.
 
-## Second-Party Use
+## Who Holds It
 
-The **Homeowner (Member)** benefits from verification.
+The Homeowner (Member) benefits from verification.
 
 **Compliance Defense:** If a homeowner is fined $500 for "Short-term Rental," they can verify the exact rule text on the date of the alleged violation. Live Verify prevents a Board from "Silently Editing" the bylaws to increase fines or add restrictions after a dispute has already started.
 
-**Resale Due Diligence:** Proving to a potential buyer that the "Pet Policy" or "Parking Rules" they are seeing in the sales packet are the **Verified Current Versions** from the Association.
+**Resale Due Diligence:** Proving to a potential buyer that the "Pet Policy" or "Parking Rules" they are seeing in the sales packet are the Verified Current Versions from the Association.
 
-## Third-Party Use
+## Who Checks It
 
 **Real Estate Attorneys / Title Companies**
 **Closing Integrity:** Ensuring that the Bylaws provided during a property sale are authentic and include all verified amendments. Title companies need to ensure the buyer has received the correct, non-altered version of the CC&Rs.
@@ -197,7 +197,7 @@ The **Homeowner (Member)** benefits from verification.
 **Property Managers**
 **Uniform Enforcement:** Allowing on-site staff to instantly verify the latest rule text on their tablets during field enforcement.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Power Grab" Fraud Problem**
 
@@ -225,7 +225,7 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. HOA Web Portals
+## Compared With HOA Web Portals
 
 | Feature | Live Verify | Private Resident Portal | Scanned PDF / Email |
 | :--- | :--- | :--- | :--- |
@@ -234,4 +234,4 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Integrity** | **Binds Text.** Protects the fine-print. | **Vulnerable.** Portal can be "Cleaned up" by admins. | **Zero.** |
 | **Persistence** | **High.** Text remains verifiable post-sale. | **Low.** Access revoked after moving out. | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Handoff Gap." HOA portals are private silos. When a home is sold, the "Trust" must cross from the Seller (Member) to the Buyer (Non-Member). Live Verify turns the **Paper Rules** into a portable, cryptographically trusted link that bridges the gap between residents and the outside world.
+**Where each fits:** For members, the association's portal remains the simplest way to find the current rules. A sale moves those rules from someone who has access to someone who does not yet have it, and the seller's own login ends on moving out. Live Verify lets the buyer and the closing professionals check the document they were handed against the association's own domain, which complements the portal during the period it cannot cover.

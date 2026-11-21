@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 Every visit to a doctor, dentist, urgent care, or emergency room in the US starts the same way: "Can I see your insurance card?" The front desk photocopies it, enters the member ID and group number, and bills your insurer. The problem: insurance cards are trivially faked. A card showing Blue Cross member ID and group number proves nothing — the person could be uninsured, their coverage could have lapsed, or the card could belong to someone else entirely.
 
-The payer's eligibility system remains the source of truth. Live Verify is strongest here as a **bridge into live payer status**, not as a claim that the plastic card itself is the important artifact.
+The payer's eligibility system remains the source of truth. Live Verify is strongest here as a bridge into live payer status, not as a claim that the plastic card itself is the important artifact.
 
 There are really three artifacts in this family:
 
@@ -21,9 +21,9 @@ There are really three artifacts in this family:
 - **Portable coverage excerpt:** detailed human-readable claim, "this cover applies through this end date unless renewed"
 - **Wallet/app credential:** stronger in-person presentation, but less useful for email-forwarding and pre-visit planning
 
-The best Live Verify fit is the **portable coverage excerpt** used outside payer tooling for planned care, scheduling, estimates, and provider negotiation. That stronger case now has its own document: [Health Insurance Coverage Excerpts](view.html?doc=health-insurance-coverage-excerpts).
+The best Live Verify fit is the portable coverage excerpt used outside payer tooling for planned care, scheduling, estimates, and provider negotiation. That stronger case now has its own document: [Health Insurance Coverage Excerpts](view.html?doc=health-insurance-coverage-excerpts).
 
-This file is therefore focused on the **wallet card** use case: the thin, in-person claim that a person currently has cover.
+This file is therefore focused on the wallet card use case: the thin, in-person claim that a person currently has cover.
 
 <div style="max-width: 420px; margin: 24px auto; font-family: sans-serif; border: 1px solid #005a9c; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
   <div style="background: linear-gradient(135deg, #005a9c 0%, #003d6b 100%); color: #fff; padding: 15px 20px; display: flex; align-items: center; justify-content: space-between;">
@@ -77,7 +77,16 @@ This file is therefore focused on the **wallet card** use case: the thin, in-per
   </div>
 </div>
 
-## Data Verified
+## The Problem: Insurance Card Fraud
+
+- **Borrowed cards:** Using a family member's or friend's card. The most casual form of insurance fraud — "just use my card, they never check."
+- **Lapsed coverage presented as active:** The most common fraud. Person lost their job three months ago, kept the card, and presents it at the doctor's office as if nothing changed.
+- **Fabricated cards:** Fake insurer names or fake member IDs on convincing-looking cards. Easy to produce — insurance cards have no security features beyond printed text.
+- **Identity theft via stolen insurance identity:** Someone else's member ID and group number used to obtain medical services, creating a billing nightmare and corrupting the victim's medical records.
+- **"Ghost patients":** Entirely fabricated patients paired with real insurance details. Used for billing fraud by corrupt providers — not card fraud per se, but verified cards make it harder to submit claims for nonexistent visits.
+- **Duplicate cards across states:** Person insured in Illinois uses the card in Texas where coverage doesn't apply (out-of-network, out-of-area plan restrictions). The card looks valid but the coverage isn't.
+
+## What Is Checked
 
 Member name, member ID, group number, plan type (PPO/HMO/EPO), effective date, insurer name. NOT included in the hash: deductible amounts, out-of-pocket maximums, specific coverage details (those live in the Summary of Benefits and Coverage, a separate document).
 
@@ -99,9 +108,9 @@ The endpoint returns a simple status code:
 
 The issuer domain is visible from the `verify:` line on the card itself (e.g., `bcbsil.com`).
 
-## Second-Party Use
+## Who Holds It
 
-The **Insured Member** (second party) receives the insurance card from the insurer (first party), **keeps it**, and presents it whenever they access healthcare.
+The Insured Member (second party) receives the insurance card from the insurer (first party), keeps it, and presents it whenever they access healthcare.
 
 **New Provider:** Moving to a new city, seeing a new doctor. The front desk scans the card and gets coarse confirmation that coverage exists and is active, then uses the payer system only if deeper questions arise.
 
@@ -111,7 +120,7 @@ The **Insured Member** (second party) receives the insurance card from the insur
 
 **Dependent Children (Custody Situations):** Parent with insurance needs to prove coarse active coverage for a child at the other parent's doctor's office. A verified card settles the immediate question while the fuller excerpt can carry the detailed planning context.
 
-## Third-Party Use
+## Who Checks It
 
 **Healthcare Providers (Front Desk, ER Triage, Urgent Care)**
 The primary verifier. Front desk staff scan the card before the patient is seen. ACTIVE means proceed with check-in. INACTIVE or 404 means discuss self-pay options before services are rendered, not after a $3,000 bill goes to collections.
@@ -137,16 +146,7 @@ The wallet card is only the opening move here. For the stronger planned-care use
 **Employer HR Departments**
 Verifying that an employee has actually activated their coverage after open enrollment. HR sees "enrolled" in their system but needs to confirm the insurer has processed it.
 
-## Verification Architecture
-
-**The Insurance Card Fraud Problem**
-
-- **Borrowed cards:** Using a family member's or friend's card. The most casual form of insurance fraud — "just use my card, they never check."
-- **Lapsed coverage presented as active:** The most common fraud. Person lost their job three months ago, kept the card, and presents it at the doctor's office as if nothing changed.
-- **Fabricated cards:** Fake insurer names or fake member IDs on convincing-looking cards. Easy to produce — insurance cards have no security features beyond printed text.
-- **Identity theft via stolen insurance identity:** Someone else's member ID and group number used to obtain medical services, creating a billing nightmare and corrupting the victim's medical records.
-- **"Ghost patients":** Entirely fabricated patients paired with real insurance details. Used for billing fraud by corrupt providers — not card fraud per se, but verified cards make it harder to submit claims for nonexistent visits.
-- **Duplicate cards across states:** Person insured in Illinois uses the card in Texas where coverage doesn't apply (out-of-network, out-of-area plan restrictions). The card looks valid but the coverage isn't.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -173,7 +173,7 @@ Bupa, a regulated health insurer, is authorized by the FCA to issue verified hea
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition
+## Compared With the Alternatives
 
 | Feature | Live Verify | EDI 270/271 Eligibility Check | Insurer Phone Verification | Insurer Portal Login | Trust the Card |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -184,7 +184,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Point of Use** | **Front desk.** Before patient is seen. | **Back office.** After patient is seen. | **Anywhere.** But nobody has 30 minutes. | **Desktop only.** Not mobile-friendly. | **Front desk.** No verification. |
 | **Real-Time** | **Yes.** Current status at moment of scan. | **Mostly.** Some payers batch responses. | **Yes.** But 30 minutes later. | **Yes.** When portal is up. | **No.** Card could be months old. |
 
-**Why Live Verify helps here:** The 270/271 system exists but is locked behind clearinghouse enrollment, EDI software, and NPI credentialing. Live Verify is valuable when it exposes that live payer status through a simpler human workflow:
+**Where each fits:** The 270/271 eligibility transaction is the authoritative answer on coverage and remains the right tool for billing staff who are enrolled with a clearinghouse; payer portals and phone lines likewise serve credentialed providers. Those routes are not open to everyone who is shown a card, and they tend to be used after the patient has been seen. Live Verify sits beside them, bringing the payer's own confirmation to simpler situations:
 
 - a front desk checking a wallet card for coarse status
 - a provider reviewing a portable coverage excerpt before planned care

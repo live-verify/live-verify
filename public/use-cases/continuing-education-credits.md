@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 Lawyers (CLE), Doctors (CME), and CPAs (CPE) must take a certain number of hours of training every year to keep their licenses active.
 
-When they finish a course, they receive a **Certificate of Attendance**. They must save these papers and show them to the State Board to renew their license.
+When they finish a course, they receive a Certificate of Attendance. They must save these papers and show them to the State Board to renew their license.
 
 Because these credits are mandatory, some busy professionals "Fake" the certificates using old templates or "Rounding Up" 1 hour of training to 10 hours. Verified hashes allow licensing boards to audit these certificates instantly without calling every training provider.
 
@@ -43,7 +43,13 @@ Because these credits are mandatory, some busy professionals "Fake" the certific
   </div>
 </div>
 
-## Data Verified
+## The Problem: Pencil Whipping Fraud
+
+- **Certificate Forgery:** Professionals using a real provider's template to create a "Certificate of Attendance" for a course they never took.
+- **Hour Inflation:** Changing "1.0 Credit Hours" to "10.0 Credit Hours" on a PDF to meet a deadline.
+- **Course Sharing:** One person taking a webinar and sending the PDF certificate to 5 friends, who then edit the name to their own.
+
+## What Is Checked
 
 Professional name, license number (optional), course title, education provider name, credit hours (by category: Ethics, Tech, General), date of completion, provider accreditation number, certificate serial ID.
 
@@ -53,7 +59,7 @@ Professional name, license number (optional), course title, education provider n
 - **CPE Certificate:** Continuing Professional Education (CPAs).
 - **CEU Certificate:** General education units.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`americanbar.org`, `ama-assn.org`) and the credit status.
 
@@ -63,15 +69,15 @@ Shows the issuer domain (`americanbar.org`, `ama-assn.org`) and the credit statu
 - **Expired/Superseded** — Course content no longer meets current board standards.
 - **Invalid** — Serial number mismatch or attendance not recorded.
 
-## Second-Party Use
+## Who Holds It
 
-The **Professional** (Attorney/Doctor/CPA) benefits from verification.
+The Professional (Attorney/Doctor/CPA) benefits from verification.
 
 **License Renewal:** Proving to the State Licensing Board that they have met their 2-year mandatory education requirements. A verified "Token of Credit" speeds up the renewal process and reduces the chance of an "Audit" due to unreadable or suspicious paper certificates.
 
 **Employer Tracking:** Providing verified credits to their firm's HR department to trigger salary increases or promotion eligibility linked to advanced training.
 
-## Third-Party Use
+## Who Checks It
 
 **State Licensing Boards (The Bar / Medical Board)**
 **Audit Efficiency:** Boards conduct random audits of 5-10% of all professionals. Live Verify allows board staff to instantly verify a pile of certificates without calling 50 different education providers to confirm "Did John Smith really attend this webinar?"
@@ -82,13 +88,7 @@ The **Professional** (Attorney/Doctor/CPA) benefits from verification.
 **Patients / Clients**
 **Professionalism:** A client can verify that their doctor or lawyer is actually doing the work to stay current in their field.
 
-## Verification Architecture
-
-**The "Pencil Whipping" Fraud Problem**
-
-- **Certificate Forgery:** Professionals using a real provider's template to create a "Certificate of Attendance" for a course they never took.
-- **Hour Inflation:** Changing "1.0 Credit Hours" to "10.0 Credit Hours" on a PDF to meet a deadline.
-- **Course Sharing:** One person taking a webinar and sending the PDF certificate to 5 friends, who then edit the name to their own.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -115,7 +115,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the provider's hashes and status changes plus structured metadata (professional name, course title, credit hours by category, completion date, provider accreditation number, certificate ID) — never professional license numbers — providing non-repudiation of credit issuance and an audit trail for licensing board compliance verification.
 
 
-## Competition vs. Central Learning Registries
+## Compared With Central Learning Registries
 
 | Feature | Live Verify | Learning Management System (LMS) | Physical Certificate |
 | :--- | :--- | :--- | :--- |
@@ -124,4 +124,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **Universal.** PDFs work across all state boards. | **Low.** Different boards use different software. | **Universal.** |
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires login, data export, and manual upload. | **N/A.** |
 
-**Why Live Verify wins here:** The "Compliance Binder" reality. Most professionals store their certificates in a physical or digital folder throughout the year. At renewal time, they need to submit them to a board that doesn't have access to their private learning portal. Live Verify turns the **Static Certificate** into a portable, cryptographically trusted artifact that bridges the gap between the Learner and the Regulator.
+**Where each fits:** a learning management system is the right home for a provider's course records, and where a licensing board receives completions directly from it nothing more is needed. Many boards do not, and the professional submits certificates collected over the year. Live Verify lets the board confirm each certificate with the provider that issued it, whichever system that provider runs.

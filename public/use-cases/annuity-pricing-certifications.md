@@ -11,9 +11,9 @@ furtherDerivations: 2
 
 ## What is an Annuity Rate Certification?
 
-An **Annuity** is a financial product where you give an insurance company a lump sum, and they promise to pay you a monthly income for the rest of your life.
+An Annuity is a financial product where you give an insurance company a lump sum, and they promise to pay you a monthly income for the rest of your life.
 
-The **Rate Certification** is the document where the company's actuary (math expert) swears to the government that:
+The Rate Certification is the document where the company's actuary (math expert) swears to the government that:
 1.  **The Rate is Safe:** The company isn't promising 8% if they can only earn 4% (which would bankrupt them).
 2.  **The Math is Real:** They have tested the rates against 1,000 different economic scenarios.
 
@@ -55,7 +55,13 @@ The annuity certification can arrive through different channels. Verification of
 </div>
 </div>
 
-## Data Verified
+## The Problem: Phantom Rate Fraud
+
+- **Bait and Switch:** Agents showing a 6% illustration when the actual approved rate is 4%.
+- **Expired Illustrations:** Using last month's higher rates to close a deal today.
+- **Stochastic Misrepresentation:** Claiming "1,000 scenarios pass" when the actual filing shows high failure rates in low-interest environments.
+
+## What Is Checked
 
 Certifying actuary name/qualifications, product name/series, guaranteed interest rates, mortality table version, filing date, jurisdiction of approval.
 
@@ -64,7 +70,7 @@ Certifying actuary name/qualifications, product name/series, guaranteed interest
 - **Annuity Illustration:** Sample payout provided to the customer.
 - **Product Prospectus Summary:** High-level terms for agents.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Insurance Carrier) and the filing status.
 
@@ -73,15 +79,15 @@ Shows the issuer domain (the Insurance Carrier) and the filing status.
 - **Withdrawn** — Product no longer available or rates changed.
 - **Pending** — Rates submitted to regulators but not yet active.
 
-## Second-Party Use
+## Who Holds It
 
-The **Annuity Purchaser** (retiree) benefits from verification.
+The Annuity Purchaser (retiree) benefits from verification.
 
 **Peace of Mind:** Verifying that the 5.25% rate promised by the independent agent matches the official actuarial filing at the insurance company.
 
 **Audit Trail:** Keeping a verified record of the "Guaranteed Minimum" rates at the time of purchase, which may be needed 20 years later if there is a dispute over the contract value.
 
-## Third-Party Use
+## Who Checks It
 
 **Financial Advisors (Fiduciary)**
 **Due Diligence:** Advisors have a fiduciary duty to verify product claims. Scanning the certification ensures the product is exactly what it claims to be before recommending it to a client.
@@ -92,13 +98,7 @@ The **Annuity Purchaser** (retiree) benefits from verification.
 **Internal Compliance**
 **Sales Oversight:** Ensuring that no agent is using an old, higher-rate illustration to "bait and switch" customers after a rate drop.
 
-## Verification Architecture
-
-**The "Phantom Rate" Fraud Problem**
-
-- **Bait and Switch:** Agents showing a 6% illustration when the actual approved rate is 4%.
-- **Expired Illustrations:** Using last month's higher rates to close a deal today.
-- **Stochastic Misrepresentation:** Claiming "1,000 scenarios pass" when the actual filing shows high failure rates in low-interest environments.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -124,7 +124,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the certification.
 
 
-## Competition vs. DOI SERFF Database
+## Compared With DOI SERFF Database
 
 | Feature | Live Verify | SERFF / State Website |
 | :--- | :--- | :--- |
@@ -132,4 +132,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Linking** | **Direct.** Binds the physical paper to the filing. | **Disconnected.** Finding the filing for "SecureIncome Plus v3" among 5,000 filings is hard. |
 | **Trust** | **Brand-bound.** `prudential.com` vouches for it. | **Gov-bound.** High trust, but low usability. |
 
-**Why Live Verify wins here:** Annuities are complex, high-stakes products. The "Last Mile" of the sales process happens at a kitchen table with a printed illustration. Live Verify brings the weight of the company's actuarial department to that table, ensuring the salesperson isn't making promises the actuary didn't sign off on.
+**Where each fits:** the state filing database is the official record of what an insurer filed, and for regulators, compliance staff and advisers who know their way around it, it is the place to look. A consumer handed a printed illustration is unlikely to find the matching filing among thousands. Live Verify lets that consumer confirm the insurer stands behind the figures on the page in front of them, while the filing itself stays where it has always been.

@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 High-end credit cards (like Amex Platinum or Chase Sapphire) come with "Hidden" insurance. They cover your rental car damage, your hotel if your flight is cancelled, and your medical bills abroad.
 
-The **Coverage Letter** is the proof you show to a rental agent in Ireland or a hospital in Mexico.
+The Coverage Letter is the proof you show to a rental agent in Ireland or a hospital in Mexico.
 
 Rental agents often try to force you to buy their expensive $30/day insurance by claiming your card "isn't real" or "doesn't cover this country." A verified letter from the bank's own domain ends the argument instantly, saving travelers thousands of dollars.
 
@@ -44,7 +44,13 @@ Rental agents often try to force you to buy their expensive $30/day insurance by
   </div>
 </div>
 
-## Data Verified
+## The Problem: Old Terms Fraud
+
+- **Product Downgrading:** A cardholder whose card was downgraded from "Infinite" to "Signature" (losing primary insurance) continuing to use an old "Coverage Letter" to skip paying for rental insurance.
+- **Account Cancellation:** Using benefits after the credit card account has been closed for non-payment.
+- **Amount Inflation:** Editing a $100 trip delay benefit to read $1,000 on a printed PDF.
+
+## What Is Checked
 
 Cardholder name, account last 4 digits, specific benefit type (CDW, Trip Delay, Baggage Insurance), coverage limits, geographic exclusions/inclusions, benefit status (Active/Suspended), date of confirmation.
 
@@ -54,7 +60,7 @@ Cardholder name, account last 4 digits, specific benefit type (CDW, Trip Delay, 
 - **Lost Luggage Benefit Summary:** For claims processing.
 - **Lounge Access Authorization:** For non-network lounges.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`chase.com`, `americanexpress.com`) and the status of the specific benefit.
 
@@ -64,15 +70,15 @@ Shows the issuer domain (`chase.com`, `americanexpress.com`) and the status of t
 - **Expired** — Product type changed; new confirmation needed.
 - **Claim Active** — Benefit currently being utilized for a pending claim.
 
-## Second-Party Use
+## Who Holds It
 
-The **Cardholder (Traveler)** benefits from verification.
+The Cardholder (Traveler) benefits from verification.
 
 **Rental Car Desk:** Proving to a skeptic rental agent in a foreign country (e.g., Italy or Ireland) that the "Primary CDW" coverage is real and verified by the bank. This allows the traveler to decline the $30/day insurance without a fight.
 
 **Trip Interruption:** When stuck at an airport, the traveler can show their "Verified Trip Delay Benefit" to a hotel to secure a room, knowing the insurance will pay the bill.
 
-## Third-Party Use
+## Who Checks It
 
 **Rental Car Agencies (Hertz / Avis)**
 **Liability Transfer:** Instantly verifying the "Primary" vs "Secondary" status of the card insurance. If the card provides primary coverage, the rental agency knows they won't have to chase the customer's personal auto insurer.
@@ -83,13 +89,7 @@ The **Cardholder (Traveler)** benefits from verification.
 **Hotels / Airlines**
 **Service Recovery:** Verifying that a passenger's "Travel Protection" will cover the bill before providing premium services during a disruption.
 
-## Verification Architecture
-
-**The "Old Terms" Fraud Problem**
-
-- **Product Downgrading:** A cardholder whose card was downgraded from "Infinite" to "Signature" (losing primary insurance) continuing to use an old "Coverage Letter" to skip paying for rental insurance.
-- **Account Cancellation:** Using benefits after the credit card account has been closed for non-payment.
-- **Amount Inflation:** Editing a $100 trip delay benefit to read $1,000 on a printed PDF.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -116,7 +116,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the card issuer's hashes and status changes plus structured metadata (benefit type, coverage limits, geographic scope, effective dates, benefit status) — never cardholder identity or account numbers — providing non-repudiation of benefit eligibility and an audit trail for claim disputes.
 
 
-## Competition vs. Calling the Number
+## Compared With Calling the Number
 
 | Feature | Live Verify | Calling the 800 Number | In-App Dashboard |
 | :--- | :--- | :--- | :--- |
@@ -125,4 +125,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Availability** | **24/7.** Works even if phone lines are busy. | **Restricted.** Some benefit desks are M-F. | **N/A.** |
 | **Integrity** | **Cryptographic.** Binds every limit and term. | **Human.** Errors in reading the file. | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Front Desk Conflict." Rental agents are trained to sell insurance. They are aggressive. A customer trying to "Find the PDF in my email" or "Call the bank" while 10 people wait behind them will usually give up and pay. Live Verify turns the **Coverage Letter** into a high-speed "Authority Token" that ends the argument instantly.
+**Where each fits:** calling the benefits line is still the way to ask a question about what is covered, and the banking app is the cardholder's own reference. Neither is easy to put in front of a rental agent at a busy counter. Live Verify lets the cardholder show a coverage letter that the agent can check against the bank's domain there and then.

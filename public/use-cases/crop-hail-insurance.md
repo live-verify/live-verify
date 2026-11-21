@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is Crop-Hail Insurance?
 
-For a farmer, a single 10-minute hailstorm can destroy an entire year's income. **Crop-Hail Insurance** protects against this specific risk.
+For a farmer, a single 10-minute hailstorm can destroy an entire year's income. Crop-Hail Insurance protects against this specific risk.
 
 Unlike broader "Multi-Peril" insurance (which is subsidized by the government), Crop-Hail is a private contract that pays out based on the exact percentage of damage to specific acres.
 
@@ -40,7 +40,13 @@ Note: Coverage applies only to direct physical loss from Hail or Fire.
 <span data-verify-line="crop">verify:rainhail.com/v</span> <span verifiable-text="end" data-for="crop"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Storm Chasing Fraud
+
+- **Post-Storm Enrollment:** Trying to buy a policy after a hail-storm has already hit, and backdating the "Emergence Date" on the paper form.
+- **Acreage Inflation:** Claiming to have 1,000 insured acres on the paper summary shown to the bank, while only paying for 500 acres at the insurance company.
+- **Entity Fraud:** Using a "Clean" family member's name to get insurance after the primary farmer has been barred for prior fraud.
+
+## What Is Checked
 
 Insured name, farm location (Section/Township/Range), specific crop types, acreage per crop, limit of insurance per acre, total policy liability, effective date (emergence), expiration date (harvest), issuing carrier.
 
@@ -50,7 +56,7 @@ Insured name, farm location (Section/Township/Range), specific crop types, acrea
 - **Notice of Loss:** (Linked hash) proving a claim was filed immediately after a storm.
 - **Adjuster's Final Stand Count:** Proving the % of damage verified in the field.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`rainhail.com`, `fmh.com`) and current policy status.
 
@@ -60,15 +66,15 @@ Shows the issuer domain (`rainhail.com`, `fmh.com`) and current policy status.
 - **Claim Pending** — Storm reported; adjuster assigned.
 - **Paid** — Claim settled and funds issued to the farmer.
 
-## Second-Party Use
+## Who Holds It
 
-The **Farmer** benefits from verification.
+The Farmer benefits from verification.
 
 **Bank Financing:** Proving to an ag-lender (e.g., Farm Credit) that the 2026 corn crop is "Verified Insured" for $800/acre. This allows the bank to use the crop as collateral for an operating loan to buy fertilizer and fuel.
 
 **Landlord Trust:** In "Crop-Share" leases, proving to the landowner that their share of the harvest is fully protected against hail damage.
 
-## Third-Party Use
+## Who Checks It
 
 **Ag-Lenders (Banks)**
 **Collateral Protection:** Banks need to ensure that the farmer hasn't "Edited" the policy limits to look higher than they are. Verification ensures the bank's loan is fully backed by an authentic Chubb/Rain & Hail policy.
@@ -79,13 +85,7 @@ The **Farmer** benefits from verification.
 **Grain Elevators**
 **Forward Contracts:** Verifying that a farmer has the insurance to back up a forward-delivery contract, reducing the risk of "Default due to weather."
 
-## Verification Architecture
-
-**The "Storm Chasing" Fraud Problem**
-
-- **Post-Storm Enrollment:** Trying to buy a policy after a hail-storm has already hit, and backdating the "Emergence Date" on the paper form.
-- **Acreage Inflation:** Claiming to have 1,000 insured acres on the paper summary shown to the bank, while only paying for 500 acres at the insurance company.
-- **Entity Fraud:** Using a "Clean" family member's name to get insurance after the primary farmer has been barred for prior fraud.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -111,7 +111,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the policy it issued.
 
 
-## Competition vs. USDA Portals (MPCI)
+## Compared With USDA Portals (MPCI)
 
 | Feature | Live Verify | USDA / RMA Portal | Paper Schedule |
 | :--- | :--- | :--- | :--- |
@@ -120,4 +120,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** Scan at the farm gate. | **Slow.** Requires navigating a complex Gov GIS system. | **Instant.** |
 | **Private Market** | **Universal.** Works for non-gov "Hail-Only" policies. | **Zero.** USDA doesn't track private hail-only data. | **Manual.** |
 
-**Why Live Verify wins here:** The "Ag-Banking" reality. Many farmers use private "Crop-Hail" policies *on top* of federal MPCI. The USDA database doesn't see these private contracts. Live Verify allows the **Private Insurer** to provide the same level of cryptographic trust as the government, ensuring the farmer's total risk strategy is verifiable.
+**Where each fits:** the USDA systems are the authoritative record for federal crop insurance and remain so. They do not hold private hail-only policies, and a local lender may have no access to them in any case. Live Verify lets the lender confirm that a private insurer stands behind the schedule the farmer presents, so the federal record and the private cover can both be evidenced.

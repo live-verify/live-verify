@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is an Elevation Certificate?
 
-If you live near the coast or a river, you need **Flood Insurance**. The price of that insurance depends on one number: exactly how high your "Lowest Floor" is above sea level.
+If you live near the coast or a river, you need Flood Insurance. The price of that insurance depends on one number: exactly how high your "Lowest Floor" is above sea level.
 
-An **Elevation Certificate** is the official paper from a licensed surveyor that proves this height.
+An Elevation Certificate is the official paper from a licensed surveyor that proves this height.
 
-"Elevation Padding" is a common fraud: owners often "Edit" their certificate to change an 8-foot height into an 11-foot height to save $2,000/year on insurance premiums. Verified hashes connect the insurance company directly to the **Surveyor's field notes**, ensuring the price of risk is based on math, not Photoshop.
+"Elevation Padding" is a common fraud: owners often "Edit" their certificate to change an 8-foot height into an 11-foot height to save $2,000/year on insurance premiums. Verified hashes connect the insurance company directly to the Surveyor's field notes, ensuring the price of risk is based on math, not Photoshop.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #000; color: #fff; padding: 15px; text-align: center; display: flex; align-items: center; justify-content: center;">
@@ -51,7 +51,13 @@ An **Elevation Certificate** is the official paper from a licensed surveyor that
   </div>
 </div>
 
-## Data Verified
+## The Problem: High Water Fraud
+
+- **Elevation Padding:** Editing a PDF to change an 8.2 ft elevation to 11.2 ft to bypass insurance requirements or building codes.
+- **Zone Swapping:** Editing the map reference to move a property from a high-risk "AE" zone to a low-risk "X" zone.
+- **Surveyor Impersonation:** Forging the signature and seal of a local Professional Land Surveyor (PLS) on a fake certificate.
+
+## What Is Checked
 
 Property address, FEMA Flood Zone (e.g., AE, V, X), Base Flood Elevation (BFE), Lowest Floor Elevation (LFE), datum used (NAVD 88), surveyor name/license, date of survey, building diagram type (1-9), presence of flood vents.
 
@@ -60,7 +66,7 @@ Property address, FEMA Flood Zone (e.g., AE, V, X), Base Flood Elevation (BFE), 
 - **LOMA (Letter of Map Amendment):** To officially remove a property from a flood zone.
 - **V-Zone Design Certificate:** For high-risk coastal structures.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Surveyor or the City Floodplain Manager) and current standing.
 
@@ -70,15 +76,15 @@ Shows the issuer domain (the Surveyor or the City Floodplain Manager) and curren
 - **In-Dispute** — Elevation data challenged by the insurance carrier.
 - **Invalid** — Surveyor license inactive or serial mismatch.
 
-## Second-Party Use
+## Who Holds It
 
-The **Property Owner** benefits from verification.
+The Property Owner benefits from verification.
 
 **Lower Insurance Premiums:** Proving to a flood insurance agent (NFIP or private) that the "11.2 ft" elevation is a verified fact. A verified certificate removes the "Risk Loading" that insurers apply to unverified or suspicious documentation, potentially saving the owner thousands of dollars per year.
 
 **Home Sale:** Providing verified "Flood Proof" status to a potential buyer, de-risking the purchase of coastal property and ensuring the buyer's lender will approve the mortgage.
 
-## Third-Party Use
+## Who Checks It
 
 **Flood Insurance Underwriters**
 **Risk Rating:** Insurers see thousands of PDFs. Verification ensures the elevation data hasn't been "Nudged" higher by a dishonest owner to lower their premium. Live Verify connects the underwriter directly to the surveyor's domain.
@@ -89,13 +95,7 @@ The **Property Owner** benefits from verification.
 **City Floodplain Managers**
 **Code Enforcement:** Instantly verifying that new construction meets the city's "Freeboard" requirements (minimum elevation above BFE).
 
-## Verification Architecture
-
-**The "High Water" Fraud Problem**
-
-- **Elevation Padding:** Editing a PDF to change an 8.2 ft elevation to 11.2 ft to bypass insurance requirements or building codes.
-- **Zone Swapping:** Editing the map reference to move a property from a high-risk "AE" zone to a low-risk "X" zone.
-- **Surveyor Impersonation:** Forging the signature and seal of a local Professional Land Surveyor (PLS) on a fake certificate.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -120,7 +120,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the surveyor's hashes and status changes plus structured metadata (property addresses, FEMA flood zones, base flood elevations, survey dates, surveyor licenses) — never property owner names or precise location details — providing non-repudiation of the certificate and an audit trail state insurance companies can inspect.
 
-## Competition vs. FEMA Map Service Center
+## Compared With FEMA Map Service Center
 
 | Feature | Live Verify | FEMA MSC (Public Map) | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -129,4 +129,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Specificity** | **Exact.** Verifies *this specific building*. | **General.** Shows the whole neighborhood. | **Full.** But untrusted. |
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires address search and map reading. | **Instant.** |
 
-**Why Live Verify wins here:** The "Floor Gap." FEMA maps tell you where the water *might* go. But only an Elevation Certificate tells you where the **Building Floor** actually is. Live Verify turns that building-specific data into a verifiable digital anchor, ensuring that flood risk is calculated on facts, not Photoshop.
+**Where each fits:** FEMA's Map Service Center is the authority on flood zones, and every lender and insurer will keep consulting it. A map describes an area; the elevation certificate describes one building, and it reaches the insurer, buyer or lender as a PDF from a surveyor they have never dealt with. Live Verify lets them confirm the surveyor stands behind the figures on that certificate. The zone still comes from FEMA, and the two are read together.

@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is a Green Card?
 
-In Europe and the Middle East, a **Green Card** is the "International Passport" for car insurance. It proves that your insurance policy covers you when you drive across a national border (e.g., from France into Switzerland).
+In Europe and the Middle East, a Green Card is the "International Passport" for car insurance. It proves that your insurance policy covers you when you drive across a national border (e.g., from France into Switzerland).
 
 Customs officers at high-security borders will not let a car enter without seeing a physical Green Card.
 
-Because these cards are required for legal entry, scammers often sell "Fake Green Cards" to high-risk drivers who can't get real insurance. Verified hashes allow border police to scan the paper and see the **verified active status** on the insurer's domain in seconds, stopping uninsured drivers at the gate.
+Because these cards are required for legal entry, scammers often sell "Fake Green Cards" to high-risk drivers who can't get real insurance. Verified hashes allow border police to scan the paper and see the verified active status on the insurer's domain in seconds, stopping uninsured drivers at the gate.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Helvetica', Arial, sans-serif; border: 2px solid #388e3c; background: #e8f5e9; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #388e3c; color: #fff; padding: 15px; text-align: center;">
@@ -52,7 +52,13 @@ Because these cards are required for legal entry, scammers often sell "Fake Gree
   </div>
 </div>
 
-## Data Verified
+## The Problem: Paper Road Fraud
+
+- **Date Tampering:** Scammers buying a cheap 1-week policy and editing the PDF to read "1 Year" to avoid paying hundreds in premiums.
+- **Ghost Bureaus:** Creating fake "Council of Bureaux" certificates for high-risk drivers who have been blacklisted by legitimate carriers.
+- **Country Swapping:** Editing a "Limited" card to include high-risk zones like Morocco or Albania that the actual policy excludes.
+
+## What Is Checked
 
 Policyholder name, vehicle registration number (Plate), make/model, vehicle category, policy effective/expiration dates, country of issuance, covered countries (Green Card Bureau members), issuing carrier (NAIC/Company Code), PASSID reference.
 
@@ -61,25 +67,25 @@ Policyholder name, vehicle registration number (Plate), make/model, vehicle cate
 - **Frontier Insurance:** Temporary coverage for non-standard borders.
 - **UK/EU Bail Bond:** (Linked hash) for legal protection after an accident.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`allianz.co.uk`, `axa.fr`) and current policy standing.
 
 **Status Indications:**
 - **Active** — Premium paid; 3rd party liability is verified active.
-- **Cancelled** — **ALERT:** Policy terminated; driver has no legal cross-border cover.
+- **Cancelled** — Policy terminated; driver has no legal cross-border cover.
 - **Expired** — The specific trip window has ended.
 - **Restricted** — Valid only for specific countries (e.g., Turkey or Russia excluded).
 
-## Second-Party Use
+## Who Holds It
 
-The **Driver (Traveler)** benefits from verification.
+The Driver (Traveler) benefits from verification.
 
 **Border Crossing:** Proving to a customs officer at a high-security border (e.g., UK to France, or entering Turkey) that the "Green Card" isn't a fake document created to bypass insurance requirements. A verified hash from the insurer's domain prevents the car from being seized at the border.
 
 **Accident Protection:** If a driver has an accident in a foreign country, they can show the "Verified Active" status to the local police. This prevents them from being arrested for "Driving without Insurance" due to a translation error or clerical mistake.
 
-## Third-Party Use
+## Who Checks It
 
 **Customs / Border Police (Frontex)**
 **Enforcement:** Border agents can scan the hash while the car is in the queue. "Verified by Allianz" ensures the driver hasn't "Edited" the dates on a 15-day card to cover a 30-day trip.
@@ -90,13 +96,7 @@ The **Driver (Traveler)** benefits from verification.
 **Car Rental Agencies**
 **Cross-Border Authorization:** Verifying that a customer's personal insurance actually covers the vehicle for the "Green Card" zone before allowing them to drive into a neighboring country.
 
-## Verification Architecture
-
-**The "Paper Road" Fraud Problem**
-
-- **Date Tampering:** Scammers buying a cheap 1-week policy and editing the PDF to read "1 Year" to avoid paying hundreds in premiums.
-- **Ghost Bureaus:** Creating fake "Council of Bureaux" certificates for high-risk drivers who have been blacklisted by legitimate carriers.
-- **Country Swapping:** Editing a "Limited" card to include high-risk zones like Morocco or Albania that the actual policy excludes.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -123,7 +123,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (valid from and to dates, country code, vehicle registration number, vehicle category, make and model, policyholder name, policy number) — never plaintext driver details — providing non-repudiation of the green card motor insurance certificate.
 
 
-## Competition vs. Central Databases (MID)
+## Compared With Central Databases (MID)
 
 | Feature | Live Verify | MID / National DB (UK) | Paper Green Card |
 | :--- | :--- | :--- | :--- |
@@ -132,4 +132,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan at the checkpoint. | **Slow.** Requires specialized terminal access. | **Instant.** |
 | **Freshness** | **Real-time.** Shows if premium was paid today. | **Laggy.** Often 24-48 hours behind. | **Static.** |
 
-**Why Live Verify wins here:** The "Checkpoint" reality. A border officer in a booth has about 30 seconds per car. They cannot navigate 20 different national insurance databases in 20 different languages. Live Verify turns the **Existing Global Paper Standard** into a live, high-speed digital dashboard that works across every border, app-free.
+**Where each fits:** National motor insurance databases such as the UK's MID are the right check for police and insurers in their own country, and they hold more than a certificate shows. Their reach generally ends at the border, and an officer abroad has no terminal for another country's database. The Green Card exists for that situation, and Live Verify lets the officer or the other driver after a collision confirm that the insurer stands behind the card presented. Each national database keeps its domestic role.

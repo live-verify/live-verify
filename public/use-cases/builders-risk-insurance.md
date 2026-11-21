@@ -42,7 +42,13 @@ completion or occupancy.
 <span data-verify-line="build">verify:zurichna.com/construction/v</span> <span verifiable-text="end" data-for="build"></span>
 </div>
 
-## Data Verified
+## The Problem: Construction Gap Fraud
+
+- **Project Swapping:** Using one valid certificate for a "Safe" suburban project to cover a "High-Risk" urban high-rise.
+- **Value Deflation:** Declaring a $10M value to the insurer (to get a cheap rate) but showing a $40M certificate to the bank.
+- **Hidden Cancellation:** Keeping the paper certificate on the job-site trailer wall after the policy was cancelled for non-payment 3 months ago.
+
+## What Is Checked
 
 Project name, exact site address, General Contractor (GC) name, project owner name, Total Completed Value (TCV), construction start/end dates, specific peril sub-limits (Theft, Flood, Transit), issuing carrier.
 
@@ -51,7 +57,7 @@ Project name, exact site address, General Contractor (GC) name, project owner na
 - **Reporting Form:** Monthly updates on construction value.
 - **Evidence of Property Insurance:** For high-value equipment on site.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`zurichna.com`, `travelers.com`) and current policy standing.
 
@@ -61,9 +67,9 @@ Shows the issuer domain (`zurichna.com`, `travelers.com`) and current policy sta
 - **Suspended** — Safety stop-work order from underwriter.
 - **Cancelled** — Policy terminated due to non-payment or site abandonment.
 
-## Second-Party Use
+## Who Holds It
 
-The **General Contractor** (second party) receives the builders risk certificate from the insurance carrier (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The General Contractor (second party) receives the builders risk certificate from the insurance carrier (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of the coverage. Most of the time, the document sits in the project files—the verification value is latent, there *if needed*.
 
@@ -71,7 +77,7 @@ The **General Contractor** (second party) receives the builders risk certificate
 
 **Future Optionality:** If a claim arises—whether fire, theft, or weather damage—they have cryptographic proof of the coverage terms ready without needing to contact the insurer.
 
-## Third-Party Use
+## Who Checks It
 
 The general contractor (second party) may hand the verified document to various third parties:
 
@@ -84,13 +90,7 @@ The general contractor (second party) may hand the verified document to various 
 **Equipment Lessors**
 **Theft Coverage:** Companies renting cranes/scaffolding verify that their equipment is covered under the project's "Theft of Materials" or "Off-Site Storage" endorsements.
 
-## Verification Architecture
-
-**The "Construction Gap" Fraud Problem**
-
-- **Project Swapping:** Using one valid certificate for a "Safe" suburban project to cover a "High-Risk" urban high-rise.
-- **Value Deflation:** Declaring a $10M value to the insurer (to get a cheap rate) but showing a $40M certificate to the bank.
-- **Hidden Cancellation:** Keeping the paper certificate on the job-site trailer wall after the policy was cancelled for non-payment 3 months ago.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -117,7 +117,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (project values, coverage limits, construction dates, policy numbers) — never contractor financial details or project owner private information — providing non-repudiation of the coverage it issued.
 
-## Competition vs. Project Management Software (Procore)
+## Compared With Project Management Software (Procore)
 
 | Feature | Live Verify | Procore / Autodesk Build | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -125,4 +125,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Freshness** | **Real-time.** Queries the carrier's live file. | **Static.** Relies on the last manual update. | **Manual.** |
 | **Interoperability** | **Universal.** Works for any bank/owner. | **Siloed.** Only works for people on that specific project. | **Universal.** |
 
-**Why Live Verify wins here:** The "Independent Truth." Project management software like Procore is a "Self-Reporting" system—it only shows what the GC uploads. Live Verify provides an **independent digital verification** from the Insurer's domain, ensuring the GC's claims match the Underwriter's reality.
+**Where each fits:** project management software is where the project team keeps its documents, and for people on the project it is the convenient place to find the certificate. What it holds is whatever the contractor uploaded. A lender or owner outside the platform can use Live Verify to check the same certificate against the insurer's domain, which adds an independent confirmation to the copy in the project system.

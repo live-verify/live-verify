@@ -13,12 +13,12 @@ furtherDerivations: 1
 
 **Probate** is the court-supervised process of identifying a deceased person's assets, paying their debts, and distributing the remaining property to their heirs.
 
-The most critical document in this process is **Letters Testamentary** (or Letters of Administration). This is the "Key to the Kingdom"—it gives the Executor the legal power to:
+The most critical document in this process is Letters Testamentary (or Letters of Administration). This is the "Key to the Kingdom"—it gives the Executor the legal power to:
 1.  **Empty Bank Accounts:** Transfer funds out of the deceased's name.
 2.  **Sell Property:** Sign deeds for the deceased's home.
 3.  **Access Data:** Take control of email and social media accounts.
 
-**"Estate Hijacking"** is a high-value fraud. Criminals monitor obituaries, create a fake Will, and forge a "Letters Testamentary" document with a fake court seal. They then take this paper to a bank and drain the estate before the real heirs even know probate has started. Live Verify binds the **Executor's name and Case ID** to the Superior Court's domain, allowing banks to instantly verify the legal authority of the person standing at the counter.
+**"Estate Hijacking"** is a high-value fraud. Criminals monitor obituaries, create a fake Will, and forge a "Letters Testamentary" document with a fake court seal. They then take this paper to a bank and drain the estate before the real heirs even know probate has started. Live Verify binds the Executor's name and Case ID to the Superior Court's domain, allowing banks to instantly verify the legal authority of the person standing at the counter.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Georgia', serif; border: 1px solid #333; background: #fff; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <div style="text-align: center; margin-bottom: 30px;">
@@ -48,7 +48,13 @@ The most critical document in this process is **Letters Testamentary** (or Lette
   </div>
 </div>
 
-## Data Verified
+## The Problem: Phantom Executor Fraud
+
+- **Letter Forgery:** Creating a fake "Letters Testamentary" document to trick a bank into giving a criminal access to a deceased person's accounts.
+- **Revocation Hiding:** An executor who was removed by a judge for "stealing from heirs" continuing to use their physical paper appointment to drain other accounts before the institutions find out.
+- **Will Contests:** Presenting a "Verified" order that has actually been stayed or vacated by a higher court due to a Will dispute.
+
+## What Is Checked
 
 Deceased name, Case ID number, Executor/Administrator name, Court Jurisdiction (County/State), Date of Appointment, Expiration Date (if applicable), Judge name, Clerk ID, specific limitations (e.g., "No sale of real property").
 
@@ -58,25 +64,25 @@ Deceased name, Case ID number, Executor/Administrator name, Court Jurisdiction (
 - **Small Estate Affidavit:** Simplified version for lower-value estates.
 - **Certificate of Discharge:** Proving the executor's work is finished.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the State Court system) and the current authority status.
 
 **Status Indications:**
 - **Active** — Executor has full current authority to act.
-- **Revoked** — **ALERT:** The court has removed this executor (e.g., for misconduct).
+- **Revoked** — The court has removed this executor (e.g., for misconduct).
 - **Discharged** — Estate is closed; authority has ended.
 - **Expired** — Some jurisdictions require annual renewal of "Letters."
 
-## Second-Party Use
+## Who Holds It
 
-The **Executor (Personal Representative)** benefits from verification.
+The Executor (Personal Representative) benefits from verification.
 
 **Bank Access:** Proving to a branch manager that the "Letters Testamentary" paper is verified and active. This stops the common "Compliance Hold" where banks freeze accounts for days while their legal team calls the court clerk to verify the judge's signature.
 
 **Property Sales:** Providing a verified authority hash to a title company during a real estate closing, ensuring they can sign the deed on behalf of the deceased without title gaps.
 
-## Third-Party Use
+## Who Checks It
 
 **Banks and Brokerages**
 **Asset Security:** Before allowing an executor to liquidate a $500,000 stock portfolio, the brokerage scans the court's hash. "Verified by lacourt.org" ensures the person isn't an impostor using a "Photoshopped" appointment letter.
@@ -85,15 +91,9 @@ The **Executor (Personal Representative)** benefits from verification.
 **Title Integrity:** Verifying that the "Letters" presented at a closing are the latest version and haven't been revoked by a subsequent court order, preventing "Unauthorized Sale" lawsuits from other heirs.
 
 **Life Insurance Companies**
-**Payout Accuracy:** Ensuring the person claiming the "Estate" portion of a policy is the **Verified Legal Representative** authorized to receive the funds.
+**Payout Accuracy:** Ensuring the person claiming the "Estate" portion of a policy is the Verified Legal Representative authorized to receive the funds.
 
-## Verification Architecture
-
-**The "Phantom Executor" Fraud Problem**
-
-- **Letter Forgery:** Creating a fake "Letters Testamentary" document to trick a bank into giving a criminal access to a deceased person's accounts.
-- **Revocation Hiding:** An executor who was removed by a judge for "stealing from heirs" continuing to use their physical paper appointment to drain other accounts before the institutions find out.
-- **Will Contests:** Presenting a "Verified" order that has actually been stayed or vacated by a higher court due to a Will dispute.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -119,7 +119,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the probate court's hashes and status changes plus structured metadata (case number, estate name, decedent name, filing date, probate status) — never detailed asset values or beneficiary information — providing non-repudiation of probate document issuance.
 
 
-## Competition vs. Certified Copies (Purple Ink)
+## Compared With Certified Copies (Purple Ink)
 
 | Feature | Live Verify | Certified Copy (Ink/Seal) | Online Docket (Public) |
 | :--- | :--- | :--- | :--- |
@@ -128,4 +128,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **Manual.** requires visual audit. | **Slow.** Requires Case # and search. |
 | **Revocation** | **Real-time.** Shows "REVOKED." | **Zero.** The paper stays the same. | **Manual.** |
 
-**Why Live Verify wins here:** The "Saturday Morning" reality. Executors often try to handle estate business on weekends when court clerks are unreachable. Live Verify turns the **Judge's Order** into a live digital checkpoint, ensuring that "Legal Authority" is a cryptographically verified fact at the exact moment the money moves.
+**Where each fits:** A certified copy from the court is what banks and registrars are accustomed to accepting, and the court's docket remains the authoritative record of the case. Both take time to check, and a certified copy does not change if the grant is later revoked. Live Verify lets the person about to release funds confirm that the court stands behind the order as presented and see its current status, as a quick first check beside the certified copy.

@@ -42,7 +42,13 @@ Adjuster:   Sarah Miller (ID #992)
 <span data-verify-line="claim">verify:allstate.com/claims/v</span> <span verifiable-text="end" data-for="claim"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Padded Estimate Fraud
+
+- **PDF Alteration:** A shady body shop takes a $2,000 estimate from the insurer and edits the PDF to read $6,000 before showing it to the customer.
+- **Prior Damage Fraud:** Claiming that old scratches from 2 years ago were part of yesterday's fender-bender.
+- **Phantom Supplements:** Forging "Supplement #1" to get extra cash from the insurer for damage that doesn't exist.
+
+## What Is Checked
 
 Insured name, vehicle VIN, Claim ID, repair estimate total, parts/labor breakdown, body shop name, adjuster name, date of estimate.
 
@@ -52,7 +58,7 @@ Insured name, vehicle VIN, Claim ID, repair estimate total, parts/labor breakdow
 - **Final Proof of Loss:** The final document signed by the insured to release payment.
 - **Total Loss Valuation:** (Market value vs. repair cost).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Insurance Carrier) and the claim status.
 
@@ -62,15 +68,15 @@ Shows the issuer domain (the Insurance Carrier) and the claim status.
 - **Paid** — Funds have been issued to the body shop/insured.
 - **Closed** — Claim file completed.
 
-## Second-Party Use
+## Who Holds It
 
-The **Insured** (Vehicle Owner) benefits from verification.
+The Insured (Vehicle Owner) benefits from verification.
 
 **Body Shop Oversight:** Proving to the body shop exactly what the insurance company agreed to pay for (e.g., OEM parts vs. Aftermarket). Verification prevents "part-swapping" fraud where the shop charges for OEM but installs cheap knock-offs.
 
 **Sale of Vehicle:** Providing a "Verified Clean" repair history to a future buyer, proving that the $6,800 repair was for cosmetic damage and not structural frame issues.
 
-## Third-Party Use
+## Who Checks It
 
 **Body Shops**
 **Payment Assurance:** Before starting work, the shop scans the estimate provided by the customer. "Verified by Allstate" gives them confidence that the estimate really came from the carrier and has not been padded or superseded in transit.
@@ -81,13 +87,7 @@ The **Insured** (Vehicle Owner) benefits from verification.
 **Lienholders (Banks)**
 **Collateral Protection:** Banks need to ensure that insurance payouts are actually used to fix the car (their collateral) and not just pocketed by the owner. Verifying the repair estimate and completion status protects the loan.
 
-## Verification Architecture
-
-**The "Padded Estimate" Fraud Problem**
-
-- **PDF Alteration:** A shady body shop takes a $2,000 estimate from the insurer and edits the PDF to read $6,000 before showing it to the customer.
-- **Prior Damage Fraud:** Claiming that old scratches from 2 years ago were part of yesterday's fender-bender.
-- **Phantom Supplements:** Forging "Supplement #1" to get extra cash from the insurer for damage that doesn't exist.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -99,7 +99,7 @@ The **Insured** (Vehicle Owner) benefits from verification.
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the repair estimate.
 
-## Competition vs. Central Databases (CARFAX)
+## Compared With Central Databases (CARFAX)
 
 | Feature | Live Verify | CARFAX / Autocheck | Paper Estimate |
 | :--- | :--- | :--- | :--- |
@@ -117,14 +117,14 @@ _[Content merged from: auto-insurance-id-cards]_
 
 ## What is an Auto ID Card?
 
-An **Auto Insurance ID Card** is the "Proof of Insurance" you keep in your glovebox or digital wallet. In almost every US state, driving without one is illegal and can lead to your car being impounded.
+An Auto Insurance ID Card is the "Proof of Insurance" you keep in your glovebox or digital wallet. In almost every US state, driving without one is illegal and can lead to your car being impounded.
 
 The card proves three things:
 1.  **Who is insured:** The named driver.
 2.  **What is insured:** The specific vehicle (VIN).
 3.  **The Timeframe:** That the policy hasn't expired.
 
-Because people often cancel their insurance right after printing the card, police and DMV agents need a way to verify that the policy is **live** and hasn't been terminated for non-payment.
+Because people often cancel their insurance right after printing the card, police and DMV agents need a way to verify that the policy is live and hasn't been terminated for non-payment.
 
 But this is much closer to a direct insurer / DMV / central-database problem than to a portable-document-integrity problem. Where official coverage databases or insurer APIs exist, they should remain primary. Live Verify is more plausible as a convenience layer for lower-capability relying parties holding only the card.
 
@@ -148,7 +148,7 @@ Refer to your policy for actual coverage.
 <span data-verify-line="ins">verify:geico.com/v</span> <span verifiable-text="end" data-for="ins"></span></pre>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Insured name, policy number, NAIC code, VIN (Full), vehicle year/make/model, effective date, expiration date, issuing carrier.
 
@@ -157,7 +157,7 @@ Insured name, policy number, NAIC code, VIN (Full), vehicle year/make/model, eff
 - **Binder:** Temporary 30-day proof for new purchases.
 - **SR-22 / FR-44:** High-risk financial responsibility filings.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`geico.com`, `statefarm.com`) and real-time coverage status.
 
@@ -167,15 +167,15 @@ Shows the issuer domain (`geico.com`, `statefarm.com`) and real-time coverage st
 - **Pending Renewal** — Policy about to expire but payment found.
 - **Lapsed** — No coverage.
 
-## Second-Party Use
+## Who Holds It
 
-The **Policyholder** benefits from verification.
+The Policyholder benefits from verification.
 
 **Roadside Verification:** When pulled over, showing a "Verified Active" status to a police officer prevents the car from being impounded if the officer suspects the paper card is fake.
 
 **Registration / DMV:** Providing verified proof of insurance to the DMV during tag renewal, bypassing the need for manual database checks which often fail due to VIN typos.
 
-## Third-Party Use
+## Who Checks It
 
 **Police Officers**
 **Traffic Stops:** Official insurer or DMV-connected coverage systems should remain primary where available. Live Verify is more credible as a fallback when the officer or another relying party is forced to work from the visible card itself.
@@ -186,7 +186,7 @@ The **Policyholder** benefits from verification.
 **Car Dealerships**
 **Off-Lot Authorization:** A dealer can use the card as a quick bridge to current insurer state before letting a buyer drive off the lot, but direct insurer confirmation remains the stronger architecture where available.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Ghost Policy" Fraud Problem**
 
@@ -203,7 +203,7 @@ The **Policyholder** benefits from verification.
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the ID card.
 
-## Competition vs. DMV Databases (ALIR/IIVS)
+## Compared With DMV Databases (ALIR/IIVS)
 
 | Feature | Live Verify | DMV Central DB (IIVS) | Paper Card |
 | :--- | :--- | :--- | :--- |
@@ -223,7 +223,7 @@ _[Content merged from: auto-insurance-policies]_
 
 ## What is a Declarations Page?
 
-An insurance policy can be 50 pages of legal jargon. The **Declarations Page** (or "Dec Page") is the one-page summary that actually matters. It lists:
+An insurance policy can be 50 pages of legal jargon. The Declarations Page (or "Dec Page") is the one-page summary that actually matters. It lists:
 1.  **Limits:** How much the company will pay (e.g., $100k/$300k).
 2.  **Deductibles:** How much you pay out of pocket ($500).
 3.  **Drivers:** Exactly who is covered.
@@ -249,11 +249,11 @@ Vehicle:        2024 Ford F-150 (VIN ...9922)
 <span data-verify-line="autodec">verify:progressive.com/v/dec</span> <span verifiable-text="end" data-for="autodec"></span></pre>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Named insured, policy limits, deductibles, VIN, effective dates, premium amount, lienholder name.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`progressive.com`) and the policy status.
 
@@ -262,13 +262,13 @@ Shows the issuer domain (`progressive.com`) and the policy status.
 - **Cancelled** — Policy terminated.
 - **Pending** — Renewal in process.
 
-## Second-Party Use
+## Who Holds It
 
-The **Policyholder** benefits from verification.
+The Policyholder benefits from verification.
 - **Loan Compliance:** Proving to a bank that they have the required "Full Coverage" for their car loan.
 - **Job Requirements:** Gig workers (Uber/DoorDash) proving they have the correct insurance tier.
 
-## Third-Party Use
+## Who Checks It
 
 **Lenders (Auto Finance)**
 **Collateral Protection:** Banks can scan the Dec Page provided by the borrower to ensure the "Loss Payee" is correctly listed and the deductibles aren't too high.
@@ -280,7 +280,7 @@ The **Policyholder** benefits from verification.
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the declarations page.
 
-## Competition vs. ACORD Certificates
+## Compared With ACORD Certificates
 
 | Feature | Live Verify | ACORD 25 (Standard) |
 | :--- | :--- | :--- |
@@ -288,9 +288,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** Scan and verify. | **Slow.** Requires calling the broker. |
 | **Integrity** | **Binds Content.** | **Binds Nothing.** Just a template. |
 
-**Why Live Verify wins here:**
-The Dec Page is the source of truth. ACORD forms are just summaries written by brokers. Live Verify allows the **Source Document** to be verified directly against the **Carrier**, cutting out the middleman and the potential for "Summary Errors."
-
+**Where each fits:** the ACORD certificate is the format most counterparties ask for, and where the broker is known and reachable a call to them settles any doubt. A declarations page is the carrier's own statement of the policy, and the person handed one often has no relationship with either the broker or the carrier. Live Verify lets that person check the page against the carrier's domain, and it can equally be applied to the certificate.
 
 
 ---
@@ -300,7 +298,7 @@ _[Content merged from: auto-transport-damage-reports]_
 
 ## What is an Auto Transport Report?
 
-When you ship a car across the country on a truck, the driver performs a "walk-around" inspection at your driveway. They mark every existing scratch or chip on a **Bill of Lading (BOL)** or inspection report.
+When you ship a car across the country on a truck, the driver performs a "walk-around" inspection at your driveway. They mark every existing scratch or chip on a Bill of Lading (BOL) or inspection report.
 
 This document is the only thing protecting you if the car arrives at the destination with a new dent.
 
@@ -328,7 +326,7 @@ Clean - no scratches, chips, or dents noted at time of pickup.
 <span data-verify-line="damage">verify:reliable-carriers.com/bol/v</span> <span verifiable-text="end" data-for="damage"></span></pre>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Carrier DOT/MC number, vehicle VIN, pickup/delivery locations, timestamps, detailed damage codes (scratches, dents, chips), driver name, customer signature.
 
@@ -337,7 +335,7 @@ Carrier DOT/MC number, vehicle VIN, pickup/delivery locations, timestamps, detai
 - **Delivery Receipt:** Final sign-off showing new damage.
 - **Damage Claim Form:** Filed after delivery for hidden issues.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Auto Transport Carrier) and the report status.
 
@@ -347,15 +345,15 @@ Shows the issuer domain (the Auto Transport Carrier) and the report status.
 - **Claim Active** — Customer has reported damage; under investigation.
 - **Void** — Order cancelled or re-issued.
 
-## Second-Party Use
+## Who Holds It
 
-The **Vehicle Owner** (or Dealer) benefits from verification.
+The Vehicle Owner (or Dealer) benefits from verification.
 
 **Insurance Claims:** Proving to their own insurance company that the "dent in the hood" was NOT present at pickup in LA, but IS present on the Miami delivery receipt. A verified origin report prevents the carrier from claiming "it was like that when we got it."
 
 **Remote Purchase:** A buyer in Miami buying a car from a dealer in LA can verify the driver's pickup report to ensure the dealer didn't ship a damaged car.
 
-## Third-Party Use
+## Who Checks It
 
 **Cargo Insurers**
 **Liability Allocation:** When a $200,000 car arrives damaged, the insurer needs to know exactly when the damage occurred. Verification prevents the carrier from "editing" the pickup report after the damage happens to make it look like pre-existing condition.
@@ -366,7 +364,7 @@ The **Vehicle Owner** (or Dealer) benefits from verification.
 **Fleet Managers**
 **Driver Oversight:** Ensuring drivers are performing honest inspections and not skipping steps or fabricating "clean" reports to speed up their route.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Pre-Existing" Damage Fraud Problem**
 
@@ -396,7 +394,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the carrier's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the transport report.
 
-## Competition vs. Central Portals
+## Compared With Central Portals
 
 | Feature | Live Verify | SuperDispatch / Carrier Portal | Paper Carbon Copy |
 | :--- | :--- | :--- | :--- |
@@ -404,4 +402,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Cryptographic.** Binds the origin state. | **Database-Bound.** Relies on the portal not being "corrected" later. | **Zero.** Easily forged. |
 | **Sharing** | **Easy.** Share the PDF/Link with any insurer. | **Hard.** Requires "Exporting" reports or giving portal access. | **Manual.** |
 
-**Why Live Verify wins here:** The "Handoff Moment." Inspections happen in driveways and parking lots. The customer needs a trusted snapshot of the car's state *right now*. Live Verify turns that paper/digital sign-off into an immutable anchor that prevents "After-the-fact" editing of damage records.
+**Where each fits:** a carrier or dispatch portal is the working system for the transport company and its drivers, and holds the full history of a job. The customer in the driveway, and later their insurer, has no login to it. Live Verify gives them a condition report they can check against the carrier's domain, fixed as it was at handover, while the portal continues to run the operation.

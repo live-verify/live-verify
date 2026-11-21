@@ -11,7 +11,7 @@ furtherDerivations: 2
 
 ## What is a KYC Identity Verification Summary?
 
-This document represents a **vetted result**, not a raw identity credential. That distinction matters.
+This document represents a vetted result, not a raw identity credential. That distinction matters.
 
 Where strong digital-identity infrastructure already exists, it should dominate:
 
@@ -44,7 +44,13 @@ Profile ID: REV-99228877
 <span data-verify-line="kyc-id">verify:revolut.com/compliance/v</span> <span verifiable-text="end" data-for="kyc-id"></span>
 </div>
 
-## Data Verified
+## The Problem: Synthetic Identity Fraud
+
+- **Identity Fabrication:** Using a mix of real and fake data to create a "Synthetic Person" who doesn't exist. Verification against the bank domain prevents this.
+- **Photo Substitution:** Using a stolen ID number but editing the photo on the PDF to match the fraudster.
+- **Revocation Hiding:** A user whose account was closed for money laundering yesterday using their old "Verified" paper summary to open a new account today.
+
+## What Is Checked
 
 Full name, date of birth, residential address, primary ID number (Passport/SSN), nationality, PEP (Politically Exposed Person) status, adverse media flag, sanctions list status (OFAC/EU), biometric liveness confirmation, date of onboarding.
 
@@ -54,19 +60,19 @@ Full name, date of birth, residential address, primary ID number (Passport/SSN),
 - **Selfie Liveness Certificate:** Proving the user was physically present.
 - **W-8BEN / W-9 Form:** (Linked hash) for tax identity.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`revolut.com`, `chase.com`, `coinbase.com`) and current compliance standing.
 
 **Status Indications:**
 - **Verified** — Identity is current and background checks are clear.
-- **Restricted** — **ALERT:** Identity verified but account limited due to risk.
+- **Restricted** — Identity verified but account limited due to risk.
 - **Suspended** — Potential fraud or expired ID; re-verification required.
 - **Blacklisted** — Associated with known criminal activity.
 
-## Second-Party Use
+## Who Holds It
 
-The **Bank Customer** (second party) receives the KYC verification summary from the bank (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Bank Customer (second party) receives the KYC verification summary from the bank (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of their identity verification status. Most of the time, the record sits in their files—the verification value is latent, there *if needed*.
 
@@ -74,7 +80,7 @@ The **Bank Customer** (second party) receives the KYC verification summary from 
 
 **Future Optionality:** If they need to open accounts elsewhere or prove their identity—whether for financial services, rentals, or visa applications—they have cryptographic proof ready without needing to contact the original bank.
 
-## Third-Party Use
+## Who Checks It
 
 The customer (second party) may hand the verified document to various third parties:
 
@@ -87,13 +93,7 @@ The customer (second party) may hand the verified document to various third part
 **Crypto Exchanges**
 **Fiat Gateway:** Verifying the source identity of a user before allowing large-scale crypto-to-fiat transfers.
 
-## Verification Architecture
-
-**The "Synthetic Identity" Fraud Problem**
-
-- **Identity Fabrication:** Using a mix of real and fake data to create a "Synthetic Person" who doesn't exist. Verification against the bank domain prevents this.
-- **Photo Substitution:** Using a stolen ID number but editing the photo on the PDF to match the fraudster.
-- **Revocation Hiding:** A user whose account was closed for money laundering yesterday using their old "Verified" paper summary to open a new account today.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -154,7 +154,7 @@ AI-generated deepfake documents and synthetic identities are emerging as the nex
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the bank or KYC provider's hashes and status changes plus structured metadata (verification dates, document types, PEP status, sanctions check results) — never plaintext such as customer names or passport numbers — providing non-repudiation of performing KYC verification.
 
-## Competition vs. ID Verification APIs (Onfido)
+## Compared With ID Verification APIs (Onfido)
 
 | Feature | Live Verify | KYC API (Jumio/Onfido) | Scanned PDF ID |
 | :--- | :--- | :--- | :--- |
@@ -199,7 +199,7 @@ utility company's official billing records.
 <span data-verify-line="address">verify:coned.com/billing/v</span> <span verifiable-text="end" data-for="address"></span>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Customer name, full service address, billing period dates, total amount due (numerical), account status (Active/Closed), issuing utility/bank name, date of issuance.
 
@@ -209,28 +209,28 @@ Customer name, full service address, billing period dates, total amount due (num
 - **Bank / Credit Card Statement:** (Linked hash) for address proof.
 - **Council Tax / Property Tax Bill:** (High trust).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`coned.com`, `verizon.com`, `chase.com`) and current account standing.
 
 **Status Indications:**
 - **Verified** — Address and name match the official billing file.
 - **Closed** — Account is terminated; address may be outdated.
-- **Disconnected** — **ALERT:** Service stopped; residency may be fraudulent.
+- **Disconnected** — Service stopped; residency may be fraudulent.
 - **Amended** — A correction was issued for this billing period.
 
-## Second-Party Use
+## Who Holds It
 
-The **Bank Customer / Tenant** benefits from verification.
+The Bank Customer / Tenant benefits from verification.
 
 **Digital Onboarding:** Proving their current residence to a Neobank (e.g., Revolut or Chime) without having to "Wait for a paper letter in the mail." A verified hash from the utility domain removes the #1 cause of KYC rejection: **Unreadable or Outdated Utility Bills.**
 
 **Visa / Residency:** Proving local residency to a foreign embassy or consulate using a verified, cryptographically trusted document.
 
-## Third-Party Use
+## Who Checks It
 
 **Neobanks / Crypto Exchanges**
-**Instant Address Match:** Automatically verifying the "Address String" provided in the signup form against the verified utility hash. Live Verify allows for **Zero-Human-Review** onboarding of customers, even those with thin credit files.
+**Instant Address Match:** Automatically verifying the "Address String" provided in the signup form against the verified utility hash. Live Verify allows for Zero-Human-Review onboarding of customers, even those with thin credit files.
 
 **Mortgage Lenders**
 **Residency Audit:** Verifying that a borrower is actually living in their primary residence (and not using it as an undisclosed rental) by checking the verified utility status.
@@ -238,7 +238,7 @@ The **Bank Customer / Tenant** benefits from verification.
 **Government Agencies (DMV)**
 **Proof of Residency:** Verifying address claims for Real ID issuance without requiring physical paper folders.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Photoshopped Bill" Fraud Problem**
 
@@ -269,7 +269,7 @@ Barclays Bank, a regulated financial institution, is authorized by the FCA to is
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Address Verification APIs (Experian)
+## Compared With Address Verification APIs (Experian)
 
 | Feature | Live Verify | Address API (Experian/Loqate) | Scanned PDF / Paper |
 | :--- | :--- | :--- | :--- |
@@ -278,4 +278,4 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Privacy** | **High.** User shares only the *Bill Summary*. | **Low.** Lenders see full credit history. | **High.** |
 | **Coverage** | **Universal.** Works for any small utility with a URL. | **Limited.** Only for people with credit records. | **Universal.** |
 
-**Why Live Verify wins here:** The "Thin File" problem. Millions of people (young people, expats, immigrants) don't have enough credit history for Experian to verify their address. But they **all** have a utility or mobile bill. Live Verify allows them to use their **Service Reality** as a verified trust signal, bypassing the need for a legacy credit score.
+**Where each fits:** Address verification services work well for people with an established credit file, and a lender that already uses one can clear most applicants quickly that way. Applicants with little or no credit history, such as younger people and recent arrivals, are often not found, and they fall back on a utility or mobile bill. Live Verify lets the lender confirm that the utility issued that bill with that name and address, so it complements the automated check for the cases it cannot reach.

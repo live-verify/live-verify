@@ -36,7 +36,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Store Fraud
+
+- **Phishing Sites:** Criminals creating a perfect clone of a real jewelry store, including the "Klarna" logo, to steal customer data and payments.
+- **Impersonation:** A merchant whose partnership was revoked for fraud continuing to display the "Verified" badge to lure in victims.
+- **Product Misrepresentation:** Claiming to offer "0% APR Financing" when the actual partnership only allows "Pay in 4."
+
+## What Is Checked
 
 Merchant legal name, business URL, BNPL provider (Klarna/Affirm/Afterpay), partnership tier, authorization date, last vetting date, allowed products (Pay-in-4, monthly financing).
 
@@ -45,7 +51,7 @@ Merchant legal name, business URL, BNPL provider (Klarna/Affirm/Afterpay), partn
 - **Certificate of Partnership:** For display in physical stores.
 - **Compliance Audit Report:** For BNPL internal records.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`klarna.com`, `affirm.com`) and current merchant standing.
 
@@ -55,15 +61,15 @@ Shows the issuer domain (`klarna.com`, `affirm.com`) and current merchant standi
 - **Revoked** — Partnership terminated due to fraud or non-compliance.
 - **Inactive** — Partnership expired.
 
-## Second-Party Use
+## Who Holds It
 
-The **Merchant** (Store Owner) benefits from verification.
+The Merchant (Store Owner) benefits from verification.
 
 **Consumer Trust:** A small boutique can prove they are a "Verified Partner" of a major bank like Klarna, reducing "Abandoned Carts" caused by customers fearing the site is a scam.
 
 **Banking / Lending:** Proving to other lenders that they have passed the rigorous vetting process of a major BNPL provider, which acts as a "Secondary Credit Signal."
 
-## Third-Party Use
+## Who Checks It
 
 **Consumers (Shoppers)**
 **Fraud Prevention:** Before entering a credit card or SSN on a new website, a shopper can scan the "Klarna Verified" badge. If the hash doesn't link back to `klarna.com`, the shopper knows the site is a phishing clone.
@@ -74,13 +80,7 @@ The **Merchant** (Store Owner) benefits from verification.
 **Cybersecurity Researchers**
 **Cloned Site Detection:** Identifying fake e-commerce sites that copy the visual look of real merchants but can't provide a valid verification hash from the BNPL provider.
 
-## Verification Architecture
-
-**The "Fake Store" Fraud Problem**
-
-- **Phishing Sites:** Criminals creating a perfect clone of a real jewelry store, including the "Klarna" logo, to steal customer data and payments.
-- **Impersonation:** A merchant whose partnership was revoked for fraud continuing to display the "Verified" badge to lure in victims.
-- **Product Misrepresentation:** Claiming to offer "0% APR Financing" when the actual partnership only allows "Pay in 4."
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -105,7 +105,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the BNPL provider's hashes and status changes plus structured metadata (merchant ID, verification date) — never plaintext or sensitive personal information — providing non-repudiation of the document.
 
-## Competition vs. Static Badges
+## Compared With Static Badges
 
 | Feature | Live Verify | Static "Trust" Badge | Verified by Visa (3DS) |
 | :--- | :--- | :--- | :--- |
@@ -113,4 +113,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Verification** | **Pre-Payment.** User verifies *before* giving data. | **None.** | **Late.** Happens after user submits info. |
 | **Integrity** | **Binds Merchant.** Hash protects the URL/Name. | **None.** | **High.** |
 
-**Why Live Verify wins here:** Early Trust. Static "Trust Badges" are the most common tool used by scammers because they are easy to copy. Live Verify turns the badge into a **live cryptographic proof**. It allows the consumer to verify the merchant's legitimacy *before* they start the checkout process, stopping phishing at the source.
+**Where each fits:** 3-D Secure and similar checks protect the payment step well, and remain the right control there. They come into play only after the shopper has started entering details, and a static badge on the page can be copied by anyone. Live Verify lets a shopper check, before checkout, that the lender's domain confirms this merchant, which complements the protection applied later at payment.

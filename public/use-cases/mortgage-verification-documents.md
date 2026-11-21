@@ -51,7 +51,7 @@ March 15, 2026
 <span data-verify-line="mort-voe">verify:acme-global.com/hr/v</span> <span verifiable-text="end" data-for="mort-voe"></span>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Employee name, legal employer name, current job title, employment status (Active/On-Leave), start date, base salary amount, bonus/commission history (linked hash), total annual income, issuing HR officer name, HRIS reference ID.
 
@@ -61,19 +61,19 @@ Employee name, legal employer name, current job title, employment status (Active
 - **W-2 Transcript:** (Linked hash) for year-end income proof.
 - **Letter of Explanation:** (Linked hash) for large bonuses or gap in service.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`acme-global.com`, `workday.com`, `equifax.com`) and current standing.
 
 **Status Indications:**
 - **Verified** — Record matches the company's official payroll file.
-- **Terminated** — **ALERT:** Bearer is no longer employed; income is $0.
+- **Terminated** — Bearer is no longer employed; income is $0.
 - **Inactive** — Reference ID has expired (usually > 30-60 days).
-- **Fraud Alert** — **ALERT:** Reference ID associated with a known "Employment Mill."
+- **Fraud Alert** — Reference ID associated with a known "Employment Mill."
 
-## Second-Party Use
+## Who Holds It
 
-The **Borrower / Employee** (second party) receives the verification of employment from the employer (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Borrower / Employee (second party) receives the verification of employment from the employer (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of their employment status and salary. Most of the time, the document sits in their files—the verification value is latent, there *if needed*.
 
@@ -81,7 +81,7 @@ The **Borrower / Employee** (second party) receives the verification of employme
 
 **Future Optionality:** If a mortgage application is disputed or income verification is challenged, they have cryptographic proof ready without needing to contact HR.
 
-## Third-Party Use
+## Who Checks It
 
 The borrower / employee (second party) may hand the verified document to various third parties:
 
@@ -94,7 +94,7 @@ The borrower / employee (second party) may hand the verified document to various
 **Government Housing Agencies (FHA/VA)**
 **Compliance:** Ensuring that loans meet federal "Ability-to-Repay" (ATR) laws based on verified, non-falsified income data.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Employment Mill" Fraud Problem**
 
@@ -114,7 +114,7 @@ The borrower / employee (second party) may hand the verified document to various
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the employer's hashes and status changes plus structured metadata (job title, employment status, employment dates, verification ID) — never employee names, salary amounts, or SSNs — providing non-repudiation of employment verification issuance.
 
-## Competition vs. The Work Number (Equifax)
+## Compared With The Work Number (Equifax)
 
 | Feature | Live Verify | The Work Number | Manual Phone Check |
 | :--- | :--- | :--- | :--- |
@@ -123,7 +123,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **Universal.** Works for any small firm with a URL. | **Limited.** Only for large firms who pay for TWN. | **Universal.** |
 | **Cost** | **Low.** Standard web infra. | **Very High.** Lenders pay $50-$100 per check. | **High.** Costs in human time. |
 
-**Why Live Verify wins here:** The "Local SMB" reality. Millions of people work for small law firms, dental offices, or local construction companies that aren't on "The Work Number." They rely on "Persistent Paper" letters. Live Verify turns those **Manual Letters** into a "Fortune 500" level trust artifact, bringing modern security to the entire housing economy.
+**Where each fits:** Employment databases such as The Work Number give lenders a fast, automated answer for employees of participating employers, and where a record exists there a lender will reasonably use it. Many people work for small firms that do not participate, and their lenders fall back on a letter from the employer or a phone call. Live Verify lets the lender confirm that letter against the employer's domain, covering the applicants the database cannot.
 
 
 ---
@@ -159,7 +159,7 @@ employer's certified payroll ledger.
 <span data-verify-line="income">verify:acme-global.com/payroll/v</span> <span verifiable-text="end" data-for="income"></span>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Employee name, SSN/TIN (redacted), employer name, pay period dates, gross earnings, net pay, itemized withholdings (Taxes/401k), Year-to-Date (YTD) totals, issuing payroll provider ID, date of payment.
 
@@ -169,7 +169,7 @@ Employee name, SSN/TIN (redacted), employer name, pay period dates, gross earnin
 - **1099-NEC / 1099-MISC:** For independent contractors.
 - **Verification of Income (VOI):** Formal summary from HR.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`adp.com`, `gusto.com`, `acme-global.com`) and current record status.
 
@@ -179,9 +179,9 @@ Shows the issuer domain (`adp.com`, `gusto.com`, `acme-global.com`) and current 
 - **Final** — (For W-2) Statement matches the federal filing with the IRS.
 - **Void** — Check/ACH reversed due to error or fraud.
 
-## Second-Party Use
+## Who Holds It
 
-The **Borrower / Employee** (second party) receives the paystub from the employer (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Borrower / Employee (second party) receives the paystub from the employer (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of their earnings and withholdings. Most of the time, the document sits in their files—the verification value is latent, there *if needed*.
 
@@ -189,7 +189,7 @@ The **Borrower / Employee** (second party) receives the paystub from the employe
 
 **Future Optionality:** If a loan application is disputed or tax records are challenged, they have cryptographic proof ready without needing to contact the payroll department.
 
-## Third-Party Use
+## Who Checks It
 
 The borrower / employee (second party) may hand the verified document to various third parties:
 
@@ -202,7 +202,7 @@ The borrower / employee (second party) may hand the verified document to various
 **Government Agencies (IRS / HUD)**
 **Anti-Fraud Enforcement:** Ensuring that income claims made for government-backed loans or tax credits match the verified corporate records.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Income Padding" Fraud Problem**
 
@@ -236,7 +236,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the payroll processor's hashes and status changes plus structured metadata (pay periods, gross amounts, YTD totals, verification IDs) — never employee names, SSNs, addresses, or bank details — providing non-repudiation of paystub issuance.
 
-## Competition vs. The Work Number (Equifax)
+## Compared With The Work Number (Equifax)
 
 | Feature | Live Verify | The Work Number | Scanned PDF / Paper |
 | :--- | :--- | :--- | :--- |
@@ -245,4 +245,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **Universal.** Works for any small firm with a URL. | **Limited.** Only for large firms who pay for TWN. | **Universal.** |
 | **Cost** | **Low.** Standard web infra. | **Very High.** Lenders pay $50-$100 per check. | **None.** |
 
-**Why Live Verify wins here:** The "Local Business" reality. Millions of people work for small firms that aren't on "The Work Number." They rely on "Persistent Paper" paystubs. Live Verify turns those **Manual Artifacts** into "Fortune 500" level trust artifacts, bringing modern security to the entire housing economy.
+**Where each fits:** For employers that report payroll to a verification service, a lender's automated income check is quick and well established. Paystubs from smaller employers that do not report still arrive as paper or PDF. Live Verify lets the lender confirm that the employer issued the stub as presented, and it gives an applicant the option of sharing a single pay period; the database route stays available wherever it applies.

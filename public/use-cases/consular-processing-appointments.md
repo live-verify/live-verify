@@ -13,9 +13,9 @@ furtherDerivations: 1
 
 Getting a US Green Card requires a face-to-face interview at a US Embassy (like the one in Montreal or London).
 
-The **Appointment Notice** is your "Admission Ticket." Security guards at the embassy perimeter will not even let you into the queue without this specific piece of paper.
+The Appointment Notice is your "Admission Ticket." Security guards at the embassy perimeter will not even let you into the queue without this specific piece of paper.
 
-Fraudsters often create fake notices to get people into high-security zones or to trick employers into thinking their visa is "in progress." Live Verify allows guards to verify the **authenticity of the paper** at the gate, ensuring that only scheduled, verified applicants enter the secure zone.
+Fraudsters often create fake notices to get people into high-security zones or to trick employers into thinking their visa is "in progress." Live Verify allows guards to verify the authenticity of the paper at the gate, ensuring that only scheduled, verified applicants enter the secure zone.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #002d62; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
@@ -49,7 +49,13 @@ Fraudsters often create fake notices to get people into high-security zones or t
   </div>
 </div>
 
-## Data Verified
+## The Problem: Embassy Gate Fraud
+
+- **Fabricated Notices:** Scammers creating fake appointment letters to get people into high-security zones or to sell "fake spots" in the interview queue to desperate applicants.
+- **Date Swapping:** Changing an old appointment date to "Today" to try and force an interview ahead of schedule.
+- **Derivative Fraud:** Adding extra "Family Members" to a real appointment letter to smuggle people into the mission.
+
+## What Is Checked
 
 Applicant name, NVC/Consular Case Number, Appointment Date/Time, Consulate location (City/Country), Visa Category (e.g., CR-1, IR-1, EB-3), number of derivative applicants, date of issuance.
 
@@ -58,7 +64,7 @@ Applicant name, NVC/Consular Case Number, Appointment Date/Time, Consulate locat
 - **Biometric Appointment Notice:** For the off-site Fingerprint Center (VAC/ASC).
 - **Medical Exam Authorization:** Linked to the appointment date.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`state.gov`) and current interview standing.
 
@@ -68,9 +74,9 @@ Shows the issuer domain (`state.gov`) and current interview standing.
 - **Cancelled** — Interview revoked (e.g., due to document deficiency).
 - **Completed** — Interview has already taken place for this notice.
 
-## Second-Party Use
+## Who Holds It
 
-The **Visa Applicant** benefits from verification.
+The Visa Applicant benefits from verification.
 
 **Consulate Entry:** Proving to the security guards outside the embassy/consulate that the "Interview Notice" is legitimate. This prevents being turned away at the gate due to a suspected forgery or a typo in the mission's manual guard list.
 
@@ -78,7 +84,7 @@ The **Visa Applicant** benefits from verification.
 
 **Employer Proof:** Proving to a current employer why they need to be absent for several days for international travel.
 
-## Third-Party Use
+## Who Checks It
 
 **Consular Security / Local Guard Force**
 **Access Control:** Embassies are high-target environments. Guards can instantly verify notices at the perimeter fence to ensure only legitimate applicants are allowed to queue, reducing the risk of protesters or attackers using fake letters.
@@ -89,13 +95,7 @@ The **Visa Applicant** benefits from verification.
 **Airlines (International)**
 **Travel Authorization:** Verifying that a passenger traveling to a consulate city has a verified appointment, reducing the risk of "Refusal of Entry" at the destination.
 
-## Verification Architecture
-
-**The "Embassy Gate" Fraud Problem**
-
-- **Fabricated Notices:** Scammers creating fake appointment letters to get people into high-security zones or to sell "fake spots" in the interview queue to desperate applicants.
-- **Date Swapping:** Changing an old appointment date to "Today" to try and force an interview ahead of schedule.
-- **Derivative Fraud:** Adding extra "Family Members" to a real appointment letter to smuggle people into the mission.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -123,7 +123,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the NVC or embassy's hashes and status changes plus structured metadata (case numbers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the appointment it scheduled.
 
 
-## Competition vs. CEAC Status Search
+## Compared With CEAC Status Search
 
 | Feature | Live Verify | CEAC Search (Public) | Paper Notice |
 | :--- | :--- | :--- | :--- |
@@ -132,4 +132,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Trust** | **Cryptographic.** Bound to `state.gov`. | **High.** Direct DB access. | **Medium.** |
 | **User Access** | **Restricted.** Only people with the paper can verify. | **Public.** Anyone with a case # can search. | **N/A.** |
 
-**Why Live Verify wins here:** The "Perimeter" reality. Security guards standing in the rain outside a consulate don't have the time or tools to solve CAPTCHAs on the CEAC website for every person in line. Live Verify turns the **Physical Appointment Letter** into a high-speed "Access Token" that provides definitive proof of scheduling in seconds.
+**Where each fits:** the public case status search is the applicant's own tool for following a case, and it stays the reference for that. It reports general status rather than who is booked for when, and it is slow to use for each person in a queue. Live Verify lets staff at the entrance check an appointment letter against the department's domain in seconds, as a complement to the status search.

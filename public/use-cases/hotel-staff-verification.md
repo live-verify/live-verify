@@ -15,9 +15,9 @@ furtherDerivations: 1
 
 In a large hotel, a "Maintenance" or "Room Service" worker might knock on your door at 11 PM. As a guest, you are at your most vulnerable — you don't know if this person was scheduled, if they're still employed, or if they're an impostor.
 
-The **Staff ID Badge** is the worker's proof that they are authorized to be in the guest hallways.
+The Staff ID Badge is the worker's proof that they are authorized to be in the guest hallways.
 
-"Fake Uniform" home-invasions happen when burglars buy high-visibility vests or fake Hilton/Marriott shirts to gain entry to rooms. Live Verify allows a guest to scan the worker's badge through the peephole or doorbell camera. Seeing a green "ON-DUTY" status from the hotel's domain ensures the person at the door is a **Verified Employee**.
+"Fake Uniform" home-invasions happen when burglars buy high-visibility vests or fake Hilton/Marriott shirts to gain entry to rooms. Live Verify allows a guest to scan the worker's badge through the peephole or doorbell camera. Seeing a green "ON-DUTY" status from the hotel's domain ensures the person at the door is a Verified Employee.
 
 **This pattern also applies** to hospitals, apartment buildings, and event venues—anywhere mobile service staff enter private spaces in ungated, high-turnover environments.
 
@@ -82,7 +82,13 @@ The **Staff ID Badge** is the worker's proof that they are authorized to be in t
 
 *The server rotates the salt — after each successful scan (burn-on-verify) or on TTL expiry of an unscanned salt — and the badge re-renders to match. The screen is always in lockstep with the salt the server will honour, so a photograph is worthless unless verified in the moment. See [E-Ink ID Cards](../e-ink-id-cards.md) for how this prevents cloning and tracking.*
 
-## Data Verified
+## The Problem: Fake Service Fraud
+
+- **Identity Theft:** Burglars buying realistic-looking "Marriott Housekeeping" uniforms and fake ID lanyards online to gain entry into rooms when guests are out (or in).
+- **Credential Hiding:** A terminated employee keeping their physical card to maintain access to high-value areas.
+- **Host Impersonation:** Scammers posing as "Property Managers" for Airbnb rentals to steal guest luggage or demand cash payments.
+
+## What Is Checked
 
 Staff name, photo (hash), employee ID, job role (e.g., Housekeeping, Maintenance, Room Service), property affiliation, current duty status (Active/Off-Duty), background check clearance date (hash).
 
@@ -138,15 +144,15 @@ Fields:
 
 Staff should never tell guests "don't bother" or "that's not necessary." Every report is logged. The hotel can triage later—but the guest is never made to feel their input isn't wanted.
 
-## Second-Party Use
+## Who Holds It
 
-The **Hotel Staff Member** benefits from verification.
+The Hotel Staff Member benefits from verification.
 
 **Professional Safety:** Proving to a frightened or suspicious guest that they are a legitimate employee. Verification reduces the chance of "Panic Alarms" or aggressive confrontations when a staff member enters a room for authorized service.
 
 **Access to High-Security Floors:** Proving their verified identity to an automated elevator or lounge system to access restricted executive areas.
 
-## Third-Party Use
+## Who Checks It
 
 **Hotel Guests (Travelers)**
 **Assault Prevention:** Before opening the door at 11 PM for a "Maintenance" person, a guest can ask to see the badge through the peephole or doorbell camera. Scanning the hash confirms the person is a "Verified On-Duty" employee of the hotel, preventing "Fake Uniform" home-invasion style attacks.
@@ -159,13 +165,7 @@ The **Hotel Staff Member** benefits from verification.
 **Hotel Security Directors**
 **Audit Integrity:** Ensuring that only background-checked and active employees are present in guest wings, identifying "Ghost Employees" or terminated staff using old badges.
 
-## Verification Architecture
-
-**The "Fake Service" Fraud Problem**
-
-- **Identity Theft:** Burglars buying realistic-looking "Marriott Housekeeping" uniforms and fake ID lanyards online to gain entry into rooms when guests are out (or in).
-- **Credential Hiding:** A terminated employee keeping their physical card to maintain access to high-value areas.
-- **Host Impersonation:** Scammers posing as "Property Managers" for Airbnb rentals to steal guest luggage or demand cash payments.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -194,7 +194,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the hotel's hashes and status changes plus structured metadata (employee ID, job role, duty status, clearance date) — never plaintext or sensitive personal information — providing non-repudiation of the staff badge issuance and access audit trail.
 
 
-## Competition vs. Uniforms / Peepholes
+## Compared With Uniforms / Peepholes
 
 | Feature | Live Verify | Uniform & Name Tag | Calling the Front Desk |
 | :--- | :--- | :--- | :--- |
@@ -203,7 +203,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan through peephole. | **N/A.** Just looking. | **Slow.** Often takes 5+ minutes to reach a rep. |
 | **Freshness** | **Real-time.** Shows if banned *today*. | **Static.** | **N/A.** |
 
-**Why Live Verify wins here:** The "Doorstep Workflow." Guests make the decision to open the door in seconds. They don't want to engage in a long phone conversation while a stranger stands in the hallway. Live Verify turns the **ID Badge** into a live, non-confrontational safety tool that provides instant, high-authority trust.
+**Where each fits:** Uniforms and name tags let guests recognise staff at a glance, and calling the front desk is sound advice whenever something feels wrong. The call takes a few minutes, and many guests will not make it with someone waiting outside the door. Live Verify offers a quicker first check of the badge against the hotel brand's own domain. It is a supplement to the phone call, which remains the fallback when a guest is still unsure.
 
 ---
 
@@ -225,7 +225,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 ## Further Derivations
 
-This use case belongs to a broader pattern of **Mobile Service Staff in Ungated Facilities**. Related scenarios include:
+This use case belongs to a broader pattern of Mobile Service Staff in Ungated Facilities. Related scenarios include:
 
 - [Police Officer Verification](view.html?doc=police-officer-verification) — Citizens verify authority during stops or home visits.
 - [Delivery & Courier Verification](view.html?doc=delivery-courier-verification) — Recipients verify drivers at the door.

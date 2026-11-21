@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Film Completion Bond?
 
-If an independent film (like a $12M epic) runs out of money or the director gets sick halfway through, the investors could lose everything. A **Completion Bond** is the "Guarantee" that the movie will be finished and delivered.
+If an independent film (like a $12M epic) runs out of money or the director gets sick halfway through, the investors could lose everything. A Completion Bond is the "Guarantee" that the movie will be finished and delivered.
 
-If the movie goes over budget, the **Bonder** pays the difference. In extreme cases, the Bonder can even "Fire the Director" and take over the set to finish the film.
+If the movie goes over budget, the Bonder pays the difference. In extreme cases, the Bonder can even "Fire the Director" and take over the set to finish the film.
 
 No bank will lend money to a film set without seeing a verified bond. Fraudsters often use fake bond papers to trick naive investors into funding "Vapor-ware" movies.
 
@@ -50,7 +50,13 @@ No bank will lend money to a film set without seeing a verified bond. Fraudsters
   </div>
 </div>
 
-## Data Verified
+## The Problem: Incomplete Epic Fraud
+
+- **Fabricated Bonds:** Producers creating fake "Completion Certificates" from reputable firms to trick naive investors into funding a project.
+- **Budget Tampering:** Editing a $1M bond to read $10M to match a fraudulent bank loan application.
+- **Cancellation Concealment:** Hiding the fact that the guarantor has already issued a "Notice of Rescission" due to the director's health or budget mismanagement.
+
+## What Is Checked
 
 Film title, production company name, total guaranteed budget, bond ID number, guarantor name, beneficiary (lender) name, effective date, anticipated delivery date, issuing office location.
 
@@ -60,25 +66,25 @@ Film title, production company name, total guaranteed budget, bond ID number, gu
 - **Intercut Guarantee:** For co-productions between two countries.
 - **Strike/Cast Insurance Letter:** (Linked hash) proving secondary coverage.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`filmfinances.com`, `europeancinema.eu`) and current bond standing.
 
 **Status Indications:**
 - **In Force** — Bond is active; project is under guarantee.
 - **Closed** — Film completed and delivered; liability discharged.
-- **Takeover Active** — **ALERT:** Guarantor has seized control of production to finish the film.
+- **Takeover Active** — Guarantor has seized control of production to finish the film.
 - **Void** — Misrepresentation found; bond cancelled.
 
-## Second-Party Use
+## Who Holds It
 
-The **Film Producer** benefits from verification.
+The Film Producer benefits from verification.
 
 **Unlocking Capital:** Proving to a bank or private equity group that the $12.5M budget is "Verified Bonded." No lender will wire millions to a film set without 100% certainty that a completion bond is in place. A verified hash allows for instant funding releases.
 
 **Distributor Confidence:** Proving to an international distributor (e.g., A24 or Neon) that the film they just pre-bought is verified to be finished on time and on budget.
 
-## Third-Party Use
+## Who Checks It
 
 **Entertainment Banks / Lenders**
 **Loan Compliance:** Instantly verifying that the "Completion Bond" in the closing package isn't a fake document created by a desperate producer. This prevents "Paperwork Scams" in the high-risk world of indie film finance.
@@ -89,13 +95,7 @@ The **Film Producer** benefits from verification.
 **Talent Agencies**
 **Pay Assurance:** Verifying that a high-profile actor's salary is backed by a bonded production before the actor arrives on set.
 
-## Verification Architecture
-
-**The "Incomplete Epic" Fraud Problem**
-
-- **Fabricated Bonds:** Producers creating fake "Completion Certificates" from reputable firms to trick naive investors into funding a project.
-- **Budget Tampering:** Editing a $1M bond to read $10M to match a fraudulent bank loan application.
-- **Cancellation Concealment:** Hiding the fact that the guarantor has already issued a "Notice of Rescission" due to the director's health or budget mismanagement.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -122,7 +122,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the completion guarantor's hashes and status changes plus structured metadata (bond number, production company name, guaranteed budget, approved screenplay reference, delivery schedule, bond issue date, expiration date) — never plaintext production details — providing non-repudiation of the film completion bond.
 
 
-## Competition vs. Legal "Opinion Letters"
+## Compared With Legal "Opinion Letters"
 
 | Feature | Live Verify | Attorney Opinion Letter | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -131,4 +131,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Cost** | **Low.** Standard web infra. | **Very High.** Lawyers charge $1,000+ per letter. | **None.** |
 | **Freshness** | **Real-time.** Shows "Takeover" status today. | **Snapshot.** Only valid for the day it was written. | **Static.** |
 
-**Why Live Verify wins here:** The "Fast-Paced Set" reality. Film finance is chaotic. Decisions to release "Day-of-Shoot" funds happen at 4 AM. Live Verify turns the **Bond Certificate** into a live digital checkpoint, ensuring that the multimillion-dollar "Safety Net" is actually under the tightrope before the cameras roll.
+**Where each fits:** An attorney's opinion letter offers what a document check cannot: legal analysis of the bond's terms, and a professional who answers for that analysis. Financiers will keep commissioning one at closing. It describes the position on the day it was written and takes time to produce. Live Verify lets a bank, distributor or department head confirm, at any point during production, that the guarantor still stands behind the certificate as issued, in between formal legal reviews.

@@ -74,7 +74,13 @@ Fraud is common: "Reference Mills" sell fake employment letters. Live Verify con
   </div>
 </div>
 
-## Data Verified
+## The Problem: Reference Mill Fraud
+
+- **Fabricated Letters:** Entirely fake companies (with real-looking websites) providing fake references for a fee.
+- **Title Inflation:** Changing "Junior Intern" to "Senior Lead" on a PDF to get a higher salary at a new job.
+- **Date Stretching:** Altering a 3-month tenure to look like a 3-year tenure.
+
+## What Is Checked
 
 Employee name, legal employer name, job title/role, start date, end date (or "Present"), rehire eligibility status, reason for departure (voluntary/involuntary), salary (optional/linked hash), HRIS reference ID.
 
@@ -84,7 +90,7 @@ Employee name, legal employer name, job title/role, start date, end date (or "Pr
 - **Experience Certificate:** (Common in India/Middle East).
 - **Separation Notice:** Final proof of departure.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`acme-corp.com`, `workday.com`) and current worker standing.
 
@@ -92,17 +98,17 @@ Shows the issuer domain (`acme-corp.com`, `workday.com`) and current worker stan
 - **Verified** — Record matches the company's official HRIS file.
 - **Revoked** — Reference withdrawn (e.g., discovery of post-departure misconduct).
 - **Superseded** — Replaced by a corrected version (e.g., date correction).
-- **Fraud Alert** — **ALERT:** Reference ID associated with a known "Reference Mill."
+- **Fraud Alert** — Reference ID associated with a known "Reference Mill."
 
-## Second-Party Use
+## Who Holds It
 
-The **Employee (Applicant)** benefits from verification.
+The Employee (Applicant) benefits from verification.
 
 **Background Check Speed:** Proving their work history instantly to a new employer. A verified hash allows the recruiter to skip the "Manual Phone Tag" with HR departments, reducing the time-to-hire from 10 days to 10 seconds.
 
 **Mortgage Approval:** Proving income stability to a lender. Banks often reject VOE letters if the phone number on the letterhead doesn't match a Google search. A verified hash from the corporate domain removes this doubt.
 
-## Third-Party Use
+## Who Checks It
 
 **Hiring Managers / Recruiters**
 **Fraud Prevention:** Nanny/Reference mills sell fake employment letters for a fee. Live Verify connects the recruiter directly to the real employer's domain, stopping "Fake Resume" fraud at the source.
@@ -115,7 +121,7 @@ The **Employee (Applicant)** benefits from verification.
 
 ## Peer References
 
-Unlike formal VOE letters from HR departments, **peer references** are colleague-to-colleague attestations—similar to LinkedIn recommendations but cryptographically verifiable. See [prior art discussion of mine](https://gist.github.com/paul-hammant/3375fec8e204f0c7567d4daea1fe48ef).
+Unlike formal VOE letters from HR departments, peer references are colleague-to-colleague attestations—similar to LinkedIn recommendations but cryptographically verifiable. See [prior art discussion of mine](https://gist.github.com/paul-hammant/3375fec8e204f0c7567d4daea1fe48ef).
 
 The verify URL points to the *referee's* domain, not the employer's. This reflects that the claim is personal ("I worked with this person") rather than institutional ("This person was employed here").
 
@@ -154,7 +160,7 @@ A verifiable recommendation follows the same model as the peer reference above: 
   <span verifiable-text="end" data-for="acadref"></span>
 </div>
 
-The verify URL points to the **professor's** domain, not the university's. The claim is personal: "I recommend this person." The university didn't write it; the professor did.
+The verify URL points to the professor's domain, not the university's. The claim is personal: "I recommend this person." The university didn't write it; the professor did.
 
 **Institutional vs. personal attestation:**
 
@@ -176,13 +182,7 @@ The first and last are institutional. The middle two are personal. Live Verify h
 
 **What it does NOT replace:** the content of the recommendation. The verified claim proves the professor actually wrote and published this letter. It does not prove the letter's claims about the student are true — that remains the professor's professional judgment and reputation.
 
-## Verification Architecture
-
-**The "Reference Mill" Fraud Problem**
-
-- **Fabricated Letters:** Entirely fake companies (with real-looking websites) providing fake references for a fee.
-- **Title Inflation:** Changing "Junior Intern" to "Senior Lead" on a PDF to get a higher salary at a new job.
-- **Date Stretching:** Altering a 3-month tenure to look like a 3-year tenure.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -209,7 +209,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the employer's hashes and status changes plus structured metadata (employee name, employment dates, job title, HRIS reference ID) — never salary, rehire status details, or termination reasons — providing non-repudiation of the employment reference issuance.
 
 
-## Competition vs. The Work Number (Equifax)
+## Compared With The Work Number (Equifax)
 
 | Feature | Live Verify | The Work Number | Manual Phone Check |
 | :--- | :--- | :--- | :--- |
@@ -218,16 +218,16 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **Universal.** Works for any company with a URL. | **Limited.** Only for large firms who pay for TWN. | **Universal.** |
 | **Cost** | **Low.** Standard web infra. | **Very High.** Lenders pay $50-$100 per check. | **High.** Costs in human time. |
 
-**Why Live Verify wins here:** Reach. Small and medium businesses (SMBs) aren't on The Work Number. They rely on "Persistent Paper" reference letters. Live Verify allows a small 5-person law firm or a local bakery to provide the same level of cryptographic trust as a Fortune 500 company.
+**Where each fits:** For employers that subscribe to it, The Work Number gives lenders a fast and standardised answer on dates and pay, and that arrangement works. Phone checks still have value when a recruiter wants a conversation rather than a confirmation. Smaller employers are often outside the aggregator altogether, and a reader abroad may find neither route practical. Live Verify lets anyone handed a reference letter confirm the employer issued it as written, which extends coverage to firms and readers the existing services do not reach.
 
 ## Mandate Potential
 
-Employment references and VOE letters are strong candidates for a **government-mandated free verification** obligation. Employers already hold employment data in payroll and HRIS systems; a mandate to offer hash-based verification endpoints would impose minimal marginal cost on existing infrastructure.
+Employment references and VOE letters are strong candidates for a government-mandated free verification obligation. Employers already hold employment data in payroll and HRIS systems; a mandate to offer hash-based verification endpoints would impose minimal marginal cost on existing infrastructure.
 
 **Why mandate makes sense here:**
 - Employers are already required to report payroll data to tax authorities (HMRC/PAYE in the UK, IRS/W-2 in the US). Mandating a verification endpoint is a small incremental obligation on top of existing reporting duties.
 - The current alternative — The Work Number (Equifax) — charges $50-100 per lookup and only covers large employers. A mandate would democratise employment verification, making it free and universal rather than a paid service gatekept by a data aggregator.
 - Employment verification delays are a systemic drag on mortgage approvals, rental applications, and hiring pipelines. Mandated verification endpoints would collapse multi-day manual processes into seconds.
-- Employees currently depend on their former employer's goodwill to get a timely reference. A mandate gives the employee a **right** to a verifiable confirmation, with a time-limited salt they control.
+- Employees currently depend on their former employer's goodwill to get a timely reference. A mandate gives the employee a right to a verifiable confirmation, with a time-limited salt they control.
 
 **Implementation path:** Tax authorities (HMRC, IRS) could require that any employer filing payroll returns must also operate a Live Verify endpoint (or delegate to their payroll provider — Workday, ADP, Sage, Xero — who would offer it as a standard feature). Small employers using basic payroll software would get verification hosting bundled in, just as they currently get RTI/PAYE filing bundled in.

@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Contractor COI?
 
-If you hire a plumber to fix a leak or a massive construction crew to build a skyscraper, you need to see their **Certificate of Insurance (COI)**.
+If you hire a plumber to fix a leak or a massive construction crew to build a skyscraper, you need to see their Certificate of Insurance (COI).
 
 This one-page paper (usually an ACORD 25 form) is the "Proof of Protection." It says: "If this contractor breaks your house or if a worker gets hurt, the insurance company will pay, not you."
 
@@ -42,7 +42,14 @@ The City of Oakland
 <span data-verify-line="coi">verify:marsh.com/coi/v</span> <span verifiable-text="end" data-for="coi"></span>
 </div>
 
-## Data Verified
+## The Problem: Fake COI Fraud
+
+- **Ghost Policies:** A contractor buys a policy for 1 day, prints the COI, then cancels the policy for a full refund. They carry the paper COI for 12 months.
+- **Limit Inflation:** Editing a $1M policy PDF to read $10M to qualify for a larger project.
+- **Date Stretching:** Changing an expired 2025 date to 2026.
+- **Fabricated Endorsements:** Claiming "Additional Insured" status on the paper COI when the endorsement was never actually purchased.
+
+## What Is Checked
 
 Insured name, policy numbers (GL, Auto, Umbrella, WC), coverage limits, effective/expiration dates, certificate holder name, producer/broker ID, issuing carrier (NAIC code).
 
@@ -52,7 +59,7 @@ Insured name, policy numbers (GL, Auto, Umbrella, WC), coverage limits, effectiv
 - **Waiver of Subrogation:** Critical construction endorsement.
 - **Additional Insured Endorsement:** Adding the property owner to the policy.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Broker or Carrier) and the certificate standing.
 
@@ -62,9 +69,9 @@ Shows the issuer domain (the Broker or Carrier) and the certificate standing.
 - **Superseded** — An updated certificate has been issued (e.g., due to a limit change).
 - **Expired** — The policies listed have reached their term end.
 
-## Second-Party Use
+## Who Holds It
 
-The **Contractor** (second party) receives the certificate of insurance from the broker or carrier (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Contractor (second party) receives the certificate of insurance from the broker or carrier (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of the insurance coverage. Most of the time, the document sits in their business files—the verification value is latent, there *if needed*.
 
@@ -72,7 +79,7 @@ The **Contractor** (second party) receives the certificate of insurance from the
 
 **Future Optionality:** If a project requires proof of insurance—whether for site access, bid submissions, or permit applications—they have cryptographic proof ready without needing to contact the broker.
 
-## Third-Party Use
+## Who Checks It
 
 The contractor (second party) may hand the verified document to various third parties:
 
@@ -85,14 +92,7 @@ The contractor (second party) may hand the verified document to various third pa
 **Insurance Brokers**
 **Workflow Efficiency:** Reducing the volume of "Is this COI real?" phone calls from third parties by providing a self-service verification URL.
 
-## Verification Architecture
-
-**The "Fake COI" Fraud Problem**
-
-- **Ghost Policies:** A contractor buys a policy for 1 day, prints the COI, then cancels the policy for a full refund. They carry the paper COI for 12 months.
-- **Limit Inflation:** Editing a $1M policy PDF to read $10M to qualify for a larger project.
-- **Date Stretching:** Changing an expired 2025 date to 2026.
-- **Fabricated Endorsements:** Claiming "Additional Insured" status on the paper COI when the endorsement was never actually purchased.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -120,7 +120,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the broker's hashes and status changes plus structured metadata (policy numbers, coverage limits, effective dates, carrier names) — never contractor financial details or risk assessments — providing non-repudiation of the certificate it issued.
 
-## Competition vs. Central Databases (ACORD)
+## Compared With Central Databases (ACORD)
 
 | Feature | Live Verify | ACORD Data Pool | Paper COI |
 | :--- | :--- | :--- | :--- |
@@ -129,4 +129,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Content.** Proves the *Limits* match. | **Data-Only.** Doesn't verify the actual paper document. | **Vulnerable.** |
 | **Freshness** | **Real-time.** Queries the broker's live file. | **Laggy.** Depends on batch uploads. | **Static.** |
 
-**Why Live Verify wins here:** The "Handoff Gap." ACORD data pools are for insurance companies talking to each other. But in the real world, a property owner needs to trust the piece of paper they are holding from a contractor. Live Verify turns that paper into a **Live Link** to the source of truth, closing the gap between industry databases and the physical world.
+**Where each fits:** industry data pools serve insurers and brokers exchanging policy data among themselves, and do that job well. A property owner or site foreman is not a member and is simply handed a certificate by the contractor. Live Verify lets them check that certificate, including its limits, against the broker's or insurer's domain, which extends the reach of the industry's data without changing how it is exchanged.

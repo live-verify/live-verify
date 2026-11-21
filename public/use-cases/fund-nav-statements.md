@@ -11,7 +11,7 @@ furtherDerivations: 9
 
 ## What is an NAV Statement?
 
-When you invest in a pooled vehicle that doesn't trade on a public exchange, you can't look up your balance on Yahoo Finance. Instead, you receive periodic **Net Asset Value (NAV)** statements telling you what your stake is worth.
+When you invest in a pooled vehicle that doesn't trade on a public exchange, you can't look up your balance on Yahoo Finance. Instead, you receive periodic Net Asset Value (NAV) statements telling you what your stake is worth.
 
 This applies far beyond hedge funds:
 - **Private equity and venture capital** — Quarterly capital account statements
@@ -22,9 +22,9 @@ This applies far beyond hedge funds:
 - **Interval funds and BDCs** — Semi-liquid alternative vehicles
 - **401(k) plans** — Daily participant account statements
 
-The common thread: **someone other than you is calculating what your money is worth**. If that someone is dishonest or incompetent, you won't know until it's too late.
+The common thread: someone other than you is calculating what your money is worth. If that someone is dishonest or incompetent, you won't know until it's too late.
 
-In the **Bernie Madoff** scandal, the fraud was possible because Madoff wrote his own statements. A **Verified NAV Statement** must be issued by an independent administrator, custodian, or recordkeeper. Verified hashes ensure the numbers haven't been fabricated or altered.
+In the Bernie Madoff scandal, the fraud was possible because Madoff wrote his own statements. A Verified NAV Statement must be issued by an independent administrator, custodian, or recordkeeper. Verified hashes ensure the numbers haven't been fabricated or altered.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="nav"></span>
@@ -56,7 +56,13 @@ administrator's official books and records.
 <span data-verify-line="nav">verify:citco.com/statements/v</span> <span verifiable-text="end" data-for="nav"></span>
 </div>
 
-## Data Verified
+## The Problem: Phantom Fund Fraud
+
+- **Self-Administration Fraud:** Fund managers writing their own "Statements" on fake administrator letterhead to hide massive losses or theft (The Bernie Madoff Pattern).
+- **Valuation Padding:** Editing a PDF to change an "Estimated" value of a private company into a "Final" verified high value.
+- **Fee Hiding:** Removing the line item for "Performance Fees" to make the net return look higher to potential new investors.
+
+## What Is Checked
 
 Fund name, investor name, account ID, period end date, Net Asset Value (NAV) per share, total units/shares held, ending capital balance, management/performance fees deducted, monthly/yearly performance %, issuing administrator name.
 
@@ -66,7 +72,7 @@ Fund name, investor name, account ID, period end date, Net Asset Value (NAV) per
 - **Audit Confirmation:** (Linked hash) for year-end verification.
 - **K-1 Tax Statement:** Proving the reported income to the IRS.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`citco.com`, `ssctech.com`, `apexgroup.com`) and the statement standing.
 
@@ -74,11 +80,11 @@ Shows the issuer domain (`citco.com`, `ssctech.com`, `apexgroup.com`) and the st
 - **Final** — Statement matches the administrator's official month-end close.
 - **Preliminary** — Subject to final pricing of illiquid assets.
 - **Audited** — Figures match the year-end report from a Big 4 auditor.
-- **Restated** — **ALERT:** A prior error was found; this statement is outdated.
+- **Restated** — A prior error was found; this statement is outdated.
 
-## Second-Party Use
+## Who Holds It
 
-The **Investor** (second party) receives the NAV statement from the fund administrator (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Investor (second party) receives the NAV statement from the fund administrator (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of their fund valuation and performance. Most of the time, the statement sits in their investment files—the verification value is latent, there *if needed*.
 
@@ -86,7 +92,7 @@ The **Investor** (second party) receives the NAV statement from the fund adminis
 
 **Future Optionality:** If a dispute arises—whether about performance calculations, fee deductions, or withdrawal rights—they have cryptographic proof ready without needing to contact the administrator.
 
-## Third-Party Use
+## Who Checks It
 
 The investor (second party) may hand the verified document to various third parties:
 
@@ -99,13 +105,7 @@ The investor (second party) may hand the verified document to various third part
 **Tax Authorities (IRS)**
 **Wealth Audit:** Verifying the "Cost Basis" and "Fair Market Value" of private holdings during a high-value estate or income tax audit.
 
-## Verification Architecture
-
-**The "Phantom Fund" Fraud Problem**
-
-- **Self-Administration Fraud:** Fund managers writing their own "Statements" on fake administrator letterhead to hide massive losses or theft (The Bernie Madoff Pattern).
-- **Valuation Padding:** Editing a PDF to change an "Estimated" value of a private company into a "Final" verified high value.
-- **Fee Hiding:** Removing the line item for "Performance Fees" to make the net return look higher to potential new investors.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -133,7 +133,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the administrator's hashes and status changes plus structured metadata (NAV per share, total balance, performance percentages, fee amounts, period dates) — never investor names, account numbers, or detailed holdings — providing non-repudiation of the NAV and performance figures.
 
-## Competition vs. Investor Portals
+## Compared With Investor Portals
 
 | Feature | Live Verify | Investor Portal (CitcoOne) | Scanned PDF Statement |
 | :--- | :--- | :--- | :--- |
@@ -142,7 +142,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **User Access** | **Universal.** Share with any bank/auditor. | **Restricted.** Lenders never get portal access. | **Universal.** |
 | **Madoff Protection** | **High.** Separates Manager from Admin. | **Medium.** Manager might control the portal. | **Zero.** |
 
-**Why Live Verify wins here:** The "External Leverage" reality. High-end investors move their money based on paper/PDF statements shared with banks and lawyers. These third parties **do not have logins** to the fund's private administrator portal. Live Verify turns the **Private Statement** into a portable, cryptographically trusted asset that carries its own proof of truth.
+**Where each fits:** The administrator's investor portal is the primary channel for investors, with history, documents and notices in one place, and investors should continue to use it. A lender taking the holding as collateral, an auditor or a family-office lawyer is not an investor and will not be issued a login. Live Verify lets them confirm that the administrator, and not only the manager, stands behind the statement they were given, and the portal remains the investor's working record.
 
 ---
 
@@ -196,7 +196,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Who Issues:** Plan actuaries, pension administrators, state retirement systems.
 
-**Third-Party Use:** Municipal bond analysts, union negotiators, legislators, retirees concerned about benefit security.
+**Who Checks It:** Municipal bond analysts, union negotiators, legislators, retirees concerned about benefit security.
 
 ---
 
@@ -222,7 +222,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Who Issues:** University investment offices, outsourced CIOs (like TIFF, Commonfund), external auditors.
 
-**Third-Party Use:** Major donors, accreditation bodies, state attorneys general (for charitable oversight), prospective faculty (endowment size signals institutional stability).
+**Who Checks It:** Major donors, accreditation bodies, state attorneys general (for charitable oversight), prospective faculty (endowment size signals institutional stability).
 
 ---
 
@@ -250,7 +250,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Who Issues:** Insurance companies, separate account administrators.
 
-**Third-Party Use:** Estate executors (claiming death benefits), divorce attorneys (valuing marital assets), elder law attorneys (Medicaid planning).
+**Who Checks It:** Estate executors (claiming death benefits), divorce attorneys (valuing marital assets), elder law attorneys (Medicaid planning).
 
 ---
 
@@ -303,7 +303,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Who Issues:** Plan recordkeepers (Fidelity, Vanguard, Empower, TIAA).
 
-**Third-Party Use:** Mortgage lenders (verifying retirement assets), divorce attorneys, QDRO administrators, DOL auditors.
+**Who Checks It:** Mortgage lenders (verifying retirement assets), divorce attorneys, QDRO administrators, DOL auditors.
 
 ---
 
@@ -332,7 +332,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Who Issues:** GP fund administrators, third-party administrators (Juniper Square, Carta).
 
-**Third-Party Use:** LP internal auditors, secondary market buyers (pricing LP stakes), regulatory filings.
+**Who Checks It:** LP internal auditors, secondary market buyers (pricing LP stakes), regulatory filings.
 
 ---
 
@@ -421,13 +421,13 @@ A verified trade confirmation at execution — hashed by both counterparties at 
 | CTAs/Commodity pools | Monthly | FCM/Admin | Track record verification |
 | Fund of funds | Monthly/Quarterly | FoF admin | Aggregation accuracy |
 
-In every case, the investor depends on **someone else's math**. Verified NAV statements let them prove that math came from the right source and hasn't been altered.
+In every case, the investor depends on someone else's math. Verified NAV statements let them prove that math came from the right source and hasn't been altered.
 
 ---
 
 ## Privacy Note: What Verification Does NOT Return
 
-Unlike ID cards (where photo return defeats cloning), NAV verification **must not return the actual valuation**. The response confirms authenticity, not contents:
+Unlike ID cards (where photo return defeats cloning), NAV verification must not return the actual valuation. The response confirms authenticity, not contents:
 
 | Verification Returns | Verification Does NOT Return |
 |---------------------|------------------------------|

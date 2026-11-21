@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is a Surety Bond?
 
-A **Surety Bond** is a three-party agreement that provides a financial guarantee that a contract will be completed. Unlike insurance (which protects the policyholder), a bond protects the **Obligee** (the project owner) from the failure of the **Principal** (the contractor).
+A Surety Bond is a three-party agreement that provides a financial guarantee that a contract will be completed. Unlike insurance (which protects the policyholder), a bond protects the Obligee (the project owner) from the failure of the Principal (the contractor).
 
-It is the "Lifeblood of Public Works." If a contractor goes bankrupt halfway through building a bridge, the **Surety Company** must either hire a new contractor to finish the job or pay the city the "Penal Sum" of the bond.
+It is the "Lifeblood of Public Works." If a contractor goes bankrupt halfway through building a bridge, the Surety Company must either hire a new contractor to finish the job or pay the city the "Penal Sum" of the bond.
 
-**"Phantom Sureties"** are a major infrastructure risk. Fraudsters issue fake bonds using the names of real insurance companies (like Travelers or Liberty Mutual) but with fake phone numbers and addresses. They collect the bond premium and disappear. Verified hashes bind the **Bond Number, the Penal Sum, and the specific Project Name** to the surety carrier's domain.
+**"Phantom Sureties"** are a major infrastructure risk. Fraudsters issue fake bonds using the names of real insurance companies (like Travelers or Liberty Mutual) but with fake phone numbers and addresses. They collect the bond premium and disappear. Verified hashes bind the Bond Number, the Penal Sum, and the specific Project Name to the surety carrier's domain.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 1px solid #333; background: #fff; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px;">
@@ -47,7 +47,13 @@ It is the "Lifeblood of Public Works." If a contractor goes bankrupt halfway thr
   </div>
 </div>
 
-## Data Verified
+## The Problem: Ghost Bond Fraud
+
+- **Penal Sum Inflation:** Editing a $1M bond to read $10M to qualify for a larger infrastructure project.
+- **Phantom Carriers:** Creating a fake bond on the letterhead of a "Shell Company" that has no assets to pay a claim.
+- **Expired Bonds:** Presenting an old bond from a completed project as "Active" for a new, un-bonded project.
+
+## What Is Checked
 
 Principal (Contractor) name, Obligee (Owner) name, Surety Company name, Bond Number, Penal Sum (numerical and text), Project Name/Contract Number, Effective Date, Expiration/Maintenance Term, Agent name/ID.
 
@@ -57,25 +63,25 @@ Principal (Contractor) name, Obligee (Owner) name, Surety Company name, Bond Num
 - **Payment Bond:** Guaranteeing sub-contractors and suppliers get paid.
 - **Maintenance Bond:** Protecting against defects after completion.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the National Surety Carrier) and the current bond status.
 
 **Status Indications:**
 - **Active/Open** — Bond is in force and fully covers the project.
 - **Released/Closed** — Project finished; surety's liability has ended.
-- **Claim Filed** — **ALERT:** An obligee or supplier has filed a formal claim against this bond.
+- **Claim Filed** — An obligee or supplier has filed a formal claim against this bond.
 - **Exhausted** — The full penal sum has already been paid out.
 
-## Second-Party Use
+## Who Holds It
 
-The **Contractor (Principal)** benefits from verification.
+The Contractor (Principal) benefits from verification.
 
 **Public Bidding:** Proving to a government agency during a "Blind Bid Opening" that their Bid Bond is verified and authentic. This prevents the contractor from being disqualified due to "Paperwork Uncertainty," which is a common cause of lost government contracts.
 
 **Supplier Trust:** Showing verified Payment Bonds to large suppliers (e.g., steel or concrete mills) to secure $1M+ in credit for project materials.
 
-## Third-Party Use
+## Who Checks It
 
 **Government Procurement Officers**
 **Bid Integrity:** Instantly verifying 50 different bid bonds during a high-speed public auction. Live Verify connects the officer directly to the surety's domain, stopping "Fake Bond" bid rigging.
@@ -86,13 +92,7 @@ The **Contractor (Principal)** benefits from verification.
 **Construction Lenders**
 **Risk Management:** Verifying that the bonds required by the loan agreement are actually in place and haven't been "edited" to show a higher penal sum.
 
-## Verification Architecture
-
-**The "Ghost Bond" Fraud Problem**
-
-- **Penal Sum Inflation:** Editing a $1M bond to read $10M to qualify for a larger infrastructure project.
-- **Phantom Carriers:** Creating a fake bond on the letterhead of a "Shell Company" that has no assets to pay a claim.
-- **Expired Bonds:** Presenting an old bond from a completed project as "Active" for a new, un-bonded project.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -119,7 +119,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the surety's hashes and status changes plus structured metadata (bond number, penal sum, principal/obligee names, effective/expiration dates) — never sensitive contractor or project details — providing non-repudiation of surety bond issuance and claim events.
 
 
-## Competition vs. Corporate Seals (Gold Foil)
+## Compared With Corporate Seals (Gold Foil)
 
 | Feature | Live Verify | Gold Foil Seal | Power of Attorney (POA) Paper |
 | :--- | :--- | :--- | :--- |
@@ -128,4 +128,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Freshness** | **Real-time.** Shows "Claim" status. | **Zero.** Paper is static. | **Static.** |
 | **Speed** | **Instant.** 5-second scan. | **N/A.** | **Slow.** Requires reading 5 pages. |
 
-**Why Live Verify wins here:** The "Bid Clock" reality. Government bids are often decided in minutes. There is no time to call a surety agent in another time zone to verify a signature. Live Verify turns the **Bond Face-Page** into a live digital portal, making "Financial Assurance" a transparent fact at the moment of award.
+**Where each fits:** The corporate seal and the attached power of attorney are the formalities that obligees and courts expect on a bond, and they continue to be required. They do not let a contracting officer confirm, at bid opening, that the surety issued this bond for this penal sum. Live Verify adds that check against the surety's domain; the seal and power of attorney stay on the bond as before.

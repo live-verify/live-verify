@@ -45,7 +45,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Medical Denial Fraud
+
+- **Negative-to-Positive Editing:** A patient who wants to stay on disability editing a "Normal" MRI to show a "Herniated Disc."
+- **Positive-to-Negative Editing:** A pilot or athlete editing a "Cardiac Abnormality" report to "Normal" to pass a physical.
+- **Radiologist Impersonation:** Creating a fake report on the letterhead of a famous imaging center to justify an unauthorized surgery or treatment.
+
+## What Is Checked
 
 Patient name, MRN/Accession number, study type (e.g., MRI, CT), anatomical region, radiologist "Impression" (digest), clinical indication, study date, report date, radiologist credentials, facility ID.
 
@@ -55,25 +61,25 @@ Patient name, MRN/Accession number, study type (e.g., MRI, CT), anatomical regio
 - **Peer Review Letter:** Verification of a second radiologist's opinion.
 - **PACS Archive Receipt:** Proving the study is legally stored.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`radpartners.com`, `mayoclinic.org`) and current report standing.
 
 **Status Indications:**
 - **Final** — Report is verified and signed by the radiologist.
-- **Addendum** — **ALERT:** A post-signing correction or update was issued.
+- **Addendum** — A post-signing correction or update was issued.
 - **Preliminary** — Unsigned draft; do not base surgery on this version.
 - **Void** — Study performed on wrong patient or technically flawed.
 
-## Second-Party Use
+## Who Holds It
 
-The **Patient** benefits from verification.
+The Patient benefits from verification.
 
 **Specialist Consultation:** Proving to a neurosurgeon at a different hospital that the "4mm cyst" finding isn't a misprint. A verified hash from the radiology group provides the surgeon with instant trust, allowing them to proceed with a treatment plan without waiting for a 2-week manual records transfer.
 
 **Insurance Appeals:** Providing verified, un-alterable evidence of a diagnostic finding to challenge an insurance denial for a follow-up procedure.
 
-## Third-Party Use
+## Who Checks It
 
 **Referring Physicians (PCPs)**
 **Diagnostic Trust:** PCPs often receive paper or PDF reports from outside imaging centers. Live Verify ensures the patient hasn't "Self-Edited" the report to remove a mention of cancer or to hide an embarrassing finding before showing it to their family doctor.
@@ -84,13 +90,7 @@ The **Patient** benefits from verification.
 **Disability Adjusters**
 **Claim Adjudication:** Verifying the structural findings (e.g., "Degenerative Disc Disease") used to justify a long-term disability claim.
 
-## Verification Architecture
-
-**The "Medical Denial" Fraud Problem**
-
-- **Negative-to-Positive Editing:** A patient who wants to stay on disability editing a "Normal" MRI to show a "Herniated Disc."
-- **Positive-to-Negative Editing:** A pilot or athlete editing a "Cardiac Abnormality" report to "Normal" to pass a physical.
-- **Radiologist Impersonation:** Creating a fake report on the letterhead of a famous imaging center to justify an unauthorized surgery or treatment.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -119,7 +119,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the radiology group's hashes and status changes plus structured metadata (patient accession numbers, study types, radiologist names, study dates, report status) — never sensitive clinical details — providing non-repudiation of the imaging report.
 
 
-## Competition vs. Patient Portals / CD-ROMs
+## Compared With Patient Portals / CD-ROMs
 
 | Feature | Live Verify | Patient Portal (MyChart) | CD-ROM / PACS Link |
 | :--- | :--- | :--- | :--- |
@@ -128,4 +128,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **Universal.** Works for any specialist. | **Siloed.** Hard to share across systems. | **Hardware-Locked.** |
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires 2FA and login. | **Very Slow.** |
 
-**Why Live Verify wins here:** The "Clinical Handoff." Specialists often work in offices separate from where the scan was taken. They meet patients who bring paper reports. They don't have time to log into 10 different hospital portals. Live Verify turns the **Physical Radiology Report** into a live, trusted clinical link that provides "Radiology-Grade" trust in seconds.
+**Where each fits:** A patient portal is the best way for patients to see their own records, and where two clinicians share a records system or an image exchange the specialist should use it, not least because it gives access to the images themselves. Often the specialist is in a separate practice and the patient arrives with a printed report. Live Verify lets the specialist confirm the imaging centre issued that report, without the patient opening their whole history; the images still travel by the usual routes.

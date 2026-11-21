@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is an Affidavit?
 
-An **Affidavit** is a written promise. It is a document where you swear under penalty of perjury that certain facts are true (e.g., "I am the same person named in that Deed").
+An Affidavit is a written promise. It is a document where you swear under penalty of perjury that certain facts are true (e.g., "I am the same person named in that Deed").
 
-To prevent people from lying, affidavits must be **Notarized**. A Notary Public checks your ID and watches you sign.
+To prevent people from lying, affidavits must be Notarized. A Notary Public checks your ID and watches you sign.
 
 In the "Robo-Signing" scandal of 2008, banks forged millions of affidavits to foreclose on homes illegally. Verification ensures that the Notary *actually* witnessed the signing and that the text hasn't been changed since.
 
@@ -51,7 +51,13 @@ In the "Robo-Signing" scandal of 2008, banks forged millions of affidavits to fo
   </div>
 </div>
 
-## Data Verified
+## The Problem: Robo-Signing Fraud
+
+- **Mass Production:** In the 2008 crisis, thousands of affidavits were signed by people who didn't read them or swear to them, often with fake notary signatures.
+- **Backdating:** Signing a document today but dating it last month to meet a deadline.
+- **Seal Forgery:** Buying a rubber stamp online and pretending to be a notary.
+
+## What Is Checked
 
 Affiant name, sworn facts (digest), date of execution, jurisdiction (State/County), notary name and commission number, type of notarial act (Jurat vs Acknowledgment).
 
@@ -61,7 +67,7 @@ Affiant name, sworn facts (digest), date of execution, jurisdiction (State/Count
 - **Financial Affidavit:** Divorce assets/debts.
 - **Self-Proving Affidavit:** Attached to a Will.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., the electronic notary platform or state registry) and the document status.
 
@@ -70,15 +76,15 @@ Shows the issuer domain (e.g., the electronic notary platform or state registry)
 - **Invalid** — Notary commission was expired at time of signing, or document altered.
 - **Withdrawn** — Affiant recanted the statement (rare, but possible).
 
-## Second-Party Use
+## Who Holds It
 
-The **Affiant** (signer) benefits from verification.
+The Affiant (signer) benefits from verification.
 
 **Anti-Tampering:** Ensuring that extra paragraphs aren't added to their sworn statement after they signed it.
 
 **Acceptance:** Ensuring their affidavit is accepted by the court/bank without "rejected for bad seal" issues.
 
-## Third-Party Use
+## Who Checks It
 
 **Courts and Clerks**
 **Filing Review:** Clerks can instantly verify that the notary is legitimate and the commission is active, preventing "robo-signing" fraud in foreclosure or debt collection cases.
@@ -89,13 +95,7 @@ The **Affiant** (signer) benefits from verification.
 **Banks**
 **Identity Theft:** Preventing fraudsters from using fake Affidavits of Identity to access dormant bank accounts.
 
-## Verification Architecture
-
-**The "Robo-Signing" Fraud Problem**
-
-- **Mass Production:** In the 2008 crisis, thousands of affidavits were signed by people who didn't read them or swear to them, often with fake notary signatures.
-- **Backdating:** Signing a document today but dating it last month to meet a deadline.
-- **Seal Forgery:** Buying a rubber stamp online and pretending to be a notary.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -118,7 +118,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the notary or court's hashes and status changes plus structured metadata (signer name, statement date) — never plaintext or sensitive personal information — providing non-repudiation of the document.
 
-## Competition vs. e-Notary / Digital Signatures
+## Compared With e-Notary / Digital Signatures
 
 | Feature | Live Verify | e-Notary (Digital Sig) | Wet Ink (Traditional) |
 | :--- | :--- | :--- | :--- |
@@ -126,6 +126,6 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Court Filing** | **Easy.** Courts often require paper or flattened PDFs. OCR works on both. | **Hard.** Flattening a PDF removes the crypto-signature. | **Standard.** But prone to forgery. |
 | **Long-Term** | **Durable.** Text is readable in 50 years. | **Fragile.** Root certificates expire; proprietary formats become obsolete. | **Durable.** |
 
-**Why Live Verify wins here:** The legal world is "Paper-Persistent." Even if a document starts digital, it often ends up printed for a judge, scanned into a case file, or mailed to a defendant. Live Verify ensures the chain of verification survives these format shifts.
+**Where each fits:** e-notarization works well while a document stays in its signed digital form, and wet-ink notarization remains what many courts and counterparties expect. Affidavits are also printed for a judge, flattened into a case file, or posted to another party, and the digital signature does not carry over to those copies. Live Verify lets whoever holds one of those copies confirm that the notary or issuing firm stands behind the exact text, so it adds to either form of notarization rather than standing in for it.
 
 See also [Legal Witnessing Future Architecture](../../docs/legal-witnessing-future-architecture.md) for a generalised model where the commissioner/notary confirms the hash corresponds to the sworn statement, and the attestation is published to an independent registry.

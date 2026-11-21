@@ -31,7 +31,13 @@ Master Service Agreement.
 <span data-verify-line="ins-pol">verify:marsh.com/portfolio/v</span> <span verifiable-text="end" data-for="ins-pol"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Document Gaps Fraud
+
+- **Selective Deletion:** Editing a multi-line summary to hide that the "Cyber" policy was cancelled for poor security.
+- **Ghost Endorsements:** Claiming a policy has a "Waiver of Subrogation" on the summary sheet when the underlying policy actually excludes it.
+- **Limit Inflation:** Changing a $1M "Umbrella" limit to $10M to meet a high-stakes contract requirement.
+
+## What Is Checked
 
 Insured name, policy numbers across multiple lines (GL, WC, Auto, Cyber), individual coverage limits, effective/expiration dates per line, deductible structures, endorsement presence (e.g., Additional Insured), issuing carriers (NAIC codes), Broker ID.
 
@@ -85,15 +91,15 @@ Broker contact: certificates@marsh.com
 
 The verifier (GC, procurement team, lender) knows immediately which line has an issue and who to contact—without needing to make phone calls to figure out which carrier in a multi-line portfolio has the problem.
 
-## Second-Party Use
+## Who Holds It
 
-The **Insured Business** benefits from verification.
+The Insured Business benefits from verification.
 
 **Master Service Agreement (MSA) Compliance:** Proving to a Fortune 500 client that the business has the complex, multi-layered insurance required by the contract. A verified "Portfolio Summary" prevents the client's procurement team from rejecting the vendor due to "Missing Endorsements."
 
 **Credit Line Renewal:** Providing verified proof of total asset protection to a lender, ensuring the company's risk is properly mitigated before capital is released.
 
-## Third-Party Use
+## Who Checks It
 
 **Enterprise Procurement / Vendor Teams**
 **Continuous Monitoring:** Instead of manually checking 1,000 separate COIs every year, procurement software can scan the hashes. If a "Segment Cancelled" alert appears on a vendor's hash, the system automatically blocks their access to sensitive data or sites.
@@ -104,13 +110,7 @@ The **Insured Business** benefits from verification.
 **M&A Due Diligence**
 **Legacy Audit:** Instantly verifying the "Retroactive Dates" and "Tail Coverage" of a target company's historical insurance portfolio.
 
-## Verification Architecture
-
-**The "Document Gaps" Fraud Problem**
-
-- **Selective Deletion:** Editing a multi-line summary to hide that the "Cyber" policy was cancelled for poor security.
-- **Ghost Endorsements:** Claiming a policy has a "Waiver of Subrogation" on the summary sheet when the underlying policy actually excludes it.
-- **Limit Inflation:** Changing a $1M "Umbrella" limit to $10M to meet a high-stakes contract requirement.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -137,7 +137,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (policy number, coverage limits, effective dates, endorsement list, insured entity name) — never claims history or loss details — providing non-repudiation of insurance coverage and an audit trail for lender and vendor verification.
 
 
-## Competition vs. ACORD Data Feeds
+## Compared With ACORD Data Feeds
 
 | Feature | Live Verify | ACORD IVANS (Carrier Feed) | Scanned PDF Summary |
 | :--- | :--- | :--- | :--- |
@@ -146,5 +146,5 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Freshness** | **Real-time.** Shows if cancelled *today*. | **Laggy.** Often 24-48 hours behind. | **Static.** |
 | **User Control** | **High.** Business shares only the *Summary*. | **Low.** Lenders see full raw data. | **High.** |
 
-**Why Live Verify wins here:** The "Contractual Reality." Large businesses don't buy insurance from a single app; they buy through brokers who assemble a "Portfolio" from 5 different carriers. Live Verify turns that **Broker Summary** into a live digital anchor that provides "Single Source of Truth" trust for a complex, multi-carrier risk strategy.
+**Where each fits:** carrier data feeds serve agencies on the network well for keeping their management systems in step with policy changes. Lenders, landlords and customers are outside that network and receive a broker's summary instead. Live Verify lets them check that summary against the issuer's domain and see whether it has since been cancelled, while the feeds continue to do the back-office work.
 

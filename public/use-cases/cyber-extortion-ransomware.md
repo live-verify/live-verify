@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is an Extortion Authorization?
 
-When a company is hit by **Ransomware** (hackers locking their servers and demanding Bitcoin), the situation is chaotic. The company must decide: "Do we pay the criminals or lose our data?"
+When a company is hit by Ransomware (hackers locking their servers and demanding Bitcoin), the situation is chaotic. The company must decide: "Do we pay the criminals or lose our data?"
 
-If they have Cyber Insurance, the insurer provides an **Extortion Payment Authorization**. This is the formal "OK" stating the insurer will reimburse the ransom.
+If they have Cyber Insurance, the insurer provides an Extortion Payment Authorization. This is the formal "OK" stating the insurer will reimburse the ransom.
 
 Because these authorizations trigger multimillion-dollar crypto-payments, they are high-stakes. Fraud happens when rogue IT staff fabricate an authorization to trick the CFO into releasing Bitcoin to a private wallet. Verified hashes ensure the "OK" actually came from the insurer's domain.
 
@@ -49,7 +49,13 @@ Because these authorizations trigger multimillion-dollar crypto-payments, they a
   </div>
 </div>
 
-## Data Verified
+## The Problem: Double Extortion Fraud
+
+- **Ghost Payments:** Rogue IT employees fabricating a "Ransomware Event" and creating fake "Insurance Authorizations" to trick the CFO into releasing Bitcoin to a private wallet.
+- **Sanctions Forgery:** Editing a "Failed" sanctions check to read "Passed" to bypass bank security controls.
+- **Limit Padding:** Altering a $500k authorization to read $5M to hide a massive internal theft under the cover of a cyber-incident.
+
+## What Is Checked
 
 Insured name, incident ID, threat actor name (if known), ransomware strain, approved payment ceiling, authorized negotiator firm, OFAC/Sanctions clearance status, date of authorization, underwriter ID.
 
@@ -59,7 +65,7 @@ Insured name, incident ID, threat actor name (if known), ransomware strain, appr
 - **Bitcoin/Monero Payment Receipt:** Proving the ransom was actually paid.
 - **Post-Breach Remediation Plan:** (Linked hash) for regulatory compliance.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`beazley.com`, `chubb.com`) and incident status.
 
@@ -69,15 +75,15 @@ Shows the issuer domain (`beazley.com`, `chubb.com`) and incident status.
 - **In-Litigation** — Claim denied (e.g., for failure to maintain security patches).
 - **Compliance Hold** — Halted due to sanctions/legal conflict.
 
-## Second-Party Use
+## Who Holds It
 
-The **Insured Company** (Victim) benefits from verification.
+The Insured Company (Victim) benefits from verification.
 
 **Board Assurance:** Proving to the Board of Directors that the $2.5M ransom payment isn't an "Unauthorized Bribe" but is a verified, legally vetted insurance authorization. This protects the C-suite from shareholder lawsuits.
 
 **Sanctions Defense:** Proving to Treasury/OFAC that the company performed a verified sanctions check before wiring crypto to a threat actor, avoiding multi-million dollar federal fines.
 
-## Third-Party Use
+## Who Checks It
 
 **Federal Regulators (FBI / CISA)**
 **Breach Monitoring:** Regulators can verify the "Official Data" of a breach report without seeing the victim's private emails. Live Verify ensures the victim isn't under-reporting the scale of data exfiltration.
@@ -88,13 +94,7 @@ The **Insured Company** (Victim) benefits from verification.
 **Cyber-Forensics Firms**
 **Negotiation History:** Firms like Kivu or Mandiant can verify prior authorization limits before engaging with a threat actor on behalf of a client.
 
-## Verification Architecture
-
-**The "Double Extortion" Fraud Problem**
-
-- **Ghost Payments:** Rogue IT employees fabricating a "Ransomware Event" and creating fake "Insurance Authorizations" to trick the CFO into releasing Bitcoin to a private wallet.
-- **Sanctions Forgery:** Editing a "Failed" sanctions check to read "Passed" to bypass bank security controls.
-- **Limit Padding:** Altering a $500k authorization to read $5M to hide a massive internal theft under the cover of a cyber-incident.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -123,7 +123,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (policy number, coverage limits, incident type authorization, incident date, insured entity name, effective period) — never incident details, ransom amounts, or claims history — providing non-repudiation of insurance coverage and an audit trail for emergency response coordination.
 
 
-## Competition vs. Secure Portals
+## Compared With Secure Portals
 
 | Feature | Live Verify | Secure Underwriter Portal | Scanned PDF Report |
 | :--- | :--- | :--- | :--- |
@@ -132,7 +132,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Immutability** | **High.** Once hashed, the record is fixed. | **Dynamic.** System records can be edited. | **Vulnerable.** |
 | **User Control** | **High.** Victim chooses when to share. | **Low.** Data controlled by the Insurer. | **High.** |
 
-**Why Live Verify wins here:** The "Fog of War." During a ransomware attack, the victim's internal systems are often **down**. They are communicating via personal phones and printed papers. Live Verify allows them to have **cryptographic trust** in the emergency papers they are receiving from their insurer, even when their own network is encrypted.
+**Where each fits:** An insurer's secure underwriter portal is the right home for the full policy file and the ongoing claim, and both sides will go back to it once systems are restored. In the middle of an attack the victim's network may be down, and instructions arrive on personal phones and printed pages. Live Verify lets the victim, or a response vendor with no portal access, confirm that an authorization really was issued by the insurer in exactly those words; the portal remains the record behind it.
 
 ### Why Would You Bother Verifying in a Crisis?
 

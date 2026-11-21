@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Corporate Resolution?
 
-When a major corporation (like Waystar Royco) wants to borrow $500 million, sell a subsidiary, or sign a high-value contract, the bank or buyer doesn't just take the CEO's word for it. They need a **Corporate Resolution**.
+When a major corporation (like Waystar Royco) wants to borrow $500 million, sell a subsidiary, or sign a high-value contract, the bank or buyer doesn't just take the CEO's word for it. They need a Corporate Resolution.
 
-This is an official document—usually a **Secretary's Certificate**—where the "Corporate Secretary" swears: "Our Board of Directors met on Tuesday and officially voted to allow the CEO to sign this specific deal."
+This is an official document—usually a Secretary's Certificate—where the "Corporate Secretary" swears: "Our Board of Directors met on Tuesday and officially voted to allow the CEO to sign this specific deal."
 
 **"Authority Fraud"** is a high-stakes corporate risk. Disgruntled or rogue officers sometimes fabricate these papers to open secret bank accounts, embezzle funds, or sell company land without board approval. Verified hashes turn these private papers into a live link to the company's official "Minute Book," protecting the corporation from its own executives.
 
@@ -45,7 +45,13 @@ This is an official document—usually a **Secretary's Certificate**—where the
   </div>
 </div>
 
-## Data Verified
+## The Problem: Phantom Resolution Fraud
+
+- **Signature Forgery:** Forging the signature of the Corporate Secretary or a Notary on a PDF extract.
+- **Backdating:** Fabricating a resolution today but dating it "Last Year" to cover up an illegal or unauthorized corporate action.
+- **Power Inflation:** Editing a resolution for a $1M loan to read $10M.
+
+## What Is Checked
 
 Corporation name, Date of board action, Specific resolution text (digest), Authorized signatories, Dollar amounts (if financial), Secretary's name, Notary name/commission, Date of certification, Law firm reference ID.
 
@@ -55,25 +61,25 @@ Corporation name, Date of board action, Specific resolution text (digest), Autho
 - **Board Minutes Extract:** A specific section of formal meeting notes.
 - **Officer's Certificate:** Certifying corporate facts (e.g., "Active Status").
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`waystar-royco.com`, `wsgr.com`) and current authority status.
 
 **Status Indications:**
 - **Active/Effective** — Resolution is valid and the authority is current.
-- **Rescinded** — **ALERT:** The Board has formally cancelled this authority.
+- **Rescinded** — The Board has formally cancelled this authority.
 - **Superseded** — A later resolution has modified these terms (linked hash).
 - **Void** — Action determined to be unauthorized or fraudulent.
 
-## Second-Party Use
+## Who Holds It
 
-The **Corporation** benefits from verification.
+The Corporation benefits from verification.
 
 **Risk Management:** Ensuring that a disgruntled executive doesn't fabricate a "Resolution to Sell Intellectual Property" to liquidate assets behind the board's back. Live Verify provides an immutable audit trail of who was authorized to sign what.
 
 **Banking / KYB:** Proving to a lender that the $500M loan authorization is verified. This speeds up "Know Your Business" (KYB) checks and reduces the risk of document rejection by bank compliance teams.
 
-## Third-Party Use
+## Who Checks It
 
 **Commercial Lenders (Banks)**
 **Authority Vetting:** Before releasing $500M, the bank's legal team must be 100% certain the person signing the loan has the board's authority. Live Verify turns the Secretary's Certificate into a live, trusted link to the company's official minute book.
@@ -84,13 +90,7 @@ The **Corporation** benefits from verification.
 **Real Estate Title Companies**
 **Closing Security:** Ensuring that the corporate officers signing a deed for a multi-million dollar property sale have the verified authority to do so, preventing future "Quiet Title" lawsuits.
 
-## Verification Architecture
-
-**The "Phantom Resolution" Fraud Problem**
-
-- **Signature Forgery:** Forging the signature of the Corporate Secretary or a Notary on a PDF extract.
-- **Backdating:** Fabricating a resolution today but dating it "Last Year" to cover up an illegal or unauthorized corporate action.
-- **Power Inflation:** Editing a resolution for a $1M loan to read $10M.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -117,7 +117,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the corporation's hashes and status changes plus structured metadata (key identifiers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the resolution it recorded.
 
 
-## Competition vs. Secretary of State (SOS)
+## Compared With Secretary of State (SOS)
 
 | Feature | Live Verify | Secretary of State (SOS) | Private Virtual Data Room |
 | :--- | :--- | :--- | :--- |
@@ -126,4 +126,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Cost** | **Low.** Standard web infra. | **High.** Filing/Search fees per document. | **Very High.** Monthly VDR costs. |
 | **User Access** | **Instant.** Scan the paper at the bank. | **Slow.** Requires filing search and payment. | **Restricted.** Access often revoked post-deal. |
 
-**Why Live Verify wins here:** Specificity. A government "Certificate of Good Standing" doesn't tell a bank who is authorized to sign a loan. Only a Corporate Resolution does. Live Verify turns that **Private Internal Document** into a verifiable artifact that can be safely shared with third parties without exposing the entire secret minute book.
+**Where each fits:** a certificate of good standing from the Secretary of State is the proper proof that a company exists, and a data room suits a full diligence exercise. A bank officer opening a facility needs something narrower: confirmation of who has been authorized to sign. Live Verify lets the company or its counsel share that single resolution in checkable form, alongside the state certificate.

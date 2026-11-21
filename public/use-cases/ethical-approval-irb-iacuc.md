@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is Ethical Approval?
 
-Before a scientist can start a study involving humans (like testing a new drug) or animals, they must get permission from an **Ethics Committee** (called an **IRB** or **IACUC**).
+Before a scientist can start a study involving humans (like testing a new drug) or animals, they must get permission from an Ethics Committee (called an IRB or IACUC).
 
-The committee reviews the plan to ensure people aren't being exploited and animals aren't being mistreated. The **Notice of Ethical Approval** is the formal "OK" to start the research.
+The committee reviews the plan to ensure people aren't being exploited and animals aren't being mistreated. The Notice of Ethical Approval is the formal "OK" to start the research.
 
 "Ethics Forgery" is a major scandal in science: sometimes researchers fabricate these letters to get their papers published or to bypass university rules. Verified hashes ensure the study's approval is backed by the university's official ethics office.
 
@@ -49,7 +49,13 @@ The committee reviews the plan to ensure people aren't being exploited and anima
   </div>
 </div>
 
-## Data Verified
+## The Problem: Ethics Forgery Fraud
+
+- **Fabricated Approvals:** A researcher creating a fake "IRB Approved" letter to bypass university rules or to get a paper published.
+- **Scope Creep:** Taking an approval for "Survey Research" and using the paper to hide invasive "Clinical Sampling" that the IRB never saw.
+- **Date Alteration:** Changing a 2022 approval to 2026 to hide that the study has been operating without oversight for years.
+
+## What Is Checked
 
 Protocol ID, Principal Investigator (PI) name, study title (digest), IRB/IACUC committee ID, risk level classification, approval date, expiration date, number of subjects authorized, specific interventions allowed.
 
@@ -59,7 +65,7 @@ Protocol ID, Principal Investigator (PI) name, study title (digest), IRB/IACUC c
 - **Continuing Review Approval:** Annual renewal of ethics.
 - **Exemption Notice:** For low-risk data-only research.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`stanford.edu`, `nih.gov`) and current approval status.
 
@@ -69,9 +75,9 @@ Shows the issuer domain (`stanford.edu`, `nih.gov`) and current approval status.
 - **Suspended** — Halted due to an adverse event or ethics violation.
 - **Closed** — Study completed; final report filed.
 
-## Second-Party Use
+## Who Holds It
 
-The **Principal Investigator (PI)** benefits from verification.
+The Principal Investigator (PI) benefits from verification.
 
 **Grant Funding:** Proving to a funding agency (e.g., NIH or NSF) that they have "Verified Ethical Approval" for their study. This is often a "Hard Stop" requirement before grant money is released.
 
@@ -79,7 +85,7 @@ The **Principal Investigator (PI)** benefits from verification.
 
 **Cross-Institutional Collaboration:** Proving to a partner university's compliance office that the primary site's IRB has already verified and approved the protocol.
 
-## Third-Party Use
+## Who Checks It
 
 **Academic Journals / Editors**
 **Integrity Review:** Instantly verifying that the "IRB Number" cited in a research paper is authentic and matches the study title/dates. This prevents "Ethics Fabrications" in high-profile research.
@@ -90,13 +96,7 @@ The **Principal Investigator (PI)** benefits from verification.
 **Clinical Trial Participants**
 **Personal Safety:** A participant can scan the hash on the consent form. "Verified by Stanford IRB" provides the peace of mind that the study is legitimate and overseen by a real ethics committee.
 
-## Verification Architecture
-
-**The "Ethics Forgery" Fraud Problem**
-
-- **Fabricated Approvals:** A researcher creating a fake "IRB Approved" letter to bypass university rules or to get a paper published.
-- **Scope Creep:** Taking an approval for "Survey Research" and using the paper to hide invasive "Clinical Sampling" that the IRB never saw.
-- **Date Alteration:** Changing a 2022 approval to 2026 to hide that the study has been operating without oversight for years.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -124,7 +124,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the IRB's hashes and status changes plus structured metadata (protocol ID, principal investigator name, study title, approval date, expiration date) — never plaintext or sensitive personal information — providing non-repudiation of the ethical approval.
 
-## Competition vs. IRB Management Systems (Click/InfoEd)
+## Compared With IRB Management Systems (Click/InfoEd)
 
 | Feature | Live Verify | IRB Portal (Click/InfoEd) | Scanned PDF Letter |
 | :--- | :--- | :--- | :--- |
@@ -133,7 +133,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Scope.** Protects the study title. | **Data-Only.** | **Vulnerable.** |
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires manual search by ID. | **N/A.** |
 
-**Why Live Verify wins here:** The "External Review" gap. Ethics committees operate in private silos. Journals, funders, and the public are locked out. Live Verify turns the **Internal Ethical Approval** into a portable, cryptographically trusted artifact that bridges the gap between institutional oversight and the global scientific community.
+**Where each fits:** An institution's IRB system holds the full protocol, amendments and correspondence, and the committee and researchers should continue to work in it. Journal editors, funders and collaborators at other institutions have no login and usually receive the approval letter as a PDF. Live Verify lets them confirm that the institution stands behind that letter and the study title and scope it states, while the detailed file stays inside the institution.
 
 ### Why Would a Journal Editor Bother?
 

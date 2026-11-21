@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is an Economic Substance Declaration?
 
-After the Panama Papers (2016) and Paradise Papers (2017) revealed how extensively shell companies in low-tax jurisdictions were used to dodge taxes, the OECD's Base Erosion and Profit Shifting (BEPS) framework forced tax havens to require companies to prove they have **genuine economic substance** — real offices, real employees, real decision-making — not just a brass plate on a lawyer's door.
+After the Panama Papers (2016) and Paradise Papers (2017) revealed how extensively shell companies in low-tax jurisdictions were used to dodge taxes, the OECD's Base Erosion and Profit Shifting (BEPS) framework forced tax havens to require companies to prove they have genuine economic substance — real offices, real employees, real decision-making — not just a brass plate on a lawyer's door.
 
-An **Economic Substance Declaration** is the annual filing where a company registered in a place like the Cayman Islands, BVI, Jersey, or Bermuda must prove to that jurisdiction's authority that it actually does something there. Without it, the jurisdiction reports the company to the home country's tax authority, and the company may be struck off.
+An Economic Substance Declaration is the annual filing where a company registered in a place like the Cayman Islands, BVI, Jersey, or Bermuda must prove to that jurisdiction's authority that it actually does something there. Without it, the jurisdiction reports the company to the home country's tax authority, and the company may be struck off.
 
 The problem: these declarations are routinely faked, fabricated, or inflated. A company claims "12 employees in George Town" when it has a shared receptionist. It claims "board meetings held quarterly in Jersey" when the directors have never left London. The jurisdiction's registrar has limited audit capacity, and the foreign tax authorities receiving these declarations have no way to verify them against the issuing jurisdiction's records.
 
@@ -59,7 +59,15 @@ With Live Verify, the declaration carries a `verify:` line bound to the jurisdic
   </div>
 </div>
 
-## Data Verified
+## The Problem: Substance Fraud
+
+- **Fabricated filings:** Company creates a fake "Substance Declaration" document claiming it was accepted by the Cayman DITC, when it was never filed at all. Banks and tax authorities currently have no way to check.
+- **Inflated substance claims:** Company files a real declaration but inflates employee counts, expenditure figures, or board meeting frequency. The registrar may accept the filing at face value — the fraud is in what was claimed.
+- **Shared substance:** Multiple entities claiming the same small office, same employees, same board meetings. Each declaration looks plausible individually; the fraud is only visible in aggregate. (Live Verify doesn't solve this directly but makes the individual filings auditable.)
+- **Stale filings:** Presenting a substance declaration from 2022 as current when the company has since laid off all staff and closed its office. Live Verify's status checking catches this — SUPERSEDED or NON-COMPLIANT.
+- **Jurisdiction shopping:** When one haven tightens substance requirements, companies migrate to another. The declaration from the previous jurisdiction is presented as still valid.
+
+## What Is Checked
 
 Entity name, registration number, relevant activity type, filing period, employee count (FTE), operating expenditure, premises address, number of board meetings held in jurisdiction, directors resident in jurisdiction, CIMA-directed activity status, date of filing.
 
@@ -69,7 +77,7 @@ Entity name, registration number, relevant activity type, filing period, employe
 - **Economic Substance Notification (ESN):** Initial notification when an entity first engages in a relevant activity.
 - **Substance Audit Report:** Result of a registrar-initiated audit of substance claims.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`ditc.ky`, `bviregulator.vg`, `jfsc.je`, `registrar.gov.bm`) and filing status.
 
@@ -80,9 +88,9 @@ Shows the issuer domain (`ditc.ky`, `bviregulator.vg`, `jfsc.je`, `registrar.gov
 - **Struck Off** — Entity removed from register for persistent non-compliance.
 - **Superseded** — Amended declaration filed.
 
-## Second-Party Use
+## Who Holds It
 
-The **Company** (or its directors) benefits from verification.
+The Company (or its directors) benefits from verification.
 
 **Bank Account Retention:** Correspondent banks increasingly require proof that offshore entities have genuine substance. A verified declaration from the Cayman DITC proves to the bank that the entity isn't a shell — it has real employees, real expenditure, real board meetings in the jurisdiction.
 
@@ -92,7 +100,7 @@ The **Company** (or its directors) benefits from verification.
 
 **Regulatory Compliance:** When the entity's home jurisdiction (e.g., UK, US, Germany) asks for proof that the offshore subsidiary has substance, a verified filing answers the question instantly.
 
-## Third-Party Use
+## Who Checks It
 
 **Foreign Tax Authorities**
 
@@ -114,15 +122,7 @@ The EU maintains a list of non-cooperative jurisdictions for tax purposes. Juris
 
 When onboarding offshore fund vehicles, administrators need to verify the fund's substance in its domicile. Verified declarations streamline this — no more chasing registered agents for notarized copies.
 
-## Verification Architecture
-
-**The Substance Fraud Problem**
-
-- **Fabricated filings:** Company creates a fake "Substance Declaration" document claiming it was accepted by the Cayman DITC, when it was never filed at all. Banks and tax authorities currently have no way to check.
-- **Inflated substance claims:** Company files a real declaration but inflates employee counts, expenditure figures, or board meeting frequency. The registrar may accept the filing at face value — the fraud is in what was claimed.
-- **Shared substance:** Multiple entities claiming the same small office, same employees, same board meetings. Each declaration looks plausible individually; the fraud is only visible in aggregate. (Live Verify doesn't solve this directly but makes the individual filings auditable.)
-- **Stale filings:** Presenting a substance declaration from 2022 as current when the company has since laid off all staff and closed its office. Live Verify's status checking catches this — SUPERSEDED or NON-COMPLIANT.
-- **Jurisdiction shopping:** When one haven tightens substance requirements, companies migrate to another. The declaration from the previous jurisdiction is presented as still valid.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -160,7 +160,7 @@ Economic substance declarations are filed with offshore registrars and endorsed 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition
+## Compared With the Alternatives
 
 | Feature | Live Verify | Registered Agent Letter | Direct Registry Search | OECD Automatic Exchange |
 | :--- | :--- | :--- | :--- | :--- |
@@ -169,7 +169,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Available to Banks** | **Yes.** Any party can verify. | **Yes.** But banks increasingly distrust agent letters. | **Varies.** Some registries require accounts. | **No.** Only available to tax authorities. |
 | **Current Status** | **Yes.** Real-time (ACCEPTED/NON-COMPLIANT). | **Point in time.** Letter is stale immediately. | **Varies.** | **Lagged.** 12-18 months behind. |
 
-**Why Live Verify wins here:** The current system has a massive gap: offshore substance declarations are filed with the registrar but are essentially unverifiable by anyone except the registrar and (eventually, annually) the home jurisdiction's tax authority. Banks doing KYC, tax advisors doing due diligence, and counterparties assessing treaty eligibility must rely on self-attestation or registered agent letters. Live Verify puts the registrar's own confirmation in the hands of anyone who needs it, in seconds.
+**Where each fits:** The existing channels each serve their intended audience: automatic exchange gets information to tax authorities, a registry search suits those with access to what the registry publishes, and an agent's letter adds a professional's attestation. Banks, advisers and counterparties are largely outside those channels and often have only the entity's own copy of its declaration. Live Verify lets them confirm that copy against the registrar's domain, without altering how the registrar reports to other authorities.
 
 ## Jurisdictional Witnessing (Optional)
 

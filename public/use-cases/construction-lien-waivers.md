@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Lien Waiver?
 
-In the construction world, workers have a "Super-Power" called a **Mechanic's Lien**. If a plumber doesn't get paid, they can file a claim against the *house itself*, preventing the owner from selling it until the bill is settled.
+In the construction world, workers have a "Super-Power" called a Mechanic's Lien. If a plumber doesn't get paid, they can file a claim against the *house itself*, preventing the owner from selling it until the bill is settled.
 
-A **Lien Waiver** is the "Receipt of Safety." It's the paper the plumber signs saying: "I have been paid $42,500, and I hereby give up my right to sue the house."
+A Lien Waiver is the "Receipt of Safety." It's the paper the plumber signs saying: "I have been paid $42,500, and I hereby give up my right to sue the house."
 
 Banks won't release construction loans without these papers. Fraud is common: contractors sometimes "reuse" an old waiver or edit the date to trick the bank into releasing cash before the workers are actually paid. Verified waivers stop this multimillion-dollar shell game.
 
@@ -40,7 +40,13 @@ Banks won't release construction loans without these papers. Fraud is common: co
   </div>
 </div>
 
-## Data Verified
+## The Problem: Lien Fraud
+
+- **Conditional Swapping:** A sub altering a "Conditional" waiver to look "Unconditional" to trick an owner into thinking the bill is settled.
+- **Date Alteration:** Editing the "Through Date" from April to May to hide 30 days of unpaid liability.
+- **Signature Forgery:** GCs forging sub-contractor waivers to keep the bank draws moving during a cash crunch.
+
+## What Is Checked
 
 Claimant (Subcontractor), Customer (GC), Job address, Payment amount (numerical/text), "Through Date" (liability cutoff), Waiver type (Conditional/Unconditional), payment reference (Check/Wire #), signatory authority.
 
@@ -50,7 +56,7 @@ Claimant (Subcontractor), Customer (GC), Job address, Payment amount (numerical/
 - **Final Waiver & Release:** Relinquishing all remaining lien rights upon final payment.
 - **Supplier Lien Waiver:** For material-only vendors.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Subcontractor or their Payment Platform) and status.
 
@@ -60,15 +66,15 @@ Shows the issuer domain (the Subcontractor or their Payment Platform) and status
 - **Disputed** — Claimant has reported a bounced check or payment error.
 - **Void** — Replaced by a corrected waiver.
 
-## Second-Party Use
+## Who Holds It
 
-The **General Contractor (GC)** benefits from verification.
+The General Contractor (GC) benefits from verification.
 
 **Draw Management:** GCs manage hundreds of waivers per month. Live Verify allows them to verify the *content* of the waivers (amounts/dates) against the digital record provided by the sub, preventing the "Photoshop Date Slide" where a sub re-uses an old waiver to get a new check.
 
 **Risk Mitigation:** Ensuring that Tier-2 suppliers (who the GC doesn't know) have actually been paid by the sub-contractors, preventing a "Surprise Lien" from a supplier later.
 
-## Third-Party Use
+## Who Checks It
 
 **Title Insurance Companies**
 **Closing Clearance:** Title officers verify every waiver in the project file before insuring a property sale or refinance. Verification prevents "Mechanics Lien Priority" disputes that can cost millions.
@@ -79,13 +85,7 @@ The **General Contractor (GC)** benefits from verification.
 **Property Owners**
 **Lien Defense:** Proving in court that a subcontractor was paid in full, using an immutable audit trail of verified releases.
 
-## Verification Architecture
-
-**The "Lien Fraud" Problem**
-
-- **Conditional Swapping:** A sub altering a "Conditional" waiver to look "Unconditional" to trick an owner into thinking the bill is settled.
-- **Date Alteration:** Editing the "Through Date" from April to May to hide 30 days of unpaid liability.
-- **Signature Forgery:** GCs forging sub-contractor waivers to keep the bank draws moving during a cash crunch.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -112,7 +112,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the claimant's hashes and status changes plus structured metadata (project name and ID, claimant name, payment amount, period covered, waiver date) — never details of disputes or partial payments — providing non-repudiation of the lien waiver and an audit trail for banks and title companies.
 
 
-## Competition vs. Payment Portals (Textura)
+## Compared With Payment Portals (Textura)
 
 | Feature | Live Verify | Textura / Procore Pay | Paper / Email PDF |
 | :--- | :--- | :--- | :--- |
@@ -121,4 +121,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **High.** PDFs stay verifiable across systems. | **Low.** Hard to export "Trust" to a different system. | **Manual.** |
 | **Cost** | **Low.** Minimal infrastructure. | **High.** Fees often 0.2% of contract value. | **None.** |
 
-**Why Live Verify wins here:** The "Data Room" problem. In a property sale, the buyer's lawyer needs to verify the last 3 years of construction waivers. They don't have access to the seller's private Procore portal. Live Verify provides **Portable Trust** that travels with the PDF into the data room and survives long after the project software has been deactivated.
+**Where each fits:** payment platforms handle waiver collection well for the parties on a project who use the same platform. A buyer's lawyer reviewing past waivers in a data room, or a lender who never joined the project, has no access to it, and the project workspace may have been closed. Live Verify lets them check a waiver PDF against the payee's domain, and it can be applied to waivers generated through a platform as readily as to those issued without one.

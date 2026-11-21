@@ -11,14 +11,14 @@ furtherDerivations: 1
 
 ## What is a Yield Report?
 
-Modern farm equipment (like a John Deere combine) is full of sensors that measure exactly how much grain is harvested from every inch of a field. This data is used to create a **Yield Report**.
+Modern farm equipment (like a John Deere combine) is full of sensors that measure exactly how much grain is harvested from every inch of a field. This data is used to create a Yield Report.
 
 This report is the "Bottom Line" for a farm. It is used to:
 1.  **Calculate Rent:** In "Yield-Share" leases where the landlord gets a % of the crop.
 2.  **Claim Insurance:** Proving how much crop was lost to a storm.
 3.  **Get Loans:** Proving the farm is productive.
 
-Fraud happens when a farmer "Edits" the report to show a lower yield (to pay less rent or get more insurance money). Verified hashes bind the **Static PDF Report** to the equipment's official cloud log, ensuring the numbers are the "Mechanical Truth."
+Fraud happens when a farmer "Edits" the report to show a lower yield (to pay less rent or get more insurance money). Verified hashes bind the Static PDF Report to the equipment's official cloud log, ensuring the numbers are the "Mechanical Truth."
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Courier New', Courier, monospace; border: 1px solid #333; background: #fff; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
   <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 20px;">
@@ -50,7 +50,13 @@ Fraud happens when a farmer "Edits" the report to show a lower yield (to pay les
   </div>
 </div>
 
-## Data Verified
+## The Problem: Ghost Harvest Fraud
+
+- **Yield Inflation:** Editing a 180 BU/ACRE yield to 220 BU/ACRE to inflate the farm's value before a sale.
+- **Production Under-reporting:** Changing a 200 BU/ACRE yield to 140 BU/ACRE to trigger a fraudulent crop insurance payout.
+- **Calibration Fraud:** Claiming sensors were calibrated when they weren't, leading to inaccurate (usually inflated) numbers.
+
+## What Is Checked
 
 Producer name, field GPS boundaries, crop type, total weight/volume, average moisture content, calculated yield per acre (Bushels/Acre), equipment ID, operator ID, harvest timestamp, calibration status of sensors.
 
@@ -60,7 +66,7 @@ Producer name, field GPS boundaries, crop type, total weight/volume, average moi
 - **Production Report:** Mandatory filing for federal crop insurance.
 - **Traceability Certificate:** Proving origin for "Organic" or "Non-GMO" premiums.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`deere.com`, `climate.com`, `trimble.com`) and data status.
 
@@ -70,15 +76,15 @@ Shows the issuer domain (`deere.com`, `climate.com`, `trimble.com`) and data sta
 - **Audited** — Figures match the scale tickets from the elevator.
 - **Disputed** — Conflict detected between multiple monitoring systems.
 
-## Second-Party Use
+## Who Holds It
 
-The **Farmer (Producer)** benefits from verification.
+The Farmer (Producer) benefits from verification.
 
 **Crop Insurance Claims:** Proving to an insurance adjuster that the "150 BU/ACRE" yield loss isn't a fabricated number. A verified hash from the John Deere or Climate FieldView domain provides the adjuster with instant, trusted evidence, speeding up the $50,000+ claim payout.
 
 **Landlord Rent:** In "Yield-Based" leases, providing verified proof of the harvest to the landowner to calculate the correct rent payment, preventing disputes over "Under-reporting."
 
-## Third-Party Use
+## Who Checks It
 
 **Crop Insurance Companies (AIPs)**
 **Claim Adjudication:** Instantly verifying the "Acreage and Production" (APH) history of a farm. Live Verify ensures the farmer hasn't "Photoshopped" a better yield history to get a higher insurance guarantee.
@@ -89,13 +95,7 @@ The **Farmer (Producer)** benefits from verification.
 **Ag-Lenders (Banks)**
 **Credit Scoring:** Verifying the historical productivity of a farm before approving a multi-million dollar mortgage or equipment loan.
 
-## Verification Architecture
-
-**The "Ghost Harvest" Fraud Problem**
-
-- **Yield Inflation:** Editing a 180 BU/ACRE yield to 220 BU/ACRE to inflate the farm's value before a sale.
-- **Production Under-reporting:** Changing a 200 BU/ACRE yield to 140 BU/ACRE to trigger a fraudulent crop insurance payout.
-- **Calibration Fraud:** Claiming sensors were calibrated when they weren't, leading to inaccurate (usually inflated) numbers.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -122,7 +122,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the equipment manufacturer's or producer's hashes and status changes plus structured metadata (harvest ID, field/section, crop type, total yield in bushels per acre, harvest date, equipment ID) — never producer financial data or lease terms — providing non-repudiation of yield data and an audit trail for crop insurance and lender verification.
 
 
-## Competition vs. Ag-Tech APIs
+## Compared With Ag-Tech APIs
 
 | Feature | Live Verify | Ag-Tech API (FieldView) | Paper Scale Ticket |
 | :--- | :--- | :--- | :--- |
@@ -131,4 +131,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **Universal.** Works across all combine brands. | **Low.** Hard to link a JD combine to a Case IH app. | **Universal.** |
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires account linking and permissions. | **N/A.** |
 
-**Why Live Verify wins here:** The "Field Handoff." Insurance adjusters and bank officers meet farmers in trucks or barns. They work with PDFs and paper printouts. They don't have the technical expertise or time to "Link API Accounts" across 5 different ag-tech platforms. Live Verify turns the **Static Yield Report** into a live, trusted clinical link.
+**Where each fits:** Ag-tech platform integrations give an insurer or lender far richer data than a summary page, and where the farmer is content to link accounts they are the better source. Many farmers prefer not to share field-level maps, and an adjuster or loan officer may deal with several equipment brands and have integrations with none of them. Live Verify lets that person confirm the equipment maker or platform stands behind the yield summary the farmer hands over, leaving the detailed data where it is.

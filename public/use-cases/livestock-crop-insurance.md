@@ -34,7 +34,13 @@ Underwritten in accordance with USDA Risk Management Agency (RMA).
 <span data-verify-line="ag-pol">verify:naucountry.com/policy/v</span> <span verifiable-text="end" data-for="ag-pol"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Phantom Acre Fraud
+
+- **Acreage Padding:** Claiming to have 1,200 insured acres on the paper summary shown to the bank, while only paying for 500 acres at the insurance company.
+- **Status Faking:** Showing an old "Active" paper for a policy that was cancelled for non-payment mid-season.
+- **Entity Fraud:** Using a shell company name to bypass federal subsidy limits while using a verified looking PDF to get a loan.
+
+## What Is Checked
 
 Insured name, FIPS county code, specific crop types/livestock categories, total acreage/head count, coverage level % (e.g., 85%), total policy liability, effective/expiration dates, underwriter ID, RMA plan code (e.g., RP - Revenue Protection).
 
@@ -44,7 +50,7 @@ Insured name, FIPS county code, specific crop types/livestock categories, total 
 - **Acreage Report:** (Linked hash) proving exactly what was planted.
 - **Actual Production History (APH) Report:** Verified 5-year yield data.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`naucountry.com`, `fmh.com`, `rainhail.com`) and current policy status.
 
@@ -52,17 +58,17 @@ Shows the issuer domain (`naucountry.com`, `fmh.com`, `rainhail.com`) and curren
 - **In Force** — Premium paid; crops/herd are verified covered.
 - **Adjusted** — Field report finalized; limits locked.
 - **Claim Pending** — Notice of loss filed (e.g., for drought).
-- **Lapsed/Cancelled** — **ALERT:** Policy not current; rural bank collateral is unprotected.
+- **Lapsed/Cancelled** — Policy not current; rural bank collateral is unprotected.
 
-## Second-Party Use
+## Who Holds It
 
-The **Farmer (Producer)** benefits from verification.
+The Farmer (Producer) benefits from verification.
 
 **Operating Loans:** Proving to an ag-lender (e.g., Rabobank or Farm Credit) that the $1.2M in "Revenue Liability" is verified. This allows the farmer to use the insurance as collateral for high-value loans to buy fertilizer and feed.
 
 **Landlord Assurance:** Proving to a major landowner that their share of the "Crop Share" lease is verified protected against natural disasters.
 
-## Third-Party Use
+## Who Checks It
 
 **Ag-Lenders (Banks)**
 **Collateral Protection:** Banks require crop insurance to protect their loans against weather risk. Verification ensures the farmer hasn't "Edited" the paper summary to show 85% coverage when they only paid for 50%.
@@ -73,13 +79,7 @@ The **Farmer (Producer)** benefits from verification.
 **Grain Elevators**
 **Forward Contracts:** Verifying that a farmer has the revenue protection insurance to back up a forward-delivery contract for 100,000 bushels.
 
-## Verification Architecture
-
-**The "Phantom Acre" Fraud Problem**
-
-- **Acreage Padding:** Claiming to have 1,200 insured acres on the paper summary shown to the bank, while only paying for 500 acres at the insurance company.
-- **Status Faking:** Showing an old "Active" paper for a policy that was cancelled for non-payment mid-season.
-- **Entity Fraud:** Using a shell company name to bypass federal subsidy limits while using a verified looking PDF to get a loan.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -106,7 +106,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurance provider's hashes and status changes plus structured metadata (policy number, coverage type, acreage, coverage level, effective dates) — never farm location, farmer identity, or production history — providing non-repudiation of the insurance policy and an audit trail USDA administrators can inspect.
 
 
-## Competition vs. USDA Portals
+## Compared With USDA Portals
 
 | Feature | Live Verify | USDA / RMA Public Search | Scanned PDF Summary |
 | :--- | :--- | :--- | :--- |
@@ -115,4 +115,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Detail** | **High.** Shows specific fields and head count. | **Low.** Often only shows aggregated county data. | **Full.** |
 | **Speed** | **Instant.** Scan at the farm gate. | **Slow.** Requires multiple Gov-ID hoops. | **Instant.** |
 
-**Why Live Verify wins here:** The "Ag-Banking" reality. Local bank officers and farmers often work via paper folders and email. They don't have the technical "Federal Vetting" or time to log into the USDA's internal systems for every $50,000 loan. Live Verify turns the **Insurance Summary** into a live, high-speed trust bridge, allowing rural finance to move at the speed of the web.
+**Where each fits:** USDA and RMA systems are the official record for federal crop insurance, and producers and approved insurance providers will continue to work through them. A local bank officer or landlord reviewing a loan or a lease usually has no access to those systems and is handed the coverage summary instead. Live Verify lets them confirm the carrier issued that summary, as a companion to the federal record.

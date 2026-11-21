@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Certified Translation?
 
-Embassies, courts, and universities won't accept a document (like a Birth Certificate or a Diploma) if it's in a foreign language. You must provide a **Certified Translation**.
+Embassies, courts, and universities won't accept a document (like a Birth Certificate or a Diploma) if it's in a foreign language. You must provide a Certified Translation.
 
-A Certified Translation isn't just a translated page; it includes a **Certificate of Accuracy** where a qualified linguist swears that the English version matches the Spanish (or French, etc.) version exactly.
+A Certified Translation isn't just a translated page; it includes a Certificate of Accuracy where a qualified linguist swears that the English version matches the Spanish (or French, etc.) version exactly.
 
 Fraud is common: people often "edit" their translated grades or court records to look better before sending them to a visa officer. Verified hashes ensure that the *text* of the translation hasn't been tampered with since the linguist signed it.
 
@@ -46,7 +46,13 @@ Fraud is common: people often "edit" their translated grades or court records to
   </div>
 </div>
 
-## Data Verified
+## The Problem: PDF Edit Fraud
+
+- **Terms Alteration:** Changing "Guilty" to "Not Guilty" in a translated court record.
+- **Grade Inflation:** Editing a translated university transcript to change a "C" to an "A."
+- **Fake Agencies:** Creating a fake "Certified Translation" letterhead for an un-certified, unqualified translator.
+
+## What Is Checked
 
 Translator name, credentials (e.g., ATA certification #), source language, target language, title of original document, subject name, number of pages, date of certification, notary name/commission (if notarized).
 
@@ -55,7 +61,7 @@ Translator name, credentials (e.g., ATA certification #), source language, targe
 - **Notarized Translation:** Required for many government filings.
 - **Sworn Translation:** (Traducteur Assermenté) common in Europe.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Translation Firm or Platform) and current status.
 
@@ -64,15 +70,15 @@ Shows the issuer domain (the Translation Firm or Platform) and current status.
 - **Superseded** — Replaced by a newer version (e.g., due to a correction).
 - **Invalid** — Disavowed by the translator (e.g., signature forgery).
 
-## Second-Party Use
+## Who Holds It
 
-The **Linguist / Translation Agency** benefits from verification.
+The Linguist / Translation Agency benefits from verification.
 
 **Reputation Protection:** Ensuring that an unscrupulous client doesn't "edit" the translated PDF (e.g., changing a date or a legal term) while keeping the translator's official signature/seal on the letterhead.
 
 **Business Efficiency:** Reducing the time spent manually confirming "Did you translate this?" phone calls from embassies or courts.
 
-## Third-Party Use
+## Who Checks It
 
 **Embassies / Consulates**
 **Visa Adjudication:** Verifying that the birth certificate or marriage license translation hasn't been altered to hide a criminal record or change a name.
@@ -83,13 +89,7 @@ The **Linguist / Translation Agency** benefits from verification.
 **Courts / Legal Counsel**
 **Evidence Admissibility:** Proving the "Chain of Accuracy" for translated foreign evidence in litigation.
 
-## Verification Architecture
-
-**The "PDF Edit" Fraud Problem**
-
-- **Terms Alteration:** Changing "Guilty" to "Not Guilty" in a translated court record.
-- **Grade Inflation:** Editing a translated university transcript to change a "C" to an "A."
-- **Fake Agencies:** Creating a fake "Certified Translation" letterhead for an un-certified, unqualified translator.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -116,7 +116,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the translation firm's hashes and status changes plus structured metadata (certificate ID, source and target languages, document type, translator name and credentials, certification date) — never source or translated text — providing non-repudiation of the certification and an audit trail for immigration and legal proceedings.
 
 
-## Competition vs. Physical Seals / Notarization
+## Compared With Physical Seals / Notarization
 
 | Feature | Live Verify | Notary Seal (Embossed) | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -125,4 +125,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **User Control** | **High.** Share only the verified doc. | **Medium.** Prone to loss. | **Low.** |
 | **Speed** | **Instant.** 5-second scan. | **Manual.** Requires visual expert. | **N/A.** |
 
-**Why Live Verify wins here:** Content Protection. A Notary only proves that "John Smith signed this paper." They do not read the translation or verify its accuracy. Live Verify binds the **actual translated text** to the Translation Firm's domain, ensuring the *message* hasn't been tampered with.
+**Where each fits:** a notary's seal attests to who signed the certification, and where an authority requires notarization it still has to be obtained. The seal says nothing about whether the translated text has since been altered. Live Verify lets the receiving office confirm that the translation firm stands behind the exact wording, so it accompanies the seal rather than replacing it. Neither one vouches for the accuracy of the translation itself.

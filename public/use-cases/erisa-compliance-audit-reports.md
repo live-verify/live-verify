@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is an ERISA Audit?
 
-If a company has a 401(k) or pension plan with more than 100 people, the government (Department of Labor) requires an independent audit to ensure the money is actually there. This is governed by a law called **ERISA**.
+If a company has a 401(k) or pension plan with more than 100 people, the government (Department of Labor) requires an independent audit to ensure the money is actually there. This is governed by a law called ERISA.
 
-The **Compliance Audit Report** is the auditor's "Clean Bill of Health." It states that the company isn't "borrowing" from the pension fund and that all employees are getting the matches they were promised.
+The Compliance Audit Report is the auditor's "Clean Bill of Health." It states that the company isn't "borrowing" from the pension fund and that all employees are getting the matches they were promised.
 
 If a company is in financial trouble, they might "Edit" this report to hide a funding shortfall from their workers and the government. Verified hashes ensure the auditor's true findings match the federal filing.
 
@@ -48,7 +48,13 @@ If a company is in financial trouble, they might "Edit" this report to hide a fu
   </div>
 </div>
 
-## Data Verified
+## The Problem: Funding Smoothing Fraud
+
+- **Percent Tampering:** Editing a "92% Funded" status to read "102% Funded" to avoid mandatory federal catch-up payments.
+- **Opinion Editing:** Removing a "Significant Deficiency" footnote from the audit report before sending it to the DOL.
+- **Actuary Impersonation:** Creating a fake audit report on the letterhead of a reputable firm using the license number of an actuary who didn't actually perform the work.
+
+## What Is Checked
 
 Plan sponsor name, plan year, audit opinion type (Unqualified/Qualified/Adverse), funding percentage, Enrolled Actuary (EA) name/license, Form 5500 filing date, material findings summary, date of audit completion.
 
@@ -58,7 +64,7 @@ Plan sponsor name, plan year, audit opinion type (Unqualified/Qualified/Adverse)
 - **Summary Annual Report (SAR):** Proving the plan is healthy to participants.
 - **Fiduciary Compliance Letter:** For trustee protection.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`milliman.com`, `mercer.com`) and current audit standing.
 
@@ -68,15 +74,15 @@ Shows the issuer domain (`milliman.com`, `mercer.com`) and current audit standin
 - **In-Litigation** — Audit findings are being formally disputed by the sponsor.
 - **Invalid** — Signatory not authorized or license inactive at time of audit.
 
-## Second-Party Use
+## Who Holds It
 
-The **Plan Sponsor (Employer)** benefits from verification.
+The Plan Sponsor (Employer) benefits from verification.
 
 **DOL/IRS Audit Defense:** Proving to the Department of Labor (DOL) that the "Unqualified Opinion" on the 401(k) isn't a fake PDF created to hide a funding shortfall. A verified hash from a top actuarial firm provides instant "Zero-Fault" trust to federal auditors.
 
 **Employee Trust:** Displaying the "Verified Healthy" status on the employee benefit portal to reassure workers that their retirement savings are being managed responsibly.
 
-## Third-Party Use
+## Who Checks It
 
 **Department of Labor (EBSA)**
 **Enforcement:** Regulators can verify the authenticity of Form 5500 attachments across millions of plans. Live Verify prevents "Opinion Shopping" where a company hides a "Qualified" audit and submits a "Fake Unqualified" one.
@@ -87,13 +93,7 @@ The **Plan Sponsor (Employer)** benefits from verification.
 **Plan Participants (Employees)**
 **Governance Transparency:** Ensuring that the annual "Healthy Plan" notice they receive in the mail is actually what the external auditor signed.
 
-## Verification Architecture
-
-**The "Funding Smoothing" Fraud Problem**
-
-- **Percent Tampering:** Editing a "92% Funded" status to read "102% Funded" to avoid mandatory federal catch-up payments.
-- **Opinion Editing:** Removing a "Significant Deficiency" footnote from the audit report before sending it to the DOL.
-- **Actuary Impersonation:** Creating a fake audit report on the letterhead of a reputable firm using the license number of an actuary who didn't actually perform the work.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -120,7 +120,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the auditor's hashes and status changes plus structured metadata (plan name, plan year ending, audit result, funding status, auditor enrollment number, audit date, auditor firm name) — never plaintext plan details or member information — providing non-repudiation of the ERISA compliance audit report.
 
 
-## Competition vs. Form 5500 Public Search (EFAST2)
+## Compared With Form 5500 Public Search (EFAST2)
 
 | Feature | Live Verify | EFAST2 Search (DOL) | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -129,4 +129,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** Scan the paper at the board meeting. | **Slow.** Requires finding the EIN and downloading 50MB PDFs. | **Instant.** |
 | **Freshness** | **Real-time.** Shows if firm retracted opinion. | **Laggy.** Depends on annual filing cycles. | **Static.** |
 
-**Why Live Verify wins here:** The "Audit Gap." Federal databases only know what was *filed*. If a company files a fake document, the database is wrong. Live Verify links the verifier back to the **Auditor's Record**, ensuring the data matches the professional's actual findings, not just the company's filing.
+**Where each fits:** EFAST2 is the official public record of what a plan filed with the Department of Labor, and it is the right source for filing history and for comparison across plans. It records what was submitted and follows the annual filing cycle. Live Verify adds a different check: a trustee, participant or acquirer holding the audit report can confirm that the audit firm itself stands behind that text. The federal filing and the auditor's own confirmation are best read together.

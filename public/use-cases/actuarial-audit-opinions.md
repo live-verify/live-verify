@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 Insurance companies don't sell products; they sell promises ("If your house burns down, we pay"). The danger is that they might collect premiums today but not have enough money to pay claims tomorrow.
 
-An **Actuarial Opinion** is a formal certification by a math expert (an Actuary) stating: "I have calculated the numbers, and this insurance company has set aside enough money (reserves) to pay its future claims."
+An Actuarial Opinion is a formal certification by a math expert (an Actuary) stating: "I have calculated the numbers, and this insurance company has set aside enough money (reserves) to pay its future claims."
 
 If this document is faked or altered, regulators might let a bankrupt insurance company keep selling policies, leading to disaster.
 
@@ -45,7 +45,13 @@ If this document is faked or altered, regulators might let a bankrupt insurance 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Actuarial Fraud
+
+- **Rogue Actuary:** An individual actuary issuing an opinion on firm letterhead without going through the firm's internal peer review or quality assurance process.
+- **Management Tampering:** Company management slightly altering the "Risk of Material Adverse Deviation" section to sound less alarming before filing.
+- **Qualification Inflation:** An actuary signing an opinion for a line of business they aren't qualified for (e.g., a health actuary signing a property casualty opinion).
+
+## What Is Checked
 
 Appointed actuary name, qualifications (FCAS/MAAA), valuation date, company subject to opinion, opinion type (Reasonable, Redundant, Excessive, Qualified, No Opinion), ASOP compliance statement.
 
@@ -54,7 +60,7 @@ Appointed actuary name, qualifications (FCAS/MAAA), valuation date, company subj
 - **Actuarial Opinion Summary (AOS)**
 - **Loss Reserve Specialist Report**
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the actuarial firm) and the current validity.
 
@@ -63,9 +69,9 @@ Shows the issuer domain (the actuarial firm) and the current validity.
 - **Withdrawn** — The actuary or firm has retracted the opinion (e.g., due to discovery of data errors).
 - **Superseded** — A revised opinion has been issued.
 
-## Second-Party Use
+## Who Holds It
 
-The **Insurance Company** (client) benefits from verification.
+The Insurance Company (client) benefits from verification.
 
 **Regulatory Filing:** Proving to state insurance commissioners that the opinion is authentic and from a qualified actuary.
 
@@ -73,7 +79,7 @@ The **Insurance Company** (client) benefits from verification.
 
 **Board Assurance:** Giving directors confidence that the opinion in their board pack is the exact text signed by the external actuary, without modification by management.
 
-## Third-Party Use
+## Who Checks It
 
 **State Insurance Regulators**
 
@@ -87,13 +93,7 @@ The **Insurance Company** (client) benefits from verification.
 
 **Treaty Pricing:** Reinsurers reviewing ceding company data need to trust the reserve adequacy opinions. Verification builds trust in the underlying data quality.
 
-## Verification Architecture
-
-**The Actuarial Fraud Problem**
-
-- **Rogue Actuary:** An individual actuary issuing an opinion on firm letterhead without going through the firm's internal peer review or quality assurance process.
-- **Management Tampering:** Company management slightly altering the "Risk of Material Adverse Deviation" section to sound less alarming before filing.
-- **Qualification Inflation:** An actuary signing an opinion for a line of business they aren't qualified for (e.g., a health actuary signing a property casualty opinion).
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -121,7 +121,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the auditing firm's hashes and status changes plus structured metadata (company name, fiscal year, opinion type) — never plaintext or sensitive personal information — providing non-repudiation of the document.
 
-## Competition vs. Digital Signatures (PKI)
+## Compared With Digital Signatures (PKI)
 
 | Feature | Live Verify | Digital Signature (PKI) |
 | :--- | :--- | :--- |
@@ -130,5 +130,5 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Revocation** | **Instant.** Issuer removes hash or changes status to WITHDRAWN. | **Complex.** Requires CRL (Certificate Revocation List) or OCSP checking, which often fails in long-term archives. |
 | **Firm vs. Individual** | **Firm-Centric.** Binds to the firm's domain. | **Individual-Centric.** Binds to the signer's personal token (unless using expensive corp seals). |
 
-**Why Live Verify wins here:** Actuarial opinions travel through many hands: drafted in Word, PDF'd, emailed to client, printed for Board meeting, scanned for regulator, uploaded to data room. PKI signatures rarely survive this journey intact. Live Verify survives printing and scanning, ensuring the *content* remains verifiable at every step.
+**Where each fits:** a digitally signed PDF remains the right choice while the opinion stays in its original electronic form, for example a direct filing with a regulator that validates the signature. Opinions also get printed for board books, scanned, and uploaded to data rooms, and a signature does not usually survive that journey. Live Verify covers those later copies, letting a reader with only a browser confirm that the firm still stands behind the text, so the two can sit on the same document.
 

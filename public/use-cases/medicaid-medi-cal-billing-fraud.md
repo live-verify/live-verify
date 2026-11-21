@@ -185,7 +185,7 @@ Each fraud pattern addressed individually is valuable. But the compound effect o
 
 **An upcoding scheme** requires: (1) encounter claims that match the billed codes (published before billing, visible to the patient), or (2) changing encounter claims after the fact (detectable if a witness service is present). The contemporaneous encounter record is the check.
 
-## Data Verified
+## What Is Checked
 
 Provider identity (NPI, name, license number, domain), beneficiary identity (Medi-Cal ID, managed care plan, PCP assignment), date of service, CPT/HCPCS codes for services rendered, rendering provider credentials, referral/prior authorization chain, supply UDI/lot numbers (for single-use supplies).
 
@@ -198,7 +198,7 @@ Provider identity (NPI, name, license number, domain), beneficiary identity (Med
 
 **Privacy Salt:** Required for beneficiary-identifying information. Encounter claims use partial beneficiary IDs (last 4 digits). Full beneficiary details are accessible only through DHCS's systems with appropriate authorization. The hash covers the full text (including the partial ID), but the verification response reveals only status.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`westsidechc.org` for encounter claims, `dhcs.ca.gov` for authorizations and eligibility) and current status.
 
@@ -210,9 +210,9 @@ Shows the issuer domain (`westsidechc.org` for encounter claims, `dhcs.ca.gov` f
 - **Suspended** — Under investigation; payment should be held.
 - **404** — No matching record. For encounter claims, this means no service was documented at this provider for this hash.
 
-## Second-Party Use
+## Who Holds It
 
-The **Medi-Cal provider** benefits from verification.
+The Medi-Cal provider benefits from verification.
 
 **Proof of service delivery:** Legitimate providers can demonstrate that every billed service has a corresponding verified encounter claim. During an audit, the provider can show that their encounter hashes match their billing claims one-to-one.
 
@@ -220,7 +220,7 @@ The **Medi-Cal provider** benefits from verification.
 
 **Referral legitimacy:** A specialist can demonstrate that every patient they treated arrived through a verified referral chain, not through a kickback arrangement.
 
-## Third-Party Use
+## Who Checks It
 
 **DHCS (Department of Health Care Services)**
 
@@ -244,7 +244,7 @@ The **Medi-Cal provider** benefits from verification.
 
 **Federal oversight:** The pattern is not California-specific. CMS could mandate encounter verification for all state Medicaid programs. The infrastructure is the same — only the state DHCS domains change.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Unverifiable Claim" Problem**
 
@@ -293,7 +293,7 @@ Medi-Cal providers operate under DHCS oversight, which operates under CMS federa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | Current Medi-Cal Billing | DHCS Post-Payment Review | Commercial Fraud Analytics |
 | :--- | :--- | :--- | :--- | :--- |
@@ -303,7 +303,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Beneficiary awareness** | **Yes.** Patient receives encounter notification. | **No.** Patient may never see the claim. | **Sometimes.** If patient is contacted during investigation. | **No.** |
 | **Cost** | **Low.** Standard web infrastructure per provider. | **Zero.** (but fraud costs billions) | **High.** Investigators, auditors, prosecutors. | **Very high.** Licensed analytics platforms. |
 
-**Why Live Verify wins here:** The shift from pay-and-chase to verify-before-pay. Current Medi-Cal fraud detection is forensic — it analyzes claims after payment and tries to recover money from fraudsters who have already spent it. Live Verify makes the encounter itself the first check: no verified encounter, no payment. The fraud is prevented, not detected after the fact.
+**Where each fits:** Post-payment review and commercial analytics are good at what a single-claim check cannot do: spotting patterns across thousands of claims, outlier providers and organised schemes, and building cases for recovery. Their limitation is timing, since they act on claims already paid. A verified encounter record adds an earlier check at submission, so a claim with no matching encounter can be questioned before money moves. The statistical and investigative work continues alongside it for everything a per-encounter check does not catch.
 
 ## Broader Applicability
 

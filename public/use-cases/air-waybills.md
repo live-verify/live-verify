@@ -11,7 +11,7 @@ furtherDerivations: 2
 
 ## What is an Air Waybill?
 
-An **Air Waybill (AWB)** is the legal contract between a shipper and an airline. It serves three vital roles:
+An Air Waybill (AWB) is the legal contract between a shipper and an airline. It serves three vital roles:
 1.  **Receipt:** Proof the airline received the goods.
 2.  **Contract of Carriage:** The legal agreement defining where the goods are going and who pays.
 3.  **Guide:** It travels with the cargo and tells ground crews how to handle it (e.g., "Keep Frozen").
@@ -39,7 +39,13 @@ Executed on:  14MAR26 at SFO by Agent: Expeditors
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Waybill Fraud
+
+- **Ghost Shipments:** Creating a fake AWB to claim payment from a buyer or bank (Trade Finance fraud) when no goods were shipped.
+- **Weight Fraud:** Declaring low weight to airline to save freight costs, but high weight to customer to charge more.
+- **Illegal Exports:** Mislabeling dangerous goods (batteries, chemicals) as "General Cargo" on the paper AWB to bypass safety checks.
+
+## What Is Checked
 
 AWB Number (Master or House), shipper, consignee, pieces, weight, nature of goods, flight details, execution date, carrier signature.
 
@@ -48,7 +54,7 @@ AWB Number (Master or House), shipper, consignee, pieces, weight, nature of good
 - **House Air Waybill (HAWB):** Issued by forwarder to actual shipper.
 - **e-AWB Receipt:** Printed copy of electronic record.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (Airline or Freight Forwarder) and shipment status.
 
@@ -58,15 +64,15 @@ Shows the issuer domain (Airline or Freight Forwarder) and shipment status.
 - **Departed** — Cargo en route (DEP status).
 - **Delivered** — Handed over to consignee (DLV status).
 
-## Second-Party Use
+## Who Holds It
 
-The **Shipper** or **Consignee** benefits from verification.
+The Shipper or Consignee benefits from verification.
 
 **Proof of Shipment:** Sellers need to prove to buyers (and banks for Letters of Credit) that goods were actually handed over to the airline. A verified AWB is the "Golden Key" for unlocking payment.
 
 **Customs Clearance:** Importers in the destination country present the AWB to Customs. Verification ensures the value/weight matches what was declared to the airline, preventing "double invoicing" fraud.
 
-## Third-Party Use
+## Who Checks It
 
 **Customs Authorities**
 **Risk Targeting:** Customs can verify the AWB data against the carrier's manifest *before* the plane lands. Discrepancies (e.g., AWB says "Books", manifest says "Electronics") trigger inspections.
@@ -77,13 +83,7 @@ The **Shipper** or **Consignee** benefits from verification.
 **Truckers / Ground Handlers**
 **Pickup Authority:** To prevent "fictitious pickup" (thieves posing as truckers), warehouses can verify the AWB presented by the driver matches the electronic release order.
 
-## Verification Architecture
-
-**The "Fake Waybill" Fraud Problem**
-
-- **Ghost Shipments:** Creating a fake AWB to claim payment from a buyer or bank (Trade Finance fraud) when no goods were shipped.
-- **Weight Fraud:** Declaring low weight to airline to save freight costs, but high weight to customer to charge more.
-- **Illegal Exports:** Mislabeling dangerous goods (batteries, chemicals) as "General Cargo" on the paper AWB to bypass safety checks.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -94,7 +94,7 @@ The **Shipper** or **Consignee** benefits from verification.
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the carrier's hashes and status changes plus structured metadata (shipment number, routing, dates) — never plaintext or sensitive personal information — providing non-repudiation of the document.
 
-## Competition vs. e-AWB (Electronic Air Waybill)
+## Compared With e-AWB (Electronic Air Waybill)
 
 | Feature | Live Verify | e-AWB (IATA) |
 | :--- | :--- | :--- |
@@ -103,7 +103,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **Web-based.** Anyone (bank, insurer, customs) can verify. | **Siloed.** Cargo Community Systems (CCS) require membership/login. |
 | **Data Integrity** | **Snapshot.** Proves what was printed at origin. | **Dynamic.** System data updates; audit trail of changes can be complex. |
 
-**Why Live Verify wins here:** Despite the push for e-AWB, paper persists in the "Last Mile" (trucking to/from airport) and in customs procedures of developing nations. Live Verify turns that persistent paper into a trusted digital pointer, bridging the gap until 100% global digitization is achieved (which is decades away).
+**Where each fits:** where the airline, forwarder and handler are all connected, e-AWB is the better route, and it removes paper from most of the journey. Paper still accompanies freight on trucking legs and through customs in places that require it, and banks and insurers are generally outside the cargo community systems. Live Verify gives those parties a way to check the printed waybill against the issuer's domain, alongside e-AWB rather than as an alternative to it.
 
 
 ---
@@ -113,9 +113,9 @@ _[Content merged from: house-air-waybills-hawb]_
 
 ## What is a House Air Waybill (HAWB)?
 
-If a small business ships a box of lenses from Switzerland to the US, they don't talk to the airline directly. They talk to a **Freight Forwarder** (like DHL or Kuehne+Nagel).
+If a small business ships a box of lenses from Switzerland to the US, they don't talk to the airline directly. They talk to a Freight Forwarder (like DHL or Kuehne+Nagel).
 
-The forwarder gives them a **House Air Waybill (HAWB)**. It is the contract for that specific box. The forwarder then groups 100 boxes together into one "Master" shipment for the plane.
+The forwarder gives them a House Air Waybill (HAWB). It is the contract for that specific box. The forwarder then groups 100 boxes together into one "Master" shipment for the plane.
 
 Fraud is common in the "Long Tail" of logistics: un-vetted forwarders sometimes create fake HAWBs to trick banks into releasing "Trade Financing" for goods that were never actually shipped. Verified hashes prove the forwarder's claim matches their official system.
 
@@ -139,7 +139,7 @@ received for carriage in apparent good order and condition.
 <span data-verify-line="hawb">verify:kuehne-nagel.com/hawb/v</span> <span verifiable-text="end" data-for="hawb"></span></pre>
 </div>
 
-## Data Verified
+## What Is Checked
 
 HAWB Number, Master Air Waybill (MAWB) number, Shipper name, Consignee name, Airport of Departure/Destination, total piece count, gross weight, cargo description (e.g., "Optical Lenses"), freight charges status (Prepaid/Collect), date of issuance, issuing forwarder ID.
 
@@ -148,7 +148,7 @@ HAWB Number, Master Air Waybill (MAWB) number, Shipper name, Consignee name, Air
 - **Consolidation Manifest:** (Linked hash) grouping multiple HAWBs under one MAWB.
 - **Cargo Charges Correction Advice (CCCA):** For post-flight billing changes.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Freight Forwarder) and current shipment status.
 
@@ -159,15 +159,15 @@ Shows the issuer domain (the Freight Forwarder) and current shipment status.
 - **Delivered** — HAWB cargo handed over to consignee.
 - **Void** — Replaced by a corrected waybill.
 
-## Second-Party Use
+## Who Holds It
 
-The **Actual Shipper (SME / Manufacturer)** benefits from verification.
+The Actual Shipper (SME / Manufacturer) benefits from verification.
 
 **Trade Finance:** Proving to a local bank that the $50,000 shipment of lenses is "Verified Manifested" on a specific flight. HAWBs are often required for payment under Letters of Credit; a verified hash prevents the bank from rejecting the document due to "Paperwork Uncertainty."
 
 **Cargo Insurance:** Proving the exact weight and condition at the moment of handoff to the forwarder, ensuring no "Shadow Damage" is blamed on the shipper.
 
-## Third-Party Use
+## Who Checks It
 
 **Consignees (Importers)**
 **Payment Release:** A buyer in Boston can verify the HAWB provided by the Swiss seller to ensure the goods are actually in the Kuehne+Nagel system before wiring the final balance.
@@ -178,7 +178,7 @@ The **Actual Shipper (SME / Manufacturer)** benefits from verification.
 **Air Carriers (Airlines)**
 **Consolidation Integrity:** Ensuring that the HAWB data provided by the forwarder for a consolidated pallet matches the official forwarder records.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Phantom Consolidation" Fraud Problem**
 
@@ -207,7 +207,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the carrier's hashes and status changes plus structured metadata (shipment number, routing, dates) — never plaintext or sensitive personal information — providing non-repudiation of the document.
 
-## Competition vs. IATA e-AWB
+## Compared With IATA e-AWB
 
 | Feature | Live Verify | IATA e-AWB (Cargo-XML) | Paper HAWB |
 | :--- | :--- | :--- | :--- |
@@ -216,4 +216,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **High.** PDFs stay verifiable across systems. | **Medium.** Requires both parties to be on the e-AWB network. | **Universal.** |
 | **Integrity** | **Binds Content.** Protects the weight/count. | **Data-Only.** | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Forwarder Tail." While the top 50 forwarders use e-AWB, there are 50,000 small forwarders globally who still issue PDF/Paper HAWBs. Live Verify turn those **Manual Documents** into cryptographically trusted digital artifacts, bringing "Digital Logistics" trust to the entire global SME market.
+**Where each fits:** forwarders already set up for Cargo-XML messaging have little reason to move away from e-AWB between connected parties. Many smaller forwarders still issue house waybills as PDF or paper, and the shipper or bank receiving one is not on the e-AWB network. Live Verify lets that recipient confirm the forwarder issued the document with those weights and piece counts, and it can sit on the same paperwork that larger forwarders also transmit electronically.

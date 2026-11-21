@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is Disability Insurance?
 
-Your most valuable asset isn't your house; it's your **ability to earn an income**. If a surgeon breaks their hand, they lose millions in future earnings. **Disability Insurance** protects that future cash flow.
+Your most valuable asset isn't your house; it's your ability to earn an income. If a surgeon breaks their hand, they lose millions in future earnings. Disability Insurance protects that future cash flow.
 
-High-earners keep these **Policy Schedules** for 30+ years. They use them to prove their financial stability to lenders and business partners.
+High-earners keep these Policy Schedules for 30+ years. They use them to prove their financial stability to lenders and business partners.
 
 Fraud is high-stakes here: scammers often edit a cheap "Any Occupation" policy to look like a premium "Own Occupation" policy to look more credit-worthy. Verified hashes turn the policy folder into a live, trusted financial link that lasts a lifetime.
 
@@ -49,7 +49,13 @@ specialty.
 <span data-verify-line="dis-pol">verify:unum.com/v</span> <span verifiable-text="end" data-for="dis-pol"></span>
 </div>
 
-## Data Verified
+## The Problem: Phantom Policy Fraud
+
+- **Benefit Inflation:** Editing a $2,000 policy to read $20,000 to trick a bank or an ex-spouse into believing the person has higher insured wealth.
+- **Definition Tampering:** Changing "Any Occupation" (cheap) to "Own Occupation" (expensive) on the paper policy to look more credit-worthy.
+- **Status Faking:** Showing an old "Active" policy paper for a policy that lapsed 3 years ago.
+
+## What Is Checked
 
 Insured name, specific occupation class, monthly benefit amount, elimination period (waiting time), benefit period (duration), COLA (Cost of Living Adjustment) riders, effective date, issuing carrier.
 
@@ -58,7 +64,7 @@ Insured name, specific occupation class, monthly benefit amount, elimination per
 - **Verification of Insurance (VOI):** 1-page proof for lenders or employers.
 - **Rider Activation Notice:** Proving an increase in coverage was purchased.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`unum.com`, `northwesternmutual.com`, `guardianlife.com`) and policy status.
 
@@ -68,9 +74,9 @@ Shows the issuer domain (`unum.com`, `northwesternmutual.com`, `guardianlife.com
 - **Reduced** — Benefit amount lowered (e.g., due to salary change).
 - **In-Claim** — Policyholder is currently receiving benefits.
 
-## Second-Party Use
+## Who Holds It
 
-The **Policyholder (Professional)** (second party) receives the policy from the insurer (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Policyholder (Professional) (second party) receives the policy from the insurer (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of the income protection policy. Most of the time, the policy sits in their financial records—the verification value is latent, there *if needed*.
 
@@ -78,7 +84,7 @@ The **Policyholder (Professional)** (second party) receives the policy from the 
 
 **Future Optionality:** If they become disabled or a dispute arises about benefits, they have cryptographic proof of the policy terms ready without needing to contact the insurer.
 
-## Third-Party Use
+## Who Checks It
 
 The policyholder (second party) may hand the verified document to various third parties:
 
@@ -91,13 +97,7 @@ The policyholder (second party) may hand the verified document to various third 
 **Business Partners**
 **Buy-Sell Agreements:** Ensuring that a partner's "Disability Buy-Out" policy is verified active and sufficient to fund the purchase of their shares if they become incapacitated.
 
-## Verification Architecture
-
-**The "Phantom Policy" Fraud Problem**
-
-- **Benefit Inflation:** Editing a $2,000 policy to read $20,000 to trick a bank or an ex-spouse into believing the person has higher insured wealth.
-- **Definition Tampering:** Changing "Any Occupation" (cheap) to "Own Occupation" (expensive) on the paper policy to look more credit-worthy.
-- **Status Faking:** Showing an old "Active" policy paper for a policy that lapsed 3 years ago.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -124,7 +124,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (policy number, occupation class, monthly benefit amount, elimination period, benefit period, effective date) — never insured names, medical information, or claim history — providing non-repudiation of the policy issuance and benefit terms.
 
-## Competition vs. Broker Confirmation
+## Compared With Broker Confirmation
 
 | Feature | Live Verify | Manual Broker Call | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -133,4 +133,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Availability** | **24/7.** Works when offices are closed. | **Restricted.** | **Universal.** |
 | **Integrity** | **Cryptographic.** Binds the "Occupation Class." | **Vague.** "Yes, they have a policy." | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Wealth Preservation" Reality. Disability insurance is a foundational asset for doctors and lawyers. They often hold these policies for 30+ years. Live Verify turns the **Physical Policy Folder** into a permanent, verifiable financial link that survives multiple broker changes and office closures.
+**Where each fits:** A call to the broker remains the way to get advice, an explanation of terms, or an answer about something the document does not cover. It is slower, tied to office hours and depends on the broker still holding the account. Live Verify handles the narrower task of confirming that the carrier stands behind this policy page, which is useful to a lender or lawyer with no line to the broker, and to a policyholder decades into a policy that has outlasted several brokers.

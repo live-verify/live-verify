@@ -36,7 +36,13 @@ proficiency. Valid for 2 years from the test date.
 <span data-verify-line="lang-test">verify:ets.org/toefl/v</span> <span verifiable-text="end" data-for="lang-test"></span>
 </div>
 
-## Data Verified
+## The Problem: Score Inflation Fraud
+
+- **Numerical Tampering:** Editing a "22" in Writing to a "30" to meet a prestigious university's minimum requirement.
+- **Date Stretching:** Altering a 2022 test date to 2026 to hide that the scores have already expired.
+- **Impersonation:** Using a high-scoring friend's report but editing the name and photo.
+
+## What Is Checked
 
 Test taker name, registration/appointment ID, test type (iBT/Paper), test date, individual section scores (0-30 scale), total aggregate score, test center ID (or "Home Edition"), date of report issuance, validity period.
 
@@ -46,19 +52,19 @@ Test taker name, registration/appointment ID, test type (iBT/Paper), test date, 
 - **DELE (Spanish):** Official certification from Instituto Cervantes.
 - **JLPT (Japanese):** Proficiency levels N1-N5.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`ets.org`, `ielts.org`, `britishcouncil.org`) and current score standing.
 
 **Status Indications:**
 - **Certified** — Scores match the official testing database and are un-altered.
-- **Expired** — **ALERT:** Test date was > 2 years ago; scores are no longer valid for admissions.
+- **Expired** — Test date was > 2 years ago; scores are no longer valid for admissions.
 - **Invalid** — Registration ID not found or score mismatch.
 - **Under Review** — Scores flagged for statistical anomalies (e.g., potential cheating).
 
-## Second-Party Use
+## Who Holds It
 
-The **Test Taker** (second party) receives the score report from the testing organization (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Test Taker (second party) receives the score report from the testing organization (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of their language proficiency scores. Most of the time, the report sits in their application files—the verification value is latent, there *if needed*.
 
@@ -66,7 +72,7 @@ The **Test Taker** (second party) receives the score report from the testing org
 
 **Future Optionality:** If they apply to multiple universities, immigration programs, or employers—they have cryptographic proof ready without needing to pay for multiple official score reports or contact the testing organization.
 
-## Third-Party Use
+## Who Checks It
 
 The test taker (second party) may hand the verified document to various third parties:
 
@@ -79,13 +85,7 @@ The test taker (second party) may hand the verified document to various third pa
 **Immigration Officers**
 **Border Integrity:** Instantly verifying the "English Requirement" documents of a traveler at a port of entry.
 
-## Verification Architecture
-
-**The "Score Inflation" Fraud Problem**
-
-- **Numerical Tampering:** Editing a "22" in Writing to a "30" to meet a prestigious university's minimum requirement.
-- **Date Stretching:** Altering a 2022 test date to 2026 to hide that the scores have already expired.
-- **Impersonation:** Using a high-scoring friend's report but editing the name and photo.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -113,7 +113,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the testing organization's hashes and status changes plus structured metadata (test dates, score ranges, section breakdowns, test center IDs) — never plaintext such as test taker names — providing non-repudiation of issuing the language proficiency certificate.
 
-## Competition vs. Official Score Reports (Electronic)
+## Compared With Official Score Reports (Electronic)
 
 | Feature | Live Verify | Official Electronic Report | Scanned PDF / Paper |
 | :--- | :--- | :--- | :--- |
@@ -122,4 +122,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Takes 3-7 days to "Send" and "Receive." | **Instant.** |
 | **Cost** | **Low.** Standard web infra. | **Medium.** Fees of $20+ per report are standard. | **None.** |
 
-**Why Live Verify wins here:** The "Application Window" reality. Students are often applying to 10+ schools at once. Paying $200 in "Score Reporting Fees" is a massive burden. Live Verify turns the **One-Time Score Report** into a "Portable Trust Asset" that can be verified by any university for free, saving students money and schools time.
+**Where each fits:** Official electronic score reports sent directly from the testing body are what many admissions offices are set up to receive, and where an institution requires them they remain the route to use. The paper or PDF score report is what a candidate shows to employers, smaller schools, or institutions abroad that have no reporting arrangement with the test provider. Live Verify lets those readers confirm the report against the testing body's domain, and direct reporting continues for the institutions that depend on it.

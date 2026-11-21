@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Coaching License?
 
-In professional and youth sports, a **Coaching License** is more than just a proof of technical skill. It is a "Safety Credential."
+In professional and youth sports, a Coaching License is more than just a proof of technical skill. It is a "Safety Credential."
 
 To get one, a coach must:
 1.  **Pass a Background Check:** Screened against sex-offender and criminal registries.
@@ -51,7 +51,13 @@ Parents and clubs use these badges to ensure that the adult on the sideline is a
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Coach Fraud
+
+- **SafeSport Concealment:** A coach banned for misconduct in one state moving to another state and using a fake or old license to get a job.
+- **Credential Inflation:** Changing a "Grassroots" license to a "National B" license on a PDF to qualify for a higher-paying job.
+- **Identity Theft:** Using a real, high-level coach's name and license number to launch a fake training academy.
+
+## What Is Checked
 
 Coach name, photo (hash), license level (Grassroots, D, C, B, A, PRO), issuing federation, effective date, expiration date, SafeSport compliance status, background check clearance status.
 
@@ -61,7 +67,7 @@ Coach name, photo (hash), license level (Grassroots, D, C, B, A, PRO), issuing f
 - **Background Check Result:** Essential for youth sports eligibility.
 - **Continuing Education (CE) Unit:** Proving the coach is keeping up with standards.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`ussoccer.com`, `ncaa.org`) and current standing.
 
@@ -71,15 +77,15 @@ Shows the issuer domain (`ussoccer.com`, `ncaa.org`) and current standing.
 - **Expired** — License renewal or safety training required.
 - **Revoked** — Permanently barred from coaching (SafeSport violation).
 
-## Second-Party Use
+## Who Holds It
 
-The **Coach** benefits from verification.
+The Coach benefits from verification.
 
 **Job Placement:** Proving to a prestigious academy or college program that their "National A License" claim is authentic. This distinguishes the coach from "Resume Padders" who exaggerate their qualifications.
 
 **Club Onboarding:** Speeding up the annual club registration process by providing a "Verified Safety Token" that proves they've already passed their background check and SafeSport training.
 
-## Third-Party Use
+## Who Checks It
 
 **Parents / Guardians**
 **Youth Safety:** Before dropping a child at a new soccer camp, a parent can scan the coach's badge. "Verified by U.S. Soccer" provides instant, authoritative proof that the coach is background-checked and SafeSport compliant.
@@ -90,13 +96,7 @@ The **Coach** benefits from verification.
 **Tournament Organizers**
 **Sideline Verification:** Checking the credentials of coaches on the bench during a national tournament to ensure only authorized personnel are in the technical area.
 
-## Verification Architecture
-
-**The "Fake Coach" Fraud Problem**
-
-- **SafeSport Concealment:** A coach banned for misconduct in one state moving to another state and using a fake or old license to get a job.
-- **Credential Inflation:** Changing a "Grassroots" license to a "National B" license on a PDF to qualify for a higher-paying job.
-- **Identity Theft:** Using a real, high-level coach's name and license number to launch a fake training academy.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -125,7 +125,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the federation's hashes and status changes plus structured metadata (license level, issue and expiration dates, SafeSport status, background check status) — never personal information beyond name — providing non-repudiation of the coaching credential and safety clearance.
 
 
-## Competition vs. Learning Portals (USSF Learning Center)
+## Compared With Learning Portals (USSF Learning Center)
 
 | Feature | Live Verify | Learning Portal (Login) | Physical License / ID |
 | :--- | :--- | :--- | :--- |
@@ -134,4 +134,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Cryptographic.** Binds photo to status. | **High.** Direct DB access. | **Low.** Easily faked. |
 | **User Control** | **High.** Coach shares only the Badge. | **Low.** Portal exposes full academic history. | **High.** |
 
-**Why Live Verify wins here:** The "Sideline Audit." Soccer tournaments happen on remote fields with 50 teams at once. Officials need a high-speed, mobile-first way to verify that every adult on the sideline is a "Verified Safe" professional. Live Verify turns the **Coach's Lanyard** into a live, trusted security token.
+**Where each fits:** the federation's learning portal is the full record of a coach's qualifications and the right tool for clubs doing registration at their desks. A tournament official on the touchline, checking many coaches quickly, has no practical way to log in. Live Verify lets the official check the badge the coach is wearing against the federation's domain, and shows only what the badge says rather than the coach's whole history.

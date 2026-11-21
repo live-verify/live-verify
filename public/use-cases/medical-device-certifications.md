@@ -39,7 +39,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: MedPro Fraud
+
+- **Fabricated Certificates:** Shady testing firms selling fake CE certificates to manufacturers of cheap masks and surgical tools (The MedPro/Intertek Scandal).
+- **Scope Misrepresentation:** Taking a certificate for "Bandages" and editing the PDF to read "Surgical Implants" to charge a 100x price premium.
+- **Recall Hiding:** Continuing to sell a device after the Notified Body has "Withdrawn" the certificate due to safety failures.
+
+## What Is Checked
 
 Manufacturer legal name, facility location, Notified Body ID (e.g., 0086), Certificate number, Device classification (I, IIa, IIb, III), specific model numbers, ISO standards met, issue date, expiration date, regulatory pathway (MDR/IVDR).
 
@@ -47,7 +53,7 @@ Manufacturer legal name, facility location, Notified Body ID (e.g., 0086), Certi
 
 The characteristic fraud is *scope misrepresentation* — a certificate for "Bandages" edited or reused
 to read "Surgical Implants" for a price premium. A device certificate carries no personal data, so on
-verification the Notified Body can safely **echo the exact covered scope** — the
+verification the Notified Body can safely echo the exact covered scope — the
 `device_classification`, the specific `models_covered`, the `standards`, and the
 `recertification_due`. A buyer then confirms the device *in front of them* is within the certificate's
 class and model list, so a Class I certificate cannot be read as covering a Class III implant, and a
@@ -90,15 +96,15 @@ The status code is the value. If it's OK, proceed. If it's RECALLED, SUSPENDED, 
 
 Implant registries (linking device serial numbers to patients for recall notification) are valuable but are typically managed by hospitals or manufacturer-run registries — not through a verification endpoint. The verification answers "is this device certified?" not "track this device to this patient."
 
-## Second-Party Use
+## Who Holds It
 
-The **Medical Device Manufacturer** benefits from verification.
+The Medical Device Manufacturer benefits from verification.
 
 **Global Sales:** Proving to a hospital procurement team in Singapore or Dubai that their "EU CE Mark" isn't a fake document. A verified hash from BSI or TUV allows the manufacturer to bypass months of manual "Consular Legalization" of their certificates.
 
 **Distributor Vetting:** Proving to an international distributor that the product has verified FDA clearance, allowing them to legally import and stock the device.
 
-## Third-Party Use
+## Who Checks It
 
 **Hospital Procurement (Supply Chain)**
 **Patient Safety:** Before allowing a new heart valve or surgical suture into the operating room, the hospital registrar scans the hash. "Verified by BSI" ensures the vendor isn't using a "MedPro-style" fake certificate to sell un-tested, dangerous medical gear.
@@ -109,13 +115,7 @@ The **Medical Device Manufacturer** benefits from verification.
 **Insurance Carriers (Medical Malpractice)**
 **Risk Rating:** Verifying that a hospital only uses verified, non-recalled medical devices, reducing the risk of surgical failure claims.
 
-## Verification Architecture
-
-**The "MedPro" Fraud Problem**
-
-- **Fabricated Certificates:** Shady testing firms selling fake CE certificates to manufacturers of cheap masks and surgical tools (The MedPro/Intertek Scandal).
-- **Scope Misrepresentation:** Taking a certificate for "Bandages" and editing the PDF to read "Surgical Implants" to charge a 100x price premium.
-- **Recall Hiding:** Continuing to sell a device after the Notified Body has "Withdrawn" the certificate due to safety failures.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -141,7 +141,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the Notified Body's hashes and status changes plus structured metadata (certificate numbers, manufacturer names, device classifications, model numbers, standards, expiry dates) — never sensitive commercial information — providing non-repudiation of the device certification.
 
-## Competition vs. EUDAMED / FDA Databases
+## Compared With EUDAMED / FDA Databases
 
 | Feature | Live Verify | EUDAMED / FDA Database | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -150,4 +150,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Models.** Protects the specific part #s. | **Data-Only.** Doesn't protect the paper. | **Vulnerable.** |
 | **Immediacy** | **Real-time.** Shows "RECALLED" status in red. | **Laggy.** Database updates can take days. | **Hidden.** |
 
-**Why Live Verify wins here:** The "Point of Care" reality. Doctors and hospital clerks work with paper and PDF boxes. They don't have the time to navigate complex federal government databases for every shipment. Live Verify turns the **Static Certificate** into a live "Safety Beacon," ensuring that "Medical Integrity" is verified at the moment of highest risk.
+**Where each fits:** EUDAMED and the FDA databases are the authoritative public registers, and regulatory staff doing a full review of a device should consult them. Procurement and receiving staff more often have a certificate in a shipment folder and need to know whether it is one the notified body issued and still stands behind. Live Verify answers that from the certificate itself, and the registers remain the reference for the device's wider regulatory status.

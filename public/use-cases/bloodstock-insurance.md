@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is Bloodstock Insurance?
 
-A champion racehorse or a top-tier breeding stallion can be worth **$10 million or more**. Because these animals are fragile, owners buy "Bloodstock" (equine mortality) insurance.
+A champion racehorse or a top-tier breeding stallion can be worth $10 million or more. Because these animals are fragile, owners buy "Bloodstock" (equine mortality) insurance.
 
-The **Certificate of Insurance** is the financial proof of the horse's value. It is used at auctions (to prove the horse is worth the starting bid) and by banks (who lend money using the horse as collateral).
+The Certificate of Insurance is the financial proof of the horse's value. It is used at auctions (to prove the horse is worth the starting bid) and by banks (who lend money using the horse as collateral).
 
 If an owner "Photoshops" a $100k policy to look like a $10M policy, they can commit massive bank fraud or trick buyers into overpaying for a horse.
 
@@ -51,7 +51,13 @@ If an owner "Photoshops" a $100k policy to look like a $10M policy, they can com
   </div>
 </div>
 
-## Data Verified
+## The Problem: Phantom Stallion Fraud
+
+- **Value Padding:** Editing a $100,000 policy to look like a $1,000,000 policy to inflate the horse's value before a private sale.
+- **Hidden Injuries:** Keeping an active mortality certificate while hiding a career-ending injury that has already "Suspended" the actual coverage.
+- **Ownership Scams:** Forging a certificate to claim ownership of a famous horse to solicit "investments" in a fake syndicate.
+
+## What Is Checked
 
 Horse name, pedigree (Sire/Dam), registration number (Weatherbys/Jockey Club), insured value, coverage type (Mortality, AS&I - Accident, Sickness & Infertility), effective dates, syndicate identification.
 
@@ -61,7 +67,7 @@ Horse name, pedigree (Sire/Dam), registration number (Weatherbys/Jockey Club), i
 - **Stallion Infertility Certificate:** For breeding stock valuation.
 - **Syndicate Share Certificate:** Proof of partial ownership.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`lloyds-bloodstock.com`, `starr.com`) and policy standing.
 
@@ -71,9 +77,9 @@ Shows the issuer domain (`lloyds-bloodstock.com`, `starr.com`) and policy standi
 - **Claim Paid** — Horse has died; policy settled.
 - **Void** — Misrepresentation of value found.
 
-## Second-Party Use
+## Who Holds It
 
-The **Horse Owner** or **Syndicate Manager** benefits from verification.
+The Horse Owner or Syndicate Manager benefits from verification.
 
 **Auction Sales:** Proving to potential buyers at Tattersalls or Keeneland that the yearling being sold for $2M is already fully insured for that amount by a top-tier syndicate.
 
@@ -81,7 +87,7 @@ The **Horse Owner** or **Syndicate Manager** benefits from verification.
 
 **International Transit:** Proving coverage to specialized equine air-freight companies (e.g., IRT) during high-stakes transcontinental shipping.
 
-## Third-Party Use
+## Who Checks It
 
 **Auction Houses**
 **Seller Vetting:** Verifying the insurance value of horses being consigned. If a seller claims a horse is worth $10M, but the verified insurance is only for $1M, it triggers a red flag for valuation fraud.
@@ -92,13 +98,7 @@ The **Horse Owner** or **Syndicate Manager** benefits from verification.
 **Racecourse Authorities**
 **Entry Compliance:** Ensuring all competing horses meet the minimum liability/medical insurance requirements.
 
-## Verification Architecture
-
-**The "Phantom Stallion" Fraud Problem**
-
-- **Value Padding:** Editing a $100,000 policy to look like a $1,000,000 policy to inflate the horse's value before a private sale.
-- **Hidden Injuries:** Keeping an active mortality certificate while hiding a career-ending injury that has already "Suspended" the actual coverage.
-- **Ownership Scams:** Forging a certificate to claim ownership of a famous horse to solicit "investments" in a fake syndicate.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -125,7 +125,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive Lloyd's syndicate's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the bloodstock insurance certificate.
 
 
-## Competition vs. Registry Databases
+## Compared With Registry Databases
 
 | Feature | Live Verify | Jockey Club Registry | Paper Certificate |
 | :--- | :--- | :--- | :--- |
@@ -134,4 +134,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** Scan the paper at the stable. | **Slow.** Requires login/subscription. | **Instant.** |
 | **Financial Link** | **Yes.** Directly links the horse to the money. | **No.** Registries don't track insurance data. | **Vulnerable.** |
 
-**Why Live Verify wins here:** Context. A registry knows the horse's name and parents. But only the Underwriter knows the **Insured Value**. Live Verify turns the "Mortality Certificate" into a real-time financial link that proves exactly how much the horse is worth in the eyes of the market's professional risk-takers.
+**Where each fits:** the breed registry is the authority on a horse's identity and parentage, and buyers and lenders should keep using it for that. It holds nothing about insurance. Live Verify covers the mortality certificate, letting a lender or buyer at the stable confirm the underwriter stands behind the cover and the insured sum stated, so the two answer different questions about the same horse.

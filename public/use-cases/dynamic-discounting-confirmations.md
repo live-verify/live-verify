@@ -15,7 +15,7 @@ If a small supplier (like a parts maker) sells $100,000 of goods to a big buyer 
 
 **Dynamic Discounting** is a fintech "Deal." The buyer says: "If you give me a 1.5% discount ($1,500), I will pay you *today* instead of in 90 days."
 
-Suppliers use these **Early Payment Confirmations** to prove their cash flow to local banks. Verified hashes prevent "Double Financing"—where a supplier sells the same invoice to a bank *and* takes the early discount from the buyer.
+Suppliers use these Early Payment Confirmations to prove their cash flow to local banks. Verified hashes prevent "Double Financing"—where a supplier sells the same invoice to a bank *and* takes the early discount from the buyer.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="discount"></span>
@@ -46,7 +46,13 @@ This confirmation is a verified extract of the C2FO market clearing.
 <span data-verify-line="discount">verify:c2fo.com/confirm/v</span> <span verifiable-text="end" data-for="discount"></span>
 </div>
 
-## Data Verified
+## The Problem: Double Counting Fraud
+
+- **Double Financing:** Selling an invoice to a factoring company while *simultaneously* taking an early payment discount from the buyer.
+- **Amount Tampering:** Editing a 1% discount to read 5% to hide internal accounting errors.
+- **Date Alteration:** Changing the "Original Due Date" to hide that the company is taking early payments on debt that was already overdue.
+
+## What Is Checked
 
 Supplier name, Buyer name, Invoice number, Gross amount, Discount percentage (APR equivalent), Net payment amount, Target payment date, original due date, clearing platform ID.
 
@@ -55,7 +61,7 @@ Supplier name, Buyer name, Invoice number, Gross amount, Discount percentage (AP
 - **Market Clearing Report:** Summary of all accepted discounts.
 - **Supplier Cash-Flow Forecast:** Proving future liquidity based on verified early payments.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`c2fo.com`, `taulia.com`, `kyriba.com`) and transaction status.
 
@@ -65,9 +71,9 @@ Shows the issuer domain (`c2fo.com`, `taulia.com`, `kyriba.com`) and transaction
 - **Rejected** — Insufficient liquidity or error; original terms apply.
 - **Void** — Transaction cancelled due to invoice dispute.
 
-## Second-Party Use
+## Who Holds It
 
-The **Supplier (Vendor)** (second party) receives the early payment confirmation from the discounting platform (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Supplier (Vendor) (second party) receives the early payment confirmation from the discounting platform (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of the payment terms. Most of the time, the confirmation sits in their financial records—the verification value is latent, there *if needed*.
 
@@ -75,7 +81,7 @@ The **Supplier (Vendor)** (second party) receives the early payment confirmation
 
 **Future Optionality:** If a dispute arises about payment timing, discount rates, or double-financing allegations, they have cryptographic proof ready without needing to contact the platform.
 
-## Third-Party Use
+## Who Checks It
 
 The supplier (second party) may hand the verified document to various third parties:
 
@@ -88,13 +94,7 @@ The supplier (second party) may hand the verified document to various third part
 **Supply Chain Auditors**
 **Financial Health Monitoring:** Tracking the discount rates being accepted by suppliers. A sudden jump from 1% to 5% discount acceptance is a verified "Distress Signal."
 
-## Verification Architecture
-
-**The "Double Counting" Fraud Problem**
-
-- **Double Financing:** Selling an invoice to a factoring company while *simultaneously* taking an early payment discount from the buyer.
-- **Amount Tampering:** Editing a 1% discount to read 5% to hide internal accounting errors.
-- **Date Alteration:** Changing the "Original Due Date" to hide that the company is taking early payments on debt that was already overdue.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -122,7 +122,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the platform's hashes and status changes plus structured metadata (invoice amounts, discount percentages, payment dates, platform IDs) — never supplier or buyer names or specific invoice details — providing non-repudiation of the discount transaction it processed.
 
-## Competition vs. ERP Logins
+## Compared With ERP Logins
 
 | Feature | Live Verify | ERP Dashboard (SAP) | Scanned PDF Confirmation |
 | :--- | :--- | :--- | :--- |
@@ -131,4 +131,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds FX/Rates.** Protects the % discount. | **High.** | **Vulnerable.** |
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires manual data export and upload. | **Instant.** |
 
-**Why Live Verify wins here:** The "Small Bank" Problem. A small parts manufacturer in Ohio uses C2FO to get early payments from Boeing. Their local hometown bank wants to lend them money based on those Boeing receivables. The local bank doesn't have an integration with C2FO or Boeing's SAP. Live Verify turns the **Confirmation PDF** into a trusted digital artifact the local bank can rely on.
+**Where each fits:** Inside the buyer's ERP or the discounting platform itself, the data is live and complete, and the buyer, supplier and platform should keep working there. A supplier's local bank, auditor or factor is outside that loop and will not be given access to another company's SAP. Live Verify lets such a third party confirm that the platform issued the confirmation the supplier handed over, with nothing to integrate on either side.

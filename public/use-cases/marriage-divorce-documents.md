@@ -49,7 +49,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Paper Bride Fraud
+
+- **Fabricated Certificates:** Using a template to create a fake "Marriage Certificate" for a non-existent union to get a Green Card or military benefits.
+- **Bigamy Concealment:** Presenting a "Valid" marriage paper while hiding that a "Divorce Decree" has already been issued for that union. Verification shows the *latest* status (Dissolved).
+- **Name Tampering:** Editing a PDF to change the name of one spouse to gain access to their bank accounts or inheritance.
+
+## What Is Checked
 
 Spouse full names, dates of birth, marriage date, license number, certificate serial number, officiant name, location of ceremony, county of issuance, date of recording.
 
@@ -59,19 +65,19 @@ Spouse full names, dates of birth, marriage date, license number, certificate se
 - **Domestic Partnership:** For non-marriage legal unions.
 - **Annulment Order:** (Linked hash) proving the union was voided.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`clarkcountynv.gov`, `nycourts.gov`) and current status.
 
 **Status Indications:**
 - **Valid/Recorded** — Record exists and matches the official registry.
-- **Dissolved** — **ALERT:** Marriage was subsequently ended by divorce or annulment.
+- **Dissolved** — Marriage was subsequently ended by divorce or annulment.
 - **Amended** — Original record corrected (e.g., due to name spelling error).
 - **Void** — Assigned to wrong parties or found to be fraudulent.
 
-## Second-Party Use
+## Who Holds It
 
-The **Named Spouse(s)** benefit from verification.
+The Named Spouse(s) benefit from verification.
 
 **Name Change:** Proving to the Social Security Administration (SSA) or a bank that the "Marriage Certificate" isn't a fake PDF created to commit identity fraud. Verification against the county domain allows for instant, automated name-change processing.
 
@@ -79,7 +85,7 @@ The **Named Spouse(s)** benefit from verification.
 
 **Insurance Enrollment:** Proving marital status to an employer's HR department to add a spouse to a health insurance plan.
 
-## Third-Party Use
+## Who Checks It
 
 **Government Agencies (SSA / USCIS)**
 **Identity Integrity:** Instantly verifying the foundational civil status of an applicant. Live Verify connects the agency directly to the county registrar, stopping "Paperwork Scams" where people use fake certificates to steal survivor benefits.
@@ -90,13 +96,7 @@ The **Named Spouse(s)** benefit from verification.
 **Attorneys / Probate Courts**
 **Heir Verification:** Confirming the legal status of a surviving spouse before distributing multimillion-dollar estate assets.
 
-## Verification Architecture
-
-**The "Paper Bride" Fraud Problem**
-
-- **Fabricated Certificates:** Using a template to create a fake "Marriage Certificate" for a non-existent union to get a Green Card or military benefits.
-- **Bigamy Concealment:** Presenting a "Valid" marriage paper while hiding that a "Divorce Decree" has already been issued for that union. Verification shows the *latest* status (Dissolved).
-- **Name Tampering:** Editing a PDF to change the name of one spouse to gain access to their bank accounts or inheritance.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -123,7 +123,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the county clerk's or court's hashes and status changes plus structured metadata (spouse names, dates of birth, marriage dates, license numbers, certificate serial numbers, officiant names, ceremony locations, recording dates) — never personal addresses or identification document details — providing non-repudiation of the certificate or decree and an audit trail government agencies and attorneys can inspect.
 
-## Competition vs. Certified Copies (Raised Seals)
+## Compared With Certified Copies (Raised Seals)
 
 | Feature | Live Verify | Certified Copy (Physical Seal) | Public Portal (Online Search) |
 | :--- | :--- | :--- | :--- |
@@ -132,5 +132,5 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Trust Anchor** | **Domain-Bound.** Bound to the County. | **Signature-Bound.** | **Gov-Bound.** |
 | **Cost** | **Low.** Standard web infra. | **High.** Fees of $20-$50 per copy are common. | **Medium.** Per-search fees. |
 
-**Why Live Verify wins here:** Reach. Many counties do not have public-facing "Search Portals" for marriage records due to privacy laws. Live Verify allows the **Individual** to carry a portable, verifiable proof of their status that only reveals data when the physical document is presented, respecting privacy while providing absolute trust.
+**Where each fits:** A certified copy with the registrar's seal is what many agencies and courts require, and where that is the rule it remains the document to obtain. Where a county offers an online record search, that is a useful independent check too. Live Verify helps in the many situations where a copy is presented to someone who cannot assess a seal and has no search portal to consult, such as an employer, a bank or an authority abroad. It confirms the names and dates match what the county issued, and discloses nothing until the holder presents the document.
 

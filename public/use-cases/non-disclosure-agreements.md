@@ -11,14 +11,14 @@ furtherDerivations: 1
 
 ## What is a Verified NDA?
 
-A **Non-Disclosure Agreement (NDA)** is a foundational contract where parties agree not to share confidential information. In high-stakes business—such as tech demos, M&A due diligence, or celebrity employment—proving that an NDA was signed **before** secrets were revealed is the difference between a successful lawsuit and losing your IP forever.
+A Non-Disclosure Agreement (NDA) is a foundational contract where parties agree not to share confidential information. In high-stakes business—such as tech demos, M&A due diligence, or celebrity employment—proving that an NDA was signed before secrets were revealed is the difference between a successful lawsuit and losing your IP forever.
 
-A **Verified NDA** adds a cryptographic hash to the signature page. This proves:
+A Verified NDA adds a cryptographic hash to the signature page. This proves:
 1.  **Existence:** The specific version of the document existed on a specific date.
 2.  **Integrity:** The "Scope of Confidentiality" terms haven't been altered since signing.
 3.  **Identity:** The issuer (the law firm or the Disclosing Party) attests to the signature.
 
-**"Page Swapping"** is a major risk in physical contracts. Disgruntled employees or rogue partners might swap a middle page of a physical NDA to remove a high-value technology from the "Confidential" list. Live Verify provides **Per-Page Verification**, ensuring that every paragraph of the contract remains exactly as it was when the digital hash was anchored to the legal domain.
+**"Page Swapping"** is a major risk in physical contracts. Disgruntled employees or rogue partners might swap a middle page of a physical NDA to remove a high-value technology from the "Confidential" list. Live Verify provides Per-Page Verification, ensuring that every paragraph of the contract remains exactly as it was when the digital hash was anchored to the legal domain.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="text-align: center; font-weight: bold; margin-bottom: 30px; font-size: 1.2em; text-transform: uppercase; letter-spacing: 1px;"><span verifiable-text="start" data-for="nda"></span>Mutual Non-Disclosure Agreement</div>
@@ -51,7 +51,13 @@ A **Verified NDA** adds a cryptographic hash to the signature page. This proves:
   </div>
 </div>
 
-## Data Verified
+## The Problem: Backdated Leak Fraud
+
+- **Backdating:** Signing an NDA *after* a leak happens and pretending it was signed before to avoid a lawsuit.
+- **Page Substitution:** Replacing the "Scope" page in a physical contract to remove a specific technology from protection.
+- **Status Faking:** Presenting an "Active" looking PDF for an NDA that was formally terminated months ago.
+
+## What Is Checked
 
 Party names, Effective date, Agreement ID, Page number (e.g., "Page 1 of 8"), Specific Scope of Confidentiality, Governing Law, Signature IDs, Law firm or Corporate Legal ID.
 
@@ -61,39 +67,33 @@ Party names, Effective date, Agreement ID, Page number (e.g., "Page 1 of 8"), Sp
 - **Employee NDA:** Part of the onboarding/PIIA process.
 - **Non-Compete Addendum:** (Linked hash) if allowed by local law.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Disclosing Party's Counsel or CLM Platform) and current status.
 
 **Status Indications:**
 - **Active** — Agreement is currently in force and within its 5-year term.
 - **Expired** — The confidentiality term has ended naturally.
-- **Terminated** — **ALERT:** The agreement was voided early by mutual consent.
+- **Terminated** — The agreement was voided early by mutual consent.
 - **Amended** — Superseded by a newer contract (linked hash).
 
-## Second-Party Use
+## Who Holds It
 
-The **Receiving Party (Vendor/Contractor)** benefits from verification.
+The Receiving Party (Vendor/Contractor) benefits from verification.
 
 **Compliance Clarity:** Proving to their own staff exactly *which* version of the NDA was signed. This prevents "Contract Creep" where the Disclosing Party tries to claim a stricter set of terms was in place than what was actually agreed upon.
 
 **Audit Readiness:** Providing a verified list of active NDAs to an insurer or auditor to prove that the firm handles client trade secrets responsibly.
 
-## Third-Party Use
+## Who Checks It
 
 **M&A Due Diligence Teams**
-**IP Vetting:** When "Acquiring Corp" buys "Acme Corp," they need to verify that Acme actually has NDAs in place with all 500 of its former contractors. Live Verify allows for **Automated Due Diligence**, where an AI can scan thousands of NDAs and verify their status instantly against the legal domain.
+**IP Vetting:** When "Acquiring Corp" buys "Acme Corp," they need to verify that Acme actually has NDAs in place with all 500 of its former contractors. Live Verify allows for Automated Due Diligence, where an AI can scan thousands of NDAs and verify their status instantly against the legal domain.
 
 **Courts and Arbitrators**
 **Evidence Admissibility:** Proving that the NDA presented in a "Trade Secret Theft" case is the exact, un-altered original signed 3 years ago, reducing the "He-said-she-said" arguments over PDF versions.
 
-## Verification Architecture
-
-**The "Backdated Leak" Fraud Problem**
-
-- **Backdating:** Signing an NDA *after* a leak happens and pretending it was signed before to avoid a lawsuit.
-- **Page Substitution:** Replacing the "Scope" page in a physical contract to remove a specific technology from protection.
-- **Status Faking:** Presenting an "Active" looking PDF for an NDA that was formally terminated months ago.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -120,7 +120,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (party names, effective date, agreement ID, confidentiality scope) — never secret information or confidential terms plaintext — providing non-repudiation of NDA issuance and status changes.
 
 
-## Competition vs. E-Signature (DocuSign)
+## Compared With E-Signature (DocuSign)
 
 | Feature | Live Verify | E-Signature (Digital PKI) | Physical Paper |
 | :--- | :--- | :--- | :--- |
@@ -129,4 +129,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Self-Sovereign** | **High.** The paper is the proof. | **Low.** Requires the SaaS account to stay active. | **Total.** |
 | **Integrity** | **Binds Content.** Protects the *text*. | **High.** | **Zero.** |
 
-**Why Live Verify wins here:** The "File Cabinet" reality. NDAs are often signed and then sit in a drawer or a shared drive for 10 years. SaaS vendors like DocuSign may go out of business or accounts may lapse. Live Verify ensures the contract remains **verifiable for its entire legal life**, regardless of whether the original software account is still active.
+**Where each fits:** E-signature platforms are a sound way to execute an agreement, and while the signed file stays in its original electronic form its embedded signature is strong evidence. That evidence does not survive printing or rescanning, and checking it years later can depend on the signing account or service still being available. Live Verify lets someone holding a printed or filed copy confirm the text against the law firm's domain, so an agreement can be signed electronically and remain checkable on paper.

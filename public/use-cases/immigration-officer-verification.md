@@ -47,7 +47,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Enforcement Impersonation Fraud
+
+- **Extortion Scams:** Criminals buying realistic uniforms and fake "DHS" badges to target vulnerable immigrants for cash payments.
+- **Credential Hiding:** A terminated officer keeping their physical badge to continue exercising "Police Powers" illegally.
+- **Phishing Badges:** Creating fake ID cards with QR codes that link to a fraudulent "DHS-verify.com" website controlled by scammers.
+
+## What Is Checked
 
 Officer name, photo (hash), badge number, agency (ICE, CBP), unit (ERO, HSI), employment status (Active/Retired), jurisdiction, date of credential issuance.
 
@@ -56,25 +62,25 @@ Officer name, photo (hash), badge number, agency (ICE, CBP), unit (ERO, HSI), em
 - **Credential Card:** For plainclothes special agents.
 - **Notice of Entry:** (Form I-200 equivalent) linked to the officer's ID.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`ice.gov`, `cbp.gov`) and current employee status.
 
 **Status Indications:**
 - **Active On-Duty** — Officer is authorized to perform enforcement actions.
-- **Suspended** — **ALERT:** Access revoked; officer not authorized for field work.
+- **Suspended** — Access revoked; officer not authorized for field work.
 - **Retired** — No longer has enforcement authority.
 - **Invalid** — Badge reported lost or serial mismatch.
 
-## Second-Party Use
+## Who Holds It
 
-The **Immigration Officer** benefits from verification.
+The Immigration Officer benefits from verification.
 
 **De-escalation:** Proving their identity to a fearful family or a defensive employer during a field encounter. Verification reduces the chance of physical conflict or "Impostor Panic" when plainclothes agents arrive at a location.
 
 **Building Access:** Proving their verified identity to local police or facility managers when accessing high-security private properties for authorized enforcement.
 
-## Third-Party Use
+## Who Checks It
 
 **Immigrant Communities (Vulnerable Residents)**
 **Extortion Prevention:** Before opening the door to people claiming to be "ICE Agents," a resident can ask to see the badge through a peephole. Scanning the hash confirms the person is a "Verified On-Duty" agent, preventing the common "Extortion Scam" where criminals pose as agents to demand cash "fines" to avoid deportation.
@@ -85,13 +91,7 @@ The **Immigration Officer** benefits from verification.
 **Local Law Enforcement**
 **Inter-agency Coordination:** Patrol officers can instantly verify the credentials of "Plainclothes Agents" they encounter in the field, preventing "Blue-on-Blue" friendly fire incidents.
 
-## Verification Architecture
-
-**The "Enforcement Impersonation" Fraud Problem**
-
-- **Extortion Scams:** Criminals buying realistic uniforms and fake "DHS" badges to target vulnerable immigrants for cash payments.
-- **Credential Hiding:** A terminated officer keeping their physical badge to continue exercising "Police Powers" illegally.
-- **Phishing Badges:** Creating fake ID cards with QR codes that link to a fraudulent "DHS-verify.com" website controlled by scammers.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -118,7 +118,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the immigration service's hashes and status changes plus structured metadata (officer names, badge numbers, agency affiliations, assignment dates) — never sensitive personal information — providing non-repudiation of immigration officer status.
 
-## Competition vs. Calling the Field Office
+## Compared With Calling the Field Office
 
 | Feature | Live Verify | Calling the Field Office | Visual Inspection (Logo) |
 | :--- | :--- | :--- | :--- |
@@ -127,4 +127,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Often takes 10-20 minutes to reach duty officer. | **Instant.** |
 | **Freshness** | **Real-time.** Shows if suspended *today*. | **N/A.** Dispatchers may not see HR records. | **N/A.** |
 
-**Why Live Verify wins here:** The "Threshold Moment." Decisions about admitting officers happen at the door under extreme stress. Residents don't want to engage in a long conversation or a phone call while an "Official" is pounding on the door. Live Verify turn the **ID Badge** into a live, non-confrontational safety tool that provides instant, high-authority trust.
+**Where each fits:** Calling the field office remains a legitimate way to confirm an officer, and it reaches a person who can answer questions a badge cannot. It can take many minutes, and a resident with someone at the door may not manage it. Live Verify offers a faster first step: confirming that the agency stands behind the credential shown. A resident who is still in doubt can make the call, and the two checks reinforce each other.

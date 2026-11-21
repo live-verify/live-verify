@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 If a professional (like a doctor or pilot) becomes disabled and can't work, their insurance pays them a monthly check.
 
-The **Benefit Calculation Worksheet** is the actuarial math showing how the insurer reached that number. It isn't just "60% of salary"—it includes complex subtractions for Social Security, Workers Comp, and "Own-Occupation" rules.
+The Benefit Calculation Worksheet is the actuarial math showing how the insurer reached that number. It isn't just "60% of salary"—it includes complex subtractions for Social Security, Workers Comp, and "Own-Occupation" rules.
 
 Claimants use these verified worksheets to prove their income to banks for mortgages. Fraud happens when people "Edit" the worksheet to show a higher monthly benefit to get a bigger loan. Verified hashes link the lender directly to the insurer's official calculation.
 
@@ -44,7 +44,13 @@ Robert Miller, Actuary                  Certified by MetLife Claims Group
 <span data-verify-line="disability">verify:metlife.com/benefits/v</span> <span verifiable-text="end" data-for="disability"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Benefit Padding Fraud
+
+- **Amount Inflation:** Editing a $2,300 monthly benefit to read $6,300 to qualify for a larger car or home loan.
+- **Duration Alteration:** Changing a "2-year limit" to "Lifetime" coverage on the PDF.
+- **Offset Deletion:** Removing the "Social Security Offset" line from the calculation to make the net income look higher.
+
+## What Is Checked
 
 Insured name, monthly benefit amount, pre-disability earnings base, benefit percentage, offsets applied (SSDI, Workers Comp), elimination period duration, max benefit age, claim status, certifying actuary/adjuster.
 
@@ -53,7 +59,7 @@ Insured name, monthly benefit amount, pre-disability earnings base, benefit perc
 - **Explanation of Benefits (EOB):** Post-approval payment schedule.
 - **Return to Work Authorization:** (Linked hash) for partial disability benefits.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`metlife.com`, `unum.com`) and current claim standing.
 
@@ -63,15 +69,15 @@ Shows the issuer domain (`metlife.com`, `unum.com`) and current claim standing.
 - **Closed/Settled** — Claim terminated (e.g., reached max age or recovered).
 - **In-Litigation** — Benefit amount is being formally disputed.
 
-## Second-Party Use
+## Who Holds It
 
-The **Policyholder** benefits from verification.
+The Policyholder benefits from verification.
 
 **Mortgage Approval:** Proving to a lender that their $6,300/month disability income is a verified, stable, long-term asset. Banks are often skeptical of "Self-Reported" disability income; a verified hash from the insurer removes this doubt.
 
 **Alimony/Child Support:** Proving verified income levels in a family court proceeding to ensure fair support calculations based on actual insurance payouts.
 
-## Third-Party Use
+## Who Checks It
 
 **Mortgage Underwriters**
 **Asset Integrity:** Lenders verify the "Benefit Period." If the paper says "To Age 65" but the hash says "Max 2 Years," the lender avoids a high-risk loan.
@@ -82,13 +88,7 @@ The **Policyholder** benefits from verification.
 **Credit Counselors**
 **Debt Restructuring:** Verifying the consumer's income stability before negotiating with creditors.
 
-## Verification Architecture
-
-**The "Benefit Padding" Fraud Problem**
-
-- **Amount Inflation:** Editing a $2,300 monthly benefit to read $6,300 to qualify for a larger car or home loan.
-- **Duration Alteration:** Changing a "2-year limit" to "Lifetime" coverage on the PDF.
-- **Offset Deletion:** Removing the "Social Security Offset" line from the calculation to make the net income look higher.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -115,7 +115,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the benefits authority's hashes and status changes plus structured metadata (claim number, benefit amount, calculation date, occupation class) — never claimant name, medical history, or claim details — providing non-repudiation of the disability benefit calculation issuance.
 
 
-## Competition vs. Employment Verification (The Work Number)
+## Compared With Employment Verification (The Work Number)
 
 | Feature | Live Verify | Equifax (The Work Number) | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -124,4 +124,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **User Privacy** | **High.** Only this specific claim is verified. | **Low.** Lenders see full employment history. | **High.** |
 | **Speed** | **Instant.** Scan the worksheet. | **Slow.** Requires specific lender credentials and fees. | **Instant.** |
 
-**Why Live Verify wins here:** Specificity. Employment verification services are built for workers, not claimants. They often miss the nuanced "Own-Occ" vs "Any-Occ" triggers that determine if a disability benefit will continue. Live Verify turns the **Actuarial Worksheet** into a live, trusted link to the specific contract terms.
+**Where each fits:** Employment and income verification services such as The Work Number are quick and well established for confirming salary and employment status, and lenders connected to them will keep using them for that. They are not built to show the terms of an individual disability claim, and many of the people who need to see a benefit worksheet have no subscription. Live Verify lets a lender, lawyer or family member confirm that the carrier issued this specific calculation, alongside whatever the aggregator reports about earnings.

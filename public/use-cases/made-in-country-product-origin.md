@@ -114,7 +114,7 @@ The jurisdiction named in the "Made in" claim has a direct stake in its accuracy
 
 **Consumer complaint correlation:** When a consumer clips a "Made in Italy" claim and gets a verification failure, the jurisdiction now has a data point — a specific URL, a specific product, a specific date. Aggregated across consumers, this becomes an enforcement pipeline.
 
-## Data Verified
+## What Is Checked
 
 Manufacturer name, registered business domain, certification body, certificate number, product categories covered (e.g. leather goods, watches, power tools), country/region of origin, and current certification status.
 
@@ -125,7 +125,7 @@ Manufacturer name, registered business domain, certification body, certificate n
 
 **Privacy Salt:** Not required. Origin certification status is public record. Certification bodies maintain public directories of certified companies.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g. `originefrancegarantie.fr`, `swissmade.fh.ch`) and the current certification status.
 
@@ -145,9 +145,9 @@ Shows the issuer domain (e.g. `originefrancegarantie.fr`, `swissmade.fh.ch`) and
 - **Withdrawn** — Certification has been permanently revoked.
 - **404** — No such certification was issued by this body for this manufacturer.
 
-## Second-Party Use
+## Who Holds It
 
-The **manufacturer** benefits from verification.
+The manufacturer benefits from verification.
 
 **Premium differentiation:** A genuine "Made in France" handbag competes against fakes claiming the same origin. A verifiable claim is proof — not just a label — that the certification body has audited the manufacturing process and confirmed origin. This justifies the price premium to skeptical consumers.
 
@@ -155,7 +155,7 @@ The **manufacturer** benefits from verification.
 
 **Export credibility:** When selling internationally, the verifiable origin claim provides instant proof to foreign consumers and regulators that the "Made in" label is backed by an audited certification, not just self-assertion.
 
-## Third-Party Use
+## Who Checks It
 
 **Consumers**
 
@@ -181,7 +181,7 @@ The **manufacturer** benefits from verification.
 
 **Brand protection at scale:** Instead of manually crawling the web for misuse of their certification mark, the endpoint traffic reveals where claims are appearing. Unauthorized domains generating verification requests are enforcement targets.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Unverifiable Label" Problem**
 
@@ -247,7 +247,7 @@ The verifiable claim addresses these because:
 
 </details>
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | "Made in" Label | Certification Body Register | Blockchain Provenance |
 | :--- | :--- | :--- | :--- | :--- |
@@ -258,7 +258,7 @@ The verifiable claim addresses these because:
 | **Government enforcement** | **Yes.** Endpoint traffic provides leads. | **No.** Complaint-driven. | **Passive.** | **No.** |
 | **Works on physical product** | **Yes.** Camera OCR. | **Already there.** | **No.** | **QR code.** |
 
-**Why Live Verify wins here:** The enforcement loop. Current "Made in" enforcement is complaint-driven and slow. Live Verify creates a passive monitoring capability where the jurisdiction sees which products and URLs are making origin claims, whether those claims are backed by real certifications, and where misuse is occurring — all without proactive investigation. The consumer gets verification. The country gets enforcement intelligence.
+**Where each fits:** Each of the existing approaches keeps its place. The label is already on the product and costs nothing to read; the certification body's register is the authoritative list for anyone prepared to look a company up; a provenance ledger can suit supply chains whose members have all joined it. What a shopper or retailer lacks is a quick way to connect the claim in front of them to the certifier. Live Verify supplies that link from the claim text itself, and the lookups it generates can inform, though not replace, the complaint-driven enforcement that authorities already run.
 
 ## Authority Chain
 

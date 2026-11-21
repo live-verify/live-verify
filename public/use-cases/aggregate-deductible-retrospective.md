@@ -39,7 +39,13 @@ ADDITIONAL PREMIUM DUE                                    $160,000
   <span data-verify-line="retro">verify:chubb.com/retro/v</span> <span verifiable-text="end" data-for="retro"></span>
 </div>
 
-## Data Verified
+## The Problem: Clean Loss Run Fraud
+
+- **Photoshop:** Editing the "Incurred Losses" column in a PDF loss run to make a bad year look good.
+- **Omission:** Deleting pages of large claims from the report.
+- **Fake Paid status:** Forging a document saying "All retro premiums paid" to avoid disclosing a liability during M&A.
+
+## What Is Checked
 
 Insured name, policy number, adjustment period (1st, 2nd, 3rd, etc.), incurred loss amount, total retrospective premium, amount due/returned, aggregate limit status.
 
@@ -48,7 +54,7 @@ Insured name, policy number, adjustment period (1st, 2nd, 3rd, etc.), incurred l
 - **Loss Run Report:** Detailed list of claims supporting the calculation.
 - **Collateral Adjustment Notice:** Demand for Letter of Credit increase.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Insurance Carrier) and the document validity.
 
@@ -57,9 +63,9 @@ Shows the issuer domain (the Insurance Carrier) and the document validity.
 - **Void** — Adjustment was recalculated (common in retro plans).
 - **Disputed** — The insured has formally contested this calculation.
 
-## Second-Party Use
+## Who Holds It
 
-The **Insured** (second party) receives the premium adjustment statement from the insurance carrier (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Insured (second party) receives the premium adjustment statement from the insurance carrier (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** The insured has their own verified copy of the retrospective premium calculation. Most of the time, the document sits in their risk management files—the verification value is latent, there *if needed*.
 
@@ -67,7 +73,7 @@ The **Insured** (second party) receives the premium adjustment statement from th
 
 **Future Optionality:** If a dispute arises about premium amounts, or if they need to prove collateral requirements to a bank, the insured has cryptographic proof ready without needing to contact the carrier.
 
-## Third-Party Use
+## Who Checks It
 
 The insured (second party) may hand the verified document to various third parties:
 
@@ -80,13 +86,7 @@ Reinsurers need to verify that the primary carrier is calculating retro premiums
 **M&A Due Diligence**
 In a corporate acquisition, the buyer needs to know if the target company has a "ticking time bomb" of retrospective premium adjustments waiting to be billed. Verified adjustment statements reveal the true liability.
 
-## Verification Architecture
-
-**The "Clean Loss Run" Fraud Problem**
-
-- **Photoshop:** Editing the "Incurred Losses" column in a PDF loss run to make a bad year look good.
-- **Omission:** Deleting pages of large claims from the report.
-- **Fake Paid status:** Forging a document saying "All retro premiums paid" to avoid disclosing a liability during M&A.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -122,7 +122,7 @@ Retrospective premium calculations in international reinsurance require:
 
 **Cross-border reinsurance:** EU Solvency II requires witness firms for cross-border policy documents.
 
-## Competition vs. Broker Portals
+## Compared With Broker Portals
 
 | Feature | Live Verify | Broker Portal (Marsh/Aon) |
 | :--- | :--- | :--- |
@@ -130,4 +130,4 @@ Retrospective premium calculations in international reinsurance require:
 | **M&A Access** | **Easy.** Seller sends verified PDFs to Data Room. Buyer verifies. | **Hard.** Buyer cannot access Seller's private broker portal without complex permissioning. |
 | **Immutability** | **High.** Hash proves the document hasn't changed. | **Medium.** Portal data changes dynamically; hard to prove "what was the loss number on Dec 31?" |
 
-**Why Live Verify wins here:** M&A transactions and underwriting submissions rely on **static documents** (snapshots in time) exchanged between parties who don't share system access. "Here is our loss run as of Jan 1." Live Verify makes that static snapshot trustworthy without requiring the recipient to log in to the sender's insurance portal.
+**Where each fits:** a broker portal is the right tool for the insured and its current broker, who need live figures on current placements. Loss runs and adjustment statements also go to people who will never have a login: a buyer's advisers in a data room, or an underwriter quoting a new programme. Live Verify lets them confirm that the carrier issued that exact snapshot, as at its date, while the portal carries on serving the people who manage the programme day to day.

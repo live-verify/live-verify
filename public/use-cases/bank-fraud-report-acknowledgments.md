@@ -15,7 +15,7 @@ When a customer discovers unauthorized transactions — their accounts drained, 
 
 The problem is acute. The customer is in crisis. Their rent is due. Their direct debits are bouncing. They need to know: what did the bank actually commit to? When did they report it? What are their regulatory rights? What happens next?
 
-Under **Regulation E** (Electronic Fund Transfer Act) in the US, banks have strict obligations once fraud is reported: investigate within 10 business days (or 20 for new accounts), issue provisional credit if the investigation takes longer, and provide written results. Under the UK's **Payment Services Regulations 2017**, the bank must refund unauthorized transactions by the end of the next business day unless they suspect the customer is complicit.
+Under Regulation E (Electronic Fund Transfer Act) in the US, banks have strict obligations once fraud is reported: investigate within 10 business days (or 20 for new accounts), issue provisional credit if the investigation takes longer, and provide written results. Under the UK's Payment Services Regulations 2017, the bank must refund unauthorized transactions by the end of the next business day unless they suspect the customer is complicit.
 
 In practice, these obligations are routinely violated or obscured. The customer has no verified record of what was reported, when it was reported, or what the bank said it would do. If the bank later claims "you didn't report it within 60 days" or "we never received that call," the customer has no proof. It's their word against a regulated institution with a legal department.
 
@@ -110,7 +110,14 @@ The lifecycle: `RECEIVED` → `UNDER_INVESTIGATION` → one of `PROVISIONAL_CRED
 
 `PROVISIONAL_CREDIT_ISSUED` is particularly important — it proves the bank met its Reg E obligation to provide interim relief. If the bank later resolves against the customer, the provisional credit is reversed — but the customer has a verified record that it was issued, preventing disputes about what happened when.
 
-## Data Verified
+## The Problem: We Never Received That Report
+
+- **Disputed report dates** — The bank claims the customer reported on March 10 (within 10-day window) when the customer actually reported on March 6 (window has expired). Without verification, the bank's internal records prevail.
+- **Vanishing case numbers** — The bank's system "loses" the original case, or the case is closed and reopened under a new number, resetting all timelines.
+- **Selective documentation** — The bank's internal notes omit key details the customer reported (e.g., that the customer mentioned a specific suspicious email or phone call), which later proves relevant to the investigation.
+- **Provisional credit denial** — The bank claims it completed its investigation within 10 business days (so no provisional credit was owed) when the investigation was actually still open.
+
+## What Is Checked
 
 Account holder name, case number, date and time reported, reporting channel, affected account(s), transaction count and total disputed amount, actions taken, regulatory rights stated. The hash does NOT contain full account numbers or transaction-level detail — only the acknowledgment summary.
 
@@ -120,9 +127,9 @@ Account holder name, case number, date and time reported, reporting channel, aff
 - **Provisional Credit Notice** — Confirming interim funds have been applied.
 - **Final Resolution Letter** — The outcome of the investigation with detailed findings.
 
-## Second-Party Use
+## Who Holds It
 
-The **Account Holder** (fraud victim) benefits from verification.
+The Account Holder (fraud victim) benefits from verification.
 
 **Regulatory Complaints:** Filing a complaint with the CFPB or OCC requires evidence that the bank was notified and when. A verified acknowledgment is stronger than "I called them on March 6 and they said they'd look into it." The CFPB received over 1.3 million complaints in 2023 — banking and credit complaints are the largest categories.
 
@@ -132,7 +139,7 @@ The **Account Holder** (fraud victim) benefits from verification.
 
 **Legal Proceedings:** If the bank fails to meet its Reg E obligations and the customer sues, the verified acknowledgment is evidence of when the bank was put on notice.
 
-## Third-Party Use
+## Who Checks It
 
 **Regulators (CFPB / OCC / State Banking Departments)**
 A verified acknowledgment proves the bank acknowledged the fraud report at a specific date and time. When a customer files a complaint alleging the bank failed to investigate within 10 business days, the regulator can verify the report date independently rather than relying on the bank's internal records.
@@ -149,14 +156,7 @@ If the fraud involved transfers to accounts at other banks, those banks' fraud d
 **Attorneys**
 Consumer protection attorneys handling Reg E violations need proof of the bank's obligations and timeline. A verified acknowledgment that explicitly states the customer's regulatory rights is evidence that the bank was aware of its obligations from day one.
 
-## Verification Architecture
-
-**The "We Never Received That Report" Problem**
-
-- **Disputed report dates** — The bank claims the customer reported on March 10 (within 10-day window) when the customer actually reported on March 6 (window has expired). Without verification, the bank's internal records prevail.
-- **Vanishing case numbers** — The bank's system "loses" the original case, or the case is closed and reopened under a new number, resetting all timelines.
-- **Selective documentation** — The bank's internal notes omit key details the customer reported (e.g., that the customer mentioned a specific suspicious email or phone call), which later proves relevant to the investigation.
-- **Provisional credit denial** — The bank claims it completed its investigation within 10 business days (so no provisional credit was owed) when the investigation was actually still open.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -203,13 +203,13 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 ## Voluntary Witnessing
 
-This use case is a strong candidate for **voluntary witnessing** by the account holder. The bank has a structural incentive to minimize fraud payouts. A customer who suspects the bank may later deny or delay their obligations can engage a witnessing organization to independently fetch and record the verification endpoint immediately after receiving the acknowledgment.
+This use case is a strong candidate for voluntary witnessing by the account holder. The bank has a structural incentive to minimize fraud payouts. A customer who suspects the bank may later deny or delay their obligations can engage a witnessing organization to independently fetch and record the verification endpoint immediately after receiving the acknowledgment.
 
 The witnessing organization performs its own GET against the bank's verification URL, records the HTTP response (including the `RECEIVED` status and timestamp), and stores this in its own immutable ledger. If the bank later claims "we completed the investigation within 10 days" when it actually took 30, the witness can attest to the original report date and status timeline.
 
 See [Witnessing and Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full witnessing protocol.
 
-## Competition vs. Phone Records
+## Compared With Phone Records
 
 | Feature | Live Verify | Phone Records / Emails | Bank's Internal System |
 | :--- | :--- | :--- | :--- |
@@ -219,7 +219,7 @@ See [Witnessing and Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for t
 | **Credit bureau disputes** | **Authoritative.** Bank's own domain confirms fraud was reported. | **Indirect.** Bureau must contact bank anyway. | **Conflicted.** Bank confirms to bureau on its own timeline. |
 | **Permanence** | **Snapshot.** Immutable hash. | **Ephemeral.** Voicemails deleted, emails buried. | **Mutable.** Internal systems change. |
 
-**Why Live Verify wins here:** The fundamental asymmetry. The bank has lawyers, compliance teams, and complete control over its own records. The customer has a phone call and a memory. Live Verify gives the customer a verified receipt from the bank's own domain — evidence the bank cannot deny without denying its own infrastructure.
+**Where each fits:** the bank's internal case system is where the investigation is run, and call logs and emails are still worth keeping. None of them gives the customer something a regulator, credit bureau or ombudsman can check independently. A verified acknowledgment does: it shows that the bank's own domain stands behind a statement that the report was received on a given date and in given terms. It sits alongside the bank's records rather than competing with them.
 
 ## International Equivalents
 

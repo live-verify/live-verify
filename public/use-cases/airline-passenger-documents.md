@@ -36,7 +36,13 @@ Auth:        998877
   <span data-verify-line="receipt">verify:delta.com/receipts/v</span> <span verifiable-text="end" data-for="receipt"></span>
 </div>
 
-## Data Verified
+## The Problem: Fake Expense Fraud
+
+- **Receipt Generators:** Websites that generate realistic-looking receipts for any airline.
+- **Double Dipping:** Submitting the same receipt to two different employers (e.g., for a consultant working two jobs).
+- **Refund Fraud:** Buying a refundable ticket/service, printing the receipt, claiming the expense, then cancelling/refunding the service. Verification reveals the "Refunded" status.
+
+## What Is Checked
 
 Passenger name, ticket number, flight details, specific service types (baggage, seat, wifi, meal), fee amounts, total paid, payment method (last 4 digits).
 
@@ -46,7 +52,7 @@ Passenger name, ticket number, flight details, specific service types (baggage, 
 - **In-Flight Purchase Receipt:** Emailed or printed for food/wifi.
 - **Lounge Access Receipt:** Day pass purchase.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`delta.com`) and the receipt details.
 
@@ -55,9 +61,9 @@ Shows the issuer domain (`delta.com`) and the receipt details.
 - **Refunded** — The fee was refunded (e.g., if the bag was lost or wifi didn't work), invalidating the expense claim.
 - **Void** — Transaction cancelled.
 
-## Second-Party Use
+## Who Holds It
 
-The **Passenger** (second party) receives the receipt from the airline (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Passenger (second party) receives the receipt from the airline (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** The passenger has their own verified copy of ancillary purchases. Most of the time, the document sits in their email or expense folder—the verification value is latent, there *if needed*.
 
@@ -65,7 +71,7 @@ The **Passenger** (second party) receives the receipt from the airline (first pa
 
 **Future Optionality:** If an expense reimbursement is needed or a tax audit arises, the passenger has cryptographic proof ready without needing to contact the airline.
 
-## Third-Party Use
+## Who Checks It
 
 The passenger (second party) may hand the verified document to various third parties:
 
@@ -78,13 +84,7 @@ Employees sometimes use "receipt generator" websites to create fake baggage rece
 **Tax Authorities (IRS/HMRC)**
 Verifying that "travel expenses" were actually incurred and not just fabricated for deductions.
 
-## Verification Architecture
-
-**The "Fake Expense" Fraud Problem**
-
-- **Receipt Generators:** Websites that generate realistic-looking receipts for any airline.
-- **Double Dipping:** Submitting the same receipt to two different employers (e.g., for a consultant working two jobs).
-- **Refund Fraud:** Buying a refundable ticket/service, printing the receipt, claiming the expense, then cancelling/refunding the service. Verification reveals the "Refunded" status.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -97,7 +97,7 @@ Verifying that "travel expenses" were actually incurred and not just fabricated 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the airline's hashes and status changes plus structured metadata (ticket numbers, flight numbers, service types, amounts) — never plaintext (passenger names, passport details, payment card numbers) — providing non-repudiation of the receipt.
 
-## Competition vs. Corporate Cards
+## Compared With Corporate Cards
 
 | Feature | Live Verify | Corporate Card Feed |
 | :--- | :--- | :--- |
@@ -106,7 +106,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Immediacy** | **Instant.** Scan receipt immediately. | **Laggy.** Card feeds can take days to sync. |
 | **Cash/Kiosk** | **Yes.** Covers kiosk prints. | **No.** Misses cash or non-integrated payments. |
 
-**Why Live Verify wins here:** While Level 3 credit card data tries to provide line-item detail, it is notoriously unreliable for travel ancillary fees. A verified receipt provides the definitive "Itemized" proof required by strict expense policies.
+**Where each fits:** a corporate card feed is the efficient way to reconcile spending when the employee used the company card, and it needs no action from the traveller. It often shows only the airline name and an amount, and it sees nothing paid on a personal card or at a kiosk. A verified receipt fills in the line-item detail for those cases, so finance teams can use the feed for matching and the receipt for what was actually bought.
 
 
 ---
@@ -116,9 +116,9 @@ _[Content merged from: airline-compensation-letters]_
 
 ## What is an Airline Compensation Letter?
 
-Under regulations like **EU261** (Europe) or similar laws in Canada/UK, airlines must pay cash compensation (up to €600) for delays or cancellations within their control.
+Under regulations like EU261 (Europe) or similar laws in Canada/UK, airlines must pay cash compensation (up to €600) for delays or cancellations within their control.
 
-However, airlines often deny claims citing "Extraordinary Circumstances" (e.g., Weather, ATC strikes). When this happens, passengers need a formal **Determination Letter** to:
+However, airlines often deny claims citing "Extraordinary Circumstances" (e.g., Weather, ATC strikes). When this happens, passengers need a formal Determination Letter to:
 1.  **Claim Travel Insurance:** Insurers won't pay until the airline officially refuses.
 2.  **Sue:** Small claims courts need proof of the airline's final position.
 
@@ -151,7 +151,7 @@ Verifying these letters prevents passengers from faking denials to defraud insur
   </div>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Passenger name, flight number, disruption date, claim reference number, decision (Approved/Denied), compensation amount, regulation cited (EU261, UK261, DOT), payment status.
 
@@ -160,7 +160,7 @@ Passenger name, flight number, disruption date, claim reference number, decision
 - **Denial Letter:** "Extraordinary Circumstances" rejection (needed for insurance).
 - **Delay Verification:** Proof of delay duration (for employer/insurance).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`ba.com`) and the claim status.
 
@@ -169,15 +169,15 @@ Shows the issuer domain (`ba.com`) and the claim status.
 - **Denied** — Claim rejected (reason provided, e.g., "Weather").
 - **Pending** — Under review.
 
-## Second-Party Use
+## Who Holds It
 
-The **Passenger** benefits from verification.
+The Passenger benefits from verification.
 
 **Travel Insurance Claims:** Insurers often require a "denial letter" from the airline before they will pay out for trip interruption. A verified denial letter proves the airline refused to pay, unlocking the insurance payout.
 
 **Employer Proof:** Proving to a boss that the missed meeting was indeed due to a flight cancellation and not oversleeping.
 
-## Third-Party Use
+## Who Checks It
 
 **Travel Insurers**
 **Double-Dipping Prevention:** Fraudsters claim €600 from the airline AND €600 from the insurer for the same delay. Verification allows the insurer to check: "Did the airline pay?" If the status is "Paid," the insurer reduces their payout accordingly.
@@ -188,7 +188,7 @@ The **Passenger** benefits from verification.
 **Small Claims Courts**
 **Evidence:** In disputes, a verified letter from the airline admitting fault (or denying it for invalid reasons) is powerful evidence.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Fake Denial" Fraud Problem**
 
@@ -200,7 +200,7 @@ The **Passenger** benefits from verification.
 **Airlines:** (Ryanair, EasyJet, Lufthansa, etc.)
 **ADR Bodies:** (Alternative Dispute Resolution entities like CEDR)
 
-## Competition vs. Email / Portals
+## Compared With Email / Portals
 
 | Feature | Live Verify | Forwarded Email | Airline Portal |
 | :--- | :--- | :--- | :--- |
@@ -208,7 +208,7 @@ The **Passenger** benefits from verification.
 | **Sharing** | **Easy.** Send the link or paper to insurer. | **Messy.** Forwarding chains, PDF attachments. | **Hard.** Can't give insurer your airline password. |
 | **Privacy** | **Selective.** Share only the specific letter. | **Low.** Email headers expose metadata. | **Low.** Portal access exposes full history. |
 
-**Why Live Verify wins here:** It creates a portable, verifiable "Token of Truth" about a specific claim that can be handed to insurers, lawyers, or employers without sharing login credentials or relying on easily forged emails.
+**Where each fits:** the airline's own portal is the authoritative place for the passenger to view their records, and a forwarded email is fine where nobody has a reason to doubt it. An insurer, lawyer or employer cannot log in as the passenger, and should not be asked to. Live Verify lets the passenger hand over one letter that the recipient can check against the airline's domain, without sharing credentials or the rest of the travel history.
 
 
 ---
@@ -239,7 +239,7 @@ Date:             20 March 2026
 <span data-verify-line="refund">verify:lufthansa.com/refunds/v</span> <span verifiable-text="end" data-for="refund"></span></pre>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Passenger name, original ticket number, refund document number (Credit Memo), refund amount, currency, penalty applied, original form of payment credited, date processed.
 
@@ -248,7 +248,7 @@ Passenger name, original ticket number, refund document number (Credit Memo), re
 - **Agency Credit Memo (ACM):** Issued to travel agents.
 - **Electronic Miscellaneous Document (EMD):** For ancillary refunds.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`lufthansa.com`) and refund status.
 
@@ -257,15 +257,15 @@ Shows the issuer domain (`lufthansa.com`) and refund status.
 - **Pending** — Approved but not yet transmitted.
 - **Reversed** — Refund cancellation (e.g., if passenger decided to keep the ticket).
 
-## Second-Party Use
+## Who Holds It
 
-The **Passenger** or **Travel Agent** benefits from verification.
+The Passenger or Travel Agent benefits from verification.
 
 **Chargeback Defense:** Proving to a credit card company that a refund was *not* issued yet (or was insufficient), justifying a dispute.
 
 **Reimbursement Correction:** Proving to an employer exactly how much was refunded so the correct amount can be returned to the company.
 
-## Third-Party Use
+## Who Checks It
 
 **Corporate Finance / Audit**
 **"Buy and Cancel" Fraud:** An employee buys a refundable Business Class ticket ($5k), expenses it, gets reimbursed. Then they cancel the ticket, get the refund to their personal card. The company is out $5k.
@@ -277,7 +277,7 @@ The **Passenger** or **Travel Agent** benefits from verification.
 **Tax Authorities**
 **VAT Reclamation:** If a ticket was refunded, the input VAT cannot be claimed. Verification ensures tax filings match reality.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Phantom Ticket" Fraud Problem**
 
@@ -289,7 +289,7 @@ The **Passenger** or **Travel Agent** benefits from verification.
 **Airlines:** (Lufthansa, Air France, Emirates, etc.)
 **IATA BSP:** (Bank Settlement Plan) which processes agent refunds.
 
-## Competition vs. Credit Card Statements
+## Compared With Credit Card Statements
 
 | Feature | Live Verify | Credit Card Statement |
 | :--- | :--- | :--- |
@@ -297,7 +297,7 @@ The **Passenger** or **Travel Agent** benefits from verification.
 | **Privacy** | **High.** Reveals only this transaction. | **Low.** Employee must share full bank statement (revealing personal spending) to prove the refund. |
 | **Timeliness** | **Instant.** Available as soon as airline processes. | **Slow.** Refunds can take 3-10 days to appear on statements. |
 
-**Why Live Verify wins here:** Privacy. Employees hate sharing their personal bank statements with Finance to prove a negative (or a positive). A verified document from the airline allows them to prove the refund details without exposing their entire financial life.
+**Where each fits:** a card statement is good evidence that money moved, and for many refund checks that is enough. It takes days to show a refund, gives no breakdown of fare, tax and penalty, and sharing it means showing unrelated personal spending. A verified refund document from the airline supplies the breakdown on its own, and the statement remains available if proof of the credit landing is also wanted.
 
 
 ---
@@ -328,7 +328,7 @@ Seat:            12A
 <span data-verify-line="upgrade">verify:united.com/receipts/v</span> <span verifiable-text="end" data-for="upgrade"></span></pre>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Passenger name, original ticket number, confirmation code, flight details, from/to class of service, cash payment amount, miles redeemed, date of transaction.
 
@@ -337,7 +337,7 @@ Passenger name, original ticket number, confirmation code, flight details, from/
 - **Mileage Upgrade Award:** Receipt showing miles + co-pay.
 - **Complimentary Upgrade Notice:** Elite status upgrade (usually $0 value).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`united.com`) and the upgrade validity.
 
@@ -346,15 +346,15 @@ Shows the issuer domain (`united.com`) and the upgrade validity.
 - **Refunded** — Passenger cancelled or was downgraded (e.g., equipment swap).
 - **Waitlisted** — Request made but not yet cleared (not a valid receipt for expense yet).
 
-## Second-Party Use
+## Who Holds It
 
-The **Business Traveler** benefits from verification.
+The Business Traveler benefits from verification.
 
 **Expense Justification:** Proving to an employer that the $550 charge was for a *policy-compliant* upgrade (e.g., "flights over 8 hours") and not an unauthorized splurge.
 
 **Tax Records:** Differentiating between business expenses (the cash co-pay) and personal costs (using personal miles), which can be complex for tax deductions.
 
-## Third-Party Use
+## Who Checks It
 
 **Corporate Finance / Auditors**
 **Policy Compliance:** Companies often have strict rules: "We pay for Economy, you can upgrade with your own points." A receipt showing "$5,000" for a Business Class ticket looks suspicious. A verified receipt showing "Economy Fare + $0 Upgrade (Miles)" clarifies that the company only paid for the base fare.
@@ -365,7 +365,7 @@ The **Business Traveler** benefits from verification.
 **Travel Management Companies (TMCs)**
 **Spend Tracking:** Ensuring that "invisible" spend (upgrades bought directly from the airline app, bypassing the TMC) is captured in total travel cost reporting.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Fake Upgrade" Fraud Problem**
 
@@ -377,7 +377,7 @@ The **Business Traveler** benefits from verification.
 **Airlines:** (United, American, Delta, Emirates, etc.)
 **Upgrade Auctions:** (Plusgrade) third-party platforms used by many airlines for bidding on upgrades.
 
-## Competition vs. Credit Card Statements
+## Compared With Credit Card Statements
 
 | Feature | Live Verify | Credit Card Statement |
 | :--- | :--- | :--- |
@@ -385,7 +385,7 @@ The **Business Traveler** benefits from verification.
 | **Context** | **Full.** Shows Class of Service (Economy -> Business). | **None.** No flight details or class info. |
 | **Mileage Info** | **Yes.** Shows miles burned (crucial for value calculations). | **No.** Only shows cash. |
 
-**Why Live Verify wins here:** Credit card statements are too vague for strict corporate travel policies. They prove *payment* but not *product*. A verified receipt proves exactly *what* was purchased, preventing policy violations disguised as generic airline charges.
+**Where each fits:** the statement proves the payment and is what most reconciliation runs on. It does not say what was bought, in which cabin, or how many miles were used. A verified upgrade receipt adds those details from the airline itself, so the two together answer both whether it was paid and what it was for.
 
 
 ---
@@ -419,7 +419,7 @@ TOTAL CHARGED:                                             $ 64.00
 <span data-verify-line="lounge">verify:prioritypass.com/visits/v</span> <span verifiable-text="end" data-for="lounge"></span></pre>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Member name, lounge name/location, date/time of entry, number of guests, total fee charged, visit reference ID.
 
@@ -428,7 +428,7 @@ Member name, lounge name/location, date/time of entry, number of guests, total f
 - **Day Pass Purchase:** Receipt for buying a one-time pass (e.g., United Club one-time pass).
 - **Membership Renewal:** Annual fee receipt.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`prioritypass.com`, `loungekey.com`, `amex.com`) and transaction status.
 
@@ -437,15 +437,15 @@ Shows the issuer domain (`prioritypass.com`, `loungekey.com`, `amex.com`) and tr
 - **Comped** — Visit verified but fee waived (important for expenses).
 - **Void** — Transaction cancelled/refunded.
 
-## Second-Party Use
+## Who Holds It
 
-The **Business Traveler** benefits from verification.
+The Business Traveler benefits from verification.
 
 **Expense Reimbursement:** Proving that the $64 charge was for "Client Entertainment" (guests brought into the lounge) rather than personal indulgence.
 
 **Billing Disputes:** Proving you didn't enter the lounge if charged erroneously (e.g., "I was at the gate, here is my boarding pass scan time").
 
-## Third-Party Use
+## Who Checks It
 
 **Employers / Finance Teams**
 **Policy Compliance:** Many companies pay for the employee's entry but *not* for guests (unless they are clients). A verified receipt showing "Guests: 2" allows Finance to ask "Who were these guests?" and verify client meetings.
@@ -456,7 +456,7 @@ The **Business Traveler** benefits from verification.
 **Project Clients**
 **Re-billing:** If a consultant charges lounge access to a client project, the client demands proof. Verified receipts prevent "padding" the invoice with personal relaxation costs.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Phantom Guest" Fraud Problem**
 
@@ -483,7 +483,7 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Credit Card Statements
+## Compared With Credit Card Statements
 
 | Feature | Live Verify | Credit Card Statement |
 | :--- | :--- | :--- |
@@ -491,4 +491,4 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Location** | **Exact.** "The Club at SJC". | **Vague.** "PRIORITY PASS HONG KONG". |
 | **Time** | **Exact.** Proves you were there during the delay. | **Date Only.** |
 
-**Why Live Verify wins here:** Context. A credit card charge is just a number. A verified lounge receipt proves *who* was with you and *where* you were, turning a generic charge into a justifiable business expense.
+**Where each fits:** for confirming that a lounge charge was made and settled, the statement is sufficient. It does not record the lounge, the time or the number of guests, which is what an expense approver usually asks about. A verified lounge receipt carries that context, and sits beside the statement line rather than replacing it.

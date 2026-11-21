@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 When you back a project on Kickstarter or Indiegogo, you are often buying a "Future Product" (like a new watch or board game).
 
-The **Pledge Confirmation** is your receipt. It proves you were "Backer #4" and are entitled to a specific "Early Bird" reward.
+The Pledge Confirmation is your receipt. It proves you were "Backer #4" and are entitled to a specific "Early Bird" reward.
 
 In the "Secondary Market" for gadgets, people often try to sell their "Reservation Spots" to others. Verified hashes prevent "Vapor-Pledge" fraud where someone tries to sell a high-value reward tier they never actually bought.
 
@@ -45,7 +45,13 @@ In the "Secondary Market" for gadgets, people often try to sell their "Reservati
   </div>
 </div>
 
-## Data Verified
+## The Problem: Vapor-Pledge Fraud
+
+- **Fabricated Confirmations:** Scammers creating fake Kickstarter emails to trick people into buying "Resale Spots" for a sold-out gadget.
+- **Amount Tampering:** Editing a $10 pledge to look like a $1,000 "Titanium Tier" pledge to gain access to exclusive creator forums or events.
+- **Status Faking:** Showing a "Sent" status on a PDF when the payment actually failed.
+
+## What Is Checked
 
 Backer name, project title, pledge amount, reward tier description, estimated delivery date, project creator name, transaction date, unique pledge ID.
 
@@ -54,7 +60,7 @@ Backer name, project title, pledge amount, reward tier description, estimated de
 - **Equity Certificate:** For investment-based sites (Wefunder/Republic).
 - **Tax Receipt:** For charitable crowdfunding (GoFundMe).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`kickstarter.com`, `wefunder.com`) and pledge status.
 
@@ -64,15 +70,15 @@ Shows the issuer domain (`kickstarter.com`, `wefunder.com`) and pledge status.
 - **Cancelled** — Backer withdrew pledge before deadline.
 - **Shipped** — Creator has verified delivery of reward.
 
-## Second-Party Use
+## Who Holds It
 
-The **Backer / Investor** benefits from verification.
+The Backer / Investor benefits from verification.
 
 **Secondary Market:** If a backer wants to sell their "Founder's Edition" serial number before the product even ships, they can show a potential buyer the "Verified Pledge" from Kickstarter. This prevents "Vapor-Pledge" fraud where someone tries to sell a reward they never actually bought.
 
 **Dispute Resolution:** Proving to a credit card company that a $1,200 charge was for a specific "Founder's Edition" reward if the creator tries to send a cheaper "Basic Edition" instead.
 
-## Third-Party Use
+## Who Checks It
 
 **Project Creators**
 **Inventory Audit:** Instantly verifying the eligibility of a backer during a face-to-face pickup event at a launch party.
@@ -83,13 +89,7 @@ The **Backer / Investor** benefits from verification.
 **Tax Accountants**
 **Donation Verification:** Verifying that a large "Pledge" to a non-profit crowdfunding campaign is a legitimate tax-deductible event.
 
-## Verification Architecture
-
-**The "Vapor-Pledge" Fraud Problem**
-
-- **Fabricated Confirmations:** Scammers creating fake Kickstarter emails to trick people into buying "Resale Spots" for a sold-out gadget.
-- **Amount Tampering:** Editing a $10 pledge to look like a $1,000 "Titanium Tier" pledge to gain access to exclusive creator forums or events.
-- **Status Faking:** Showing a "Sent" status on a PDF when the payment actually failed.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -118,7 +118,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the crowdfunding platform's hashes and status changes plus structured metadata (backer name, project title, pledge amount, reward tier, estimated delivery date, transaction date, pledge ID) — never plaintext payment information — providing non-repudiation of the pledge confirmation.
 
 
-## Competition vs. Platform Dashboards
+## Compared With Platform Dashboards
 
 | Feature | Live Verify | Platform Dashboard | Scanned PDF / Email |
 | :--- | :--- | :--- | :--- |
@@ -127,4 +127,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Tier.** Protects the "Reward Level." | **Data-Only.** | **Vulnerable.** |
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires 2FA and navigation. | **N/A.** |
 
-**Why Live Verify wins here:** The "Handoff Economy." People trade crowdfunding spots on Reddit and eBay. A static email screenshot is worthless for trust. Live Verify turns the **Pledge Receipt** into a transferable "Proof of Ownership" that can be verified by anyone, anywhere, without needing the original owner's password.
+**Where each fits:** the platform dashboard is the backer's own authoritative view and the place where any change to a pledge is made. A third party cannot see it without the backer's login. Live Verify lets the backer show a confirmation that the other person can check against the platform's domain, while the dashboard remains the record. Whether a pledge can be transferred is still a matter for the platform's terms.

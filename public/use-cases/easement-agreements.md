@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is an Easement?
 
-An **Easement** is a legal right to use someone else's land for a specific purpose. The most common type is a **Utility Easement**, where the city or a power company has the right to run pipes or wires through your backyard.
+An Easement is a legal right to use someone else's land for a specific purpose. The most common type is a Utility Easement, where the city or a power company has the right to run pipes or wires through your backyard.
 
 This "Right" is permanent and stays with the land, even if the house is sold.
 
-Fraud happens when sellers "Hide" easements from buyers by deleting pages from legal documents. A verified easement grant ensures the buyer knows exactly where they are **not** allowed to build a pool or a fence, preventing multimillion-dollar trespassing lawsuits.
+Fraud happens when sellers "Hide" easements from buyers by deleting pages from legal documents. A verified easement grant ensures the buyer knows exactly where they are not allowed to build a pool or a fence, preventing multimillion-dollar trespassing lawsuits.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 1px solid #000; background: #fff; padding: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 25px;">
@@ -44,7 +44,13 @@ Fraud happens when sellers "Hide" easements from buyers by deleting pages from l
   </div>
 </div>
 
-## Data Verified
+## The Problem: Hidden Encumbrance Fraud
+
+- **Scope Alteration:** Editing a "10-foot Utility Easement" to read "5-foot" to make a lot look more buildable to a buyer.
+- **Easement Deletion:** Removing the page showing an "Ingress/Egress" easement for a neighboring property, which effectively "lands-locks" the neighbor.
+- **Fake Signatures:** Forging a neighbor's signature on an easement grant to get a driveway permit from the city.
+
+## What Is Checked
 
 Grantor name, Grantee name, legal property description (Lot/Block/Plat), easement purpose (Utility, Ingress/Egress, Conservation), width/dimensions, date of grant, Liber/Page/Document reference number, Notary identification.
 
@@ -54,7 +60,7 @@ Grantor name, Grantee name, legal property description (Lot/Block/Plat), easemen
 - **Easement in Gross:** Linked to a specific person/entity (e.g., utility).
 - **Termination of Easement:** Proving the right has been legally extinguished.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`marincounty.gov`, `pge.com`) and current recording status.
 
@@ -64,15 +70,15 @@ Shows the issuer domain (`marincounty.gov`, `pge.com`) and current recording sta
 - **Terminated** — Easement has been legally removed from the title.
 - **Under Review** — Document submitted but final indexing pending.
 
-## Second-Party Use
+## Who Holds It
 
-The **Property Owner** benefits from verification.
+The Property Owner benefits from verification.
 
 **Clear Title:** When selling a home, the owner can provide a verified hash of all active easements to the buyer. This prevents "Title Surprises" where a buyer's lawyer discovers an undisclosed utility line 3 days before closing.
 
 **Fence/Construction Planning:** Proving the *exact width* of a 10-foot easement to a contractor to ensure a new fence or pool doesn't encroach on a utility company's verified legal rights.
 
-## Third-Party Use
+## Who Checks It
 
 **Utility Companies (PG&E / Comcast)**
 **Right-of-Entry:** When a crew needs to dig in a private backyard, they can show the homeowner the verified easement hash on their work order. "Verified by Marin County" prevents homeowners from calling the police for trespassing.
@@ -83,13 +89,7 @@ The **Property Owner** benefits from verification.
 **Civil Engineers / Surveyors**
 **Boundary Integrity:** Instantly verifying the legal descriptions used to set stakes in the ground during a new development.
 
-## Verification Architecture
-
-**The "Hidden Encumbrance" Fraud Problem**
-
-- **Scope Alteration:** Editing a "10-foot Utility Easement" to read "5-foot" to make a lot look more buildable to a buyer.
-- **Easement Deletion:** Removing the page showing an "Ingress/Egress" easement for a neighboring property, which effectively "lands-locks" the neighbor.
-- **Fake Signatures:** Forging a neighbor's signature on an easement grant to get a driveway permit from the city.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -116,7 +116,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the authority's hashes and status changes plus structured metadata (property identifier, easement type, recording date) — never property owner names, property address plaintext, or legal descriptions — providing non-repudiation of the easement agreement issuance.
 
 
-## Competition vs. County Records Search
+## Compared With County Records Search
 
 | Feature | Live Verify | County Search (Online) | Physical Deed Room |
 | :--- | :--- | :--- | :--- |
@@ -125,4 +125,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Content.** Protects the legal text. | **Data-Only.** Doesn't verify the paper in your hand. | **Vulnerable.** |
 | **User Access** | **Universal.** Anyone with the document. | **Difficult.** Many counties charge fees or require logins. | **Restricted.** |
 
-**Why Live Verify wins here:** The "Field Reality." Disputes about property rights happen in backyards and at construction sites. People don't have Libers and Pages memorized. Live Verify turns the **Physical Agreement** into a live digital portal, ending trespassing disputes and title confusion in seconds.
+**Where each fits:** The county's online records and the deed room remain the legal source for what is recorded against a parcel, and a title search will always go there. They take time, sometimes a fee or an account, and a search does not tell you whether the copy in your hand matches the recorded instrument. Live Verify answers that one question for a neighbour, contractor or utility crew standing on the land with the document. A full title examination is still the job of the county record.

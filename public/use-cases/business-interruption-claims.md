@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is a Business Interruption Claim?
 
-If a restaurant burns down or a factory is hit by a hurricane, the owner doesn't just lose the building; they lose the **income** they would have made while closed.
+If a restaurant burns down or a factory is hit by a hurricane, the owner doesn't just lose the building; they lose the income they would have made while closed.
 
-**Business Interruption (BI)** insurance pays for that lost profit. Because calculating "what could have been" is hard, specialized **Forensic Accountants** are hired to audit the company's tax returns and sales data.
+**Business Interruption (BI)** insurance pays for that lost profit. Because calculating "what could have been" is hard, specialized Forensic Accountants are hired to audit the company's tax returns and sales data.
 
-The result is an **Adjustment Summary**. Because these documents often trigger multimillion-dollar insurance payouts, they are high-value targets for "PDF alteration" by unscrupulous owners or brokers.
+The result is an Adjustment Summary. Because these documents often trigger multimillion-dollar insurance payouts, they are high-value targets for "PDF alteration" by unscrupulous owners or brokers.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="bi-claim"></span>
@@ -48,7 +48,13 @@ Status: FINAL ADJUDICATION
 <span data-verify-line="bi-claim">verify:libertymutual.com/claims/v</span> <span verifiable-text="end" data-for="bi-claim"></span>
 </div>
 
-## Data Verified
+## The Problem: Disaster Profit Fraud
+
+- **Revenue Inflation:** Editing old tax returns or POS reports to make the "Lost Revenue" look higher than it was.
+- **Fabricated Expenses:** Creating fake invoices for "Extra Equipment Rental" to get more cash from the insurer.
+- **Report Forgery:** Shady adjusters/accountants creating fake "Adjustment Summaries" to trick lenders into thinking a massive insurance payout is coming.
+
+## What Is Checked
 
 Insured entity name, incident date, period of restoration (days), adjusted lost net income, adjusted continuing expenses, extra expenses authorized, total claim payout, forensic accounting firm name, Claim ID.
 
@@ -58,7 +64,7 @@ Insured entity name, incident date, period of restoration (days), adjusted lost 
 - **Proof of Loss:** Final signed release for payment.
 - **Extra Expense Authorization:** Interim approval for urgent costs.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Insurance Carrier) and the claim status.
 
@@ -68,9 +74,9 @@ Shows the issuer domain (the Insurance Carrier) and the claim status.
 - **In-Litigation** — Claim amount is being formally disputed.
 - **Paid** — Funds have been transmitted to the insured.
 
-## Second-Party Use
+## Who Holds It
 
-The **Business Owner** (second party) receives the adjustment summary from the insurance carrier (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Business Owner (second party) receives the adjustment summary from the insurance carrier (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of the claim settlement. Most of the time, the document sits in their business records—the verification value is latent, there *if needed*.
 
@@ -78,7 +84,7 @@ The **Business Owner** (second party) receives the adjustment summary from the i
 
 **Future Optionality:** If questions arise—whether from lenders, tax authorities, or potential buyers—they have cryptographic proof of the settlement ready without needing to contact the insurance company.
 
-## Third-Party Use
+## Who Checks It
 
 The business owner (second party) may hand the verified document to various third parties:
 
@@ -91,13 +97,7 @@ The business owner (second party) may hand the verified document to various thir
 **M&A Buyers**
 **Due Diligence:** A buyer of a business that recently suffered a disaster needs to verify the "Insurance Recovery" claims to ensure there are no hidden liabilities or uncollected claims.
 
-## Verification Architecture
-
-**The "Disaster Profit" Fraud Problem**
-
-- **Revenue Inflation:** Editing old tax returns or POS reports to make the "Lost Revenue" look higher than it was.
-- **Fabricated Expenses:** Creating fake invoices for "Extra Equipment Rental" to get more cash from the insurer.
-- **Report Forgery:** Shady adjusters/accountants creating fake "Adjustment Summaries" to trick lenders into thinking a massive insurance payout is coming.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -125,7 +125,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the carrier's hashes and status changes plus structured metadata (claim amounts, calculation breakdowns, incident dates, claim numbers) — never plaintext (business financial details, forensic accountant working papers) — providing non-repudiation of the adjustment.
 
-## Competition vs. Forensic Audits
+## Compared With Forensic Audits
 
 | Feature | Live Verify | Manual Forensic Audit | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -134,4 +134,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Cost** | **Low.** Standard web infra. | **High.** CPA fees can be $500+/hour. | **None.** |
 | **Integrity** | **Binds Result.** Proves the final number. | **Binds Process.** Verifies the data. | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Post-Audit Gap." A forensic accountant spends 3 months auditing a business to arrive at a $199,500 figure. Live Verify **protects that final result**. It ensures that the massive effort put into the audit isn't wasted by a fraudster changing a single digit in the final PDF before sending it to a bank or the government.
+**Where each fits:** a forensic audit is how the loss figure is established, and there is no shortcut for that work. Live Verify does not examine the books. It lets a bank or agency that later receives the settlement summary confirm that the insurer issued it with that figure, so the result of the audit reaches third parties unaltered.

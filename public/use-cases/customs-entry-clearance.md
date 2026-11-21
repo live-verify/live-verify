@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Customs Entry?
 
-When a shipping container arrives in a country, the importer must file a **Customs Entry (CBP Form 7501 in the US)**. This is the official "Tax Return" for the shipment.
+When a shipping container arrives in a country, the importer must file a Customs Entry (CBP Form 7501 in the US). This is the official "Tax Return" for the shipment.
 
 It proves:
 1.  **What is inside:** (e.g., "Machinery Parts").
@@ -43,7 +43,13 @@ All duties and fees have been paid.
 <span data-verify-line="customs">verify:cbp.gov/entry/v</span> <span verifiable-text="end" data-for="customs"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Double Invoice Fraud
+
+- **Duty Evasion:** Showing a "Low Value" entry summary to Customs to save money, but showing a "High Value" one to the bank to get a bigger loan.
+- **HS Code Tampering:** Editing the paper 7501 to show a "Duty-Free" code while the actual government record shows a 25% tariff was paid (or bypassed).
+- **Fictitious Entry:** Creating a fake 7501 to get a "Customs Refund" or "Drawback" from the government for goods that were never actually imported.
+
+## What Is Checked
 
 Entry Number, Importer name, Broker ID, Entry Type (e.g., Consumption, Bonded, FTZ), Port of Entry, HS Code classification, merchandise value, duty amount paid, liquidation date, release status.
 
@@ -53,7 +59,7 @@ Entry Number, Importer name, Broker ID, Entry Type (e.g., Consumption, Bonded, F
 - **Customs Release (Form 3461):** Preliminary release from the terminal.
 - **Notification of Liquidation:** Final legal closing of the entry.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`cbp.gov`, `hmrc.gov.uk`) and current entry standing.
 
@@ -63,15 +69,15 @@ Shows the issuer domain (`cbp.gov`, `hmrc.gov.uk`) and current entry standing.
 - **In-Bond** — Moving under bond; duty not yet paid.
 - **Seized/Hold** — Customs has frozen the shipment.
 
-## Second-Party Use
+## Who Holds It
 
-The **Importer** or **Customs Broker** benefits from verification.
+The Importer or Customs Broker benefits from verification.
 
 **Payment Disputes:** Proving to a customer that the $12,450 "Duty Charge" on the invoice was actually paid to the government and isn't a "Fake Fee" added by the broker.
 
 **Audit Readiness:** During a "Focus Assessment" (audit), the importer can provide verified digital hashes of their entries to prove 100% compliance without mailing thousands of paper 7501s to the government.
 
-## Third-Party Use
+## Who Checks It
 
 **Lenders / Factors**
 **Inventory Verification:** Verifying that "Imported Inventory" in a warehouse has actually cleared customs and all duties are paid. Unpaid duties are a "Senior Lien" that takes priority over the bank's security interest.
@@ -82,13 +88,7 @@ The **Importer** or **Customs Broker** benefits from verification.
 **Supply Chain Auditors**
 **Sourcing Integrity:** Verifying that a supplier isn't bypassing trade sanctions or anti-dumping duties by misclassifying goods on the entry summary.
 
-## Verification Architecture
-
-**The "Double Invoice" Fraud Problem**
-
-- **Duty Evasion:** Showing a "Low Value" entry summary to Customs to save money, but showing a "High Value" one to the bank to get a bigger loan.
-- **HS Code Tampering:** Editing the paper 7501 to show a "Duty-Free" code while the actual government record shows a 25% tariff was paid (or bypassed).
-- **Fictitious Entry:** Creating a fake 7501 to get a "Customs Refund" or "Drawback" from the government for goods that were never actually imported.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -114,7 +114,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the customs authority's hashes and status changes plus structured metadata (entry number, clearance date, goods value, duty amount) — never importer names, shipping routes, or commercial terms — providing non-repudiation of the customs entry issuance.
 
 
-## Competition vs. ACE Portal / Single Window
+## Compared With ACE Portal / Single Window
 
 | Feature | Live Verify | ACE Portal (Gov) | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -123,4 +123,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** Scan the paper. | **Slow.** Requires login and manual entry search. | **Instant.** |
 | **Integrity** | **Binds Content.** Proves the *Duty Paid* matches. | **Data-Only.** | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Downstream Trust" gap. Government "Single Window" portals (like ACE) are for the government and brokers. Lenders, auditors, and domestic buyers are locked out. Live Verify turns the **Official Paper Filling** into a public-facing trust bridge, allowing the private sector to leverage government data without needing a government login.
+**Where each fits:** ACE and other single-window portals are the system of record for customs, and brokers and government officers who hold credentials should keep working in them. Lenders, auditors and domestic buyers have no login and are simply handed a copy of the entry summary. Live Verify gives those downstream parties a way to confirm that the customs authority stands behind the exact page in front of them, while the portal carries on serving the people it was built for.

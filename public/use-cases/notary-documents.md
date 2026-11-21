@@ -11,14 +11,14 @@ furtherDerivations: 3
 
 ## What is a Notarial Will?
 
-In **Civil Law** jurisdictions (like France, Quebec, or Louisiana), a **Notarial Will** is a highly formal document prepared by a Notary and signed in the presence of witnesses. Unlike "Common Law" wills, which are private until death, a Notarial Will is an "Authentic Act"—it is a public document that proves itself in court.
+In Civil Law jurisdictions (like France, Quebec, or Louisiana), a Notarial Will is a highly formal document prepared by a Notary and signed in the presence of witnesses. Unlike "Common Law" wills, which are private until death, a Notarial Will is an "Authentic Act"—it is a public document that proves itself in court.
 
 Because it is an "Authentic Act," it has enormous legal weight:
 1.  **Immediate Execution:** It can often be executed without a long "Probate" court process.
 2.  **Immutability:** The original is kept by the Notary in their official archives (*Minutier*).
 3.  **Presumption of Truth:** The law presumes the contents are 100% accurate.
 
-**"Succession Fraud"** occurs when heirs present a fake "Notarial Will" or a modified copy to a bank to claim an inheritance illegally. Verified hashes bind the **Testator's name, the Notary's archive ID, and the date of execution** to the National Notary Chamber's domain. This allows a bank or a land registrar to instantly verify if the document is authentic and has not been **Revoked** by a later act.
+**"Succession Fraud"** occurs when heirs present a fake "Notarial Will" or a modified copy to a bank to claim an inheritance illegally. Verified hashes bind the Testator's name, the Notary's archive ID, and the date of execution to the National Notary Chamber's domain. This allows a bank or a land registrar to instantly verify if the document is authentic and has not been Revoked by a later act.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', serif; border: 1px solid #999; background: #fff; padding: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); position: relative;">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 15px; margin-bottom: 40px;">
@@ -44,7 +44,13 @@ Because it is an "Authentic Act," it has enormous legal weight:
   </div>
 </div>
 
-## Data Verified
+## The Problem: Hidden Codicil Fraud
+
+- **Act Suppression:** Hiding a newer Notarial Will so that an older, more favorable one can be used. Live Verify stops this by showing the old Will as "Superseded" when scanned.
+- **Copy Tampering:** Editing a "True Copy" of the Will to change the names of heirs.
+- **Notary Impersonation:** Forging the seal of a retired or deceased Notary on a fake Succession Certificate.
+
+## What Is Checked
 
 Testator name, Notary name, Commission Number, Date of Act, Witness names, Archive Reference ID, Succession location, Liquidator/Executor name, Specific bequests (digest).
 
@@ -66,15 +72,15 @@ The endpoint returns a simple status code:
 
 The issuer domain is visible from the `verify:` line on the document itself (e.g., `notaires.qc.ca`).
 
-## Second-Party Use
+## Who Holds It
 
-The **Liquidator (Executor)** benefits from verification.
+The Liquidator (Executor) benefits from verification.
 
 **Asset Control:** Proving to a bank or an investment house that they are the verified "Liquidator" of the estate. Because Notarial Wills are self-proving, a verified hash allows the Liquidator to bypass the 30-day "Succession Search" delay, moving money to pay debts in seconds.
 
 **International Recognition:** Providing a verified hash to a foreign consulate or bank to prove heirship for assets held in another country.
 
-## Third-Party Use
+## Who Checks It
 
 **Commercial Banks**
 **Fraud Prevention:** Before releasing a €500,000 account, the bank scans the Will. "Verified by Notaires.fr" ensures the document isn't a fake copy created by a disgruntled relative.
@@ -85,13 +91,7 @@ The **Liquidator (Executor)** benefits from verification.
 **Superior Courts**
 **Litigation Speed:** In a succession dispute, providing the court with a cryptographically verified record of the act, reducing the need for costly expert handwriting analysis.
 
-## Verification Architecture
-
-**The "Hidden Codicil" Fraud Problem**
-
-- **Act Suppression:** Hiding a newer Notarial Will so that an older, more favorable one can be used. Live Verify stops this by showing the old Will as "Superseded" when scanned.
-- **Copy Tampering:** Editing a "True Copy" of the Will to change the names of heirs.
-- **Notary Impersonation:** Forging the seal of a retired or deceased Notary on a fake Succession Certificate.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -104,7 +104,7 @@ The **Liquidator (Executor)** benefits from verification.
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the Notary Chamber's hashes and status changes plus structured metadata (testator name, notary name, archive reference, date of act) — never plaintext estate details or heir information — providing non-repudiation of notarial act issuance and revocation/supersession events.
 
 
-## Competition vs. Apostilles
+## Compared With Apostilles
 
 | Feature | Live Verify | Apostille (Traditional) | Online Will Search |
 | :--- | :--- | :--- | :--- |
@@ -113,7 +113,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **Very Slow.** Often takes weeks to get. | **Medium.** requires manual entry. |
 | **Revocation** | **Real-time.** Shows latest status. | **Zero.** Apostilles never expire. | **Manual.** |
 
-**Why Live Verify wins here:** The "Authentic Act" reality. In Civil Law, the document is the law. Live Verify turns the **Paper Copy** into a live, high-authority trust anchor, ensuring that "The Testator's Final Voice" is heard and verified exactly as recorded in the Notary's vault.
+**Where each fits:** An apostille is what the Hague Convention provides for cross-border recognition of a public document, and where a foreign authority requires one it must still be obtained. It certifies the signature and capacity of the official, not each line of the text, and it does not change if the act is later replaced. Live Verify lets a recipient confirm that the notary's organisation stands behind the copy as worded and see its current status, as a complement to the apostille and to any register search.
 
 ---
 
@@ -122,7 +122,7 @@ _[Content merged from: notarized-documents]_
 
 ## What is a Notarization?
 
-A **Notarization** is the official act of a Notary Public—an officer of the state—verifying that a person signing a document is who they say they are.
+A Notarization is the official act of a Notary Public—an officer of the state—verifying that a person signing a document is who they say they are.
 
 It is the "Final Seal" of trust for life's most important moments:
 1.  **Buying a Home:** Signing loan documents.
@@ -131,7 +131,7 @@ It is the "Final Seal" of trust for life's most important moments:
 
 **"Notary Fraud"** is a low-tech, high-impact crime. Criminals buy fake rubber stamps online for $20 or use "Photoshop" to move a real stamp from an old document to a new, forged one. They use these "Official" documents to steal identities, property, or even children.
 
-Live Verify binds the **Notary's commission number, the signer's name, and the specific date** to the state's or the notary platform's domain. A fake stamp creates a hash that fails verification, instantly exposing the document as un-vetted.
+Live Verify binds the Notary's commission number, the signer's name, and the specific date to the state's or the notary platform's domain. A fake stamp creates a hash that fails verification, instantly exposing the document as un-vetted.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', serif; border: 1px solid #999; background: #fff; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <div style="font-size: 1.1em; line-height: 1.6; color: #000;">
@@ -156,7 +156,7 @@ Live Verify binds the **Notary's commission number, the signer's name, and the s
   </div>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Signer name, Notary name, Commission Number, Jurisdiction (State/County), Type of Notarial Act (Acknowledgment vs. Jurat), Identification Method (ID vs. Knowledge), Expiration Date of Commission, Date of Act.
 
@@ -177,7 +177,7 @@ The endpoint returns a simple status code:
 
 The issuer domain is visible from the `verify:` line on the document itself (e.g., `flsos.gov`).
 
-## Second-Party Use
+## Who Holds It
 
 **The Citizen (Signer)** benefits from verification.
 
@@ -185,7 +185,7 @@ The issuer domain is visible from the `verify:` line on the document itself (e.g
 
 **Loan Processing:** Ensuring your notarized "Source of Funds" letter is verified, preventing a 24-hour delay in a mortgage closing.
 
-## Third-Party Use
+## Who Checks It
 
 **County Recorders**
 **Recording Security:** Before accepting a deed for recording, the clerk scans the notary seal. "Verified by flsos.gov" ensure the deed isn't being filed by a "Serial Forger" using a fake stamp.
@@ -196,7 +196,7 @@ The issuer domain is visible from the `verify:` line on the document itself (e.g
 **Hospital Administrators**
 **Directive Validity:** Verifying a "Do Not Resuscitate" (DNR) or Medical Power of Attorney at the bedside during a life-safety crisis.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Rubber Stamp" Fraud Problem**
 
@@ -261,7 +261,7 @@ _[Content merged from: notary-services]_
 
 ## What are Notary Services?
 
-A **Notary Public** is a government-appointed official who acts as an impartial witness. Their primary job is to prevent fraud by verifying the identity of someone signing a high-stakes document (like a **Deed**, **Will**, or **Power of Attorney**). They record every act in a mandatory "Notary Journal."
+A Notary Public is a government-appointed official who acts as an impartial witness. Their primary job is to prevent fraud by verifying the identity of someone signing a high-stakes document (like a Deed, Will, or Power of Attorney). They record every act in a mandatory "Notary Journal."
 
 The problem is that the "Notary Seal" (the ink stamp or embossed circle) is a physical feature that is easily forged using a $20 custom stamp maker. Even a real seal doesn't prove that the person whose name is on the paper actually appeared before the notary. Live Verify allows a recipient to scan the notary's seal or certificate to verify: **"Is this a legitimate commissioned official, and does this specific act exist in their digital or physical journal?"**
 
@@ -293,7 +293,7 @@ The problem is that the "Notary Seal" (the ink stamp or embossed circle) is a ph
   </div>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Notary name, commission number, state of jurisdiction, expiration date, signer name, type of act (Acknowledgment/Jurat), date of act, identification method (e.g., Driver's License), journal entry ID, document description (hash).
 
@@ -314,15 +314,15 @@ The endpoint returns a simple status code:
 
 The issuer domain is visible from the `verify:` line on the document itself.
 
-## Second-Party Use
+## Who Holds It
 
-The **Signer (Consumer)** benefits from verification.
+The Signer (Consumer) benefits from verification.
 
 **Deed Fraud Defense:** An elderly homeowner can maintain a verified hash of their "House Deed." If a scammer tries to file a forged deed at the county office, the verified hash of the *legitimate* notary act provides the owner with the proof needed to stop the theft.
 
 **Contract Finality:** Proving to a business partner that a signature was properly witnessed by a commissioned official, removing the risk of a "He-Said-She-Said" dispute in court later.
 
-## Third-Party Use
+## Who Checks It
 
 **County Recorders / Registrars**
 **Vetting Integrity:** Before recording a property transfer, the clerk scans the notary's seal hash. Verification ensures the "Sarah Jenkins" on the stamp is a real, active notary and isn't a "Phantom Commission" created by a fraudster.
@@ -333,7 +333,7 @@ The **Signer (Consumer)** benefits from verification.
 **Foreign Consulates**
 **Legalization Speed:** Verifying that a US-based affidavit is authentic before issuing an Apostille or Consular Legalization for use in another country.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Rubber Stamp" Fraud Problem**
 
@@ -360,9 +360,9 @@ _[Content merged from: remote-online-notarizations]_
 
 ## What is a Remote Online Notarization (RON)?
 
-A **Remote Online Notarization (RON)** is a digital evolution of the traditional notary act. Instead of meeting in person, the signer and the notary connect via a secure video session. The notary verifies the signer's identity using "Knowledge-Based Authentication" (KBA) and "Credential Analysis" before applying an electronic seal to the document.
+A Remote Online Notarization (RON) is a digital evolution of the traditional notary act. Instead of meeting in person, the signer and the notary connect via a secure video session. The notary verifies the signer's identity using "Knowledge-Based Authentication" (KBA) and "Credential Analysis" before applying an electronic seal to the document.
 
-The problem is that a "Digital Seal" is often just a pretty image on a PDF. Fraudsters can easily copy a legitimate notary's seal image and paste it onto a forged deed or power of attorney. Verified hashes bind the **Session ID, Notary Commission, and Signer Identity** to the RON platform's domain (e.g., `notarize.com` or `notarybridge.com`).
+The problem is that a "Digital Seal" is often just a pretty image on a PDF. Fraudsters can easily copy a legitimate notary's seal image and paste it onto a forged deed or power of attorney. Verified hashes bind the Session ID, Notary Commission, and Signer Identity to the RON platform's domain (e.g., `notarize.com` or `notarybridge.com`).
 
 <div style="max-width: 500px; margin: 24px auto; font-family: 'Times New Roman', serif; border: 2px solid #333; background: #fff; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); position: relative;">
   <div style="text-align: center; border-bottom: 1px solid #000; padding-bottom: 15px; margin-bottom: 20px;">
@@ -391,7 +391,7 @@ The problem is that a "Digital Seal" is often just a pretty image on a PDF. Frau
   </div>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Notary name, commission number, state of jurisdiction, session ID, signer name, date/time of act, document type hash, RON platform name, electronic journal entry ID.
 
@@ -412,18 +412,18 @@ The endpoint returns a simple status code:
 
 The issuer domain is visible from the `verify:` line on the certificate itself (e.g., `notarize.com`).
 
-## Second-Party Use
+## Who Holds It
 
-The **Signer (Consumer)** benefits from verification.
+The Signer (Consumer) benefits from verification.
 
 **Mortgage Closing Integrity:** A homebuyer signing $500,000 in loan docs via RON can scan the notary's seal to ensure they are using a legitimate, state-authorized platform and not a phishing site designed to steal their signature and PII.
 
 **Global Business:** An executive in London signing a contract for a New York company can provide the verified hash to prove the notarization meets "Interstate Recognition" laws without needing a physical apostille.
 
-## Third-Party Use
+## Who Checks It
 
 **County Recorders / Registrars**
-**Deed Fraud Prevention:** Before recording a property transfer, the clerk scans the RON seal. If the hash returns **"VALID - SESSION #8844,"** they know the digital signature isn't a simple "Copy-Paste" forgery.
+**Deed Fraud Prevention:** Before recording a property transfer, the clerk scans the RON seal. If the hash returns "VALID - SESSION #8844," they know the digital signature isn't a simple "Copy-Paste" forgery.
 
 **Lenders and Title Companies**
 **Post-Closing Audit:** Instantly verifying thousands of digital loan files. Live Verify ensures that every "Digital Seal" in the portfolio is backed by a real video session and a valid notary commission.
@@ -431,7 +431,7 @@ The **Signer (Consumer)** benefits from verification.
 **Courts and Litigants**
 **Evidence Admissibility:** In a dispute over a "Forged Signature," the court can verify the RON hash to see the exact timestamp and platform that vouches for the identity check.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Digital Xerox" Fraud Problem**
 

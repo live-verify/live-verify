@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is a Cruise Folio?
 
-When you disembark from a cruise ship, you receive a **Final Guest Folio**. It is a detailed list of every dollar you spent onboard: from the "Business Internet Package" to the "Midnight Margaritas."
+When you disembark from a cruise ship, you receive a Final Guest Folio. It is a detailed list of every dollar you spent onboard: from the "Business Internet Package" to the "Midnight Margaritas."
 
 For business travelers, the "Folio" is a nightmare to expense. They must "Scrub" the personal fun (drinks/spa) from the legitimate business costs (internet/conference fees).
 
-Fraud happens when employees edit their folio to hide personal spending or to inflate business costs. Verified hashes allow a company's finance department to see the **un-altered line items**, ensuring that the company only pays for the work-related parts of the trip.
+Fraud happens when employees edit their folio to hide personal spending or to inflate business costs. Verified hashes allow a company's finance department to see the un-altered line items, ensuring that the company only pays for the work-related parts of the trip.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="cruise"></span>ROYAL CARIBBEAN INTERNATIONAL              Folio #: 99228877-X
@@ -37,7 +37,13 @@ This statement reflects all settled charges as of disembarkation.
 <span data-verify-line="cruise">verify:royalcaribbean.com/folios/v</span> <span verifiable-text="end" data-for="cruise"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Folio Scrubbing Fraud
+
+- **Personal Charge Deletion:** Employees editing their cruise folio to "delete" the Casino and Bar charges before sending it to Finance for reimbursement of the Internet and Gratuities.
+- **Fabricated Credits:** Adding a fake "Onboard Credit" to a receipt to get cash back from an insurance claim.
+- **Reservation Theft:** Using a template to create a fake folio for a trip the traveler never actually took to claim business travel deductions.
+
+## What Is Checked
 
 Passenger name, reservation ID, ship name, voyage dates, stateroom number, itemized charges (Internet, Gratuities, Drinks, Excursions), total settled amount, payment method (last 4 digits).
 
@@ -47,7 +53,7 @@ Passenger name, reservation ID, ship name, voyage dates, stateroom number, itemi
 - **Shore Excursion Receipt:** Proving participation in a specific tour.
 - **VAT / Tax Invoice:** For European cruises requiring tax documentation.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`royalcaribbean.com`, `carnival.com`) and folio status.
 
@@ -57,15 +63,15 @@ Shows the issuer domain (`royalcaribbean.com`, `carnival.com`) and folio status.
 - **Disputed** — Passenger has formally challenged a charge.
 - **Amended** — A revised folio exists (e.g., after a post-cruise correction).
 
-## Second-Party Use
+## Who Holds It
 
-The **Cruise Guest** benefits from verification.
+The Cruise Guest benefits from verification.
 
 **Business Expense Reimbursement:** Proving to an employer that the $142.50 charge for "Internet Package" was a verified business cost and not a series of cocktails. Verification separates "Work Expenses" from "Personal Luxury" on a complex multi-page folio.
 
 **Tax Compliance:** Differentiating between non-deductible personal travel and deductible business components (e.g., a "Seminar at Sea" registration fee) using verified, non-alterable line items.
 
-## Third-Party Use
+## Who Checks It
 
 **Corporate Expense Platforms (SAP Concur / Expensify)**
 **Automatic Audit:** The platform can scan the folio hash to instantly validate line items against the cruise line's official ledger, flagging "Photoshopped" upgrades or deleted personal charges.
@@ -76,13 +82,7 @@ The **Cruise Guest** benefits from verification.
 **Banks (Credit Card Disputes)**
 **Resolution:** Instantly verifying the "Final Settled Amount" during a "Double-Charge" dispute, bypassing the 30-day manual evidence cycle.
 
-## Verification Architecture
-
-**The "Folio Scrubbing" Fraud Problem**
-
-- **Personal Charge Deletion:** Employees editing their cruise folio to "delete" the Casino and Bar charges before sending it to Finance for reimbursement of the Internet and Gratuities.
-- **Fabricated Credits:** Adding a fake "Onboard Credit" to a receipt to get cash back from an insurance claim.
-- **Reservation Theft:** Using a template to create a fake folio for a trip the traveler never actually took to claim business travel deductions.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -109,7 +109,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the cruise line's hashes and status changes plus structured metadata (booking number, voyage date, final amount, line-item categories) — never guest name, payment methods, or itemized personal spending — providing non-repudiation of the folio issuance.
 
 
-## Competition vs. Credit Card Statements
+## Compared With Credit Card Statements
 
 | Feature | Live Verify | Credit Card Statement | Scanned PDF Folio |
 | :--- | :--- | :--- | :--- |
@@ -118,4 +118,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Privacy** | **Selective.** Share only the verified extract. | **Low.** Exposes all other personal spending on the card. | **Vulnerable.** |
 | **Freshness** | **Instant.** Verified at disembarkation. | **Laggy.** Charges often aggregate at the end. | **Static.** |
 
-**Why Live Verify wins here:** The "Scrubbing" problem. Corporate finance departments hate cruise folios because they are 10 pages long and full of personal "fun" spending. Live Verify allows an employee to provide a **Verified Extract** of just the business items, giving the company 100% trust without the employee needing to share their "Bar Tab" with their boss.
+**Where each fits:** the card statement confirms the total charged and is what finance teams reconcile against. It shows a single amount with no breakdown, and sharing it reveals unrelated spending. A verified folio extract supplies the itemised business charges from the cruise line itself, so an employee can submit that next to the statement line.

@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is an Art Conservation Report?
 
-When a famous painting (like a Rembrandt) is cleaned or repaired, it must be done by a high-level scientist called a **Conservator**.
+When a famous painting (like a Rembrandt) is cleaned or repaired, it must be done by a high-level scientist called a Conservator.
 
-The **Conservation Report** is the detailed log of every chemical, solvent, and brushstroke used. It is the "Medical History" of the artwork.
+The Conservation Report is the detailed log of every chemical, solvent, and brushstroke used. It is the "Medical History" of the artwork.
 
 Fraudsters often hide "Over-Restoration"—where so much new paint has been added that the original artist's work is lost. They might edit a report to hide a massive tear that was repaired. Verified reports ensure the museum or buyer knows exactly what has been done to the masterpiece.
 
@@ -52,7 +52,13 @@ Fraudsters often hide "Over-Restoration"—where so much new paint has been adde
   </div>
 </div>
 
-## Data Verified
+## The Problem: Over-Restoration Fraud
+
+- **Damage Concealment:** Editing a report to remove mention of a "Repaired Tear" or "Extensive Over-painting" to deceive a buyer.
+- **Date Alteration:** Changing a 10-year-old condition report to look like it was done last month to hide recent environmental damage (mold/bloom).
+- **Expert Impersonation:** Creating a fake report on the letterhead of a famous museum conservation lab.
+
+## What Is Checked
 
 Object title/artist, owner name, detailed treatment description, chemical materials used (solvents/resins), completion date, lead conservator credentials, laboratory/institution ID, condition status post-treatment.
 
@@ -62,7 +68,7 @@ Object title/artist, owner name, detailed treatment description, chemical materi
 - **Scientific Analysis:** (e.g., X-ray, Infrared Reflectography findings).
 - **Maintenance Log:** Annual dusting/environmental checks.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`getty.edu`, `rijksmuseum.nl`) and the report standing.
 
@@ -72,15 +78,15 @@ Shows the issuer domain (`getty.edu`, `rijksmuseum.nl`) and the report standing.
 - **In-Progress** — Treatment not yet finalized.
 - **Alert** — Potential damage reported post-treatment.
 
-## Second-Party Use
+## Who Holds It
 
-The **Museum Curator** or **Art Collector** benefits from verification.
+The Museum Curator or Art Collector benefits from verification.
 
 **Loan Logistics:** Proving to a borrowing museum that a masterpiece is "Verified Fit for Travel" based on a recent conservation report. This speeds up the insurance underwriting for the loan.
 
 **Resale Transparency:** A private collector can prove that a painting hasn't been "Over-Restored" (which ruins value), by showing a verified report from a reputable independent conservator.
 
-## Third-Party Use
+## Who Checks It
 
 **Fine Art Insurers**
 **Liability Underwriting:** Insurers verify the "Restoration History" before covering high-value works. A painting with "Hidden Structural Cracks" is a massive risk. Live Verify ensures the report provided by the owner matches the conservator's true findings.
@@ -91,13 +97,7 @@ The **Museum Curator** or **Art Collector** benefits from verification.
 **Auction Houses**
 **Vetting:** Verifying that the "Condition Report" in the sale catalog matches the expert findings, reducing the house's liability for undisclosed repairs.
 
-## Verification Architecture
-
-**The "Over-Restoration" Fraud Problem**
-
-- **Damage Concealment:** Editing a report to remove mention of a "Repaired Tear" or "Extensive Over-painting" to deceive a buyer.
-- **Date Alteration:** Changing a 10-year-old condition report to look like it was done last month to hide recent environmental damage (mold/bloom).
-- **Expert Impersonation:** Creating a fake report on the letterhead of a famous museum conservation lab.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -124,7 +124,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the report it issued.
 
 
-## Competition vs. Museum Management Systems (TMS)
+## Compared With Museum Management Systems (TMS)
 
 | Feature | Live Verify | TMS (The Museum System) | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -133,4 +133,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Cryptographic.** Binds every detail. | **High.** Internal only. | **Vulnerable.** |
 | **Permanence** | **Archival.** Text is permanent. | **Ephemeral.** Databases get migrated/lost. | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "External Trust" problem. A museum's internal database (TMS) is great for them, but useless for the **Rest of the World**. When a painting travels or is sold, the trust must move with it. Live Verify turns the **Static PDF Report** into a cryptographically trusted artifact that anyone can verify without a TMS password.
+**Where each fits:** the museum's collections management system is the working record for its own staff and will stay that way. Insurers, borrowers and buyers are never given access to it, and receive a condition or treatment report as a PDF. Live Verify lets them confirm that the institution stands behind that report, so the internal system and the outward-facing document each serve their own audience.

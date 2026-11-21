@@ -48,7 +48,13 @@ furtherDerivations: 3
   </div>
 </div>
 
-## Data Verified
+## The Problem: Ghost Policy Fraud
+
+- **Fabricated Certificates:** Small, un-vetted brokers creating fake "Lloyd's" certificates for shipments that don't exist, to trick banks into providing "Trade Financing."
+- **Limit Inflation:** Editing a $10,000 policy to read $1,000,000 to use as collateral for a fraudulent loan.
+- **Exclusion Concealment:** Deleting the clause that excludes "War Risks" or "Strikes" before sending the policy to a bank during a global conflict.
+
+## What Is Checked
 
 Assured name, Loss Payee (Bank), Certificate number, Vessel name, Voyage route (Port-to-Port), cargo description, total amount insured (usually 110% of CIF), coverage clauses (e.g., ICC A), issuing broker/carrier, date of issuance.
 
@@ -58,25 +64,25 @@ Assured name, Loss Payee (Bank), Certificate number, Vessel name, Voyage route (
 - **Declaration of Value:** (Linked hash) for specific high-risk loads.
 - **Survey Report:** (Linked hash) proving cargo was non-damaged at loading.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`allianz.com`, `zurich.com`, `chubb.com`) and current policy standing.
 
 **Status Indications:**
 - **Active/In-Force** — Premium paid; cargo is verified covered.
-- **Cancelled** — **ALERT:** Coverage terminated (High-risk for banks/sellers).
+- **Cancelled** — Coverage terminated (High-risk for banks/sellers).
 - **Claim Active** — Incident reported (e.g., General Average or Cargo Loss).
 - **Void** — Assigned to wrong vessel or misdeclared.
 
-## Second-Party Use
+## Who Holds It
 
-The **Exporter / Importer (Assured)** benefits from verification.
+The Exporter / Importer (Assured) benefits from verification.
 
 **Trade Finance (L/C):** Proving to a bank that the $1.25M insurance claim is verified by the source. Banks won't payout on a Letter of Credit without 100% cryptographic certainty that the insurance matches the shipment details. A verified hash prevents the bank from rejecting the certificate due to "Paperwork Inconsistency."
 
 **Payment Assurance:** A buyer in NYC can verify the insurance provided by the Shanghai seller to ensure the goods are fully protected against a "Total Loss at Sea" before wiring the final balance.
 
-## Third-Party Use
+## Who Checks It
 
 **Banks (Lenders / Negotiating Banks)**
 **Collateral Protection:** Marine insurance is the only thing protecting the bank's money if the ship sinks. Verification ensures the borrower hasn't "Edited" the PDF to show a $1M limit when they only paid for $100k.
@@ -87,13 +93,7 @@ The **Exporter / Importer (Assured)** benefits from verification.
 **Customs Authorities**
 **Valuation Check:** Verifying the "Insured Value" as a secondary check on the "Commercial Invoice" value to catch tax/duty evasion.
 
-## Verification Architecture
-
-**The "Ghost Policy" Fraud Problem**
-
-- **Fabricated Certificates:** Small, un-vetted brokers creating fake "Lloyd's" certificates for shipments that don't exist, to trick banks into providing "Trade Financing."
-- **Limit Inflation:** Editing a $10,000 policy to read $1,000,000 to use as collateral for a fraudulent loan.
-- **Exclusion Concealment:** Deleting the clause that excludes "War Risks" or "Strikes" before sending the policy to a bank during a global conflict.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -105,7 +105,7 @@ The **Exporter / Importer (Assured)** benefits from verification.
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (policy number, cargo description, amount insured, voyage route) — never shipper identity or invoice details — providing non-repudiation of the insurance and an audit trail banks can inspect.
 
-## Competition vs. Blockchain (TradeLens)
+## Compared With Blockchain (TradeLens)
 
 | Feature | Live Verify | Trade Finance Blockchain | Paper / PDF Certificate |
 | :--- | :--- | :--- | :--- |
@@ -114,7 +114,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **High.** Verified PDF works for any local bank. | **Siloed.** Hard to verify if you aren't on the chain. | **Universal.** |
 | **Integrity** | **Binds Content.** Protects the $ amounts. | **Data-Only.** | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Local Bank" reality. A small exporter in Vietnam might use a local bank that has no idea what "TradeLens" or "Corda" is. But the bank **does trust** `allianz.com`. Live Verify turns the **Standard PDF Certificate** into a "Universal Trust Link" that works across every border and every tech-tier.
+**Where each fits:** Shared-ledger trade platforms can work well among participants who have all joined the same network, and where they are in place there is no reason to abandon them. A local bank, port agent or small exporter outside the network still receives the certificate as paper or PDF. Live Verify lets them confirm it against the insurer's own domain, which gives a platform's members a way to deal with counterparties who are not on it.
 
 
 ---
@@ -156,7 +156,7 @@ _[Content merged from: marine-hull-machinery]_
   </div>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Vessel name, IMO number (unique 7-digit ID), Flag State, agreed hull value (USD), deductible amount, classification society (e.g., ABS, DNV, LR), primary underwriter ID, effective/expiration dates, trading limit inclusions/exclusions.
 
@@ -166,25 +166,25 @@ Vessel name, IMO number (unique 7-digit ID), Flag State, agreed hull value (USD)
 - **Vessel Mortgage Endorsement:** Proving the bank is the "Loss Payee."
 - **Condition Survey:** (Linked hash) proving the ship is sea-worthy.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`gard.no`, `skuld.com`, `chubb.com`) and current policy standing.
 
 **Status Indications:**
 - **In Force** — Premium paid; vessel is verified covered.
-- **Suspended** — **ALERT:** Coverage paused due to class suspension or survey failure.
+- **Suspended** — Coverage paused due to class suspension or survey failure.
 - **Cancelled** — Policy terminated (Extreme risk for ship-mortgage holders).
 - **Lapsed** — Term ended; no renewal found.
 
-## Second-Party Use
+## Who Holds It
 
-The **Shipowner / Operator** benefits from verification.
+The Shipowner / Operator benefits from verification.
 
 **Ship Finance:** Proving to a maritime lender (e.g., DNB or Nordea) that the $45M asset is "Verified Insured." Banks won't advance funds for bunker fuel or maintenance without 100% cryptographic certainty that the hull insurance is real and active.
 
 **Port Entry:** Proving to a foreign port authority (e.g., Singapore or Rotterdam) that the vessel has the mandatory hull and pollution-related insurance to enter the harbor.
 
-## Third-Party Use
+## Who Checks It
 
 **Ship-Mortgage Lenders**
 **Collateral Protection:** H&M insurance is the only thing protecting the bank's $45M loan if the ship sinks. Verification ensures the owner hasn't "Edited" the PDF to show a $45M value when they actually only insured it for $20M to save on premiums.
@@ -195,7 +195,7 @@ The **Shipowner / Operator** benefits from verification.
 **Bunker Suppliers**
 **Credit Vetting:** Verifying the insurance quality of a vessel before providing $500,000 in fuel on credit terms.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Ghost Ship" Fraud Problem**
 
@@ -214,7 +214,7 @@ The **Shipowner / Operator** benefits from verification.
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the underwriter's hashes and status changes plus structured metadata (policy number, vessel IMO, hull value, trading limits, effective dates) — never classification status changes or claims history — providing non-repudiation of the insurance and an audit trail lenders and maritime authorities can inspect.
 
 
-## Competition vs. Equasis / Vessel Databases
+## Compared With Equasis / Vessel Databases
 
 | Feature | Live Verify | Equasis / IHS Markit (Database) | Scanned PDF Policy |
 | :--- | :--- | :--- | :--- |
@@ -223,8 +223,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Freshness** | **Real-time.** Shows if premium was paid today. | **Laggy.** Database updates can take 1-2 weeks. | **Static.** |
 | **User Access** | **Universal.** Any port or lawyer can verify. | **Restricted.** Some high-tier data is pay-walled. | **Universal.** |
 
-**Why Live Verify wins here:** The "Bridge" Reality. Decisions about vessel safety and finance happen in busy offices far from the ship. People work with "Closing Folders" (PDFs). Live Verify turns the **Static Policy Declaration** into a live, high-authority digital anchor that is much more important for legal liability than a generic database entry.
-
+**Where each fits:** Equasis and the commercial vessel databases are the right place to research a ship: its history, ownership, inspections and the name of its insurer. They generally do not reproduce the terms of a particular policy, and they update on their own schedule. Live Verify lets a port, financier or lawyer confirm that the underwriter stands behind the declaration page in the closing file, alongside the database search.
 
 
 ---
@@ -234,11 +233,11 @@ _[Content merged from: pi-club-certificates]_
 
 ## What is a P&I Certificate?
 
-In the world of giant cargo ships, "Normal" insurance isn't enough. Shipowners join a **P&I Club** (Protection & Indemnity)—a group of owners who share the risk of massive disasters like oil spills or ship collisions.
+In the world of giant cargo ships, "Normal" insurance isn't enough. Shipowners join a P&I Club (Protection & Indemnity)—a group of owners who share the risk of massive disasters like oil spills or ship collisions.
 
-The **Certificate of Entry** is the ship's "Unlimited Credit Card" for liability. It is the only paper that port authorities will accept before allowing a $100 million tanker to dock.
+The Certificate of Entry is the ship's "Unlimited Credit Card" for liability. It is the only paper that port authorities will accept before allowing a $100 million tanker to dock.
 
-Thieves use "Fake P&I Papers" to sneak dangerous or uninsured ships into ports. Verified hashes allow a harbor master to scan the certificate and see the **verified $1 billion+ coverage** on the Club's official domain in seconds.
+Thieves use "Fake P&I Papers" to sneak dangerous or uninsured ships into ports. Verified hashes allow a harbor master to scan the certificate and see the verified $1 billion+ coverage on the Club's official domain in seconds.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 2px solid #002366; background: #fff; padding: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #002366; padding-bottom: 10px; margin-bottom: 20px;">
@@ -257,7 +256,7 @@ Thieves use "Fake P&I Papers" to sneak dangerous or uninsured ships into ports. 
 
 **Certificate Variations:** Multiple certificate types or levels may exist.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain and the responder text (e.g., "Valid ID" or "Denied").
 
@@ -269,7 +268,7 @@ Shows the issuer domain and the responder text (e.g., "Valid ID" or "Denied").
 
 The verification response may include additional context such as issue date, expiration date, or document serial numbers.
 
-## Second-Party Use
+## Who Holds It
 
 The document holder (subject/recipient) benefits from verification.
 
@@ -283,7 +282,7 @@ The document holder (subject/recipient) benefits from verification.
 
 **Renewal Planning:** Monitor certification status to avoid expiration.
 
-## Third-Party Use
+## Who Checks It
 
 **Insurance Companies**
 
@@ -327,7 +326,7 @@ Logistics and transportation:
 
 **Delivery Confirmation:** Verify documents at final delivery.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The Protection & Indemnity (P&I) club certificates Fraud Problem**
 

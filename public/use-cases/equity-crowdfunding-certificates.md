@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Reg CF Certificate?
 
-In the old days, only rich people could invest in startups. Today, through **Regulation Crowdfunding (Reg CF)**, anyone can buy shares in a "Future Unicorn" for as little as $100.
+In the old days, only rich people could invest in startups. Today, through Regulation Crowdfunding (Reg CF), anyone can buy shares in a "Future Unicorn" for as little as $100.
 
-The **Stock Certificate** is your proof of ownership. It proves you own a tiny piece of a private company (like a robotics startup or a new brewery).
+The Stock Certificate is your proof of ownership. It proves you own a tiny piece of a private company (like a robotics startup or a new brewery).
 
 Because these shares aren't traded on the stock market (like Apple or Tesla), they are easy to fake. Scammers often sell "Fake Equity" in hot startups using realistic-looking PDF certificates. Verified hashes allow an investor to prove their ownership to a bank or a secondary buyer instantly.
 
@@ -49,7 +49,13 @@ Because these shares aren't traded on the stock market (like Apple or Tesla), th
   </div>
 </div>
 
-## Data Verified
+## The Problem: Zombies and Ghosts Fraud
+
+- **Zombie Certificates:** Selling shares that were already transferred to someone else 6 months ago. Verification shows the "Transferred" status.
+- **Phantom Equity:** Using a template to create a fake certificate for a hot startup (e.g., SpaceX) to trick a private buyer into wiring money.
+- **Amount Tampering:** Changing 100 shares to 10,000 shares on a PDF to use as collateral for a loan.
+
+## What Is Checked
 
 Shareholder name, company name, number of shares, share class (Common/Preferred), issuance date, certificate number, regulation type (Reg CF, Reg A+), valuation at time of issuance (optional), platform ID.
 
@@ -59,7 +65,7 @@ Shareholder name, company name, number of shares, share class (Common/Preferred)
 - **SAFE Agreement:** Simple Agreement for Future Equity (with hash of terms).
 - **K-1 Tax Form:** (Linked hash) for annual tax reporting.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`startengine.com`, `wefunder.com`, `republic.com`) and current share standing.
 
@@ -69,15 +75,15 @@ Shows the issuer domain (`startengine.com`, `wefunder.com`, `republic.com`) and 
 - **Cancelled** — Shareholder has exited or round was voided.
 - **Converted** — SAFE or Note has converted into equity.
 
-## Second-Party Use
+## Who Holds It
 
-The **Investor (Shareholder)** benefits from verification.
+The Investor (Shareholder) benefits from verification.
 
 **Secondary Sales:** If an investor wants to sell their private shares on a secondary platform (e.g., Forge or EquityZen), they can show the "Verified Certificate." This prevents "Phantom Stock" fraud and allows the buyer to trust the holding without waiting for the company's legal team to reply.
 
 **Mortgage / Wealth Proof:** Proving to a bank's wealth management department that the investor has $100,000 in "Verified Private Equity," which can be used to qualify for "Asset-Based" loans or high-tier credit cards.
 
-## Third-Party Use
+## Who Checks It
 
 **Secondary Market Platforms**
 **Cap Table Integrity:** Before listing a company's shares for trade, the platform verifies the individual certificates of the sellers. Live Verify ensures the seller actually owns the 1,000 shares they claim.
@@ -88,13 +94,7 @@ The **Investor (Shareholder)** benefits from verification.
 **The SEC / Regulators**
 **Compliance Audit:** Ensuring that "Regulation Crowdfunding" companies are staying within their 2,000-investor limits by verifying the digital trail of issued certificates.
 
-## Verification Architecture
-
-**The "Zombies and Ghosts" Fraud Problem**
-
-- **Zombie Certificates:** Selling shares that were already transferred to someone else 6 months ago. Verification shows the "Transferred" status.
-- **Phantom Equity:** Using a template to create a fake certificate for a hot startup (e.g., SpaceX) to trick a private buyer into wiring money.
-- **Amount Tampering:** Changing 100 shares to 10,000 shares on a PDF to use as collateral for a loan.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -121,7 +121,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the platform's hashes and status changes plus structured metadata (investor ID, investment amount, funding round date, security class) — never investor name, personal financial details, or cap table information — providing non-repudiation of the equity certificate issuance.
 
 
-## Competition vs. Cap Table Software (Carta)
+## Compared With Cap Table Software (Carta)
 
 | Feature | Live Verify | Carta / Pulley (Platform) | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -130,4 +130,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **High.** Works across all 50+ startup platforms. | **Low.** Hard to prove status to a non-user. | **Universal.** |
 | **Integrity** | **Binds Content.** Protects the share count. | **Data-Only.** | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Exit" reality. Startups often change transfer agents or go out of business. Live Verify turns the **Static Certificate** in the investor's "Digital Vault" into a permanent, verifiable link to the official record, ensuring the equity remains a trade-able asset even if the original portal changes software.
+**Where each fits:** Cap-table platforms such as Carta and Pulley are the working record of who owns what, and a company and its existing investors should keep managing holdings there. A prospective buyer, a bank or an estate executor usually has no invitation to the platform, and the platform a company uses can change over the years. Live Verify lets that outside party confirm the transfer agent or issuer stands behind the certificate they were shown, without needing an account.

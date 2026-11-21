@@ -39,7 +39,13 @@ Payment received in full. Title transferred upon clearance of funds.
   <span data-verify-line="auction">verify:phillips.com/sales/v</span> <span verifiable-text="end" data-for="auction"></span>
 </div>
 
-## Data Verified
+## The Problem: Hammer Price Fraud
+
+- **Price Pumping:** Creating a fake auction invoice showing a $5M price for a piece actually worth $50k, to trick a lender or a future buyer.
+- **Tax Evasion:** Fabricating an invoice with a *lower* price to reduce sales tax or import duties.
+- **Identity Theft:** Using a real auction invoice from a famous collector to "legitimize" a fake version of the same painting.
+
+## What Is Checked
 
 Auction house name, sale ID, lot number, artwork title/artist, hammer price, buyer's premium, total price, bidder ID (redacted/partial), date of sale, payment status.
 
@@ -48,7 +54,7 @@ Auction house name, sale ID, lot number, artwork title/artist, hammer price, buy
 - **Settlement Statement:** For the seller (net proceeds).
 - **Price Result List:** Public list of hammer prices for a specific sale.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`phillips.com`, `sothebys.com`) and the sale confirmation.
 
@@ -57,9 +63,9 @@ Shows the issuer domain (`phillips.com`, `sothebys.com`) and the sale confirmati
 - **Withdrawn** — The sale was cancelled or the item returned (e.g., authenticity dispute).
 - **In-Dispute** — Payment or authenticity being litigated.
 
-## Second-Party Use
+## Who Holds It
 
-The **Buyer** (second party) receives the purchase statement from the auction house (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Buyer (second party) receives the purchase statement from the auction house (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** The buyer has their own verified copy of the purchase. Most of the time, the document sits in their art collection files—the verification value is latent, there *if needed*.
 
@@ -67,7 +73,7 @@ The **Buyer** (second party) receives the purchase statement from the auction ho
 
 **Future Optionality:** If an estate valuation is needed, an insurance policy requires updating, or a loan is sought against the artwork, the buyer has cryptographic proof ready without needing to contact the auction house.
 
-## Third-Party Use
+## Who Checks It
 
 The buyer (second party) may hand the verified document to various third parties:
 
@@ -80,13 +86,7 @@ When the collector sells the work 10 years later, the tax authority can verify t
 **Art Market Researchers**
 Verifying that "record-breaking prices" reported in the media are authentic and matched by actual paid invoices, preventing "shill bidding" or fabricated price reports.
 
-## Verification Architecture
-
-**The "Hammer Price" Fraud Problem**
-
-- **Price Pumping:** Creating a fake auction invoice showing a $5M price for a piece actually worth $50k, to trick a lender or a future buyer.
-- **Tax Evasion:** Fabricating an invoice with a *lower* price to reduce sales tax or import duties.
-- **Identity Theft:** Using a real auction invoice from a famous collector to "legitimize" a fake version of the same painting.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -113,7 +113,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the auction house's hashes and status changes plus structured metadata (sale IDs, lot numbers, hammer prices, total amounts) — never plaintext (buyer names, bidder identities, payment details) — providing non-repudiation of the purchase statement.
 
-## Competition vs. Public Price Databases
+## Compared With Public Price Databases
 
 | Feature | Live Verify | Public Database (Artnet/Artprice) | Private PDF / Invoice |
 | :--- | :--- | :--- | :--- |
@@ -121,4 +121,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Authority** | **Direct.** Binds the paper to the house's domain. | **Indirect.** Relies on third-party scrapers/reporters. | **Subjective.** "Is this signature real?" |
 | **Detail** | **Full.** Includes premium, tax, and bidder ID. | **Partial.** Often just hammer price + premium. | **Full.** But untrusted. |
 
-**Why Live Verify wins here:** An auction invoice is a private financial document. While the *price* might be public, the *fact that you paid it* is private. Live Verify allows a collector to prove their cost basis to a bank or tax office without the house needing to publish private bidder data to a public database.
+**Where each fits:** public price databases are the right reference for what a lot sold for, and valuers and researchers will go on using them. They do not show who bought it or what that buyer paid in premium and tax. Live Verify lets a collector prove those private details to a bank or tax office by showing an invoice the auction house stands behind, without the house publishing any bidder data.

@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is Forwarder Insurance?
 
-A **Freight Forwarder** is like a "Travel Agent for Cargo." They don't own the ships or planes, but they manage the entire trip. If they book the wrong flight or forget to file customs papers, they can be sued for the lost value of the goods.
+A Freight Forwarder is like a "Travel Agent for Cargo." They don't own the ships or planes, but they manage the entire trip. If they book the wrong flight or forget to file customs papers, they can be sued for the lost value of the goods.
 
 **Freight Forwarder Liability** insurance covers these "Errors & Omissions" (E&O).
 
@@ -50,7 +50,13 @@ Big shippers (like Apple or Samsung) will not hire a forwarder without verified 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Ghost Forwarder Fraud
+
+- **Ghost Policies:** Buying a policy, printing 100 certificates, then cancelling the policy for a refund.
+- **Limit Inflation:** Editing a PDF to change "USD 50,000" to "USD 500,000" to qualify for high-value cargo.
+- **Endorsement Fabrications:** Claiming a policy covers "Refrigerated Goods" (high risk) when the verified policy actually excludes them.
+
+## What Is Checked
 
 Member name, region of operation, cargo liability limit, E&O (Errors & Omissions) limit, 3rd party liability limit, effective/expiration dates, member ID, issuing specialist underwriter.
 
@@ -60,7 +66,7 @@ Member name, region of operation, cargo liability limit, E&O (Errors & Omissions
 - **Cargo-Only Policy:** High-value single-shipment coverage.
 - **Warehouse Keepers Liability:** Proving the goods are insured while in storage.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`ttclub.com`, `chubb.com`, `axa.com`) and current policy standing.
 
@@ -70,15 +76,15 @@ Shows the issuer domain (`ttclub.com`, `chubb.com`, `axa.com`) and current polic
 - **Restricted** — Coverage limited to specific countries or cargo types.
 - **Expired** — Renewal required.
 
-## Second-Party Use
+## Who Holds It
 
-The **Freight Forwarder** benefits from verification.
+The Freight Forwarder benefits from verification.
 
 **Customer Acquisition:** Proving to a high-value shipper (e.g., Apple or Pfizer) that the $500k cargo liability claim is verified by a top-tier underwriter like TT Club. Shippers won't hand over $1M in high-tech parts without cryptographic certainty that the forwarder is legitimately insured.
 
 **Network Onboarding:** Speeding up the process of joining a global logistics network (e.g., WCA or IATA) by providing a "Verified Insurance Token."
 
-## Third-Party Use
+## Who Checks It
 
 **Shippers (Exporters/Importers)**
 **Liability Vetting:** Before signing a service agreement, the shipper scans the forwarder's COI. "Verified by TT Club" ensure the forwarder hasn't "Photoshopped" a $100k policy to read $1M to win the contract.
@@ -89,13 +95,7 @@ The **Freight Forwarder** benefits from verification.
 **Lenders / Banks**
 **Asset Protection:** Verifying the insurance status of a logistics partner before financing a large international trade transaction.
 
-## Verification Architecture
-
-**The "Ghost Forwarder" Fraud Problem**
-
-- **Ghost Policies:** Buying a policy, printing 100 certificates, then cancelling the policy for a refund.
-- **Limit Inflation:** Editing a PDF to change "USD 50,000" to "USD 500,000" to qualify for high-value cargo.
-- **Endorsement Fabrications:** Claiming a policy covers "Refrigerated Goods" (high risk) when the verified policy actually excludes them.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -121,7 +121,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurance carrier's hashes and status changes plus structured metadata (certificate numbers, forwarder names, policy limits, expiration dates, coverage types) — never sensitive commercial information — providing non-repudiation of the cargo insurance certificate.
 
-## Competition vs. Broker Confirmation
+## Compared With Broker Confirmation
 
 | Feature | Live Verify | Manual Broker Call | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -130,4 +130,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Often takes 24-48 hours. | **Instant.** |
 | **Availability** | **24/7.** Works across all time zones. | **Restricted.** Business hours only. | **Universal.** |
 
-**Why Live Verify wins here:** The "Time Zone" Reality. Logistics is a 24/7 global business. A shipper in Singapore needs to verify a forwarder in Germany at 2 AM Berlin time. They can't wait for a broker's office to open. Live Verify turns the **Physical COI** into a live, global trust bridge that works at the speed of the supply chain.
+**Where each fits:** A call to the broker is still the best way to ask about exclusions, endorsements or anything the certificate leaves unclear. It depends on the broker's office being open, and in international freight the shipper and the forwarder's broker are often many time zones apart. Live Verify lets the shipper confirm at any hour that the insurer stands behind the certificate and its limits, and keep the phone call for questions that need a person.

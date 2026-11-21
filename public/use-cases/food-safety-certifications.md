@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is a Food Safety Audit?
 
-Before a company like Costco or Walmart will buy frozen pizza or canned soup from a factory, they require an independent **Food Safety Audit** (like SQF or BRCGS).
+Before a company like Costco or Walmart will buy frozen pizza or canned soup from a factory, they require an independent Food Safety Audit (like SQF or BRCGS).
 
-An auditor visits the factory to verify that the floors are clean, the machines are sanitized, and the workers follow hygiene rules. The result is a **Certificate of Registration**.
+An auditor visits the factory to verify that the floors are clean, the machines are sanitized, and the workers follow hygiene rules. The result is a Certificate of Registration.
 
-This certificate is the "License to Sell" to big retailers. Shady factories that fail their audit sometimes "Photoshop" a passing certificate to trick buyers. Verified hashes allow a retail buyer to see the **un-altered audit score** on the standard body's domain.
+This certificate is the "License to Sell" to big retailers. Shady factories that fail their audit sometimes "Photoshop" a passing certificate to trick buyers. Verified hashes allow a retail buyer to see the un-altered audit score on the standard body's domain.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #000; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
@@ -50,7 +50,13 @@ This certificate is the "License to Sell" to big retailers. Shady factories that
   </div>
 </div>
 
-## Data Verified
+## The Problem: Dirty Secret Fraud
+
+- **Certificate Forgery:** A facility that failed its audit creating a fake "Passing" PDF to keep their contract with a major retailer.
+- **Scope Misrepresentation:** Taking a certificate for "Dry Legumes" and using it to sell "High-Risk Prepared Salads" to trick a buyer.
+- **Status Concealment:** Hiding that a certificate was "Suspended" yesterday after an E. coli outbreak.
+
+## What Is Checked
 
 Facility name, premises address, certification standard (e.g., SQF, BRCGS, HACCP), audit score/rating, scope of certification (e.g., "Dairy" vs "Dry Goods"), certification body name, issuance date, expiration date, serial number.
 
@@ -58,7 +64,7 @@ Facility name, premises address, certification standard (e.g., SQF, BRCGS, HACCP
 
 The headline fraud here is *scope misrepresentation* — using a certificate for "Dry Legumes" to sell
 "High-Risk Prepared Salads." A food-safety certificate carries no personal data, so on verification the
-certification body can safely **echo the certified scope and freshness** — the exact
+certification body can safely echo the certified scope and freshness — the exact
 `certified_scope` (e.g. "Processing of Perishable Prepared Foods (Ready-to-Eat)"), the `audit_date`,
 and the `recertification_due`. A buyer then sees the *actual* scope of the certificate rather than a
 broadened label, and cannot read a dry-goods certificate as covering high-risk prepared foods; and a
@@ -104,15 +110,15 @@ If a verifier discovers contamination or suspects certificate fraud, the report 
 - FDA or local health authority
 - Not through a verification endpoint — these are regulatory enforcement matters
 
-## Second-Party Use
+## Who Holds It
 
-The **Manufacturer / Processor** benefits from verification.
+The Manufacturer / Processor benefits from verification.
 
 **Retailer Onboarding:** Proving to a major retailer (e.g., Costco or Whole Foods) that the facility meets their "Tier 1 Food Safety" requirements. A verified hash from the standard body domain prevents the 2-week delay of manual audit verification.
 
 **Brand Protection:** Displaying the "Verified SQF" badge on B2B marketing materials, ensuring that potential partners trust the facility's hygiene standards without needing a physical site-visit.
 
-## Third-Party Use
+## Who Checks It
 
 **Retail Procurement Teams**
 **Supply Chain Integrity:** Instantly verifying the safety certificates of 500+ suppliers. Live Verify allows procurement platforms to automatically flag suppliers with "Suspended" or "Expired" certificates, preventing contaminated food from reaching store shelves.
@@ -123,13 +129,7 @@ The **Manufacturer / Processor** benefits from verification.
 **Insurance Companies**
 **Recall Coverage:** Underwriters verify food safety scores to price "Product Recall" policies. A verified 98/100 rating leads to lower premiums than an unverified "Pass."
 
-## Verification Architecture
-
-**The "Dirty Secret" Fraud Problem**
-
-- **Certificate Forgery:** A facility that failed its audit creating a fake "Passing" PDF to keep their contract with a major retailer.
-- **Scope Misrepresentation:** Taking a certificate for "Dry Legumes" and using it to sell "High-Risk Prepared Salads" to trick a buyer.
-- **Status Concealment:** Hiding that a certificate was "Suspended" yesterday after an E. coli outbreak.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -154,7 +154,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the certification body's hashes and status changes plus structured metadata (facility name, facility location, audit scope, audit rating, certification code edition, audit date, expiration date, auditor firm name) — never plaintext food process details — providing non-repudiation of the food safety certification.
 
 
-## Competition vs. Private Portals (ReposiTrak)
+## Compared With Private Portals (ReposiTrak)
 
 | Feature | Live Verify | Supplier Portals (ReposiTrak) | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -163,4 +163,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **High.** Works across 100+ different cert bodies. | **Low.** Hard to export "Trust" to other systems. | **Universal.** |
 | **Integrity** | **Binds Content.** Protects the audit score. | **Data-Only.** | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Supply Chain Web." A manufacturer might have 10 different customers, each using a different compliance portal. Live Verify turns the **Standard PDF Certificate** into a "Universal Trust Link" that works across every portal, every app, and every border without redundant manual entry.
+**Where each fits:** Supplier compliance portals such as ReposiTrak do much more than hold a certificate: they track expiries, chase renewals and give a retailer one view of its supply base. Retailers and suppliers who are on the same portal should keep using it. A supplier with customers on several portals, or a buyer on none, still passes the certificate around as a PDF. Live Verify lets any recipient confirm the certification body stands behind it, and a portal can run the same check on documents uploaded to it.

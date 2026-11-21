@@ -38,7 +38,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Daughter from California Fraud
+
+- **Directive Hiding:** Relatives intentionally hiding a "No Life Support" document to keep a patient alive for social or financial reasons. Verification allows the hospital to check the domain record directly.
+- **Content Alteration:** Editing a PDF to change the "Health Care Agent" from a spouse to a predatory stranger.
+- **Competency Fraud:** Fabricating an advance directive after a patient has already lost mental capacity (Dementia/Coma).
+
+## What Is Checked
 
 Declarant name, date of birth, appointed Health Care Agent (Proxy) name, specific life-sustaining treatment choices (Yes/No), comfort care directives, organ donor status, date of execution, witness names, Notary commission (if applicable), issuing healthcare system/attorney domain.
 
@@ -48,25 +54,25 @@ Declarant name, date of birth, appointed Health Care Agent (Proxy) name, specifi
 - **POLST / MOLST Form:** Physician Orders for Life-Sustaining Treatment (for the fridge).
 - **Five Wishes Document:** A comprehensive family-centered directive.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`cedars-sinai.org`, `mayoclinic.org`, `legalzoom.com`) and current document status.
 
 **Status Indications:**
 - **Active** — This is the latest verified directive on file.
-- **Superseded** — **ALERT:** A newer directive has been issued; this version is void.
+- **Superseded** — A newer directive has been issued; this version is void.
 - **Revoked** — Declarant has formally cancelled this directive.
 - **Under Challenge** — Legal dispute regarding the declarant's competency at signing.
 
-## Second-Party Use
+## Who Holds It
 
-The **Patient (Declarant)** benefits from verification.
+The Patient (Declarant) benefits from verification.
 
 **Ensuring Compliance:** Proving to a hospital's ethics committee or a hesitant doctor that their "End-of-Life Wishes" are verified and un-altered. Verification prevents family members from "Losing" or "Editing" a paper directive to keep a patient on life-support against their verified will.
 
 **Portability:** Carrying a verified digital link to their living will while traveling, ensuring their wishes are respected in a different state or country where their local doctor isn't available.
 
-## Third-Party Use
+## Who Checks It
 
 **Hospital Ethics Committees / ER Staff**
 **Immediate Action:** In a trauma situation where a patient is unconscious, doctors scan the hash on the "POLST" card. "Verified by Cedars-Sinai" provides the immediate legal and ethical cover needed to follow the patient's "No Intubation" wish without fear of a lawsuit from relatives.
@@ -77,13 +83,7 @@ The **Patient (Declarant)** benefits from verification.
 **Probate Attorneys**
 **Estate Integrity:** Ensuring that the healthcare decisions made at the end of life were consistent with the verified legal documents in the estate file.
 
-## Verification Architecture
-
-**The "Daughter from California" Fraud Problem**
-
-- **Directive Hiding:** Relatives intentionally hiding a "No Life Support" document to keep a patient alive for social or financial reasons. Verification allows the hospital to check the domain record directly.
-- **Content Alteration:** Editing a PDF to change the "Health Care Agent" from a spouse to a predatory stranger.
-- **Competency Fraud:** Fabricating an advance directive after a patient has already lost mental capacity (Dementia/Coma).
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -112,7 +112,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (declarant name, date of execution, health care agent name) — never plaintext or sensitive personal information — providing non-repudiation of the advance directive and an audit trail hospitals can rely on.
 
 
-## Competition vs. State Registries
+## Compared With State Registries
 
 | Feature | Live Verify | State Registry (Online) | The "Fridge" Magnet |
 | :--- | :--- | :--- | :--- |
@@ -121,4 +121,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires login/fees and manual search. | **Instant.** |
 | **Freshness** | **Real-time.** Shows if superseded. | **Laggy.** Updates take weeks. | **Static.** |
 
-**Why Live Verify wins here:** The "ICU Reality." Decisions in the ICU are made in minutes. Doctors don't have time to navigate a state government website or pay a $10 fee to see a directive. Live Verify turns the **Paper on the Clipboard** into a live, trusted clinical link, ensuring the patient's dignity is protected by the latest technology.
+**Where each fits:** A state registry is a sound place to lodge a directive, and where a hospital can query it the registry may be the only way to learn that a directive exists at all. The copy that reaches the bedside is usually paper brought by the family or found in the chart, and clinicians need to know quickly whether it is the current one. Live Verify lets them check that copy against the issuing hospital or law firm's domain, alongside any registry lookup the hospital already makes.

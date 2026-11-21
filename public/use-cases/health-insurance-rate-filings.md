@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Health Insurance Rate Filing?
 
-Insurance companies cannot just raise your premiums whenever they want. In most states, they must submit a formal **Rate Filing** to the government explaining the math behind the price hike.
+Insurance companies cannot just raise your premiums whenever they want. In most states, they must submit a formal Rate Filing to the government explaining the math behind the price hike.
 
-The **Actuarial Certification** is the heart of this filing. A math expert (the Actuary) must swear that the new rates are "Fair" and that at least 80% of the premium will be spent on actual medical care.
+The Actuarial Certification is the heart of this filing. A math expert (the Actuary) must swear that the new rates are "Fair" and that at least 80% of the premium will be spent on actual medical care.
 
 Verification ensures that the "4.2% Average Increase" the company announces to the public matches the verified math they submitted to the regulators. It prevents "Messaging Fraud" where companies hide large price hikes for specific groups.
 
@@ -47,7 +47,13 @@ Verification ensures that the "4.2% Average Increase" the company announces to t
   </div>
 </div>
 
-## Data Verified
+## The Problem: Rate Padding Fraud
+
+- **Trend Inflation:** Manually editing the "Medical Cost Trend" from 5% to 8% in the PDF to justify a higher premium hike.
+- **MLR Manipulation:** Hiding "Administrative Costs" as "Quality Improvement" in the text to appear compliant with the 80% rule.
+- **Signature Forgery:** Forging the Enrolled Actuary's signature on a memo they didn't actually vet.
+
+## What Is Checked
 
 Certifying actuary name/qualifications, insurer name, specific plan portfolio (e.g., "2027 Individual PPO"), proposed % increase, medical loss ratio (MLR) projection, medical cost trend assumptions, filing ID, jurisdiction of approval.
 
@@ -57,7 +63,7 @@ Certifying actuary name/qualifications, insurer name, specific plan portfolio (e
 - **MLR Compliance Report:** Annual proof that 80-85% of premiums went to care.
 - **State DOI Approval Letter:** (Linked hash) for legal authorization.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Insurance Carrier or the Actuarial Firm) and the filing status.
 
@@ -67,15 +73,15 @@ Shows the issuer domain (the Insurance Carrier or the Actuarial Firm) and the fi
 - **Withdrawn/Rejected** — Rates were found excessive or flawed.
 - **Superseded** — Replaced by a corrected or later filing.
 
-## Second-Party Use
+## Who Holds It
 
-The **Insurer's Compliance Officer** benefits from verification.
+The Insurer's Compliance Officer benefits from verification.
 
 **Regulatory Defense:** Proving to a state Department of Insurance (DOI) auditor that the "Rate Memo" circulating in the office matches the version signed by the actuary. Verification prevents "Internal Data Drift" where different departments use different versions of a proposed rate.
 
 **Market Conduct Exams:** Providing verified hashes of all 50 state filings to examiners to prove 100% filing integrity and consistency.
 
-## Third-Party Use
+## Who Checks It
 
 **State Insurance Regulators (DOI)**
 **Audit Integrity:** Regulators can verify the authenticity of the actuarial signature and the specific data points (MLR, Trends) in the filing. Live Verify prevents a carrier from submitting a "Optimistic" version to the regulator and a "Pessimistic" version to the rating agencies.
@@ -86,13 +92,7 @@ The **Insurer's Compliance Officer** benefits from verification.
 **Rating Agencies (S&P / A.M. Best)**
 **Solvency Review:** Verifying that the rates are "Adequate" to cover future claims, protecting against insurer insolvency.
 
-## Verification Architecture
-
-**The "Rate Padding" Fraud Problem**
-
-- **Trend Inflation:** Manually editing the "Medical Cost Trend" from 5% to 8% in the PDF to justify a higher premium hike.
-- **MLR Manipulation:** Hiding "Administrative Costs" as "Quality Improvement" in the text to appear compliant with the 80% rule.
-- **Signature Forgery:** Forging the Enrolled Actuary's signature on a memo they didn't actually vet.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -118,7 +118,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the rate filing certification.
 
-## Competition vs. SERFF Database
+## Compared With SERFF Database
 
 | Feature | Live Verify | SERFF / State Public Search | Scanned PDF Memo |
 | :--- | :--- | :--- | :--- |
@@ -127,4 +127,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Content.** Protects the % increase. | **Data-Only.** | **Vulnerable.** |
 | **Immediacy** | **Real-time.** Shows if firm retracted opinion. | **Laggy.** Depends on gov indexing. | **Static.** |
 
-**Why Live Verify wins here:** The "Hearing Reality." Rate hearings are public and contentious. Advocacy groups and the press need to trust the numbers *in the room*. Live Verify turns the **Paper Actuarial Memo** into a live digital checkpoint, ensuring the public debate is based on verified, non-altered facts.
+**Where each fits:** SERFF and the state public search tools are the regulatory record of a rate filing, complete with correspondence and supporting exhibits, and analysts preparing for a hearing should work from them. In the hearing room, and in press coverage afterwards, people handle a copy of the actuarial memorandum instead. Live Verify lets a consumer advocate or journalist confirm that the actuary or insurer stands behind that copy, with the state system still holding the full file.

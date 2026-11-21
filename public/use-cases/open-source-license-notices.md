@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Compliance Notice?
 
-When you buy a Smart TV, a car, or a router, it usually comes with a dense booklet (or a text file on a CD) listing all the Open Source Software (OSS) used in the device. This is a legal requirement of licenses like the **GPL** (General Public License).
+When you buy a Smart TV, a car, or a router, it usually comes with a dense booklet (or a text file on a CD) listing all the Open Source Software (OSS) used in the device. This is a legal requirement of licenses like the GPL (General Public License).
 
-A **Verified Compliance Notice** takes this static text and binds it to the manufacturer's domain. It proves that the manufacturer *knows* what code is in the box and stands behind the license offer (e.g., "Written Offer" to provide source code).
+A Verified Compliance Notice takes this static text and binds it to the manufacturer's domain. It proves that the manufacturer *knows* what code is in the box and stands behind the license offer (e.g., "Written Offer" to provide source code).
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Courier New', monospace; border: 1px solid #333; background: #f4f4f4; padding: 20px;">
   <div style="text-align: center; font-weight: bold; margin-bottom: 15px;"><span verifiable-text="start" data-for="oss"></span>OPEN SOURCE SOFTWARE NOTICE</div>
@@ -32,7 +32,13 @@ A **Verified Compliance Notice** takes this static text and binds it to the manu
   </div>
 </div>
 
-## Data Verified
+## The Problem: Ghost Code Fraud
+
+- **Non-Compliance:** Manufacturers using Linux but hiding it to avoid sharing source code.
+- **Fake Notices:** Printing a generic "We use open source" statement without listing the actual components or version numbers.
+- **Supply Chain Attacks:** A middleman flashing malicious firmware onto routers but keeping the original legitimate manual in the box. Verification would fail because the hash of the *installed* software wouldn't match the *printed* notice (if the verification system is linked to device attestation).
+
+## What Is Checked
 
 Product model, firmware version, list of included packages/licenses, validity of the "Written Offer".
 
@@ -41,22 +47,22 @@ Product model, firmware version, list of included packages/licenses, validity of
 - **User Manual Appendix:** The "Legal" section of the manual.
 - **E-Label:** The "About" screen in the device settings.
 
-## Data Visible After Verification
+## What the Checker Sees
 
-Shows the issuer domain (the Manufacturer) and potentially links to the **Software Bill of Materials (SBOM)** or the source code download.
+Shows the issuer domain (the Manufacturer) and potentially links to the Software Bill of Materials (SBOM) or the source code download.
 
 **Status Indications:**
 - **Compliant** — This notice is current for the shipping firmware.
 - **Vulnerable** — The software listed has known CVEs (security vulnerabilities).
 - **Revoked** — This firmware was pulled due to bugs.
 
-## Second-Party Use
+## Who Holds It
 
-The **Consumer / End User** benefits (somewhat).
+The Consumer / End User benefits (somewhat).
 - **Security:** "Does this router really run the secure version of OpenSSL?"
 - **Freedom:** Verifying the GPL offer is genuine ensures they can actually get the source code to modify their device.
 
-## Third-Party Use
+## Who Checks It
 
 **Import Authorities / Customs**
 **IP Checks:** Customs can verify that the imported electronics have valid license declarations, preventing the import of "pirate" devices that violate GPL/copyright law.
@@ -67,12 +73,7 @@ The **Consumer / End User** benefits (somewhat).
 **Open Source Foundations (FSF / SFC)**
 **Enforcement:** Organizations that enforce GPL compliance can verify that the "Written Offer" to provide source code is backed by the manufacturer's actual domain, not just a throwaway email address printed on a shady manual.
 
-## Verification Architecture
-
-**The "Ghost Code" Fraud Problem**
-- **Non-Compliance:** Manufacturers using Linux but hiding it to avoid sharing source code.
-- **Fake Notices:** Printing a generic "We use open source" statement without listing the actual components or version numbers.
-- **Supply Chain Attacks:** A middleman flashing malicious firmware onto routers but keeping the original legitimate manual in the box. Verification would fail because the hash of the *installed* software wouldn't match the *printed* notice (if the verification system is linked to device attestation).
+## Who Issues It
 
 **Issuer Types** (First Party)
 - **Hardware OEMs:** (Samsung, Cisco, Sony).
@@ -96,7 +97,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the manufacturer's hashes and status changes plus structured metadata (product model, firmware version, list of packages/licenses) — never plaintext or sensitive personal information — providing non-repudiation of the compliance notice and an audit trail regulators can inspect.
 
-## Competition vs. Digital SBOMs (SPDX/CycloneDX)
+## Compared With Digital SBOMs (SPDX/CycloneDX)
 
 | Feature | Live Verify | Digital SBOM (JSON/XML) |
 | :--- | :--- | :--- |
@@ -105,6 +106,5 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Physical Link** | **Strong.** Ties the physical box to the digital record. | **Weak.** Usually a file sitting on a server somewhere. |
 | **Completeness** | **Summary.** Lists key licenses/packages. | **Exhaustive.** Lists every dependency of a dependency. |
 
-**Why Live Verify wins here:**
-Digital SBOMs are the gold standard for *automated* security, but they are invisible to the human inspector at a customs checkpoint or a sysadmin unboxing a device. Live Verify acts as the **human-readable cover sheet** for the complex digital SBOM.
+**Where each fits:** A machine-readable SBOM is the right artefact for automated security and licence analysis, and it is far more complete than any printed notice. It is not something a customs inspector or an administrator unboxing a device can read off the packaging. A verified printed notice acts as a readable summary that the manufacturer stands behind, and can point to the full SBOM for those with the tools to use it.
 

@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is an Expert Report?
 
-In a lawsuit about a building collapse or a medical error, the judge and jury aren't experts in engineering or surgery. They rely on **Expert Witnesses** to explain what happened.
+In a lawsuit about a building collapse or a medical error, the judge and jury aren't experts in engineering or surgery. They rely on Expert Witnesses to explain what happened.
 
-The **Expert Report** is the formal document where the scientist or doctor writes their professional opinion: "The crane fell because the weld was weak."
+The Expert Report is the formal document where the scientist or doctor writes their professional opinion: "The crane fell because the weld was weak."
 
-In high-stakes trials, lawyers sometimes "Edit" the expert's findings in the final PDF to make the opinion sound stronger for their side. Verified hashes ensure the report the jury sees matches the **expert's original, un-altered scientific findings**.
+In high-stakes trials, lawyers sometimes "Edit" the expert's findings in the final PDF to make the opinion sound stronger for their side. Verified hashes ensure the report the jury sees matches the expert's original, un-altered scientific findings.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
   <div style="text-align: right; margin-bottom: 30px;">
@@ -44,7 +44,13 @@ In high-stakes trials, lawyers sometimes "Edit" the expert's findings in the fin
   </div>
 </div>
 
-## Data Verified
+## The Problem: Expert Influence Fraud
+
+- **Opinion Laundering:** An attorney editing an expert's "Maybe" into a "Definitely" in the final PDF report.
+- **Credential Inflation:** Editing an expert's CV or report header to show "Board Certified" when they actually failed the exam.
+- **Draft Leaking:** Presenting an unauthorized early "Draft" as the "Final Report" to trick a party into settling.
+
+## What Is Checked
 
 Expert name/credentials (PE, MD, Ph.D.), retaining law firm, case caption/number, specific subject of opinion, final damage estimate (numerical), date of report, methodology used (e.g., ASTM standards), page count of full report.
 
@@ -54,7 +60,7 @@ Expert name/credentials (PE, MD, Ph.D.), retaining law firm, case caption/number
 - **Supplemental Report:** For new data discovered pre-trial.
 - **Forensic Accounting Summary:** For white-collar crime trials.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Expert's Firm or University) and the report standing.
 
@@ -64,15 +70,15 @@ Shows the issuer domain (the Expert's Firm or University) and the report standin
 - **Withdrawn** — Expert has retracted their opinion (e.g., due to data error).
 - **In-Litigation** — Subject to a Daubert challenge or motion to strike.
 
-## Second-Party Use
+## Who Holds It
 
-The **Retaining Attorney** benefits from verification.
+The Retaining Attorney benefits from verification.
 
-**Daubert Defense:** Proving to the judge that the "Expert Report" provided to opposing counsel is the **un-altered official version**. Verification ensures that no junior associate or client has "Self-Edited" the expert's findings to sound more favorable, which would disqualify the expert.
+**Daubert Defense:** Proving to the judge that the "Expert Report" provided to opposing counsel is the un-altered official version. Verification ensures that no junior associate or client has "Self-Edited" the expert's findings to sound more favorable, which would disqualify the expert.
 
 **Settlement Negotiation:** Providing a "Verified Expert Opinion" to an insurance carrier. A verified report from a reputable firm like Roux or Exponent carries much more weight in mediation than an unverified PDF.
 
-## Third-Party Use
+## Who Checks It
 
 **Opposing Counsel**
 **Integrity Audit:** Instantly verifying that every page of the 200-page expert report matches the expert's hash. This stops the "Page Swapping" fraud where a party replaces a negative page with a more neutral one during discovery.
@@ -83,13 +89,7 @@ The **Retaining Attorney** benefits from verification.
 **Insurance Claims Teams**
 **Reserve Accuracy:** Verifying the "Damages Estimate" in the expert report to ensure the legal reserves are set correctly at the home office.
 
-## Verification Architecture
-
-**The "Expert Influence" Fraud Problem**
-
-- **Opinion Laundering:** An attorney editing an expert's "Maybe" into a "Definitely" in the final PDF report.
-- **Credential Inflation:** Editing an expert's CV or report header to show "Board Certified" when they actually failed the exam.
-- **Draft Leaking:** Presenting an unauthorized early "Draft" as the "Final Report" to trick a party into settling.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -117,7 +117,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the expert's hashes and status changes plus structured metadata (case name and number, report subject, expert name and credentials, report date, expert firm name, professional license number) — never plaintext opinions or damages — providing non-repudiation of the expert witness report.
 
 
-## Competition vs. E-Discovery Platforms (Relativity)
+## Compared With E-Discovery Platforms (Relativity)
 
 | Feature | Live Verify | E-Discovery (Relativity) | Scanned PDF Report |
 | :--- | :--- | :--- | :--- |
@@ -126,4 +126,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Opinion.** Protects every word. | **Data-Only.** Doesn't verify physical printouts. | **Vulnerable.** |
 | **Cost** | **Low.** Standard web infra. | **Very High.** Monthly "Seat Fees" and hosting. | **None.** |
 
-**Why Live Verify wins here:** The "Room Moment." Expert reports are read by judges and juries on paper or flattened tablets. They are used in depositions far from the IT office. Live Verify turns the **Physical Page** into an immutable digital anchor, ensuring that the expert's *actual* opinion is what the jury sees, not a lawyer's "Edited Version."
+**Where each fits:** E-discovery platforms such as Relativity are built for managing large document sets during litigation, and the legal teams on a matter should keep using them for review and production. Access is limited to those teams and usually ends with the case. A report then circulates as a printout or PDF to judges, jurors, insurers and later proceedings, and Live Verify lets any of those readers confirm that the expert stands behind the exact text in front of them.

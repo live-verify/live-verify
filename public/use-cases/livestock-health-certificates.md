@@ -41,7 +41,12 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Biosecurity Fraud
+
+- **Certificate Forgery:** Using a color printer to create a "Clean CVI" for a sick horse to sneak it into a prestigious show or across a state line.
+- **Microchip Swapping:** Claiming a health certificate belongs to a healthy animal when the person is actually shipping a sick one. Verification of the *Microchip ID Hash* prevents this.
+
+## What Is Checked
 
 Animal unique ID (Microchip/Tag), Consignor/Consignee names, Species/Breed, Gender, Age, specific disease test results (e.g., Coggins for horses, TB for cattle), vaccination history, accredited veterinarian name/license, date of inspection, origin/destination premises.
 
@@ -52,24 +57,24 @@ Animal unique ID (Microchip/Tag), Consignor/Consignee names, Species/Breed, Gend
 
 See also: [Breed Pedigree and Registration](breed-pedigree-registration.md) for lineage/registry verification.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`tahc.texas.gov`, `usda.gov`) and current health/legal standing.
 
 **Status Indications:**
 - **Certified** — Health certificate matches the state vet's official digital filing.
-- **Quarantined** — **ALERT:** Disease detected at origin; movement prohibited.
+- **Quarantined** — Disease detected at origin; movement prohibited.
 - **Expired** — CVIs are typically only valid for 30 days.
 
-## Second-Party Use
+## Who Holds It
 
-The **Animal Owner / Shipper** benefits from verification.
+The Animal Owner / Shipper benefits from verification.
 
 **Interstate Transport:** Proving to a State Police or Ag-Inspector at a roadside checkpoint that the 10 horses in the trailer have verified "Negative Coggins" and active CVIs. This prevents the truck from being impounded or the animals being forced into a 14-day mandatory quarantine.
 
 **Auction Sales:** Proving to potential buyers at a high-value cattle or horse auction that the animal's health status isn't fabricated.
 
-## Third-Party Use
+## Who Checks It
 
 **Roadside Ag-Inspectors (CBP / State Troopers)**
 **Disease Control:** Instantly verifying the health status of animals at the border. Live Verify allows the officer to focus on trucks with unverified or "Forged" paper, stopping outbreaks of Foot-and-Mouth or Avian Flu before they spread.
@@ -77,12 +82,7 @@ The **Animal Owner / Shipper** benefits from verification.
 **Show Organizers**
 **Entry Vetting:** Ensuring that all 500 horses at a national show have verified vaccinations, protecting the entire population from contagious outbreaks.
 
-## Verification Architecture
-
-**The "Biosecurity" Fraud Problem**
-
-- **Certificate Forgery:** Using a color printer to create a "Clean CVI" for a sick horse to sneak it into a prestigious show or across a state line.
-- **Microchip Swapping:** Claiming a health certificate belongs to a healthy animal when the person is actually shipping a sick one. Verification of the *Microchip ID Hash* prevents this.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -111,7 +111,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the State Veterinarian's hashes and status changes plus structured metadata (animal ID, microchip, test results, vaccination dates) — never owner or farm location plaintext — providing non-repudiation of the health certificate and an audit trail biosecurity officials can inspect.
 
 
-## Competition vs. Electronic CVI (GlobalVetLink)
+## Compared With Electronic CVI (GlobalVetLink)
 
 | Feature | Live Verify | eCVI Platforms (GVL) | Paper CVI Form |
 | :--- | :--- | :--- | :--- |
@@ -120,4 +120,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Adoption** | **High.** Works with existing paper workflows. | **Medium.** Requires all vets to use the same software. | **Universal.** |
 | **Integrity** | **Binds Microchip.** Protects the data. | **Data-Only.** | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Roadside Realities." Border inspectors work in booths with limited time. They don't have logins to 15 different private veterinary platforms. Live Verify turns the **Mandatory Paper Certificate** into a universal digital bridge, bringing "Blockchain-level" biosecurity to the physical checkpoint.
+**Where each fits:** Electronic CVI platforms work well where the issuing veterinarian and the receiving state both use them, and they give animal health officials structured data that paper cannot. An inspector at a checkpoint or a sale barn may not have a login for the particular platform a certificate came from, and plenty of certificates still travel on paper. Live Verify lets that inspector check the paper against the issuer's domain with a phone, and it can sit on top of a certificate that an eCVI platform produced.

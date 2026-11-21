@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is a Title Insurance Policy?
 
-A **Title Insurance Policy** is a specialized contract that protects a property owner (or lender) against financial loss from defects in title—things like hidden liens, forged deeds, or "Missing Heirs" who might claim they own your house.
+A Title Insurance Policy is a specialized contract that protects a property owner (or lender) against financial loss from defects in title—things like hidden liens, forged deeds, or "Missing Heirs" who might claim they own your house.
 
 Unlike other insurance that covers *future* events (like fire), title insurance covers *past* errors. It is the "Warranty of Ownership."
 
-**"Policy Scrubbing"** is a sophisticated fraud where a seller or shady developer "edits" a title policy PDF to remove **Schedule B Exceptions**. For example, they might delete a line showing a $50,000 IRS tax lien or a "Shared Driveway" easement. They then present this "Clean" policy to a buyer or a bank to close a sale illegally. Live Verify binds the **Policy Number and the specific list of Exceptions** to the underwriter's domain.
+**"Policy Scrubbing"** is a sophisticated fraud where a seller or shady developer "edits" a title policy PDF to remove Schedule B Exceptions. For example, they might delete a line showing a $50,000 IRS tax lien or a "Shared Driveway" easement. They then present this "Clean" policy to a buyer or a bank to close a sale illegally. Live Verify binds the Policy Number and the specific list of Exceptions to the underwriter's domain.
 
 **Why verification matters here:**
 
@@ -49,7 +49,13 @@ Unlike other insurance that covers *future* events (like fire), title insurance 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Clean Schedule Fraud
+
+- **Exception Deletion:** Removing a line from Schedule B that mentions a "Shared Well" or a "Right of First Refusal" to make the property more attractive to a buyer.
+- **Coverage Inflation:** Editing a $100,000 policy to read $1,000,000 to trick a lender into an over-leveraged mortgage.
+- **Phantom Agencies:** Fraudsters setting up a fake "Local Title Agency" and issuing fake policies on stolen letterhead.
+
+## What Is Checked
 
 Policy Number, Named Insured (Owner/Lender), Amount of Insurance, Property Address/Parcel ID, Effective Date, Specific Schedule B Exceptions (e.g., "Easement 14"), Underwriter ID, Issuing Agency.
 
@@ -59,25 +65,25 @@ Policy Number, Named Insured (Owner/Lender), Amount of Insurance, Property Addre
 - **Title Commitment:** The "Promise to Insure" issued before closing.
 - **Endorsement:** (Linked hash) for specific changes (e.g., adding an ADU).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the National Underwriter) and current policy standing.
 
 **Status Indications:**
 - **Active/Enforceable** — Policy is verified and matches the underwriter's master record.
 - **Endorsed** — Policy has been modified (linked hash to latest endorsement).
-- **Claim Pending** — **ALERT:** A title claim has been filed against this policy.
-- **Void/Cancelled** — **ALERT:** Policy was retracted due to non-payment or fraud.
+- **Claim Pending** — A title claim has been filed against this policy.
+- **Void/Cancelled** — Policy was retracted due to non-payment or fraud.
 
-## Second-Party Use
+## Who Holds It
 
-The **Property Owner** benefits from verification.
+The Property Owner benefits from verification.
 
 **Future Resale:** Proving to a future buyer's attorney that you have a "Verified Clean" title policy from 10 years ago. This speeds up the new title search and may reduce the "Reissue Rate" cost for the next policy.
 
 **Mortgage Refinance:** Providing a verified hash to a new lender to prove the property is already fully insured, fulfilling a mandatory requirement for funding the new loan.
 
-## Third-Party Use
+## Who Checks It
 
 **Buyer's Attorneys**
 **Integrity Checks:** Before closing, the buyer's lawyer scans the seller's existing policy. "Verified by FirstAm.com" ensures the seller hasn't "Photoshopped" out a major boundary dispute or a recorded lien.
@@ -88,13 +94,7 @@ The **Property Owner** benefits from verification.
 **Real Estate Appraisers**
 **Marketability Assessment:** Verifying that a property has a standard, un-restricted title policy, ensuring there are no "Hidden Defects" that would lower its appraised value.
 
-## Verification Architecture
-
-**The "Clean Schedule" Fraud Problem**
-
-- **Exception Deletion:** Removing a line from Schedule B that mentions a "Shared Well" or a "Right of First Refusal" to make the property more attractive to a buyer.
-- **Coverage Inflation:** Editing a $100,000 policy to read $1,000,000 to trick a lender into an over-leveraged mortgage.
-- **Phantom Agencies:** Fraudsters setting up a fake "Local Title Agency" and issuing fake policies on stolen letterhead.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -121,7 +121,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive title underwriters' hashes and status changes plus structured metadata (Policy Number, Named Insured, Amount of Insurance, Property Address/Parcel ID, Effective Date, Schedule B Exceptions) — never plaintext or sensitive personal information — providing non-repudiation of the policy document and issuer liability.
 
 
-## Competition vs. Physical Policy Jackets
+## Compared With Physical Policy Jackets
 
 | Feature | Live Verify | Physical Jacket (Folder) | Online Public Records |
 | :--- | :--- | :--- | :--- |
@@ -130,4 +130,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **Manual.** requires deep reading. | **Slow.** requires search. |
 | **Freshness** | **Real-time.** Shows "Claim" status. | **Zero.** Paper is a snapshot. | **N/A.** |
 
-**Why Live Verify wins here:** The "Schedule B" reality. Title policies are 30-page documents filled with fine print. No one reads them all. Live Verify turns the **Schedule A/B Summary** into a live, trusted digital proof, ensuring that "Clear Title" is a cryptographically verified fact at every real estate closing.
+**Where each fits:** Public land records remain the source for what is recorded against a property, and the policy jacket is the complete contract that anyone relying on coverage should read. Neither tells a lender or buyer whether the schedule pages in front of them are the ones the underwriter issued. Live Verify adds that confirmation at closing, with the full policy and the public record still there to be consulted.

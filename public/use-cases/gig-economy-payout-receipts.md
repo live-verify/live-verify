@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is a Payout Receipt?
 
-For millions of Uber, Lyft, and DoorDash drivers, their "Paycheck" is a weekly **Payout Receipt** in the app.
+For millions of Uber, Lyft, and DoorDash drivers, their "Paycheck" is a weekly Payout Receipt in the app.
 
 Because gig workers are "Self-Employed," they must show these receipts to landlords to rent an apartment or to banks to get a car loan. They are the only verified proof of income.
 
-Fraud is common: drivers often edit a $400 payout to read $4,000 to trick a landlord into thinking they are high-earners. Live Verify allows a landlord to scan the receipt and see the **verified, un-altered weekly income** directly from the platform's domain.
+Fraud is common: drivers often edit a $400 payout to read $4,000 to trick a landlord into thinking they are high-earners. Live Verify allows a landlord to scan the receipt and see the verified, un-altered weekly income directly from the platform's domain.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="gig"></span>Uber                                  Weekly Earnings Statement
@@ -38,7 +38,13 @@ and income verification purposes.
 <span data-verify-line="gig">verify:uber.com/payouts/v</span> <span verifiable-text="end" data-for="gig"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Earnings Inflation Fraud
+
+- **PDF Alteration:** Changing a $400 payout to $4,000 to trick a landlord into believing the person is a high-earner.
+- **Tip Fabrication:** Adding fake "Tips" to a receipt to hide illegal income or to inflate creditworthiness.
+- **Identity Theft:** Using a high-earning friend's payout statement and editing the name to pass a background check.
+
+## What Is Checked
 
 Driver name, Partner ID, payout period (dates), gross trip earnings, total tips, promotions/bonuses, service fees deducted, net payout amount, total trip count, date of payment.
 
@@ -48,7 +54,7 @@ Driver name, Partner ID, payout period (dates), gross trip earnings, total tips,
 - **1099-K / 1099-NEC:** (Linked hash) for annual tax filings.
 - **Mileage Summary:** For tax deduction verification.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`uber.com`, `lyft.com`, `doordash.com`) and current payout status.
 
@@ -58,15 +64,15 @@ Shows the issuer domain (`uber.com`, `lyft.com`, `doordash.com`) and current pay
 - **Amended** — A correction was issued (e.g., due to a late tip or fee adjustment).
 - **Void** — Payout retracted due to fraud or account dispute.
 
-## Second-Party Use
+## Who Holds It
 
-The **Gig Worker (Driver/Courier)** benefits from verification.
+The Gig Worker (Driver/Courier) benefits from verification.
 
 **Lease Applications:** Proving to a landlord that their $1,242/week income is verified by Uber. Landlords are often skeptical of "Self-Employed" income; a verified hash from the platform's domain removes this doubt and speeds up the "Move-In" process.
 
 **Loan Approval:** Providing verified payout history to a car lender or bank to secure a loan. Verification allows for "Algorithmic Lending" where the bank trusts the platform's data more than a plain PDF.
 
-## Third-Party Use
+## Who Checks It
 
 **Mortgage Lenders / Banks**
 **Income Verification:** Lenders verify the stability and amount of "Gig Income." Live Verify ensures the applicant hasn't "Photoshopped" their earnings higher to qualify for a larger loan.
@@ -77,13 +83,7 @@ The **Gig Worker (Driver/Courier)** benefits from verification.
 **Insurance Companies**
 **Premium Rating:** Verifying the "Total Mileage" and "Trip Count" for commercial auto policies or gig-specific gap coverage.
 
-## Verification Architecture
-
-**The "Earnings Inflation" Fraud Problem**
-
-- **PDF Alteration:** Changing a $400 payout to $4,000 to trick a landlord into believing the person is a high-earner.
-- **Tip Fabrication:** Adding fake "Tips" to a receipt to hide illegal income or to inflate creditworthiness.
-- **Identity Theft:** Using a high-earning friend's payout statement and editing the name to pass a background check.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -109,7 +109,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the gig platform's hashes and status changes plus structured metadata (driver names, partner IDs, payout periods, gross earnings, tips, promotions, fees, net payouts, trip counts) — never pickup/dropoff addresses or passenger details — providing non-repudiation of the statement and earnings and an audit trail tax authorities and financial regulators can inspect.
 
-## Competition vs. Employment Verifiers (Argyle)
+## Compared With Employment Verifiers (Argyle)
 
 | Feature | Live Verify | Argyle / Pinwheel (API) | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -118,4 +118,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **Universal.** Works for any platform with a URL. | **Limited.** Only for platforms on the API network. | **Universal.** |
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires worker to find login/pass and link accounts. | **N/A.** |
 
-**Why Live Verify wins here:** The "Consent Gap." Many gig workers are hesitant to give their Uber password to a third-party "Aggregator" app. Live Verify provides **API-level trust** for a single document, preserving the worker's privacy and security while giving the lender the verification they need.
+**Where each fits:** Payroll-connectivity services such as Argyle and Pinwheel give a lender a continuing, structured feed of earnings, and for a worker who is happy to link an account that is often the smoothest route. Some workers would rather not hand over platform credentials, some platforms are not on those networks, and some checkers such as a landlord or a small lender are not customers of either. Live Verify covers those cases with a single earnings statement that the platform stands behind.

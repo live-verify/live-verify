@@ -40,7 +40,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Phantom Land Fraud
+
+- **Ghost Policies:** Fraudsters using fake letterhead from "First American" to sell nonexistent title insurance to expat buyers in developing nations.
+- **Limit Inflation:** Editing a $1M "Small Condo" policy to read $10M to secure a massive bridge loan from an unsuspecting lender.
+- **Exclusion Removal:** Deleting the page that lists "Known Encroachments" or "Restrictive Covenants" to make a lot look more developable than it is.
+
+## What Is Checked
 
 Insured name, property address, Cadastral/Parcel reference ID, country of jurisdiction, Amount of Insurance (USD/local), policy number, effective date, issuing underwriter, specific risk endorsements (e.g., "Forced Removal Affirmative Cover").
 
@@ -50,7 +56,7 @@ Insured name, property address, Cadastral/Parcel reference ID, country of jurisd
 - **Search Report (Title Report):** Verified history of prior ownership.
 - **Zoning Endorsement:** Proving legal land-use rights in a foreign city.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`firstam.com`, `stewart.com`) and current policy standing.
 
@@ -60,15 +66,15 @@ Shows the issuer domain (`firstam.com`, `stewart.com`) and current policy standi
 - **Claim Active** — Dispute reported (e.g., a "Surprise Heir" appeared in France).
 - **Closed** — Liability discharged (rare for title insurance).
 
-## Second-Party Use
+## Who Holds It
 
-The **Real Estate Investor (Insured)** benefits from verification.
+The Real Estate Investor (Insured) benefits from verification.
 
 **Unlocking Finance:** Proving to a global lender (e.g., HSBC or Citi) that their $25M French hotel investment has a "Verified US-Backed Title Policy." Banks are often terrified of "Local Registry" risks in foreign countries; a verified hash from a major US underwriter removes this fear and triggers the loan release.
 
 **Exit Strategy:** When selling the property 5 years later, the owner can provide a verified "Chain of Title" hash to the buyer, proving the property has been continuously insured by a reputable carrier.
 
-## Third-Party Use
+## Who Checks It
 
 **Mortgage Lenders (Cross-Border)**
 **Risk Mitigation:** Instantly verifying that the "Title Policy" in the closing package isn't a fake PDF created by a shell company. Live Verify connects the bank's compliance team directly to the underwriter's domain, stopping "Phantom Collateral" fraud.
@@ -79,13 +85,7 @@ The **Real Estate Investor (Insured)** benefits from verification.
 **Internal Revenue Service (IRS)**
 **Asset Audit:** Verifying the "Cost Basis" and "Ownership Integrity" of foreign real estate holdings during high-value audits (FATCA/FBAR context).
 
-## Verification Architecture
-
-**The "Phantom Land" Fraud Problem**
-
-- **Ghost Policies:** Fraudsters using fake letterhead from "First American" to sell nonexistent title insurance to expat buyers in developing nations.
-- **Limit Inflation:** Editing a $1M "Small Condo" policy to read $10M to secure a massive bridge loan from an unsuspecting lender.
-- **Exclusion Removal:** Deleting the page that lists "Known Encroachments" or "Restrictive Covenants" to make a lot look more developable than it is.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -112,7 +112,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the title underwriter's hashes and status changes plus structured metadata (policy number, property address, coverage limits, policy year) — never coverage exclusions or title defect details — providing non-repudiation of the insurance policy and an audit trail international lenders can inspect.
 
 
-## Competition vs. Local Land Registries
+## Compared With Local Land Registries
 
 | Feature | Live Verify | Local Land Registry (e.g., France) | Scanned PDF Policy |
 | :--- | :--- | :--- | :--- |
@@ -121,4 +121,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Financial Backing** | **Direct.** Proves the $25M promise. | **None.** A registry only proves *who* owns it. | **Vulnerable.** |
 | **Speed** | **Instant.** 5-second scan. | **Very Slow.** Often takes weeks for a "Title Search." | **Instant.** |
 
-**Why Live Verify wins here:** The "Translation of Trust." A US bank doesn't trust a paper from a small town in rural Italy. But they **do trust** `firstam.com`. Live Verify turns the **Local Property Data** into a verified, US-backed financial artifact that can be instantly audited by anyone, anywhere in the world.
+**Where each fits:** The local land registry is the legal record of who owns the property, and a title search there is still how ownership is established. What it does not show is the underwriter's financial commitment, and a lender in another country may struggle to read or query it. Live Verify lets that lender confirm the policy text against the underwriter's domain in a few seconds; the registry search and the verified policy answer different questions and are used together.

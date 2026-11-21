@@ -11,14 +11,14 @@ furtherDerivations: 1
 
 ## What is a Freight Bill?
 
-A **Freight Bill** is the invoice from a trucking company to a shipper. It's the bill for moving goods from point A to point B.
+A Freight Bill is the invoice from a trucking company to a shipper. It's the bill for moving goods from point A to point B.
 
 It isn't just about the price; it records:
 1.  **Fuel Surcharges:** Extra money for gas.
 2.  **Detention Fees:** Penalties for making the driver wait too long.
 3.  **The Proof:** Linking the bill to the original Bill of Lading.
 
-"Logistics Phishing" is a billion-dollar crime. Hackers take over a trucker's email and send "Updated Invoices" with a different bank account. Verified hashes prevent this by linking the invoice to the carrier's **official domain**, ensuring the money goes to the real driver.
+"Logistics Phishing" is a billion-dollar crime. Hackers take over a trucker's email and send "Updated Invoices" with a different bank account. Verified hashes prevent this by linking the invoice to the carrier's official domain, ensuring the money goes to the real driver.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #000; background: #fff; padding: 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
   <div style="padding: 20px; background: #fff;">
@@ -43,7 +43,13 @@ Payment Terms: Net 30 Days. Remit to: Wells Fargo Lockbox #99228.
   </div>
 </div>
 
-## Data Verified
+## The Problem: Logistics Phishing Fraud
+
+- **Business Email Compromise (BEC):** Hackers taking over a trucking company's email and sending "Updated Invoices" with a different bank account. Live Verify prevents this by linking the paper to the carrier's *domain*, not an email account.
+- **Detention Fee Padding:** Shady drivers adding a "2-hour wait" fee ($150) to the paper invoice that wasn't authorized in the central system.
+- **Ghost Invoices:** Creating a fake invoice for a shipment that was never actually picked up or delivered.
+
+## What Is Checked
 
 Invoice number, Carrier name, Shipper name, Bill of Lading (B/L) reference, total freight charge, line-item breakdown (Linehaul, Fuel, Accessorials), payment terms, date of issuance, delivery confirmation link.
 
@@ -53,7 +59,7 @@ Invoice number, Carrier name, Shipper name, Bill of Lading (B/L) reference, tota
 - **Pro-Forma Freight Estimate:** For pre-shipment budgeting.
 - **Supplemental Invoice:** For fees found after delivery (e.g., re-weighing).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`schneider.com`, `swifttrans.com`, `dhl.com`) and invoice status.
 
@@ -63,15 +69,15 @@ Shows the issuer domain (`schneider.com`, `swifttrans.com`, `dhl.com`) and invoi
 - **In-Dispute** — Customer has challenged a fee (e.g., detention charge).
 - **Amended** — Replaced by a corrected version (e.g., fuel surcharge adjustment).
 
-## Second-Party Use
+## Who Holds It
 
-The **Shipper (Customer)** benefits from verification.
+The Shipper (Customer) benefits from verification.
 
 **Audit Compliance:** Proving to their internal finance auditors that the $1,712 freight payment wasn't a "Fake Invoice" from a spoofed email. A verified hash from the carrier's domain removes the #1 risk in Logistics Accounts Payable: **Fraudulent Change of Bank Details.**
 
 **Dispute Resolution:** If the carrier claims the bill is $2,000 but the verified invoice says $1,712, the shipper has cryptographically solid proof of the original agreed amount.
 
-## Third-Party Use
+## Who Checks It
 
 **Freight Audit & Payment (FAP) Firms**
 **Automated Vetting:** FAP firms (e.g., Cass Information Systems, U.S. Bank) process millions of invoices. Live Verify allows them to instantly verify carrier authenticity without manual "Carrier Onboarding" or phone verification for every new small trucker.
@@ -82,13 +88,7 @@ The **Shipper (Customer)** benefits from verification.
 **Tax Authorities**
 **VAT / GST Reconciliation:** Ensuring that the tax deductions claimed for freight expenses match the verified revenue reported by the carriers.
 
-## Verification Architecture
-
-**The "Logistics Phishing" Fraud Problem**
-
-- **Business Email Compromise (BEC):** Hackers taking over a trucking company's email and sending "Updated Invoices" with a different bank account. Live Verify prevents this by linking the paper to the carrier's *domain*, not an email account.
-- **Detention Fee Padding:** Shady drivers adding a "2-hour wait" fee ($150) to the paper invoice that wasn't authorized in the central system.
-- **Ghost Invoices:** Creating a fake invoice for a shipment that was never actually picked up or delivered.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -114,7 +114,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the carrier's hashes and status changes plus structured metadata (invoice numbers, shipper names, Bill of Lading references, totals, line-item breakdowns, payment terms, dates) — never delivery addresses or customer payment details — providing non-repudiation of the invoice and an audit trail freight audit firms and financial regulators can inspect.
 
-## Competition vs. EDI (Electronic Data Interchange)
+## Compared With EDI (Electronic Data Interchange)
 
 | Feature | Live Verify | EDI 210 (Invoicing) | Scanned PDF Invoice |
 | :--- | :--- | :--- | :--- |
@@ -123,4 +123,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **High.** Works for any trucker with a URL. | **Low.** Small truckers don't use EDI. | **Universal.** |
 | **Integrity** | **Binds Line Items.** Protects the FSC. | **Data-Only.** | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Long Tail" of Trucking. While the top 100 carriers use EDI, there are 500,000 small trucking companies in the USA who only use PDF invoices. Live Verify turns those **PDFs and Paper Bills** into cryptographically trusted digital artifacts, bringing "EDI-level" trust to the entire industry without the "EDI-level" cost.
+**Where each fits:** EDI 210 is the efficient way to invoice between large carriers and large shippers, and those already exchanging it have no reason to change. Setting it up takes IT work and network fees that many small carriers and shippers cannot justify, so they send PDF or paper invoices. Live Verify lets a shipper, auditor or factoring company confirm that the carrier stands behind such an invoice and its line items, and it covers the part of the market EDI was never likely to reach.

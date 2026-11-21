@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is Fleet Insurance?
 
-When a company owns 100 trucks or vans, they don't buy 100 individual car insurance policies. They buy a **Commercial Auto Fleet Policy**.
+When a company owns 100 trucks or vans, they don't buy 100 individual car insurance policies. They buy a Commercial Auto Fleet Policy.
 
-Every driver carries a **Proof of Insurance** card. Unlike personal insurance, these cards must list the company's **DOT Number** and often include a federal **MCS-90** filing which guarantees the public is protected if a heavy truck causes an accident.
+Every driver carries a Proof of Insurance card. Unlike personal insurance, these cards must list the company's DOT Number and often include a federal MCS-90 filing which guarantees the public is protected if a heavy truck causes an accident.
 
-Fraud is common: fleet owners often "delete" expensive-to-insure trucks from their policy to save money, but keep the old paper cards in the glovebox to fool DOT inspectors. Live Verify allows an inspector to verify that **this specific VIN** is still covered today.
+Fraud is common: fleet owners often "delete" expensive-to-insure trucks from their policy to save money, but keep the old paper cards in the glovebox to fool DOT inspectors. Live Verify allows an inspector to verify that this specific VIN is still covered today.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="com-auto"></span>
@@ -47,7 +47,13 @@ Policy Period: Jan 01, 2026 to Jan 01, 2027
 <span data-verify-line="com-auto">verify:progressive.com/commercial/v</span> <span verifiable-text="end" data-for="com-auto"></span>
 </div>
 
-## Data Verified
+## The Problem: Ghost Fleet Fraud
+
+- **Selective Deletion:** Removing high-risk drivers or aging trucks from the policy to save money, but keeping the old "Policy Summary" paper to show at checkpoints.
+- **VIN Tampering:** Editing a "Clean" VIN onto a card for an uninsured, damaged vehicle.
+- **MCS-90 Forgery:** Fabricating the federal filing needed for interstate commerce.
+
+## What Is Checked
 
 Business name, DOT number, specific vehicle VINs, combined single limit (CSL), cargo liability, effective/expiration dates, MCS-90 status, hired/non-owned auto inclusion.
 
@@ -57,19 +63,19 @@ Business name, DOT number, specific vehicle VINs, combined single limit (CSL), c
 - **Scheduled Auto List:** Detailing every covered VIN.
 - **Hired/Non-Owned Certificate:** For businesses using employees' personal cars.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`progressive.com`, `travelers.com`) and fleet status.
 
 **Status Indications:**
 - **In Force** — Fleet is fully covered.
-- **Vehicle Excluded** — **ALERT:** This specific VIN was removed from the policy.
+- **Vehicle Excluded** — This specific VIN was removed from the policy.
 - **Cancelled** — Policy terminated (e.g., for safety score or non-payment).
 - **Expired** — Term ended.
 
-## Second-Party Use
+## Who Holds It
 
-The **Fleet Owner** (second party) receives the commercial auto insurance card from the carrier (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Fleet Owner (second party) receives the commercial auto insurance card from the carrier (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of the fleet coverage. Most of the time, the cards sit in the vehicle gloveboxes—the verification value is latent, there *if needed*.
 
@@ -77,7 +83,7 @@ The **Fleet Owner** (second party) receives the commercial auto insurance card f
 
 **Future Optionality:** If an inspection arises—whether DOT roadside checks or logistics network onboarding—they have cryptographic proof of coverage ready without needing to contact the carrier.
 
-## Third-Party Use
+## Who Checks It
 
 The fleet owner (second party) may hand the verified document to various third parties:
 
@@ -90,13 +96,7 @@ The fleet owner (second party) may hand the verified document to various third p
 **Shipping Hubs / Warehouses**
 **Gate Access:** Ensuring that any truck entering the facility has verified liability coverage, protecting the facility owner from accidents on their property.
 
-## Verification Architecture
-
-**The "Ghost Fleet" Fraud Problem**
-
-- **Selective Deletion:** Removing high-risk drivers or aging trucks from the policy to save money, but keeping the old "Policy Summary" paper to show at checkpoints.
-- **VIN Tampering:** Editing a "Clean" VIN onto a card for an uninsured, damaged vehicle.
-- **MCS-90 Forgery:** Fabricating the federal filing needed for interstate commerce.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -124,7 +124,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (DOT numbers, VINs, coverage limits, MCS-90 status, policy dates) — never driver details, safety scores, or claim histories — providing non-repudiation of the coverage it issued.
 
-## Competition vs. FMCSA SAFER Database
+## Compared With FMCSA SAFER Database
 
 | Feature | Live Verify | FMCSA SAFER (Public) | Paper Fleet List |
 | :--- | :--- | :--- | :--- |
@@ -132,4 +132,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Freshness** | **Real-time.** Queries the insurer's live fleet file. | **Laggy.** Federal records can lag by weeks. | **Static.** |
 | **Accessibility** | **Open.** Any warehouse or broker can verify. | **Public.** But limited data. | **Manual.** |
 
-**Why Live Verify wins here:** The "VIN Specificity" problem. Government databases like SAFER prove a company *has* insurance, but they rarely list the 500 individual VINs. Live Verify allows a verifier to prove that **this specific VIN** is covered *today*, closing the gap between corporate-level filings and vehicle-level reality.
+**Where each fits:** the federal database is the right place to confirm that a carrier holds the filings it is required to hold, and brokers and shippers should keep checking it. It generally does not list individual vehicles and can lag behind changes. Live Verify lets a warehouse or broker confirm the insurer stands behind a schedule naming a specific vehicle, which adds vehicle-level detail to the company-level public record.

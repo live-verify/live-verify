@@ -45,7 +45,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Phantom Credit Fraud
+
+- **Fabricated L/Cs:** Using a template to create a fake L/C from a real bank (e.g., HSBC) to trick a supplier into shipping goods without payment.
+- **Term Tampering:** Editing the "Required Documents" list to remove the need for a 3rd party inspection certificate, allowing the buyer to ship junk.
+- **Amount Inflation:** Changing $100,000 to $1,000,000 to use the L/C as collateral for a fraudulent loan.
+
+## What Is Checked
 
 L/C Number, Issuing Bank name, Beneficiary name, Applicant name, Currency and exact amount (numerical/text), Expiry date, Port of Loading/Discharge, Goods description (digest), UCP version (e.g., UCP 600), date of issuance.
 
@@ -55,26 +61,26 @@ L/C Number, Issuing Bank name, Beneficiary name, Applicant name, Currency and ex
 - **Standby Letter of Credit (SBLC):** Used as a backup payment source.
 - **Advice of Credit:** From the advising bank to the seller.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Issuing Bank) and current credit status.
 
 **Status Indications:**
 - **Valid/Available** — Credit is active and open for negotiation.
-- **Amended** — **ALERT:** Terms have changed; view Amendment #2.
+- **Amended** — Terms have changed; view Amendment #2.
 - **Drawn** — Funds have already been paid against this credit.
 - **Expired** — The credit has passed its valid window.
 - **Cancelled** — Retracted by mutual agreement.
 
-## Second-Party Use
+## Who Holds It
 
-The **Beneficiary (Exporter)** benefits from verification.
+The Beneficiary (Exporter) benefits from verification.
 
 **Shipping Confidence:** Before manufacturing $1.2M in custom lenses, the Swiss exporter scans the L/C hash. "Verified by HSBC" ensure the buyer hasn't "Edited" the PDF to change the payment terms from "At Sight" to "Net 90 Days" or reduced the dollar amount.
 
 **Supply Chain Finance:** Proving the verified L/C to a local bank to get a "Pre-Export Loan" to buy raw materials. Banks only lend against L/Cs they can cryptographically trust.
 
-## Third-Party Use
+## Who Checks It
 
 **Advising / Confirming Banks**
 **Risk Transfer:** A confirming bank in Switzerland can verify the L/C against HSBC's domain before adding their own guarantee. This stops "Ghost L/Cs" from non-existent or insolvent banks.
@@ -85,13 +91,7 @@ The **Beneficiary (Exporter)** benefits from verification.
 **Customs Authorities**
 **Valuation Vetting:** Verifying the actual transaction value of high-tax goods by checking the verified L/C hash.
 
-## Verification Architecture
-
-**The "Phantom Credit" Fraud Problem**
-
-- **Fabricated L/Cs:** Using a template to create a fake L/C from a real bank (e.g., HSBC) to trick a supplier into shipping goods without payment.
-- **Term Tampering:** Editing the "Required Documents" list to remove the need for a 3rd party inspection certificate, allowing the buyer to ship junk.
-- **Amount Inflation:** Changing $100,000 to $1,000,000 to use the L/C as collateral for a fraudulent loan.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -117,7 +117,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuing bank's hashes and status changes plus structured metadata (L/C numbers, beneficiary names, applicant names, currency amounts, expiry dates, port information, goods descriptions, UCP versions) — never specific contract numbers or payment routing details — providing non-repudiation of the letter of credit and an audit trail customs authorities and central banks can inspect.
 
-## Competition vs. SWIFT (Electronic)
+## Compared With SWIFT (Electronic)
 
 | Feature | Live Verify | SWIFT MT700 (Electronic) | Scanned PDF L/C |
 | :--- | :--- | :--- | :--- |
@@ -126,7 +126,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Content.** Protects the text. | **Data-Only.** No "Human" document link. | **Vulnerable.** |
 | **Interoperability** | **High.** Works across non-SWIFT fintechs. | **Limited.** Only for legacy banks. | **Universal.** |
 
-**Why Live Verify wins here:** The "Non-Bank" reality. Trade finance involves non-banks (freight forwarders, insurance agents, small suppliers) who **do not have SWIFT access**. They are forced to trust a piece of paper or a PDF. Live Verify turns that **Human-Readable PDF** into a cryptographically trusted artifact that anyone can verify without a $50,000/year SWIFT terminal.
+**Where each fits:** SWIFT is how banks authenticate a letter of credit between themselves, and for the issuing, advising and confirming banks it is the authoritative channel. Freight forwarders, insurance agents and smaller suppliers are outside that network and see only the printed or PDF credit. Live Verify lets them confirm that copy against the issuing bank's domain, alongside the interbank message that the banks continue to depend on.
 
 ### The Substitution Fraud
 

@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a CAT Batch Report?
 
-When a massive disaster (a **Catastrophe** or "CAT") like Hurricane Katrina or a California Wildfire happens, insurance companies pay out thousands of claims at once.
+When a massive disaster (a Catastrophe or "CAT") like Hurricane Katrina or a California Wildfire happens, insurance companies pay out thousands of claims at once.
 
-To get their money back from **Reinsurance** companies (the "insurers for insurers"), the primary company sends a **Batch Report**. This is a list of all claims totaling millions of dollars.
+To get their money back from Reinsurance companies (the "insurers for insurers"), the primary company sends a Batch Report. This is a list of all claims totaling millions of dollars.
 
 If a carrier "sneaks" a normal kitchen fire into a "Hurricane" batch, they are committing reinsurance fraud. Verified hashes allow the reinsurer to audit these multimillion-dollar lists instantly against the carrier's core database.
 
@@ -41,7 +41,13 @@ Note: All claims verified as occurring within CAT date window.
 <span data-verify-line="cat">verify:statefarm.com/claims/v</span> <span verifiable-text="end" data-for="cat"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Claim Laundering Fraud
+
+- **Inclusion of Attritional Loss:** Sneaking a "normal" kitchen fire claim into a "Hurricane" batch to get it covered by a reinsurance treaty that only triggers for CAT events.
+- **Amount Inflation:** Editing the "Total Paid" amount on a PDF report to claim more money from a reinsurer than was actually paid to policyholders.
+- **Date Stretching:** Moving the date of a loss that happened *after* the storm into the "CAT Window" to get special handling.
+
+## What Is Checked
 
 Catastrophe code (PCS/ISO), regional boundaries (Zip/County), batch ID, claim count, total paid losses, total reserves, incident date range, carrier ID, audit timestamp.
 
@@ -50,7 +56,7 @@ Catastrophe code (PCS/ISO), regional boundaries (Zip/County), batch ID, claim co
 - **Bordereau Report:** Detailed claim-by-claim list for reinsurers.
 - **Quota Share Statement:** For shared risk partitions.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Insurance Carrier) and the report standing.
 
@@ -60,15 +66,15 @@ Shows the issuer domain (the Insurance Carrier) and the report standing.
 - **Superseded** — Updated by a more recent batch report (e.g., as reserves develop).
 - **Void** — Report retracted due to data error.
 
-## Second-Party Use
+## Who Holds It
 
-The **Carrier Management** benefits from verification.
+The Carrier Management benefits from verification.
 
 **Reinsurance Recovery:** Proving to a reinsurer (e.g., Munich Re or Swiss Re) that the $22M loss claim is authentic and matches the carrier's verified CAT data. This accelerates the "Cash Call" process where reinsurers reimburse the carrier.
 
 **Internal Audit:** Ensuring that regional offices aren't "padding" CAT batches with non-CAT claims (attritional losses) to get higher reinsurance payouts or special disaster funding.
 
-## Third-Party Use
+## Who Checks It
 
 **Reinsurers**
 **Claims Verification:** Reinsurers often take weeks to audit "Bordereau" files manually. Live Verify allows them to instantly verify the high-level totals against the carrier's domain, reducing the audit friction.
@@ -79,13 +85,7 @@ The **Carrier Management** benefits from verification.
 **Rating Agencies (A.M. Best)**
 **Capital Adequacy:** Verifying the actual loss development of a major event to update the carrier's financial strength rating.
 
-## Verification Architecture
-
-**The "Claim Laundering" Fraud Problem**
-
-- **Inclusion of Attritional Loss:** Sneaking a "normal" kitchen fire claim into a "Hurricane" batch to get it covered by a reinsurance treaty that only triggers for CAT events.
-- **Amount Inflation:** Editing the "Total Paid" amount on a PDF report to claim more money from a reinsurer than was actually paid to policyholders.
-- **Date Stretching:** Moving the date of a loss that happened *after* the storm into the "CAT Window" to get special handling.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -112,7 +112,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the report it recorded.
 
 
-## Competition vs. Blockchain (RiskStream)
+## Compared With Blockchain (RiskStream)
 
 | Feature | Live Verify | RiskStream / Corda | Scanned PDF Report |
 | :--- | :--- | :--- | :--- |
@@ -121,4 +121,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Cost** | **Low.** Standard web infra. | **High.** Requires heavy enterprise blockchain nodes. | **None.** |
 | **Privacy** | **High.** Only the specific batch is shared. | **Medium.** Shared ledger metadata. | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Legacy Bridge." The insurance industry is moving toward blockchain (RiskStream), but 90% of the world still operates on PDF reports sent via email. Live Verify provides **ledger-level integrity** for the existing PDF-based workflow, allowing carriers to modernize without replacing their entire tech stack.
+**Where each fits:** where a carrier and its reinsurer are both members of a shared ledger such as RiskStream, that gives them a common record and there is no reason to step outside it. Many reinsurers are not on the same network and still receive batch reports as emailed PDFs. Live Verify lets them check such a report against the carrier's domain, and it can run next to a ledger for the counterparties that use one.

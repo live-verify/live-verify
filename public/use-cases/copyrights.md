@@ -12,11 +12,11 @@ furtherDerivations: 1
 
 ## What is a Copyright Certificate?
 
-While you own the copyright to a book or song the moment you write it, you cannot **sue** for big damages in US court unless you have a formal **Certificate of Registration** from the U.S. Copyright Office.
+While you own the copyright to a book or song the moment you write it, you cannot sue for big damages in US court unless you have a formal Certificate of Registration from the U.S. Copyright Office.
 
 This document is the "Proof of Ownership" used to sell movie rights or to take down "Pirated" content on YouTube.
 
-Fraudsters often create fake certificates to claim ownership of hit songs or viral videos they didn't create, stealing royalties from the true authors. Verified hashes bind the **Actual File** (the "Deposit Copy") to the certificate, ensuring the owner can't swap out the content later.
+Fraudsters often create fake certificates to claim ownership of hit songs or viral videos they didn't create, stealing royalties from the true authors. Verified hashes bind the Actual File (the "Deposit Copy") to the certificate, ensuring the owner can't swap out the content later.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 2px solid #333; background: #fff; padding: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); position: relative;">
   <div style="text-align: center; margin-bottom: 30px;">
@@ -55,7 +55,13 @@ Fraudsters often create fake certificates to claim ownership of hit songs or vir
   </div>
 </div>
 
-## Data Verified
+## The Problem: Content Theft Fraud
+
+- **Fabricated Certificates:** Using a template to create a fake "U.S. Copyright Office" certificate for a work the person didn't actually create.
+- **Deposit Swapping:** Claiming a registration covers a specific file, but the file doesn't match the original "Deposit Copy" held by the government. Verification of the *Deposit Hash* prevents this.
+- **Work-for-Hire Fraud:** Altering an agreement to make it look like a freelancer was a full-time employee, to steal their IP rights.
+
+## What Is Checked
 
 Registration number, title of work, author name, claimant (owner) name, type of work (Literary, Visual, Sound), date of creation, date of publication, SHA-256 hash of the "Deposit Copy" (the actual file), effective date of registration.
 
@@ -65,7 +71,7 @@ Registration number, title of work, author name, claimant (owner) name, type of 
 - **Work-for-Hire Agreement:** Proving company ownership.
 - **DMCA Notice:** (Verified proof of ownership used for takedowns).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`copyright.gov`, `ipo.gov.uk`) and current standing.
 
@@ -75,15 +81,15 @@ Shows the issuer domain (`copyright.gov`, `ipo.gov.uk`) and current standing.
 - **Terminated** — Author has exercised their "Termination of Transfer" rights.
 - **Public Domain** — Copyright term has expired.
 
-## Second-Party Use
+## Who Holds It
 
-The **Creator / Rights Holder** benefits from verification.
+The Creator / Rights Holder benefits from verification.
 
 **Licensing / Royalty Deals:** Proving to a publisher or streaming platform (e.g., Netflix or Spotify) that they actually own the "Epic" being sold. Verification prevents "Royalties Redirection" where a fraudster uses fake papers to claim payments for a hit song.
 
 **Legal Enforcement:** Proving ownership to an OSP (Online Service Provider) during a DMCA takedown. A verified certificate from `copyright.gov` triggers faster "Safe Harbor" processing than a standard unverified PDF.
 
-## Third-Party Use
+## Who Checks It
 
 **Publishers / Movie Studios**
 **Chain of Title Due Diligence:** Ensuring that every creative work being purchased has a verified, unbroken chain of ownership from the original author to the current seller.
@@ -94,13 +100,7 @@ The **Creator / Rights Holder** benefits from verification.
 **Academic Researchers**
 **Provenance Tracking:** Instantly verifying the "First Publication Date" of a historical work by scanning its original registration hash.
 
-## Verification Architecture
-
-**The "Content Theft" Fraud Problem**
-
-- **Fabricated Certificates:** Using a template to create a fake "U.S. Copyright Office" certificate for a work the person didn't actually create.
-- **Deposit Swapping:** Claiming a registration covers a specific file, but the file doesn't match the original "Deposit Copy" held by the government. Verification of the *Deposit Hash* prevents this.
-- **Work-for-Hire Fraud:** Altering an agreement to make it look like a freelancer was a full-time employee, to steal their IP rights.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -126,7 +126,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the copyright office's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the registration certificate.
 
 
-## Competition vs. Blockchain Registries
+## Compared With Blockchain Registries
 
 | Feature | Live Verify | Art On-Chain (NFT) | Public Copyright DB |
 | :--- | :--- | :--- | :--- |
@@ -135,7 +135,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Trust Anchor** | **Domain-Bound.** Trust the Gov. | **Consensus-Bound.** Trust the protocol. | **Gov-Bound.** |
 | **Durability** | **Archival.** Text lasts centuries. | **Fragile.** Requires the chain to exist in 2100. | **Durable.** |
 
-**Why Live Verify wins here:** Standing. Copyright is a state-granted legal monopoly. While "Blockchain Timestamping" proves *you had it first*, only a **Government Registration** gives you the right to sue for statutory damages ($150k per infringement). Live Verify turns that powerful legal document into a high-speed digital weapon for protecting creators.
+**Where each fits:** the copyright office's public catalogue is the official record and remains the place to search registrations. On-chain timestamping can be useful evidence of when a work existed. A registration certificate is what a creator actually sends to a platform, licensee or opposing party, and Live Verify lets that recipient confirm that the office stands behind it without running a catalogue search.
 
 ## Related
 

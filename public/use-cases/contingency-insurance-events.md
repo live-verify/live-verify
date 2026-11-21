@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is Event Insurance?
 
-If a major music festival (like Glastonbury) or a Broadway show is cancelled due to a hurricane, a pandemic, or the lead singer losing their voice, the promoter stands to lose **millions of dollars**.
+If a major music festival (like Glastonbury) or a Broadway show is cancelled due to a hurricane, a pandemic, or the lead singer losing their voice, the promoter stands to lose millions of dollars.
 
 **Contingency Insurance** (or Event Cancellation Insurance) covers these losses.
 
@@ -52,7 +52,13 @@ Promoters must show this verified proof of insurance to stadium owners and lende
   </div>
 </div>
 
-## Data Verified
+## The Problem: Phantom Policy Fraud
+
+- **Photoshop Forgery:** Editing an old 2022 pandemic policy to read "2026" to trick a venue into allowing a high-risk event.
+- **Limit Inflation:** Changing a $1M limit to a $10M limit to secure a more prestigious venue.
+- **Endorsement Fabrications:** Adding a fake "Communicable Disease" endorsement to a policy that actually excludes it (a common post-COVID fraud).
+
+## What Is Checked
 
 Insured entity name, event name/ID, coverage limits (Cancellation/Abandonment/Non-Appearance), specific "Key Artist" inclusions, date range of the event, geographic territory, primary endorsements (e.g., Pandemic/Communicable Disease), issuing syndicate.
 
@@ -62,7 +68,7 @@ Insured entity name, event name/ID, coverage limits (Cancellation/Abandonment/No
 - **Prize Indemnity Certificate:** (e.g., "Hole-in-One" or "Half-Court Shot" insurance).
 - **Adverse Weather Policy:** Triggered by specific rainfall/wind measurements.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`beazley.com`, `hiscox.com`) and current policy standing.
 
@@ -72,9 +78,9 @@ Shows the issuer domain (`beazley.com`, `hiscox.com`) and current policy standin
 - **Claim Filed** — Event has been cancelled; claim in processing.
 - **Closed** — Event completed; no claim filed.
 
-## Second-Party Use
+## Who Holds It
 
-The **Event Promoter** benefits from verification.
+The Event Promoter benefits from verification.
 
 **Venue Booking:** Proving to a stadium or arena owner that the $25M cancellation policy is verified active. Venues often require this proof before allowing a promoter to move equipment onto the grass.
 
@@ -82,7 +88,7 @@ The **Event Promoter** benefits from verification.
 
 **Sponsorship Contracts:** Assuring major sponsors (e.g., Coca-Cola or Nike) that their investment is protected even if the event is cancelled due to a hurricane or pandemic.
 
-## Third-Party Use
+## Who Checks It
 
 **Venue Owners / Stadiums**
 **Liability Discharge:** Ensuring the promoter has enough "Cancellation Cash" to pay the venue's staff and overhead if the concert is called off at the last minute.
@@ -93,13 +99,7 @@ The **Event Promoter** benefits from verification.
 **Artists / Talent Agencies**
 **Deposit Protection:** Verifying that the insurance covering the artist's non-appearance (which might trigger a refund of their guarantee) is legitimate.
 
-## Verification Architecture
-
-**The "Phantom Policy" Fraud Problem**
-
-- **Photoshop Forgery:** Editing an old 2022 pandemic policy to read "2026" to trick a venue into allowing a high-risk event.
-- **Limit Inflation:** Changing a $1M limit to a $10M limit to secure a more prestigious venue.
-- **Endorsement Fabrications:** Adding a fake "Communicable Disease" endorsement to a policy that actually excludes it (a common post-COVID fraud).
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -126,7 +126,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (policy number, event name and dates, coverage sections, coverage limits, endorsements, effective period) — never claims information or loss history — providing non-repudiation of insurance coverage and an audit trail for venue and lender verification.
 
 
-## Competition vs. Central Registries (Lloyd's)
+## Compared With Central Registries (Lloyd's)
 
 | Feature | Live Verify | Lloyd's Market Database | Paper Evidence |
 | :--- | :--- | :--- | :--- |
@@ -135,4 +135,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** Scan the paper at the loading dock. | **Slow.** Requires calling a London broker. | **Instant.** |
 | **Confidentiality** | **High.** Only the specific event is verified. | **Low.** Central lists can reveal entire portfolios. | **Medium.** |
 
-**Why Live Verify wins here:** The "Loading Dock" reality. In the 48 hours before a massive festival, logistics are chaotic. A site manager doesn't have time to call London to verify a broker's email. Live Verify turns the **Physical Evidence of Insurance** into a live digital portal, ensuring that the show goes on (or is safely insured if it doesn't).
+**Where each fits:** the Lloyd's market's own records, reached through the placing broker, are the definitive source on a policy, and a call to that broker is the right step for any question of substance. A venue manager in the days before an event may not get an answer in time. Live Verify lets them check the evidence of insurance they hold, including its endorsements, against the issuer's domain on the spot.

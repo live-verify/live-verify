@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is a Franchise Disclosure?
 
-If you want to open a McDonald's or a 7-Eleven, you must receive a **Franchise Disclosure Document (FDD)**. This is a massive 200-page book where the brand must tell you the truth about how much money their stores actually make.
+If you want to open a McDonald's or a 7-Eleven, you must receive a Franchise Disclosure Document (FDD). This is a massive 200-page book where the brand must tell you the truth about how much money their stores actually make.
 
-The most important part is **Item 19**, where the company lists verified profits.
+The most important part is Item 19, where the company lists verified profits.
 
-Fraud is high-stakes: some "Salesmen" edit the FDD to hide lawsuits or to inflate the profits to trick people into buying a failing franchise. Verified hashes ensure the **financial claims** in your copy match the official version filed with the government.
+Fraud is high-stakes: some "Salesmen" edit the FDD to hide lawsuits or to inflate the profits to trick people into buying a failing franchise. Verified hashes ensure the financial claims in your copy match the official version filed with the government.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
   <div style="text-align: center; margin-bottom: 30px; border-bottom: 2px solid #000; padding-bottom: 10px;">
@@ -48,7 +48,13 @@ Fraud is high-stakes: some "Salesmen" edit the FDD to hide lawsuits or to inflat
     </div>
 </div>
 
-## Data Verified
+## The Problem: Item 19 Fraud
+
+- **Earnings Inflation:** Editing the PDF to change a $100k average profit to $500k to trick a buyer into an expensive franchise.
+- **Litigation Hiding:** Removing the pages from "Item 3" that list the 50 pending lawsuits against the franchisor.
+- **Backdating Receipts:** Fabricating a disclosure receipt from 14 days ago to bypass the mandatory federal waiting period and force a fast closing.
+
+## What Is Checked
 
 Franchisor legal name, Franchisee candidate name, proposed location/territory, FDD fiscal year/version, Item 19 earnings claims (numerical), initial fees, royalty rates, date of disclosure receipt (starting the 14-day clock), term length, renewal rights.
 
@@ -58,7 +64,7 @@ Franchisor legal name, Franchisee candidate name, proposed location/territory, F
 - **Area Development Agreement:** For multi-unit investors.
 - **Disclosure Receipt:** Mandatory proof of the 14-day cooling-off period.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`7-eleven.com`, `subway.com`, `mcdonalds.com`) and current agreement status.
 
@@ -68,15 +74,15 @@ Shows the issuer domain (`7-eleven.com`, `subway.com`, `mcdonalds.com`) and curr
 - **Fully Executed** — Agreement is signed and binding.
 - **Terminated** — Franchise rights revoked (e.g., for non-payment or brand standards).
 
-## Second-Party Use
+## Who Holds It
 
-The **Franchisee (Investor)** benefits from verification.
+The Franchisee (Investor) benefits from verification.
 
 **Due Diligence Defense:** Proving to their lawyers and family that the "Item 19" earnings claims aren't just verbal promises from a salesman, but are verified, audited facts from the franchisor's own domain. This stops the most common form of franchise fraud: "Earnings Misrepresentation."
 
 **SBA Loan Approval:** Proving to a lender that the "Franchise Package" is authentic and current. Lenders often reject outdated FDDs; a verified hash from the franchisor removes this delay.
 
-## Third-Party Use
+## Who Checks It
 
 **The Federal Trade Commission (FTC)**
 **Enforcement:** Regulators can verify that the FDD version being handed to candidates matches the latest version filed with the government. Live Verify prevents "Selective Disclosure" where a franchisor hides a negative lawsuit from a prospect.
@@ -87,13 +93,7 @@ The **Franchisee (Investor)** benefits from verification.
 **Commercial Landlords**
 **Tenant Vetting:** Ensuring that a new "Starbucks" or "7-Eleven" tenant actually has a verified franchise agreement in place before signing a 10-year commercial lease.
 
-## Verification Architecture
-
-**The "Item 19" Fraud Problem**
-
-- **Earnings Inflation:** Editing the PDF to change a $100k average profit to $500k to trick a buyer into an expensive franchise.
-- **Litigation Hiding:** Removing the pages from "Item 3" that list the 50 pending lawsuits against the franchisor.
-- **Backdating Receipts:** Fabricating a disclosure receipt from 14 days ago to bypass the mandatory federal waiting period and force a fast closing.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -119,7 +119,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the franchisor's hashes and status changes plus structured metadata (franchise names, FDD versions, distribution dates, Item 19 details, expiration dates) — never financial or operational secrets — providing non-repudiation of the FDD.
 
-## Competition vs. State Registry Search
+## Compared With State Registry Search
 
 | Feature | Live Verify | State Registry (Online) | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -128,4 +128,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **User Access** | **Instant.** Scan the paper at the meeting. | **Difficult.** Requires searching by state and paying fees. | **Instant.** |
 | **Completeness** | **High.** Verifies the *specific* candidate's copy. | **Low.** Only shows the generic filing. | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Sales Meeting" reality. Prospects decide to buy a franchise in a meeting with a development officer. They aren't going to search 50 different state databases. Live Verify turns the **Physical FDD** into a live digital checkpoint, ensuring the multi-million dollar investment decision is based on verified facts.
+**Where each fits:** State franchise registries are the official record of what a franchisor has filed, and a prospect's lawyer should look there. Not every state keeps one, searching can be slow, and the registry holds the generic filing rather than the copy handed to a particular candidate. Live Verify lets the prospect or their lender confirm that the franchisor stands behind the disclosure document actually received, including its financial performance figures, as a complement to the registry search.

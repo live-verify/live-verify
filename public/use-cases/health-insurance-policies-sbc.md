@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is an SBC?
 
-Under the Affordable Care Act (ACA), every health insurance plan must provide a **Summary of Benefits and Coverage (SBC)**. It is a standardized 8-page document that allows you to compare plans fairly ("Apples to Apples").
+Under the Affordable Care Act (ACA), every health insurance plan must provide a Summary of Benefits and Coverage (SBC). It is a standardized 8-page document that allows you to compare plans fairly ("Apples to Apples").
 
-It lists your **Deductible**, your **Copay**, and what you pay for an **ER visit**.
+It lists your Deductible, your Copay, and what you pay for an ER visit.
 
 Fraud happens during the sales process: some brokers edit the SBC PDF to show a "$500 Deductible" when the actual plan has a "$5,000 Deductible." Verified hashes turn the SBC into a live link to the insurer's official filing, ensuring you are buying the coverage you were promised.
 
@@ -46,7 +46,13 @@ filed with the NY Dept of Financial Services.
 <span data-verify-line="health-sbc">verify:aetna.com/sbc/v</span> <span verifiable-text="end" data-for="health-sbc"></span>
 </div>
 
-## Data Verified
+## The Problem: Standardized Confusion Fraud
+
+- **Deductible Lowering:** Editing a $5,000 deductible PDF to read $500 to trick a hospital into providing care without an upfront deposit.
+- **Network Misrepresentation:** editing the "Network" section to include a prestigious hospital system that isn't actually part of the plan.
+- **Outdated SBCs:** A broker using a 2024 SBC to sell a 2026 plan that has significantly worse coverage.
+
+## What Is Checked
 
 Plan name, network ID, individual/family deductibles, out-of-pocket maximums, primary care copay, specialist copay, emergency room fees, pharmacy tiers, policy effective/expiration dates, state of filing.
 
@@ -56,19 +62,19 @@ Plan name, network ID, individual/family deductibles, out-of-pocket maximums, pr
 - **Evidence of Coverage (EOC):** Specific to Medicare Advantage plans.
 - **Glossary of Health Coverage:** Standardized federal terminology.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`aetna.com`, `anthem.com`, `uhc.com`) and the plan status.
 
 **Status Indications:**
 - **Current** — Plan is verified and matches the federal/state filing.
-- **Superseded** — **ALERT:** Plan terms were amended mid-year; view new SBC.
+- **Superseded** — Plan terms were amended mid-year; view new SBC.
 - **Recalled** — Plan withdrawn from the market.
 - **Disputed** — Specific benefit trigger being challenged by regulators.
 
-## Second-Party Use
+## Who Holds It
 
-The **Policyholder** (second party) receives the Summary of Benefits and Coverage from the insurer (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Policyholder (second party) receives the Summary of Benefits and Coverage from the insurer (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of their coverage details. Most of the time, the SBC sits in their insurance folder—the verification value is latent, there *if needed*.
 
@@ -76,7 +82,7 @@ The **Policyholder** (second party) receives the Summary of Benefits and Coverag
 
 **Future Optionality:** If a dispute arises—whether about coverage denials, billing errors, or network status—they have cryptographic proof ready without needing to contact the insurer.
 
-## Third-Party Use
+## Who Checks It
 
 The policyholder (second party) may hand the verified document to various third parties:
 
@@ -89,13 +95,7 @@ The policyholder (second party) may hand the verified document to various third 
 **Mortgage Lenders**
 **Expense Audit:** Verifying the "Family Deductible" amount when calculating a borrower's emergency reserve requirements.
 
-## Verification Architecture
-
-**The "Standardized Confusion" Fraud Problem**
-
-- **Deductible Lowering:** Editing a $5,000 deductible PDF to read $500 to trick a hospital into providing care without an upfront deposit.
-- **Network Misrepresentation:** editing the "Network" section to include a prestigious hospital system that isn't actually part of the plan.
-- **Outdated SBCs:** A broker using a 2024 SBC to sell a 2026 plan that has significantly worse coverage.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -123,7 +123,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (plan names, deductible amounts, copay tiers, network IDs, effective dates) — never subscriber names, member IDs, or claims history — providing non-repudiation of the SBC and coverage terms.
 
-## Competition vs. Healthcare.gov (Federal Registry)
+## Compared With Healthcare.gov (Federal Registry)
 
 | Feature | Live Verify | Healthcare.gov / CMS Search | Scanned PDF SBC |
 | :--- | :--- | :--- | :--- |
@@ -132,4 +132,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** Scan the paper in the lobby. | **Slow.** Requires finding the Plan ID and navigating Gov UI. | **Instant.** |
 | **Coverage** | **Universal.** Works for private "Off-Market" plans. | **Limited.** Only for Exchange-based plans. | **Full.** |
 
-**Why Live Verify wins here:** The "Lobby Moment." Patients decide to see a doctor while standing at the front desk. They aren't going to log into a federal government database to check a copay. Live Verify turns the **Mandatory SBC Printout** into a live, trusted clinical link, ensuring the patient and the doctor are on the same page regarding costs.
+**Where each fits:** Healthcare.gov and the CMS plan data are the official reference for marketplace plans and are well suited to comparing options at enrolment. They do not list every plan, and they do not vouch for the printed summary a patient brings to a front desk. Live Verify lets the practice, or the patient, confirm the insurer stands behind that summary of benefits and coverage as issued. For the full plan filing, the government sources remain the place to look.

@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 For high-security jobs (like working at a bank or a nuclear plant), a simple background check isn't enough. You must have your fingerprints "rolled" onto an FBI FD-258 card.
 
-The **Certificate of Fingerprinting** is the paper signed by a Notary Public or Police Officer swearing: "I verified this person's ID and I watched them roll these specific prints."
+The Certificate of Fingerprinting is the paper signed by a Notary Public or Police Officer swearing: "I verified this person's ID and I watched them roll these specific prints."
 
 "Identity Swapping" is a common fraud: a person with a criminal record sends a "clean" friend to the fingerprinting appointment to get a clear background check. Verified hashes (including a photo of the person being printed) stop this "Biometric Fraud" at the source.
 
@@ -45,7 +45,13 @@ The **Certificate of Fingerprinting** is the paper signed by a Notary Public or 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Dirty Hands Fraud
+
+- **Identity Swapping:** Sending a "Clean" friend to the fingerprint appointment to hide a criminal record. Verification of the *photo hash* on the certificate stops this.
+- **Date Alteration:** Editing a 2-year-old certification PDF to read "2026" to avoid the $100 fee for a new background check.
+- **Notary Forgery:** Using a fake rubber stamp to "certify" a card that was actually filled out in a basement.
+
+## What Is Checked
 
 Applicant name, date of birth, fingerprint card serial number (e.g., FD-258 ID), purpose of check (FBI, FINRA, State), date of fingerprinting, notary name/commission number, jurisdiction (State/County), LiveScan reference ID (if applicable).
 
@@ -54,25 +60,25 @@ Applicant name, date of birth, fingerprint card serial number (e.g., FD-258 ID),
 - **LiveScan Receipt:** Digital proof of submission to DOJ/FBI.
 - **Identity Verification Form:** (I-9 equivalent) for high-security roles.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Notary Platform or Police Agency) and the submission standing.
 
 **Status Indications:**
 - **Certified** — Notary has verified the identity and prints match the record.
 - **Submitted to FBI** — Digital transmission to the federal database confirmed.
-- **Rejected** — **ALERT:** Prints found to be unreadable or smudged.
+- **Rejected** — Prints found to be unreadable or smudged.
 - **Expired** — Certification date is > 90 days old (most backgrounds require fresh prints).
 
-## Second-Party Use
+## Who Holds It
 
-The **Applicant** benefits from verification.
+The Applicant benefits from verification.
 
 **Anti-Fraud:** Proving to an employer or licensing board that they *actually* attended the fingerprinting appointment and the person who took the prints was a verified notary. This prevents "Identity Swapping" accusations.
 
 **Case Tracking:** Instantly verifying the "Submission Status" of their prints to the FBI without waiting for a snail-mail response.
 
-## Third-Party Use
+## Who Checks It
 
 **Employers (High-Security)**
 **Intake Integrity:** Before giving a new hire access to a nuclear plant or a bank vault, the HR manager scans the fingerprint certification. "Verified by Notary-Check" ensures the candidate didn't just "Sign their own card" and use fake fingerprints.
@@ -83,13 +89,7 @@ The **Applicant** benefits from verification.
 **Federal Agencies (FBI / DHS)**
 **Channeler Oversight:** Verifying that private "Fingerprint Channelers" are accurately reporting the identity of the people they are processing.
 
-## Verification Architecture
-
-**The "Dirty Hands" Fraud Problem**
-
-- **Identity Swapping:** Sending a "Clean" friend to the fingerprint appointment to hide a criminal record. Verification of the *photo hash* on the certificate stops this.
-- **Date Alteration:** Editing a 2-year-old certification PDF to read "2026" to avoid the $100 fee for a new background check.
-- **Notary Forgery:** Using a fake rubber stamp to "certify" a card that was actually filled out in a basement.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -117,7 +117,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the fingerprinting authority's hashes and status changes plus structured metadata (fingerprint ID, submission date, clearance type, notary ID) — never fingerprint data, personal identification details, or background check results — providing non-repudiation of the fingerprint certification issuance.
 
 
-## Competition vs. FBI Portal (CJIS)
+## Compared With FBI Portal (CJIS)
 
 | Feature | Live Verify | FBI CJIS Portal | Scanned PDF Receipt |
 | :--- | :--- | :--- | :--- |
@@ -126,4 +126,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Accessibility** | **Open.** Any employer can verify the *event*. | **Restricted.** Only authorized entities can see results. | **Universal.** |
 | **Integrity** | **Binds Identity.** Protects the Card ID. | **Data-Only.** | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Handoff Gap." The FBI takes weeks to return a background check result. But an employer needs to know **today** if the candidate actually went to the appointment. Live Verify turns the **Fingerprint Receipt** into a live, trusted "Proof of Action" that bridges the gap during the long federal waiting period.
+**Where each fits:** The FBI's CJIS process is the only source of the background result itself, and access to it is properly limited to authorised entities. It also takes days. In the meantime an employer or licensing board may only want to know that the applicant attended and was fingerprinted. Live Verify lets them confirm that the collecting firm stands behind the receipt, which says nothing about the outcome of the check and does not replace it.

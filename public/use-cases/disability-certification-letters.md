@@ -52,7 +52,20 @@ With Live Verify, the disability certification carries a `verify:` line bound to
   </div>
 </div>
 
-## Data Verified
+## The Problem: Disability Certification Fraud
+
+Disability certification fraud is widespread, corrosive, and directly harms people with genuine disabilities. Common patterns:
+
+- **Fake ESA (emotional support animal) letters** from online "doctors" who never examined the patient. Entire websites exist selling ESA letters for $50-$150, issued by a "licensed professional" in a state where they may not even hold a valid license. The patient fills out a questionnaire, pays, and receives a letter — no examination, no medical relationship, no legitimate certification.
+- **Borrowed or stolen disabled parking placards** — the single most common form of disability fraud. Placards issued to deceased relatives, borrowed from family members, or outright stolen. Some estimates suggest 30-50% of disabled parking placard use is fraudulent.
+- **Fabricated disability letters for exam accommodations** at universities. Students forge or purchase letters claiming ADHD, anxiety, or learning disabilities to get extra exam time. Disability services offices report increasing volumes and increasing sophistication in fake documentation.
+- **Inflated disability claims for benefits** — claiming more severe functional limitations than actually certified. A letter certifying mild hearing loss becomes the basis for claiming total disability.
+- **Stale certifications** — condition resolved but old letter still in circulation. A temporary mobility limitation from a surgery healed two years ago, but the letter is still being used for parking permits and workplace accommodations.
+- **"Doctor shopping"** for disability certifications — seeking a provider who will certify a questionable claim after others have declined. The patient visits physician after physician until one agrees to certify.
+
+**The authority chain is critical here:** the certifying physician must be a real, licensed medical professional with an active license in the relevant jurisdiction. Online ESA letter mills fail at the authority chain — the "doctor" has no valid medical license, or the license is from a state where they're not authorized to practice, or the license has been suspended or revoked. Live Verify exposes this: the `verify:` line points to a domain, and the authority chain from that domain leads to a medical licensing board. If the chain breaks — if the physician's license can't be verified through the state medical board — the certification is suspect.
+
+## What Is Checked
 
 Patient name, certifying physician name and credentials, certifying organization, certification type (e.g., Reasonable Accommodation — Workplace), functional limitation category (mobility, vision, hearing, cognitive), accommodation type recommended, date issued, valid until / review date.
 
@@ -71,9 +84,9 @@ The endpoint returns a status code:
 
 The issuer domain is visible from the `verify:` line on the letter itself (e.g., `lakeviewmedical.com`).
 
-## Second-Party Use
+## Who Holds It
 
-The **person with the disability** (second party) receives the certification from the certifying physician (first party), **keeps it**, and may later hand it to third parties as needed.
+The person with the disability (second party) receives the certification from the certifying physician (first party), keeps it, and may later hand it to third parties as needed.
 
 **New Employer:** Starting a new job and requesting workplace accommodations. Instead of re-doing the entire medical assessment, the employee presents the existing verified certification. The employer scans it and gets confirmation: valid, current, from a licensed physician. Accommodation process begins immediately instead of waiting weeks for medical re-evaluation.
 
@@ -83,7 +96,7 @@ The **person with the disability** (second party) receives the certification fro
 
 **University Transfer:** A student with exam accommodations transfers to a new university. Instead of restarting the entire disability services intake process — which can take months and leave the student without accommodations during the gap — they present the verified certification from their previous institution's certifying physician.
 
-## Third-Party Use
+## Who Checks It
 
 The person with the disability (second party) may hand the verified document to various third parties:
 
@@ -111,20 +124,7 @@ Venues allocating accessible seating, sightline accommodations, or companion sea
 **Insurance Companies (Disability Insurance Claims)**
 Disability insurance claims require medical certification. Insurers can verify the certification's authenticity and currency without requesting full medical records from the claimant.
 
-## Verification Architecture
-
-**The Disability Certification Fraud Problem**
-
-Disability certification fraud is widespread, corrosive, and directly harms people with genuine disabilities. Common patterns:
-
-- **Fake ESA (emotional support animal) letters** from online "doctors" who never examined the patient. Entire websites exist selling ESA letters for $50-$150, issued by a "licensed professional" in a state where they may not even hold a valid license. The patient fills out a questionnaire, pays, and receives a letter — no examination, no medical relationship, no legitimate certification.
-- **Borrowed or stolen disabled parking placards** — the single most common form of disability fraud. Placards issued to deceased relatives, borrowed from family members, or outright stolen. Some estimates suggest 30-50% of disabled parking placard use is fraudulent.
-- **Fabricated disability letters for exam accommodations** at universities. Students forge or purchase letters claiming ADHD, anxiety, or learning disabilities to get extra exam time. Disability services offices report increasing volumes and increasing sophistication in fake documentation.
-- **Inflated disability claims for benefits** — claiming more severe functional limitations than actually certified. A letter certifying mild hearing loss becomes the basis for claiming total disability.
-- **Stale certifications** — condition resolved but old letter still in circulation. A temporary mobility limitation from a surgery healed two years ago, but the letter is still being used for parking permits and workplace accommodations.
-- **"Doctor shopping"** for disability certifications — seeking a provider who will certify a questionable claim after others have declined. The patient visits physician after physician until one agrees to certify.
-
-**The authority chain is critical here:** the certifying physician must be a real, licensed medical professional with an active license in the relevant jurisdiction. Online ESA letter mills fail at the authority chain — the "doctor" has no valid medical license, or the license is from a state where they're not authorized to practice, or the license has been suspended or revoked. Live Verify exposes this: the `verify:` line points to a domain, and the authority chain from that domain leads to a medical licensing board. If the chain breaks — if the physician's license can't be verified through the state medical board — the certification is suspect.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -152,7 +152,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 The authority chain is what exposes ESA letter mills and other fraudulent certification operations. A "certifying physician" whose license can't be verified through the medical board's chain is a red flag. A physician whose license is from a different state than where they're practicing is a red flag. A physician whose license has been disciplined for issuing fraudulent certifications is a red flag. The chain makes these checks possible — and fast.
 
-## Competition vs. Existing Systems
+## Compared With Existing Systems
 
 | Feature | Live Verify | Calling the Doctor's Office | Trusting the Letter | Centralized Disability Registry | Online Verification Portals |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -162,7 +162,7 @@ The authority chain is what exposes ESA letter mills and other fraudulent certif
 | **Fraud Resistance** | **High.** Authority chain verifies physician and license. | **Medium.** Doctor can confirm, but caller can't verify the doctor. | **None.** Fake letters pass. | **High.** If it existed. | **Medium.** Portal-specific. |
 | **Access** | **Open.** Anyone with a phone camera. | **Restricted.** Only works during business hours, requires patient consent. | **Open.** Anyone can read a letter. | **Restricted.** Government access only, typically. | **Restricted.** Account required per portal. |
 
-**Why Live Verify wins here:** There is no functioning verification infrastructure for disability certifications. Calling the doctor is slow and runs into HIPAA walls. Trusting the letter is the default — and it's why fraud is rampant. Centralized disability registries don't exist in most jurisdictions, and where they've been proposed, privacy advocates have rightly raised alarms about creating government databases of disabled people. Live Verify threads the needle: verification without centralization, confirmation without diagnosis disclosure, trust without surveillance.
+**Where each fits:** Each existing route has its place. Phoning the certifying office is still right when the letter raises a question only the clinician can answer, and insurer or agency portals work well for parties who already hold accounts with them. Most letters, though, are shown to a landlord, employer, airline or venue with no such account and no good reason to learn the diagnosis. Live Verify gives that reader a way to confirm the certifier stands behind the letter as written, without a central register of disabled people and without disclosing more than the page already says.
 
 ## Jurisdictional Witnessing (Optional)
 

@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is a Home Inspection?
 
-Before you buy a house, you hire an expert to do a "Physical Exam" of the building. The result is a **Home Inspection Report**.
+Before you buy a house, you hire an expert to do a "Physical Exam" of the building. The result is a Home Inspection Report.
 
 It lists every defect—from a leaky faucet to a cracked foundation. This report is the "Truth Document" used to negotiate the final price of the house.
 
-Fraud is high-stakes here: sellers or dishonest agents sometimes "Delete" the scary pages (like the ones about mold or foundation failure) before sending the PDF to the buyer's bank. Verified hashes protect the **inspector's actual findings**, ensuring the buyer knows exactly what they are moving into.
+Fraud is high-stakes here: sellers or dishonest agents sometimes "Delete" the scary pages (like the ones about mold or foundation failure) before sending the PDF to the buyer's bank. Verified hashes protect the inspector's actual findings, ensuring the buyer knows exactly what they are moving into.
 
 **Why verification matters here:**
 
@@ -57,7 +57,13 @@ Fraud is high-stakes here: sellers or dishonest agents sometimes "Delete" the sc
   </div>
 </div>
 
-## Data Verified
+## The Problem: PDF Smoothing Fraud
+
+- **Defect Deletion:** A seller (or dishonest agent) deleting the "Foundation Repair" page from a PDF report before sending it to a buyer or lender.
+- **Photo Tampering:** Replacing a photo of a rusted water heater with a stock photo of a new one.
+- **Inspector Impersonation:** Creating a fake report on the letterhead of a reputable firm like Exponent or Pillar to Post.
+
+## What Is Checked
 
 Property address, inspection date, client name, inspector name/license, summary of "Major Deficiencies," structural integrity status, roof age estimate, electrical panel status, total report page count, report ID.
 
@@ -67,25 +73,25 @@ Property address, inspection date, client name, inspector name/license, summary 
 - **WDO (Termite) Report:** (Linked hash) for wood-destroying organisms.
 - **Radon / Mold Analysis:** Verified lab results linked to the inspection.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Inspection Firm) and the report status.
 
 **Status Indications:**
 - **Final** — Report is verified and matches the inspector's ledger.
 - **Amended** — A revised report has been issued (e.g., after seller repairs).
-- **Stale** — **ALERT:** Report is > 90 days old; property condition may have changed.
+- **Stale** — Report is > 90 days old; property condition may have changed.
 - **Void** — Report retracted due to technical error or liability dispute.
 
-## Second-Party Use
+## Who Holds It
 
-The **Home Buyer (Client)** benefits from verification.
+The Home Buyer (Client) benefits from verification.
 
 **Repair Negotiations:** Proving to a skeptic seller or their agent that the "Structural Issue" isn't a fabricated claim. A verified hash from the inspector's domain makes it impossible for the seller to claim the buyer's lawyer "Edited the PDF" to get a price reduction.
 
 **Insurance Vetting:** Providing a verified condition report to a homeowners insurer to prove the roof is in good condition, securing a lower premium.
 
-## Third-Party Use
+## Who Checks It
 
 **Property Sellers**
 **Counter-Offer Integrity:** Instantly verifying the "Major Defects" list provided by the buyer. Live Verify ensures the buyer hasn't "Inserted" new defects into the summary that the inspector never actually found.
@@ -96,13 +102,7 @@ The **Home Buyer (Client)** benefits from verification.
 **Future Buyers**
 **Historical Condition:** In a subsequent sale 3 years later, the new buyer can verify the previous inspection to see what repairs were recommended and confirm if they were actually performed.
 
-## Verification Architecture
-
-**The "PDF Smoothing" Fraud Problem**
-
-- **Defect Deletion:** A seller (or dishonest agent) deleting the "Foundation Repair" page from a PDF report before sending it to a buyer or lender.
-- **Photo Tampering:** Replacing a photo of a rusted water heater with a stock photo of a new one.
-- **Inspector Impersonation:** Creating a fake report on the letterhead of a reputable firm like Exponent or Pillar to Post.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -128,7 +128,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the home inspector's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the home inspection report.
 
-## Competition vs. Home Inspection Software Portals
+## Compared With Home Inspection Software Portals
 
 | Feature | Live Verify | Reporting Portal (Spectora) | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -137,5 +137,5 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Persistence** | **High.** Text remains verifiable for 10 years. | **Low.** Access often expires after 12 months. | **Vulnerable.** |
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires login and navigation. | **N/A.** |
 
-**Why Live Verify wins here:** The "Data Room" reality. In a fast-moving real estate deal, lawyers and banks work with "Static Artifacts" (PDFs). They don't want to log into 5 different portals for 5 different inspectors. Live Verify turns the **Static PDF** into a portable, cryptographically trusted asset that carries its own proof of truth into the closing file.
+**Where each fits:** Reporting platforms such as Spectora present an inspection well, with photographs, navigation and repair-request tools, and the client and their agent should use that view. Access often lapses, and a lender, insurer or later buyer usually receives only a PDF or a summary page. Live Verify lets them confirm that the inspector stands behind that text, including years later, while the portal remains the richer experience for the original client.
 

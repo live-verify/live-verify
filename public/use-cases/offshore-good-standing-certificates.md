@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is an Offshore Good Standing Certificate?
 
-A **Certificate of Good Standing** (also called a Certificate of Compliance or Certificate of Incumbency depending on jurisdiction) is a document issued by an offshore registry confirming that a company is currently registered, has paid its annual fees, and has not been struck off, dissolved, or wound up. It's the corporate equivalent of a clean bill of health.
+A Certificate of Good Standing (also called a Certificate of Compliance or Certificate of Incumbency depending on jurisdiction) is a document issued by an offshore registry confirming that a company is currently registered, has paid its annual fees, and has not been struck off, dissolved, or wound up. It's the corporate equivalent of a clean bill of health.
 
 Banks, counterparties, and regulators demand these certificates constantly. Opening a bank account in Singapore for a BVI company? You need a good standing certificate. Entering a joint venture? The counterparty's lawyers want one. Renewing a fund's registration? The regulator requires one.
 
@@ -49,7 +49,15 @@ With Live Verify, the certificate carries a `verify:` line bound to the registry
   </div>
 </div>
 
-## Data Verified
+## The Problem: Forgery
+
+- **Wholesale fabrication:** A one-page certificate with a registry seal is trivially forged in any document editor. The seal images are available online from previously issued certificates.
+- **Expired certificates presented as current:** Good standing certificates typically have a 90-day validity window. An entity struck off in March presents its January certificate to a new bank in June.
+- **Certificates for dissolved entities:** The entity existed when the certificate was issued but has since been dissolved. The certificate is technically authentic but factually stale.
+- **Wrong entity, right number:** Forger uses a real company number belonging to a different entity in good standing, paired with a different company name.
+- **Registered agent complicity:** In rare cases, the registered agent (who often requests certificates on behalf of clients) provides certificates for entities that are not actually in good standing, because the agent hasn't filed the annual fees but tells the client everything is fine.
+
+## What Is Checked
 
 Company name, company number, date of incorporation, registered agent name, good standing status, date of issue, validity period.
 
@@ -59,7 +67,7 @@ Company name, company number, date of incorporation, registered agent name, good
 - **Certificate of Compliance:** Used in some jurisdictions (Bermuda, Guernsey) as the equivalent of good standing.
 - **Registered Agent Certificate:** Agent confirms they act for the company — often bundled with good standing.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`bvifsc.vg`, `ciregistry.gov.ky`, `jfsc.je`, `registrar.gov.bm`) and current status.
 
@@ -71,9 +79,9 @@ Shows the issuer domain (`bvifsc.vg`, `ciregistry.gov.ky`, `jfsc.je`, `registrar
 - **Restored** — Entity was struck off but has been restored to the register.
 - **Expired** — Certificate was valid but the validity window has passed. A new certificate is needed.
 
-## Second-Party Use
+## Who Holds It
 
-The **Company** (or its registered agent acting on its behalf) benefits from verification.
+The Company (or its registered agent acting on its behalf) benefits from verification.
 
 **Bank Account Opening:** The single most common use. Correspondent banks in Singapore, Hong Kong, Switzerland, and the US require good standing certificates from offshore entities. A verified certificate from the BVI FSC's own domain eliminates the "is this PDF real?" question that delays account opening by weeks.
 
@@ -81,7 +89,7 @@ The **Company** (or its registered agent acting on its behalf) benefits from ver
 
 **Counterparty Due Diligence:** When entering contracts, joint ventures, or M&A transactions, counterparties demand proof the entity is real and active. A verified certificate settles this without a chain of emails to the registered agent.
 
-## Third-Party Use
+## Who Checks It
 
 **Correspondent Banks**
 
@@ -99,15 +107,7 @@ In cross-border litigation, establishing that an offshore entity exists and is i
 
 When rating structured finance vehicles domiciled offshore, agencies need to confirm the SPV is properly constituted. Insurers writing D&O policies for offshore entities need the same confirmation.
 
-## Verification Architecture
-
-**The Forgery Problem**
-
-- **Wholesale fabrication:** A one-page certificate with a registry seal is trivially forged in any document editor. The seal images are available online from previously issued certificates.
-- **Expired certificates presented as current:** Good standing certificates typically have a 90-day validity window. An entity struck off in March presents its January certificate to a new bank in June.
-- **Certificates for dissolved entities:** The entity existed when the certificate was issued but has since been dissolved. The certificate is technically authentic but factually stale.
-- **Wrong entity, right number:** Forger uses a real company number belonging to a different entity in good standing, paired with a different company name.
-- **Registered agent complicity:** In rare cases, the registered agent (who often requests certificates on behalf of clients) provides certificates for entities that are not actually in good standing, because the agent hasn't filed the annual fees but tells the client everything is fine.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -138,7 +138,7 @@ Certifies good standing status of offshore registered entities.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition
+## Compared With the Alternatives
 
 | Feature | Live Verify | Registry Website Search | Registered Agent Letter | Apostilled Certificate |
 | :--- | :--- | :--- | :--- | :--- |
@@ -147,7 +147,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Speed** | **Instant.** | **Minutes.** Manual search. | **Days.** Agent drafts and sends. | **Weeks.** Notarization + apostille chain. |
 | **Works Offline** | **No.** Needs network. | **No.** | **Yes.** Physical letter. | **Yes.** Physical document. |
 
-**Why Live Verify wins here:** The apostille chain — which is the current gold standard for cross-border certificate authentication — proves that a notary is real but says nothing about whether the certificate is current. A company struck off yesterday still has a valid apostille from last week. Live Verify's real-time status check is the missing piece.
+**Where each fits:** Each existing route has its use: a registry search is the direct way to look a company up, an agent's letter adds context from someone who knows the entity, and an apostilled certificate is what many foreign authorities formally require. What none of them does is tie the certificate in hand to the registry's current view, since an apostille authenticates the certifying official at a point in time and a search is carried out separately from the document. Live Verify adds that link, and can be used alongside the apostille where one is still required.
 
 ## Jurisdictional Witnessing (Optional)
 

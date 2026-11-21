@@ -11,14 +11,14 @@ furtherDerivations: 1
 
 ## What is a Land Survey?
 
-A **Land Survey** is the official "Map of Truth" for your property. It is created by a licensed professional who visits the site with high-precision GPS and lasers to mark the exact boundaries of your land.
+A Land Survey is the official "Map of Truth" for your property. It is created by a licensed professional who visits the site with high-precision GPS and lasers to mark the exact boundaries of your land.
 
 It proves the "Dirt Integrity" of your investment:
 1.  **Encroachments:** "Is my neighbor's fence 2 feet on my land?"
 2.  **Easements:** "Exactly where is the city allowed to dig pipes on my property?"
 3.  **Building Lines:** "Can I legally build this ADU or pool here?"
 
-**"Boundary Fraud"** occurs when developers or shady sellers "edit" a survey PDF to hide an encroachment or to make a small lot look slightly larger to a buyer. A 2-foot error can lead to a $50,000 lawsuit. Verified hashes protect the **Surveyor's original coordinates and measurements**, ensuring the "Dirt" you are buying matches the paper.
+**"Boundary Fraud"** occurs when developers or shady sellers "edit" a survey PDF to hide an encroachment or to make a small lot look slightly larger to a buyer. A 2-foot error can lead to a $50,000 lawsuit. Verified hashes protect the Surveyor's original coordinates and measurements, ensuring the "Dirt" you are buying matches the paper.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 2px solid #000; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #1a1a1a; color: #fff; padding: 15px; text-align: center;">
@@ -51,7 +51,13 @@ It proves the "Dirt Integrity" of your investment:
   </div>
 </div>
 
-## Data Verified
+## The Problem: Plat Padding Fraud
+
+- **Encroachment Removal:** Editing a PDF to delete the text "Fence encroaches 2.0 feet" to make a title clean for a sale.
+- **Odometer Fraud (Lot Size):** Changing "100.0 feet" to "105.0 feet" to make a lot look buildable when it isn't.
+- **Stale Surveys:** Leaving a 1995 survey in a closing packet to hide that a neighbor built a massive garage on the property line in 2015.
+
+## What Is Checked
 
 Property Lot/Block, Metes and Bounds strings, Specific Encroachment descriptions (e.g., "1.2' West"), Monument types (Iron Rod, Brass Cap), Surveyor license number, Elevation data (if included), Certification timestamp.
 
@@ -61,25 +67,25 @@ Property Lot/Block, Metes and Bounds strings, Specific Encroachment descriptions
 - **Elevation Certificate:** Proving height for flood insurance (FEMA).
 - **As-Built Survey:** Proving a new building was placed correctly.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Surveying Firm) and the responder text.
 
 **Status Indications:**
 - **Certified** — Survey is authentic and matches the surveyor's field notes.
 - **Amended** — A correction was issued (e.g., to fix a typo in a bearing).
-- **Superseded** — **ALERT:** A newer survey of this property exists; this one is outdated.
+- **Superseded** — A newer survey of this property exists; this one is outdated.
 - **Void** — Survey retracted due to professional error or fraud.
 
-## Second-Party Use
+## Who Holds It
 
-The **Homeowner / Seller** benefits from verification.
+The Homeowner / Seller benefits from verification.
 
 **Disclosure Integrity:** When selling a home, providing a "Verified Survey" to the buyer. This prevents the buyer from claiming "Non-Disclosure" later if they find an encroachment, as the verified survey clearly documented the fence or shed at the time of sale.
 
 **Permit Speed:** Proving to the City Planning Dept that your "Setback Math" is verified by a licensed professional, allowing for instant approval of a pool or fence permit.
 
-## Third-Party Use
+## Who Checks It
 
 **Title Insurance Underwriters**
 **Risk Removal:** Title companies use surveys to remove the "Standard Survey Exception" from a policy. "Verified by Surveyor" ensures the paper isn't a "Photoshopped" copy designed to hide a title-blocking encroachment.
@@ -90,13 +96,7 @@ The **Homeowner / Seller** benefits from verification.
 **Adjacent Neighbors**
 **Boundary Peace:** If a neighbor disputes a new fence line, scanning the hash provides instant, authoritative proof of the surveyor's findings, often de-escalating neighborhood conflicts before they reach a lawyer.
 
-## Verification Architecture
-
-**The "Plat Padding" Fraud Problem**
-
-- **Encroachment Removal:** Editing a PDF to delete the text "Fence encroaches 2.0 feet" to make a title clean for a sale.
-- **Odometer Fraud (Lot Size):** Changing "100.0 feet" to "105.0 feet" to make a lot look buildable when it isn't.
-- **Stale Surveys:** Leaving a 1995 survey in a closing packet to hide that a neighbor built a massive garage on the property line in 2015.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -108,7 +108,7 @@ The **Homeowner / Seller** benefits from verification.
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the surveyor's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the survey.
 
-## Competition vs. Digital Plat Portals
+## Compared With Digital Plat Portals
 
 | Feature | Live Verify | County GIS Viewer | Paper Plat |
 | :--- | :--- | :--- | :--- |
@@ -117,7 +117,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Trust Anchor** | **The Surveyor.** (Professional Liability). | **The County.** (Assessor data). | **The Ink.** |
 | **Field Access** | **Instant.** Scan the paper at the property corner. | **Difficult.** Hard to align GIS pins with physical dirt. | **Instant.** |
 
-**Why Live Verify wins here:** The "Fence Line" reality. Neighbors and surveyors argue in backyards and driveways. They need a **zero-friction trust anchor** that works on the paper they are holding. Live Verify turns the **Static Map** into a live safety dashboard, making "Boundary Truth" a transparent fact at the exact point of the property line.
+**Where each fits:** A county GIS viewer is a convenient way to see parcels in context and remains the quickest general reference, though it is usually not a legally binding depiction of a boundary. The signed plat is what carries the surveyor's professional responsibility, and it is often read on paper at the property itself. Live Verify lets whoever is holding it confirm that the surveyor issued those exact measurements, with the county map still useful for orientation.
 
 ---
 
@@ -156,7 +156,7 @@ _[Content merged from: land-surveys-property-boundaries]_
   </div>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Property address, legal description (Lot/Block/Subdivision), surveyor name/RPLS license, date of field work, boundary coordinates (metes and bounds), presence of encroachments (e.g., fences over line), total acreage, issuing surveying firm.
 
@@ -166,7 +166,7 @@ Property address, legal description (Lot/Block/Subdivision), surveyor name/RPLS 
 - **ALTA/NSPS Land Title Survey:** The high-detail standard for commercial deals.
 - **Elevation Certificate:** (Linked hash) for flood insurance.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Surveying Firm or County Surveyor) and current record standing.
 
@@ -176,15 +176,15 @@ Shows the issuer domain (the Surveying Firm or County Surveyor) and current reco
 - **In-Dispute** — Boundary markers challenged by a neighboring property.
 - **Void** — Retracted due to mathematical error or un-calibrated equipment.
 
-## Second-Party Use
+## Who Holds It
 
-The **Property Owner / Developer** benefits from verification.
+The Property Owner / Developer benefits from verification.
 
 **Fence / Pool Construction:** Proving to a neighbor or a municipal inspector exactly where the property line is. A verified hash from the surveyor's domain prevents "Line Creep" disputes and reduces the chance of expensive "Fence Wars" or lawsuits.
 
 **Title Clearance:** Providing a verified, non-alterable ALTA survey to a title insurance company to remove "Survey Exceptions" from a title policy, which is essential for a clean closing.
 
-## Third-Party Use
+## Who Checks It
 
 **Mortgage Lenders**
 **Collateral Integrity:** Verifying that the building being used as collateral is actually *inside* the property boundaries and doesn't encroach on a neighbor's land.
@@ -195,7 +195,7 @@ The **Property Owner / Developer** benefits from verification.
 **Civil Engineers**
 **Design Accuracy:** Ensuring that new utility or road designs are based on verified, non-falsified boundary data.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Line Shifting" Fraud Problem**
 
@@ -227,7 +227,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the surveyor's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the survey.
 
-## Competition vs. Physical Iron Pins
+## Compared With Physical Iron Pins
 
 | Feature | Live Verify | Iron Pins (In the Ground) | Scanned PDF / Paper |
 | :--- | :--- | :--- | :--- |
@@ -236,4 +236,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Cryptographic.** Binds every word. | **None.** No data on the pin. | **None.** |
 | **Speed** | **Instant.** 5-second scan. | **Very Slow.** Requires digging/metal detector. | **Instant.** |
 
-**Why Live Verify wins here:** The "Pulled Pin" reality. Survey markers in the ground are notoriously unreliable—they are moved by construction, kids, or dishonest neighbors. Live Verify turns the **Paper Survey** into an immutable digital anchor, ensuring that the legal intent of the boundary remains clear even when the physical markers are gone.
+**Where each fits:** Monuments in the ground are the physical evidence a surveyor works from, and nothing on paper replaces a properly set and located pin. Pins do get disturbed or lost over the years, and they carry no information of their own. Live Verify keeps the surveyor's written record checkable so that it can be read alongside whatever markers remain; resolving a real discrepancy is still a job for a surveyor.

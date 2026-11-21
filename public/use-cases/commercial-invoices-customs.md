@@ -11,14 +11,14 @@ furtherDerivations: 1
 
 ## What is a Customs Invoice?
 
-When goods cross an international border, the most important document is the **Commercial Invoice**. It is the formal bill from the seller to the buyer, but it also acts as the primary "Declaration of Value" for the government.
+When goods cross an international border, the most important document is the Commercial Invoice. It is the formal bill from the seller to the buyer, but it also acts as the primary "Declaration of Value" for the government.
 
 Customs officers use this invoice to decide:
 1.  **HS Classification:** What is the product? (e.g., "Integrated Circuit").
 2.  **Valuation:** What is it worth? (e.g., "$50,000").
 3.  **Duty/Tax:** How much tax is owed? (e.g., 5% of value).
 
-**"Under-valuation"** is a massive global trade crime. Shady importers often have the exporter send two invoices: a "Real" one for payment, and a "Fake" one with a 90% discount to show Customs. This allows them to evade millions in import duties. **"Tariff Engineering"** is another risk, where the HS code is edited on the paper to a low-duty category. Verified hashes bind the **Exporters' ledger value and the HS Code** to the manufacturer's or the trade platform's domain.
+**"Under-valuation"** is a massive global trade crime. Shady importers often have the exporter send two invoices: a "Real" one for payment, and a "Fake" one with a 90% discount to show Customs. This allows them to evade millions in import duties. "Tariff Engineering" is another risk, where the HS code is edited on the paper to a low-duty category. Verified hashes bind the Exporters' ledger value and the HS Code to the manufacturer's or the trade platform's domain.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="invoice"></span>COMMERCIAL INVOICE
@@ -46,7 +46,13 @@ Container:         MSKU-992288-0
 <span data-verify-line="invoice">verify:sz-tech.com/invoices/v</span> <span verifiable-text="end" data-for="invoice"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Double Invoice Fraud
+
+- **Value Stripping:** Editing a $100,000 invoice to read $10,000 to save $20,000 in duties.
+- **Code Engineering:** Changing the HS code for "Luxury Goods" to "Basic Materials."
+- **Phantom Invoices:** Creating a fake invoice to justify an international wire used for money laundering.
+
+## What Is Checked
 
 Exporter/Seller name, Importer/Buyer name, Invoice number, Line-item descriptions, HS Codes, Unit/Total values, Currency (e.g., USD), Incoterms, Country of Origin, Date of issuance, Container/Reference number.
 
@@ -56,25 +62,25 @@ Exporter/Seller name, Importer/Buyer name, Invoice number, Line-item description
 - **Consular Invoice:** Verified by a destination embassy.
 - **Credit Memo:** (Linked hash) proving a reduction in value for damaged goods.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Exporter or their ERP system) and current invoice status.
 
 **Status Indications:**
 - **Verified** — Content matches the exporter's official accounts receivable.
 - **Paid** — Funds have been received (anti-money laundering proof).
-- **Cancelled** — **ALERT:** Transaction voided; invoice is invalid for customs entry.
+- **Cancelled** — Transaction voided; invoice is invalid for customs entry.
 - **Amended** — A revised invoice exists (linked hash to latest price correction).
 
-## Second-Party Use
+## Who Holds It
 
-The **Importer (Buyer)** benefits from verification.
+The Importer (Buyer) benefits from verification.
 
 **Customs Defense:** Proving to Swiss or US Customs that the $57,500 value isn't a "Fake Low Value" to evade taxes. A verified invoice from the exporter's domain makes it impossible for Customs to accuse the importer of "Valuation Fraud" without challenging the exporter directly.
 
 **Trade Financing:** Providing a verified invoice to a bank to secure a Letter of Credit or to authorize a large international wire transfer.
 
-## Third-Party Use
+## Who Checks It
 
 **Customs Authorities (CBP / HMRC / Zoll)**
 **Enforcement:** Customs sees millions of invoices daily. Live Verify allows an officer to verify the invoice against the exporter's domain in 5 seconds, catching "Double Invoicing" where high-tariff goods are mislabeled or under-valued on the paper document.
@@ -85,13 +91,7 @@ The **Importer (Buyer)** benefits from verification.
 **Tax Auditors**
 **VAT / GST Reconciliation:** Ensuring that the "Export Value" reported by the shipper matches the "Import Value" reported by the buyer across international borders.
 
-## Verification Architecture
-
-**The "Double Invoice" Fraud Problem**
-
-- **Value Stripping:** Editing a $100,000 invoice to read $10,000 to save $20,000 in duties.
-- **Code Engineering:** Changing the HS code for "Luxury Goods" to "Basic Materials."
-- **Phantom Invoices:** Creating a fake invoice to justify an international wire used for money laundering.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -117,7 +117,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the exporter's hashes and status changes plus structured metadata (invoice number, HS codes, invoice value, country of origin, date of issuance) — never exporter/importer names or commercial terms — providing non-repudiation of the commercial invoice issuance.
 
-## Competition vs. Customs Single Windows (ACE)
+## Compared With Customs Single Windows (ACE)
 
 | Feature | Live Verify | ACE Portal (Gov) | Private EDI |
 | :--- | :--- | :--- | :--- |
@@ -126,4 +126,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **User Access** | **Universal.** Any trucker/bank can verify. | **Restricted.** Requires Gov credentials. | **Siloed.** |
 | **Freshness** | **Real-time.** Shows "Cancelled" status. | **Laggy.** Updates take 24-48 hours. | **Live.** |
 
-**Why Live Verify wins here:** The "Source of Truth." Government databases only know what was *filed*. If the importer files a fake document, the government database reflects the fake. Live Verify links the verifier back to the **Exporter's accounting ledger**, ensuring the data matches the actual financial transaction.
+**Where each fits:** the customs single window is the official record of what was declared, and EDI serves trading partners who are already connected. A bank, carrier or buyer outside those systems sees only the invoice. Live Verify lets them confirm the exporter issued it with those line items and has not cancelled it. That shows the exporter stands behind the document, and can also be compared with what was declared to customs.

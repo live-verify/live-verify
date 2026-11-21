@@ -13,12 +13,12 @@ furtherDerivations: 1
 
 When you buy a condominium, you aren't just buying a home; you are "marrying" a corporation (the HOA). You need to know if the building is healthy or if it's about to collapse financially.
 
-The **Resale Certificate** or **Disclosure** is the paper that tells the truth:
+The Resale Certificate or Disclosure is the paper that tells the truth:
 1.  **The Dues:** Exactly how much you pay every month.
 2.  **Special Assessments:** "Does every owner owe $20,000 for a new roof next month?"
 3.  **The Rules:** "Are pets or Airbnbs allowed?"
 
-Sellers often "Delete" the scary pages of these reports to trick buyers. Verified disclosures ensure the buyer is seeing the **unfiltered financial truth** from the property manager.
+Sellers often "Delete" the scary pages of these reports to trick buyers. Verified disclosures ensure the buyer is seeing the unfiltered financial truth from the property manager.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 1px solid #999; background: #fff; padding: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 25px;">
@@ -51,7 +51,13 @@ Sellers often "Delete" the scary pages of these reports to trick buyers. Verifie
   </div>
 </div>
 
-## Data Verified
+## The Problem: HOA Surprise Fraud
+
+- **Assessment Hiding:** Editing the PDF to change a $20,000 special assessment to $0.
+- **Rental Restriction Erasure:** Deleting the page that says "No short-term rentals" to sell the unit to an unsuspecting Airbnb investor.
+- **Fabricated Estoppels:** Creating a fake management letter to hide years of unpaid dues.
+
+## What Is Checked
 
 HOA name, property unit address, current monthly dues, special assessment amounts/dates, reserve fund balance, violation status, rental restrictions (if any), management firm ID, date of issuance.
 
@@ -61,7 +67,7 @@ HOA name, property unit address, current monthly dues, special assessment amount
 - **Budget Disclosure:** Proving the financial health of the building.
 - **CC&R Extract:** Proving the latest version of the rules.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`premier-mgmt.com`, `associa.com`) and current unit standing.
 
@@ -71,15 +77,15 @@ Shows the issuer domain (`premier-mgmt.com`, `associa.com`) and current unit sta
 - **Violation Active** — Unresolved architectural or noise citations.
 - **Pending Assessment** — A new special assessment was just voted on.
 
-## Second-Party Use
+## Who Holds It
 
-The **Seller** benefits from verification.
+The Seller benefits from verification.
 
 **Smooth Closing:** Proving to the buyer's title company that the $12,500 special assessment is the *only* outstanding debt. This prevents the title company from escrowing too much money or delaying the closing because of "vague" HOA paperwork.
 
 **Marketing:** Showing a "Verified Violation-Free" status to potential buyers, making the unit more attractive than others with unverified histories.
 
-## Third-Party Use
+## Who Checks It
 
 **Home Buyers**
 **Due Diligence:** Scanning the disclosure provided by the seller. Verification ensures the seller didn't "Delete" the page showing a $50,000 pending roof assessment to trick the buyer into a bad deal.
@@ -90,13 +96,7 @@ The **Seller** benefits from verification.
 **Title Companies**
 **Lien Search:** Confirming the exact amount of dues owed to ensure the HOA lien is properly satisfied at the moment of transfer.
 
-## Verification Architecture
-
-**The "HOA Surprise" Fraud Problem**
-
-- **Assessment Hiding:** Editing the PDF to change a $20,000 special assessment to $0.
-- **Rental Restriction Erasure:** Deleting the page that says "No short-term rentals" to sell the unit to an unsuspecting Airbnb investor.
-- **Fabricated Estoppels:** Creating a fake management letter to hide years of unpaid dues.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -123,7 +123,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the HOA or management company's hashes and status changes plus structured metadata (key identifiers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the disclosure it issued.
 
 
-## Competition vs. HOA Search Portals
+## Compared With HOA Search Portals
 
 | Feature | Live Verify | HomeWiseDocs / CondoCerts | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -132,4 +132,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **User Access** | **Instant.** Scan the paper in the lobby. | **Slow.** Requires paying a fee and waiting 3-5 days. | **Instant.** |
 | **Integrity** | **Binds Content.** Proves the *Dues* match. | **Data-Only.** | **Vulnerable.** |
 
-**Why Live Verify wins here:** Cost and Immediacy. HOA disclosure portals are notoriously expensive and slow. Live Verify allows a buyer to verify the **authenticity of the specific document** they already received, without needing to pay a third-party platform another $400 for a fresh copy of the same data.
+**Where each fits:** disclosure portals are the established way to order a current resale package, and a lender or title company that needs a fresh one will still order it there. A buyer or agent who has already been handed a document may only want to know that it is authentic. Live Verify lets them check it against the management firm's domain, without ordering a second copy, and without replacing the portal for new requests.

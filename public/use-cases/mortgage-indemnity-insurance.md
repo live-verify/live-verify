@@ -43,7 +43,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: High-LTV Fraud
+
+- **Certificate Forgery:** A dishonest loan officer creating a fake "PMI Certificate" to trick a lender into funding a 97% LTV loan that the insurer actually rejected.
+- **Limit Padding:** Editing a PDF to show "30% Coverage" when the insurer only authorized "12% Coverage" to meet secondary market rules.
+- **Cancellation Concealment:** Hiding the fact that the PMI was cancelled due to a borrower's missed payments.
+
+## What Is Checked
 
 Lender name, borrower name, loan ID, original loan amount, Loan-to-Value (LTV) ratio, insurance coverage percentage (e.g., 25-30%), monthly premium amount, effective date, issuing carrier (e.g., Arch, MGIC, Radian), master policy reference.
 
@@ -53,25 +59,25 @@ Lender name, borrower name, loan ID, original loan amount, Loan-to-Value (LTV) r
 - **Premium Notice:** For the borrower's annual escrow analysis.
 - **Cancellation Notice:** Proving the loan has reached 78-80% LTV and PMI is removed.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`archmi.com`, `mgic.com`, `radian.com`) and current coverage standing.
 
 **Status Indications:**
 - **In Force** — Premium paid; lender is verified protected against default.
-- **Cancelled** — **ALERT:** Policy terminated (often due to payoff or 80% LTV reached).
+- **Cancelled** — Policy terminated (often due to payoff or 80% LTV reached).
 - **Lapsed** — Payment missing; coverage at risk.
 - **Claim Active** — Foreclosure occurred; claim in processing.
 
-## Second-Party Use
+## Who Holds It
 
-The **Mortgage Lender (Insured)** benefits from verification.
+The Mortgage Lender (Insured) benefits from verification.
 
 **Secondary Market Sales:** Proving to a buyer of the mortgage (e.g., Fannie Mae or a private REIT) that the loan is "Verified Insured" by a top-tier PMI carrier. Loans with verified LMI sell for a higher premium because the "Default Risk" is cryptographically confirmed as mitigated.
 
 **Internal Audit:** Ensuring that the "PMI Certificates" in thousands of loan files match the insurer's records, catching "Uninsured High-LTV" loans before they become a regulatory liability.
 
-## Third-Party Use
+## Who Checks It
 
 **Government Sponsored Enterprises (Fannie/Freddie)**
 **Quality Control:** Automatically verifying the LMI status of thousands of loans being delivered for securitization. Live Verify allows the GSEs to skip the manual "Evidence Review" for every single loan file.
@@ -82,13 +88,7 @@ The **Mortgage Lender (Insured)** benefits from verification.
 **Borrowers (Homeowners)**
 **Termination Monitoring:** Proving to the lender that the home's value has increased enough to hit the 80% LTV threshold, requiring the "Verified Cancellation" of the PMI expense.
 
-## Verification Architecture
-
-**The "High-LTV" Fraud Problem**
-
-- **Certificate Forgery:** A dishonest loan officer creating a fake "PMI Certificate" to trick a lender into funding a 97% LTV loan that the insurer actually rejected.
-- **Limit Padding:** Editing a PDF to show "30% Coverage" when the insurer only authorized "12% Coverage" to meet secondary market rules.
-- **Cancellation Concealment:** Hiding the fact that the PMI was cancelled due to a borrower's missed payments.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -114,7 +114,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurance carrier's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the mortgage indemnity insurance certificate.
 
-## Competition vs. MERS / Industry Databases
+## Compared With MERS / Industry Databases
 
 | Feature | Live Verify | MERS / Industry Portal | Scanned PDF Certificate |
 | :--- | :--- | :--- | :--- |
@@ -123,4 +123,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Timeliness** | **Real-time.** Shows if premium paid *today*. | **Laggy.** Updates take weeks. | **Static.** |
 | **Integrity** | **Cryptographic.** Binds the *LTV Ratio*. | **Data-Only.** | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Loan File" reality. Mortgages are traded as "Static Files" (PDFs). Investors and GSEs audit the *content of the file*, not just a line in a database. Live Verify turn the **Static PMI Certificate** into a live, high-authority digital anchor, ensuring the "Credit Safety Net" is as strong as it looks on paper.
+**Where each fits:** Industry registries such as MERS serve their members well for tracking loans and servicing rights at scale, and participants will keep relying on them. A loan buyer or auditor reviewing a file may not be a member, and is in any case examining the certificate in the file and not a database row. Live Verify lets them confirm that the insurer stands behind that certificate, in step with whatever registry checks they also run.

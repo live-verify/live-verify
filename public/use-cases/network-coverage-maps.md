@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 Telecommunication providers often sell services based on coverage maps ("We have the best 5G in your area"). However, these maps are often generic marketing materials.
 
-A **Verified Coverage Guarantee** is a specific, timestamped attestation by the carrier that a specific address or coordinate **had reliable signal strength** at the time of contract signing. It converts a marketing claim into a verifiable service level guarantee.
+A Verified Coverage Guarantee is a specific, timestamped attestation by the carrier that a specific address or coordinate had reliable signal strength at the time of contract signing. It converts a marketing claim into a verifiable service level guarantee.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Arial', sans-serif; border: 2px solid #000; background: #fff; padding: 20px;">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 20px;">
@@ -38,7 +38,12 @@ A **Verified Coverage Guarantee** is a specific, timestamped attestation by the 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Phantom Bars Fraud
+
+- **Sales Puffery:** Sales reps promising "great coverage" via email, which the engineering team later denies.
+- **Map Manipulation:** Showing a generic "covered" blob on a website that doesn't reflect the reality of local terrain/buildings.
+
+## What Is Checked
 
 Location coordinates, guaranteed signal metrics (dBm, throughput tier), timestamp, provider commitment.
 
@@ -47,7 +52,7 @@ Location coordinates, guaranteed signal metrics (dBm, throughput tier), timestam
 - **Site Survey Report:** Generated after a field technician tests the site.
 - **Coverage Map Snapshot:** A static, verified image of the coverage database at a point in time.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `verizon.com`, `t-mobile.com`) and the technical signal data.
 
@@ -56,15 +61,15 @@ Shows the issuer domain (e.g., `verizon.com`, `t-mobile.com`) and the technical 
 - **Void** — The tower configuration has changed (superseded by new survey).
 - **Historical** — Valid for the past date, but not current.
 
-## Second-Party Use
+## Who Holds It
 
-The **Enterprise Customer** benefits from verification.
+The Enterprise Customer benefits from verification.
 
 **Contract Termination:** If the carrier fails to deliver the promised speed, the customer can produce the *verified* guarantee to exit the contract without penalty. "You guaranteed -85dBm here, and I'm getting -110dBm."
 
 **Warranty Claims:** For IoT device manufacturers, proving that a device failure wasn't due to "poor network" but rather device malfunction (or vice versa).
 
-## Third-Party Use
+## Who Checks It
 
 **Regulators (FCC/Ofcom)**
 **Truth in Advertising:** Regulators can spot-check these verified guarantees against actual performance to punish carriers for lying about coverage.
@@ -72,11 +77,7 @@ The **Enterprise Customer** benefits from verification.
 **Insurance Companies**
 **Business Interruption:** If a business claims loss due to internet outage, the insurer can verify if the carrier *actually* guaranteed service at that location.
 
-## Verification Architecture
-
-**The "Phantom Bars" Fraud Problem**
-- **Sales Puffery:** Sales reps promising "great coverage" via email, which the engineering team later denies.
-- **Map Manipulation:** Showing a generic "covered" blob on a website that doesn't reflect the reality of local terrain/buildings.
+## Who Issues It
 
 **Issuer Types** (First Party)
 - **Mobile Network Operators (MNOs):** AT&T, Verizon, T-Mobile, Vodafone.
@@ -102,7 +103,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the carrier's hashes and status changes plus structured metadata (location coordinates, signal specification, verification date, customer ID) — never customer contract terms or service locations — providing non-repudiation of the coverage guarantee and an audit trail regulators can inspect.
 
 
-## Competition vs. Speedtest Apps
+## Compared With Speedtest Apps
 
 | Feature | Live Verify | Speedtest App (Ookla/Fast) |
 | :--- | :--- | :--- |
@@ -111,6 +112,5 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Granularity** | **Site Specific.** Can cover a whole warehouse campus. | **Point Specific.** Measures one device's location. |
 | **Integration** | **Paper/PDF Contract.** Lives with the legal docs. | **App.** Requires active testing. |
 
-**Why Live Verify wins here:**
-You can't "Speedtest" the past. When a dispute arises 2 years into a contract, you need to prove what the carrier *promised* back in 2026. The verified SLA document provides that immutable snapshot.
+**Where each fits:** A speed test is the right way to measure what the network is delivering now, and that measurement is what shows whether a service level is being met. It cannot show what the carrier committed to when the contract was signed. A verified coverage document records that commitment as the carrier issued it, so in a dispute the two are read together: one for the promise, the other for the performance.
 

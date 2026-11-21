@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a CTR?
 
-In the USA, if you walk into a bank and deposit more than $10,000 in cash, the bank **must** file a **Currency Transaction Report (CTR)** with the federal government (FinCEN).
+In the USA, if you walk into a bank and deposit more than $10,000 in cash, the bank must file a Currency Transaction Report (CTR) with the federal government (FinCEN).
 
-This is the law's way of tracking money laundering and drug profits. The **Customer Receipt** is your proof that you followed the law.
+This is the law's way of tracking money laundering and drug profits. The Customer Receipt is your proof that you followed the law.
 
 Lenders and tax auditors use these verified receipts to prove that a large "Gift" or "Cash Income" is legitimate and was properly reported to the government. Verified hashes prevent people from "Editing" these receipts to hide the true scale of their cash business.
 
@@ -29,13 +29,13 @@ Date of Filing:         March 15, 2026
 PART I: PERSON CONDUCTING TRANSACTION
 ───────────────────────────────────────────────────────────────────
 Name:                   JOHN JACOB DOE
-SSN/ITIN:               ***-**-1234
+SSN/ITIN:               *--1234
 ID:                     CA Driver License #*******
 
 PART II: TRANSACTION DETAILS
 ───────────────────────────────────────────────────────────────────
 Cash-In (Deposit):                                    $ 12,500.00
-Account Number:                                     ****-****-9982
+Account Number:                                     **-**-9982
 
 This report is filed in accordance with the Bank Secrecy Act.
 Submission ID: 9988776655
@@ -43,7 +43,13 @@ Submission ID: 9988776655
 <span data-verify-line="ctr">verify:bankofamerica.com/compliance/v</span> <span verifiable-text="end" data-for="ctr"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Structuring Fraud
+
+- **Report Deletion:** A corrupt bank employee taking a bribe to "Delete" a CTR from the federal system after the customer leaves the branch. Live Verify prevents this by making the customer's paper receipt a verified link to the bank's domain record.
+- **Amount Tampering:** A customer editing their $50,000 CTR receipt to read $5,000 to hide the true scale of a cash transaction from their spouse or an auditor.
+- **Fake Receipts:** Fraudsters creating fake "CTR Filed" papers to trick a landlord or lender into thinking their illegal cash has been "cleansed" by government reporting.
+
+## What Is Checked
 
 Customer name, SSN/TIN (redacted), identifying document number, financial institution name/branch, cash-in/cash-out amount, account number (masked), date of transaction, FinCEN filing reference ID.
 
@@ -52,7 +58,7 @@ Customer name, SSN/TIN (redacted), identifying document number, financial instit
 - **FinCEN Form 112:** The official federal filing.
 - **Exempt Person Filing:** For businesses that don't require regular CTRs.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Bank) and the filing status.
 
@@ -62,15 +68,15 @@ Shows the issuer domain (the Bank) and the filing status.
 - **Rejected** — Filing was returned by FinCEN for errors.
 - **Void** — Transaction reversed; filing withdrawn.
 
-## Second-Party Use
+## Who Holds It
 
-The **Bank Customer** benefits from verification.
+The Bank Customer benefits from verification.
 
 **Tax Audit Defense:** If the IRS questions a large $12,500 cash deposit 3 years later, the customer can provide the verified CTR receipt. This proves they followed federal "Anti-Money Laundering" laws at the time of the transaction, separating legitimate cash income from "unreported" income.
 
 **Source of Funds:** Proving to a real estate attorney or title company that a large cash downpayment was properly reported to the government, avoiding delays in closing.
 
-## Third-Party Use
+## Who Checks It
 
 **The IRS / FinCEN**
 **Audit Integrity:** During a bank examination, federal auditors can scan random customer-held CTR receipts. Verification ensures the bank isn't "Deleting" reports from their internal database while still giving receipts to customers.
@@ -81,13 +87,7 @@ The **Bank Customer** benefits from verification.
 **Commercial Lenders**
 **Risk Management:** For cash-intensive businesses (e.g., restaurants or laundromats), lenders can verify that the company is properly reporting its cash receipts to the government, reducing the bank's regulatory risk.
 
-## Verification Architecture
-
-**The "Structuring" Fraud Problem**
-
-- **Report Deletion:** A corrupt bank employee taking a bribe to "Delete" a CTR from the federal system after the customer leaves the branch. Live Verify prevents this by making the customer's paper receipt a verified link to the bank's domain record.
-- **Amount Tampering:** A customer editing their $50,000 CTR receipt to read $5,000 to hide the true scale of a cash transaction from their spouse or an auditor.
-- **Fake Receipts:** Fraudsters creating fake "CTR Filed" papers to trick a landlord or lender into thinking their illegal cash has been "cleansed" by government reporting.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -172,7 +172,7 @@ Cash generated from trade-based laundering enters the banking system via deposit
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the bank's hashes and status changes plus structured metadata (financial institution name, filing date, amount, FinCEN filing reference ID, transaction type) — never plaintext or sensitive personal information — providing non-repudiation of the CTR filing and an immutable audit trail for compliance inspection.
 
 
-## Competition vs. Internal Bank Logs
+## Compared With Internal Bank Logs
 
 | Feature | Live Verify | Bank Internal Log | Paper Receipt |
 | :--- | :--- | :--- | :--- |
@@ -181,4 +181,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Cryptographic.** Binds Name + Amount. | **High.** Direct DB. | **Vulnerable.** |
 | **Portability** | **High.** Verified PDF works for any 3rd party. | **None.** Requires bank intervention. | **High.** |
 
-**Why Live Verify wins here:** The "External Proof." A bank's internal log is useless to a customer who needs to prove their legitimacy to a third party (like an IRS auditor or a lawyer). Live Verify turns the **Bank's Internal Truth** into a **Portable Legal Artifact** that the customer can use for their own protection.
+**Where each fits:** the bank's internal compliance log is the record regulators rely on, and it is properly closed to customers and outsiders. A customer who later has to show a tax auditor, lawyer or another bank where a large cash transaction went cannot point to that log. Live Verify lets them present a receipt the bank stands behind, naming them and the amount, which the third party can check on the bank's domain while the internal record stays internal.

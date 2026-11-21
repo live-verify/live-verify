@@ -38,7 +38,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: PDF Redline Fraud
+
+- **Liability Cap Removal:** A client editing the PDF to remove the "$1M cap," making the provider potentially liable for the entire value of a data breach.
+- **Termination Backdating:** Fabricating a "Notice of Termination" from 3 months ago to avoid paying a current invoice.
+- **Unauthorized SOWs:** Creating a fake Statement of Work that looks like it's covered by a real MSA to trick a department head into approving a project.
+
+## What Is Checked
 
 Client name, Provider name, Agreement ID, execution date, specific liability limit amount, termination notice period, governing law jurisdiction, authorized signatories, page count of full contract.
 
@@ -48,25 +54,25 @@ Client name, Provider name, Agreement ID, execution date, specific liability lim
 - **Change Order:** Documenting verified modifications to a project.
 - **Mutual NDA:** (Linked hash) protecting trade secrets.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., the Provider's or Client's Legal Dept) and current status.
 
 **Status Indications:**
 - **Active/Executed** — Agreement is signed and in effect.
-- **Terminated** — **ALERT:** Contract has ended; no new SOWs authorized.
+- **Terminated** — Contract has ended; no new SOWs authorized.
 - **Amended** — A newer version of the MSA exists (view Amendment #3).
 - **In-Dispute** — Contract terms are being formally litigated.
 
-## Second-Party Use
+## Who Holds It
 
-The **Procurement / Legal Team** benefits from verification.
+The Procurement / Legal Team benefits from verification.
 
 **Anti-Tampering:** Ensuring that a "Last Minute Change" wasn't snuck into the PDF by a negotiator after the final version was agreed upon. Live Verify turn every page of the 50-page MSA into an immutable digital anchor, protecting the "Liability Caps" and "IP Rights" from silent editing.
 
-**Internal Audit:** Proving to the CFO that the contract being paid against is the **Verified Official Version** approved by General Counsel.
+**Internal Audit:** Proving to the CFO that the contract being paid against is the Verified Official Version approved by General Counsel.
 
-## Third-Party Use
+## Who Checks It
 
 **Insurance Underwriters (E&O)**
 **Risk Assessment:** Verifying the "Liability Limits" in a client's major MSAs before writing a professional liability policy. If the paper says "$1M cap" but the verified hash says "$10M," the insurer avoids an under-priced risk.
@@ -77,13 +83,7 @@ The **Procurement / Legal Team** benefits from verification.
 **Banks / Factorers**
 **Contract Integrity:** Verifying the existence of an MSA before advancing cash against an SOW invoice.
 
-## Verification Architecture
-
-**The "PDF Redline" Fraud Problem**
-
-- **Liability Cap Removal:** A client editing the PDF to remove the "$1M cap," making the provider potentially liable for the entire value of a data breach.
-- **Termination Backdating:** Fabricating a "Notice of Termination" from 3 months ago to avoid paying a current invoice.
-- **Unauthorized SOWs:** Creating a fake Statement of Work that looks like it's covered by a real MSA to trick a department head into approving a project.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -110,7 +110,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the legal department's hashes and status changes plus structured metadata (agreement ID, parties, execution date, status) — never liability caps, IP rights, or payment terms — providing non-repudiation of the contract and an audit trail insurers and auditors can inspect.
 
 
-## Competition vs. CLM Systems (Ironclad)
+## Compared With CLM Systems (Ironclad)
 
 | Feature | Live Verify | CLM (Contract Lifecycle Mgmt) | Scanned PDF / Email |
 | :--- | :--- | :--- | :--- |
@@ -119,4 +119,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Content.** Protects the "Fine Print." | **Data-Only.** | **Vulnerable.** |
 | **Cost** | **Low.** Standard web infra. | **Very High.** Enterprise license fees. | **None.** |
 
-**Why Live Verify wins here:** The "External Audit" reality. Contracts move between organizations. You can't give every potential buyer or insurer a login to your private Ironclad portal. Live Verify turns the **Static Signed PDF** into a portable, cryptographically trusted asset that carries its own proof of truth across organizational borders.
+**Where each fits:** A contract lifecycle management system is the right home for a company's own contracts: drafting, approvals, renewals and search all belong there. It is not built for showing a signed agreement to an outsider, such as an acquirer, insurer or auditor, who will not be given a login. Live Verify lets that outsider confirm the PDF they received is the text the party published, and the contract system remains the system of record.

@@ -39,7 +39,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Double Factoring Fraud
+
+- **Double-Financing:** A dishonest seller selling the same $100,000 invoice to two different factoring companies. Live Verify allows factors to check the hash status of an invoice ID across a shared (or individual) domain index.
+- **Amount Inflation:** Editing a $10,000 invoice PDF to read $100,000 to get a larger cash advance.
+- **Fake NOAs:** Hackers creating fake assignment letters to redirect payments from a legitimate factor to a private criminal wallet.
+
+## What Is Checked
 
 Seller (client) name, Buyer (debtor) name, Invoice number, total invoice amount, advance rate %, cash advance amount, factor fee structure, date of purchase, notice of assignment (remit-to) bank details.
 
@@ -49,7 +55,7 @@ Seller (client) name, Buyer (debtor) name, Invoice number, total invoice amount,
 - **Verification of Debt (VOD):** (Linked hash) where the buyer confirms the invoice is real.
 - **UCC-1 Filing Extract:** Proving the factor's legal lien on the assets.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`bluevine.com`, `fundbox.com`) and current asset status.
 
@@ -59,15 +65,15 @@ Shows the issuer domain (`bluevine.com`, `fundbox.com`) and current asset status
 - **In-Dispute** — Buyer has challenged the goods/invoice quality.
 - **Void** — Transaction reversed; seller repurchased the invoice.
 
-## Second-Party Use
+## Who Holds It
 
-The **Seller (Small Business)** benefits from verification.
+The Seller (Small Business) benefits from verification.
 
 **Line of Credit Extension:** Proving to their primary bank that their "Accounts Receivable" are verified assets that have already been vetted by a major factoring firm. This allows the business to get higher credit limits by demonstrating a "Verified Liquid" balance sheet.
 
 **Vendor Assurance:** Proving to a raw material supplier that they have the verified "Cash Advance" coming, ensuring the supplier continues to ship the next batch of parts.
 
-## Third-Party Use
+## Who Checks It
 
 **The Debtor (Buyer's Accounts Payable)**
 **Remit-to Integrity:** When a buyer receives a "Notice of Assignment" telling them to pay a different bank, they are often terrified of wire fraud. Live Verify allows the AP clerk to verify the NOA against the Factor's domain. "Verified by BlueVine" ensures the buyer isn't paying a hacker.
@@ -78,13 +84,7 @@ The **Seller (Small Business)** benefits from verification.
 **External Auditors**
 **Existence of Assets:** Verifying the "Advance Rate" and "Reserve Fund" totals during a corporate audit.
 
-## Verification Architecture
-
-**The "Double Factoring" Fraud Problem**
-
-- **Double-Financing:** A dishonest seller selling the same $100,000 invoice to two different factoring companies. Live Verify allows factors to check the hash status of an invoice ID across a shared (or individual) domain index.
-- **Amount Inflation:** Editing a $10,000 invoice PDF to read $100,000 to get a larger cash advance.
-- **Fake NOAs:** Hackers creating fake assignment letters to redirect payments from a legitimate factor to a private criminal wallet.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -110,7 +110,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the factor's or financing company's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the invoice assignment.
 
-## Competition vs. Manual VOD Calls
+## Compared With Manual VOD Calls
 
 | Feature | Live Verify | Manual VOD (Phone/Email) | Scanned PDF NOA |
 | :--- | :--- | :--- | :--- |
@@ -119,4 +119,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Cryptographic.** Binds the *Bank Details*. | **Vague.** "Yes, we will pay that invoice." | **Vulnerable.** |
 | **Privacy** | **High.** Share only the *NOA*. | **Low.** Calls reveal the seller's cash situation. | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Wire Fraud" reality. Accounts Payable clerks are being trained to **ignore** email-based bank detail changes. They demand "Independent Verification." Live Verify turns the **Assignment Letter** into a live, high-authority digital proof that allows the buyer to pay the factor with 100% confidence.
+**Where each fits:** A verification-of-debt call remains valuable, because a conversation with the buyer's accounts payable team can surface disputes, set-offs or delivery problems that no notice of assignment will mention. What a call handles less well is confirming that the payment instructions on a letter really came from the factor, and it can take days to reach the right person. Live Verify lets the buyer check the notice against the factor's domain straight away, and the two checks sit comfortably in the same process.

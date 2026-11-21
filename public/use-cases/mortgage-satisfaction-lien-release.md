@@ -37,7 +37,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Phantom Satisfaction Fraud
+
+- **Fabricated Releases:** Fraudsters using a bank's letterhead to create a fake "Lien Release" to steal a house they don't own (by "clearing" the debt so they can sell it to an unsuspecting buyer).
+- **Incomplete Recording:** A bank issuing a "Satisfied" paper to the borrower but never actually filing the release with the county. Verification shows the *Status* isn't yet "Recorded."
+- **Account Swapping:** Taking a valid release for a $10,000 loan and editing it to cover a $1,000,000 loan.
+
+## What Is Checked
 
 Mortgagor (Borrower) name, Mortgagee (Lender) name, original loan account number (masked), original mortgage date, original recording reference (Liber/Page/Doc #), property address, satisfaction date, Notary ID, issuing bank domain.
 
@@ -47,7 +53,7 @@ Mortgagor (Borrower) name, Mortgagee (Lender) name, original loan account number
 - **Lien Release Certificate:** For junior liens or HELOCs.
 - **Paid-in-Full Letter:** Informal pre-recording proof.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`wellsfargo.com`, `chase.com`) and current recording status.
 
@@ -57,15 +63,15 @@ Shows the issuer domain (`wellsfargo.com`, `chase.com`) and current recording st
 - **Amended** — Original release had an error (e.g., wrong Liber/Page).
 - **Void** — Assigned to wrong account or found to be fraudulent.
 
-## Second-Party Use
+## Who Holds It
 
-The **Homeowner (Ex-Borrower)** benefits from verification.
+The Homeowner (Ex-Borrower) benefits from verification.
 
 **Refinancing / Home Equity:** Proving to a new lender that the "Old $250,000 Mortgage" is verified as satisfied. This prevents the new loan from being blocked due to "Title Gaps" where the old bank forgot to mail the paper release to the county.
 
 **Home Sale:** Providing a verified "Clear Title" status to a buyer's attorney during pre-closing due diligence, ensuring a smooth and fast closing without last-minute "Missing Lien" drama.
 
-## Third-Party Use
+## Who Checks It
 
 **Real Estate Attorneys / Title Companies**
 **Title Clearance:** Ensuring that the "Satisfaction Letter" provided by the seller isn't a fake PDF created to hide an active $500,000 debt. Live Verify connects the attorney directly to the lender's domain, stopping the most common form of "Title Fraud."
@@ -76,13 +82,7 @@ The **Homeowner (Ex-Borrower)** benefits from verification.
 **Mortgage Lenders**
 **Lien Priority:** Verifying that all senior liens have been legitimately discharged before funding a new 1st-position mortgage.
 
-## Verification Architecture
-
-**The "Phantom Satisfaction" Fraud Problem**
-
-- **Fabricated Releases:** Fraudsters using a bank's letterhead to create a fake "Lien Release" to steal a house they don't own (by "clearing" the debt so they can sell it to an unsuspecting buyer).
-- **Incomplete Recording:** A bank issuing a "Satisfied" paper to the borrower but never actually filing the release with the county. Verification shows the *Status* isn't yet "Recorded."
-- **Account Swapping:** Taking a valid release for a $10,000 loan and editing it to cover a $1,000,000 loan.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -108,7 +108,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the lender's hashes and status changes plus structured metadata (loan numbers, borrower identifiers, property addresses, satisfaction dates) — never financial account details — providing non-repudiation of lien release.
 
-## Competition vs. County Land Records (GIS)
+## Compared With County Land Records (GIS)
 
 | Feature | Live Verify | County GIS / Online Search | Scanned PDF Release |
 | :--- | :--- | :--- | :--- |
@@ -117,4 +117,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires finding the parcel # and navigating old UIs. | **Instant.** |
 | **Audit-ability** | **High.** Proves the bank's intent. | **Medium.** Only shows what was *filed*. | **None.** |
 
-**Why Live Verify wins here:** The "Lender Intent." County records only show what was *successfully filed*. If a bank issues a release but the courier loses it, the county record is "Dirty." Live Verify turns the **Physical Satisfaction Letter** into a live link back to the bank's system, proving the debt is dead even before the county's database catches up.
+**Where each fits:** The county land record is the legal record of whether a lien has been released, and a title search there remains essential. There can be a gap between a lender issuing a satisfaction and the county recording it, and during that gap the owner holds only the lender's letter. Live Verify lets a title officer or buyer confirm the lender issued it, which helps bridge the wait; it does not substitute for getting the release recorded.

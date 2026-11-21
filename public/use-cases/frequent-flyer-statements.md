@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is a Mileage Statement?
 
-If you fly a lot, your **Frequent Flyer Miles** are a valuable financial asset. For some "Million Milers," their balance can be worth $50,000 or more.
+If you fly a lot, your Frequent Flyer Miles are a valuable financial asset. For some "Million Milers," their balance can be worth $50,000 or more.
 
-The **Mileage Statement** is the "Bank Statement" for your travel points.
+The Mileage Statement is the "Bank Statement" for your travel points.
 
-You need this verified proof for a **"Status Match"**—where a rival airline gives you free upgrades to win your business) or to prove your net worth during a divorce or bank audit. Fraudsters often use "Inspect Element" to turn 1,000 miles into 1,000,000 to sell "fake accounts" to mileage brokers. Verified hashes stop this point-theft instantly.
+You need this verified proof for a "Status Match"—where a rival airline gives you free upgrades to win your business) or to prove your net worth during a divorce or bank audit. Fraudsters often use "Inspect Element" to turn 1,000 miles into 1,000,000 to sell "fake accounts" to mileage brokers. Verified hashes stop this point-theft instantly.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="loyalty"></span>
@@ -43,7 +43,13 @@ tier status. Valid for status-match applications.
 <span data-verify-line="loyalty">verify:aa.com/loyalty/v</span> <span verifiable-text="end" data-for="loyalty"></span>
 </div>
 
-## Data Verified
+## The Problem: Mileage Broker Fraud
+
+- **Balance Inflation:** Editing a 10,000 mile statement to read 1,000,000 miles to sell the "account" to a mileage broker for thousands of dollars.
+- **Status Faking:** Changing "Gold" to "Diamond" on a PDF to get lounge access or free upgrades in foreign airports.
+- **Activity Scrubbing:** Removing a "Miles Redeemed" line to hide that the balance is actually zero.
+
+## What Is Checked
 
 Member name, loyalty ID number, current mileage balance (Award Miles), status tier level (e.g., Platinum/Diamond), lifetime miles, expiration date of miles, recent high-value transaction ID, date of statement.
 
@@ -53,7 +59,7 @@ Member name, loyalty ID number, current mileage balance (Award Miles), status ti
 - **Award Booking Confirmation:** Proving miles were used for a specific seat.
 - **Million Miler Certificate:** Formal proof of lifetime achievement.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`aa.com`, `delta.com`, `united.com`) and current account standing.
 
@@ -63,9 +69,9 @@ Shows the issuer domain (`aa.com`, `delta.com`, `united.com`) and current accoun
 - **Suspended** — Under investigation (e.g., for mileage broker fraud).
 - **Elite Active** — Tier status verified for priority services.
 
-## Second-Party Use
+## Who Holds It
 
-The **AAdvantage Member** (second party) receives the mileage statement from the airline (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The AAdvantage Member (second party) receives the mileage statement from the airline (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of their mileage balance and status tier. Most of the time, the statement sits in their email or travel folder—the verification value is latent, there *if needed*.
 
@@ -73,7 +79,7 @@ The **AAdvantage Member** (second party) receives the mileage statement from the
 
 **Future Optionality:** If a dispute arises—whether about missing miles, tier qualification, or award availability—they have cryptographic proof ready without needing to contact the airline.
 
-## Third-Party Use
+## Who Checks It
 
 The member (second party) may hand the verified document to various third parties:
 
@@ -86,13 +92,7 @@ The member (second party) may hand the verified document to various third partie
 **Credit Card Issuers**
 **Co-branded Vetting:** Verifying that a card applicant actually holds the high-tier airline status required for specific premium card products.
 
-## Verification Architecture
-
-**The "Mileage Broker" Fraud Problem**
-
-- **Balance Inflation:** Editing a 10,000 mile statement to read 1,000,000 miles to sell the "account" to a mileage broker for thousands of dollars.
-- **Status Faking:** Changing "Gold" to "Diamond" on a PDF to get lounge access or free upgrades in foreign airports.
-- **Activity Scrubbing:** Removing a "Miles Redeemed" line to hide that the balance is actually zero.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -120,7 +120,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the airline's hashes and status changes plus structured metadata (loyalty IDs, mileage balances, tier statuses, transaction dates, award redemptions) — never member names or travel itineraries — providing non-repudiation of the statement and mileage balance and an audit trail regulators can inspect.
 
-## Competition vs. Loyalty Apps
+## Compared With Loyalty Apps
 
 | Feature | Live Verify | Airline Mobile App | Scanned PDF Statement |
 | :--- | :--- | :--- | :--- |
@@ -129,4 +129,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **High.** Verified PDF works for status-matching. | **Zero.** Hard to "share" app data with a rival. | **Universal.** |
 | **Freshness** | **Real-time.** Shows if account is suspended. | **Live.** | **Static.** |
 
-**Why Live Verify wins here:** The "Switching Cost." Airlines want to make it hard for you to leave. Their apps are designed to keep your data in *their* walled garden. Live Verify turns the **Static Statement** into a portable, trusted "Reputation Token" that the traveler owns and can use to prove their value to any competitor or partner.
+**Where each fits:** The airline's app is the member's live view of their account, and nothing replaces it for booking, upgrades and day-to-day use. It is not designed to be shown to someone else, and doing so exposes far more than a tier or balance. Live Verify lets another airline's status-match desk, a hotel partner or an employer confirm that the airline issued a statement the member chose to share. The app stays the member's own tool; the statement is for third parties.

@@ -42,7 +42,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Estimate Padding Fraud
+
+- **Supplement Forgery:** A shop creating a fake "Adjuster Approval" for $2,000 in extra parts that were never authorized.
+- **Deductible Deception:** A shop editing the PDF to hide that the owner has a $1,000 deductible, attempting to "waive" it by over-charging the insurer.
+- **Identity Theft:** Using a real adjuster's name and license # on a fake "Passing" report for a total-loss vehicle.
+
+## What Is Checked
 
 Insured name, policy number, Claim ID, adjusted loss amount (ACV/RCV), deductible amount, net settlement estimate, adjuster name/ID, inspection date, cause of loss code, issuance timestamp.
 
@@ -52,25 +58,25 @@ Insured name, policy number, Claim ID, adjusted loss amount (ACV/RCV), deductibl
 - **Liability Determination:** Formal letter stating who was at fault.
 - **Salvage Evaluation:** For total loss vehicles/properties.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`progressive.com`, `geico.com`) and current claim status.
 
 **Status Indications:**
 - **Approved** — Estimate matches the carrier's final adjudication.
 - **Paid** — Funds have been issued to the insured or vendor.
-- **Supplemented** — **ALERT:** A newer version of this report exists.
+- **Supplemented** — A newer version of this report exists.
 - **Denied** — Coverage rejected (reason code verified).
 
-## Second-Party Use
+## Who Holds It
 
-The **Policyholder (Insured)** benefits from verification.
+The Policyholder (Insured) benefits from verification.
 
 **Body Shop / Contractor Negotiations:** Proving to a repair shop exactly what the insurance company has agreed to pay. Verification stops the shop from claiming "The insurance didn't cover the bumper" when the verified report says they did.
 
 **Car Sale / Trade-in:** Providing a verified, un-altered "Damage History" to a buyer or dealer, proving the $12,000 repair was for cosmetic damage and not structural frame issues.
 
-## Third-Party Use
+## Who Checks It
 
 **Repair Vendors (Body Shops / Electricians)**
 **Payment Assurance:** Before starting work, the vendor scans the adjuster's hash. "Verified by Progressive" gives them the confidence that the funds are actually authorized and they won't be left with a denied supplement later.
@@ -81,13 +87,7 @@ The **Policyholder (Insured)** benefits from verification.
 **Used Car Markets (CARFAX)**
 **History Integrity:** Ensuring that the "Accident History" reported by the owner matches the verified insurance company record, stopping the "PDF Scrubbing" of past high-value claims.
 
-## Verification Architecture
-
-**The "Estimate Padding" Fraud Problem**
-
-- **Supplement Forgery:** A shop creating a fake "Adjuster Approval" for $2,000 in extra parts that were never authorized.
-- **Deductible Deception:** A shop editing the PDF to hide that the owner has a $1,000 deductible, attempting to "waive" it by over-charging the insurer.
-- **Identity Theft:** Using a real adjuster's name and license # on a fake "Passing" report for a total-loss vehicle.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -113,7 +113,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the adjuster's or insurance company's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the adjuster report.
 
-## Competition vs. Claims Dashboards
+## Compared With Claims Dashboards
 
 | Feature | Live Verify | Carrier Mobile App | Scanned PDF Report |
 | :--- | :--- | :--- | :--- |
@@ -122,4 +122,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **High.** Verified PDF works for any body shop. | **Siloed.** | **Universal.** |
 | **Persistence** | **High.** Remains verifiable after claim closes. | **Low.** Past claims often hidden in old menus. | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Counter Reality." Decisions about repairs happen at the body shop or kitchen table. Vendors and buyers don't have logins to the carrier's private claims system. Live Verify turns the **Static PDF Report** into a live digital checkpoint, ensuring the "Source of Truth" moves with the document.
+**Where each fits:** The carrier's app or claims dashboard is the natural place for the policyholder to follow a claim, upload photos and see its full history. A body shop, contractor or prospective buyer has no login to it and is handed the adjuster's report instead. Live Verify lets that person confirm, on the spot, that the carrier issued this exact report, without the policyholder opening the rest of the account to them.

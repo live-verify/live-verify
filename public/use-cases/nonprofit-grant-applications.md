@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Grant Award Letter?
 
-A **Grant Award Letter** is the official notification from a foundation or government agency that a non-profit has won funding. It details:
+A Grant Award Letter is the official notification from a foundation or government agency that a non-profit has won funding. It details:
 1.  **Amount:** The specific sum awarded.
 2.  **Purpose:** Restricted use (e.g., "For the Literacy Program only").
 3.  **Conditions:** Reporting requirements.
@@ -39,7 +39,13 @@ This letter is the "proof of income" for non-profits. They show it to other dono
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Funding Fraud
+
+- **Inflated Assets:** Non-profits struggling with cash flow might forge award letters to secure loans or stave off insolvency.
+- **Prestige Fraud:** Claiming support from prestigious foundations to lure smaller donors.
+- **Diverted Funds:** A corrupt director altering the "Purpose" line from "Restricted to building repair" to "General Operating Support" to justify spending it on salaries.
+
+## What Is Checked
 
 Recipient organization, grant amount, grant purpose (restricted vs. unrestricted), award date, authorized signatory.
 
@@ -48,7 +54,7 @@ Recipient organization, grant amount, grant purpose (restricted vs. unrestricted
 - **Grant Agreement:** The full contract signed by both parties.
 - **Disbursement Notice:** Proof that funds were sent.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Foundation) and the status.
 
@@ -57,13 +63,13 @@ Shows the issuer domain (the Foundation) and the status.
 - **Paid** — Funds have been fully disbursed.
 - **Rescinded** — Grant cancelled (e.g., due to non-compliance).
 
-## Second-Party Use
+## Who Holds It
 
-The **Non-Profit (Grantee)** benefits heavily.
+The Non-Profit (Grantee) benefits heavily.
 - **Bridge Financing:** Banks often lend money against "receivables." A verified Award Letter is rock-solid proof of a receivable, allowing the non-profit to start work before the check clears.
 - **Matching Grants:** "We have $500k from Foundation A, will you match it?" Foundation B can verify the claim instantly without calling Foundation A.
 
-## Third-Party Use
+## Who Checks It
 
 **Auditors (IRS / Independent)**
 **Compliance:** Auditors check if restricted funds were used correctly. Verifying the original letter ensures the auditor knows exactly what restrictions were placed on the money.
@@ -71,12 +77,7 @@ The **Non-Profit (Grantee)** benefits heavily.
 **Media / Watchdogs**
 **Transparency:** If a non-profit claims "Supported by the Gates Foundation," journalists can verify the claim directly from the document.
 
-## Verification Architecture
-
-**The "Fake Funding" Fraud Problem**
-- **Inflated Assets:** Non-profits struggling with cash flow might forge award letters to secure loans or stave off insolvency.
-- **Prestige Fraud:** Claiming support from prestigious foundations to lure smaller donors.
-- **Diverted Funds:** A corrupt director altering the "Purpose" line from "Restricted to building repair" to "General Operating Support" to justify spending it on salaries.
+## Who Issues It
 
 **Issuer Types** (First Party)
 - **Private Foundations:** (Ford, Rockefeller, Gates).
@@ -101,7 +102,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the foundation's hashes and status changes plus structured metadata (recipient organization, grant amount, award date) — never plaintext or sensitive personal information — providing non-repudiation of the grant award letter and an audit trail charity regulators can inspect.
 
-## Competition vs. Email / Portals
+## Compared With Email / Portals
 
 | Feature | Live Verify | Grant Portals (Fluxx/SmartSimple) | Email |
 | :--- | :--- | :--- | :--- |
@@ -109,6 +110,5 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Permanence** | **High.** Independent of portal access. | **Medium.** What if you lose your login? | **Medium.** Buried in inboxes. |
 | **Trust** | **Cryptographic.** Mathematical certainty. | **Siloed.** Trust depends on portal security. | **Zero.** Easily spoofed. |
 
-**Why Live Verify wins here:**
-Grant portals are great for *managing* the application, but terrible for *sharing* the success. You can't give your banker a login to your Fluxx portal. You *can* give them a verified PDF Award Letter.
+**Where each fits:** Grant portals are well suited to managing an application, with its forms, reporting deadlines and correspondence with the funder, and email is fine for routine exchanges. Neither helps much when a nonprofit needs to show the award to someone outside that relationship, such as a bank or another donor, who will not be given a portal login. A verified award letter can be passed to them and checked against the funder's domain, while the portal carries on handling the grant itself.
 

@@ -39,7 +39,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Ghost Agency Fraud
+
+- **Code Borrowing:** An un-accredited sub-agent using a larger agency's IATA number illegally. Verification of the *Address/Name Hash* prevents this.
+- **Status Falsification:** Editing a "Suspended" notice to read "Active" to trick an airline into extending credit.
+- **Fabricated Certificates:** Using a realistic-looking template to create a fake "IATA Accredited" certificate for a phishing website.
+
+## What Is Checked
 
 Agency name, IATA Numeric Code (8-digit), ASTA membership number, physical address, accreditation status (Full/GoLite/GoStandard), financial security status (e.g., Bonded/Verified Assets), authorized signatory, effective/expiration dates.
 
@@ -49,25 +55,25 @@ Agency name, IATA Numeric Code (8-digit), ASTA membership number, physical addre
 - **BSP (Billing & Settlement Plan) Summary:** Verified commission report.
 - **ASTA Membership Seal:** Proving professional ethical standards.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`iata.org`, `asta.org`) and current agency standing.
 
 **Status Indications:**
 - **Active** — Agency is fully authorized to issue tickets and collect commissions.
-- **Suspended** — **ALERT:** Default on payments or safety violation found.
+- **Suspended** — Default on payments or safety violation found.
 - **Terminated** — Accreditation revoked; no ticketing authority.
 - **Expired** — Annual financial review or fee overdue.
 
-## Second-Party Use
+## Who Holds It
 
-The **Travel Agency Owner** benefits from verification.
+The Travel Agency Owner benefits from verification.
 
 **Airline Negotiations:** Proving to a new airline partner (e.g., Emirates or Singapore Air) that their "IATA 8-digit Code" is verified and in good standing. This allows for immediate "Ticketing Authority" setup without waiting for weeks of manual paperwork.
 
 **Customer Trust:** Posting the verified IATA/ASTA badge on the agency's website. High-end corporate clients won't book multi-million dollar travel contracts without seeing verified proof of professional standing.
 
-## Third-Party Use
+## Who Checks It
 
 **Airlines / Carriers**
 **Agency Vetting:** Instantly verifying the "Financial Health" of an agency before allowing them into the Billing & Settlement Plan (BSP). Verification prevents "Ghost Agencies" from issuing millions in tickets and defaulting on payments.
@@ -78,13 +84,7 @@ The **Travel Agency Owner** benefits from verification.
 **Consumer Protection Agencies**
 **Fraud Detection:** Verifying that a "Discount Travel" website is actually a member of ASTA, protecting consumers from "Vapor-Vacation" scams.
 
-## Verification Architecture
-
-**The "Ghost Agency" Fraud Problem**
-
-- **Code Borrowing:** An un-accredited sub-agent using a larger agency's IATA number illegally. Verification of the *Address/Name Hash* prevents this.
-- **Status Falsification:** Editing a "Suspended" notice to read "Active" to trick an airline into extending credit.
-- **Fabricated Certificates:** Using a realistic-looking template to create a fake "IATA Accredited" certificate for a phishing website.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -110,7 +110,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the IATA/ASTA body's hashes and status changes plus structured metadata (agency name, numeric code, agency location, accreditation status, last financial review date, effective date, annual review date) — never plaintext financial details — providing non-repudiation of the travel agent credentials.
 
 
-## Competition vs. IATA Check-a-Code
+## Compared With IATA Check-a-Code
 
 | Feature | Live Verify | IATA Check-a-Code (Web) | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -119,4 +119,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Details.** Protects the Financial Tier. | **Data-Only.** Doesn't verify the paper. | **Vulnerable.** |
 | **User Access** | **Universal.** Any airline/buyer can verify. | **Public.** But often limited to 1 query at a time. | **Universal.** |
 
-**Why Live Verify wins here:** The "Agency Handoff." Travel agents work via PDFs and paper certificates when talking to airlines and hotels. Live Verify turns the **Physical Credential** into a live, high-speed digital dashboard, providing the same level of trust as a manual IATA database search in a fraction of the time.
+**Where each fits:** IATA's Check-a-Code is the direct, authoritative lookup for an agency code, and a supplier checking one agency from a desk loses nothing by using it. It confirms the code rather than the certificate, and it handles one query at a time. Live Verify suits a hotel, tour operator or airline desk that is handed a credential as a document and wants to confirm IATA stands behind what it says. The official lookup remains available beside it.

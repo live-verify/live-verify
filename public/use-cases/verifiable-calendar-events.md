@@ -61,7 +61,16 @@ The verification domain follows the organizer's or responder's email domain:
 
 The email provider (Google Workspace, Microsoft 365, or a self-hosted server) manages the hash endpoints, just as it manages the mailbox.
 
-## Data Verified
+## The Problem: Forwarded Event
+
+- **Phishing via calendar:** Fake meeting invitations with malicious Zoom/Teams links disguised as legitimate corporate meetings
+- **Time tampering:** Forwarding an event with the time changed to cause a no-show or create a scheduling conflict
+- **Attendee injection:** Adding attendees to a forwarded invitation who were not on the original
+- **Stale events:** Forwarding a cancelled or superseded event as if it were still current
+
+**No post-verification actions:** Calendar event endpoints deliberately do not return Accept/Decline links or any other clickable actions. Responses (acceptance, rejection, counter-proposal) travel as separate verifiable emails from the attendee's own domain. Embedding action links in the verification response would be a phishing target — an attacker who compromised an endpoint could redirect Accept clicks to a credential-harvesting page. Keeping the response channel (email) separate from the verification channel (hash lookup) avoids this.
+
+## What Is Checked
 
 Event type (invitation/acceptance/rejection/counter), event title, date, time, timezone, duration, location (physical and/or virtual), organizer name, attendee names, response status.
 
@@ -77,7 +86,7 @@ Event type (invitation/acceptance/rejection/counter), event title, date, time, t
 - **WITHDRAWN** — Acceptance or rejection was retracted by the attendee
 - **404** — Event not found (forged, expired, or wrong domain)
 
-## Second-Party Use
+## Who Holds It
 
 Attendees benefit from verification:
 
@@ -87,7 +96,7 @@ Attendees benefit from verification:
 
 **Custody scheduling:** Both parents' domains attest the agreed schedule. Disputes about "that wasn't the arrangement" have a hash trail.
 
-## Third-Party Use
+## Who Checks It
 
 **Employers**
 An employee claims they have a medical appointment on Thursday afternoon. The appointment confirmation carries a `verify:` line from the hospital's domain. The manager doesn't need to call the hospital — the hash confirms the appointment exists and the details match. (See also: [Appointment & Summons Confirmations](view.html?doc=appointment-summons-confirmations).)
@@ -98,20 +107,9 @@ Deposition notices, hearing dates, filing deadlines — the court's domain attes
 **Contractors / Service scheduling**
 "Electrician visit, Thursday 2-4pm, 14 Oak Street" — the dispatching company's domain attests the appointment. Ties directly into doorstep verification: the homeowner can verify both the worker's badge and the scheduled visit.
 
-## Verification Architecture
+## How Verification Works Here
 
-**The "Forwarded Event" Problem**
-
-- **Phishing via calendar:** Fake meeting invitations with malicious Zoom/Teams links disguised as legitimate corporate meetings
-- **Time tampering:** Forwarding an event with the time changed to cause a no-show or create a scheduling conflict
-- **Attendee injection:** Adding attendees to a forwarded invitation who were not on the original
-- **Stale events:** Forwarding a cancelled or superseded event as if it were still current
-
-**No post-verification actions:** Calendar event endpoints deliberately do not return Accept/Decline links or any other clickable actions. Responses (acceptance, rejection, counter-proposal) travel as separate verifiable emails from the attendee's own domain. Embedding action links in the verification response would be a phishing target — an attacker who compromised an endpoint could redirect Accept clicks to a credential-harvesting page. Keeping the response channel (email) separate from the verification channel (hash lookup) avoids this.
-
-**Why Live Verify fits:**
-
-Calendar events are the canonical "claim that travels outside the source system." They are emailed, forwarded, screenshot, printed, and pasted into other tools. The organizer's calendar system is the source of truth, but the recipient may be in a completely different system (or no system — just reading email). Live Verify bridges that gap without requiring both parties to share a calendar platform.
+**Where each fits:** The organizer's calendar system is the source of truth for an event, and people who share a calendar platform with the organizer are already well served by it. Event details also travel outside that system: they are emailed, forwarded, screenshotted, printed and pasted into other tools, and the recipient may be on a different platform or simply reading email. Live Verify covers that case, without requiring both parties to share a calendar platform.
 
 **Relationship to iCal / CalDAV:**
 
@@ -141,7 +139,7 @@ No regulatory chain. Trust rests on the organizer's domain — the same domain t
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition
+## Compared With the Alternatives
 
 | Feature | Live Verify | iCal / CalDAV | Shared Platform (Google/Outlook) |
 | :--- | :--- | :--- | :--- |

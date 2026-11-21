@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Discharge Summary?
 
-When a patient leaves the hospital, they receive a **Discharge Summary**. This is the "User Manual" for their recovery.
+When a patient leaves the hospital, they receive a Discharge Summary. This is the "User Manual" for their recovery.
 
 It lists:
 1.  **The Diagnosis:** "Why were you here?"
@@ -61,7 +61,13 @@ This paper is the #1 tool for preventing "Medical Errors" when a patient moves t
 
 **"Why would you bother?" (Pattern A):** Patients and families edit discharge summaries more often than clinicians realize. A patient removes "Alcohol Dependency" before showing the summary to a new GP. A family member deletes "Psychiatric Consultation" before sending it to an employer. A patient adds an opioid to the medication list to obtain it from a new pharmacy. None of these edits are detectable from the paper alone.
 
-## Data Verified
+## The Problem: Paper Lag Fraud
+
+- **Medication Forgery:** Patients editing a discharge summary to add a prescription for an opioid or to remove a "No Driving" restriction.
+- **Condition Concealment:** Deleting mention of "Alcohol Abuse" or "Psychiatric Consult" from a summary before sending it to a new employer or insurer.
+- **Phantom Discharges:** Creating a fake summary to justify a 2-week absence from work.
+
+## What Is Checked
 
 Patient name, MRN (Medical Record Number), admission/discharge dates, primary diagnosis, list of new medications (dose/frequency), follow-up requirements, attending physician name, facility ID.
 
@@ -71,7 +77,7 @@ Patient name, MRN (Medical Record Number), admission/discharge dates, primary di
 - **Medication Reconciliation:** List of what to take vs. what to stop.
 - **Care Plan:** For home health or skilled nursing facilities.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`cedars-sinai.org`, `mayoclinic.org`) and the record standing.
 
@@ -81,15 +87,15 @@ Shows the issuer domain (`cedars-sinai.org`, `mayoclinic.org`) and the record st
 - **In-Progress** — Patient discharged but final summary pending.
 - **Void** — Record assigned to wrong patient (rare safety event).
 
-## Second-Party Use
+## Who Holds It
 
-The **Patient / Caregiver** benefits from verification.
+The Patient / Caregiver benefits from verification.
 
 **Safe Transitions:** Proving to a home-health nurse or a retail pharmacist that the "New Medications" on the paper aren't a typo or a misprint. A verified list reduces the chance of "Medication Errors," which are the #1 cause of hospital re-admissions.
 
 **Personal Health Records:** Carrying a verified, cryptographically trusted "Source of Truth" about their hospital stay, which can be shared with future doctors anywhere in the world.
 
-## Third-Party Use
+## Who Checks It
 
 **Skilled Nursing Facilities (SNFs)**
 **Intake Integrity:** When a patient arrives from the hospital, the SNF nurse scans the discharge summary. "Verified by Cedars-Sinai" ensures the instructions weren't "Modified" by a family member to hide a contagious condition or a complex wound care requirement.
@@ -100,13 +106,7 @@ The **Patient / Caregiver** benefits from verification.
 **Health Insurers**
 **Outcome Audits:** Verifying that the care plan was actually followed to determine if a re-admission was "Preventable" or not.
 
-## Verification Architecture
-
-**The "Paper Lag" Fraud Problem**
-
-- **Medication Forgery:** Patients editing a discharge summary to add a prescription for an opioid or to remove a "No Driving" restriction.
-- **Condition Concealment:** Deleting mention of "Alcohol Abuse" or "Psychiatric Consult" from a summary before sending it to a new employer or insurer.
-- **Phantom Discharges:** Creating a fake summary to justify a 2-week absence from work.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -135,7 +135,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the hospital's hashes and status changes plus structured metadata (patient MRN, admission/discharge dates, primary diagnosis, facility ID) — never patient name, detailed medication lists, or specific clinical notes — providing non-repudiation of the discharge summary issuance.
 
 
-## Competition vs. Patient Portals / HIEs
+## Compared With Patient Portals / HIEs
 
 | Feature | Live Verify | Patient Portal (Epic) | Health Info Exchange (HIE) |
 | :--- | :--- | :--- | :--- |
@@ -144,4 +144,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Cryptographic.** Binds the *Text*. | **High.** Direct DB access. | **High.** |
 | **Cross-System** | **Universal.** Works across any health system. | **Siloed.** Hard to share across different vendors. | **Limited.** Regional only. |
 
-**Why Live Verify wins here:** The "Front Line" reality. Doctors in outpatient clinics don't have time to log into 10 different patient portals or wait for a regional HIE to sync. Live Verify turns the **Physical Discharge Packet** (which the patient always has) into a live, trusted clinical link.
+**Where each fits:** Where the receiving clinician is on the same record system, or a health information exchange links the two organisations, the structured record is the better source and should be used. Many handovers do not look like that: the patient arrives at a clinic, pharmacy or care home on a different system, or in another region or country, carrying the printed discharge packet. Live Verify lets the person reading it confirm that the hospital issued that text, and it sits alongside portals and exchanges rather than competing with them.

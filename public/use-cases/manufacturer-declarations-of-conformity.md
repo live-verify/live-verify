@@ -41,7 +41,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake CE Fraud
+
+- **China Export Scam:** Using a logo that looks like "CE" but actually means "China Export," and providing a fake paper DoC to trick customs.
+- **Standard Padding:** Claiming a product meets "Medical Device" standards on the paper form when it was actually only tested for "General Consumer" use.
+- **Date Alteration:** Changing a 2020 DoC to read 2026 to avoid re-testing against new, stricter safety laws.
+
+## What Is Checked
 
 Manufacturer name, premises address, product model/part number, serial number range, list of applicable EU Directives/Standards (e.g., LVD, EMC, RoHS), authorized signatory name/title, date of issuance, location of signature.
 
@@ -51,13 +57,13 @@ Manufacturer name, premises address, product model/part number, serial number ra
 - **UKCA Declaration:** Post-Brexit standard for the UK market.
 - **Certificate of Origin:** (Linked hash) proving where it was built.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`apple.com`, `bosch.de`, `cyberdyne.be`) and current compliance standing.
 
 **Status Indications:**
 - **Valid** — Product meets all listed standards and is authorized for sale.
-- **Recalled** — **ALERT:** Safety issue found; product must be removed from market.
+- **Recalled** — Safety issue found; product must be removed from market.
 - **Superseded** — New hardware version or standard update has invalidated this DoC.
 - **Invalid** — Model number or directive mismatch.
 
@@ -72,15 +78,15 @@ Safe enrichment — no personal data, revealing the scope the terse claim withhe
 [safety-certifications](safety-certifications.md) and
 [verification-enrichment-hazards.md](../../docs/verification-enrichment-hazards.md)).
 
-## Second-Party Use
+## Who Holds It
 
-The **Importer / Distributor** benefits from verification.
+The Importer / Distributor benefits from verification.
 
 **Customs Clearance:** Proving to an EU Customs officer that the 10,000 robotic hubs being imported have a "Verified DoC" from the manufacturer. Verification prevents the entire shipment from being seized at the port due to a "Suspected Fake CE Certificate."
 
 **Retailer Onboarding:** Proving to a major retailer (e.g., MediaMarkt or Amazon) that the product meets all verified safety laws, reducing the retailer's liability risk.
 
-## Third-Party Use
+## Who Checks It
 
 **Customs & Market Surveillance (EU/HMRC)**
 **Enforcement:** Market surveillance officers walking through a store can scan the hash on the product manual. "Verified by Bosch.de" ensures the company hasn't just "Slapped a CE logo" on an un-tested, dangerous electronic product.
@@ -91,13 +97,7 @@ The **Importer / Distributor** benefits from verification.
 **Corporate Procurement**
 **Sourcing Compliance:** Ensuring that all hardware being installed in a new office building has verified safety certifications.
 
-## Verification Architecture
-
-**The "Fake CE" Fraud Problem**
-
-- **China Export Scam:** Using a logo that looks like "CE" but actually means "China Export," and providing a fake paper DoC to trick customs.
-- **Standard Padding:** Claiming a product meets "Medical Device" standards on the paper form when it was actually only tested for "General Consumer" use.
-- **Date Alteration:** Changing a 2020 DoC to read 2026 to avoid re-testing against new, stricter safety laws.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -123,7 +123,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the manufacturer's hashes and status changes plus structured metadata (product names, model numbers, applicable directives, harmonized standards, declaration dates) — never technical specifications or trade secrets — providing non-repudiation of the declaration of conformity.
 
-## Competition vs. QR Redirects
+## Compared With QR Redirects
 
 | Feature | Live Verify | Standard QR Code Redirect | Scanned PDF DoC |
 | :--- | :--- | :--- | :--- |
@@ -132,4 +132,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Persistence** | **High.** Text remains verifiable for 15 years. | **Low.** QR stickers get scratched or fade. | **Vulnerable.** |
 | **User Control** | **Targeted.** Verifies the *Exact Version*. | **General.** Often links to a generic "Help" page. | **Full.** But untrusted. |
 
-**Why Live Verify wins here:** The "Product Manual" reality. DoCs are usually buried at the back of a printed manual. QR codes on stickers often don't last the 10-year life of a product. Live Verify turns the **Printed Text of the Manual** into a live, high-authority digital anchor, ensuring that safety trust is as durable as the product itself.
+**Where each fits:** A QR code on the product is convenient and is often the fastest way to reach a manufacturer's support or documentation pages. It says little about the declaration itself, and a sticker may not last as long as the product does. Live Verify works from the printed text of the declaration in the manual, letting an importer, inspector or buyer confirm that the manufacturer stands behind that version. A manual can carry both without conflict.

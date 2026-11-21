@@ -42,7 +42,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Scientific Fraud
+
+- **Post-Hoc Data Smoothing:** Deleting "Outlier" data points from a digital log after the experiment is over to make the results look more significant.
+- **Fabricated Witnesses:** Forging a colleague's signature on a paper notebook page to meet institutional "Dual-Signoff" rules.
+- **Ghost Notes:** Creating fake entries for experiments that never happened to justify a grant renewal.
+
+## What Is Checked
 
 Notebook ID, page number, researcher name, principal investigator (PI) name, witness name, timestamp (to the second), experiment title/ID, summary of findings (digest), checksum of attached raw data files, institutional domain.
 
@@ -52,25 +58,25 @@ Notebook ID, page number, researcher name, principal investigator (PI) name, wit
 - **Experimental Protocol:** (Linked hash) proving the methods used.
 - **Raw Data Manifest:** Linking large datasets to the summary.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`stanford.edu`, `pfizer.com`, `nature.com`) and the record standing.
 
 **Status Indications:**
 - **Certified** — Entry is verified and matches the institutional vault.
 - **Under Correction** — Researcher has noted a post-entry error or addendum.
-- **Retracted** — **ALERT:** Data found to be fraudulent or non-reproducible.
+- **Retracted** — Data found to be fraudulent or non-reproducible.
 - **IP Protection** — Verified existence for patent "First-to-Invent" claims.
 
-## Second-Party Use
+## Who Holds It
 
-The **Lead Researcher / PI** benefits from verification.
+The Lead Researcher / PI benefits from verification.
 
 **Patent Defense:** Proving to the USPTO or a patent court that a specific discovery happened on March 15, 2026. A verified, timestamped hash from the university's domain is the "Gold Standard" evidence for defending intellectual property against rival claims.
 
 **Journal Submission:** Providing verified links to the original lab notes in a peer-reviewed submission (e.g., to *Nature* or *Cell*). This builds massive trust with reviewers by proving the data hasn't been "Massaged" post-hoc to fit a narrative.
 
-## Third-Party Use
+## Who Checks It
 
 **University Compliance Officers**
 **Integrity Audit:** Instantly verifying that all data in a high-profile study has a verified digital chain of custody. Live Verify prevents "Data Fabrication" where a researcher invents results in their bedroom without real lab work.
@@ -81,13 +87,7 @@ The **Lead Researcher / PI** benefits from verification.
 **Regulatory Agencies (FDA / NIH)**
 **Grant Oversight:** Ensuring that taxpayer-funded research is being documented according to verified "Good Laboratory Practice" (GLP) standards.
 
-## Verification Architecture
-
-**The "Scientific Fraud" Problem**
-
-- **Post-Hoc Data Smoothing:** Deleting "Outlier" data points from a digital log after the experiment is over to make the results look more significant.
-- **Fabricated Witnesses:** Forging a colleague's signature on a paper notebook page to meet institutional "Dual-Signoff" rules.
-- **Ghost Notes:** Creating fake entries for experiments that never happened to justify a grant renewal.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -115,7 +115,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the researcher's or institution's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the lab notebook or experimental data.
 
-## Competition vs. Blockchain (Ocean Protocol)
+## Compared With Blockchain (Ocean Protocol)
 
 | Feature | Live Verify | Science Blockchain (Ocean/DeSci) | ELN Audit Log |
 | :--- | :--- | :--- | :--- |
@@ -124,4 +124,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Content Link** | **Binds Summary.** Protects the *Message*. | **Binds Files.** | **Vulnerable.** |
 | **Cost** | **Low.** Standard web infra. | **Medium.** Gas fees and storage costs. | **High.** Enterprise license fees. |
 
-**Why Live Verify wins here:** The "Handoff Gap." Science is collaborative. A researcher at Stanford shares a PDF summary with a partner at MIT. The partner doesn't have access to Stanford's private LabArchives server. Live Verify turns that **PDF Summary** into a live digital anchor, providing "Blockchain Integrity" without the "Blockchain Complexity."
+**Where each fits:** An electronic lab notebook with its audit log is the working record inside an institution, and shared ledgers can suit consortia whose members have all agreed to run the same infrastructure. Much collaboration is less formal: a researcher sends a PDF summary to a colleague elsewhere who has no access to the originating system. Live Verify lets that colleague confirm the institution stands behind the summary as sent, and the notebook stays the authoritative source behind it.

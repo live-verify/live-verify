@@ -46,7 +46,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Insurance Fronting Fraud
+
+- **Identity Swapping:** A high-risk driver (e.g., a teen with a DUI) editing a parent's policy PDF to add their name as a "Named Driver" without the parent or insurer knowing.
+- **Status Faking:** Showing an old "Active" paper for a driver who was excluded from the policy 3 months ago due to a bad driving record.
+- **Buy and Cancel:** Printing a 1-year certificate, then cancelling the policy 2 days later.
+
+## What Is Checked
 
 Policyholder name, specific Named Driver names, driver's license numbers (redacted), vehicle registration (License Plate), policy number, effective/expiration dates, coverage type (Comprehensive/3rd Party), issuing carrier.
 
@@ -55,25 +61,25 @@ Policyholder name, specific Named Driver names, driver's license numbers (redact
 - **Named Driver Endorsement:** Proving an addition to a standard US policy.
 - **Learner Driver Permit Insurance:** For supervised practice.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`admiral.com`, `directline.com`, `geico.com`) and real-time coverage status for the specific driver.
 
 **Status Indications:**
 - **Authorized** — The named driver is currently covered for the specified vehicle.
-- **Excluded** — **ALERT:** This driver has been specifically removed from the policy.
+- **Excluded** — This driver has been specifically removed from the policy.
 - **Cancelled** — Policy terminated for all drivers.
 - **Pending Payment** — Coverage active but subject to premium clearance.
 
-## Second-Party Use
+## Who Holds It
 
-The **Named Driver** benefits from verification.
+The Named Driver benefits from verification.
 
 **Roadside Verification:** When stopped by police or involved in an accident, proving they are legally authorized to drive. Standard paper certificates are easily edited; a verified hash from the insurer provides "Court-Grade" trust that the person behind the wheel is actually on the policy.
 
 **Rental / Car Sharing:** Proving to a car-share platform or a friend that they have verified liability coverage before borrowing a vehicle.
 
-## Third-Party Use
+## Who Checks It
 
 **Law Enforcement (Roadside)**
 **Frontline Enforcement:** Instantly confirming that a young driver hasn't been "added" to a parent's policy using Photoshop. "Verified by Admiral" stops "Fronting Fraud" where high-risk drivers hide on low-risk policies using fake paperwork.
@@ -84,13 +90,7 @@ The **Named Driver** benefits from verification.
 **Insurance Special Investigative Units (SIU)**
 **Fraud Detection:** Identifying patterns of "Phantom Drivers" where policies are altered to add drivers only *after* an accident occurs.
 
-## Verification Architecture
-
-**The "Insurance Fronting" Fraud Problem**
-
-- **Identity Swapping:** A high-risk driver (e.g., a teen with a DUI) editing a parent's policy PDF to add their name as a "Named Driver" without the parent or insurer knowing.
-- **Status Faking:** Showing an old "Active" paper for a driver who was excluded from the policy 3 months ago due to a bad driving record.
-- **Buy and Cancel:** Printing a 1-year certificate, then cancelling the policy 2 days later.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -116,7 +116,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (policy numbers, named driver names, vehicle registrations, effective/expiration dates, coverage status) — never sensitive personal information — providing non-repudiation of the named driver authorization.
 
-## Competition vs. National Databases (MID)
+## Compared With National Databases (MID)
 
 | Feature | Live Verify | MID / National DB (UK) | Paper Certificate |
 | :--- | :--- | :--- | :--- |
@@ -125,7 +125,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires specialized police terminal access. | **Instant.** |
 | **User Access** | **Open.** Any citizen or car owner can verify. | **Restricted.** Usually only for Police/DVLA. | **Universal.** |
 
-**Why Live Verify wins here:** The "Driver Specificity" gap. Many national databases only track the *vehicle*. They don't list the 4 different named drivers. Live Verify allows a car owner to prove that a **specific person** is covered, which is the most common point of failure in car-accident liability disputes.
+**Where each fits:** A national motor insurance database is the right tool for police and licensing authorities, who need to know quickly whether a vehicle is insured at all. It is generally not open to the public and often records the vehicle, not each named driver. Live Verify lets a car owner, a hire company or the other party after a collision confirm that the insurer's certificate names a particular driver, alongside the official database that enforcement uses.
 
 ## See Also
 

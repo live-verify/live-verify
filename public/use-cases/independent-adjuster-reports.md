@@ -40,7 +40,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Estimate Padding Fraud
+
+- **Scope Inflation:** A contractor editing the IA's PDF to add 500 extra square feet of flooring to over-charge the carrier.
+- **Cause of Loss Forgery:** Changing "Flood" (uninsured) to "Pipe Burst" (insured) on the paper report to trigger a payout.
+- **License Fraud:** An unlicensed trainee performing the inspection but using a master adjuster's verified signature on the final PDF.
+
+## What Is Checked
 
 Adjuster name, IA (Independent Adjuster) license number, hiring carrier name, Claim ID, property address, inspection date, estimated RCV (Replacement Cost Value), cause of loss code, primary scope of work (digest), date of report issuance.
 
@@ -50,7 +56,7 @@ Adjuster name, IA (Independent Adjuster) license number, hiring carrier name, Cl
 - **Narrative Report:** Adjuster's personal opinion on liability/coverage.
 - **Preliminary Loss Report:** First 24-hour assessment.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`crawco.com`, `eberls.com`, `alacritysolutions.com`) and report status.
 
@@ -60,15 +66,15 @@ Shows the issuer domain (`crawco.com`, `eberls.com`, `alacritysolutions.com`) an
 - **Amended** — A revised report exists (e.g., due to hidden damage found later).
 - **Void** — Assigned to wrong claim or adjuster error.
 
-## Second-Party Use
+## Who Holds It
 
-The **Hiring Insurance Carrier** benefits from verification.
+The Hiring Insurance Carrier benefits from verification.
 
 **Anti-Tampering:** Ensuring that the "IA Report" uploaded by a third-party firm hasn't been "Modified" by a broker or contractor before it hits the carrier's core ledger. A verified hash from the IA firm's domain provides the carrier with a "Sanitized Audit Trail" for high-value claims.
 
 **Subrogation:** Proving the "Proximate Cause" to a third-party tortfeasor's insurer using a verified, immutable expert assessment from the field.
 
-## Third-Party Use
+## Who Checks It
 
 **Property Owners (Policyholders)**
 **Transparency:** Proving to themselves that the "IA Estimate" provided by the contractor matches what the independent adjuster actually sent to the insurance company. Verification prevents "Contractor Padding" where the crew claims the adjuster authorized $50k when they only authorized $40k.
@@ -79,13 +85,7 @@ The **Hiring Insurance Carrier** benefits from verification.
 **Mortgage Lenders**
 **Repair Audit:** Verifying that the $42,500 insurance payout is actually intended for the "Hardwood Floors" (the bank's collateral) and not just a cash payout for personal items.
 
-## Verification Architecture
-
-**The "Estimate Padding" Fraud Problem**
-
-- **Scope Inflation:** A contractor editing the IA's PDF to add 500 extra square feet of flooring to over-charge the carrier.
-- **Cause of Loss Forgery:** Changing "Flood" (uninsured) to "Pipe Burst" (insured) on the paper report to trigger a payout.
-- **License Fraud:** An unlicensed trainee performing the inspection but using a master adjuster's verified signature on the final PDF.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -112,7 +112,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the independent adjuster firm's hashes and status changes plus structured metadata (claim number, property address, adjuster name and license number, inspection date, damage estimate, cause of loss category, report number) — never plaintext claim details or settlement amounts — providing non-repudiation of the independent adjuster report.
 
 
-## Competition vs. Claims Management Portals
+## Compared With Claims Management Portals
 
 | Feature | Live Verify | Claims Portal (Guidewire) | Scanned PDF Report |
 | :--- | :--- | :--- | :--- |
@@ -121,4 +121,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Details.** Protects the RCV amount. | **High.** | **Vulnerable.** |
 | **Interoperability** | **High.** Works across 100+ different IA firms. | **Low.** Every carrier uses a different system. | **Universal.** |
 
-**Why Live Verify wins here:** The "External Vetting" gap. Carriers and IA firms operate in private silos. Contractors and banks are locked out. Live Verify turns the **Field Inspection PDF** into a portable, cryptographically trusted link that bridges the gap between the field expert and the people paying the bills.
+**Where each fits:** The carrier's claims system, Guidewire or otherwise, is where the claim is actually handled, and the carrier and its adjusting firm should keep treating it as the working record. Contractors, mortgage lenders and public adjusters are never given access to it and see the field report only as a PDF passed on by the policyholder. Live Verify lets them confirm that the adjusting firm stands behind that report and its figures, without any change to how the claim is managed inside the carrier.

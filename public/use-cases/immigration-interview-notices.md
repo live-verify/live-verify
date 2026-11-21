@@ -41,7 +41,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Notice Fraud
+
+- **Fabricated Notices:** Scammers creating fake USCIS letters to trick employers into thinking an illegal worker's case is "Processing" or to sell "Entry Spots" to people trying to get inside federal buildings.
+- **Date Alteration:** Changing a 2024 date to 2026 to try and force a walk-in interview.
+- **Impersonation:** Using a family member's notice by editing the name on the PDF.
+
+## What Is Checked
 
 Applicant name, USCIS Receipt Number, Appointment Date/Time, Field Office location, Form Type (e.g., I-485, N-400), Case Category, date of notice issuance, security access code.
 
@@ -51,7 +57,7 @@ Applicant name, USCIS Receipt Number, Appointment Date/Time, Field Office locati
 - **Request for Evidence (RFE):** (Linked hash) proving a pending case.
 - **Field Office Entry Badge:** (Digital) for building security.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`uscis.gov`) and current appointment standing.
 
@@ -61,15 +67,15 @@ Shows the issuer domain (`uscis.gov`) and current appointment standing.
 - **Completed** — Interview has already taken place for this notice.
 - **Cancelled** — Interview revoked (e.g., due to case denial or closure).
 
-## Second-Party Use
+## Who Holds It
 
-The **Applicant (Petitioner)** benefits from verification.
+The Applicant (Petitioner) benefits from verification.
 
 **Building Entrance:** Proving to the federal guards at the USCIS Field Office that the paper notice is legitimate. This prevents being turned away at the door due to a "Suspected Fake" letter or a name typo on the guard's manual list.
 
 **Travel / Time-Off:** Proving to an employer or school why they must be absent for an official federal hearing. A verified hash from `uscis.gov` is more authoritative than a plain printout.
 
-## Third-Party Use
+## Who Checks It
 
 **Federal Protective Service (FPS) / Guards**
 **Access Control:** Field offices are high-security environments. Guards can instantly verify notices at the metal detector to ensure only authorized applicants are allowed into the restricted waiting rooms, stopping "Line Jumpers" with fake letters.
@@ -80,13 +86,7 @@ The **Applicant (Petitioner)** benefits from verification.
 **Local Law Enforcement**
 **Identity Proof:** If an immigrant is stopped by police while in "Pending Status," a verified interview notice proves they are actively following the legal process for a Green Card or Citizenship.
 
-## Verification Architecture
-
-**The "Fake Notice" Fraud Problem**
-
-- **Fabricated Notices:** Scammers creating fake USCIS letters to trick employers into thinking an illegal worker's case is "Processing" or to sell "Entry Spots" to people trying to get inside federal buildings.
-- **Date Alteration:** Changing a 2024 date to 2026 to try and force a walk-in interview.
-- **Impersonation:** Using a family member's notice by editing the name on the PDF.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -114,7 +114,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive USCIS's hashes and status changes plus structured metadata (receipt number, applicant name, form type, interview date and time, interview location, appointment status, notice date) — never plaintext case details — providing non-repudiation of the immigration interview notice.
 
 
-## Competition vs. USCIS Case Status Online
+## Compared With USCIS Case Status Online
 
 | Feature | Live Verify | Case Status Online (Web) | Paper Notice |
 | :--- | :--- | :--- | :--- |
@@ -123,4 +123,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Field Access** | **High.** Built for security guards. | **Low.** Gov websites are hard to use on handheld devices. | **Universal.** |
 | **Trust Anchor** | **Domain-Bound.** Bound to `uscis.gov`. | **High.** Direct DB access. | **Medium.** |
 
-**Why Live Verify wins here:** The "Front Door" reality. Security guards standing at a metal detector have 10 seconds to vet a person. They cannot type 13-character receipt numbers into a website for every visitor. Live Verify turns the **Physical Appointment Letter** into a high-speed "Security Badge," ensuring safety and efficiency at federal facilities.
+**Where each fits:** USCIS Case Status Online is the applicant's authoritative view of their case and should stay their first reference. It reports a status rather than who is due where and when, and entering a receipt number is impractical for a guard admitting a queue of visitors. Live Verify lets the guard, or an employer or school asked to excuse an absence, confirm the notice itself is as the agency issued it. The case-status site continues to serve applicants and their lawyers.

@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Remittance Receipt?
 
-When you send money to another country (e.g., via Wise or Western Union), you get a **Transfer Confirmation**.
+When you send money to another country (e.g., via Wise or Western Union), you get a Transfer Confirmation.
 
 This receipt is the only proof that the money is en route. Recipient freelancers or family members need to know the money is real and the "Exchange Rate" is fair.
 
@@ -46,7 +46,13 @@ Fraudsters often use "Fake Screenshots" to trick sellers into shipping goods bef
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Screenshot Fraud
+
+- **Screenshot Editing:** Using a browser "Inspect Element" tool to change a $100 transfer to $10,000, then taking a screenshot to trick a seller into shipping goods.
+- **Rate Manipulation:** Hiding a high "FX Markup" by editing the exchange rate on the PDF to look better than it was.
+- **Ghost Transfers:** Creating a fake PDF confirmation for a transfer that was never initiated to "buy time" from a creditor.
+
+## What Is Checked
 
 Sender name, Recipient name/Bank details, Transfer ID, amount sent (currency A), amount received (currency B), exchange rate, transaction fees, timestamp of completion, issuing money transmitter.
 
@@ -55,7 +61,7 @@ Sender name, Recipient name/Bank details, Transfer ID, amount sent (currency A),
 - **Remittance Receipt:** For cash-pickup services (e.g., Western Union).
 - **SWIFT MT103 Message:** Technical confirmation for high-value B2B wires.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`wise.com`, `remitly.com`) and current fund status.
 
@@ -65,15 +71,15 @@ Shows the issuer domain (`wise.com`, `remitly.com`) and current fund status.
 - **Processing** — Funds en route; rate is locked.
 - **Hold** — Under review (e.g., for compliance/AML reasons).
 
-## Second-Party Use
+## Who Holds It
 
-The **Sender** (Remitter) benefits from verification.
+The Sender (Remitter) benefits from verification.
 
 **Payment Proof:** Proving to a freelance developer or a family member abroad that the $5,000 was *actually sent* and isn't just a "Fake Screenshot." Verification prevents the "Recipient says they didn't get it" dispute.
 
 **Expense Audit:** Providing verified proof of foreign business expenses to a company's finance department, ensuring the "Exchange Rate" and "Fees" claimed match the verified reality.
 
-## Third-Party Use
+## Who Checks It
 
 **Tax Authorities / Customs**
 **Source of Funds:** Verifying large incoming international payments to comply with anti-money laundering (AML) laws. A verified receipt from `wise.com` is more authoritative than a plain paper printout.
@@ -84,13 +90,7 @@ The **Sender** (Remitter) benefits from verification.
 **Regulators (CFPB / FCA)**
 **Transparency Compliance:** Ensuring that money transmitters are correctly disclosing their "Total Cost" (Rate + Fees) as required by consumer protection laws (e.g., Dodd-Frank Section 1073).
 
-## Verification Architecture
-
-**The "Fake Screenshot" Fraud Problem**
-
-- **Screenshot Editing:** Using a browser "Inspect Element" tool to change a $100 transfer to $10,000, then taking a screenshot to trick a seller into shipping goods.
-- **Rate Manipulation:** Hiding a high "FX Markup" by editing the exchange rate on the PDF to look better than it was.
-- **Ghost Transfers:** Creating a fake PDF confirmation for a transfer that was never initiated to "buy time" from a creditor.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -119,7 +119,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the bank's or fintech's hashes and status changes plus structured metadata (transaction reference, amount and currency, remittance date, sender and recipient bank names, payment status) — never personal names or bank account details — providing non-repudiation of payment and an audit trail for dispute resolution and regulatory compliance.
 
 
-## Competition vs. SWIFT gpi (Tracking)
+## Compared With SWIFT gpi (Tracking)
 
 | Feature | Live Verify | SWIFT gpi (Bank Tracking) | Scanned PDF / Image |
 | :--- | :--- | :--- | :--- |
@@ -128,4 +128,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds FX Rates.** Protects the numbers. | **Data-Only.** | **Vulnerable.** |
 | **Interoperability** | **High.** Works for non-SWIFT fintechs. | **Limited.** Only for SWIFT-member banks. | **Universal.** |
 
-**Why Live Verify wins here:** The "End-to-End" Reality. SWIFT gpi is great for banks, but the actual **human recipient** often just gets a PDF in their email. Live Verify turns that **Static PDF** into a live, verifiable proof-of-payment that bridges the gap between the bank's technical ledger and the human's inbox.
+**Where each fits:** SWIFT gpi gives the banks in the chain a reliable trace of a payment, and it is the right tool between them. The person waiting for the money usually sees only a receipt sent by the payer, and some providers are outside SWIFT altogether. Live Verify lets that recipient confirm the provider issued the receipt with those amounts and rates. It does not show that funds have arrived, which the bank trace and the recipient's own account still answer.

@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 A massive construction crane can lift 1,000 tons. If a cable snaps or a bolt shears off, it can destroy an entire city block and kill dozens of people.
 
-Because the stakes are so high, every crane must be professionally inspected every year (under standards like OSHA in the US or **LOLER 1998** in the UK). The **Annual Inspection Certificate** is the "Safety Sticker" found in the crane cab.
+Because the stakes are so high, every crane must be professionally inspected every year (under standards like OSHA in the US or LOLER 1998 in the UK). The Annual Inspection Certificate is the "Safety Sticker" found in the crane cab.
 
 "Pencil Whipping" is a common industry fraud where an operator fakes an inspection to keep working during a busy season. Verified hashes allow a site foreman or an OSHA inspector to scan the certificate and prove the crane actually passed a load test yesterday.
 
@@ -48,7 +48,13 @@ NEXT DUE DATE:   March 15, 2027
 <span data-verify-line="crane">verify:heavylift-inspections.com/v</span> <span verifiable-text="end" data-for="crane"></span>
 </div>
 
-## Data Verified
+## The Problem: Fake Pass Fraud
+
+- **Certificate Forgery:** Using a high-quality template to create a "Passing" certificate for a crane that failed its load test due to structural cracks.
+- **Serial Number Swapping:** Taking a valid certificate from a new crane and taping it to an old, dangerous machine. Verification shows the "Serial Number" which won't match the physical machine.
+- **Date Stretching:** Editing a 2024 certificate to read 2026 to avoid the $2,000 cost of a professional inspection.
+
+## What Is Checked
 
 Equipment serial number, manufacturer/model, owner name, maximum lift capacity, boom/jib configuration, load test results, inspector name/NCCCO number, date of inspection, expiration date.
 
@@ -58,19 +64,19 @@ Equipment serial number, manufacturer/model, owner name, maximum lift capacity, 
 - **Critical Lift Plan Verification:** For high-risk, multi-crane lifts.
 - **Wire Rope Inspection Report:** Detailed cable integrity check.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Inspection Firm or Crane Owner) and current safety standing.
 
 **Status Indications:**
 - **Pass/Active** — Equipment is verified safe for operation.
-- **Red Tagged** — **ALERT:** Critical safety failure detected; operation prohibited.
+- **Red Tagged** — Critical safety failure detected; operation prohibited.
 - **Conditional** — Minor repairs required; 30-day window allowed.
 - **Expired** — Annual inspection overdue.
 
-## Second-Party Use
+## Who Holds It
 
-The **Crane Owner / Operator** (second party) receives the inspection certificate from the inspection firm (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Crane Owner / Operator (second party) receives the inspection certificate from the inspection firm (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of the inspection results. Most of the time, the certificate sits in the crane cab or the office—the verification value is latent, there *if needed*.
 
@@ -78,7 +84,7 @@ The **Crane Owner / Operator** (second party) receives the inspection certificat
 
 **Future Optionality:** If an accident occurs or a dispute arises about equipment safety, they have cryptographic proof of the inspection ready without needing to contact the inspection firm.
 
-## Third-Party Use
+## Who Checks It
 
 The crane owner (second party) may hand the verified document to various third parties:
 
@@ -91,13 +97,7 @@ The crane owner (second party) may hand the verified document to various third p
 **Public Safety Officials**
 **Event Monitoring:** Verifying the safety of cranes used near crowds (e.g., during parades or in dense urban areas).
 
-## Verification Architecture
-
-**The "Fake Pass" Fraud Problem**
-
-- **Certificate Forgery:** Using a high-quality template to create a "Passing" certificate for a crane that failed its load test due to structural cracks.
-- **Serial Number Swapping:** Taking a valid certificate from a new crane and taping it to an old, dangerous machine. Verification shows the "Serial Number" which won't match the physical machine.
-- **Date Stretching:** Editing a 2024 certificate to read 2026 to avoid the $2,000 cost of a professional inspection.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -125,7 +125,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the inspection firm's hashes and status changes plus structured metadata (equipment serial number, inspection date, pass/fail status, load test results, next inspection due date, inspector ID) — never owner names or site locations — providing non-repudiation of the inspection and an audit trail for OSHA compliance and accident liability protection.
 
-## Competition vs. QR Stickers
+## Compared With QR Stickers
 
 | Feature | Live Verify | Standard QR Sticker | Paper Inspection Log |
 | :--- | :--- | :--- | :--- |
@@ -134,4 +134,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Field Access** | **Instant.** Scan the paper/badge. | **Instant.** | **Slow.** Find the binder. |
 | **Trust Anchor** | **Domain-Bound.** Trust the Inspector. | **Platform-Bound.** | **Visual.** |
 
-**Why Live Verify wins here:** The "Site Trailer" reality. Construction sites are dirty, wet, and harsh. QR codes on stickers often degrade within weeks. Live Verify allows for **redundant verification**—even if the paper is crumpled or the sticker is scratched, the machine-readable text (backed by the hash) remains a durable link to the source of safety data.
+**Where each fits:** a QR sticker on the machine is quick and convenient, and many inspection firms already use them. A sticker can be moved to another machine or worn unreadable on site. Live Verify ties the serial number and inspection status together in text that the inspection firm stands behind, and the two can be printed on the same tag so that either will do.

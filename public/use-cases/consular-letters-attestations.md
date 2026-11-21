@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Consular Attestation?
 
-If you are an expat living in a foreign country, your home government's **Embassy** acts as your local "High-Level Notary."
+If you are an expat living in a foreign country, your home government's Embassy acts as your local "High-Level Notary."
 
-A **Consular Letter** (or Attestation) is a formal document from a diplomat stating a fact about you (e.g., "We certify that Sarah Smith has a pension of $3,000/month").
+A Consular Letter (or Attestation) is a formal document from a diplomat stating a fact about you (e.g., "We certify that Sarah Smith has a pension of $3,000/month").
 
 Foreign governments (like Thailand or Spain) require these letters for visas. Because they are so powerful, "Embassy Letter Forgery" is a massive industry. Verified hashes allow a foreign immigration officer to scan the letter and see "VERIFIED" on the official `usembassy.gov` domain in seconds.
 
@@ -44,7 +44,13 @@ Foreign governments (like Thailand or Spain) require these letters for visas. Be
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Embassy Fraud
+
+- **High-End Forgeries:** Using heavy bond paper and fake embossed seals to create "Income Letters" for people who don't meet the financial requirements for a visa.
+- **Signature Swapping:** Taking a real letter from a low-income person and editing the name and amount to match a high-value fraudster.
+- **Unauthorized Issuance:** Local staff at a consulate issuing "under-the-table" letters that aren't in the official system. Verification only shows hashes from the official ledger.
+
+## What Is Checked
 
 Applicant name, passport number (partial), attestation reference number, consular officer name/rank, embassy/consulate location, date of issuance, specific fact being attested (e.g., residency, signature, income).
 
@@ -54,7 +60,7 @@ Applicant name, passport number (partial), attestation reference number, consula
 - **Criminal Record Attestation:** Local missions verifying home-country background checks.
 - **Consular Marriage Certificate:** Issued by some missions for citizens abroad.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`usembassy.gov`, `gov.uk`, `diplomatie.gouv.fr`) and current validity.
 
@@ -64,15 +70,15 @@ Shows the issuer domain (`usembassy.gov`, `gov.uk`, `diplomatie.gouv.fr`) and cu
 - **Expired** — Many consular letters are only valid for 3-6 months.
 - **Invalid** — Serial number or details mismatch.
 
-## Second-Party Use
+## Who Holds It
 
-The **Citizen abroad** benefits from verification.
+The Citizen abroad benefits from verification.
 
 **Visa Approval:** Proving to a foreign immigration office (e.g., Thai Immigration or Spanish Extranjería) that their "Income Letter" is a legitimate diplomatic document and not a "High-Quality Forgery." Verification prevents the 30-day delay of "Consular Confirmation" via email.
 
 **Property Purchase:** Verifying a consular-authenticated Power of Attorney to satisfy a local notary in a foreign country.
 
-## Third-Party Use
+## Who Checks It
 
 **Foreign Immigration Authorities**
 **Efficiency:** Instead of sending batch emails to embassies to confirm "Did you issue these 50 letters?", the immigration officer scans the hashes at the desk. "Verified by usembassy.gov" provides instant diplomatic-level trust.
@@ -83,13 +89,7 @@ The **Citizen abroad** benefits from verification.
 **Foreign Notaries**
 **Legalization Proof:** Confirming that the consular stamp on a legal document is authentic before performing a local notarial act.
 
-## Verification Architecture
-
-**The "Fake Embassy" Fraud Problem**
-
-- **High-End Forgeries:** Using heavy bond paper and fake embossed seals to create "Income Letters" for people who don't meet the financial requirements for a visa.
-- **Signature Swapping:** Taking a real letter from a low-income person and editing the name and amount to match a high-value fraudster.
-- **Unauthorized Issuance:** Local staff at a consulate issuing "under-the-table" letters that aren't in the official system. Verification only shows hashes from the official ledger.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -118,7 +118,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the embassy's or consulate's hashes and status changes plus structured metadata (document type, attestation date, issuing post, certification level, recipient name) — never attestation content details or reasons for refusal — providing non-repudiation of the letter and an audit trail for border and visa authorities.
 
 
-## Competition vs. Legalization (Apostille)
+## Compared With Legalization (Apostille)
 
 | Feature | Live Verify | Apostille / Legalization | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -127,4 +127,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Content.** Proves the *Income* amount. | **Binds Signature.** Doesn't protect the data on the page. | **Vulnerable.** |
 | **Cost** | **Low.** Standard web infra. | **High.** Fees can be $50-$200 per document. | **None.** |
 
-**Why Live Verify wins here:** The "Expat Life" reality. Consular letters are often "Fast-Track" alternatives to the heavy, expensive Apostille process. Live Verify provides **Apostille-level integrity** with the speed and low cost of a simple letter, making international life much more efficient for citizens and governments alike.
+**Where each fits:** where a receiving authority requires an apostille or full legalization, that is what must be obtained, and Live Verify does not change the legal requirement. An apostille authenticates the signature and seal rather than the contents. For consular letters accepted without legalization, or as a further check on one that has been legalized, Live Verify lets the recipient confirm the mission stands behind the text, including figures such as a stated income.

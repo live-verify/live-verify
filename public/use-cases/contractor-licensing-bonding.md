@@ -52,7 +52,13 @@ Homeowners use these "Pocket Cards" to verify who they are letting onto their ro
   </div>
 </div>
 
-## Data Verified
+## The Problem: License Borrowing Fraud
+
+- **Renting a License:** An unlicensed person paying a retired contractor to use their number on a permit. Verification shows the "Principal Name" which won't match the person at the door.
+- **Bond Concealment:** Pretending a bond is active when it was cancelled for non-payment months ago.
+- **Classification Fraud:** A "Landscaper" (low risk) claiming to be a "General Contractor" (high risk) to take on a house-flip project they aren't qualified for.
+
+## What Is Checked
 
 Business name, qualifying individual, license number, classification (e.g., General Building, Electrical, Plumbing), bond amount, surety company ID, expiration date, workers' comp status, disciplinary flags.
 
@@ -86,15 +92,15 @@ None typically. The verification confirms license and bond status; that's the de
 
 The status code is the value. If it's OK, proceed. If it's SUSPENDED, REVOKED, INACTIVE, or 404, find another contractor. No POST form needed.
 
-## Second-Party Use
+## Who Holds It
 
-The **Contractor** benefits from verification.
+The Contractor benefits from verification.
 
 **Customer Confidence:** Proving to a homeowner at the kitchen table that the "Active License" claim is verified by the state. This separates the professional from the "Truck and a Ladder" unlicensed operators who undercut on price but carry no insurance.
 
 **Permit Pulling:** Speeding up the building permit process. Most city building departments require proof of license. A verified hash allows the clerk to skip the manual state database search.
 
-## Third-Party Use
+## Who Checks It
 
 **Homeowners / Commercial Clients**
 **Due Diligence:** Before signing a $50,000 contract, a client scans the contractor's pocket card. "Verified by State Board" confirms the contractor is actually the person on the card and has an active $25,000 surety bond.
@@ -105,13 +111,7 @@ The **Contractor** benefits from verification.
 **Supply Houses (Wholesale)**
 **Trade Discounts:** Ensuring that only licensed professionals are accessing contractor-only pricing for materials.
 
-## Verification Architecture
-
-**The "License Borrowing" Fraud Problem**
-
-- **Renting a License:** An unlicensed person paying a retired contractor to use their number on a permit. Verification shows the "Principal Name" which won't match the person at the door.
-- **Bond Concealment:** Pretending a bond is active when it was cancelled for non-payment months ago.
-- **Classification Fraud:** A "Landscaper" (low risk) claiming to be a "General Contractor" (high risk) to take on a house-flip project they aren't qualified for.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -137,7 +137,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the licensing authority's hashes and status changes plus structured metadata (license number, classification, issue date, expiration date, bond amount, surety company) — never personal details, disciplinary history details, or criminal records — providing non-repudiation of the license issuance.
 
 
-## Competition vs. State Search Portals
+## Compared With State Search Portals
 
 | Feature | Live Verify | State Website Search | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -146,4 +146,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Trust** | **Domain-Bound.** Bound to the Board. | **High.** But prone to "typo" errors. | **Medium.** |
 | **Field Use** | **High.** Mobile-optimized workflow. | **Low.** Hard to use on a construction site. | **Universal.** |
 
-**Why Live Verify wins here:** The "Kitchen Table" workflow. Homeowners are notoriously bad at verifying contractors. Live Verify turns the **Physical Pocket Card** into a live, high-speed trust tool that works in the driveway or kitchen, where the hiring decision is actually made.
+**Where each fits:** the state board's website is the official register and the fullest source, including complaint history, and a homeowner with time should look there. On a doorstep or at a kitchen table, searching it on a phone is awkward, and a mistyped number proves little. Live Verify lets the homeowner check the pocket card they are shown against the board's domain, as a quick first step before any fuller search.

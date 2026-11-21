@@ -34,7 +34,13 @@ By signing below, you agree to the terms of this installment loan.
 <span data-verify-line="bnpl">verify:affirm.com/loans/v</span> <span verifiable-text="end" data-for="bnpl"></span>
 </div>
 
-## Data Verified
+## The Problem: Ghost Debt Fraud
+
+- **Undisclosed Liabilities:** Borrowers hiding multiple BNPL loans from a mortgage lender by editing the PDF "Balance" or "Monthly Payment."
+- **Terms Manipulation:** Changing a "20% APR" agreement to read "0% APR" to qualify for a different financial product.
+- **Identity Theft:** Fraudsters taking out BNPL loans in a victim's name; verification allows the victim to see the "Official" data being used for the loan.
+
+## What Is Checked
 
 Borrower name, merchant name, loan ID, total amount financed, Annual Percentage Rate (APR), payment schedule (e.g., 12 months), monthly payment amount, date of agreement.
 
@@ -43,7 +49,7 @@ Borrower name, merchant name, loan ID, total amount financed, Annual Percentage 
 - **Truth in Lending Act (TILA) Disclosure:** Federal mandatory disclosure.
 - **Payment Receipt:** Proving a specific installment was paid.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`affirm.com`, `klarna.com`) and current loan status.
 
@@ -53,9 +59,9 @@ Shows the issuer domain (`affirm.com`, `klarna.com`) and current loan status.
 - **In-Arrears** — Payment overdue (critical for credit checking).
 - **Charged-Off** — Uncollectible debt.
 
-## Second-Party Use
+## Who Holds It
 
-The **Borrower** (second party) receives the loan agreement from the BNPL provider (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Borrower (second party) receives the loan agreement from the BNPL provider (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of the loan terms. Most of the time, the document sits in their email or financial records—the verification value is latent, there *if needed*.
 
@@ -63,7 +69,7 @@ The **Borrower** (second party) receives the loan agreement from the BNPL provid
 
 **Future Optionality:** If a dispute arises—whether with the merchant about the purchase or with a future lender about debt obligations—they have cryptographic proof ready without needing to contact Affirm or Klarna.
 
-## Third-Party Use
+## Who Checks It
 
 The borrower (second party) may hand the verified document to various third parties:
 
@@ -76,13 +82,7 @@ The borrower (second party) may hand the verified document to various third part
 **Legal Aid / Consumer Advocates**
 **Predatory Lending Checks:** Instantly verifying the "Truth in Lending" disclosures to ensure the actual APR matches the marketing claims.
 
-## Verification Architecture
-
-**The "Ghost Debt" Fraud Problem**
-
-- **Undisclosed Liabilities:** Borrowers hiding multiple BNPL loans from a mortgage lender by editing the PDF "Balance" or "Monthly Payment."
-- **Terms Manipulation:** Changing a "20% APR" agreement to read "0% APR" to qualify for a different financial product.
-- **Identity Theft:** Fraudsters taking out BNPL loans in a victim's name; verification allows the victim to see the "Official" data being used for the loan.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -111,7 +111,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 ## Rationale
 
-## Competition vs. Credit Reports (Experian/TransUnion)
+## Compared With Credit Reports (Experian/TransUnion)
 
 | Feature | Live Verify | Credit Bureau Report | Paper Disclosure |
 | :--- | :--- | :--- | :--- |
@@ -119,5 +119,5 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Timeliness** | **Real-time.** Proves the loan status *today*. | **Laggy.** Updates take 30-60 days. | **Static.** |
 | **Trust** | **Cryptographic.** Bound to the Lender. | **Reporting-Bound.** Relies on data file uploads. | **Zero.** |
 
-**Why Live Verify wins here:** The "Shadow Credit" problem. BNPL is a multi-billion dollar industry that operates largely outside the view of traditional credit bureaus. Live Verify brings this "Shadow Debt" into the light, allowing for responsible lending while preserving the consumer's ability to prove their own repayment history.
+**Where each fits:** a credit bureau report is still the broadest single view of a borrower and the basis for most lending decisions. Some instalment loans are not reported, or appear only after a delay. Live Verify lets a consumer show a lender a statement that the provider stands behind, covering what the bureau file has not yet picked up, and equally lets them evidence a clean repayment record.
 

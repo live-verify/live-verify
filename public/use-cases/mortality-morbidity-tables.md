@@ -39,7 +39,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Risk Masking Fraud
+
+- **Numerical Smoothing:** Manually editing a few specific ages in a mortality table PDF to make a portfolio look "Younger" or "Healthier" than it is.
+- **Outdated Table Use:** Presenting a 2010 table as if it were the 2026 version to avoid accounting for increasing life expectancies (which raises costs).
+- **Fabricated Standards:** Creating a fake "Actuarial Board" to certify a biased table for a predatory insurance product.
+
+## What Is Checked
 
 Table name (e.g., 2026 CSO), version ID, population basis (e.g., U.S. Group Life), date of certification, lead actuary name/FSA ID, specific data segments (Age/Sex/Smoker), issuing standards body, effective date for statutory use.
 
@@ -49,25 +55,25 @@ Table name (e.g., 2026 CSO), version ID, population basis (e.g., U.S. Group Life
 - **Statutory Adoption Notice:** Proving the NAIC has accepted the table.
 - **Experience Study Extract:** Summary of the real-world death data used.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`soa.org`, `actuary.org`) and the table standing.
 
 **Status Indications:**
 - **Certified/Valid** — Table is authentic and current.
 - **Proposed** — Under peer review; not yet for statutory use.
-- **Superseded** — **ALERT:** A newer table has been released (e.g., due to COVID-era mortality shifts).
+- **Superseded** — A newer table has been released (e.g., due to COVID-era mortality shifts).
 - **Recalled** — Table found to have a calculation error.
 
-## Second-Party Use
+## Who Holds It
 
-The **Appointed Actuary (at an Insurer)** benefits from verification.
+The Appointed Actuary (at an Insurer) benefits from verification.
 
-**Solvency Audit Defense:** Proving to state regulators that the reserves for a $100B life insurance block are calculated using the **Verified CSO Table**. Verification prevents "Data Drift" where an insurer accidentally uses an old or slightly altered table that artificially lowers their liability.
+**Solvency Audit Defense:** Proving to state regulators that the reserves for a $100B life insurance block are calculated using the Verified CSO Table. Verification prevents "Data Drift" where an insurer accidentally uses an old or slightly altered table that artificially lowers their liability.
 
 **Pricing Integrity:** Proving to the product development team that the "Guaranteed Premiums" are based on a verified, industry-standard risk model.
 
-## Third-Party Use
+## Who Checks It
 
 **State Insurance Regulators (DOI)**
 **Compliance Audit:** Instantly verifying that the tables used in a carrier's annual statement match the official SOA/NAIC ledger. Live Verify prevents "Table Gaming" where a company tweaks mortality rates by 0.1% to hide financial distress.
@@ -78,13 +84,7 @@ The **Appointed Actuary (at an Insurer)** benefits from verification.
 **Pension Fund Trustees**
 **Fiduciary Oversight:** Verifying that the mortality assumptions used to calculate pension payouts are based on verified, peer-reviewed tables.
 
-## Verification Architecture
-
-**The "Risk Masking" Fraud Problem**
-
-- **Numerical Smoothing:** Manually editing a few specific ages in a mortality table PDF to make a portfolio look "Younger" or "Healthier" than it is.
-- **Outdated Table Use:** Presenting a 2010 table as if it were the 2026 version to avoid accounting for increasing life expectancies (which raises costs).
-- **Fabricated Standards:** Creating a fake "Actuarial Board" to certify a biased table for a predatory insurance product.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -111,7 +111,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the standards body's hashes and status changes plus structured metadata (table name, version, certification date, effective date) — never underlying data or actuarial methodology — providing non-repudiation of the table and an audit trail regulators and insurers can inspect.
 
 
-## Competition vs. Actuarial Portals (Mort.SOA.org)
+## Compared With Actuarial Portals (Mort.SOA.org)
 
 | Feature | Live Verify | SOA Mortality Table Portal | Scanned PDF Memo |
 | :--- | :--- | :--- | :--- |
@@ -120,4 +120,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **User Access** | **Universal.** Any regulator or auditor. | **Difficult.** Requires navigating complex XLS/XML downloads. | **Instant.** |
 | **Freshness** | **Real-time.** Shows if table was restated. | **Live.** | **Static.** |
 
-**Why Live Verify wins here:** The "Audit Artifact" reality. Actuaries work with "Static Reports" (PDFs) that are signed and archived for decades. They don't have the time to download fresh XML data for every audit check. Live Verify turns the **Signed Actuarial Opinion** into a live digital anchor, ensuring the "Risk DNA" of the insurance industry is verified at every handoff.
+**Where each fits:** The Society of Actuaries' table portal is the source for the data itself, and an actuary building a model should take the tables from there. An auditor or regulator reading a signed memo is asking something else: whether the table cited in this document is as published and has not since been restated. Live Verify lets them check that from the document, while the portal remains where the underlying numbers are obtained.

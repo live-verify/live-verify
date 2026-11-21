@@ -11,14 +11,14 @@ furtherDerivations: 1
 
 ## What is a Will?
 
-A **Last Will and Testament** is the final legal declaration of a person's wishes regarding the distribution of their property after death. It is the "Moral and Legal anchor" of an estate.
+A Last Will and Testament is the final legal declaration of a person's wishes regarding the distribution of their property after death. It is the "Moral and Legal anchor" of an estate.
 
 It defines:
 1.  **Beneficiaries:** Who gets the money, the house, and the family heirlooms.
 2.  **Guardianship:** Who will raise any surviving minor children.
 3.  **The Executor:** The trusted person who will manage the "Probate" process.
 
-**"Will Tampering"** is a common and high-stakes fraud. Because wills are often multi-page documents held together by a simple staple, criminals (or disgruntled family members) use **"Page Substitution"**—they remove a single middle page and replace it with a forged one that changes a $10,000 bequest into a $100,000 one. Live Verify provides **Per-Page Verification**, binding the specific text of every page to the law firm's or the state will registry's domain.
+**"Will Tampering"** is a common and high-stakes fraud. Because wills are often multi-page documents held together by a simple staple, criminals (or disgruntled family members) use "Page Substitution"—they remove a single middle page and replace it with a forged one that changes a $10,000 bequest into a $100,000 one. Live Verify provides Per-Page Verification, binding the specific text of every page to the law firm's or the state will registry's domain.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 1px solid #333; background: #fff; padding: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); position: relative;">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 40px;">
@@ -40,7 +40,13 @@ It defines:
   </div>
 </div>
 
-## Data Verified
+## The Problem: Staple and Swap Fraud
+
+- **Page Substitution:** Removing a page that gives a house to "Charity A" and replacing it with a fake page that gives the house to "Son B."
+- **Will Suppression:** Hiding a new Will to ensure an older, more favorable Will is used. Live Verify shows the old Will as "Superseded" when scanned, enabling detection if a verifier checks.
+- **Codicil Forgery:** Creating a fake 1-page "Amendment" that changes the Executor to a fraudster.
+
+## What Is Checked
 
 Testator name, Date of Execution, Witness names, Executor/Personal Representative name, Page Number (e.g., "Page 1 of 12"), Revision ID, Law firm/Attorney ID, Drafting date.
 
@@ -50,25 +56,25 @@ Testator name, Date of Execution, Witness names, Executor/Personal Representativ
 - **Pour-Over Will:** Used in conjunction with a Living Trust.
 - **Self-Proving Affidavit:** Notarized proof that the witnesses saw the signing.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Drafting Attorney or a State Will Registry) and the document standing.
 
 **Status Indications:**
 - **Valid/Latest** — This is the most recent version of the Will known to the issuer.
-- **Superseded** — **ALERT:** A newer Will or Codicil has been issued (linked hash).
+- **Superseded** — A newer Will or Codicil has been issued (linked hash).
 - **Revoked** — The Testator has explicitly cancelled this Will.
 - **Admitted to Probate** — Document has been verified and accepted by a court.
 
-## Second-Party Use
+## Who Holds It
 
-The **Testator (Principal)** benefits from verification.
+The Testator (Principal) benefits from verification.
 
 **Safe Keeping:** Ensuring that the version of the Will they leave in their safe deposit box is "Verified Current." If they update their Will 5 years later, the verification status of the old paper Will instantly changes to "Superseded," preventing their family from accidentally probating the wrong document.
 
 **Estate Review:** During an annual checkup with their lawyer, scanning the hash to confirm the document in their hand matches the lawyer's "Master File."
 
-## Third-Party Use
+## Who Checks It
 
 **Probate Attorneys**
 **Integrity Checks:** Before filing a Will with the court, the lawyer scans every page. "Verified by Drafting-Firm.com" ensures that no pages were swapped or "edited" by a beneficiary during the years the Will sat in a home safe.
@@ -77,15 +83,9 @@ The **Testator (Principal)** benefits from verification.
 **Admission Speed:** Instantly verifying the authenticity of a Will submitted for probate. This reduces the need for "Witness Testimony" to prove the Will is real, potentially saving the estate thousands in legal fees.
 
 **Executor (Banker/Accountant)**
-**Due Diligence:** Confirming they are following the **Latest Verified Instructions** before they begin the high-liability work of distributing assets.
+**Due Diligence:** Confirming they are following the Latest Verified Instructions before they begin the high-liability work of distributing assets.
 
-## Verification Architecture
-
-**The "Staple and Swap" Fraud Problem**
-
-- **Page Substitution:** Removing a page that gives a house to "Charity A" and replacing it with a fake page that gives the house to "Son B."
-- **Will Suppression:** Hiding a new Will to ensure an older, more favorable Will is used. Live Verify shows the old Will as "Superseded" when scanned, enabling detection if a verifier checks.
-- **Codicil Forgery:** Creating a fake 1-page "Amendment" that changes the Executor to a fraudster.
+## How Verification Works Here
 
 **The "Mortal Witness" Attack — Undue Influence with Disposable Witnesses**
 
@@ -96,13 +96,13 @@ The attack pattern:
 2. They arrange for a new will to be drafted by a real solicitor (or a complicit one), redirecting assets to themselves
 3. The witnesses are deliberately chosen because they are also elderly, ill, or otherwise unlikely to survive long enough to testify at a probate contest — a neighbour with terminal cancer, a care home resident with dementia, an elderly friend who "won't be around much longer"
 4. The testator dies. The will is probated. By the time other family members contest it, the witnesses are dead or cognitively unable to testify about the testator's state of mind or the circumstances of signing
-5. The will's hash **verifies perfectly** against the solicitor's domain — this is issuer-side fraud, not document tampering. Live Verify cannot distinguish a coerced-but-genuine will from a freely-given one
+5. The will's hash verifies perfectly against the solicitor's domain — this is issuer-side fraud, not document tampering. Live Verify cannot distinguish a coerced-but-genuine will from a freely-given one
 
 **What Live Verify cannot do here:** Verification proves the solicitor attested to this document. It does not prove the testator was of sound mind, acting freely, or not under undue influence. A cryptographically valid will can still be a product of coercion.
 
 **What Live Verify can contribute: independently verifiable witness attestations.**
 
-If each witness's attestation is published as a **separate verifiable claim** on the solicitor's domain, the attestation survives the witness:
+If each witness's attestation is published as a separate verifiable claim on the solicitor's domain, the attestation survives the witness:
 
 ```
 I, DOROTHY HELEN MARSH, witnessed MARGARET A. WILLOWS
@@ -118,14 +118,14 @@ This creates several defences:
 - **The attestation exists as a timestamped record even after the witness dies.** The witness's words — including their assessment of the testator's mental state — are cryptographically anchored. They cannot be retroactively altered by anyone.
 - **The attestation's timestamp is independently verifiable.** If a witnessing service is used, the timestamp is anchored by a third party. This matters when a contest alleges the will was backdated.
 - **Pattern detection across a solicitor's practice.** If a solicitor repeatedly drafts wills where the witnesses die within months of execution, and the beneficiaries are always the same small circle, that pattern becomes visible in the verification data. A regulatory body (SRA, state bar) could flag solicitors with statistically improbable witness mortality rates — something impossible with paper-only records scattered across different filing cabinets.
-- **Witness attestation vs. witness testimony.** In a traditional probate contest, the court needs to locate and examine the witnesses. If they are dead, the proponent of the will must prove validity through other means (self-proving affidavits, solicitor testimony, circumstantial evidence). A verified witness attestation is not a substitute for live testimony, but it is a **contemporaneous record** — created at the time of signing, not reconstructed years later — and courts may weigh it accordingly.
+- **Witness attestation vs. witness testimony.** In a traditional probate contest, the court needs to locate and examine the witnesses. If they are dead, the proponent of the will must prove validity through other means (self-proving affidavits, solicitor testimony, circumstantial evidence). A verified witness attestation is not a substitute for live testimony, but it is a contemporaneous record — created at the time of signing, not reconstructed years later — and courts may weigh it accordingly.
 
 **Limitations of this approach:**
 - A witness under the influencer's control will attest whatever they're told to. The attestation records their words, not their honesty.
 - A complicit solicitor can publish attestations for witnesses who were not actually present. The hash verifies against the solicitor's domain, and the solicitor is the liar.
 - The pattern detection only works if solicitors use Live Verify widely enough to create a statistical baseline. One firm in isolation reveals nothing.
 
-The witness attestation approach doesn't prevent the mortal witness attack. It makes it **harder to get away with** — the attestation is a permanent, timestamped record that persists beyond the witness's death, and the pattern of witness mortality becomes a data point rather than an invisible coincidence.
+The witness attestation approach doesn't prevent the mortal witness attack. It makes it harder to get away with — the attestation is a permanent, timestamped record that persists beyond the witness's death, and the pattern of witness mortality becomes a data point rather than an invisible coincidence.
 
 **Issuer Types** (First Party)
 
@@ -220,7 +220,7 @@ The registry model doesn't eliminate will fraud. It eliminates the solicitor's m
 
 See [Legal Witnessing Future Architecture](../../docs/legal-witnessing-future-architecture.md) for the generalised model — including the lawyer's verbal hash confirmation step, the three distinct attestation roles, and applicability beyond wills to powers of attorney, deeds, affidavits, and contracts.
 
-## Competition vs. Physical Security (Watermarks)
+## Compared With Physical Security (Watermarks)
 
 | Feature | Live Verify | Watermarked Paper | Online Court Docket |
 | :--- | :--- | :--- | :--- |
@@ -229,4 +229,4 @@ See [Legal Witnessing Future Architecture](../../docs/legal-witnessing-future-ar
 | **Trust Anchor** | **Domain-Bound.** Bound to the Lawyer. | **Printer-Bound.** | **System-Bound.** |
 | **Cost** | **Free.** (Standard web hosting). | **High.** Specialized paper/ink. | **Medium.** Access fees. |
 
-**Why Live Verify wins here:** The "Privacy Gap." Most people do not want to file their Will with a public court while they are still alive. Live Verify allows for **"Private Integrity"**—the Will stays in a private safe, but its cryptographic integrity is anchored to the lawyer's domain, ensuring it remains "Un-altered and Current" until the day it is needed.
+**Where each fits:** Once a will has been admitted to probate, the court docket is the authoritative record and the place to look. Before then most people keep their will private, and security paper only shows that the sheet itself has not been swapped. Live Verify lets an executor or family member confirm that the lawyer's firm stands behind the wording of the copy they hold and that it has not been superseded, without any filing during the testator's lifetime; the court process then proceeds as usual.

@@ -11,14 +11,14 @@ furtherDerivations: 1
 
 ## What is an Audited Financial Statement?
 
-An **Audit Report** is the official opinion of a Certified Public Accountant (CPA) on the financial health of a company. It is the "Truth Stamp" for the business world.
+An Audit Report is the official opinion of a Certified Public Accountant (CPA) on the financial health of a company. It is the "Truth Stamp" for the business world.
 
 It is used for high-stakes financial decisions:
 1.  **Bank Loans:** Lenders won't give multimillion-dollar loans without an audit.
 2.  **M&A Deals:** Buyers verify the target's revenue before purchasing.
 3.  **Public Trust:** Investors rely on audits to buy stocks.
 
-**"Phantom Audits"** are a major corporate crime. Fraudulent companies create fake "Unqualified Opinions" on stolen accounting firm letterhead (like PwC or EY) to hide insolvency or to trick lenders into funding a failing business. In other cases, executives "Scrub" a real audit to remove a **"Going Concern"** warning—the paragraph where the auditor warns that the company might go bankrupt. Live Verify binds the **Company name, Net Income, and Opinion Type** to the audit firm's domain.
+**"Phantom Audits"** are a major corporate crime. Fraudulent companies create fake "Unqualified Opinions" on stolen accounting firm letterhead (like PwC or EY) to hide insolvency or to trick lenders into funding a failing business. In other cases, executives "Scrub" a real audit to remove a "Going Concern" warning—the paragraph where the auditor warns that the company might go bankrupt. Live Verify binds the Company name, Net Income, and Opinion Type to the audit firm's domain.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="audit"></span>
@@ -56,7 +56,13 @@ statements based on our audits.
   <span data-verify-line="audit">verify:pwc.com/audit/v</span> <span verifiable-text="end" data-for="audit"></span>
 </div>
 
-## Data Verified
+## The Problem: Audit Scrubbing Fraud
+
+- **Footnote Removal:** Deleting a "Going Concern" warning or a "Related Party Transaction" footnote from the final PDF to hide financial distress from lenders.
+- **Number Inflation:** Editing a $1M net income to read $10M to meet a loan requirement.
+- **Fabricated Opinion Letters:** Creating fake auditor letterhead to justify a "Vapor-Business."
+
+## What Is Checked
 
 Company name, fiscal year-end date, audit opinion type (Unqualified, Qualified, Adverse, Disclaimer), Lead Partner name, audit firm office, material findings summary, consolidated totals (Revenue, Net Income), PCAOB registration status.
 
@@ -66,19 +72,19 @@ Company name, fiscal year-end date, audit opinion type (Unqualified, Qualified, 
 - **Review Engagement Letter:** For mid-sized private companies (lower assurance than audit).
 - **Compilation Report:** Most basic form of accounting service.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Audit Firm) and the current opinion status.
 
 **Status Indications:**
 - **Final** — Audit completed and opinion is active.
-- **Withdrawn** — **ALERT:** Firm has retracted the opinion (e.g., due to discovery of management fraud).
+- **Withdrawn** — Firm has retracted the opinion (e.g., due to discovery of management fraud).
 - **Superseded** — Restated financials have been issued (linked hash).
 - **Subject to Internal Review** — Opinion under internal quality control review.
 
-## Second-Party Use
+## Who Holds It
 
-The **Audited Company** (second party) receives the audit report from the CPA firm (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Audited Company (second party) receives the audit report from the CPA firm (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** The company has their own verified copy of the audit opinion. Most of the time, the document sits in their financial records—the verification value is latent, there *if needed*.
 
@@ -86,7 +92,7 @@ The **Audited Company** (second party) receives the audit report from the CPA fi
 
 **Future Optionality:** If a loan application arises, an M&A transaction occurs, or regulatory filing is needed, the company has cryptographic proof ready without needing to contact the auditor.
 
-## Third-Party Use
+## Who Checks It
 
 The audited company (second party) may hand the verified document to various third parties:
 
@@ -99,13 +105,7 @@ Ensuring that filed reports match the auditor's official records, preventing "Wi
 **Government Grantors**
 Agencies (e.g., USAID, NIH) verify that non-profits have passed their mandatory "Single Audit" before releasing grant funds.
 
-## Verification Architecture
-
-**The "Audit Scrubbing" Fraud Problem**
-
-- **Footnote Removal:** Deleting a "Going Concern" warning or a "Related Party Transaction" footnote from the final PDF to hide financial distress from lenders.
-- **Number Inflation:** Editing a $1M net income to read $10M to meet a loan requirement.
-- **Fabricated Opinion Letters:** Creating fake auditor letterhead to justify a "Vapor-Business."
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -133,7 +133,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the audit firm's hashes and status changes plus structured metadata (company name, fiscal year, opinion type, consolidated totals) — never detailed financial footnotes, management discussions, or proprietary business information — providing non-repudiation of the opinion.
 
-## Competition vs. SEC EDGAR Database
+## Compared With SEC EDGAR Database
 
 | Feature | Live Verify | SEC EDGAR (Public) | Private PDF |
 | :--- | :--- | :--- | :--- |
@@ -142,4 +142,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Content.** Proves every word matches. | **Data-Only.** Doesn't protect the paper. | **Vulnerable.** |
 | **Freshness** | **Real-time.** Shows "Withdrawn" status. | **Laggy.** Re-filings take time. | **Static.** |
 
-**Why Live Verify wins here:** Reach. Private companies and non-profits do not file with the SEC. Their audits are "Private Documents" shared with specific lenders and donors. Live Verify allows these private documents to be cryptographically verified without making them public on a government database.
+**Where each fits:** for a listed company, the filing on EDGAR is the authoritative copy and the natural place to check. Private companies and non-profits do not file there, and their audit reports reach lenders and donors as PDFs. Live Verify lets those readers confirm the audit firm issued the report and has not withdrawn it, without the report having to be made public. A listed company's report can carry a verify line as well, for copies that circulate away from the filing.

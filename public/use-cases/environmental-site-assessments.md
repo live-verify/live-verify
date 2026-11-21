@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is a Phase I ESA?
 
-Before a bank will give a $10 million loan for a commercial building, they need a "Medical Exam" for the land. This is called a **Phase I Environmental Site Assessment (ESA)**.
+Before a bank will give a $10 million loan for a commercial building, they need a "Medical Exam" for the land. This is called a Phase I Environmental Site Assessment (ESA).
 
 An expert looks at old maps and walks the site to see if it was ever a gas station, a dry cleaner, or a chemical dump. If they find a "REC" (Recognized Environmental Condition), the property might be worth zero.
 
-Fraud happens when a seller "Deletes" the page of the report that mentions a buried oil tank to trick a bank into approving a loan. Verified hashes protect the **expert's actual findings**, ensuring the bank isn't lending on a toxic liability.
+Fraud happens when a seller "Deletes" the page of the report that mentions a buried oil tank to trick a bank into approving a loan. Verified hashes protect the expert's actual findings, ensuring the bank isn't lending on a toxic liability.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Helvetica', Arial, sans-serif; border: 2px solid #2e7d32; background: #f1f8e9; padding: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #2e7d32; padding-bottom: 15px; margin-bottom: 25px;">
@@ -48,7 +48,13 @@ Fraud happens when a seller "Deletes" the page of the report that mentions a bur
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Clean Fraud
+
+- **REC Deletion:** Removing the page from a PDF report that mentions a "Recognized Environmental Condition" (e.g., a former gas station on the site).
+- **Date Stretching:** Changing a 2020 report date to 2026 to hide that the data is 6 years out of date.
+- **Consultant Impersonation:** Forging a report on the letterhead of a reputable firm like ERM or Tetra Tech.
+
+## What Is Checked
 
 Property address, assessment type (Phase I/II), ASTM standard version, primary findings (e.g., "No RECs identified"), lead assessor name/license, client name, report date, report ID.
 
@@ -58,25 +64,25 @@ Property address, assessment type (Phase I/II), ASTM standard version, primary f
 - **Vapor Intrusion Report:** Specific to indoor air safety.
 - **Reliance Letter:** Allowing a bank to rely on an old report.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Environmental Consulting Firm) and current report status.
 
 **Status Indications:**
 - **Final** — Report matches the firm's official record.
 - **Amended** — A revised report exists (e.g., after finding a data gap).
-- **Stale** — **ALERT:** Report is > 180 days old; no longer valid for AAI protection.
+- **Stale** — Report is > 180 days old; no longer valid for AAI protection.
 - **Void** — Report retracted due to technical error.
 
-## Second-Party Use
+## Who Holds It
 
-The **Property Seller / Owner** benefits from verification.
+The Property Seller / Owner benefits from verification.
 
 **M&A Transactions:** Proving to a multimillion-dollar buyer that the "Clean Phase I" isn't a fake PDF created to hide a massive toxic leak. A verified hash allows the buyer to close the deal weeks faster by bypassing manual consultant calls.
 
 **Refinancing:** Providing verified proof of environmental due diligence to a bank's risk department to unlock a lower interest rate on a commercial mortgage.
 
-## Third-Party Use
+## Who Checks It
 
 **Commercial Lenders (Banks)**
 **Collateral Vetting:** Environmental cleanup costs (CERCLA) can exceed the value of the land. Lenders verify the "No RECs" claim to protect their collateral. Live Verify ensures the borrower hasn't "Deleted" the page mentioning a buried oil tank.
@@ -87,13 +93,7 @@ The **Property Seller / Owner** benefits from verification.
 **Investors / Shareholders**
 **ESG Transparency:** Ensuring that corporate "Environmental Risk" disclosures in annual reports are backed by verified, un-altered expert assessments.
 
-## Verification Architecture
-
-**The "Fake Clean" Fraud Problem**
-
-- **REC Deletion:** Removing the page from a PDF report that mentions a "Recognized Environmental Condition" (e.g., a former gas station on the site).
-- **Date Stretching:** Changing a 2020 report date to 2026 to hide that the data is 6 years out of date.
-- **Consultant Impersonation:** Forging a report on the letterhead of a reputable firm like ERM or Tetra Tech.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -119,7 +119,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the environmental consultant's hashes and status changes plus structured metadata (property addresses, assessment types, ASTM standards, primary findings, lead assessor names and licenses, report dates) — never detailed remediation costs or liability exposure details — providing non-repudiation of the assessment and an audit trail environmental regulators and lenders can inspect.
 
-## Competition vs. Environmental Data Portals
+## Compared With Environmental Data Portals
 
 | Feature | Live Verify | EDR / Environmental Data Portals | Scanned PDF Report |
 | :--- | :--- | :--- | :--- |
@@ -128,4 +128,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Legal Weight** | **High.** Proves the expert's attestation. | **Low.** Just a search of public records. | **High.** But untrusted. |
 | **Speed** | **Instant.** Scan the report. | **Slow.** Requires subscription and manual search. | **Instant.** |
 
-**Why Live Verify wins here:** The "Expert Opinion" gap. EDR portals can tell you where the nearby gas stations are. But only an ESA Report tells you what the **Expert thinks** about the risk. Live Verify turns that high-stakes expert opinion into a verifiable digital anchor that cannot be tampered with during a property flip.
+**Where each fits:** EDR and similar data services do a job a report cannot do for itself: they assemble the public-record history of a site and its surroundings, and consultants rely on them to write an assessment in the first place. The assessment adds a professional opinion, and that opinion is what gets passed to lenders, buyers and their lawyers as a PDF. Live Verify lets those readers confirm the consultant stands behind the exact findings they were sent, while the database search remains the raw material underneath.

@@ -11,7 +11,7 @@ furtherDerivations: 6
 
 ## What is an Appraisal?
 
-An **appraisal** (or **valuation**) is a formal document where a qualified expert states what a thing is worth. The thing can be a multimillion-dollar painting — or a far smaller item: a diamond ring, a vintage watch, a Georgian writing desk, a rare coin, a first-edition book, a violin. The dollar figure differs by orders of magnitude, but the document does the same job and faces the same fraud.
+An appraisal (or valuation) is a formal document where a qualified expert states what a thing is worth. The thing can be a multimillion-dollar painting — or a far smaller item: a diamond ring, a vintage watch, a Georgian writing desk, a rare coin, a first-edition book, a violin. The dollar figure differs by orders of magnitude, but the document does the same job and faces the same fraud.
 
 Appraisals are used for:
 
@@ -20,13 +20,13 @@ Appraisals are used for:
 3.  **Loans / Collateral:** When the item is pledged to secure borrowing.
 4.  **Sale / Division:** To set a reserve, or to divide assets fairly in a divorce or inheritance.
 
-The fraud is identical across the value spectrum: **inflate the number** (to over-insure, over-deduct, or over-borrow), or **fabricate the appraiser** (a fake "certified" letter from a non-existent firm). A verified hash binds the **stated value, the item description, and the appraiser's credentials** to the appraisal firm's or authority's domain — whether that domain is `sothebys.com` for a Rothko or a local independent gemologist for a ring.
+The fraud is identical across the value spectrum: inflate the number (to over-insure, over-deduct, or over-borrow), or fabricate the appraiser (a fake "certified" letter from a non-existent firm). A verified hash binds the stated value, the item description, and the appraiser's credentials to the appraisal firm's or authority's domain — whether that domain is `sothebys.com` for a Rothko or a local independent gemologist for a ring.
 
-This document covers the high-end **art** case in depth (the richest example), then the broader **personal-property / chattel** case for the smaller items most people actually own. See the [Personal Property & Chattel Appraisals](#chattel) section below for jewelry, watches, antiques, coins, and collectibles.
+This document covers the high-end art case in depth (the richest example), then the broader personal-property / chattel case for the smaller items most people actually own. See the [Personal Property & Chattel Appraisals](#chattel) section below for jewelry, watches, antiques, coins, and collectibles.
 
 ## What is an Art Appraisal?
 
-An **Art Appraisal** is a formal document where an expert (at Sotheby's, Christie's, or a private firm) determines how much a painting is worth.
+An Art Appraisal is a formal document where an expert (at Sotheby's, Christie's, or a private firm) determines how much a painting is worth.
 
 This value is used for:
 1.  **Insurance:** So you know how much to pay in premiums.
@@ -66,7 +66,13 @@ High-end art is a target for money laundering. Verified appraisals ensure that a
   </div>
 </div>
 
-## Data Verified
+## The Problem: Value Padding Fraud
+
+- **Photoshop:** Editing a $18,600 valuation to read $186,000,000 to trick a bank into giving a massive loan.
+- **Fictitious Appraisers:** Creating a fake appraisal from a non-existent firm with a real-looking website.
+- **Old Appraisals:** Presenting a 2010 valuation as a 2026 valuation to hide a market crash for that specific artist.
+
+## What Is Checked
 
 Appraiser name/credentials (AAA/ISA), client name, artwork details (Artist, Title, Medium), effective date of valuation, Purpose (Insurance/Tax/Collateral), Fair Market Value (FMV) or Replacement Value, Report ID.
 
@@ -100,15 +106,15 @@ Art collectors are intensely private. They don't want inquiries about pieces tha
 
 If someone needs to contact the owner (for acquisition, loan, or exhibition), that happens through existing art market channels — not through a verification endpoint.
 
-## Second-Party Use
+## Who Holds It
 
-The **Art Collector** benefits from verification.
+The Art Collector benefits from verification.
 
 **Insurance Placement:** Proving to an insurance broker that the $186M valuation isn't a "fake PDF" to over-insure a worthless piece (insurance fraud).
 
 **Collateralized Lending:** Proving to a bank (e.g., J.P. Morgan Private Bank) that the artwork being used as collateral for a loan was legitimately valued by a top-tier appraiser.
 
-## Third-Party Use
+## Who Checks It
 
 **Insurance Underwriters**
 **Risk Assessment:** Underwriters see thousands of PDFs. Verification ensures the value they are insuring matches the appraiser's official record, preventing "over-valuation fraud" where collectors try to profit from a staged theft.
@@ -119,13 +125,7 @@ The **Art Collector** benefits from verification.
 **Auction Houses**
 **Consignment:** Verifying prior appraisals when a piece comes up for sale to establish a baseline for reserves.
 
-## Verification Architecture
-
-**The "Value Padding" Fraud Problem**
-
-- **Photoshop:** Editing a $18,600 valuation to read $186,000,000 to trick a bank into giving a massive loan.
-- **Fictitious Appraisers:** Creating a fake appraisal from a non-existent firm with a real-looking website.
-- **Old Appraisals:** Presenting a 2010 valuation as a 2026 valuation to hide a market crash for that specific artist.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -137,7 +137,7 @@ The **Art Collector** benefits from verification.
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the appraiser's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the appraisal.
 
-## Competition vs. Appraisal Databases
+## Compared With Appraisal Databases
 
 | Feature | Live Verify | Private Portal (Sotheby's) | Blockchain Art Registry |
 | :--- | :--- | :--- | :--- |
@@ -145,7 +145,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **User Experience** | **Instant.** Scan the PDF/Paper in the data room. | **Hard.** Requires logins, passwords, and permissions. | **Medium.** Requires crypto-wallets/explorers. |
 | **Authority** | **Domain-Bound.** Trust the brand you know. | **Portal-Bound.** | **Ambiguous.** Who controls the registry? |
 
-**Why Live Verify wins here:** The high-end art market is obsessed with **discretion**. Collectors do not want their entire portfolio in a searchable database. Live Verify allows them to share a **single, verified document** with a single lender or insurer without exposing their identity or other assets to a platform.
+**Where each fits:** an auction house or appraiser portal serves its own clients well, and a blockchain registry suits collectors who want a public record. A collector showing one appraisal to one lender or insurer may not want either: the recipient has no portal login, and the collector may not want the rest of the collection visible. Live Verify lets that single report be checked against the appraiser's domain, and it can be used alongside whichever registry the owner already keeps.
 
 
 ---
@@ -155,9 +155,9 @@ _[Content merged from: art-certificates-of-authenticity]_
 
 ## What is a Certificate of Authenticity (COA)?
 
-In the art world, the painting itself is only half the value. The other half is the **COA**—the paper proving it was actually made by the artist.
+In the art world, the painting itself is only half the value. The other half is the COA—the paper proving it was actually made by the artist.
 
-A **COA** is issued by the artist's estate or a top-tier gallery. Without a verified COA, a multimillion-dollar Basquiat or Warhol is nearly impossible to sell.
+A COA is issued by the artist's estate or a top-tier gallery. Without a verified COA, a multimillion-dollar Basquiat or Warhol is nearly impossible to sell.
 
 Forgeries are common. Fraudsters often forge the "paperwork" (the COA) using fake letterheads and signatures to "prove" that a fake painting is real.
 
@@ -191,7 +191,7 @@ Forgeries are common. Fraudsters often forge the "paperwork" (the COA) using fak
   </div>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Artist name, artwork title, creation year, medium, dimensions, edition number (if applicable), unique certificate ID, archive/registration number, name of the authenticating authority.
 
@@ -213,15 +213,15 @@ The endpoint returns a simple status code:
 
 The issuer domain is visible from the `verify:` line on the certificate itself (e.g., `basquiat-estate.org`).
 
-## Second-Party Use
+## Who Holds It
 
-The **Art Owner** benefits from verification.
+The Art Owner benefits from verification.
 
 **Market Value Retention:** A Basquiat with a "Verified by Estate" digital status is worth millions more than one with a "doubtful" paper certificate. Verification protects the asset's value.
 
 **Cross-Border Shipping:** Proving to Customs that the work is a genuine cultural artifact (and not a "fake" used for money laundering or smuggling).
 
-## Third-Party Use
+## Who Checks It
 
 **Prospective Buyers**
 **Due Diligence:** High-end art transactions happen in hours. Scanning the COA hash instantly proves provenance, allowing the buyer to wire funds with confidence before the "sale of the century" goes to someone else.
@@ -232,7 +232,7 @@ The **Art Owner** benefits from verification.
 **Lenders (Art-Backed Loans)**
 **Collateral Verification:** Private banks verify the COA before issuing multimillion-dollar lines of credit backed by the art.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The Art Forgery Problem**
 
@@ -250,7 +250,7 @@ The **Art Owner** benefits from verification.
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the document.
 
-## Competition vs. NFTs / Blockchain
+## Compared With NFTs / Blockchain
 
 | Feature | Live Verify | NFT (Digital Twin) | Physical Seal (Microchip) |
 | :--- | :--- | :--- | :--- |
@@ -258,7 +258,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Market Standard** | **High.** Matches the traditional "Paper COA" culture of high-end art. | **Low.** High-end collectors are skeptical of crypto-volatility and tech-debt. | **Medium.** Seen as invasive by some conservators. |
 | **Durability** | **Durable.** Text is archival. | **Fragile.** Requires the blockchain/IPFS to exist in 100 years. | **Fragile.** Chips can break or be removed. |
 
-**Why Live Verify wins here:** The high-end art world is traditional. It relies on scholarly provenance and paper records. Live Verify respects this tradition while adding a modern "Digital Seal." It doesn't require collectors to understand crypto-wallets; it just requires them to trust the **Domain Name** of the estate, which is the most stable form of digital identity.
+**Where each fits:** a token or an embedded chip can be useful where the buyer and seller are both comfortable with that technology, and a chip does tie a record to the physical object in a way text cannot. Much of the market still trades on a paper certificate from an estate or foundation. Live Verify lets a buyer or insurer confirm that the estate stands behind the wording of that certificate, without asking anyone to adopt a wallet, and nothing prevents it accompanying a token or chip.
 
 
 ---
@@ -268,7 +268,7 @@ _[Content merged from: art-edition-numbers]_
 
 ## What is an Edition Number?
 
-When an artist makes a print or a sculpture, they often make a limited number (e.g., 50 copies). Each one is numbered, like **14 / 50**.
+When an artist makes a print or a sculpture, they often make a limited number (e.g., 50 copies). Each one is numbered, like 14 / 50.
 
 This creates "Scarcity." Number 14 is valuable because there are only 49 others like it. If the artist (or the printer) secretly makes 500 copies instead of 50, the value of everyone's art collapses.
 
@@ -308,7 +308,7 @@ Live Verify allows a collector to verify that their "14 / 50" is an officially r
   </div>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Artist name, title of work, year, medium, total edition size (e.g., 50), specific print number (e.g., 14), number of Artist Proofs (APs), publisher name, registry number.
 
@@ -329,15 +329,15 @@ The endpoint returns a simple status code:
 
 The issuer domain is visible from the `verify:` line on the certificate itself (e.g., `pacegallery.com`).
 
-## Second-Party Use
+## Who Holds It
 
-The **Collector** benefits from verification.
+The Collector benefits from verification.
 
 **Value Protection:** Proving that the print is 14/50 and not an "unauthorized extra" run by the printer (backdoor editions). A verified limited edition holds its value; a "leaked" print does not.
 
 **Insurance Claims:** If print 14/50 is lost in a fire, the verified certificate proves its scarcity and value to the insurance adjuster.
 
-## Third-Party Use
+## Who Checks It
 
 **Auction Houses**
 **Cataloging:** Specialists verify that the print number being consigned matches the known characteristics of that edition (e.g., paper type, dimensions) listed in the publisher's hash.
@@ -348,7 +348,7 @@ The **Collector** benefits from verification.
 **Online Marketplaces (eBay/Artsper)**
 **Trust Badge:** Sellers can include the "Verified by Pace" link in their listing to prevent buyers from worrying about "fake numbers."
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Extra Run" Fraud Problem**
 
@@ -366,7 +366,7 @@ The **Collector** benefits from verification.
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the document.
 
-## Competition vs. Physical Holograms
+## Compared With Physical Holograms
 
 | Feature | Live Verify | Hologram Sticker | Blind Stamp (Embossing) |
 | :--- | :--- | :--- | :--- |
@@ -374,7 +374,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Registry Link** | **Direct.** Links instantly to the publisher's database. | **Manual.** Requires looking up a serial number on a website. | **None.** Just a mark on the paper. |
 | **Durability** | **Archival.** Ink/pencil text lasts centuries. | **Fragile.** Stickers peel off or degrade over time. | **Durable.** But can be flattened. |
 
-**Why Live Verify wins here:** Limited editions are all about **Math**. Is the denominator (total size) real? Is the numerator (my number) unique? Live Verify connects the physical number written in pencil to the publisher's official spreadsheet, ensuring the math stays honest.
+**Where each fits:** holograms and blind stamps authenticate the sheet itself, which is something a text hash does not attempt. They do not confirm the edition number or size written on the sheet. Live Verify lets a buyer check that the publisher stands behind those written details, so the physical mark and the verify line each cover what the other cannot.
 
 
 ---
@@ -386,7 +386,7 @@ _[Content merged from: artist-signatures-stamps]_
 
 Sometimes a painting isn't signed on the front, or the signature is illegible. Experts (Graphologists) are hired to study the ink and the "hand" of the artist to verify if the signature is real.
 
-They produce a **Signature Authentication Letter** that details things like ink flow, pressure, and characteristic letter formations (e.g., "The way Picasso crossed his 't' in 1937").
+They produce a Signature Authentication Letter that details things like ink flow, pressure, and characteristic letter formations (e.g., "The way Picasso crossed his 't' in 1937").
 
 These letters are high-value targets for forgery—criminals create fake "expert reports" to sell fake art.
 
@@ -418,7 +418,7 @@ These letters are high-value targets for forgery—criminals create fake "expert
   </div>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Artist name, signature type (Wet Ink, Pencil, Crayon), location of signature (Front/Back), date of analysis, authentication firm/expert name, comparison exemplars used, result (Consistent/Inconsistent/Inconclusive).
 
@@ -439,15 +439,15 @@ The endpoint returns a simple status code:
 
 The issuer domain is visible from the `verify:` line on the letter itself (e.g., `ifar.org`).
 
-## Second-Party Use
+## Who Holds It
 
-The **Collector** or **Gallerist** benefits from verification.
+The Collector or Gallerist benefits from verification.
 
 **Vetting:** Proving to a potential buyer that the signature on the back of a "found" painting isn't just a clever fake, but has been verified by a handwriting expert.
 
 **Legal Defense:** Defending against claims of "knowingly selling a forgery" by showing a verified authentication report from a reputable domain.
 
-## Third-Party Use
+## Who Checks It
 
 **Auction Houses (Cataloging)**
 **Specialist Review:** When writing a catalog description ("Signed 'Picasso' lower right"), the specialist scans the verification hash to ensure the claim is backed by a forensic report, reducing the house's liability.
@@ -458,7 +458,7 @@ The **Collector** or **Gallerist** benefits from verification.
 **Fine Art Logisticians**
 **Condition Reporting:** Verifying that the signature present at pickup matches the signature present at delivery (preventing "signature swapping" or tampering during transit).
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Apocryphal Mark" Fraud Problem**
 
@@ -476,7 +476,7 @@ The **Collector** or **Gallerist** benefits from verification.
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the document.
 
-## Competition vs. Visual Connoisseurship
+## Compared With Visual Connoisseurship
 
 | Feature | Live Verify | Visual Inspection (The Eye) | Carbon Dating / Chemical |
 | :--- | :--- | :--- | :--- |
@@ -484,7 +484,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Durability** | **High.** The report is permanent. | **Low.** The expert dies or changes their mind. | **High.** But invasive (requires taking a sample). |
 | **Speed** | **Instant.** Scan the report. | **Slow.** Requires scheduling a viewing with an expert. | **Very Slow.** Takes weeks/months in a lab. |
 
-**Why Live Verify wins here:** Connoisseurship is a "Black Box." An expert says "It feels right," but that opinion is hard to trade or insure. Live Verify turns that subjective "feeling" into a **documented, verifiable event** that can travel with the painting across the global market.
+**Where each fits:** connoisseurship and laboratory analysis are how an attribution is actually reached, and nothing here substitutes for either. What Live Verify adds is a way for a later buyer, lender or insurer, who was not in the room and may be in another country, to confirm that the expert or laboratory issued the report they have been shown and has not withdrawn it. It verifies the report, not the painting.
 
 
 ---
@@ -532,7 +532,7 @@ Verified provenance documentation is the "History of Truth" that allows million-
   </div>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Full ownership chain (dates and names), dealer/gallery references, exhibition history, publication references, restitution status (e.g., Nazi-era check), object reference ID, researcher name.
 
@@ -567,15 +567,15 @@ Art collectors — whether private individuals, family trusts, or institutions �
 
 The verification proves the document is real. It doesn't open a door to the owner.
 
-## Second-Party Use
+## Who Holds It
 
-The **Current Owner** (Seller) benefits from verification.
+The Current Owner (Seller) benefits from verification.
 
 **Market Value:** Provenance is everything in the art market. A verified history from Christie's or a top gallery can increase a painting's value by 10x compared to an "undocumented" piece.
 
 **Restitution Defense:** Proving that the work has been "Verified Clean" of Nazi-era looting claims, protecting the seller from future lawsuits or seizures.
 
-## Third-Party Use
+## Who Checks It
 
 **Prospective Buyers**
 **Due Diligence:** High-end buyers won't touch a work without verified provenance. Scanning the link provides immediate comfort that the history isn't fabricated.
@@ -586,7 +586,7 @@ The **Current Owner** (Seller) benefits from verification.
 **Museums (Loans)**
 **Ethical Guidelines:** Museums must verify provenance before accepting works for exhibition to avoid the scandal of displaying stolen/looted items.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Phantom Owner" Fraud Problem**
 
@@ -618,7 +618,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the document.
 
-## Competition vs. Physical Labels / Archival Photos
+## Compared With Physical Labels / Archival Photos
 
 | Feature | Live Verify | Gallery Labels (Reverse of Frame) | Archival Photo (Black & White) |
 | :--- | :--- | :--- | :--- |
@@ -626,7 +626,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Searchability** | **Instant.** Links to the full digital archive entry. | **None.** Just a physical sticker. | **Hard.** Requires visual comparison experts. |
 | **Updateability** | **Yes.** Can note "New claim surfaced" instantly. | **Static.** Once it's on the frame, it stays there. | **Fixed.** |
 
-**Why Live Verify wins here:** Provenance is a "Living History." New information surfaces, claims are filed, and research progresses. Live Verify turns a static piece of paper (the research summary) into a dynamic window into the institution's latest knowledge about that work.
+**Where each fits:** labels on the reverse and archival photographs are primary evidence, and provenance researchers will keep relying on them. A research summary handed to a buyer or lender is a different thing: a statement by an institution, which may later be revised when a claim surfaces. Live Verify lets the reader confirm the institution issued that summary and see whether it still stands, leaving the physical evidence to be assessed by those qualified to assess it.
 
 ## Text-to-Hash Suitability
 
@@ -662,9 +662,9 @@ _[Content merged from: personal-property-chattel-appraisals]_
 
 ## What is a Personal Property (Chattel) Appraisal?
 
-Most appraisals are not for Rothkos. They are for the ordinary high-value objects people own: an engagement ring, an inherited watch, a coin collection, a piece of antique furniture, a designer handbag, a musical instrument. A **personal property** (or **chattel**) appraisal is the document a gemologist, antiques dealer, or independent appraiser issues stating what such an item is worth — most often so it can be **scheduled** on a homeowner's or renter's insurance policy, valued for **probate or estate division**, or claimed as a **charitable-donation tax deduction**.
+Most appraisals are not for Rothkos. They are for the ordinary high-value objects people own: an engagement ring, an inherited watch, a coin collection, a piece of antique furniture, a designer handbag, a musical instrument. A personal property (or chattel) appraisal is the document a gemologist, antiques dealer, or independent appraiser issues stating what such an item is worth — most often so it can be scheduled on a homeowner's or renter's insurance policy, valued for probate or estate division, or claimed as a charitable-donation tax deduction.
 
-The fraud is the everyday version of art's "value padding": a $1,800 ring "appraised" at $18,000 to inflate an insurance payout after a staged loss, a modest estate's contents over-valued (or under-valued) to manipulate inheritance shares, or a thrift-store donation written up at boutique prices for an outsized tax deduction. The appraiser's signature and credentials are the trust anchor — and a forged letterhead from a "certified gemologist" who does not exist is far easier to produce than a forged diamond. A verified hash binds the **item description, the appraised value, and the appraiser's credentials** to the appraiser's or trade body's domain.
+The fraud is the everyday version of art's "value padding": a $1,800 ring "appraised" at $18,000 to inflate an insurance payout after a staged loss, a modest estate's contents over-valued (or under-valued) to manipulate inheritance shares, or a thrift-store donation written up at boutique prices for an outsized tax deduction. The appraiser's signature and credentials are the trust anchor — and a forged letterhead from a "certified gemologist" who does not exist is far easier to produce than a forged diamond. A verified hash binds the item description, the appraised value, and the appraiser's credentials to the appraiser's or trade body's domain.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 2px 2px 12px rgba(0,0,0,0.06);">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 15px; margin-bottom: 25px;">
@@ -698,7 +698,7 @@ The fraud is the everyday version of art's "value padding": a $1,800 ring "appra
   </div>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Appraiser name and credentials (GG, ISA, ASA, NAJA), client name, item description (type, materials, weights, grades, hallmarks, serial numbers), grading-lab reference where applicable (e.g. GIA report number), effective date, purpose (insurance / estate / donation / collateral), value type (replacement cost / fair market value), the appraised amount, and report ID.
 
@@ -719,15 +719,15 @@ The endpoint returns a simple status code:
 
 The issuer domain is visible from the `verify:` line on the document itself (e.g., `meridian-appraisal.com`).
 
-## Second-Party Use
+## Who Holds It
 
-The **Owner** benefits from verification.
+The Owner benefits from verification.
 
 **Insurance Scheduling:** Proving to the insurer's underwriter that the $24,500 ring valuation is a genuine appraiser's report and not a self-edited PDF — preventing later "we never agreed that value" disputes at claim time.
 
 **Estate Fairness:** An executor or beneficiary can show co-heirs that the valuations used to divide an estate are the appraiser's actual figures, defusing the common "you under-valued grandma's silver so you could keep it" accusation.
 
-## Third-Party Use
+## Who Checks It
 
 **Insurance Underwriters / Claims Adjusters**
 **Anti-Padding:** Adjusters see endless inflated appraisals after thefts and fires. Verification confirms the scheduled value matches the appraiser's record, blunting staged-loss and over-valuation fraud on jewelry and collectibles — one of the most common personal-lines fraud vectors.
@@ -738,7 +738,7 @@ The **Owner** benefits from verification.
 **Probate Courts / Estate Attorneys**
 **Asset Valuation:** Confirming that the personal-property valuations filed with the court are the genuine, unaltered figures from a qualified appraiser.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Padded Schedule" Fraud Problem**
 

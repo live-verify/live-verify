@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Charity Rating?
 
-A **Charity Rating** is a "Grade" for a non-profit organization. Watchdog groups (like Charity Navigator) look at a charity's taxes to see if they are actually spending money on the mission or just on big salaries and marketing.
+A Charity Rating is a "Grade" for a non-profit organization. Watchdog groups (like Charity Navigator) look at a charity's taxes to see if they are actually spending money on the mission or just on big salaries and marketing.
 
-A **4-Star Rating** is the "Gold Standard" that charities display in their lobbies and on their websites to win over big donors.
+A 4-Star Rating is the "Gold Standard" that charities display in their lobbies and on their websites to win over big donors.
 
 Because a higher rating leads directly to more donations, some charities "Inflate" their stars on their marketing materials or hide that their rating was recently revoked. Live Verify turns the wall certificate into a real-time link to the watchdog's database.
 
@@ -54,7 +54,13 @@ Because a higher rating leads directly to more donations, some charities "Inflat
   </div>
 </div>
 
-## Data Verified
+## The Problem: Rating Inflation Fraud
+
+- **Fake Stars:** A 2-star charity using Photoshop to change their certificate to show 4 stars.
+- **Date Stretching:** Hiding a recent rating drop by changing the "Valid Until" date on an old certificate.
+- **Name Spoofing:** A fraudulent "The American Cancer Fund" creating a fake certificate that looks like it belongs to the legitimate "American Cancer Society."
+
+## What Is Checked
 
 Non-profit legal name, EIN, rating score (e.g., 4-stars), numerical efficiency percentage, governance pass/fail, reporting compliance, issue date, expiration date.
 
@@ -63,7 +69,7 @@ Non-profit legal name, EIN, rating score (e.g., 4-stars), numerical efficiency p
 - **Rating Summary:** 1-page impact report for major donors.
 - **Seal of Transparency:** For digital use (with OCR back-link).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`charitynavigator.org`, `givewell.org`, `guidestar.org`) and current rating status.
 
@@ -73,9 +79,9 @@ Shows the issuer domain (`charitynavigator.org`, `givewell.org`, `guidestar.org`
 - **Expired** — New financial data required for update.
 - **Revoked** — Rating removed due to fraudulent reporting.
 
-## Second-Party Use
+## Who Holds It
 
-The **Non-Profit Organization** benefits from verification.
+The Non-Profit Organization benefits from verification.
 
 **Major Giving:** Proving to a high-net-worth donor or a family foundation that their "4-Star" claim is verified by the source. This overcomes the "Skepticism Gap" in large-scale philanthropy.
 
@@ -83,7 +89,7 @@ The **Non-Profit Organization** benefits from verification.
 
 **Fundraising Appeals:** Including the verification link in year-end mailers to show donors that the "92% Efficiency" claim is a cryptographically verified fact.
 
-## Third-Party Use
+## Who Checks It
 
 **Philanthropists / Donors**
 **Due Diligence:** Before writing a $10,000 check, a donor scans the certificate displayed in the lobby. "Verified by Charity Navigator" provides instant confidence that the numbers aren't "self-reported fiction."
@@ -94,13 +100,7 @@ The **Non-Profit Organization** benefits from verification.
 **Media / Press**
 **Fact Checking:** Verifying the "Top-Rated" claims made by charities in press releases or television interviews.
 
-## Verification Architecture
-
-**The "Rating Inflation" Fraud Problem**
-
-- **Fake Stars:** A 2-star charity using Photoshop to change their certificate to show 4 stars.
-- **Date Stretching:** Hiding a recent rating drop by changing the "Valid Until" date on an old certificate.
-- **Name Spoofing:** A fraudulent "The American Cancer Fund" creating a fake certificate that looks like it belongs to the legitimate "American Cancer Society."
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -127,7 +127,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the rater's hashes and status changes plus structured metadata (key identifiers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the rating it issued.
 
 
-## Competition vs. Guidestar Search
+## Compared With Guidestar Search
 
 | Feature | Live Verify | GuideStar / Candid Search | Scanned JPEG Badge |
 | :--- | :--- | :--- | :--- |
@@ -136,4 +136,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **User Experience** | **Instant.** Scan the paper/PDF. | **Slow.** Requires typing EIN and finding the record. | **N/A.** |
 | **B2B Integration** | **High.** Can be automated into grant software. | **Medium.** Requires expensive API access. | **Low.** |
 
-**Why Live Verify wins here:** The "Front Lobby" moment. Charities display their ratings prominently to build trust. Live Verify turns that **Visual Trophy** into a **Digital Truth**, ensuring that the trust a donor feels when seeing the certificate is backed by cryptographic reality.
+**Where each fits:** searching the rating body's own database gives the fullest and most current picture, and a donor or grant-maker doing proper diligence should do that. Someone looking at a certificate on a lobby wall or in an appeal letter usually will not. Live Verify gives them a quick check that the rater issued that certificate with those figures, and points them back to the rater for anything more.

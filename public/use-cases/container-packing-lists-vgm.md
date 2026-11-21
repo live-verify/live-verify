@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 When a massive cargo ship is loaded, the captain needs to know exactly how heavy every container is. If the ship is "top-heavy" or unbalanced, it can capsize and sink in a storm.
 
-The **Verified Gross Mass (VGM)** is the official weight certificate for a container. By international law (SOLAS), no container can be put on a ship without one.
+The Verified Gross Mass (VGM) is the official weight certificate for a container. By international law (SOLAS), no container can be put on a ship without one.
 
 Shippers often "Guess" the weight to save the $50 fee for a certified scale. This "Guesswork" has led to several high-profile shipwrecks. Verified hashes ensure that the weight on the paper matches the official scale record at the port.
 
@@ -41,7 +41,13 @@ Authorized Signatory: Robert J. Miller
 <span data-verify-line="vgm">verify:global-furniture.com/vgm/v</span> <span verifiable-text="end" data-for="vgm"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Guessing Fraud
+
+- **Weight Guessing:** Shippers writing a "Guess" on the paper to avoid the $50 cost of using a certified scale.
+- **Misdeclaration:** Artificially lowering the weight on the paper to save on freight costs (since freight is often calculated by weight).
+- **PDF Editing:** Changing the weight from 30,000kg to 20,000kg to meet the ship's maximum deck load limit.
+
+## What Is Checked
 
 Container ID, Seal ID, Booking number, Verified Gross Mass (VGM) in KG/LB, weighing method (Method 1 vs Method 2), shipper name, scale operator ID, scale certification status, date of weighing.
 
@@ -50,25 +56,25 @@ Container ID, Seal ID, Booking number, Verified Gross Mass (VGM) in KG/LB, weigh
 - **Detailed Packing List:** Listing contents of the container.
 - **Intermodal Equipment Provider (IEP) Log:** For chassis weight reconciliation.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Shipper or Weighing Facility) and current weight status.
 
 **Status Indications:**
 - **VGM Confirmed** — Weight matches the official scale record.
-- **Mismatch Alert** — **ALERT:** Port scale and Shipper VGM differ by > 500kg.
+- **Mismatch Alert** — Port scale and Shipper VGM differ by > 500kg.
 - **Superseded** — Container was re-weighted (e.g., after transshipment).
 - **Void** — Scale found to be out of calibration.
 
-## Second-Party Use
+## Who Holds It
 
-The **Shipper (Exporter)** benefits from verification.
+The Shipper (Exporter) benefits from verification.
 
 **Vessel Loading:** Proving to the Carrier (e.g., Maersk or MSC) that the VGM is authentic. If the carrier suspects a fake weight, they will refuse to load the container, causing massive delays. A verified VGM hash prevents "Paper Rejections" at the terminal gate.
 
 **Liability Protection:** In the event of a vessel accident (e.g., ship capsizing or losing containers), the shipper can prove they provided a cryptographically verified, accurate weight, defending against claims of "Overloading."
 
-## Third-Party Use
+## Who Checks It
 
 **Ocean Carriers (Vessel Command)**
 **Vessel Stability:** The Chief Officer uses VGM data to plan the ship's stability (stowage plan). Verification ensures the data isn't "guessed" or fabricated, preventing catastrophic capsizing events.
@@ -79,13 +85,7 @@ The **Shipper (Exporter)** benefits from verification.
 **Marine Insurers**
 **Risk Management:** Ensuring that the project cargo they are insuring was accurately weighed and packed, reducing the risk of cargo shifting during storms.
 
-## Verification Architecture
-
-**The "Guessing" Fraud Problem**
-
-- **Weight Guessing:** Shippers writing a "Guess" on the paper to avoid the $50 cost of using a certified scale.
-- **Misdeclaration:** Artificially lowering the weight on the paper to save on freight costs (since freight is often calculated by weight).
-- **PDF Editing:** Changing the weight from 30,000kg to 20,000kg to meet the ship's maximum deck load limit.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -111,7 +111,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the shipper's or weighing facility's hashes and status changes plus structured metadata (container ID, VGM in kilograms, weighing method, weighing date, shipper name) — never cargo contents or consignee details — providing non-repudiation of weight and an audit trail for port authorities and maritime safety oversight.
 
 
-## Competition vs. EDI Messaging (VERMAS)
+## Compared With EDI Messaging (VERMAS)
 
 | Feature | Live Verify | EDI VERMAS Message | Paper VGM Form |
 | :--- | :--- | :--- | :--- |
@@ -120,4 +120,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Field Access** | **Instant.** Scan the paper at the gate. | **None.** Driver has no access to EDI logs. | **Manual.** |
 | **Connectivity** | **Strong.** Works via simple web URL. | **Fragile.** Requires heavy B2B EDI infrastructure. | **Offline.** |
 
-**Why Live Verify wins here:** The "Trucker Reality." While the big carriers use EDI, the individual trucker arriving at the terminal gate often carries a **Paper Folder** of documents. Live Verify turns that paper folder into a trusted digital portal, ensuring the gate clerk and the driver are seeing the same verified weight as the carrier's stability officer.
+**Where each fits:** the EDI message is how the verified weight reaches the carrier and terminal systems, and that channel should stay as it is. The driver at the gate has no view of it and carries paper. Live Verify lets the gate clerk and driver check that paper against the shipper's domain, so the figure on the form can be compared with the one the carrier received electronically.

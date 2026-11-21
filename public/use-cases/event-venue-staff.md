@@ -15,7 +15,7 @@ furtherDerivations: 1
 
 At a concert, conference, sporting event, or festival, hundreds of temporary staff, contractors, and vendors move through backstage areas, VIP sections, and equipment zones. A security manager cannot possibly know every person working the event.
 
-A **"Credential" or "Access Badge"** issued for the event proves the wearer is an authorized worker or vendor for that specific event.
+A "Credential" or "Access Badge" issued for the event proves the wearer is an authorized worker or vendor for that specific event.
 
 Impostors pose multiple threats: they can steal high-value equipment (lighting rigs, sound systems, cameras), pirate backstage access to VIP areas, plant security threats, or exploit temporary chaos to commit fraud. E-Ink badges with real-time access status allow security teams to instantly verify any person's authorization, role, and access level—preventing unauthorized equipment theft, access escalation, and security breaches.
 
@@ -73,7 +73,16 @@ Impostors pose multiple threats: they can steal high-value equipment (lighting r
 
 *The server rotates the salt — after each successful scan (burn-on-verify) or on TTL expiry of an unscanned salt — and the badge re-renders to match. The screen is always in lockstep with the salt the server will honour, so a photograph is worthless unless verified in the moment. See [E-Ink ID Cards](../e-ink-id-cards.md) for how this prevents cloning and zone-hopping.*
 
-## Data Verified
+## The Problem: Impostor Contractor Fraud
+
+- **Equipment Theft:** Impostors wearing credentials (or stolen/forged badges) gain access to equipment areas and load out high-value lighting, sound, or camera equipment
+- **VIP/Talent Access:** Impostors pretending to be security, handlers, or managers gain unauthorized access to VIP areas, artist green rooms, or dressing rooms
+- **Credential Fraud:** Counterfeit or duplicate badges created before the event; stolen badges from legitimate contractors
+- **Credential Sharing / Lanyard Passing:** A legitimate VIP or "special guest" hands their lanyard or pass to a friend, assuming their status entitles them to share access. This is one of the most common credential compromises at events — it isn't malicious, but it defeats access control just as effectively as a forgery. The person wearing the pass is not the person it was issued to.
+- **Social Engineering:** Impostors with basic knowledge of event operations blend in, following legitimate staff into restricted areas
+- **Security Threat:** Unknown operatives gain event access for reconnaissance or to plant threats
+
+## What Is Checked
 
 Staff or contractor name, photo (hash), company affiliation, role/position (Setup Crew, Security, AV Tech, Vendor, Catering, Talent Handler, etc.), assigned area/zone access (Backstage, VIP, Equipment Room, Vendor Hall, etc.), access level (time-bound: Friday 6 PM – Saturday 2 AM), credentialing date, and manager authorization (hash).
 
@@ -83,7 +92,7 @@ Staff or contractor name, photo (hash), company affiliation, role/position (Setu
 - **Talent Handler Credential:** Personal security, agents, or management authorized with talent
 - **Crew Credential:** Setup, breakdown, and active-event temporary workers
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the event/venue domain (e.g., `coachella-festival.com`, `metcenter-events.com`) and current access status.
 
@@ -91,7 +100,7 @@ Shows the event/venue domain (e.g., `coachella-festival.com`, `metcenter-events.
 - **Authorized Now** — Staff member is currently authorized to be on the event site within their assigned area and time window
 - **Not Yet Authorized** — Credential is valid but the scheduled time window hasn't started
 - **Access Expired** — Time window for access has ended (e.g., Friday night crew trying to access Saturday morning)
-- **Suspended** — **ALERT:** Access revoked due to security incident, suspected theft, or removed from event
+- **Suspended** — Access revoked due to security incident, suspected theft, or removed from event
 - **Unauthorized Area** — Staff trying to access a restricted area they're not credentialed for (e.g., crew member trying to enter VIP)
 
 **Photo in verification response:** The verification endpoint should return a `photo_url` — a hash-based, no-cache photo of the credential holder. This is the primary defence against credential sharing and lanyard passing: security scans the badge, the photo appears, and they compare it to the person wearing the badge. Without the photo, a passed lanyard verifies correctly (the credential is genuine) but the person wearing it is not the person it was issued to.
@@ -105,15 +114,15 @@ Shows the event/venue domain (e.g., `coachella-festival.com`, `metcenter-events.
 
 See [Verification Response Format — Photo URL Security](../../docs/Verification-Response-Format.md#photo-url-security) for hash-based filenames, no-cache headers, and screen-capture prevention.
 
-## Second-Party Use
+## Who Holds It
 
-The **Event Staff Member or Contractor** benefits from verification.
+The Event Staff Member or Contractor benefits from verification.
 
 **Professional Credibility:** Verification proves they're a legitimate contractor or authorized staff member, reducing friction with other teams and security
 **Access Efficiency:** Real-time verification speeds up area-to-area movement, reducing bottlenecks when moving equipment or supporting events
 **Liability Protection:** Timestamped verification records prove they were authorized to be in specific areas, protecting against theft accusations or liability disputes
 
-## Third-Party Use
+## Who Checks It
 
 **Event Security & Management**
 **Real-Time Access Control:** Security can instantly verify anyone's authorization at checkpoints, backstage entries, equipment areas, and VIP zones—preventing unauthorized access
@@ -131,16 +140,7 @@ The **Event Staff Member or Contractor** benefits from verification.
 **Post-Incident Investigation:** If theft, assault, or terrorism-related activities occur, verified access logs provide a timeline and suspect list
 **Search Warrants:** Verified access records can support investigations into specific individuals
 
-## Verification Architecture
-
-**The "Impostor Contractor" Fraud Problem**
-
-- **Equipment Theft:** Impostors wearing credentials (or stolen/forged badges) gain access to equipment areas and load out high-value lighting, sound, or camera equipment
-- **VIP/Talent Access:** Impostors pretending to be security, handlers, or managers gain unauthorized access to VIP areas, artist green rooms, or dressing rooms
-- **Credential Fraud:** Counterfeit or duplicate badges created before the event; stolen badges from legitimate contractors
-- **Credential Sharing / Lanyard Passing:** A legitimate VIP or "special guest" hands their lanyard or pass to a friend, assuming their status entitles them to share access. This is one of the most common credential compromises at events — it isn't malicious, but it defeats access control just as effectively as a forgery. The person wearing the pass is not the person it was issued to.
-- **Social Engineering:** Impostors with basic knowledge of event operations blend in, following legitimate staff into restricted areas
-- **Security Threat:** Unknown operatives gain event access for reconnaissance or to plant threats
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -169,7 +169,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the event organizer's hashes and status changes plus structured metadata (staff names, roles, assigned zones, access times, company affiliations, manager authorizations) — never event locations or attendee details — providing non-repudiation of the credential and an audit trail event insurance providers and local authorities can inspect.
 
-## Competition vs. Printed Badges / Radio Check-In
+## Compared With Printed Badges / Radio Check-In
 
 | Feature | Live Verify | Printed/Laminated Badge | Radio Check-In | Visual Assessment |
 | :--- | :--- | :--- | :--- | :--- |
@@ -179,7 +179,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Freshness** | **Real-time.** Shows revoked status, time window expiry, area restrictions. | **Static.** Badge never changes; can't reflect post-issuance revocations. | **Variable.** Depends on radio operator updates. | **Static.** Can't capture real-time suspensions. |
 | **Handles Revocation** | **Yes.** Instant if someone is removed mid-event. | **No.** Revoked staff can still use old badge. | **Maybe.** Requires radio discipline; chaos during events. | **No.** Appearance doesn't change if status changes. |
 
-**Why Live Verify wins here:** The **"Checkpoint Workflow."** Event venues have multiple access checkpoints, multiple security teams, and constant flow of hundreds of people. Security cannot memorize who's authorized; they can't radio check every person; and they need instant, cryptographic proof. Live Verify provides verifiable, real-time access control at the point of entry.
+**Where each fits:** Laminated badges and radio check-ins remain the backbone of event security: a badge can be read at a glance from across a room, and a radio call reaches a supervisor who can make a judgement. Both strain at a busy checkpoint, and neither helps a guard from another contractor who has to decide whether an unfamiliar badge is still valid. Live Verify adds a quick lookup against the organiser's or contractor's own domain for those moments, and is meant to be used with the badge and the radio.
 
 ---
 
@@ -199,7 +199,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 ## Further Derivations
 
-This use case belongs to the **Mobile Service Staff in Ungated Facilities** pattern. Related scenarios include:
+This use case belongs to the Mobile Service Staff in Ungated Facilities pattern. Related scenarios include:
 
 - [Police Officer Verification](view.html?doc=police-officer-verification) — Citizens verify law enforcement.
 - [Mobile Service Staff (Hotels)](view.html?doc=hotel-staff-verification) — Guests verify staff at their door.

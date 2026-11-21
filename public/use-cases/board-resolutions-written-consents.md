@@ -36,7 +36,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Backdated Resolution Fraud
+
+- **Retroactive Grants:** Issuing stock options today but "resolving" them at last year's lower price (Stock Option Backdating). Verification timestamps prevent this.
+- **Unauthorized Actions:** A CEO fabricating a resolution to sell a company asset without Board knowledge.
+- **Phantom Directors:** Creating a resolution signed by non-existent or "straw" directors to bypass governance.
+
+## What Is Checked
 
 Corporate name, resolution text (digest), date of action, names of directors/officers signing, type of action (Unanimous Written Consent vs. Meeting Minutes), jurisdiction of incorporation.
 
@@ -46,7 +52,7 @@ Corporate name, resolution text (digest), date of action, names of directors/off
 - **Secretary's Certificate:** Certification that a resolution is true and in effect.
 - **Officer's Certificate:** For high-level corporate actions (e.g., IPO).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., the Corporation or its primary Law Firm) and current status.
 
@@ -56,9 +62,9 @@ Shows the issuer domain (e.g., the Corporation or its primary Law Firm) and curr
 - **Rescinded** — The Board has formally cancelled this action.
 - **Void** — Action determined to be ultra vires or legally invalid.
 
-## Second-Party Use
+## Who Holds It
 
-The **Corporation** benefits from verification.
+The Corporation benefits from verification.
 
 **Bank Account Opening:** Proving to a bank that the "Resolution to Open Account" isn't a fake PDF created by a rogue employee, but is an official board-sanctioned document.
 
@@ -66,7 +72,7 @@ The **Corporation** benefits from verification.
 
 **M&A Due Diligence:** Providing a "Verified Minute Book" to a buyer, reducing the thousands of hours lawyers spend manually confirming signatures and corporate actions.
 
-## Third-Party Use
+## Who Checks It
 
 **Investment Banks / Underwriters**
 **IPO Due Diligence:** Ensuring every major corporate milestone (funding rounds, stock grants) has a verified, timestamped board resolution, preventing "Founders Disputes" later.
@@ -77,13 +83,7 @@ The **Corporation** benefits from verification.
 **Landlords / Lessors**
 **Lease Signing:** Verifying the "Corporate Authority" of the person signing a 10-year commercial lease.
 
-## Verification Architecture
-
-**The "Backdated Resolution" Fraud Problem**
-
-- **Retroactive Grants:** Issuing stock options today but "resolving" them at last year's lower price (Stock Option Backdating). Verification timestamps prevent this.
-- **Unauthorized Actions:** A CEO fabricating a resolution to sell a company asset without Board knowledge.
-- **Phantom Directors:** Creating a resolution signed by non-existent or "straw" directors to bypass governance.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -110,7 +110,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the corporation's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the board resolution.
 
 
-## Competition vs. Corporate Registries (Delaware SOS)
+## Compared With Corporate Registries (Delaware SOS)
 
 | Feature | Live Verify | Secretary of State (SOS) | Virtual Data Room (VDR) |
 | :--- | :--- | :--- | :--- |
@@ -119,4 +119,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Cost** | **Low.** Standard web infra. | **High.** SOS filings/searches cost fees. | **High.** VDRs cost thousands/month. |
 | **Interoperability** | **Universal.** PDFs stay verifiable anywhere. | **Siloed.** | **Restricted.** Access usually revoked post-deal. |
 
-**Why Live Verify wins here:** Specificity. A "Certificate of Good Standing" from Delaware only says the company exists. It doesn't say "The Board authorized the sale of the factory." Live Verify turns the **Private Resolution** into a verifiable artifact that can be shared with banks and buyers without exposing the entire secret minute book.
+**Where each fits:** the Secretary of State is the authority on whether a company exists and is in good standing, and a data room is the right place for full diligence during a deal. Neither tells a bank outside the deal that the board approved a particular transaction. Live Verify lets the company or its law firm share that one resolution in a form the recipient can check, without opening the rest of the minute book.

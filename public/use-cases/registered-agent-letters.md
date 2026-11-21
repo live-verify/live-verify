@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Registered Agent Letter?
 
-A **Registered Agent Letter** (also called a comfort letter, confirmation letter, or CSP letter) is a document issued by a Corporate Service Provider (CSP) — the offshore firm that acts as the registered agent for shell companies. It confirms basic facts about the entity: it exists, these are its directors, this is its registered office, and the agent acts on its behalf.
+A Registered Agent Letter (also called a comfort letter, confirmation letter, or CSP letter) is a document issued by a Corporate Service Provider (CSP) — the offshore firm that acts as the registered agent for shell companies. It confirms basic facts about the entity: it exists, these are its directors, this is its registered office, and the agent acts on its behalf.
 
 Every offshore company must have a registered agent in its jurisdiction of incorporation. In the BVI, roughly 400,000 active companies are serviced by a handful of large CSPs (Harneys, Conyers, Maples, Vistra, Trident). These agents are the gatekeepers — they hold the statutory records, file annual returns, and issue the letters that banks and counterparties rely on for KYC.
 
@@ -50,7 +50,13 @@ With Live Verify, the letter carries a `verify:` line bound to the CSP's domain.
   </div>
 </div>
 
-## Data Verified
+## The Problem: Trust
+
+Registered agent letters occupy a peculiar position in the trust hierarchy. The agent is not the government — it's a private firm. But it's a *regulated* private firm, licensed by the jurisdiction's financial services commission, and it holds statutory records that are not publicly available. Banks trust these letters more than they trust the company itself, but less than they trust a registry-issued certificate.
+
+Live Verify doesn't change the trust hierarchy — it just makes the existing trust verifiable. If Harneys' domain confirms the letter, the bank knows Harneys actually issued it. The bank still has to decide whether it trusts Harneys.
+
+## What Is Checked
 
 Company name, company number, date of incorporation, entity status, registered agent identity, directors (names and appointment dates), registered office address, date of letter, validity period.
 
@@ -61,7 +67,7 @@ Company name, company number, date of incorporation, entity status, registered a
 - **Nominee Director Disclosure:** Agent confirms which directors are nominees (professional directors appointed by the agent) vs. principals.
 - **Power of Attorney Confirmation:** Agent confirms that a specific individual holds power of attorney for the entity.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`harneys.com`, `maples.com`, `vistra.com`, `tridenttrust.com`, `conyers.com`) and letter status.
 
@@ -72,9 +78,9 @@ Shows the issuer domain (`harneys.com`, `maples.com`, `vistra.com`, `tridenttrus
 - **Expired** — Letter's validity window (typically 90 days) has passed.
 - **Relationship Terminated** — Agent no longer acts for this entity.
 
-## Second-Party Use
+## Who Holds It
 
-The **Company** (via its directors or ultimate beneficial owners) benefits from verification.
+The Company (via its directors or ultimate beneficial owners) benefits from verification.
 
 **Bank Account Opening:** The primary use. Offshore entities need bank accounts, and banks need KYC. A verified agent letter from Harneys' domain settles the authenticity question instantly. The bank still does its own KYC — but it no longer wastes weeks verifying that the agent letter itself is real.
 
@@ -82,13 +88,13 @@ The **Company** (via its directors or ultimate beneficial owners) benefits from 
 
 **M&A Transactions:** In cross-border acquisitions involving offshore holding companies, the buyer's lawyers demand agent letters to confirm the target's corporate structure. Verified letters accelerate deal closings.
 
-## Third-Party Use
+## Who Checks It
 
 **Banks (Compliance Teams)**
 
 The single biggest impact. Banks process thousands of agent letters per year for offshore entity KYC. Currently, each letter requires manual verification — phoning the agent, emailing, waiting for callbacks that may not come due to confidentiality policies. Verified letters automate this entirely.
 
-More importantly, verified letters reduce **de-risking**. Banks close accounts for entire categories of offshore entities partly because verifying their documentation is too expensive. If verification becomes instant and free, the cost-benefit calculation shifts — legitimate businesses keep their accounts.
+More importantly, verified letters reduce de-risking. Banks close accounts for entire categories of offshore entities partly because verifying their documentation is too expensive. If verification becomes instant and free, the cost-benefit calculation shifts — legitimate businesses keep their accounts.
 
 **Correspondent Banking Partners**
 
@@ -106,13 +112,7 @@ When investigating offshore structures, tax authorities (HMRC, IRS, ATO) need to
 
 Financial intelligence units (FIUs) investigating money laundering through offshore structures need to trace corporate control. Agent letters are key evidence — but only if they're genuine. A forged letter naming the wrong directors can derail an investigation.
 
-## Verification Architecture
-
-**The Trust Problem**
-
-Registered agent letters occupy a peculiar position in the trust hierarchy. The agent is not the government — it's a private firm. But it's a *regulated* private firm, licensed by the jurisdiction's financial services commission, and it holds statutory records that are not publicly available. Banks trust these letters more than they trust the company itself, but less than they trust a registry-issued certificate.
-
-Live Verify doesn't change the trust hierarchy — it just makes the existing trust verifiable. If Harneys' domain confirms the letter, the bank knows Harneys actually issued it. The bank still has to decide whether it trusts Harneys.
+## How Verification Works Here
 
 **The Fraud Patterns**
 
@@ -151,7 +151,7 @@ Registered agents are licensed by offshore financial services regulators to issu
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition
+## Compared With the Alternatives
 
 | Feature | Live Verify | Direct Contact with Agent | Registry Search | Apostilled Letter |
 | :--- | :--- | :--- | :--- | :--- |
@@ -161,7 +161,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Detects Edits** | **Yes.** Any change to content breaks the hash. | **Only if agent reviews the specific letter.** | **N/A.** | **No.** |
 | **Current Status** | **Yes.** WITHDRAWN/EXPIRED returned in real time. | **Only if asked.** | **N/A.** | **Point in time.** |
 
-**Why Live Verify wins here:** The core problem is that agent letters are the most relied-upon document in offshore KYC, yet the most difficult to verify. Direct contact with the agent — the current verification method — is slow, doesn't scale, and fails when the agent declines to respond (which happens routinely for confidentiality reasons). Live Verify gives the agent a way to confirm its letters without breaking confidentiality — the response is "yes, we issued this exact letter" without revealing anything the letter doesn't already say.
+**Where each fits:** Contacting the registered agent directly is still the fullest check, because the agent can answer follow-up questions, and a registry search or an apostille each confirms something the letter itself does not. Direct contact is slow, does not scale across a large onboarding queue, and may go unanswered where the agent's confidentiality policy prevents a reply. Live Verify lets the agent confirm it issued the exact letter, and whether it has been withdrawn, while disclosing nothing beyond what the letter already says. The other checks remain available where more is needed.
 
 ## Jurisdictional Witnessing (Optional)
 

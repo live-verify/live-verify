@@ -35,7 +35,13 @@ present in the warehouse as of the audit date.
 <span data-verify-line="inventory">verify:global-coldstorage.com/inventory/v</span> <span verifiable-text="end" data-for="inventory"></span>
 </div>
 
-## Data Verified
+## The Problem: Phantom Inventory Fraud
+
+- **Inventory Inflation:** A business owner editing the warehouse's PDF report to change "10 Pallets" to "100 Pallets" to trick a bank into giving a larger loan.
+- **Double-Pledging:** Using the same 85 pallets of crab to secure loans from two different banks. Live Verify allows the status to be flagged as "Pledged," stopping the second loan.
+- **Ghost Warehouses:** Creating fake "Warehouse Certificates" from non-existent facilities to hide the theft of company assets.
+
+## What Is Checked
 
 Depositor name, warehouse location ID, itemized lot numbers, product descriptions, current quantity on hand (units/pallets), total certified valuation, last audit timestamp, warehouse manager ID.
 
@@ -45,19 +51,19 @@ Depositor name, warehouse location ID, itemized lot numbers, product description
 - **Stock Transfer Note:** Moving goods between owners within the warehouse.
 - **Cycle Count Report:** Proving frequent physical audits occurred.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Warehouse Operator) and current asset status.
 
 **Status Indications:**
 - **In Custody** — Goods are physically present and verified.
 - **Released** — Goods have been out-gated and removed from the ledger.
-- **Pledged** — **ALERT:** Inventory is currently being used as collateral for a loan.
+- **Pledged** — Inventory is currently being used as collateral for a loan.
 - **Void** — Report retracted due to counting error.
 
-## Second-Party Use
+## Who Holds It
 
-The **Depositor** (second party) receives the inventory report from the warehouse operator (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Depositor (second party) receives the inventory report from the warehouse operator (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of what goods are in custody. Most of the time, the report sits in their financial files—the verification value is latent, there *if needed*.
 
@@ -65,12 +71,12 @@ The **Depositor** (second party) receives the inventory report from the warehous
 
 **Future Optionality:** If a dispute arises—whether about loan collateral, insurance claims, or auditor verification—they have cryptographic proof ready without needing to contact the warehouse.
 
-## Third-Party Use
+## Who Checks It
 
 The depositor (second party) may hand the verified document to various third parties:
 
 **Lenders / Banks**
-**Collateral Monitoring:** Banks currently send physical "Auditors" to warehouses twice a year. Live Verify allows for **automated weekly verification**. If the inventory total drops or the hash status changes to "Released," the bank's loan system can trigger an immediate alert.
+**Collateral Monitoring:** Banks currently send physical "Auditors" to warehouses twice a year. Live Verify allows for automated weekly verification. If the inventory total drops or the hash status changes to "Released," the bank's loan system can trigger an immediate alert.
 
 **Supply Chain Insurers**
 **Risk Management:** Verifying the "Stock-on-Hand" before binding high-value cargo or spoilage insurance.
@@ -78,13 +84,7 @@ The depositor (second party) may hand the verified document to various third par
 **Food Safety Regulators (FDA)**
 **Traceability:** In the event of a recall, instantly verifying the "Lot Numbers" present in a warehouse to ensure contaminated food is quarantined.
 
-## Verification Architecture
-
-**The "Phantom Inventory" Fraud Problem**
-
-- **Inventory Inflation:** A business owner editing the warehouse's PDF report to change "10 Pallets" to "100 Pallets" to trick a bank into giving a larger loan.
-- **Double-Pledging:** Using the same 85 pallets of crab to secure loans from two different banks. Live Verify allows the status to be flagged as "Pledged," stopping the second loan.
-- **Ghost Warehouses:** Creating fake "Warehouse Certificates" from non-existent facilities to hide the theft of company assets.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -112,7 +112,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the warehouse operator's hashes and status changes plus structured metadata (lot numbers, quantities, valuation amounts, depositor IDs, location codes) — never depositor names, detailed product specifications, or customer identities — providing non-repudiation of the inventory report and quantities and an audit trail financial institutions and regulators can inspect.
 
-## Competition vs. WMS Portals (Warehouse Management)
+## Compared With WMS Portals (Warehouse Management)
 
 | Feature | Live Verify | WMS Portal Access | Scanned PDF / Excel |
 | :--- | :--- | :--- | :--- |
@@ -121,4 +121,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Content.** Protects the Lot counts. | **Data-Only.** Doesn't protect the paper doc. | **Vulnerable.** |
 | **Persistence** | **High.** Remains verifiable post-release. | **Low.** Records often archived/hidden in-app. | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "External Auditor" reality. Banks and auditors are external to the supply chain. They work with "Static Artifacts" (PDF reports) sent via email. Live Verify turns those **Static Artifacts** into live digital anchors, providing the same trust as a live WMS login without the security risks.
+**Where each fits:** A warehouse management system is the live record of stock, and the custodian and its direct customers are best served by it. Banks and auditors outside the supply chain rarely get a login and work from the reports they are emailed. Live Verify lets them confirm that the custodian issued the report in front of them, lot counts and all, without widening access to the warehouse system.

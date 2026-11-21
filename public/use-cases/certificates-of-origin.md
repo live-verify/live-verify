@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Certificate of Origin?
 
-A **Certificate of Origin (CO)** is the "Nationality Passport" for a shipment of goods. It is issued by a **Chamber of Commerce** and certifies that the products (microprocessors, precision gears, electronics, etc.) were truly "Born" in a specific country.
+A Certificate of Origin (CO) is the "Nationality Passport" for a shipment of goods. It is issued by a Chamber of Commerce and certifies that the products (microprocessors, precision gears, electronics, etc.) were truly "Born" in a specific country.
 
-It's not just for geography—it's for **Tariffs**. If a company ships microprocessors from the USA to South Korea, they might pay 0% duty (tax) if they have a verified CO. If they don't have one, they might pay 10% or more. For a $1M shipment, a verified CO can save $50,000 in duties.
+It's not just for geography—it's for Tariffs. If a company ships microprocessors from the USA to South Korea, they might pay 0% duty (tax) if they have a verified CO. If they don't have one, they might pay 10% or more. For a $1M shipment, a verified CO can save $50,000 in duties.
 
 **The Fraud Problem:** Fraudsters often "launder" products—shipping goods from a high-tax country (like China) to a neutral country (like Vietnam) and creating a fake CO to avoid paying US or EU duties. Because these documents save companies millions in "Preferential Tariffs," they are high-value targets for forgery. Scammers create fake Chamber stamps and letterheads to trick customs agents into allowing duty-free entry for sanctioned or high-tariff goods.
 
@@ -54,7 +54,15 @@ It's not just for geography—it's for **Tariffs**. If a company ships microproc
   </div>
 </div>
 
-## Data Verified
+## The Problem: Origin Laundering Fraud
+
+- **Transshipment Fraud:** Shipping goods from a high-tariff country (e.g., China) to a low-tariff neutral country (Vietnam), then creating a fake "Vietnam Origin" certificate to enter the US/EU duty-free.
+- **HS Code Tampering:** Editing the HS code on the paper CO to a category with lower taxes.
+- **Fake Stamps:** Forging the physical rubber stamp of a legitimate Chamber of Commerce.
+- **Fabricated Chambers:** Creating fake "Chamber of Commerce" websites and domains to "verify" fake certificates.
+- **Duplicate COs:** Using one legitimate CO for multiple shipments of the same goods.
+
+## What Is Checked
 
 Exporter name and location, Consignee name and location, specific Country of Origin, detailed description of goods, Harmonized System (HS) Codes, quantity/weight, Certificate ID number, certifying authority (Chamber name and location), date of certification.
 
@@ -64,7 +72,7 @@ Exporter name and location, Consignee name and location, specific Country of Ori
 - **GSP Certificate (Form A):** For preferential treatment for developing nations under Generalized System of Preferences.
 - **Self-Certification:** Form filled out by the exporter (requires domain binding to the exporting company).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`uschamber.com`, `iccwbo.org`) and current certificate status.
 
@@ -77,9 +85,9 @@ Shows the issuer domain (`uschamber.com`, `iccwbo.org`) and current certificate 
 - **Superseded** — Replaced by a corrected or reissued certificate.
 - **Alert** — Associated with a known "Origin Fraud" scheme or sanctioned trader.
 
-## Second-Party Use
+## Who Holds It
 
-The **Exporter** benefits from verification.
+The Exporter benefits from verification.
 
 **Tariff Exemption:** Proving to foreign customs that the high-value electronics are US-origin, qualifying for 0% duty under a trade agreement. Verification prevents "Customs Holds" that can delay supply chains for weeks.
 
@@ -89,7 +97,7 @@ The **Exporter** benefits from verification.
 
 **Brand Protection:** Proving the "Country of Manufacture" to consumers and retailers, protecting the "Made in USA," "Made in UK," or "Swiss Made" premium.
 
-## Third-Party Use
+## Who Checks It
 
 **Customs Authorities (CBP, HMRC, KCS, etc.)**
 **Compliance Enforcement:** Instantly verifying that the "Country of Origin" on the paper invoice matches the official Chamber of Commerce record. This stops "Tariff Engineering" where high-tariff goods are mislabeled as lower-tariff origins.
@@ -107,15 +115,7 @@ The **Exporter** benefits from verification.
 **Procurement Teams**
 **Sourcing Transparency:** Large corporations (e.g., Apple, BMW, SpaceX) can verify the origin claims of their tier-2 and tier-3 suppliers to ensure compliance with ethical sourcing and trade laws.
 
-## Verification Architecture
-
-**The "Origin Laundering" Fraud Problem**
-
-- **Transshipment Fraud:** Shipping goods from a high-tariff country (e.g., China) to a low-tariff neutral country (Vietnam), then creating a fake "Vietnam Origin" certificate to enter the US/EU duty-free.
-- **HS Code Tampering:** Editing the HS code on the paper CO to a category with lower taxes.
-- **Fake Stamps:** Forging the physical rubber stamp of a legitimate Chamber of Commerce.
-- **Fabricated Chambers:** Creating fake "Chamber of Commerce" websites and domains to "verify" fake certificates.
-- **Duplicate COs:** Using one legitimate CO for multiple shipments of the same goods.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -141,7 +141,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the Chamber's hashes and status changes plus structured metadata (key identifiers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the certificate it issued.
 
-## Competition vs. Blockchain (TradeLens)
+## Compared With Blockchain (TradeLens)
 
 | Feature | Live Verify | TradeLens / GSBN | Paper COI |
 | :--- | :--- | :--- | :--- |
@@ -150,14 +150,14 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Content.** Proves the *Country* matches. | **Data-Only.** | **Vulnerable.** |
 | **Cost** | **Low.** Standard web infra. | **Very High.** Seven-figure implementation costs. | **None.** |
 
-**Why Live Verify wins here:** Ease of Entry. While "Global Trade Blockchains" are the future, most of the world's trade still runs on paper. Live Verify provides **Blockchain-level security** for today's paper-based reality, allowing any small-town Chamber of Commerce to offer cryptographic verification for just a few dollars a month in hosting costs.
+**Where each fits:** shared trade platforms can work well among the carriers, ports and authorities that have joined them. Most certificates of origin are still issued on paper or PDF by local chambers whose counterparties are not on any common platform. Live Verify lets a chamber of any size make its certificates checkable from its own domain, and a platform member can use both.
 
 ## Jurisdictional Witnessing (Optional)
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the certificate it issued.
 
 
-## Competition vs. eCO (Electronic Registry)
+## Compared With eCO (Electronic Registry)
 
 | Feature | Live Verify | eCO Registry (ICC) | Paper Certificate |
 | :--- | :--- | :--- | :--- |
@@ -166,4 +166,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Connectivity** | **Strong.** Works even if the global ICC hub is down. | **Fragile.** Single point of failure if the ICC system is offline. | **Offline.** |
 | **Integrity** | **Binds Content.** Proves the *Country* matches the chamber record. | **Data-Only.** Doesn't verify the actual paper. | **Zero.** |
 
-**Why Live Verify wins here:** Decentralization. International trade is built on thousands of independent local Chambers of Commerce. It is impossible to get every small chamber in the world on a single "Global IT Platform." Live Verify allows every chamber to remain independent while providing a **universal digital overlay** for their paper certificates, providing the best of both worlds—local autonomy and global verification.
+**Where each fits:** the ICC's electronic registry is a sound route where the chamber participates and the checking officer has access to it. A customs officer at a border gate may not, and many smaller chambers issue outside the registry. Live Verify lets the officer check the paper against the issuing chamber's own domain, so each chamber keeps its independence and the registry continues to serve those who use it.

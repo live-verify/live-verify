@@ -41,7 +41,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Manuscript Theft Fraud
+
+- **Idea Poaching:** A rogue editor or assistant stealing a manuscript and claiming they wrote it. Verification timestamps prove the original author's priority.
+- **Silent Editing:** A publisher changing a controversial paragraph in a PDF after the author signed off, to avoid a legal risk.
+- **Fabricated Submissions:** Someone creating a fake "Penguin Random House" receipt to trick an investor or agent into thinking they have a book deal.
+
+## What Is Checked
 
 Author name, editor name, manuscript title, version ID (e.g., v2.4), SHA-256 hash of the submitted digital file, submission timestamp (to the second), total word count, copyright registration status, issuing publisher domain.
 
@@ -51,7 +57,7 @@ Author name, editor name, manuscript title, version ID (e.g., v2.4), SHA-256 has
 - **Reader's Report:** (Linked hash) proving the editorial feedback.
 - **Copyright Affidavit:** (Linked hash) proving original authorship.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`penguinrandomhouse.com`, `harpercollins.com`) and version standing.
 
@@ -59,20 +65,20 @@ Shows the issuer domain (`penguinrandomhouse.com`, `harpercollins.com`) and vers
 - **Certified Original** — Version matches the author's initial submission.
 - **Editorial Pass** — Revised version after publisher edits.
 - **Final Galleys** — Version approved for typesetting and printing.
-- **Retracted** — **ALERT:** Authorship or integrity dispute found.
+- **Retracted** — Authorship or integrity dispute found.
 
-## Second-Party Use
+## Who Holds It
 
-The **Author** benefits from verification.
+The Author benefits from verification.
 
 **Copyright Defense:** Proving to a court or a rival author that their "Version 2.4" existed on March 15, 2026. A verified, timestamped hash from a major publisher's domain is the "Nuclear Option" evidence in plagiarism or "Idea Theft" lawsuits.
 
 **Contractual Milestones:** Proving to an agent that the manuscript was "Verified Delivered" on time, triggering the next advance payment.
 
-## Third-Party Use
+## Who Checks It
 
 **Literary Agents**
-**Audit Integrity:** Verifying that the manuscript being sent to international sub-agents is the **exact verified version** authorized by the author, preventing "Version Skew" across different languages.
+**Audit Integrity:** Verifying that the manuscript being sent to international sub-agents is the exact verified version authorized by the author, preventing "Version Skew" across different languages.
 
 **Movie Studios / Producers**
 **Chain of Title:** Before buying film rights, the studio verifies the "Manuscript Hash" to ensure they are basing the screenplay on the authorized, non-altered version of the book.
@@ -80,13 +86,7 @@ The **Author** benefits from verification.
 **Academic Researchers**
 **Provenance Tracking:** For historical or high-value works, verifying the "Edit History" to understand the evolution of the text.
 
-## Verification Architecture
-
-**The "Manuscript Theft" Fraud Problem**
-
-- **Idea Poaching:** A rogue editor or assistant stealing a manuscript and claiming they wrote it. Verification timestamps prove the original author's priority.
-- **Silent Editing:** A publisher changing a controversial paragraph in a PDF after the author signed off, to avoid a legal risk.
-- **Fabricated Submissions:** Someone creating a fake "Penguin Random House" receipt to trick an investor or agent into thinking they have a book deal.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -115,7 +115,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the publisher's hashes and status changes plus structured metadata (author name, editor name, manuscript title, version ID, submission timestamp) — never plaintext or sensitive personal information — providing non-repudiation of the manuscript attestation and an audit trail for copyright disputes.
 
 
-## Competition vs. Version Control (GitHub / Word Track Changes)
+## Compared With Version Control (GitHub / Word Track Changes)
 
 | Feature | Live Verify | Track Changes (Word) | GitHub (Version Control) |
 | :--- | :--- | :--- | :--- |
@@ -124,4 +124,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Cryptographic.** Binds the whole file. | **Vulnerable.** Metadata can be deleted. | **High.** |
 | **Adoption** | **High.** Works for traditional non-tech authors. | **Universal.** | **Low.** Only for tech-savvy authors. |
 
-**Why Live Verify wins here:** The "Traditional Industry" reality. Most authors use Microsoft Word or Scrivener, not GitHub. Most agents work with PDFs. Live Verify turn the **Static PDF Manuscript** into a live digital anchor, providing "Software-Grade" integrity to the world of literature.
+**Where each fits:** Track changes is how authors and editors actually work on a text together, and version control gives technically minded authors a thorough history. Neither is designed to show an outside party, such as an agent, a rights buyer or a tribunal, that a given PDF is the version the publisher recorded on a given date. Live Verify adds that confirmation against the publisher's domain and leaves the drafting tools as they are.

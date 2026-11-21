@@ -11,14 +11,14 @@ furtherDerivations: 1
 
 ## What is University Accreditation?
 
-In most countries, the government doesn't "Grade" universities. Instead, private non-profit boards (**Accreditors**) visit the campus to verify that the school meets high standards for faculty, curriculum, and financial stability.
+In most countries, the government doesn't "Grade" universities. Instead, private non-profit boards (Accreditors) visit the campus to verify that the school meets high standards for faculty, curriculum, and financial stability.
 
 **Regional Accreditation** is the "Gold Standard" of higher education. Without it:
 1.  **Degrees** are often ignored by major employers.
 2.  **Credits** won't transfer to other universities.
 3.  **Federal Funding** (like Pell Grants) cannot be used by the institution.
 
-**"Accreditation Fraud"** is the primary tool used by "Diploma Mills." These fake schools create realistic-looking "Certificates of Accreditation" from non-existent boards like the "International Council for Academic Excellence" to trick students into paying for worthless degrees. Verified hashes bind the **Institution's name, the Accrediting Body, and the Review Dates** to the board's official domain.
+**"Accreditation Fraud"** is the primary tool used by "Diploma Mills." These fake schools create realistic-looking "Certificates of Accreditation" from non-existent boards like the "International Council for Academic Excellence" to trick students into paying for worthless degrees. Verified hashes bind the Institution's name, the Accrediting Body, and the Review Dates to the board's official domain.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 5px double #1a365d; background: #fdfcf0; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); position: relative;">
   <div style="text-align: center; margin-bottom: 30px;">
@@ -50,7 +50,13 @@ In most countries, the government doesn't "Grade" universities. Instead, private
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Board Fraud
+
+- **Accreditor Spoofing:** Fake universities creating fake "Accreditation Boards" with professional-looking websites to "verify" their own worthless degrees.
+- **Status Misrepresentation:** A school whose accreditation was revoked years ago continuing to display an old certificate to keep collecting tuition.
+- **Archival Hiding:** Hiding a "Probation" status by presenting a clean, older version of the certificate.
+
+## What Is Checked
 
 Institution name, Accrediting body ID, Accreditation status, Date of last review, Date of next evaluation, Level of accreditation (Regional/National), Specific campus locations included, Regulatory recognition status.
 
@@ -60,13 +66,13 @@ Institution name, Accrediting body ID, Accreditation status, Date of last review
 - **Action Letter:** Detailing specific findings and requirements.
 - **Grant of Candidacy:** For schools seeking future accreditation.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`msche.org`, `hlcommission.org`) and current standing.
 
 **Status Indications:**
 - **Accredited** — Institution meets all standards and is in good standing.
-- **Probation** — **ALERT:** Significant deficiencies found; status at risk.
+- **Probation** — Significant deficiencies found; status at risk.
 - **Show-Cause** — Final warning before withdrawal of accreditation.
 - **Resigned/Withdrawn** — Institution is no longer accredited.
 
@@ -74,15 +80,15 @@ Shows the issuer domain (`msche.org`, `hlcommission.org`) and current standing.
 
 Because a degree from an unaccredited institution is often worthless — and the student discovers this only after spending years and tens of thousands of dollars. Credits from unaccredited schools do not transfer. Graduate schools will not accept the undergraduate degree as a qualifying credential. Professional licensing boards in medicine, law, engineering, and education will not consider the degree at all. In the worst case, an employer discovers the accreditation was fake during a background check, and the employee — who may have genuinely believed their school was legitimate — loses their job and their professional reputation. The diploma mill industry specifically targets students who are the first in their family to attend university and least likely to know what accreditation means.
 
-## Second-Party Use
+## Who Holds It
 
-The **University / College** benefits from verification.
+The University / College benefits from verification.
 
 **Federal Funding Compliance:** Proving to the U.S. Dept of Education that the institution is "Verified Accredited," ensuring no disruption in student loan/grant disbursements.
 
 **Global Partnerships:** Proving institutional legitimacy to foreign universities during the establishment of "Study Abroad" programs or joint degrees.
 
-## Third-Party Use
+## Who Checks It
 
 **Employers (HR Departments)**
 **Credential Vetting:** Before hiring an executive with a "PhD in Economics," the recruiter scans the university's accreditation hash. Verification stops "Ivy League" fraud where candidates buy degrees from un-vetted, fake universities.
@@ -93,13 +99,7 @@ The **University / College** benefits from verification.
 **Financial Aid Auditors**
 **Due Diligence:** Ensuring that tax-payer funds are only flowing to legitimate, verified institutions.
 
-## Verification Architecture
-
-**The "Fake Board" Fraud Problem**
-
-- **Accreditor Spoofing:** Fake universities creating fake "Accreditation Boards" with professional-looking websites to "verify" their own worthless degrees.
-- **Status Misrepresentation:** A school whose accreditation was revoked years ago continuing to display an old certificate to keep collecting tuition.
-- **Archival Hiding:** Hiding a "Probation" status by presenting a clean, older version of the certificate.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -126,7 +126,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the accrediting body's hashes and status changes plus structured metadata (institution name, accreditation level, accreditation period, accredited programs, next reaffirmation date) — never financial details or compliance violation specifics — providing non-repudiation of accreditation status and an audit trail for regulatory oversight.
 
 
-## Competition vs. CHEA Database
+## Compared With CHEA Database
 
 | Feature | Live Verify | CHEA / DAPIP Database | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -135,4 +135,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Certificate.** Proves the *paper* matches. | **Data-Only.** Doesn't protect against forged certificates. | **Vulnerable.** |
 | **Alerting** | **Active.** Can show "PROBATION" in red. | **Passive.** | **Hidden.** |
 
-**Why Live Verify wins here:** The "Lobby Entrance" reality. Parents and students decide to trust a school while standing in the lobby. They aren't going to search the federal DAPIP database on their phones. Live Verify turns the **Institutional Trophy** into a **Digital Truth**, ensuring that the prestige of the certificate matches the reality of its accreditation.
+**Where each fits:** The CHEA and DAPIP databases are the reference for whether an institution is accredited, and admissions offices, employers and regulators doing careful checks should continue to consult them. They do not vouch for a certificate on a wall or a PDF in a prospectus, and a visiting parent or an overseas applicant may not know the databases exist. Live Verify lets that reader confirm the accreditor stands behind the certificate as displayed, and the database remains there for anyone who wants the full record.

@@ -13,9 +13,9 @@ furtherDerivations: 1
 
 When you report a crime — a stolen laptop, a burglary, a fraud — the reporting body gives you a confirmation with a reference number. That confirmation has two purposes: it proves you reported the crime, and it gives insurers and other institutions something to check against.
 
-In the UK, there are two channels: **Report Fraud** (formerly Action Fraud) handles fraud and cybercrime centrally, while the **43 territorial police forces** handle criminal cases — theft, burglary, assault, criminal damage — directly. Both issue crime reference numbers. Both are required by insurers.
+In the UK, there are two channels: Report Fraud (formerly Action Fraud) handles fraud and cybercrime centrally, while the 43 territorial police forces handle criminal cases — theft, burglary, assault, criminal damage — directly. Both issue crime reference numbers. Both are required by insurers.
 
-In practice, the confirmation is primarily a **bureaucratic receipt**. Report Fraud received over 300,000 reports per year. Roughly 4% resulted in anyone being charged. The rest sat in a queue. Local police forces have better investigation rates for criminal cases, but their confirmations are equally unverifiable — a PDF with a plausible reference number is all it takes. Insurers still *require* the crime reference number before they'll process a theft or fraud claim. The reference number's value is as proof-of-reporting, not as evidence of investigation.
+In practice, the confirmation is primarily a bureaucratic receipt. Report Fraud received over 300,000 reports per year. Roughly 4% resulted in anyone being charged. The rest sat in a queue. Local police forces have better investigation rates for criminal cases, but their confirmations are equally unverifiable — a PDF with a plausible reference number is all it takes. Insurers still *require* the crime reference number before they'll process a theft or fraud claim. The reference number's value is as proof-of-reporting, not as evidence of investigation.
 
 The problem: these confirmations are trivially forgeable. A PDF with a plausible reference number and a convincing header is all it takes. Insurers have no practical way to verify that a crime reference number is real without phoning the reporting body — which, in the case of a system processing hundreds of thousands of reports, rarely answers.
 
@@ -83,7 +83,7 @@ Live Verify eliminates this entirely. The insurer scans the confirmation. Either
 | `SUPERSEDED` | denying | Report replaced — a newer reference exists |
 | `REVOKED` | denying | Report withdrawn (e.g. found to be fabricated) |
 
-All statuses from `OK` through `REFERRED_TO_CPS`/`REFERRED_TO_COPFS` are **affirming** — the crime report genuinely exists. The insurer can proceed with the claim. The status gives additional context about where things stand in the justice system, but the insurer's core question ("did this person actually report a crime?") is answered by any affirming status.
+All statuses from `OK` through `REFERRED_TO_CPS`/`REFERRED_TO_COPFS` are affirming — the crime report genuinely exists. The insurer can proceed with the claim. The status gives additional context about where things stand in the justice system, but the insurer's core question ("did this person actually report a crime?") is answered by any affirming status.
 
 `SUPERSEDED` is non-accusatory — it simply means the report has been replaced (duplicate merged, category reclassified, amended reference issued). The insurer asks the claimant for the current reference.
 
@@ -93,7 +93,14 @@ The typical lifecycle: `OK` → `PENDING_INVESTIGATION` → `UNDER_INVESTIGATION
 
 In practice, the vast majority of reports will sit at `PENDING_INVESTIGATION` indefinitely. That's honest — and it still satisfies the insurer's requirement.
 
-## Data Verified
+## The Problem: Fake Crime Reference
+
+- **Fabricated PDFs** — A convincing header, a plausible reference number format, and a crime category that matches the insurance claim. Without verification, the insurer has no way to distinguish this from a genuine confirmation.
+- **Reference number recycling** — Using a genuine reference number from a different crime (or someone else's crime) on a forged confirmation with altered details.
+- **Inflated claims** — Reporting a minor incident and altering the confirmation to describe a more serious crime to support a larger insurance claim.
+- **Serial reporting** — Filing multiple reports for the same incident to different bodies, then claiming against multiple insurance policies using different reference numbers.
+
+## What Is Checked
 
 Reporting person's name, crime reference number, date reported, crime category, reporting body. The hash does NOT contain the details of the crime itself — only the confirmation receipt.
 
@@ -102,9 +109,9 @@ Reporting person's name, crime reference number, date reported, crime category, 
 - **101/Non-Emergency Report Receipt** — Confirmation from telephone reporting.
 - **In-Station Report Receipt** — Paper confirmation from a police station visit.
 
-## Second-Party Use
+## Who Holds It
 
-The **Victim** (reporter) benefits from verification.
+The Victim (reporter) benefits from verification.
 
 **Insurance Claims:** The primary use. Proving to an insurer that a crime was genuinely reported, without waiting for the insurer to phone the reporting body. Particularly valuable for travel insurance (theft abroad), contents insurance (burglary), and motor insurance (vehicle theft/damage).
 
@@ -112,7 +119,7 @@ The **Victim** (reporter) benefits from verification.
 
 **Landlord/Employer Notification:** Proving that a break-in or theft at a rented property or workplace was formally reported.
 
-## Third-Party Use
+## Who Checks It
 
 **Insurers (Primary Verifier)**
 The highest-volume use. Every theft, burglary, and criminal damage claim requires a crime reference number. Insurers process millions of these annually. Automated verification at point of claim submission eliminates a manual verification step and catches fabricated references immediately.
@@ -126,14 +133,7 @@ HR departments may require a crime report confirmation when an employee claims t
 **Solicitors**
 Personal injury and criminal defence solicitors need to confirm that incidents were formally reported. A verified confirmation is stronger evidence than a photocopy.
 
-## Verification Architecture
-
-**The Fake Crime Reference Problem**
-
-- **Fabricated PDFs** — A convincing header, a plausible reference number format, and a crime category that matches the insurance claim. Without verification, the insurer has no way to distinguish this from a genuine confirmation.
-- **Reference number recycling** — Using a genuine reference number from a different crime (or someone else's crime) on a forged confirmation with altered details.
-- **Inflated claims** — Reporting a minor incident and altering the confirmation to describe a more serious crime to support a larger insurance claim.
-- **Serial reporting** — Filing multiple reports for the same incident to different bodies, then claiming against multiple insurance policies using different reference numbers.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -165,7 +165,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the reporting body's hashes and status changes plus structured metadata (reference number, report date, crime category) — never victim addresses, personal information, or crime details — providing non-repudiation of the crime report issuance.
 
-## Competition vs. Phone Verification
+## Compared With Phone Verification
 
 | Feature | Live Verify | Phone Verification | Trusting the PDF |
 | :--- | :--- | :--- | :--- |
@@ -175,7 +175,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Automation** | **Yes.** Insurer can verify at point of submission. | **No.** Manual phone call per claim. | **No.** |
 | **24/7** | **Yes.** Hash lookup is always available. | **No.** Office hours, often with long queues. | **N/A.** |
 
-**Why Live Verify wins here:** The current system is broken by design. Reporting bodies issue hundreds of thousands of confirmations per year but have no scalable way for third parties to verify them. Insurers either trust the paper (enabling fraud) or spend hours on the phone (costing money and time). Live Verify makes verification instant, automatic, and unforgeable.
+**Where each fits:** a direct enquiry to the reporting body remains appropriate when an insurer needs more than confirmation that a report exists, such as details of an investigation. For the routine question of whether a reference is real, phone verification is slow and puts load on the reporting body. Live Verify answers that question from the body's own domain at any hour, leaving its staff for the enquiries that need a person.
 
 ## International Equivalents
 
@@ -203,9 +203,9 @@ The pattern of "centralised crime reporting body issues a reference number that 
 | **South Africa** | SAPS | CAS Number | No (in-person) | Yes (resource-constrained) |
 | **UAE (Dubai)** | eCrime (ecrime.ae) | Case Number | Yes | Yes |
 
-A common pattern: many of these systems are **intake and triage** mechanisms rather than investigative bodies. The actual investigation is delegated to local or specialist police units. This is the structural issue behind the "Inaction Fraud" criticism — and variants of the same complaint exist in India (~2% of cybercrime complaints become formal FIRs), Canada (CAFC explicitly does not investigate), and Australia (Scamwatch reports are not police reports).
+A common pattern: many of these systems are intake and triage mechanisms rather than investigative bodies. The actual investigation is delegated to local or specialist police units. This is the structural issue behind the "Inaction Fraud" criticism — and variants of the same complaint exist in India (~2% of cybercrime complaints become formal FIRs), Canada (CAFC explicitly does not investigate), and Australia (Scamwatch reports are not police reports).
 
-Regardless of whether investigation happens, the **receipt** is what the insurer needs. Live Verify makes that receipt trustworthy.
+Regardless of whether investigation happens, the receipt is what the insurer needs. Live Verify makes that receipt trustworthy.
 
 ## Further Derivations
 

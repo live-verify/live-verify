@@ -41,7 +41,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Safe Harbor Fraud
+
+- **Report Deletion:** A landlord receiving a positive lead test result and simply "forgetting" to attach it to the disclosure PDF.
+- **Check-box Tampering:** Changing a "Presence Known" check to "No Knowledge" after the document is signed.
+- **Date Forgery:** Backdating an acknowledgment to hide that the tenant didn't receive the lead pamphlet until after they moved in.
+
+## What Is Checked
 
 Property address, Seller/Lessor name, Buyer/Lessee name, specific disclosure checkboxes (Known vs Unknown), list of attached reports (if any), presence of "Protect Your Family from Lead" pamphlet, date of acknowledgment, broker/agent ID.
 
@@ -51,7 +57,7 @@ Property address, Seller/Lessor name, Buyer/Lessee name, specific disclosure che
 - **Lead Abatement Certificate:** Proving the property was made safe.
 - **Lease Addendum:** Specifically for rental transactions.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`epa.gov`, `hud.gov`, `firstam.com`) and current filing status.
 
@@ -61,15 +67,15 @@ Shows the issuer domain (`epa.gov`, `hud.gov`, `firstam.com`) and current filing
 - **Void** — Replaced by a corrected disclosure (e.g., after an inspection found lead).
 - **Abated** — Associated with a verified lead-free certification.
 
-## Second-Party Use
+## Who Holds It
 
-The **Seller / Landlord** benefits from verification.
+The Seller / Landlord benefits from verification.
 
 **Liability Shield:** Proving to a court or a tenant that they fulfilled their federal duty to disclose "No Knowledge" of lead. Verification ensures that a tenant can't later claim the landlord "Deleted" a page from the disclosure PDF after the lease was signed.
 
 **Closing Speed:** Proving to a title company that the mandatory federal disclosure is verified and compliant, preventing a last-minute closing delay.
 
-## Third-Party Use
+## Who Checks It
 
 **Tenants / Home Buyers**
 **Health Assurance:** Before moving a family with small children into a pre-1978 home, the buyer scans the hash. "Verified by EPA.gov" ensures the seller isn't "Hiding" a known lead report that could cause brain damage to their children.
@@ -80,13 +86,7 @@ The **Seller / Landlord** benefits from verification.
 **Attorneys / Litigators**
 **Chain of Disclosure:** Verifying exactly what was disclosed at the time of sale in a "Failure to Disclose" toxic tort lawsuit.
 
-## Verification Architecture
-
-**The "Safe Harbor" Fraud Problem**
-
-- **Report Deletion:** A landlord receiving a positive lead test result and simply "forgetting" to attach it to the disclosure PDF.
-- **Check-box Tampering:** Changing a "Presence Known" check to "No Knowledge" after the document is signed.
-- **Date Forgery:** Backdating an acknowledgment to hide that the tenant didn't receive the lead pamphlet until after they moved in.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -112,7 +112,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the property record issuer's hashes and status changes plus structured metadata (property address, disclosure date, seller/buyer names, signed status) — never lead inspection details or remediation costs — providing non-repudiation of the disclosure and an audit trail attorneys can inspect.
 
 
-## Competition vs. Disclosure Portals
+## Compared With Disclosure Portals
 
 | Feature | Live Verify | Disclosure Portal | Scanned PDF / Paper |
 | :--- | :--- | :--- | :--- |
@@ -121,4 +121,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Trust Anchor** | **Domain-Bound.** Bound to the Gov/Title Co. | **System-Bound.** Trust the vendor. | **Visual.** |
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires paying a fee or finding a login. | **Instant.** |
 
-**Why Live Verify wins here:** The "Permanent Liability" problem. Lead paint liability lasts for decades. A tenant might sue in 2035 for a disclosure made in 2025. Live Verify turns the **Static Paper Disclosure** into an immutable digital anchor that survives the death of property management portals and the loss of physical filing cabinets.
+**Where each fits:** A disclosure portal is a practical way to deliver and sign the form at the start of a tenancy or sale, and the parties to that transaction are well served by it. Questions about the disclosure can arise many years later, sometimes after the portal account or the managing agent has gone. Live Verify keeps the signed text checkable against the issuer's domain for as long as the issuer publishes the hash, so the paper copy in someone's file can still be confirmed.

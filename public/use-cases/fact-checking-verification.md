@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 In the era of "Fake News" and AI-generated text, it is trivial to create a realistic-looking news article or quote from a politician that is 100% false.
 
-A **Verified Fact-Check** adds a cryptographic anchor to a news story.
+A Verified Fact-Check adds a cryptographic anchor to a news story.
 
 It allows a reader to scan the text and see a green "VERIFIED" status from an independent watchdog (like Snopes or PolitiFact). More importantly, it stops the "Archival Erasure" problem: a newspaper cannot "Silently Edit" its old articles to change history if the original text is already hashed and verified on an external domain.
 
@@ -41,7 +41,13 @@ It allows a reader to scan the text and see a green "VERIFIED" status from an in
   </div>
 </div>
 
-## Data Verified
+## The Problem: Memory Hole Fraud
+
+- **Silent Editing:** A publication quietly changing a quote or a number in an old article after a scandal breaks, to pretend they "were right all along."
+- **Screenshot Forgery:** Scammers creating fake news "Screenshots" that look like they come from the NY Times or Daily Ledger to manipulate stock prices or elections.
+- **Deepfake Quotes:** Attributing fabricated statements to real public figures using realistic-looking web templates.
+
+## What Is Checked
 
 Full published text (digest), author name, date of publication, fact-checker organization, list of verified sources (anonymized or linked), presence of corrections/retractions, primary source timestamps.
 
@@ -51,7 +57,7 @@ Full published text (digest), author name, date of publication, fact-checker org
 - **Political Statement Audit:** Independent review of campaign claims.
 - **Corporate Disclosure:** Proving earnings data matches the auditor's review.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the independent Fact-Checking Org) and the current story status.
 
@@ -59,17 +65,17 @@ Shows the issuer domain (the independent Fact-Checking Org) and the current stor
 - **Verified** — The text matches the version reviewed by the fact-checker.
 - **Correction Active** — A factual error was found; click for the updated version.
 - **Disputed** — Conflict between sources; review the "Discussion" page.
-- **Retracted** — **ALERT:** The publication has withdrawn this story due to integrity failure.
+- **Retracted** — The publication has withdrawn this story due to integrity failure.
 
-## Second-Party Use
+## Who Holds It
 
-The **News Organization / Journalist** benefits from verification.
+The News Organization / Journalist benefits from verification.
 
 **Defamation Defense:** Proving in court that the paper performed a verified, timestamped fact-check *before* publication. This demonstrates "Good Faith" and absence of "Actual Malice," which is the primary defense in high-stakes libel lawsuits.
 
 **Brand Trust:** Displaying the "Verified by Snopes/IFCN" badge on a controversial investigation to reassure readers that the claims aren't "Fake News."
 
-## Third-Party Use
+## Who Checks It
 
 **Social Media Platforms (X / Meta)**
 **Algorithmic Trust:** Platforms can use the verification hash to prioritize "Verified Facts" in the feed, reducing the reach of unverified or altered screenshots of news stories.
@@ -80,13 +86,7 @@ The **News Organization / Journalist** benefits from verification.
 **Legal Teams**
 **Discovery Proof:** Verifying that a published statement used as evidence in a trial matches the exact text at the time of publication.
 
-## Verification Architecture
-
-**The "Memory Hole" Fraud Problem**
-
-- **Silent Editing:** A publication quietly changing a quote or a number in an old article after a scandal breaks, to pretend they "were right all along."
-- **Screenshot Forgery:** Scammers creating fake news "Screenshots" that look like they come from the NY Times or Daily Ledger to manipulate stock prices or elections.
-- **Deepfake Quotes:** Attributing fabricated statements to real public figures using realistic-looking web templates.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -114,7 +114,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the fact-checker's hashes and status changes plus structured metadata (article text digests, author names, publication dates, fact-checker organizations, source timestamps) — never source identities, unnamed source locations, or attribution details — providing non-repudiation of the fact-check verdict and an audit trail regulators and historians can inspect.
 
-## Competition vs. Community Notes (X)
+## Compared With Community Notes (X)
 
 | Feature | Live Verify | Community Notes (Social) | Blockchains (Numbers Protocol) |
 | :--- | :--- | :--- | :--- |
@@ -123,4 +123,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Text.** Protects every comma. | **Vague.** Only annotates the link. | **High.** But requires technical wallet. |
 | **Speed** | **Instant.** Verified at publication. | **Slow.** Takes hours/days for a note to appear. | **Variable.** |
 
-**Why Live Verify wins here:** Expert Accountability. Community Notes are great for context, but they are often biased by the loudest voices. Live Verify turns the **Professional Fact-Checker's Opinion** into a cryptographically anchored fact that survives long after the social media "Outrage Cycle" has moved on.
+**Where each fits:** Community Notes adds context from many contributors, directly where a post is being read, and that is something a published fact-check cannot do. Content-provenance ledgers likewise answer a separate question about where a piece of media originated. Live Verify addresses a narrower point: a reader who meets a quoted or screenshotted fact-check can confirm that the named organisation published exactly that text. It says nothing about whether the verdict is right, and it sits comfortably beside crowd notes and provenance tools.

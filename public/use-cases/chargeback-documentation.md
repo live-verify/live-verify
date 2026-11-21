@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 When a customer disputes a credit card charge (a "Chargeback"), the merchant must provide evidence (like a FedEx receipt or an IP address) to prove the sale was legitimate.
 
-The **Adjudication Letter** is the final verdict from the payment processor (like PayPal or Stripe) stating: "Dispute Won" or "Dispute Lost."
+The Adjudication Letter is the final verdict from the payment processor (like PayPal or Stripe) stating: "Dispute Won" or "Dispute Lost."
 
 Merchants need these verified letters to prove to lenders and business partners that their "Fraud Rate" is low. Without verification, a merchant could easily fake a "Dispute Won" letter to hide that they are being victimized by massive amounts of fraud.
 
@@ -43,7 +43,13 @@ Merchants need these verified letters to prove to lenders and business partners 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Friendly Fraud
+
+- **Fabricated Resolutions:** A merchant editing a "Lost" letter to say "Won" to avoid being kicked off a payment platform for high fraud.
+- **Evidence Tampering:** Altering a FedEx tracking number on the PDF summary to make it look like a package was delivered when it wasn't.
+- **Ghost Cases:** Creating fake dispute notifications to justify "withholding" payments to sub-vendors or affiliates.
+
+## What Is Checked
 
 Merchant name, Case ID, disputed amount, transaction date, reason code (Visa/MC standard), evidence summary (Tracking #, IP, AVS match), final resolution status, date of resolution.
 
@@ -53,7 +59,7 @@ Merchant name, Case ID, disputed amount, transaction date, reason code (Visa/MC 
 - **Final Adjudication Letter:** Proving the outcome (Won/Lost).
 - **Pre-Arbitration Notice:** For high-value escalations.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`paypal.com`, `stripe.com`, `chase.com`) and case standing.
 
@@ -63,15 +69,15 @@ Shows the issuer domain (`paypal.com`, `stripe.com`, `chase.com`) and case stand
 - **In-Review** — Evidence submitted; waiting for bank decision.
 - **Arbitration Pending** — Escalated to the card network (Visa/MC).
 
-## Second-Party Use
+## Who Holds It
 
-The **Merchant** (Business Owner) benefits from verification.
+The Merchant (Business Owner) benefits from verification.
 
 **Collateralized Lending:** Proving to a lender that a "Reserve Fund" or "Dispute Spike" is temporary and that most recent high-value cases have been "Verified Won." This protects the merchant's credit lines.
 
 **Vendor Trust:** Proving to a supplier that a specific large order wasn't "Fraudulent" but was a verified, settled transaction, ensuring the supplier continues to ship goods.
 
-## Third-Party Use
+## Who Checks It
 
 **Acquiring Banks / Processors**
 **Risk Monitoring:** Processors can verify the outcome of disputes across different platforms to build a "Merchant Reputation" profile. Verified wins reduce the merchant's risk score.
@@ -82,13 +88,7 @@ The **Merchant** (Business Owner) benefits from verification.
 **Credit Card Networks (Visa / Mastercard)**
 **Audit Compliance:** Verifying that the evidence submitted by the merchant matches the summary provided to the issuing bank.
 
-## Verification Architecture
-
-**The "Friendly Fraud" Problem**
-
-- **Fabricated Resolutions:** A merchant editing a "Lost" letter to say "Won" to avoid being kicked off a payment platform for high fraud.
-- **Evidence Tampering:** Altering a FedEx tracking number on the PDF summary to make it look like a package was delivered when it wasn't.
-- **Ghost Cases:** Creating fake dispute notifications to justify "withholding" payments to sub-vendors or affiliates.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -115,7 +115,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the processor's hashes and status changes plus structured metadata (key identifiers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the adjudication it recorded.
 
 
-## Competition vs. Processor Portals
+## Compared With Processor Portals
 
 | Feature | Live Verify | Processor Dashboard | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -124,4 +124,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **Universal.** Works for any bank with a domain. | **Siloed.** Hard to aggregate across multiple processors. | **Universal.** |
 | **Permanence** | **Snapshot.** Proves the state at resolution. | **Dynamic.** Data can shift or be archived. | **Vulnerable.** |
 
-**Why Live Verify wins here:** Selective Disclosure. A merchant needs to prove they "Won the Big Dispute" to a lender without giving that lender a password to their entire Stripe account. Live Verify turns the **Adjudication Letter** into a portable, cryptographically trusted "Victory Token."
+**Where each fits:** the processor's dashboard is the complete, current view of a merchant's disputes, and the merchant will keep working from it. Giving a lender or acquirer a login would expose everything else in the account. Live Verify lets the merchant hand over the outcome letter for one case, which the recipient can check against the processor's domain as it stood at resolution.

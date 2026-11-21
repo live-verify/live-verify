@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Cold Chain Report?
 
-Many products (like Insulin, Vaccines, or fresh Seafood) must stay at a precise temperature (e.g., between 2°C and 8°C) every second of their journey from the factory to the store. This is called the **Cold Chain**.
+Many products (like Insulin, Vaccines, or fresh Seafood) must stay at a precise temperature (e.g., between 2°C and 8°C) every second of their journey from the factory to the store. This is called the Cold Chain.
 
-A **Compliance Report** is the digital "Receipt" from a sensor that was inside the box. It proves that the refrigerator didn't fail during the 12-hour flight or the 3-day truck ride.
+A Compliance Report is the digital "Receipt" from a sensor that was inside the box. It proves that the refrigerator didn't fail during the 12-hour flight or the 3-day truck ride.
 
 If a shipment hits a "Temperature Spike" (Excursion), the product might be ruined and dangerous. Verified reports prevent carriers from "editing" the data to hide a refrigeration failure.
 
@@ -44,7 +44,13 @@ If a shipment hits a "Temperature Spike" (Excursion), the product might be ruine
   </div>
 </div>
 
-## Data Verified
+## The Problem: Data Smoothing Fraud
+
+- **Excursion Deletion:** Editing a PDF report to "delete" a 15-minute window where the temperature hit 25°C (which would spoil the medicine).
+- **Sensor Swapping:** Using data from a "Healthy" sensor in a different box to cover up a failure in the actual shipment.
+- **Fabricated Reports:** Creating a fake "Compliant" PDF for a truck that didn't have an active cooling unit.
+
+## What Is Checked
 
 Shipment ID, product description, required temperature range, actual Mean Kinetic Temperature (MKT), maximum/minimum temperature recorded, excursion duration (if any), monitoring device ID, download timestamp, compliance status (Compliant/Excursion).
 
@@ -54,25 +60,25 @@ Shipment ID, product description, required temperature range, actual Mean Kineti
 - **GTP (Good Distribution Practice) Audit:** Annual facility certification.
 - **Last-Mile Proof of Delivery:** Proving the cooler was still at 4°C at the hospital door.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Logistics Provider or Sensor Vendor) and current record standing.
 
 **Status Indications:**
 - **Compliant** — Data matches the sensor's official secure cloud log.
-- **Excursion Alert** — **ALERT:** Temperature was recorded outside safe limits.
+- **Excursion Alert** — Temperature was recorded outside safe limits.
 - **Spoiled** — Cargo officially flagged as unsafe for use.
 - **Void** — Data retracted due to sensor calibration failure.
 
-## Second-Party Use
+## Who Holds It
 
-The **Freight Forwarder** or **Consignee** benefits from verification.
+The Freight Forwarder or Consignee benefits from verification.
 
 **Liability Protection:** A forwarder can prove to a high-value customer (e.g., Pfizer) that the cargo remained in-spec during *their* segment of the trip. Verification prevents "blame shifting" between the trucker, the airline, and the warehouse.
 
 **Product Release:** A hospital pharmacist can scan the "Compliant" hash on the shipping box to instantly authorize the release of a $100,000 vaccine batch for use, without waiting for a manual data file review.
 
-## Third-Party Use
+## Who Checks It
 
 **Pharma Quality Assurance (QA)**
 **Batch Release:** QA teams at drug manufacturers verify the digital hashes of all "Cold Chain Reports" from their logistics partners to ensure 100% compliance before releasing a lot to the market.
@@ -83,13 +89,7 @@ The **Freight Forwarder** or **Consignee** benefits from verification.
 **Cargo Insurers**
 **Claim Settlement:** If a shipment is rejected for "Excursion," the insurer verifies the original sensor data. Live Verify prevents the carrier from deleting the 2-hour window where the refrigerator failed.
 
-## Verification Architecture
-
-**The "Data Smoothing" Fraud Problem**
-
-- **Excursion Deletion:** Editing a PDF report to "delete" a 15-minute window where the temperature hit 25°C (which would spoil the medicine).
-- **Sensor Swapping:** Using data from a "Healthy" sensor in a different box to cover up a failure in the actual shipment.
-- **Fabricated Reports:** Creating a fake "Compliant" PDF for a truck that didn't have an active cooling unit.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -115,7 +115,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the temperature record it issued.
 
-## Competition vs. IoT Dashboards
+## Compared With IoT Dashboards
 
 | Feature | Live Verify | IoT Cloud (Live Tracking) | Paper Strip Chart |
 | :--- | :--- | :--- | :--- |
@@ -124,7 +124,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **Universal.** PDFs work across all systems. | **Low.** Requires "Integrating" 10 different IoT platforms. | **Universal.** |
 | **Retention** | **7-10 Years.** Archival text. | **Ephemeral.** Data often deleted after 12 months. | **Durable.** |
 
-**Why Live Verify wins here:** The "Audit Gap." While live IoT tracking is great during the trip, 90% of verification happens **after the fact** during audits or claims. Live Verify turns the **Static Report PDF** into an immutable digital anchor that is much more durable and shareable than a "Live Link" to a temporary IoT dashboard.
+**Where each fits:** live IoT tracking is the right tool while goods are in transit, when someone can still act on an alarm. Later, an auditor or claims handler is handed a report, often from a platform they have no account on, and sometimes after the live data has been deleted. Live Verify lets them confirm that the operator stands behind the report as issued, so the dashboard covers the journey and the verified report covers the record afterwards.
 
 ### When Edited Data Reaches Patients
 

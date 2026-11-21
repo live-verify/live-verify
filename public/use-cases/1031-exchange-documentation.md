@@ -11,13 +11,13 @@ furtherDerivations: 2
 
 ## What is a 1031 Exchange?
 
-In US tax law, if you sell an investment property for a profit, you usually pay capital gains tax. However, under **Section 1031**, you can defer these taxes if you reinvest the money into a new property.
+In US tax law, if you sell an investment property for a profit, you usually pay capital gains tax. However, under Section 1031, you can defer these taxes if you reinvest the money into a new property.
 
 The catch? strict rules:
-1.  **The Intermediary:** You cannot touch the cash. A neutral third party (Qualified Intermediary or **QI**) must hold the funds.
+1.  **The Intermediary:** You cannot touch the cash. A neutral third party (Qualified Intermediary or QI) must hold the funds.
 2.  **The 45-Day Rule:** You must identify potential new properties within 45 days of selling the old one.
 
-This document is the **Identification Form**. It acts as a timestamped "snapshot" proving the investor met the 45-day deadline.
+This document is the Identification Form. It acts as a timestamped "snapshot" proving the investor met the 45-day deadline.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 1px solid #999; box-shadow: 2px 2px 10px rgba(0,0,0,0.1); background: #fff; padding: 0;">
   <div style="padding: 30px 40px; text-align: left;">
@@ -52,7 +52,13 @@ This document is the **Identification Form**. It acts as a timestamped "snapshot
   </div>
 </div>
 
-## Data Verified
+## The Problem: 1031 Exchange Fraud
+
+- **Backdating:** The most common fraud. Taxpayers missing the 45-day identification deadline and creating a document dated earlier.
+- **Fake QIs:** Fraudsters setting up fake QI websites to steal exchange funds (which must be held by a third party).
+- **Alteration:** Changing the property list after the fact to include the property actually purchased.
+
+## What Is Checked
 
 Exchanger name, relinquished property address, date of transfer, identified replacement properties (addresses and fair market values), identification date, Qualified Intermediary (QI) name and license.
 
@@ -62,7 +68,7 @@ Exchanger name, relinquished property address, date of transfer, identified repl
 - **Closing Statements** (HUD-1/ALTA) for both legs
 - **Qualified Intermediary Resignation/Assignment**
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Qualified Intermediary) and the responder text.
 
@@ -71,9 +77,9 @@ Shows the issuer domain (the Qualified Intermediary) and the responder text.
 - **Void** — Exchange failed or was cancelled.
 - **Amended** — Superseded by a later identification form (within the 45-day window).
 
-## Second-Party Use
+## Who Holds It
 
-The **Exchanger** (second party) receives the identification form from the Qualified Intermediary (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Exchanger (second party) receives the identification form from the Qualified Intermediary (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** The exchanger has their own verified copy of the 45-day identification. Most of the time, the document sits in their tax files—the verification value is latent, there *if needed*.
 
@@ -81,7 +87,7 @@ The **Exchanger** (second party) receives the identification form from the Quali
 
 **Future Optionality:** If an IRS audit arises 3 years later, the exchanger has cryptographic proof ready without needing to contact the QI, preventing the IRS from disqualifying the exchange for "backdating" documents.
 
-## Third-Party Use
+## Who Checks It
 
 The exchanger (second party) may hand the verified document to various third parties:
 
@@ -94,13 +100,7 @@ Underwriters need to verify that large incoming wires are non-debt funds from a 
 **Title and Escrow Companies**
 Closing agents must follow strict instructions from the QI. Verifying the exchange agreement ensures they are paying the proceeds to the QI, not the seller (which would bust the exchange).
 
-## Verification Architecture
-
-**The 1031 Exchange Fraud Problem**
-
-- **Backdating:** The most common fraud. Taxpayers missing the 45-day identification deadline and creating a document dated earlier.
-- **Fake QIs:** Fraudsters setting up fake QI websites to steal exchange funds (which must be held by a third party).
-- **Alteration:** Changing the property list after the fact to include the property actually purchased.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -144,7 +144,7 @@ The IRS maintains its own verification infrastructure for federal tax documents 
 
 Both models serve distinct purposes: FATCA/CRS-style geographic separation prevents collusion when documents enter non-issuing jurisdictions; issuer-maintained systems provide efficient verification for routine domestic transactions. As international document verification evolves, blockchain-based rollups and decentralized architectures may converge these models into infrastructure-neutral standards applicable across jurisdictions.
 
-## Competition vs. QR/NFC
+## Compared With QR/NFC
 
 | Feature | Live Verify | QR Code |
 | :--- | :--- | :--- |
@@ -153,4 +153,4 @@ Both models serve distinct purposes: FATCA/CRS-style geographic separation preve
 | **Longevity** | **High.** Text is durable. | **Medium.** QR codes can be damaged by folding, stapling, or scanning/copying degradation. |
 | **Privacy** | **High.** No data leaked until the specific hash is queried. | **Variable.** If the QR encodes the data, anyone with a camera can read it instantly without an audit trail. |
 
-**Why Live Verify wins here:** 1031 documents are heavily scrutinized legal instruments. They need to look like contracts, not shipping labels. The primary "user" is often an IRS auditor years later, working from a scanned PDF or photocopy where a QR code might be illegible, but text is readable and re-typable if needed.
+**Where each fits:** a QR code is quick to scan and suits documents that are mostly handled on screens or at a counter, and nothing stops an intermediary printing one alongside the verify line. Exchange paperwork tends to be read years later by an auditor working from a photocopy or scanned PDF, where a code may no longer scan but the text can still be read and, if need be, retyped. Live Verify covers that reader, and confirms that the intermediary stands behind the exact wording on the page.

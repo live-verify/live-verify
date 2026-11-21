@@ -39,7 +39,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Reserve Smoothing Fraud
+
+- **Liability Deflation:** Manually editing a $5B reserve to $4B in the PDF to make the company look more profitable or to avoid a "Capital Call" from regulators.
+- **Hiding Qualifications:** Deleting the actuary's warning about "Inadequate Data" or "Adverse Deviation" to appear safer than the reality.
+- **Actuary Impersonation:** Creating a fake SAO using the name of a famous CAS Fellow who never actually saw the data.
+
+## What Is Checked
 
 Certifying actuary name/qualifications (FCAS/ACAS), insurer name, specific line of business (e.g., Workers Comp, Auto, GL), total reserve amount (USD), valuation date, NAIC Annual Statement reference, actuarial range (high/low), date of opinion issuance.
 
@@ -49,7 +55,7 @@ Certifying actuary name/qualifications (FCAS/ACAS), insurer name, specific line 
 - **Schedule P Summary:** Showing historical loss development.
 - **Qualified Opinion Letter:** (ALERT) if actuary has reservations about data.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Insurance Carrier or the Actuarial Audit Firm) and the filing status.
 
@@ -59,15 +65,15 @@ Shows the issuer domain (the Insurance Carrier or the Actuarial Audit Firm) and 
 - **Superseded** — Replaced by a newer audit or restatement.
 - **In-Litigation** — Reserves challenged by state regulators or a receiver.
 
-## Second-Party Use
+## Who Holds It
 
-The **Insurer's Board of Directors** benefits from verification.
+The Insurer's Board of Directors benefits from verification.
 
 **Solvency Assurance:** Proving to the Board that the $4.2B reserve figure is verified and vetted by an external or appointed actuary. This protects directors from "Breach of Duty" lawsuits if the company later goes into insolvency due to "Under-reserving."
 
 **Reinsurance Recovery:** Providing verified hashes of loss opinions to reinsurers to trigger "Loss Portfolio Transfers" or to prove that the primary carrier is maintaining the "Skin in the Game" required by treaties.
 
-## Third-Party Use
+## Who Checks It
 
 **State Insurance Commissioners (DOI)**
 **Market Oversight:** Regulators can verify the authenticity of the actuarial signature and the specific reserve figures. Live Verify prevents a carrier from submitting a "Realistic" version to their reinsurer and a "Rosy" version to the state.
@@ -78,13 +84,7 @@ The **Insurer's Board of Directors** benefits from verification.
 **Investment Analysts**
 **Equity Valuation:** Ensuring the "Reserve Releases" reported in earnings calls match the verified actuarial opinions filed with regulators.
 
-## Verification Architecture
-
-**The "Reserve Smoothing" Fraud Problem**
-
-- **Liability Deflation:** Manually editing a $5B reserve to $4B in the PDF to make the company look more profitable or to avoid a "Capital Call" from regulators.
-- **Hiding Qualifications:** Deleting the actuary's warning about "Inadequate Data" or "Adverse Deviation" to appear safer than the reality.
-- **Actuary Impersonation:** Creating a fake SAO using the name of a famous CAS Fellow who never actually saw the data.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -110,7 +110,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the loss reserve opinion.
 
-## Competition vs. SERFF Public Search
+## Compared With SERFF Public Search
 
 | Feature | Live Verify | SERFF / State Public Search | Scanned PDF Memo |
 | :--- | :--- | :--- | :--- |
@@ -119,5 +119,5 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Immediacy** | **Real-time.** Shows if firm retracted opinion. | **Laggy.** Depends on annual filing cycles. | **Static.** |
 | **Detail** | **High.** Shows specific line-of-business limits. | **Low.** Often only shows aggregated totals. | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Negotiation" reality. Reserve audits involve thousands of pages of "Loss Triangles" and Actuarial Memos. Negotiators don't have time to cross-reference every page with a slow government portal. Live Verify turn the **Physical Report** into a live, trusted clinical link, ensuring the "Financial Safety Net" is as strong as it looks on paper.
+**Where each fits:** State filing searches are the official source for what an insurer has filed and are where a regulator or analyst should look for the company's overall position. In a reserve review or a negotiation, people are working from the opinion and memos handed across the table, which the public search does not reproduce page for page. Live Verify lets a reader confirm the actuary or insurer stands behind the document in hand, and the filed record remains the reference for everything else.
 

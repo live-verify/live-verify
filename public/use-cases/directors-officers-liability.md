@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is D&O Insurance?
 
-If a public company is sued by its shareholders (e.g., for a stock price drop), the **Directors and Officers (D&O)** can be held *personally* liable. This means their personal houses and bank accounts are at risk.
+If a public company is sued by its shareholders (e.g., for a stock price drop), the Directors and Officers (D&O) can be held *personally* liable. This means their personal houses and bank accounts are at risk.
 
 **D&O Insurance** pays for their lawyers and settlements.
 
@@ -49,7 +49,13 @@ policy period.
 <span data-verify-line="do-pol">verify:chubb.com/do/v</span> <span verifiable-text="end" data-for="do-pol"></span>
 </div>
 
-## Data Verified
+## The Problem: Executive Deception Fraud
+
+- **Retroactive Backdating:** Editing a "Retroactive Date" from 2025 back to 2015 to hide that the company was uninsured during a period of illegal activity.
+- **Limit Inflation:** A private company editing a $1M "Small Business" policy to read $50M to attract a high-profile board member.
+- **Exclusion Erasure:** Deleting the page showing a "Regulatory Investigation Exclusion" before sending the policy to a potential investor.
+
+## What Is Checked
 
 Insured company name, specific coverage limits (Side A/B/C), retention (deductible) amounts, policy period, retroactive date (critical for prior acts), exclusion endorsements (e.g., "Pending Litigation Exclusion"), issuing carrier.
 
@@ -59,19 +65,19 @@ Insured company name, specific coverage limits (Side A/B/C), retention (deductib
 - **Run-Off / Tail Policy:** Proving 6 years of future coverage for retired directors.
 - **Side A DIC (Difference in Conditions):** Essential protection for individuals.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`chubb.com`, `aig.com`, `marsh.com`) and policy status.
 
 **Status Indications:**
 - **In Force** — Premium paid; policy active.
 - **Cancelled** — Coverage terminated (high-risk for directors).
-- **Exhausted** — **ALERT:** Limits have been entirely used up by other claims.
+- **Exhausted** — Limits have been entirely used up by other claims.
 - **In-Litigation** — Coverage is being disputed between the board and the insurer.
 
-## Second-Party Use
+## Who Holds It
 
-The **Board Director** or **Corporate Officer** (second party) receives the D&O policy from the company/insurer (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Board Director or Corporate Officer (second party) receives the D&O policy from the company/insurer (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of the coverage protecting them. Most of the time, the policy sits in their personal files—the verification value is latent, there *if needed*.
 
@@ -79,7 +85,7 @@ The **Board Director** or **Corporate Officer** (second party) receives the D&O 
 
 **Future Optionality:** If a shareholder lawsuit arises years later or a dispute occurs about coverage, they have cryptographic proof of the policy terms ready without needing to contact the insurer or the company.
 
-## Third-Party Use
+## Who Checks It
 
 The director/officer (second party) may hand the verified document to various third parties:
 
@@ -92,13 +98,7 @@ The director/officer (second party) may hand the verified document to various th
 **Shareholder Plaintiffs' Attorneys**
 **Settlement Negotiation:** Verifying the "Side C" limits available to pay out a class-action settlement.
 
-## Verification Architecture
-
-**The "Executive Deception" Fraud Problem**
-
-- **Retroactive Backdating:** Editing a "Retroactive Date" from 2025 back to 2015 to hide that the company was uninsured during a period of illegal activity.
-- **Limit Inflation:** A private company editing a $1M "Small Business" policy to read $50M to attract a high-profile board member.
-- **Exclusion Erasure:** Deleting the page showing a "Regulatory Investigation Exclusion" before sending the policy to a potential investor.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -126,7 +126,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (policy number, coverage limits, policy period, issue date, retroactive date) — never company names, director names, or litigation details — providing non-repudiation of the D&O policy issuance and immutable proof of coverage terms critical for claims-made disputes.
 
-## Competition vs. Broker Confirmation
+## Compared With Broker Confirmation
 
 | Feature | Live Verify | Manual Broker Letter | Data Room PDF |
 | :--- | :--- | :--- | :--- |
@@ -135,4 +135,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Trust Anchor** | **Domain-Bound.** Bound to the Carrier. | **Human.** Prone to social engineering. | **Vulnerable.** |
 | **Archival** | **Permanent.** Durable for 20-year tail. | **Ephemeral.** Brokers go out of business. | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Claims-Made" Reality. D&O claims often hit 10 years after the policy was written. By then, the original broker may be gone and the IT systems migrated. Live Verify turns the **Static Paper Record** into an immutable link to the carrier's ledger, protecting directors long after they've left the company.
+**Where each fits:** A broker's confirmation letter carries professional judgement and context that a hash lookup cannot, and for a live placement the broker remains the person to ask. The letter takes days to arrange and depends on the broker still holding the file. Live Verify suits the other cases: a director, acquirer or lender who needs to confirm on the day that the carrier issued this declarations page, or who comes back to it years later during the claims-made tail when the original broker may no longer be involved.

@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is Pension Trustee Insurance?
 
-The people who manage a company's pension fund (the **Trustees**) are legally responsible for the employees' retirement money. If they make a bad investment or a mistake in the paperwork, they can be sued *personally*.
+The people who manage a company's pension fund (the Trustees) are legally responsible for the employees' retirement money. If they make a bad investment or a mistake in the paperwork, they can be sued *personally*.
 
 **Pension Trustee Liability (PTL)** insurance protects these individuals.
 
@@ -50,7 +50,13 @@ Because these claims can hit 20 years after a person retires, the paperwork must
   </div>
 </div>
 
-## Data Verified
+## The Problem: Trustee Blindspot Fraud
+
+- **Insurance Lapsing:** A company entering financial distress "stopping" the PTL premium payments but hiding the cancellation from the trustees to prevent them from resigning.
+- **Limit Tampering:** Editing a $1M "Small Business" policy to read $50M to satisfy a high-net-worth trustee's requirement.
+- **Retroactive Date Erasure:** Editing the "Prior Acts" date to hide a period where the fund was uninsured or had a known breach.
+
+## What Is Checked
 
 Pension scheme name, individual trustee names, coverage limits (Indemnity), retention amount, ERISA/Statutory compliance status, retroactive date, issuing carrier, policy expiration.
 
@@ -60,7 +66,7 @@ Pension scheme name, individual trustee names, coverage limits (Indemnity), rete
 - **Run-Off Endorsement:** Protecting retired trustees for 15+ years.
 - **Regulatory Filing Summary:** (e.g., for UK Pensions Regulator or US Dept of Labor).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`axaxl.com`, `aig.com`) and current policy standing.
 
@@ -68,17 +74,17 @@ Shows the issuer domain (`axaxl.com`, `aig.com`) and current policy standing.
 - **Active** — Premium paid; trustees protected.
 - **Cancelled** — Coverage terminated (major risk for personal assets).
 - **Run-Off** — Active for past acts only; no new acts covered.
-- **Limit Depleted** — **ALERT:** Significant claims have reduced available protection.
+- **Limit Depleted** — Significant claims have reduced available protection.
 
-## Second-Party Use
+## Who Holds It
 
-The **Pension Trustee** benefits from verification.
+The Pension Trustee benefits from verification.
 
 **Personal Asset Protection:** Trustees are personally liable for fiduciary breaches. A trustee can scan the "Verified Active" certificate to ensure the company hasn't quietly let the policy lapse to save cash, which would leave the trustee's personal house and bank account exposed to plan participants.
 
 **Board Onboarding:** Proving to a potential new trustee that the fund has verified, high-limit insurance in place before they accept the role.
 
-## Third-Party Use
+## Who Checks It
 
 **Pension Regulators (TPR / DoL)**
 **Compliance Audit:** Ensuring that multi-billion dollar retirement funds are maintaining the mandatory fiduciary insurance required by law or best practice.
@@ -89,13 +95,7 @@ The **Pension Trustee** benefits from verification.
 **External Auditors**
 **Governance Review:** Verifying the "Internal Controls" of the pension fund by ensuring all fiduciary risks are properly insured.
 
-## Verification Architecture
-
-**The "Trustee Blindspot" Fraud Problem**
-
-- **Insurance Lapsing:** A company entering financial distress "stopping" the PTL premium payments but hiding the cancellation from the trustees to prevent them from resigning.
-- **Limit Tampering:** Editing a $1M "Small Business" policy to read $50M to satisfy a high-net-worth trustee's requirement.
-- **Retroactive Date Erasure:** Editing the "Prior Acts" date to hide a period where the fund was uninsured or had a known breach.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -122,7 +122,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (policy number, coverage limits, policy effective and expiration dates, named trustees, coverage scope, policy status) — never trustee compensation or specific claims — providing non-repudiation of D&O or pension trustee liability coverage and an audit trail for regulatory compliance and long-tail liability protection.
 
 
-## Competition vs. Annual Reports
+## Compared With Annual Reports
 
 | Feature | Live Verify | Pension Annual Report | PDF Scan of Policy |
 | :--- | :--- | :--- | :--- |
@@ -131,4 +131,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Detail** | **High.** Shows specific ERISA triggers. | **Low.** Minimal insurance detail. | **Full.** But untrusted. |
 | **Archival** | **Permanent.** Durable for 20-year tail. | **Low.** Often discarded after 5 years. | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Tail of Liability." Pension claims often arise decades after the trustee has retired. By then, the company might be gone. Live Verify turns the **Static Certificate** in the trustee's home safe into a permanent, cryptographically trusted link back to the carrier, ensuring protection even in the "Long Tail" of retirement.
+**Where each fits:** The plan's annual report is the proper place for members and regulators to see that fiduciary cover exists, and it will stay the formal disclosure. It is written once a year and seldom records the names, limits or triggers a particular trustee cares about. Live Verify lets a trustee, or someone acting for them long after retirement, confirm that the insurer stands behind the certificate they kept, which fills in detail the report was never meant to carry.

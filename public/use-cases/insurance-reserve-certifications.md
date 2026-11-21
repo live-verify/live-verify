@@ -37,7 +37,13 @@ Robert Miller, FSA
 <span data-verify-line="life-res">verify:prudential.com/actuarial/v</span> <span verifiable-text="end" data-for="life-res"></span>
 </div>
 
-## Data Verified
+## The Problem: Insolvency Masking Fraud
+
+- **Reserve Inflation:** Manually editing a $10B reserve amount to $14B in the PDF to make the company look more solvent than it is.
+- **Assumptions Tampering:** Deleting a footnote that mentions a "Significant Deficiency" in asset adequacy testing.
+- **Signature Forgery:** Forging the signature of a high-profile actuary from a Big 4 firm on a fake "Clean" opinion.
+
+## What Is Checked
 
 Certifying actuary name/qualifications (FSA/MAAA), insurer name, specific business unit/portfolio, aggregate reserve amount (USD), valuation date (e.g., Year-End 2025), compliance standards (e.g., VM-20, Statutory Accounting), filing ID, jurisdiction of primary regulator.
 
@@ -47,7 +53,7 @@ Certifying actuary name/qualifications (FSA/MAAA), insurer name, specific busine
 - **Asset Adequacy Analysis:** Detailed report backing the reserves.
 - **Solvency II Certificate:** (European equivalent).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Insurance Carrier or Actuarial Firm) and the filing status.
 
@@ -57,15 +63,15 @@ Shows the issuer domain (the Insurance Carrier or Actuarial Firm) and the filing
 - **Under Correction** — Firm has noted a post-filing data error.
 - **Invalid** — Actuary's commission was inactive or unauthorized.
 
-## Second-Party Use
+## Who Holds It
 
-The **Insurer's Chief Risk Officer (CRO)** benefits from verification.
+The Insurer's Chief Risk Officer (CRO) benefits from verification.
 
 **Board Reporting:** Proving to the Board of Directors that the $14B liability claim isn't just an internal spreadsheet entry but is verified by an "Appointed Actuary." This protects the C-suite from shareholder lawsuits regarding "Inadequate Reserving."
 
 **Reinsurance Placement:** Providing verified hashes of reserve opinions to reinsurers (e.g., Munich Re) to prove the primary carrier is financially stable and following all statutory valuation rules.
 
-## Third-Party Use
+## Who Checks It
 
 **State Insurance Regulators (DOI)**
 **Solvency Monitoring:** Regulators can verify the authenticity of the actuarial signature and the specific reserve amounts in the "Yellow Book" filing. Live Verify prevents a carrier from submitting a "Healthy" version to the regulator and a "Troubled" version to their internal risk team.
@@ -76,13 +82,7 @@ The **Insurer's Chief Risk Officer (CRO)** benefits from verification.
 **Investment Banks (M&A)**
 **Liability Audit:** During an acquisition of a life insurer, the buyer's actuaries can verify the historical chain of reserve opinions to ensure no "Hidden Liabilities" are being masked by fabricated certificates.
 
-## Verification Architecture
-
-**The "Insolvency Masking" Fraud Problem**
-
-- **Reserve Inflation:** Manually editing a $10B reserve amount to $14B in the PDF to make the company look more solvent than it is.
-- **Assumptions Tampering:** Deleting a footnote that mentions a "Significant Deficiency" in asset adequacy testing.
-- **Signature Forgery:** Forging the signature of a high-profile actuary from a Big 4 firm on a fake "Clean" opinion.
+## Who Issues It
 
 **Issuer Types**
 
@@ -90,7 +90,7 @@ The **Insurer's Chief Risk Officer (CRO)** benefits from verification.
 **Actuarial Audit Firms:** (Milliman, Towers Watson, Mercer).
 **National Assoc. of Insurance Commissioners (NAIC):** (Hosting the filing hashes).
 
-## Competition vs. SERFF Public Search
+## Compared With SERFF Public Search
 
 | Feature | Live Verify | SERFF / State Public Search | Scanned PDF Memo |
 | :--- | :--- | :--- | :--- |
@@ -99,7 +99,7 @@ The **Insurer's Chief Risk Officer (CRO)** benefits from verification.
 | **Speed** | **Instant.** Scan the paper in the boardroom. | **Slow.** Requires finding the EIN and navigating Gov UI. | **Instant.** |
 | **Immediacy** | **Real-time.** Shows if firm retracted opinion. | **Laggy.** Depends on annual gov filing cycles. | **Static.** |
 
-**Why Live Verify wins here:** The "Room Moment." Reserve decisions involve hundreds of millions of dollars and happen in boardroom meetings or high-stakes negotiations. Executives don't have time to navigate gov portals. Live Verify turns the **Actuarial Certificate** into a live digital checkpoint, ensuring the multi-billion dollar safety of the company is a verified fact.
+**Where each fits:** State filing searches such as SERFF are the official record of what an insurer filed, and a regulator or analyst researching a company should start there. They do not confirm that the printed certificate on the table matches what the actuary signed, and they follow the filing cycle. Live Verify answers that narrower question for whoever is holding the document, and the public filing remains the place to see the wider regulatory picture.
 
 
 ---
@@ -133,7 +133,7 @@ Robert Miller, FSA
 <span data-verify-line="ltc-res">verify:genworth.com/actuarial/v</span> <span verifiable-text="end" data-for="ltc-res"></span>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Certifying actuary name/FSA ID, insurer name, specific LTC block/series ID, aggregate reserve amount (USD), morbidity assumptions (claim incidence), lapse rate assumptions, interest rate discount curve, valuation date, jurisdiction of primary regulator.
 
@@ -143,7 +143,7 @@ Certifying actuary name/FSA ID, insurer name, specific LTC block/series ID, aggr
 - **Asset Adequacy Analysis:** Proving the bonds match the 30-year liabilities.
 - **Solvency II / ORSA Extract:** For international group compliance.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Insurance Carrier or Actuarial Firm) and the filing status.
 
@@ -153,15 +153,15 @@ Shows the issuer domain (the Insurance Carrier or Actuarial Firm) and the filing
 - **Superseded** — Replaced by a newer restatement (common in LTC due to morbidity shifts).
 - **Invalid** — Signatory not authorized or license inactive at time of audit.
 
-## Second-Party Use
+## Who Holds It
 
-The **Insurer's Chief Actuary** benefits from verification.
+The Insurer's Chief Actuary benefits from verification.
 
 **Solvency Defense:** Proving to the Board of Directors and rating agencies (e.g., A.M. Best) that the $8.4B liability is verified and based on realistic morbidity data. This protects the company from accusations of "Hiding a black hole" in the LTC block.
 
 **Rate Increase Requests:** Providing verified reserve hashes to state regulators to justify a mandatory premium hike. Verified data reduces the time state auditors spend "Double-Checking" the company's internal spreadsheets.
 
-## Third-Party Use
+## Who Checks It
 
 **State Insurance Regulators (DOI)**
 **Risk Monitoring:** Regulators can verify the authenticity of the morbidity assumptions. Live Verify prevents a carrier from submitting a "Realistic" version to the regulator and an "Optimistic" version to their investors.
@@ -172,7 +172,7 @@ The **Insurer's Chief Actuary** benefits from verification.
 **Rating Agencies (S&P / Moody's)**
 **Credit Rating:** Verifying the actuarial opinion underlying the company's "Stable" or "Negative" outlook.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "LTC Black Hole" Fraud Problem**
 
@@ -186,7 +186,7 @@ The **Insurer's Chief Actuary** benefits from verification.
 **Actuarial Audit Firms:** (Milliman, Mercer, WTW).
 **National Assoc. of Insurance Commissioners (NAIC):** (Hosting the filing hashes).
 
-## Competition vs. SERFF Public Search
+## Compared With SERFF Public Search
 
 | Feature | Live Verify | SERFF / State Public Search | Scanned PDF Memo |
 | :--- | :--- | :--- | :--- |
@@ -195,7 +195,7 @@ The **Insurer's Chief Actuary** benefits from verification.
 | **Speed** | **Instant.** Scan the paper in the boardroom. | **Slow.** Requires finding the NAIC # and navigating Gov UI. | **Instant.** |
 | **Retention** | **50+ Years.** Durable for policy life. | **Variable.** State systems get purged/migrated. | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Legacy Block" reality. LTC policies last for half a century. Companies go bankrupt or get acquired multiple times. Live Verify turns the **Actuarial Certificate** into a permanent, verifiable digital anchor that survives the death of IT systems, protecting the long-term safety of the policyholders.
+**Where each fits:** The state's public search is the right reference for filings while its systems hold them. Long-term care blocks can run for decades, through acquisitions and system migrations, and the certificate in the file is often what survives. Live Verify lets a later reader confirm that the actuary or insurer still stands behind that exact text, complementing the state record instead of substituting for it.
 
 
 ---
@@ -205,9 +205,9 @@ _[Content merged from: workers-comp-reserve-certifications]_
 
 ## What are Reserve Certifications?
 
-In the insurance and self-insurance industries, a **Reserve Certification** (or Loss Reserve Attestation) is the professional proof of a future liability. When a worker is seriously injured, the insurer must "Reserve" (set aside) enough money to pay for their care for the next 30+ years. For a large corporation, these "Unpaid Claims" can total hundreds of millions of dollars on the balance sheet.
+In the insurance and self-insurance industries, a Reserve Certification (or Loss Reserve Attestation) is the professional proof of a future liability. When a worker is seriously injured, the insurer must "Reserve" (set aside) enough money to pay for their care for the next 30+ years. For a large corporation, these "Unpaid Claims" can total hundreds of millions of dollars on the balance sheet.
 
-These documents are the "Proof of Solvency." Fraud is high-stakes in **M&A (Mergers & Acquisitions)**: a company being sold might "edit" a reserve certification to hide a $10M liability, making the firm look more profitable than it actually is. Similarly, a self-insured employer might use a fake "Actuarial Letter" to trick a state regulator into thinking they have enough cash to cover their workers. Verified hashes bind the **Total Reserve Amount, Claim ID, and Actuary's License** to the insurer's or the audit firm's domain (e.g., `deloitte.com` or `hartford.com`).
+These documents are the "Proof of Solvency." Fraud is high-stakes in **M&A (Mergers & Acquisitions)**: a company being sold might "edit" a reserve certification to hide a $10M liability, making the firm look more profitable than it actually is. Similarly, a self-insured employer might use a fake "Actuarial Letter" to trick a state regulator into thinking they have enough cash to cover their workers. Verified hashes bind the Total Reserve Amount, Claim ID, and Actuary's License to the insurer's or the audit firm's domain (e.g., `deloitte.com` or `hartford.com`).
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="reserve"></span>
@@ -245,7 +245,7 @@ Credential: #ACAS-992288
 <span data-verify-line="reserve">verify:thehartford.com/v</span> <span verifiable-text="end" data-for="reserve"></span>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Claim ID, policy number, insured name, date of injury, claimant name (masked), medical reserve amount, indemnity reserve amount, expense reserve, total incurred value, date of valuation, actuary name/ID, issuing firm name.
 
@@ -255,19 +255,19 @@ Claim ID, policy number, insured name, date of injury, claimant name (masked), m
 - **Actuarial Opinion:** For corporate year-end audits.
 - **Stop-Loss Reimbursement Proof:** Verification of high-value coverage triggers.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`hartford.com`, `milliman.com`, `deloitte.com`) and the liability standing.
 
 **Status Indications:**
 - **Verified / Current** — Reserves match the actuary's original digital audit.
-- **Reserve Mismatch** — **CRITICAL:** The amount on the paper has been "shrunk" from the system record.
-- **Stale Valuation** — **ALERT:** The claim has had significant medical activity since this letter was issued.
-- **Settled** — **ALERT:** The claim has been closed; these reserves no longer exist.
+- **Reserve Mismatch** — The amount on the paper has been "shrunk" from the system record.
+- **Stale Valuation** — The claim has had significant medical activity since this letter was issued.
+- **Settled** — The claim has been closed; these reserves no longer exist.
 
-## Second-Party Use
+## Who Holds It
 
-The **Insured Company** (second party) receives the reserve certification from the insurer or actuary (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Insured Company (second party) receives the reserve certification from the insurer or actuary (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of the liability assessment. Most of the time, the certification sits in their financial records—the verification value is latent, there *if needed*.
 
@@ -275,7 +275,7 @@ The **Insured Company** (second party) receives the reserve certification from t
 
 **Future Optionality:** If a dispute arises—whether during M&A due diligence, financial audits, or regulatory examinations—they have cryptographic proof ready without needing to contact the insurer or actuary.
 
-## Third-Party Use
+## Who Checks It
 
 The insured company (second party) may hand the verified document to various third parties:
 
@@ -288,7 +288,7 @@ The insured company (second party) may hand the verified document to various thi
 **Lenders and Rating Agencies**
 **Liquidity Vetting:** Verifying the "Total Future Liability" of a manufacturing firm before assigning a credit rating or issuing a large bond.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Reserve Stripping" Fraud Problem**
 

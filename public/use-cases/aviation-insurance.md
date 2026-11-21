@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 Insuring a jet is not like insuring a car. A single Gulfstream can be worth $75 million, and if it crashes into a building, the liability can be billions.
 
-The **Certificate of Insurance (COI)** is the high-stakes document that pilots must show to airport towers and customs agents around the world.
+The Certificate of Insurance (COI) is the high-stakes document that pilots must show to airport towers and customs agents around the world.
 
 If a pilot presents a fake certificate to land in London or Dubai, they are flying "uninsured" for hundreds of millions of dollars. Because there is no global database of plane insurance, officials rely on these printed papers. Live Verify provides the digital bridge they need.
 
@@ -48,7 +48,13 @@ and confers no rights upon the holder.
   <span data-verify-line="aviation">verify:global-aerospace.com/v</span> <span verifiable-text="end" data-for="aviation"></span>
 </div>
 
-## Data Verified
+## The Problem: High-Stakes Fraud
+
+- **Liability Padding:** Editing a $10M liability policy to look like a $100M policy to meet international landing requirements.
+- **Cancellation Concealment:** Keeping a printed certificate after the policy was cancelled for non-payment (common in the small-aircraft/single-pilot world).
+- **Hull Inflation:** Claiming a $5M hull value for a $1M aircraft to profit from an intentional crash (insurance fraud).
+
+## What Is Checked
 
 Insured name, aircraft registration (N-number), hull value, liability limits (CSL), policy effective/expiration dates, war risk inclusion, primary/excess carrier identification.
 
@@ -58,7 +64,7 @@ Insured name, aircraft registration (N-number), hull value, liability limits (CS
 - **War Risk Endorsement:** Critical for international flight into restricted zones.
 - **Hangar Keepers Liability:** For FBOs and maintenance shops.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Underwriter) and current policy status.
 
@@ -68,9 +74,9 @@ Shows the issuer domain (the Underwriter) and current policy status.
 - **Expired** — Term ended; no coverage.
 - **Grounded** — Underwriter has restricted flight (e.g., due to maintenance lapse).
 
-## Second-Party Use
+## Who Holds It
 
-The **Aircraft Owner/Operator** (second party) receives the certificate of insurance from the underwriter (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Aircraft Owner/Operator (second party) receives the certificate of insurance from the underwriter (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** The owner has their own verified copy of insurance coverage. Most of the time, the document sits in the aircraft's documentation package—the verification value is latent, there *if needed*.
 
@@ -78,7 +84,7 @@ The **Aircraft Owner/Operator** (second party) receives the certificate of insur
 
 **Future Optionality:** If landing rights are needed at a foreign airport, an FBO requires proof of coverage, or a charter customer questions insurance adequacy, the owner has cryptographic proof ready without needing to contact the underwriter.
 
-## Third-Party Use
+## Who Checks It
 
 The aircraft owner/operator (second party) may hand the verified document to various third parties:
 
@@ -91,13 +97,7 @@ Private jet lenders (e.g., Credit Suisse, Citi) verify that the $75M hull value 
 **Charter Brokers**
 Brokers like NetJets or Wheels Up can automatically verify the insurance status of "off-fleet" aircraft before booking them for a client.
 
-## Verification Architecture
-
-**The "High-Stakes" Fraud Problem**
-
-- **Liability Padding:** Editing a $10M liability policy to look like a $100M policy to meet international landing requirements.
-- **Cancellation Concealment:** Keeping a printed certificate after the policy was cancelled for non-payment (common in the small-aircraft/single-pilot world).
-- **Hull Inflation:** Claiming a $5M hull value for a $1M aircraft to profit from an intentional crash (insurance fraud).
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -124,7 +124,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the underwriter's hashes and status changes (cancelled, grounded, deleted) plus structured metadata (aircraft registrations, policy numbers, coverage limits, effective dates) — never owner names, pilot details, or route information — providing non-repudiation of the certificate and an audit trail civil aviation authorities can inspect for uninsured operations.
 
-## Competition vs. FAA Registries
+## Compared With FAA Registries
 
 | Feature | Live Verify | FAA Civil Aviation Registry | Paper COI |
 | :--- | :--- | :--- | :--- |
@@ -132,4 +132,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Cross-Border** | **Universal.** Works for any N-number or G-registration. | **Siloed.** National registries don't talk. | **Manual.** |
 | **Freshness** | **Real-time.** Checks if the premium was paid today. | **Laggy.** Changes take weeks to update. | **Static.** |
 
-**Why Live Verify wins here:** Aviation is a highly fragmented global industry. There is **no global database** of aircraft insurance. Every country requires proof of insurance, but they all rely on the "Persistent Paper" Certificate of Insurance. Live Verify turns that global paper standard into a cryptographically trusted digital bridge.
+**Where each fits:** the national aircraft registry is the authority on ownership and registration, and remains the place to check those. It does not record insurance, and registries in different countries are not linked. The certificate of insurance is what airports, lessors and foreign authorities are actually handed, and Live Verify lets them confirm the insurer stands behind it, wherever the aircraft is registered.

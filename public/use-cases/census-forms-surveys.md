@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Census Receipt?
 
-Every 10 years, the government counts every person in the country. Participating in the **Census** is mandatory by law in many countries.
+Every 10 years, the government counts every person in the country. Participating in the Census is mandatory by law in many countries.
 
-A **Census Household Receipt** is your proof that you filled out the form. It confirms that "Household #9988 participated on April 1."
+A Census Household Receipt is your proof that you filled out the form. It confirms that "Household #9988 participated on April 1."
 
 In some areas, you need this verified receipt to get local benefits, register for school, or to prove to a "knock-on-the-door" enumerator that you already completed your duty. Live Verify allows you to prove you participated without having to reveal your private family data to a stranger at the door.
 
@@ -50,7 +50,13 @@ In some areas, you need this verified receipt to get local benefits, register fo
   </div>
 </div>
 
-## Data Verified
+## The Problem: Data Skew Fraud
+
+- **Participation Avoidance:** Creating a fake "Confirmation Receipt" to stop enumerators from knocking on the door.
+- **Household Padding:** Altering a receipt to show *more* people in a household to qualify for higher local benefits or larger grants.
+- **Enumerator Fraud:** A lazy enumerator fabricating household submissions to meet their daily quota.
+
+## What Is Checked
 
 Census year, household confirmation number, geographic area (Census Tract), household count, date of submission, enumerator ID (if applicable), completion status.
 
@@ -59,7 +65,7 @@ Census year, household confirmation number, geographic area (Census Tract), hous
 - **Enumerator Badge:** For door-to-door officials.
 - **Historical Census Extract:** Certified copy of a record from 72+ years ago.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`census.gov`) and the submission standing.
 
@@ -69,15 +75,15 @@ Shows the issuer domain (`census.gov`) and the submission standing.
 - **Historical** — Record released to the National Archives (NARA).
 - **Invalid** — Confirmation number not found.
 
-## Second-Party Use
+## Who Holds It
 
-The **Resident / Head of Household** benefits from verification.
+The Resident / Head of Household benefits from verification.
 
 **Compliance Proof:** In jurisdictions where census participation is mandatory by law, the verified receipt proves the household has fulfilled its legal duty, preventing fines or repeat visits from enumerators.
 
 **Address Verification:** Proving to a local school district or utility company that they were a resident at a specific address on "Census Day" using a verified government record.
 
-## Third-Party Use
+## Who Checks It
 
 **The National Archives (NARA)**
 **Data Preservation:** Ensuring that the digital archives of census data match the original physical submissions. Live Verify creates a permanent link between the "Persistent Paper" and the "Digital Archive."
@@ -88,13 +94,7 @@ The **Resident / Head of Household** benefits from verification.
 **Genealogists / Historians**
 **Record Integrity:** Verifying that a scanned historical census record (e.g., from 1950) is an authentic, non-altered document from the government files.
 
-## Verification Architecture
-
-**The "Data Skew" Fraud Problem**
-
-- **Participation Avoidance:** Creating a fake "Confirmation Receipt" to stop enumerators from knocking on the door.
-- **Household Padding:** Altering a receipt to show *more* people in a household to qualify for higher local benefits or larger grants.
-- **Enumerator Fraud:** A lazy enumerator fabricating household submissions to meet their daily quota.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -119,7 +119,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 ## Jurisdictional Witnessing (Optional)
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the census bureau's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the census form.
-## Competition vs. Direct Database (Title 13)
+## Compared With Direct Database (Title 13)
 
 | Feature | Live Verify | Census Internal DB | Scanned Image (Ancestry) |
 | :--- | :--- | :--- | :--- |
@@ -127,4 +127,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Trust** | **Cryptographic.** Bound to `census.gov`. | **High.** Direct from the source. | **Medium.** Prone to digital "Cleanup" errors. |
 | **Integrity** | **Binds Content.** Proves the *Count* hasn't changed. | **High.** | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Participation Proof" without "Content Leakage." Citizens need to prove they participated without necessarily showing the government their income or family details to a third party (like a landlord). Live Verify allows for a "Verified Participation" token that respects the constitutional privacy of the census.
+**Where each fits:** the census bureau's own database is the authoritative record and is rightly closed to outsiders by law. That confidentiality is the point, and Live Verify does not open it. Where a respondent chooses to show someone a confirmation of participation, Live Verify lets the recipient check that the bureau issued it, without the bureau disclosing anything about the household's answers.

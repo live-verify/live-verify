@@ -41,7 +41,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Confidentiality Fraud
+
+- **Ghost Policies:** A company telling an executive "You are covered for $10M" to keep them working in a dangerous country, but never actually paying the premium. Verification allows the executive to check the hash privately.
+- **Limit Padding:** Editing a $1M "Limited" policy to read $10M to meet a contract's safety requirement.
+- **Response Firm Misrepresentation:** Claiming to have "Control Risks" on retainer when the actual verified policy only covers a local, un-vetted security firm.
+
+## What Is Checked
 
 Insured entity name, aggregate ransom limit, individual sub-limits, crisis response firm name (e.g., Control Risks, NYA), effective/expiration dates, covered individuals (Class/Title), territory inclusions, underwriter ID.
 
@@ -51,25 +57,25 @@ Insured entity name, aggregate ransom limit, individual sub-limits, crisis respo
 - **Ransom Fund Authorization:** Verified proof of funds for emergency payout.
 - **Proof of Life Questionnaire:** (Linked hash) from the response firm.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`hiscox.com`, `beazley.com`, `chubb.com`) and current policy standing.
 
 **Status Indications:**
 - **In Force** — Premium paid; policy active.
-- **Response Authorized** — **ALERT:** Insurer has activated the crisis team for a specific event.
+- **Response Authorized** — Insurer has activated the crisis team for a specific event.
 - **Cancelled** — Policy terminated (Extreme risk for executives in the field).
 - **Lapsed** — Term ended; no renewal found.
 
-## Second-Party Use
+## Who Holds It
 
-The **Corporate Security Director** benefits from verification.
+The Corporate Security Director benefits from verification.
 
 **Emergency Activation:** Proving to a local response team in a foreign country (e.g., Mexico or Nigeria) that the "Crisis Policy" is verified active. This allows the specialized negotiators (like Control Risks) to deploy instantly without waiting for a finance clerk to authorize the multi-million dollar "Daily Response Fee."
 
 **Executive Protection:** Reassuring high-profile executives traveling to high-risk zones that their "Safety Net" is verified and the ransom fund is cryptographically backed by a top-tier insurer.
 
-## Third-Party Use
+## Who Checks It
 
 **Crisis Response Firms (Control Risks / Mandiant)**
 **Authorization Check:** Before putting a specialized team on a plane to a dangerous region, the firm scans the policy hash. "Verified by Hiscox" ensures the carrier is actually on the hook for the team's massive consulting and ransom costs.
@@ -80,13 +86,7 @@ The **Corporate Security Director** benefits from verification.
 **Government Agencies (FBI / MI6)**
 **Coordination:** Verifying the insurance and response status of a corporate kidnapping case without needing to see the private policy documents.
 
-## Verification Architecture
-
-**The "Confidentiality" Fraud Problem**
-
-- **Ghost Policies:** A company telling an executive "You are covered for $10M" to keep them working in a dangerous country, but never actually paying the premium. Verification allows the executive to check the hash privately.
-- **Limit Padding:** Editing a $1M "Limited" policy to read $10M to meet a contract's safety requirement.
-- **Response Firm Misrepresentation:** Claiming to have "Control Risks" on retainer when the actual verified policy only covers a local, un-vetted security firm.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -114,7 +114,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (aggregate ransom limits, response firm names, effective dates, covered classes) — never insured company names or specific executive identities — providing non-repudiation of the policy and an audit trail government agencies and international regulators can inspect.
 
-## Competition vs. Secure Portals
+## Compared With Secure Portals
 
 | Feature | Live Verify | Secure Underwriter Portal | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -123,4 +123,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Field Access** | **Instant.** Scan the paper in the safe. | **Difficult.** Requires laptop/stable 5G. | **Instant.** |
 | **Freshness** | **Real-time.** Shows if cancelled *today*. | **Live.** | **Static.** |
 
-**Why Live Verify wins here:** The "Hostage Moment." K&R decisions happen in 15 minutes in dark rooms. People are terrified. They don't want to struggle with a complex portal login or a forgotten password. Live Verify turns the **Physical Confirmation Letter** (kept in the company safe) into a live, high-authority digital artifact that triggers the response team instantly.
+**Where each fits:** The underwriter's secure portal is where the policy is administered and where the full terms and history live, and the risk manager will keep using it. In a crisis the people in the room may have only the confirmation letter from the safe and a phone. Live Verify lets them confirm the letter against the underwriter's domain without a login, and the portal and the response firm's own procedures take over from there.

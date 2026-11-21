@@ -11,13 +11,13 @@ furtherDerivations: 4
 
 ## What is an Export Control Licence Chain?
 
-Some goods are dangerous not because they're hazardous to ship (that's dangerous goods declarations) but because they're dangerous to **possess in the wrong hands**. These are **strategic goods**: military equipment, dual-use technology (items with both civilian and military applications), surveillance equipment, certain chemicals, nuclear materials, and advanced computing components.
+Some goods are dangerous not because they're hazardous to ship (that's dangerous goods declarations) but because they're dangerous to possess in the wrong hands. These are **strategic goods**: military equipment, dual-use technology (items with both civilian and military applications), surveillance equipment, certain chemicals, nuclear materials, and advanced computing components.
 
-When a UK company wants to export a batch of thermal imaging cameras to a distributor in Singapore, they need an **export licence** from the Export Control Joint Unit (ECJU). The licence says: "You may export these items to *this specific end-user*, for *this specific purpose*." The end-user signs an **End-User Undertaking (EUU)** promising not to divert the goods — not to re-export them to a sanctioned country, not to use them for weapons, not to sell them on without permission.
+When a UK company wants to export a batch of thermal imaging cameras to a distributor in Singapore, they need an export licence from the Export Control Joint Unit (ECJU). The licence says: "You may export these items to *this specific end-user*, for *this specific purpose*." The end-user signs an End-User Undertaking (EUU) promising not to divert the goods — not to re-export them to a sanctioned country, not to use them for weapons, not to sell them on without permission.
 
-But here's the problem: **what happens next?** The Singapore distributor wants to sell five cameras to a security firm in Malaysia. Do they have permission? Is the Malaysian buyer on a sanctions list? Does the original UK licence allow onward transfer? Currently, this is managed through a tangle of PDFs, faxed letters, and phone calls between export compliance teams — each one unverifiable by the next party in the chain.
+But here's the problem: what happens next? The Singapore distributor wants to sell five cameras to a security firm in Malaysia. Do they have permission? Is the Malaysian buyer on a sanctions list? Does the original UK licence allow onward transfer? Currently, this is managed through a tangle of PDFs, faxed letters, and phone calls between export compliance teams — each one unverifiable by the next party in the chain.
 
-The **licence chain** is the sequence of permissions that follows the goods from manufacturer to end-user and beyond. Each link in the chain is a verifiable attestation: "this party has permission to hold these items" and "this party has (or has not) been granted permission for onward transfer."
+The licence chain is the sequence of permissions that follows the goods from manufacturer to end-user and beyond. Each link in the chain is a verifiable attestation: "this party has permission to hold these items" and "this party has (or has not) been granted permission for onward transfer."
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="export-licence"></span>EXPORT LICENCE CONFIRMATION
@@ -70,7 +70,18 @@ Status: APPROVED — Valid until 15 March 2028
 <span data-verify-line="onward-transfer">verify:exportcontrol.gov.uk/transfer/v</span> <span verifiable-text="end" data-for="onward-transfer"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Diversion Fraud
+
+Export control fraud is not petty crime — it's a matter of national security, international treaty obligations, and (in the worst cases) weapons proliferation. The fraud patterns are:
+
+- **End-User Fabrication:** Creating a fake company in an acceptable country as the "end-user," then diverting the goods to the real (sanctioned) destination after import. The EUU is signed by a shell company that exists only on paper.
+- **Licence Shopping:** Applying for an OGEL (which requires no individual approval) when the goods actually require a SIEL (which does). The exporter claims the goods fall under a lower control list entry to avoid scrutiny.
+- **Onward Transfer Without Permission:** The consignee receives the goods lawfully but then sells them on to a third party — possibly in a sanctioned country — without seeking the required onward transfer authorisation. This is the most common diversion method and the hardest to detect because the original export was clean.
+- **Stale Licence Presentation:** Showing a valid licence for a previous shipment to cover an unlicensed current shipment. The licence reference is real but the goods or quantities don't match.
+- **EUU Forgery:** Forging the end-user's signature and stamp on the End-User Undertaking. Some EUUs are verified by the destination country's government; many are not — especially for dual-use goods below the threshold for government-to-government verification.
+- **Quantity Manipulation:** A licence authorises 50 units; the exporter ships 50 across multiple consignments but reports only 35, keeping 15 units "off the books" for unlicensed sale.
+
+## What Is Checked
 
 **Export Licence:** Licence type (SIEL/OIEL/OGEL), licence reference, licensee name and country, consignee name and country, end-user name and country, controlled goods description, control list entry (from UK Strategic Export Control Lists / Wassenaar / EU Dual-Use Regulation), quantity authorised, licence expiry date, onward transfer conditions, end-user undertaking reference, units shipped vs. authorised.
 
@@ -86,7 +97,7 @@ Status: APPROVED — Valid until 15 March 2028
 - **Onward Transfer Authorisation (OTA):** Permission to resell or re-export to a new party.
 - **Delivery Verification Certificate (DVC):** Confirmation from destination country's government that goods arrived at the declared end-user.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `exportcontrol.gov.uk`, `bis.gov` for US BIS, `trade.ec.europa.eu` for EU) and current licence/transfer status.
 
@@ -101,9 +112,9 @@ Shows the issuer domain (e.g., `exportcontrol.gov.uk`, `bis.gov` for US BIS, `tr
 - **Transfer Denied** — Onward transfer request was refused (with no reason disclosed in the public status — the refusal reason is communicated privately to the applicant).
 - **Under Review** — Application for transfer or renewal is being assessed.
 
-## Second-Party Use
+## Who Holds It
 
-The **Exporter (Licensee)** benefits from verification.
+The Exporter (Licensee) benefits from verification.
 
 **Compliance Proof:** When shipping controlled goods, the exporter attaches the verified licence confirmation to the commercial invoice and packing list. The freight forwarder, customs broker, and carrier can all verify that the shipment is lawfully licensed — without calling ECJU or waiting for email confirmation. This is critical at 2am when a shipment is being loaded at Heathrow and the compliance officer is unavailable.
 
@@ -111,7 +122,7 @@ The **Exporter (Licensee)** benefits from verification.
 
 **Customer Assurance:** The exporter can share a verified licence excerpt with their customer (the consignee) proving that the goods can be lawfully imported at the destination. This prevents shipments being seized at the destination port because the importer couldn't prove the export was licensed.
 
-## Third-Party Use
+## Who Checks It
 
 **Downstream Buyers (Onward Transfer Recipients)**
 **Purchase Confidence:** A Malaysian security firm considering buying thermal cameras from a Singapore distributor can verify that the distributor actually has permission to sell them on. Currently, the buyer relies on the seller's word — or a PDF of an export licence that could be forged, expired, or for different goods. A verified onward transfer authorisation from `exportcontrol.gov.uk` proves the chain is clean before money changes hands.
@@ -135,18 +146,7 @@ The **Exporter (Licensee)** benefits from verification.
 **Internal Compliance Teams (Large Corporations)**
 **Group-Wide Visibility:** A multinational with subsidiaries in 30 countries may have hundreds of active export licences. Verified licence statuses, queryable by hash, let the group compliance function monitor the entire licence portfolio without relying on each subsidiary to self-report. A revoked licence shows as revoked regardless of what the local team claims.
 
-## Verification Architecture
-
-**The "Diversion" Fraud Problem**
-
-Export control fraud is not petty crime — it's a matter of national security, international treaty obligations, and (in the worst cases) weapons proliferation. The fraud patterns are:
-
-- **End-User Fabrication:** Creating a fake company in an acceptable country as the "end-user," then diverting the goods to the real (sanctioned) destination after import. The EUU is signed by a shell company that exists only on paper.
-- **Licence Shopping:** Applying for an OGEL (which requires no individual approval) when the goods actually require a SIEL (which does). The exporter claims the goods fall under a lower control list entry to avoid scrutiny.
-- **Onward Transfer Without Permission:** The consignee receives the goods lawfully but then sells them on to a third party — possibly in a sanctioned country — without seeking the required onward transfer authorisation. This is the most common diversion method and the hardest to detect because the original export was clean.
-- **Stale Licence Presentation:** Showing a valid licence for a previous shipment to cover an unlicensed current shipment. The licence reference is real but the goods or quantities don't match.
-- **EUU Forgery:** Forging the end-user's signature and stamp on the End-User Undertaking. Some EUUs are verified by the destination country's government; many are not — especially for dual-use goods below the threshold for government-to-government verification.
-- **Quantity Manipulation:** A licence authorises 50 units; the exporter ships 50 across multiple consignments but reports only 35, keeping 15 units "off the books" for unlicensed sale.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -210,7 +210,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 Some export licences — particularly for military goods or intelligence-related technology — are themselves classified. These cannot be published as verifiable hashes without exposing the existence of a sensitive trade relationship. For classified licences, the witnessing model must support a "government-to-government only" verification path where the hash is queryable by authorised government endpoints but not by the public. The status response would return only "Authorised" or "Not Authorised" without disclosing any licence details. This is a limitation that applies to a small but important subset of export licences.
 
-## Competition vs. SPIRE / LITE / ECJU Online
+## Compared With SPIRE / LITE / ECJU Online
 
 | Feature | Live Verify | SPIRE/LITE (Gov Portal) | Paper Licence + PDF |
 | :--- | :--- | :--- | :--- |
@@ -220,7 +220,7 @@ Some export licences — particularly for military goods or intelligence-related
 | **Real-Time Status** | **Live.** Suspension/revocation reflected immediately. | **Delayed.** Portal updates are not real-time for third parties. | **Static.** Paper doesn't update. |
 | **Multi-Jurisdiction** | **Native.** Each authority verifies its own link. | **Siloed.** No interop between UK SPIRE and US BIS SNAP-R. | **Impossible at speed.** |
 
-**Why Live Verify wins here:** The "Third-Party Gap." Export control systems (SPIRE in the UK, SNAP-R in the US, ELAN in Germany) are designed for the *applicant-regulator* relationship. They don't serve the downstream parties who need to verify permissions before accepting controlled goods. The freight forwarder, the bank, the downstream buyer — all are locked out of the official system. They rely on PDFs forwarded by the seller, which could be forged, expired, or for different goods. Live Verify turns the licence into a publicly verifiable attestation without exposing classified details — the hash confirms "this licence exists and is active" without revealing its contents.
+**Where each fits:** Licensing systems such as SPIRE, SNAP-R and ELAN are designed around the relationship between applicant and regulator, and they handle that well; the licensee and the authority should continue to treat them as the record. Freight forwarders, banks and downstream buyers are not users of those systems and typically see only a forwarded PDF, often issued in another jurisdiction. Live Verify lets each of them confirm that the issuing authority stands behind the licence document as presented, without opening the government system to third parties.
 
 ## The Resale Problem in Detail
 
@@ -386,7 +386,7 @@ Pack #042 tells the real story. A broker in Singapore approaches Apex wanting 10
 The broker could forge an OTA approval — creating a PDF that looks like OTA/01293/042 with status "APPROVED" — and present it to a different distributor, or use it to source equivalent GPUs from a less diligent supplier. The forged OTA references a real parent licence (GBOIE/2026/01293), which makes it look plausible. The downstream buyer, if there is one, has no way to check.
 
 **With Live Verify:**
-Anyone who encounters OTA/01293/042 and checks the hash against `exportcontrol.gov.uk` sees: **REFUSED**. The forgery is caught instantly. The broker cannot circulate a fake approval because the verification endpoint is controlled by ECJU, not by the broker.
+Anyone who encounters OTA/01293/042 and checks the hash against `exportcontrol.gov.uk` sees: REFUSED. The forgery is caught instantly. The broker cannot circulate a fake approval because the verification endpoint is controlled by ECJU, not by the broker.
 
 ### The Resale Cascade
 

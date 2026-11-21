@@ -38,7 +38,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Phantom Beneficiary Fraud
+
+- **Beneficiary Forgery:** Editing a "Claim Approval" PDF to change the beneficiary name to a fraudster's account.
+- **Amount Inflation:** Changing a $10,000 "Small Whole Life" policy to $1,000,000 to trick a lender into a high-value loan.
+- **Status Faking:** Showing a "Paid" status on a fake paper notice to hide that the claim was actually denied due to fraud.
+
+## What Is Checked
 
 Deceased name, policy number, beneficiary name(s), total death benefit amount, date of death (verified), death certificate reference, claim approval date, issuing carrier, payment method (wire/check).
 
@@ -48,25 +54,25 @@ Deceased name, policy number, beneficiary name(s), total death benefit amount, d
 - **Interim Interest Notice:** For claims taking > 30 days.
 - **Settlement Statement:** Detailing tax-free vs taxable components.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`northwesternmutual.com`, `prudential.com`) and current claim status.
 
 **Status Indications:**
 - **Approved** — Claim is legitimate and funds authorized.
 - **Paid** — Funds have been transmitted to the beneficiary.
-- **In-Contest** — **ALERT:** Multiple parties claiming the same benefit.
+- **In-Contest** — Multiple parties claiming the same benefit.
 - **Denied** — Payout rejected (e.g., due to suicide clause or material misrepresentation).
 
-## Second-Party Use
+## Who Holds It
 
-The **Beneficiary (Survivor)** benefits from verification.
+The Beneficiary (Survivor) benefits from verification.
 
 **Bridge Financing:** Proving to a funeral home or a bank that the $1M death benefit is "Verified Approved." This allows the survivor to secure short-term credit for funeral costs or living expenses before the insurance check arrives.
 
 **Mortgage Continuity:** Proving to a lender that the breadwinner's income is being replaced by a verified insurance payout, preventing an immediate foreclosure filing.
 
-## Third-Party Use
+## Who Checks It
 
 **Funeral Homes**
 **Payment Assurance:** Before providing a $20,000 service on credit, the funeral director scans the approval hash. "Verified by Northwestern Mutual" gives them the confidence that the beneficiary actually has the funds coming.
@@ -77,13 +83,7 @@ The **Beneficiary (Survivor)** benefits from verification.
 **Estate Attorneys**
 **Trust Funding:** Ensuring that life insurance payouts are being correctly directed into the verified family trust.
 
-## Verification Architecture
-
-**The "Phantom Beneficiary" Fraud Problem**
-
-- **Beneficiary Forgery:** Editing a "Claim Approval" PDF to change the beneficiary name to a fraudster's account.
-- **Amount Inflation:** Changing a $10,000 "Small Whole Life" policy to $1,000,000 to trick a lender into a high-value loan.
-- **Status Faking:** Showing a "Paid" status on a fake paper notice to hide that the claim was actually denied due to fraud.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -111,7 +111,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurance carrier's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the death benefit claim approval.
 
-## Competition vs. MIB Group (Medical Information Bureau)
+## Compared With MIB Group (Medical Information Bureau)
 
 | Feature | Live Verify | MIB Group (Industry DB) | Scanned PDF Notice |
 | :--- | :--- | :--- | :--- |
@@ -120,4 +120,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Timeliness** | **Real-time.** Shows approval *today*. | **Laggy.** Depends on batch uploads. | **Static.** |
 | **Integrity** | **Binds Content.** Protects the $ amount. | **None.** For the specific notice. | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Time of Need" gap. Life insurance data is notoriously siloed. When a person dies, the family needs to move fast. They don't have access to the carrier's internal DB. Live Verify turn the **Static Approval Letter** into a live digital anchor, ensuring that "Peace of Mind" is a cryptographically verified fact.
+**Where each fits:** Industry exchanges such as MIB serve insurers well for the purpose they were built for, which is sharing information between member companies. Beneficiaries, funeral homes and estate advisers are not members and hold only the letter the carrier sent. Live Verify lets them confirm that the carrier issued that approval notice, and the insurer-to-insurer exchange carries on unchanged.

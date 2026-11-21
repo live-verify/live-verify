@@ -45,7 +45,13 @@ furtherDerivations: 1
 
 **Specific consequences (Pattern E):** The I-693 screens for communicable diseases (tuberculosis, syphilis) and required vaccinations. A fraudulent clean result means an applicant with active TB enters the general population without treatment. Public health depends on these exams being real, not just on the paperwork looking real.
 
-## Data Verified
+## The Problem: Dirty Seal Fraud
+
+- **Envelope Tampering:** Applicants carefully steaming open the "Sealed" envelope to hide a positive TB or Syphilis test result before re-sealing it.
+- **Fake Surgeons:** Unlicensed individuals posing as "Civil Surgeons" and selling fake I-693 forms for cash to immigrants who fear medical results.
+- **Vaccination Forgery:** Fabricating a vaccination history to avoid the $500 cost of mandatory shots.
+
+## What Is Checked
 
 Applicant name, Alien Registration Number (A-Number), Date of birth, Civil Surgeon name/ID, Clinic location, Date of medical examination, Vaccination status (Complete/Waiver), presence of Class A/B medical conditions, signature of surgeon, date of signature.
 
@@ -55,25 +61,25 @@ Applicant name, Alien Registration Number (A-Number), Date of birth, Civil Surge
 - **Panel Physician Report:** For applicants outside the U.S. (DS-2054).
 - **Communicable Disease Waiver:** (Linked hash) if required.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Civil Surgeon's Clinic or Health System) and current result status.
 
 **Status Indications:**
 - **Certified** — Medical exam matches the clinic's secure digital record.
 - **Incomplete** — One or more vaccinations or tests (e.g., TB) are pending.
-- **Expired** — **ALERT:** Results are > 2 years old; new exam required.
+- **Expired** — Results are > 2 years old; new exam required.
 - **Void** — Results retracted (e.g., due to laboratory error or surgeon disciplinary action).
 
-## Second-Party Use
+## Who Holds It
 
-The **Applicant** benefits from verification.
+The Applicant benefits from verification.
 
 **Submission Confidence:** Proving to themselves (and their lawyer) that the "Sealed Envelope" they are handing to USCIS contains a "Verified Passed" exam. Verification prevents the "Dead Air" period where an applicant doesn't know if their doctor actually signed the form correctly until they get a rejection notice months later.
 
 **Workplace Compliance:** Providing verified proof of vaccination status to an employer without needing to provide the full, private medical history.
 
-## Third-Party Use
+## Who Checks It
 
 **USCIS Officers**
 **Intake Integrity:** When an officer receives a "Sealed I-693 Envelope," they currently have to trust the physical seal hasn't been tampered with. Live Verify allows the officer to scan the hash on the form *before* opening. "Verified by Fairport Health" ensures the contents match the surgeon's original digital filing, stopping "Envelope Tampering" fraud.
@@ -84,13 +90,7 @@ The **Applicant** benefits from verification.
 **Airlines / Port of Entry**
 **Public Health Vetting:** For international arrivals, verifying the medical clearance of a refugee or immigrant before boarding.
 
-## Verification Architecture
-
-**The "Dirty Seal" Fraud Problem**
-
-- **Envelope Tampering:** Applicants carefully steaming open the "Sealed" envelope to hide a positive TB or Syphilis test result before re-sealing it.
-- **Fake Surgeons:** Unlicensed individuals posing as "Civil Surgeons" and selling fake I-693 forms for cash to immigrants who fear medical results.
-- **Vaccination Forgery:** Fabricating a vaccination history to avoid the $500 cost of mandatory shots.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -119,7 +119,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the civil surgeon's hashes and status changes plus structured metadata (applicant A-Number, date of exam, vaccination status, result status) — never sensitive personal medical information — providing non-repudiation of the medical exam results.
 
 
-## Competition vs. e-Medical (State Dept)
+## Compared With e-Medical (State Dept)
 
 | Feature | Live Verify | e-Medical (Electronic Filing) | Paper I-693 (Standard) |
 | :--- | :--- | :--- | :--- |
@@ -128,4 +128,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **Universal.** Works for any clinic with a URL. | **Restricted.** Requires expensive e-Medical software. | **Universal.** |
 | **Freshness** | **Real-time.** Shows if results retracted. | **High.** | **Static.** |
 
-**Why Live Verify wins here:** The "Local Clinic" reality. Most USCIS civil surgeons are small private clinics who do not have the IT budget for complex federal "e-Filing" integrations. They still use paper. Live Verify turns that **Mandatory Paper Form** into a live digital checkpoint, bringing "Government-Level" integrity to local medical offices.
+**Where each fits:** Electronic filing through eMedical-style systems sends results directly to the government and removes the paper form altogether; where a clinic and the receiving authority are both connected, it is the stronger channel. Many examinations are still recorded on a paper form handed to the applicant, and the applicant can see nothing of what an electronic system holds. Live Verify lets the applicant, their lawyer or the receiving officer confirm that the examining doctor stands behind the form, for clinics and cases that electronic filing does not cover.

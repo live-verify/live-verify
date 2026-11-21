@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 **Commercial General Liability (CGL)** is the "Slip and Fall" insurance for a business. It protects a company if they are sued for bodily injury or property damage (e.g., a contractor accidentally burns down a client's garage).
 
-The **Declarations Page** is the 1-page summary showing the "Limits" (e.g., $2,000,000 per occurrence).
+The Declarations Page is the 1-page summary showing the "Limits" (e.g., $2,000,000 per occurrence).
 
 Business owners must show these verified limits to win contracts. Fraudsters often "Inflate" their limits on a PDF (changing $500k to $2M) to qualify for big jobs they aren't actually insured for.
 
@@ -44,7 +44,13 @@ Policy Period: March 01, 2026 to March 01, 2027
 <span data-verify-line="cgl">verify:travelers.com/policy/v</span> <span verifiable-text="end" data-for="cgl"></span>
 </div>
 
-## Data Verified
+## The Problem: Fake Limit Fraud
+
+- **Ghost Policies:** Buying a policy, printing the papers, then cancelling it for a refund.
+- **Limit Inflation:** Editing a $500k policy to read $2M to win a contract.
+- **Class Code Fraud:** Claiming to be a "Florist" (low risk) to get a cheap rate, but showing a "Verified" looking paper to work as a "Steel Erector" (high risk).
+
+## What Is Checked
 
 Named insured, business description (Class Code), coverage limits (Occurrence/Aggregate), policy number, effective/expiration dates, deductible amount, issuing carrier.
 
@@ -53,7 +59,7 @@ Named insured, business description (Class Code), coverage limits (Occurrence/Ag
 - **Binder:** Temporary 30-day proof of coverage.
 - **Endorsement Schedule:** Listing specific changes (e.g., adding a project).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`travelers.com`, `chubb.com`) and current policy status.
 
@@ -63,9 +69,9 @@ Shows the issuer domain (`travelers.com`, `chubb.com`) and current policy status
 - **Lapsed** — Renewal was not processed.
 - **Pending Audit** — Coverage active but final premium subject to payroll audit.
 
-## Second-Party Use
+## Who Holds It
 
-The **Business Owner** (second party) receives the policy declarations page from the carrier (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Business Owner (second party) receives the policy declarations page from the carrier (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of the liability coverage. Most of the time, the document sits in their insurance files—the verification value is latent, there *if needed*.
 
@@ -73,7 +79,7 @@ The **Business Owner** (second party) receives the policy declarations page from
 
 **Future Optionality:** If questions arise—whether for contract awards, lease negotiations, or compliance checks—they have cryptographic proof of coverage ready without needing to contact the carrier.
 
-## Third-Party Use
+## Who Checks It
 
 The business owner (second party) may hand the verified document to various third parties:
 
@@ -86,13 +92,7 @@ The business owner (second party) may hand the verified document to various thir
 **Event Venues**
 **Vendor Management:** Verifying the liability insurance of caterers, decorators, and performers before they set up on the property.
 
-## Verification Architecture
-
-**The "Fake Limit" Fraud Problem**
-
-- **Ghost Policies:** Buying a policy, printing the papers, then cancelling it for a refund.
-- **Limit Inflation:** Editing a $500k policy to read $2M to win a contract.
-- **Class Code Fraud:** Claiming to be a "Florist" (low risk) to get a cheap rate, but showing a "Verified" looking paper to work as a "Steel Erector" (high risk).
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -120,7 +120,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the carrier's hashes and status changes plus structured metadata (policy numbers, coverage limits, business descriptions, policy dates) — never business financial details, loss histories, or underwriting notes — providing non-repudiation of the policy it issued.
 
-## Competition vs. Broker Confirmation Calls
+## Compared With Broker Confirmation Calls
 
 | Feature | Live Verify | Manual Broker Call | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -129,4 +129,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Availability** | **24/7.** Works on weekends/holidays. | **Business Hours Only.** | **Universal.** |
 | **Integrity** | **Cryptographic.** Binds every digit. | **Vague.** "Yes, they have a policy." | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Site Entrance" reality. A subcontractor arrives at a job-site on a Saturday morning. The GC's office is closed. The Sub's broker is closed. Live Verify allows the site foreman to verify the Sub's insurance **on the spot**, allowing work to proceed safely and legally without delays.
+**Where each fits:** a call to the broker remains the fuller check, since a person can answer questions about exclusions and endorsements. It depends on office hours and can take a day or two. Live Verify covers the moment when a subcontractor turns up on a Saturday and the foreman needs to know whether the carrier stands behind the certificate being shown, leaving the broker call for anything that needs discussion.

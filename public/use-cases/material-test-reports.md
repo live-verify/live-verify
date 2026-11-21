@@ -38,7 +38,13 @@ be in compliance with the above listed specifications.
 <span data-verify-line="mtr">verify:sheffield-steel.co.uk/mtr/v</span> <span verifiable-text="end" data-for="mtr"></span>
 </div>
 
-## Data Verified
+## The Problem: Ghost Steel Fraud
+
+- **Heat Number Forgery:** Laser-etching a "Premium" heat number onto a "Scrap" grade beam and creating a fake paper MTR to match.
+- **Data Smoothing:** Editing a PDF to change a "0.28% Carbon" (Fail) to "0.24% Carbon" (Pass) to avoid scrapping a $50,000 batch of steel.
+- **Mill Impersonation:** Small distributors creating fake MTRs on the letterhead of famous mills like Nucor or ArcelorMittal to sell un-vetted inventory.
+
+## What Is Checked
 
 Manufacturer name (the Mill), Heat Number (unique batch ID), material grade (e.g., ASTM A36), chemical composition (% of C, Mn, P, S), mechanical properties (Yield Strength, Tensile Strength, Elongation), test date, technician name, issuing lab domain.
 
@@ -48,13 +54,13 @@ Manufacturer name (the Mill), Heat Number (unique batch ID), material grade (e.g
 - **Weld Inspection Report:** (Linked hash) proving joint integrity.
 - **Positive Material Identification (PMI):** Field verification of alloys.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Mill or Testing Lab) and current batch standing.
 
 **Status Indications:**
 - **Certified** — Data matches the mill's official furnace ledger.
-- **Retracted** — **ALERT:** Post-shipment testing found a structural flaw in this heat.
+- **Retracted** — Post-shipment testing found a structural flaw in this heat.
 - **Superseded** — Corrected report issued (e.g., due to typo in chemical list).
 - **Invalid** — Heat number or signature mismatch.
 
@@ -62,16 +68,16 @@ Shows the issuer domain (the Mill or Testing Lab) and current batch standing.
 
 An MTR certifies a specific *heat* (furnace batch). A real MTR for a good heat used to cover material
 from a different, cheaper one is the classic substitution fraud. An MTR carries no personal data, so on
-verification the mill can safely **echo the heat scope** — `heat_covered`, `quantity_certified`, and
+verification the mill can safely echo the heat scope — `heat_covered`, `quantity_certified`, and
 `tested_on` — so a buyer can confirm the steel in their hands falls within the certified heat and
 quantity, not merely that *some* heat with that number passed. Safe enrichment: no personal data,
 revealing the scope the terse claim withheld (see
 [safety-certifications](safety-certifications.md) and
 [verification-enrichment-hazards.md](../../docs/verification-enrichment-hazards.md)).
 
-## Second-Party Use
+## Who Holds It
 
-The **Structural Engineer / Fabricator** (second party) receives the material test report from the mill (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Structural Engineer / Fabricator (second party) receives the material test report from the mill (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of what steel they purchased and its certified properties. Most of the time, the document sits in their project files—the verification value is latent, there *if needed*.
 
@@ -79,7 +85,7 @@ The **Structural Engineer / Fabricator** (second party) receives the material te
 
 **Future Optionality:** If a structure fails 20 years later or a project inspection is challenged, they have cryptographic proof ready without needing to contact the mill.
 
-## Third-Party Use
+## Who Checks It
 
 The structural engineer / fabricator (second party) may hand the verified document to various third parties:
 
@@ -92,13 +98,7 @@ The structural engineer / fabricator (second party) may hand the verified docume
 **Aerospace / Defense Procurement**
 **Traceability:** Ensuring 100% verified material origin for flight-critical components.
 
-## Verification Architecture
-
-**The "Ghost Steel" Fraud Problem**
-
-- **Heat Number Forgery:** Laser-etching a "Premium" heat number onto a "Scrap" grade beam and creating a fake paper MTR to match.
-- **Data Smoothing:** Editing a PDF to change a "0.28% Carbon" (Fail) to "0.24% Carbon" (Pass) to avoid scrapping a $50,000 batch of steel.
-- **Mill Impersonation:** Small distributors creating fake MTRs on the letterhead of famous mills like Nucor or ArcelorMittal to sell un-vetted inventory.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -126,7 +126,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the mill's hashes and status changes plus structured metadata (heat numbers, material grades, test results, dates) — never plaintext (customer names, project details, proprietary alloy formulas) — providing non-repudiation of the certificate and an audit trail building code authorities can inspect.
 
-## Competition vs. EDI / Blockchain (MetalBlock)
+## Compared With EDI / Blockchain (MetalBlock)
 
 | Feature | Live Verify | Metal-Specific Blockchain | Paper Mill Cert |
 | :--- | :--- | :--- | :--- |
@@ -135,4 +135,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **Universal.** PDFs work across all fabricators. | **Low.** Requires every link in the chain to use the same blockchain. | **Universal.** |
 | **Integrity** | **Binds Content.** Protects the chemical list. | **Data-Only.** | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Construction Yard" reality. Steel is heavy, dirty, and moves through a complex web of small fabricators and job-sites. They all work with paper and PDFs. Live Verify turns the **Mandatory Paper Certificate** into a live digital anchor, bringing "Blockchain-level" integrity to the world of heavy metal without the massive IT overhead.
+**Where each fits:** Where a mill and its major customers have EDI or a shared ledger in place, test data moves between their systems cleanly and those links are worth keeping. Further down the chain, small fabricators and site inspectors receive the mill certificate as paper or PDF and have no access to that infrastructure. Live Verify lets them check the certificate against the mill's domain at the yard, extending the reach of the mill's data instead of competing with it.

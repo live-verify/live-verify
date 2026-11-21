@@ -11,14 +11,14 @@ furtherDerivations: 1
 
 ## What is a Power of Attorney?
 
-A **Power of Attorney (POA)** is a legal document that gives one person (the Agent or Attorney-in-Fact) the power to act on behalf of another (the Principal).
+A Power of Attorney (POA) is a legal document that gives one person (the Agent or Attorney-in-Fact) the power to act on behalf of another (the Principal).
 
 It is one of the most powerful—and dangerous—documents in law. It allows an agent to:
 1.  **Empty Bank Accounts:** Withdraw cash and sell stocks.
 2.  **Sell Real Estate:** Sign a deed to transfer a home.
 3.  **Medical Decisions:** Decide whether to keep the principal on life support.
 
-**"Elder Financial Abuse"** often starts with a forged POA. A criminal (or unscrupulous family member) creates a fake POA, gets a "lazy" notary to stamp it, and takes it to a bank. Verified hashes bind the **Principal's name and the specific powers granted** to the law firm's or notary's domain. A bank can instantly verify if the POA is authentic, current, and has not been **Revoked**.
+**"Elder Financial Abuse"** often starts with a forged POA. A criminal (or unscrupulous family member) creates a fake POA, gets a "lazy" notary to stamp it, and takes it to a bank. Verified hashes bind the Principal's name and the specific powers granted to the law firm's or notary's domain. A bank can instantly verify if the POA is authentic, current, and has not been Revoked.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Georgia', serif; border: 1px solid #333; background: #fff; padding: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 30px;">
@@ -48,7 +48,13 @@ It is one of the most powerful—and dangerous—documents in law. It allows an 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Ghost Agent Fraud
+
+- **Revocation Hiding:** An agent using a POA that was revoked last month to empty a bank account before the bank finds out.
+- **Power Inflation:** Editing a "Medical Only" POA to include "Financial Access."
+- **Expiration Faking:** Using a "Limited POA" for a house sale years after it was intended to expire.
+
+## What Is Checked
 
 Principal name, Agent name, Specific Granted Powers (e.g., "Real Estate Only"), Effective Date, Durable vs. Springing status, Notary name/commission, Witness names, Law firm ID.
 
@@ -82,32 +88,26 @@ None typically. The verification confirms the POA's status; that's the decision 
 
 The status code is the value. If it's OK, proceed. If it's REVOKED, SUPERSEDED, VOID_DECEASED, or 404, don't. No POST form needed.
 
-## Second-Party Use
+## Who Holds It
 
-The **Attorney-in-Fact (Agent)** benefits from verification.
+The Attorney-in-Fact (Agent) benefits from verification.
 
 **Bank Transactions:** Proving to a skeptical bank teller that the "Margaret Willows POA" they are holding is verified and active. This prevents the "Manager Review" delay that often lasts 48 hours, allowing the agent to pay the principal's bills instantly.
 
 **Emergency Medical:** Proving to a hospital at 2 AM that they are the verified "Medical Proxy" for a family member, allowing them to authorize life-saving surgery without legal delays.
 
-## Third-Party Use
+## Who Checks It
 
 **Bank Compliance Officers**
 **Asset Protection:** Before allowing a $100,000 wire from a senior's account, the bank scans the POA. "Verified by Willows-Law.com" ensure the document wasn't a "Home-Made" forgery used for elder abuse.
 
 **Real Estate Escrow Officers**
-**Closing Security:** Verifying that the person signing the closing documents has the **Verified Specific Power** to sell real estate. This prevents "Unauthorized Sale" litigation later.
+**Closing Security:** Verifying that the person signing the closing documents has the Verified Specific Power to sell real estate. This prevents "Unauthorized Sale" litigation later.
 
 **Nursing Home Administrators**
 **Liability Defense:** Ensuring that the person making medical or financial decisions for a resident has a verified, active legal right to do so.
 
-## Verification Architecture
-
-**The "Ghost Agent" Fraud Problem**
-
-- **Revocation Hiding:** An agent using a POA that was revoked last month to empty a bank account before the bank finds out.
-- **Power Inflation:** Editing a "Medical Only" POA to include "Financial Access."
-- **Expiration Faking:** Using a "Limited POA" for a house sale years after it was intended to expire.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -134,7 +134,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the law firm's hashes and status changes plus structured metadata (principal name, agent name, granted powers, effective date, notary seal number, signature date) — never plaintext or sensitive personal information — providing non-repudiation of the power of attorney and any revocations.
 
 
-## Competition vs. QR/Holograms
+## Compared With QR/Holograms
 
 | Feature | Live Verify | Holographic Seal | QR Code |
 | :--- | :--- | :--- | :--- |
@@ -143,6 +143,6 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Readability** | **High.** Full text is protected. | **None.** Seals don't protect text. | **None.** |
 | **Privacy** | **High.** Hash protects details. | **Low.** Anyone can see the seal. | **Variable.** |
 
-**Why Live Verify wins here:** The "Saturday Morning" reality. Banks are open when law offices are closed. A teller needs to know *right now* if a document is authentic. Live Verify turns the **Lawyer's Letterhead** into a live, high-authority trust anchor, enabling detection of elder abuse and fraud at the teller window.
+**Where each fits:** Seals and holograms show that a document passed through a formal execution process, and where law or institutional policy requires them they still have to be there. They cannot tell a bank teller whether the power has since been revoked, or whether the wording has been altered. Live Verify lets the teller check the text and its current status against the law firm's domain, including outside office hours, alongside the formalities the document already carries.
 
 See also [Legal Witnessing Future Architecture](../../docs/legal-witnessing-future-architecture.md) for a generalised model where witnesses attest to hash-specific documents and attestations are published to an independent registry — particularly relevant for LPAs where the donor's capacity is later contested.

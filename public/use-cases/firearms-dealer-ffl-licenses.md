@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is an FFL License?
 
-In the USA, you cannot sell firearms as a business without a **Federal Firearms License (FFL)** from the ATF.
+In the USA, you cannot sell firearms as a business without a Federal Firearms License (FFL) from the ATF.
 
-This license is the "Security Key" for the entire industry. If a dealer in Texas wants to ship a rifle to a buyer in New York, the law **requires** them to ship it to another FFL dealer. Before shipping, the Texas dealer must verify the New York dealer's license is real.
+This license is the "Security Key" for the entire industry. If a dealer in Texas wants to ship a rifle to a buyer in New York, the law requires them to ship it to another FFL dealer. Before shipping, the Texas dealer must verify the New York dealer's license is real.
 
 Scammers often create fake FFL PDF papers to trick online sellers into shipping guns directly to their homes (illegal "Ghost Dealing"). Verified hashes allow any seller to scan the license and see the "ACTIVE" status on the `atf.gov` domain in seconds.
 
@@ -53,7 +53,13 @@ Scammers often create fake FFL PDF papers to trick online sellers into shipping 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Phantom Dealer Fraud
+
+- **Ghost Licenses:** Felons creating fake FFL documents to trick online sellers into shipping guns directly to their homes.
+- **Expired Display:** A dealer whose license was revoked for "Straw Purchasing" continuing to use their unexpired paper license to trade illegally.
+- **Address Swapping:** Taking a valid FFL for a secure shop and using it to run an illegal warehouse at a different, un-vetted location.
+
+## What Is Checked
 
 Licensee name, trade name (DBA), premises address, mailing address, FFL number (full 15-digit), license type (01-11), expiration date, responsible person ID, issuing ATF region.
 
@@ -63,7 +69,7 @@ Licensee name, trade name (DBA), premises address, mailing address, FFL number (
 - **SOT Certificate:** Special Occupational Taxpayer (for silencers/machine guns).
 - **ATF Inspection Report:** (Linked hash) proving a successful compliance audit.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`atf.gov`) and current regulatory standing.
 
@@ -73,15 +79,15 @@ Shows the issuer domain (`atf.gov`) and current regulatory standing.
 - **Revoked** — Permanently barred from firearms trade (High-risk).
 - **Expired** — Renewal application not received.
 
-## Second-Party Use
+## Who Holds It
 
-The **FFL Holder (Gun Shop Owner)** benefits from verification.
+The FFL Holder (Gun Shop Owner) benefits from verification.
 
 **Interstate Shipping:** Proving to a different dealer in another state that their FFL is "Verified Active." This is a mandatory requirement before shipping any firearm across state lines. A verified hash replaces the "Manual FFL EzCheck" website lookup, reducing friction in the $30B firearms market.
 
 **Lender / Banking:** Proving to a high-risk payment processor or bank that the business is a verified, federally licensed entity, preventing account freezes.
 
-## Third-Party Use
+## Who Checks It
 
 **Law Enforcement (ATF / State Police)**
 **Audit Efficiency:** During a surprise ATF inspection, the agent can scan the wall license. "Verified by ATF.gov" ensures the shop isn't using a "Homemade License" to hide an illegal operation.
@@ -92,13 +98,7 @@ The **FFL Holder (Gun Shop Owner)** benefits from verification.
 **Shipping Carriers (FedEx / UPS)**
 **Authorization:** Verifying the FFL status of a shipper before accepting hazardous/regulated firearms cargo for transport.
 
-## Verification Architecture
-
-**The "Phantom Dealer" Fraud Problem**
-
-- **Ghost Licenses:** Felons creating fake FFL documents to trick online sellers into shipping guns directly to their homes.
-- **Expired Display:** A dealer whose license was revoked for "Straw Purchasing" continuing to use their unexpired paper license to trade illegally.
-- **Address Swapping:** Taking a valid FFL for a secure shop and using it to run an illegal warehouse at a different, un-vetted location.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -124,7 +124,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the ATF's hashes and status changes plus structured metadata (FFL numbers, license types, expiration dates, responsible person IDs, issuing ATF regions) — never licensed dealer premises addresses or details identifying protected federal facilities — providing non-repudiation of the license and an audit trail state law enforcement can inspect.
 
-## Competition vs. ATF FFL EzCheck
+## Compared With ATF FFL EzCheck
 
 | Feature | Live Verify | FFL EzCheck (Web) | Paper License |
 | :--- | :--- | :--- | :--- |
@@ -133,4 +133,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Photo/Signer.** Protects every word. | **Data-Only.** Doesn't verify the paper. | **Vulnerable.** |
 | **Mobile Use** | **High.** Built for phones. | **Low.** Web form is hard to use on mobile. | **High.** |
 
-**Why Live Verify wins here:** The "Shipping Counter" reality. Gun owners and dealers are often at shipping docks or gun shows where they need to verify credentials *now*. Live Verify turns the **Physical License** into a live, high-speed digital credential, bringing federal-level security to the point of transfer.
+**Where each fits:** ATF's FFL eZ Check is the official lookup and the one the regulations point dealers towards; a dealer shipping a firearm should continue to use it. It confirms a licence number rather than the copy of the licence in hand, and typing the number into a web form is awkward at a show table or shipping counter. Live Verify offers a quick check of the document itself in those settings, as an additional step and not a replacement for the official query.

@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Bank Reference Letter?
 
-A **Bank Reference Letter** is a standardised statement from a bank confirming that a customer holds an account, how long the relationship has existed, and whether the account is conducted satisfactorily. It deliberately omits the actual balance — the bank is confirming a relationship and its quality, not guaranteeing solvency.
+A Bank Reference Letter is a standardised statement from a bank confirming that a customer holds an account, how long the relationship has existed, and whether the account is conducted satisfactorily. It deliberately omits the actual balance — the bank is confirming a relationship and its quality, not guaranteeing solvency.
 
 These letters are used internationally for renting property abroad, opening foreign bank accounts, supplier credit applications, visa applications, and commercial tendering. The current form is a letter on bank letterhead — trivially forgeable in any word processor.
 
@@ -28,7 +28,15 @@ As At:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;23 Mar 2026<br
 
 The reference says nothing about balance. This is standard practice — banks do not want to guarantee customer solvency, and the recipient (a landlord, foreign bank, or embassy) is not asking "how much?" but "does this person actually bank here, and are they in good standing?"
 
-## Data Verified
+## The Problem: Forged Bank Letter
+
+Bank reference letters are among the most commonly forged financial documents internationally:
+
+- **Fabricated References for Visa Applications:** Applicants create letters from real banks (or invented ones) to satisfy embassy requirements. This is a large-scale problem — consulates in some countries report that a significant proportion of submitted bank references are fraudulent.
+- **Inflated Standing for Trade Credit:** A business with an unsatisfactory or recently opened account presents a forged reference showing a long-standing, satisfactory relationship to obtain supplier credit.
+- **Non-Existent Bank References:** Advance fee fraud schemes use references from fictitious banks to establish credibility. The victim sees an official-looking letter and assumes the "bank" is real.
+
+## What Is Checked
 
 Customer reference number, issuing bank name, relationship type (current account, savings, business), relationship start date, standing (satisfactory/unsatisfactory), conduct summary, date of issue.
 
@@ -37,7 +45,7 @@ Customer reference number, issuing bank name, relationship type (current account
 - **Status Enquiry Response:** Bank-to-bank format, replying to a formal status enquiry from another institution.
 - **Trade Reference:** Variant used for supplier credit applications, confirming the business account relationship.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`barclays.co.uk`, `hsbc.com`) and the reference status.
 
@@ -46,9 +54,9 @@ Shows the issuer domain (`barclays.co.uk`, `hsbc.com`) and the reference status.
 - **Expired** — Reference is older than the bank's validity window (typically 3-6 months).
 - **Revoked** — Bank has withdrawn the reference (e.g., account closed or conduct deteriorated since issue).
 
-## Second-Party Use
+## Who Holds It
 
-The **Bank Customer** benefits from verification.
+The Bank Customer benefits from verification.
 
 **Renting Property Abroad:** A British tenant renting an apartment in Spain sends their Barclays reference to the Spanish landlord. The landlord can verify it against Barclays' domain rather than trusting a PDF they cannot read or authenticate.
 
@@ -56,7 +64,7 @@ The **Bank Customer** benefits from verification.
 
 **Trade Credit Applications:** A business applying for 30/60/90-day payment terms with a new supplier provides a verified bank reference. The supplier checks it in seconds rather than phoning the bank's reference line and waiting days for a response.
 
-## Third-Party Use
+## Who Checks It
 
 **Landlords and Letting Agents**
 **Tenant Vetting:** Landlords receiving applications from foreign nationals currently have no way to authenticate a bank letter from an overseas institution. A verified reference resolves to the bank's own domain — the landlord does not need to know anything about the foreign banking system.
@@ -70,15 +78,7 @@ The **Bank Customer** benefits from verification.
 **Embassies and Consulates**
 **Visa Applications:** Many visa applications require proof of financial stability. A verified bank reference provides cryptographic proof that the applicant has an established banking relationship, addressing one of the most common fraud vectors in visa processing.
 
-## Verification Architecture
-
-**The Forged Bank Letter Problem**
-
-Bank reference letters are among the most commonly forged financial documents internationally:
-
-- **Fabricated References for Visa Applications:** Applicants create letters from real banks (or invented ones) to satisfy embassy requirements. This is a large-scale problem — consulates in some countries report that a significant proportion of submitted bank references are fraudulent.
-- **Inflated Standing for Trade Credit:** A business with an unsatisfactory or recently opened account presents a forged reference showing a long-standing, satisfactory relationship to obtain supplier credit.
-- **Non-Existent Bank References:** Advance fee fraud schemes use references from fictitious banks to establish credibility. The victim sees an official-looking letter and assumes the "bank" is real.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -120,7 +120,7 @@ Bank references are heavily used in cross-border contexts: Middle Eastern busine
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Traditional Bank References
+## Compared With Traditional Bank References
 
 | Feature | Live Verify | Traditional Bank Letter | Phone/Fax Enquiry |
 | :--- | :--- | :--- | :--- |
@@ -129,7 +129,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Speed** | **Seconds.** Instant verification. | **Days to weeks.** Postal or email, then manual review. | **Hours to days.** Phone tag across time zones. |
 | **Cost** | **Low.** Standard web infrastructure. | **Medium.** Banks charge £20-50 per reference letter. | **High.** Staff time on both sides. |
 
-**Why Live Verify wins here:** Cross-border trust. A landlord in Barcelona, a bank in Dubai, or a consulate in Lagos can all verify a Barclays reference in seconds — without needing to know Barclays' phone number, navigate their IVR system, or trust a PDF they received by email.
+**Where each fits:** where the recipient already has a relationship with the issuing bank, or a bank-to-bank enquiry channel exists, those routes work and carry their own assurances. A landlord, consulate or bank in another country usually has neither, and cannot judge a foreign letterhead. Live Verify lets them confirm the bank issued the letter as written, without replacing the direct enquiry where one is available.
 
 ## Further Derivations
 

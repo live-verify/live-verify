@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is a Carbon Credit Retirement?
 
-When a company (like Microsoft or Apple) claims to be "Net Zero," they often buy **Carbon Credits**—digital certificates representing one tonne of CO2 removed from the atmosphere (e.g., by planting trees).
+When a company (like Microsoft or Apple) claims to be "Net Zero," they often buy Carbon Credits—digital certificates representing one tonne of CO2 removed from the atmosphere (e.g., by planting trees).
 
-The most important step is **Retirement**. Once a credit is "retired," it is taken off the market so it can't be sold again. It is "used up" to balance the company's pollution.
+The most important step is Retirement. Once a credit is "retired," it is taken off the market so it can't be sold again. It is "used up" to balance the company's pollution.
 
-The **Retirement Certificate** is the only proof that the company actually did what it said. Without verification, a company could lie about retiring credits, leading to "Greenwashing" where the same tree is "sold" to 10 different companies.
+The Retirement Certificate is the only proof that the company actually did what it said. Without verification, a company could lie about retiring credits, leading to "Greenwashing" where the same tree is "sold" to 10 different companies.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="carbon"></span>
@@ -47,7 +47,13 @@ Date of Retirement: March 15, 2026
 <span data-verify-line="carbon">verify:verra.org/registry/v</span> <span verifiable-text="end" data-for="carbon"></span>
 </div>
 
-## Data Verified
+## The Problem: Double-Counting Fraud
+
+- **Double-Retirement:** Selling the same carbon offset to two different companies. Verification reveals that the credits are already "Retired" to another beneficiary.
+- **Ghost Credits:** Creating fake certificates for projects that were never registered or never actually reduced emissions.
+- **Vintage Tampering:** Editing a 2015 vintage (low value) to look like a 2025 vintage (high value).
+
+## What Is Checked
 
 Credit holder (beneficiary), project name/ID, vintage year, quantity (tonnes CO2e), serial number range, date of retirement, certification standard (VCS, Gold Standard), verification body (e.g., SCS Global).
 
@@ -56,7 +62,7 @@ Credit holder (beneficiary), project name/ID, vintage year, quantity (tonnes CO2
 - **Issuance Certificate:** For project developers (pre-retirement).
 - **Audit Statement:** 3rd party verification of project performance.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`verra.org`, `goldstandard.org`) and current status.
 
@@ -66,9 +72,9 @@ Shows the issuer domain (`verra.org`, `goldstandard.org`) and current status.
 - **Cancelled** — Credits voided (e.g., due to project reversal like a fire).
 - **Buffer Pool** — Held in reserve for risk management.
 
-## Second-Party Use
+## Who Holds It
 
-The **Credit Buyer** (second party) receives the retirement certificate from the carbon registry (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Credit Buyer (second party) receives the retirement certificate from the carbon registry (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of the retired credits. Most of the time, the document sits in their sustainability files—the verification value is latent, there *if needed*.
 
@@ -76,7 +82,7 @@ The **Credit Buyer** (second party) receives the retirement certificate from the
 
 **Future Optionality:** If questions arise—whether from SEC reporting requirements, shareholder scrutiny, or regulatory audits—they have cryptographic proof of the retirement ready without needing to contact the registry.
 
-## Third-Party Use
+## Who Checks It
 
 The credit buyer (second party) may hand the verified document to various third parties:
 
@@ -89,13 +95,7 @@ The credit buyer (second party) may hand the verified document to various third 
 **Climate Activists / NGOs**
 **Greenwashing Detection:** Enabling civil society to verify the "Registry Status" of credits claimed in marketing campaigns, catching companies that use "Zombie Credits" (already retired or cancelled).
 
-## Verification Architecture
-
-**The "Double-Counting" Fraud Problem**
-
-- **Double-Retirement:** Selling the same carbon offset to two different companies. Verification reveals that the credits are already "Retired" to another beneficiary.
-- **Ghost Credits:** Creating fake certificates for projects that were never registered or never actually reduced emissions.
-- **Vintage Tampering:** Editing a 2015 vintage (low value) to look like a 2025 vintage (high value).
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -123,7 +123,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the registry's hashes and status changes plus structured metadata (certificate ID, quantity in tonnes CO2e, vintage year, project name, retirement date, retiring entity) — never project-level financial or proprietary verification details — providing non-repudiation of credit retirement and an audit trail for environmental agencies and corporate ESG compliance.
 
-## Competition vs. Blockchain (Climate Ledger)
+## Compared With Blockchain (Climate Ledger)
 
 | Feature | Live Verify | Tokenized Carbon (On-Chain) | Public Registry PDF |
 | :--- | :--- | :--- | :--- |
@@ -132,4 +132,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **Universal.** Works with existing PDF reports. | **Siloed.** Different chains (Polygon, Toucan) don't talk. | **Manual.** |
 | **Persistence** | **Archival.** Text lasts decades. | **Fragile.** Requires the chain to exist in 2050. | **Vulnerable.** |
 
-**Why Live Verify wins here:** Legacy Integration. Most corporate carbon accounting is still done via PDF reports and Excel. Blockchain requires a massive tech shift. Live Verify provides **Blockchain-level integrity** for the existing world of PDF certificates, bridging the gap to the future of climate finance without the "Crypto-Stigma."
+**Where each fits:** tokenised credits suit buyers who already trade on-chain and want settlement and retirement in one place. Much corporate carbon accounting still runs on registry PDFs attached to reports. Live Verify lets an auditor or customer confirm the registry stands behind a retirement certificate in that form, and a registry can offer it alongside any on-chain arrangements it supports.

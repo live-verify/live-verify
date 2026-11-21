@@ -11,7 +11,7 @@ furtherDerivations: 3
 
 ## What is an EOB?
 
-An **Explanation of Benefits (EOB)** is the document your health insurance company sends you after you visit a doctor. It is **NOT** a bill.
+An Explanation of Benefits (EOB) is the document your health insurance company sends you after you visit a doctor. It is NOT a bill.
 
 It is a detailed breakdown showing:
 1.  **The Discount:** How much the insurance company forced the doctor to lower their price.
@@ -41,7 +41,13 @@ was processed.
 <span data-verify-line="eob">verify:uhc.com/claims/v</span> <span verifiable-text="end" data-for="eob"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Phantom Bill Fraud
+
+- **Balance Billing:** Hospitals pretending they didn't receive an EOB or that the "Allowed Amount" was higher to collect more from the patient.
+- **PDF Alteration:** Patients editing a $100 copay to read $1,000 to drain their HSA/FSA for cash.
+- **Duplicate Claims:** Using an old EOB to claim reimbursement from two different insurance companies (e.g., personal and work policies).
+
+## What Is Checked
 
 Patient name, member ID (partial), provider name, service date, claim number, billed amount, allowed amount, plan paid amount, patient responsibility (deductible/copay), adjustment reason codes.
 
@@ -51,7 +57,7 @@ Patient name, member ID (partial), provider name, service date, claim number, bi
 - **Appeal Decision Letter:** Proving a denied claim was overturned.
 - **Subrogation Questionnaire:** Investigating 3rd party liability.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`uhc.com`, `aetna.com`) and claim status.
 
@@ -61,15 +67,15 @@ Shows the issuer domain (`uhc.com`, `aetna.com`) and claim status.
 - **Reversed** — Claim was re-processed; this EOB is void.
 - **Denied** — Payment rejected (reason provided).
 
-## Second-Party Use
+## Who Holds It
 
-The **Patient** benefits from verification.
+The Patient benefits from verification.
 
 **Billing Disputes:** Proving to a hospital's billing department that the insurance company *actually* allowed a 40% discount, preventing the hospital from "Balance Billing" the patient for the full amount. A verified EOB is much harder for a hospital to ignore than a standard PDF.
 
 **Flexible Spending Accounts (FSA/HSA):** Providing verified proof of "Patient Responsibility" to an HSA administrator to release tax-free funds without manual review.
 
-## Third-Party Use
+## Who Checks It
 
 **Healthcare Providers (Clinics)**
 **Reconciliation:** Verifying that the EOB provided by the patient matches what the insurer claims to have paid, spotting "Paper Check" vs "Electronic" discrepancies.
@@ -80,13 +86,7 @@ The **Patient** benefits from verification.
 **Mortgage Lenders**
 **Medical Debt Audit:** If a borrower has large medical bills, lenders can verify the "Patient Responsibility" EOBs to ensure the debt isn't being exaggerated or hasn't already been paid by insurance.
 
-## Verification Architecture
-
-**The "Phantom Bill" Fraud Problem**
-
-- **Balance Billing:** Hospitals pretending they didn't receive an EOB or that the "Allowed Amount" was higher to collect more from the patient.
-- **PDF Alteration:** Patients editing a $100 copay to read $1,000 to drain their HSA/FSA for cash.
-- **Duplicate Claims:** Using an old EOB to claim reimbursement from two different insurance companies (e.g., personal and work policies).
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -100,7 +100,7 @@ The **Patient** benefits from verification.
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the health insurer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the EOB.
 
-## Competition vs. Patient Portals
+## Compared With Patient Portals
 
 | Feature | Live Verify | Insurance Portal (Login) | Paper EOB |
 | :--- | :--- | :--- | :--- |
@@ -109,7 +109,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **Universal.** Works across all carriers. | **Siloed.** | **Universal.** |
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires 2FA, login, navigation. | **N/A.** |
 
-**Why Live Verify wins here:** Selective Privacy. A patient needs to prove a $160 debt to a hospital or lender without exposing that they also had a psychiatric visit or a high-cost medication listed elsewhere in their portal history. Live Verify turns the **Static Statement** into a portable, private "Proof of Payment."
+**Where each fits:** The insurer's portal remains the best place for a member to see every claim and statement in one view, and providers already connected to the insurer will keep using their own channels. When a patient needs to show a single explanation of benefits to a hospital billing office or a lender, handing over portal access would expose far more than that one statement. Live Verify lets them share the one page and lets the recipient confirm the insurer issued it.
 
 
 ---
@@ -121,7 +121,7 @@ _[Content merged from: claims-diary-reserve-changes]_
 
 When an insurance adjuster handles a claim, they keep a "Diary"—a minute-by-minute log of every phone call, every medical report, and every financial change.
 
-A **Reserve Change** is when the adjuster says: "Wait, this injury is worse than we thought; we need to set aside $100,000 more to pay for it."
+A Reserve Change is when the adjuster says: "Wait, this injury is worse than we thought; we need to set aside $100,000 more to pay for it."
 
 In lawsuits, these diaries are "Evidence Item #1." If an insurance company is accused of "Bad Faith" (ignoring a claim), the diary is the only way to prove they were actually working on it. Verified hashes prevent companies from "Backdating" diary notes after a lawsuit is filed to make themselves look better.
 
@@ -150,7 +150,7 @@ Loss Review.
   </div>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Claim ID, adjuster name/ID, reserve category (Indemnity/Medical/Expense), change amount, previous balance, new balance, timestamp (to the second), diary note text (digest), supervisor authorization status.
 
@@ -159,25 +159,25 @@ Claim ID, adjuster name/ID, reserve category (Indemnity/Medical/Expense), change
 - **Adjuster Diary Extract:** The narrative "Daily Log" of actions.
 - **Large Loss Notification:** Form sent to reinsurers for big spikes.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Insurance Carrier) and the log standing.
 
 **Status Indications:**
 - **Verified** — Change matches the carrier's core ledger and timestamp.
-- **Backdated** — **ALERT:** Log entry was created after the effective date.
+- **Backdated** — Log entry was created after the effective date.
 - **Unauthorized** — Change was made but lacks mandatory supervisor sign-off.
 - **Void** — Reserve change was reversed due to data entry error.
 
-## Second-Party Use
+## Who Holds It
 
-The **Claims Adjuster** benefits from verification.
+The Claims Adjuster benefits from verification.
 
 **Defensive Documentation:** Proving that they raised the reserve *immediately* upon receiving new medical data, defending against accusations of "Bad Faith" or "Late Reporting" during a subsequent audit or litigation.
 
 **Escalation Proof:** Proving to a supervisor that the Large Loss Review was triggered on the exact date mandated by company policy.
 
-## Third-Party Use
+## Who Checks It
 
 **Reinsurers**
 **Reserve Audit:** Reinsurers conduct periodic "Reserve Reviews" to ensure the primary carrier isn't hiding losses by keeping reserves artificially low. Live Verify allows the auditor to instantly verify the history of every reserve change without trusting a manually compiled Excel file.
@@ -188,7 +188,7 @@ The **Claims Adjuster** benefits from verification.
 **Forensic Accountants**
 **Loss Development Analysis:** Verifying the "Age" of reserves to build accurate actuarial models of how long it takes for a typical claim to reach its final value.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Diary Tampering" Fraud Problem**
 
@@ -208,7 +208,7 @@ The **Claims Adjuster** benefits from verification.
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurance carrier's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing diary notes and reserve changes.
 
-## Competition vs. Guidewire Audit Logs
+## Compared With Guidewire Audit Logs
 
 | Feature | Live Verify | System Audit Log (Guidewire) | PDF Export |
 | :--- | :--- | :--- | :--- |
@@ -217,7 +217,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Tamper Proof** | **Cryptographic.** Proves the *Text* of the note. | **Vulnerable.** Internal logs can be "cleaned up." | **Vulnerable.** |
 | **Immutability** | **High.** Once hashed, the note is fixed. | **Medium.** Database changes can be hidden. | **Zero.** |
 
-**Why Live Verify wins here:** The "External Audit." Reinsurers and state regulators are external to the carrier's IT system. They don't have (and often don't want) direct access to the "Live" claims system. Live Verify provides them with an **immutable proof-of-work** for the documents sent to them, ensuring the PDF they are auditing is the "Unfiltered Truth."
+**Where each fits:** The claims system and its audit log are where the carrier's own staff and internal auditors should work, and they hold far more detail than any exported file. Reinsurers and state regulators usually sit outside that system and review the PDFs sent to them. Live Verify gives those outside reviewers a way to confirm that a file note is the text the carrier published at the time, alongside whatever system access the carrier chooses to grant.
 
 
 ---
@@ -227,11 +227,11 @@ _[Content merged from: claims-settlement-agreements]_
 
 ## What is a Settlement Agreement?
 
-A **Settlement Agreement** (or Release) is the final contract that ends a legal dispute. It says: "The insurance company pays you $25,000, and in exchange, you promise never to sue them again for this accident."
+A Settlement Agreement (or Release) is the final contract that ends a legal dispute. It says: "The insurance company pays you $25,000, and in exchange, you promise never to sue them again for this accident."
 
 These documents are the "Finish Line" of the legal system.
 
-Because they trigger large payments, they are targets for "PDF alteration." A dishonest person might edit a $10,000 agreement to read $50,000 to trick their partners or a bank. Verified hashes ensure that the **final dollar amount** and the **release terms** cannot be changed after the signatures are dry.
+Because they trigger large payments, they are targets for "PDF alteration." A dishonest person might edit a $10,000 agreement to read $50,000 to trick their partners or a bank. Verified hashes ensure that the final dollar amount and the release terms cannot be changed after the signatures are dry.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #999; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
   <div style="padding: 25px; background: #fff;">
@@ -261,7 +261,7 @@ Releasor                         For Acme Indemnity
   </div>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Releasor name, Releasee name, settlement amount (numerical and text), incident date, Claim ID, effective date of agreement, signature status of both parties.
 
@@ -271,7 +271,7 @@ Releasor name, Releasee name, settlement amount (numerical and text), incident d
 - **Structure Settlement Annuity:** For long-term payouts.
 - **Stipulation of Discontinuance:** To close a court case.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Insurance Carrier or Law Firm) and current legal status.
 
@@ -281,15 +281,15 @@ Shows the issuer domain (the Insurance Carrier or Law Firm) and current legal st
 - **Void** — Superseded by a new agreement or retracted.
 - **In-Litigation** — Release being challenged in court (e.g., for "Bad Faith").
 
-## Second-Party Use
+## Who Holds It
 
-The **Claimant** (Releasor) benefits from verification.
+The Claimant (Releasor) benefits from verification.
 
 **Anti-Tampering:** Ensuring that the "Release Terms" or "Settlement Amount" aren't altered by a third party (like an unscrupulous broker or attorney) after the claimant has signed the paper.
 
 **Mortgage / Loan Approval:** Proving to a lender that a "Legal Dispute" listed on their credit report has been "Verified Settled" and the funds have been received, improving their debt-to-income profile.
 
-## Third-Party Use
+## Who Checks It
 
 **Reinsurers**
 **Claim Closure Audit:** Reinsurers verify that the primary carrier actually secured a "Verified Release" before paying out their share of a multimillion-dollar loss. This prevents "Leaky Settlements" where the carrier pays but forgets to get a signed release.
@@ -300,7 +300,7 @@ The **Claimant** (Releasor) benefits from verification.
 **The Courts**
 **Case Dismissal:** A judge can scan the verification hash on a "Stipulation of Discontinuance" to ensure it matches the insurer's records before officially closing the court docket.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "PDF Alteration" Fraud Problem**
 
@@ -332,7 +332,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurance carrier's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the settlement agreement.
 
-## Competition vs. Court Dockets (PACER)
+## Compared With Court Dockets (PACER)
 
 | Feature | Live Verify | Court Docket (PACER) | Scanned PDF Release |
 | :--- | :--- | :--- | :--- |
@@ -341,4 +341,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Trust Anchor** | **Domain-Bound.** Bound to the Payer. | **Gov-Bound.** | **Zero.** Easily forged. |
 | **Interoperability** | **Universal.** PDFs stay verifiable. | **Siloed.** Requires PACER login/fees. | **Manual.** |
 
-**Why Live Verify wins here:** Privacy. Most insurance settlements are **confidential** and never appearing on a public court docket. Live Verify allows the parties to have "Court-Grade" trust in the private agreement without exposing the settlement terms to the general public.
+**Where each fits:** Where a settlement is filed with a court, the docket is the authoritative public record and should be consulted. Most insurance settlements are private agreements that never reach a docket, so there is nothing public to look up. Live Verify serves those cases: a party handed the release can confirm the payer stands behind its exact text, and the terms stay between the people who hold the document.

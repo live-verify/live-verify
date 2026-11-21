@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is a Data Sharing Agreement?
 
-When universities or hospitals share sensitive data (like DNA sequences or patient records) for research, they sign a **Data Sharing Agreement (DSA)**.
+When universities or hospitals share sensitive data (like DNA sequences or patient records) for research, they sign a Data Sharing Agreement (DSA).
 
-This contract is the "Legal Firewall." It says: "You can use this data for cancer research, but you are **not** allowed to sell it or try to identify the people in it."
+This contract is the "Legal Firewall." It says: "You can use this data for cancer research, but you are not allowed to sell it or try to identify the people in it."
 
-Ethics violations are common: researchers sometimes use data for a different purpose than they promised. Verified hashes allow compliance officers to verify the **exact authorized use** of a dataset, protecting patient privacy across international borders.
+Ethics violations are common: researchers sometimes use data for a different purpose than they promised. Verified hashes allow compliance officers to verify the exact authorized use of a dataset, protecting patient privacy across international borders.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
   <div style="text-align: center; margin-bottom: 30px; border-bottom: 2px solid #000; padding-bottom: 10px;">
@@ -45,7 +45,13 @@ Ethics violations are common: researchers sometimes use data for a different pur
   </div>
 </div>
 
-## Data Verified
+## The Problem: Data Misuse Fraud
+
+- **Scope Creep:** A researcher having a DSA for "Diabetes Research" but using the data for "Insurance Modeling" (a common ethics violation).
+- **Unauthorized Transfers:** A recipient sharing the data with a third-party company without the provider's knowledge.
+- **Fabricated DSAs:** Creating a fake agreement PDF to bypass institutional IRB (Ethics Board) review.
+
+## What Is Checked
 
 Provider institution name, Recipient institution name, Dataset ID/Title, specific Authorized Use (Scope), execution date, termination/expiration date, data protection status (e.g., GDPR compliant), authorized signatories.
 
@@ -55,7 +61,7 @@ Provider institution name, Recipient institution name, Dataset ID/Title, specifi
 - **Data Use Certification (DUC):** For individual researchers.
 - **Privacy Impact Assessment (PIA):** (Linked hash) proving risk review.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`ox.ac.uk`, `stanford.edu`) and agreement status.
 
@@ -65,15 +71,15 @@ Shows the issuer domain (`ox.ac.uk`, `stanford.edu`) and agreement status.
 - **Revoked** — Permission pulled due to a security breach or misuse.
 - **Amended** — Replaced by a newer version (e.g., scope expanded).
 
-## Second-Party Use
+## Who Holds It
 
-The **Data Recipient** (Researcher) benefits from verification.
+The Data Recipient (Researcher) benefits from verification.
 
 **Grant Funding:** Proving to a funding agency (e.g., NIH or Wellcome Trust) that they have "Verified Legal Access" to the necessary dataset. This prevents delays in grant disbursement.
 
 **Publication Integrity:** Providing a verified link to the DSA in a published paper, proving the research was conducted under an official, institutional agreement.
 
-## Third-Party Use
+## Who Checks It
 
 **University Compliance Officers**
 **Portfolio Audit:** Instantly verifying that all outgoing datasets are covered by active, non-expired agreements. Live Verify allows for a "Digital Census" of physical/PDF legal files.
@@ -84,13 +90,7 @@ The **Data Recipient** (Researcher) benefits from verification.
 **Collaborating Journals**
 **Ethical Review:** Ensuring that the authors of a study had the legal right to use the data before publishing the results.
 
-## Verification Architecture
-
-**The "Data Misuse" Fraud Problem**
-
-- **Scope Creep:** A researcher having a DSA for "Diabetes Research" but using the data for "Insurance Modeling" (a common ethics violation).
-- **Unauthorized Transfers:** A recipient sharing the data with a third-party company without the provider's knowledge.
-- **Fabricated DSAs:** Creating a fake agreement PDF to bypass institutional IRB (Ethics Board) review.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -117,7 +117,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 ## Jurisdictional Witnessing (Optional)
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the data controller's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the data sharing agreement.
-## Competition vs. CLM Systems (Ironclad)
+## Compared With CLM Systems (Ironclad)
 
 | Feature | Live Verify | CLM (Contract Lifecycle Mgmt) | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -126,4 +126,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Scope.** Protects the "Authorized Use" text. | **Data-Only.** | **Vulnerable.** |
 | **Cost** | **Low.** Standard web infra. | **Very High.** Enterprise software fees. | **None.** |
 
-**Why Live Verify wins here:** The "Institutional Handoff." Oxford uses one system, Stanford uses another. They don't want to grant each other access to their private legal systems. Live Verify turns the **Final Signed PDF** into a portable, verifiable artifact that works across the "Institutional Divide" without any software integration.
+**Where each fits:** A contract lifecycle management system serves an institution well for its own drafting, approvals and renewals, and nothing here suggests replacing it. The difficulty comes when the counterparty, a funder or a data protection reviewer sits outside that system and will not be given access to it. Live Verify lets any of them confirm that the signed PDF they hold carries the wording the institution stands behind, while each side keeps its own CLM.

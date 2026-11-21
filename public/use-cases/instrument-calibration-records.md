@@ -37,7 +37,13 @@ Certified Digital Signature
 <span data-verify-line="sci-cal">verify:quantum-labs.com/calibration/v</span> <span verifiable-text="end" data-for="sci-cal"></span>
 </div>
 
-## Data Verified
+## The Problem: Dry-Labbing Fraud
+
+- **Fabricated Logs:** Lazy technicians writing "In-Tolerance" numbers in a logbook without actually running the 4-hour calibration sequence.
+- **Date Alteration:** Editing a 2024 certificate to look like 2026 to avoid the $2,000 service fee.
+- **Traceability Fraud:** Claiming a link to NIST or ISO standards when the lab's own gear is unverified.
+
+## What Is Checked
 
 Instrument model/serial number, Asset ID, calibration date, technician name/Ph.D., reference standards used (NIST traceability), environmental conditions during test, PASS/FAIL status, specific drift measurements, issuing lab domain.
 
@@ -47,7 +53,7 @@ Instrument model/serial number, Asset ID, calibration date, technician name/Ph.D
 - **Validation Protocol (IQ/OQ/PQ):** Proving the machine is installed correctly.
 - **Deviation Report:** (Linked hash) for measurements taken out-of-tolerance.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Calibration Lab or Manufacturer) and current record status.
 
@@ -55,11 +61,11 @@ Shows the issuer domain (the Calibration Lab or Manufacturer) and current record
 - **Certified** — Data matches the lab's secure digital vault.
 - **Expired** — Re-calibration is overdue; current data is unverified.
 - **Adjusted** — Instrument was modified to return to spec.
-- **Retracted** — **ALERT:** Data voided due to reference standard error.
+- **Retracted** — Data voided due to reference standard error.
 
-## Second-Party Use
+## Who Holds It
 
-The **Lab Manager** (second party) receives the calibration record from the calibration lab (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Lab Manager (second party) receives the calibration record from the calibration lab (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of the instrument's calibration status. Most of the time, the record sits in their lab's quality files—the verification value is latent, there *if needed*.
 
@@ -67,7 +73,7 @@ The **Lab Manager** (second party) receives the calibration record from the cali
 
 **Future Optionality:** If a dispute arises—whether about data quality, regulatory audits, or publication challenges—they have cryptographic proof ready without needing to contact the calibration lab.
 
-## Third-Party Use
+## Who Checks It
 
 The lab manager (second party) may hand the verified document to various third parties:
 
@@ -80,13 +86,7 @@ The lab manager (second party) may hand the verified document to various third p
 **Legal Expert Witnesses**
 **Forensic Accuracy:** In patent or liability litigation, verifying the historical accuracy of the instruments used to generate the evidence.
 
-## Verification Architecture
-
-**The "Dry-Labbing" Fraud Problem**
-
-- **Fabricated Logs:** Lazy technicians writing "In-Tolerance" numbers in a logbook without actually running the 4-hour calibration sequence.
-- **Date Alteration:** Editing a 2024 certificate to look like 2026 to avoid the $2,000 service fee.
-- **Traceability Fraud:** Claiming a link to NIST or ISO standards when the lab's own gear is unverified.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -114,7 +114,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the calibration lab's hashes and status changes plus structured metadata (instrument IDs, calibration dates, pass/fail results, reference standard IDs, technician credentials) — never client names, laboratory addresses, or proprietary measurement details — providing non-repudiation of the certificate and the results and an audit trail state quality authorities can inspect.
 
-## Competition vs. LIMS (Lab Information Mgmt)
+## Compared With LIMS (Lab Information Mgmt)
 
 | Feature | Live Verify | LIMS Software (LabWare) | Scanned PDF Record |
 | :--- | :--- | :--- | :--- |
@@ -123,4 +123,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Cryptographic.** Binds the Serial #. | **High.** | **Vulnerable.** |
 | **Permanence** | **Archival.** Text is permanent. | **Ephemeral.** Databases get migrated/lost. | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "External Trust" problem. A lab's internal LIMS is great for them, but useless for the **Scientific Community**. When a result is published or a drug is filed for approval, the trust must move with the data. Live Verify turns the **Static Calibration PDF** into a portable, cryptographically trusted asset.
+**Where each fits:** A LIMS is the right system of record inside the laboratory, and nothing here replaces it for day-to-day sample and instrument management. The gap is the reader outside the lab: a journal, an auditor or a regulator who receives a calibration PDF and will never be given a LIMS login. Live Verify lets that reader confirm the lab stands behind the exact record, while the LIMS carries on as the source it was exported from.

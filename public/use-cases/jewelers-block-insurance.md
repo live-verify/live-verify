@@ -40,7 +40,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Vapor-Block Fraud
+
+- **Limit Inflation:** Editing a $1M "Small Shop" policy to read $10M to trick suppliers into sending more diamonds on consignment than the jeweler can safely insure.
+- **Cancellation Hiding:** Keeping a valid-looking "Active" paper certificate after the insurer cancelled the policy due to a security failure (e.g., broken alarm).
+- **Vault Fraud:** Claiming a "UL Class 3" vault status on the paper certificate when the actual verified policy only covers a residential-grade safe.
+
+## What Is Checked
 
 Insured name, premises address, stock-on-hand limit (USD), transit/shipping limits, specific vault/safe classification (UL Class), alarm monitoring status, trade show exhibition limits, memo/consignment limits, effective dates, issuing carrier.
 
@@ -50,25 +56,25 @@ Insured name, premises address, stock-on-hand limit (USD), transit/shipping limi
 - **Consignment Memo:** (Linked hash) proving insurance for borrowed items.
 - **Security Audit Report:** (Linked hash) proving the vault meets the policy terms.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`berkleyassetpro.com`, `chubb.com`, `lloyds.com`) and current policy standing.
 
 **Status Indications:**
 - **In Force** — Premium paid; $15M inventory is covered.
-- **Cancelled** — **ALERT:** Coverage terminated (High-risk for suppliers).
+- **Cancelled** — Coverage terminated (High-risk for suppliers).
 - **Excursion Alert** — Vault or Alarm status found non-compliant in recent audit.
 - **Lapsed** — Renewal pending or overdue.
 
-## Second-Party Use
+## Who Holds It
 
-The **Jeweler (Store Owner)** benefits from verification.
+The Jeweler (Store Owner) benefits from verification.
 
 **Consignment Vetting:** Proving to a high-end diamond supplier (e.g., De Beers or a private dealer) that their $2M stone is "Verified Covered" while sitting in the store's vault. No supplier will hand over diamonds on "Memo" without 100% cryptographic certainty that the insurance is real and active.
 
 **Trade Show Access:** Proving coverage to specialized logistics firms or show organizers (e.g., JCK Las Vegas) before moving millions in stock into a temporary booth.
 
-## Third-Party Use
+## Who Checks It
 
 **Diamond & Gem Suppliers**
 **Inventory Risk:** Before shipping a high-value parcel, the supplier scans the jeweler's COI. "Verified by Berkley" ensures the jeweler hasn't "Edited" the $500k limit to look like $5M to hide their actual exposure.
@@ -79,13 +85,7 @@ The **Jeweler (Store Owner)** benefits from verification.
 **High-Value Couriers (Brinks / Malca-Amit)**
 **Handoff Integrity:** Verifying that the jeweler's "Transit Limits" are verified and in force before accepting a parcel for pickup.
 
-## Verification Architecture
-
-**The "Vapor-Block" Fraud Problem**
-
-- **Limit Inflation:** Editing a $1M "Small Shop" policy to read $10M to trick suppliers into sending more diamonds on consignment than the jeweler can safely insure.
-- **Cancellation Hiding:** Keeping a valid-looking "Active" paper certificate after the insurer cancelled the policy due to a security failure (e.g., broken alarm).
-- **Vault Fraud:** Claiming a "UL Class 3" vault status on the paper certificate when the actual verified policy only covers a residential-grade safe.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -112,7 +112,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurance underwriter's hashes and status changes plus structured metadata (insured name, location, stock limit, transit limit, vault classification, effective dates) — never plaintext inventory details — providing non-repudiation of the jewelers block insurance certificate.
 
 
-## Competition vs. Manual Broker Letters
+## Compared With Manual Broker Letters
 
 | Feature | Live Verify | Manual Broker Letter | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -121,4 +121,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Availability** | **24/7.** Works during after-hours trades. | **Restricted.** Business hours only. | **Universal.** |
 | **Trust Anchor** | **Domain-Bound.** Bound to the Carrier. | **Human.** Prone to social engineering. | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Memo Moment." High-stakes gem trades often happen at 10 PM in hotel rooms or private clubs. Suppliers need to trust the insurance *right now* before handing over the stones. Live Verify turns the **Standard Insurance Folder** into a live digital checkpoint that provides "Bank-Vault" level trust anywhere in the world.
+**Where each fits:** A broker's confirmation letter is still the right route when there is time, since the broker can explain terms and exclusions in a way a certificate cannot. Trades agreed out of hours or away from the office do not always allow two or three working days for that. Live Verify lets the supplier confirm then and there that the carrier stands behind the certificate as presented, and a broker letter can follow where the deal warrants it.

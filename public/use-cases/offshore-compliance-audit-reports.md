@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is an Offshore Compliance Audit Report?
 
-An **Offshore Compliance Audit Report** is an assessment — conducted by a licensed auditor or compliance firm — of whether an offshore entity meets its regulatory obligations. These include Anti-Money Laundering (AML) compliance, economic substance requirements, sanctions screening, beneficial ownership filings, and financial reporting standards.
+An Offshore Compliance Audit Report is an assessment — conducted by a licensed auditor or compliance firm — of whether an offshore entity meets its regulatory obligations. These include Anti-Money Laundering (AML) compliance, economic substance requirements, sanctions screening, beneficial ownership filings, and financial reporting standards.
 
 Unlike general financial audits (which assess whether the numbers are accurate), compliance audits assess whether the entity is following the rules. In offshore jurisdictions, these rules have multiplied dramatically since 2018 as the OECD, FATF, EU, and individual countries have pressured tax havens to prove they're not just rubber-stamping shell companies.
 
@@ -54,7 +54,15 @@ With Live Verify, the compliance report carries a `verify:` line bound to the au
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fabrication
+
+- **Phantom audits:** Entity creates a fake compliance report on a real auditor's letterhead, claiming a clean opinion. The auditor never visited, never reviewed controls, never issued a report. This is the offshore equivalent of the "phantom audit" problem in financial statement fraud.
+- **Opinion shopping:** Entity receives a qualified opinion (material deficiencies found) from Auditor A. Rather than fixing the deficiencies, it engages Auditor B — a less scrupulous firm — who issues a clean opinion. The entity presents only Auditor B's report.
+- **Opinion scrubbing:** Entity receives a genuine report with a qualified opinion. It edits the PDF to change "qualified" to "unqualified" and removes the findings paragraphs. The formatting is preserved; only the substance is changed.
+- **Scope reduction:** Entity negotiates a narrow audit scope (e.g., "sanctions screening only") but presents the report as a comprehensive AML compliance audit. The reader assumes the full range of AML controls was assessed.
+- **Auditor complicity:** In rare but devastating cases, the auditor is complicit — issuing clean opinions in exchange for fees, without conducting meaningful audit procedures. Live Verify doesn't prevent this (the auditor would verify its own fraudulent report), but jurisdictional witnessing creates a trail that regulators can follow.
+
+## What Is Checked
 
 Entity name, registration number, audit period, report date, scope of audit, auditor's opinion (clean/qualified/adverse/disclaimer), auditor's name and license number.
 
@@ -65,7 +73,7 @@ Entity name, registration number, audit period, report date, scope of audit, aud
 - **Beneficial Ownership Compliance Report:** Confirms entity has filed accurate beneficial ownership information with the jurisdiction's registry.
 - **FATCA/CRS Compliance Report:** Confirms entity complies with US Foreign Account Tax Compliance Act (FATCA) and OECD Common Reporting Standard (CRS) reporting obligations.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the compliance firm's domain) and report status.
 
@@ -76,9 +84,9 @@ Shows the issuer domain (the compliance firm's domain) and report status.
 - **Superseded** — A revised report has been issued.
 - **Under Investigation** — Regulator has raised questions about the audit. Report not withdrawn but flagged.
 
-## Second-Party Use
+## Who Holds It
 
-The **Entity** (and its directors/officers) benefits from verification.
+The Entity (and its directors/officers) benefits from verification.
 
 **Correspondent Banking Retention:** The single most important use. Offshore entities lose bank accounts when the bank's compliance team can't verify that the entity's AML controls are adequate. A verified compliance report from a CIMA-licensed auditor proves the entity has been independently assessed — giving the bank's compliance team the evidence they need to retain the relationship.
 
@@ -86,7 +94,7 @@ The **Entity** (and its directors/officers) benefits from verification.
 
 **Investor Due Diligence:** Institutional investors (pension funds, sovereign wealth funds) increasingly require proof that fund vehicles in offshore jurisdictions have adequate AML controls. A verified compliance report satisfies this requirement without lengthy due diligence questionnaires.
 
-## Third-Party Use
+## Who Checks It
 
 **Correspondent Banks**
 
@@ -108,15 +116,7 @@ When onboarding offshore fund vehicles, administrators need evidence of AML comp
 
 When writing Directors & Officers or Errors & Omissions policies for offshore entities, underwriters assess compliance risk. Verified compliance reports provide objective evidence of the entity's control environment.
 
-## Verification Architecture
-
-**The Fabrication Problem**
-
-- **Phantom audits:** Entity creates a fake compliance report on a real auditor's letterhead, claiming a clean opinion. The auditor never visited, never reviewed controls, never issued a report. This is the offshore equivalent of the "phantom audit" problem in financial statement fraud.
-- **Opinion shopping:** Entity receives a qualified opinion (material deficiencies found) from Auditor A. Rather than fixing the deficiencies, it engages Auditor B — a less scrupulous firm — who issues a clean opinion. The entity presents only Auditor B's report.
-- **Opinion scrubbing:** Entity receives a genuine report with a qualified opinion. It edits the PDF to change "qualified" to "unqualified" and removes the findings paragraphs. The formatting is preserved; only the substance is changed.
-- **Scope reduction:** Entity negotiates a narrow audit scope (e.g., "sanctions screening only") but presents the report as a comprehensive AML compliance audit. The reader assumes the full range of AML controls was assessed.
-- **Auditor complicity:** In rare but devastating cases, the auditor is complicit — issuing clean opinions in exchange for fees, without conducting meaningful audit procedures. Live Verify doesn't prevent this (the auditor would verify its own fraudulent report), but jurisdictional witnessing creates a trail that regulators can follow.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -142,7 +142,7 @@ Offshore compliance audit reports are issued by licensed auditors and endorsed b
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition
+## Compared With the Alternatives
 
 | Feature | Live Verify | Direct Contact with Auditor | Regulator Confirmation | Client Self-Attestation |
 | :--- | :--- | :--- | :--- | :--- |
@@ -151,7 +151,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Speed** | **Instant.** | **Days to weeks.** | **Weeks to months.** Formal request process. | **Instant.** But worthless. |
 | **Detects Edits** | **Yes.** Any change breaks the hash. | **Only if auditor reviews the specific report line by line.** | **N/A.** | **N/A.** |
 
-**Why Live Verify wins here:** The fundamental problem is that compliance audit reports are produced by private firms for private clients, and the firms are bound by confidentiality. They can't publicly confirm they audited a specific entity without the entity's consent. Live Verify solves this: the entity presents the report (consenting to disclosure), and the auditor's domain confirms the report is genuine — without the auditor breaking any confidentiality obligation.
+**Where each fits:** Contacting the audit firm directly remains the most thorough check, since a conversation can cover scope and context that the report does not, and regulators keep their own formal channels for supervisory purposes. In practice a direct request can take weeks, and the firm may be unable to answer without its client's consent. Live Verify handles the simpler question of whether the report presented is the one the firm issued, with the entity's own presentation of the report serving as the consent. Deeper enquiries can then go to the firm where they are warranted.
 
 ## Jurisdictional Witnessing (Optional)
 

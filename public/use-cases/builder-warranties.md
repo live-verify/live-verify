@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Builder Warranty?
 
-When you buy a brand-new home, the builder provides a **Structural Warranty** (often called a 2-10 warranty). It is a legal promise that:
+When you buy a brand-new home, the builder provides a Structural Warranty (often called a 2-10 warranty). It is a legal promise that:
 1.  **Year 1:** The craftsmanship is good.
 2.  **Year 2:** The pipes and wires won't fail.
 3.  **Year 10:** The foundation won't crack or collapse.
@@ -53,7 +53,13 @@ This warranty is a valuable financial asset that stays with the house for 10 yea
   </div>
 </div>
 
-## Data Verified
+## The Problem: Ghost Warranty Fraud
+
+- **Builder Insolvency:** A builder who has gone bankrupt might still provide unbacked "Warranty" papers to close a sale. Verification shows the warranty isn't active in the insurer's database.
+- **Term Alteration:** Editing a "1-year" warranty PDF to read "10-years" to hide structural defects from a buyer.
+- **Address Swapping:** Taking a valid warranty for a high-quality build and editing the address to cover a poor-quality "flip" house.
+
+## What Is Checked
 
 Property address, homeowner name (initial), builder name/registration, warranty certificate number, coverage types (Workmanship/Systems/Structural), effective date, expiration date, issuing warranty company.
 
@@ -62,7 +68,7 @@ Property address, homeowner name (initial), builder name/registration, warranty 
 - **Maintenance Log:** Proving mandatory homeowner maintenance was performed (linked hash).
 - **Claim Approval Notice:** Confirming a structural fix is authorized.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`2-10.com`, `tollbrothers.com`) and current warranty standing.
 
@@ -72,15 +78,15 @@ Shows the issuer domain (`2-10.com`, `tollbrothers.com`) and current warranty st
 - **Expired** — Coverage period has ended.
 - **In-Litigation** — Warranty disputed in court.
 
-## Second-Party Use
+## Who Holds It
 
-The **Homeowner** benefits from verification.
+The Homeowner benefits from verification.
 
 **Resale Value:** When selling a 5-year-old home, the owner can provide a "Verified Structural Warranty" to the buyer. This proves that the remaining 5 years of the 10-year structural coverage is legitimate and transferable, increasing the home's value.
 
 **Contractor Disputes:** If a pipe bursts in year 2, the homeowner can verify their "Systems Coverage" before calling a plumber, ensuring the builder is held responsible for the cost.
 
-## Third-Party Use
+## Who Checks It
 
 **Prospective Home Buyers**
 **Due Diligence:** Before signing a contract on a resale home, the buyer can scan the warranty certificate provided by the seller. Verification ensures the builder didn't quietly cancel the warranty due to a prior dispute or non-payment.
@@ -91,13 +97,7 @@ The **Homeowner** benefits from verification.
 **Mortgage Lenders**
 **Risk Management:** Lenders for new construction often require proof of a 10-year structural warranty before funding. Verification provides the "Final Truth" needed for the closing package.
 
-## Verification Architecture
-
-**The "Ghost Warranty" Fraud Problem**
-
-- **Builder Insolvency:** A builder who has gone bankrupt might still provide unbacked "Warranty" papers to close a sale. Verification shows the warranty isn't active in the insurer's database.
-- **Term Alteration:** Editing a "1-year" warranty PDF to read "10-years" to hide structural defects from a buyer.
-- **Address Swapping:** Taking a valid warranty for a high-quality build and editing the address to cover a poor-quality "flip" house.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -123,7 +123,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the warranty it issued.
 
 
-## Competition vs. Home Inspection Reports
+## Compared With Home Inspection Reports
 
 | Feature | Live Verify | Home Inspection (Visual) | Builder Website Portal |
 | :--- | :--- | :--- | :--- |
@@ -131,4 +131,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Duration** | **10-20 Years.** Matches the legal statute. | **Snapshot.** Only valid for the day of inspection. | **Ephemeral.** Portals change. |
 | **Transfer** | **Easy.** Proves transferability to next owner. | **N/A.** | **Hard.** New owner has no login. |
 
-**Why Live Verify wins here:** Persistence. A builder warranty is a "Long-Tail" financial asset. The person who needs to verify it in year 9 (the second owner) is almost never the person who received it in year 1. Live Verify turns the persistent piece of paper in the "Homeowner's Binder" into a real-time link to the insurer, regardless of who currently owns the house.
+**Where each fits:** a home inspection assesses the physical condition of the house on the day, which a document check cannot do, and the builder's portal works for the original owner who holds the login. A second owner, years later, usually has neither a login nor any dealings with the builder. Live Verify lets that owner, or their buyer's solicitor, confirm the warranty provider still stands behind the certificate in the homeowner's file.

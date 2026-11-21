@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a PML Report?
 
-A **Probable Maximum Loss (PML)** report is a "Scientific Guess" of how much money an insurance company could lose in a disaster.
+A Probable Maximum Loss (PML) report is a "Scientific Guess" of how much money an insurance company could lose in a disaster.
 
 A specialized firm (like RMS) uses weather data and building locations to say: "In a 1-in-100 year hurricane, you will likely lose $142 million."
 
@@ -42,7 +42,13 @@ Certified by: Robert Miller, Senior Catastrophe Modeler
 <span data-verify-line="pml">verify:rms.com/reports/v</span> <span verifiable-text="end" data-for="pml"></span>
 </div>
 
-## Data Verified
+## The Problem: Model Gaming Fraud
+
+- **Parameter Tampering:** Manually editing the "Demand Surge" or "Storm Surge" flags in the PDF report to lower the PML by 20%.
+- **Location Omission:** Deleting the most high-risk properties (e.g., Miami beach-front) from the portfolio run to artificially lower the aggregate loss number.
+- **Fabricated Certificates:** Shady boutique firms claiming to use "RMS Models" but actually providing a guess-work estimate on fake letterhead.
+
+## What Is Checked
 
 Modeling firm name, model version (e.g., RMS RiskLink 21), portfolio ID, number of locations, specific return period estimates (100yr, 250yr, 500yr PML), average annual loss (AAL), date of run, certification status.
 
@@ -51,7 +57,7 @@ Modeling firm name, model version (e.g., RMS RiskLink 21), portfolio ID, number 
 - **Detailed Loss Analysis (DLA):** Full output file.
 - **Exposure Data Audit:** Verification that the building data (COPE) is accurate.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`rms.com`, `air-worldwide.com`) and the report status.
 
@@ -61,9 +67,9 @@ Shows the issuer domain (`rms.com`, `air-worldwide.com`) and the report status.
 - **In-Dispute** — Exposure data (COPE) found to be inaccurate.
 - **Invalid** — Serial number or parameters mismatch.
 
-## Second-Party Use
+## Who Holds It
 
-The **Insurance Broker or REIT Manager** (second party) receives the PML report from the modeling firm (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Insurance Broker or REIT Manager (second party) receives the PML report from the modeling firm (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of the catastrophe model results. Most of the time, the document sits in their underwriting files—the verification value is latent, there *if needed*.
 
@@ -71,7 +77,7 @@ The **Insurance Broker or REIT Manager** (second party) receives the PML report 
 
 **Future Optionality:** If questions arise—whether from reinsurers, rating agencies, or investors—they have cryptographic proof of the model results ready without needing to contact the modeling firm.
 
-## Third-Party Use
+## Who Checks It
 
 The broker or REIT manager (second party) may hand the verified document to various third parties:
 
@@ -84,13 +90,7 @@ The broker or REIT manager (second party) may hand the verified document to vari
 **Mortgage Lenders (Commercial)**
 **Collateral Protection:** Banks lending on coastal towers verify the PML to ensure the project has enough insurance to survive a "1-in-500" event.
 
-## Verification Architecture
-
-**The "Model Gaming" Fraud Problem**
-
-- **Parameter Tampering:** Manually editing the "Demand Surge" or "Storm Surge" flags in the PDF report to lower the PML by 20%.
-- **Location Omission:** Deleting the most high-risk properties (e.g., Miami beach-front) from the portfolio run to artificially lower the aggregate loss number.
-- **Fabricated Certificates:** Shady boutique firms claiming to use "RMS Models" but actually providing a guess-work estimate on fake letterhead.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -118,7 +118,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the modeling firm's hashes and status changes plus structured metadata (PML values, return periods, portfolio descriptions, model versions) — never plaintext (detailed location data, proprietary model parameters) — providing non-repudiation of the PML report.
 
-## Competition vs. API Data Feeds
+## Compared With API Data Feeds
 
 | Feature | Live Verify | API Integration | Scanned PDF Report |
 | :--- | :--- | :--- | :--- |
@@ -127,4 +127,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **High.** Works across 50+ different reinsurers. | **Low.** Every firm has a different platform (Touchstone vs RiskLink). | **Universal.** |
 | **Cost** | **Low.** Standard web infra. | **Very High.** Seven-figure software licenses. | **None.** |
 
-**Why Live Verify wins here:** The "Market Cycle." In the high-speed "Renewal Season" (e.g., Jan 1), thousands of "Submission Packs" (PDFs) are emailed across the globe. Reinsurers don't have the time or tech to link APIs with every single broker. Live Verify provides **API-level trust** for the existing PDF-based workflow.
+**Where each fits:** a direct data feed gives a reinsurer far more than a report does, and where a broker and reinsurer have built one it should be used. During renewals a submission pack goes to many reinsurers, most of whom have no such link with that broker. Live Verify lets each of them confirm the modelling firm issued the report in the pack, without any integration, and leaves the feeds in place where they exist.

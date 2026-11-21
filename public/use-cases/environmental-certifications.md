@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a LEED Certificate?
 
-**LEED** (Leadership in Energy and Environmental Design) is the world's most famous "Green Building" award. If a building is **LEED Gold** or **Platinum**, it means it has verified high performance in energy saving, water efficiency, and air quality.
+**LEED** (Leadership in Energy and Environmental Design) is the world's most famous "Green Building" award. If a building is LEED Gold or Platinum, it means it has verified high performance in energy saving, water efficiency, and air quality.
 
-For a real estate owner, a LEED plaque in the lobby is worth **millions of dollars**. Large corporations (like Google or Salesforce) often refuse to lease any office that isn't verified green.
+For a real estate owner, a LEED plaque in the lobby is worth millions of dollars. Large corporations (like Google or Salesforce) often refuse to lease any office that isn't verified green.
 
 Fraud happens when a developer uses a "Fake Plaque" or an outdated certificate to hide that the building's green systems (like solar or high-tech glass) were never actually installed. Live Verify ensures the plaque on the wall is a live link to the USGBC's official record.
 
@@ -43,7 +43,13 @@ Fraud happens when a developer uses a "Fake Plaque" or an outdated certificate t
   </div>
 </div>
 
-## Data Verified
+## The Problem: Greenwashing Fraud
+
+- **Certificate Forgery:** Using a high-quality template to create a "LEED Platinum" plaque for a standard building.
+- **Status Faking:** Displaying a 10-year-old certificate for a building whose sustainability systems (HVAC, solar) have since degraded or been replaced with cheaper components.
+- **Point Padding:** Altering the "Points Total" extract to look like the building is just 1 point away from Platinum to trick an appraiser.
+
+## What Is Checked
 
 Project name, owner, certification level (Certified, Silver, Gold, Platinum), rating system version, verified point total, certification date, geographic location, project ID.
 
@@ -53,7 +59,7 @@ Project name, owner, certification level (Certified, Silver, Gold, Platinum), ra
 - **BREEAM Rating:** International sustainability standard.
 - **Green Star:** (Australia/NZ).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`usgbc.org`, `gbci.org`, `bregroup.com`) and current standing.
 
@@ -63,9 +69,9 @@ Shows the issuer domain (`usgbc.org`, `gbci.org`, `bregroup.com`) and current st
 - **Recertification Required** — For operations & maintenance (O+M) standards.
 - **Invalid** — Project ID or location mismatch.
 
-## Second-Party Use
+## Who Holds It
 
-The **Property Owner / REIT** benefits from verification.
+The Property Owner / REIT benefits from verification.
 
 **Higher Valuations:** Proving to a buyer or appraiser that the building's "LEED Gold" status is verified by the source. Studies show verified green buildings sell for a 10-20% premium over non-certified buildings.
 
@@ -73,7 +79,7 @@ The **Property Owner / REIT** benefits from verification.
 
 **ESG Finance:** Qualifying for lower-cost "Green Bonds" or sustainable financing by providing verified hashes of the building portfolio's certifications.
 
-## Third-Party Use
+## Who Checks It
 
 **Commercial Real Estate Buyers**
 **Due Diligence:** Before wiring $100M for an office tower, the buyer scans the plaque in the lobby. "Verified by USGBC" prevents the seller from using a "Fake Gold Certificate" to hide a building that barely meets code.
@@ -84,13 +90,7 @@ The **Property Owner / REIT** benefits from verification.
 **Employee Recruiters**
 **Talent Attraction:** High-value Gen Z and Millennial talent often choose employers based on environmental values. A verified "WELL" or "LEED" certificate in the office lobby is a powerful recruiting tool.
 
-## Verification Architecture
-
-**The "Greenwashing" Fraud Problem**
-
-- **Certificate Forgery:** Using a high-quality template to create a "LEED Platinum" plaque for a standard building.
-- **Status Faking:** Displaying a 10-year-old certificate for a building whose sustainability systems (HVAC, solar) have since degraded or been replaced with cheaper components.
-- **Point Padding:** Altering the "Points Total" extract to look like the building is just 1 point away from Platinum to trick an appraiser.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -117,7 +117,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the certifying body's hashes and status changes plus structured metadata (certificate number, issue date, certification type, certification level, expiration date) — never property details, building specifications, or auditor names — providing non-repudiation of the environmental certification issuance.
 
 
-## Competition vs. Project Directories
+## Compared With Project Directories
 
 | Feature | Live Verify | USGBC Project Directory | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -126,4 +126,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Field Access** | **High.** Mobile-optimized for lobby visits. | **Low.** Maps and lists are hard to navigate on small screens. | **Universal.** |
 | **Integrity** | **Binds Points.** Protects the data. | **Data-Only.** | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Lobby Moment." Trust is built when someone walks into a building and sees the certification. Live Verify turns that **Visual Trophy** into a **Live Security Token**, ensuring that the prestige of the plaque is backed by the current cryptographic reality of the standard body.
+**Where each fits:** The USGBC project directory is the authoritative listing, and anyone researching a building from their desk gets more from it than from a plaque: scorecards, dates and project detail. A tenant, visitor or valuer standing in the lobby is looking at the plaque or a framed certificate and is unlikely to run a directory search by address. Live Verify lets them confirm the certifying body stands behind what is displayed, and the directory remains the fuller reference.
