@@ -10,13 +10,22 @@ tags: ["hospital", "care-home", "nursing", "bedside", "patient", "procedure", "w
 furtherDerivations: 2
 ---
 
+## The Problem: Institution-Held Care Records
+
+After a hospital stay, a patient or their family may want to know who attended, what was done and when; a care worker facing a complaint may need to show the same thing. Today the only record is the one the institution keeps and controls, much of it typed up after the event by staff who would rather be with patients. Anyone who disputes that record has nothing independent to set against it.
+
+- **No patient-held record:** The patient has no independent account of who visited, what was done, or for how long, and is asked to accept the institution's version.
+- **Retrospective notes:** Charting is often written up after the fact, so recorded times and durations are recollections, not measurements.
+- **Unsupported worker testimony:** In a dispute with a patient, a family member or the employer, the worker's account stands only if the institution's records happen to corroborate it.
+- **Records can be revised:** The institution controls the system that holds the record, so later changes are hard for an outsider to detect.
+
 ## The Capability
 
 Healthcare workers spend a significant fraction of their shift on documentation — typing into EHR systems, filling in paper charts, logging what they did and when. This takes time away from patients, and the resulting records belong to the institution, not the patient.
 
-Three converging technologies make something new possible: **a hands-free, privacy-compliant care interaction log that generates verified records at the bedside without the worker touching a keyboard**.
+Three converging technologies make something new possible: a hands-free, privacy-compliant care interaction log that generates verified records at the bedside without the worker touching a keyboard.
 
-Live Verify's role here is narrow: it is the **output format**, not the system. The system is LiDAR + voice + AI. Live Verify is the mechanism that makes each log entry a human-centric record that is independently, machine-verifiable later — plain text, SHA-256 hash, `GET /v/{hash}` against the institution's domain. The larger system captures what happened; Live Verify ensures the record can't be quietly rewritten afterwards.
+Live Verify's role here is narrow: it is the output format, not the system. The system is LiDAR + voice + AI. Live Verify is the mechanism that makes each log entry a human-centric record that is independently, machine-verifiable later — plain text, SHA-256 hash, `GET /v/{hash}` against the institution's domain. The larger system captures what happened; Live Verify ensures the record can't be quietly rewritten afterwards.
 
 **Perspective:** This use case is written from both the patient's and the care worker's perspective. Care interactions happen on the institution's schedule, often while the patient is immobile or sedated.
 
@@ -26,7 +35,7 @@ Live Verify's role here is narrow: it is the **output format**, not the system. 
 
 **Verification asymmetry:** Both patient and worker may later need to demonstrate what happened during a care interaction, but neither holds an independently verifiable record. The patient is asked to accept the institution's account; the worker is asked to accept the institution's interpretation of that account. A verified interaction log protects both: the patient against institutional rewriting, and the worker against false complaints, misattributed errors, or unfair disciplinary action.
 
-This only works inside a culture of **owning your mistakes**. If a wound dressing took 8 minutes instead of 25, the honest response might be "we need more staff on this shift" — not "discipline that nurse." If a worker was short with a patient's family, the log may also show they'd been verbally abused three times that shift. Honest records serve everyone when the institution uses them honestly — for learning, for staffing decisions, for systemic improvement. A system that generates verified records and then uses them punitively will be resisted and gamed. A system that uses them to understand what's actually happening on the ward will be valued by the workers who generate them.
+This only works inside a culture of owning your mistakes. If a wound dressing took 8 minutes instead of 25, the honest response might be "we need more staff on this shift" — not "discipline that nurse." If a worker was short with a patient's family, the log may also show they'd been verbally abused three times that shift. Honest records serve everyone when the institution uses them honestly — for learning, for staffing decisions, for systemic improvement. A system that generates verified records and then uses them punitively will be resisted and gamed. A system that uses them to understand what's actually happening on the ward will be valued by the workers who generate them.
 
 ### LiDAR — Who Is Where, Without Cameras
 
@@ -50,7 +59,7 @@ The system generates a START record. When the worker finishes:
 
 The system generates an END record with the calculated duration.
 
-The privacy design is deliberate: **the worker never says the patient's name**. The AI infers the patient from the bed assignment system and the worker's LiDAR-tracked position, then proposes the match privately through the earpiece. The only words spoken aloud are the procedure type and a confirmation — neither is individually identifiable. This is HIPAA/GDPR-compliant by architecture, not by policy.
+The privacy design is deliberate: the worker never says the patient's name. The AI infers the patient from the bed assignment system and the worker's LiDAR-tracked position, then proposes the match privately through the earpiece. The only words spoken aloud are the procedure type and a confirmation — neither is individually identifiable. This is HIPAA/GDPR-compliant by architecture, not by policy.
 
 **Correction flow:** If the AI gets it wrong — "No, bed 5" — the worker corrects through the earpiece. The system re-proposes. No patient name is ever spoken on the ward.
 
@@ -62,7 +71,7 @@ The earpiece is assigned to a specific worker at the start of shift — the syst
 
 ## The Patient's Care Log
 
-The output of this system is a **continuous, verified log of every care interaction** a patient receives during their stay. Each interaction produces two verified records — start and end — committed at the time they happen, held by the patient.
+The output of this system is a continuous, verified log of every care interaction a patient receives during their stay. Each interaction produces two verified records — start and end — committed at the time they happen, held by the patient.
 
 <div style="max-width: 560px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ccc; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <div style="background: #00695c; color: #fff; padding: 14px 20px;">
@@ -158,7 +167,7 @@ When a patient moves from one ward to another, or from hospital to care home, or
 
 ### The Worker's Own Record
 
-The interaction log is also the **worker's record** of what they actually did. Over time, a worker's records form a pattern — a personal portfolio of care delivery. This is useful for:
+The interaction log is also the worker's record of what they actually did. Over time, a worker's records form a pattern — a personal portfolio of care delivery. This is useful for:
 
 - **Professional development** — understanding how time is spent across procedure types
 - **Revalidation** — demonstrating clinical activity for professional registration renewal
@@ -184,7 +193,7 @@ Some private hospitals operate in two modes: generous time per interaction for p
 
 ## Blockchain Anchoring
 
-The standard Live Verify model uses a witnessing firm for non-repudiation. For bedside care interaction records, there is a stronger case for **direct blockchain anchoring** — writing interaction hashes to a low-cost public blockchain (or a healthcare-specific permissioned chain) as they are generated.
+The standard Live Verify model uses a witnessing firm for non-repudiation. For bedside care interaction records, there is a stronger case for direct blockchain anchoring — writing interaction hashes to a low-cost public blockchain (or a healthcare-specific permissioned chain) as they are generated.
 
 ### Why Blockchain Is More Appropriate Here
 
@@ -217,9 +226,9 @@ With blockchain anchoring, three independent verification paths exist:
 
 ---
 
-## Second-Party Use
+## Who Holds It
 
-The **patient** (second party) — or their family member, power of attorney holder, or advocate — holds the interaction log:
+The patient (second party) — or their family member, power of attorney holder, or advocate — holds the interaction log:
 
 **During the stay.** Real-time visibility of care delivery. A family member who can't be at the bedside sees each interaction as it happens. Particularly important for elderly or cognitively impaired patients whose family may live far away.
 
@@ -229,7 +238,7 @@ The **patient** (second party) — or their family member, power of attorney hol
 
 **In litigation.** A patient's solicitor receives the interaction log. Every record can be verified against the institution's endpoint AND independently against the blockchain. The institution cannot claim the records are fabricated, because the hashes were on-chain at the time of the events.
 
-## Third-Party Use
+## Who Checks It
 
 **Healthcare Regulators (CQC, state health departments, Joint Commission)**
 Aggregated interaction data across facilities provides a new inspection evidence base. Instead of relying on self-reported staffing data and scheduled inspections, regulators can see actual care delivery patterns — which facilities are consistently delivering shorter interactions than clinical guidelines recommend.
@@ -246,7 +255,7 @@ Aggregated and anonymised worker interaction data provides evidence for staffing
 **Workers and Their Representatives**
 The interaction records are the worker's contemporaneous evidence of what they actually did. In disciplinary proceedings, in regulatory investigations, or in any situation where the institution's account of events differs from the worker's, the verified records are an independent source of truth that the employer does not control.
 
-## Verification Architecture
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -299,7 +308,7 @@ Salt must be per-patient, per-interaction, and non-deterministic.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Existing Solutions
+## Compared With Existing Solutions
 
 | Feature | This System | Electronic Health Record (EHR) | Paper Nursing Notes | Periodic Inspection |
 | :--- | :--- | :--- | :--- | :--- |

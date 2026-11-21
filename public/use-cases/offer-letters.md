@@ -66,7 +66,17 @@ With Live Verify, the offer letter carries a `verify:` line bound to the employe
   </div>
 </div>
 
-## Data Verified
+## The Problem: Offer Letter Fraud
+
+A consulate, mortgage lender or landlord is asked to act on a job that has not started yet, and the only evidence is a PDF. There is no payroll record to check against, and nobody can phone the employer's HR department for every applicant, so the letter is usually taken at face value. When it turns out to be fabricated, altered or withdrawn, the visa, the loan or the tenancy has already been granted.
+
+- **Fabricated offers for visa applications:** Convincing letters in the name of real, well-known employers are produced to support visa applications; a fabricated letter has no matching hash at the employer's endpoint.
+- **Salary inflation:** A real offer letter is altered to show a higher salary so the borrower qualifies for a larger mortgage; the hash no longer matches if any character changes.
+- **Rescinded but still presented:** The employer withdrew the offer, but the candidate keeps showing the PDF to lenders, landlords and consulates; the endpoint returns WITHDRAWN.
+- **Fake offers to extract benefits:** Fraudulent offers are used to obtain relocation packages, corporate housing or immigration sponsorship from third parties.
+- **Fake companies and offer mills:** Letters come from a company that does not exist or never made the offer, sometimes from services that produce them to order, much as diploma mills do; the letter's `verify:` line cannot point at the real employer's domain and still match.
+
+## What Is Checked
 
 Candidate name, position title, employer name, start date, salary/compensation (base), employment type (full-time/part-time/contract), work location.
 
@@ -85,9 +95,9 @@ The endpoint returns the current status of the offer:
 - **EXPIRED** — Offer had an acceptance deadline that passed without acceptance
 - **404** — No matching record (forged document, wrong details, or OCR error)
 
-## Second-Party Use
+## Who Holds It
 
-The **candidate** is the primary beneficiary.
+The candidate is the primary beneficiary.
 
 **Visa applications (the primary driver).** Skilled Worker visas, H-1B transfers, intra-company transfers — all require proof that a real employer is offering a real job at a real salary. Currently, consulates receive PDFs they cannot verify. With Live Verify, the consulate scans the offer letter and confirms it against the employer's HR domain in seconds.
 
@@ -99,7 +109,7 @@ The **candidate** is the primary beneficiary.
 
 **Resignation from current employer.** Proving the new offer is real before burning bridges. In some industries (banking, law), employees must disclose and evidence their next role before departing.
 
-## Third-Party Use
+## Who Checks It
 
 **Immigration Authorities and Consulates**
 
@@ -125,20 +135,6 @@ Verifying offer details during pre-employment screening. Some employers run back
 
 New account opening in a new city or country. KYC requirements include proof of income or employment. A verified offer letter satisfies this before the first paycheck arrives.
 
-## Verification Architecture — The Offer Letter Fraud Problem
-
-**Fabricated offers for visa fraud** — the #1 problem. Fraudsters produce convincing offer letters from real companies (Google, Deloitte, HSBC) to support visa applications. The consulate has no practical way to check. Live Verify eliminates this entirely: a fabricated letter won't hash-match against the employer's endpoint.
-
-**Salary inflation for mortgage qualification** — A real offer letter is altered to show a higher salary, qualifying the borrower for a larger mortgage. The hash breaks if any character changes.
-
-**Fake offers to justify relocation expenses or visa sponsorship** — Fraudulent offers used to extract relocation packages, corporate housing, or immigration sponsorship from third parties. Verification catches these instantly.
-
-**"Rescinded but still presented"** — The employer withdrew the offer, but the candidate continues to show the PDF to lenders, landlords, and consulates. The endpoint returns WITHDRAWN, and the fraud stops.
-
-**Fake company offers** — An offer from a company that doesn't exist or didn't make the offer. The authority chain (employer → HMRC/IRS) exposes this: a fake company's domain won't have a secondary verification from a tax authority.
-
-**Offer mills** — Services that produce fake offer letters, similar to diploma mills. Entire businesses exist to fabricate employment offers for visa applicants. The authority chain breaks this model: an offer mill's domain cannot produce a valid HMRC/IRS registration.
-
 ## Privacy Salt
 
 High sensitivity. Salary information is private. The hash MUST be salted to prevent enumeration attacks. Without a salt, an attacker who knows the employer's endpoint and a candidate's name could brute-force the salary by hashing different amounts until one matches. The salt ensures that only someone holding the original document can produce the correct hash.
@@ -157,7 +153,7 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition
+## Compared With the Alternatives
 
 | Feature | Live Verify | Calling the Employer | Background Check Services (Equifax/The Work Number) | Trusting the PDF |
 | :--- | :--- | :--- | :--- | :--- |

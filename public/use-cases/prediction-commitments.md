@@ -11,7 +11,7 @@ furtherDerivations: 6
 
 ## What is a Prediction Commitment?
 
-Anyone can claim "I predicted that" after the fact. A **Prediction Commitment** locks in a prediction *before* the outcome is known—hash committed, timestamped, verifiable. Forecaster track records become auditable.
+Anyone can claim "I predicted that" after the fact. A Prediction Commitment locks in a prediction *before* the outcome is known—hash committed, timestamped, verifiable. Forecaster track records become auditable.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
   <span verifiable-text="start" data-for="pred1"></span>PREDICTION COMMITMENT<br>
@@ -125,6 +125,15 @@ Anyone can claim "I predicted that" after the fact. A **Prediction Commitment** 
   <span data-verify-line="pred6">verify:devshop.com/est</span> <span verifiable-text="end" data-for="pred6"></span>
 </div>
 
+## The Problem: Claimed Track Records
+
+Someone choosing a forecaster, analyst or adviser, or a reader deciding how much weight to give a pundit, has to judge a track record they cannot check. Anyone can say afterwards that they called an outcome, and nobody outside can confirm what was predicted, when, or how many other predictions were quietly dropped.
+
+- **After-the-fact claims:** A prediction is announced or reworded once the outcome is known.
+- **Cherry-picking:** Successes are publicised and failures forgotten, so the visible record looks better than the real one.
+- **Vague predictions:** Without resolution criteria fixed in advance, almost any outcome can be claimed as a hit.
+- **Backdating:** A post or document is edited or backdated to suggest it preceded the event.
+
 ## Why Prediction Commitments Matter
 
 **Accountability:** Pundits, analysts, and forecasters make predictions constantly. Without commitment records, they can cherry-pick successes and forget failures.
@@ -135,7 +144,7 @@ Anyone can claim "I predicted that" after the fact. A **Prediction Commitment** 
 
 **Trust:** Hire the forecaster with verifiable track record, not the one with unverifiable claims.
 
-## Data Verified
+## What Is Checked
 
 Forecaster identity, prediction question/scope, predicted value or probability, commitment timestamp, resolution criteria, resolution date, outcome (when resolved), accuracy metrics.
 
@@ -147,7 +156,7 @@ Forecaster identity, prediction question/scope, predicted value or probability, 
 - **Project Estimate:** Timeline and budget predictions
 - **Conditional Forecast:** "If X happens, then Y will follow"
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (forecasting platform, institution, or self-published) and resolution status.
 
@@ -159,9 +168,9 @@ Shows the issuer domain (forecasting platform, institution, or self-published) a
 - **Ambiguous** — Resolution criteria unclear or disputed
 - **Withdrawn** — Forecaster withdrew prediction (with timestamp)
 
-## Second-Party Use
+## Who Holds It
 
-The **Forecaster** benefits from verification.
+The Forecaster benefits from verification.
 
 **Reputation Building:** Verified track record proves forecasting skill.
 
@@ -169,7 +178,7 @@ The **Forecaster** benefits from verification.
 
 **Self-Accountability:** Public commitment changes behavior.
 
-## Third-Party Use
+## Who Checks It
 
 **Media**
 **Expert Selection:** Invite commentators with verified good track records.
@@ -183,7 +192,7 @@ The **Forecaster** benefits from verification.
 **Researchers**
 **Methodology Validation:** Compare forecasting methods by verified outcomes.
 
-## Verification Architecture
+## How Verification Works Here
 
 **Pre-Commitment Requirement**
 

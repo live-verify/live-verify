@@ -10,9 +10,17 @@ tags: ["h1b", "visa-fraud", "body-shop", "bench-company", "client-letter", "lca"
 furtherDerivations: 4
 ---
 
-## The H-1B Fraud Problem
+## The Problem: H-1B Document Fraud
 
 The H-1B visa program is built on paper. Every stage — the employer's petition, the worker's credentials, the client's engagement confirmation — rests on documents that anyone with a PDF editor can fabricate. The fraud isn't hypothetical: USCIS refers thousands of cases annually to DOJ, and entire business models (bench companies, body shops) exist primarily to exploit verification gaps in the process.
+
+The body-shop or bench-company model works because no single party can see the full picture:
+
+1. **Staffing company** files an H-1B petition claiming a specific role at a specific client
+2. **USCIS** sees the petition documents but can't verify client letters or overseas experience
+3. **End-client** may not know their name is being used in a petition
+4. **Worker** may not know the exact terms of the LCA or whether the client letter is real
+5. **DOL** certifies the LCA based on employer attestation, with minimal verification
 
 Live Verify can't fix immigration policy. But it can make four categories of H-1B document fraud detectable at the point of submission, rather than years later during an investigation.
 
@@ -73,7 +81,7 @@ This is the linchpin of body-shop fraud. Bench companies file hundreds of H-1B p
   </div>
 </div>
 
-### Data Verified
+### What Is Checked
 
 Client company name, MSA/SOW reference number, staffing company name, consultant name, role title, engagement period (start/end), work location, reporting manager, specialty occupation statement.
 
@@ -101,7 +109,7 @@ The end-client isn't doing charity. They participate because:
 
 ### What is an LCA?
 
-Before filing an H-1B petition, the employer must file a **Labor Condition Application (ETA-9035)** with the Department of Labor. The LCA states the job title, worksite, prevailing wage, and the wage the employer will actually pay. DOL certifies the LCA — usually within 7 days — and the certified LCA is then included in the H-1B petition filed with USCIS.
+Before filing an H-1B petition, the employer must file a Labor Condition Application (ETA-9035) with the Department of Labor. The LCA states the job title, worksite, prevailing wage, and the wage the employer will actually pay. DOL certifies the LCA — usually within 7 days — and the certified LCA is then included in the H-1B petition filed with USCIS.
 
 The fraud: employers file an LCA stating $140,000/year for a "Senior Software Engineer" in Manhattan, then actually pay the worker $80,000 and pocket the difference. Or they file the LCA listing their own office as the worksite, then deploy the worker to a client site in a different metro area with a different (higher) prevailing wage. The worker can't easily verify what the employer filed, and USCIS can't easily verify that the LCA matches reality.
 
@@ -130,7 +138,7 @@ Period:           04/01/2026 – 03/31/2029
 <span data-verify-line="lca">verify:lcaverify.dol.gov/v</span> <span verifiable-text="end" data-for="lca"></span></pre>
 </div>
 
-### Data Verified
+### What Is Checked
 
 Case number, certified date, employer name, EIN, job title, SOC code, full/part-time, worksite address, offered wage, prevailing wage level, wage source, validity period.
 
@@ -197,7 +205,7 @@ The letters are trivially forged. Company letterhead is downloadable. Phone numb
   </div>
 </div>
 
-### Data Verified
+### What Is Checked
 
 Employee name, employee ID, employer name, employment dates (start/end), designation/title, department, key responsibilities, reason for leaving.
 
@@ -257,7 +265,7 @@ The certifications are forged routinely. Fake AWS certificates with plausible-lo
   </div>
 </div>
 
-### Data Verified
+### What Is Checked
 
 Candidate name, certification name and level, certification ID, issue date, expiration date, validation status.
 
@@ -278,9 +286,9 @@ Unlike overseas employers, certification vendors have strong existing incentives
 
 ---
 
-## Second-Party Use
+## Who Holds It
 
-The **H-1B worker** (second party) benefits from verification across all four document types:
+The H-1B worker (second party) benefits from verification across all four document types:
 
 **Confirming their own petition is legitimate:** A worker who suspects their employer filed a fraudulent petition (fake client letter, wrong worksite on the LCA, inflated job description) can verify each document independently. This shifts the power dynamic from "trust your employer" to "verify your employer."
 
@@ -288,7 +296,7 @@ The **H-1B worker** (second party) benefits from verification across all four do
 
 **Protection against employer retaliation:** If a worker reports wage fraud or LCA violations, the employer sometimes retaliates by revoking the petition. A verified paper trail — the original LCA, the client letter, the experience letters — provides documentary evidence for DOL complaints and whistleblower protections.
 
-## Third-Party Use
+## Who Checks It
 
 **USCIS Adjudicators**
 The primary beneficiary. An adjudicator reviewing an H-1B petition scans each document — the client engagement letter, the LCA, the experience letters, the certifications — and gets instant confirmation or a 404. The volume of Requests for Evidence (RFEs) drops because the adjudicator can verify claims at first review rather than requesting additional documentation weeks later.
@@ -305,17 +313,7 @@ Attorneys representing workers in petition challenges, RFE responses, or appeals
 **Competing Workers / Whistleblowers**
 Workers who suspect their employer is running a bench operation — filing H-1B petitions with fabricated client letters for workers who have no actual engagement — can check whether the client engagement letters in their co-workers' petitions verify. A pattern of 404s from "client" companies is evidence of systematic fraud.
 
-## Verification Architecture
-
-**The Body-Shop / Bench Company Fraud Model**
-
-The H-1B fraud ecosystem works because no single party can see the full picture:
-
-1. **Staffing company** files an H-1B petition claiming a specific role at a specific client
-2. **USCIS** sees the petition documents but can't verify client letters or overseas experience
-3. **End-client** may not know their name is being used in a petition
-4. **Worker** may not know the exact terms of the LCA or whether the client letter is real
-5. **DOL** certifies the LCA based on employer attestation, with minimal verification
+## How Verification Works Here
 
 Live Verify creates cross-verification points:
 
@@ -372,7 +370,7 @@ Each document type has its own authority chain:
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Existing Verification
+## Compared With Existing Verification
 
 | Feature | Live Verify | USCIS Site Visits | Manual Phone/Email Verification | E-Verify |
 | :--- | :--- | :--- | :--- | :--- |

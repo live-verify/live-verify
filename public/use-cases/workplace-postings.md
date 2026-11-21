@@ -15,7 +15,7 @@ Mandatory workplace postings are government-required notices that inform workers
 
 The problem is that these posters are often outdated or even fraudulent. Employers may fail to update posters when laws change, or private vendors may sell expensive poster bundles that are actually free from the government.
 
-This is therefore primarily a **publication-distribution** problem. The best fix is usually a direct official URL, QR code, or stable agency PDF page. Live Verify is only a secondary fit if the goal is to make the physical poster itself a human-readable bridge to the official source without relying on an opaque code.
+This is therefore primarily a publication-distribution problem. The best fix is usually a direct official URL, QR code, or stable agency PDF page. Live Verify is only a secondary fit if the goal is to make the physical poster itself a human-readable bridge to the official source without relying on an opaque code.
 
 <div style="max-width: 500px; margin: 24px auto; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; border: 2px solid #003366; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
   <div style="background: #003366; color: #fff; padding: 15px; text-align: center;">
@@ -49,6 +49,14 @@ This is therefore primarily a **publication-distribution** problem. The best fix
   </div>
 </div>
 
+## The Problem: Outdated or Altered Posters
+
+A worker reading the breakroom wall, or a labor inspector walking through, has no quick way to tell whether a posted notice is the agency's current text. Employers leave old posters up when the law changes, and some buy poster bundles from private vendors without knowing whether the content is official. Workers then rely on a wrong wage figure or never learn of a right the poster should have told them about. The simplest remedy is usually a direct link to the agency's current poster; checking the printed text against the agency's domain is a secondary aid for the physical copy.
+
+- **Outdated information:** A 2022 minimum wage poster still on the wall in 2026.
+- **Selective deletion:** A section, such as the statement of union rights, removed from a required poster.
+- **Compliance scams:** Vendors pressing businesses to buy "certified" posters that are home-printed copies of notices the government provides free.
+
 ## Key Examples
 
 ### Health & Safety (OSHA)
@@ -63,13 +71,7 @@ This is therefore primarily a **publication-distribution** problem. The best fix
 *   **Purpose:** Detail rights to unpaid, job-protected leave or lactation accommodations.
 *   **Risk:** Employers inflating eligibility requirements to discourage leave.
 
-## Verification Architecture
-
-**The Poster Fraud Problem**
-
-- **Outdated Info:** Keeping a 2022 minimum wage poster up in 2026.
-- **Selective Deletion:** Removing the section on "Union Rights" from an EEO poster.
-- **Compliance Scams:** Forcing businesses to buy "certified" posters that are actually home-printed fakes.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

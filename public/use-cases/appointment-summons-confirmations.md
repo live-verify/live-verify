@@ -100,7 +100,17 @@ With Live Verify, the appointment confirmation carries a `verify:` line. The emp
   </div>
 </div>
 
-## Data Verified
+## The Problem: Forged Appointment Letters
+
+A manager or HR officer is shown an appointment letter or a court summons and asked to approve time off. They cannot check it: hospitals will not confirm appointments by phone, and challenging a jury summons feels legally risky. So the paper is accepted as it stands, and genuine and forged letters are treated alike.
+
+- **Fake appointment letters:** Hospital appointment letters follow predictable formats. Previous genuine letters provide the letterhead, font, and layout. Forging one requires only changing the date and department. Recipients cannot verify — hospitals won't confirm appointments over the phone.
+- **Fake jury summons:** Templates are available online. The format is standardized, making forgery straightforward. Employers feel unable to challenge them because jury duty is legally protected.
+- **Date manipulation:** A genuine appointment for one date is altered to cover a different date. Particularly common with recurring appointments where the patient has multiple genuine letters to use as templates.
+- **Recycled documents:** A genuine appointment letter from a previous visit is presented for a current absence. The employer has no way to know the appointment already happened.
+- **Strategic appointments:** Some walk-in clinics and telemedicine providers offer "appointments" with minimal medical need. Like complicit doctors' note providers, Live Verify doesn't solve this — the appointment is real — but the authority chain signals whether the institution is a recognized healthcare provider.
+
+## What Is Checked
 
 Institution name and type, patient/recipient name, appointment or hearing date, appointment time, department or court (not the medical reason or legal case details), issuing officer or clerk, reference number.
 
@@ -160,9 +170,9 @@ This pairs the appointment letter with the wayfinding signs. The letter is the d
 
 **The elderly patient scenario:** Mrs Patel, 78, arrives at Addenbrooke's for a hip consultation. She has her appointment letter in her handbag. Her daughter helped her install the app last week. She scans the letter in the main entrance. The app shows: "Orthopaedic Outpatients — 8 minute walk. Follow the blue line. Step-free route available." She follows the directions on her phone screen. At a junction where she's unsure, she scans the corridor sign and the route recalculates. She arrives at the right clinic without asking anyone. She didn't need to read a map, parse a colour-coded floor plan, or flag down a porter.
 
-## Second-Party Use
+## Who Holds It
 
-The **Recipient** (patient, juror, witness, defendant) receives the confirmation from the institution (first party) and presents it to their employer, school, or university.
+The Recipient (patient, juror, witness, defendant) receives the confirmation from the institution (first party) and presents it to their employer, school, or university.
 
 **Medical appointment absence** — the most common scenario. Employee shows HR a hospital appointment letter. HR scans the `verify:` line and confirms a real appointment at a real hospital on the stated date. No phone calls to the hospital switchboard (which wouldn't confirm appointments anyway, citing patient confidentiality).
 
@@ -172,7 +182,7 @@ The **Recipient** (patient, juror, witness, defendant) receives the confirmation
 
 **Probation or parole appointments** — individual needs time off for a mandatory appointment with their probation officer. The appointment confirmation verifies without disclosing the nature of the obligation.
 
-## Third-Party Use
+## Who Checks It
 
 **Employers / HR Departments**
 The primary verifier. Large employers handle hundreds of appointment-related absence requests per year. Currently every single one is accepted on trust. Verified confirmations let HR distinguish genuine from fabricated without interrogating the employee. This is especially valuable for employers who suspect abuse but have no mechanism to verify without damaging the employment relationship.
@@ -188,14 +198,6 @@ Some income protection policies require proof that absence was due to a medical 
 
 **Childcare Providers**
 Parents occasionally need to justify a child's absence with proof of a medical appointment. Verified confirmations satisfy attendance requirements without phone calls to the GP surgery.
-
-## Verification Architecture — The Forgery Problem
-
-- **Fake appointment letters:** Hospital appointment letters follow predictable formats. Previous genuine letters provide the letterhead, font, and layout. Forging one requires only changing the date and department. Recipients cannot verify — hospitals won't confirm appointments over the phone.
-- **Fake jury summons:** Templates are available online. The format is standardized, making forgery straightforward. Employers feel unable to challenge them because jury duty is legally protected.
-- **Date manipulation:** A genuine appointment for one date is altered to cover a different date. Particularly common with recurring appointments where the patient has multiple genuine letters to use as templates.
-- **Recycled documents:** A genuine appointment letter from a previous visit is presented for a current absence. The employer has no way to know the appointment already happened.
-- **Strategic appointments:** Some walk-in clinics and telemedicine providers offer "appointments" with minimal medical need. Like complicit doctors' note providers, Live Verify doesn't solve this — the appointment is real — but the authority chain signals whether the institution is a recognized healthcare provider.
 
 ## Privacy Salt
 
@@ -215,7 +217,7 @@ For medical appointments, the NHS or health system issues the appointment confir
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition
+## Compared With the Alternatives
 
 | Feature | Live Verify | Calling the Hospital/Court | Employer Trusts the Paper | Patient Portals | HR Software Integration |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -225,7 +227,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Privacy-preserving** | **Yes.** Confirms appointment exists without revealing reason. | **No.** Receptionist may disclose details. | **N/A.** | **No.** Portal shows medical history. | **Partial.** |
 | **Works for legal summons** | **Yes.** Same mechanism. | **Possible but slow.** Court clerk offices. | **Risky.** Cannot challenge protected absence. | **No.** No patient portal equivalent. | **No.** |
 
-**Why Live Verify wins here:** Medical appointments are the single most common reason for short-notice workplace absence. Employers currently have *zero* verification options — hospitals won't confirm, and challenging an appointment letter destroys trust. For legal summons, the stakes are even higher: employers must release employees for jury duty and court attendance, yet have no way to verify the obligation is genuine. Live Verify adds verification without confrontation.
+**Where each fits:** Trusting the paper is the right default for most absences, and it keeps the relationship between employer and employee free of suspicion. Patient portals and HR integrations work well where both sides already use the same platform, and a call to the court clerk remains the route for anything contested. The gap is the ordinary case where the employer would like some assurance but has nobody to ask: hospitals will not confirm appointments, and a summons is awkward to question. Live Verify lets the employer confirm the letter against the institution's own domain without learning the medical reason or the nature of the case.
 
 ## Jurisdictional Witnessing (Optional)
 

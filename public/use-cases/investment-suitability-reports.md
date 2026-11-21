@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Suitability Report?
 
-When a financial advisor recommends an investment, they must ensure it's suitable for you — considering your financial situation, investment objectives, risk tolerance, and knowledge. The **suitability report** documents this assessment and the rationale for the recommendation.
+When a financial advisor recommends an investment, they must ensure it's suitable for you — considering your financial situation, investment objectives, risk tolerance, and knowledge. The suitability report documents this assessment and the rationale for the recommendation.
 
 If things go wrong, this report is critical evidence. Did the advisor understand your circumstances? Did they recommend something appropriate? Disputes often hinge on what was documented at the time.
 
@@ -46,25 +46,27 @@ If things go wrong, this report is critical evidence. Did the advisor understand
   </div>
 </div>
 
-## Data Verified
+## The Problem: Disputed Advice Records
 
-**Client name**, **advisor name/credentials**, **firm name**, **report date**, **client profile summary** (risk tolerance, objectives, experience), **recommendation details**, **suitability rationale**.
+When an investment performs badly and the client complains, the suitability report becomes the main evidence of what the advisor understood and recommended. An ombudsman, arbitrator or successor advisor then has to decide whether the report in the firm's file is the one the client received at the time. Without a fixed record the dispute is one party's word against the other: the client says "they told me it was low risk"; the advisor says "I explained the risks clearly." Mis-selling episodes such as PPI, endowment mortgages and pension transfers all involved advice that was documented one way but may have been delivered differently, or was simply unsuitable.
 
-## Data Visible After Verification
+- **Altered after a complaint:** The firm provides a revised suitability report once a complaint arises.
+- **Never delivered:** The firm claims a report existed that was never given to the client.
+- **Backdated rationale:** The reasoning is modified or backdated after the investment performs poorly.
+
+Verification proves that this exact suitability assessment existed at this time. It does not prove the advice was suitable.
+
+## What Is Checked
+
+**Client name**, advisor name/credentials, firm name, report date, client profile summary (risk tolerance, objectives, experience), recommendation details, suitability rationale.
+
+## What the Checker Sees
 
 **Status Indications:**
 - **On Record** — Suitability report is authenticated as issued
 - **Superseded** — Updated advice has been provided
 - **Under Review** — Firm is reviewing the advice (possible complaint)
 - **Complaint Upheld** — Regulator/ombudsman found the advice unsuitable
-
-## Why This Matters
-
-**Mis-selling scandals:** PPI, endowment mortgages, pension transfers — all involved advice that was documented one way but may have been delivered differently, or was simply unsuitable.
-
-**He-said-she-said:** Without verifiable records, disputes become one party's word against another. Client says "they told me it was low risk"; advisor says "I explained the risks clearly."
-
-Verification proves: this exact suitability assessment existed at this time.
 
 ## Jurisdiction Differences
 
@@ -76,21 +78,16 @@ Verification proves: this exact suitability assessment existed at this time.
 
 US Reg BI is newer (2020) and weaker than UK/EU fiduciary-style requirements, but all require documented rationale.
 
-## Third-Party Use
+## Who Checks It
 
 **Clients** — Verify the advice record matches what they received
 **Financial Ombudsman / FINRA arbitration** — Evidence in disputes
 **Successor advisors** — Understanding prior advice when taking over a client
 **Regulators** — Thematic reviews of advice quality
 
-## Verification Architecture
+## How Verification Works Here
 
-**The Problem:** Firms may:
-- Provide altered suitability reports after complaints arise
-- Claim reports existed that were never actually given to clients
-- Backdate or modify rationale after investments perform poorly
-
-**The Fix:** Report is hashed at time of delivery. Client receives copy with verification line. If disputed later, both parties can verify the report is exactly what was issued — no alterations, no backdating.
+The report is hashed at the time of delivery, and the client receives a copy with a verification line. If the advice is disputed later, both parties can verify the report is exactly what was issued — no alterations, no backdating.
 
 
 ## Authority Chain

@@ -17,7 +17,7 @@ The core question these systems answer is narrow: **has anything changed since t
 
 Currently, the result of that status check is typically a screen on a government website. The employer sees it as part of their safeguarding duty. The worker has no portable, verifiable proof of the result.
 
-A **Criminal Record Check Status Confirmation** is a short-lived, salted derivative proof of that status check. It confirms the check reference, the check level, and the result — and then expires after 24 hours.
+A Criminal Record Check Status Confirmation is a short-lived, salted derivative proof of that status check. It confirms the check reference, the check level, and the result — and then expires after 24 hours.
 
 ### Jurisdiction Comparison
 
@@ -79,7 +79,23 @@ verify:gov.uk/dbs-status/v
 </pre>
 </div>
 
-## Data Verified
+## The Problem: Certificate Without Status
+
+A school, care home or agency taking on a worker needs to know that the worker's criminal record check is still current, and the worker would like to show it. What the worker holds is a point-in-time paper certificate; the current status is visible only to an employer who runs the check themselves.
+
+The DBS system currently has two components:
+
+1. **The certificate** — a paper document posted to the applicant, containing their name, date of birth, disclosure results, and a certificate number. It is a point-in-time snapshot.
+2. **The Update Service** — an online service where employers can enter the certificate number and the applicant's date of birth to check whether the certificate is still current.
+
+The problem is that these two components don't connect in a verifiable way for the worker:
+
+- **Paper certificate:** The certificate is a piece of paper with no security features beyond a watermark.
+- **Unshareable result:** The Update Service produces a screen result that the employer sees but the worker cannot share.
+- **Repeated checks:** A worker moving between settings (supply teacher, agency carer, locum nurse) must rely on each new employer running the check themselves.
+- **No proactive proof:** The worker has no way to proactively demonstrate their status is clean.
+
+## What Is Checked
 
 Certificate reference number, check level (Basic, Standard, Enhanced, Enhanced with Barred Lists), status result, confirmation timestamp, expiry timestamp, and salt.
 
@@ -97,7 +113,7 @@ Certificate reference number, check level (Basic, Standard, Enhanced, Enhanced w
 
 The person's name is not in the verifiable text. Only the certificate reference and status appear. The employer sees the person's identity documents separately. The verifiable claim confirms the status, not the identity.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain and the current DBS Update Service status result.
 
@@ -107,9 +123,9 @@ Shows the issuer domain and the current DBS Update Service status result.
 - **Expired** — Confirmation window ended; new confirmation required
 - **404** — No matching short-lived confirmation exists
 
-## Second-Party Use
+## Who Holds It
 
-The **worker** benefits directly.
+The worker benefits directly.
 
 **Proactive sharing:** The worker can demonstrate that their DBS is current without waiting for a prospective employer to run the check themselves. This is useful when approaching multiple employers, volunteer organisations, or agencies simultaneously.
 
@@ -117,7 +133,7 @@ The **worker** benefits directly.
 
 **Faster onboarding:** For roles requiring DBS checks (teaching, care work, NHS, volunteering with children), the delay between applying and starting work is often driven by DBS processing. A worker who already holds a current certificate and subscribes to the Update Service can share a verified status confirmation on day one.
 
-## Third-Party Use
+## Who Checks It
 
 **Employers**
 
@@ -137,21 +153,7 @@ The **worker** benefits directly.
 
 **Supply staff:** Supply teachers and agency care workers move between settings frequently. Each setting needs to confirm DBS status. A fresh 24-hour confirmation for each assignment avoids the current practice of photocopying certificates and hoping they're still valid.
 
-## Verification Architecture
-
-**The Gap Between Certificate and Status**
-
-The DBS system currently has two components:
-
-1. **The certificate** — a paper document posted to the applicant, containing their name, date of birth, disclosure results, and a certificate number. It is a point-in-time snapshot.
-2. **The Update Service** — an online service where employers can enter the certificate number and the applicant's date of birth to check whether the certificate is still current.
-
-The problem is that these two components don't connect in a verifiable way for the worker:
-
-- The certificate is a piece of paper with no security features beyond a watermark.
-- The Update Service produces a screen result that the employer sees but the worker cannot share.
-- A worker moving between settings (supply teacher, agency carer, locum nurse) must rely on each new employer running the check themselves.
-- The worker has no way to proactively demonstrate their status is clean.
+## How Verification Works Here
 
 This use case provides the missing piece: a short-lived, verifiable proof of the Update Service status check, bound to the certificate reference and timestamped, that the worker can share.
 
@@ -159,7 +161,7 @@ This use case provides the missing piece: a short-lived, verifiable proof of the
 
 Required. Criminal record status is classified as special category data under UK GDPR (and equivalently sensitive under most jurisdictions' data protection frameworks). The salt ensures each confirmation instance produces a unique hash, preventing cross-correlation between different checking occasions. Without the salt, an observer collecting hashes could determine that the same certificate was checked on multiple dates and correlate those checks with job applications.
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Short-Lived Status Confirmation | DBS Update Service (Current) | Paper DBS Certificate | Photocopy of Certificate |
 | :--- | :--- | :--- | :--- | :--- |

@@ -28,19 +28,16 @@ Forthcoming legislation (anticipated Q1 2026) will mandate:
 - Non-ventilation air cleaning where ventilation alone is insufficient
 - Ongoing monitoring and compliance verification
 
-**The concealment problem:**
-- HVAC systems are hidden in ceilings, mechanical rooms
-- Filter condition invisible without inspection
-- Ventilation effectiveness varies with occupancy, weather, system degradation
-- Air cleaning equipment (HEPA, UV-C) requires maintenance to remain effective
-
-**The delayed discovery:**
-- Transmission events occur before source identified
-- Illness clusters may take weeks to trace
-- Long COVID effects emerge months later
-- Causation difficult to prove without contemporaneous air quality records
-
 **The insurance driver:** Business interruption insurers, workers' compensation carriers, and public liability underwriters all have exposure to airborne transmission events. Witnessed air quality compliance creates the attribution trail for claims and—more importantly—drives prevention.
+
+## The Problem: Air Nobody Can Inspect
+
+An office worker, parent, patient or diner has no way to tell whether the air in a room is being ventilated and cleaned as claimed. Building operators can state that they comply, but the equipment is out of sight and its performance changes from day to day. When an illness cluster is traced back to a building weeks later, there is often no record from the time to show what the air quality was.
+
+- **Hidden equipment:** HVAC systems sit in ceilings and mechanical rooms, and filter condition is invisible without an inspection.
+- **Performance that drifts:** Ventilation effectiveness varies with occupancy, weather and system degradation, and air cleaning equipment such as HEPA and UV-C needs maintenance to stay effective.
+- **Delayed discovery:** Transmission events occur before a source is identified, illness clusters may take weeks to trace, and some effects emerge months later.
+- **No contemporaneous record:** Causation is difficult to establish without air quality records made at the time.
 
 ## Derivation 1: Commercial Office Buildings
 

@@ -61,7 +61,18 @@ With Live Verify, the court order carries a `verify:` line bound to the family c
   </div>
 </div>
 
-## Data Verified
+## The Problem: Support Order Fraud
+
+A payroll clerk receives an income withholding order as a PDF and has to start deducting from someone's wages. They cannot easily tell whether the order is real, whether the amount is the one the court set, or whether it has since been modified, and the court clerk is hard to reach. Mistakes fall on the child who is owed support or on the parent who is over-garnished.
+
+- **Fabricated orders** to extract money from an ex-partner's employer. A forged income withholding order sent to payroll can result in months of garnishment before the fraud is discovered.
+- **Altered amounts** — inflating the court-ordered amount on a copy sent to the employer, or deflating it on a copy shown to a new partner.
+- **Presenting an old, superseded order** with a lower amount to a new employer while the actual order has been increased. The paying parent changes jobs and "forgets" to mention the modification.
+- **Claiming an order was dismissed** when it wasn't, to avoid garnishment at a new employer.
+- **Interstate enforcement complexity** — an order from New York, an employer in California. The California employer receives a withholding order referencing a New York case number. Is it real? Currently, they'd have to call the Westchester County Family Court clerk. With Live Verify, they scan and confirm against `nycourts.gov`.
+- **The MODIFIED status is critical:** orders are frequently modified as circumstances change (job loss, raise, child aging out, remarriage), and all parties need to know the current amount. A verification response that returns the current court-ordered amount alongside the MODIFIED status prevents enforcement of stale terms.
+
+## What Is Checked
 
 Court name, case number, order type (child support / spousal support / both), petitioner name, respondent name, monthly amount, payment frequency, effective date, income withholding directive (yes/no), arrears amount (if any). NOT included: custody arrangements, parenting time, underlying financial disclosures.
 
@@ -84,7 +95,7 @@ Court name, case number, order type (child support / spousal support / both), pe
 
 The issuer domain is visible from the `verify:` line on the order itself (e.g., `nycourts.gov`).
 
-## Second-Party Use
+## Who Holds It
 
 Both parents.
 
@@ -92,7 +103,7 @@ Both parents.
 
 **The Paying Parent:** Proving compliance with the order. Proving the correct amount to a new employer (preventing an ex-spouse from presenting an inflated or fabricated order). Proving the order was satisfied or modified downward. When a paying parent is current on payments but an employer receives what looks like an arrears notice — verification settles the dispute immediately.
 
-## Third-Party Use
+## Who Checks It
 
 **Employers / Payroll Departments**
 The primary enforcement mechanism. Employers are legally required to comply with income withholding orders, and they face liability for non-compliance. But they also face liability for garnishing based on a fraudulent order. Verification resolves the dilemma — scan the order, confirm it's real, process the withholding.
@@ -121,14 +132,7 @@ Child support compliance can affect immigration proceedings.
 **Family Law Attorneys**
 Verifying opposing party's claimed order terms — the amount, the effective date, whether it's been modified.
 
-## Verification Architecture — Child Support Order Fraud
-
-- **Fabricated orders** to extract money from an ex-partner's employer. A forged income withholding order sent to payroll can result in months of garnishment before the fraud is discovered.
-- **Altered amounts** — inflating the court-ordered amount on a copy sent to the employer, or deflating it on a copy shown to a new partner.
-- **Presenting an old, superseded order** with a lower amount to a new employer while the actual order has been increased. The paying parent changes jobs and "forgets" to mention the modification.
-- **Claiming an order was dismissed** when it wasn't, to avoid garnishment at a new employer.
-- **Interstate enforcement complexity** — an order from New York, an employer in California. The California employer receives a withholding order referencing a New York case number. Is it real? Currently, they'd have to call the Westchester County Family Court clerk. With Live Verify, they scan and confirm against `nycourts.gov`.
-- **The MODIFIED status is critical:** orders are frequently modified as circumstances change (job loss, raise, child aging out, remarriage), and all parties need to know the current amount. A verification response that returns the current court-ordered amount alongside the MODIFIED status prevents enforcement of stale terms.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -153,7 +157,7 @@ UK family courts administer child support and alimony orders under the Child Sup
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Existing Systems
+## Compared With Existing Systems
 
 | Feature | Live Verify | State SDU (State Disbursement Unit) | Calling the Court | OCSE Federal Systems | Trusting the Paper |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -162,7 +166,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Employer Access** | **Yes.** Any employer with a phone camera. | **No.** Employers interact with SDU only to remit payments. | **Technically yes.** Practically, court phone lines are a nightmare. | **No.** Not designed for employer queries. | **Yes.** But no fraud protection. |
 | **Detects Modifications** | **Yes.** MODIFIED status with current amount. | **No.** SDU processes whatever amount it receives. | **Maybe.** If the clerk checks and tells you. | **Eventually.** Case registries update, but not in real-time for employers. | **No.** |
 
-**Why Live Verify wins here:** The gap is employer-facing verification. Employers are the enforcement mechanism — they garnish wages — but they have no efficient way to verify that the order they received is authentic and current. SDUs process payments; they don't verify orders. OCSE coordinates between agencies; it doesn't serve employers. The court clerk's phone line is perpetually busy. Live Verify fills a gap that no existing system addresses.
+**Where each fits:** State Disbursement Units handle the money and remain the channel for remitting payments, and the federal OCSE systems coordinate enforcement between agencies and across states. The court clerk is still the authority when an order is disputed. None of these is built to answer an employer's question about the document in front of them: is this order authentic, and is this the current amount? Live Verify fills that employer-facing gap and leaves payment processing and enforcement where they are.
 
 ## Jurisdictional Witnessing (Optional)
 

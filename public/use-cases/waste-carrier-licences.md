@@ -13,9 +13,9 @@ furtherDerivations: 3
 
 In England and Wales, anyone who transports waste commercially must hold a waste carrier licence issued by the Environment Agency. The licence exists because of fly-tipping — the illegal dumping of waste that costs local authorities over £50 million a year to clear up, blights communities, poisons land, and is functionally unprosecutable in most cases because the dumper is long gone.
 
-The critical legal trap: under the Environmental Protection Act 1990, **the householder is liable** if their waste is fly-tipped, even if they paid someone to take it away. The duty of care rests with the person who produced the waste. If a man with a van takes your garden waste "for £50 cash" and dumps it in a lay-by, it's *your* name on the council's fixed penalty notice — because it's *your* waste. The householder's defence is proving they took "reasonable measures" to check the carrier was licensed. But currently, checking means going to the Environment Agency's website, navigating to the public register, typing in a registration number (which you hope the carrier gave you truthfully), and interpreting the result. Nobody does this at the doorstep.
+The critical legal trap: under the Environmental Protection Act 1990, the householder is liable if their waste is fly-tipped, even if they paid someone to take it away. The duty of care rests with the person who produced the waste. If a man with a van takes your garden waste "for £50 cash" and dumps it in a lay-by, it's *your* name on the council's fixed penalty notice — because it's *your* waste. The householder's defence is proving they took "reasonable measures" to check the carrier was licensed. But currently, checking means going to the Environment Agency's website, navigating to the public register, typing in a registration number (which you hope the carrier gave you truthfully), and interpreting the result. Nobody does this at the doorstep.
 
-A **Verified Waste Carrier Licence** is the carrier's registration made scannable — on the side of the van, on a card, on the waste transfer note itself. The homeowner scans it with a phone. `environment-agency.gov.uk` confirms "REGISTERED — Upper Tier" or returns "EXPIRED" or "NOT FOUND." The check that nobody currently does becomes the check that takes three seconds.
+A Verified Waste Carrier Licence is the carrier's registration made scannable — on the side of the van, on a card, on the waste transfer note itself. The homeowner scans it with a phone. `environment-agency.gov.uk` confirms "REGISTERED — Upper Tier" or returns "EXPIRED" or "NOT FOUND." The check that nobody currently does becomes the check that takes three seconds.
 
 <div style="max-width: 650px; margin: 24px auto; font-family: sans-serif; border: 2px solid #1b5e20; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #1b5e20; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
@@ -115,7 +115,21 @@ A **Verified Waste Carrier Licence** is the carrier's registration made scannabl
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fly-Tipping
+
+A householder paying someone to take waste away remains legally responsible for where it ends up, but at the doorstep they have no quick way to confirm that the carrier is registered, or registered for the right tier. Most people do not check at all, and the cost lands on them as a fixed penalty when their waste is found dumped, and on councils and landowners who pay to clear it.
+
+Fly-tipping in England reached over 1 million incidents in 2022/23 (DEFRA statistics). The Environment Agency estimates that for every £1 spent on illegal dumping, £10 is spent on clean-up. The economics are straightforward: legal disposal of construction waste costs £100-300 per tonne. Fly-tipping costs the dumper nothing. The gap is enforcement, and enforcement is crippled by three problems:
+
+- **Anonymity at collection:** A homeowner hands waste to "a man with a van" found on Facebook or a card through the letterbox. No name, no registration checked, no paper trail. The waste appears in a field. The council traces it to the homeowner. The homeowner says "I gave it to someone, I don't know who." Fixed penalty notice: £400. The carrier is never identified.
+
+- **Fake registrations at the doorstep:** A fly-tipper shows a printed card or a screenshot of someone else's registration. The homeowner glances at it, satisfied. The waste is dumped. The "registration" was either fabricated or belonged to a different carrier entirely. Without verification against the Environment Agency's live register, the homeowner has no way to distinguish real from fake.
+
+- **Lower Tier misuse:** Lower Tier registration is free and permanent — designed for businesses carrying their own waste. Some operators register as Lower Tier then operate commercially, collecting other people's waste without Upper Tier authorisation. The distinction between "I'm a gardener carrying my own green waste" and "I'm a waste collector" is invisible to the homeowner without live verification showing the tier.
+
+- **Waste Transfer Note gap:** Even when a WTN is issued, there's no mechanism to confirm the waste reached its stated destination. The carrier fills in "Avonmouth Recycling Centre" and dumps the load in a lay-by. The WTN is a fiction. Verified WTNs that cross-reference with destination site records close this gap.
+
+## What Is Checked
 
 **Licence:** Carrier name, registration number, tier (Upper/Lower), registration date, renewal date, authorised waste types, registered address, company number or sole trader details.
 
@@ -127,7 +141,7 @@ A **Verified Waste Carrier Licence** is the carrier's registration made scannabl
 - **Waste Transfer Note (WTN):** The duty of care document — issued at each collection, describing what was taken, from where, and where it's going. The householder's proof that they checked.
 - **Hazardous Waste Consignment Note:** For hazardous waste (asbestos, chemicals, contaminated soil). Stricter documentation with pre-notification to the Environment Agency.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`environment-agency.gov.uk` for licences, carrier's domain for WTNs) and registration status.
 
@@ -139,11 +153,11 @@ Shows the issuer domain (`environment-agency.gov.uk` for licences, carrier's dom
 - **Pending Renewal** — Registration expires within 30 days. Currently valid but check again at collection.
 - **Not Found** — No registration exists for this number. Do not use this carrier.
 - **Waste Received (WTN)** — Destination site confirms receipt of the waste described in the transfer note.
-- **Waste Not Received (WTN)** — **ALERT:** The destination site has no record of receiving this waste. Potential fly-tipping.
+- **Waste Not Received (WTN)** — The destination site has no record of receiving this waste. Potential fly-tipping.
 
-## Second-Party Use
+## Who Holds It
 
-The **Householder / Waste Producer** benefits from verification.
+The Householder / Waste Producer benefits from verification.
 
 **Doorstep check:** A man with a van knocks and offers to take your garden waste for £50. You scan the sticker on his van. `environment-agency.gov.uk` returns "REGISTERED — UPPER TIER" — he's legitimate. Or it returns "NOT FOUND" — and you've just avoided a £400 fixed penalty notice when your waste turns up in a country lane.
 
@@ -153,7 +167,7 @@ The **Householder / Waste Producer** benefits from verification.
 
 **Waste Transfer Note tracking:** After the carrier leaves with your rubble, you scan the WTN. Days later, you check again — the destination site has confirmed receipt. Your waste arrived where it was supposed to. Or it didn't — and you have a timestamped record of who took it.
 
-## Third-Party Use
+## Who Checks It
 
 **Local Authority Fly-Tipping Teams**
 **Enforcement:** When a council identifies fly-tipped waste and traces it back to a householder (via letters, packaging, addresses found in the waste), the householder's verified carrier check is evidence in the enforcement decision. A verified check shifts liability from the householder to the carrier. No verified check — the householder is on the hook.
@@ -173,19 +187,7 @@ The **Householder / Waste Producer** benefits from verification.
 **Landlords (Commercial & Agricultural)**
 **Land Protection:** Farmers and landowners are the primary victims of large-scale fly-tipping — they bear the clean-up cost on their own land. Requiring verified waste carrier licences from any contractor working on their property creates an evidence trail if waste is subsequently dumped.
 
-## Verification Architecture
-
-**The Fly-Tipping Epidemic**
-
-Fly-tipping in England reached over 1 million incidents in 2022/23 (DEFRA statistics). The Environment Agency estimates that for every £1 spent on illegal dumping, £10 is spent on clean-up. The economics are straightforward: legal disposal of construction waste costs £100-300 per tonne. Fly-tipping costs the dumper nothing. The gap is enforcement, and enforcement is crippled by three problems:
-
-- **Anonymity at collection:** A homeowner hands waste to "a man with a van" found on Facebook or a card through the letterbox. No name, no registration checked, no paper trail. The waste appears in a field. The council traces it to the homeowner. The homeowner says "I gave it to someone, I don't know who." Fixed penalty notice: £400. The carrier is never identified.
-
-- **Fake registrations at the doorstep:** A fly-tipper shows a printed card or a screenshot of someone else's registration. The homeowner glances at it, satisfied. The waste is dumped. The "registration" was either fabricated or belonged to a different carrier entirely. Without verification against the Environment Agency's live register, the homeowner has no way to distinguish real from fake.
-
-- **Lower Tier misuse:** Lower Tier registration is free and permanent — designed for businesses carrying their own waste. Some operators register as Lower Tier then operate commercially, collecting other people's waste without Upper Tier authorisation. The distinction between "I'm a gardener carrying my own green waste" and "I'm a waste collector" is invisible to the homeowner without live verification showing the tier.
-
-- **Waste Transfer Note gap:** Even when a WTN is issued, there's no mechanism to confirm the waste reached its stated destination. The carrier fills in "Avonmouth Recycling Centre" and dumps the load in a lay-by. The WTN is a fiction. Verified WTNs that cross-reference with destination site records close this gap.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

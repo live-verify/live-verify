@@ -16,9 +16,16 @@ When you hire someone through informal channels (Nextdoor, Facebook groups, word
 - Access when you're not there
 - Contact with vulnerable family members (children, elderly, pets)
 
-Unlike agency-placed workers, there's no organizational accountability. If something goes wrong after month six, you might only have a first name and a phone number that stops working.
+This is ongoing identity escrow for informal recurring relationships—verified identity held by a third party for the duration of the arrangement, with accountability if problems emerge.
 
-This is **ongoing identity escrow for informal recurring relationships**—verified identity held by a third party for the duration of the arrangement, with accountability if problems emerge.
+## The Problem: A Stranger With Your Keys
+
+A household hiring a cleaner, dog walker, babysitter or carer through a neighbourhood group or word of mouth hands over keys and access with little more than a first name and a phone number. Unlike agency-placed workers, there's no organizational accountability. If something goes wrong after month six, you might only have a first name and a phone number that stops working.
+
+- **Unverified identity:** The name given at the start is never checked against anything.
+- **Contact that disappears:** A phone number or social profile can be abandoned the day a problem is discovered.
+- **No one answerable:** No employer holds records on the worker or can be approached when something goes missing.
+- **No checkable track record:** A reliable provider has no way to show new clients a history that can be confirmed.
 
 ## Derivation 1: Weekly House Cleaner
 
@@ -263,7 +270,7 @@ SERVICE LOCATION: Client home
 
 ---
 
-## Verification Architecture
+## How Verification Works Here
 
 **Recurring vs. One-Time Escrow:**
 

@@ -18,7 +18,18 @@ This summary covers the universal pattern: an individual or business pays a depo
 2. **Subscribe to status changes** (applied, released, forfeited, transferred)
 3. **Prove the deposit** to others (lenders, courts, buyers)
 
-Unlike NAV statements, verification here confirms **existence and status**, not the amount. The depositor already knows how much they paid — they want to know it's still there.
+Unlike NAV statements, verification here confirms existence and status, not the amount. The depositor already knows how much they paid — they want to know it's still there.
+
+---
+
+## The Problem: Deposits Nobody Can See
+
+A tenant, client, home buyer or subcontractor hands over money to be held and gets a receipt. From then on they cannot see the account it sits in, and they usually learn that something is wrong only when they ask for the money back. A lender, court or new owner who needs to rely on the deposit has only the receipt and the holder's word.
+
+- **Spent or commingled funds:** The holder has used the money or mixed it with their own, and the depositor has no way to know.
+- **Denied receipt:** Years later the holder, or a successor, claims the deposit was never paid.
+- **Fabricated receipts:** A receipt or escrow letter is produced for money that was never placed in a protected account.
+- **Silent status changes:** The deposit is applied, forfeited or transferred to a new holder without the depositor being told.
 
 ---
 
@@ -56,7 +67,7 @@ Unlike NAV statements, verification here confirms **existence and status**, not 
 - **Forfeited** — Applied to damages/unpaid rent (dispute window may apply)
 - **Transferred** — Property sold; new owner assumed deposit obligation
 
-**Third-Party Use:**
+**Who Checks It:**
 - **New landlords** (during property sale) — Verify deposit obligations they're assuming
 - **Tenant attorneys** — Prove deposit existed when landlord claims otherwise
 - **Housing courts** — Adjudicate deposit disputes
@@ -97,7 +108,7 @@ Unlike NAV statements, verification here confirms **existence and status**, not 
 - **Special Assessment Pending** — Board has voted additional levy
 - **Audit Required** — Discrepancy flagged; independent audit underway
 
-**Third-Party Use:**
+**Who Checks It:**
 - **Prospective buyers** — Due diligence on building health
 - **Mortgage underwriters** — Fannie/Freddie require reserve adequacy
 - **Insurance underwriters** — Assessing building risk
@@ -138,7 +149,7 @@ Unlike NAV statements, verification here confirms **existence and status**, not 
 - **Section 20 Notice Issued** — Statutory consultation for major expenditure
 - **Tribunal Dispute** — Leaseholder challenge pending
 
-**Third-Party Use:**
+**Who Checks It:**
 - **Property solicitors** — Conveyancing due diligence
 - **First-tier Tribunal** — Disputes over service charges
 - **Mortgage lenders** — Assessing leasehold risk
@@ -179,7 +190,7 @@ Unlike NAV statements, verification here confirms **existence and status**, not 
 - **Disbursed** — Funds released per agreement
 - **Bar Inquiry** — Regulatory investigation active (rare, serious)
 
-**Third-Party Use:**
+**Who Checks It:**
 - **Clients** — Verify their settlement/estate funds exist
 - **Co-counsel** — Confirm funds in joint representation
 - **Bar associations** — Audit compliance with trust rules
@@ -220,7 +231,7 @@ Unlike NAV statements, verification here confirms **existence and status**, not 
 - **Returned to Buyer** — Deal fell through per contract terms
 - **Interpleader Filed** — Dispute; funds held pending court order
 
-**Third-Party Use:**
+**Who Checks It:**
 - **Sellers/listing agents** — Verify earnest money is real before accepting offer
 - **Lenders** — Confirm buyer has skin in the game
 - **Courts** — Resolve earnest money disputes
@@ -261,7 +272,7 @@ Unlike NAV statements, verification here confirms **existence and status**, not 
 - **Released** — Funds disbursed
 - **Disputed** — Withholding due to alleged defects
 
-**Third-Party Use:**
+**Who Checks It:**
 - **Subcontractor lenders** — Verify retainage as future receivable
 - **Bonding companies** — Assess contractor cash flow
 - **Mechanics lien claimants** — Prove unpaid contract amounts
@@ -303,7 +314,7 @@ Unlike NAV statements, verification here confirms **existence and status**, not 
 - **Claimed** — Services rendered, trust disbursed
 - **Cancelled** — Contract terminated, refund issued (minus fees)
 
-**Third-Party Use:**
+**Who Checks It:**
 - **Family members** — Verify parent's arrangements are real
 - **Medicaid planners** — Confirm irrevocable trust for spend-down
 - **State funeral boards** — Audit trust compliance
@@ -507,7 +518,7 @@ Unlike NAV statements, verification here confirms **existence and status**, not 
 
 ## Privacy: What Verification Returns
 
-Verification confirms **existence and status**, not amounts:
+Verification confirms existence and status, not amounts:
 
 | Verification Returns | Verification Does NOT Return |
 |---------------------|------------------------------|

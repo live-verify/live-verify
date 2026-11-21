@@ -13,7 +13,7 @@ furtherDerivations: 2
 
 A tenant reference is a statement from a previous landlord or letting agent confirming that a person rented a property, paid rent on time, and left in good standing. It is the housing equivalent of an employment reference.
 
-Fraud is rampant. Prospective tenants fabricate references from fictional landlords, use friends' phone numbers as "landlord contacts," or edit PDFs to hide eviction history. Landlords accepting these at face value lose thousands in unpaid rent and property damage. Live Verify binds the **tenant name, property address, tenancy dates, and departure status** to the landlord's or letting agent's domain.
+Fraud is rampant. Prospective tenants fabricate references from fictional landlords, use friends' phone numbers as "landlord contacts," or edit PDFs to hide eviction history. Landlords accepting these at face value lose thousands in unpaid rent and property damage. Live Verify binds the tenant name, property address, tenancy dates, and departure status to the landlord's or letting agent's domain.
 
 **Why you should care — from both sides:**
 
@@ -58,7 +58,18 @@ Fraud is rampant. Prospective tenants fabricate references from fictional landlo
   <span data-verify-line="bare23">verify:foxtons.co.uk/references</span>
 </div>
 
-## Data Verified
+## The Problem: Phantom Landlords
+
+A landlord or letting agent deciding on an applicant relies on a reference from the previous landlord, usually reached through contact details the applicant supplied. If the reference is invented or edited, the cost arrives later as unpaid rent, property damage and a slow eviction.
+
+- **Invented landlords:** The applicant provides a friend's phone number as their "previous landlord." The friend confirms everything.
+- **Self-referencing:** The applicant owns a second property and writes their own reference from a fake letting agency.
+- **Edited PDFs:** A genuine reference with "rent arrears" changed to "no arrears" or an eviction removed.
+- **Date stretching:** A 6-month tenancy extended to 3 years on paper.
+
+Live Verify addresses these by resolving the hash against the letting agent's own domain rather than a phone number, PDF or email address supplied by the applicant.
+
+## What Is Checked
 
 Tenant full name, property address, tenancy start date, tenancy end date (or "Present"), monthly rent amount, arrears status, property condition at departure, deposit return status, "would let to again" recommendation, letting agent reference ID.
 
@@ -68,7 +79,7 @@ Tenant full name, property address, tenancy start date, tenancy end date (or "Pr
 - **Tenancy Confirmation:** Minimal proof of tenancy dates and address only (no behavioural assessment).
 - **Deposit Protection Certificate:** (Linked hash) confirming deposit was protected in a government scheme.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`riverside-lettings.co.uk`, `foxtons.co.uk`, `openrent.com`) and current tenancy standing.
 
@@ -78,9 +89,9 @@ Shows the issuer domain (`riverside-lettings.co.uk`, `foxtons.co.uk`, `openrent.
 - **Superseded** — Replaced by a corrected version (e.g., updated end date after early termination).
 - **Dispute** — Tenant or landlord has flagged the reference as contested.
 
-## Second-Party Use
+## Who Holds It
 
-The **Tenant (Applicant)** benefits from verification.
+The Tenant (Applicant) benefits from verification.
 
 **Faster Applications:** Proving rental history instantly to a new landlord or letting agent. Instead of waiting days for a phone call between agents, the prospective landlord scans the reference and gets cryptographic confirmation in seconds.
 
@@ -88,7 +99,7 @@ The **Tenant (Applicant)** benefits from verification.
 
 **Mortgage Applications:** Some lenders accept consistent rent payment history as evidence of affordability. A verified tenancy reference from a letting agent's domain carries more weight than a self-declared rental history.
 
-## Third-Party Use
+## Who Checks It
 
 **Letting Agents / Property Managers**
 **Fraud Prevention:** "Phantom landlord" scams are common — someone claims to have rented from a landlord who doesn't exist, or provides a friend's mobile number. Live Verify connects the new agent directly to the previous agent's domain.
@@ -102,18 +113,7 @@ The **Tenant (Applicant)** benefits from verification.
 **Guarantors**
 **Risk Assessment:** A parent or employer acting as guarantor can verify the tenant's rental track record before signing a guarantee worth thousands.
 
-## The "Phantom Landlord" Problem
-
-The most common tenant reference fraud patterns:
-
-- **Invented landlords:** The applicant provides a friend's phone number as their "previous landlord." The friend confirms everything.
-- **Self-referencing:** The applicant owns a second property and writes their own reference from a fake letting agency.
-- **Edited PDFs:** A genuine reference with "rent arrears" changed to "no arrears" or an eviction removed.
-- **Date stretching:** A 6-month tenancy extended to 3 years on paper.
-
-Live Verify stops all of these because the hash resolves against the letting agent's actual domain — not a phone number, not a PDF, not an email address.
-
-## Verification Architecture
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -148,7 +148,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Ireland** | Letting agents, landlords | RTB (Residential Tenancies Board) registration provides some verification |
 | **New Zealand** | Property managers | Tenancy Tribunal records are public but references are informal |
 
-## Competition vs. Existing Referencing
+## Compared With Existing Referencing
 
 | Feature | Live Verify | Homelet / Goodlord | Phone Call to Previous Landlord |
 | :--- | :--- | :--- | :--- |
@@ -158,4 +158,4 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Coverage** | **Universal.** Any landlord with a domain. | **Limited.** Only agents who participate in the platform. | **Universal but unreliable.** |
 | **International** | **Works anywhere.** Domain-agnostic. | **UK/regional only.** | **Impractical across borders.** |
 
-**Why Live Verify wins here:** The referencing industry's dirty secret is that most "landlord references" are verified by calling the phone number the *applicant* provides. Live Verify removes the applicant from the verification loop entirely — the hash resolves against the letting agent's domain, not a number the applicant gave you.
+**Where each fits:** Referencing services such as Homelet and Goodlord combine the landlord reference with the wider assessment of an applicant, and remain the right choice for that fuller picture; a phone call is still useful for the informal questions a form does not ask. Their weak point is that the previous landlord's contact details usually come from the applicant. Live Verify fills that gap by resolving the reference against the letting agent's own domain, so the two work together: the referencing service does the assessment, and the hash confirms where the reference came from.

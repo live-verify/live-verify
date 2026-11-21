@@ -13,7 +13,7 @@ furtherDerivations: 3
 
 When someone advises you on a major financial, medical, or legal decision, you want to know: **Are they being paid to steer me somewhere?** This use case covers verified disclosures of both positive compensation ("I earn X%") and negative attestations ("I receive nothing from third parties").
 
-## The Core Problem
+## The Problem: Unverifiable Independence Claims
 
 Trust professionals routinely claim to be "independent," "unbiased," or "working only for you." But how do you verify that?
 
@@ -22,7 +22,7 @@ Trust professionals routinely claim to be "independent," "unbiased," or "working
 - **The insurance broker** who says "I shop all carriers" but gets triple commission from the one he always recommends
 - **The procurement officer** who selects vendors while undisclosed family members own those vendors
 
-Currently, these claims are unverifiable. Disclosures exist in fine print or regulatory filings that nobody reads. Live Verify changes this by making conflict disclosures **instant-verifiable** at the point of decision.
+Currently, these claims are unverifiable. Disclosures exist in fine print or regulatory filings that nobody reads. Live Verify changes this by making conflict disclosures instant-verifiable at the point of decision.
 
 ---
 
@@ -53,11 +53,11 @@ Currently, these claims are unverifiable. Disclosures exist in fine print or reg
   </div>
 </div>
 
-### Data Verified
+### What Is Checked
 
-**Advisor Name**, **Firm Name**, **Disclosure Date**, **Fee Structure** (AUM, flat, hourly), **Revenue Sharing Arrangements**, **Commissions by Product Type**, **Referral Fees**, **Soft Dollar Arrangements**.
+**Advisor Name**, Firm Name, Disclosure Date, Fee Structure (AUM, flat, hourly), Revenue Sharing Arrangements, Commissions by Product Type, Referral Fees, Soft Dollar Arrangements.
 
-### Data Visible After Verification
+### What the Checker Sees
 
 **Status Indications:**
 - **Current** — Disclosure is up-to-date
@@ -72,7 +72,7 @@ Advisors are already required to disclose compensation (Form CRS, Form ADV Part 
 - Delivered once at onboarding, never updated
 - Written in legalese designed to obscure, not inform
 
-Verified disclosures make the information **scannable at the point of decision**. When the advisor recommends a specific fund, the client can verify: "Does he get paid extra for this one?"
+Verified disclosures make the information scannable at the point of decision. When the advisor recommends a specific fund, the client can verify: "Does he get paid extra for this one?"
 
 ---
 
@@ -103,11 +103,11 @@ Verified disclosures make the information **scannable at the point of decision**
   </div>
 </div>
 
-### Data Verified
+### What Is Checked
 
-**Individual Name**, **Employer/Affiliation**, **Attestation Date**, **Categories of Non-Compensation** (pharma, referral fees, equity, etc.), **Validity Period**, **Warranty Terms**.
+**Individual Name**, Employer/Affiliation, Attestation Date, Categories of Non-Compensation (pharma, referral fees, equity, etc.), Validity Period, Warranty Terms.
 
-### Data Visible After Verification
+### What the Checker Sees
 
 **Status Indications:**
 - **Valid** — Attestation current, no known violations
@@ -177,7 +177,7 @@ If Pfizer says "$0" but Merck shows "$5,000 consulting fee," the attestation fai
 
 ## The Warranty Model: Skin in the Game
 
-Claims without consequences are cheap. The **warranted attestation** adds teeth:
+Claims without consequences are cheap. The warranted attestation adds teeth:
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', serif; border: 2px solid #8B0000; background: #fff; padding: 25px;">
   <div style="text-align: center; margin-bottom: 20px;">
@@ -282,7 +282,7 @@ Options include:
 
 ---
 
-## Third-Party Use
+## Who Checks It
 
 **Clients & Patients**
 Before major decisions (investment allocation, surgery, home purchase), verify that the advisor has no undisclosed conflicts.
@@ -301,7 +301,7 @@ In fiduciary breach cases, verified disclosures (or their absence) become eviden
 
 ---
 
-## Verification Architecture
+## How Verification Works Here
 
 ### The Fraud Vectors
 
@@ -347,7 +347,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 ## Type 3: Role-Scoped Negative Attestations ("I Have No Conflicts in My Capacity As...")
 
 Types 1 and 2 cover individuals disclosing what they earn or attesting they earn nothing.
-But many conflicts are **role-specific** — a person may legitimately hold investments or
+But many conflicts are role-specific — a person may legitimately hold investments or
 receive payments that only become conflicts *in a particular capacity*.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Helvetica Neue', sans-serif; border: 1px solid #4a4a8a; background: #fff; padding: 0;">
@@ -442,7 +442,7 @@ without a deal?"
   </div>
 </div>
 
-**Data Verified:** Creator handle/name, brand name, campaign ID, sponsorship dates,
+**What Is Checked:** Creator handle/name, brand name, campaign ID, sponsorship dates,
 compensation type (flat fee, commission, free product), content approval status.
 
 **Status Indications:**
@@ -451,7 +451,7 @@ compensation type (flat fee, commission, free product), content approval status.
 - **Terminated** — Brand ended the partnership (e.g., creator violated terms)
 - **Unrecognised** — Brand has no record of this partnership (possible fake #ad)
 
-**Third-Party Use:**
+**Who Checks It:**
 - **Followers/consumers:** Verify the endorsement is genuine before trusting a recommendation
 - **Competitor brands:** Check if a creator claiming exclusivity actually has conflicting deals
 - **FTC / ASA investigators:** Verify disclosure compliance at scale without manual review
@@ -485,7 +485,7 @@ glossy PDF.
 **Issuer:** ESG auditors (KPMG, EY, Bureau Veritas, SGS), sustainability certification
 bodies (B Corp, SBTi, Carbon Trust).
 
-**Third-Party Use:**
+**Who Checks It:**
 - **Investors:** Verify ESG claims before allocating to "sustainable" funds
 - **Procurement teams:** Confirm supplier sustainability credentials
 - **Regulators:** Spot-check corporate ESG filings

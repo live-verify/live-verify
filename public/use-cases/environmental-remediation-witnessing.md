@@ -22,6 +22,14 @@ Incomplete remediation may not be discovered for years or decades—when contami
 
 **The insurance driver:** Environmental liability insurers (pollution legal liability, cleanup cost cap) need attribution. Was the original remediation adequate? Did contamination migrate from elsewhere? Witnessing at remediation creates the evidence for claims decades later.
 
+## The Problem: Concealed Remediation Work
+
+A property buyer, lender, regulator or insurer relies on a statement that a site was cleaned up. The work itself was covered over, backfilled or returned to service soon after it finished, so the paperwork is the only evidence that remains. When contamination reappears years later, nobody can show whether the original work was incomplete or whether the problem came from somewhere else.
+
+- **Incomplete work hidden:** Remaining asbestos, waste or contaminated soil is covered before anyone independent has seen it.
+- **Documentation gaps:** Records of which areas were treated, and to what standard, are missing or cannot be tied to the site as it was.
+- **Disputed attribution:** Without evidence captured at the time, the contractor, owner and insurer cannot settle who is responsible for contamination found later.
+
 ## Derivation 1: Asbestos Abatement
 
 **The Concealment:**

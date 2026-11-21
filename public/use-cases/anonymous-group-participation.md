@@ -11,13 +11,16 @@ furtherDerivations: 4
 
 ## What is Anonymous Group Participation?
 
-Support groups, therapy circles, and survivor communities depend on anonymity for honest participation. But pure anonymity creates problems:
-- No accountability if someone harasses other members
-- Can't verify someone is who they claim (e.g., actually a survivor, not a voyeur)
-- Predators can exploit anonymous access to vulnerable people
-- No recourse if someone threatens or stalks members outside the group
+Support groups, therapy circles, and survivor communities depend on anonymity for honest participation. Identity escrow provides verified anonymity—members are anonymous to each other but accountable through a trusted third party.
 
-Identity escrow provides **verified anonymity**—members are anonymous to each other but accountable through a trusted third party.
+## The Problem: Anonymity Without Accountability
+
+A facilitator or moderator admits a newcomer to a room full of people who are there because they are vulnerable. Nobody can check who the newcomer is, and asking for names would drive away the members the group exists for. When something goes wrong, the group has no one to hold responsible.
+
+- **No accountability:** If someone harasses other members, there is no way to act against them beyond asking them to leave.
+- **Unverifiable membership:** The group cannot confirm someone is who they claim to be (e.g., actually a survivor, not a voyeur).
+- **Predatory access:** Predators can exploit anonymous access to vulnerable people.
+- **No recourse outside the group:** If someone threatens or stalks members outside the group, nobody knows who they are.
 
 ## Derivation 1: 12-Step Programs (AA/NA)
 
@@ -244,7 +247,7 @@ Emergency contact on file with SafeSpace only.
 
 ---
 
-## Verification Architecture
+## How Verification Works Here
 
 **The Anonymity-Accountability Spectrum:**
 

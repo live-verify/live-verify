@@ -63,7 +63,17 @@ Alteration of earnings information is fraud.
 <span data-verify-line="paystub">verify:payroll.pinnacle-eng.com/stubs/v</span> <span verifiable-text="end" data-for="paystub"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Pay Stub Fraud
+
+A landlord, lender, benefits officer or family court is handed a pay stub as proof of income and has to decide on it the same day. The document is easy to alter and hard to check: the only real test is calling the employer, which is slow and often skipped. A wrong figure means a tenancy or loan the applicant cannot afford, or benefits paid to someone who does not qualify.
+
+- **PDF editing:** Open the PDF, change any number, save; a $2,500 net pay becomes $5,000 and most editors leave no obvious trace.
+- **Fake pay stub generators:** Websites create realistic stubs for any employer name typed in, with plausible formatting, tax calculations and deduction breakdowns.
+- **Inflated income for loan qualification:** The applicant earns less than the loan requires, so the stub is edited or generated to show more; the lender approves a loan the borrower cannot service.
+- **Deflated income for benefits eligibility:** The reverse case: the applicant earns too much to qualify, so the stub is edited downward, and the agency cannot catch it without calling the employer.
+- **Stale stubs from former employees:** Someone who left in January presents a December stub in March as if still employed; the stub is authentic but no longer reflects reality, and the endpoint returns NOT_EMPLOYED.
+
+## What Is Checked
 
 Employee name, employer name, pay period start and end dates, gross pay, net pay, pay frequency (weekly/bi-weekly/semi-monthly/monthly), employment status (full-time/part-time/contract).
 
@@ -97,9 +107,9 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Second-Party Use
+## Who Holds It
 
-The **employee** is the carrier and presenter of the document.
+The employee is the carrier and presenter of the document.
 
 **Rental applications:** The most common use case. Landlords want 2-3 recent pay stubs. Currently unverifiable. With Live Verify, the landlord scans each stub and confirms the income figures are real — in seconds, not days.
 
@@ -111,7 +121,7 @@ The **employee** is the carrier and presenter of the document.
 
 **Visa and immigration applications:** Many visa categories require proof of income above a threshold. A verified pay stub from the applicant's employer domain is stronger evidence than an unverifiable PDF.
 
-## Third-Party Use
+## Who Checks It
 
 **Landlords and Property Managers**
 Tenant screening. The landlord verifies income against the employer's payroll domain. No more calling HR, no more "can you fax us a letter," no more trusting a PDF that anyone could have edited.
@@ -131,15 +141,7 @@ Income thresholds matter for sponsor eligibility (e.g., I-864 Affidavit of Suppo
 **Auto Loan and Consumer Lenders**
 Income verification for vehicle financing and personal loans. The "stated income" loan era ended badly. Verified stubs bring back trust without bringing back the fraud.
 
-## Verification Architecture — The Pay Stub Fraud Problem
-
-Pay stub fraud is uniquely dangerous because the documents are so easy to fake and so hard to verify.
-
-- **PDF editing** — Trivial. Open the PDF, change any number, save. A $2,500 net pay becomes $5,000 in seconds. Most PDF editors don't leave detectable traces.
-- **Fake pay stub generators** — Websites that create realistic stubs for any employer name you type in. Some charge $5-$20. They produce stubs with proper formatting, tax calculations, and deduction breakdowns that look completely authentic.
-- **Inflated income for loan qualification** — The classic mortgage fraud. Applicant needs to show $80k/year to qualify for the loan. They actually earn $45k. They edit the stub or generate a fake one. The lender approves the loan. The borrower defaults. Everyone loses.
-- **Deflated income for benefits eligibility** — The reverse fraud. Applicant earns too much to qualify for housing assistance. They edit the stub downward. The benefits agency has no way to catch it without calling the employer — which they often don't have time to do.
-- **Stale stubs from terminated employees** — Employee was fired in January. In March, they present their December pay stub to a landlord as if they're still employed. The stub is authentic — it just doesn't reflect reality anymore. Live Verify returns NOT_EMPLOYED.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -155,7 +157,7 @@ Without a salt, an attacker who knows someone works at Pinnacle Engineering coul
 
 The salt is also critical because pay stubs contain structured, predictable data. Unlike a free-text document, the fields and formats are constrained. This makes enumeration attacks more feasible without salt protection.
 
-## Competition
+## Compared With the Alternatives
 
 | Feature | Live Verify | Call the Employer | Plaid / Payroll API | Tax Returns | Trust the PDF |
 | :--- | :--- | :--- | :--- | :--- | :--- |

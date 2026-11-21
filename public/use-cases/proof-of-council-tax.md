@@ -13,7 +13,7 @@ furtherDerivations: 2
 
 Council tax bills are the gold standard proof of address in the UK — more trusted than utility bills because they come from a local authority, not a commercial company. Banks, solicitors, employers, and government agencies all accept them. And yet the "verification" is identical to every other proof-of-address check: a human eyeballing a PDF.
 
-Council tax is uniquely valuable because it proves three things simultaneously: **address**, **name**, and **local authority residency**. This matters for voter registration, school catchment, social housing allocation, and benefits eligibility. It also proves payment standing — whether the person is current, in arrears, or exempt.
+Council tax is uniquely valuable because it proves three things simultaneously: address, name, and local authority residency. This matters for voter registration, school catchment, social housing allocation, and benefits eligibility. It also proves payment standing — whether the person is current, in arrears, or exempt.
 
 The mandate model: local authorities are required to let council tax payers generate time-limited, hash-based confirmations of their council tax status. The council bears the hosting cost as a core local government digital service. Given that most councils already have online council tax portals, the marginal cost is minimal.
 
@@ -46,7 +46,19 @@ The mandate model: local authorities are required to let council tax payers gene
   <span data-verify-line="bare27">verify:birmingham.gov.uk/council-tax</span>
 </div>
 
-## Data Verified
+## The Problem: Forged Council Tax Bills
+
+A bank, solicitor, school admissions team or benefits office accepts a council tax bill as strong proof of name, address and residency, because it comes from a local authority. The check itself is still a person looking at a PDF, so the trust placed in the issuer is not matched by any confirmation that the issuer produced the document or that its record still says the same thing.
+
+- **PDF forgery:** Council tax bill templates vary by council but are all plain text layouts easily replicated in any document editor.
+- **Address fraud for school places:** Families using relatives' or friends' addresses to gain admission to oversubscribed schools. This is prosecuted but hard to detect when the proof is a PDF.
+- **Benefits fraud:** Claiming to live alone (single person discount) while a partner is resident. Claiming to live in a different local authority area for benefits purposes.
+- **Identity fraud:** Using a forged council tax bill as foundational ID to open bank accounts, obtain credit, or register for services.
+- **Property fraud:** Forging council tax bills to impersonate the owner/occupier of a property as part of a property theft scheme.
+
+Live Verify addresses most of these because the hash resolves against the council's `.gov.uk` domain. A forged bill won't match. A claim of single person discount can be verified against what the council actually has on record. An address used for school admission can be cross-checked in real time.
+
+## What Is Checked
 
 Local authority name, account holder full name, full property address, council tax band, payment status (current / arrears / exempt), applicable discounts or exemptions, tax year.
 
@@ -58,7 +70,7 @@ Local authority name, account holder full name, full property address, council t
 
 **Privacy Salt:** Required. Name + address + council is guessable. Time-limited salt (e.g., 30 days) generated through the council's online portal.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the council domain (`camden.gov.uk`, `birmingham.gov.uk`) and account status.
 
@@ -70,9 +82,9 @@ Shows the council domain (`camden.gov.uk`, `birmingham.gov.uk`) and account stat
 - **Summons Issued** — Liability order proceedings have begun (serious arrears).
 - **Closed** — Account closed (person moved away).
 
-## Second-Party Use
+## Who Holds It
 
-The **Council Tax Payer** benefits from verification.
+The Council Tax Payer benefits from verification.
 
 **Premium Proof of Address:** Council tax bills carry more weight than utility bills for KYC purposes because the issuer is a government body. A verifiable council tax confirmation from a `.gov.uk` domain is the strongest proof of address available outside of a passport.
 
@@ -82,7 +94,7 @@ The **Council Tax Payer** benefits from verification.
 
 **School Admissions:** Proving you live within a school's catchment area is critical — and contentious. Families have been prosecuted for using false addresses to secure school places. A verifiable council tax confirmation from the council's domain is definitive proof of the address the family is registered at.
 
-## Third-Party Use
+## Who Checks It
 
 **Banks & Financial Institutions**
 **KYC Address Verification:** Council tax confirmations from `.gov.uk` domains would be the highest-trust address verification available. Banks could set policy: "council tax confirmation from issuing authority = no further address verification required."
@@ -102,17 +114,7 @@ The **Council Tax Payer** benefits from verification.
 **Landlords & Letting Agents**
 **Tenant Address History:** When a prospective tenant claims to have lived at a previous address, the council tax record for that period is definitive proof. A verifiable confirmation covering a specific tax year is stronger than any utility bill.
 
-## The Council Tax Fraud Problem
-
-- **PDF forgery:** Council tax bill templates vary by council but are all plain text layouts easily replicated in any document editor.
-- **Address fraud for school places:** Families using relatives' or friends' addresses to gain admission to oversubscribed schools. This is prosecuted but hard to detect when the proof is a PDF.
-- **Benefits fraud:** Claiming to live alone (single person discount) while a partner is resident. Claiming to live in a different local authority area for benefits purposes.
-- **Identity fraud:** Using a forged council tax bill as foundational ID to open bank accounts, obtain credit, or register for services.
-- **Property fraud:** Forging council tax bills to impersonate the owner/occupier of a property as part of a property theft scheme.
-
-Live Verify stops most of these because the hash resolves against the council's `.gov.uk` domain. A forged bill won't match. A claim of single person discount can be verified against what the council actually has on record. An address used for school admission can be cross-checked in real time.
-
-## Verification Architecture
+## Who Issues It
 
 **Issuer Types** (First Party)
 

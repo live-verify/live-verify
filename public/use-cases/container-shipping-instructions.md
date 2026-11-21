@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What are Shipping Instructions?
 
-Before a ship leaves, the exporter must send **Shipping Instructions (SI)** to the carrier (like Maersk or Hapag-Lloyd). This document tells the carrier exactly what to write on the final Bill of Lading.
+Before a ship leaves, the exporter must send Shipping Instructions (SI) to the carrier (like Maersk or Hapag-Lloyd). This document tells the carrier exactly what to write on the final Bill of Lading.
 
 It's the "Draft" of the most important paper in trade. It includes:
 1.  **The Cargo:** "1,200 iPhones" vs "1,200 Books."
@@ -49,26 +49,34 @@ Fraudsters often "mis-declare" cargo in the instructions (e.g., calling high-tax
   </div>
 </div>
 
-## Data Verified
+## The Problem: Unverifiable Draft Instructions
+
+The shipping instructions pass through several hands before the bill of lading is issued: exporter, forwarder, carrier, and later the bank and customs. Each party works from its own copy, usually a PDF, and has no simple way to confirm it matches what the carrier holds. A discrepancy that is noticed late means an amended bill of lading, a rejected letter of credit presentation, or a container held at the port.
+
+- **Mis-declared cargo:** Goods are described as something cheaper or lower-duty to reduce freight charges or avoid customs attention.
+- **Altered copies:** The version shown to a bank or customs agent differs from the instructions the carrier received.
+- **Draft and final mismatch:** The bill of lading does not match the instructions, and the error is found only when documents are presented for payment.
+
+## What Is Checked
 
 Shipper name, Booking number, Vessel name, Voyage number, Cargo description, HS Codes, Weight, Destination port.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`maersk.com`) and current booking status.
 
 **Status Indications:**
 - **Draft Received** — Carrier has the instructions.
 - **B/L Pending** — Instructions verified; final Bill of Lading being printed.
-- **Mismatch Alert** — **ALERT:** Description on SI does not match the physical scan at the port.
+- **Mismatch Alert** — Description on SI does not match the physical scan at the port.
 
-## Second-Party Use
+## Who Holds It
 
-The **Exporter (Shipper)** benefits from verification.
+The Exporter (Shipper) benefits from verification.
 - **Error Prevention:** Ensuring the carrier's final Bill of Lading exactly matches the verified instructions, preventing costly "Letter of Credit" rejections at the bank.
 - **Draft Approval:** Instantly approving the digital draft from the carrier by verifying the hash against their own internal shipping system.
 
-## Third-Party Use
+## Who Checks It
 
 **Customs Authorities**
 **Pre-manifest Screening:** Customs can verify the Shipping Instructions *before* the ship sails. If the description on the SI doesn't match the carrier's verified data, the container can be flagged for inspection at the loading port.
@@ -95,7 +103,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the shipper's or freight forwarder's hashes and status changes plus structured metadata (shipping instruction ID, booking reference, cargo type, port of loading, port of discharge, sailing date) — never cargo value or consignee customer contact details — providing non-repudiation of shipping instructions and an audit trail for customs and carrier liability disputes.
 
 
-## Competition vs. EDI / Blockchain
+## Compared With EDI / Blockchain
 
 | Feature | Live Verify | EDI (Shipping Standard) | GSBN Blockchain |
 | :--- | :--- | :--- | :--- |
@@ -103,6 +111,5 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Accessibility** | **Universal.** Any clerk can scan. | **Zero.** Requires heavy IT setup. | **Low.** Requires membership. |
 | **Adoption** | **High.** Works with PDFs. | **Universal.** (For big ships). | **Low.** (Emerging). |
 
-**Why Live Verify wins here:**
-The "Silo" Problem. While big carriers use EDI, they don't share those logs with the exporter's local bank or a foreign customs agent. Live Verify turns the **Draft PDF** into a portable "Token of Intent" that anyone can trust.
+**Where each fits:** EDI is the established channel between carriers and large shippers and remains the right choice for high-volume, system-to-system exchange; consortium blockchains serve their members in a similar way. Neither reaches parties outside those systems, such as the exporter's local bank or a foreign customs agent, who see only a PDF. Live Verify fills that gap by letting anyone holding the draft confirm it against the carrier's domain, alongside the EDI flow.
 

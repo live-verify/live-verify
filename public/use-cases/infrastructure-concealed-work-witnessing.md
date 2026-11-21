@@ -27,6 +27,15 @@ When failures occur—bridge collapse, tunnel flood, dam breach, pipeline ruptur
 
 **The insurance driver:** Infrastructure insurers (construction all-risk, operational liability) need attribution to price risk accurately and resolve claims. Mandated witnessing at concealment points creates the evidence trail.
 
+## The Problem: Defects Hidden for Decades
+
+Once a weld is painted, a lining is sprayed over or a pipeline is buried, nobody can look at the work again without destroying what covers it. When a structure fails decades later, investigators, owners and insurers have to work out who did what from records that may be incomplete, altered or lost, and from contractors that may no longer exist.
+
+- **Concealed at completion:** The work is covered by coatings, concrete, fill or water and can only be re-examined destructively.
+- **Long delay before failure:** Fatigue cracks and corrosion can take decades to show, long after the people and firms involved have moved on.
+- **Inspection records that cannot be dated:** A paper sign-off cannot later be shown to be unaltered, or to have been made before the work was covered.
+- **Unclear attribution:** Without a reliable record, root cause, liability and whether similar structures share the fault all remain in dispute.
+
 ## Derivation 1: Bridge Welds and Structural Connections
 
 **The Concealment:**

@@ -13,7 +13,16 @@ furtherDerivations: 3
 
 Some identity escrow scenarios involve long time horizons and specific trigger conditions—not disputes or incidents, but life events that unlock disclosure rights. The identity is escrowed at time of the original event, potentially disclosed decades later when conditions are met.
 
-This is **identity escrow with time-delayed triggers**—designed for scenarios where the right to know may emerge years after the original transaction.
+This is identity escrow with time-delayed triggers—designed for scenarios where the right to know may emerge years after the original transaction.
+
+## The Problem: Disclosure Decades Later
+
+A donor-conceived adult, an adoptee, or an heir comes forward years after the original event and asks for information that was deliberately held back at the time. The clinic, agency or bank that holds it has to decide whether this person is entitled and whether the agreed condition has been met. The records are old, the parties have moved, and the promises made at the outset may be written down nowhere that anyone can check.
+
+- **Unprovable original terms:** Nobody can show what the donor, birth parent or depositor agreed to at the time.
+- **Uncontrolled discovery:** Consumer DNA testing and informal searches reveal identities without consent, preparation or support.
+- **Unverifiable entitlement:** The holder cannot easily confirm that the person asking has reached the age, obtained the consent, or holds the standing the condition requires.
+- **Decayed records:** Over decades, providers close and contact details go out of date, so a right to know cannot be exercised.
 
 ## Derivation 1: Gamete Donor Identity
 
@@ -81,17 +90,17 @@ Jurisdiction: [State/Country]
 - **Medical Only** — Medical history released; identity still protected
 - **Donor Deceased** — Special handling per donor's directive
 
-**Second-Party Use (Donor):**
+**Who Holds It (Donor):**
 - **Clear expectations:** Knows exactly when/how identity may be disclosed
 - **Medical updates:** Can update medical history over time
 - **Contact preferences:** Can indicate willingness for early contact
 
-**Second-Party Use (Offspring):**
+**Who Holds It (Offspring):**
 - **Right to know:** Clear path to genetic identity
 - **Medical access:** Life-saving information available
 - **Half-sibling connection:** Can find genetic relatives (with consent)
 
-**Third-Party Use:**
+**Who Checks It:**
 - **Fertility clinics:** Compliance with disclosure laws
 - **Courts:** Verification that proper escrow exists
 - **Medical providers:** Access to donor medical history in emergencies
@@ -162,12 +171,12 @@ DISCLOSURE CONDITION: Mutual registration only
 - **Information only:** Share medical/ancestry info, no identity
 - **Notify only:** Alert me if match registers, I'll decide then
 
-**Second-Party Use:**
+**Who Holds It:**
 - **Searchable:** Can register and wait for match
 - **Control:** Can set contact preferences
 - **Safe:** No disclosure without mutual consent
 
-**Third-Party Use:**
+**Who Checks It:**
 - **Adoption agencies:** Can facilitate registry enrollment at adoption finalization
 - **Courts:** May reference registry as part of sealed record access proceedings
 - **Genetic counselors:** Can suggest registry for medical history access
@@ -236,24 +245,24 @@ ESCROW HOLDER: EstatePlan Trust
 - **Access Granted** — Verified accessor may proceed
 - **Contested** — Multiple claims or disputes; requires resolution
 
-**Second-Party Use (Grantor):**
+**Who Holds It (Grantor):**
 - **Peace of mind:** Knows assets will reach intended recipients
 - **Bypass delays:** Avoids months of probate for simple access
 - **Control:** Can update authorized accessors anytime
 
-**Second-Party Use (Accessor):**
+**Who Holds It (Accessor):**
 - **Proof of authorization:** Verified document to present to banks, storage facilities
 - **Clear process:** Knows exactly what's needed to gain access
 - **Speed:** Access in days, not months
 
-**Third-Party Use:**
+**Who Checks It:**
 - **Banks:** Can verify authorization without waiting for court
 - **Storage facilities:** Clear protocol for releasing contents
 - **Digital platforms:** Framework for account access after death
 
 ---
 
-## Verification Architecture
+## How Verification Works Here
 
 **Time-Delayed Escrow Characteristics:**
 

@@ -23,20 +23,6 @@ The core question a site manager needs answered is narrow: **is this person curr
 | **US** | OSHA 29 CFR 1910.178 requires employers to certify forklift operators. No single national card scheme exists. Some employers use third-party certification providers. | Employer-issued certification, often a wallet card or paper certificate. No standardised format. |
 | **Australia** | High Risk Work Licence (HRWL) issued by state and territory WHS regulators (e.g., SafeWork NSW, WorkSafe Victoria). National mutual recognition applies. | Plastic licence card issued by the state regulator. Categories include forklift (LF), crane (C1–C6), rigging (RB, RI, RA), and scaffolding (SB, SI, SA). |
 
-### The Problem
-
-**Why would you bother verifying?** Because a forklift through a warehouse wall, an excavator striking a gas main, or a crane collapse does not produce minor injuries. Construction and warehouse plant accidents kill and permanently disable workers every year, and a disproportionate number involve operators who were unqualified for the specific equipment they were operating. The site manager who waves someone through the gate on the strength of a plastic card they glanced at for two seconds carries personal criminal liability under health and safety law if that operator was not competent and someone dies. "I checked the card" is a defence. "The card was forged and I had no way to verify it" is a harder one to sustain when verification technology exists.
-
-Currently, operator competence is demonstrated by presenting a plastic card. This creates several problems:
-
-- **Forgery.** Plastic cards with no digital verification are straightforward to counterfeit. Fraudulent CPCS cards are a known problem in the UK construction industry.
-- **Expiry.** A card that expired last month looks identical to a current one at a glance. Site managers checking cards at the gate are relying on reading a small date printed on plastic.
-- **Revocation.** If an operator's competence is withdrawn between renewal dates (for example, after a serious safety incident), the plastic card does not reflect this. The card remains physically valid even though the qualification is not.
-- **Category mismatch.** An operator may hold a valid card for one category of equipment but present it when asked about a different category. Category codes on plastic cards are small and not always well understood by the person checking.
-- **Agency and temporary workers.** Workers arriving on site through labour agencies may present cards that the site manager has no practical way to verify in the time available before work starts.
-
-A verifiable status claim from the issuing body — CPCS, NPORS, or a state WHS regulator — would allow the site manager to confirm the operator's current status for a specific equipment category, directly from the authority that issued the credential.
-
 ## Plant Operator Licence Status
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #1a5f2a; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
@@ -72,7 +58,21 @@ verify:cpcs.co.uk/cards/v
 </pre>
 </div>
 
-## Data Verified
+## The Problem: Forged and Lapsed Cards
+
+A forklift through a warehouse wall, an excavator striking a gas main, or a crane collapse does not produce minor injuries. Construction and warehouse plant accidents kill and permanently disable workers every year, and a disproportionate number involve operators who were unqualified for the specific equipment they were operating. The site manager who waves someone through the gate on the strength of a plastic card they glanced at for two seconds carries personal criminal liability under health and safety law if that operator was not competent and someone dies. "I checked the card" is a defence. "The card was forged and I had no way to verify it" is a harder one to sustain when verification technology exists.
+
+Currently, operator competence is demonstrated by presenting a plastic card. This creates several problems:
+
+- **Forgery.** Plastic cards with no digital verification are straightforward to counterfeit. Fraudulent CPCS cards are a known problem in the UK construction industry.
+- **Expiry.** A card that expired last month looks identical to a current one at a glance. Site managers checking cards at the gate are relying on reading a small date printed on plastic.
+- **Revocation.** If an operator's competence is withdrawn between renewal dates (for example, after a serious safety incident), the plastic card does not reflect this. The card remains physically valid even though the qualification is not.
+- **Category mismatch.** An operator may hold a valid card for one category of equipment but present it when asked about a different category. Category codes on plastic cards are small and not always well understood by the person checking.
+- **Agency and temporary workers.** Workers arriving on site through labour agencies may present cards that the site manager has no practical way to verify in the time available before work starts.
+
+A verifiable status claim from the issuing body — CPCS, NPORS, or a state WHS regulator — would allow the site manager to confirm the operator's current status for a specific equipment category, directly from the authority that issued the credential.
+
+## What Is Checked
 
 Scheme name, card holder name and registration number, equipment category, competence status, card type, issue date, and expiry date.
 
@@ -92,7 +92,7 @@ Scheme name, card holder name and registration number, equipment category, compe
 
 The verifiable claim confirms current competence status for a specific equipment category. It does not disclose the operator's personal details beyond their name and registration number.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuing scheme's domain and the current status of the operator's card for the specified category.
 
@@ -103,9 +103,9 @@ Shows the issuing scheme's domain and the current status of the operator's card 
 - **Revoked** — Competence withdrawn; operator must not operate this equipment category
 - **404** — No matching card record found
 
-## Second-Party Use
+## Who Holds It
 
-The **operator** benefits directly.
+The operator benefits directly.
 
 **Proving competence on arrival:** An operator arriving at a new site can share a verifiable status confirmation before they reach the gate. This is particularly valuable for agency workers and self-employed operators who move between sites frequently.
 
@@ -113,7 +113,7 @@ The **operator** benefits directly.
 
 **Renewal evidence:** When renewing a card or applying for a new category, the operator can demonstrate their current status across existing categories.
 
-## Third-Party Use
+## Who Checks It
 
 **Site Managers and Principal Contractors**
 
@@ -133,7 +133,7 @@ The **operator** benefits directly.
 
 **Forklift compliance:** Warehouse and logistics operations rely heavily on forklift operators. Verifying that each operator holds a current licence for the specific type of forklift they will use (counterbalance, reach truck, powered pallet truck) is a basic safety requirement.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The Safety Case**
 
@@ -147,7 +147,7 @@ The issuing bodies — CPCS, NPORS, state WHS regulators — already maintain da
 
 Optional. Operator licence status is not special category data in the way that criminal record checks are. However, a salt may be useful where an operator does not want repeated verifications of the same card to be correlatable across different sites or employers.
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Verifiable Status Claim | Plastic Card (Current) | Phone Call to Scheme | Online Card Checker (where available) |
 | :--- | :--- | :--- | :--- | :--- |

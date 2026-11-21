@@ -15,7 +15,7 @@ A retraction notice is a formal statement by a journal that a previously publish
 
 Retractions matter because the retracted paper doesn't disappear. It stays in library databases, in other papers' reference lists, in PhD theses, in drug approval dossiers, and in news articles that cited it. The retraction notice is the only mechanism that says "stop trusting this."
 
-The problem: retraction notices are easy to miss and easy to fake. A researcher facing misconduct allegations can claim "I was never retracted" because the notice is buried on page 847 of an obscure journal issue. A predatory journal can issue a fake retraction of a competitor's legitimate work. Live Verify binds the **retraction status, paper DOI, and reason** to the journal publisher's domain.
+The problem: retraction notices are easy to miss and easy to fake. A researcher facing misconduct allegations can claim "I was never retracted" because the notice is buried on page 847 of an obscure journal issue. A predatory journal can issue a fake retraction of a competitor's legitimate work. Live Verify binds the retraction status, paper DOI, and reason to the journal publisher's domain.
 
 <div style="max-width: 650px; margin: 24px auto; font-family: 'Times New Roman', Times, serif; border: 2px solid #c62828; background: #fff; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <div style="text-align: center; border-bottom: 2px solid #c62828; padding-bottom: 20px; margin-bottom: 25px;">
@@ -46,7 +46,17 @@ The problem: retraction notices are easy to miss and easy to fake. A researcher 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Missed and Faked Retractions
+
+A researcher, reviewer or regulator relies on a published paper and has no practical way to know whether it has since been withdrawn. The retraction notice sits on the journal's site while copies of the paper circulate everywhere else, and a notice that does reach the reader cannot easily be told apart from a fabricated one.
+
+- **No push notification.** If you cited a paper in 2020 and it was retracted in 2025, nobody tells you. Your paper continues citing fabricated data.
+- **Database lag.** PubMed marks retractions but not instantly, and many databases (Scopus, Google Scholar) handle retraction metadata inconsistently.
+- **PDF permanence.** The original PDF lives on researchers' hard drives, in institutional repositories, and on Sci-Hub. It looks identical to a non-retracted paper.
+- **Zombie citations.** Studies show retracted papers continue to be positively cited for years after retraction. The 1998 Wakefield MMR paper (retracted 2010) was still being cited approvingly in 2020.
+- **Fake retractions.** Predatory journals have issued bogus retraction notices to intimidate whistleblowers or discredit rival researchers.
+
+## What Is Checked
 
 Paper DOI, journal name, article title, author list, original publication date, retraction date, retraction reason category (data fabrication, plagiarism, ethical violation, error, editorial concern), retraction initiator (journal, institution, or author), whether co-authors were consulted.
 
@@ -56,7 +66,7 @@ Paper DOI, journal name, article title, author list, original publication date, 
 - **Correction / Erratum:** (Linked hash) for errors that don't warrant full retraction.
 - **Editorial Investigation Statement:** Publisher's account of the investigation process.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`thelancet.com`, `nature.com`, `wiley.com`, `plos.org`) and the paper's current status.
 
@@ -67,15 +77,15 @@ Shows the issuer domain (`thelancet.com`, `nature.com`, `wiley.com`, `plos.org`)
 - **REINSTATED** — A previously retracted paper has been restored after successful appeal (rare but it happens).
 - **CORRECTED** — Errors fixed; paper remains valid.
 
-## Second-Party Use
+## Who Holds It
 
-The **Authors** (particularly innocent co-authors) benefit from verification.
+The Authors (particularly innocent co-authors) benefit from verification.
 
 **Clearing Your Name:** In multi-author papers, retraction tars everyone. An innocent co-author can point to the verified retraction notice showing the fabrication was limited to the corresponding author's data tables — their contribution (e.g., the statistical methodology) was not implicated.
 
 **Demonstrating Integrity:** A researcher who *self-retracts* after discovering their own error can prove the retraction was voluntary and initiated by them, not imposed after a misconduct finding. The verified notice distinguishes honest correction from forced withdrawal.
 
-## Third-Party Use
+## Who Checks It
 
 **Other Researchers (Citation Checking)**
 **Before You Cite:** A researcher writing a literature review can scan papers they're about to cite. If a foundational paper in their reference list has been retracted, they find out before publication — not after their own paper is questioned for building on retracted work.
@@ -95,14 +105,6 @@ The **Authors** (particularly innocent co-authors) benefit from verification.
 **Systematic Review Authors (Cochrane, Campbell)**
 **Evidence Quality:** Systematic reviews synthesise findings from dozens of studies. A single retracted paper in the evidence base can flip the conclusion. Verified retraction status lets review teams programmatically check every included paper.
 
-## Why Retractions Are Hard to Notice Today
-
-- **No push notification.** If you cited a paper in 2020 and it was retracted in 2025, nobody tells you. Your paper continues citing fabricated data.
-- **Database lag.** PubMed marks retractions but not instantly, and many databases (Scopus, Google Scholar) handle retraction metadata inconsistently.
-- **PDF permanence.** The original PDF lives on researchers' hard drives, in institutional repositories, and on Sci-Hub. It looks identical to a non-retracted paper.
-- **Zombie citations.** Studies show retracted papers continue to be positively cited for years after retraction. The 1998 Wakefield MMR paper (retracted 2010) was still being cited approvingly in 2020.
-- **Fake retractions.** Predatory journals have issued bogus retraction notices to intimidate whistleblowers or discredit rival researchers.
-
 ## The Verification Model
 
 A journal publisher hashes each retraction notice and stores it at their domain. The hash input includes the DOI, retraction date, reason, and status — so the retraction is bound to the specific paper.
@@ -120,7 +122,7 @@ A journal publisher hashes each retraction notice and stores it at their domain.
 
 Both directions matter: "Has this paper been retracted?" and "Is this retraction notice real?"
 
-## Verification Architecture
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -154,7 +156,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **India** | UGC (University Grants Commission) | Regulates academic standards; predatory journal problem |
 | **Japan** | JST / JSPS | Notable cases (STAP cell scandal, 2014) drove reform |
 
-## Competition vs. Existing Tools
+## Compared With Existing Tools
 
 | Feature | Live Verify | Retraction Watch Database | CrossRef / PubMed Metadata |
 | :--- | :--- | :--- | :--- |

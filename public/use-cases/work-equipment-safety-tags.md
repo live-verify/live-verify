@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What are Work Equipment Safety Tags?
 
-In industrial settings, machinery must be kept in a safe operating condition. Regulations such as **PUWER 1998** (UK) and **OSHA 29 CFR 1910** (US) require that work equipment is suitable for use, maintained, and inspected at appropriate intervals.
+In industrial settings, machinery must be kept in a safe operating condition. Regulations such as PUWER 1998 (UK) and OSHA 29 CFR 1910 (US) require that work equipment is suitable for use, maintained, and inspected at appropriate intervals.
 
-**Safety Tags** or labels attached to machines prove that guards, interlocks, and emergency stops have been tested. Without visible, verified proof, workers may unknowingly operate equipment with "hidden" failures (like a bypassed safety sensor). Verified hashes bind the **Machine ID, Inspection Result, and Next Due Date** to the employer's or the inspection firm's domain.
+**Safety Tags** or labels attached to machines prove that guards, interlocks, and emergency stops have been tested. Without visible, verified proof, workers may unknowingly operate equipment with "hidden" failures (like a bypassed safety sensor). Verified hashes bind the Machine ID, Inspection Result, and Next Due Date to the employer's or the inspection firm's domain.
 
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 3px solid #d32f2f; border-radius: 8px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #d32f2f; color: #fff; padding: 12px; text-align: center; font-weight: bold;">
@@ -38,25 +38,34 @@ In industrial settings, machinery must be kept in a safe operating condition. Re
   </div>
 </div>
 
-## Data Verified
+## The Problem: Unverified Inspection Tags
+
+A machine operator starting a shift, or an inspector walking the floor, relies on the tag attached to a machine to say its guards, interlocks and emergency stops were tested. A paper or plastic tag shows only what someone wrote on it; it cannot show whether it matches the employer's or inspection firm's current record, or whether the machine has failed an inspection since. The cost of a wrong tag is a worker operating equipment with a fault they cannot see.
+
+- **Signed without inspecting:** A tag is marked as passed by a previous shift without the checks being carried out.
+- **Backdated records:** Paper tags and logs are filled in after the fact to cover a missed inspection interval.
+- **Overdue or failed equipment left in service:** A tag stays on the machine after the due date passes or after a failed inspection, and nothing on it changes.
+- **Hidden defects:** A bypassed safety sensor or removed guard is not visible to the operator, who has only the tag to go on.
+
+## What Is Checked
 
 Machine ID/Serial, facility location, last inspection date, inspection result (Pass/Fail), inspector ID, next inspection due date, regulation reference (e.g., PUWER Reg 6).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., the factory or maintenance firm) and the current safety standing.
 
 **Status Indications:**
 - **Pass / Active** — Equipment is current and safe for use.
-- **Fail / Lockout** — **CRITICAL:** Equipment failed inspection; do not operate.
-- **Overdue** — **ALERT:** Inspection period has passed; equipment must be re-vetted.
+- **Fail / Lockout** — Equipment failed inspection; do not operate.
+- **Overdue** — Inspection period has passed; equipment must be re-vetted.
 
-## Second-Party Use
+## Who Holds It
 
-The **Machine Operator** benefits from verification.
+The Machine Operator benefits from verification.
 - **Start-of-Shift Safety:** Scanning the tag on a lathe or press to ensure the "Pass" status is real and hasn't been "pencil whipped" by a previous shift.
 
-## Third-Party Use
+## Who Checks It
 
 **OSHA / HSE Inspectors**
 - **Rapid Compliance Audit:** During a walkthrough, inspectors can scan random tags to ensure they match the digital maintenance logs, stopping "backdated" paper records.

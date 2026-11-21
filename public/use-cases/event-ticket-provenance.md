@@ -86,7 +86,18 @@ The provenance endpoint reflects the ticket's current state in the issuer's syst
 
 This artifact confirms the ticket was issued and its current status (issued, used, cancelled, transferred). It does not confirm whether the ticket is transferable under the issuer's terms, or whether the person offering it for resale is the current entitled holder. A buyer on a resale platform who sees ISSUED — NOT YET USED knows the ticket exists and hasn't been scanned, but does not know whether the seller can lawfully transfer it or whether the issuer will honour the transfer at the gate. For resale contexts, transferability and holder verification are separate questions this artifact does not answer.
 
-## Data Verified
+## The Problem: Unverifiable Resale Tickets
+
+A buyer is about to pay a stranger for a ticket to a sold-out event and has only a screenshot or PDF to go on. If the ticket turns out to be fake, used or cancelled, they find out at the venue entrance, after the seller has gone. The secondary ticket market has a structural information asymmetry:
+
+- **Seller knows, buyer does not:** The seller knows whether their ticket is real (or should know)
+- **No pre-payment check:** The buyer has no independent way to check before paying
+- **Patchy platform integration:** The resale platform may or may not have integration with the primary issuer's system
+- **Fabricated tickets:** Screenshots and PDFs of tickets are trivially fabricated
+
+Current mitigations are platform-dependent. Some resale platforms guarantee purchases (absorbing the fraud cost), others do not. Guaranteed platforms pass the cost to buyers through fees. Unguaranteed platforms leave buyers exposed.
+
+## What Is Checked
 
 Event name, date/time, venue, section/row/seat, issuing platform, ticket reference number, and current status.
 
@@ -97,7 +108,7 @@ Event name, date/time, venue, section/row/seat, issuing platform, ticket referen
 
 **Privacy Salt:** Required. The ticket reference and seat location are personally identifying in combination — they can be linked back to the original purchaser through the issuer's records. Salting prevents correlation between provenance checks.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `ticketmaster.co.uk`, `axs.com`, `dice.fm`) and the current ticket status.
 
@@ -120,15 +131,15 @@ When the ticket has been used:
 }
 ```
 
-## Second-Party Use
+## Who Holds It
 
-The **ticket holder** benefits when reselling legitimately.
+The ticket holder benefits when reselling legitimately.
 
 **Proving authenticity before sale:** A seller on a resale platform can share the provenance claim with a prospective buyer. The buyer verifies it independently — confirming the ticket exists, matches the listing details, and has not been used or cancelled. This builds trust without the seller needing to share the actual ticket (barcode, QR code, or mobile wallet entry).
 
 **Dispute resolution:** If a buyer claims the ticket was fake, the seller has a timestamped provenance verification showing the ticket was ISSUED at the time of sale.
 
-## Third-Party Use
+## Who Checks It
 
 **Buyers on Resale Platforms**
 
@@ -148,18 +159,7 @@ The direct beneficiary. Before paying a stranger on StubHub, Viagogo, or a peer-
 
 **Fraud investigation:** When consumers report ticket fraud, investigators can check whether the claimed ticket was ever issued. A fabricated reference returns 404. A USED ticket confirms the scam pattern.
 
-## Verification Architecture
-
-**The Secondary Market Provenance Gap**
-
-The secondary ticket market has a structural information asymmetry:
-
-- The seller knows whether their ticket is real (or should know)
-- The buyer has no independent way to check before paying
-- The resale platform may or may not have integration with the primary issuer's system
-- Screenshots and PDFs of tickets are trivially fabricated
-
-Current mitigations are platform-dependent. Some resale platforms guarantee purchases (absorbing the fraud cost), others do not. Guaranteed platforms pass the cost to buyers through fees. Unguaranteed platforms leave buyers exposed.
+## How Verification Works Here
 
 A provenance claim addresses the asymmetry directly: the buyer checks the issuer's system of record, not the seller's assertions.
 
@@ -169,7 +169,7 @@ This is not a replacement for the ticketing platform's admission-control system.
 
 It is a read-only verification layer. The issuer publishes provenance claims. Interested parties verify them. The ticketing platform's own systems remain the authoritative source for admission, transfer, and refund.
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify Provenance | Platform Guarantee (StubHub) | Seller Screenshot/PDF | Official Transfer |
 | :--- | :--- | :--- | :--- | :--- |

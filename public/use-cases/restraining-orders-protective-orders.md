@@ -65,7 +65,18 @@ Court and law-enforcement systems remain primary for judges, clerks, and police 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Restraining Order Fraud
+
+A school administrator, security guard, landlord or responding officer is shown a paper order and asked to act on it immediately, often outside court hours. They cannot tell whether it is genuine, still in force, or since changed, and the cost of a wrong call runs both ways: a protected person left exposed, or an innocent person excluded on the strength of a forgery.
+
+- **Fabricated orders used to harass:** A fake order is presented to an employer or school to get someone fired, expelled or evicted; the named respondent never appeared in court because no order exists.
+- **Dismissed or expired orders presented as active:** The respondent claims the order was lifted when it was not, or the petitioner presents an order that was dismissed last month; both directions are dangerous.
+- **Modified orders with old paper circulating:** The court changed the conditions, such as the stay-away distance or a protected location, but the old paper version is still being enforced.
+- **Interstate enforcement gaps:** An order issued in California is hard for Texas police to confirm quickly when the respondent turns up near the petitioner's new address.
+- **Mutual orders shown as one-sided:** Both parties are restrained, but one presents only the protective side and omits their own obligations.
+- **Firearms sales:** A dealer needs to know whether a buyer is subject to an active order; this goes through NICS today, and a verifiable order would add a current-status check at the point of sale.
+
+## What Is Checked
 
 Court name, case number, order type (DVRO, civil harassment, stalking, elder abuse), petitioner name, respondent name, date issued, expiration date, conditions summary (stay-away distance, protected locations, no-contact provisions, firearms prohibition), issuing judge.
 
@@ -94,9 +105,9 @@ The endpoint returns a status code:
 
 For restraining orders, a photo of the respondent in the verification response has direct safety value. A school administrator receives the order naming "David Garza" — but what does David Garza look like? If the verification response includes the respondent's photo (sourced from the court file, which typically includes one), the administrator can recognise the person on sight without requiring the protected person to provide a photo, which may not be current or may not exist. This is especially relevant for workplace security guards, shelter intake workers, and building managers who need to exclude a specific individual they have never met.
 
-## Second-Party Use
+## Who Holds It
 
-The **Protected Person (Petitioner)** benefits from verification.
+The Protected Person (Petitioner) benefits from verification.
 
 **Law Enforcement During a Violation:** The petitioner calls 911 and says "he's outside my house." The responding officer scans the order and instantly confirms it is ACTIVE with a 100-yard stay-away distance. No calling the court clerk. No trusting the paper at face value.
 
@@ -108,7 +119,7 @@ The **Protected Person (Petitioner)** benefits from verification.
 
 **New Jurisdictions (Interstate Enforcement):** When the petitioner moves to a different state, the order must be enforced under the Violence Against Women Act (VAWA). A verifiable order eliminates the "I need to call California and check" delay for Texas police.
 
-## Third-Party Use
+## Who Checks It
 
 **Law Enforcement (Primary Enforcement Verifier)**
 The most critical third-party user. Officers responding to violation calls, conducting traffic stops where the respondent is near a protected location, or encountering either party during unrelated incidents. Instant verification means the officer acts on confirmed information, not a piece of paper that could be expired, modified, or fake.
@@ -134,16 +145,7 @@ Verifying order status for safety planning. A shelter intake worker confirming t
 **Hospitals and Emergency Rooms**
 When both parties arrive separately after an incident. ER staff need to know a restraining order exists to keep the parties separated and to coordinate with law enforcement.
 
-## Verification Architecture -- Restraining Order Fraud
-
-**The Restraining Order Fraud Problem**
-
-- **Fabricated Orders Used to Harass Respondents:** A fake restraining order is presented to an employer or school to get someone fired, expelled, or evicted. The "respondent" never appeared in court because the order doesn't exist.
-- **Dismissed or Expired Orders Presented as Active:** The respondent claims the order was lifted, and it wasn't. Or the petitioner claims the order is active, and it was dismissed last month. Both directions are dangerous.
-- **Modified Orders with Old Paper Circulating:** The court changed the conditions -- reduced the stay-away distance, removed a protected location -- but the old paper version is still being enforced.
-- **Interstate Enforcement Gaps:** Order issued in California, respondent moves to Texas. Texas police pull over the respondent near the petitioner's new address and have no fast way to verify a California order.
-- **The Firearms Angle:** A gun dealer must verify if the buyer is subject to a restraining order. Currently this goes through NICS, which has known gaps and delays. A verifiable order would provide an additional, real-time check at the point of sale.
-- **Mutual Orders Misrepresented as One-Sided:** A mutual restraining order means both parties have obligations. One party presents only their protective side to authorities, omitting that they are also restrained.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -168,7 +170,7 @@ UK courts issue restraining orders and protective orders under the Protection fr
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition
+## Compared With the Alternatives
 
 | Feature | Live Verify | NCIC/CJIS (Law Enforcement Databases) | Calling the Court Clerk | Trusting the Paper |
 | :--- | :--- | :--- | :--- | :--- |

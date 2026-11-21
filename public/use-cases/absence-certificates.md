@@ -11,7 +11,7 @@ furtherDerivations: 5
 
 ## What is an Absence Certificate?
 
-Most documents prove something happened. An **Absence Certificate** proves something *didn't* happen—no complaints filed, no liens recorded, no adverse events reported. These are fundamentally harder to forge because they require access to a complete registry, not just a single record.
+Most documents prove something happened. An Absence Certificate proves something *didn't* happen—no complaints filed, no liens recorded, no adverse events reported. These are fundamentally harder to forge because they require access to a complete registry, not just a single record.
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
   <span verifiable-text="start" data-for="abs1"></span>CERTIFICATE OF NO COMPLAINTS<br>
@@ -97,18 +97,16 @@ Most documents prove something happened. An **Absence Certificate** proves somet
   <span data-verify-line="abs5">verify:med.ohio.gov/clear</span> <span verifiable-text="end" data-for="abs5"></span>
 </div>
 
-## Why Absence is Hard to Prove
+## The Problem: Proving a Negative
 
-Traditional documents are positive claims: "X happened." Anyone with the right template can forge one.
+A buyer, lender, landlord or compliance officer is often handed a letter saying that nothing adverse is on record: no complaints, no liens, no sanctions match. They cannot run the search themselves, because only the registry holder can see the whole registry, so they take the letter on trust. A positive claim can at least be compared with a single record; a claim of absence can only be confirmed by the body that searched everything.
 
-Absence claims require:
-- Access to the complete registry (not just one record)
-- Authority to attest "we searched everything"
-- Commitment that the search was exhaustive
+- **Fabricated clearance:** A "nothing found" letter is the easiest kind to make up, because there is no underlying record for the recipient to ask about.
+- **Stale certificate:** A genuine certificate from before a complaint or lien was recorded is presented as if it were current.
+- **Stretched scope:** A search of one office, county or database is presented as if it covered everything.
+- **No authority to attest:** The letter comes from someone who does not hold the complete registry and so cannot credibly say the search was exhaustive.
 
-Only the registry holder can credibly issue absence certificates. This makes them inherently more trustworthy than positive claims.
-
-## Data Verified
+## What Is Checked
 
 Registry authority, subject identifier (person, property, entity, product), search period, categories searched, negative result confirmation, certificate timestamp.
 
@@ -121,7 +119,7 @@ Registry authority, subject identifier (person, property, entity, product), sear
 - **No Judgments:** Court records search
 - **Clear Title:** Property ownership without encumbrances
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the registry that performed the search) and timestamp.
 
@@ -131,9 +129,9 @@ Shows the issuer domain (the registry that performed the search) and timestamp.
 - **Superseded** — New information has been recorded since certificate issued
 - **Partial** — Search covered some but not all requested categories
 
-## Second-Party Use
+## Who Holds It
 
-The **Subject** (business, professional, property owner) benefits from verification.
+The Subject (business, professional, property owner) benefits from verification.
 
 **Competitive Advantage:** "We have zero complaints on record" becomes verifiable, not just claimed.
 
@@ -141,7 +139,7 @@ The **Subject** (business, professional, property owner) benefits from verificat
 
 **Transaction Facilitation:** Clean title certificates, sanctions clearances, and professional standing attestations speed up deals.
 
-## Third-Party Use
+## Who Checks It
 
 **Buyers / Investors**
 **Risk Assessment:** Verified absence of problems is stronger than unverified assurance.
@@ -155,11 +153,11 @@ The **Subject** (business, professional, property owner) benefits from verificat
 **Financial Institutions**
 **KYC/AML:** Sanctions clearance certificates with short validity windows provide point-in-time compliance proof.
 
-## Verification Architecture
+## How Verification Works Here
 
-**The Trust Inversion**
+**Only the Registry Can Attest**
 
-For positive claims, the document holder has incentive to forge. For absence claims, only the registry can credibly attest—the holder can't forge "we searched our database and found nothing."
+An absence claim is only as good as the registry behind it. The holder cannot credibly produce "we searched our database and found nothing" on their own; the registry holder issues the certificate and its domain confirms the exact text.
 
 **Validity Windows**
 

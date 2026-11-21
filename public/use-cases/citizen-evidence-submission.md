@@ -19,6 +19,15 @@ This is different from whistleblowing:
 - **One-part process:** Just needs acknowledgement of receipt, not timeline protection
 - **Anonymity from subject:** Don't want the speeding driver to find them, not anonymity from police
 
+## The Problem: No Proof of Submission
+
+A bystander uploads footage or photos to a police portal, a council or a welfare charity and usually hears nothing back. If the matter later becomes serious, they have no way to show what they sent or when, and the authority has no record it can be held to. Many people also hold back because they fear the person they reported will learn who they are.
+
+- **Lost or ignored reports:** The submitter cannot tell whether the evidence was logged, reviewed or discarded.
+- **Deniable receipt:** Without an acknowledgement tied to the evidence itself, an agency can say it never received the report.
+- **No proof of timing:** If harm follows, the submitter cannot prove they raised the alarm beforehand.
+- **Fear of exposure:** Reporters worry that their identity will reach the subject of the report.
+
 ## Derivation 1: Dashcam/Phone Footage to Police
 
 **The Problem:**
@@ -194,7 +203,7 @@ STATUS: Received
 
 ---
 
-## Verification Architecture
+## How Verification Works Here
 
 **Differences from Whistleblowing:**
 

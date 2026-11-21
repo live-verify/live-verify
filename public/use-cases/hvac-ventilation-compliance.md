@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is Ventilation Compliance?
 
-Local Exhaust Ventilation (LEV) systems are critical for removing toxic fumes, dust, and airborne pathogens (such as COVID-19) from the workplace. Under **COSHH** (UK) and **OSHA 29 CFR 1910.94** (US), these systems must be tested and certified—typically every 14 months—to ensure they provide enough airflow to protect workers. Recent and forthcoming guidance on viral exposure also emphasizes the need for verified ventilation performance and filter schedules. "Shadow Failures" occur when a system sounds like it is working but the airflow is actually below the safety threshold. Verified hashes bind the **System ID, Measured Flow Rates, and Filter Status** to the engineering firm's domain.
+Local Exhaust Ventilation (LEV) systems are critical for removing toxic fumes, dust, and airborne pathogens (such as COVID-19) from the workplace. Under COSHH (UK) and OSHA 29 CFR 1910.94 (US), these systems must be tested and certified—typically every 14 months—to ensure they provide enough airflow to protect workers. Recent and forthcoming guidance on viral exposure also emphasizes the need for verified ventilation performance and filter schedules. "Shadow Failures" occur when a system sounds like it is working but the airflow is actually below the safety threshold. Verified hashes bind the System ID, Measured Flow Rates, and Filter Status to the engineering firm's domain.
 
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #0277bd; border-radius: 8px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #0277bd; color: #fff; padding: 12px; text-align: center; font-weight: bold;">
@@ -33,25 +33,33 @@ Local Exhaust Ventilation (LEV) systems are critical for removing toxic fumes, d
   </div>
 </div>
 
-## Data Verified
+## The Problem: Unverified Airflow
+
+A lab technician or factory worker about to start a hazardous process looks at the test sticker on the hood and assumes the extraction is working. They cannot measure airflow themselves, and a fan that sounds normal may be moving too little air to protect them. An auditor or investigator later has the same difficulty with the test report: it is a piece of paper from an outside firm that they cannot readily confirm.
+
+- **Silent underperformance:** The system runs and sounds normal while airflow is below the safety threshold.
+- **Lapsed testing:** The periodic test is overdue but the old sticker is still on the hood.
+- **Altered or invented results:** Readings, test dates or filter-change dates on a report are edited or made up to avoid the cost of a repair or retest.
+
+## What Is Checked
 
 System ID, facility address, test date, face velocity / flow rate (m/s or fpm), filter type/status, hood number, inspector name, next test due date, regulation reference (COSHH / OSHA).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Industrial Hygiene firm) and current air safety standing.
 
 **Status Indications:**
 - **Certified / Safe** — System meets airflow and filtration requirements.
-- **Fail / Repair Required** — **CRITICAL:** Airflow is insufficient to protect workers.
-- **Expired** — **ALERT:** Mandatory 14-month test window has passed.
+- **Fail / Repair Required** — Airflow is insufficient to protect workers.
+- **Expired** — Mandatory 14-month test window has passed.
 
-## Second-Party Use
+## Who Holds It
 
-The **Industrial Hygienist / Safety Manager** benefits from verification.
+The Industrial Hygienist / Safety Manager benefits from verification.
 - **Audit Defense:** Proving to a labor union or insurance auditor that the ventilation in a hazardous zone is verified active and meeting the legal CFM (Cubic Feet per Minute) requirements.
 
-## Third-Party Use
+## Who Checks It
 
 **Lab Staff / Factory Workers**
 - **Point-of-Use Trust:** Scanning the sticker on a fume hood before starting a chemical process to ensure the air extraction is verified.

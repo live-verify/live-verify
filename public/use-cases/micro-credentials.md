@@ -11,7 +11,7 @@ furtherDerivations: 6
 
 ## What is a Micro-Credential?
 
-Traditional credentials are coarse: degrees, certifications, licenses. **Micro-credentials** are granular—specific skills, completed modules, demonstrated competencies. They're stackable, composable, and more precise than "has a degree in X."
+Traditional credentials are coarse: degrees, certifications, licenses. Micro-credentials are granular—specific skills, completed modules, demonstrated competencies. They're stackable, composable, and more precise than "has a degree in X."
 
 <div style="font-family: 'Courier New', monospace; background: #f9f9f9; padding: 15px; border: 1px solid #999; font-size: 1em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
   <span verifiable-text="start" data-for="micro1"></span>SKILL CREDENTIAL<br>
@@ -125,6 +125,15 @@ Traditional credentials are coarse: degrees, certifications, licenses. **Micro-c
   <span data-verify-line="micro6">verify:openbadges.org/v</span> <span verifiable-text="end" data-for="micro6"></span>
 </div>
 
+## The Problem: Unverifiable Skill Claims
+
+A recruiter, hiring manager or client reading a CV or profile sees a list of badges and course completions and has to decide how much weight to give them. Each comes from a different issuer with its own format, and most are shown as an image or a line of text that anyone could add. Checking them one by one with each issuer is rarely done.
+
+- **Claimed but never earned:** A badge image or certificate is copied or edited to show a different holder.
+- **Inflated level or score:** A completion-only course is presented as an assessed one, or the score is changed.
+- **Expired or withdrawn credentials:** A credential that has lapsed or been revoked still appears on the profile.
+- **Unknown issuers:** With so many issuers, the reader cannot easily tell which organization actually stands behind a badge.
+
 ## Why Micro-Credentials Matter
 
 **Precision:** "Knows Python" is vague. "Completed advanced pandas data manipulation with 92% assessment score" is specific.
@@ -135,7 +144,7 @@ Traditional credentials are coarse: degrees, certifications, licenses. **Micro-c
 
 **Composability:** Stack credentials to show depth. Five related micro-credentials may be more meaningful than one broad certification.
 
-## Data Verified
+## What Is Checked
 
 Issuing organization, holder identifier, credential name/code, level, assessment method, score/result, completion date, assessor (if applicable), expiration (if applicable).
 
@@ -148,7 +157,7 @@ Issuing organization, holder identifier, credential name/code, level, assessment
 - **Open Badge:** Interoperable digital credentials (IMS Global standard)
 - **Project Completion:** Verified contribution to specific work
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (training provider, professional body, peer network) and credential status.
 
@@ -158,9 +167,9 @@ Shows the issuer domain (training provider, professional body, peer network) and
 - **Superseded** — Replaced by updated version (e.g., new technology version)
 - **Revoked** — Credential withdrawn (fraud, misconduct, or issuer policy)
 
-## Second-Party Use
+## Who Holds It
 
-The **Credential Holder** benefits from verification.
+The Credential Holder benefits from verification.
 
 **Job Applications:** Prove specific skills without relying on resume claims.
 
@@ -168,7 +177,7 @@ The **Credential Holder** benefits from verification.
 
 **Continuous Learning:** Verified record of ongoing professional development.
 
-## Third-Party Use
+## Who Checks It
 
 **Employers**
 **Hiring Decisions:** Verify claimed skills before interviews. Filter candidates by verified competencies.
@@ -182,7 +191,7 @@ The **Credential Holder** benefits from verification.
 **Clients**
 **Contractor Vetting:** Verify specific skills relevant to the project.
 
-## Verification Architecture
+## How Verification Works Here
 
 **Issuer Diversity**
 

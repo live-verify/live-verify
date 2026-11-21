@@ -46,7 +46,19 @@ This remains a strong case because the utility or telco is itself the source of 
   <span data-verify-line="bare24">verify:bt.com/address</span>
 </div>
 
-## Data Verified
+## The Problem: Utility Bill Fraud
+
+A bank advisor, letting agent or employer asks for proof of address during onboarding and is shown a bill, often as a PDF on a phone. The check is a glance at a document the customer supplied, so a forged or out-of-date bill passes as easily as a real one. The cost is accounts, credit and services opened at addresses the person has no connection to.
+
+- **PDF forgery:** Templates for every major UK utility are available online. Change the name and address, export as PDF, done. Even experienced compliance officers struggle to spot good forgeries.
+- **Screenshot manipulation:** Mobile screenshots of utility apps are trivially editable.
+- **Borrowed bills:** Using a friend's or relative's bill at the correct address but wrong name, then editing the name.
+- **Expired accounts:** Presenting bills from closed accounts as proof of current address.
+- **Address harvesting:** Stealing bills from letterboxes or bins to use as proof of address for fraud.
+
+Live Verify addresses these because the hash resolves against the provider's domain. A forged PDF won't hash to anything the provider has published. A closed account will return "Closed" status. A stolen bill used by someone else fails because the third party sees the issuer-attested name, not just whatever's printed on the document.
+
+## What Is Checked
 
 Account holder full name, service address (full postal address), account active-since date, issuer identity (utility/telco name).
 
@@ -57,7 +69,7 @@ Account holder full name, service address (full postal address), account active-
 
 **Privacy Salt:** Essential. Name + address combinations are low entropy and easily guessable. Without a salt, an attacker could hash common names against known addresses to discover who lives where. The issuer includes a per-account salt in the hash computation. The salt is printed on the statement (or embedded in the verification line) so the verifier can reconstruct the hash, but an attacker without the document cannot enumerate.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`britishgas.co.uk`, `bt.com`, `thameswater.co.uk`) and account status.
 
@@ -67,9 +79,9 @@ Shows the issuer domain (`britishgas.co.uk`, `bt.com`, `thameswater.co.uk`) and 
 - **Superseded** — A newer address confirmation exists (customer changed address but kept account).
 - **Disputed** — Account holder has flagged the record as incorrect.
 
-## Second-Party Use
+## Who Holds It
 
-The **Account Holder** benefits from verification.
+The Account Holder benefits from verification.
 
 **Faster Onboarding:** Opening a bank account, applying for a mortgage, registering with a GP — anywhere proof of address is required. Instead of uploading a PDF and waiting for manual review, the verifier checks the hash in seconds.
 
@@ -79,7 +91,7 @@ The **Account Holder** benefits from verification.
 
 **Immigration & Visa Applications:** Many visa categories require proof of UK/local address. A verified utility confirmation from a known provider's domain is stronger than an unverifiable PDF.
 
-## Third-Party Use
+## Who Checks It
 
 **Banks & Financial Institutions**
 **KYC/AML Compliance:** Banks are required to verify customer addresses for anti-money-laundering compliance. Currently this means eyeballing PDFs or paying third-party data providers. A direct hash check against the utility provider's domain is cryptographically stronger and costs less.
@@ -99,19 +111,7 @@ The **Account Holder** benefits from verification.
 **Employers**
 **Right-to-Work Checks:** Some employment checks require address confirmation. HR departments can verify instantly rather than filing photocopied bills.
 
-## The Utility Bill Fraud Problem
-
-Utility bills are the weakest link in address verification:
-
-- **PDF forgery:** Templates for every major UK utility are available online. Change the name and address, export as PDF, done. Even experienced compliance officers struggle to spot good forgeries.
-- **Screenshot manipulation:** Mobile screenshots of utility apps are trivially editable.
-- **Borrowed bills:** Using a friend's or relative's bill at the correct address but wrong name, then editing the name.
-- **Expired accounts:** Presenting bills from closed accounts as proof of current address.
-- **Address harvesting:** Stealing bills from letterboxes or bins to use as proof of address for fraud.
-
-Live Verify stops all of these because the hash resolves against the provider's domain. A forged PDF won't hash to anything the provider has published. A closed account will return "Closed" status. A stolen bill used by someone else fails because the third party sees the issuer-attested name, not just whatever's printed on the document.
-
-## Verification Architecture
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -149,7 +149,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **India** | BSNL, Jio, state electricity boards | Aadhaar is primary but utility bills remain common for address proof |
 | **South Africa** | Eskom, Telkom, municipal utilities | FICA requires proof of address for financial account opening |
 
-## Competition vs. Existing Address Verification
+## Compared With Existing Address Verification
 
 | Feature | Live Verify | Credit Bureau Data (Experian etc.) | Manual Document Review |
 | :--- | :--- | :--- | :--- |

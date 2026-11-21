@@ -52,7 +52,18 @@ With Live Verify, the evaluation report carries a `verify:` line bound to the ev
   </div>
 </div>
 
-## Data Verified
+## The Problem: Credential Evaluation Fraud
+
+An immigration officer, licensing board or admissions office receives an evaluation report as a PDF on an agency's letterhead and relies on its equivalency line to decide someone's eligibility. Confirming the report with the agency takes days or weeks, so most are accepted as presented. Genuine applicants pay for this too, when a doubted report stalls their application.
+
+- **Fabricated evaluation reports** — the most common pattern. Fake WES or ECE reports showing higher equivalency than the applicant actually received, or evaluations that were never issued at all. The reports look professional — the agencies' letterheads are publicly available, and a competent forger can produce convincing fakes.
+- **Altered equivalency** — changing "equivalent to a 3-year diploma" to "equivalent to a 4-year bachelor's degree." This is the difference between qualifying for immigration and not. Between being eligible to sit a licensing exam and not. Between getting into graduate school and not. A single word changed in the equivalency field has life-altering consequences.
+- **Fake evaluation agencies** — agencies that aren't NACES or AICE accredited but produce official-looking reports. Names like "Global Credentials Evaluation Services" or "International Education Assessment Center" — plausible-sounding organizations with professional websites that issue worthless evaluations. The receiving authority has no easy way to check whether an agency is legitimately accredited.
+- **Fraudulent underlying credentials** — the evaluation is real, but the degree being evaluated is fake. This is the evaluation agency's problem, not Live Verify's directly, but the authority chain helps: a verified evaluation from WES attests that WES performed their standard verification process on the underlying institution and degree.
+- **Stale evaluations presented after credential was revoked** — rare but possible. If the underlying university revoked the degree (academic fraud discovered years later), the evaluation based on that degree is no longer valid. The WITHDRAWN status catches this.
+The WITHDRAWN status is critical: if WES discovers the underlying degree was from a diploma mill, they withdraw the evaluation — and anyone who verified it previously would get WITHDRAWN on re-verification. This is the safety net that doesn't exist with PDF evaluations.
+
+## What Is Checked
 
 Applicant name, evaluation agency, report number, country of education, institution name, credential earned (original), equivalency determination (the critical field), date of evaluation.
 
@@ -74,9 +85,9 @@ The issuer domain is visible from the `verify:` line on the report itself (e.g.,
 
 Because a forged credential evaluation can unlock an entire professional career that the applicant is not qualified for. The evaluation report is the single document that translates a foreign qualification into domestic equivalency — and it is the document that immigration officers, licensing boards, and employers trust without usually being able to check independently. A fabricated WES report showing "equivalent to a U.S. bachelor's degree" when the actual determination was lower can be the difference between a visa being granted or denied, between being allowed to sit a medical licensing exam or not. For the applicant who genuinely earned their qualification, verification protects against a different risk: that the receiving authority doubts the report's authenticity and delays or rejects the application while trying to confirm it manually — a process that can take weeks and may cost the applicant a job offer or a visa deadline.
 
-## Second-Party Use
+## Who Holds It
 
-The **applicant** (second party) receives the evaluation from the evaluation agency (first party), **keeps it**, and presents it to third parties as needed.
+The applicant (second party) receives the evaluation from the evaluation agency (first party), keeps it, and presents it to third parties as needed.
 
 **Immigration Authorities:** Presenting to Express Entry (Canada), H-1B (US), Skilled Worker visa (UK), or equivalent skilled immigration pathways. Credential evaluation is mandatory for most of these programs, and the evaluation is a primary document in the application. A forged evaluation showing a higher equivalency can mean the difference between qualifying and not qualifying.
 
@@ -86,7 +97,7 @@ The **applicant** (second party) receives the evaluation from the evaluation age
 
 **Employers:** Presenting to employers who require degree equivalency for certain roles — particularly in regulated industries where specific degree equivalency is required by law.
 
-## Third-Party Use
+## Who Checks It
 
 **Immigration Authorities**
 The primary verifier. Credential evaluation is mandatory for most skilled immigration pathways — Canada's Express Entry, Australia's Skilled Migration, the UK's Skilled Worker visa, and others. Immigration officers process thousands of evaluation reports and have no practical way to confirm each one with the evaluation agency. Live Verify gives them instant confirmation: this evaluation was issued by WES, it's current, it hasn't been withdrawn.
@@ -106,16 +117,7 @@ Public sector hiring with degree requirements. Federal and state government posi
 **Scholarship Committees**
 International scholarship programs requiring equivalency — Fulbright, Chevening, DAAD, and others. These programs receive applications from dozens of countries with different education systems. Verified evaluations eliminate guesswork.
 
-## Verification Architecture
-
-**Credential Evaluation Fraud**
-
-- **Fabricated evaluation reports** — the most common pattern. Fake WES or ECE reports showing higher equivalency than the applicant actually received, or evaluations that were never issued at all. The reports look professional — the agencies' letterheads are publicly available, and a competent forger can produce convincing fakes.
-- **Altered equivalency** — changing "equivalent to a 3-year diploma" to "equivalent to a 4-year bachelor's degree." This is the difference between qualifying for immigration and not. Between being eligible to sit a licensing exam and not. Between getting into graduate school and not. A single word changed in the equivalency field has life-altering consequences.
-- **Fake evaluation agencies** — agencies that aren't NACES or AICE accredited but produce official-looking reports. Names like "Global Credentials Evaluation Services" or "International Education Assessment Center" — plausible-sounding organizations with professional websites that issue worthless evaluations. The receiving authority has no easy way to check whether an agency is legitimately accredited.
-- **Fraudulent underlying credentials** — the evaluation is real, but the degree being evaluated is fake. This is the evaluation agency's problem, not Live Verify's directly, but the authority chain helps: a verified evaluation from WES attests that WES performed their standard verification process on the underlying institution and degree.
-- **Stale evaluations presented after credential was revoked** — rare but possible. If the underlying university revoked the degree (academic fraud discovered years later), the evaluation based on that degree is no longer valid. The WITHDRAWN status catches this.
-- The **WITHDRAWN** status is critical: if WES discovers the underlying degree was from a diploma mill, they withdraw the evaluation — and anyone who verified it previously would get WITHDRAWN on re-verification. This is the safety net that doesn't exist with PDF evaluations.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -144,7 +146,7 @@ Foreign credential evaluations are performed by accredited agencies that are rec
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Existing Verification
+## Compared With Existing Verification
 
 | Feature | Live Verify | Contacting the Agency Directly | Checking NACES/AICE Lists | Trusting the PDF |
 | :--- | :--- | :--- | :--- | :--- |
@@ -154,7 +156,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Fraud Resistance** | **High.** Hash-bound to issuer domain; authority chain to accrediting body. | **High.** Direct confirmation from the source. | **Low.** Confirms agency exists, not that this report is real. | **None.** Fake PDFs pass. |
 | **Scalability** | **High.** Handles thousands of verifications per second. | **Low.** One phone call or email at a time. Agencies have backlogs. | **N/A.** Doesn't verify individual reports. | **N/A.** |
 
-**Why Live Verify wins here:** The current default is trusting the PDF. Immigration officers processing hundreds of applications don't have time to individually contact WES or ECE for each evaluation. Checking NACES membership confirms the agency is real but says nothing about whether this specific report was issued. Live Verify gives every verifier — from an immigration officer in Ottawa to a medical licensing clerk in Sydney — instant confirmation that the evaluation is real, current, and unaltered.
+**Where each fits:** Contacting the agency directly gives a full answer from the source and remains the right step for a contested or high-stakes case, and the NACES and AICE lists are the place to confirm that an agency is accredited at all. Neither scales to an officer processing hundreds of applications, and the membership lists say nothing about whether a particular report was issued. Live Verify fills that gap: a quick check that this report, with this equivalency, came from the agency named on it and has not been revised or withdrawn.
 
 ## Jurisdictional Witnessing (Optional)
 

@@ -15,6 +15,15 @@ Every industry that handles risk has learned the same lesson: **punishing report
 
 Verified incident reports create immutable, timestamped records that can't be quietly deleted when inconvenient. Fast disclosure becomes provable. Coverups become impossible.
 
+## The Problem: Buried Incident Reports
+
+After a medication error, a near-miss or a site injury, the people affected, along with regulators and insurers, later need to know whether the incident was reported, when, and what the report said. Today the record sits in the organization's own systems, where it can be edited, backdated or never created, and outsiders usually find out only years later through litigation or an investigation. A verified report fixes what the organization put on record and when; it does not show that the account is complete or accurate.
+
+- **Handled internally:** The decision is made not to report, and no record is created.
+- **Records altered later:** A report is modified or removed once it becomes inconvenient.
+- **Disputed timing:** The organization says it reported or disclosed promptly, and nobody outside can confirm when.
+- **Affected parties not told:** A patient, family or worker is not informed, and there is no fixed record of whether disclosure took place.
+
 ## The Universal Pattern
 
 | Punitive Culture | Blameless Culture |
@@ -336,7 +345,7 @@ The same contributing factors appear everywhere:
 
 Verified incident data enables cross-industry pattern recognition and learning.
 
-## Data Verified
+## What Is Checked
 
 Reporting organization, incident category, date/time, severity classification, immediate cause, contributing factors, injuries/damage/releases, corrective actions, regulatory notification timestamps, disclosure confirmations.
 
@@ -349,7 +358,7 @@ Reporting organization, incident category, date/time, severity classification, i
 - **Corrective Actions Verified** — Fixes implemented and confirmed
 - **Closed** — Full cycle complete with effectiveness review
 
-## Third-Party Use
+## Who Checks It
 
 **Regulators:** Verify reporting timelines were met (4-hour, 24-hour, 72-hour requirements)
 

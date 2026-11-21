@@ -17,6 +17,15 @@ This is the middle ground between:
 - **Fully anonymous** (no accountability, enables abuse)
 - **Fully identified** (no protection, chills legitimate speech)
 
+## The Problem: Anonymous or Credible
+
+Someone has something to report, publish or pass on, and naming themselves would put their job, safety or source relationship at risk. The recipient, whether a regulator, a newsroom, a review platform or a compliance team, has to decide how much weight to give a message from someone they cannot identify. Today each side has to choose between protection and credibility.
+
+- **No credibility:** A fully anonymous tip or review cannot be told apart from a fabricated or malicious one, so it is often discounted.
+- **No accountability:** Anonymity with no backstop lets people make false accusations or post fake reviews without consequence.
+- **No timestamp:** A whistleblower who stayed anonymous cannot later prove what they reported and when, and may be painted as a participant.
+- **Exposure chills speech:** Requiring a name protects the recipient but deters the people with the most to lose from speaking at all.
+
 ## Derivation 1: Whistleblower Pre-Commitment
 
 **The Problem:**
@@ -25,7 +34,7 @@ Whistleblowers face a timing trap. If they report fraud and the company is later
 - Accused of fabricating claims after the fact ("You invented this story when you were fired")
 - Ensnared in legal proceedings as a co-conspirator rather than treated as a protected whistleblower
 
-The critical protection is **proving you knew and tried to expose the wrongdoing at a specific time**—before any investigation, prosecution, or termination.
+The critical protection is proving you knew and tried to expose the wrongdoing at a specific time—before any investigation, prosecution, or termination.
 
 **Why This is Different from Identity Escrow:**
 
@@ -194,13 +203,13 @@ A hash on the claimant's own computer proves nothing—they could have backdated
 | "You're just a disgruntled employee inventing claims" | "The detailed claims document matches a hash from 14 months ago—I knew this long before any dispute" |
 | "Your timeline doesn't match" | "Blockchain timestamp proves exactly when I knew what" |
 
-**Second-Party Use (Whistleblower):**
+**Who Holds It (Whistleblower):**
 - **Legal defense:** Timestamped proof of when they knew what
 - **Whistleblower status:** Establishes they were exposing, not participating
 - **Leverage:** Can prove claims existed before any settlement discussions
 - **Personal protection:** Evidence exists even if employer destroys internal records
 
-**Third-Party Use:**
+**Who Checks It:**
 - **Regulators (SEC, OSHA):** Verify whistleblower timeline claims
 - **Courts:** Authenticate when allegations were first documented
 - **Defense attorneys:** Build timeline for whistleblower protection status
@@ -296,11 +305,11 @@ result in identity disclosure via court order.
 | Businesses can't respond to bad-faith attacks | Recourse for provably false claims |
 | Erodes trust in all reviews | Higher trust signal |
 
-**Second-Party Use:**
+**Who Holds It:**
 - **Reviewer protection:** Honest negative reviews are protected
 - **Credibility:** "Verified purchase" signal increases review impact
 
-**Third-Party Use:**
+**Who Checks It:**
 - **Businesses:** Can pursue defamation for provably false reviews
 - **Platforms:** Higher-quality review corpus
 - **Consumers:** Can trust "verified" reviews more
@@ -355,11 +364,11 @@ Identity protected under press shield laws.
 - Source proven to have deliberately fabricated information (extremely rare)
 - NOT: government subpoena (press shield)
 
-**Second-Party Use:**
+**Who Holds It:**
 - **Source protection:** Even if journalist is subpoenaed, they genuinely don't know the identity
 - **Credibility:** Journalist can truthfully say "verified senior employee" without knowing who
 
-**Third-Party Use:**
+**Who Checks It:**
 - **Editors:** Know source was independently verified
 - **Legal:** Can defend stories with verified (but anonymous) sourcing
 - **Courts:** May accept escrowed verification as credibility evidence
@@ -415,19 +424,19 @@ the secure TipLine portal.
 - Legal process (criminal investigation)
 - Tipster consent
 
-**Second-Party Use:**
+**Who Holds It:**
 - **Protection:** Tipster can report without fear of retaliation
 - **Follow-up:** Can receive and respond to questions anonymously
 - **Evidence:** Can prove they reported an issue (for liability protection)
 
-**Third-Party Use:**
+**Who Checks It:**
 - **Organizations:** Credible tips from verified stakeholders
 - **Regulators:** Pattern of verified safety reports becomes evidence
 - **Investigators:** Can request identity through proper process
 
 ---
 
-## Verification Architecture
+## How Verification Works Here
 
 **The Accountability Spectrum:**
 

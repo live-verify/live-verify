@@ -25,7 +25,13 @@ Certain people are authorized to do things that would otherwise be illegal:
 
 When challenged by police, property owners, or bystanders, these agents need proof of authorization — instantly verifiable, not a PDF that could be forged.
 
-**"Why would you bother?"** Most people will never encounter a repo agent or a bailiff. But when you do, the encounter is immediate and high-stakes — someone is taking your car, entering your property, or seizing your goods. There is no time for a callback number or a website lookup. Fake bailiff scams target vulnerable people: criminals in high-vis jackets present forged paperwork and demand cash payments or access to the property. The consequences of admitting a fake agent range from theft to home invasion. Equally, a genuine agent benefits from instant verification — it resolves challenges on the spot, reduces confrontations, and provides a clear evidence trail that the agent was authorized at the time of the action.
+## The Problem: Forged Authorization Paperwork
+
+Most people will never encounter a repo agent or a bailiff. When they do, the encounter is immediate and high-stakes: someone is taking the car, entering the property, or seizing goods, and there is no time for a callback number or a website lookup. The occupant, a neighbor or a police officer has to decide on the spot whether the paperwork in front of them is real.
+
+- **Fake bailiffs:** Criminals in high-vis jackets present forged paperwork and demand cash payments or access to the property; admitting one can end in theft or home invasion.
+- **No on-scene check:** Police often cannot confirm a paper authorization at the scene, so disputes are deferred to the station and everyone's time is wasted.
+- **Genuine agents challenged:** A real agent with real paperwork has no quick way to prove it, which prolongs confrontations and leaves no clear record that they were authorized at the time.
 
 ## The Verification Challenge
 
@@ -218,7 +224,7 @@ Three different authorization sources depending on context:
   </div>
 </div>
 
-## Third-Party Use
+## Who Checks It
 
 **Police** — On-scene verification of agent authorization; clear basis for action
 **Property owners** — Verify agents acting on their property are legitimate
@@ -227,11 +233,11 @@ Three different authorization sources depending on context:
 **Insurance** — Verify authorized agents before paying claims
 **Licensing bodies** — Monitor licensed operators' activities
 
-## Data Verified
+## What Is Checked
 
-**Agent identity**, **firm/license details**, **authorizing party**, **authorization reference**, **scope of authorization** (which property/vehicle/action), **time window**, **ground truth verification performed** (Land Registry, court records, etc.).
+**Agent identity**, firm/license details, authorizing party, authorization reference, scope of authorization (which property/vehicle/action), time window, ground truth verification performed (Land Registry, court records, etc.).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 **Status Indications:**
 - **Active** — Authorization currently valid
@@ -329,7 +335,7 @@ Full details including authorized individuals:
 - Workers not listed on detailed notice = challenge or call police
 - No individual worker posters = challenge
 
-## Verification Architecture
+## How Verification Works Here
 
 **What makes this fraud-resistant:**
 

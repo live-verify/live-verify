@@ -11,7 +11,7 @@ furtherDerivations: 7
 
 ## What is a Consent Record?
 
-Consent is given, withdrawn, modified—but rarely documented with verifiable precision. A **Consent Record** captures exactly what was consented to, when, by whom, and preserves that moment immutably.
+Consent is given, withdrawn, modified—but rarely documented with verifiable precision. A Consent Record captures exactly what was consented to, when, by whom, and preserves that moment immutably.
 
 "Did they consent?" becomes answerable with cryptographic proof.
 
@@ -147,6 +147,15 @@ Consent is given, withdrawn, modified—but rarely documented with verifiable pr
   <span data-verify-line="cons6">verify:vendor.com/consent</span> <span verifiable-text="end" data-for="cons6"></span>
 </div>
 
+## The Problem: Unprovable Consent
+
+A patient, customer or research participant says they never agreed to something; the organization says they did. A regulator, auditor or court then asks what exactly was agreed, to which version of the terms, and when. The usual evidence is a database flag or a log entry in the organization's own systems, which the other side cannot inspect and which shows that a box was ticked without showing what it covered.
+
+- **Disputed agreement:** One party denies consenting and the other can produce only its own internal record.
+- **Changed terms:** The terms are revised after consent was given, and nobody can show which version the person saw.
+- **Lost withdrawals:** Consent is withdrawn, but the withdrawal is not recorded in a way the person can later prove.
+- **Overstated scope:** Consent to one use is treated as consent to others, such as sharing with third parties.
+
 ## Why Consent Records Matter
 
 **Disputes:** "I never agreed to that" vs. "Here's the verified consent record with exact terms."
@@ -157,7 +166,7 @@ Consent is given, withdrawn, modified—but rarely documented with verifiable pr
 
 **Withdrawal Tracking:** Consent given can be withdrawn. Both events need verification.
 
-## Data Verified
+## What Is Checked
 
 Consenting party (or hash), receiving party, scope of consent (what's being consented to), version of terms/disclosures, timestamp, method of consent, witness (if applicable).
 
@@ -170,7 +179,7 @@ Consenting party (or hash), receiving party, scope of consent (what's being cons
 - **Consent Withdrawal:** Revocation of previous consent
 - **Consent Modification:** Partial changes to existing consent
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (organization that obtained consent) and consent status.
 
@@ -181,9 +190,9 @@ Shows the issuer domain (organization that obtained consent) and consent status.
 - **Superseded** — Replaced by newer consent (e.g., updated terms)
 - **Partial** — Some elements withdrawn, others remain
 
-## Second-Party Use
+## Who Holds It
 
-The **Consenting Party** benefits from verification.
+The Consenting Party benefits from verification.
 
 **Receipt:** Proof of what was consented to (and what wasn't).
 
@@ -191,7 +200,7 @@ The **Consenting Party** benefits from verification.
 
 **Terms Reference:** "What did I actually agree to?" is now answerable.
 
-## Third-Party Use
+## Who Checks It
 
 **Regulators**
 **Compliance Audits:** Verify that proper consent was obtained before processing.
@@ -205,7 +214,7 @@ The **Consenting Party** benefits from verification.
 **Institutional Review Boards**
 **Research Oversight:** Verify proper informed consent for study participants.
 
-## Verification Architecture
+## How Verification Works Here
 
 **Granularity**
 

@@ -13,7 +13,16 @@ furtherDerivations: 4
 
 Sometimes you need professional help but can't afford to be seen seeking it. An executive in therapy. An employee consulting a lawyer about whistleblowing. A spouse hiding assets from an abuser. A public figure with a stigmatized medical condition.
 
-Traditional professional relationships require real identity for billing, records, and licensing compliance. But identity escrow can enable **verified-but-private client relationships**—the professional knows you're real and billable, but works with you under a pseudonym.
+Traditional professional relationships require real identity for billing, records, and licensing compliance. But identity escrow can enable verified-but-private client relationships—the professional knows you're real and billable, but works with you under a pseudonym.
+
+## The Problem: Seeking Help Without Being Identified
+
+Some people avoid a therapist, lawyer, financial planner or doctor because the act of seeking help would harm them if it became known. The professional, for their part, cannot take on a client they know nothing about: they need assurance that the person is real, can pay, and can be reached in an emergency.
+
+- **Exposure through records:** Billing, insurance and appointment records tie a real name to the consultation.
+- **Avoided care:** People in visible or regulated roles put off getting help rather than risk being identified.
+- **Unverifiable anonymous clients:** A professional asked to work with an anonymous client cannot tell a real person from a sting, a bot or a fraud.
+- **Compliance obligations:** Billing, record-keeping and licensing rules assume the professional can establish who the client is.
 
 ## Derivation 1: Anonymous Therapy
 
@@ -270,7 +279,7 @@ This is more constrained than other derivations:
 
 ---
 
-## Verification Architecture
+## How Verification Works Here
 
 **The Professional's Dilemma:**
 

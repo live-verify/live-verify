@@ -11,13 +11,18 @@ furtherDerivations: 4
 
 ## What is Marketplace Pseudonymous Reputation?
 
-Online marketplaces rely on reputation: stars, reviews, transaction history. But reputation is typically locked to a platform and tied to real identity. This creates problems:
-- Platform lock-in (can't take your reputation elsewhere)
-- Identity exposure (real name visible to customers/clients)
-- Reputation restart (new platform = zero reputation)
-- Safety risks (strangers know who you are)
+Online marketplaces rely on reputation: stars, reviews, transaction history. But reputation is typically locked to a platform and tied to real identity.
 
 Identity escrow enables **portable, pseudonymous reputation**: verified identity held by a third party, reputation attached to a persistent pseudonym, transferable across platforms.
+
+## The Problem: Reputation Locked to One Platform
+
+A seller, freelancer or creator who has built years of good standing on one platform cannot show it to a buyer or client anywhere else, and the buyer on the new platform has no way to check a claimed history. To be trusted at all, the seller usually has to expose a real name to strangers.
+
+- **Platform lock-in:** Reputation cannot be taken elsewhere, and is lost if the account is closed.
+- **Reputation restart:** On a new platform, an established seller starts from zero and looks the same as an unknown one.
+- **Unverifiable claims:** A screenshot of ratings from another site can be edited, so a claimed track record carries little weight.
+- **Identity exposure:** Real names are visible to customers and clients, which is a safety risk when strangers know who you are.
 
 ## Derivation 1: Marketplace Sellers (eBay/Etsy/Poshmark)
 
@@ -252,7 +257,7 @@ AVAILABILITY: Accepting new clients
 
 ---
 
-## Verification Architecture
+## How Verification Works Here
 
 **The Reputation Portability Problem:**
 

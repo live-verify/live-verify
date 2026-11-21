@@ -67,7 +67,17 @@ verify:deviantart.com/ai-opt-out/v
 
 But the creator still holds the original verified hash — proof that the opt-out was active at the time of issuance. The revocation itself becomes evidence that the platform changed its position.
 
-## Data Verified
+## The Problem: Unprovable Opt-Outs
+
+A creator who opts out of AI training has nothing to show for it afterwards. When their work later turns up in a training set, or the platform changes its policy, they need to show a regulator, an AI company or a court that the opt-out existed and when, and a settings toggle or a screenshot does not do that.
+
+- **Platform-internal only:** Opt-out preferences live inside the platform's database. The creator cannot export or independently verify them.
+- **No standard format:** Each platform implements opt-outs differently — a settings toggle, an email confirmation, a robots.txt directive. None produce a portable, verifiable artifact.
+- **Reversibility without notice:** Platforms can change their AI training policies, and with them the scope or existence of opt-outs, through terms-of-service updates that most users do not read.
+- **No cross-platform visibility:** An AI company scraping the open web has no reliable way to check whether a creator opted out on the originating platform.
+- **Legal frameworks are fragmented:** The EU AI Act, proposed US legislation, and platform-level policies create overlapping but inconsistent opt-out rights. A verifiable confirmation provides a common artifact regardless of which legal framework applies.
+
+## What Is Checked
 
 Creator identity (handle and domain), platform name, opt-out scope, date of opt-out, and current status.
 
@@ -78,7 +88,7 @@ Creator identity (handle and domain), platform name, opt-out scope, date of opt-
 
 **Privacy Salt:** May be appropriate. Some creators may want the opt-out to be verifiable but not publicly discoverable — for example, if they fear professional retaliation from AI-adjacent employers or clients.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `deviantart.com`, `shutterstock.com`, `spotify.com`) and the current opt-out status.
 
@@ -101,9 +111,9 @@ Shows the issuer domain (e.g., `deviantart.com`, `shutterstock.com`, `spotify.co
 - **Superseded** — A newer opt-out confirmation replaces this one (e.g., scope change).
 - **404** — No such opt-out was issued by the claimed platform.
 
-## Second-Party Use
+## Who Holds It
 
-The **creator** benefits directly.
+The creator benefits directly.
 
 **Portable proof:** The creator can present the verified opt-out confirmation to any AI company, regulator, or legal representative — independent of the originating platform.
 
@@ -111,7 +121,7 @@ The **creator** benefits directly.
 
 **Cross-platform assertion:** A creator active on multiple platforms can collect opt-out confirmations from each, building a verifiable record of their data-rights preferences across services.
 
-## Third-Party Use
+## Who Checks It
 
 **AI Companies and Model Trainers**
 
@@ -129,19 +139,9 @@ The **creator** benefits directly.
 
 **Evidence preservation:** A verified opt-out confirmation, with its hash and issuance date, is stronger evidence than a screenshot of a platform settings page.
 
-## Verification Architecture
+## How Verification Works Here
 
-**The Opt-Out Trust Gap**
-
-The current opt-out landscape has structural weaknesses:
-
-- **Platform-internal only:** Opt-out preferences live inside the platform's database. The creator cannot export or independently verify them.
-- **No standard format:** Each platform implements opt-outs differently — a settings toggle, an email confirmation, a robots.txt directive. None produce a portable, verifiable artifact.
-- **Reversibility without notice:** Platforms can change their AI training policies, and with them the scope or existence of opt-outs, through terms-of-service updates that most users do not read.
-- **No cross-platform visibility:** An AI company scraping the open web has no reliable way to check whether a creator opted out on the originating platform.
-- **Legal frameworks are fragmented:** The EU AI Act, proposed US legislation, and platform-level policies create overlapping but inconsistent opt-out rights. A verifiable confirmation provides a common artifact regardless of which legal framework applies.
-
-The verifiable opt-out confirmation addresses these because:
+The verifiable opt-out confirmation addresses the gaps described above because:
 
 1. The platform issues the claim — it is not self-asserted by the creator
 2. The claim names the specific scope and date
@@ -150,7 +150,7 @@ The verifiable opt-out confirmation addresses these because:
 
 This is an emerging use case. The legal frameworks are still developing, and platform opt-out mechanisms are not yet standardized. But the direction is clear: creators are gaining data rights, and those rights need verifiable artifacts to be enforceable.
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | Platform Settings Page | Email Confirmation | robots.txt / ai.txt |
 | :--- | :--- | :--- | :--- | :--- |

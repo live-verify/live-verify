@@ -42,7 +42,17 @@ With Live Verify, bail and bond documents carry a verify line bound to the court
   <span data-verify-line="bail">verify:courts.maricopa.gov/bail</span> <span verifiable-text="end" data-for="bail"></span>
 </div>
 
-## Data Verified
+## The Problem: Bail Document Fraud
+
+Bail paperwork is shown to people outside the court system: an employer, a family member paying a bondsman, an officer in another state in the middle of the night. None of them can easily reach the court that issued it, so they rely on the paper, which may be fabricated, altered, or no longer in effect.
+
+- **Fake bail receipts.** Claiming bail was posted when it wasn't. The defendant is still in custody — or was never arrested at all — but presents a fabricated bail receipt to an employer or family member. Returns 404.
+- **Altered conditions.** The real bail document says "no travel outside Arizona." The altered version omits that line. The defendant presents the clean copy at the airport. Hash mismatch catches this instantly.
+- **Forged bonds.** Fake bondsman documents. Someone claims to be a bail bondsman, collects a premium from the defendant's family, and produces a phony bond agreement. The court has no record. Returns 404.
+- **Revoked bail presented as active.** The defendant violated conditions. The court revoked bail and issued a bench warrant. But the defendant still has the original bail document and presents it as current. Verification returns REVOKED — the document is real but the status has changed.
+- **Interstate complications.** Defendant posts bail in Arizona, drives to California. California law enforcement encounters them. Is this person legally released? Are there travel restrictions? Without verification, the California officer has no way to check an Arizona court's records at 2 AM. With Live Verify, the Arizona court's domain responds regardless of geography or time zone.
+
+## What Is Checked
 
 Court name, case number, defendant name, bail amount, bond type (cash/surety/personal recognizance), conditions of release summary, posting date, bondsman name and license number (if surety bond).
 
@@ -62,9 +72,9 @@ The endpoint returns a status code reflecting the bail/bond's current state:
 
 The issuer domain is visible from the `verify:` line on the bail document itself (e.g., `courts.maricopa.gov`).
 
-## Second-Party Use
+## Who Holds It
 
-The **Defendant** — the person released on bail — benefits from verification.
+The Defendant — the person released on bail — benefits from verification.
 
 **Proving release to employers.** The defendant was arrested, posted bail, and was released. Their employer needs to know they were legally released — not that they escaped. A verified bail document with ACTIVE status is proof of lawful release. Without it, the defendant's word is all they have, and their word isn't worth much right now.
 
@@ -76,7 +86,7 @@ The **Defendant** — the person released on bail — benefits from verification
 
 **Presenting to law enforcement during routine encounters.** The defendant is pulled over on a traffic stop. The officer runs their name and sees an active case. A verified bail document on their phone proves they are lawfully released, with conditions, under court supervision. This prevents unnecessary detentions and re-arrests.
 
-## Third-Party Use
+## Who Checks It
 
 **Law Enforcement**
 **Verifying release conditions during encounters.** An officer encounters the defendant 200 miles from their restricted area, or at the victim's workplace, or in possession of a firearm. A verified bail document tells the officer the exact conditions — and whether this encounter is a violation. Currently, officers call dispatch, dispatch calls the court, the court is closed. With Live Verify, the officer scans the document and knows in five seconds.
@@ -99,13 +109,7 @@ The **Defendant** — the person released on bail — benefits from verification
 **Immigration Authorities**
 **Bail conditions affecting immigration status.** A non-citizen on bail may face immigration consequences. ICE may issue a detainer. Verified bail documents clarify the criminal court's conditions, which immigration authorities need to understand before taking action.
 
-## Verification Architecture — Bail Document Fraud
-
-- **Fake bail receipts.** Claiming bail was posted when it wasn't. The defendant is still in custody — or was never arrested at all — but presents a fabricated bail receipt to an employer or family member. Returns 404.
-- **Altered conditions.** The real bail document says "no travel outside Arizona." The altered version omits that line. The defendant presents the clean copy at the airport. Hash mismatch catches this instantly.
-- **Forged bonds.** Fake bondsman documents. Someone claims to be a bail bondsman, collects a premium from the defendant's family, and produces a phony bond agreement. The court has no record. Returns 404.
-- **Revoked bail presented as active.** The defendant violated conditions. The court revoked bail and issued a bench warrant. But the defendant still has the original bail document and presents it as current. Verification returns REVOKED — the document is real but the status has changed.
-- **Interstate complications.** Defendant posts bail in Arizona, drives to California. California law enforcement encounters them. Is this person legally released? Are there travel restrictions? Without verification, the California officer has no way to check an Arizona court's records at 2 AM. With Live Verify, the Arizona court's domain responds regardless of geography or time zone.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -131,7 +135,7 @@ UK courts issue bail orders and conditions of release authorized by the Bail Act
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition
+## Compared With the Alternatives
 
 | Feature | Live Verify | Court Case Lookup Portals | Calling the Court Clerk | NCIC / Law Enforcement Databases | Trusting the Paper |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -142,7 +146,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Interstate** | **Works.** Domain-based, no system integration needed. Arizona court responds to California query. | **Fails.** You need to know which county in which state to search. | **Fails.** You need to know which court to call. | **Partial.** NCIC has warrants but not bail conditions. | **Fails.** No way to authenticate another state's documents. |
 | **Detects forgery** | **Yes.** Hash mismatch = forgery. 404 = fabrication. | **Partial.** You can compare details, but altered conditions won't be caught if you don't know the original. | **Yes** (if you reach the clerk). | **Yes** (within the system). | **No.** |
 
-**Why Live Verify wins here:** Court case lookup portals exist but they're a patchwork — different system for every county, often behind paywalls, rarely real-time. NCIC is powerful but locked behind a law enforcement badge. The people who most need bail verification outside the system — employers deciding whether to fire someone, victims checking whether a no-contact order is still in effect, families verifying what the bondsman told them, defendants proving to a traffic cop that they're legally free — have no practical access to any of these. Live Verify puts verification in the hands of anyone holding the document, 24/7, across state lines.
+**Where each fits:** Court case lookup portals are the public record and remain the place to see the full docket, and NCIC gives officers fast, authoritative answers inside the law enforcement system. A call to the clerk is still the right step when something is disputed. The gap is everyone outside those systems, such as employers, victims, families dealing with a bondsman, and officers in another state, who hold the document but cannot easily reach the issuing court, especially after hours. Live Verify lets anyone holding the document check it against the court's domain, alongside the existing channels.
 
 ## Jurisdictional Witnessing (Optional)
 

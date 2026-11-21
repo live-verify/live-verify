@@ -19,7 +19,7 @@ The core question is narrow: **is this person's food hygiene qualification curre
 
 Currently, workers carry paper certificates or PDF copies. An employer must trust the document on sight, phone the training provider, or check a web portal. The worker has no portable, verifiable proof of their certificate's current status.
 
-A **Food Handler Certificate Status** is a verifiable claim from the training provider or accrediting body confirming the certificate reference, qualification level, and whether it remains current.
+A Food Handler Certificate Status is a verifiable claim from the training provider or accrediting body confirming the certificate reference, qualification level, and whether it remains current.
 
 ### Jurisdiction Comparison
 
@@ -68,7 +68,16 @@ verify:cieh.org/certificates/v
 </pre>
 </div>
 
-## Data Verified
+## The Problem: Certificate Without Status
+
+A food business operator taking on kitchen staff is shown a food hygiene certificate and has a legal duty to ensure the person is trained. Food hygiene training providers issue certificates — paper or PDF — at the point of course completion. After that:
+
+- **Out of sight:** The certificate sits in a drawer or email inbox
+- **Unused portals:** The training provider may maintain a lookup portal, but employers rarely use it
+- **Copied, shared or expired:** Paper certificates can be photocopied, shared between individuals, or presented long after expiry
+- **No portable proof:** There is no standard way for the worker to prove their qualification is current without contacting the training provider
+
+## What Is Checked
 
 Certificate reference, training provider, qualification level, current status, issue date, and renewal due date.
 
@@ -87,7 +96,7 @@ The person's name is not in the verifiable text. Only the certificate reference 
 
 This artifact confirms that a certificate reference is current with the training provider. It does not by itself confirm that the person presenting it is the certificate holder — the holder's name is deliberately excluded for privacy. The employer or inspector must separately verify identity (by checking the person's ID against the certificate holder's name on record with the provider). The artifact proves currency; the identity-matching step proves attribution.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain and the certificate's current status.
 
@@ -97,9 +106,9 @@ Shows the issuer domain and the certificate's current status.
 - **Revoked** — The certificate has been withdrawn by the issuing body
 - **Not Found** — No matching certificate exists
 
-## Second-Party Use
+## Who Holds It
 
-The **worker** benefits directly.
+The worker benefits directly.
 
 **Proactive sharing:** A food handler can demonstrate that their hygiene qualification is current when applying for work, without waiting for the prospective employer to contact the training provider. This is useful for workers who move between employers frequently — agency catering staff, seasonal hospitality workers, food delivery riders.
 
@@ -107,7 +116,7 @@ The **worker** benefits directly.
 
 **Multiple employers:** Workers who hold roles at more than one food business (common in hospitality) can share the same verifiable status with each employer independently.
 
-## Third-Party Use
+## Who Checks It
 
 **Food Business Operators**
 
@@ -125,16 +134,7 @@ The **worker** benefits directly.
 
 **Compliance:** Platforms that require their delivery or preparation partners to hold food safety qualifications can verify status programmatically at onboarding and periodically thereafter.
 
-## Verification Architecture
-
-**The Gap Between Certificate and Status**
-
-Food hygiene training providers issue certificates — paper or PDF — at the point of course completion. After that:
-
-- The certificate sits in a drawer or email inbox
-- The training provider may maintain a lookup portal, but employers rarely use it
-- Paper certificates can be photocopied, shared between individuals, or presented long after expiry
-- There is no standard way for the worker to prove their qualification is current without contacting the training provider
+## How Verification Works Here
 
 This use case provides the missing piece: a verifiable claim from the training provider confirming the certificate's current status, bound to the certificate reference and qualification level.
 
@@ -144,7 +144,7 @@ This use case provides the missing piece: a verifiable claim from the training p
 
 Not required. Food hygiene certificate status is not special category data. The certificate reference and qualification level are occupational credentials with no sensitivity comparable to health data or criminal records.
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Verifiable Certificate Status | Training Provider Web Portal | Paper Certificate | Photocopy of Certificate |
 | :--- | :--- | :--- | :--- | :--- |

@@ -80,6 +80,15 @@ Neither attestation is sufficient alone. Together they're powerful:
 
 A potential new supplier evaluating Meridian sees the self-attestation, checks the corroborating supplier attestations, and makes a credit decision based on verified data from the actual counterparties — not from a black-box credit score.
 
+## The Problem: Opaque Payment Reputation
+
+A supplier deciding whether to extend credit to a new customer wants to know one thing: does this business pay its invoices on time? The available evidence is a credit agency score whose inputs cannot be seen, or a few trade references reached by phone. A business that does pay on time has no direct way to show it, and a supplier who guesses wrong carries the late or unpaid invoices.
+
+- **Opaque scores:** A credit rating gives a number without the underlying data, and the rated business cannot readily challenge it.
+- **Lagging data:** Scores update on the agency's reporting cycle and can trail a business's actual behaviour.
+- **Vague trade references:** A phone call to a referee the customer chose yields little more than "they pay okay."
+- **Unbacked policy statements:** A business can state net-30 terms with nothing to show that it keeps to them.
+
 ## Who Participates (And Who Doesn't)
 
 This system works for the vast middle market. It does not work for everyone.
@@ -100,7 +109,7 @@ This system works for the vast middle market. It does not work for everyone.
 - Businesses with poor payment behaviour who'd rather stay opaque
 - Suppliers afraid of retaliation from powerful buyers
 
-The system doesn't need universal coverage. It's a **positive signal.** Presence of attestations with sufficient breadth is credible proof of good behaviour. Absence of attestations is ambiguous — it might mean poor payment behaviour, or it might mean the business hasn't adopted the system yet, or its suppliers haven't. The ambiguity is honest: "we don't have data" is better than a fabricated score.
+The system doesn't need universal coverage. It's a positive signal. Presence of attestations with sufficient breadth is credible proof of good behaviour. Absence of attestations is ambiguous — it might mean poor payment behaviour, or it might mean the business hasn't adopted the system yet, or its suppliers haven't. The ambiguity is honest: "we don't have data" is better than a fabricated score.
 
 ## What This Replaces
 
@@ -110,7 +119,7 @@ The system doesn't need universal coverage. It's a **positive signal.** Presence
 
 **Credit insurance underwriting data.** Trade credit insurers (Euler Hermes, Atradius, Coface) assess whether to insure a buyer's invoices based on limited data. Verified supplier attestations are a richer, more current signal — and the insurer can verify each one independently.
 
-## Data Verified
+## What Is Checked
 
 Company name, Companies House number (or equivalent), stated payment terms, policy effective date. For supplier attestations: attesting supplier name, trading relationship duration, invoice count, payment timing statistics, attestation period.
 
@@ -121,9 +130,9 @@ Company name, Companies House number (or equivalent), stated payment terms, poli
 - **WITHDRAWN** — The attesting supplier has withdrawn their attestation. This is itself a signal — a supplier who previously attested and then withdraws is saying something without saying it.
 - **404** — Attestation not found.
 
-## Second-Party Use
+## Who Holds It
 
-The **attested business** (subject) benefits:
+The attested business (subject) benefits:
 
 **Better credit terms from new suppliers.** "Here are 15 verified attestations from our existing suppliers confirming we pay within 30 days" is more persuasive than "here are three phone numbers, call them."
 
@@ -131,7 +140,7 @@ The **attested business** (subject) benefits:
 
 **Lower cost than credit agencies.** A D&B credit monitoring subscription costs thousands per year. Publishing a self-attestation costs nothing beyond the domain and verification endpoint.
 
-## Third-Party Use
+## Who Checks It
 
 **Potential new suppliers**
 The primary beneficiary. Before extending credit to a new customer, check their attestation profile: self-declared terms, corroborating supplier attestations, the breadth and recency of attestations.
@@ -145,7 +154,7 @@ A platform that indexes payment behaviour attestations from across the web, prov
 **Procurement teams at larger companies**
 Before selecting a new supplier, check the supplier's own payment attestations — are *they* paying *their* suppliers on time? A supplier who pays their sub-suppliers late is a supply chain risk.
 
-## Verification Architecture
+## How Verification Works Here
 
 **No government chain needed.** This is a purely commercial attestation pattern. The trust comes from the attesting domains — recognisable businesses staking their reputations on specific payment behaviour claims.
 
@@ -192,13 +201,13 @@ This means the attestation graph has a positive selection bias. Businesses with 
 - **UK statutory data.** Large UK companies must report payment practices under the Reporting on Payment Practices and Performance Regulations 2017. This self-reported data is public (via gov.uk) and can be cross-referenced with the attestation graph.
 - **Reciprocal attestation.** "You attest for us, we attest for you" creates mutual accountability. A business that asks its suppliers for attestations implicitly invites scrutiny of its own behaviour.
 
-The system is not a fraud detector. It's a **positive credibility signal** — and an honest one, because the limitations are transparent rather than hidden behind a proprietary score.
+The system is not a fraud detector. It's a positive credibility signal — and an honest one, because the limitations are transparent rather than hidden behind a proprietary score.
 
 ## Implementation Note: Data Feed vs Plain Text
 
-The use cases elsewhere in this project are documents *shown to a person* — a credential scanned at a door, a receipt checked by a customer, a reference sent to a recruiter. Payment behaviour data is different. The specific numbers (invoice counts, payment timings, trading relationship details) are **commercially sensitive intelligence.** Published as plain text on the open web, they reveal supply chain structure, purchasing volume, and cash flow position to competitors.
+The use cases elsewhere in this project are documents *shown to a person* — a credential scanned at a door, a receipt checked by a customer, a reference sent to a recruiter. Payment behaviour data is different. The specific numbers (invoice counts, payment timings, trading relationship details) are commercially sensitive intelligence. Published as plain text on the open web, they reveal supply chain structure, purchasing volume, and cash flow position to competitors.
 
-This use case may be better implemented as a **permissioned data feed** — structured API access with explicit consent from both parties — rather than as a `verify:` line on a public webpage. The trust dynamics, the selection bias problem, and the aggregator model described above all still apply. But the implementation might be a commercial platform (the "Net30Club") with access controls, rather than SHA-256 hashes of plain-text postings.
+This use case may be better implemented as a permissioned data feed — structured API access with explicit consent from both parties — rather than as a `verify:` line on a public webpage. The trust dynamics, the selection bias problem, and the aggregator model described above all still apply. But the implementation might be a commercial platform (the "Net30Club") with access controls, rather than SHA-256 hashes of plain-text postings.
 
 The self-attestation (policy commitment) works fine as a public `verify:` posting — "we pay net-30" is a marketing statement, not sensitive data. It's the supplier corroboration that contains the commercially sensitive detail, and that's where a data-feed model may be more appropriate.
 

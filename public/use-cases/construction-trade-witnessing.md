@@ -20,13 +20,13 @@ In multi-trade construction (housing estates, subdivisions, commercial buildings
 - Missing fire stopping → plastered over
 - Cement on brick ties → buried in cavity
 
-The ultimate owner (or renter) becomes the **bag holder** for defects that emerge years later: mold from moisture intrusion, energy bills from poor insulation, structural issues from undersized framing.
+The ultimate owner (or renter) becomes the bag holder for defects that emerge years later: mold from moisture intrusion, energy bills from poor insulation, structural issues from undersized framing.
 
-**At-the-time witnessing** creates a hash-verified record of work *before* it's concealed, with **roll-up attestation** combining all trade records into construction provenance for the completed structure.
+**At-the-time witnessing** creates a hash-verified record of work *before* it's concealed, with roll-up attestation combining all trade records into construction provenance for the completed structure.
 
-## The Piecework Incentive Problem
+## The Problem: Concealed Trade Work
 
-Tradespeople on large developments are often paid per unit (piecework):
+A buyer, tenant, warranty provider or insurer takes on a finished building and cannot see inside its walls. When a defect surfaces years later, nobody can show what the work looked like before it was covered or who signed it off, so the cost falls on whoever holds the building at the time. The incentives during construction make this worse. Tradespeople on large developments are often paid per unit (piecework):
 - Faster completion = more earnings
 - Material savings = more profit (if they supply)
 - Quality invisible once covered = no consequence
@@ -36,6 +36,8 @@ Tradespeople on large developments are often paid per unit (piecework):
 - Spot checks, not continuous observation
 - Inspector arrives after the fact, work already covered
 - Pressure to approve and keep project moving
+
+## What Witnessing Changes
 
 **Witnessing shifts incentives:**
 - Work is photographed/recorded before concealment
@@ -219,7 +221,7 @@ Once the outer leaf is complete, the cavity is invisible forever. Problems emerg
 
 **The Attribution Challenge:**
 
-Concrete is a **crew operation**, not individual work:
+Concrete is a crew operation, not individual work:
 - Multiple rod-busters place rebar simultaneously
 - Pour crews work fast before concrete sets
 - Vibration is shared across crew
@@ -372,7 +374,7 @@ Photos showing:
 
 ## Roll-Up Attestation: Construction Provenance
 
-Individual trade attestations roll up into a **construction provenance document** for the completed unit:
+Individual trade attestations roll up into a construction provenance document for the completed unit:
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="rollup"></span>CONSTRUCTION PROVENANCE CERTIFICATE
@@ -602,7 +604,7 @@ Construction witnessing is on the same trajectory. The Surfside collapse and sim
 
 **Implications for This Document:**
 
-The attestation examples shown here (photos, sign-offs, hash verification) are the **minimum viable witnessing**. Future systems will capture far more data, with far more automation, creating far richer evidence trails. The core principle remains: **document concealed work before concealment, in a way that survives decades and attributes responsibility**.
+The attestation examples shown here (photos, sign-offs, hash verification) are the minimum viable witnessing. Future systems will capture far more data, with far more automation, creating far richer evidence trails. The core principle remains: document concealed work before concealment, in a way that survives decades and attributes responsibility.
 
 ---
 

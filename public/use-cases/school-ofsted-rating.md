@@ -13,7 +13,7 @@ furtherDerivations: 2
 
 Most countries have a government body that inspects schools and publishes performance ratings. Parents rely on these ratings when choosing schools, but schools self-assert the rating on their own websites, prospectuses, and premises signage. A parent who wants to confirm a claimed rating must navigate to the inspector's own website and search — a step most parents skip.
 
-In **England**, this body is Ofsted. It inspects state-funded schools — maintained schools, academies, free schools, and some independent schools — and publishes a rating: Outstanding, Good, Requires Improvement, or Inadequate. The pattern described here uses Ofsted as the primary example, but the same verification architecture applies to every jurisdiction listed below.
+In England, this body is Ofsted. It inspects state-funded schools — maintained schools, academies, free schools, and some independent schools — and publishes a rating: Outstanding, Good, Requires Improvement, or Inadequate. The pattern described here uses Ofsted as the primary example, but the same verification architecture applies to every jurisdiction listed below.
 
 | Jurisdiction | Inspection / Rating Body | Notes |
 | :--- | :--- | :--- |
@@ -91,7 +91,9 @@ Last Inspected: Mar 2025
 verify:ofsted.gov.uk/schools/v
 ```
 
-## Example: Outdated or Misrepresented Rating
+## The Problem: Outdated or Misrepresented Ratings
+
+Parents choosing a school see its inspection rating on the school's own website, prospectus or reception wall, where the school itself asserts it. Confirming it means going to the inspectorate's website and searching, a step most parents skip, so an out-of-date or misleading rating can shape an admissions decision.
 
 The fraud patterns for schools mirror those described in [childcare Ofsted registration](childcare-ofsted-registration), with school-specific variants:
 
@@ -101,13 +103,13 @@ The fraud patterns for schools mirror those described in [childcare Ofsted regis
 
 The verification endpoint returns the current status. A claim that was valid when issued returns SUPERSEDED if the rating has changed since.
 
-## Data Verified
+## What Is Checked
 
 School name, URN, school type (maintained, academy, free school), current Ofsted rating, date of last inspection, registered website domain, and current status.
 
 **Privacy Salt:** Not required. School Ofsted ratings are public information. Schools are expected to display their rating.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`ofsted.gov.uk`) and the school's current rating and inspection status.
 
@@ -127,9 +129,9 @@ Shows the issuer domain (`ofsted.gov.uk`) and the school's current rating and in
 - **Closed** — The school has closed.
 - **404** — No such school exists at Ofsted.
 
-## Second-Party Use
+## Who Holds It
 
-The **school** uses the verifiable claim to prove its rating to parents.
+The school uses the verifiable claim to prove its rating to parents.
 
 **On the school website:** The school embeds the Ofsted-issued claim on its homepage or admissions page. Parents researching schools clip the claim and receive confirmation that the rating is current.
 
@@ -137,7 +139,7 @@ The **school** uses the verifiable claim to prove its rating to parents.
 
 **In admissions materials:** The school includes the verifiable claim text in prospectuses or communications sent to parents during the admissions process.
 
-## Third-Party Use
+## Who Checks It
 
 **Parents**
 
@@ -151,13 +153,13 @@ The **school** uses the verifiable claim to prove its rating to parents.
 
 **Trust-level oversight:** A multi-academy trust managing multiple schools can embed verified claims on its central website. Parents browsing the trust's portfolio of schools see issuer-confirmed ratings rather than trust-asserted ones.
 
-## Verification Architecture
+## How Verification Works Here
 
 The architecture is identical to [childcare Ofsted registration](childcare-ofsted-registration). Ofsted issues the claim, the school embeds it, and the verification endpoint reflects the current status. The `allowedDomains` field prevents a school from copying another school's claim to its own site.
 
 The domain mismatch detection works the same way: if a school copies a claim from another school's site, the browser extension detects that the embedded domain does not match the current page and shows an amber warning.
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | Ofsted Website Search | School's Own Website | Council Admissions Booklet |
 | :--- | :--- | :--- | :--- | :--- |

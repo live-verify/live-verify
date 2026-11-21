@@ -24,6 +24,25 @@ These votes require two things that seem contradictory:
 
 Identity escrow provides both: verified eligibility, anonymous participation.
 
+## The Problem: Eligibility Versus Secrecy
+
+A union, homeowners' association, employer or co-op running a vote needs to show that only eligible members took part, while each member needs confidence that nobody can see how they voted. The usual methods deliver one at the expense of the other, and whoever dislikes the outcome can exploit whichever is missing.
+
+- **Votes linked to identity:** A show of hands or a logged-in digital ballot confirms eligibility but exposes each person's choice, which invites retaliation.
+- **Unchecked eligibility:** An anonymous ballot protects secrecy but cannot show that only members voted.
+- **Challenged results:** Without evidence that every voter was eligible, an unfavourable result can be disputed.
+- **Guarded answers:** Employees who doubt that a survey is anonymous give safe answers or none.
+
+Traditional approaches fail at one or the other:
+
+| Method | Eligibility | Secrecy | Problem |
+| :--- | :--- | :--- | :--- |
+| Show of hands | ✓ | ✗ | Everyone sees your vote |
+| Paper ballot, no check-in | ✗ | ✓ | Anyone can vote |
+| Paper ballot with roster | ✓ | Partial | Vote order may reveal |
+| Digital login + vote | ✓ | ✗ | Vote linked to identity |
+| Anonymous digital | ✗ | ✓ | Can't verify eligibility |
+
 ## Derivation 1: Union Contract Votes
 
 **The Problem:**
@@ -249,19 +268,7 @@ Results announced at Annual Meeting, March 15.
 
 ---
 
-## Verification Architecture
-
-**The Core Problem: Eligibility + Secrecy**
-
-Traditional approaches fail at one or the other:
-
-| Method | Eligibility | Secrecy | Problem |
-| :--- | :--- | :--- | :--- |
-| Show of hands | ✓ | ✗ | Everyone sees your vote |
-| Paper ballot, no check-in | ✗ | ✓ | Anyone can vote |
-| Paper ballot with roster | ✓ | Partial | Vote order may reveal |
-| Digital login + vote | ✓ | ✗ | Vote linked to identity |
-| Anonymous digital | ✗ | ✓ | Can't verify eligibility |
+## How Verification Works Here
 
 **Identity Escrow Solves This:**
 

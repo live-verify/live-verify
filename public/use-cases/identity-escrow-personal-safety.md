@@ -13,7 +13,16 @@ furtherDerivations: 4
 
 When strangers meet in person, there's inherent risk. Identity escrow provides accountability without requiring parties to share personal details directly. A witnessing organization verifies both identities and holds them in escrow—disclosed only if something goes wrong.
 
-This is a **notary for personal encounters**—creating a record that deters bad actors and provides recourse for victims.
+This is a notary for personal encounters—creating a record that deters bad actors and provides recourse for victims.
+
+## The Problem: Meeting Unverified Strangers
+
+Someone is about to meet a person they know only from an app, an advert or an informal arrangement: a first date, a prospective roommate, a custody handover, a casual carer. They have a first name and a phone number, and no way to confirm either. If the meeting goes badly, there may be nobody to name afterwards. The scenarios below share a common pattern:
+
+- **In-person contact:** Two parties need to interact in person.
+- **Reluctance to share details:** Neither wants to hand over personal details upfront.
+- **No recourse afterwards:** Accountability might be needed after the interaction, and a false name or burner number leaves nothing to follow up.
+- **No institution to ask:** Traditional verification (licenses, employers) doesn't apply.
 
 ## Derivation 1: Dating App First Meetups
 
@@ -54,12 +63,12 @@ SafeMeet Trust & Safety: safety@safemeet.org
 - **Under Investigation** — Law enforcement has requested records
 - **Resolved** — Investigation closed
 
-**Second-Party Use:**
+**Who Holds It:**
 - **Peace of mind:** "If something happens, there's a record"
 - **Deterrence:** Bad actors know their identity is on file
 - **Emergency contact:** Witness org can contact emergency services if party doesn't check in
 
-**Third-Party Use:**
+**Who Checks It:**
 - **Law enforcement:** Subpoena for identity after assault report
 - **Dating platforms:** Aggregate safety metrics (anonymized) to identify risky patterns
 
@@ -109,11 +118,11 @@ Full names released upon mutual consent.
 - Lease dispute filed with landlord/court
 - Criminal complaint filed
 
-**Second-Party Use:**
+**Who Holds It:**
 - **Pre-lease confidence:** Know you're not moving in with someone using a fake identity
 - **Post-move recourse:** If they vanish owing rent, you can find them
 
-**Third-Party Use:**
+**Who Checks It:**
 - **Landlords:** Verify both tenants went through identity verification
 - **Small claims courts:** Obtain identity for service of process
 
@@ -165,12 +174,12 @@ Both parents verified via government ID.
 - **No Show** — One parent did not appear
 - **Incident** — Dispute or concerning behavior noted
 
-**Second-Party Use:**
+**Who Holds It:**
 - **Court evidence:** Verified record of on-time exchanges
 - **Pattern documentation:** Consistent late deliveries become evidence
 - **Peace of mind:** Less "he said/she said" conflict
 
-**Third-Party Use:**
+**Who Checks It:**
 - **Family courts:** Verified exchange records as evidence
 - **Guardian ad litem:** Pattern analysis of exchange compliance
 - **Mediators:** Objective data for dispute resolution
@@ -219,25 +228,17 @@ First Visit: January 15, 2025
 - Civil lawsuit
 - Mutual consent
 
-**Second-Party Use:**
+**Who Holds It:**
 - **Hiring confidence:** Caregiver has "skin in the game" with verified identity
 - **Reference building:** Pattern of verified engagements becomes a reputation
 
-**Third-Party Use:**
+**Who Checks It:**
 - **Law enforcement:** Identity disclosure after incident
 - **Insurance:** Verified caregiver identity for liability claims
 
 ---
 
-## Verification Architecture
-
-**The "Stranger Danger" Problem:**
-
-All four derivations share a common pattern:
-- Two parties need to interact in person
-- Neither wants to share personal details upfront
-- Post-interaction accountability might be needed
-- Traditional verification (licenses, employers) doesn't apply
+## How Verification Works Here
 
 **What Identity Escrow Provides:**
 

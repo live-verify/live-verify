@@ -50,7 +50,18 @@ With Live Verify, the certificate carries a `verify:` line bound to the issuing 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Unverifiable Residency Certificates
+
+A company, bank or fund paying dividends, interest or royalties across a border must settle the withholding rate before the payment goes out, and the payee's residency certificate is what justifies the lower treaty rate. The person deciding often cannot read the certificate's language and has never dealt with the issuing authority, yet the payer is liable for the shortfall if the certificate turns out to be forged, out of date or issued for a different year.
+
+- **Forged certificates:** A fabricated residency certificate is presented to a foreign payer to obtain reduced withholding, and the payer has no practical way to check a document from an authority it has never dealt with.
+- **Prior-year certificates presented as current:** Residency can change from year to year; a certificate valid for 2024 says nothing about 2025 if the taxpayer relocated.
+- **Treaty shopping:** Income is routed through a country with a favourable treaty on the strength of fabricated residency there, which is why tax authorities care about certificate authenticity.
+- **Subdivision confusion in federal systems:** A certificate is issued by one subdivision when the taxpayer is resident in another, relevant in countries such as Switzerland (cantonal vs. federal), Germany (Bundesland) and the US (state residency).
+- **Language barrier:** A payroll clerk cannot confirm that a certificate in German, Japanese or Arabic says what the presenter claims; a hash check works the same whatever the document's language.
+- **Dual residency:** A person resident in two countries under each one's domestic law presents whichever certificate is more favourable for the transaction; treaty tiebreaker rules apply only if someone checks.
+
+## What Is Checked
 
 Taxpayer name, taxpayer identification number (TIN), country of residence, tax year(s) covered, issuing tax authority, date issued, treaty applicability (which bilateral treaty). NOT included: income amounts, tax paid, detailed tax returns.
 
@@ -64,9 +75,9 @@ Taxpayer name, taxpayer identification number (TIN), country of residence, tax y
 
 The issuer domain is visible from the `verify:` line on the certificate itself (e.g., `estv.admin.ch`).
 
-## Second-Party Use
+## Who Holds It
 
-The **Taxpayer** (individual or entity) is the second party. They receive the certificate from their tax authority and present it to foreign parties.
+The Taxpayer (individual or entity) is the second party. They receive the certificate from their tax authority and present it to foreign parties.
 
 **Claiming Treaty Benefits on Dividends/Interest:** Providing the certificate to foreign payers to claim reduced withholding rates under bilateral tax treaties. A Swiss company receiving UK dividends presents its ESTV certificate to the UK paying agent to claim the 0% treaty rate instead of the standard 15%.
 
@@ -76,7 +87,7 @@ The **Taxpayer** (individual or entity) is the second party. They receive the ce
 
 **Tax Advisor Confirmation:** Providing to their own tax advisors to confirm residency status, particularly in cases of dual residency or recent relocation where the correct filing position depends on which country considers the taxpayer resident.
 
-## Third-Party Use
+## Who Checks It
 
 **Companies Paying Cross-Border Dividends/Interest/Royalties**
 The primary use. A UK company paying a royalty to a German licensor needs the German company's tax residency certificate to apply the treaty rate instead of the standard withholding rate. Get it wrong and HMRC assesses the shortfall plus penalties.
@@ -96,16 +107,7 @@ Treaty reclaim processing — recovering excess withholding tax. Funds hold secu
 **Tax Advisors and Accountants**
 Verifying client residency claims before filing cross-border tax returns. Getting it wrong exposes the advisor to professional liability.
 
-## Verification Architecture
-
-**Tax Residency Certificate Fraud**
-
-- **Forged certificates to claim treaty benefits:** The core fraud. Fabricate a residency certificate, present it to a foreign payer, pocket the reduced withholding. The payer has no practical way to verify — especially when the certificate is in a foreign language from a foreign authority they've never dealt with.
-- **Certificates from a prior tax year presented as current:** Residency can change year to year. A certificate valid for 2024 means nothing for 2025 if the taxpayer relocated.
-- **Treaty shopping:** Routing income through a country with favorable treaties using fabricated residency. Claim to be resident in a country with a 0% withholding treaty when you're actually resident somewhere with a 15% rate. This is the reason tax authorities care most about certificate authenticity.
-- **Federal system subdivision fraud:** Certificates issued by one subdivision of a country when the taxpayer is actually resident in another. Relevant for countries like Switzerland (cantonal vs. federal), Germany (Bundesland), and the US (state residency affecting treaty claims).
-- **The multilingual problem:** The paying company cannot read the language of the issuing authority. A payroll clerk in Manchester cannot verify whether a certificate in German, Japanese, or Arabic says what the presenter claims it says. Live Verify makes the language irrelevant — the hash verification works regardless of the document's language.
-- **Dual residency exploitation:** Person is resident in two countries under each country's domestic law and presents whichever certificate is more favorable depending on the transaction. Treaty tiebreaker rules exist but are only applied if someone actually checks.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -128,7 +130,7 @@ HMRC issues tax residency certificates and treaty eligibility declarations under
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition
+## Compared With the Alternatives
 
 | Feature | Live Verify | Apostille | Direct Contact with Foreign Tax Authority | Trust the Paper |
 | :--- | :--- | :--- | :--- | :--- |
@@ -138,11 +140,11 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Current Status** | **Yes.** Real-time status (VALID/EXPIRED/REVOKED). | **No.** Apostille is point-in-time. Certificate may have been revoked since. | **Yes.** But you'll find out in three months. | **No.** No way to know if it's still valid. |
 | **Treaty Requirement** | **None.** Works for any treaty country. | **Varies.** Many tax treaties don't require apostille. | **Requires bilateral channels.** Not available to private companies. | **Default.** And the reason treaty fraud persists. |
 
-**Why Live Verify wins here:** The current default is trusting the paper. Apostilles prove the signature but not the content — a genuine certificate for the wrong tax year still carries a valid apostille. Contacting the foreign tax authority directly is available to governments but not to the companies that actually need to verify certificates before applying withholding rates. Live Verify puts real-time verification in the hands of the payroll clerk who's actually making the withholding decision.
+**Where each fits:** An apostille does its own job well: it confirms that the signature and seal on the certificate are genuine, and it remains the right tool where a receiving authority requires legalisation. Exchange between tax authorities is the proper channel for governments, though it is slow and not open to private payers. Neither tells the paying company whether this certificate's content is current for the tax year in question, which is the gap Live Verify fills: a quick check against the issuing authority's own record for the person making the withholding decision. The approaches sit alongside each other.
 
 ## Jurisdictional Witnessing (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the tax authority's hashes and status changes plus structured metadata (taxpayer TIN, tax year, country of residence, treaty reference, certificate number, issue date) — never plaintext or sensitive personal information — providing non-repudiation of the tax residency certificate. Tax residency certificates have particular witnessing value for **audit defense** — the witnessing record proves verification occurred at the time of the withholding decision, demonstrating good faith even if the certificate later proves forged.
+An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the tax authority's hashes and status changes plus structured metadata (taxpayer TIN, tax year, country of residence, treaty reference, certificate number, issue date) — never plaintext or sensitive personal information — providing non-repudiation of the tax residency certificate. Tax residency certificates have particular witnessing value for audit defense — the witnessing record proves verification occurred at the time of the withholding decision, demonstrating good faith even if the certificate later proves forged.
 
 ## Further Derivations
 

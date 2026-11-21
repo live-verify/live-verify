@@ -51,7 +51,19 @@ Inside the healthcare system, PDMP and e-prescribing should remain primary. The 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Prescription Fraud
+
+Pharmacists have monitoring databases and e-prescribing to lean on, but a customs officer, school nurse, sports official or police officer has only the paper or a phone snapshot. They must decide on the spot whether the medication in front of them was really prescribed to this person, by a real prescriber, in this quantity. Guess wrong one way and a legitimate patient is detained or loses their medication; guess wrong the other way and diverted drugs pass.
+
+- **Forged prescriptions:** Blank pads bought online or fake letterhead printed at home; paper prescriptions carry no built-in means of checking.
+- **Altered prescriptions:** Changing the quantity from 20 to 200, switching hydrocodone to oxycodone, or adding refills with a pen, a photocopier or a PDF editor.
+- **Prescriber impersonation:** A real doctor's name and DEA number, which is often printed on legitimate prescriptions and easily copied, used on a fake prescription.
+- **Stolen prescription pads:** Pads taken from surgeries and clinics produce prescriptions that look authentic because the stationery is, though no doctor wrote them.
+- **Reuse and doctor shopping:** One prescription presented at several pharmacies, or several prescriptions for the same controlled substance obtained from different prescribers; each paper looks fine on its own.
+- **Pharmacy fraud:** Fake pharmacies filling fake prescriptions for insurance billing, where both the prescription and the dispensing are fabricated.
+- **Foreign prescriptions:** Forged prescriptions naming overseas doctors, which the receiving country has no practical way to check.
+
+## What Is Checked
 
 Patient name, prescriber name, prescriber credentials (medical degree, board certification), prescribing organization, medication name, dosage, quantity, date prescribed, number of refills authorized, controlled substance schedule (if applicable), prescriber registration number (GMC, NPI), DEA number (US controlled substances only).
 
@@ -71,9 +83,9 @@ The endpoint returns a status code:
 
 The issuer domain is visible from the `verify:` line on the prescription itself (e.g., `elmstreetmedical.nhs.uk`).
 
-## Second-Party Use
+## Who Holds It
 
-The **Patient** (second party) receives the prescription from the prescriber (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Patient (second party) receives the prescription from the prescriber (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Traveling internationally with controlled medications** — the primary non-pharmacy use case. The patient crossing a border with codeine, diazepam, or methylphenidate can present a verified prescription to customs. The officer scans it, sees VALID or FILLED, and knows this isn't a trafficker.
 
@@ -85,7 +97,7 @@ The **Patient** (second party) receives the prescription from the prescriber (fi
 
 **Emergency situations** — the patient is found unconscious or incoherent. Emergency medical teams can scan the prescription to verify the patient's medication claims without waiting to reach the prescriber.
 
-## Third-Party Use
+## Who Checks It
 
 **Pharmacies**
 PDMP and e-prescribing remain the primary production systems. A document-to-status bridge is more useful when pharmacies are forced to work from a paper or external prescription artifact outside the usual closed loop.
@@ -111,16 +123,9 @@ Verifying a patient's medication claims in emergencies. Paramedics treating an u
 **Care Homes / Nursing Facilities**
 Verifying prescriptions for residents. Care homes administer medication daily to dozens of residents and need to know every prescription is current and legitimate.
 
-## Verification Architecture — The Prescription Fraud Problem
+## How Verification Works Here
 
-- **Forged prescriptions:** Blank prescription pads bought online, fake letterhead printed at home. The most basic attack — and still effective because paper prescriptions have zero built-in verification.
-- **Altered prescriptions:** Changing the quantity from 20 to 200, switching hydrocodone to oxycodone, adding refills. A pen, a photocopier, or a PDF editor is all it takes.
-- **Doctor shopping:** Obtaining multiple prescriptions from different prescribers for the same controlled substance. Each individual prescription is "real" — the fraud is in the aggregation.
-- **Prescriber impersonation:** Using a real doctor's name and DEA number on a fake prescription. The DEA number is often printed on legitimate prescriptions and is easily copied.
-- **Stolen prescription pads:** Physical theft from surgeries and clinics. The prescriptions look completely authentic because they are — except they weren't written by the doctor.
-- **Pharmacy fraud:** Fake pharmacies filling fake prescriptions for insurance billing. A closed-loop fraud where both the prescription and the dispensing are fabricated.
-- **International prescription fraud:** Forged prescriptions from overseas doctors. Particularly dangerous because the receiving country has no practical way to verify a foreign prescriber.
-- **The "FILLED" status is critical:** It prevents a single prescription from being presented to multiple pharmacies. Once dispensed, the status changes. This is the single most important fraud-prevention feature — turning a reusable piece of paper into a one-time token.
+The FILLED status matters most here. It prevents a single prescription from being presented to multiple pharmacies. Once dispensed, the status changes, turning a reusable piece of paper into a one-time token.
 
 ## Privacy Salt
 
@@ -152,7 +157,7 @@ For controlled substances, an additional chain applies: DEA registration (US) or
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition
+## Compared With the Alternatives
 
 | Feature | Live Verify | PDMP (Prescription Drug Monitoring Program) | Calling the Prescriber | E-Prescribing (EPCS) | Trusting the Paper |
 | :--- | :--- | :--- | :--- | :--- | :--- |

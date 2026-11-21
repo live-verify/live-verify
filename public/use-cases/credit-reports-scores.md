@@ -42,9 +42,20 @@ With Live Verify, the credit report carries a verify line bound to the bureau's 
   <span data-verify-line="creditreport">verify:equifax.com/report</span> <span verifiable-text="end" data-for="creditreport"></span>
 </div>
 
-## Data Verified
+## The Problem: Credit Report Fraud
 
-**Consumer name**, **report date**, **credit score**, **score model** (FICO 8, VantageScore 3.0), **number of open accounts**, **total balances**, **payment history percentage**, **number of hard inquiries**, **derogatory marks count**.
+A landlord, lender or utility is handed a credit report by the applicant and has to decide on it. Credit reports are high-stakes documents delivered as unprotected PDFs: the incentive to alter them is strong and the tools are freely available. The recipient's only check today is to pull a fresh report, which needs the applicant's SSN and consent and costs money.
+
+- **PDF editing to inflate scores** — The most common fraud. Change "520" to "780" in any PDF editor. Landlords and lenders see thousands of reports; they can't visually distinguish a real 780 from an edited one.
+- **Fake credit report generators** — Websites and software that produce realistic-looking credit reports from scratch. Some charge $50-100 per fake report. The formatting is indistinguishable from genuine bureau output.
+- **Synthetic identity fraud** — Fabricated identities with built credit histories. The "person" doesn't exist, but their credit file does. A verified report bound to the bureau's domain confirms the report was actually issued, though it doesn't solve the synthetic identity problem upstream.
+- **"Credit repair" scams using altered reports** — Shady operators show clients "before and after" reports where the "after" is simply an edited PDF. The client pays thousands for nothing. Verification proves whether the "improved" report actually came from the bureau.
+- **Stale reports presented as current** — Credit data changes monthly. A report from six months ago may show a score 100 points higher than today's. The UPDATED status catches this — the bureau flags that a newer report exists.
+- **Selective sharing** — A consumer has three bureau reports and shares only the best one. This isn't fraud per se, but verification timestamps prevent presenting a six-month-old Equifax report (score: 760) when the current Equifax report (score: 640) tells a different story.
+
+## What Is Checked
+
+**Consumer name**, report date, credit score, score model (FICO 8, VantageScore 3.0), number of open accounts, total balances, payment history percentage, number of hard inquiries, derogatory marks count.
 
 **NOT included:** Individual account details, SSN, full account numbers. The verification hash covers the summary — enough to confirm the score and overall credit profile without exposing the granular trade-line data that makes identity theft so profitable.
 
@@ -56,9 +67,9 @@ With Live Verify, the credit report carries a verify line bound to the bureau's 
 - **FROZEN** — Consumer has a security freeze; limited data available
 - **404** — No matching record (forged report, wrong report number, or OCR error)
 
-## Second-Party Use
+## Who Holds It
 
-The **consumer**. The person whose credit is being reported.
+The consumer. The person whose credit is being reported.
 
 **Proving creditworthiness to landlords:** Apartment applicants routinely submit credit reports. Landlords currently have two options: trust the PDF or pay to pull their own copy. Live Verify gives them a third: scan what the applicant provided and confirm it's real. No SSN collection, no hard inquiry, no cost.
 
@@ -68,7 +79,7 @@ The **consumer**. The person whose credit is being reported.
 
 **Sharing with financial advisors:** Clients share credit reports with advisors for debt management planning. Verification confirms the advisor is working from real data, not an optimistic summary the client doctored to avoid embarrassment.
 
-## Third-Party Use
+## Who Checks It
 
 **Landlords/property managers** — Verifying applicant-provided reports without pulling a fresh one (saves $30-50 per application, avoids collecting SSNs)
 
@@ -84,16 +95,7 @@ The **consumer**. The person whose credit is being reported.
 
 **Utility companies** — Deposit decisions based on credit; verification avoids the cost of pulling a full report for a $200 deposit decision
 
-## Verification Architecture — The Credit Report Fraud Problem
-
-**The core vulnerability:** Credit reports are high-stakes documents delivered as unprotected PDFs. The incentive to alter them is enormous, and the tools required are trivial.
-
-- **PDF editing to inflate scores** — The most common fraud. Change "520" to "780" in any PDF editor. Landlords and lenders see thousands of reports; they can't visually distinguish a real 780 from an edited one.
-- **Fake credit report generators** — Websites and software that produce realistic-looking credit reports from scratch. Some charge $50-100 per fake report. The formatting is indistinguishable from genuine bureau output.
-- **Synthetic identity fraud** — Fabricated identities with built credit histories. The "person" doesn't exist, but their credit file does. A verified report bound to the bureau's domain confirms the report was actually issued, though it doesn't solve the synthetic identity problem upstream.
-- **"Credit repair" scams using altered reports** — Shady operators show clients "before and after" reports where the "after" is simply an edited PDF. The client pays thousands for nothing. Verification proves whether the "improved" report actually came from the bureau.
-- **Stale reports presented as current** — Credit data changes monthly. A report from six months ago may show a score 100 points higher than today's. The UPDATED status catches this — the bureau flags that a newer report exists.
-- **Selective sharing** — A consumer has three bureau reports and shares only the best one. This isn't fraud per se, but verification timestamps prevent presenting a six-month-old Equifax report (score: 760) when the current Equifax report (score: 640) tells a different story.
+## How Verification Works Here
 
 **The fix:** Bureau issues report with verify line. Consumer shares report with landlord/lender. Recipient scans the verify line. Bureau's domain confirms: yes, this is the authentic report we issued for this consumer on this date, with this score. No SSN exchange, no consent form, no cost to the verifier, no hard inquiry on the consumer's file.
 
@@ -125,7 +127,7 @@ UK chain (Experian UK, Equifax UK, TransUnion UK → FCA → Consumer Credit Act
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition
+## Compared With the Alternatives
 
 | Feature | Live Verify | Pull a Fresh Report | Trust the PDF | Third-Party Verification Services | Consumer-Permissioned Data APIs |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -137,7 +139,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Privacy** | **High.** No data leaves the consumer's hands. | **Low.** SSN collected, stored by verifier. | **N/A.** | **Low.** Full credit pull by third party. | **Very low.** Consumer shares bank login credentials with third party. |
 | **Recency** | **Flagged.** UPDATED status if report is stale. | **Current.** Fresh pull. | **Unknown.** Could be months old. | **Current.** Fresh pull. | **Current.** Direct API connection. |
 
-**Why Live Verify wins here:** The status quo forces a brutal tradeoff. Either the verifier trusts an unverifiable PDF, or they collect the consumer's SSN and pay for a fresh pull (creating a hard inquiry that damages the consumer's score). Live Verify eliminates this tradeoff entirely. The consumer controls their data, the verifier gets cryptographic confirmation, and nobody's SSN ends up in another database.
+**Where each fits:** Pulling a fresh report is still the right step for a mortgage or any decision that needs the full, current file, and consumer-permissioned data services suit lenders who need ongoing access. Both require the consumer's SSN or credentials, and a pull may leave a hard inquiry on the file. Live Verify covers the lighter cases, such as a rental application or a utility deposit, where the applicant has already supplied a report and the recipient only needs to know that it is the one the bureau issued and whether a newer one exists.
 
 ## Jurisdictional Witnessing (Optional)
 

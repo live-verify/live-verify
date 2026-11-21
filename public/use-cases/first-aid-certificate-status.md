@@ -17,7 +17,7 @@ The core question is narrow: **is this person's first aid qualification current?
 
 Currently, first aid qualifications are evidenced by a paper certificate or a PDF issued by the training provider. These are trivially fabricated. An employer, event organiser, or regulator wanting to confirm that a first aider's qualification is genuine and current has no standardised verification channel. They must either trust the document at face value or contact the training provider directly.
 
-A **First Aid Certificate Status Confirmation** is a verifiable claim issued by the training provider confirming that a specific certificate is current. It contains the certificate reference, qualification type, status, issue date, and expiry date.
+A First Aid Certificate Status Confirmation is a verifiable claim issued by the training provider confirming that a specific certificate is current. It contains the certificate reference, qualification type, status, issue date, and expiry date.
 
 ### Training Providers by Jurisdiction
 
@@ -67,7 +67,18 @@ verify:sja.org.uk/certificates/v
 </pre>
 </div>
 
-## Data Verified
+## The Problem: Certificate Without Status
+
+An employer, event organiser or placement agency is shown a first aid certificate and needs to know that it is genuine and has not expired. First aid training providers currently issue certificates as paper documents or PDFs. Some providers offer online lookup tools, but these vary in quality and availability. There is no standardised, machine-verifiable way for a third party to confirm that a specific certificate is current.
+
+The gap is straightforward:
+
+- **Easily copied:** The certificate is a document that can be photocopied, edited, or fabricated.
+- **Patchy lookups:** Online lookup tools, where they exist, are provider-specific and require manual navigation.
+- **No check without a call:** An employer collecting certificate scans has no way to confirm authenticity without contacting the provider.
+- **No portable proof:** A first aider moving between roles must repeatedly produce the same document with no way to prove it is still valid.
+
+## What Is Checked
 
 Certificate reference, training provider, qualification type, status (current or expired), issue date, and expiry date.
 
@@ -87,7 +98,7 @@ The certificate holder's identity is established separately. The verifiable clai
 
 This artifact confirms that a certificate reference is current with the training provider. It does not by itself confirm that the person presenting it is the certificate holder — the holder's name is deliberately excluded for privacy. The employer or inspector must separately verify identity (by checking the person's ID against the certificate holder's name on record with the provider). The artifact proves currency; the identity-matching step proves attribution.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the training provider's domain and the current certificate status.
 
@@ -97,9 +108,9 @@ Shows the training provider's domain and the current certificate status.
 - **Revoked** — The training provider has withdrawn the certificate
 - **404** — No matching certificate record exists
 
-## Second-Party Use
+## Who Holds It
 
-The **certificate holder** benefits directly.
+The certificate holder benefits directly.
 
 **Proactive sharing:** A first aider can demonstrate that their qualification is current without waiting for an employer or event organiser to contact the training provider. This is useful when applying to multiple employers, registering with agencies, or volunteering at events.
 
@@ -107,7 +118,7 @@ The **certificate holder** benefits directly.
 
 **Faster onboarding:** For roles where first aid qualification is a legal or contractual requirement, the delay between offer and start can be driven by credential verification. A verifiable status confirmation removes that friction.
 
-## Third-Party Use
+## Who Checks It
 
 **Employers**
 
@@ -133,18 +144,7 @@ The **certificate holder** benefits directly.
 
 **Placement verification:** Agencies placing workers into roles requiring first aid qualifications (schools, care homes, construction sites) can verify status for each placement without contacting training providers individually.
 
-## Verification Architecture
-
-**The Gap Between Certificate and Status**
-
-First aid training providers currently issue certificates as paper documents or PDFs. Some providers offer online lookup tools, but these vary in quality and availability. There is no standardised, machine-verifiable way for a third party to confirm that a specific certificate is current.
-
-The gap is straightforward:
-
-- The certificate is a document that can be photocopied, edited, or fabricated.
-- Online lookup tools, where they exist, are provider-specific and require manual navigation.
-- An employer collecting certificate scans has no way to confirm authenticity without contacting the provider.
-- A first aider moving between roles must repeatedly produce the same document with no way to prove it is still valid.
+## How Verification Works Here
 
 This use case provides a verifiable, provider-issued status confirmation that closes the gap between holding a certificate and proving it is current.
 
@@ -152,7 +152,7 @@ This use case provides a verifiable, provider-issued status confirmation that cl
 
 Not required. First aid certificate status is not sensitive personal data in the way that criminal record status or medical records are. The verifiable claim contains only a certificate reference and its status. No personal details appear in the claim. A salt could be added if the training provider or certificate holder preferred it, but it is not necessary for the basic use case.
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Verifiable Status Confirmation | Paper/PDF Certificate | Provider Online Lookup | Phone/Email to Provider |
 | :--- | :--- | :--- | :--- | :--- |

@@ -18,9 +18,16 @@ Medical work is often concealed by the body itself. A hip implant, a root canal,
 - Hernia mesh: erosion, chronic pain, 3-7 years
 - Breast implant: rupture, capsular contracture, 10+ years
 
-**The attribution problem:** By the time symptoms appear, the surgeon may have retired, the dental practice sold, the manufacturer bankrupt. Records may be incomplete or lost.
-
 **The insurance driver:** Medical malpractice insurers and product liability carriers want attribution. If claims can be traced to specific procedures, specific devices, specific practitioners—pricing improves, bad actors are identified, defensible claims are paid faster.
+
+## The Problem: Work the Body Conceals
+
+A patient, a later treating clinician or an insurer facing a failed implant needs to know what device was placed, by whom, and how. Once the incision closes or the crown is seated the work cannot be seen, and the only evidence is whatever records were kept at the time.
+
+- **Concealed immediately:** After closure, the implant or dental work is visible only through imaging, if at all.
+- **Long delay before problems:** Wear, loosening, erosion or decay may take years or decades to show.
+- **Lost attribution:** By the time symptoms appear, the surgeon may have retired, the dental practice been sold or the manufacturer gone bankrupt, and records may be incomplete or lost.
+- **Slow, contested claims:** Without a record tying a specific device to a specific procedure and practitioner, claims are hard to assess and slow to settle.
 
 ## Derivation 1: Orthopedic Implants (Hip, Knee, Shoulder)
 

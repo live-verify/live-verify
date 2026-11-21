@@ -50,7 +50,19 @@ The mandate model: NHS England (or equivalent national health bodies) requires G
   <span data-verify-line="bare28">verify:nhs.uk/gp-registration</span>
 </div>
 
-## Data Verified
+## The Problem: GP Letter Fraud
+
+A school admissions officer, benefits caseworker, lender or visa officer is given a letter said to be from a GP practice confirming that someone is registered there. Checking it means phoning a busy surgery, so it is usually accepted as presented. The patient, meanwhile, has waited days and paid a fee for a letter the reader cannot check.
+
+- **Fake letterhead:** GP practice letterheads are easily replicated. A forged letter on "Parkview Medical Centre" headed paper is hard to distinguish from a genuine one without calling the practice.
+- **Edited PDF letters:** Genuine letters with altered names, addresses, or dates.
+- **Practice impersonation:** Fake practices that don't exist, or real practice names used with fabricated details.
+- **Out-of-date registrations:** Letters from practices where the patient is no longer registered, presented as current proof.
+- **Reuse to avoid the fee:** Because practices charge £15-30 for letters, patients have a reason to reuse old letters or forge new ones rather than pay repeatedly.
+
+Live Verify addresses these. The hash resolves against `nhs.uk` (not the practice's own website). The NHS practice code in the verification block can be cross-referenced against the public NHS register. Deregistered patients get a "Deregistered" status. And it's free — removing the financial incentive to forge.
+
+## What Is Checked
 
 GP practice name, NHS practice code, patient full name, registration date, address held on record.
 
@@ -62,7 +74,7 @@ Note: this use case does NOT verify medical records, conditions, prescriptions, 
 
 **Privacy Salt:** Essential. Patient name + practice name is low entropy. NHS number must NOT appear in the verifiable text (it is a sensitive identifier). The salt is time-limited (e.g., 30 days) and generated via the NHS App or practice portal.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the verification domain (`nhs.uk`) and registration status.
 
@@ -71,9 +83,9 @@ Shows the verification domain (`nhs.uk`) and registration status.
 - **Deregistered** — Patient has left the practice (moved, deceased, or removed from list).
 - **Temporarily Registered** — Patient is registered as a temporary resident (e.g., students, visitors).
 
-## Second-Party Use
+## Who Holds It
 
-The **Patient** benefits from verification.
+The Patient benefits from verification.
 
 **Free Proof of Address:** GP registration letters are currently charged at £15-30 by most practices. A mandated free verification endpoint eliminates this cost. For patients on low incomes, this is a meaningful saving — especially when multiple address proofs are required simultaneously (bank, letting agent, employer).
 
@@ -83,7 +95,7 @@ The **Patient** benefits from verification.
 
 **Benefits Applications:** DWP, local authorities, and pension providers often request a "letter from your GP" as secondary address proof. A hash-based confirmation is instant and free.
 
-## Third-Party Use
+## Who Checks It
 
 **Banks & Financial Institutions**
 **Supplementary KYC:** GP registration from an `nhs.uk` domain serves as government-backed address verification. Particularly valuable for customers who don't have utility bills in their name (students, house-sharers, people who've just moved to the UK).
@@ -100,21 +112,11 @@ The **Patient** benefits from verification.
 **Solicitors**
 **Identity Verification for Anti-Money-Laundering:** Solicitors performing AML checks on clients need two forms of address verification. A verifiable GP registration from `nhs.uk` is a strong second source alongside a council tax or utility confirmation.
 
-## The GP Letter Fraud Problem
-
-- **Fake letterhead:** GP practice letterheads are easily replicated. A forged letter on "Parkview Medical Centre" headed paper is hard to distinguish from a genuine one without calling the practice.
-- **Edited PDF letters:** Genuine letters with altered names, addresses, or dates.
-- **Practice impersonation:** Fake practices that don't exist, or real practice names used with fabricated details.
-- **Out-of-date registrations:** Letters from practices where the patient is no longer registered, presented as current proof.
-- **Charging barrier creates perverse incentive:** Because practices charge £15-30 for letters, patients are incentivised to reuse old letters or forge new ones rather than pay repeatedly.
-
-Live Verify eliminates all of these. The hash resolves against `nhs.uk` (not the practice's own website). The NHS practice code in the verification block can be cross-referenced against the public NHS register. Deregistered patients get a "Deregistered" status. And it's free — removing the financial incentive to forge.
-
-## Verification Architecture
+## Who Issues It
 
 **Issuer Types** (First Party)
 
-This use case is unusual: the issuer is **centralised** rather than per-practice. The NHS already maintains patient registration data in the Personal Demographics Service (PDS). Individual GP practices don't need to run their own endpoints — NHS England operates a single verification endpoint at `nhs.uk`, backed by PDS data.
+This use case is unusual: the issuer is centralised rather than per-practice. The NHS already maintains patient registration data in the Personal Demographics Service (PDS). Individual GP practices don't need to run their own endpoints — NHS England operates a single verification endpoint at `nhs.uk`, backed by PDS data.
 
 **NHS England (via PDS):** Central endpoint serving all GP registrations in England.
 **NHS Scotland (via CHI):** Community Health Index, equivalent centralised system.
@@ -156,4 +158,4 @@ GP registration is one of the few universal registrations in the UK. Almost ever
 - Whether they're employed (unlike payslips)
 - Their immigration status (unlike electoral roll)
 
-For people who are hard to identify — newly arrived migrants, people leaving domestic abuse, homeless people registered at a GP via a "care of" address, young people who've never had a bill in their name — GP registration may be their **only** verifiable link to an address. Making it free and instant isn't just convenient; it's an equity issue.
+For people who are hard to identify — newly arrived migrants, people leaving domestic abuse, homeless people registered at a GP via a "care of" address, young people who've never had a bill in their name — GP registration may be their only verifiable link to an address. Making it free and instant isn't just convenient; it's an equity issue.

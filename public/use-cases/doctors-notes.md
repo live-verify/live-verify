@@ -15,7 +15,7 @@ Your child has been off school for a week with tonsillitis. The school wants a n
 
 Now scale that up. An employee misses two weeks of work. HR receives a doctor's note. Is it genuine? Was it issued by a real doctor? Does the date range match what the employee claimed? HR has no way to verify any of this. Fake doctor's notes are trivially available online — dozens of websites sell realistic templates for a few dollars, complete with letterhead, signatures, and plausible medical language.
 
-In the UK, this document is formally called a **Fit Note** (Statement of Fitness for Work) or colloquially a **sick note**. In the US, it's a **doctor's note** or **doctor's excuse**. In Australia, a **medical certificate**. The names differ but the problem is universal: these documents are trivially forged, and the recipients have no practical way to verify them.
+In the UK, this document is formally called a Fit Note (Statement of Fitness for Work) or colloquially a sick note. In the US, it's a doctor's note or doctor's excuse. In Australia, a medical certificate. The names differ but the problem is universal: these documents are trivially forged, and the recipients have no practical way to verify them.
 
 With Live Verify, the doctor's note carries a `verify:` line bound to the medical practice's domain. The employer, the school, or the university scans it and gets instant confirmation: real note, real doctor, correct dates, currently valid.
 
@@ -83,7 +83,17 @@ With Live Verify, the doctor's note carries a `verify:` line bound to the medica
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Doctor's Notes
+
+An HR officer, school administrator or university receives a doctor's note and has to accept or question an absence on the strength of it. They cannot call the practice because of patient confidentiality, and there is no register to look the note up in. The paper is taken on trust, and challenging it means accusing someone who may be ill.
+
+- **Template fraud:** Websites sell realistic doctor's note templates for $10-30. Complete with letterhead, signatures, and plausible medical language. The buyer fills in their name and dates. Recipients have no way to distinguish these from genuine notes.
+- **Self-authored notes:** Some patients write their own notes and forge a doctor's signature. With real letterhead obtained from a previous genuine visit, these are virtually undetectable.
+- **Date manipulation:** A genuine note for one day is altered to cover a week. Photocopiers and PDF editors make this trivial.
+- **Recycled notes:** A genuine note from a previous illness is presented for a current absence, with dates crudely altered.
+- **Complicit providers:** Some walk-in clinics and telemedicine providers issue notes with minimal or no examination. The note is "real" in that a doctor signed it, but the assessment was perfunctory. Live Verify doesn't solve this (the note would verify as genuine), but the authority chain signals whether the issuing practice is recognized by a credible medical body.
+
+## What Is Checked
 
 Patient name, doctor name, doctor credentials (medical license, registration number), practice name and address, date of assessment, fitness determination (fit / not fit / may be fit with adjustments), date range of absence, return date (if specified), any workplace restrictions or adjustments.
 
@@ -100,9 +110,9 @@ The endpoint returns a status code:
 - **RETURNED** — Patient has been cleared to return (useful for employers tracking fitness)
 - **404** — No matching record; possible forgery
 
-## Second-Party Use
+## Who Holds It
 
-The **Patient** (or parent/guardian) receives the note from the doctor (first party) and presents it to employers, schools, or universities.
+The Patient (or parent/guardian) receives the note from the doctor (first party) and presents it to employers, schools, or universities.
 
 **Proving absence to employer** — the most common use. Employee emails or hands HR a doctor's note. HR scans the `verify:` line and confirms the absence dates and the issuing practice. No phone calls to the surgery, no waiting, no ambiguity.
 
@@ -112,7 +122,7 @@ The **Patient** (or parent/guardian) receives the note from the doctor (first pa
 
 **Insurance claims** — some travel or income protection insurance policies require proof of illness. A verified doctor's note is stronger evidence than an unverifiable photocopy.
 
-## Third-Party Use
+## Who Checks It
 
 **Employers / HR Departments**
 The primary verifier. HR receives dozens of doctor's notes per month in any large organization. Currently, every single one is accepted on trust. Verified notes let HR distinguish genuine medical absence from fraud without invading medical privacy — they confirm the note is real without needing to know the diagnosis.
@@ -128,14 +138,6 @@ Employment tribunals occasionally need to verify sickness absence records. A cha
 
 **Childcare Providers**
 Nurseries and childcare facilities may require medical clearance before accepting a child back after illness (particularly for communicable diseases).
-
-## Verification Architecture — The Fake Doctor's Note Problem
-
-- **Template fraud:** Websites sell realistic doctor's note templates for $10-30. Complete with letterhead, signatures, and plausible medical language. The buyer fills in their name and dates. Recipients have no way to distinguish these from genuine notes.
-- **Self-authored notes:** Some patients write their own notes and forge a doctor's signature. With real letterhead obtained from a previous genuine visit, these are virtually undetectable.
-- **Date manipulation:** A genuine note for one day is altered to cover a week. Photocopiers and PDF editors make this trivial.
-- **Recycled notes:** A genuine note from a previous illness is presented for a current absence, with dates crudely altered.
-- **Complicit providers:** Some walk-in clinics and telemedicine providers issue notes with minimal or no examination. The note is "real" in that a doctor signed it, but the assessment was perfunctory. Live Verify doesn't solve this (the note would verify as genuine), but the authority chain signals whether the issuing practice is recognized by a credible medical body.
 
 ## Privacy Salt
 
@@ -165,7 +167,7 @@ US chain (practice → state medical board → state government):
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition
+## Compared With the Alternatives
 
 | Feature | Live Verify | Calling the Surgery | Employer Trusts the Paper | Telemedicine Platforms | Occupational Health Review |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -175,7 +177,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Privacy-preserving** | **Yes.** Confirms authenticity without revealing diagnosis. | **No.** Receptionist may disclose information. | **N/A.** | **Partial.** | **No.** Full medical details reviewed. |
 | **Cross-border** | **Yes.** Domain-based, works internationally. | **Fails.** Time zones, language, no obligation. | **Fails.** Foreign notes are untrusted. | **Fails.** Platform lock-in. | **Fails.** Jurisdiction-specific. |
 
-**Why Live Verify wins here:** The current system is binary — trust the paper completely or don't trust it at all. Calling the surgery is theoretically possible but practically impossible at scale. Employers accept fake notes because the alternative (challenging every note) destroys the employment relationship. Live Verify adds verification without confrontation — HR scans the note, it's confirmed or it isn't. No awkward phone calls, no accusations.
+**Where each fits:** Trusting the paper is the right default for most absences and keeps the employment relationship free of suspicion. Occupational health review remains the proper route for long or complex absences where clinical judgment is needed, and telemedicine platforms can confirm the notes they issued themselves. The gap is the routine note from an unfamiliar practice, which today is either accepted unseen or challenged awkwardly. Live Verify lets HR or a school confirm that the practice issued the note with those dates, without learning the diagnosis.
 
 ## Jurisdictional Witnessing (Optional)
 

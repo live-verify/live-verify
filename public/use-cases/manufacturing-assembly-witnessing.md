@@ -22,6 +22,15 @@ Defects may not manifest for years or decades. When they do—fatigue cracking, 
 
 **The insurance driver:** Product liability insurers need attribution. Aviation hull insurers need to distinguish manufacturing defect from maintenance error. Automotive recalls need lot-level tracing. Witnessing at assembly creates the evidence chain.
 
+## The Problem: Work Nobody Can Recheck
+
+Once a rivet is painted over, a weld is hidden behind trim or a solder joint is coated, the work can only be examined again by taking the product apart. When a defect appears years later, the operator, manufacturer and insurers must decide whether it came from manufacture, from assembly or from service, using records that may be incomplete or impossible to date.
+
+- **Concealed at the next step:** Paint, sealant, trim and coatings hide the work as soon as the next stage begins.
+- **Long delay before failure:** Fatigue cracking, corrosion and electrical faults may take years or decades to appear.
+- **Disputed attribution:** Manufacturer defect, assembly error and service-induced damage are hard to tell apart once the failure has happened.
+- **Coarse tracing:** Without lot-level records made at the time, a recall cannot be narrowed to the units actually affected.
+
 ## Derivation 1: Aircraft Fuselage and Structures
 
 **The Concealment:**

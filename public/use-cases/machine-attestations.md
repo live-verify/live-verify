@@ -11,7 +11,7 @@ furtherDerivations: 6
 
 ## What is a Machine Attestation?
 
-Machines generate data continuously—temperatures, locations, energy readings, operational metrics. A **Machine Attestation** is a snapshot of that data, signed by the device or its managing system, made human-readable and verifiable through OCR.
+Machines generate data continuously—temperatures, locations, energy readings, operational metrics. A Machine Attestation is a snapshot of that data, signed by the device or its managing system, made human-readable and verifiable through OCR.
 
 The machine doesn't lie. The question is whether the reading was tampered with between generation and verification.
 
@@ -122,6 +122,14 @@ The machine doesn't lie. The question is whether the reading was tampered with b
   <span data-verify-line="ev1">verify:chargepoint.com/session</span> <span verifiable-text="end" data-for="ev1"></span>
 </div>
 
+## The Problem: Readings Changed After the Fact
+
+A clinic receiving vaccines, a regulator, an insurer or a buyer is shown a summary of what a sensor recorded and must decide whether to accept the goods or the claim. The summary usually arrives as a PDF or printout from the party with most to lose if the reading was bad, and the reader cannot tell whether it matches what the device's system recorded. Verification confirms that the attestation is the one the issuing system produced; it cannot show that the sensor itself was accurate.
+
+- **Edited summaries:** A temperature excursion or out-of-range reading is removed or altered between the device and the report.
+- **Selective reporting:** Only the favourable period, or the favourable sensors, are included.
+- **Unclear provenance:** The report does not show which device produced the data, how it was aggregated, or whether the sensor was within calibration.
+
 ## Why Machine Attestations Matter
 
 **Continuous vs. Point-in-Time**
@@ -133,7 +141,7 @@ Sensor data flows through systems. Each attestation hash includes the chain of c
 **Human-Readable Summaries**
 Raw telemetry is incomprehensible. Attestations summarize: "Temperature stayed within range" rather than 847 individual readings.
 
-## Data Verified
+## What Is Checked
 
 Sensor/device ID, reading timestamp, measurement values, units, acceptable ranges, excursion flags, chain of custody identifiers.
 
@@ -146,7 +154,7 @@ Sensor/device ID, reading timestamp, measurement values, units, acceptable range
 - **Charging Session:** EV energy delivery and carbon calculations
 - **Industrial Sensor:** Manufacturing tolerances, pressure, vibration
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (sensor network operator) and reading timestamp.
 
@@ -156,9 +164,9 @@ Shows the issuer domain (sensor network operator) and reading timestamp.
 - **Gap** — Missing sensor data during attested period
 - **Calibration Due** — Sensor requires recalibration (readings may be less accurate)
 
-## Second-Party Use
+## Who Holds It
 
-The **Operator** (fleet owner, shipper, property owner) benefits from verification.
+The Operator (fleet owner, shipper, property owner) benefits from verification.
 
 **Compliance Proof:** "Our cold chain never broke" is verifiable, not just claimed.
 
@@ -166,7 +174,7 @@ The **Operator** (fleet owner, shipper, property owner) benefits from verificati
 
 **Incentive Claims:** Solar feed-in tariffs, carbon credits, and efficiency rebates require verified readings.
 
-## Third-Party Use
+## Who Checks It
 
 **Insurers**
 **Claims Processing:** Verified sensor data establishes what happened (temperature excursion, vehicle location at time of incident).
@@ -180,7 +188,7 @@ The **Operator** (fleet owner, shipper, property owner) benefits from verificati
 **Finance**
 **Asset Valuation:** Verified mileage affects vehicle residual value. Verified energy production supports solar asset financing.
 
-## Verification Architecture
+## How Verification Works Here
 
 **Sensor Trust Chain**
 
@@ -236,7 +244,7 @@ Pay-per-mile insurance requires verified odometer readings. Telematics attestati
 Each handler adds their attestation. Final recipient sees complete verified journey.
 
 **Live Environmental Status Displays (defeating the "pencil-whipped" sheet)**
-Static "Last Cleaned / Last Inspected" sheets on a wall are trivially falsified — signed off without the work being done (the "pencil-whipped" problem). A machine attestation bound to a *live* sensor feed replaces the plaque with a verifiable, current claim: an e-ink display in a hospital ward, hotel gym, food-prep area, or office lobby shows a hash bound to real readings — HEPA-filter pressure, CO2 level, water temperature, or recent autonomous cleaning-bot cycles. An occupant scans it and gets metrology-grade trust that the environment meets standard **right now**, not a static sheet from three months ago. Because the attestation is the sensor's own (machine-signed), and because it is a [point-in-time reading](../../docs/point-in-time-vs-current.md), it should carry an as-at timestamp and a short validity window — a captured photo of the display is a reading of a past moment, not the present state.
+Static "Last Cleaned / Last Inspected" sheets on a wall are trivially falsified — signed off without the work being done (the "pencil-whipped" problem). A machine attestation bound to a *live* sensor feed replaces the plaque with a verifiable, current claim: an e-ink display in a hospital ward, hotel gym, food-prep area, or office lobby shows a hash bound to real readings — HEPA-filter pressure, CO2 level, water temperature, or recent autonomous cleaning-bot cycles. An occupant scans it and gets metrology-grade trust that the environment meets standard right now, not a static sheet from three months ago. Because the attestation is the sensor's own (machine-signed), and because it is a [point-in-time reading](../../docs/point-in-time-vs-current.md), it should carry an as-at timestamp and a short validity window — a captured photo of the display is a reading of a past moment, not the present state.
 
 
 ## Jurisdictional Witnessing (Optional)

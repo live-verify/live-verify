@@ -25,6 +25,15 @@ Corporate compliance training is a multi-billion dollar industry. Employees and 
 
 **The insurance/legal driver:** When harassment claims, data breaches, or bribery scandals occur, the first question is: "Was the employee trained?" Attested training records create the evidence trail.
 
+## The Problem: Siloed Training Records
+
+After a harassment claim, a data breach or a bribery investigation, an insurer, regulator or court asks whether the person involved was trained. The answer sits in the employer's own learning management system, which the employer controls and which nobody outside can check. The same silo means a worker's completed training does not follow them to the next employer or client.
+
+- **Records do not travel:** When employees leave, their training history stays in the old employer's LMS.
+- **Repeated training:** Contractors working for several clients sit through near-identical courses for each one.
+- **Backdated completions:** A completion date in an internal system can be entered or changed after the event it is meant to predate.
+- **Altered internal records:** LMS records can be edited to show compliance, and an outside party has no way to tell.
+
 ## The Compliance Training Industry
 
 **Market Size:** $15+ billion globally (2024), growing at 10%+ annually
@@ -41,8 +50,6 @@ Corporate compliance training is a multi-billion dollar industry. Employees and 
 - Standalone compliance platforms
 - In-person sessions (with digital attestation)
 - Microlearning / just-in-time training
-
-**The Problem:** Training records are siloed in employer LMS systems. When employees leave, records don't follow them. When contractors work for multiple clients, they repeat identical training for each.
 
 ## Derivation 1: Anti-Harassment / Workplace Conduct
 
@@ -404,7 +411,7 @@ Directors protected by evidence of reasonable care
 
 ---
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Click-Through" Fraud Problem:**
 

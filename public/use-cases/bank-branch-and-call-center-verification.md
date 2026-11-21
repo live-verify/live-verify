@@ -25,7 +25,7 @@ This artifact proves that a branch or call center reference belongs to the bank.
 
 **Verification asymmetry:** The customer can see a branch, letter, number, or callback reference, but still lacks a reliable way to tell whether it genuinely belongs to the bank unless it verifies against the bank's domain.
 
-The stronger anti-vishing control is **real-time call verification via RCS** (see below and [Anti-Vishing: Real-Time Call Verification](../../docs/anti-vishing-real-time-call-verification.md)), where the bank sends a verified RCS message simultaneously with the call, containing a Live Verify claim that the customer's phone checks automatically. The branch/correspondence verification is a foundation layer for letters, in-branch, and static contacts; the RCS-delivered per-call verification is the full solution for live phone calls.
+The stronger anti-vishing control is real-time call verification via RCS (see below and [Anti-Vishing: Real-Time Call Verification](../../docs/anti-vishing-real-time-call-verification.md)), where the bank sends a verified RCS message simultaneously with the call, containing a Live Verify claim that the customer's phone checks automatically. The branch/correspondence verification is a foundation layer for letters, in-branch, and static contacts; the RCS-delivered per-call verification is the full solution for live phone calls.
 
 ## Example: Branch Verification (In-Branch Signage or Card)
 
@@ -89,9 +89,9 @@ Contact: 0345 734 5345
 verify:barclays.co.uk/correspondence/v
 ```
 
-## The Vishing Problem
+## The Problem: Bank Impersonation
 
-A typical vishing call follows a pattern:
+A customer picks up the phone, or opens a letter, and is told it is their bank. They have to decide there and then whether to act on it, and nothing in front of them settles the question. A typical vishing call follows a pattern:
 
 1. The caller claims to be from the bank's fraud department
 2. They reference a "suspicious transaction" to create urgency
@@ -99,6 +99,17 @@ A typical vishing call follows a pattern:
 4. They instruct the customer to move money to a "safe account" controlled by the criminal
 
 The customer's dilemma is real. If the call is genuine and they hang up, they risk ignoring a real fraud alert. If the call is fake and they stay on the line, they risk losing their savings. Banks tell customers to "hang up and call back on the number on the back of your card" — but many customers do not, especially under the pressure of a convincing caller.
+
+Banks spend heavily on anti-fraud measures that protect the bank's systems — transaction monitoring, two-factor authentication, device fingerprinting. But the vishing attack bypasses all of these by targeting the customer directly. The customer is the weakest link, and the bank gives them almost no tools to verify inbound contacts.
+
+Current defences and their limitations:
+
+- **"Call back on the number on your card"** — Requires the customer to hang up (losing the caller), find their card, call the bank, wait in a queue, and explain the situation. Many do not complete this process.
+- **Caller ID** — Trivially spoofed. Criminals routinely display the bank's genuine number on the victim's phone.
+- **Bank apps with "verify this call" features** — Some banks have introduced in-app call verification. These work for app-literate customers but exclude those who do not use mobile banking — often the same elderly customers most targeted by vishing.
+- **"We will never ask for your PIN"** — True, but criminals have adapted. Modern vishing scripts avoid asking for PINs directly, instead instructing the customer to "move money to a safe account" or "authorise a payment to reverse a fraudulent transaction."
+
+## Live Calls: Simultaneous RCS Verification
 
 For static contacts (letters, in-branch signage), a verifiable branch reference changes the dynamic — the customer can check a reference at their own pace. But for live phone calls, "hang up and verify" is a failing workflow. Most customers do not hang up, especially under social pressure from a convincing caller.
 
@@ -111,7 +122,7 @@ The stronger model for live calls is **simultaneous RCS verification**:
 5. The customer's phone (or a Live Verify integration in the messaging app) automatically verifies the claim against the bank's domain
 6. Green = the bank's own endpoint confirms this specific call was initiated right now. 404 = the bank knows nothing about it.
 
-The RCS is the **delivery mechanism** — it gets the verifiable claim onto the customer's screen during the call without requiring them to hang up. The Live Verify check against the bank's domain is the **trust mechanism** — it's what actually proves the call is genuine.
+The RCS is the delivery mechanism — it gets the verifiable claim onto the customer's screen during the call without requiring them to hang up. The Live Verify check against the bank's domain is the trust mechanism — it's what actually proves the call is genuine.
 
 A call that arrives without an accompanying RCS verification becomes suspicious by default. The customer learns to expect the verification, and its absence is the signal.
 
@@ -137,7 +148,7 @@ For correspondence verification:
 
 The `NO_MATCH` response is the one that matters most. A criminal who fabricates a reference number will hit a 404 or `NO_MATCH`. That is the signal the customer needs.
 
-## Data Verified
+## What Is Checked
 
 Branch name or call center name, address, branch/sort code, phone number(s), and current operational status. For correspondence: reference number, contact number, and issuing department.
 
@@ -148,9 +159,9 @@ Branch name or call center name, address, branch/sort code, phone number(s), and
 
 **Privacy Salt:** Not required. Branch locations, sort codes, and customer service numbers are public information. The bank is verifying facts it already publishes — the value is in the cryptographic binding to the bank's domain, not in the secrecy of the content.
 
-## Second-Party Use
+## Who Holds It
 
-The **customer** benefits directly.
+The customer benefits directly.
 
 **During suspicious calls:** A customer who receives a call claiming to be from their bank can ask for a verifiable reference, hang up, and check it. This is faster and more reliable than the current advice of "call back on the number on the back of your card," which many customers do not follow.
 
@@ -158,7 +169,7 @@ The **customer** benefits directly.
 
 **After the fact:** A customer who has already engaged with a suspicious caller can check the branch code or reference they were given. If it does not verify, they know to contact their bank immediately to report potential fraud.
 
-## Third-Party Use
+## Who Checks It
 
 **Action Fraud / Police**
 
@@ -176,18 +187,7 @@ UK Finance and its member banks coordinate on fraud prevention. Verified branch 
 
 Ofcom and equivalent regulators investigating caller ID spoofing can use verification data to distinguish cases where the caller gave a genuine bank reference (suggesting an insider or compromised system) from cases where the reference was fabricated (pure impersonation).
 
-## Verification Architecture
-
-**The Impersonation Asymmetry**
-
-Banks spend heavily on anti-fraud measures that protect the bank's systems — transaction monitoring, two-factor authentication, device fingerprinting. But the vishing attack bypasses all of these by targeting the customer directly. The customer is the weakest link, and the bank gives them almost no tools to verify inbound contacts.
-
-Current defences and their limitations:
-
-- **"Call back on the number on your card"** — Requires the customer to hang up (losing the caller), find their card, call the bank, wait in a queue, and explain the situation. Many do not complete this process.
-- **Caller ID** — Trivially spoofed. Criminals routinely display the bank's genuine number on the victim's phone.
-- **Bank apps with "verify this call" features** — Some banks have introduced in-app call verification. These work for app-literate customers but exclude those who do not use mobile banking — often the same elderly customers most targeted by vishing.
-- **"We will never ask for your PIN"** — True, but criminals have adapted. Modern vishing scripts avoid asking for PINs directly, instead instructing the customer to "move money to a safe account" or "authorise a payment to reverse a fraudulent transaction."
+## How Verification Works Here
 
 Verifiable branch and call center claims address the root problem: the customer cannot currently distinguish a genuine bank contact from a fake one. The verification is:
 
@@ -196,7 +196,7 @@ Verifiable branch and call center claims address the root problem: the customer 
 3. Instant — a single check, not a phone call to the bank
 4. Accessible — works for anyone who can type a URL or use a QR code, not just app users
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | "Call Back" Advice | In-App Call Verify | Caller ID |
 | :--- | :--- | :--- | :--- | :--- |

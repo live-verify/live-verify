@@ -11,7 +11,7 @@ furtherDerivations: 7
 
 ## What is Hierarchy of Controls Witnessing?
 
-The **Hierarchy of Controls** is the foundational risk assessment framework ranking safety measures from most to least effective:
+The Hierarchy of Controls is the foundational risk assessment framework ranking safety measures from most to least effective:
 
 ```
 ┌─────────────────────────────────────────┐
@@ -35,6 +35,15 @@ The **Hierarchy of Controls** is the foundational risk assessment framework rank
 **The inspection imperative:** Controls only work if they're implemented, maintained, and functioning. Each level of the hierarchy has inspection and witnessing requirements—some well-established, others emerging.
 
 **The insurance driver:** Insurers (workers' comp, liability, property) increasingly want evidence that controls exist and function. Claims analysis shows correlation between control effectiveness and loss experience. Witnessed controls create the attribution trail.
+
+## The Problem: Controls on Paper
+
+After an injury or an exposure, an insurer, regulator or court asks whether the control that should have prevented it was in place and working on the day. The evidence is usually a risk assessment, a maintenance log or a training register kept by the employer, written at some earlier point and impossible to check independently. A control that exists only in the paperwork protects nobody, and the paperwork alone cannot show which kind it was.
+
+- **Controls claimed but absent:** A hazard is recorded as eliminated or substituted when the old material or process is still in use.
+- **Controls installed but not maintained:** A guard, interlock or ventilation system was fitted once and has since been bypassed or left to degrade.
+- **Records completed after the fact:** Inspection sheets, permits and training sign-offs are filled in later to cover a gap.
+- **No attribution:** When something fails, nobody can show who inspected the control, when, and what they found.
 
 ---
 

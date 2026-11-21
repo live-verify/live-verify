@@ -11,15 +11,17 @@ furtherDerivations: 12
 
 ## What are Mandatory Disclosures?
 
-When bad things happen—data breaches, product defects, financial problems, public health risks—organizations often have **legal obligations to disclose**. But disclosure hurts: stock prices drop, lawsuits follow, reputations suffer. The incentive to delay, minimize, or obscure is enormous.
+When bad things happen—data breaches, product defects, financial problems, public health risks—organizations often have legal obligations to disclose. But disclosure hurts: stock prices drop, lawsuits follow, reputations suffer. The incentive to delay, minimize, or obscure is enormous.
 
-Verified disclosure records create **immutable timestamps** proving exactly when disclosures were made, to whom, and what was said. Organizations can't later claim they disclosed earlier than they did—or that they disclosed at all.
+Verified disclosure records create immutable timestamps proving exactly when disclosures were made, to whom, and what was said. Organizations can't later claim they disclosed earlier than they did—or that they disclosed at all.
 
-## The Delay Problem
+## The Problem: Delayed Disclosure
 
-**Equifax (2017):** Discovered breach July 29, disclosed September 7—**40 days** while executives sold stock.
+Regulators, customers, investors and courts need to know when an organization learned of a breach, defect or risk, and when it told the people affected. Today that timeline is reconstructed afterwards from the organization's own account, often through years of document production.
 
-**Yahoo (2016):** 500 million accounts breached in 2014, disclosed in **2016**—two years later, during acquisition talks.
+**Equifax (2017):** Discovered breach July 29, disclosed September 7—40 days while executives sold stock.
+
+**Yahoo (2016):** 500 million accounts breached in 2014, disclosed in 2016—two years later, during acquisition talks.
 
 **Volkswagen (2015):** Knew about emissions cheating for years before disclosure forced by regulators.
 
@@ -329,7 +331,7 @@ Verified disclosure records create **immutable timestamps** proving exactly when
 - E911: 911 service outage immediate reporting
 - Ofcom (UK): Network resilience reporting
 
-## Data Verified
+## What Is Checked
 
 Disclosing organization, disclosure type, regulatory authority, discovery date, notification date, deadline compliance, scope/impact, affected parties, remediation status.
 
@@ -389,9 +391,9 @@ Regulators investigating delays:
 | **Consumer** | FTC | CMA | National auth | ACCC |
 | **Telecom** | FCC | Ofcom | BEREC | ACMA |
 
-## Second-Party Use
+## Who Holds It
 
-The **Disclosing Organization** benefits from verification.
+The Disclosing Organization benefits from verification.
 
 **Compliance Proof:** "We met the 72-hour GDPR deadline—here's the cryptographic proof."
 
@@ -401,7 +403,7 @@ The **Disclosing Organization** benefits from verification.
 
 **Regulatory Good Faith:** Pattern of verified timely disclosures builds credibility with regulators.
 
-## Third-Party Use
+## Who Checks It
 
 **Regulators**
 **Enforcement:** Verify whether disclosure deadlines were met.
