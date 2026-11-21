@@ -196,7 +196,41 @@ MSc Computer Science on 28 June 2024.
             <p>
                 That is what lets you change vendor. Edit that one entry to point at the new vendor, have the old
                 one hand over your hashes and their statuses, and every document you have ever issued keeps
-                verifying. Ask any vendor, before you sign, to commit to that handover.
+                verifying. If a regulator or accreditor endorses you (see the next section), it has to confirm
+                the edited file too. Ask any vendor, before you sign, to commit to that handover.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Who stands behind you: the chain above your domain</h2>
+            <p>
+                A check tells the reader that your domain stands behind the text. Whether your domain deserves
+                belief is a separate question, and a forger can register a convincing domain. The answer is the
+                body that already supervises you: your regulator, accreditor, licensing board or parent
+                department. Your <code>verification-meta.json</code> names it in an <code>authorizedBy</code>
+                entry, and that body confirms you on its own domain. It may in turn be confirmed by the body
+                above it, up to the government of your country.
+            </p>
+            <p>
+                The reader then sees more than &ldquo;verified by youruniversity.ac.uk&rdquo;. They see who
+                endorses you, for example the national regulator for degree-awarding bodies, and above it the
+                government's own domain. Each country organises its own chain, and international bodies sit
+                at the top of theirs. A diploma mill with a plausible name has no such chain, and shows as
+                self-verified, in amber, with a caution.
+            </p>
+            <p>
+                That officialness cuts both ways, and this is the point of it. The body above you can withdraw
+                its endorsement, just as it can already strike you off, suspend your licence or remove your
+                accreditation. From that moment every check of every document you have issued shows that you
+                are no longer endorsed. Expulsion today is a line in a register few people look up; in the
+                chain it reaches the person holding your document.
+            </p>
+            <p>
+                Two practical consequences. The endorsement covers your whole <code>verification-meta.json</code>,
+                so any change to that file, including a change of hosting vendor, needs your endorser to confirm
+                the new version. And you do not need to wait for your regulator: you can issue today and show
+                as self-verified, then add the chain when the body above you is ready. No regulator endorses
+                issuers this way yet.
             </p>
         </div>
 
