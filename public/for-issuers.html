@@ -179,6 +179,28 @@ MSc Computer Science on 28 June 2024.
         </div>
 
         <div class="card">
+            <h2>Put your own domain on the <code>verify:</code> line</h2>
+            <p>
+                The address printed on your documents is the one decision that is hard to change later, because it
+                is on paper and in PDFs you no longer control. Make it a domain you own, such as
+                <code>verify:degrees.youruniversity.ac.uk/c</code>, and never a vendor's. Your domain is also what
+                the person checking sees, so it is your name they are trusting.
+            </p>
+            <p>
+                Owning the address does not mean hosting the files. A small file on your domain,
+                <code>verification-meta.json</code>, can carry a <code>hashesHostedAt</code> entry naming where the
+                hashes actually live, for example at a software vendor that issues documents for you. The lookup
+                goes there directly. It is not a web redirect, and the person checking still sees only your
+                domain.
+            </p>
+            <p>
+                That is what lets you change vendor. Edit that one entry to point at the new vendor, have the old
+                one hand over your hashes and their statuses, and every document you have ever issued keeps
+                verifying. Ask any vendor, before you sign, to commit to that handover.
+            </p>
+        </div>
+
+        <div class="card">
             <h2>Your back catalog counts too</h2>
             <p>
                 You don't need to wait for the next issuance cycle. Any record you already hold &mdash; degrees granted
@@ -194,8 +216,10 @@ MSc Computer Science on 28 June 2024.
             <ul>
                 <li><strong>No PII leaves your systems.</strong> You publish one-way hashes, not document contents.
                     The plaintext stays in your private systems; the public tier holds only hash &rarr; status.</li>
-                <li><strong>No vendor, no fees, no lock-in.</strong> This is an open standard (Apache 2.0), like email
-                    or RSS. Adopt without permission; stop whenever you like &mdash; delete the files and you're out.</li>
+                <li><strong>No required vendor, no fees to the standard, no lock-in.</strong> This is an open standard
+                    (Apache 2.0), like email or RSS. Adopt without permission, with a vendor or without one, and
+                    change vendor if you kept the <code>verify:</code> line on your own domain. Stop whenever you
+                    like &mdash; delete the files and you're out.</li>
                 <li><strong>No change to how documents look.</strong> One footer line. No QR codes, special ink,
                     NFC chips, or new hardware for you or for verifiers.</li>
                 <li><strong>No central registry.</strong> Your hashes live on your domain, under your control and your

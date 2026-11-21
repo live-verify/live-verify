@@ -176,8 +176,10 @@
                 Documents issued years ago keep verifying through the change, and nobody holding one notices.
             </p>
             <p>
-                This matters most where you host the hashes on a subdomain you operate for the customer. The
-                customer can repoint the address, but only your handover makes the old documents keep working.
+                The customer's documents should name the customer's own domain, with a
+                <code>hashesHostedAt</code> entry in their <code>verification-meta.json</code> pointing at your
+                hosting. Changing vendor is then one edit on their side, but only your handover makes the old
+                documents keep working.
                 Put the pledge in the contract. An issuer choosing a vendor should ask for it, and a vendor that
                 offers it first has an answer to the lock-in question before it is raised.
             </p>
