@@ -111,14 +111,19 @@ Professional translators certify that translations are accurate and complete.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Physical Seals / Notarization
+## Where Each Fits: Live Verify and Notarization
 
-| Feature | Live Verify | Notary Seal (Embossed) | Scanned PDF |
+Where an authority requires it, a translator's certification is signed before a notary, or the translation is made by a sworn translator under national rules; which applies depends on the country receiving the document. A notary's seal attests to who signed, not to the text. Notarization and Live Verify answer different questions and work side by side.
+
+| | Notary seal | Live Verify on the translation | Unverified scanned PDF |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Binds Content.** Protects every word. | **Binds Paper.** Doesn't prevent editing the text. | **Zero.** Easily forged. |
-| **Trust Anchor** | **Domain-Bound.** Trust the Firm. | **License-Bound.** Trust the Notary. | **Visual.** |
-| **User Control** | **High.** Share only the verified doc. | **Medium.** Prone to loss. | **Low.** |
-| **Speed** | **Instant.** 5-second scan. | **Manual.** Requires visual expert. | **N/A.** |
+| **Who can check** | Anyone who can see the seal, though few can tell a genuine one, and some notaries can be looked up in a public register. | Anyone handed the translation: an immigration office, a university, a court. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | An attestation that the named person signed the certification before the notary. Nothing about the wording on later pages. | Confirmation that the translation firm or translator issued this exact wording, as at its date. Nothing about whether the translation is accurate. | A document whose wording may have been edited. |
+| **What the holder shares** | The sealed paper original. | Only the translation they chose to hand over. | Only the document they chose to hand over. |
+| **Reach** | Accepted where that country's notarial acts are recognized; abroad it may need an apostille or legalization as well. | Global in principle: any translation firm or translator, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | An appointment and a notary's fee per document. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | A notary and the paper original. | The translation firm to publish hashes, and Live Verify-aware software on the checker's device. No translation firm does this yet. | Nothing. |
+| **Best suited to** | Meeting a formal requirement for notarization. | Confirming that the wording received is the wording the translator issued. | Nothing where a decision depends on the wording. |
 
 **Where each fits:** a notary's seal attests to who signed the certification, and where an authority requires notarization it still has to be obtained. The seal says nothing about whether the translated text has since been altered. Live Verify lets the receiving office confirm that the translation firm stands behind the exact wording, so it accompanies the seal rather than replacing it. Neither one vouches for the accuracy of the translation itself.
 

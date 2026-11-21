@@ -229,16 +229,21 @@ The care home benefits by proving its status to prospective families.
 
 **Deputyship and welfare decisions:** Solicitors acting as deputies for adults who lack capacity to make their own decisions need to confirm the regulatory status of care providers. Verified registration claims provide a documented check that the provider was registered at the time of placement.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and the Regulator's Register
 
-| Feature | Live Verify | CQC Website Lookup | Care Home's Own Marketing | Phone Call to CQC |
+Every country has its own care regulator (the CQC in England, the Care Inspectorate in Scotland, CIW in Wales, RQIA in Northern Ireland, state agencies and CMS in the USA), and most publish a searchable register of facilities and ratings. That register is the authority. Live Verify works side by side with it: it lets the registration claim a care home shows on its own website be checked against the regulator's domain, where the family is already reading.
+
+| | Regulator's website search | Phone call to the regulator | Care home's own marketing | Live Verify on the registration claim |
 | :--- | :--- | :--- | :--- | :--- |
-| **Issuer-controlled** | **Yes.** CQC issues the claim. | **Yes.** But requires the family to navigate there. | **No.** Self-asserted by the care home. | **Yes.** But slow and inconvenient. |
-| **Verifiable at point of encounter** | **Yes.** On the care home's own website. | **No.** Requires leaving the site. | **No.** No verification mechanism. | **No.** Requires a separate call. |
-| **Shows current rating** | **Yes.** Live response from CQC. | **Yes.** If the family knows to check. | **Not necessarily.** May show an outdated rating. | **Yes.** But requires a phone call. |
-| **Detects suspended registration** | **Yes.** Endpoint returns SUSPENDED or CANCELLED. | **Yes.** If checked. | **No.** Marketing continues unchanged. | **Yes.** |
-| **Detects outdated rating** | **Yes.** Response flags SUPERSEDED. | **Yes.** If the family compares. | **No.** | **Yes.** If the family asks. |
-| **Detects copied claims** | **Yes.** Domain mismatch warning. | **No.** | **No.** | **No.** |
+| **Who can check** | Anyone who knows to go there and search. | Anyone, during opening hours. | Nobody; it is the home's own statement. | Anyone reading the home's website with Live Verify in their browser. |
+| **What the checker gets** | The regulator's full record: status, current rating, inspection reports. | The same, read out by a person, plus answers to questions. | Whatever the home chooses to say, which may be an old rating. | Confirmation that the regulator stands behind this exact claim, and whether it is current, superseded, suspended or cancelled. |
+| **What the facility shares** | Nothing; the register is public. | Nothing; the register is public. | Its own description of itself. | A short claim issued by the regulator, shown on its website. |
+| **Reach** | That regulator's own area. | That regulator's own area. | Anywhere. | Global in principle: any regulator, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Free; a few minutes, after leaving the home's site. | Free; slower, and only in office hours. | Free and immediate. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A family member who knows the regulator exists and checks. | Time on the phone. | Nothing. | The regulator to publish hashes for registration claims, and Live Verify-aware software on the family's device. No regulator does this yet. |
+| **Best suited to** | Reading inspection reports in full and comparing homes. | Questions the register does not answer. | Learning what the home offers. | A quick check at the point where the family first meets the claim. |
+
+**Where each fits:** the regulator's own register remains the place to read inspection reports and compare homes, and families who know to use it should. Many do not, and simply read what the home says about itself. A claim that can be checked against the regulator's domain from the home's own website closes that gap and shows straight away when a rating has been superseded or a registration suspended.
 
 ## Authority Chain
 

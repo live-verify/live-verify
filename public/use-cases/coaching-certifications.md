@@ -120,14 +120,19 @@ UK Sport certifies coaches who meet safeguarding and technical competency standa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Learning Portals (USSF Learning Center)
+## Where Each Fits: Live Verify and Federation Learning Portals
 
-| Feature | Live Verify | Learning Portal (Login) | Physical License / ID |
+Sports federations, such as US Soccer through its Learning Center, keep coaches' courses and licenses in an online portal that coaches and club administrators log in to. Each federation runs its own, so coverage depends on the sport and the country. The portal is the full record. Live Verify answers a narrower question on the sideline, whether the badge a coach is wearing is one the federation issued and is still current, and the two work side by side.
+
+| | Federation learning portal | Live Verify on the coach's badge | Printed license or ID card |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Federation. | **System-Bound.** Requires login. | **Visual.** Trusted only via stamp. |
-| **Sideline Access** | **Instant.** Scan the coach's lanyard. | **Hard.** No one logs into a portal on a muddy field. | **Instant.** |
-| **Integrity** | **Cryptographic.** Binds photo to status. | **High.** Direct DB access. | **Low.** Easily faked. |
-| **User Control** | **High.** Coach shares only the Badge. | **Low.** Portal exposes full academic history. | **High.** |
+| **Who can check** | The coach, and club or federation staff with a login. | Anyone the coach shows the badge to: a tournament official, a referee, a parent. | Anyone who looks at it. |
+| **What the checker gets** | The coach's full qualification record and course history. | Confirmation that the federation issued this exact badge, as at its date, and whether it has since been suspended or withdrawn. | A card that looks right, and may be expired or faked. |
+| **What the coach shares** | Access to their whole record, if they share a login or a screen. | Only the badge. | Only the card. |
+| **Reach** | That federation's members. | Global in principle: any federation or governing body, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Quick at a desk; impractical on a field. Included in membership. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection at the field. | Immediate. |
+| **What it needs** | An account and a login. | The federation to publish hashes, and Live Verify-aware software on the checker's device. No federation does this yet. | Nothing. |
+| **Best suited to** | Club registration and course management. | Quick checks of many coaches at a tournament or match. | A first look. |
 
 **Where each fits:** the federation's learning portal is the full record of a coach's qualifications and the right tool for clubs doing registration at their desks. A tournament official on the touchline, checking many coaches quickly, has no practical way to log in. Live Verify lets the official check the badge the coach is wearing against the federation's domain, and shows only what the badge says rather than the coach's whole history.
 

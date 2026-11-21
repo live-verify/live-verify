@@ -109,16 +109,21 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With e-CMR (Digital Convention)
+## Where Each Fits: Live Verify and e-CMR
 
-| Feature | Live Verify | e-CMR (Standard) | Paper Carbon Copy |
+The e-CMR protocol to the UN's CMR Convention allows the road consignment note to be issued and handed over electronically, through apps and platforms run by commercial providers. Coverage depends on the route: an e-CMR can only be used where the countries involved have ratified the protocol and the carrier, shipper and consignee all use a compatible system. Elsewhere the paper note remains the record. e-CMR and Live Verify answer different questions and work side by side.
+
+| | e-CMR | Live Verify on the paper consignment note | Paper note with stamps |
 | :--- | :--- | :--- | :--- |
-| **Connectivity** | **Needed for the check.** The paper note travels through mountains and tunnels; checking it takes one small web request, which can wait until there is signal. | **Needed.** Requires the app and a data connection at every handoff. | **Offline.** |
-| **Trust Anchor** | **Domain-Bound.** Trust the Carrier. | **Protocol-Bound.** Trust the UN convention system. | **Visual.** Trusted only via stamp. |
-| **Interoperability** | **Universal.** Works for any trucker with a URL. | **Low.** Requires all countries to ratify the e-Protocol. | **Universal.** |
-| **Integrity** | **Binds Data.** Protects the Weight/Count. | **Digital Only.** | **Zero.** |
+| **Who can check** | Parties using the same or a connected e-CMR system, and authorities with access to it. | Anyone handed the note: a consignee, a customs or police officer, an insurer, a factoring company. | Whoever holds it, trusting the stamps. |
+| **What the checker gets** | The electronic record of the consignment, with each handover logged. | Confirmation that the carrier or shipper issued this exact note, with these weights and counts, as at its date. | A form whose figures and stamps may have been altered. |
+| **What the holder shares** | Access through the e-CMR system. | Only the note. | Only the note. |
+| **Reach** | Routes where every country has ratified the protocol and every party uses a compatible system. | Global in principle: any carrier or shipper, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Fast at each handover once set up; app subscriptions and onboarding come first, and each handover needs a data connection. | A few seconds per check: one web lookup, with no fee to the standard. The note can be read without signal; the check waits until there is a connection. | Free, and works anywhere. |
+| **What it needs** | Ratification on the route and a compatible app for every party. | The carrier or shipper to publish hashes, and Live Verify-aware software on the checker's device. No carrier or shipper does this yet. | Nothing. |
+| **Best suited to** | Regular lanes where every party is already on e-CMR. | Paper notes on routes or with parties outside e-CMR. | Recording the handover where nothing else is available. |
 
-**Where each fits:** where the carrier, the consignee and the countries on the route all support e-CMR, the electronic note is the better record. A great deal of road freight still moves on paper notes carried by independent drivers, through places with poor signal. Live Verify lets anyone handed the paper note check it against the carrier's domain, and it can serve as a step toward e-CMR adoption rather than a rival to it.
+**Where each fits:** where the carrier, the consignee and the countries on the route all support e-CMR, the electronic note is the better record. A great deal of road freight still moves on paper notes carried by independent drivers, through places with poor signal. Live Verify lets anyone handed the paper note check it against the carrier's domain once they have a connection, and it can serve as a step toward e-CMR adoption rather than a rival to it.
 
 ## Independent Record (Optional)
 

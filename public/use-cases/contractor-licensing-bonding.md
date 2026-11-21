@@ -132,14 +132,19 @@ State licensing boards issue contractor licenses and bonding to protect consumer
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With State Search Portals
+## Where Each Fits: Live Verify and the State License Search
 
-| Feature | Live Verify | State Website Search | Scanned PDF |
+In the US, contractor licenses are issued by state boards, and in some places by counties or cities, each with its own online lookup; other countries have their own registers or none. The board's search is the official register. Live Verify answers a narrower question at the kitchen table, whether the pocket card a contractor shows is one the board issued and is still current, and the two work side by side.
+
+| | State board's online search | Live Verify on the license card or bond certificate | Unverified scanned PDF |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Binds Identity.** Proves *Who* is licensed. | **Vague.** Hard to prove the person in front of you is the person in the DB. | **Zero.** Easily forged. |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Type in license #, navigate mobile-unfriendly site. | **Instant.** |
-| **Trust** | **Domain-Bound.** Bound to the Board. | **High.** But prone to "typo" errors. | **Medium.** |
-| **Field Use** | **High.** Mobile-optimized workflow. | **Low.** Hard to use on a construction site. | **Universal.** |
+| **Who can check** | Anyone who searches by name or license number. | Anyone the contractor shows the card or certificate to. | Whoever receives it, trusting it as it stands. |
+| **What the checker gets** | The official record, often including bond, insurance and complaint history. | Confirmation that the board issued this exact card, naming this person and license, as at its date, and whether it has since been suspended or revoked. | A document that may have been edited. |
+| **What the contractor shares** | Their name or license number. | Only the card or certificate. | Only the document. |
+| **Reach** | That board's own licensees. | Global in principle: any licensing board, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Free; a few minutes, and awkward on a phone. A mistyped number can find the wrong record. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | A homeowner who knows which board to search. | The board to publish hashes, and Live Verify-aware software on the checker's device. No board does this yet. | Nothing. |
+| **Best suited to** | A full check, including complaints, before signing. | A quick first check that the person in front of you holds the license they claim. | Nothing where a contract depends on it. |
 
 **Where each fits:** the state board's website is the official register and the fullest source, including complaint history, and a homeowner with time should look there. On a doorstep or at a kitchen table, searching it on a phone is awkward, and a mistyped number proves little. Live Verify lets the homeowner check the pocket card they are shown against the board's domain, as a quick first step before any fuller search.
 

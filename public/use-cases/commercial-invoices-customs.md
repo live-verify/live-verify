@@ -113,14 +113,19 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Customs Single Windows (ACE)
+## Where Each Fits: Live Verify, Customs Single Windows and EDI
 
-| Feature | Live Verify | ACE Portal (Gov) | Private EDI |
+Customs declarations are filed through each country's own single window, such as ACE in the US, which is the official record of what was declared and is open only to the authorities and licensed filers. Trading partners that are already connected exchange invoices by EDI. Coverage depends on the route: every country runs its own customs system, and many smaller traders exchange no EDI at all. These answer different questions from Live Verify and work side by side with it.
+
+| | Customs single window | Private EDI between trading partners | Live Verify on the invoice |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Trust the Exporter. | **Gov-Bound.** Trust the filing. | **Network-Bound.** |
-| **Integrity** | **Binds line items.** Protects prices. | **Data-Only.** Doesn't protect paper. | **High.** |
-| **User Access** | **Universal.** Any trucker/bank can verify. | **Restricted.** Requires Gov credentials. | **Siloed.** |
-| **Freshness** | **Real-time.** Shows "Cancelled" status. | **Laggy.** Updates take 24-48 hours. | **Live.** |
+| **Who can check** | Customs officers and the importer's licensed broker. | The connected trading partners. | Anyone handed the invoice: a bank, a carrier, a buyer, an insurer. |
+| **What the checker gets** | The declaration as filed with customs. | Structured invoice data, direct from the sender's system. | Confirmation that the exporter issued this exact invoice, with these line items and prices, as at its date, and whether it has been cancelled. Nothing about whether the prices are a true valuation. |
+| **What the exporter shares** | Declaration data with the authority. | Invoice data with that partner. | Only the invoice. |
+| **Reach** | That country's customs. | Partners with an EDI link. | Global in principle: any exporter, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Fast for filers; access and filing software come first. | Fast once connected; setup and network costs come first. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | Government credentials and a licensed filer. | An EDI link between both parties. | The exporter to publish hashes, and Live Verify-aware software on the checker's device. No exporter does this yet. |
+| **Best suited to** | The official customs record and clearance. | High-volume trade between established partners. | Banks, carriers and buyers outside those systems who see only the invoice. |
 
 **Where each fits:** the customs single window is the official record of what was declared, and EDI serves trading partners who are already connected. A bank, carrier or buyer outside those systems sees only the invoice. Live Verify lets them confirm the exporter issued it with those line items and has not cancelled it. That shows the exporter stands behind the document, and can also be compared with what was declared to customs.
 

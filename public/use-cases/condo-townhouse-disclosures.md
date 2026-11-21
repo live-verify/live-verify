@@ -118,14 +118,19 @@ HOA disclosures are issued by property managers and regulated by the California 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With HOA Search Portals
+## Where Each Fits: Live Verify and Disclosure Portals
 
-| Feature | Live Verify | HomeWiseDocs / CondoCerts | Scanned PDF |
+In the US, resale disclosure packages for condominiums and townhouses are usually ordered through portals run for management companies, such as HomeWiseDocs or CondoCerts, for a fee, and delivered after processing. Rules on what must be disclosed vary by state. The portal is the established way to get a current package. Live Verify answers a narrower question, whether a document someone has already been handed is one the association or management firm issued, and the two work side by side.
+
+| | Disclosure portal | Live Verify on the disclosure document | Unverified scanned PDF |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Mgmt firm. | **System-Bound.** Trust the vendor platform. | **Zero.** Easily forged. |
-| **Cost** | **Free.** (Marginal hosting). | **Very High.** Disclosure packs cost $300-$600 each. | **None.** |
-| **User Access** | **Instant.** Scan the paper in the lobby. | **Slow.** Requires paying a fee and waiting 3-5 days. | **Instant.** |
-| **Integrity** | **Binds Content.** Proves the *Dues* match. | **Data-Only.** | **Vulnerable.** |
+| **Who can check** | Whoever orders and pays for a package. | Anyone handed the document: a buyer, an agent, a lender, a title company. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | A current package prepared for that sale. | Confirmation that the management firm or association issued this exact document, with these dues and assessments, as at its date. | A document whose dues or assessments may have been edited. |
+| **What the seller shares** | The order details for the property. | Only the document. | Only the document. |
+| **Reach** | Associations whose management firms use that portal. | Global in principle: any association or management firm, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | A fee per package and a processing wait of some days. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | An order and payment. | The management firm or association to publish hashes, and Live Verify-aware software on the checker's device. No management firm does this yet. | Nothing. |
+| **Best suited to** | Getting a fresh, complete package for a sale or refinance. | Confirming a document already received is authentic. | Nothing where a purchase depends on it. |
 
 **Where each fits:** disclosure portals are the established way to order a current resale package, and a lender or title company that needs a fresh one will still order it there. A buyer or agent who has already been handed a document may only want to know that it is authentic. Live Verify lets them check it against the management firm's domain, without ordering a second copy, and without replacing the portal for new requests.
 

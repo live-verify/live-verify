@@ -215,18 +215,21 @@ The ACNC maintains the national charity register. Registration is required for c
 
 </details>
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and the Charity Register
 
-| Feature | Live Verify | Charity Commission Search | Registration Number on Website | Phone Call to Commission |
+Charity regulators publish searchable registers of the charities they oversee: in the UK, the Charity Commission for England and Wales, OSCR in Scotland and the Charity Commission for Northern Ireland, with other countries running their own. The register is the authority. Live Verify works side by side with it, letting a registration claim the charity shows on its website or collection materials be checked against the regulator's domain at the moment the donor meets it.
+
+| | Regulator's register search | Phone call to the regulator | Registration number on the charity's website | Live Verify on the registration claim |
 | :--- | :--- | :--- | :--- | :--- |
-| **Issuer-controlled** | **Yes.** Commission issues the claim. | **Yes.** But requires the donor to navigate there. | **No.** Self-asserted by the charity. | **Yes.** But slow. |
-| **Verifiable at point of donation** | **Yes.** On the charity's own website or from physical materials. | **No.** Requires leaving the page. | **No.** Number could be fabricated. | **No.** Requires a phone call. |
-| **Shows current status** | **Yes.** Live response from Commission. | **Yes.** If the donor checks. | **No.** Static text. | **Yes.** If the donor calls. |
-| **Detects removal from register** | **Yes.** Endpoint returns REMOVED. | **Yes.** If checked. | **No.** Text remains on the page. | **Yes.** |
-| **Detects open inquiry** | **Yes.** Response includes investigation status. | **Yes.** If the donor reads the full entry. | **No.** | **Yes.** If the donor asks. |
-| **Detects copied claims** | **Yes.** Domain mismatch warning. | **No.** | **No.** | **No.** |
+| **Who can check** | Anyone who goes to the register and searches. | Anyone, during opening hours. | Nobody; the charity asserts it. | Any donor reading the claim, with Live Verify on their device. |
+| **What the checker gets** | The full entry: status, accounts, trustees, any regulatory action. | The same, read out by a person, plus answers to questions. | A number that may be invented or borrowed from another charity. | Confirmation that the regulator stands behind this exact claim for this charity, and whether it is current, removed or under inquiry. |
+| **What the charity shares** | Nothing; the register is public. | Nothing; the register is public. | Its own statement. | A short claim issued by the regulator, shown on its site or printed materials. |
+| **Reach** | That regulator's own jurisdiction. | That regulator's own jurisdiction. | Anywhere. | Global in principle: any charity regulator, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Free; a few minutes, after leaving the charity's page. | Free; slower, and only in office hours. | Free and immediate. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A donor who knows the register exists and uses it. | Time on the phone. | Nothing. | The regulator to publish hashes for registration claims, and Live Verify-aware software on the donor's device. No regulator does this yet. |
+| **Best suited to** | Reading a charity's accounts and history before a significant gift. | Questions the register does not answer. | Nothing on its own. | A quick check at the moment of giving, online or at a collection tin. |
 
-**Practical conclusion:** The Charity Commission's search tool works for donors who use it. The problem is that most people do not. They see "Registered Charity No. 1188442" on a website or a collection tin and take it at face value. A verifiable claim embedded on the charity's own site — or printed on physical materials — turns a self-asserted number into a checkable one at the moment the donor is deciding whether to give.
+**Where each fits:** the Charity Commission's search tool works for donors who use it, and remains the place to read a charity's accounts and history. Most people do not use it: they see "Registered Charity No. 1188442" on a website or a collection tin and take it at face value. A claim that can be checked against the Commission's domain, on the charity's own site or printed on its materials, turns that self-asserted number into a checkable one at the moment the donor decides.
 
 ## Authority Chain
 

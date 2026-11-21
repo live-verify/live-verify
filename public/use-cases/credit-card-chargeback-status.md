@@ -107,14 +107,21 @@ Barclaycard, a regulated card issuer, is authorized by the Financial Conduct Aut
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Manual Verification
+## Where Each Fits: Live Verify and a Letter from the Card Issuer
 
-| Feature | Live Verify | Letter / Email from Issuer | Screenshot of Online Portal |
+When a cardholder needs to show someone the outcome of a chargeback, the usual options are to ask the card issuer for a letter or email confirming it, or to show a screenshot of their online banking. The issuer's letter is the established route. Live Verify answers the same need in a form the recipient can check against the issuer's domain, and the two work side by side.
+
+| | Letter or email from the issuer | Live Verify on the chargeback status | Screenshot of online banking |
 | :--- | :--- | :--- | :--- |
-| **Speed** | **Seconds.** Hash check against issuer domain. | **Days.** Request and postal delivery. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Tied to the card issuer. | **Reputation.** Trust the letterhead. | **Zero.** Trivially editable. |
-| **Currency** | **Current.** Status as at the resolution date. | **Stale.** Reflects status at time of writing. | **None.** No timestamp guarantee. |
-| **Integrity** | **Cryptographic.** Binds status to issuer domain. | **Paper.** Can be altered after receipt. | **Vulnerable.** Screenshot manipulation is trivial. |
+| **Who can check** | Whoever receives it, trusting the letterhead. | Anyone handed the status document: a merchant, a lender, a court, an employer. | Whoever receives it, trusting it as it stands. |
+| **What the checker gets** | The issuer's statement of the outcome at the time of writing. | Confirmation that the issuer issued this exact status, as at its date, and whether it has since changed. | An image that may have been edited. |
+| **What the cardholder shares** | The letter. | Only the status document. | The screenshot, which may show other account details. |
+| **Reach** | Any issuer willing to write one. | Global in principle: any card issuer, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Days to request and receive, especially by post. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | An issuer willing to write, and a recipient who accepts the letterhead. | The card issuer to publish hashes, and Live Verify-aware software on the checker's device. No card issuer does this yet. | Nothing. |
+| **Best suited to** | Formal correspondence where a signed letter is expected. | A quick, checkable answer for a third party. | Nothing where money depends on it. |
+
+**Where each fits:** a letter from the card issuer remains the formal way to confirm a chargeback outcome, and some recipients will still ask for one. It takes days to arrive and is itself only as trustworthy as its letterhead. Live Verify gives the recipient a status they can check against the issuer's domain in seconds, and a screenshot of online banking should not be relied on either way.
 
 ## Further Derivations
 

@@ -111,16 +111,21 @@ State cosmetology and barber boards license practitioners in personal care servi
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Window Stickers / Public Lookup
+## Where Each Fits: Live Verify, Displayed Licenses and the State Lookup
 
-| Feature | Live Verify | Window/Wall Sticker | State Website Lookup |
+In the US, cosmetology and barber licenses are issued by state boards, which publish an online license lookup and usually require the license to be displayed at the work station; other countries regulate the trade in their own ways, and some not at all. The board's lookup is the official record. Live Verify answers a narrower question in the chair, whether the license on display is one the board issued to this person and is still current, and the two work side by side.
+
+| | State board's online lookup | License or sticker on display | Live Verify on the displayed license |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Board. | **Mechanical.** Hard to forge, but non-verifiable. | **High.** Direct DB access. |
-| **Speed** | **Instant.** 5-second scan at the chair. | **N/A.** Just looking. | **Slow.** Type in license #, navigate mobile results. |
-| **Integrity** | **Binds Identity.** Links face to status. | **Zero.** Easily swapped. | **None.** |
-| **User Privacy** | **Targeted.** Verifies *this* person. | **Open.** | **Open.** Scrape-able by data brokers. |
+| **Who can check** | Anyone who searches by name or license number. | Any client who looks at it. | Any client with Live Verify on their phone. |
+| **What the checker gets** | The board's record of the license, its status and any discipline. | A document that may belong to someone else, or have expired. | Confirmation that the board issued this exact license, naming this person, as at its date, and whether it has since been suspended or revoked. The client still compares the name, or photo if shown, with the person. |
+| **What the stylist shares** | Nothing; the lookup is public. | The displayed license. | The displayed license. |
+| **Reach** | That state's licensees. | That salon. | Global in principle: any licensing board, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Free; a few minutes on a phone, typing a number. | Immediate. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A client who knows which board to search. | Nothing. | The board to publish hashes, and Live Verify-aware software on the client's device. No board does this yet. |
+| **Best suited to** | Checking discipline history before choosing a salon. | A first look. | A quick check in the chair, where the decision is actually made. |
 
-**Why this remains strong:** State website lookup should remain primary where it is practical. But salon and barber trust decisions are often made from the displayed station license in the room, not from a planned registry search. That makes this a complementary surface-verification case rather than a replacement for the board database.
+**Where each fits:** the state website lookup should remain primary wherever a client is willing to use it, since it shows discipline history as well as status. Most salon and barber decisions are made from the license displayed at the station, not from a planned registry search. Live Verify lets a client check that displayed license against the board's domain in a few seconds, as a complement to the board's database rather than a replacement for it.
 
 ## Independent Record (Optional)
 

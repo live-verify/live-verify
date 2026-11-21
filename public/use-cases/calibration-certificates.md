@@ -155,25 +155,35 @@ The tool owner (second party) may hand the verified document to various third pa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Physical Tamper Seals
+## Where Each Fits: Live Verify and Physical Tamper Seals
 
-| Feature | Live Verify | Lead/Plastic Wire Seal | Sticker (Hologram) |
+Calibration labs and maintenance teams use wire seals and tamper stickers to show that an instrument has not been opened or adjusted since it was calibrated. A seal protects the instrument; Live Verify protects the certificate's text. They answer different questions and are used together.
+
+| | Lead or plastic wire seal | Hologram tamper sticker | Live Verify on the certificate or sticker |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Lab. | **Mechanical.** Binds the *box*. | **Visual.** Binds the *surface*. |
-| **Data Protection** | **High.** Protects the numbers *inside* the doc. | **Zero.** Doesn't protect data. | **Zero.** |
-| **Auditability** | **Digital.** Can be automated. | **Manual.** Requires physical eyes. | **Manual.** |
-| **Persistence** | **High.** Archival for 10+ years. | **Fragile.** Cut during maintenance. | **Fragile.** Peeled/Scratched. |
+| **Who can check** | Anyone looking at the instrument. | Anyone looking at the instrument. | Anyone holding the certificate or seeing the sticker, with Live Verify on their device. |
+| **What the checker gets** | Evidence that the housing or adjustment point has not been opened. | Evidence that the surface has not been disturbed, and a printed due date. | Confirmation that the lab issued this exact certificate text, as at its date, and whether it has been withdrawn. Nothing about the physical state of the instrument. |
+| **What the holder shares** | The instrument. | The instrument. | Only the certificate or sticker. |
+| **Reach** | Any instrument that can be sealed. | Any instrument with room for a label. | Global in principle: any calibration lab, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Immediate, with no equipment. | Immediate, with no equipment. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A seal applied at calibration. | A label applied at calibration; stickers can be bought and filled in by anyone. | The lab to publish hashes, and Live Verify-aware software on the checker's device. No lab does this yet. |
+| **Best suited to** | Showing an instrument has not been tampered with since calibration. | A visible reminder of status and due date. | Checking the calibration results and dates, including after the seal has been cut at the next service. |
 
 **Where each fits:** A wire seal or tamper sticker is the right tool for showing that an instrument has not been opened or adjusted since it was calibrated, and it does that at a glance with no equipment. What it does not carry is the calibration data itself, and it is cut or peeled at the next service. Live Verify covers that part: the results on the certificate stay checkable against the lab's domain after the seal is gone. The two are used together.
 
-## Compared With Asset Management Software
+## Where Each Fits: Live Verify and Asset Management Software
 
-| Feature | Live Verify | Asset Management SW | Paper / Excel Log |
+Calibration management or asset management software is the system of record a company uses to track its instruments, due dates and recalls, run by the company itself or by its labs. It and Live Verify answer different questions and work side by side: one manages a fleet of instruments, the other lets anyone holding a certificate or looking at a sticker check it against the lab that issued it.
+
+| | Asset management software | Live Verify on the certificate or sticker | Paper or spreadsheet log |
 | :--- | :--- | :--- | :--- |
-| **Field Access** | **Instant.** Scan the sticker on the tool. | **Difficult.** Requires laptop/tablet and login to complex ERP. | **Slow.** Find the binder. |
-| **Integrity** | **Cryptographic.** Binds data to the Lab domain. | **Database-Bound.** Can be edited by IT/Admins (audit trail weak). | **Zero.** Easily faked. |
-| **Vendor Neutral** | **Yes.** Works across 10 different accredited labs. | **No.** Often requires all labs to use the same software platform. | **Yes.** |
-| **Connectivity needed** | **Yes, for the check.** The sticker can be read without a connection; checking it takes one small web request. | **Yes.** Requires server/database access. | **None.** |
+| **Who can check** | Staff with a login to the system. | Anyone holding the certificate or seeing the sticker, including an auditor or customer with no login. | Whoever has the binder or file. |
+| **What the checker gets** | The full history: schedules, results, recalls and audit trail across every instrument. | Confirmation that the issuing lab stands behind this exact certificate or sticker text, as at its date, and whether it has been withdrawn. | A record that may or may not have been kept up to date. |
+| **What the holder shares** | Access to the system, if an outsider needs to see it. | Only the certificate or sticker. | The log. |
+| **Reach** | Within the company, and across labs only if they all feed the same platform. | Global in principle: any lab, in any country, that publishes hashes on its own domain, whatever software each uses. | Wherever the paper is. |
+| **Speed and cost** | Fast at a desk once licensed and set up; slower at the point of use. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection at the moment of the check. | Free; slow to search. |
+| **What it needs** | Licences, setup and data entry or integration with each lab. | Each lab to publish hashes, and Live Verify-aware software on the checker's device. No lab does this yet. | Someone to keep it. |
+| **Best suited to** | Managing schedules, recalls and audit history. | A quick check at the bench or on the shop floor, and certificates from several labs on different platforms. | Small operations with few instruments. |
 
 **Where each fits:** Asset management software remains the system of record for calibration schedules, recall lists and audit history, and nothing here replaces it. Its limit is at the point of use, where an inspector looking at a tool would need a login and a search to see its status, and where certificates arrive from several labs on different platforms. Live Verify fills that gap by letting anyone check the certificate or sticker text against the issuing lab's domain.
 

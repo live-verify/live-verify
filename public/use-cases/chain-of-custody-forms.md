@@ -112,14 +112,19 @@ Self-authorized — this is a sovereign body whose authority derives from statut
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Blockchain (Vechain / Hyperledger)
+## Where Each Fits: Live Verify and Enterprise Ledgers
 
-| Feature | Live Verify | Enterprise Blockchain | Paper Logbook |
+Some laboratories, agencies and supply chains record custody events on enterprise ledgers built on platforms such as VeChain or Hyperledger, run by the organizations that operate them. Those give a strong shared audit trail among participants. Live Verify answers a narrower question, whether a custody form someone is holding is the one the lab or agency issued, and the two work side by side.
+
+| | Enterprise ledger | Live Verify on the custody form | Paper logbook |
 | :--- | :--- | :--- | :--- |
-| **Field Access** | **Universal.** Any lawyer or clerk with a phone. | **Restricted.** Requires expensive "Node" access and memberships. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Trust the Lab domain. | **Consensus-Bound.** Trust the network protocol. | **Visual.** Trusted only via signatures. |
-| **Connectivity** | **Strong.** Works even if the global chain is down. | **Needed.** Requires a data connection at the scene, as a Live Verify check also does. | **Offline.** |
-| **Auditability** | **High.** Creates a digital audit trail of scans. | **Very High.** Immutable ledger. | **Low.** Prone to "lost" books. |
+| **Who can check** | Participants with access to the network. | Anyone handed the form: a lawyer, a court clerk, an auditor. | Whoever has the book. |
+| **What the checker gets** | A shared, append-only record of each custody event entered by participants. | Confirmation that the lab or agency issued this exact form text, as at its date, and whether it has been withdrawn. | Handwritten entries and signatures, trusted as far as the signatures are. |
+| **What the holder shares** | Records posted to the network, visible to permitted participants. | Only the form. | The book itself. |
+| **Reach** | Organisations that have joined that network. | Global in principle: any lab or agency, in any country, that publishes hashes on its own domain. | Wherever the book is. |
+| **Speed and cost** | Fast once connected; setup, membership and integration come first. Needs a data connection to record or read. | A few seconds per check: one web lookup, with no fee to the standard. Also needs a data connection at the moment of the check. | Immediate and free; can be lost or altered. |
+| **What it needs** | Every handler in the chain to be a participant. | The lab or agency to publish hashes, and Live Verify-aware software on the checker's device. No lab or agency does this yet. | Someone to keep it. |
+| **Best suited to** | Organisations that control the whole custody chain. | Checking a form that has passed through people outside any shared system. | Recording handovers where nothing else is available. |
 
 **Where each fits:** an enterprise ledger gives the strongest audit trail where every party handling the evidence is a participant and connectivity is reliable. Custody often passes through places and people outside any such system, with a paper log that is always to hand. Live Verify lets a lawyer or clerk check a custody form against the laboratory's or agency's domain with a phone, and it can be used with a ledger where one is in place.
 

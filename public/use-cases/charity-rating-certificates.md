@@ -122,14 +122,19 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Guidestar Search
+## Where Each Fits: Live Verify and the Rater's Own Database
 
-| Feature | Live Verify | GuideStar / Candid Search | Scanned JPEG Badge |
+Charity rating and transparency bodies, such as Charity Navigator and Candid (GuideStar), publish their ratings and seals in a searchable online database, which is their authoritative and most current record. Live Verify answers a narrower question, whether a rating certificate someone has been shown is one the rater issued, and the two work side by side.
+
+| | Searching the rater's database | Live Verify on the rating certificate | Unverified badge image |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Rater. | **Database.** High trust but requires manual navigation. | **Zero.** Easily copied. |
-| **Integrity** | **Binds Numbers.** Protects the % Efficiency. | **Live.** Shows latest data. | **Vulnerable.** |
-| **User Experience** | **Instant.** Scan the paper/PDF. | **Slow.** Requires typing EIN and finding the record. | **N/A.** |
-| **B2B Integration** | **High.** Can be automated into grant software. | **Medium.** Requires expensive API access. | **Low.** |
+| **Who can check** | Anyone who searches the site; bulk or automated access usually through a paid API. | Anyone handed or shown the certificate: a donor, a grant-maker, a corporate giving team. | Nobody; it can be copied by anyone. |
+| **What the checker gets** | The rater's latest data and full profile of the charity. | Confirmation that the rater issued this exact certificate, with these figures, as at its date, and whether it has been withdrawn. | An image that may be old, altered or borrowed. |
+| **What the charity shares** | Nothing; the profile is public. | Only the certificate. | Only the image. |
+| **Reach** | Charities covered by that rater, mostly in its own country. | Global in principle: any rating body, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Free for individual lookups; a few minutes typing a name or tax number and finding the record. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | A checker who thinks to search. | The rater to publish hashes, and Live Verify-aware software on the checker's device. No rater does this yet. | Nothing. |
+| **Best suited to** | Proper diligence before a significant gift or grant. | A quick check of a certificate on a lobby wall, in an appeal letter or in a grant application. | Nothing where a gift depends on it. |
 
 **Where each fits:** searching the rating body's own database gives the fullest and most current picture, and a donor or grant-maker doing proper diligence should do that. Someone looking at a certificate on a lobby wall or in an appeal letter usually will not. Live Verify gives them a quick check that the rater issued that certificate with those figures, and points them back to the rater for anything more.
 

@@ -116,14 +116,19 @@ Zurich issues certificates of insurance for contractors and construction operati
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Central Databases (ACORD)
+## Where Each Fits: Live Verify and Industry Data Exchange
 
-| Feature | Live Verify | ACORD Data Pool | Paper COI |
+Insurers and brokers exchange policy data with each other through industry standards and data services built around ACORD forms, and some certificate-tracking services sit on top of those. They serve members and subscribers well. A site foreman or property owner is usually just handed a certificate of insurance by the contractor. Industry data exchange and Live Verify answer different questions and work side by side.
+
+| | Industry data exchange | Live Verify on the certificate | Unverified paper or PDF certificate |
 | :--- | :--- | :--- | :--- |
-| **User Access** | **Universal.** Any site foreman/owner can verify. | **Restricted.** Requires expensive industry membership. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Broker/Insurer. | **Centralized.** Trust the ACORD database. | **Zero.** Easily forged. |
-| **Integrity** | **Binds Content.** Proves the *Limits* match. | **Data-Only.** Doesn't verify the actual paper document. | **Vulnerable.** |
-| **Freshness** | **Real-time.** Queries the broker's live file. | **Laggy.** Depends on batch uploads. | **Static.** |
+| **Who can check** | Insurers, brokers and subscribers connected to the service. | Anyone handed the certificate: a general contractor, a property manager, a homeowner. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Structured policy data, as current as the last update from the carrier. | Confirmation that the broker or insurer issued this exact certificate, with these limits and dates, and whether it has been withdrawn. Not a guarantee that the policy has not since lapsed for non-payment unless the issuer updates it. | A form that may have been edited or copied from an old policy. |
+| **What the contractor shares** | Nothing directly; the data passes between insurers and brokers. | Only the certificate. | Only the certificate. |
+| **Reach** | Members and subscribers of that service. | Global in principle: any broker or insurer, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Fast for those connected; membership or subscription comes first. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | A connection to the service and data supplied by the carrier. | The broker or insurer to publish hashes, and Live Verify-aware software on the checker's device. No broker or insurer does this yet. | Nothing. |
+| **Best suited to** | Policy administration and tracking large numbers of certificates. | A one-off check by someone outside the industry before work starts. | Nothing where liability depends on it. |
 
 **Where each fits:** industry data pools serve insurers and brokers exchanging policy data among themselves, and do that job well. A property owner or site foreman is not a member and is simply handed a certificate by the contractor. Live Verify lets them check that certificate, including its limits, against the broker's or insurer's domain, which extends the reach of the industry's data without changing how it is exchanged.
 

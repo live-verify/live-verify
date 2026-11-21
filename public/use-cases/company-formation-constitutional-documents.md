@@ -528,16 +528,19 @@ The company registry is the authoritative source for formation documents and sta
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and the Company Registry
 
-| Feature | Live Verify | Registry Website Lookup | PDF/Printout from Company | Certified Copy (ordered from registry) |
+Each country, and in the US each state, runs its own company registry, such as Companies House in the UK or the Delaware Division of Corporations. The registry holds the filed certificate of incorporation and constitutional documents, offers an online lookup, and will supply certified copies for a fee. That remains the source of truth. Live Verify works side by side with it, for the copies that actually circulate between companies, banks and counterparties.
+
+| | Registry website lookup | Certified copy ordered from the registry | Live Verify on the document | PDF or printout from the company |
 | :--- | :--- | :--- | :--- | :--- |
-| **Tamper-evident** | **Yes.** Hash mismatch = altered. | **N/A.** Screen, not document. | **No.** PDF is editable. | **Yes.** But physical only. |
-| **Staleness detection** | **Yes.** SUPERSEDED status. | **Current.** But manual lookup. | **No.** Copy persists. | **No.** Copy persists. |
-| **Verifiable offline** | **No.** Each check needs a connection. | **No.** Requires connectivity. | **No.** | **No.** |
-| **Multi-page integrity** | **Yes.** Merkle root covers all pages. | **N/A.** | **No.** Pages can be swapped. | **Yes.** But physical. |
-| **Audit trail** | **Yes.** Verification is logged. | **No.** Browsing isn't evidence. | **No.** | **Yes.** With receipt. |
-| **Cost** | **Free.** Standard web request. | **Free.** But manual effort. | **Free.** But unverifiable. | **£15–£50 per document.** |
+| **Who can check** | Anyone who goes to that registry and searches. | Whoever receives the certified copy. | Anyone handed the document: a bank, an investor, a counterparty. | Whoever receives it, trusting it as it stands. |
+| **What the checker gets** | The registry's current record on screen, which is not itself a document to keep. | A copy the registry certifies, as at the date it was issued. | Confirmation that the registry issued this exact document, every page of it, as at its date, and whether a later filing has superseded it. | A file that may have been edited, or had pages swapped. |
+| **What the company shares** | Nothing; the register is public. | The certified copy. | Only the document. | Only the document. |
+| **Reach** | That registry's own companies. | That registry's own companies; abroad it may also need an apostille. | Global in principle: any registry, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Free or low cost in many registries; a few minutes, and the checker must know which registry to use. | Days to obtain, for a fee per document. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | Nothing beyond a browser. | An order to the registry. | The registry to publish hashes, and Live Verify-aware software on the checker's device. No registry does this yet. | Nothing. |
+| **Best suited to** | Anyone who wants the current position. | Transactions and jurisdictions that require a certified copy. | Checking the forwarded PDFs and printouts that circulate in practice. | Nothing where a transaction depends on it. |
 
 **Where each fits:** the registry remains the source of truth, and a certified copy ordered from it is still what some transactions and jurisdictions require. A direct registry lookup is also the right check for anyone who wants the current position. What Live Verify adds is a way to check the copies that actually circulate, forwarded PDFs and printouts, against the registry's domain, including whether a later filing has superseded them.
 

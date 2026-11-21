@@ -158,16 +158,21 @@ Childcare providers are inspected and registered through Ofsted, which maintains
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Physical References
+## Where Each Fits: Live Verify, References and Background Check Reports
 
-| Feature | Live Verify | Phone References | Background Check PDF |
+Parents hiring a nanny or babysitter usually rely on references from previous families and a background check, arranged by the parent, an agency or a care platform. Background check rules and providers vary by country and, in the US, by state. These remain the way a parent learns about a carer. Live Verify answers a narrower question at the door: is the badge this person holds one the platform or agency issued, and is it still current? The two work side by side.
+
+| | Phone references | Background check report | Live Verify on the carer's badge |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Trust the Platform. | **Personal.** Easy to have a friend "pretend" to be a prior boss. | **Zero.** Easily forged with a PDF editor. |
-| **Integrity** | **Binds Identity.** Links face to status. | **Subjective.** | **None.** |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires multiple phone calls. | **Instant.** |
-| **Freshness** | **Real-time.** Shows if banned *today*. | **N/A.** | **Static.** |
+| **Who can check** | The parent, by calling each referee. | The parent, reading the report they were given or ordered. | Any parent with Live Verify on their phone. |
+| **What the checker gets** | A previous employer's account of the carer, which only a phone call can give. | The result of a records search as at the date it was run. | Confirmation that the platform or agency issued this exact badge, as at its date, and whether it has since been suspended or withdrawn. The parent still compares the face with the photo. |
+| **What the carer shares** | Names and numbers of referees. | The report, which may contain more personal detail than the parent needs. | Only the badge. |
+| **Reach** | Wherever the referees can be reached. | The jurisdictions the check covered. | Global in principle: any platform, agency or licensing body, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Several calls, at the referees' convenience; a referee can be a friend posing as a former employer. | Days to run, and usually a fee; a PDF report is easy to edit. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | Honest, reachable referees. | A records provider and the carer's consent. | The platform or agency to publish hashes, and Live Verify-aware software on the parent's device. No platform or agency does this yet. |
+| **Best suited to** | Learning what the carer is like with children. | Screening before hiring. | Confirming at the door that the person's badge is genuine and still current. |
 
-**Why this remains strong:** The front-door workflow is the real constraint. Parents often interview several sitters in a short period and do not have time to chase references or rerun background checks at the threshold. Platform and agency systems remain primary in the background, but the sitter's badge or profile surface is what the parent actually sees. That makes this a strong complementary home-entry verification case.
+**Where each fits:** references and background checks remain the way a parent learns about a carer, and Live Verify replaces neither. The doorstep is where they fall short: parents interviewing several sitters do not have time to chase referees or rerun checks at the threshold, and a PDF report is easy to edit. A badge that can be checked against the platform's or agency's domain in a few seconds shows whether that person is who the platform screened and whether they are still in good standing.
 
 ## Independent Record (Optional)
 

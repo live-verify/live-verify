@@ -132,14 +132,19 @@ AIG issues commercial insurance policies for UK businesses and organizations.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With ACORD Data Feeds
+## Where Each Fits: Live Verify and Carrier Data Feeds
 
-| Feature | Live Verify | ACORD IVANS (Carrier Feed) | Scanned PDF Summary |
+In the US, carriers send policy and endorsement data to agencies through ACORD-standard feeds over networks such as IVANS, which keep agency management systems in step with the carrier. Other markets have their own arrangements. Those feeds serve the agencies on them. Live Verify answers a different question, whether a policy summary a lender, landlord or customer has been handed is the one the carrier or broker issued, and the two work side by side.
+
+| | Carrier data feed | Live Verify on the policy summary | Unverified scanned PDF summary |
 | :--- | :--- | :--- | :--- |
-| **Interoperability** | **Universal.** Works across all brokers/carriers. | **Limited.** Only for agencies on the IVANS network. | **Universal.** |
-| **Integrity** | **Cryptographic.** Binds the *Endorsements*. | **Data-Only.** Doesn't protect the actual doc. | **Zero.** Easily forged. |
-| **Freshness** | **Real-time.** Shows if cancelled *today*. | **Laggy.** Often 24-48 hours behind. | **Static.** |
-| **User Control** | **High.** Business shares only the *Summary*. | **Low.** Lenders see full raw data. | **High.** |
+| **Who can check** | Agencies connected to the network. | Anyone handed the summary: a lender, a landlord, a customer, an auditor. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Structured policy and endorsement data in the agency's own system. | Confirmation that the carrier or broker issued this exact summary, with these endorsements, as at its date, and whether the policy has since been cancelled, if the issuer updates the status. | A summary whose endorsements or limits may have been edited. |
+| **What the business shares** | Nothing directly; the data passes between carrier and agency. | Only the summary it chose to hand over. | Only the summary. |
+| **Reach** | Agencies and carriers on that network. | Global in principle: any carrier or broker, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Automatic once connected; network membership and agency software come first. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | A connection to the network and a compatible management system. | The carrier or broker to publish hashes, and Live Verify-aware software on the checker's device. No carrier or broker does this yet. | Nothing. |
+| **Best suited to** | Back-office policy administration. | Third parties outside the network checking a summary before relying on it. | Nothing where lending or a lease depends on it. |
 
 **Where each fits:** carrier data feeds serve agencies on the network well for keeping their management systems in step with policy changes. Lenders, landlords and customers are outside that network and receive a broker's summary instead. Live Verify lets them check that summary against the issuer's domain and see whether it has since been cancelled, while the feeds continue to do the back-office work.
 

@@ -262,16 +262,19 @@ Interaction #4 (hash) ─┘
 
 This extends the witnessing model from *consent documents* to *the entire interaction history* of the trial.
 
-## Compared With eConsent Platforms (Medidata)
+## Where Each Fits: Live Verify and eConsent Platforms
 
-| Feature | Live Verify | eConsent Platform | Paper ICF | QR Code |
+eConsent platforms, such as Medidata's, let sponsors and trial sites present, sign and store consent forms electronically, with version control and an audit trail held in the vendor's system. Many sites still consent on paper, and some put a QR code on the form. These answer different questions from Live Verify and work side by side with it.
+
+| | eConsent platform | QR code on the form | Live Verify on the consent form or card | Paper consent form |
 | :--- | :--- | :--- | :--- | :--- |
-| **User Privacy** | **High.** Participant keeps the anchor. | **Low.** Data resides in a 3rd party cloud. | **High.** | **High.** |
-| **Trust Anchor** | **Domain-Bound.** Trust the Hospital. | **System-Bound.** Trust the Vendor. | **Zero.** | Depends on what's encoded. |
-| **Integrity** | **Binds Content.** Proves the Version. | **Digital Only.** | **Vulnerable.** | Static data only; no version binding. |
-| **Connectivity needed** | **Yes, for the check.** The paper form can be read in the clinic or field without a connection; checking it takes one small web request. | **Yes.** | **None.** | **None** for embedded data; yes for URL. |
-| **Cross-System Verification** | **Strong.** Public URL, no integration needed. | **None.** Requires vendor access. | **None.** | **Weak.** URL to issuer's system requires credentials. |
-| **Human Readable** | **Yes.** Text is the source of truth. | **No.** Data in vendor system. | **Yes.** | **No.** Opaque encoding. |
+| **Who can check** | Sponsor, site and monitor staff with access to the vendor's system. | Anyone who scans it, though a link into the issuer's system usually needs a login. | Anyone handed the form or card: the participant, a monitor, an emergency department in another health system. | Whoever holds it, trusting it as it stands. |
+| **What the checker gets** | The full consent record, versions and signatures, with an audit trail. | Whatever the code holds: static data that cannot be checked, or a link that may not open for outsiders. | Confirmation that the hospital or sponsor stands behind this exact text and version, as at its date, and whether that version has been superseded. | Readable text with no way to confirm which version it is. |
+| **What the participant shares** | Their data, held in the vendor's cloud. | Only the form. | Only the form or card they choose to show. | Only the form. |
+| **Reach** | Sites and sponsors using that platform. | Depends on what the code points to. | Global in principle: any hospital or sponsor, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Fast for authorized users; licenses and site setup come first. | Quick to scan. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection at the moment of the check. | Free and immediate. |
+| **What it needs** | A platform license and trained site staff. | A code generator and, for links, a system that outsiders can reach. | The hospital or sponsor to publish hashes, and Live Verify-aware software on the checker's device. No hospital or sponsor does this yet. | Nothing. |
+| **Best suited to** | Sites that run consent electronically end to end. | Pointing to further information. | Paper sites, and checks by people outside the trial's own systems. | Sites with no other option. |
 
 **Where each fits:** eConsent platforms give sponsors and sites an integrated record, and where a site uses one it remains the system of record. Many sites still consent on paper, because of local rules or limited infrastructure, and a participant or monitor may have no access to the vendor's system. Live Verify lets them confirm that the hospital or sponsor stands behind that version of the form, so paper sites and eConsent sites can be audited to a similar standard.
 

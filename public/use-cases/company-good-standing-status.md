@@ -119,14 +119,21 @@ Companies House, the UK's statutory registrar of companies, is authorized to iss
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Manual Verification
+## Where Each Fits: Live Verify and Credit Reports
 
-| Feature | Live Verify | PDF Company Search | Credit Report |
+The records behind a company's good standing are held by several authorities: the company registry (Companies House in the UK, a Secretary of State in the US) for filing status, and the courts and insolvency authorities for judgments, petitions and insolvency. Commercial credit agencies gather these into a credit report for subscribers. Credit reports and Live Verify answer different questions and work side by side: one is an agency's assessment drawn from many sources, the other lets a status statement from each authority be checked against that authority's own domain.
+
+| | Commercial credit report | Live Verify on the status statement | Downloaded registry PDF |
 | :--- | :--- | :--- | :--- |
-| **Speed** | **Seconds.** Hash check against issuer domain. | **Instant.** But no integrity guarantee. | **Minutes.** API call to credit agency. |
-| **Trust Anchor** | **Domain-Bound.** Tied to Companies House. | **Zero.** Trivially editable PDF. | **Reputation.** Trust the credit agency. |
-| **Currency** | **Real-time.** Current as of the as-at date. | **Stale.** Reflects status at download time. | **Delayed.** Depends on agency update cycle. |
-| **Integrity** | **Cryptographic.** Binds status to domain. | **None.** No tamper detection. | **API-bound.** Requires paid subscription. |
+| **Who can check** | Subscribers to the credit agency. | Anyone handed the statement: a landlord, a supplier, a lender. | Whoever receives it, trusting it as it stands. |
+| **What the checker gets** | An assessment drawing on many sources, including a credit score and payment history, as current as the agency's last update. | Confirmation that the named authority issued this exact status statement, as at its stated date, and whether it has since changed. Each statement covers only what that authority holds. | A file reflecting the status when it was downloaded, which may have been edited. |
+| **What the company shares** | Nothing; the agency compiles the report. | Only the statement. | Only the file. |
+| **Reach** | Companies the agency covers, mostly in its own markets. | Global in principle: any registry, court or insolvency authority, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Minutes, on a paid subscription or per-report fee. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | A subscription. | Each authority to publish hashes, and Live Verify-aware software on the checker's device. No registry or court does this yet. | Nothing. |
+| **Best suited to** | Credit decisions that need a broad picture and a score. | Confirming a specific status, such as no winding-up petition, directly from the authority that holds it. | Nothing where credit or a lease depends on it. |
+
+**Where each fits:** a credit report remains the right tool for a credit decision, since it brings many sources together and adds the agency's own judgement. It costs a subscription and is only as current as the agency's last update. Live Verify lets a counterparty confirm a specific status, at a stated date, directly against the authority that holds it, which suits a one-off check by a landlord or supplier who has no subscription.
 
 ## Further Derivations
 

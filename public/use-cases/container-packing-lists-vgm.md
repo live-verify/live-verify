@@ -106,14 +106,19 @@ Ocean carriers and port operators issue VGM declarations required by internation
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With EDI Messaging (VERMAS)
+## Where Each Fits: Live Verify and VGM EDI Messages
 
-| Feature | Live Verify | EDI VERMAS Message | Paper VGM Form |
+Under the SOLAS convention a shipper must declare a container's verified gross mass before loading, and that figure usually reaches the carrier and terminal as an EDI VERMAS message or through a carrier or platform portal. That channel is where the weight is meant to travel. Live Verify answers a different question, whether the paper form the driver carries matches what the shipper issued, and the two work side by side.
+
+| | EDI VERMAS message | Live Verify on the VGM form | Unverified paper VGM form |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Shipper. | **System-Bound.** Relies on the message not being corrupted. | **Zero.** Easily forged. |
-| **Visibility** | **Visual.** The trucker can see it's verified. | **Invisible.** Happens between back-end systems. | **Visual.** |
-| **Field Access** | **Instant.** Scan the paper at the gate. | **None.** Driver has no access to EDI logs. | **Manual.** |
-| **Connectivity** | **Strong.** Works via simple web URL. | **Fragile.** Requires heavy B2B EDI infrastructure. | **Offline.** |
+| **Who can check** | The carrier and terminal systems that receive the message. | Anyone handed the form: a gate clerk, a driver, a surveyor. | Whoever sees it, trusting it as it stands. |
+| **What the checker gets** | The declared weight, inside their own systems. | Confirmation that the shipper issued this exact form, with this weight and container number, as at its date. Nothing about whether the weighing was accurate. | A form whose weight may have been altered. |
+| **What the shipper shares** | The VGM data with its carrier and terminal. | Only the form. | Only the form. |
+| **Reach** | Parties connected by EDI or a shared portal. | Global in principle: any shipper or weighing firm, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Automatic once connected; EDI setup and network costs come first. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | EDI or portal links between shipper, carrier and terminal. | The shipper to publish hashes, and Live Verify-aware software on the checker's device. No shipper does this yet. | Nothing. |
+| **Best suited to** | Getting the declared weight to the carrier and terminal for stowage. | People at the gate who see only paper. | Nothing where safety depends on it. |
 
 **Where each fits:** the EDI message is how the verified weight reaches the carrier and terminal systems, and that channel should stay as it is. The driver at the gate has no view of it and carries paper. Live Verify lets the gate clerk and driver check that paper against the shipper's domain, so the figure on the form can be compared with the one the carrier received electronically.
 

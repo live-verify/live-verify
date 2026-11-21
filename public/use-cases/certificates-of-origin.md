@@ -137,25 +137,35 @@ Chambers of commerce issue origin certificates that customs agencies rely upon f
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Blockchain (TradeLens)
+## Where Each Fits: Live Verify and Shared Trade Platforms
 
-| Feature | Live Verify | TradeLens / GSBN | Paper COI |
+Shared trade-document platforms, such as the shipping-industry network GSBN (and TradeLens, before it closed)<!-- TODO(verify): TradeLens was discontinued by Maersk and IBM around early 2023; confirm closure date --> let carriers, ports and authorities that have joined exchange documents on a common ledger. Most certificates of origin are still issued on paper or PDF by chambers of commerce whose counterparties are on no common platform. The two answer different questions and work side by side.
+
+| | Shared trade platform | Live Verify on the certificate | Unverified paper or PDF certificate |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the local Chamber. | **Consensus-Bound.** Trust the network. | **Zero.** Easily forged. |
-| **Adoption** | **High.** Works with existing paper/PDF docs. | **Low.** Requires every party to join the blockchain. | **Universal.** |
-| **Integrity** | **Binds Content.** Proves the *Country* matches. | **Data-Only.** | **Vulnerable.** |
-| **Cost** | **Low.** Standard web infra. | **Very High.** Seven-figure implementation costs. | **None.** |
+| **Who can check** | Members of that platform. | Anyone handed the certificate: a customs officer, an importer, a bank. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Shared document data, as posted by the participants. | Confirmation that the chamber issued this exact certificate, including the stated origin, as at its date. Nothing about whether the origin claim is correct. | A form whose country and stamps may have been forged. |
+| **What the exporter shares** | Shipment documents with other members. | Only the certificate. | Only the certificate. |
+| **Reach** | Participants in that platform, which only some carriers, ports and authorities have joined. | Global in principle: any chamber or issuing authority, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Fast between members; joining and integrating come first. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | Every party in the chain to be on the same platform. | The chamber to publish hashes, and Live Verify-aware software on the checker's device. No chamber does this yet. | Nothing. |
+| **Best suited to** | Trade lanes where the main parties are already members. | Certificates moving between parties who share no platform. | Nothing where duty rates depend on it. |
 
 **Where each fits:** shared trade platforms can work well among the carriers, ports and authorities that have joined them. Most certificates of origin are still issued on paper or PDF by local chambers whose counterparties are not on any common platform. Live Verify lets a chamber of any size make its certificates checkable from its own domain, and a platform member can use both.
 
-## Compared With eCO (Electronic Registry)
+## Where Each Fits: Live Verify and Electronic Certificate Registries
 
-| Feature | Live Verify | eCO Registry (ICC) | Paper Certificate |
+Many chambers issue electronic certificates of origin through an accredited system, often run by a platform provider under the ICC World Chambers Federation framework<!-- TODO(verify): how ICC WCF accreditation relates to electronic certificate-of-origin platforms and their lookup pages -->, with an online page or login where the certificate can be looked up. Coverage depends on the chamber: some issue through such a system, some through a national one, and many still issue only on paper. Electronic registries and Live Verify answer different questions and work side by side.
+
+| | Electronic certificate registry | Live Verify on the certificate | Unverified paper certificate |
 | :--- | :--- | :--- | :--- |
-| **Field Access** | **Instant.** Scan the paper at the border gate. | **Difficult.** Requires customs officers to have specific registry logins. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Trust the local Chamber domain. | **Centralized.** Trust the ICC global platform. | **Visual.** Very easy to forge stamps. |
-| **Connectivity** | **Strong.** Works even if the global ICC hub is down. | **Fragile.** Single point of failure if the ICC system is offline. | **Offline.** |
-| **Integrity** | **Binds Content.** Proves the *Country* matches the chamber record. | **Data-Only.** Doesn't verify the actual paper. | **Zero.** |
+| **Who can check** | Customs and importers with access to that registry or its lookup page. | Anyone handed the certificate, including at a border gate. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The registry's record of the certificate. | Confirmation that the issuing chamber stands behind this exact certificate, as at its date. | A form whose stamps are easy to forge. |
+| **What the exporter shares** | The certificate number or document. | Only the certificate. | Only the certificate. |
+| **Reach** | Chambers that issue through that system. | Global in principle: any chamber, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Quick for those with access; issuing chambers pay to use the system. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The chamber to issue through the registry, and the checker to know how to reach it. | The chamber to publish hashes, and Live Verify-aware software on the checker's device. No chamber does this yet. | Nothing. |
+| **Best suited to** | Chambers and customs authorities already working with the system. | Certificates from chambers outside any registry, and officers without registry access. | Nothing where duty rates depend on it. |
 
 **Where each fits:** the ICC's electronic registry is a sound route where the chamber participates and the checking officer has access to it. A customs officer at a border gate may not, and many smaller chambers issue outside the registry. Live Verify lets the officer check the paper against the issuing chamber's own domain, so each chamber keeps its independence and the registry continues to serve those who use it.
 

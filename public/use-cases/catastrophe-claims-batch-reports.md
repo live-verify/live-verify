@@ -107,14 +107,19 @@ Crawford & Company issues batch claims reports for catastrophic events and disas
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Blockchain (RiskStream)
+## Where Each Fits: Live Verify and Shared Industry Ledgers
 
-| Feature | Live Verify | RiskStream / Corda | Scanned PDF Report |
+Shared ledgers such as RiskStream let member insurers and reinsurers keep a common record of claims data on a permissioned network. They work for the firms that have joined and connected. Live Verify answers a different question, whether a batch report a reinsurer has been sent is the one the carrier issued, and the two work side by side.
+
+| | Shared industry ledger | Live Verify on the batch report | Unverified scanned PDF |
 | :--- | :--- | :--- | :--- |
-| **Interoperability** | **Universal.** Any reinsurer can verify. | **Siloed.** Both parties must be on the specific blockchain. | **Manual.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Carrier. | **Consensus-Bound.** Trust the network. | **Zero.** Easily forged. |
-| **Cost** | **Low.** Standard web infra. | **High.** Requires heavy enterprise blockchain nodes. | **None.** |
-| **Privacy** | **High.** Only the specific batch is shared. | **Medium.** Shared ledger metadata. | **Vulnerable.** |
+| **Who can check** | Member firms connected to the same network. | Anyone handed the report: a reinsurer, a broker, a regulator, an auditor. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Shared, structured records that both parties see in the same form. | Confirmation that the carrier issued this exact report, as at its date. | A document whose totals may have been edited. |
+| **What the carrier shares** | The records it posts to the ledger, visible to permitted members. | Only the report it sends. | Only the report it sends. |
+| **Reach** | Members of that network. | Global in principle: any carrier, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Fast once connected; membership, integration and running nodes come first. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | Both parties on the same network. | The carrier to publish hashes, and Live Verify-aware software on the checker's device. No carrier does this yet. | Nothing. |
+| **Best suited to** | Ongoing, structured data exchange between members. | Reports sent to counterparties who are not on the same network. | Nothing where recoveries depend on the figures. |
 
 **Where each fits:** where a carrier and its reinsurer are both members of a shared ledger such as RiskStream, that gives them a common record and there is no reason to step outside it. Many reinsurers are not on the same network and still receive batch reports as emailed PDFs. Live Verify lets them check such a report against the carrier's domain, and it can run next to a ledger for the counterparties that use one.
 

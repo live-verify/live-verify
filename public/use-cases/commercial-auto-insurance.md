@@ -120,13 +120,19 @@ Aviva underwrites commercial auto fleet insurance for UK businesses.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With FMCSA SAFER Database
+## Where Each Fits: Live Verify and the FMCSA Public Record
 
-| Feature | Live Verify | FMCSA SAFER (Public) | Paper Fleet List |
+In the US, the FMCSA's public systems, including SAFER, show whether an interstate motor carrier holds the insurance filings it is required to hold. Other countries keep their own records, and many keep none that the public can search. The federal record and Live Verify answer different questions and work side by side: one confirms a carrier's filings, the other confirms an insurer's schedule naming specific vehicles.
+
+| | FMCSA public record | Live Verify on the policy or vehicle schedule | Unverified paper fleet list |
 | :--- | :--- | :--- | :--- |
-| **VIN Detail** | **High.** Verifies *this specific truck*. | **Low.** Often only shows "Policy Active" for the whole company. | **High.** But untrusted. |
-| **Freshness** | **Real-time.** Queries the insurer's live fleet file. | **Laggy.** Federal records can lag by weeks. | **Static.** |
-| **Accessibility** | **Open.** Any warehouse or broker can verify. | **Public.** But limited data. | **Manual.** |
+| **Who can check** | Anyone, online. | Anyone handed the schedule: a warehouse, a freight broker, a shipper. | Whoever receives it, trusting it as it stands. |
+| **What the checker gets** | The carrier's operating authority and insurance filing status at company level. | Confirmation that the insurer issued this exact schedule, naming these vehicles, as at its date, and whether it has since been withdrawn. | A list that may include vehicles the policy does not cover. |
+| **What the carrier shares** | Nothing; the record is public. | Only the schedule. | Only the list. |
+| **Reach** | US interstate carriers. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Free and quick; filings can take time to show changes. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | Nothing from the checker. | The insurer to publish hashes, and Live Verify-aware software on the checker's device. No insurer does this yet. | Nothing. |
+| **Best suited to** | Confirming a carrier is authorized and has its required filings. | Confirming cover for a specific vehicle at the dock. | Nothing where liability depends on it. |
 
 **Where each fits:** the federal database is the right place to confirm that a carrier holds the filings it is required to hold, and brokers and shippers should keep checking it. It generally does not list individual vehicles and can lag behind changes. Live Verify lets a warehouse or broker confirm the insurer stands behind a schedule naming a specific vehicle, which adds vehicle-level detail to the company-level public record.
 

@@ -181,17 +181,21 @@ The most sophisticated attack against this model is not copying the claim (which
 
 **Honest assessment:** Content script isolation provides strong but not absolute protection against page-level manipulation. The domain-mismatch check is the backstop — it works even if the text swap somehow succeeds. The weakest link is the customer not reading the verified detail, which is why the domain-mismatch warning should be prominent and unmissable.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Manufacturer Directories
 
-| Feature | Live Verify | "Authorized" Sticker / Badge | Manufacturer Directory | Google Maps Listing |
+Manufacturers usually publish a "find a service center" directory of their authorized repairers, and repairers advertise their status with stickers, badges and map listings. The directory is the manufacturer's own record and remains useful. Live Verify works side by side with it, answering a different question in place: is the repairer whose website I am reading actually authorized?
+
+| | Manufacturer directory | "Authorized" sticker or badge | Map or search listing | Live Verify on the authorization claim |
 | :--- | :--- | :--- | :--- | :--- |
-| **Issuer-controlled** | **Yes.** Manufacturer issues the claim. | **No.** Repairer self-asserts or retains expired material. | **Yes.** But often stale. | **No.** Self-declared by business. |
-| **Domain-bound** | **Yes.** Claim names the authorized site. | **No.** | **Partially.** Links to repairer. | **No.** |
-| **Revocable** | **Immediate.** Endpoint returns REVOKED. | **No.** Sticker stays in window. | **Slow.** Directory updates lag. | **No.** Listing persists. |
-| **Verifiable pre-visit** | **Yes.** On the repairer's website. | **No.** Must visit in person. | **Requires leaving the site.** | **No.** |
-| **Detects site copying** | **Yes.** Domain mismatch warning. | **No.** | **No.** | **No.** |
+| **Who can check** | Anyone who goes to the manufacturer's site and searches. | Anyone who sees it. | Anyone searching online. | Anyone reading the repairer's website or looking at its notice, with Live Verify on their device. |
+| **What the checker gets** | The manufacturer's list of authorized repairers, as current as its last update. | The repairer's own claim, which may be out of date or simply bought. | The business's own description. | Confirmation that the manufacturer stands behind this exact claim for this repairer, and whether it has been revoked. |
+| **What the repairer shares** | Nothing; the directory is public. | Its own sticker or badge. | Its own listing. | A short claim issued by the manufacturer, shown on its site or premises. |
+| **Reach** | That manufacturer's network. | Anywhere. | Anywhere. | Global in principle: any manufacturer, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Free; a few minutes, after leaving the repairer's site. | Free and immediate. | Free and immediate. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A customer who thinks to check, and a directory kept up to date. | Nothing. | Nothing. | The manufacturer to publish hashes for authorization claims, and Live Verify-aware software on the customer's device. No manufacturer does this yet. |
+| **Best suited to** | Finding an authorized repairer in the first place. | Nothing on its own. | Finding a repairer nearby. | Checking a specific repairer's claim where the customer meets it. |
 
-**Practical conclusion:** manufacturer directories and "find a service center" pages remain useful, but they answer a different question ("where can I get this repaired?") from the one the customer is actually asking on a repair center's website ("is this repairer actually authorized by the manufacturer?"). The verifiable claim answers the second question in place.
+**Where each fits:** manufacturer directories and "find a service center" pages remain the right place to find an authorized repairer, but they answer a different question from the one the customer is asking on a repair center's website: is this repairer actually authorized by the manufacturer? A claim that can be checked against the manufacturer's domain answers that in place, and shows a revocation as soon as the manufacturer records it.
 
 ## Authority Chain
 

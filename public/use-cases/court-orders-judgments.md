@@ -138,16 +138,21 @@ UK courts issue court orders and judgments authorized by the Courts Act 2003 and
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With PACER / Online Dockets
+## Where Each Fits: Live Verify and Court Dockets
 
-| Feature | Live Verify | PACER (Federal) | Paper with Seal |
+Courts keep their own dockets: in the US federal courts, PACER; state courts each have their own systems, and other countries run theirs. Some are open to the public, some need an account and fees, and many have no online access at all. The docket remains the record for judges, clerks and lawyers. Live Verify answers a narrower question for those who are handed an order, whether it is one the court issued and still stands, and the two work side by side.
+
+| | Online court docket (PACER and similar) | Live Verify on the order | Paper order with a seal |
 | :--- | :--- | :--- | :--- |
-| **Field Speed** | **Instant.** 5-second scan. | **Slow.** Requires login, case search, and per-page fees ($). | **Instant.** |
-| **Integrity** | **High.** Binds text to status. | **High.** Direct DB access. | **Zero.** Easily forged. |
-| **Accessibility** | **Open.** Scannable by anyone with the paper. | **Closed.** Requires account and professional knowledge. | **Open.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Court. | **System-Bound.** | **The Paper.** |
+| **Who can check** | Account holders who know how to search the right court. | Anyone handed the order: a police officer, a bank teller, a landlord, an employer. | Whoever receives it, trusting the seal. |
+| **What the checker gets** | The full case record, including later filings. | Confirmation that the court issued this exact order, as at its date, and whether it has since been vacated, stayed or modified. | A document whose terms or seal may have been forged. |
+| **What the holder shares** | The case number. | Only the order. | Only the order. |
+| **Reach** | That court system. | Global in principle: any court, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Minutes, with a login, a case search and, for PACER, per-page fees. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | An account and some knowledge of the system. | The court to publish hashes, and Live Verify-aware software on the checker's device. No court does this yet. | Nothing. |
+| **Best suited to** | Legal professionals working on the case. | People who must act on an order without access to the docket. | Nothing where someone's liberty or money depends on it. |
 
-**Why this remains strong:** Court dockets remain primary for judges, clerks, and lawyers who can use them directly. The gap is the front line: police officers, bank tellers, landlords, employers, and other recipients of court orders often cannot practically navigate those systems at the moment they need to act. That makes court orders another strong portability case rather than an attempt to replace the docket itself.
+**Where each fits:** court dockets remain primary for judges, clerks and lawyers who can use them directly. The gap is the front line: police officers, bank tellers, landlords, employers and other recipients of court orders often cannot practically search those systems at the moment they need to act. Live Verify lets them check the order in front of them against the court's domain, without replacing the docket itself.
 
 ## Independent Record (Optional)
 

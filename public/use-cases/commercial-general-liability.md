@@ -116,14 +116,19 @@ Carriers must be licensed by state insurance regulators to issue commercial liab
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Broker Confirmation Calls
+## Where Each Fits: Live Verify and Calling the Broker
 
-| Feature | Live Verify | Manual Broker Call | Scanned PDF |
+When a contractor shows a certificate of liability insurance, the usual way to confirm it is to call or email the broker or agent who issued it. That remains the fuller check, because a person can answer questions. Live Verify answers a narrower question, whether the carrier or broker stands behind the certificate being shown, and the two work side by side.
+
+| | Calling or emailing the broker | Live Verify on the certificate | Unverified scanned PDF |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Carrier. | **Human.** Relies on the broker's assistant answering honestly. | **Zero.** Easily forged. |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Often takes 24-48 hours for a return call. | **Instant.** |
-| **Availability** | **24/7.** Works on weekends/holidays. | **Business Hours Only.** | **Universal.** |
-| **Integrity** | **Cryptographic.** Binds every digit. | **Vague.** "Yes, they have a policy." | **Vulnerable.** |
+| **Who can check** | Anyone who finds the broker's real contact details and gets a reply. | Anyone handed the certificate: a general contractor, a site foreman, a property manager. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | A person's confirmation, and answers on exclusions, endorsements and additional insureds. | Confirmation that the carrier or broker issued this exact certificate, with these limits and dates, and whether it has since been withdrawn. Nothing beyond what the certificate says. | A form whose limits or dates may have been edited. |
+| **What the contractor shares** | Their policy details, discussed with the checker by the broker. | Only the certificate. | Only the certificate. |
+| **Reach** | Any broker who answers. | Global in principle: any carrier or broker, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Free; office hours only, and a reply can take a day or two. | A few seconds per check, at any hour: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | An independently found contact and a broker willing to respond. | The carrier or broker to publish hashes, and Live Verify-aware software on the checker's device. No carrier or broker does this yet. | Nothing. |
+| **Best suited to** | Questions about coverage, and anything unusual. | A quick check before a subcontractor starts work, including at weekends. | Nothing where liability depends on it. |
 
 **Where each fits:** a call to the broker remains the fuller check, since a person can answer questions about exclusions and endorsements. It depends on office hours and can take a day or two. Live Verify covers the moment when a subcontractor turns up on a Saturday and the foreman needs to know whether the carrier stands behind the certificate being shown, leaving the broker call for anything that needs discussion.
 

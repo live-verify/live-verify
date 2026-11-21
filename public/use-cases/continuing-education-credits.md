@@ -110,14 +110,19 @@ Education providers issue continuing education certificates under medical regula
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Central Learning Registries
+## Where Each Fits: Live Verify and Learning Management Systems
 
-| Feature | Live Verify | Learning Management System (LMS) | Physical Certificate |
+Continuing education providers record completions in their own learning management systems, and some licensing boards and professional bodies receive completions directly or run their own tracking registries. Arrangements differ by profession, state and country. Where a board already receives data directly, nothing more is needed. Live Verify answers a different question, whether a certificate a professional submits is one the provider issued, and the two work side by side.
+
+| | Learning management system or board registry | Live Verify on the completion certificate | Unverified paper or PDF certificate |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Provider. | **System-Bound.** Trust the LMS vendor. | **Visual.** Trusted only via stamp. |
-| **User Control** | **High.** Professional keeps the anchor. | **Low.** Data resides in a 3rd party silo. | **High.** |
-| **Interoperability** | **Universal.** PDFs work across all state boards. | **Low.** Different boards use different software. | **Universal.** |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires login, data export, and manual upload. | **N/A.** |
+| **Who can check** | The provider, and boards that receive its data or run the registry. | Anyone handed the certificate: a licensing board, an employer, an auditor. | Whoever receives it, trusting it as it stands. |
+| **What the checker gets** | The provider's or registry's records, in that system's format. | Confirmation that the provider issued this exact certificate, for these credits and this date. | A certificate whose hours or dates may have been edited. |
+| **What the professional shares** | Their record, through an export or a login. | Only the certificates they submit. | Only the certificate. |
+| **Reach** | The boards and providers connected to that system. | Global in principle: any provider, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Automatic where a direct feed exists; otherwise a login, an export and a manual upload. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | A connection between provider and board, or a registry both use. | The provider to publish hashes, and Live Verify-aware software on the checker's device. No provider does this yet. | Nothing. |
+| **Best suited to** | Providers and boards already connected. | Certificates from many providers, gathered by a professional and submitted at renewal or audit. | Nothing where a license depends on it. |
 
 **Where each fits:** a learning management system is the right home for a provider's course records, and where a licensing board receives completions directly from it nothing more is needed. Many boards do not, and the professional submits certificates collected over the year. Live Verify lets the board confirm each certificate with the provider that issued it, whichever system that provider runs.
 

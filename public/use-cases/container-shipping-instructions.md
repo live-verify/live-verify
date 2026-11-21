@@ -98,15 +98,21 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With EDI / Blockchain
+## Where Each Fits: Live Verify, EDI and Shared Shipping Ledgers
 
-| Feature | Live Verify | EDI (Shipping Standard) | GSBN Blockchain |
+Shipping instructions between carriers and large shippers usually travel as EDI messages or through carrier portals, and some carriers and terminals also exchange documents on consortium ledgers such as GSBN. Both serve the parties connected to them. Live Verify answers a different question, whether the shipping instruction or draft a bank or agent outside those systems has been handed is the one the carrier or shipper issued, and the three work side by side.
+
+| | EDI between carrier and shipper | Consortium ledger (GSBN) | Live Verify on the shipping instruction or draft |
 | :--- | :--- | :--- | :--- |
-| **Trust** | **Cryptographic.** | **System-Bound.** | **Consensus-Bound.** |
-| **Accessibility** | **Universal.** Any clerk can scan. | **Zero.** Requires heavy IT setup. | **Low.** Requires membership. |
-| **Adoption** | **High.** Works with PDFs. | **Universal.** (For big ships). | **Low.** (Emerging). |
+| **Who can check** | The connected carrier and shipper systems. | Members of the network. | Anyone handed the document: an exporter's bank, a freight forwarder, a customs agent. |
+| **What the checker gets** | Structured data, direct from the other party's system. | Shared records posted by members. | Confirmation that the carrier or shipper issued this exact text, as at its date. |
+| **What the shipper shares** | Shipment data with the carrier. | Shipment data with permitted members. | Only the document. |
+| **Reach** | Parties with an EDI link; well established among large carriers and shippers. | Members of that network, still a minority of the trade. | Global in principle: any carrier or shipper, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Automatic once connected; IT setup and network costs come first. | Fast between members; membership and integration come first. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | EDI capability on both sides. | Both parties on the network. | The carrier or shipper to publish hashes, and Live Verify-aware software on the checker's device. No carrier or shipper does this yet. |
+| **Best suited to** | High-volume, system-to-system exchange. | Members who want a shared record. | Parties outside those systems who see only a PDF. |
 
-**Where each fits:** EDI is the established channel between carriers and large shippers and remains the right choice for high-volume, system-to-system exchange; consortium blockchains serve their members in a similar way. Neither reaches parties outside those systems, such as the exporter's local bank or a foreign customs agent, who see only a PDF. Live Verify fills that gap by letting anyone holding the draft confirm it against the carrier's domain, alongside the EDI flow.
+**Where each fits:** EDI is the established channel between carriers and large shippers and remains the right choice for high-volume, system-to-system exchange; consortium ledgers serve their members in a similar way. Neither reaches parties outside those systems, such as the exporter's local bank or a foreign customs agent, who see only a PDF. Live Verify fills that gap by letting anyone holding the draft confirm it against the carrier's domain, alongside the EDI flow.
 
 ## Independent Record (Optional)
 

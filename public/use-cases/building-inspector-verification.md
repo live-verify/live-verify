@@ -155,16 +155,22 @@ Local authorities employ building inspectors authorized by the Building Act 1984
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With ID Badges / Phone Calls
+## Where Each Fits: Live Verify, Badges and Calling the Office
 
-| Feature | Live Verify | Holographic Badge | Calling the Office |
+Today a resident at the door has two options: look at the inspector's badge, or ring the council or department and ask whether the person is one of theirs. Both are run by the authority that employs the inspector, and both work side by side with a badge that can also be checked against the council's own domain.
+
+| | Holographic badge | Calling the office | Live Verify on the badge |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the council's own domain. | **Mechanical.** Hard to forge, but non-verifiable. | **Human.** Relies on someone answering the phone. |
-| **Photo Verification** | **Confirms authenticity.** Badge photo is real; homeowner compares face. | **Static.** Photo is on the badge, but is the badge real? | **None.** Voice only. |
-| **Speed** | **Instant.** 5-second scan. | **N/A.** Just looking. | **Slow.** Often takes 5-10 minutes on hold. |
-| **Revocation** | **Real-time.** Suspended/stolen badges fail immediately. | **None.** Physical badge still looks valid. | **Maybe.** If office knows and tells you. |
+| **Who can check** | Anyone who can see the badge, though few people know what a genuine one looks like. | Anyone who can find the real number (not the one printed on the badge) and get through. | Anyone at the door with Live Verify on their phone. |
+| **What the checker gets** | A physical card with a photo, hard to copy well but impossible to check by eye. | A person at the council confirming, if they can, that the named inspector works there and is expected at that address. | Confirmation from the council's domain that this badge text is current, or that it has been suspended or withdrawn. The resident still compares the face with the photo. |
+| **What the inspector shares** | The badge. | Their name and badge number, for the resident to read out. | The badge, held up for a scan. |
+| **Reach** | Wherever badges are issued; no standard design across councils. | Any council with a staffed phone line, during office hours. | Global in principle: any council or inspection body, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Immediate and free, and tells the resident little. | Several minutes or more, often on hold, while the inspector waits outside. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection at the door. |
+| **What it needs** | Nothing beyond the badge. | A correct, independently found phone number and someone available to answer. | The council to publish hashes for its badges, and Live Verify-aware software on the resident's phone. No council does this yet. |
+| **Revocation** | A lost or withdrawn badge still looks genuine. | Reflects what the person answering knows. | A suspended or reported-stolen badge returns a non-valid status as soon as the council updates it. |
+| **Best suited to** | A first look, and for officials whose visit was booked in advance. | Unexpected visits where the resident has time and wants to talk to someone, and anything the badge cannot answer, such as why the inspector is there. | A quick, non-confrontational check before opening the door. |
 
-**Why this remains strong:** The doorstep workflow is the real issue. Homeowners are often intimidated by officials and may not want a long conversation or phone call while someone waits outside. City systems remain primary in the background, but the badge is the visible surface at the decision point. That makes this a strong complementary case for non-confrontational verification before entry.
+**Where each fits:** calling the office remains the fullest check, because a person can say whether this visit was planned, and an inspector should never discourage it. The doorstep is where it struggles: residents feel pressured and may not want to keep an official waiting while they sit on hold. A badge that can be checked against the council's domain in a few seconds gives them a quick first answer, with the phone call still there for anything that looks wrong.
 
 ## Independent Record (Optional)
 

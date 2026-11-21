@@ -114,14 +114,21 @@ In England and Wales, building control may be provided by the local authority or
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Manual Verification
+## Where Each Fits: Live Verify, Building Control Records and Indemnity Policies
 
-| Feature | Live Verify | Council Building Control Records | Indemnity Policy |
+In England and Wales the authoritative record of a completion certificate is held by whichever building control body signed the work off: the local authority, or a registered building control approver. Conveyancers confirm a certificate by asking that body, and where no certificate can be found, sellers often buy an indemnity policy instead. An indemnity policy does not verify anything; it insures the buyer against the cost of enforcement action. The three answer different questions and work side by side. <!-- TODO(verify): that indemnity cover is typically voided by contacting the council -->
+
+| | Asking building control | Indemnity policy | Live Verify on the certificate |
 | :--- | :--- | :--- | :--- |
-| **Speed** | **Seconds.** Hash check against building control domain. | **Days to weeks.** Written request to council or search of records. | **Hours to days.** Arranged through insurer, no underlying resolution. |
-| **Trust Anchor** | **Domain-Bound.** Tied to the building control body. | **Institutional.** Trust the council's records are current. | **Institutional.** Trust the insurer's assessment of risk. |
-| **Transparency** | **Direct.** Shows whether a certificate exists or not. | **Variable.** Depends on council's record-keeping and response format. | **None.** Masks the absence of a certificate rather than resolving it. |
-| **Integrity** | **Cryptographic.** Binds certificate status to domain. | **None.** Paper or email confirmation. | **Contractual.** Policy document from insurer. |
+| **Who can check** | The buyer's solicitor or anyone who makes a request to the right building control body. | Not a check; the buyer receives an insurance policy. | Anyone handed the certificate: buyer, solicitor, lender or surveyor. |
+| **What the checker gets** | The body's own record of the application, which can show partial inspections or open applications as well as completed ones. | Cover against the financial cost of certain enforcement action, with no finding on whether the work complied. | Confirmation that the named building control body issued this exact certificate, as at its date, and whether it still stands. |
+| **What the seller shares** | Enough detail about the property and works for the request. | Nothing about the work; the policy is bought instead. | Only the certificate they hand over. |
+| **Reach** | The area of that council, or the approver's own records. | Wherever such policies are sold. | Global in principle: any building control body, council or approver, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Days to weeks, depending on the council and how its records are kept; some charge for searches. | Usually quick to arrange, for a premium. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A body that can find and answer for its own records. | An insurer willing to cover the risk, and the buyer not having contacted the council in a way that voids cover. | The building control body to publish hashes, and Live Verify-aware software on the checker's device. No building control body does this yet. |
+| **Best suited to** | Settling the full history where the certificate is missing or the record is unclear. | Closing a transaction where the risk is judged small and the history cannot be resolved in time. | Confirming quickly that a certificate the seller has produced is genuine and current. |
+
+**Where each fits:** where a certificate is missing or the history is unclear, the building control body's own records remain the place to go, and an indemnity policy remains a commercial way to manage the risk. Where the seller does produce a certificate, Live Verify lets the buyer's side confirm it in seconds rather than waiting on a written request, provided the body that issued it publishes hashes and the checker has software that honours them.
 
 ## Jurisdictional Notes
 

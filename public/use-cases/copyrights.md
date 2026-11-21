@@ -121,14 +121,19 @@ Registers and administers US copyright protections.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Blockchain Registries
+## Where Each Fits: Live Verify, the Copyright Office and On-Chain Records
 
-| Feature | Live Verify | Art On-Chain (NFT) | Public Copyright DB |
+Copyright arises automatically in most countries, but some, notably the US, run a national registration system with a public catalogue, and registration matters there for enforcement. Many countries have no registry at all. On-chain records such as NFTs are a different thing: evidence that a file or token existed at a time, not a registration of title. The three answer different questions and work side by side.
+
+| | Copyright office catalogue | On-chain record (NFT or timestamp) | Live Verify on the registration certificate |
 | :--- | :--- | :--- | :--- |
-| **Legal Weight** | **High.** Binds to the federal government record. | **Low.** Most courts don't yet recognize on-chain "Minting" as legal title. | **High.** But manual. |
-| **Content Link** | **Strong.** Binds the *SHA-256* of the work. | **Medium.** Often just links to a URL (IPFS). | **Weak.** DB doesn't usually show the deposit hash. |
-| **Trust Anchor** | **Domain-Bound.** Trust the Gov. | **Consensus-Bound.** Trust the protocol. | **Gov-Bound.** |
-| **Durability** | **Archival.** Text lasts centuries. | **Fragile.** Requires the chain to exist in 2100. | **Durable.** |
+| **Who can check** | Anyone, by searching the catalogue. | Anyone who can read the chain. | Anyone handed the certificate: a platform, a licensee, an opposing party. |
+| **What the checker gets** | The official registration record, though not usually a fingerprint of the deposited work. | Proof that a token or hash was recorded at a time, often pointing to a file stored elsewhere. Courts do not generally treat it as proof of ownership. | Confirmation that the office issued this exact certificate, including any deposit hash printed on it, as at its date. |
+| **What the creator shares** | Nothing; the catalogue is public. | A wallet address and its public history. | Only the certificate. |
+| **Reach** | Works registered in that country. | That chain, while it continues to run. | Global in principle: any copyright office or registry, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Free to search; minutes per record. | Quick to read; minting carries network costs. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A registration in a country that has a registry. | The chain and any linked storage to remain available. | The copyright office to publish hashes, and Live Verify-aware software on the checker's device. No copyright office does this yet. |
+| **Best suited to** | Searching registrations and legal proceedings. | Evidence of when a work existed, among people who use that chain. | A recipient confirming a certificate they have been sent without running a catalogue search. |
 
 **Where each fits:** the copyright office's public catalogue is the official record and remains the place to search registrations. On-chain timestamping can be useful evidence of when a work existed. A registration certificate is what a creator actually sends to a platform, licensee or opposing party, and Live Verify lets that recipient confirm that the office stands behind it without running a catalogue search.
 

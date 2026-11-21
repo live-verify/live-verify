@@ -119,14 +119,19 @@ Conservators document restoration work and assess heritage preservation needs.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Museum Management Systems (TMS)
+## Where Each Fits: Live Verify and Collections Management Systems
 
-| Feature | Live Verify | TMS (The Museum System) | Scanned PDF |
+Museums record condition, treatment and conservation history in their own collections management system, such as TMS, which is the working record for their staff. Outside parties are not given access to it. Live Verify answers a different question, whether a condition or treatment report an insurer, borrower or buyer has received is one the institution issued, and the two work side by side.
+
+| | Collections management system | Live Verify on the conservation report | Unverified scanned PDF |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Trust the Institution. | **System-Bound.** Trust the DB admin. | **Zero.** Easily forged. |
-| **User Access** | **Universal.** Share with any insurer/buyer. | **Zero.** External parties never get TMS logins. | **Universal.** |
-| **Integrity** | **Cryptographic.** Binds every detail. | **High.** Internal only. | **Vulnerable.** |
-| **Permanence** | **Archival.** Text is permanent. | **Ephemeral.** Databases get migrated/lost. | **Vulnerable.** |
+| **Who can check** | The institution's own staff. | Anyone handed the report: an insurer, a borrowing museum, a buyer, an auction house. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The full internal record, images and history of the object. | Confirmation that the institution or conservator issued this exact report, as at its date. Nothing about whether the assessment is right. | A report whose findings may have been edited. |
+| **What the institution shares** | Nothing outside the institution. | Only the report. | Only the report. |
+| **Reach** | Inside that institution. | Global in principle: any museum, studio or conservator, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Immediate for staff; licensing and administration are the institution's. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The institution's own system and staff. | The institution or conservator to publish hashes, and Live Verify-aware software on the checker's device. No museum or conservator does this yet. | Nothing. |
+| **Best suited to** | Managing the collection day to day. | Reports that leave the institution with a loan, a claim or a sale. | Nothing where value or insurance depends on it. |
 
 **Where each fits:** the museum's collections management system is the working record for its own staff and will stay that way. Insurers, borrowers and buyers are never given access to it, and receive a condition or treatment report as a PDF. Live Verify lets them confirm that the institution stands behind that report, so the internal system and the outward-facing document each serve their own audience.
 

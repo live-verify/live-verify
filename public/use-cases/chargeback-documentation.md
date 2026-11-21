@@ -110,14 +110,19 @@ Visa processes payment chargeback disputes and documentation for card networks.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Processor Portals
+## Where Each Fits: Live Verify and Processor Dashboards
 
-| Feature | Live Verify | Processor Dashboard | Scanned PDF |
+Payment processors and acquirers give merchants an online dashboard where disputes are filed, tracked and resolved. That dashboard is the merchant's working record and remains the authority on each case. Live Verify answers a different question, whether an outcome letter the merchant has handed to someone else is genuine, and the two work side by side.
+
+| | Processor dashboard | Live Verify on the dispute outcome letter | Unverified scanned PDF |
 | :--- | :--- | :--- | :--- |
-| **User Control** | **High.** Share one specific case proof. | **Low.** Giving portal access reveals *all* financial data. | **Medium.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Processor. | **System-Bound.** | **Zero.** Easily forged. |
-| **Interoperability** | **Universal.** Works for any bank with a domain. | **Siloed.** Hard to aggregate across multiple processors. | **Universal.** |
-| **Permanence** | **Snapshot.** Proves the state at resolution. | **Dynamic.** Data can shift or be archived. | **Vulnerable.** |
+| **Who can check** | The merchant and anyone they give a login to. | Anyone the merchant hands the letter to: a lender, a new acquirer, an auditor. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The complete, current view of every dispute on the account. | Confirmation that the processor issued this exact outcome for this case, as at the date of resolution. | A letter whose outcome or amount may have been edited. |
+| **What the merchant shares** | Access to the whole account, including unrelated financial data. | Only the letter for the case in question. | Only the document they chose to hand over. |
+| **Reach** | That processor's merchants; a merchant with several processors has several dashboards. | Global in principle: any processor or bank, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Immediate for the merchant; included in the processing relationship. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | An account with that processor. | The processor to publish hashes, and Live Verify-aware software on the checker's device. No processor does this yet. | Nothing. |
+| **Best suited to** | Managing disputes day to day. | Showing a third party the outcome of one case without opening the whole account. | Nothing where money depends on it. |
 
 **Where each fits:** the processor's dashboard is the complete, current view of a merchant's disputes, and the merchant will keep working from it. Giving a lender or acquirer a login would expose everything else in the account. Live Verify lets the merchant hand over the outcome letter for one case, which the recipient can check against the processor's domain as it stood at resolution.
 

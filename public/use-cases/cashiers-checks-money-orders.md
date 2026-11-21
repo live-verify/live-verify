@@ -124,16 +124,21 @@ Banks are regulated depository institutions that guarantee cashier's checks with
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Positive Pay / Call-In
+## Where Each Fits: Live Verify, Positive Pay and Calling the Bank
 
-| Feature | Live Verify | Positive Pay (Corporate) | Calling the Bank |
+Positive pay is a fraud control banks offer to business account holders: the business sends its bank a list of checks it has issued, and the bank pays only those that match. For a cashier's check or money order the usual check is to call the issuing bank, using a number found independently. These answer different questions from Live Verify and work side by side with it.
+
+| | Positive pay | Calling the issuing bank | Live Verify on the check |
 | :--- | :--- | :--- | :--- |
-| **User Access** | **Universal.** Any private seller/landlord. | **Restricted.** Only for big businesses. | **Slow.** Often takes 20+ mins on hold. |
-| **Trust** | **Cryptographic.** Bound to the bank domain. | **High.** Direct DB link. | **Human.** Prone to social engineering. |
-| **Integrity** | **Binds All Fields.** Payee + Amount + Date. | **High.** | **Vague.** "Yes, check #123 is valid." |
-| **Speed** | **Instant.** 5-second scan. | **Fast.** | **Very Slow.** |
+| **Who can check** | The business that issued the checks, through its own bank. | Anyone who finds the bank's real number and gets through. | Anyone handed the check: a private seller, a landlord, a small business. |
+| **What the checker gets** | Automatic matching of presented checks against the issued list, before payment. | A bank employee confirming, as far as they will, that the check was issued and is outstanding. | Confirmation that the bank issued a check with this exact payee, amount, date and number, and whether it has since been stopped or cancelled. |
+| **What the holder shares** | Not applicable; the control sits with the issuer. | The check details, read over the phone. | Only the check they were given. |
+| **Reach** | Business accounts at banks that offer the service. | Any bank with a reachable phone line, in opening hours. | Global in principle: any bank, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Automatic once set up; usually a paid service. | Free; often a long wait on hold, and unavailable at evenings and weekends. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A business account with positive pay and a feed of issued checks. | A correct, independently found phone number, and staff able to confirm. | The bank to publish hashes, and Live Verify-aware software on the checker's device. No bank does this yet. |
+| **Best suited to** | Protecting a business's own check issuance. | A recipient with time to call during business hours. | A private recipient who needs an answer before handing over goods or keys. |
 
-**Where each fits:** positive pay is the right control for businesses that have it through their bank, and a call to the issuing bank during opening hours is still a sound check. A private seller accepting a cashier's check in the evening or at a weekend has neither. Live Verify lets that seller confirm the bank issued the check with that payee, amount and date, while positive pay goes on protecting commercial accounts.
+**Where each fits:** positive pay is the right control for businesses that have it through their bank, and a call to the issuing bank during opening hours is still a sound check. A private seller accepting a cashier's check in the evening or at a weekend has neither. Live Verify lets that seller confirm the bank issued the check with that payee, amount and date, while positive pay goes on protecting commercial accounts. A confirmed check is still not cleared funds until it has been paid.
 
 ## Independent Record (Optional)
 

@@ -119,16 +119,21 @@ Issues concealed carry weapons permits after background checks.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Police Database (NCIC)
+## Where Each Fits: Live Verify and Police Databases
 
-| Feature | Live Verify | NCIC / NLETS (Police DB) | Physical Card |
+In the US, concealed carry permits are issued by states, and law enforcement checks them through state systems and the national networks NCIC and Nlets. Rules and recognition differ from state to state, and other countries license firearms in their own ways. The police databases remain primary for enforcement. Live Verify answers a narrower question, whether the permit in someone's hand is one the issuing state stands behind, and the two work side by side.
+
+| | Police databases (NCIC, Nlets, state systems) | Live Verify on the permit | Looking at the physical card |
 | :--- | :--- | :--- | :--- |
-| **User Access** | **Open.** Citizens and businesses can verify. | **Zero.** Only police have access. | **Manual.** Just looking. |
-| **Integrity** | **Cryptographic.** Binds photo to status. | **High.** Direct DB access. | **Low.** Easily faked. |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires dispatcher or laptop query. | **Instant.** |
-| **Cross-State** | **Seamless.** Works via URL. | **Complex.** State-to-state data sharing is often laggy. | **Hard.** Officers can't recognize 50 different state cards. |
+| **Who can check** | Law enforcement only. | Anyone handed the permit: an officer, a gun dealer, range staff. | Anyone who sees it. |
+| **What the checker gets** | Full records, including warrants and other flags, on official query. | Confirmation that the issuing state issued this exact permit, as at its date, and whether it has since been suspended or revoked. The checker still compares the face with the photo. | A card that looks right, which may be expired or faked. |
+| **What the holder shares** | Their identity, given to the officer. | Only the permit. | Only the card. |
+| **Reach** | Agencies connected to those networks; sharing between states varies. | Global in principle: any issuing authority, in any state or country, that publishes hashes on its own domain. | Universal, but untrusted; few people know what fifty different state cards look like. |
+| **Speed and cost** | A dispatcher or in-car query; fast when available. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection at the moment of the check. | Immediate. |
+| **What it needs** | Law enforcement access. | The issuing authority to publish hashes, and Live Verify-aware software on the checker's device. No issuing authority does this yet. | Nothing. |
+| **Best suited to** | Official enforcement and adjudication. | A dealer, range or out-of-state officer who has only the card in hand. | A first look. |
 
-**Narrower conclusion:** Police and licensing databases should remain primary for official enforcement and adjudication. Live Verify is more credible as a complementary bridge when an officer, dealer, or range staff member only has the physical permit in hand and lacks a practical direct path into the issuing state's system.
+**Where each fits:** police and licensing databases should remain primary for official enforcement and adjudication, and nothing here gives anyone outside law enforcement access to them. Live Verify is a complementary check when an officer, dealer or range staff member has only the physical permit in hand and no practical direct path into the issuing state's system.
 
 ## Independent Record (Optional)
 

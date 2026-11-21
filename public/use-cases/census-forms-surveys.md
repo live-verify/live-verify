@@ -116,13 +116,19 @@ Administers decennial US population census surveys.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Direct Database (Title 13)
+## Where Each Fits: Live Verify and the Census Bureau's Own Records
 
-| Feature | Live Verify | Census Internal DB | Scanned Image (Ancestry) |
+Each country's census or statistics office holds the returns in its own systems, and in most countries the law keeps them closed to outsiders; in the US, Title 13 seals individual records for 72 years, after which images are released and published by archives and genealogy sites. The bureau's database and Live Verify answer different questions and work side by side: one is the confidential record of the count, the other lets a household show a receipt or a certified extract to someone who needs to see it.
+
+| | Census bureau's own records | Live Verify on the receipt or extract | Unverified scanned image |
 | :--- | :--- | :--- | :--- |
-| **Privacy** | **High.** Hash proves *participation* without revealing *PII*. | **Restricted.** Access prohibited by federal law for 72 years. | **Zero.** Everything is visible once the 72-year rule passes. |
-| **Trust** | **Cryptographic.** Bound to `census.gov`. | **High.** Direct from the source. | **Medium.** Prone to digital "Cleanup" errors. |
-| **Integrity** | **Binds Content.** Proves the *Count* hasn't changed. | **High.** | **Vulnerable.** |
+| **Who can check** | Bureau staff only, while the records are confidential. | Anyone the household or researcher hands the document to: a school, a benefits office, an enumerator at the door. | Anyone, with no way of knowing whether it is accurate. |
+| **What the checker gets** | The full record of the return. | Confirmation that the bureau issued this exact receipt or extract, as at its date. Nothing about the household's answers beyond what the document shows. | An image that may have been altered or poorly transcribed. |
+| **What the household shares** | Nothing; the bureau holds the record. | Only the receipt or extract they chose to hand over. | Whatever the image shows. |
+| **Reach** | That country's bureau. | Global in principle: any census or statistics office, in any country, that publishes hashes on its own domain. | Wherever the image is published. |
+| **Speed and cost** | Not available to outsiders on request while records are confidential. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | Nothing from the household. | The bureau to publish hashes, and Live Verify-aware software on the checker's device. No census bureau does this yet. | Nothing. |
+| **Best suited to** | Producing the count and keeping individual returns confidential. | Showing proof of participation, or a certified historical extract, to a third party. | Casual research where accuracy is not critical. |
 
 **Where each fits:** the census bureau's own database is the authoritative record and is rightly closed to outsiders by law. That confidentiality is the point, and Live Verify does not open it. Where a respondent chooses to show someone a confirmation of participation, Live Verify lets the recipient check that the bureau issued it, without the bureau disclosing anything about the household's answers.
 

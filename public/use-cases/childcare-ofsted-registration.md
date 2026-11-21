@@ -209,18 +209,21 @@ The childcare provider uses the verifiable claim to prove their status to parent
 
 **Network membership:** Childminder agencies that recruit and support childminders need to confirm individual registration status. Verified claims provide an auditable check at the point of onboarding.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and the Inspectorate's Register
 
-| Feature | Live Verify | Ofsted Website Search | Printed Ofsted Certificate | Word of Mouth |
+Childcare providers are registered and inspected by a national body that varies by country: Ofsted in England, the Care Inspectorate in Scotland, Care Inspectorate Wales, and state licensing agencies in the US, with many countries having their own. Most publish a searchable register and inspection reports, which are the authority. Live Verify works side by side with that register, letting the registration claim a provider shows on its own website be checked against the inspectorate's domain.
+
+| | Inspectorate's website search | Printed certificate at the premises | Word of mouth | Live Verify on the registration claim |
 | :--- | :--- | :--- | :--- | :--- |
-| **Issuer-controlled** | **Yes.** Ofsted issues the claim. | **Yes.** But requires the parent to navigate there. | **Yes.** But static at time of printing. | **No.** |
-| **Verifiable at point of decision** | **Yes.** On the provider's own website. | **No.** Requires leaving the site and searching by name or URN. | **Partially.** Visible at premises but not verifiable as current. | **No.** |
-| **Shows current rating** | **Yes.** Live response from Ofsted. | **Yes.** If the parent knows to check. | **No.** Shows rating at time of printing. | **No.** |
-| **Detects rating changes** | **Yes.** Endpoint returns current rating. | **Yes.** If checked after re-inspection. | **No.** Certificate may show outdated rating. | **No.** |
-| **Detects suspended registration** | **Yes.** Endpoint returns SUSPENDED. | **Yes.** If checked. | **No.** Certificate still displayed. | **Possibly.** If news spreads. |
-| **Detects copied claims** | **Yes.** Domain mismatch warning. | **No.** | **No.** | **No.** |
+| **Who can check** | Any parent who searches by name or reference number. | Any parent visiting the premises. | Nobody. | Any parent reading the provider's website, with Live Verify on their device. |
+| **What the checker gets** | The full record: registration, current rating, inspection reports. | The rating and registration at the time of printing. | Other parents' impressions. | Confirmation that the inspectorate stands behind this exact claim, and whether it is current, superseded or suspended. |
+| **What the provider shares** | Nothing; the register is public. | Its displayed certificate. | Nothing. | A short claim issued by the inspectorate, shown on its website. |
+| **Reach** | That inspectorate's own area. | That premises. | Local. | Global in principle: any inspectorate or licensing body, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Free; a few minutes, after leaving the provider's site. | Free and immediate, but may be out of date. | Free. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A parent who knows to search. | Nothing. | Nothing. | The inspectorate to publish hashes for registration claims, and Live Verify-aware software on the parent's device. No inspectorate does this yet. |
+| **Best suited to** | Reading inspection reports and comparing providers. | Confirming a provider is registered at all. | Learning what a setting is like day to day. | A quick check of the claim where the parent first meets it. |
 
-**Practical conclusion:** The Ofsted search tool works for parents who use it. The problem is that many parents do not — they see "Ofsted rated Good" on a nursery website and take it at face value. A verifiable claim embedded on the provider's own site turns a self-asserted rating into a checkable one at the moment the parent is deciding where to entrust their child.
+**Where each fits:** the Ofsted search tool works for parents who use it, and remains the place to read inspection reports. Many parents do not use it: they see "Ofsted rated Good" on a nursery website and take it at face value. A claim that can be checked against the inspectorate's domain on the provider's own site turns that self-asserted rating into a checkable one, and shows straight away when the rating has changed or the registration has been suspended.
 
 ## Authority Chain
 

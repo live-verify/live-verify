@@ -157,14 +157,20 @@ UK family courts administer child support and alimony orders under the Child Sup
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Existing Systems
+## Where Each Fits: Live Verify and the Existing Child Support Systems
 
-| Feature | Live Verify | State SDU (State Disbursement Unit) | Calling the Court | OCSE Federal Systems | Trusting the Paper |
+In the US, child support runs through several systems: State Disbursement Units process payments, the federal Office of Child Support Enforcement coordinates enforcement between agencies and states, and the court clerk holds the order itself. Other countries organize this differently, through their own agencies or courts. Each of these does its own job well; none is built to tell an employer whether the order in front of them is authentic and current. Live Verify works side by side with them for that one question.
+
+| | State Disbursement Unit | Calling the court clerk | Federal enforcement systems (OCSE) | Live Verify on the order | Trusting the paper |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Purpose** | **Real-time order verification.** Confirms authenticity, amount, and current status. | **Payment processing.** Routes payments from employer to custodial parent. Does not verify orders for employers. | **Manual verification.** Call the clerk, wait on hold, hope someone answers. | **Enforcement coordination.** Federal Parent Locator Service, interstate case registry. Not employer-accessible in real-time. | **No verification.** Trust what the paper says. |
-| **Speed** | **Instant.** 5-second scan. | **N/A.** Not a verification service. | **Slow.** Hours to days. Court clerks are overwhelmed. | **Slow.** Designed for agency-to-agency, not employer-facing. | **Instant.** But unreliable. |
-| **Employer Access** | **Yes.** Any employer with a phone camera. | **No.** Employers interact with SDU only to remit payments. | **Technically yes.** Practically, court phone lines are a nightmare. | **No.** Not designed for employer queries. | **Yes.** But no fraud protection. |
-| **Detects Modifications** | **Yes.** MODIFIED status with current amount. | **No.** SDU processes whatever amount it receives. | **Maybe.** If the clerk checks and tells you. | **Eventually.** Case registries update, but not in real-time for employers. | **No.** |
+| **Who can check** | Not a checking service; employers deal with it to remit payments. | Anyone who gets through to the clerk. | State and federal agencies, not employers. | Anyone handed the order: an employer's payroll team, a lender, a landlord. | Nobody. |
+| **What the checker gets** | Payment processing for whatever amount is remitted. | A clerk's confirmation of the order and any modification, if they can look it up. | Agency-to-agency case data and parent location. | Confirmation that the court or agency issued this exact order, as at its date, and whether it has since been modified or terminated. | A document that may be forged or out of date. |
+| **What the holder shares** | Not applicable. | Case details over the phone. | Not applicable. | Only the order. | Only the order. |
+| **Reach** | That state. | That court. | US agencies. | Global in principle: any court or agency, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Not applicable to checking. | Hours to days, depending on how busy the clerk's office is. | Not available to employers. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | An income withholding order to act on. | Staff available to answer. | Agency access. | The court or agency to publish hashes, and Live Verify-aware software on the checker's device. No court or agency does this yet. | Nothing. |
+| **Modifications** | Processes whatever amount it receives. | Known to the clerk, if they check. | Registries are updated, but not for employer queries. | A modified order returns a status pointing to the current one. | Not visible. |
+| **Best suited to** | Moving payments. | Disputes and anything unusual. | Enforcement across agencies and states. | An employer or third party confirming an order before acting on it. | Nothing where wages depend on it. |
 
 **Where each fits:** State Disbursement Units handle the money and remain the channel for remitting payments, and the federal OCSE systems coordinate enforcement between agencies and across states. The court clerk is still the authority when an order is disputed. None of these is built to answer an employer's question about the document in front of them: is this order authentic, and is this the current amount? Live Verify fills that employer-facing gap and leaves payment processing and enforcement where they are.
 

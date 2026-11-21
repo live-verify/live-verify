@@ -121,14 +121,19 @@ Accredited inspection firms issue certificates for crane safety compliance under
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With QR Stickers
+## Where Each Fits: Live Verify and QR Inspection Stickers
 
-| Feature | Live Verify | Standard QR Sticker | Paper Inspection Log |
+Many crane inspection firms already put a QR sticker on each machine, linking to their own inspection platform. That is quick and convenient. Live Verify answers a slightly different question, whether the text on the certificate or tag, including the serial number and status, is what the inspection firm issued, and the two can be printed on the same tag.
+
+| | QR sticker linking to the inspector's platform | Live Verify on the inspection certificate or tag | Paper inspection log |
 | :--- | :--- | :--- | :--- |
-| **Tamper Proofing** | **High.** Binds the *Serial Number* to the *Status*. | **Low.** Easily peeled off a good crane and put on a bad one. | **Zero.** Easily faked. |
-| **Durability** | **High.** Text lasts longer than fragile barcodes. | **Low.** Scratches/dirt make QRs unreadable. | **Fragile.** |
-| **Field Access** | **Instant.** Scan the paper/badge. | **Instant.** | **Slow.** Find the binder. |
-| **Trust Anchor** | **Domain-Bound.** Trust the Inspector. | **Platform-Bound.** | **Visual.** |
+| **Who can check** | Anyone who scans it, if the link is open to them. | Anyone looking at the tag or holding the certificate: a site manager, an operator, a safety inspector. | Whoever finds the binder. |
+| **What the checker gets** | Whatever the linked page shows, which depends on the platform. | Confirmation that the inspection firm issued this exact text, tying this serial number to this status and date, and whether it has since been withdrawn. | Handwritten entries that may be out of date or faked. |
+| **What the owner shares** | The sticker on the machine. | The tag or certificate. | The log. |
+| **Reach** | That inspection firm's platform. | Global in principle: any inspection firm, in any country, that publishes hashes on its own domain. | Wherever the binder is. |
+| **Speed and cost** | Immediate to scan; the platform is the firm's own cost. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection on site. | Slow to find and read. |
+| **What it needs** | A readable sticker on the right machine; a sticker can be moved or worn unreadable. | The inspection firm to publish hashes, and Live Verify-aware software on the checker's device. No inspection firm does this yet. | Someone to keep it. |
+| **Best suited to** | Quick access to the firm's own records. | Confirming that the serial number on the machine matches a current inspection the firm stands behind. | A local record where nothing else exists. |
 
 **Where each fits:** a QR sticker on the machine is quick and convenient, and many inspection firms already use them. A sticker can be moved to another machine or worn unreadable on site. Live Verify ties the serial number and inspection status together in text that the inspection firm stands behind, and the two can be printed on the same tag so that either will do.
 

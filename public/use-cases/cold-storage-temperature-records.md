@@ -111,20 +111,25 @@ Cold chain logistics providers are regulated by food safety authorities to ensur
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With IoT Dashboards
+## Where Each Fits: Live Verify and IoT Monitoring Platforms
 
-| Feature | Live Verify | IoT Cloud (Live Tracking) | Paper Strip Chart |
+Temperature-monitoring platforms take readings from sensors in trucks, containers and warehouses and show them on a live dashboard, run by the sensor or logistics provider. They are the right tool while the goods are moving. Live Verify answers a different question afterwards, whether the temperature report an auditor or receiver has been handed is the one the operator issued, and the two work side by side.
+
+| | IoT monitoring platform | Live Verify on the temperature report | Paper chart or unverified PDF |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the sensor data. | **Platform-Bound.** Trust the IoT vendor. | **Visual.** Trusted only via stamp. |
-| **Integrity** | **Cryptographic.** Protects the numbers. | **High.** Direct DB access. | **Zero.** Easily forged. |
-| **Interoperability** | **Universal.** PDFs work across all systems. | **Low.** Requires "Integrating" 10 different IoT platforms. | **Universal.** |
-| **Retention** | **7-10 Years.** Archival text. | **Ephemeral.** Data often deleted after 12 months. | **Durable.** |
+| **Who can check** | Account holders on that platform. | Anyone handed the report: a receiving pharmacy, an auditor, a claims handler. | Whoever receives it, trusting it as it stands. |
+| **What the checker gets** | Live readings and alarms, while the platform keeps the data. | Confirmation that the operator or sensor provider issued this exact report, as at its date. Nothing about whether the sensors were accurate. | A record whose excursions may have been edited out. |
+| **What the shipper shares** | Platform access, if the receiver needs to see it. | Only the report. | Only the report. |
+| **Reach** | Users of that platform; each provider has its own. | Global in principle: any operator or sensor provider, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Real-time while in transit; subscription and hardware costs. Data may not be kept for as long as the record must be. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | Sensors, connectivity and an account. | The operator or sensor provider to publish hashes, and Live Verify-aware software on the checker's device. No provider does this yet. | Nothing. |
+| **Best suited to** | Acting on an excursion while goods can still be saved. | Checking the record after delivery, during audits or claims. | Nothing where patient safety depends on it. |
 
 **Where each fits:** live IoT tracking is the right tool while goods are in transit, when someone can still act on an alarm. Later, an auditor or claims handler is handed a report, often from a platform they have no account on, and sometimes after the live data has been deleted. Live Verify lets them confirm that the operator stands behind the report as issued, so the dashboard covers the journey and the verified report covers the record afterwards.
 
 ### When Edited Data Reaches Patients
 
-The consequences are not abstract. In 2023, a US pharmacy received a shipment of insulin that had experienced a 6-hour temperature excursion during a connecting flight. The carrier's compliance report was edited to remove the excursion. The insulin was dispensed to diabetic patients. Compromised insulin does not announce itself — it simply loses potency gradually, and the patient's blood sugar climbs without explanation. For vaccines, the failure mode is worse: a spoiled vaccine produces no immune response, but the patient believes they are protected. A verifiable cold chain report, bound to the sensor provider's domain, means the receiving pharmacy or hospital can confirm the data was not altered after the sensor recorded it. The carrier cannot silently erase the excursion that should have triggered a rejection.
+The consequences are not abstract. In 2023, a US pharmacy received a shipment of insulin that had experienced a 6-hour temperature excursion during a connecting flight. The carrier's compliance report was edited to remove the excursion. <!-- TODO(cite): 2023 US pharmacy insulin shipment with an edited temperature-excursion report; source needed or reframe as hypothetical --> The insulin was dispensed to diabetic patients. Compromised insulin does not announce itself — it simply loses potency gradually, and the patient's blood sugar climbs without explanation. For vaccines, the failure mode is worse: a spoiled vaccine produces no immune response, but the patient believes they are protected. A verifiable cold chain report, bound to the sensor provider's domain, means the receiving pharmacy or hospital can confirm the data was not altered after the sensor recorded it. The carrier cannot silently erase the excursion that should have triggered a rejection.
 
 ## Independent Record (Optional)
 

@@ -107,14 +107,19 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Payment Portals (Textura)
+## Where Each Fits: Live Verify and Construction Payment Platforms
 
-| Feature | Live Verify | Textura / Procore Pay | Paper / Email PDF |
+Construction payment platforms, such as Textura and Procore Pay, collect lien waivers alongside each payment for the parties on a project who use the same platform. Lien law and waiver forms vary by US state. The platforms work well within a project. Live Verify answers a different question, whether a waiver PDF someone outside the platform has been handed is one the payee issued, and the two work side by side.
+
+| | Construction payment platform | Live Verify on the lien waiver | Paper or emailed PDF |
 | :--- | :--- | :--- | :--- |
-| **User Access** | **Universal.** Any bank or buyer can verify. | **Siloed.** Requires all parties to pay for the same platform. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Trust the Payee. | **Platform-Bound.** Trust the vendor. | **Zero.** Easily forged. |
-| **Interoperability** | **High.** PDFs stay verifiable across systems. | **Low.** Hard to export "Trust" to a different system. | **Manual.** |
-| **Cost** | **Low.** Minimal infrastructure. | **High.** Fees often 0.2% of contract value. | **None.** |
+| **Who can check** | Parties on that project who use the platform. | Anyone handed the waiver: a lender, a title company, a buyer's lawyer. | Whoever receives it, trusting it as it stands. |
+| **What the checker gets** | Waivers tied to each payment, tracked within the project workspace. | Confirmation that the payee issued this exact waiver, for this amount and date, and whether it has been withdrawn. | A waiver whose amount or signature may have been altered. |
+| **What the payee shares** | Waivers and payment details with the project's participants. | Only the waiver. | Only the waiver. |
+| **Reach** | Projects run on that platform, while the workspace is open. | Global in principle: any contractor or supplier, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Fast within the project; platform fees apply. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | Every party on the same platform. | The payee to publish hashes, and Live Verify-aware software on the checker's device. No contractor does this yet. | Nothing. |
+| **Best suited to** | Managing payments and waivers during a project. | Checking waivers later, or by parties who never joined the platform. | Nothing where a lien risk depends on it. |
 
 **Where each fits:** payment platforms handle waiver collection well for the parties on a project who use the same platform. A buyer's lawyer reviewing past waivers in a data room, or a lender who never joined the project, has no access to it, and the project workspace may have been closed. Live Verify lets them check a waiver PDF against the payee's domain, and it can be applied to waivers generated through a platform as readily as to those issued without one.
 

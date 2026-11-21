@@ -118,14 +118,19 @@ Schedules visa interview appointments at US embassies.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With CEAC Status Search
+## Where Each Fits: Live Verify and the Case Status Search
 
-| Feature | Live Verify | CEAC Search (Public) | Paper Notice |
+For US immigrant and nonimmigrant visas, the State Department's Consular Electronic Application Center (CEAC) offers a public status search by case number. Other countries' consulates run their own systems, or appointment services through contractors. The status search is the applicant's tool for following a case. Live Verify answers a narrower question, whether an appointment letter shown at the consulate entrance is one the department issued, and the two work side by side. <!-- TODO(verify): that CEAC covers both immigrant and nonimmigrant visa cases -->
+
+| | Public case status search | Live Verify on the appointment letter | Unverified paper notice |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Binds Identity.** Proves *Who* is scheduled. | **General.** Often just says "Ready" or "At NVC." | **Low.** Easily faked. |
-| **Speed** | **Instant.** Scan the paper at the gate. | **Slow.** Requires typing case # and solving difficult CAPTCHAs. | **Instant.** |
-| **Trust** | **Cryptographic.** Bound to `state.gov`. | **High.** Direct DB access. | **Medium.** |
-| **User Access** | **Restricted.** Only people with the paper can verify. | **Public.** Anyone with a case # can search. | **N/A.** |
+| **Who can check** | Anyone with the case number. | Anyone handed the letter: entrance staff, a medical examiner, an employer. | Whoever sees it, trusting it as it stands. |
+| **What the checker gets** | The case's general status, such as "Ready" or "At NVC". | Confirmation that the department issued this exact letter, naming this applicant and appointment, and whether it has been cancelled or rescheduled. | A notice that may have been altered or faked. |
+| **What the applicant shares** | The case number. | Only the letter. | Only the notice. |
+| **Reach** | That country's consular system. | Global in principle: any consular service, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Free; a minute or two per case, typing a number and passing a CAPTCHA. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The case number. | The department to publish hashes, and Live Verify-aware software on the checker's device. No consular service does this yet. | Nothing. |
+| **Best suited to** | Applicants following their own case. | Checking each person's letter quickly at the entrance. | Nothing where entry depends on it. |
 
 **Where each fits:** the public case status search is the applicant's own tool for following a case, and it stays the reference for that. It reports general status rather than who is booked for when, and it is slow to use for each person in a queue. Live Verify lets staff at the entrance check an appointment letter against the department's domain in seconds, as a complement to the status search.
 

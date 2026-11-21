@@ -112,14 +112,19 @@ Notaries authenticate board authority and certify corporate resolutions.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Secretary of State (SOS)
+## Where Each Fits: Live Verify, the State Registry and Data Rooms
 
-| Feature | Live Verify | Secretary of State (SOS) | Private Virtual Data Room |
+In the US, a Secretary of State's office confirms that a company exists and is in good standing; other countries have their own company registries. Board resolutions are internal to the company and generally are not filed there. For a full transaction, they are shared in a virtual data room. These answer different questions from Live Verify and work side by side with it.
+
+| | Secretary of State certificate | Virtual data room | Live Verify on the resolution |
 | :--- | :--- | :--- | :--- |
-| **Granularity** | **High.** Verifies specific *Board Actions*. | **Low.** Only shows the company exists (Good Standing). | **Full.** But requires gated access. |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Corp/Law Firm. | **Gov-Bound.** | **System-Bound.** |
-| **Cost** | **Low.** Standard web infra. | **High.** Filing/Search fees per document. | **Very High.** Monthly VDR costs. |
-| **User Access** | **Instant.** Scan the paper at the bank. | **Slow.** Requires filing search and payment. | **Restricted.** Access often revoked post-deal. |
+| **Who can check** | Anyone who orders a certificate or searches the registry. | Parties given access for that transaction. | Anyone handed the resolution: a bank officer, a counterparty, an auditor. |
+| **What the checker gets** | Confirmation that the company exists and is in good standing, not what its board decided. | The company's full set of documents for diligence. | Confirmation that the company or its counsel issued this exact resolution, as at its date, and whether it has since been rescinded. Nothing about whether the meeting was properly held. |
+| **What the company shares** | Nothing; the registry is public. | Everything placed in the room. | Only the resolution. |
+| **Reach** | That state's companies. | That transaction, while access lasts. | Global in principle: any company or law firm, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | A search fee and some processing time. | Subscription costs for the life of the deal. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | An order to the registry. | A data room provider and invitations. | The company or its counsel to publish hashes, and Live Verify-aware software on the checker's device. No company does this yet. |
+| **Best suited to** | Proving the company exists. | Full diligence for a transaction. | Showing a bank who has been authorized to sign. |
 
 **Where each fits:** a certificate of good standing from the Secretary of State is the proper proof that a company exists, and a data room suits a full diligence exercise. A bank officer opening a facility needs something narrower: confirmation of who has been authorized to sign. Live Verify lets the company or its counsel share that single resolution in checkable form, alongside the state certificate.
 

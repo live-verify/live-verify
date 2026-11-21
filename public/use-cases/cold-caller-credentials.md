@@ -334,15 +334,22 @@ Badge verification can include authorized work region. A London-region meter rea
 **Visit Authorization:**
 For specific appointments, verification can confirm: "Sarah Jenkins is authorized to visit 42 Oak Lane on January 15, 2026 for meter reading."
 
-## Compared With Current Methods
+## Where Each Fits: Live Verify, Password Schemes and Looking at the Badge
 
-| Feature | Live Verify | Password Scheme | Visual Inspection |
-|---------|-------------|-----------------|-------------------|
-| **Fakeable?** | No — domain-bound | Yes — overheard/shared | Yes — trivial |
-| **Real-time status** | Yes — current employment | No — password unchanged | No — static badge |
-| **Remote verification** | Yes — family can verify via doorbell | No — homeowner only | No |
-| **Photo verification** | Yes — employer's photo returned | No | Yes — but easy to clone |
-| **Works for strangers** | Yes | No — password must be pre-arranged | Partially |
+Today a householder facing a caller at the door can look at the ID badge, ring the employer on a number they find themselves, or, with some utilities, ask for a password agreed in advance under a scheme for vulnerable customers. These are run by the employers and utilities themselves, and they work side by side with a badge that can also be checked against the employer's own domain.
+
+| | Password scheme | Looking at the badge | Live Verify on the badge |
+| :--- | :--- | :--- | :--- |
+| **Who can check** | Householders who have registered with that utility and agreed a password. | Anyone at the door. | Anyone at the door with Live Verify on their phone, or a relative watching through a video doorbell. |
+| **What the checker gets** | Assurance that the caller knows the password, which suggests they came from that company. | A badge that may or may not be genuine. | Confirmation from the employer's domain that this badge is current, and, where the employer includes it, the employer's own photo of the employee to compare with the face at the door. |
+| **What the caller shares** | The password, spoken aloud. | The badge. | The badge, held up to a window or camera. |
+| **Reach** | Customers of utilities that run such a scheme. | Anywhere. | Global in principle: any employer, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Immediate, once set up; free to the householder. | Immediate and free. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection at the door. |
+| **What it needs** | Advance registration, and a password that has not been overheard or shared. | Nothing. | The employer to publish hashes for its badges, and Live Verify-aware software on the checker's device. No employer does this yet. |
+| **Revocation** | The password stays the same when a worker leaves. | A former employee's badge still looks the same. | A badge for someone who has left or been suspended returns a non-valid status as soon as the employer updates it. |
+| **Best suited to** | Vulnerable customers expecting visits from their own utility. | A first look. | Unexpected callers from any organization, checked before the door is opened. |
+
+**Where each fits:** password schemes work well for the vulnerable customers who have signed up and are expecting their own utility, and ringing the employer on an independently found number is always sound. Neither helps with an unexpected caller from an organization the householder has no arrangement with. A badge that can be checked against the employer's domain, through a window or a doorbell camera, gives a quick answer before the door is opened.
 
 ## See Also
 

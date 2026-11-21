@@ -103,15 +103,21 @@ If a jurisdiction mandates verified retirement confirmations for compliance-mark
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Manual Registry Lookup
+## Where Each Fits: Live Verify and Registry Lookup
 
-| Feature | Live Verify | Manual Registry Search | Scanned PDF Certificate |
+The carbon registries (Verra, Gold Standard, American Carbon Registry and others) each run a public search where anyone can look up projects, serial numbers and retirements. That search is the registry's live record and remains the authority. Live Verify does not replace it; it lets a retirement confirmation that has been handed to someone be checked in one step against the same registry, and the two work side by side.
+
+| | Searching the registry yourself | Live Verify on the retirement confirmation | Unverified scanned PDF |
 | :--- | :--- | :--- | :--- |
-| **Speed** | **Seconds.** Hash check against registry domain. | **Minutes per credit.** Navigate registry, locate project, find serial range. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Tied to the registry. | **Direct.** You see the registry yourself. | **Zero.** Trivially forged. |
-| **Scale** | **Unlimited.** Verify hundreds of retirements programmatically. | **Poor.** Each lookup is manual. | **None.** No verification possible. |
-| **Attribution Check** | **Built-in.** Retired-by entity is part of the verified data. | **Manual.** Must cross-reference beneficiary field. | **Absent.** PDF shows what the sharer wants it to show. |
-| **Integrity** | **Cryptographic.** Binds credit ID, quantity, and status to domain. | **Live but ephemeral.** No proof of what you saw. | **Vulnerable.** Easily edited. |
+| **Who can check** | Anyone, using the registry's public search. | Anyone handed the confirmation: an assurance firm, a rating agency, a customer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The registry's current record, including details the confirmation may not show. | Confirmation that the registry issued this exact text (credit ID, quantity, beneficiary, status), as at its date, and whether it still stands. | A document that shows whatever the sender wants it to show. |
+| **What the holder shares** | Enough identifiers for the checker to find the record. | Only the confirmation they chose to hand over. | Only the document they chose to hand over. |
+| **Reach** | That registry's own records; each registry has its own search and layout. | Global in principle: any registry, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Free, but minutes per credit: find the project, then the serial range, then the beneficiary field. Leaves no record of what was seen. | A few seconds per check: one web lookup, with no fee to the standard, and can be repeated across many confirmations. | Free and immediate. |
+| **What it needs** | A checker who knows how that registry's search works. | The registry to publish hashes, and Live Verify-aware software on the checker's device. No registry does this yet. | Nothing. |
+| **Best suited to** | Investigating a project or serial range in depth, or anything the confirmation does not cover. | Checking many retirement claims quickly, for example during assurance of an emissions report. | Nothing where a claim depends on it. |
+
+**Where each fits:** the registry's public search remains the place to investigate a project or a serial range, and anyone with time can use it. Where an assurance firm or rating agency faces dozens or hundreds of retirement confirmations, each with its own lookup, Live Verify lets it check each one against the registry's domain in seconds, provided the registry publishes hashes and the checker has software that honours them.
 
 ## Further Derivations
 

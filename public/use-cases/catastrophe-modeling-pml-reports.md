@@ -114,14 +114,19 @@ Actuaries model potential loss from natural disasters to quantify insurance risk
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With API Data Feeds
+## Where Each Fits: Live Verify and Direct Data Feeds
 
-| Feature | Live Verify | API Integration | Scanned PDF Report |
+Catastrophe modelling platforms and brokers can exchange model output with reinsurers through direct data feeds and integrations, run by the modelling firms and the parties that license their software. Those feeds carry much more than a report. Live Verify answers a narrower question, whether the report in a submission pack is the one the modelling firm issued, and the two work side by side.
+
+| | Direct data feed or integration | Live Verify on the PML report | Unverified scanned PDF |
 | :--- | :--- | :--- | :--- |
-| **User Experience** | **Universal.** Scan the report in the "Submission Pack." | **Hard.** Requires complex software integration between Broker and Reinsurer. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Modeler. | **System-Bound.** Trust the data feed. | **Zero.** Easily forged. |
-| **Interoperability** | **High.** Works across 50+ different reinsurers. | **Low.** Every firm has a different platform (Touchstone vs RiskLink). | **Universal.** |
-| **Cost** | **Low.** Standard web infra. | **Very High.** Seven-figure software licenses. | **None.** |
+| **Who can check** | Parties that have licensed the platform and built the link. | Any reinsurer, underwriter or regulator handed the report. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Detailed model output they can rerun and analyse. | Confirmation that the modelling firm issued this exact report, as at its date. Nothing about whether the model is right. | A report whose figures may have been edited. |
+| **What the cedant shares** | Model data and exposure detail through the feed. | Only the report in the submission pack. | Only the report in the submission pack. |
+| **Reach** | Parties on compatible platforms with an agreed link. | Global in principle: any modelling firm, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Fast once built; software licences and integration work come first. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | Compatible software on both sides and an integration between them. | The modelling firm to publish hashes, and Live Verify-aware software on the checker's device. No modelling firm does this yet. | Nothing. |
+| **Best suited to** | Detailed analysis by a reinsurer with a long-term relationship. | Renewals where a submission pack goes to many reinsurers without such links. | Nothing where pricing depends on the figures. |
 
 **Where each fits:** a direct data feed gives a reinsurer far more than a report does, and where a broker and reinsurer have built one it should be used. During renewals a submission pack goes to many reinsurers, most of whom have no such link with that broker. Live Verify lets each of them confirm the modelling firm issued the report in the pack, without any integration, and leaves the feeds in place where they exist.
 

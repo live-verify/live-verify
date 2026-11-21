@@ -121,14 +121,19 @@ Zurich processes business interruption insurance claims and loss calculations.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Forensic Audits
+## Where Each Fits: Live Verify and Forensic Audits
 
-| Feature | Live Verify | Manual Forensic Audit | Scanned PDF |
+A forensic accountant establishes a business interruption loss by examining the policyholder's books, and that work is how the claim figure is reached. Live Verify does not do that work; it lets the insurer's settlement summary be checked by those who later rely on it. The two answer different questions and work side by side.
+
+| | Forensic audit | Live Verify on the settlement summary | Unverified scanned PDF |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Insurer. | **Credential-Bound.** Trust the CPA. | **Zero.** Easily forged. |
-| **Speed** | **Instant.** Scan the summary. | **Slow.** Takes weeks/months to audit books. | **Instant.** |
-| **Cost** | **Low.** Standard web infra. | **High.** CPA fees can be $500+/hour. | **None.** |
-| **Integrity** | **Binds Result.** Proves the final number. | **Binds Process.** Verifies the data. | **Vulnerable.** |
+| **Who can check** | The insurer, policyholder and their accountants, who commission or review the work. | Anyone handed the summary: a lender, a landlord, a government agency, an auditor. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | An expert, evidence-based view of what the loss actually was. | Confirmation that the insurer issued this exact summary, with this figure, as at its date. Nothing about whether the figure is right. | A document whose numbers may have been edited. |
+| **What the holder shares** | Their financial records, with the accountants doing the review. | Only the summary they chose to hand over. | Only the document they chose to hand over. |
+| **Reach** | Any business whose records can be examined. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Weeks or months, at professional fees that scale with the complexity of the claim. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | Qualified accountants and access to the books. | The insurer to publish hashes, and Live Verify-aware software on the checker's device. No insurer does this yet. | Nothing. |
+| **Best suited to** | Establishing the loss in the first place. | Third parties confirming the agreed outcome later. | Nothing where money depends on the figure. |
 
 **Where each fits:** a forensic audit is how the loss figure is established, and there is no shortcut for that work. Live Verify does not examine the books. It lets a bank or agency that later receives the settlement summary confirm that the insurer issued it with that figure, so the result of the audit reaches third parties unaltered.
 

@@ -113,14 +113,19 @@ Self-authorized — this is a sovereign body whose authority derives from statut
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Legalization (Apostille)
+## Where Each Fits: Live Verify and Apostille or Legalization
 
-| Feature | Live Verify | Apostille / Legalization | Scanned PDF |
+Countries in the Hague Apostille Convention authenticate public documents for use abroad with an apostille from a designated authority; between other countries, documents go through multi-step legalization by ministries and embassies. Which applies depends on the two countries involved. Both authenticate the signature and seal, not the contents. They and Live Verify answer different questions and work side by side.
+
+| | Apostille or legalization | Live Verify on the consular letter | Unverified scanned PDF |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Mission. | **Seal-Bound.** Trust the physical stamp. | **Zero.** Easily forged. |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Often requires weeks of multi-step processing. | **Instant.** |
-| **Integrity** | **Binds Content.** Proves the *Income* amount. | **Binds Signature.** Doesn't protect the data on the page. | **Vulnerable.** |
-| **Cost** | **Low.** Standard web infra. | **High.** Fees can be $50-$200 per document. | **None.** |
+| **Who can check** | The receiving authority, and anyone who can check the apostille in the issuing country's register, where one exists. | Anyone handed the letter: a visa office, a bank, a landlord, an employer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Formal authentication that the signature and seal are genuine. Nothing about the figures on the page. | Confirmation that the mission issued this exact text, including figures such as a stated income, as at its date. | A letter whose contents may have been edited. |
+| **What the holder shares** | The original document with its apostille or legalization. | Only the letter they chose to hand over. | Only the document they chose to hand over. |
+| **Reach** | Countries that recognize the apostille, or that have legalized the document through their own chain. | Global in principle: any mission or ministry, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Days to weeks, with a fee at each step. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The designated authorities, and often several appointments or postal steps. | The mission to publish hashes, and Live Verify-aware software on the checker's device. No mission does this yet. | Nothing. |
+| **Best suited to** | Any case where the receiving authority requires it by law. | Letters accepted without legalization, or a further check on the contents of one that has been legalized. | Nothing where a decision depends on it. |
 
 **Where each fits:** where a receiving authority requires an apostille or full legalization, that is what must be obtained, and Live Verify does not change the legal requirement. An apostille authenticates the signature and seal rather than the contents. For consular letters accepted without legalization, or as a further check on one that has been legalized, Live Verify lets the recipient confirm the mission stands behind the text, including figures such as a stated income.
 

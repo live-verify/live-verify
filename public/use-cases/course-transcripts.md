@@ -118,16 +118,21 @@ University registrars are governed by the Office for Students in the UK, which s
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Official Electronic Delivery (Parchment)
+## Where Each Fits: Live Verify and Official Transcript Delivery
 
-| Feature | Live Verify | Electronic Delivery (Parchment) | Scanned PDF / Paper |
+Universities and colleges send official transcripts directly to the recipient, on paper or through electronic delivery services such as Parchment, usually for a fee per transcript. Other countries have their own arrangements, including national degree-verification services in some. Official delivery remains the accepted route where it is available. Live Verify answers a different question, whether a transcript PDF the candidate has already sent is one the institution issued, and the two work side by side.
+
+| | Official electronic delivery | Live Verify on the transcript | Unverified scanned PDF or paper |
 | :--- | :--- | :--- | :--- |
-| **User Control** | **High.** Student chooses what to share and how. | **Low.** Locked into the vendor's secure portal. | **High.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the University. | **System-Bound.** Trust the vendor platform. | **Zero.** Easily forged. |
-| **Speed** | **Instant.** Scan the paper/PDF. | **Slow.** Often takes 24-48 hours to "Process." | **Instant.** |
-| **Cost** | **Low.** Standard web infra. | **Medium.** Fees of $10-$20 per transcript are common. | **None.** |
+| **Who can check** | The recipient the student orders it to be sent to. | Anyone the student hands the transcript to: an employer, a graduate school, a licensing body. | Whoever receives it, trusting it as it stands. |
+| **What the checker gets** | An official transcript delivered from the registrar's side, with the vendor's assurance it was not altered. | Confirmation that the institution issued this exact transcript, as at its date. | A transcript whose grades may have been edited. |
+| **What the student shares** | The full transcript, sent to a named recipient. | Only the transcript they chose to hand over. | Only the document they chose to hand over. |
+| **Reach** | Institutions and recipients that use that service. | Global in principle: any institution, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | A fee per transcript and some processing time. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The institution to offer the service, and the student to order a transcript for each recipient. | The institution to publish hashes, and Live Verify-aware software on the checker's device. No institution does this yet. | Nothing. |
+| **Best suited to** | Admissions and licensing processes that require official delivery. | Checking a transcript already in circulation, for example during hiring. | Nothing where a decision depends on it. |
 
-**Narrower conclusion:** Official registrar delivery and transcript vendors should remain primary where they are available and accepted. Live Verify is complementary when the candidate's transcript PDF is already the artifact in circulation and the verifier otherwise falls back to trusting a scan or waiting for formal delivery.
+**Where each fits:** official registrar delivery and transcript services should remain primary where they are available and accepted. Live Verify is complementary when the candidate's transcript PDF is already the document in circulation and the checker would otherwise either trust a scan or wait for formal delivery.
 
 ## Independent Record (Optional)
 

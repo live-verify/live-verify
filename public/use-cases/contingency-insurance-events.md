@@ -121,16 +121,21 @@ Lloyd's of London underwrites contingency and event cancellation insurance globa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Central Registries (Lloyd's)
+## Where Each Fits: Live Verify and Confirming Through the Placing Broker
 
-| Feature | Live Verify | Lloyd's Market Database | Paper Evidence |
+Event cancellation and non-appearance cover is often placed in the Lloyd's market or with specialist insurers through a broker. The definitive record of a policy sits with the insurer or syndicate, and a venue or agent normally confirms cover by asking the placing broker. That remains the route for anything of substance. Live Verify answers a narrower question, whether the evidence of insurance a venue has been handed is what the insurer issued, and the two work side by side.
+
+| | Confirming through the placing broker | Live Verify on the evidence of insurance | Unverified paper evidence |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Binds Endorsements.** Protects the "Fine Print" triggers. | **General.** Often only shows the broad policy existence. | **Zero.** Easily forged. |
-| **Accessibility** | **Universal.** Any venue manager can verify. | **Restricted.** Requires Lloyd's broker access. | **Manual.** |
-| **Speed** | **Instant.** Scan the paper at the loading dock. | **Slow.** Requires calling a London broker. | **Instant.** |
-| **Confidentiality** | **High.** Only the specific event is verified. | **Low.** Central lists can reveal entire portfolios. | **Medium.** |
+| **Who can check** | Anyone who reaches the broker and gets an answer. | Anyone handed the evidence: a venue manager, an artist's agent, a lender. | Whoever receives it, trusting it as it stands. |
+| **What the checker gets** | A broker's confirmation, and answers on triggers, exclusions and endorsements. | Confirmation that the insurer or broker issued this exact document, with these limits, dates and endorsements, and whether it has since been withdrawn. | A document whose dates or limits may have been edited. |
+| **What the promoter shares** | Policy details, discussed with the checker by the broker. | Only the evidence of insurance for that event. | Only the document. |
+| **Reach** | Any broker who answers, often in another time zone. | Global in principle: any insurer or broker, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Free; depends on office hours and response times. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | An independently found contact and a broker willing to respond. | The insurer or broker to publish hashes, and Live Verify-aware software on the checker's device. No insurer or broker does this yet. | Nothing. |
+| **Best suited to** | Any question about what the policy actually covers. | A quick check at booking or at the loading dock. | Nothing where an event's finances depend on it. |
 
-**Where each fits:** the Lloyd's market's own records, reached through the placing broker, are the definitive source on a policy, and a call to that broker is the right step for any question of substance. A venue manager in the days before an event may not get an answer in time. Live Verify lets them check the evidence of insurance they hold, including its endorsements, against the issuer's domain on the spot.
+**Where each fits:** the insurer's own records, reached through the placing broker, are the definitive source on a policy, and a call to that broker is the right step for any question of substance. A venue manager in the days before an event may not get an answer in time. Live Verify lets them check the evidence of insurance they hold, including its endorsements, against the issuer's domain on the spot.
 
 ## Independent Record (Optional)
 

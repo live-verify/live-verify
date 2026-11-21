@@ -119,14 +119,19 @@ Carbon credit registries are regulated by environmental protection agencies to e
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Blockchain (Climate Ledger)
+## Where Each Fits: Live Verify and Tokenised Carbon
 
-| Feature | Live Verify | Tokenized Carbon (On-Chain) | Public Registry PDF |
+Tokenised carbon puts credits on a public blockchain, where they can be traded and retired by wallet holders; it is run by the token protocols and the registries that allow bridging. Most credits are still issued, held and retired on the registries' own systems, which produce PDF certificates. Tokenised credits and Live Verify answer different questions and work side by side: one is a trading and settlement venue, the other makes the registry's certificate checkable by whoever is handed it.
+
+| | Tokenised credits on a blockchain | Live Verify on the registry certificate | Unverified registry PDF |
 | :--- | :--- | :--- | :--- |
-| **User Control** | **High.** Share only the *Retirement* proof. | **Low.** Wallet history is often public. | **Zero.** Easily forged. |
-| **Trust Anchor** | **Domain-Bound.** Trust the Registry (Verra). | **Byzantine.** Trust the consensus/protocol. | **Visual.** |
-| **Interoperability** | **Universal.** Works with existing PDF reports. | **Siloed.** Different chains (Polygon, Toucan) don't talk. | **Manual.** |
-| **Persistence** | **Archival.** Text lasts decades. | **Fragile.** Requires the chain to exist in 2050. | **Vulnerable.** |
+| **Who can check** | Anyone who can read the chain and knows which token and contract to look at. | Anyone handed the certificate: an auditor, a customer, a rating agency. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The on-chain history of the token, including its retirement, as recorded by that protocol. | Confirmation that the registry issued this exact certificate text, as at its date, and whether it has since been withdrawn. | A document that may have been edited. |
+| **What the holder shares** | A wallet address, whose wider transaction history is usually public. | Only the certificate they chose to hand over. | Only the certificate they chose to hand over. |
+| **Reach** | Credits bridged to that chain and protocol; different chains and tokens do not automatically share records. | Global in principle: any registry, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Quick to read once you know where to look; trading and retiring carry network and protocol costs. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The credit to have been tokenised, and the chain and protocol to remain available. | The registry to publish hashes, and Live Verify-aware software on the checker's device. No registry does this yet. | Nothing. |
+| **Best suited to** | Buyers who already trade on-chain and want settlement and retirement in one place. | Retirement certificates attached to sustainability reports and sent to auditors and customers. | Nothing where a claim depends on it. |
 
 **Where each fits:** tokenised credits suit buyers who already trade on-chain and want settlement and retirement in one place. Much corporate carbon accounting still runs on registry PDFs attached to reports. Live Verify lets an auditor or customer confirm the registry stands behind a retirement certificate in that form, and a registry can offer it alongside any on-chain arrangements it supports.
 
