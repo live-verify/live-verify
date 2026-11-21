@@ -183,6 +183,7 @@ Witnessing organizations may charge for the service, or derive revenue from down
 | **Expert witness fees** | Witnessing is cheap or free; the real revenue comes from providing expert witness testimony in court if the issuer disputes the claim. Court rates for expert witnesses are substantial. |
 | **Bundled with legal services** | Solicitors add witnessing to their existing retainer — trivial marginal cost, significant added value |
 | **Insurance-adjacent** | Witnessing bundled with professional indemnity or legal expenses insurance — the insurer witnesses claims that might later need defending |
+| **Platform subscription** | A platform company (Apple, Google, Microsoft) includes witnessing in a monthly plan, free or paid — a new allowance, or rolled into an existing storage or productivity subscription. The billing relationship already exists, so tiny per-record amounts need no separate charge. None offers this or has been asked to. It must remain a user's choice among witnesses, not a fixed default, and the platform would learn which issuers a person checks. |
 
 The expert witness model is particularly interesting: the witnessing organization has a financial incentive to maintain impeccable records, because their testimony is their product. Sloppy record-keeping destroys their business.
 
