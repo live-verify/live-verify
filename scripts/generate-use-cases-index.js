@@ -57,20 +57,56 @@ function parseFrontmatter(content) {
     return metadata;
 }
 /**
- * Extract snippet from markdown body (first paragraph of Data Verified section)
+ * Strip markdown/HTML markup so a snippet is safe to drop into a catalog card.
  */
-function extractSnippet(content) {
+function plainText(s) {
+    return s
+        .replace(/<[^>]*>/g, '')
+        .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+        .replace(/\*\*|__|`/g, '')
+        .replace(/\s+/g, ' ')
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .trim();
+}
+/**
+ * First sentence of a paragraph, capped so a card never carries more than a line or two.
+ */
+function firstSentence(text, max = 160) {
+    const end = text.search(/[.!?](?=\s+[A-Z"“(]|\s*$)/);
+    let sentence = end >= 30 ? text.substring(0, end + 1) : text;
+    if (sentence.length > max) {
+        sentence = sentence.substring(0, max).replace(/\s+\S*$/, '').replace(/[,;:—-]+$/, '') + '…';
+    }
+    return sentence;
+}
+/**
+ * Extract the one-line snippet shown on a catalog card. In order of preference:
+ *   1. `summary` in the frontmatter (hand-written hook)
+ *   2. the first sentence of the page's opening prose paragraph
+ *   3. the first line of the "What Is Checked" section (a field list)
+ */
+function extractSnippet(content, metadata) {
+    if (metadata && metadata.summary) return plainText(metadata.summary);
     // Skip frontmatter
     const bodyMatch = content.match(/^---\n[\s\S]*?\n---\n([\s\S]*)$/);
     if (!bodyMatch) return '';
     const body = bodyMatch[1];
-    const dataVerifiedMatch = body.match(/##\s*Data Verified\s*\n+([\s\S]*?)(?=\n##|\n\*\*|$)/);
-    if (dataVerifiedMatch) {
-        return dataVerifiedMatch[1]
-            .split('\n')[0]
-            .replace(/\*\*/g, '')
-            .trim()
-            .substring(0, 200);
+    const intro = body.split(/\n##\s*What Is Checked/)[0];
+    let htmlDepth = 0;
+    for (const rawBlock of intro.split(/\n\s*\n/)) {
+        const block = rawBlock.trim();
+        const opens = (block.match(/<(div|pre|details|table|svg)\b/g) || []).length;
+        const closes = (block.match(/<\/(div|pre|details|table|svg)>/g) || []).length;
+        const insideHtml = htmlDepth > 0 || block.startsWith('<');
+        htmlDepth = Math.max(0, htmlDepth + opens - closes);
+        if (insideHtml || block.length < 40) continue;
+        if (/^(#|\||[-*+]\s|>|```|\d+\.\s|\*\*[^*]+:\*\*)/.test(block)) continue;
+        // A paragraph that runs straight into a list contributes only its lead-in
+        return firstSentence(plainText(block.split(/\n\s*[-*+]\s/)[0]));
+    }
+    const whatIsCheckedMatch = body.match(/##\s*What Is Checked\s*\n+([\s\S]*?)(?=\n##|\n\*\*|$)/);
+    if (whatIsCheckedMatch) {
+        return plainText(whatIsCheckedMatch[1].split('\n')[0]).substring(0, 200);
     }
     return '';
 }
@@ -102,7 +138,7 @@ async function main() {
             errorCount++;
             continue;
         }
-        const snippet = extractSnippet(content);
+        const snippet = extractSnippet(content, metadata);
         const furtherDerivations = metadata.furtherDerivations || 0;
         // Add to index
         index.useCases.push({

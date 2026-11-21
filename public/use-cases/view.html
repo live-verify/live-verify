@@ -310,7 +310,7 @@
 
                     // Update page title
                     if (meta.title) {
-                        document.title = meta.title + ' - OCR Verification';
+                        document.title = meta.title + ' - Live Verify';
                     }
 
                     // Build HTML
@@ -323,11 +323,17 @@
                         if (meta.category) html += `<span><strong>Category:</strong> ${meta.category}</span>`;
                         if (meta.volume) html += `<span><strong>Volume:</strong> ${meta.volume}</span>`;
                         if (meta.verificationMode) {
-                            const modeLabels = { clip: 'Clip', camera: 'Camera', both: 'Both', live: 'Live (browser)' };
-                            html += `<span><strong>Mode:</strong> ${modeLabels[meta.verificationMode] || meta.verificationMode}</span>`;
+                            const modeLabels = { clip: 'On screen', camera: 'On paper (camera)', both: 'On screen or paper', live: 'Live (browser)' };
+                            html += `<span><strong>Checked:</strong> ${modeLabels[meta.verificationMode] || meta.verificationMode}</span>`;
                         }
                         html += '</div>';
                     }
+
+                    // Standing notice: named organisations are examples, not adopters
+                    html += `<p style="font-size: 0.85em; opacity: 0.85; border-left: 3px solid #c9a227; padding: 6px 12px; margin: 14px 0;">
+                        <strong>Illustration, not an announcement.</strong> Organisations and domains named on this page
+                        are examples of who could issue or check this kind of document. None of them has adopted
+                        Live Verify, and no discussions with them are under way.</p>`;
 
                     // Render markdown (marked.js handles inline HTML automatically)
                     html += marked.parse(content);
