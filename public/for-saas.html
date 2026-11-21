@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For SaaS Builders - Live Verify</title>
-    <meta name="description" content="Every document your product generates can carry proof it's real. Your competitors' can't. One footer line at render time plus a hash endpoint.">
+    <meta name="description" content="Every document your product generates can carry proof it's real. One footer line at render time plus a hash endpoint. Being early is the advantage; the standard is open to everyone.">
     <style>
         :root {
             --bg: #f6f8fb; --surface: #ffffff; --ink: #0f172a; --ink-soft: #475569;
@@ -102,18 +102,19 @@
         </nav>
 
         <div class="badge">FOR SOFTWARE THAT ISSUES DOCUMENTS</div>
-        <h1>Every document your product generates can carry proof it's real.<br>Your competitors' can't.</h1>
+        <h1>Every document your product generates can carry proof it's real.<br>Be the first in your market to offer it.</h1>
         <p class="lede">
             If your product renders invoices, payslips, certificates, policies, references, or receipts on behalf
-            of your customers, those documents are being forged in your customers' names &mdash; and generative AI
-            just made the forgeries free and flawless. Shipping verifiability is one footer line at render time
-            plus a hash endpoint. That's a sales slide your competitors don't have.
+            of your customers, those documents can be forged in your customers' names &mdash; and generative AI
+            has made convincing forgeries cheap. Shipping verifiability is one footer line at render time
+            plus a hash endpoint. The standard is open, so your competitors can ship it too. The advantage is
+            being first, and doing it well.
         </p>
 
         <div class="card">
             <h2>Where this bites, by vertical</h2>
             <div class="vertical-grid">
-                <div class="vertical"><strong>Invoicing &amp; AP</strong>Payment-redirection fraud rides on doctored invoices. A verified invoice kills the swapped-IBAN attack.</div>
+                <div class="vertical"><strong>Invoicing &amp; AP</strong>Payment-redirection fraud rides on doctored invoices. A verified invoice exposes a swapped IBAN: the altered text no longer matches.</div>
                 <div class="vertical"><strong>HR &amp; payroll</strong>Fake employment letters and payslips defraud landlords and lenders &mdash; in your customers' names.</div>
                 <div class="vertical"><strong>Insurance platforms</strong>Forged certificates of insurance get uninsured contractors onto sites. Procurement can check a real COI in seconds.</div>
                 <div class="vertical"><strong>Credentialing &amp; edtech</strong>Diploma mills photocopy your customers' certificates. Verified credentials make the real ones provable.</div>
@@ -123,7 +124,7 @@
                 <div class="vertical"><strong>Health admin</strong>Forged fit notes, prescriptions, and clinic letters &mdash; verification without exposing patient data.</div>
             </div>
             <p style="margin-top: 14px;">
-                Not your vertical? There are <a href="use-cases/">589 documented use cases across 40 categories</a> &mdash;
+                Not your vertical? There are <a href="use-cases/">more than 600 documented use cases across 35 categories</a> &mdash;
                 one of them is your roadmap item.
             </p>
         </div>
@@ -150,10 +151,14 @@
         <div class="card">
             <h2>The business case</h2>
             <ul>
-                <li><strong>Differentiation that demos in 30 seconds.</strong> "Documents from our platform can be
-                    verified by anyone, instantly. Documents from theirs can't." Sales teams know what to do with that.</li>
-                <li><strong>Retention.</strong> Once a customer's auditors, banks, and counterparties start verifying
-                    documents against your endpoints, switching away has a visible cost.</li>
+                <li><strong>Differentiation that demos in 30 seconds, for now.</strong> "Documents from our platform
+                    can be checked in seconds by anyone with Live Verify on their device." It is a head start, not
+                    a moat: a competitor can add the same thing in a sprint.</li>
+                <li><strong>Retention you have to keep earning.</strong> The <code>verify:</code> line names your
+                    customer's domain, not yours, and the hashes are static files. A customer who moves to a
+                    competitor takes both with them, and the documents already issued must keep verifying. That
+                    portability is deliberate: it is what lets an issuer adopt without fear of lock-in. You keep
+                    the contract through service, as with any other feature.</li>
                 <li><strong>A premium tier that costs you almost nothing.</strong> Hash hosting is static files;
                     the margin on a "verified documents" plan is essentially 100%.</li>
                 <li><strong>Co-branding on every document.</strong> Each verification response can carry issuer
