@@ -12,7 +12,7 @@ Client apps display `authorityBasis` in the verification result so the verifier 
 
 ## Task: Adding Authority Chain Sections to Use Cases
 
-Each use case file in `public/use-cases/*.md` needs an `## Authority Chain` section added. This section should appear **after** the `## Verification Architecture` section (or after `## Third-Party Use` if there's no Verification Architecture section).
+Each use case file in `public/use-cases/*.md` needs an `## Authority Chain` section added. This section should appear **after** the `## Who Issues It` / `## How Verification Works Here` section (or after `## Who Checks It` if there is neither).
 
 ### What to Add
 
@@ -38,7 +38,7 @@ For each use case, add a section like this:
 
 ### How to Determine the Pattern
 
-Read the existing `## Verification Architecture` section in each use case. It lists **Issuer Types (First Party)**. Use those to determine the pattern:
+Read the existing `## Who Issues It` section (or `## How Verification Works Here`; both were formerly `## Verification Architecture`) in each use case. It lists **Issuer Types (First Party)**. Use those to determine the pattern:
 
 1. **If issuers are government bodies** (police, tax, immigration, courts, registrars) → **Sovereign**
 2. **If issuers are institutions regulated by government** (banks, insurers, universities, hospitals, solicitors) → **Regulated**
@@ -335,7 +335,7 @@ The issuer is an individual. There is no institutional backing. The `authorityBa
 
 **`authorityBasis` wording:** Must include "Individual" or "personal" to signal that this is not institutional.
 
-**How to recognise this pattern in a use case file:** The "Issuer Types (First Party)" or "Second-Party Use" section describes individuals acting on their own behalf — peer references, personal attestations, freelancers, volunteers, or individual professionals without institutional backing.
+**How to recognise this pattern in a use case file:** The "Issuer Types (First Party)" or "Who Holds It" section describes individuals acting on their own behalf — peer references, personal attestations, freelancers, volunteers, or individual professionals without institutional backing.
 
 **Full worked example — peer employment reference:**
 

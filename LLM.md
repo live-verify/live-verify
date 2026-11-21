@@ -233,7 +233,7 @@ furtherDerivations: 3  # maintained by scripts/count-and-update-derivations.js
 ```
 
 **Document conventions:**
-- Sections: The Problem, numbered document sections with HTML mockups, Verification Response, Second-Party Use, Third-Party Use, Verification Architecture, Privacy Salt, Authority Chain, Competition table, Jurisdictional Witnessing (Optional), Further Derivations
+- Sections: The Problem, numbered document sections with HTML mockups, Verification Response, What Is Checked, What the Checker Sees, Who Holds It (the subject/recipient, formerly "Second-Party Use"), Who Checks It (formerly "Third-Party Use"), Who Issues It (or How Verification Works Here), Privacy Salt, Authority Chain, Competition table, Jurisdictional Witnessing (Optional), Further Derivations
 - Mockups use `verifiable-text="start"`/`"end"` spans or `verifiable-text-element="true"`, with `data-verify-line` spans wrapping `verify:` lines
 - No brackets `[` `]` around start/end span content; no "Scan to verify..." meta commentary in mockups
 - Country-specific details go in collapsible `<details>` sections when the doc is international

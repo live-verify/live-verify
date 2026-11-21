@@ -109,7 +109,18 @@ Each use case document should include:
 **Volume:** [Very Small / Small / Medium / Large / Very Large]
 **Retention:** [Typical retention period and why]
 
-## Data Verified
+## The Problem: [Short name of the fraud]
+
+[Lead with the problem, before any mechanics: who is checking, at what moment, and what goes wrong today.
+Then the specific fraud patterns this verification addresses:
+- Fabrication (entirely fake documents)
+- Alteration (genuine documents with modified content)
+- Impersonation (documents falsely attributed to legitimate issuers)
+- Expired/revoked presented as current
+- Page substitution (for multi-page documents)
+- Other document-specific fraud patterns]
+
+## What Is Checked
 
 [List the data elements captured in the verification line. These are the text elements that become part of the hash—NOT visual elements like seals, watermarks, or photos.]
 
@@ -117,7 +128,7 @@ Each use case document should include:
 
 [Any special considerations: multi-page handling, privacy salt, OCR challenges]
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain and the responder text.
 
@@ -127,14 +138,14 @@ Shows the issuer domain and the responder text.
 
 [Any additional information the verification response might include]
 
-## Second-Party Use
+## Who Holds It
 
 [How does the document subject/recipient benefit from verification?]
 
 **[Use case]:** [Description]
 [List 3-5 key second-party verification scenarios]
 
-## Third-Party Use
+## Who Checks It
 
 [Organize by stakeholder type. For each:]
 
@@ -147,17 +158,7 @@ Shows the issuer domain and the responder text.
 
 [Repeat for all relevant third-party categories]
 
-## Verification Architecture
-
-**The [Document Type] Fraud Problem**
-
-[Describe the specific fraud patterns this verification addresses:
-- Fabrication (entirely fake documents)
-- Alteration (genuine documents with modified content)
-- Impersonation (documents falsely attributed to legitimate issuers)
-- Expired/revoked presented as current
-- Page substitution (for multi-page documents)
-- Other document-specific fraud patterns]
+## Who Issues It
 
 **[Issuer Type] as Issuers**
 
@@ -310,7 +311,7 @@ Document why the retention period matters:
 
 ## Writing Effective Use Case Descriptions
 
-### Second-Party Use Section
+### Who Holds It Section
 
 Focus on how the document **subject** (the person named in the document) benefits from verification. Examples:
 
@@ -322,7 +323,7 @@ Focus on how the document **subject** (the person named in the document) benefit
 
 **Key insight:** The second party often wants verification for their own peace of mind, legal protection, or to support their own claims to third parties.
 
-### Third-Party Use Section
+### Who Checks It Section
 
 Organize stakeholders by **decision-making function**, not just title. Common categories:
 
