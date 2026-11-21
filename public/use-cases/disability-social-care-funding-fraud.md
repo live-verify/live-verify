@@ -507,15 +507,22 @@ Salt must be per-person, per-document, and non-deterministic. Even the existence
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Existing Verification
+## Where Each Fits: Live Verify and Existing Funding Controls
 
-| Feature | Live Verify | Government Portals | Retrospective Audit | Manual Provider Lookup |
+Funding bodies already run controls of their own: provider and plan-manager portals through which claims are submitted and checked, public registers of approved providers, and audits and investigations after payment. These are national: Australia's NDIS, US Medicaid programmes and UK councils' direct payments each have their own arrangements, other countries differ, and many have little in place. These controls and Live Verify answer different questions and work side by side: the funding body's systems decide what gets paid, while Live Verify lets the service user, their family and the payer each check the same documents as services happen.
+
+| | Funding body portals | Public provider register lookup | Audit and investigation after payment | Live Verify on receipts, agreements and registrations |
 | :--- | :--- | :--- | :--- | :--- |
-| **Speed** | **Instant.** 5-second scan at point of service. | **N/A for service users.** Portals are for providers and administrators. | **Months to years.** Fraud detected long after payment. | **Minutes.** Manual website lookup. |
-| **Bilateral verification** | **Yes.** Both provider and service user verify the same document. | **No.** Provider submits; service user doesn't see the claim. | **Retrospective.** Compares claims against records after payment. | **No.** Only confirms registration exists. |
-| **Fraud detection timing** | **At point of service / claim.** Before money moves. | **At claim.** Basic automated checks but no bilateral verification. | **After payment.** Money already gone. | **Before engagement.** But only checks registration, not service delivery. |
-| **Organised crime resistance** | **High.** Every phantom service needs a receipt that a real person's device verified. | **Low.** Phantom services pass automated checks. | **Medium.** Catches patterns eventually. | **Low.** Shell entities pass registration checks. |
-| **Accessibility** | **Phone scan.** Family member can verify. | **Portal login.** Requires provider credentials. | **N/A.** Not service user-facing. | **Website.** Requires internet search skills. |
+| **Who can check** | Providers, plan managers and administrators with logins. | Anyone who searches the register's website. | The funding body and its investigators. | Anyone handed the document: the service user, a family member, a plan manager, the funding body, an investigator. |
+| **What the checker gets** | The claim as submitted, with the body's automated checks. | Whether a provider is registered, and for what. | Findings, after the event, on whether claims matched what was delivered. | Confirmation that the issuer stands behind this exact receipt, agreement or registration, as at its date, and its current status, such as suspended or revoked. |
+| **What the service user shares** | Nothing; they usually do not see the claim. | Nothing. | Their records, if asked. | Only the documents they chose to hand over, or check themselves. |
+| **Reach** | One scheme's own participants and providers. | One registration body. | One scheme. | Global in principle: any provider, supplier, clinician or registration body, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Fast at the point of claim, but blind to whether the service happened. | Minutes, for those who know where to look. | Months or years after the money has gone, and costly to run. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **When problems surface** | At claim, for errors the automated rules can see. | Before engaging a provider, for registration problems only. | After payment. | At the time of service or claim, if someone checks and compares the documents. |
+| **What it needs** | Accounts and the scheme's systems. | A public register. | Investigative capacity. | Providers, suppliers and registration bodies to publish hashes, and Live Verify-aware software on the checker's device. None does this yet. |
+| **Best suited to** | Processing claims at scale. | Checking that a provider exists and is registered. | Building cases and recovering money. | Giving service users and families a document they can check, and the payer something to match invoices against. |
+
+**Where each fits:** funding body portals, registers and audits remain the backbone of scheme integrity, and nothing here replaces them. What they lack is a document in the hands of the service user, or their family, that the payer can match against the claim. Verified receipts, agreements and registrations fill that gap where providers and registration bodies publish hashes and the person checking has software that honours them, surfacing some problems at the time of service instead of years later.
 
 ## Further Derivations
 

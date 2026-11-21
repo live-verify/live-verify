@@ -106,14 +106,19 @@ NFU Mutual underwrites crop and hail insurance for UK agricultural operations.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With USDA Portals (MPCI)
+## Where Each Fits: Live Verify and USDA Crop Insurance Records
 
-| Feature | Live Verify | USDA / RMA Portal | Paper Schedule |
+In the US, federally backed multi-peril crop insurance is overseen by the USDA's Risk Management Agency, and its records are held in government systems that insurers, agents and authorised users reach through secure logins. Other countries arrange crop insurance differently, and many have no public record of it at all. Private crop-hail policies sit outside the federal programme. The government record and Live Verify answer different questions and work side by side: one is the authoritative record of federal cover, the other lets a lender or landlord check the private schedule the farmer hands over.
+
+| | USDA / RMA records | Live Verify on the coverage schedule | Unverified paper schedule |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Binds specific fields.** Protects the $/Acre limit. | **High.** Direct Gov DB. | **Zero.** Easily forged. |
-| **Accessibility** | **Open.** Any local ag-bank can verify. | **Restricted.** Requires secure USDA ID and complex logins. | **Instant.** |
-| **Speed** | **Instant.** Scan at the farm gate. | **Slow.** Requires navigating a complex Gov GIS system. | **Instant.** |
-| **Private Market** | **Universal.** Works for non-gov "Hail-Only" policies. | **Zero.** USDA doesn't track private hail-only data. | **Manual.** |
+| **Who can check** | Insurers, agents and others with authorised access to the federal systems. | Anyone handed the schedule: an ag-lender, a landowner, a grain elevator, an adjuster. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The federal record of multi-peril cover, acreage and claims. | Confirmation that the insurer issued this exact schedule, with these acres and limits, as at its date, and its current status. | A schedule that may have been edited. |
+| **What the farmer shares** | Nothing directly; access depends on the checker's own authorisation. | Only the schedule they chose to hand over. | Only the schedule they chose to hand over. |
+| **Reach** | US federal crop insurance only; private hail-only policies are not in it. | Global in principle: any crop insurer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Quick for those set up with access; out of reach for those who are not. | A few seconds per check: one web lookup, with no fee to the standard and no account with the insurer. | Free and immediate. |
+| **What it needs** | Authorised credentials for the government systems. | The insurer to publish hashes, and Live Verify-aware software on the checker's device. No crop insurer does this yet. | Nothing. |
+| **Best suited to** | Administering and auditing federal crop insurance. | A local lender or landowner checking private hail cover. | Nothing where a loan depends on it. |
 
 **Where each fits:** the USDA systems are the authoritative record for federal crop insurance and remain so. They do not hold private hail-only policies, and a local lender may have no access to them in any case. Live Verify lets the lender confirm that a private insurer stands behind the schedule the farmer presents, so the federal record and the private cover can both be evidenced.
 

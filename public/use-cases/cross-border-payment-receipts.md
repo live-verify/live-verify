@@ -114,14 +114,19 @@ Wise processes cross-border payment transfers and international remittances.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With SWIFT gpi (Tracking)
+## Where Each Fits: Live Verify and SWIFT gpi
 
-| Feature | Live Verify | SWIFT gpi (Bank Tracking) | Scanned PDF / Image |
+SWIFT gpi is the tracking service banks in the SWIFT network use to follow an international payment through the chain of banks handling it. Many remittance providers and fintechs move money through their own networks rather than SWIFT, and local payment schemes differ from country to country. Bank tracking and Live Verify answer different questions and work side by side: gpi tells the banks where the money is, while Live Verify lets the person holding a receipt confirm the provider issued it.
+
+| | SWIFT gpi tracking | Live Verify on the receipt | Unverified screenshot or PDF |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Payer. | **Bank-Bound.** Trust the technical message. | **Zero.** Easily forged. |
-| **User Access** | **Universal.** Any recipient can verify. | **Restricted.** Usually only the sending/receiving banks see the log. | **Instant.** |
-| **Integrity** | **Binds FX Rates.** Protects the numbers. | **Data-Only.** | **Vulnerable.** |
-| **Interoperability** | **High.** Works for non-SWIFT fintechs. | **Limited.** Only for SWIFT-member banks. | **Universal.** |
+| **Who can check** | The banks in the payment chain, and customers their bank chooses to show. | Anyone handed the receipt: the recipient, a seller, a mortgage lender, a tax authority. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The payment's progress between banks, including whether it has been credited. | Confirmation that the provider issued this exact receipt, with these amounts, rates and fees, as at its date. | A receipt that may have been edited or invented. |
+| **What the payer shares** | Nothing directly; the recipient depends on their own bank. | Only the receipt they chose to hand over. | Only the receipt they chose to hand over. |
+| **Reach** | Banks that are SWIFT members and use gpi. | Global in principle: any bank or money transmitter, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Fast for banks already on the network. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | SWIFT membership and gpi adoption by the banks involved. | The provider to publish hashes, and Live Verify-aware software on the checker's device. No provider does this yet. | Nothing. |
+| **Best suited to** | Tracing a payment between banks, and finding where it is stuck. | A recipient or third party checking that a transfer receipt is genuine. | Nothing where goods or money depend on it. |
 
 **Where each fits:** SWIFT gpi gives the banks in the chain a reliable trace of a payment, and it is the right tool between them. The person waiting for the money usually sees only a receipt sent by the payer, and some providers are outside SWIFT altogether. Live Verify lets that recipient confirm the provider issued the receipt with those amounts and rates. It does not show that funds have arrived, which the bank trace and the recipient's own account still answer.
 

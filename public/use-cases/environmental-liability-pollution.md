@@ -119,16 +119,21 @@ AIG underwrites environmental liability and pollution insurance for contaminated
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Broker Letters
+## Where Each Fits: Live Verify and Broker Letters
 
-| Feature | Live Verify | Manual Broker Letter | Scanned PDF |
+Today a lender, buyer or regulator who wants to confirm pollution cover usually asks the insured's broker for a confirmation letter. The broker and Live Verify answer different questions and work side by side: the broker can explain the cover and its exclusions, while Live Verify confirms that the declarations page in hand, with its retroactive date, is exactly what the carrier issued.
+
+| | Broker confirmation letter | Live Verify on the declarations page | Unverified PDF |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Carrier. | **Human.** Prone to errors or social engineering. | **Zero.** Easily forged. |
-| **Durability** | **30+ Years.** Archival text. | **Low.** Brokers often lose files after 7 years. | **Vulnerable.** |
-| **Integrity** | **Binds Retro Date.** Protects the history. | **Vague.** "Yes, they are insured." | **None.** |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Takes days to retrieve archival files. | **Instant.** |
+| **Who can check** | Whoever the broker agrees to write to. | Anyone handed the page: a lender, a buyer, a regulator, a neighbouring community. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The broker's statement of the cover, sometimes brief, with someone to ask about it. | Confirmation that the carrier issued this exact page, with these limits and this retroactive date, as at its date, and its current status as the carrier publishes it. | A page whose retroactive date may have been edited. |
+| **What the insured shares** | A request to its broker. | Only the pages it chose to hand over. | Whatever it sends. |
+| **Reach** | Wherever the broker is still engaged and holds the file. | Global in principle: any carrier, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Days, and longer when old files must be retrieved. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | A broker who still holds the file. | The carrier to publish hashes, and to keep them published for as long as checks may be needed; and Live Verify-aware software on the checker's device. No carrier does this yet. | Nothing. |
+| **Best suited to** | Explaining current cover and placing new cover. | Confirming the cover and retroactive date of a policy, including years later. | Nothing where a loan or cleanup depends on it. |
 
-**Where each fits:** A broker's letter is still the usual way to confirm current pollution cover, and it comes with someone who can explain the policy. Its weak point is time: contamination can surface long after the policy period, when retrieving the file is slow or the broker is no longer in business. Live Verify lets a site owner, buyer or regulator confirm that the carrier stands behind the declarations page as issued, including its retroactive date, alongside whatever the broker can still supply.
+**Where each fits:** a broker's letter is still the usual way to confirm current pollution cover, and it comes with someone who can explain the policy. Its weak point is time: contamination can surface long after the policy period, when retrieving the file is slow or the broker is no longer in business. Live Verify lets a site owner, buyer or regulator confirm that the carrier stands behind the declarations page as issued, including its retroactive date, alongside whatever the broker can still supply.
 
 ## Independent Record (Optional)
 

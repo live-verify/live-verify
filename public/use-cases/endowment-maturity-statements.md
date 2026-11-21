@@ -118,14 +118,21 @@ Life companies issuing endowment maturity statements are authorised and regulate
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Insurer Portal
+## Where Each Fits: Live Verify and the Insurer's Customer Portal
 
-| Feature | Live Verify | Insurer Customer Portal | Scanned PDF |
+Life companies, and the closed-book firms that now run many old endowment policies, give policyholders online portals and send statements by post, and will confirm figures to a lender or adviser on request. The portal and Live Verify answer different questions and work side by side: the portal is the policyholder's own view of the policy, and Live Verify lets a lender, adviser or the ombudsman confirm a maturity statement the policyholder hands them.
+
+| | Insurer customer portal | Live Verify on the maturity statement | Unverified PDF |
 | :--- | :--- | :--- | :--- |
-| **Third-Party Access** | **Universal.** Lender, FOS, IFA can verify directly. | **Restricted.** Policyholder login only. | **None.** No verification possible. |
-| **Trust Anchor** | **Domain-Bound.** Tied to the life company. | **Session-Bound.** Screenshot could be edited. | **Zero.** Easily altered. |
-| **Speed** | **Instant.** Clip and verify. | **Slow.** Lender must request confirmation by post. | **Slow.** Manual checking. |
-| **Shortfall Confirmation** | **Cryptographic.** Exact figures verified. | **Informal.** Portal shows figures but cannot prove them to a third party. | **Vulnerable.** Figures can be changed. |
+| **Who can check** | The policyholder, logged in. Others must ask the insurer, usually in writing. | Anyone handed the statement: a mortgage lender, an IFA, the Financial Ombudsman Service, an executor. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The policyholder's current view of the policy and its values. | Confirmation that the life company issued this exact statement, with this maturity value, target and shortfall, as at its date. | Figures that may have been edited. |
+| **What the policyholder shares** | Their screen, a screenshot, or a request to the insurer to write to a third party. | Only the statement they chose to hand over. | Only the statement they chose to hand over. |
+| **Reach** | The insurer's own policyholders. | Global in principle: any life company, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Immediate for the policyholder; a third-party confirmation by post can take weeks. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | A portal account. | The life company to publish hashes, and Live Verify-aware software on the checker's device. No life company does this yet. | Nothing. |
+| **Best suited to** | The policyholder managing their own policy. | A third party relying on the maturity figures in a mortgage, complaint or estate. | Nothing where a shortfall or compensation claim depends on it. |
+
+**Where each fits:** the insurer's portal is the policyholder's own view, and a direct confirmation from the insurer remains available to a lender or executor who can wait for it. What neither gives is a statement the policyholder can hand on that the recipient can check straight away. Live Verify lets a lender, adviser or the ombudsman confirm the maturity value and shortfall against the life company's domain, so the figures in a mortgage discussion or complaint are not in dispute.
 
 ## Further Derivations
 

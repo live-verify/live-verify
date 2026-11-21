@@ -120,16 +120,21 @@ Unum underwrites disability income insurance policies for UK individuals and emp
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Broker Confirmation
+## Where Each Fits: Live Verify and Broker Confirmation
 
-| Feature | Live Verify | Manual Broker Call | Scanned PDF |
+Today a lender, lawyer or business partner who wants to confirm an individual disability policy usually asks the policyholder's broker or the insurer to confirm it, by phone or letter. The broker and Live Verify answer different questions and work side by side: the broker can explain the policy and advise on it, while Live Verify confirms that the policy schedule in hand is exactly what the carrier issued.
+
+| | Asking the broker | Live Verify on the policy schedule | Unverified PDF |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Carrier. | **Human.** Prone to errors or social engineering. | **Zero.** Easily forged. |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Takes 2-3 business days. | **Instant.** |
-| **Availability** | **24/7.** Works when offices are closed. | **Restricted.** | **Universal.** |
-| **Integrity** | **Cryptographic.** Binds the "Occupation Class." | **Vague.** "Yes, they have a policy." | **Vulnerable.** |
+| **Who can check** | Whoever the broker agrees to speak to, with the policyholder's consent. | Anyone handed the schedule: a mortgage underwriter, a divorce lawyer, a business partner. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The broker's account of the cover, often brief, with the chance to ask questions. | Confirmation that the carrier issued this exact schedule, including the occupation definition and benefit terms, as at its date, and its current status as the carrier publishes it. | A schedule whose terms may have been edited. |
+| **What the policyholder shares** | Consent for the broker to discuss their policy. | Only the schedule they chose to hand over. | Only the schedule they chose to hand over. |
+| **Reach** | Wherever the broker is still involved; long-running policies can outlast several brokers. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Often days, during office hours. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | A broker who still holds the account. | The carrier to publish hashes, and Live Verify-aware software on the checker's device. No carrier does this yet. | Nothing. |
+| **Best suited to** | Advice, explanation of terms, and questions the document does not answer. | Confirming that the carrier stands behind this policy page. | Nothing where a loan or settlement depends on it. |
 
-**Where each fits:** A call to the broker remains the way to get advice, an explanation of terms, or an answer about something the document does not cover. It is slower, tied to office hours and depends on the broker still holding the account. Live Verify handles the narrower task of confirming that the carrier stands behind this policy page, which is useful to a lender or lawyer with no line to the broker, and to a policyholder decades into a policy that has outlasted several brokers.
+**Where each fits:** a call to the broker remains the way to get advice, an explanation of terms, or an answer about something the document does not cover. It is slower, tied to office hours and depends on the broker still holding the account. Live Verify handles the narrower task of confirming that the carrier stands behind this policy page, which is useful to a lender or lawyer with no line to the broker, and to a policyholder decades into a policy that has outlasted several brokers.
 
 ## Independent Record (Optional)
 

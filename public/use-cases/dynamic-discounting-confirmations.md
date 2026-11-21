@@ -118,16 +118,21 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With ERP Logins
+## Where Each Fits: Live Verify and ERP and Platform Dashboards
 
-| Feature | Live Verify | ERP Dashboard (SAP) | Scanned PDF Confirmation |
+Dynamic discounting runs inside the buyer's ERP system, such as SAP, or on a discounting platform such as C2FO or Taulia, where buyer and supplier see each early-payment offer and acceptance. Those systems are the record. Live Verify answers a different question for a different person: whether a confirmation the supplier hands to its own bank, factor or auditor is one the platform issued. The two work side by side.
+
+| | ERP or discounting platform dashboard | Live Verify on the early-payment confirmation | Unverified PDF |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Platform. | **System-Bound.** | **Zero.** Easily forged. |
-| **User Access** | **Universal.** Any local lender can verify. | **Restricted.** Lenders never get access to a supplier's internal SAP. | **Instant.** |
-| **Integrity** | **Binds FX/Rates.** Protects the % discount. | **High.** | **Vulnerable.** |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires manual data export and upload. | **Instant.** |
+| **Who can check** | The buyer, the supplier and the platform, with their logins. | Anyone handed the confirmation: the supplier's lender, a factor, an auditor, a tax authority. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Live, complete data on invoices, offers and payments. | Confirmation that the platform issued this exact confirmation, with this invoice, discount and payment date, as at its date. | A confirmation whose terms may have been edited. |
+| **What the supplier shares** | Nothing outside the platform; outsiders get exports at best. | Only the confirmation they chose to hand over. | Only the document they chose to hand over. |
+| **Reach** | The buyer's and supplier's own accounts on that system. | Global in principle: any platform or bank, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Fast for users; sharing with outsiders means exporting and sending data. | A few seconds per check: one web lookup, with no fee to the standard and no integration. | Free and immediate. |
+| **What it needs** | An account on the system. | The platform to publish hashes, and Live Verify-aware software on the checker's device. No discounting platform does this yet. | Nothing. |
+| **Best suited to** | Running the programme between buyer and supplier. | A lender or factor checking that an invoice has already been discounted. | Nothing where financing depends on it. |
 
-**Where each fits:** Inside the buyer's ERP or the discounting platform itself, the data is live and complete, and the buyer, supplier and platform should keep working there. A supplier's local bank, auditor or factor is outside that loop and will not be given access to another company's SAP. Live Verify lets such a third party confirm that the platform issued the confirmation the supplier handed over, with nothing to integrate on either side.
+**Where each fits:** inside the buyer's ERP or the discounting platform itself, the data is live and complete, and the buyer, supplier and platform should keep working there. A supplier's local bank, auditor or factor is outside that loop and will not be given access to another company's ERP. Live Verify lets such a third party confirm that the platform issued the confirmation the supplier handed over, with nothing to integrate on either side.
 
 ## Independent Record (Optional)
 

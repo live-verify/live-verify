@@ -172,17 +172,21 @@ For school-leaving examinations:
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Current Verification Methods
+## Where Each Fits: Live Verify and Official Score Sends
 
-| Feature | Live Verify | Official Score Send | Candidate Portal / Screenshot | Paper Certificate |
+Many examining bodies, such as the College Board for the SAT or ETS for the GRE, send official score reports directly to institutions the candidate names, for a fee per recipient. Others let a recipient look a result up in a portal, or confirm it on request. What exists depends on the exam and the country: large international testing bodies tend to have well-developed send systems, while many professional and national exams have none. Official sends and Live Verify answer the same question by different routes and work side by side.
+
+| | Official score send | Candidate portal or screenshot | Live Verify on the score report | Paper certificate |
 | :--- | :--- | :--- | :--- | :--- |
-| **User Control** | **High.** Candidate shares a verified artifact. | **Low.** Examining body sends directly. | **High.** But unverifiable. | **High.** But forgeable. |
-| **Trust Anchor** | **Domain-Bound.** Bound to the examining body. | **System-Bound.** Trust the delivery channel. | **None.** Screenshot is trivially editable. | **Visual.** Trust the paper. |
-| **Speed** | **Instant.** Verify against the examining body's endpoint. | **Slow.** Days to weeks for official sends. | **Instant.** But no integrity guarantee. | **Instant.** But no integrity guarantee. |
-| **Cost** | **Low.** Standard web infrastructure. | **High.** $12-$30 per recipient per send. | **None.** | **None.** |
-| **Handles revocation** | **Yes.** Voided results return VOIDED status. | **Snapshot.** Reflects status at time of send only. | **No.** Screenshot persists. | **No.** Paper persists. |
+| **Who can check** | The institutions the candidate names, if they are on the examining body's list. | Anyone shown it. | Anyone the candidate hands the report to: an admissions office, an employer, a regulator, an immigration authority. | Anyone shown it. |
+| **What the checker gets** | The result direct from the examining body, as at the date of the send. | An image that may have been edited. | Confirmation that the examining body issued this exact result, as at its date, and its current status: voided, expired or superseded if that has happened. | A certificate that may have been forged. |
+| **What the candidate shares** | A request to the examining body to send. | A screenshot. | Only the report they chose to hand over. | The certificate. |
+| **Reach** | Recipients the examining body sends to; often not employers or bodies abroad. | Anywhere, but untrusted. | Global in principle: any examining body, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Days to weeks, and a fee per recipient. | Immediate and free. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate and free. |
+| **What it needs** | An examining body with a send service, and a recipient that accepts it. | Nothing. | The examining body to publish hashes, and Live Verify-aware software on the checker's device. No examining body does this yet. | Nothing. |
+| **Best suited to** | Admissions where the examining body and institution already work together. | Nothing where the result matters. | Professional exams, certifications and international sharing where no send service reaches. | The candidate's own record. |
 
-**Practical conclusion:** Official score sends remain primary where the examining body offers them and the recipient accepts them. Live Verify is complementary when the score report PDF or certificate is already the artifact in circulation — which is the case for most professional exams, certification results, and international score sharing where official send infrastructure does not exist or costs prohibitively per recipient.
+**Where each fits:** official score sends remain primary where the examining body offers them and the recipient accepts them. Live Verify is complementary when the score report PDF or certificate is already the document in circulation, which is the case for most professional exams, certification results, and international score sharing where official send services do not exist or are costly to use for many recipients.
 
 ## Exam Scope
 

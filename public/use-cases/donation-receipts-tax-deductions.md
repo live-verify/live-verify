@@ -144,16 +144,21 @@ Charities issue receipts confirming donation amounts for tax purposes.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Existing Systems
+## Where Each Fits: Live Verify and Charity Registers
 
-| Feature | Live Verify | IRS TEOS / HMRC Charities Register | Paper Receipt / Declaration |
+Tax authorities publish registers of recognised charities, such as the IRS Tax Exempt Organization Search in the US and HMRC's records of charities in the UK, alongside the charity regulators' own registers. Coverage depends on where you are: most countries with charitable tax relief keep some register, but what it shows and how easy it is to search varies widely. A register and Live Verify answer different questions and work side by side: the register says whether the organisation is a recognised charity, and Live Verify says whether that charity issued this receipt for this gift.
+
+| | Tax authority charity register | Live Verify on the donation receipt | Unverified paper receipt |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Binds Amount.** Protects the $/£ value. | **Zero.** Only verifies the *Charity*, not the *Gift*. | **Zero.** Easily forged. |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Charity. | **Gov-Bound.** | **Visual.** |
-| **User Experience** | **Instant.** Scan the paper. | **Slow.** Requires typing EIN/Charity No and finding the record. | **N/A.** |
-| **Audit-ability** | **High.** Individual receipts verifiable on demand. | **None** for individual gifts (US). Bulk only (UK — HMRC sees aggregate claims, not individual declarations). | **Low.** |
+| **Who can check** | Anyone who searches the register. | Anyone handed the receipt: a tax auditor, a tax preparer, a matching-gift platform, an executor. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Whether the organisation is recognised for tax relief. Nothing about any individual gift. | Confirmation that the charity issued this exact receipt, with this amount and date, and any Gift Aid declaration it records, as at its date. | A receipt that may have been edited or invented. |
+| **What the donor shares** | Nothing; the register is about the charity. | Only the receipt they chose to hand over. | Only the receipt they chose to hand over. |
+| **Reach** | One country's recognised charities. | Global in principle: any charity, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free; a manual search by name or number. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The register. | The charity to publish hashes, and Live Verify-aware software on the checker's device. No charity does this yet. | Nothing. |
+| **Best suited to** | Confirming that an organisation is a recognised charity. | Confirming an individual gift, in an audit, a matching claim or a Gift Aid spot-check. | Nothing where tax relief depends on it. |
 
-**Where each fits:** IRS Tax Exempt Organization Search and the HMRC charities register answer a question Live Verify does not attempt: whether the organization is a recognised charity at all. That check stays necessary. Neither register says anything about an individual gift, so a tax preparer, auditor or matching-gift employer looking at one receipt still has only the paper. Live Verify lets them confirm that the charity stands behind that receipt and its amount, used together with the official register rather than in place of it.
+**Where each fits:** the IRS Tax Exempt Organization Search and HMRC's charity records answer a question Live Verify does not attempt: whether the organisation is a recognised charity at all. That check stays necessary. Neither says anything about an individual gift, so a tax preparer, auditor or matching-gift employer looking at one receipt still has only the paper. Live Verify lets them confirm that the charity stands behind that receipt and its amount, used together with the official register rather than in place of it.
 
 ## Independent Record (Optional)
 

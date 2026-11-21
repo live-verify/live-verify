@@ -104,16 +104,21 @@ The homeowner (second party) may hand the verified document to various third par
 
 **Privacy Salt:** Required. Escrow statements contain a mix of enumerable and unique values—loan numbers that might follow predictable patterns, property addresses that are public records, and round dollar amounts for taxes and insurance. While some elements are unique, the hash must be salted to prevent unauthorized enumeration of homeowner financial data and to protect the privacy of escrow account details from being discovered through brute-force attempts.
 
-## Compared With Servicer Portals
+## Where Each Fits: Live Verify and Servicer Apps
 
-| Feature | Live Verify | Servicer Mobile App | Scanned PDF / Printout |
+Mortgage servicers show each homeowner their escrow account in an app or online portal, and send an annual escrow analysis statement. The app and Live Verify answer different questions and work side by side: the app shows the current position, and a verified statement is a dated record of what the servicer said, which the homeowner can show someone else.
+
+| | Servicer app or portal | Live Verify on the escrow analysis statement | Unverified PDF or printout |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Cryptographic.** Protects every line item. | **Dynamic.** Data can change without audit trail. | **Zero.** Easily forged. |
-| **Dispute Power** | **High.** Proves the servicer's *past* attestation. | **Low.** Servicer controls the app view. | **Vulnerable.** |
-| **Audit-ability** | **High.** Creates an external digital trail. | **None.** For external regulators. | **Manual.** |
-| **Transparency** | **High.** Shows exact RESPA math. | **Medium.** Often hides complex calculations. | **Full.** But untrusted. |
+| **Who can check** | The homeowner, logged in. | Anyone handed the statement: a housing counsellor, the CFPB, a county tax office, an insurer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The servicer's current figures, which may since have been updated. | Confirmation that the servicer issued this exact statement, with these balances, projections and shortage or surplus, as at its date. | Figures that may have been edited. |
+| **What the homeowner shares** | Their screen, or a screenshot. | Only the statement they chose to hand over. | Only the statement they chose to hand over. |
+| **Reach** | One servicer's own customers. | Global in principle: any servicer or lender, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Immediate for the homeowner. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | An account. | The servicer to publish hashes, and Live Verify-aware software on the checker's device. No servicer does this yet. | Nothing. |
+| **Best suited to** | Day-to-day questions about the account. | Disputes about what the servicer stated on a given date. | Nothing where a dispute depends on it. |
 
-**Where each fits:** The servicer's app is the convenient place to see the current escrow position, and for day-to-day questions it is all most homeowners need. It shows the latest figures rather than what was stated on a given date. Live Verify lets a homeowner, housing counsellor or regulator confirm that the servicer issued a particular analysis statement as printed, which matters when a past figure is in dispute. The app stays the live view; the verified statement is the dated record.
+**Where each fits:** the servicer's app is the convenient place to see the current escrow position, and for day-to-day questions it is all most homeowners need. It shows the latest figures rather than what was stated on a given date. Live Verify lets a homeowner, housing counsellor or regulator confirm that the servicer issued a particular analysis statement as printed, which matters when a past figure is in dispute. The app stays the live view; the verified statement is the dated record.
 
 ---
 
@@ -231,16 +236,21 @@ Escrow companies are licensed by state regulators to hold funds during real esta
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Secure Portals (Qualia)
+## Where Each Fits: Live Verify and Secure Closing Portals
 
-| Feature | Live Verify | Secure Portal (Qualia/CertifID) | Scanned PDF / Email |
+Secure closing portals such as Qualia and CertifID let title and escrow companies deliver wire instructions to buyers through an enrolled account, and some add identity checks or protection for the transfer. The standard advice to call the escrow officer back on a known number also still applies. Portals and Live Verify answer related questions and work side by side: the portal manages delivery to an enrolled buyer, and Live Verify lets whoever holds the printed instructions, including the buyer's bank, check them.
+
+| | Secure closing portal | Live Verify on the wire instructions | Unverified PDF or email |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Firm. | **System-Bound.** Trust the vendor. | **Zero.** Easily forged. |
-| **Accessibility** | **Universal.** No login needed to verify. | **Difficult.** Requires buyer to create an account/password. | **Instant.** |
-| **Integrity** | **Binds Content.** Protects the account #. | **Data-Only.** | **Vulnerable.** |
-| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Technical.** Often requires desktop browser. | **Manual.** |
+| **Who can check** | Buyers and sellers who have enrolled. | Anyone handed the instructions: the buyer, the sending bank's teller or fraud team, a lender. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The instructions delivered through the portal, with whatever further protections the provider offers. | Confirmation that the escrow firm issued these exact instructions, with this account and routing number, as at their date, and whether they have since been withdrawn. | Instructions that may have been spoofed or altered. |
+| **What the buyer shares** | An account set up with the provider. | Only the instructions they chose to hand over. | Whatever they forward. |
+| **Reach** | Firms and transactions that use that portal. | Global in principle: any title or escrow firm, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Quick once enrolled; some buyers never finish signing up. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The firm to use the portal, and the buyer to enrol. | The escrow firm to publish hashes, and Live Verify-aware software on the checker's device. No escrow firm does this yet. | Nothing. |
+| **Best suited to** | Managing the closing end to end for enrolled parties. | A second check of printed instructions, at the bank counter or at home, alongside the call-back. | Nothing where a wire depends on it. |
 
-**Where each fits:** Secure closing portals such as Qualia and CertifID do more than confirm a document: they manage the transaction and, in some cases, back the wire with their own guarantees, so a buyer who is already enrolled should use them. Some buyers never complete the sign-up, and some are at the bank counter with a printout. Live Verify lets the buyer or the bank teller confirm that the wire instructions on the page are the ones the escrow firm issued, as a second check alongside the portal and the usual call-back.
+**Where each fits:** secure closing portals such as Qualia and CertifID do more than confirm a document: they manage the transaction and, in some cases, back the wire with their own guarantees, so a buyer who is already enrolled should use them. Some buyers never complete the sign-up, and some are at the bank counter with a printout. Live Verify lets the buyer or the bank teller confirm that the wire instructions on the page are the ones the escrow firm issued, as a second check alongside the portal and the usual call-back.
 
 ---
 
@@ -314,15 +324,21 @@ The selling shareholders (second party) may hand the verified document to variou
 **Future Buyers (Secondary M&A)**
 **History Audit:** If the company is sold again 5 years later, the new buyer can verify the original "Purchase Price" and "Holdback Release" terms from the digital hash.
 
-## Compared With Virtual Data Rooms (VDR)
+## Where Each Fits: Live Verify and Virtual Data Rooms
 
-| Feature | Live Verify | VDR (Intralinks / Merrill) | Scanned PDF |
+Virtual data rooms such as Intralinks and Merrill's are where the parties to an acquisition share and sign the deal documents, including the escrow agreement and settlement statement, under controlled access. Access is set up for the deal and generally wound down some time after closing. The data room and Live Verify answer different questions and work side by side: the room serves the deal while it is live, and Live Verify lets someone handed a document afterwards check it.
+
+| | Virtual data room | Live Verify on the settlement statement | Unverified PDF |
 | :--- | :--- | :--- | :--- |
-| **User Access** | **Universal.** Share with any tax auditor. | **Restricted.** Access usually revoked after 90 days. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Bank. | **System-Bound.** | **Zero.** Easily forged. |
-| **Permanence** | **Permanent.** Binds the *text* forever. | **Temporary.** Portals are deal-specific. | **Durable.** |
+| **Who can check** | The deal parties and advisers given access. | Anyone handed the statement: a tax auditor, a lender, a later buyer, a court. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The full deal record, with version history and an index. | Confirmation that the escrow agent issued this exact statement, with this price, holdback and payouts, as at its date. | Figures that may have been edited. |
+| **What the seller shares** | Access granted by the room's administrator. | Only the statement they chose to hand over. | Whatever they send. |
+| **Reach** | One deal, for as long as the room is kept open. | Global in principle: any escrow agent or bank, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Fast for those with access; paid for by the deal. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | An invitation to the room while it exists. | The escrow agent to publish hashes, and to keep them published for as long as checks may be needed; and Live Verify-aware software on the checker's device. No escrow agent does this yet. | Nothing. |
+| **Best suited to** | Running the deal. | Checks after closing, by people who were never in the room. | Nothing where tax or a later sale depends on it. |
 
-**Where each fits:** A virtual data room is the right tool while a deal is live: controlled access, version history and a full index of the documents. Access generally ends some time after closing. Live Verify suits what comes afterwards, when a tax auditor, a later buyer or a court is handed the escrow agreement as a PDF and has no route into a room that no longer exists. They can still confirm that the escrow agent stands behind that text.
+**Where each fits:** a virtual data room is the right tool while a deal is live: controlled access, version history and a full index of the documents. Access generally ends some time after closing. Live Verify suits what comes afterwards, when a tax auditor, a later buyer or a court is handed the settlement statement as a PDF and has no route into a room that no longer exists. They can still confirm that the escrow agent stands behind that text, provided the agent keeps the record published.
 
 ---
 
@@ -400,16 +416,21 @@ The seller (second party) may hand the verified document to various third partie
 **Banks (Receiving Bank)**
 **KYC/Source of Wealth:** Verifying the "Disbursement Logic" behind a large incoming wire to ensure it matches a legitimate real estate sale.
 
-## Compared With Secure Portals (CertifID)
+## Where Each Fits: Live Verify and Secure Closing Portals
 
-| Feature | Live Verify | CertifID / Secure Portal | Scanned PDF / Email |
+Secure portals such as CertifID let title companies and the parties to a sale exchange payment and disbursement details through enrolled accounts, with added protections around the transfer. Portals and Live Verify answer related questions and work side by side: the portal protects the exchange between enrolled parties, and Live Verify lets someone at the table, or at the bank, check the printed instructions.
+
+| | Secure closing portal | Live Verify on the escrow instructions | Unverified PDF or email |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Title Co. | **System-Bound.** Trust the vendor. | **Zero.** Easily forged. |
-| **Ease of Use** | **High.** Scan the paper at the desk. | **Medium.** Requires setting up a portal login. | **Instant.** |
-| **Integrity** | **Binds All Data.** Protects every digit. | **Data-Only.** | **Vulnerable.** |
-| **Legal Status** | **Cryptographic Artifact.** | **Platform Service.** | **Vulnerable PDF.** |
+| **Who can check** | Parties who have set up a login. | Anyone handed the instructions: an escrow officer, a title clerk, the receiving bank. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The instructions as exchanged through the portal, with the provider's protections around the transfer. | Confirmation that the issuer stands behind these exact instructions, with these payees and amounts, as at their date, and whether they have since been amended. | Instructions that may have been altered. |
+| **What the seller shares** | An account set up with the provider. | Only the instructions they chose to hand over. | Whatever they send. |
+| **Reach** | Firms and transactions that use that portal. | Global in principle: any title company, escrow firm or party, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Quick once enrolled; some participants will not set up an account for one transaction. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The firm to use the portal, and each party to enrol. | The issuer to publish hashes, and Live Verify-aware software on the checker's device. No title or escrow company does this yet. | Nothing. |
+| **Best suited to** | Protecting the transfer for enrolled parties. | Checking printed instructions at a closing table or bank desk. | Nothing where a payout depends on it. |
 
-**Where each fits:** Portals such as CertifID are well suited to parties willing to set up a login, and they add protections around the transfer that a document check does not. Many closings still take place around a table with paper, and some participants will not create an account for a single transaction. Live Verify lets them check the printed instructions against the title company's own domain there and then, and it works as a companion to the portal rather than a rival.
+**Where each fits:** portals such as CertifID are well suited to parties willing to set up a login, and they add protections around the transfer that a document check does not. Many closings still take place around a table with paper, and some participants will not create an account for a single transaction. Live Verify lets them check the printed instructions against the issuer's own domain there and then, and it works as a companion to the portal rather than a rival.
 
 ## Independent Record (Optional)
 

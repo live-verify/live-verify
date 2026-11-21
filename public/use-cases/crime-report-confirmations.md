@@ -161,15 +161,19 @@ Self-authorized — this is a sovereign body whose authority derives from statut
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Phone Verification
+## Where Each Fits: Live Verify and Phone Verification
 
-| Feature | Live Verify | Phone Verification | Trusting the PDF |
+Today an insurer, bank or solicitor who doubts a crime reference has to contact the police force or reporting body that issued it, by phone or email. Reporting bodies are national or local, so how easy that is depends on the country and force: some offer online lookups or insurer channels, many offer only a phone line. Phone verification and Live Verify answer different questions and work side by side: a call can get details of an investigation, while Live Verify only confirms that the confirmation document is one the body issued.
+
+| | Phoning the reporting body | Live Verify on the confirmation | Unverified PDF |
 | :--- | :--- | :--- | :--- |
-| **Speed** | **5 seconds.** Scan and verify. | **Days to weeks.** If they answer at all. | **Instant.** But no verification. |
-| **Scalability** | **Unlimited.** Hash lookup. | **Doesn't scale.** Call centres are overwhelmed. | **N/A.** |
-| **Fraud Detection** | **Immediate.** Fake reference fails verification. | **Possible.** If the operator checks. | **None.** Visual inspection only. |
-| **Automation** | **Yes.** Insurer can verify at point of submission. | **No.** Manual phone call per claim. | **No.** |
-| **24/7** | **Yes.** Hash lookup is always available. | **No.** Office hours, often with long queues. | **N/A.** |
+| **Who can check** | Anyone the body is willing to speak to, subject to its data-protection rules. | Anyone handed the confirmation: an insurer, a bank, an employer, a solicitor. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Whatever the body is able and willing to say, which can include the state of an investigation. | Confirmation that the body issued this exact confirmation, as at its date, and any later status the body publishes. | A reference number that may be invented. |
+| **What the victim shares** | Their details, passed to the body by the checker. | Only the confirmation they chose to hand over. | Only the confirmation they chose to hand over. |
+| **Reach** | Wherever the body can be reached; each force or body handles enquiries its own way. | Global in principle: any reporting body, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Days or weeks in some cases, and staff time on both sides for every enquiry. | A few seconds per check: one web lookup, with no fee to the standard, and it can be built into a claims system. | Free and immediate. |
+| **What it needs** | A staffed line and someone to call it. | The body to publish hashes, and Live Verify-aware software on the checker's device. No reporting body does this yet. | Nothing. |
+| **Best suited to** | Questions that need a person: details of an investigation, or a disputed account. | The routine question of whether a reference is real. | Nothing where a claim depends on it. |
 
 **Where each fits:** a direct enquiry to the reporting body remains appropriate when an insurer needs more than confirmation that a report exists, such as details of an investigation. For the routine question of whether a reference is real, phone verification is slow and puts load on the reporting body. Live Verify answers that question from the body's own domain at any hour, leaving its staff for the enquiries that need a person.
 

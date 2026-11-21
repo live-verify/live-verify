@@ -116,16 +116,21 @@ Hiscox underwrites event cancellation and weather insurance for venues and organ
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Automated Payouts (Parametric)
+## Where Each Fits: Live Verify and Parametric Payouts
 
-| Feature | Live Verify | Parametric Insurance (API) | Scanned PDF |
+Parametric weather cover pays out when an agreed measurement, such as rainfall at a named weather station, crosses a trigger; some insurers settle it automatically through data feeds and APIs between the insurer and the insured. That process is fast and needs no claim form, but it runs privately between the parties to the policy. The automated payout and Live Verify answer different questions and work side by side: one settles the policy, and the other lets sponsors, venues and ticket-holders check the certificate they are shown.
+
+| | Automated parametric payout | Live Verify on the insurance certificate | Unverified PDF certificate |
 | :--- | :--- | :--- | :--- |
-| **User Access** | **Universal.** Fans/Sponsors can verify. | **Zero.** The trigger happens in a private API loop between bank and insurer. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Carrier. | **Algorithm-Bound.** | **Zero.** Easily forged. |
-| **Integrity** | **Binds Content.** Protects the "Fine Print" triggers. | **Data-Only.** | **Vulnerable.** |
-| **Speed** | **Instant.** 5-second scan. | **Fast.** Automated payout. | **N/A.** |
+| **Who can check** | The insurer and the insured, inside their own systems. | Anyone shown the certificate: a sponsor, a venue, a ticketing platform, a ticket-holder. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | A payout when the measured trigger is met. | Confirmation that the carrier issued this exact certificate, with these triggers and limits, as at its date, and its current status, including whether a trigger has been met, if the carrier publishes that. | A certificate whose triggers or limits may have been edited. |
+| **What the promoter shares** | Nothing outside the policy. | Only the certificate they chose to show. | Whatever they show. |
+| **Reach** | The parties to the policy. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Fast once the trigger is measured; set up as part of the policy. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | An insurer and data feed that support automated settlement. | The insurer to publish hashes, and Live Verify-aware software on the checker's device. No insurer does this yet. | Nothing. |
+| **Best suited to** | Settling the claim between insurer and insured. | Showing third parties that the event is insured, and on what terms. | Nothing where a sponsorship or refund depends on it. |
 
-**Where each fits:** Parametric cover settled over an API is hard to improve on for speed: the trigger is measured and the payout follows without paperwork. That exchange runs between the insurer and the insured and is not visible to anyone else. Sponsors, venues, vendors and ticket-holders who are told the event is insured see only a certificate, and Live Verify lets them confirm the carrier stands behind its wording. The automated payout and the checkable certificate serve different audiences for the same policy.
+**Where each fits:** parametric cover settled over an API is hard to improve on for speed: the trigger is measured and the payout follows without paperwork. That exchange runs between the insurer and the insured and is not visible to anyone else. Sponsors, venues, vendors and ticket-holders who are told the event is insured see only a certificate, and Live Verify lets them confirm the carrier stands behind its wording. The automated payout and the checkable certificate serve different audiences for the same policy.
 
 ## Independent Record (Optional)
 

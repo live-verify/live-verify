@@ -188,19 +188,22 @@ Required. Badge references combined with council identifiers form a small enough
 
 This is particularly important because the badge holders are disabled people. Any system that could be used to track or profile disabled individuals — even inadvertently — is unacceptable.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Current Badge Checks
 
-| Feature | Verified Disability Badge | Physical Badge (current) | Council Online Lookup | Badge Photo in Windscreen |
+Disability parking badges are issued nationally or locally: the Blue Badge by UK councils, permits by US states, the European Parking Card by each EU country's own authority, and other schemes elsewhere. Some issuers let enforcement staff look a badge up in their own records; many rely on visual inspection alone. The physical badge, the issuer's records and a verification line answer the same question in different ways and work side by side: the badge stays in the windscreen, and the verification line lets a warden or operator check it against the issuer.
+
+| | Physical badge, inspected by eye | Issuer's own records lookup | Live Verify on the badge | Photocopy or photo of a badge |
 | :--- | :--- | :--- | :--- | :--- |
-| **Confirms current status** | **Yes.** Live check against issuer. | **No.** Shows status at print time. | **Yes.** But wardens rarely use it on patrol. | **No.** |
-| **Detects forgery** | **Yes.** "Not Found" = forged. | **Difficult.** Visual inspection only. | **Yes.** But requires manual lookup. | **No.** |
-| **Detects expired/altered** | **Yes.** Real expiry from issuer. | **No.** Altered date looks genuine. | **Yes.** | **No.** |
-| **Detects stolen (reported)** | **Yes.** "Reported Lost/Stolen." | **No.** Badge looks genuine. | **Yes.** If theft was reported. | **No.** |
-| **Protects holder's medical info** | **Yes.** No condition disclosed. | **Yes.** Badge shows no condition. | **Varies.** Some lookups show more. | **Yes.** |
-| **Usable at windscreen** | **Yes.** Clip or camera mode. | **Yes.** Visual inspection. | **No.** Requires device and login. | **Yes.** Visual only. |
-| **Dignified for holder** | **Yes.** No confrontation needed. | **Neutral.** | **N/A.** Holder not involved. | **Neutral.** |
+| **Who can check** | Anyone who can see it. | Enforcement staff with access to the issuer's system. | Anyone who scans the badge: a warden, police, a private car park operator, the holder. | Anyone who can see it. |
+| **What the checker gets** | A badge that looks right or does not, with the expiry date printed at issue. | The issuer's current record of the badge. | The issuer's current status for this badge reference: current, expired, cancelled, or reported lost or stolen. Nothing about the holder's condition. | Nothing reliable. |
+| **What the holder shares** | The badge on display. | Nothing; the lookup uses the badge details. | The badge on display; no medical details and no record of where it was used. | The image on display. |
+| **Reach** | Everywhere, but forgeries are hard to spot. | Staff of that issuer, or those it grants access to; private operators usually have none. | Global in principle: any badge issuer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Immediate. | Often done later, back at the office, or not at all on patrol. | A few seconds per check: one web lookup over a data connection, with no fee to the standard. | Immediate. |
+| **What it needs** | Nothing. | System access and a device on patrol. | The issuer to publish hashes, and Live Verify-aware software on the checker's device. No badge issuer does this yet. | Nothing. |
+| **What it cannot catch** | Good forgeries, altered dates, cancelled or stolen badges. | Misuse of a genuine, current badge by someone else. | A photocopy of a genuine, current badge, or a genuine badge used by someone else. | Anything. |
+| **Best suited to** | A first look. | Investigations by the issuer. | Spot checks on patrol, and a calm answer for a holder who is challenged. | Nothing. |
 
-**Practical conclusion:** The verification line does not replace the physical badge — it augments it. The badge remains in the windscreen. The verification line gives enforcement officers (and the holder themselves) a fast, definitive way to confirm the badge is genuine without accessing council systems or challenging the holder.
+**Where each fits:** the verification line does not replace the physical badge; it adds to it. The badge remains in the windscreen, and the issuer's records remain the source of truth for investigations. The verification line gives enforcement officers, private operators and the holder themselves a fast way to confirm the badge is current with the issuer, without needing access to the issuer's systems or questioning the holder about their condition.
 
 ## Authority Chain
 

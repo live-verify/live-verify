@@ -161,17 +161,21 @@ This use case provides the missing piece: a short-lived, verifiable proof of the
 
 Required. Criminal record status is classified as special category data under UK GDPR (and equivalently sensitive under most jurisdictions' data protection frameworks). The salt ensures each confirmation instance produces a unique hash, preventing cross-correlation between different checking occasions. Without the salt, an observer collecting hashes could determine that the same certificate was checked on multiple dates and correlate those checks with job applications.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and the DBS Update Service
 
-| Feature | Short-Lived Status Confirmation | DBS Update Service (Current) | Paper DBS Certificate | Photocopy of Certificate |
+In the UK the DBS Update Service, run by the Disclosure and Barring Service, lets an employer check online whether a subscribed worker's certificate is still current. Elsewhere it depends on where you are: as the table above shows, some places have partial ongoing monitoring, and many offer only point-in-time checks. The Update Service and a short-lived Live Verify confirmation answer slightly different questions and work side by side: the employer's own Update Service check is what meets the safeguarding duty, while the confirmation lets the worker show their status first.
+
+| | DBS Update Service | Live Verify on a short-lived status confirmation | Paper DBS certificate | Photocopy of certificate |
 | :--- | :--- | :--- | :--- | :--- |
-| **Proves certificate is current** | **Yes.** | **Yes.** | **No.** Point-in-time only. | **No.** |
-| **Worker can share proactively** | **Yes.** | **No.** Employer must check. | **Yes.** But unverifiable. | **Yes.** But unverifiable. |
-| **Privacy-preserving** | **High.** Reference and status only. | **Medium.** Requires DOB to check. | **Low.** Full personal details. | **Low.** Full personal details. |
-| **Replay-resistant** | **Yes.** Expires in 24 hours. | **N/A.** Live check. | **No.** | **No.** |
-| **Machine-verifiable** | **Yes.** | **No.** Screen scraping only. | **No.** | **No.** |
+| **Who can check** | An employer or organisation, with the worker's permission and details. | Anyone the worker hands the confirmation to, within its 24-hour window. | Whoever is shown it. | Whoever is given it. |
+| **What the checker gets** | The DBS's current status for that certificate, straight from the DBS. | Confirmation that the DBS issued this exact status result for this certificate reference, and that it has not yet expired. | What the DBS disclosed on the date it was issued. | A copy that may have been altered, and may be out of date. |
+| **What the worker shares** | Their certificate number and date of birth, given to the employer. | Only the certificate reference and status result; no name, date of birth or disclosure details. | Their name, date of birth and disclosure results. | Their name, date of birth and disclosure results. <!-- TODO(verify): what a DBS Update Service status check requires (worker's permission, certificate number, date of birth) --> |
+| **Reach** | UK workers who have subscribed to the Update Service. | Global in principle: any criminal records body, in any country, that publishes hashes on its own domain. | Wherever it is shown, but point-in-time only. | Wherever it is sent, but unverifiable. |
+| **Speed and cost** | Quick online for the employer; an annual subscription for the worker. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. | Immediate. |
+| **What it needs** | The worker's subscription and the employer's own check. | The DBS to publish hashes, and Live Verify-aware software on the checker's device. No criminal records body does this yet. | Nothing. | Nothing. |
+| **Best suited to** | The employer's statutory safeguarding check. | A worker showing status early, to several employers or agencies, without exposing personal details. | A record of what was disclosed on a date. | Nothing where safeguarding depends on it. |
 
-**Practical conclusion:** the DBS Update Service is the current best practice for confirming certificate status. A short-lived verifiable confirmation would complement it by giving workers a portable, privacy-preserving proof they can share proactively — without requiring the receiving party to have Update Service access or the applicant's date of birth.
+**Where each fits:** the DBS Update Service is the current best practice for confirming certificate status, and the employer's own check through it remains what meets their safeguarding duty. A short-lived verifiable confirmation would complement it by giving workers a portable, privacy-preserving proof they can share proactively, without the receiving party needing Update Service access or the applicant's date of birth at that first stage.
 
 ## Authority Chain
 

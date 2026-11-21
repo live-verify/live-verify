@@ -130,16 +130,21 @@ Hospitals issue discharge summaries under healthcare regulator authority (CQC in
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Patient Portals / HIEs
+## Where Each Fits: Live Verify and Patient Portals and Health Information Exchanges
 
-| Feature | Live Verify | Patient Portal (Epic) | Health Info Exchange (HIE) |
+Hospitals give patients access to their records through patient portals run on the hospital's record system, and many regions connect providers through health information exchanges or national record-sharing services. Coverage depends on where you are: some countries have national systems, some have regional exchanges, some rely on vendor networks, and many have nothing joining providers up. Portals, exchanges and Live Verify answer different questions and work side by side: the record systems carry structured data between connected parties, and Live Verify lets the person reading a printed discharge summary confirm the hospital issued it.
+
+| | Patient portal | Health information exchange | Live Verify on the discharge summary |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Hospital. | **System-Bound.** Requires login. | **Network-Bound.** |
-| **User Access** | **Instant.** Scan the paper in the clinic. | **Slow.** Requires patient to log in and share screen. | **Difficult.** Requires clinical integration. |
-| **Integrity** | **Cryptographic.** Binds the *Text*. | **High.** Direct DB access. | **High.** |
-| **Cross-System** | **Universal.** Works across any health system. | **Siloed.** Hard to share across different vendors. | **Limited.** Regional only. |
+| **Who can check** | The patient, logged in, and anyone they show their screen to. | Clinicians at organisations connected to the exchange. | Anyone handed the summary: a care home nurse, a GP, a pharmacist, an insurer. |
+| **What the checker gets** | The hospital's record as the patient sees it. | Structured clinical data from connected organisations. | Confirmation that the hospital issued this exact summary, as at its date, and whether it has since been amended. |
+| **What the patient shares** | Their login or their screen, which can show far more than the summary. | Data shared under the exchange's consent rules. | Only the summary they chose to hand over. |
+| **Reach** | One hospital or health system's own patients. | The organisations in that region or network. | Global in principle: any hospital, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Quick for the patient; awkward to hand over at a clinic. | Fast once connected; integration comes first. | A few seconds per check: one web lookup, with no fee to the standard and no integration with the hospital. |
+| **What it needs** | A portal account. | Both organisations connected to the same exchange. | The hospital to publish hashes, and Live Verify-aware software on the checker's device. No hospital does this yet. |
+| **Best suited to** | The patient's own access to their records. | Clinical handover between connected organisations. | Handovers where the receiving party is on a different system, region or country, and has only the paper. |
 
-**Where each fits:** Where the receiving clinician is on the same record system, or a health information exchange links the two organisations, the structured record is the better source and should be used. Many handovers do not look like that: the patient arrives at a clinic, pharmacy or care home on a different system, or in another region or country, carrying the printed discharge packet. Live Verify lets the person reading it confirm that the hospital issued that text, and it sits alongside portals and exchanges rather than competing with them.
+**Where each fits:** where the receiving clinician is on the same record system, or a health information exchange links the two organisations, the structured record is the better source and should be used. Many handovers do not look like that: the patient arrives at a clinic, pharmacy or care home on a different system, or in another region or country, carrying the printed discharge packet. Live Verify lets the person reading it confirm that the hospital issued that text, and it sits alongside portals and exchanges rather than competing with them.
 
 ## Independent Record (Optional)
 

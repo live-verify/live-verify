@@ -204,16 +204,21 @@ No regulatory chain. Trust rests on the issuer's domain reputation.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With The Work Number (Equifax)
+## Where Each Fits: Live Verify and The Work Number
 
-| Feature | Live Verify | The Work Number | Manual Phone Check |
+In the US, Equifax's The Work Number lets lenders, landlords and background-check firms confirm employment dates and pay from payroll data supplied by participating employers, for a fee per lookup. Comparable services exist in some other countries; many have none, and everywhere small employers are often outside them. The alternative is a phone call or email to the employer's HR team. These routes and Live Verify answer overlapping questions and work side by side.
+
+| | The Work Number | Phoning the employer | Live Verify on the reference letter |
 | :--- | :--- | :--- | :--- |
-| **User Privacy** | **High.** Employee controls the document share. | **Low.** Lenders see full historical data pool. | **Medium.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Employer. | **Data-Bound.** Trust the aggregator. | **Human.** Prone to social engineering. |
-| **Interoperability** | **Universal.** Works for any company with a URL. | **Limited.** Only for large firms who pay for TWN. | **Universal.** |
-| **Cost** | **Low.** Standard web infra. | **Very High.** Lenders pay $50-$100 per check. | **High.** Costs in human time. |
+| **Who can check** | Lenders, landlords and screening firms with an account and a permitted purpose. | Whoever reaches HR and is willing to wait. | Anyone handed the letter: a recruiter, a lender, a landlord, an immigration officer. |
+| **What the checker gets** | Standardised employment dates and pay, from payroll records. | Whatever HR will confirm; a recruiter may also get a conversation about the candidate. | Confirmation that the employer issued this exact reference, with these dates, title and wording, as at its date. |
+| **What the employee shares** | Consent to a lookup, which can show more of their employment and pay history than the case needs. | Their former employer's contact details. | Only the letter they chose to hand over. |
+| **Reach** | Employers whose payroll data the service holds, mostly in the US. | Any employer that answers. | Global in principle: any employer, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Fast for account holders; a fee per lookup. | Days of phone tag in many cases, and staff time on both sides. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | An account, and the employer to be covered. | A reachable HR team, and confidence that the number really is the employer's. | The employer to publish hashes, and Live Verify-aware software on the checker's device. No employer does this yet. |
+| **Best suited to** | High-volume income and employment checks by lenders. | A conversation about the candidate. | References from employers outside the aggregator, or read by someone abroad. |
 
-**Where each fits:** For employers that subscribe to it, The Work Number gives lenders a fast and standardised answer on dates and pay, and that arrangement works. Phone checks still have value when a recruiter wants a conversation rather than a confirmation. Smaller employers are often outside the aggregator altogether, and a reader abroad may find neither route practical. Live Verify lets anyone handed a reference letter confirm the employer issued it as written, which extends coverage to firms and readers the existing services do not reach.
+**Where each fits:** for employers that are covered by it, The Work Number gives lenders a fast and standardised answer on dates and pay, and that arrangement works. Phone checks still have value when a recruiter wants a conversation rather than a confirmation. Smaller employers are often outside the aggregator altogether, and a reader abroad may find neither route practical. Live Verify lets anyone handed a reference letter confirm the employer issued it as written, which extends coverage to firms and readers the existing services do not reach.
 
 ## Mandate Potential
 

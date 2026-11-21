@@ -127,19 +127,21 @@ UK chain (Experian UK, Equifax UK, TransUnion UK → FCA → Consumer Credit Act
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With the Alternatives
+## Where Each Fits: Live Verify and Credit Report Checks
 
-| Feature | Live Verify | Pull a Fresh Report | Trust the PDF | Third-Party Verification Services | Consumer-Permissioned Data APIs |
+Credit bureaus sell reports directly to lenders, landlords and screening firms, and consumer-permissioned data services let a firm pull financial data with the consumer's consent. Bureaus and the rules around them are national: some countries have several private bureaus, some a public credit register, some both, and many have little coverage at all. These existing routes and Live Verify answer different questions and work side by side: a fresh pull gives the checker the current file, while Live Verify confirms that a report the consumer already holds is one the bureau issued.
+
+| | Pulling a fresh report | Third-party verification service | Consumer-permissioned data service | Live Verify on the report | Unverified PDF |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Verifiable** | **Yes.** Domain-bound to the bureau. | **Yes.** Direct from source. | **No.** Trivially editable. | **Slow.** Days turnaround. | **Yes.** But requires credential sharing. |
-| **Requires SSN** | **No.** Scan what the consumer provided. | **Yes.** Must collect SSN and consent. | **No.** But also no verification. | **Yes.** Full application process. | **No.** But requires bank login credentials. |
-| **Creates Hard Inquiry** | **No.** No credit pull occurs. | **Yes.** Hard inquiry hits the consumer's file. | **No.** | **Yes.** | **No.** |
-| **Cost to Verifier** | **Free.** GET request. | **$15-50** per pull. | **Free.** But worthless. | **$25-100+** per verification. | **API fees** per connection. |
-| **Speed** | **Instant.** 5-second scan. | **Minutes to hours.** Account setup, consent, processing. | **Instant.** But unverified. | **1-5 business days.** | **Minutes.** OAuth flow + API call. |
-| **Privacy** | **High.** No data leaves the consumer's hands. | **Low.** SSN collected, stored by verifier. | **N/A.** | **Low.** Full credit pull by third party. | **Very low.** Consumer shares bank login credentials with third party. |
-| **Recency** | **Flagged.** UPDATED status if report is stale. | **Current.** Fresh pull. | **Unknown.** Could be months old. | **Current.** Fresh pull. | **Current.** Direct API connection. |
+| **Who can check** | A firm with a bureau account and a permissible purpose. | A firm that engages the service. | A firm integrated with the service. | Anyone handed the report: a landlord, a utility, an adviser. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The current, full file, straight from the bureau. | A verification report, often after a full pull. | Current account or credit data, for as long as consent lasts. | Confirmation that the bureau issued this exact summary, as at its date, and whether a newer report or a dispute exists. | A document that may have been edited. |
+| **What the consumer shares** | Identity details such as an SSN, and consent to a pull, which may leave a hard inquiry. | Identity details and consent, often a full application. | Consented access, sometimes including bank login credentials. | Only the report they chose to hand over. | Only the report they chose to hand over. |
+| **Reach** | The bureaus in that country, for consumers on their files. | Where the service operates. | Where the service and the consumer's institutions are connected. | Global in principle: any bureau, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Minutes to hours, after account setup; a fee per pull. | Often days; a fee per verification. | Minutes once integrated; fees per connection. | A few seconds per check: one web lookup, with no fee to the standard and no account with the bureau. | Free and immediate, and worth what it costs. |
+| **What it needs** | A bureau account and a lawful reason to pull. | A contract with the service. | Integration, and the consumer's consent. | The bureau to publish hashes, and Live Verify-aware software on the checker's device. No bureau does this yet. | Nothing. |
+| **Best suited to** | Mortgages and any decision that needs the full, current file. | Firms that want the work done for them. | Lenders that need ongoing access. | Lighter decisions where the applicant has already supplied a report. | Nothing where the decision matters. |
 
-**Where each fits:** Pulling a fresh report is still the right step for a mortgage or any decision that needs the full, current file, and consumer-permissioned data services suit lenders who need ongoing access. Both require the consumer's SSN or credentials, and a pull may leave a hard inquiry on the file. Live Verify covers the lighter cases, such as a rental application or a utility deposit, where the applicant has already supplied a report and the recipient only needs to know that it is the one the bureau issued and whether a newer one exists.
+**Where each fits:** pulling a fresh report is still the right step for a mortgage or any decision that needs the full, current file, and consumer-permissioned data services suit lenders who need ongoing access. Both require the consumer's identity details or credentials, and a pull may leave a hard inquiry on the file. Live Verify covers the lighter cases, such as a rental application or a utility deposit, where the applicant has already supplied a report and the recipient only needs to know that it is the one the bureau issued and whether a newer one exists.
 
 ## Further Derivations
 

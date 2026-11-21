@@ -115,14 +115,19 @@ Independent auditors conduct ERISA compliance audits required by the US Departme
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Form 5500 Public Search (EFAST2)
+## Where Each Fits: Live Verify and EFAST2
 
-| Feature | Live Verify | EFAST2 Search (DOL) | Scanned PDF |
+In the US, employee benefit plans file their annual Form 5500, with the auditor's report attached where an audit is required, through the Department of Labor's EFAST2 system, and the filings are publicly searchable. Other countries have their own pension regulators and disclosure rules. EFAST2 and Live Verify answer different questions and work side by side: EFAST2 records what the plan filed, and Live Verify confirms that the audit firm stands behind the report someone is holding.
+
+| | EFAST2 public search | Live Verify on the audit report | Unverified PDF |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Binds the Text.** Protects the numbers. | **Data-Only.** Doesn't verify the actual paper doc. | **Zero.** Easily forged. |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Auditor. | **Gov-Bound.** | **Visual.** |
-| **Speed** | **Instant.** Scan the paper at the board meeting. | **Slow.** Requires finding the EIN and downloading 50MB PDFs. | **Instant.** |
-| **Freshness** | **Real-time.** Shows if firm retracted opinion. | **Laggy.** Depends on annual filing cycles. | **Static.** |
+| **Who can check** | Anyone who searches by plan or sponsor. | Anyone handed the report: a trustee, a participant, an acquirer, a regulator. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The filing as submitted by the plan, with its attachments. | Confirmation that the audit firm issued this exact report and opinion, as at its date, and whether it has since withdrawn or reissued it. | A report whose opinion or figures may have been edited. |
+| **What the plan sponsor shares** | What the filing rules require; the filing is public. | Only the report it chose to hand over. | Whatever it sends. |
+| **Reach** | US plans that file Form 5500. | Global in principle: any audit firm, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free; finding the right filing and attachment takes some searching, and filings follow the annual cycle. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The plan to have filed. | The audit firm to publish hashes, and Live Verify-aware software on the checker's device. No audit firm does this yet. | Nothing. |
+| **Best suited to** | Filing history, and comparison across plans. | Confirming that the auditor stands behind the report in hand. | Nothing where retirement savings depend on it. |
 
 **Where each fits:** EFAST2 is the official public record of what a plan filed with the Department of Labor, and it is the right source for filing history and for comparison across plans. It records what was submitted and follows the annual filing cycle. Live Verify adds a different check: a trustee, participant or acquirer holding the audit report can confirm that the audit firm itself stands behind that text. The federal filing and the auditor's own confirmation are best read together.
 

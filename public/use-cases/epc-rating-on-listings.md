@@ -172,17 +172,21 @@ The verifiable claim addresses these because:
 4. Expiry and supersession are immediate — the endpoint returns SUPERSEDED or EXPIRED when the certificate status changes
 5. The same claim text and hash work identically across all authorized sites
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and the EPC Register
 
-| Feature | Live Verify | Portal-Displayed Rating | EPC Register Lookup | Paper Certificate |
+In the UK, energy performance certificates are lodged on a public government register, and anyone can look a property up there. Elsewhere it depends on where you are: EU member states each run their own certificate schemes under the EPBD, Australia has NatHERS, the US relies on voluntary ratings, and many countries have nothing. The register and Live Verify answer different questions and work side by side: the register is the authoritative record, and Live Verify brings its answer to the listing page where buyers and tenants actually look.
+
+| | EPC register lookup | Rating typed onto the listing | Live Verify on the listing | Paper certificate |
 | :--- | :--- | :--- | :--- | :--- |
-| **Register-issued** | **Yes.** Claim originates from the EPC register. | **No.** Agent's manual entry. | **Yes.** But requires leaving the listing. | **Yes.** But physical only. |
-| **Verifiable on listing** | **Yes.** In place, on the property page. | **No.** Trust the agent's data. | **No.** Separate site. | **No.** Not digital. |
-| **Real-time status** | **Yes.** Endpoint reflects current certificate. | **No.** Updated when agent edits listing. | **Yes.** But manual lookup. | **No.** Paper persists. |
-| **Multi-portal** | **Yes.** Same claim on all portals. | **No.** Each portal has its own entry. | **N/A.** | **N/A.** |
-| **Detects expired/superseded** | **Yes.** SUPERSEDED/EXPIRED status. | **No.** | **Requires manual check.** | **No.** |
+| **Who can check** | Anyone who leaves the listing and searches the register. | Nobody; it is the agent's entry. | Anyone viewing the listing: a buyer, a tenant, an agent, a lender, a council officer. | Whoever is shown it. |
+| **What the checker gets** | The register's current record for the property. | A letter grade entered by the agent, which may be wrong or out of date. | Confirmation that the register stands behind this exact rating claim for this address, and whether the certificate has since expired or been superseded. | The rating on the date of assessment. |
+| **What the seller or landlord shares** | Nothing; the register is public. | Nothing beyond the listing. | Only the claim shown on the listing. | The certificate. |
+| **Reach** | One country's or region's register. | Every portal, each with its own copy. | Global in principle: any rating register, in any country, that publishes hashes on its own domain, shown on whichever portals it allows. | Wherever it is shown. |
+| **Speed and cost** | Free, but a separate search on a separate site. | Immediate. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | The register, and a checker who thinks to use it. | The agent to type it correctly and keep it current. | The register to publish hashes, and Live Verify-aware software on the checker's device. No EPC register does this yet. | Nothing. |
+| **Best suited to** | Authoritative checks by agents, lenders and councils. | Nothing on its own. | Checking the rating in place, on the listing, across every portal. | The owner's own record. |
 
-**Practical conclusion:** the EPC register remains the authoritative source, but consumers browsing property listings do not visit it. The verifiable claim brings the register's authority to the page where the property decision actually happens.
+**Where each fits:** the EPC register remains the authoritative source, and agents, lenders and councils who check it directly should carry on. Consumers browsing property listings rarely visit it. A verifiable claim issued by the register brings its answer to the page where the property decision actually happens, for any viewer whose software honours it.
 
 ## Authority Chain
 

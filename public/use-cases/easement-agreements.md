@@ -111,16 +111,21 @@ Solicitors authenticate easement agreements and property access rights.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With County Records Search
+## Where Each Fits: Live Verify and Land Records Searches
 
-| Feature | Live Verify | County Search (Online) | Physical Deed Room |
+Easements are recorded in public land records: in the US with the county recorder, and elsewhere in a national or regional land registry. Some places offer good online search, some charge fees or require accounts, and some still keep much of the record on paper in a deed room. The official record and Live Verify answer different questions and work side by side: the record says what is registered against a parcel, and Live Verify says whether the copy in someone's hand matches what the issuer stands behind.
+
+| | Online records search | Deed room search | Live Verify on the easement document |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the County. | **Database-Bound.** High trust but manual. | **Physical.** Trust the paper. |
-| **Speed** | **Instant.** 5-second scan at the fence line. | **Slow.** Requires finding the parcel # and navigating old UIs. | **Very Slow.** Hours of travel/search. |
-| **Integrity** | **Binds Content.** Protects the legal text. | **Data-Only.** Doesn't verify the paper in your hand. | **Vulnerable.** |
-| **User Access** | **Universal.** Anyone with the document. | **Difficult.** Many counties charge fees or require logins. | **Restricted.** |
+| **Who can check** | Anyone who can use the search, sometimes with an account or fee. | Anyone who travels there during opening hours. | Anyone handed the document: a buyer, a neighbour, a contractor, a utility crew, a title officer. |
+| **What the checker gets** | The recorded instruments for a parcel, as far as they have been digitised and indexed. | The full recorded history, including older instruments. | Confirmation that the issuer stands behind this exact easement text, as at its date, and whether it has since been released or amended. |
+| **What the owner shares** | Nothing; the record is public. | Nothing; the record is public. | Only the document they chose to hand over. |
+| **Reach** | One county's or registry's records. | One county's or registry's records. | Global in principle: any recorder, registry or utility, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Minutes to hours finding the parcel and the right instrument; sometimes a fee. | Hours, including travel. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | Search skills, and sometimes an account. | A visit. | The issuer to publish hashes, and Live Verify-aware software on the checker's device. No recorder or registry does this yet. |
+| **Best suited to** | Title searches and finding what is recorded. | Older records and full title examination. | Checking, on the land, that a copy matches the recorded instrument. |
 
-**Where each fits:** The county's online records and the deed room remain the legal source for what is recorded against a parcel, and a title search will always go there. They take time, sometimes a fee or an account, and a search does not tell you whether the copy in your hand matches the recorded instrument. Live Verify answers that one question for a neighbour, contractor or utility crew standing on the land with the document. A full title examination is still the job of the county record.
+**Where each fits:** the county's online records and the deed room remain the legal source for what is recorded against a parcel, and a title search will always go there. They take time, sometimes a fee or an account, and a search does not tell you whether the copy in your hand matches the recorded instrument. Live Verify answers that one question for a neighbour, contractor or utility crew standing on the land with the document. A full title examination is still the job of the official record.
 
 ## Independent Record (Optional)
 

@@ -169,17 +169,21 @@ This is not a replacement for the ticketing platform's admission-control system.
 
 It is a read-only verification layer. The issuer publishes provenance claims. Interested parties verify them. The ticketing platform's own systems remain the authoritative source for admission, transfer, and refund.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Current Resale Protections
 
-| Feature | Live Verify Provenance | Platform Guarantee (StubHub) | Seller Screenshot/PDF | Official Transfer |
+Today a resale buyer is protected, if at all, by the resale platform's own guarantee, or by buying through the primary ticketing platform's official transfer or resale feature. Consumer protection rules for ticket resale also differ by country. These routes and a Live Verify provenance claim answer different questions and work side by side: official transfer moves the ticket, a guarantee refunds the buyer after the fact, and a provenance check tells the buyer, before paying, whether the ticket was issued and is unused.
+
+| | Resale platform guarantee | Official transfer through the ticketing platform | Live Verify provenance claim | Seller's screenshot or PDF |
 | :--- | :--- | :--- | :--- | :--- |
-| **Pre-payment check** | **Yes.** Buyer verifies before paying. | **No.** Guarantee applies post-purchase. | **No.** Screenshot proves nothing. | **N/A.** Transfer is the mechanism, not a check. |
-| **Issuer-backed** | **Yes.** Provenance from the ticketing platform. | **No.** Platform guarantee, not issuer attestation. | **No.** Seller-asserted. | **Yes.** But only within the platform. |
-| **Status visibility** | **Yes.** ISSUED, USED, CANCELLED, TRANSFERRED. | **Partial.** Platform may check internally. | **No.** Static artifact. | **Yes.** Within the platform. |
-| **Works across platforms** | **Yes.** Any resale channel. | **No.** Only on the guaranteeing platform. | **N/A.** | **No.** Only within the issuing platform. |
-| **Cost to buyer** | **None.** | **Built into fees.** | **None.** | **Transfer fee (sometimes).** |
+| **Who can check** | Buyers on that resale platform. | Holders and buyers within the ticketing platform. | Anyone shown the claim, on any resale channel. | Anyone, but nothing is checked. |
+| **What the buyer gets** | A promise of a refund or replacement if the ticket fails, after the fact. | The ticket itself, moved into their account by the issuer. | Confirmation, before paying, that the issuer issued a ticket with these details and its current status: issued, used, cancelled or transferred. Not whether the seller may lawfully transfer it. | An image that may be fabricated. |
+| **What the seller shares** | The listing and, eventually, the ticket. | The ticket, through the platform. | The provenance claim, without the barcode or wallet pass. | The image. |
+| **Reach** | That resale platform only. | That ticketing platform only. | Global in principle: any ticket issuer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Built into the platform's fees. | Quick; sometimes a transfer fee. | A few seconds per check: one web lookup, with no fee to the standard. | Free. |
+| **What it needs** | A guaranteeing platform. | An issuer that allows transfer, and both parties on its platform. | The ticket issuer to publish hashes, and Live Verify-aware software on the buyer's device. No ticket issuer does this yet. | Nothing. |
+| **Best suited to** | Buyers who accept the fees for protection. | Moving a ticket between people where the issuer allows it. | A pre-payment check on open secondary markets. | Nothing. |
 
-**Practical conclusion:** Platform guarantees protect buyers after the fact but add cost. Official transfers work within a single platform but not across the open secondary market. Provenance verification gives buyers a pre-payment check that works regardless of which resale channel they are using.
+**Where each fits:** official transfer is the best route wherever the issuer offers it, because the ticket itself moves. Platform guarantees protect buyers after the fact, at a cost built into fees. On the open secondary market neither may be available, and a provenance check gives the buyer a way to confirm before paying that the ticket exists and has not been used or cancelled, while admission and transfer stay with the ticketing platform.
 
 ## Authority Chain
 

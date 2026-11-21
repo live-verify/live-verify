@@ -113,14 +113,19 @@ Seedrs issues investment confirmations for UK crowdfunding platforms.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Platform Dashboards
+## Where Each Fits: Live Verify and Platform Dashboards
 
-| Feature | Live Verify | Platform Dashboard | Scanned PDF / Email |
+Crowdfunding platforms keep each backer's pledge, reward tier and payment status in their own systems, and show it to the backer on a logged-in dashboard. That dashboard is the record. Live Verify answers a different question for a different person: whether a confirmation shown to a creator at a pickup, a buyer, or an accountant is one the platform issued. The two work side by side.
+
+| | Platform dashboard | Live Verify on the pledge confirmation | Unverified screenshot or email |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Platform. | **System-Bound.** | **Zero.** Easily forged. |
-| **Interoperability** | **Universal.** Works for secondary sales. | **Siloed.** Hard to prove status to a 3rd party buyer. | **Universal.** |
-| **Integrity** | **Binds Tier.** Protects the "Reward Level." | **Data-Only.** | **Vulnerable.** |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires 2FA and navigation. | **N/A.** |
+| **Who can check** | The backer, logged in; and the creator for their own campaign. | Anyone handed the confirmation: a creator at a pickup event, a buyer, an accountant. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The live pledge, tier and payment status, and the means to change them. | Confirmation that the platform issued this exact confirmation, with this tier and amount, as at its date, and its current status. | A confirmation that may have been edited or invented. |
+| **What the backer shares** | Their screen, or their login. | Only the confirmation they chose to hand over. | Only the confirmation they chose to hand over. |
+| **Reach** | One platform's own users. | Global in principle: any platform, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Quick for the backer; awkward to show a third party, and logins usually need two-factor steps. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | An account on the platform. | The platform to publish hashes, and Live Verify-aware software on the checker's device. No crowdfunding platform does this yet. | Nothing. |
+| **Best suited to** | The backer managing their own pledge. | Showing a pledge to someone outside the platform. | Nothing where money changes hands. |
 
 **Where each fits:** the platform dashboard is the backer's own authoritative view and the place where any change to a pledge is made. A third party cannot see it without the backer's login. Live Verify lets the backer show a confirmation that the other person can check against the platform's domain, while the dashboard remains the record. Whether a pledge can be transferred is still a matter for the platform's terms.
 

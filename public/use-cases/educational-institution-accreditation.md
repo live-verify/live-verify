@@ -121,16 +121,21 @@ Educational institutions must maintain accreditation through the Office for Stud
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With CHEA Database
+## Where Each Fits: Live Verify and Accreditation Databases
 
-| Feature | Live Verify | CHEA / DAPIP Database | Scanned PDF |
+In the US, the Council for Higher Education Accreditation (CHEA) and the Department of Education's DAPIP database list institutions and their recognised accreditors, and accreditors publish their own lists and actions. Other countries keep their own registers, usually run by an education ministry or quality agency; coverage and ease of search vary widely, and some countries have little at all. The databases and Live Verify answer different questions and work side by side: the database says whether an institution is accredited, and Live Verify says whether the accreditation certificate someone is looking at is one the accreditor issued.
+
+| | CHEA and DAPIP databases | Live Verify on the accreditation certificate | Unverified PDF |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Board. | **Gov-Bound.** Bound to the US Gov. | **Zero.** Easily forged. |
-| **Speed** | **Instant.** Scan the paper on the wall. | **Slow.** Requires property search and navigation. | **Instant.** |
-| **Integrity** | **Binds Certificate.** Proves the *paper* matches. | **Data-Only.** Doesn't protect against forged certificates. | **Vulnerable.** |
-| **Alerting** | **Active.** Can show "PROBATION" in red. | **Passive.** | **Hidden.** |
+| **Who can check** | Anyone who knows the databases exist and how to search them. | Anyone looking at the certificate: a student, a parent, an employer, a registrar abroad. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The official listing of an institution's accreditation, and the accreditor's recognition. | Confirmation that the accreditor issued this exact certificate, as at its date, and its current status, including probation or withdrawal. | A certificate that may have been made up by a diploma mill, citing an accreditor that is itself fake. |
+| **What the institution shares** | Nothing directly; the listing is public. | Only the certificate it chose to display. | Whatever it displays. |
+| **Reach** | US institutions and US-recognised accreditors. | Global in principle: any accreditor, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free; a manual search by name. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The databases, and a checker who knows to use them. | The accreditor to publish hashes, and Live Verify-aware software on the checker's device. No accreditor does this yet. | Nothing. |
+| **Best suited to** | Careful checks by admissions offices, employers and regulators. | A quick check of a certificate on a wall, in a prospectus or on a website. | Nothing where a degree's value depends on it. |
 
-**Where each fits:** The CHEA and DAPIP databases are the reference for whether an institution is accredited, and admissions offices, employers and regulators doing careful checks should continue to consult them. They do not vouch for a certificate on a wall or a PDF in a prospectus, and a visiting parent or an overseas applicant may not know the databases exist. Live Verify lets that reader confirm the accreditor stands behind the certificate as displayed, and the database remains there for anyone who wants the full record.
+**Where each fits:** the CHEA and DAPIP databases are the reference for whether an institution is accredited, and admissions offices, employers and regulators doing careful checks should continue to consult them. They do not vouch for a certificate on a wall or a PDF in a prospectus, and a visiting parent or an overseas applicant may not know the databases exist. Live Verify lets that reader confirm the accreditor stands behind the certificate as displayed, and the database remains there for anyone who wants the full record.
 
 ## Independent Record (Optional)
 

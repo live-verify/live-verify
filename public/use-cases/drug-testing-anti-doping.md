@@ -124,16 +124,21 @@ WADA-accredited laboratories conduct drug tests according to international anti-
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With ADAMS Database
+## Where Each Fits: Live Verify and ADAMS
 
-| Feature | Live Verify | ADAMS Portal (WADA) | Scanned PDF / Image |
+ADAMS is the World Anti-Doping Agency's system in which anti-doping organisations, laboratories and athletes record whereabouts, tests and results. Access is restricted by design, because the data is sensitive. ADAMS and Live Verify answer different questions and work side by side: ADAMS is where results are managed, while Live Verify lets an outsider check a certificate the athlete chose to share.
+
+| | ADAMS | Live Verify on the test certificate | Unverified PDF or image |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Cryptographic.** Binds Sample to Result. | **High.** Direct DB access. | **Zero.** Easily forged. |
-| **Accessibility** | **Open.** Any sponsor or journalist can verify. | **Restricted.** Requires private credentials. | **Instant.** |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires login and manual ID search. | **Instant.** |
-| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Technical.** Requires laptop/dedicated app. | **Manual.** |
+| **Who can check** | Anti-doping organisations, laboratories and federations with credentials, and the athlete for their own record. | Anyone the athlete hands the certificate to: a sponsor, a club abroad, an event organiser, a journalist. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The full record, including whereabouts and results management. | Confirmation that the issuing body or laboratory stands behind this exact certificate and result, as at its date, and whether it has since been withdrawn. | A certificate that may have been edited or invented. |
+| **What the athlete shares** | Their whereabouts and test data, with authorised bodies. | Only the certificate they chose to hand over. | Only the document they chose to share. |
+| **Reach** | The anti-doping system worldwide, for authorised users. | Global in principle: any anti-doping body or laboratory, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Quick for credentialed users; closed to everyone else. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | Credentials from the anti-doping system. | The issuer to publish hashes, and Live Verify-aware software on the checker's device. No anti-doping body or laboratory does this yet. | Nothing. |
+| **Best suited to** | Testing, results management and sanctions. | Letting outsiders check a result the athlete has chosen to share. | Nothing where a reputation depends on it. |
 
-**Where each fits:** ADAMS is the authoritative system for anti-doping organizations, and its restricted access is deliberate: whereabouts and test data are sensitive and results management belongs there. An athlete who wants to show a result or certificate to a sponsor, a club in another country or a journalist cannot give them an ADAMS login. Live Verify lets those outsiders confirm that the issuing body stands behind the document the athlete chose to share, leaving the database closed and the official process untouched.
+**Where each fits:** ADAMS is the authoritative system for anti-doping organisations, and its restricted access is deliberate: whereabouts and test data are sensitive and results management belongs there. An athlete who wants to show a result or certificate to a sponsor, a club in another country or a journalist cannot give them an ADAMS login. Live Verify lets those outsiders confirm that the issuing body stands behind the document the athlete chose to share, leaving the database closed and the official process untouched.
 
 ## Independent Record (Optional)
 

@@ -112,16 +112,21 @@ Building Research Establishment issues BREEAM certifications for green building 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Project Directories
+## Where Each Fits: Live Verify and Certification Directories
 
-| Feature | Live Verify | USGBC Project Directory | Scanned PDF |
+Green building schemes keep public directories of certified projects: USGBC's project directory for LEED, and the BREEAM and WELL bodies their own listings. Which scheme applies depends largely on where the building is. A directory and Live Verify answer different questions and work side by side: the directory is the fuller reference, and Live Verify lets someone standing in the lobby confirm that the plaque or certificate on display is current and genuine.
+
+| | Scheme project directory | Live Verify on the plaque or certificate | Unverified PDF |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Standard Body. | **Database.** Direct from source. | **Zero.** Easily forged. |
-| **User Experience** | **Instant.** Scan the plaque on the wall. | **Difficult.** Requires searching by address/name on a phone. | **Instant.** |
-| **Field Access** | **High.** Mobile-optimized for lobby visits. | **Low.** Maps and lists are hard to navigate on small screens. | **Universal.** |
-| **Integrity** | **Binds Points.** Protects the data. | **Data-Only.** | **Vulnerable.** |
+| **Who can check** | Anyone who searches it. | Anyone looking at the plaque or certificate: a tenant, a buyer, a valuer, a visitor. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The certification listing, often with scorecard, dates and project details. | Confirmation that the certifying body issued this exact certificate, with this level and rating version, as at its date, and whether it has since been superseded or withdrawn. | A certificate that may be fake or out of date. |
+| **What the owner shares** | Whatever the listing makes public. | Only the plaque or certificate on display. | Whatever is shown. |
+| **Reach** | Projects certified under that scheme. | Global in principle: any certifying body, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free; searching by name or address is easier at a desk than in a lobby. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The directory, and a search. | The certifying body to publish hashes, and Live Verify-aware software on the checker's device. No certifying body does this yet. | Nothing. |
+| **Best suited to** | Desk research into a building's certification. | A quick check of the plaque or certificate on display. | Nothing where a lease or valuation depends on it. |
 
-**Where each fits:** The USGBC project directory is the authoritative listing, and anyone researching a building from their desk gets more from it than from a plaque: scorecards, dates and project detail. A tenant, visitor or valuer standing in the lobby is looking at the plaque or a framed certificate and is unlikely to run a directory search by address. Live Verify lets them confirm the certifying body stands behind what is displayed, and the directory remains the fuller reference.
+**Where each fits:** the USGBC project directory and its equivalents are the authoritative listings, and anyone researching a building from their desk gets more from them than from a plaque: scorecards, dates and project detail. A tenant, visitor or valuer standing in the lobby is looking at the plaque or a framed certificate and is unlikely to run a directory search by address. Live Verify lets them confirm the certifying body stands behind what is displayed, and the directory remains the fuller reference.
 
 ## Independent Record (Optional)
 

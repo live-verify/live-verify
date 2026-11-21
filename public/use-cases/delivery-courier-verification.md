@@ -279,16 +279,21 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With In-App Notifications
+## Where Each Fits: Live Verify and Courier App Notifications
 
-| Feature | Live Verify | App Notification (Amazon App) | Uniform / Physical Badge |
+Delivery companies such as Amazon send the customer a notification in their own app, often with the driver's name and photo and the delivery window. Couriers also wear uniforms and badges. Live Verify answers a different question for a different person: whether the badge in front of a doorman, neighbour or resident belongs to an on-duty driver of that company. The three work side by side.
+
+| | App notification to the customer | Live Verify on the driver's badge | Uniform or physical badge |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Cryptographic.** Binds face to duty status. | **High.** Direct from server. | **Low.** Easily bought online. |
-| **Accessibility** | **Open.** Doormen can verify with Live Verify on their own phone; no courier app or account. | **Closed Loop.** Only the *recipient* sees the alert. | **Visual.** Trusted only via logo. |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Company. | **System-Bound.** | **Zero.** Easily faked. |
-| **Field Access** | **Instant.** 5-second scan. | **Zero.** Doorman cannot see the customer's phone. | **Instant.** |
+| **Who can check** | The customer who placed the order, on their own phone. | Anyone the driver shows the badge to: a doorman, a receptionist, a neighbour, a resident, the police. | Anyone who can see it. |
+| **What the checker gets** | Notice from the company's servers that a delivery is coming, often with the driver's details. | Confirmation that the company issued this exact badge text and that the driver is on duty, as the company publishes it. | A logo and a name that may have been bought or copied. |
+| **What the driver shares** | Nothing directly; the company shares details with its customer. | Only what is printed on the badge. | Only what is printed on the badge. |
+| **Reach** | One company's customers, using its app. | Global in principle: any courier company, in any country, that publishes hashes on its own domain. | Anywhere, but easy to fake. |
+| **Speed and cost** | Immediate for the customer. | A few seconds per check: one web lookup, with no fee to the standard and no courier account. | Immediate. |
+| **What it needs** | The customer's app and account. | The courier company to publish hashes, and Live Verify-aware software on the checker's device. No courier company does this yet. | Nothing. |
+| **Best suited to** | Telling the customer who to expect. | Letting anyone else at the door check the driver. | A first impression only. |
 
-**Where each fits:** The carrier's app notification is the best assurance a recipient can get, because it comes straight from the company's servers to the person who placed the order. It reaches only that person. A doorman, receptionist or neighbour taking the parcel has no view of someone else's phone, and Live Verify gives them a way to check the driver's badge against the delivery company's own domain. The two sit together comfortably: the app for the customer, the badge check for everyone else at the door.
+**Where each fits:** the carrier's app notification is the best assurance a recipient can get, because it comes straight from the company's servers to the person who placed the order. It reaches only that person. A doorman, receptionist or neighbour taking the parcel has no view of someone else's phone, and Live Verify gives them a way to check the driver's badge against the delivery company's own domain. The two sit together comfortably: the app for the customer, the badge check for everyone else at the door.
 
 ## Food Delivery Drivers
 

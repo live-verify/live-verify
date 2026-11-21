@@ -89,14 +89,21 @@ Barclays, a Bacs scheme participant regulated by the FCA, is authorized to issue
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Manual Verification
+## Where Each Fits: Live Verify and Asking the Bank
 
-| Feature | Live Verify | Phone the Bank | Screenshot of Guarantee Text |
+Today a payer who wants to confirm the state of a direct debit instruction asks their bank, by phone, in branch or in online banking, and the Direct Debit Guarantee wording itself is published generically by the scheme. The guarantee is a feature of the UK Bacs scheme; other countries' direct debit schemes have their own refund rules, and some have none. Asking the bank and Live Verify answer the same question in different forms, and work side by side: the bank remains the place to raise the claim, and a verified confirmation is a record the payer can show others.
+
+| | Asking the bank | Live Verify on the instruction confirmation | Screenshot of the guarantee wording |
 | :--- | :--- | :--- | :--- |
-| **Speed** | **Seconds.** Hash check against bank domain. | **Minutes to hours.** Call queue and hold. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Tied to the paying bank. | **Verbal.** Trust the adviser's statement. | **Zero.** Generic text, not instruction-specific. |
-| **Specificity** | **Per-Instruction.** Confirms this mandate is covered. | **Verbal.** Adviser confirms for one call. | **None.** Same wording for every direct debit. |
-| **Integrity** | **Cryptographic.** Binds status to domain. | **Ephemeral.** No written record unless requested. | **Vulnerable.** Trivially fabricated. |
+| **Who can check** | The account holder, after passing security. | Anyone the payer hands the confirmation to: an adviser, an accountant, the originator, the Financial Ombudsman Service. | Anyone, but it says nothing about this instruction. |
+| **What the checker gets** | The bank's answer about the instruction, and the chance to raise a claim then and there. | Confirmation that the bank issued this exact record of this instruction, with its originator and status, as at its date. | The scheme's generic wording, the same for every direct debit. |
+| **What the payer shares** | A call or a login, and their security details. | Only the confirmation they chose to hand over. | Nothing specific. |
+| **Reach** | The payer's own bank. | Global in principle: any bank, in any country, that publishes hashes on its own domain. | Anywhere, but not specific to the instruction. |
+| **Speed and cost** | Minutes to hours on a call; nothing in writing unless the payer asks for it. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | Access to the bank and an adviser who gets it right. | The bank to publish hashes, and Live Verify-aware software on the checker's device. No bank does this yet. | Nothing. |
+| **Best suited to** | Making the refund claim itself. | Evidence of an instruction's status, especially after a cancellation, for a third party or a dispute. | General awareness only. |
+
+**Where each fits:** the bank is where a Direct Debit Guarantee claim is made and settled, and a payer with a straightforward refund should simply ask. What a call does not leave behind is a record of the instruction that someone else can check. A verified confirmation gives the payer, their adviser or the ombudsman a dated statement from the bank of what the instruction was and when it was cancelled, which matters most when the originator disputes it.
 
 ## Further Derivations
 

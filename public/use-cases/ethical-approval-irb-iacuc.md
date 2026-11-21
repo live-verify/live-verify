@@ -120,20 +120,25 @@ Research ethics committees issue approval letters under healthcare research regu
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With IRB Management Systems (Click/InfoEd)
+## Where Each Fits: Live Verify and IRB Management Systems
 
-| Feature | Live Verify | IRB Portal (Click/InfoEd) | Scanned PDF Letter |
+Universities and commercial review boards manage ethics applications in IRB management systems such as Click and InfoEd, which hold the protocol, amendments, correspondence and approvals. Each institution runs its own, and outsiders do not get access. Ethics review is organised nationally, under different rules in each country, and there is no shared international register of approvals. The IRB system and Live Verify answer different questions and work side by side: the system is the institution's full file, and Live Verify lets an outsider check an approval letter they were sent.
+
+| | IRB management system | Live Verify on the approval letter | Unverified PDF letter |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the University. | **System-Bound.** Trust the DB admin. | **Zero.** Easily forged. |
-| **Interoperability** | **Universal.** Works across any institution. | **Low.** Journal editors don't have Click logins. | **Universal.** |
-| **Integrity** | **Binds Scope.** Protects the study title. | **Data-Only.** | **Vulnerable.** |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires manual search by ID. | **N/A.** |
+| **Who can check** | The committee, the institution's staff and its researchers. | Anyone handed the letter: a journal editor, a funder, a collaborator, a regulator, a trial participant. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The full file: protocol, amendments, conditions and correspondence. | Confirmation that the institution issued this exact approval, with this study title, protocol number, scope and dates, and whether it has since been suspended, amended or closed. | A letter that may have been fabricated. |
+| **What the researcher shares** | Nothing outside the institution. | Only the letter they chose to hand over. | The letter. |
+| **Reach** | One institution's own studies. | Global in principle: any institution or review board, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Fast for users inside the institution. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | An account at that institution. | The institution to publish hashes, and Live Verify-aware software on the checker's device. No institution does this yet. | Nothing. |
+| **Best suited to** | Running ethics review and oversight. | Outsiders checking that an approval cited in a paper or grant is genuine. | Nothing where research integrity depends on it. |
 
-**Where each fits:** An institution's IRB system holds the full protocol, amendments and correspondence, and the committee and researchers should continue to work in it. Journal editors, funders and collaborators at other institutions have no login and usually receive the approval letter as a PDF. Live Verify lets them confirm that the institution stands behind that letter and the study title and scope it states, while the detailed file stays inside the institution.
+**Where each fits:** an institution's IRB system holds the full protocol, amendments and correspondence, and the committee and researchers should continue to work in it. Journal editors, funders and collaborators at other institutions have no login and usually receive the approval letter as a PDF. Live Verify lets them confirm that the institution stands behind that letter and the study title and scope it states, while the detailed file stays inside the institution.
 
 ### Why Would a Journal Editor Bother?
 
-The reproducibility crisis has a document layer that nobody talks about. A journal receives a manuscript claiming "IRB-approved" with a protocol number. The editor has no practical way to check — they are outside the institution's ethics system, and no university gives journal editors login access to their IRB portal. The editor trusts the author. In 2024, investigations revealed paper mills fabricating entire ethics approval letters, complete with letterheads and protocol numbers, for studies that were never reviewed. A verifiable ethics approval — one the editor can scan and confirm against the university's own domain — closes the gap between institutional oversight and the global scientific publishing system. The five-second check replaces a trust assumption that has been systematically exploited.
+The reproducibility crisis has a document layer that nobody talks about. A journal receives a manuscript claiming "IRB-approved" with a protocol number. The editor has no practical way to check — they are outside the institution's ethics system, and no university gives journal editors login access to their IRB portal. The editor trusts the author. In 2024, investigations revealed paper mills fabricating entire ethics approval letters, complete with letterheads and protocol numbers, for studies that were never reviewed. <!-- TODO(cite): source for 2024 investigations finding paper mills fabricating ethics approval letters --> A verifiable ethics approval — one the editor can check against the university's own domain — closes the gap between institutional oversight and the global scientific publishing system, for editors whose software honours it. The few-second check replaces a trust assumption that has been systematically exploited.
 
 ## Independent Record (Optional)
 

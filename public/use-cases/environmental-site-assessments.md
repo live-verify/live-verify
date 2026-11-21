@@ -115,14 +115,19 @@ Environmental consultants are accredited to conduct phase I and phase II site as
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Environmental Data Portals
+## Where Each Fits: Live Verify and Environmental Data Services
 
-| Feature | Live Verify | EDR / Environmental Data Portals | Scanned PDF Report |
+Environmental data services such as EDR compile public records about a site and its surroundings, such as regulatory listings, historical maps and past uses, and sell the results to consultants and lenders. They are the raw material from which a consultant writes a site assessment; the assessment adds a site visit and a professional opinion. A data search and a verified report are not rivals: they answer different questions and work side by side.
+
+| | Environmental data service | Live Verify on the site assessment | Unverified PDF report |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Consultant. | **Data-Bound.** Trust the database aggregator. | **Zero.** Easily forged. |
-| **Integrity** | **Binds Findings.** Protects the text. | **Vague.** Doesn't verify the *Expert Opinion* text. | **Vulnerable.** |
-| **Legal Weight** | **High.** Proves the expert's attestation. | **Low.** Just a search of public records. | **High.** But untrusted. |
-| **Speed** | **Instant.** Scan the report. | **Slow.** Requires subscription and manual search. | **Instant.** |
+| **Who can check** | Subscribers and paying customers. | Anyone handed the report: a lender, a buyer, their lawyers, a regulator. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Records about the site from public and historical sources. No professional opinion. | Confirmation that the consultant issued this exact report, with these findings, as at its date, and whether it has since been superseded. | A report from which pages or findings may have been removed. |
+| **What the site owner shares** | Nothing; the records are compiled independently. | Only the report they chose to hand over. | Only the report they chose to hand over. |
+| **Reach** | Where the service has compiled records, mainly in its home market. | Global in principle: any consultant, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | A paid search or report per site. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | A subscription or order. | The consultant to publish hashes, and Live Verify-aware software on the checker's device. No environmental consultant does this yet. | Nothing. |
+| **Best suited to** | Researching a site's history, as input to an assessment. | Confirming that the assessment a lender or buyer was sent is the consultant's own, unaltered. | Nothing where a loan depends on it. |
 
 **Where each fits:** EDR and similar data services do a job a report cannot do for itself: they assemble the public-record history of a site and its surroundings, and consultants rely on them to write an assessment in the first place. The assessment adds a professional opinion, and that opinion is what gets passed to lenders, buyers and their lawyers as a PDF. Live Verify lets those readers confirm the consultant stands behind the exact findings they were sent, while the database search remains the raw material underneath.
 

@@ -129,16 +129,21 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Port Community Systems (PCS)
+## Where Each Fits: Live Verify and Port Community Systems
 
-| Feature | Live Verify | Port Portal / PCS | Paper Delivery Order |
+Port community systems and EDI messaging are how terminals, shipping lines and customs brokers already exchange release data, usually within a single port or national network. Coverage depends on the port: some major ports have mature systems, some countries link theirs nationally, and many smaller ports and depots rely on paper or email. The port system and Live Verify answer different questions and work side by side: one carries the release between connected parties, the other lets a gate clerk check the delivery order a driver is holding.
+
+| | Port community system or EDI feed | Live Verify on the delivery order | Unverified paper delivery order |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Broker. | **System-Bound.** Trust the Port's IT. | **Zero.** Easily forged. |
-| **User Access** | **Universal.** Any trucker with a phone. | **Restricted.** Requires complex EDI/Portal logins. | **Instant.** |
-| **Integrity** | **Binds Content.** Proves the *Container #*. | **Data-Only.** Doesn't protect the paper. | **Vulnerable.** |
-| **Connectivity needed** | **Yes, for the check.** The paper can be read without a connection; checking it takes one small web request. | **Yes.** Requires server access. | **None.** |
+| **Who can check** | Terminals, lines and brokers connected to that system. | Anyone handed the order: a gate clerk, a depot, a haulier, an insurer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The release status as the connected parties have recorded it. | Confirmation that the issuer stands behind this exact order, with this container number and release, as at its date, and whether it has since been used or withdrawn. | An order that may have been forged. |
+| **What the holder shares** | Nothing directly; the data moves between the connected parties. | Only the order they were given. | Only the order they were given. |
+| **Reach** | One port or network, for parties with logins or EDI links. | Global in principle: any broker or shipping line, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Fast once integrated; integration and accounts come first. | A few seconds per check: one web lookup over a data connection, with no fee to the standard. | Free and immediate, with no connection needed. |
+| **What it needs** | Connection to the system and its availability. | The issuer to publish hashes, and Live Verify-aware software on the checker's device. No broker or shipping line does this yet. | Nothing. |
+| **Best suited to** | Releasing cargo between integrated parties. | A cross-check on the paper a driver presents, especially where not every party is connected. | Nothing where cargo theft is a risk. |
 
-**Where each fits:** Port community systems and EDI messages are how terminals, lines and brokers already exchange release data, and an integrated terminal should go on trusting that feed first. Not every haulier, depot or smaller broker is connected, and the driver at the gate is usually holding a printed delivery order. Live Verify lets the gate clerk confirm that the issuer stands behind that exact document, as a quick cross-check alongside the port system rather than a substitute for it.
+**Where each fits:** port community systems and EDI messages are how terminals, lines and brokers already exchange release data, and an integrated terminal should go on trusting that feed first. Not every haulier, depot or smaller broker is connected, and the driver at the gate is usually holding a printed delivery order. Live Verify lets the gate clerk confirm that the issuer stands behind that exact document, as a quick cross-check alongside the port system rather than a substitute for it.
 
 ## Independent Record (Optional)
 

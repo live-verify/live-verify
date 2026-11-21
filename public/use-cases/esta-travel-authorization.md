@@ -116,16 +116,21 @@ Authorizes visa-free travel for citizens of eligible countries.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With CBP Online Status Check
+## Where Each Fits: Live Verify and the Official ESTA Status Check
 
-| Feature | Live Verify | ESTA Official Website | Scanned PDF / Printout |
+ESTA is run by US Customs and Border Protection, and its official website lets a traveller check their own status by entering their details; airlines check passengers' authorisation through their own connections to the US government before boarding. Several other countries now run similar electronic travel authorisation schemes, each with its own status checks. The official check is the source of truth, and Live Verify would only be a thin convenience layer on top of it.
+
+| | Official ESTA status check and airline systems | Live Verify on the confirmation printout | Unverified printout |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Binds Identity.** Binds Passport to Status. | **High.** Direct DB access. | **Zero.** Easily forged. |
-| **Speed** | **Instant.** 5-second scan at check-in. | **Slow.** Requires typing Application # or Passport # + DOB. | **Instant.** |
-| **Trust** | **Cryptographic.** Bound to `cbp.dhs.gov`. | **High.** But prone to phishing sites. | **Low.** Easily faked. |
-| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Technical.** Requires laptop/stable 5G. | **Visual.** |
+| **Who can check** | The traveller, on the official website; airlines, through their own connections. | Anyone shown the printout: a travel arranger, a consulate, an event organiser. | Anyone; nothing is checked. |
+| **What the checker gets** | The live official status of the authorisation. | Confirmation that CBP issued this exact confirmation notice, with this passport and status, as at its date, and its current status as CBP publishes it. | A notice that may have been edited or invented. |
+| **What the traveller shares** | Their application number or passport details, entered on the official site. | Only the printout they chose to show. | The printout. |
+| **Reach** | Every ESTA traveller and every carrier flying to the US. | Global in principle: any travel authorisation agency, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Quick, though typing in passport details is fiddly, and look-alike sites exist. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | The official site or a carrier connection. | CBP to publish hashes, and Live Verify-aware software on the checker's device. No travel authorisation agency does this yet. | Nothing. |
+| **Best suited to** | Every decision that matters: boarding and entry. | A convenience check of a printout by someone outside the official systems. | Nothing. |
 
-**Practical conclusion:** ESTA is primarily a direct-status-access problem. If convenience is the issue, the right fix is a shorter official check flow, airline integration, or a link/QR into the official page. Live Verify would only be a thin convenience layer over that existing source of truth.
+**Where each fits:** ESTA is primarily a direct-status-access problem, and the official check and airline systems are where real decisions are made. If convenience is the issue, a shorter official check flow, wider airline integration, or a link or QR code into the official page would usually be the better fix. Live Verify would be at most a thin convenience layer over that existing source of truth.
 
 ## Independent Record (Optional)
 

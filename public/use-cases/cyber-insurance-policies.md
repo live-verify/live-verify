@@ -119,16 +119,21 @@ Beazley underwrites cyber liability and data breach insurance for global enterpr
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Automated Security Scans (Bitsight)
+## Where Each Fits: Live Verify and Security Ratings
 
-| Feature | Live Verify | Security Rating (Bitsight/SecurityScorecard) | Scanned PDF |
+Security ratings services such as Bitsight and SecurityScorecard score a company's cyber defences from the outside, by observing its internet-facing systems over time, and sell those ratings to the companies that weigh vendor risk. A policy document says nothing about defences; a rating says nothing about insurance. They answer different questions about the same vendor and work side by side.
+
+| | Security rating service | Live Verify on the policy or certificate | Unverified PDF |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Binds the Financials.** Proves the *Money* exists. | **Binds the Tech.** Measures the *Security Score*. | **Zero.** Easily forged. |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Insurer. | **Platform-Bound.** Trust the scanner algorithm. | **Visual.** |
-| **Context** | **Legal.** Shows the actual contract limits. | **Predictive.** Guesses the risk from the outside. | **Full.** |
-| **Freshness** | **Real-time.** Queries the carrier's live file. | **Weekly/Monthly.** Scans take time to refresh. | **Static.** |
+| **Who can check** | Subscribers to the rating service. | Anyone handed the policy: a procurement team, a lender, a partner. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | An outside-in estimate of the vendor's security posture, and how it changes over time. | Confirmation that the insurer issued this exact policy text, with these limits, as at its date, and whether it is still in force. | A document whose limits may have been edited. |
+| **What the vendor shares** | Nothing; the rating is built without the vendor's involvement. | Only the policy pages they chose to hand over. | Only the document they chose to hand over. |
+| **Reach** | Any company with a visible internet presence. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Available on demand to subscribers; a subscription fee. | A few seconds per check: one web lookup, with no fee to the standard and no relationship with the insurer. | Free and immediate. |
+| **What it needs** | A subscription. | The insurer to publish hashes, and Live Verify-aware software on the checker's device. No insurer does this yet. | Nothing. |
+| **Best suited to** | Judging technical risk and watching it over time. | Confirming that the cover a contract requires is in place. | Nothing where a contract depends on it. |
 
-**Where each fits:** Security ratings services such as Bitsight and SecurityScorecard measure something a policy document cannot: how a company's defences look from the outside, tracked over time. A counterparty weighing technical risk should keep using them. What a rating does not show is whether cover is in place and at what limits, and that is the question a contract clause usually asks. Live Verify lets a customer or partner with no relationship to the insurer confirm that the policy text they were handed is the insurer's own, so the two answer different questions about the same vendor.
+**Where each fits:** security ratings measure something a policy document cannot: how a company's defences look from the outside, tracked over time. A counterparty weighing technical risk should keep using them. What a rating does not show is whether cover is in place and at what limits, and that is the question a contract clause usually asks. Live Verify lets a customer or partner with no relationship to the insurer confirm that the policy text they were handed is the insurer's own, so the two answer different questions about the same vendor.
 
 ## Independent Record (Optional)
 

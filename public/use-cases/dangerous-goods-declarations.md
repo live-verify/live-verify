@@ -95,16 +95,21 @@ The Shipper (Manufacturer) benefits from verification.
 **Airlines / Carriers.**
 **IATA:** (Providing the global validation framework).
 
-## Compared With e-DGD (Electronic Data)
+## Where Each Fits: Live Verify and IATA e-DGD
 
-| Feature | Live Verify | e-DGD (IATA Digital) | Paper DGD Form |
+IATA's electronic Dangerous Goods Declaration (e-DGD) lets shipper, forwarder, ground handler and airline exchange the declaration as structured data through connected platforms, ahead of the freight. Uptake varies by airport, airline and forwarder, and many consignments still move with a paper declaration. e-DGD and Live Verify answer different questions and work side by side: one moves the data between connected parties, the other lets whoever is holding the paper check it.
+
+| | e-DGD | Live Verify on the paper declaration | Unverified paper declaration |
 | :--- | :--- | :--- | :--- |
-| **Field Access** | **Instant.** Scan the paper on the pallet. | **Hard.** Requires warehouse staff to have tablet access to IATA's private cloud. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Shipper/Packer. | **Platform-Bound.** Trust the IATA central hub. | **Zero.** Easily forged. |
-| **Connectivity** | **Needed for the check.** The paper can be read inside a shielded warehouse; checking it takes one small web request, made wherever there is signal. | **Needed.** Requires coverage wherever the declaration is consulted. | **Offline.** |
-| **Integrity** | **Binds Content.** Proves the *UN Number* matches. | **Data-Only.** | **Vulnerable.** |
+| **Who can check** | Parties connected to the e-DGD platforms used for that shipment. | Anyone holding the declaration: a warehouse handler, a loadmaster, an insurer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Structured declaration data, received in advance and ready for acceptance systems. | Confirmation that the issuer stands behind this exact wording, including the UN numbers and quantities, as at its date. | A form that may have been mis-declared or edited. |
+| **What the shipper shares** | The declaration data, with the connected parties. | Only the declaration that travels with the freight. | Only the declaration that travels with the freight. |
+| **Reach** | Where the shipper, forwarder, handler and airline are all connected. | Global in principle: any shipper or packer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Fast once connected; platform onboarding and devices for floor staff come first. | A few seconds per check: one web lookup over a data connection, with no fee to the standard. The paper can be read anywhere, but the check needs signal. | Free and immediate, with no connection needed. |
+| **What it needs** | Every party in the chain to be on a connected platform. | The issuer to publish hashes, and Live Verify-aware software on the checker's device. No shipper or packer does this yet. | Nothing. |
+| **Best suited to** | Acceptance checks and planning where the whole chain is connected. | Checking the paper on the pallet, especially where e-DGD does not reach. | Nothing where safety depends on it. |
 
-**Where each fits:** IATA's e-DGD is the better route wherever shipper, forwarder, handler and airline are all connected to it, because the data arrives structured and ahead of the freight. Many warehouses still work from the declaration attached to the pallet, and the person loading may have no tablet or platform access. Live Verify lets that person confirm, with an ordinary phone, that the shipper stands behind the exact wording on the form, and it can run alongside e-DGD for the same consignment.
+**Where each fits:** IATA's e-DGD is the better route wherever shipper, forwarder, handler and airline are all connected to it, because the data arrives structured and ahead of the freight. Many warehouses still work from the declaration attached to the pallet, and the person loading may have no tablet or platform access. Live Verify lets that person confirm, from their own phone with Live Verify on it, that the shipper stands behind the exact wording on the form, and it can run alongside e-DGD for the same consignment.
 
 ---
 
@@ -199,16 +204,21 @@ The Shipper (Manufacturer) benefits from verification.
 **Certified DG Packers.**
 **Ocean Carriers / Ship Lines.**
 
-## Compared With Port Community Systems (PCS)
+## Where Each Fits: Live Verify and Port Community Systems
 
-| Feature | Live Verify | PCS / Central Hub | Paper DGD |
+A port community system is a shared platform, usually run by or for a single port, through which terminals, carriers, forwarders and customs exchange data about the cargo passing through it. Coverage depends on the port: some major ports have mature systems, some countries link theirs nationally, and many smaller ports have none. A port community system and Live Verify answer different questions and work side by side: one joins up the parties inside a port, the other lets anyone holding the declaration check it as the container moves between ports and modes.
+
+| | Port community system | Live Verify on the declaration | Unverified paper declaration |
 | :--- | :--- | :--- | :--- |
-| **Field Access** | **Instant.** Scan the paper at the gate. | **Difficult.** Requires truckers/clerks to have complex portal logins. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Trust the Shipper. | **System-Bound.** Trust the Port's IT vendor. | **Zero.** Easily forged. |
-| **Connectivity** | **Needed for the check.** The paper travels to remote berths and can be read there; checking it takes one small web request over any data connection. | **Fragile.** Port IT systems often experience downtime. | **Offline.** |
-| **Interoperability** | **Universal.** Works across any port/carrier. | **Siloed.** Hamburg's PCS doesn't talk to Singapore's. | **Universal.** |
+| **Who can check** | Parties with accounts on that port's system. | Anyone holding the declaration: a gate clerk, a trucker, a vessel officer, a firefighter. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The port's structured record for the container, shared with terminal, carrier and customs. | Confirmation that the issuer stands behind this exact declaration, including class and flash point, as at its date. | A form that may have been edited. |
+| **What the shipper shares** | The declaration data, through its agents, with the port's users. | Only the declaration that travels with the container. | Only the declaration that travels with the container. |
+| **Reach** | One port, or the ports linked to it; systems in different ports are separate. | Global in principle: any shipper or carrier, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Fast for account holders; others must go through someone with access. | A few seconds per check: one web lookup over a data connection, with no fee to the standard. | Free and immediate, with no connection needed. |
+| **What it needs** | An account, and the port's system to be available. | The issuer to publish hashes, and Live Verify-aware software on the checker's device. No shipper or carrier does this yet. | Nothing. |
+| **Best suited to** | Coordination inside the port it serves. | The handoffs between truck, gate, vessel and destination port. | Nothing where safety depends on it. |
 
-**Where each fits:** A port community system is the right tool inside the port it serves: terminal, customs and carrier see the same structured record. The paper declaration is what travels with the container across truck, gate, vessel and the destination port, where each party uses a different system or none. Live Verify covers those handoffs by letting anyone holding the declaration check it against the shipper's own domain, without replacing the port's system at either end.
+**Where each fits:** a port community system is the right tool inside the port it serves: terminal, customs and carrier see the same structured record. The paper declaration is what travels with the container across truck, gate, vessel and the destination port, where each party uses a different system or none. Live Verify covers those handoffs by letting anyone holding the declaration check it against the issuer's own domain, without replacing the port's system at either end.
 
 ---
 
@@ -313,16 +323,23 @@ Dangerous goods declarations are issued by certified shippers and packers, regul
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Central Portals (ERMA)
+## Where Each Fits: Live Verify and Government Hazmat Systems
 
-| Feature | Live Verify | Gov Hazmat Portal | Paper Manifest |
+<!-- TODO(verify): the original heading named "ERMA", which could not be identified; confirm which system was meant -->
+
+Governments and emergency services keep their own hazmat data: carrier registrations, permits, and the reference guides and dispatch systems responders rely on. What exists depends on where you are: some countries run national systems, some follow regional agreements such as ADR in Europe, and many have little beyond the paper on the truck. These systems and Live Verify answer different questions and work side by side: the government data says what a carrier is permitted to do and how to respond to a substance, while Live Verify confirms that the manifest in the cab is the one the shipper issued.
+
+| | Government hazmat systems | Live Verify on the manifest | Unverified paper manifest |
 | :--- | :--- | :--- | :--- |
-| **Field Access** | **Instant.** Scan the paper at the crash site. | **Difficult.** Requires responders to have specific portal logins and stable internet. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Shipper. | **Gov-Bound.** | **Zero.** Easily forged. |
-| **Connectivity** | **Needed for the check.** The paper manifest can be read in a dead zone; checking it takes one small web request once there is signal. | **Fragile.** Portals often lag during emergencies. | **Offline.** |
-| **Integrity** | **Binds Data.** Protects the UN Number. | **Data-Only.** | **Vulnerable.** |
+| **Who can check** | Regulators and dispatch centres with access, and responders through them. | Anyone holding the manifest: a responder at the roadside, a site gate, an inspector. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Registration and permit data, and response guidance for the substance. | Confirmation that the shipper issued this exact manifest, with these UN numbers and quantities, as at its date. | A manifest that may have been edited. |
+| **What the carrier shares** | Registration and permit data, filed in advance. | Only the manifest carried with the load. | Only the manifest carried with the load. |
+| **Reach** | One country's or region's system. | Global in principle: any shipper, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Depends on access and on reaching dispatch during an incident. | A few seconds per check: one web lookup over a data connection, with no fee to the standard. The paper can be read in a dead zone, but the check needs signal. | Free and immediate, with no connection needed. |
+| **What it needs** | Access credentials, or a dispatch centre to relay. | The shipper to publish hashes, and Live Verify-aware software on the checker's device. No shipper does this yet. | Nothing. |
+| **Best suited to** | Regulation, permits and response guidance. | Confirming, at the roadside or gate, that the paper in hand is genuine. | Nothing where safety depends on it. |
 
-**Where each fits:** Government hazmat portals hold authoritative registration and routing data, and dispatch centres and regulators with logins should keep relying on them. A first responder at a roadside incident usually has the paper manifest from the cab and a phone. Live Verify lets that responder confirm quickly that the shipper issued the manifest as written, which complements the portal lookup rather than standing in for it.
+**Where each fits:** government hazmat systems hold authoritative registration and response data, and dispatch centres and regulators should keep relying on them. A first responder at a roadside incident usually has the paper manifest from the cab and a phone. Live Verify lets that responder confirm quickly, once there is signal, that the shipper issued the manifest as written, which complements the official data rather than standing in for it.
 
 ## Independent Record (Optional)
 

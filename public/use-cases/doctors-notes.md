@@ -167,17 +167,21 @@ US chain (practice → state medical board → state government):
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With the Alternatives
+## Where Each Fits: Live Verify and Existing Ways to Handle a Doctor's Note
 
-| Feature | Live Verify | Calling the Surgery | Employer Trusts the Paper | Telemedicine Platforms | Occupational Health Review |
+Today an employer or school handed a doctor's note usually accepts it on trust, occasionally contacts the practice, or, for long or complex absences, refers the case to occupational health. Some telemedicine services can confirm the notes they issued themselves. The rules differ by country, from the UK fit note to US doctor's notes and Australian medical certificates, but none offers a general way to check a note from an unfamiliar practice. These routes and Live Verify answer different questions and work side by side: occupational health judges fitness for work, while Live Verify only confirms that the practice issued this note.
+
+| | Accepting the note on trust | Calling the practice | Telemedicine platform's own check | Occupational health review | Live Verify on the note |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Minutes to days. Often impossible after hours. | **Instant.** Zero verification. | **Fast** (within platform). | **Slow.** Days to weeks. |
-| **Scalable** | **Yes.** Works for 10 or 10,000 notes/month. | **No.** Each call is manual. | **Yes** (by accepting everything). | **Partial.** Platform-specific. | **No.** Manual review per case. |
-| **Detects forgery** | **Yes.** Hash mismatch = forgery. | **Yes** (if you reach the doctor). | **No.** | **Partial.** Within their system only. | **Maybe.** Experienced reviewer. |
-| **Privacy-preserving** | **Yes.** Confirms authenticity without revealing diagnosis. | **No.** Receptionist may disclose information. | **N/A.** | **Partial.** | **No.** Full medical details reviewed. |
-| **Cross-border** | **Yes.** Domain-based, works internationally. | **Fails.** Time zones, language, no obligation. | **Fails.** Foreign notes are untrusted. | **Fails.** Platform lock-in. | **Fails.** Jurisdiction-specific. |
+| **Who can check** | Anyone; nothing is checked. | Whoever reaches the practice, which may decline to discuss a patient. | Recipients of notes that platform issued. | The employer's occupational health service. | Anyone handed the note: HR, a school, a university, a tribunal. |
+| **What the checker gets** | The paper. | Whatever the practice will confirm within confidentiality rules. | Confirmation of that platform's own notes. | A clinical view of the employee's fitness for work. | Confirmation that the practice issued this exact note, with these dates, as at its date, and whether it has since been withdrawn or replaced. No diagnosis beyond what the note shows. |
+| **What the patient shares** | The note. | The note, and an enquiry about them to their doctor. | The note. | Medical information, with consent. | Only the note they chose to hand over. |
+| **Reach** | Anywhere. | One practice at a time; hard across borders, time zones and languages. | That platform's own notes. | The employer's own staff, under local rules. | Global in principle: any practice or clinic, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Immediate and free. | Minutes to days, during surgery hours, and staff time on both sides. | Quick, within the platform. | Days to weeks, and a cost per case. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | Nothing. | A reachable practice willing to talk. | A note from that platform. | An occupational health provider. | The practice to publish hashes, and Live Verify-aware software on the checker's device. No practice does this yet. |
+| **Best suited to** | Most short absences, where trust is the right default. | Rare cases where something about the note looks wrong. | Notes issued by that platform. | Long or complex absences that need clinical judgement. | Routine notes from unfamiliar practices, including from abroad. |
 
-**Where each fits:** Trusting the paper is the right default for most absences and keeps the employment relationship free of suspicion. Occupational health review remains the proper route for long or complex absences where clinical judgment is needed, and telemedicine platforms can confirm the notes they issued themselves. The gap is the routine note from an unfamiliar practice, which today is either accepted unseen or challenged awkwardly. Live Verify lets HR or a school confirm that the practice issued the note with those dates, without learning the diagnosis.
+**Where each fits:** trusting the paper is the right default for most absences and keeps the employment relationship free of suspicion. Occupational health review remains the proper route for long or complex absences where clinical judgement is needed, and telemedicine platforms can confirm the notes they issued themselves. The gap is the routine note from an unfamiliar practice, which today is either accepted unseen or challenged awkwardly. Live Verify lets HR or a school confirm that the practice issued the note with those dates, without learning the diagnosis.
 
 ## Further Derivations
 

@@ -165,17 +165,22 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Printed Badges / Radio Check-In
+## Where Each Fits: Live Verify and Printed Badges and Radio Check-Ins
 
-| Feature | Live Verify | Printed/Laminated Badge | Radio Check-In | Visual Assessment |
+Event security today rests on printed or laminated accreditation badges, a guard's judgement of the person in front of them, and a radio call to a supervisor or accreditation office when in doubt. These and Live Verify answer related questions and work side by side: the badge is read at a glance, the radio reaches someone who can make a judgement, and Live Verify lets a guard check an unfamiliar badge's current status against the issuer.
+
+| | Printed or laminated badge | Radio check-in | Visual assessment | Live Verify on the badge |
 | :--- | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Verified by event organizer or contractor. | **Visual.** Badge design only; easily counterfeited. | **Human.** Radio operator may not have latest info. | **Visual.** Uniform and appearance-based. |
-| **Integrity** | **Cryptographic.** Binds person to role and time window. | **Zero.** Printed badges can be faked, duplicated, or stolen. | **Low.** Subject to social engineering; radio lag. | **None.** Appearance is unreliable. |
-| **Speed** | **Instant.** 3-second scan; instant verification. | **N/A.** Just looking at badge. | **Slow.** 30-60 seconds for radio verification; line backups. | **Instant but unreliable.** |
-| **Freshness** | **Real-time.** Shows revoked status, time window expiry, area restrictions. | **Static.** Badge never changes; can't reflect post-issuance revocations. | **Variable.** Depends on radio operator updates. | **Static.** Can't capture real-time suspensions. |
-| **Handles Revocation** | **Yes.** Instant if someone is removed mid-event. | **No.** Revoked staff can still use old badge. | **Maybe.** Requires radio discipline; chaos during events. | **No.** Appearance doesn't change if status changes. |
+| **Who can check** | Anyone who can see it. | A guard with a radio and someone at the other end who knows. | Anyone. | Anyone who scans the badge: a guard, a supervisor, another contractor's staff. |
+| **What the checker gets** | The design, name, photo and zones printed when it was issued. | A supervisor's answer, as good as their information. | An impression from uniform and manner. | The issuer's current status for this badge: authorised now, not yet authorised, expired, suspended, or outside its area; and, where the issuer chooses, the photo on file to compare with the wearer. |
+| **What the staff member shares** | The badge. | Their name and details, read out over the radio. | Nothing. | The badge. |
+| **Reach** | One event; designs differ from event to event. | One event's radio network. | Anywhere, but unreliable. | Global in principle: any organiser or contractor, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Immediate, and readable from across a room. | Can be slow at a busy checkpoint. | Immediate. | A few seconds per check: one web lookup over a data connection, with no fee to the standard. |
+| **What it needs** | Printed badges, and guards who know the design. | Radios and a well-informed control room. | Experience. | The issuer to publish hashes, and Live Verify-aware software on the checker's device; and a data connection at the checkpoint. No event organiser does this yet. |
+| **Handling revocation** | A revoked badge still looks valid. | Works if the control room has been told. | Not at all. | Shows a suspension as soon as the issuer publishes it. |
+| **Best suited to** | Quick visual screening at a glance. | Judgement calls and incidents. | A first impression. | Checking an unfamiliar or doubtful badge, especially one issued by another contractor. |
 
-**Where each fits:** Laminated badges and radio check-ins remain the backbone of event security: a badge can be read at a glance from across a room, and a radio call reaches a supervisor who can make a judgement. Both strain at a busy checkpoint, and neither helps a guard from another contractor who has to decide whether an unfamiliar badge is still valid. Live Verify adds a quick lookup against the organiser's or contractor's own domain for those moments, and is meant to be used with the badge and the radio.
+**Where each fits:** laminated badges and radio check-ins remain the backbone of event security: a badge can be read at a glance from across a room, and a radio call reaches a supervisor who can make a judgement. Both strain at a busy checkpoint, and neither helps a guard from another contractor who has to decide whether an unfamiliar badge is still valid. Live Verify adds a quick lookup against the organiser's or contractor's own domain for those moments, and is meant to be used with the badge and the radio.
 
 ---
 

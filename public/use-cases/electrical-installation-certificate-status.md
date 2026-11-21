@@ -124,14 +124,21 @@ The competent person scheme operator (here, NICEIC) is the authoritative source 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Manual Verification
+## Where Each Fits: Live Verify and Contacting the Electrician
 
-| Feature | Live Verify | Contacting the Electrician | Paper/PDF Certificate |
+In England today, a tenant, buyer's solicitor or lender who doubts an EICR has only one route: contact the electrician who signed it. Competent person schemes such as NICEIC and NAPIT keep registers of their members, but there is no central register of individual certificates. Other countries arrange this differently, through local inspectors or state regulators, as noted above. Contacting the electrician and Live Verify answer related questions and work side by side: the electrician can explain the findings, while Live Verify confirms that the scheme or contractor stands behind the certificate's key facts.
+
+| | Contacting the electrician | Live Verify on the certificate status | Unverified paper or PDF certificate |
 | :--- | :--- | :--- | :--- |
-| **Speed** | **Seconds.** Hash check against scheme operator domain. | **Hours to days.** Phone or email the contractor, hope they respond. | **N/A.** No verification — you trust the document as presented. |
-| **Trust Anchor** | **Domain-Bound.** Tied to the scheme operator (NICEIC, NAPIT). | **Institutional.** Trust the contractor's verbal confirmation. | **None.** Paper can be fabricated or altered. |
-| **Coverage** | **Any registered contractor.** Scheme operator holds all certificates for its members. | **Single contractor.** Only the firm that did the work can confirm it. | **Single document.** No way to confirm it matches scheme records. |
-| **Integrity** | **Cryptographic.** Binds property, result, and validity to scheme domain. | **None.** Verbal or email confirmation with no tamper evidence. | **None.** Paper or PDF with no integrity mechanism. |
+| **Who can check** | Whoever can find and reach the contractor. | Anyone handed the certificate status: a tenant, a buyer's solicitor, a lender, a council officer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The contractor's confirmation, by phone or email, and the chance to ask about the findings. | Confirmation that the issuer stands behind this property, result and validity period, as at its date, and whether it has since expired or been superseded. | A certificate that may be fabricated, altered, or for a different property. |
+| **What the landlord or seller shares** | The contractor's details. | Only the certificate status they chose to hand over. | The certificate. |
+| **Reach** | One contractor, if still trading. | Global in principle: any scheme operator, regulator or contractor, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Hours to days, if the contractor responds at all. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | A contractor who can be found and will answer. | The scheme operator, or failing that the contractor, to publish hashes, and Live Verify-aware software on the checker's device. No scheme operator does this yet. Where the scheme does not hold each certificate, the contractor's own domain is a weaker anchor. | Nothing. |
+| **Best suited to** | Questions about the findings and remedial work. | Confirming, during a letting or sale, that the property was tested, the result, and that the certificate is current. | Nothing where safety or compliance depends on it. |
+
+**Where each fits:** the full EICR, and the electrician who wrote it, remain the source for what was found and what needs doing. What a tenant or buyer's solicitor usually needs first is narrower: was this property tested, did it pass, and is the certificate still current. A verifiable status from the scheme operator answers that in seconds, where the operator holds the certificate record, and leaves the detailed questions to the electrician.
 
 ## Further Derivations
 

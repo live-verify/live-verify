@@ -130,16 +130,21 @@ Issues employment authorization documents for non-citizens.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With E-Verify / SAVE
+## Where Each Fits: Live Verify and E-Verify and SAVE
 
-| Feature | Live Verify | E-Verify (Employer System) | Physical EAD Card |
+In the US, employers confirm a new hire's eligibility to work through Form I-9 and, where they use it, E-Verify, which checks the employee's details against government records. Benefit-granting agencies and DMVs use the DHS SAVE system for immigration status. These are the official routes and stay so. Live Verify answers a narrower question: whether the EAD card or copy in front of someone is one USCIS issued, and its current status. The two work side by side.
+
+| | E-Verify (employers) and SAVE (agencies) | Live Verify on the EAD | Physical card, inspected by eye |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to `uscis.gov`. | **Direct DB Access.** High trust. | **Mechanical.** Prone to forgery. |
-| **User Access** | **Useful when working from the card or a copy.** | **Primary.** Official employer path. | **Manual.** |
-| **Speed** | **Fast bridge from the artifact.** | **Can be slower.** Sometimes manual review takes days. | **Instant.** |
-| **Privacy** | **High.** Verified at the point of use. | **Low.** Data resides in a federal monitoring system. | **N/A.** |
+| **Who can check** | Enrolled employers, and agencies registered with SAVE. | Anyone shown the card or a copy of it: an employer, a bank, a landlord. | Anyone who can see it. |
+| **What the checker gets** | An official eligibility or status result from government records, sometimes after further review that can take days. | Confirmation that USCIS issued a card with this exact visible text, and its current status, such as valid, pending renewal, revoked or expired. | A card that looks right or does not. |
+| **What the worker shares** | The details from their I-9 or application, entered into the government system. | The card, or a copy of it. | The card. |
+| **Reach** | US employers enrolled in E-Verify, and agencies enrolled in SAVE. | Global in principle: any immigration authority, in any country, that publishes hashes on its own domain. | Everywhere, but forgeries are hard to spot. |
+| **Speed and cost** | Often quick; cases referred for review take longer. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | Enrolment and the employer's or agency's own process. | USCIS to publish hashes, and Live Verify-aware software on the checker's device. No immigration authority does this yet. | Nothing. |
+| **Best suited to** | The formal employment and benefits decisions they were built for. | A quick check by someone holding the card or a copy outside those systems. | A first look. |
 
-**Narrower conclusion:** This is not a replacement for E-Verify, SAVE, or formal immigration-status adjudication. It is strongest only as a portability layer for copied or visually presented EAD artifacts in lower-capability workflows.
+**Where each fits:** Live Verify is not a replacement for E-Verify, SAVE, or formal immigration-status adjudication, and an employer completing an I-9 should use the official route. It is useful only as a portability layer for copied or visually presented EAD cards, in lower-capability settings such as a bank or landlord that has no access to those systems.
 
 ## See Also
 

@@ -154,16 +154,22 @@ DMVs can monitor verification request patterns:
 
 Geo-checking won't stop a single clone use, but it detects systematic abuse — a cloned license being used by a fraud ring across multiple venues triggers investigation before the victim even knows their identity was stolen.
 
-## Compared With Barcode Scanners (PDF417)
+## Where Each Fits: Live Verify and Barcode Scanning
 
-| Feature | Live Verify | Barcode Scanner (Handheld) | Visual Inspection |
+Driving licences are issued nationally or, in the US, by each state, and most already carry a machine-readable layer: in North America the PDF417 barcode on the back, read by handheld scanners and ID-scanning apps. Police and some employers can also query the licensing authority directly, and mobile driving licences are arriving in some places. Barcode scanning and Live Verify answer different questions and work side by side: the barcode reads the data printed on the card, while Live Verify asks the issuer whether the card's visible text is still good.
+
+| | Barcode scanner | Visual inspection | Live Verify on the licence |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the DMV. | **Self-Contained.** Trust the data *on* the card. | **Human.** Prone to error. |
-| **Freshness** | **Real-time.** Shows if suspended *today*. | **Static.** Only shows what was printed years ago. | **Static.** |
-| **Integrity** | **Cryptographic.** Binds photo to status. | **Medium.** Easy to "Clone" a real barcode onto a fake ID. | **Zero.** |
-| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Specialized.** Requires expensive scanners or apps. | **Human Eye.** |
+| **Who can check** | Anyone with a scanner or scanning app. | Anyone who can see the card. | Anyone shown the card or a copy of it: a bartender, a rental desk, an employer, a hotel. |
+| **What the checker gets** | The data encoded on the card when it was printed, quickly and without typing. | A card that looks right or does not. | Confirmation that the authority issued a licence with this exact visible text, and its current status, such as suspended, expired or reported stolen; where the authority chooses, the photo it holds on file. |
+| **What the holder shares** | The card, and whatever the barcode encodes. | The card. | The card, or a photo or scan of it. |
+| **Reach** | Wherever cards carry a barcode in a format the scanner reads. | Everywhere. | Global in principle: any licensing authority, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Fast, works without a data connection; scanners or apps cost money. | Immediate and free. | A few seconds per check: one web lookup over a data connection, with no fee to the standard. |
+| **What it needs** | A scanner or app. | A trained eye. | The authority to publish hashes, and Live Verify-aware software on the checker's device. No licensing authority does this yet. |
+| **What it cannot catch** | A real barcode copied onto a fake card, or a suspension since the card was printed. | Good fakes, and anything that has changed since printing. | A genuine card shown by the wrong person, unless the checker compares the returned photo. |
+| **Best suited to** | High-volume ID checks where the card is in hand. | A first look. | A copy or photo of a licence, or a check of current status by someone without barcode or authority access. |
 
-**Practical conclusion:** Barcode/PDF417 plus direct DMV access is usually the better primary architecture. Live Verify mainly helps when a relying party has only the visible card or a copied image and still wants a lightweight bridge back to the issuer domain.
+**Where each fits:** barcode scanning, with direct access to the licensing authority where it is available, is usually the better primary arrangement for driving licences. Live Verify mainly helps when a relying party has only the visible card or a copied image, or needs current status and has no direct line to the authority, and still wants a lightweight bridge back to the issuer's domain.
 
 ## Further Reading
 

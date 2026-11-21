@@ -104,16 +104,21 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Credit Card Statements
+## Where Each Fits: Live Verify and Credit Card Statements
 
-| Feature | Live Verify | Credit Card Statement | Scanned PDF Folio |
+The card statement is issued by the traveller's own bank and shows what the cruise line charged, as one total. The folio is issued by the cruise line and shows what that total was made of. They are not rivals: they answer different questions, and an expense claim is often strongest with both.
+
+| | Credit card statement | Live Verify on the folio | Unverified folio PDF |
 | :--- | :--- | :--- | :--- |
-| **Granularity** | **High.** Shows specific items (Wifi vs Alcohol). | **Zero.** Just shows "CARNIVAL CRUISES $1,200". | **High.** But untrusted. |
-| **Integrity** | **Cryptographic.** Binds every line item. | **High.** But lacks detail. | **Zero.** Easily edited. |
-| **Privacy** | **Selective.** Share only the verified extract. | **Low.** Exposes all other personal spending on the card. | **Vulnerable.** |
-| **Freshness** | **Instant.** Verified at disembarkation. | **Laggy.** Charges often aggregate at the end. | **Static.** |
+| **Who can check** | Whoever the cardholder shows it to; corporate cards often feed the employer's systems directly. | Anyone handed the folio: an expense platform, a finance team, an insurer, a card-dispute handler. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The total the cruise line charged to the card, from the bank. | Confirmation that the cruise line issued this exact folio, line by line, as at its date. | A breakdown that may have been edited. |
+| **What the traveller shares** | The statement, which may also show unrelated spending on the card. | Only the folio, or the extract of it, that they chose to hand over. | Only the folio they chose to hand over. |
+| **Reach** | Wherever the card is used; a corporate card feed reaches the employer. | Global in principle: any cruise line, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Arrives on the bank's billing cycle. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | A card account. | The cruise line to publish hashes, and Live Verify-aware software on the checker's device. No cruise line does this yet. | Nothing. |
+| **Best suited to** | Reconciling what was actually paid. | Showing which charges were business and which were personal. | Nothing where reimbursement depends on it. |
 
-**Where each fits:** the card statement confirms the total charged and is what finance teams reconcile against. It shows a single amount with no breakdown, and sharing it reveals unrelated spending. A verified folio extract supplies the itemised business charges from the cruise line itself, so an employee can submit that next to the statement line.
+**Where each fits:** the card statement confirms the total charged and is what finance teams reconcile against. It shows a single amount with no breakdown, and sharing it can reveal unrelated spending. A verified folio supplies the itemised charges from the cruise line itself, so an employee can submit it next to the statement line.
 
 ## Independent Record (Optional)
 

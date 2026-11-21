@@ -120,16 +120,21 @@ Self-authorized — this is a sovereign body whose authority derives from statut
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With ECOS Database
+## Where Each Fits: Live Verify and the ECOS Database
 
-| Feature | Live Verify | ECOS / FWS Public Portal | Paper Permit |
+In the US, the Fish and Wildlife Service publishes information on species, habitat conservation plans and permits through its ECOS online system. Other countries handle protected-species licensing through their own wildlife agencies, with very different levels of public access. ECOS and Live Verify answer different questions and work side by side: ECOS is the agency's fuller public record, and Live Verify lets someone on site check that the paper permit there is the one the agency issued.
+
+| | ECOS / FWS online records | Live Verify on the permit | Unverified paper permit |
 | :--- | :--- | :--- | :--- |
-| **Field Access** | **Instant.** Scan the paper at the job-site. | **Difficult.** Requires navigating complex gov search forms on mobile in remote areas. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to `fws.gov`. | **Database.** High trust but manual. | **Zero.** Easily forged. |
-| **Integrity** | **Binds Mitigation.** Protects the text. | **Data-Only.** Doesn't verify the paper. | **Vulnerable.** |
-| **Connectivity needed** | **Yes, for the check.** The paper permit can be read on site without a connection; checking it takes one small web request. | **Yes.** Requires a data connection. | **None.** |
+| **Who can check** | Anyone who can find the permit or plan in the system. | Anyone handed or shown the permit: an inspector, a contractor, an insurer, a neighbour. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The agency's published record, which may include history, plans and conditions. | Confirmation that the agency issued this exact permit text, including take limits and mitigation terms, as at its date, and whether it has since been amended, suspended or revoked. | A permit whose limits may have been edited. |
+| **What the permit holder shares** | Nothing directly; the published record is public. | Only the permit they chose to show. | The permit. |
+| **Reach** | US federal permits and plans, as far as they are published. | Global in principle: any wildlife agency, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free, but searching on a phone in the field can be slow. | A few seconds per check: one web lookup over a data connection, with no fee to the standard. The paper can be read without signal; the check needs it. | Free and immediate. |
+| **What it needs** | A data connection and familiarity with the system. | The agency to publish hashes, and Live Verify-aware software on the checker's device. No wildlife agency does this yet. | Nothing. |
+| **Best suited to** | Desk research into a project's permits and conditions. | Checking, on site, that the permit in the site office is genuine and current. | Nothing where habitat depends on it. |
 
-**Where each fits:** The Fish and Wildlife Service's public portal is the complete record of a permit, including history and conditions, and agency staff and consultants at a desk should use it. On a job site the question is narrower: whether the paper permit in the site office is the one the agency issued. Live Verify lets an inspector, contractor or concerned neighbour settle that from the document itself, and the portal stays the place for anything more detailed.
+**Where each fits:** the Fish and Wildlife Service's online records are the fuller public record of a permit, and agency staff and consultants at a desk should use them. On a job site the question is narrower: whether the paper permit in the site office is the one the agency issued. Live Verify lets an inspector, contractor or concerned neighbour settle that from the document itself, and the agency's records stay the place for anything more detailed.
 
 ## Independent Record (Optional)
 

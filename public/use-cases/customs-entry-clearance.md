@@ -109,14 +109,19 @@ HMRC administers customs entry clearance and import duty collection under the Cu
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With ACE Portal / Single Window
+## Where Each Fits: Live Verify and Customs Portals
 
-| Feature | Live Verify | ACE Portal (Gov) | Scanned PDF |
+Customs authorities run their own systems of record for import entries, such as ACE in the US, and many countries run a trade "single window" through which brokers and importers file. Coverage depends on where you are: some countries have a mature single window, some share regional systems, and some still rely largely on paper. These portals and Live Verify answer different questions and work side by side: the portal is where entries are filed and held, and Live Verify lets someone outside it check a copy they have been handed.
+
+| | Customs portal or single window | Live Verify on the entry summary | Unverified PDF |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Gov. | **Database.** Direct access. | **Zero.** Easily forged. |
-| **Accessibility** | **Open.** Any bank or buyer can verify. | **Restricted.** Requires Gov credentials and Vetting. | **Instant.** |
-| **Speed** | **Instant.** Scan the paper. | **Slow.** Requires login and manual entry search. | **Instant.** |
-| **Integrity** | **Binds Content.** Proves the *Duty Paid* matches. | **Data-Only.** | **Vulnerable.** |
+| **Who can check** | Customs officers, and brokers and importers with vetted credentials. | Anyone handed the entry: a lender, a factor, a domestic buyer, an auditor. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The live record of the entry, its duties and its status. | Confirmation that the issuer stands behind this exact entry summary, including the duty paid, as at its date. | A document that may have been edited. |
+| **What the importer shares** | Nothing directly; access depends on the checker's own credentials. | Only the entry summary they chose to hand over. | Only the entry summary they chose to hand over. |
+| **Reach** | One country's or region's customs system, for those with access. | Global in principle: any customs agency or broker, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Fast for credentialed users; closed to everyone else. | A few seconds per check: one web lookup, with no fee to the standard and no account with the agency. | Free and immediate. |
+| **What it needs** | Credentials and vetting by the customs authority. | The issuer to publish hashes, and Live Verify-aware software on the checker's device. No customs agency does this yet. | Nothing. |
+| **Best suited to** | Filing, clearance and enforcement. | Downstream parties checking that duties were paid on goods they are financing or buying. | Nothing where money depends on it. |
 
 **Where each fits:** ACE and other single-window portals are the system of record for customs, and brokers and government officers who hold credentials should keep working in them. Lenders, auditors and domestic buyers have no login and are simply handed a copy of the entry summary. Live Verify gives those downstream parties a way to confirm that the customs authority stands behind the exact page in front of them, while the portal carries on serving the people it was built for.
 

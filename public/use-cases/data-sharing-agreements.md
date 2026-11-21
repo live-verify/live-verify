@@ -114,16 +114,21 @@ Research institutions document legal agreements for sharing research data.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With CLM Systems (Ironclad)
+## Where Each Fits: Live Verify and Contract Management Systems
 
-| Feature | Live Verify | CLM (Contract Lifecycle Mgmt) | Scanned PDF |
+Universities, hospitals and companies use contract lifecycle management (CLM) software, such as Ironclad, to draft, approve, sign, store and renew agreements. Each institution runs its own, and the other parties to an agreement usually use a different one or none. A CLM system and Live Verify answer different questions and work side by side: the CLM manages the institution's own contracts, and Live Verify lets someone outside it check that a signed copy carries the wording the institution stands behind.
+
+| | Contract management system | Live Verify on the signed agreement | Unverified PDF |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the University. | **System-Bound.** Trust the CLM vendor. | **Zero.** Easily forged. |
-| **Interoperability** | **Universal.** PDFs work across institutions. | **Low.** Hard to verify if you don't use the same CLM. | **Universal.** |
-| **Integrity** | **Binds Scope.** Protects the "Authorized Use" text. | **Data-Only.** | **Vulnerable.** |
-| **Cost** | **Low.** Standard web infra. | **Very High.** Enterprise software fees. | **None.** |
+| **Who can check** | Staff of the institution that runs it, and anyone it invites in. | Anyone handed the agreement: the counterparty, a funder, a journal, a regulator. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The full contract record: versions, approvals, obligations and renewal dates. | Confirmation that the issuing institution stands behind this exact text, including the authorised-use and restriction clauses, as at its date, and whether it has been terminated or superseded. | A document whose terms may have been edited. |
+| **What the institution shares** | Access to its system, which it is often unwilling to grant to outsiders. | Only the agreement it chose to hand over. | Only the agreement it chose to hand over. |
+| **Reach** | One institution and the people it lets in. | Global in principle: any institution, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Fast for its own users; licence fees for the institution. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | A licence and an account. | The institution to publish hashes, and Live Verify-aware software on the checker's device. No institution does this yet. | Nothing. |
+| **Best suited to** | Managing an institution's own contracts through their life. | An outside party checking the terms of an agreement they have been shown. | Nothing where data protection depends on it. |
 
-**Where each fits:** A contract lifecycle management system serves an institution well for its own drafting, approvals and renewals, and nothing here suggests replacing it. The difficulty comes when the counterparty, a funder or a data protection reviewer sits outside that system and will not be given access to it. Live Verify lets any of them confirm that the signed PDF they hold carries the wording the institution stands behind, while each side keeps its own CLM.
+**Where each fits:** a contract lifecycle management system serves an institution well for its own drafting, approvals and renewals, and nothing here suggests replacing it. The difficulty comes when the counterparty, a funder or a data protection reviewer sits outside that system and will not be given access to it. Live Verify lets any of them confirm that the signed PDF they hold carries the wording the institution stands behind, while each side keeps its own CLM.
 
 ## Independent Record (Optional)
 

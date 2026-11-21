@@ -111,16 +111,21 @@ American Express issues credit card travel insurance benefits for cardholders.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Calling the Number
+## Where Each Fits: Live Verify and Calling the Benefits Line
 
-| Feature | Live Verify | Calling the 800 Number | In-App Dashboard |
+Card issuers and their benefit administrators run phone lines and in-app benefit pages that tell a cardholder what their card covers. These are the authoritative place to ask about cover, and they work for the cardholder. Live Verify answers a narrower question for a different person: whether the coverage letter in front of a rental agent or hospital clerk is one the bank actually issued. The two work side by side.
+
+| | Calling the benefits line | In-app benefits page | Live Verify on the coverage letter |
 | :--- | :--- | :--- | :--- |
-| **User Experience** | **Instant.** 5-second scan at the counter. | **Slow.** Often takes 10-15 mins on hold. | **Hard.** Hard to share your screen with an agent. |
-| **Trust Anchor** | **Domain-Bound.** Trust the Bank. | **Voice.** Prone to social engineering. | **System-Bound.** |
-| **Availability** | **24/7.** Works even if phone lines are busy. | **Restricted.** Some benefit desks are M-F. | **N/A.** |
-| **Integrity** | **Cryptographic.** Binds every limit and term. | **Human.** Errors in reading the file. | **Vulnerable.** |
+| **Who can check** | The cardholder, or an agent the cardholder puts on the phone. | The cardholder, on their own logged-in phone. | Anyone handed the letter: a rental agent, a hospital, an adjuster. |
+| **What the checker gets** | A spoken answer from a benefits agent, who can also explain conditions and exclusions. | The cardholder's current benefit terms, as the app shows them. | Confirmation that the bank issued this exact letter, as at its date, and has not withdrawn it. |
+| **What the holder shares** | A phone call, and often card and identity details to get through security. | A look at their screen. | Only the letter. |
+| **Reach** | Wherever the line can be reached; opening hours and time zones vary by issuer. | Wherever the cardholder has a data connection and the app. | Global in principle: any card issuer, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Can mean a long wait on hold at the counter. | Quick for the cardholder; hard to hand over to a third party. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A staffed line, and an agent willing to wait. | The app, and a counter agent willing to accept a screen. | The issuer to publish hashes, and Live Verify-aware software on the checker's device. No card issuer does this yet. |
+| **Best suited to** | Questions about what is covered, and edge cases. | The cardholder's own reference. | Showing a third party, at a counter, that the letter is genuine. |
 
-**Where each fits:** calling the benefits line is still the way to ask a question about what is covered, and the banking app is the cardholder's own reference. Neither is easy to put in front of a rental agent at a busy counter. Live Verify lets the cardholder show a coverage letter that the agent can check against the bank's domain there and then.
+**Where each fits:** calling the benefits line is still the way to ask a question about what is covered, and the banking app is the cardholder's own reference. Neither is easy to put in front of a rental agent at a busy counter. Live Verify lets the cardholder show a coverage letter that the agent can check against the bank's domain there and then, provided the agent has software that honours it.
 
 ## Independent Record (Optional)
 

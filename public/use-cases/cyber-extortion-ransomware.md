@@ -118,16 +118,21 @@ Beazley underwrites cyber extortion and ransomware insurance for enterprises glo
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Secure Portals
+## Where Each Fits: Live Verify and Insurer Portals
 
-| Feature | Live Verify | Secure Underwriter Portal | Scanned PDF Report |
+Cyber insurers give policyholders and their brokers a secure portal for the policy file and the claim, and during an incident they coordinate through their own panel of breach coaches and response firms. Live Verify answers a narrower question: whether a specific authorization, as printed or forwarded, is one the insurer actually issued. The two work side by side. <!-- TODO(verify): that cyber insurers coordinate incidents through panels of breach coaches and response firms -->
+
+| | Insurer's secure portal | Live Verify on the authorization | Unverified PDF |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Insurer. | **System-Bound.** | **Zero.** Easily forged. |
-| **Privacy** | **High.** Share only the *Authorization*. | **Low.** Portal access often reveals full policy/history. | **Medium.** |
-| **Immutability** | **High.** Once hashed, the record is fixed. | **Dynamic.** System records can be edited. | **Vulnerable.** |
-| **User Control** | **High.** Victim chooses when to share. | **Low.** Data controlled by the Insurer. | **High.** |
+| **Who can check** | The policyholder and broker, with their logins. | Anyone handed the authorization: the victim's finance team, a response vendor, a negotiator, a bank. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The full policy file and the live claim, and a channel to the insurer. | Confirmation that the insurer issued this exact authorization, as at its date, and whether it has been withdrawn. | A document that may have been edited or invented. |
+| **What the policyholder shares** | Portal access, which usually shows the whole policy and claim history. | Only the authorization they chose to hand over. | Only the document they chose to hand over. |
+| **Reach** | One insurer's own users. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Quick when the victim's systems and credentials are working; hard to reach when they are not. | A few seconds per check: one web lookup, with no fee to the standard, from a phone with a data connection. | Free and immediate. |
+| **What it needs** | Working credentials and a device that can reach the portal. | The insurer to publish hashes, and Live Verify-aware software on the checker's device. No insurer does this yet. | Nothing. |
+| **Best suited to** | Managing the policy and claim over time. | Checking one authorization mid-crisis, or by a party with no portal access. | Nothing where a payment depends on it. |
 
-**Where each fits:** An insurer's secure underwriter portal is the right home for the full policy file and the ongoing claim, and both sides will go back to it once systems are restored. In the middle of an attack the victim's network may be down, and instructions arrive on personal phones and printed pages. Live Verify lets the victim, or a response vendor with no portal access, confirm that an authorization really was issued by the insurer in exactly those words; the portal remains the record behind it.
+**Where each fits:** an insurer's secure portal is the right home for the full policy file and the ongoing claim, and both sides will go back to it once systems are restored. In the middle of an attack the victim's network may be down, and instructions arrive on personal phones and printed pages. Live Verify lets the victim, or a response vendor with no portal access, confirm that an authorization really was issued by the insurer in exactly those words; the portal remains the record behind it.
 
 ### Why Would You Bother Verifying in a Crisis?
 

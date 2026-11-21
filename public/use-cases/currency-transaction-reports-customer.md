@@ -167,14 +167,19 @@ Cash generated from trade-based laundering enters the banking system via deposit
 - **US:** FinCEN has issued specific advisories linking CTR patterns to TBML (FIN-2006-A003, updated 2020); CBP Trade Transparency Units cross-reference CTR data with customs declarations to identify pricing anomalies
 - **Emerging:** Trade finance digitisation (blockchain-based letters of credit, e-bills of lading) may provide new verification points — Live Verify could authenticate trade documents that are currently vulnerable to TBML manipulation
 
-## Compared With Internal Bank Logs
+## Where Each Fits: Live Verify and the Bank's Internal Records
 
-| Feature | Live Verify | Bank Internal Log | Paper Receipt |
+The bank's compliance records of a large cash transaction, and the report it files with the government, are held by the bank and the regulator and are closed to the customer and to outsiders, as they should be. Reporting rules for large cash transactions are national: the US has its CTR regime, other countries have their own thresholds and forms, and some have none. The internal record and Live Verify answer different questions and work side by side: one is the bank's and regulator's record, the other lets the customer show a third party a receipt the bank stands behind.
+
+| | Bank's internal records | Live Verify on the customer receipt | Unverified paper receipt |
 | :--- | :--- | :--- | :--- |
-| **User Access** | **Universal.** Customer can show anyone. | **Zero.** Customers can't see the bank's AML logs. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Bank. | **System-Bound.** | **Zero.** Easily forged. |
-| **Integrity** | **Cryptographic.** Binds Name + Amount. | **High.** Direct DB. | **Vulnerable.** |
-| **Portability** | **High.** Verified PDF works for any 3rd party. | **None.** Requires bank intervention. | **High.** |
+| **Who can check** | The bank and its regulators. | Anyone the customer hands the receipt to: a tax auditor, a lawyer, a title company, a lender. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The full record of the transaction and the filing. | Confirmation that the bank issued this exact receipt, naming this customer and amount, as at its date, and the filing status the bank publishes. | A receipt that may have been edited. |
+| **What the customer shares** | Nothing; they cannot see these records. | Only the receipt they chose to hand over. | Only the receipt they chose to hand over. |
+| **Reach** | Inside the bank and its regulator. | Global in principle: any bank, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Available to the bank at once; a third party can reach it only through a formal request to the bank. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The bank's own systems. | The bank to publish hashes, and Live Verify-aware software on the checker's device. No bank does this yet. | Nothing. |
+| **Best suited to** | Regulatory compliance and examination. | A customer showing, years later, that a large cash transaction was handled and reported properly. | Nothing where an audit depends on it. |
 
 **Where each fits:** the bank's internal compliance log is the record regulators rely on, and it is properly closed to customers and outsiders. A customer who later has to show a tax auditor, lawyer or another bank where a large cash transaction went cannot point to that log. Live Verify lets them present a receipt the bank stands behind, naming them and the amount, which the third party can check on the bank's domain while the internal record stays internal.
 

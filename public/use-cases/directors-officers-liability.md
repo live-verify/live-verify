@@ -122,16 +122,21 @@ AIG underwrites directors and officers liability insurance for UK companies.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Broker Confirmation
+## Where Each Fits: Live Verify and Broker Confirmation
 
-| Feature | Live Verify | Manual Broker Letter | Data Room PDF |
+Today a director, acquirer or lender who wants to confirm D&O cover usually asks the company's insurance broker for a confirmation letter, or looks at the policy documents placed in a data room. The broker's letter and Live Verify answer different questions and work side by side: the broker can explain the programme and its terms, while Live Verify confirms that a declarations page is exactly what the carrier issued.
+
+| | Broker confirmation letter | Live Verify on the declarations page | Policy PDF in a data room |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Cryptographic.** Binds every limit and date. | **Subjective.** Relies on the broker's clerk. | **Zero.** Easily forged. |
-| **Speed** | **Instant.** Scan the paper in the boardroom. | **Slow.** Takes 3-5 days to get a "Confirmation Letter." | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Carrier. | **Human.** Prone to social engineering. | **Vulnerable.** |
-| **Archival** | **Permanent.** Durable for 20-year tail. | **Ephemeral.** Brokers go out of business. | **Vulnerable.** |
+| **Who can check** | Whoever the broker agrees to write to. | Anyone handed the page: a prospective director, an acquirer, an underwriter, a lender. | Anyone with data-room access. |
+| **What the checker gets** | The broker's statement of the cover, with professional context about the programme, towers and exclusions. | Confirmation that the carrier issued this exact page, with these limits and retroactive dates, as at its date, and its current status as the carrier publishes it. | A document that may have been edited before upload. |
+| **What the company shares** | A request to its broker. | Only the pages it chose to hand over. | Whatever it uploads. |
+| **Reach** | Wherever the broker is engaged. | Global in principle: any carrier, in any country, that publishes hashes on its own domain. | Wherever the data room is shared. |
+| **Speed and cost** | Often takes days to arrange, and depends on the broker still holding the file. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate once access is granted. |
+| **What it needs** | A broker willing and able to confirm. | The carrier to publish hashes, and to keep them published for as long as checks may be needed; and Live Verify-aware software on the checker's device. No carrier does this yet. | A data-room provider. |
+| **Best suited to** | Questions about how the cover works, and live placements. | Confirming on the day, or years later, that the carrier issued this declarations page. | Sharing documents in a transaction. |
 
-**Where each fits:** A broker's confirmation letter carries professional judgement and context that a hash lookup cannot, and for a live placement the broker remains the person to ask. The letter takes days to arrange and depends on the broker still holding the file. Live Verify suits the other cases: a director, acquirer or lender who needs to confirm on the day that the carrier issued this declarations page, or who comes back to it years later during the claims-made tail when the original broker may no longer be involved.
+**Where each fits:** a broker's confirmation letter carries professional judgement and context that a hash lookup cannot, and for a live placement the broker remains the person to ask. The letter takes time to arrange and depends on the broker still holding the file. Live Verify suits the other cases: a director, acquirer or lender who needs to confirm on the day that the carrier issued this declarations page, or who comes back to it years later during the claims-made tail, provided the carrier still publishes the record.
 
 ## Independent Record (Optional)
 

@@ -110,16 +110,21 @@ Actuaries calculate individual disability benefit entitlements based on earnings
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Employment Verification (The Work Number)
+## Where Each Fits: Live Verify and Employment Verification Services
 
-| Feature | Live Verify | Equifax (The Work Number) | Scanned PDF |
+In the US, employment and income verification services such as Equifax's The Work Number let lenders and other permitted users confirm a person's employer and salary from payroll data supplied by employers. Similar services exist in some other countries; many have none. These services and Live Verify answer different questions and work side by side: the service reports earnings from work, while a verified benefit worksheet shows what a disability insurer is paying and on what terms.
+
+| | Employment verification service | Live Verify on the benefit calculation | Unverified PDF |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Carrier. | **Data-Bound.** Trust the aggregator. | **Zero.** Easily forged. |
-| **Completeness** | **High.** Shows specific policy triggers. | **Low.** Often only shows "Salary" or "Active/Inactive." | **Full.** |
-| **User Privacy** | **High.** Only this specific claim is verified. | **Low.** Lenders see full employment history. | **High.** |
-| **Speed** | **Instant.** Scan the worksheet. | **Slow.** Requires specific lender credentials and fees. | **Instant.** |
+| **Who can check** | Lenders and other permitted users with an account. | Anyone handed the worksheet: a mortgage underwriter, a family court, a credit counsellor. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Employer, employment status and pay, from payroll records. | Confirmation that the insurer issued this exact calculation, with this monthly benefit, offsets and benefit period, as at its date, and its current status as the insurer publishes it. | A worksheet whose figures may have been edited. |
+| **What the claimant shares** | Consent to a lookup, which can show more of their employment history than the case needs. | Only the worksheet they chose to hand over. | Only the worksheet they chose to hand over. |
+| **Reach** | Employers whose payroll data the service holds; it is not built to report disability benefit terms. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Fast for account holders; a fee per lookup. | A few seconds per check: one web lookup, with no fee to the standard and no account with the insurer. | Free and immediate. |
+| **What it needs** | An account and a permitted purpose. | The insurer to publish hashes, and Live Verify-aware software on the checker's device. No disability insurer does this yet. | Nothing. |
+| **Best suited to** | Confirming employment and salary. | Confirming the amount and duration of a disability benefit. | Nothing where a loan depends on it. |
 
-**Where each fits:** Employment and income verification services such as The Work Number are quick and well established for confirming salary and employment status, and lenders connected to them will keep using them for that. They are not built to show the terms of an individual disability claim, and many of the people who need to see a benefit worksheet have no subscription. Live Verify lets a lender, lawyer or family member confirm that the carrier issued this specific calculation, alongside whatever the aggregator reports about earnings.
+**Where each fits:** employment and income verification services such as The Work Number are quick and well established for confirming salary and employment status, and lenders connected to them will keep using them for that. They are not built to show the terms of an individual disability claim, and many of the people who need to see a benefit worksheet have no subscription. Live Verify lets a lender, lawyer or family member confirm that the carrier issued this specific calculation, alongside whatever the aggregator reports about earnings.
 
 ## Independent Record (Optional)
 

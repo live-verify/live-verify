@@ -117,16 +117,21 @@ AIG underwrites directors liability insurance for pension plan fiduciaries.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Annual Reports
+## Where Each Fits: Live Verify and the Pension Annual Report
 
-| Feature | Live Verify | Pension Annual Report | PDF Scan of Policy |
+A pension plan's annual report, or the equivalent filing, is the formal disclosure to members and regulators, and it usually states that fiduciary or trustee liability cover is in place. Disclosure rules depend on where you are: the US and UK, for example, each have their own requirements, and other countries differ. The annual report and Live Verify answer different questions and work side by side: the report says cover exists at plan level, and a verified certificate shows a particular trustee the detail of their own cover.
+
+| | Pension annual report | Live Verify on the trustee's certificate | Unverified PDF of the policy |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Cryptographic.** Binds every trustee name. | **Vague.** Often just says "Insurance is in place." | **Zero.** Easily forged. |
-| **Freshness** | **Real-time.** Shows if cancelled *today*. | **Historical.** Usually 6-12 months out of date. | **Static.** |
-| **Detail** | **High.** Shows specific ERISA triggers. | **Low.** Minimal insurance detail. | **Full.** But untrusted. |
-| **Archival** | **Permanent.** Durable for 20-year tail. | **Low.** Often discarded after 5 years. | **Vulnerable.** |
+| **Who can check** | Members, regulators and the public, as the rules allow. | Anyone handed the certificate: a trustee, a prospective trustee, an auditor, a regulator. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | A formal statement, made once a year, usually that insurance is in place, with little detail. | Confirmation that the insurer issued this exact certificate, with these names, limits and dates, as at its date, and its current status as the insurer publishes it. | A document that may have been edited. |
+| **What the plan shares** | What the disclosure rules require. | Only the certificate the holder chose to hand over. | Whatever is sent. |
+| **Reach** | The plan's own members and regulator. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Published on the reporting cycle. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The plan's reporting process. | The insurer to publish hashes, and to keep them published for as long as checks may be needed; and Live Verify-aware software on the checker's device. No insurer does this yet. | Nothing. |
+| **Best suited to** | Formal disclosure that cover exists. | A trustee checking the detail of their own cover, now or years later. | Nothing where personal liability depends on it. |
 
-**Where each fits:** The plan's annual report is the proper place for members and regulators to see that fiduciary cover exists, and it will stay the formal disclosure. It is written once a year and seldom records the names, limits or triggers a particular trustee cares about. Live Verify lets a trustee, or someone acting for them long after retirement, confirm that the insurer stands behind the certificate they kept, which fills in detail the report was never meant to carry.
+**Where each fits:** the plan's annual report is the proper place for members and regulators to see that fiduciary cover exists, and it will stay the formal disclosure. It is written once a year and seldom records the names, limits or triggers a particular trustee cares about. Live Verify lets a trustee, or someone acting for them long after retirement, confirm that the insurer stands behind the certificate they kept, provided the insurer still publishes the record, which fills in detail the report was never meant to carry.
 
 ## Independent Record (Optional)
 
