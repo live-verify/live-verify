@@ -4,7 +4,7 @@
 
 - **Cheap, global, easy.** A check is one web lookup against the issuer's own domain: no fees, no central registry, no integration between the two sides, and it works across borders.
 - **It needs owners.** A standard like this should be held in committee, as the internet's protocols are at the IETF, by Google, Apple, Microsoft and the others who build the phones, browsers and document viewers people already use. None has taken it up yet; this repository is the working draft offered to them.
-- **Each country organises its own.** Within the standard, 190+ countries and international bodies such as the UN and WHO would each arrange the hierarchy of issuers they vouch for. Nobody runs a central list.
+- **Each country organises its own.** Within the standard, 190+ countries and international bodies such as the UN, the WTO and Interpol would each arrange the hierarchy of issuers they vouch for. Nobody runs a central list.
 
 ![Deploy to GitHub Pages](https://github.com/live-verify/live-verify/actions/workflows/deploy.yml/badge.svg)
 ![Code License](https://img.shields.io/badge/code-Apache--2.0-blue) ![Content License](https://img.shields.io/badge/content-CC--BY--SA--4.0-lightgrey)
