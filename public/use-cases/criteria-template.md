@@ -536,24 +536,17 @@ Organize Third-Party stakeholders based on **document domain**:
 **"Couldn't someone just copy the text?"** — Copying text only helps if the issuer still attests to that exact normalized hash. Revocation and random-line hardening are the defenses against replay/guessing attacks. Note: the hash is not personal data, but the plaintext claim may be. In jurisdictions with GDPR-like legislation, anyone storing copied plaintext containing PII must meet those requirements—the hash-based approach means verifiers can check and discard without retaining PII. Caveat: not all jurisdictions have such legislation, and some entities (notably governments) won't honor DSAR or right-to-be-forgotten requests regardless of the requester's home jurisdiction.
 
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-Include this section only when the use case genuinely benefits from an independent witness layer, or when a jurisdiction, contract, or regulator specifically requires one. Do **not** include it by default.
+Witnessing is explained once, on the site's [witnessing pages](../witnessing.html), not on each use case. End the page with this one line, unchanged:
 
-When this section is present, keep the claims narrow:
-- State who would receive hashes and why
-- Explain what the witness adds beyond direct issuer-domain verification
-- Avoid asserting regulator requirements unless they are specific to the use case
-- Treat public-blockchain rollups as an optional implementation detail, not the default architecture
+> An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).
 
-Good fits:
-- High-dispute records where independent timestamping matters
-- Multi-party workflows where the issuer is not trusted to be the sole historian
-- Cross-border or cross-regulator settings where an external audit trail adds real value
-
-Poor fits:
-- Straightforward issuer-attestation documents where the issuer endpoint is already the source of truth
-- Use cases where the witness layer is speculative and not needed to explain the trust model
+Write more than that line only when witnessing is central to the use case itself (for example a page about a two-party agreement where each side wants the other's commitment recorded). If you do:
+- Say who would hold the record and what it adds beyond checking the issuer's domain
+- Never describe a witness receiving any of the document's text or fields: a witness holds hashes, addresses, responses and times only
+- Do not assert a regulator requirement unless it is specific and real
+- Leave the mechanics (tamper-evident logs, public anchors) to the witnessing pages
 
 ---
 

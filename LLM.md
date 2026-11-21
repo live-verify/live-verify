@@ -233,11 +233,11 @@ furtherDerivations: 3  # maintained by scripts/count-and-update-derivations.js
 ```
 
 **Document conventions:**
-- Sections: The Problem, numbered document sections with HTML mockups, Verification Response, What Is Checked, What the Checker Sees, Who Holds It (the subject/recipient, formerly "Second-Party Use"), Who Checks It (formerly "Third-Party Use"), Who Issues It (or How Verification Works Here), Privacy Salt, Authority Chain, Competition table, Jurisdictional Witnessing (Optional), Further Derivations
+- Sections: The Problem, numbered document sections with HTML mockups, Verification Response, What Is Checked, What the Checker Sees, Who Holds It (the subject/recipient, formerly "Second-Party Use"), Who Checks It (formerly "Third-Party Use"), Who Issues It (or How Verification Works Here), Privacy Salt, Authority Chain, Competition table, Independent Record (Optional), Further Derivations
 - Mockups use `verifiable-text="start"`/`"end"` spans or `verifiable-text-element="true"`, with `data-verify-line` spans wrapping `verify:` lines
 - No brackets `[` `]` around start/end span content; no "Scan to verify..." meta commentary in mockups
 - Country-specific details go in collapsible `<details>` sections when the doc is international
-- Jurisdictional Witnessing is "(Optional)" — only include when genuinely needed
+- Witnessing is explained once on the site (`public/witnessing.html` and its sub-pages), not per use case. Each page ends with a one-line `## Independent Record (Optional)` section linking there; write more only when witnessing is central to the use case. A witness never receives any document text or fields — hashes, addresses, responses and times only
 - Frame Live Verify as complementary to existing controls, not a replacement
 
 **Key files:**
