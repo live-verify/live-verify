@@ -90,6 +90,8 @@ vector's filename. The three reference implementations run against it in their t
 
 If a claim is aimed at humans reading it — whether digital or printed — it is a candidate for Live Verify.
 
+**Illustrations, not announcements.** Organisations and domains named in these use cases are illustrations of who could issue or check such a document. None of them has adopted Live Verify, and no discussions with them are under way.
+
 **Start with the flagship cases** — the five clusters where issuer-attested verification is most consequential:
 
 1. [Bank statements](https://live-verify.github.io/live-verify/use-cases/view.html?doc=bank-statements) / [income documents](https://live-verify.github.io/live-verify/use-cases/view.html?doc=mortgage-verification-documents) — forgery-proof KYC
