@@ -48,7 +48,13 @@ furtherDerivations: 1
 
 **Protects both sides (Pattern D):** The patient needs the scan. The radiologist needs to know the implant is safe for MRI. Without verification, radiologists routinely refuse scans for patients with implants — not because the device is unsafe, but because they cannot confirm it is safe. Patients wait weeks for manufacturer phone calls or surgical records. Verification unlocks access to care for the patient and removes legal exposure for the radiologist, in one scan.
 
-## Data Verified
+## The Problem: Serial Swap Fraud
+
+- **Recall Hiding:** A manufacturer or clinic attempting to hide that a specific serial number is part of a defective batch. Verification shows the "Recall Active" flag instantly.
+- **Component Forgery:** Creating a fake card for a non-existent or un-vetted implant to justify a medical insurance claim.
+- **Status Misrepresentation:** Editing a card to say "MRI Safe" when the device is actually "MRI Unsafe."
+
+## What Is Checked
 
 Patient name, date of birth, device serial number, UDI (Unique Device Identifier), implanting surgeon name, hospital/facility ID, date of implantation, MRI safety status (e.g., "MRI Conditional"), issuing manufacturer name.
 
@@ -58,25 +64,25 @@ Patient name, date of birth, device serial number, UDI (Unique Device Identifier
 - **Device Registration Confirmation:** Proving the warranty is active.
 - **Recall Notice:** (Linked hash) proving the specific serial number status.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`medtronic.com`, `bostonscientific.com`, `stryker.com`) and current device standing.
 
 **Status Indications:**
 - **Verified** — Device record matches the manufacturer's secure ledger.
-- **Recall Active** — **ALERT:** This specific serial number is subject to a mandatory safety recall.
+- **Recall Active** — This specific serial number is subject to a mandatory safety recall.
 - **Battery Alert** — (For active devices) End-of-service warning verified.
 - **Invalid** — Serial number or patient data mismatch.
 
-## Second-Party Use
+## Who Holds It
 
-The **Patient (Implant Recipient)** benefits from verification.
+The Patient (Implant Recipient) benefits from verification.
 
 **MRI Safety:** Proving to a radiologist that their deep brain stimulator or pacemaker is "Verified MRI Conditional." Radiologists are extremely risk-averse; a verified hash from the manufacturer provides the immediate confidence needed to proceed with a life-saving scan without waiting for a manual phone call to the manufacturer's tech support.
 
 **Emergency Care:** Proving their device details to an ER doctor in a foreign city or hospital, ensuring they don't receive treatments (like defibrillation or electrocautery) that could damage the implant.
 
-## Third-Party Use
+## Who Checks It
 
 **Radiology Departments (MRI/CT)**
 **Safety Triage:** Instantly verifying the "MRI Conditionality" of a patient's implant. Live Verify connects the tech directly to the manufacturer's safety database, bypassing the "Manual Model Lookup" bottleneck.
@@ -87,13 +93,7 @@ The **Patient (Implant Recipient)** benefits from verification.
 **Medical Device Manufacturers**
 **Post-Market Surveillance:** Ensuring 100% accurate tracking of high-risk implants throughout the patient's lifetime for recall and safety monitoring.
 
-## Verification Architecture
-
-**The "Serial Swap" Fraud Problem**
-
-- **Recall Hiding:** A manufacturer or clinic attempting to hide that a specific serial number is part of a defective batch. Verification shows the "Recall Active" flag instantly.
-- **Component Forgery:** Creating a fake card for a non-existent or un-vetted implant to justify a medical insurance claim.
-- **Status Misrepresentation:** Editing a card to say "MRI Safe" when the device is actually "MRI Unsafe."
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -121,13 +121,13 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the device manufacturer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the implant card.
 
-## Competition vs. UDI Barcodes
+## Compared With UDI Barcodes
 
 | Feature | Live Verify | GS1 / UDI Barcode | Physical Implant Card |
 | :--- | :--- | :--- | :--- |
 | **Trust Anchor** | **Domain-Bound.** Bound to the Manufacturer. | **Self-Contained.** Trust the data *on* the sticker. | **Zero.** Easily forged. |
 | **Freshness** | **Real-time.** Shows if recalled *today*. | **Static.** Only shows what was printed years ago. | **Static.** |
 | **Integrity** | **Cryptographic.** Binds the *Serial #*. | **Medium.** Easy to clone a barcode. | **Vulnerable.** |
-| **Hardware** | **Universal.** Any smartphone camera. | **Specialized.** Requires 2D barcode scanners. | **Visual.** |
+| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Specialized.** Requires 2D barcode scanners. | **Visual.** |
 
-**Why Live Verify wins here:** The "Wallet Reality." Patients carry a card, not a barcode scanner. While the *box* has a UDI barcode, the *patient* only has the paper card. Live Verify turn that **Wallet Card** into a live safety portal, bringing "UDI-level" security to the patient's everyday life.
+**Where each fits:** UDI barcodes do their job well inside hospitals and the supply chain, where scanners and registries are in place to track a device from manufacture to implantation. After surgery the patient is left with a wallet card, and an emergency clinician or airport screener may have nothing but a phone. Live Verify lets them confirm the card against the manufacturer's domain and see its current status. The card usually prints the UDI as well, so both remain available.

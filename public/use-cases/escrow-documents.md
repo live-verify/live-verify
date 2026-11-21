@@ -11,9 +11,9 @@ furtherDerivations: 4
 
 ## What is an Escrow Statement?
 
-If you have a mortgage, your bank often collects extra money every month to pay your property taxes and home insurance for you. This "bucket" of money is your **Escrow Account**.
+If you have a mortgage, your bank often collects extra money every month to pay your property taxes and home insurance for you. This "bucket" of money is your Escrow Account.
 
-Every year, the bank sends you an **Annual Escrow Analysis**. It tells you if you have too much money in the bucket (a Surplus) or too little (a Shortage).
+Every year, the bank sends you an Annual Escrow Analysis. It tells you if you have too much money in the bucket (a Surplus) or too little (a Shortage).
 
 Because banks manage millions of these accounts, clerical errors are frequent. Verified statements allow homeowners to prove the bank's math is wrong if a "Shortage Notice" doesn't match the county's actual tax bill.
 
@@ -45,7 +45,13 @@ deficiency.
 <span data-verify-line="escrow">verify:mrcooper.com/escrow/v</span> <span verifiable-text="end" data-for="escrow"></span>
 </div>
 
-## Data Verified
+## The Problem: Escrow Black Box Fraud
+
+- **Surplus Retraction:** A servicer showing a "Surplus" on the paper statement but then quietly "Adjusting" it to zero in the system after the homeowner stops looking.
+- **Phantom Withdrawals:** Withdrawing money from the escrow for "Administrative Fees" that aren't disclosed on the paper statement.
+- **Backdating Notices:** Fabricating a "Shortage Notice" today but dating it 3 months ago to justify an immediate payment increase without the mandatory 30-day RESPA warning.
+
+## What Is Checked
 
 Loan number, property address, homeowner name, total disbursements (Taxes/Insurance), beginning/ending balance, projected payment change, next year's cushion amount, date of analysis, servicer ID.
 
@@ -55,7 +61,7 @@ Loan number, property address, homeowner name, total disbursements (Taxes/Insura
 - **Shortage/Deficiency Notice:** Demanding extra funds.
 - **Disbursement Receipt:** (Linked hash) proving taxes were paid to the county.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`mrcooper.com`, `wellsfargo.com`) and current account status.
 
@@ -65,9 +71,9 @@ Shows the issuer domain (`mrcooper.com`, `wellsfargo.com`) and current account s
 - **Settled** — Surplus refund has been issued and cleared.
 - **In-Dispute** — Homeowner has formally challenged the analysis.
 
-## Second-Party Use
+## Who Holds It
 
-The **Homeowner (Borrower)** (second party) receives the escrow statement from the mortgage servicer (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Homeowner (Borrower) (second party) receives the escrow statement from the mortgage servicer (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of the escrow analysis. Most of the time, the statement sits in their files—the verification value is latent, there *if needed*.
 
@@ -75,7 +81,7 @@ The **Homeowner (Borrower)** (second party) receives the escrow statement from t
 
 **Future Optionality:** If a dispute arises about escrow calculations, payment increases, or shortages, they have cryptographic proof ready without needing to contact the servicer.
 
-## Third-Party Use
+## Who Checks It
 
 The homeowner (second party) may hand the verified document to various third parties:
 
@@ -88,13 +94,7 @@ The homeowner (second party) may hand the verified document to various third par
 **Hazard Insurers**
 **Premium Verification:** Ensuring the servicer has the correct, verified premium amount in their escrow projection, preventing coverage lapses due to under-funding.
 
-## Verification Architecture
-
-**The "Escrow Black Box" Fraud Problem**
-
-- **Surplus Retraction:** A servicer showing a "Surplus" on the paper statement but then quietly "Adjusting" it to zero in the system after the homeowner stops looking.
-- **Phantom Withdrawals:** Withdrawing money from the escrow for "Administrative Fees" that aren't disclosed on the paper statement.
-- **Backdating Notices:** Fabricating a "Shortage Notice" today but dating it 3 months ago to justify an immediate payment increase without the mandatory 30-day RESPA warning.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -108,7 +108,7 @@ The homeowner (second party) may hand the verified document to various third par
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the servicer's hashes and status changes plus structured metadata (loan number, disbursement amounts, balance changes, payment adjustments) — never homeowner names, property addresses, or personal financial details — providing non-repudiation of the escrow statement issuance and immutable proof critical for RESPA compliance disputes.
 
-## Competition vs. Servicer Portals
+## Compared With Servicer Portals
 
 | Feature | Live Verify | Servicer Mobile App | Scanned PDF / Printout |
 | :--- | :--- | :--- | :--- |
@@ -117,7 +117,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Audit-ability** | **High.** Creates an external digital trail. | **None.** For external regulators. | **Manual.** |
 | **Transparency** | **High.** Shows exact RESPA math. | **Medium.** Often hides complex calculations. | **Full.** But untrusted. |
 
-**Why Live Verify wins here:** The "Audit Gap." Mortgage servicers often have terrible record-keeping systems. When a homeowner disputes a bill, the servicer often says "The app is showing the latest data; your old paper is wrong." Live Verify turns that **Old Paper Statement** into an un-erasable digital proof of what the servicer claimed on that date, empowering the homeowner in disputes.
+**Where each fits:** The servicer's app is the convenient place to see the current escrow position, and for day-to-day questions it is all most homeowners need. It shows the latest figures rather than what was stated on a given date. Live Verify lets a homeowner, housing counsellor or regulator confirm that the servicer issued a particular analysis statement as printed, which matters when a past figure is in dispute. The app stays the live view; the verified statement is the dated record.
 
 
 ---
@@ -127,9 +127,9 @@ _[Content merged from: escrow-closing-documents]_
 
 ## What are Escrow Wire Instructions?
 
-When you buy a house, you must wire your life savings (the downpayment) to a title company. This is the **most dangerous moment** in a person's financial life.
+When you buy a house, you must wire your life savings (the downpayment) to a title company. This is the most dangerous moment in a person's financial life.
 
-Hackers often "spoof" an escrow officer's email and send "Updated Wire Instructions" with their own bank account. This is called **Wire Fraud**, and it costs homebuyers $400 million a year.
+Hackers often "spoof" an escrow officer's email and send "Updated Wire Instructions" with their own bank account. This is called Wire Fraud, and it costs homebuyers $400 million a year.
 
 **Verified Wire Instructions** provide a "Digital Shield." By scanning the hash on the PDF, the buyer gets 100% confirmation from the title company's domain that the bank details are real *before* they hit "Send" at the bank.
 
@@ -150,7 +150,7 @@ WIRE TRANSFER DETAILS
 ───────────────────────────────────────────────────────────────────
 Beneficiary Bank:  Wells Fargo, N.A.
 Account Name:      First American Escrow Account
-Account #:         ****-****-9988
+Account #:         **-**-9988
 Routing #:         123456789
 Ref (Escrow #):    2026-992288
 
@@ -164,7 +164,7 @@ Elena Rossi, Escrow Officer                            [ESCROW SEAL]
 <span data-verify-line="escrow-wire">verify:firstam.com/escrow/v</span> <span verifiable-text="end" data-for="escrow-wire"></span>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Escrow number, Property address, Buyer/Seller names, Beneficiary Bank name, Routing/Account numbers, exact wire amount authorized, Escrow Officer ID, date of issuance.
 
@@ -174,19 +174,19 @@ Escrow number, Property address, Buyer/Seller names, Beneficiary Bank name, Rout
 - **ALTA Settlement Statement:** Detailed breakdown of all fees.
 - **Grant Deed:** (Linked hash) for recording verification.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`firstam.com`, `fnf.com`, `stewart.com`) and current status.
 
 **Status Indications:**
 - **Authorized** — Bank details match the official firm record.
-- **Urgent: Changed** — **ALERT:** Instructions have been updated; do not use old ones.
+- **Urgent: Changed** — Instructions have been updated; do not use old ones.
 - **Closed** — Escrow complete; funds should not be sent.
 - **Invalid** — Serial number or bank data mismatch (High fraud risk).
 
-## Second-Party Use
+## Who Holds It
 
-The **Buyer / Seller** (second party) receives the wire instructions from the title company (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Buyer / Seller (second party) receives the wire instructions from the title company (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of the wire instructions. Most of the time, the instructions sit in their closing folder—the verification value is latent, there *if needed*.
 
@@ -194,7 +194,7 @@ The **Buyer / Seller** (second party) receives the wire instructions from the ti
 
 **Future Optionality:** If a wire fraud incident occurs or a dispute arises about the closing, they have cryptographic proof of the authentic instructions ready without needing to contact the title company.
 
-## Third-Party Use
+## Who Checks It
 
 The buyer/seller (second party) may hand the verified document to various third parties:
 
@@ -207,7 +207,7 @@ The buyer/seller (second party) may hand the verified document to various third 
 **Title Insurers**
 **Risk Underwriting:** Verifying that the instructions and payouts followed the verified legal chain to avoid future "Mechanics Lien" or "Unsatisfied Mortgage" claims.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Real Estate Wire" Fraud Problem**
 
@@ -241,16 +241,16 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the title company's hashes and status changes plus structured metadata (escrow number, transaction amount, wire date, title company ID) — never buyer/seller names, property addresses, or bank account details — providing non-repudiation of wire instruction issuance and immutable proof critical for wire fraud investigations.
 
-## Competition vs. Secure Portals (Qualia)
+## Compared With Secure Portals (Qualia)
 
 | Feature | Live Verify | Secure Portal (Qualia/CertifID) | Scanned PDF / Email |
 | :--- | :--- | :--- | :--- |
 | **Trust Anchor** | **Domain-Bound.** Bound to the Firm. | **System-Bound.** Trust the vendor. | **Zero.** Easily forged. |
 | **Accessibility** | **Universal.** No login needed to verify. | **Difficult.** Requires buyer to create an account/password. | **Instant.** |
 | **Integrity** | **Binds Content.** Protects the account #. | **Data-Only.** | **Vulnerable.** |
-| **Hardware** | **Universal.** Any smartphone. | **Technical.** Often requires desktop browser. | **Manual.** |
+| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Technical.** Often requires desktop browser. | **Manual.** |
 
-**Why Live Verify wins here:** The "Moment of Action." A buyer is standing at their bank's wire desk. They are nervous. They don't want to struggle with a "Secure Portal" login or a forgotten password. Live Verify turns the **Printed Wire Instructions** into a live, high-speed trust bridge, providing "Bank-Grade" security with "Paper-Grade" simplicity.
+**Where each fits:** Secure closing portals such as Qualia and CertifID do more than confirm a document: they manage the transaction and, in some cases, back the wire with their own guarantees, so a buyer who is already enrolled should use them. Some buyers never complete the sign-up, and some are at the bank counter with a printout. Live Verify lets the buyer or the bank teller confirm that the wire instructions on the page are the ones the escrow firm issued, as a second check alongside the portal and the usual call-back.
 
 
 ---
@@ -260,7 +260,7 @@ _[Content merged from: escrow-closing-statements-ma]_
 
 ## What is an M&A Settlement Statement?
 
-When one company buys another, millions of dollars move through an **Escrow Agent**. The **Settlement Statement** is the final "Math Sheet" that everyone signs.
+When one company buys another, millions of dollars move through an Escrow Agent. The Settlement Statement is the final "Math Sheet" that everyone signs.
 
 It lists:
 1.  **The Purchase Price:** (e.g., $100,000,000).
@@ -292,11 +292,11 @@ Closing Date: March 15, 2026
 <span data-verify-line="ma">verify:jpmorgan.com/escrow/v</span> <span verifiable-text="end" data-for="ma"></span>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Deal Name, Buyer/Seller entities, Gross Purchase Price, Holdback/Indemnity amounts, Working Capital adjustments, Net Payouts, Closing Date, Escrow Agent ID.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`jpmorgan.com`, `citibank.com`) and current fund status.
 
@@ -306,9 +306,9 @@ Shows the issuer domain (`jpmorgan.com`, `citibank.com`) and current fund status
 - **Disputed** — An indemnity claim has been filed against the escrow.
 - **Void** — Transaction cancelled post-signing.
 
-## Second-Party Use
+## Who Holds It
 
-The **Selling Shareholders** (second party) receive the settlement statement from the escrow agent (first party), **keep it**, and may later hand it to third parties for various reasons, or never do so.
+The Selling Shareholders (second party) receive the settlement statement from the escrow agent (first party), keep it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of the deal terms and payout breakdown. Most of the time, the statement sits in their financial records—the verification value is latent, there *if needed*.
 
@@ -316,7 +316,7 @@ The **Selling Shareholders** (second party) receive the settlement statement fro
 
 **Future Optionality:** If a dispute arises about holdback releases, indemnity claims, or tax reporting, they have cryptographic proof of the settlement ready without needing to contact the escrow agent.
 
-## Third-Party Use
+## Who Checks It
 
 The selling shareholders (second party) may hand the verified document to various third parties:
 
@@ -326,7 +326,7 @@ The selling shareholders (second party) may hand the verified document to variou
 **Future Buyers (Secondary M&A)**
 **History Audit:** If the company is sold again 5 years later, the new buyer can verify the original "Purchase Price" and "Holdback Release" terms from the digital hash.
 
-## Competition vs. Virtual Data Rooms (VDR)
+## Compared With Virtual Data Rooms (VDR)
 
 | Feature | Live Verify | VDR (Intralinks / Merrill) | Scanned PDF |
 | :--- | :--- | :--- | :--- |
@@ -334,9 +334,7 @@ The selling shareholders (second party) may hand the verified document to variou
 | **Trust Anchor** | **Domain-Bound.** Bound to the Bank. | **System-Bound.** | **Zero.** Easily forged. |
 | **Permanence** | **Permanent.** Binds the *text* forever. | **Temporary.** Portals are deal-specific. | **Durable.** |
 
-**Why Live Verify wins here:**
-The "Post-Deal Gap." Three years after a deal closes, the VDR is gone and the lawyers have moved on. When an IRS auditor or a new buyer asks for proof, the **Static PDF** is all that's left. Live Verify turns that PDF into a permanent, verifiable "Source of Truth."
-
+**Where each fits:** A virtual data room is the right tool while a deal is live: controlled access, version history and a full index of the documents. Access generally ends some time after closing. Live Verify suits what comes afterwards, when a tax auditor, a later buyer or a court is handed the escrow agreement as a PDF and has no route into a room that no longer exists. They can still confirm that the escrow agent stands behind that text.
 
 
 ---
@@ -346,14 +344,14 @@ _[Content merged from: escrow-instructions-closing]_
 
 ## What are Escrow Instructions?
 
-When a house is sold, the **Escrow Officer** is the neutral umpire. They hold the money and wait for the "Instructions" from both parties.
+When a house is sold, the Escrow Officer is the neutral umpire. They hold the money and wait for the "Instructions" from both parties.
 
-These **Instructions** are the legal blueprints for the payout. They tell the officer exactly who to pay:
+These Instructions are the legal blueprints for the payout. They tell the officer exactly who to pay:
 1.  **The Seller:** "Pay them $400,000."
 2.  **The Bank:** "Pay off the existing $200,000 mortgage."
 3.  **The Tax Man:** "Pay the county $5,000 in property tax."
 
-Fraud is rampant: scammers often send fake "Updated Instructions" to the escrow officer to divert the seller's money to a foreign bank account. Verified hashes allow the officer to verify the **authenticity of the signature and the bank details** on the paper instructions.
+Fraud is rampant: scammers often send fake "Updated Instructions" to the escrow officer to divert the seller's money to a foreign bank account. Verified hashes allow the officer to verify the authenticity of the signature and the bank details on the paper instructions.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="escrow-inst"></span>
@@ -369,7 +367,7 @@ WIRE TRANSFER DETAILS
 ───────────────────────────────────────────────────────────────────
 Bank:         Chase Bank, N.A.
 Account Name: SARAH J. DOE
-Account #:    ****-****-9922
+Account #:    **-**-9922
 Amount:       $ 442,500.42
 
 Note: Any changes to these instructions must be verified in person
@@ -382,23 +380,23 @@ Seller Signature
 <span data-verify-line="escrow-inst">verify:stewart.com/escrow/v</span> <span verifiable-text="end" data-for="escrow-inst"></span>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Escrow number, Property address, Seller/Recipient name, Beneficiary Bank, Routing/Account numbers, total payout amount, date of signing, Escrow Officer name.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`stewart.com`, `firstam.com`) and current authorization status.
 
 **Status Indications:**
 - **Authorized** — Instructions match the signed record in the file.
-- **Changed** — **ALERT:** New instructions have been received; older versions are void.
+- **Changed** — New instructions have been received; older versions are void.
 - **Executed** — Money has already been sent; no further changes allowed.
 - **Hold** — Under investigation for suspected wire fraud.
 
-## Second-Party Use
+## Who Holds It
 
-The **Seller** (second party) receives the disbursement authorization from the title company (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Seller (second party) receives the disbursement authorization from the title company (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of the disbursement instructions. Most of the time, the authorization sits in their closing records—the verification value is latent, there *if needed*.
 
@@ -406,7 +404,7 @@ The **Seller** (second party) receives the disbursement authorization from the t
 
 **Future Optionality:** If a dispute arises about where funds were sent or wire fraud occurs, they have cryptographic proof of the authentic disbursement authorization ready without needing to contact the title company.
 
-## Third-Party Use
+## Who Checks It
 
 The seller (second party) may hand the verified document to various third parties:
 
@@ -416,7 +414,7 @@ The seller (second party) may hand the verified document to various third partie
 **Banks (Receiving Bank)**
 **KYC/Source of Wealth:** Verifying the "Disbursement Logic" behind a large incoming wire to ensure it matches a legitimate real estate sale.
 
-## Competition vs. Secure Portals (CertifID)
+## Compared With Secure Portals (CertifID)
 
 | Feature | Live Verify | CertifID / Secure Portal | Scanned PDF / Email |
 | :--- | :--- | :--- | :--- |
@@ -425,6 +423,5 @@ The seller (second party) may hand the verified document to various third partie
 | **Integrity** | **Binds All Data.** Protects every digit. | **Data-Only.** | **Vulnerable.** |
 | **Legal Status** | **Cryptographic Artifact.** | **Platform Service.** | **Vulnerable PDF.** |
 
-**Why Live Verify wins here:**
-The "Closing Room" reality. Closings often happen at a conference table with physical papers. Sellers and Buyers are often older and not tech-savvy. They don't want to "Login to a Portal." They want to sign a piece of paper. Live Verify turns that **Signed Paper** into a high-security digital key that even a hacker in a different country cannot spoof.
+**Where each fits:** Portals such as CertifID are well suited to parties willing to set up a login, and they add protections around the transfer that a document check does not. Many closings still take place around a table with paper, and some participants will not create an account for a single transaction. Live Verify lets them check the printed instructions against the title company's own domain there and then, and it works as a companion to the portal rather than a rival.
 

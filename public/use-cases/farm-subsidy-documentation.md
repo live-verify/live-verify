@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Farm Subsidy?
 
-A **Farm Subsidy** is a payment from the government (USDA) to help farmers manage the risk of low crop prices or bad weather.
+A Farm Subsidy is a payment from the government (USDA) to help farmers manage the risk of low crop prices or bad weather.
 
-Because these payments reach **billions of dollars annually**, they are highly regulated. To get one, a farmer must prove they are "Actively Engaged in Farming" and that their personal income isn't too high (the AGI rule).
+Because these payments reach billions of dollars annually, they are highly regulated. To get one, a farmer must prove they are "Actively Engaged in Farming" and that their personal income isn't too high (the AGI rule).
 
 Farmers use these verified eligibility letters to get "Operating Loans" from banks to buy seeds and fertilizer. Fraudsters often edit these letters to look eligible for higher payments than they actually are. Verified hashes link the bank directly to the USDA's official approval record.
 
@@ -49,7 +49,13 @@ Farmers use these verified eligibility letters to get "Operating Loans" from ban
   </div>
 </div>
 
-## Data Verified
+## The Problem: Urban Farmer Fraud
+
+- **Active Engagement Fraud:** Claiming to be "Actively Engaged" in a farm (which triggers a higher subsidy limit) while actually living in a city and performing no labor.
+- **Entity Splitting:** Creating 10 shell companies to bypass the $125,000 annual payment limit. Verification of the "Ultimate Beneficial Owner" hash stops this.
+- **AGI Padding:** Editing a "Failed" AGI disclosure to read "Pass" to qualify for subsidies while earning over $900,000 in non-farm income.
+
+## What Is Checked
 
 Producer name, business TIN (redacted), program type (ARC, PLC, CRP), plan year, eligibility status, total payment limit, AGI (Adjusted Gross Income) compliance status, county office ID, date of approval.
 
@@ -58,25 +64,25 @@ Producer name, business TIN (redacted), program type (ARC, PLC, CRP), plan year,
 - **Conservation Reserve Program (CRP) Contract:** Proving land is in a verified environmental program.
 - **Subsidy Payment Receipt:** Formal proof of funds received from the government.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`fsa.usda.gov`, `nrcs.usda.gov`) and current compliance standing.
 
 **Status Indications:**
 - **Eligible** — Producer meets all statutory requirements for payment.
-- **Ineligible** — **ALERT:** AGI limit exceeded or "Active Engagement" rules failed.
+- **Ineligible** — AGI limit exceeded or "Active Engagement" rules failed.
 - **Suspended** — Under investigation for fraud or data error.
 - **Lapsed** — Re-certification required for current plan year.
 
-## Second-Party Use
+## Who Holds It
 
-The **Farmer (Producer)** benefits from verification.
+The Farmer (Producer) benefits from verification.
 
 **Operating Loans:** Proving to a local ag-bank (e.g., John Deere Financial or Rabobank) that their 2026 "ARC Payment" is verified and approved. This allows the farmer to use the expected government subsidy as collateral for a short-term loan to buy seeds and fuel.
 
 **Land Leases:** Proving to a landowner that the tenant is eligible for government programs, ensuring the farm's financial stability.
 
-## Third-Party Use
+## Who Checks It
 
 **Ag-Lenders (Banks)**
 **Collateral Vetting:** Verifying the "Payment Limit" listed on the producer's summary. If the paper says "$125,000" but the hash says "$50,000," the bank avoids an under-collateralized loan.
@@ -87,13 +93,7 @@ The **Farmer (Producer)** benefits from verification.
 **Sustainability Auditors**
 **Conservation Verification:** Verifying that a farm is actually enrolled in the "Conservation Reserve Program" (CRP) before assigning a higher "Sustainability Rating" to their products.
 
-## Verification Architecture
-
-**The "Urban Farmer" Fraud Problem**
-
-- **Active Engagement Fraud:** Claiming to be "Actively Engaged" in a farm (which triggers a higher subsidy limit) while actually living in a city and performing no labor.
-- **Entity Splitting:** Creating 10 shell companies to bypass the $125,000 annual payment limit. Verification of the "Ultimate Beneficial Owner" hash stops this.
-- **AGI Padding:** Editing a "Failed" AGI disclosure to read "Pass" to qualify for subsidies while earning over $900,000 in non-farm income.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -119,13 +119,13 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the USDA's hashes and status changes plus structured metadata (key identifiers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the eligibility determination it issued.
 
 
-## Competition vs. USDA Portals (Farmers.gov)
+## Compared With USDA Portals (Farmers.gov)
 
 | Feature | Live Verify | Farmers.gov Portal | Paper Eligibility Notice |
 | :--- | :--- | :--- | :--- |
 | **User Access** | **Open.** Any bank or landlord can verify. | **Restricted.** Requires secure USDA eAuthentication Level 2. | **Instant.** |
 | **Trust Anchor** | **Domain-Bound.** Bound to the USDA. | **Gov-Bound.** | **Zero.** Easily forged. |
 | **Integrity** | **Binds Content.** Protects the $ limit. | **Data-Only.** Doesn't protect the paper. | **Vulnerable.** |
-| **Hardware** | **Universal.** Any phone camera. | **Technical.** Requires laptop/dedicated app. | **Visual.** |
+| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Technical.** Requires laptop/dedicated app. | **Visual.** |
 
-**Why Live Verify wins here:** The "Ag-Hometown" reality. Local bank officers and farmers often work via paper and email. They don't have the time or technical "Federal Vetting" needed to log into the USDA's internal systems. Live Verify turn the **Government Notice** into a live, high-speed trust bridge, allowing rural finance to move at the speed of the web.
+**Where each fits:** Farmers.gov is where a producer manages their own USDA business, and its strict authentication is appropriate for that. The producer's bank, landlord or equipment dealer has no such access and sees only the eligibility notice the farmer brings in. Live Verify lets that third party confirm the notice is as the agency issued it, while the farmer goes on using the portal for everything else.

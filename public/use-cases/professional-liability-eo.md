@@ -15,7 +15,7 @@ furtherDerivations: 1
 
 It is the "Insurance for Brainwork." If an architect's design causes a balcony to collapse, or a lawyer misses a filing deadline, E&O pays the massive legal and settlement costs.
 
-**"Retroactive Date Fraud"** is a critical risk in this sector. E&O policies are usually "Claims-Made," meaning they only cover work done after a specific **Retroactive Date**. A professional who missed a design error 5 years ago might "edit" their certificate's retroactive date from 2024 to 2015 to hide that they weren't actually insured at the time of the error. Verified hashes bind the **Policy Limits and the Retroactive Date** to the underwriter's domain.
+**"Retroactive Date Fraud"** is a critical risk in this sector. E&O policies are usually "Claims-Made," meaning they only cover work done after a specific Retroactive Date. A professional who missed a design error 5 years ago might "edit" their certificate's retroactive date from 2024 to 2015 to hide that they weren't actually insured at the time of the error. Verified hashes bind the Policy Limits and the Retroactive Date to the underwriter's domain.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="eo"></span>
@@ -38,7 +38,7 @@ Each Claim Limit                                       $ 2,000,000
 Aggregate Policy Limit                                 $ 5,000,000
 Deductible (Retention)                                    $ 25,000
 
-*** RETROACTIVE DATE: January 01, 2015 ***
+* RETROACTIVE DATE: January 01, 2015 *
 
 Policy Period: March 15, 2026 to March 15, 2027
 
@@ -46,7 +46,13 @@ Policy Period: March 15, 2026 to March 15, 2027
 <span data-verify-line="eo">verify:hiscox.com/certificates/v</span> <span verifiable-text="end" data-for="eo"></span>
 </div>
 
-## Data Verified
+## The Problem: Claims-Made Fraud
+
+- **Retroactive Date Tampering:** Changing a 2024 date to 2015 to "back-date" coverage for a known design error.
+- **Policy Padding:** Editing a $1M policy to read $10M to meet a client's "Master Service Agreement" requirement.
+- **Cancellation Hiding:** Keeping a paper certificate on file after the professional stopped paying the premium 6 months ago.
+
+## What Is Checked
 
 Named Insured (Firm/Professional), Policy Number, Coverage Limits (Per-Claim/Aggregate), Deductible Amount, Retroactive Date (Archival work start), Extended Reporting Period (Tail), Issuing Carrier (NAIC code), Professional Discipline (e.g., "Lawyer" vs "Architect").
 
@@ -56,19 +62,19 @@ Named Insured (Firm/Professional), Policy Number, Coverage Limits (Per-Claim/Agg
 - **Binder of Insurance:** Temporary proof before the full policy is issued.
 - **Declarations Page:** The "Face Page" of the long-form contract.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`hiscox.com`, `travelers.com`, `aig.com`) and policy standing.
 
 **Status Indications:**
 - **Active/In-Force** — Policy is paid and verified.
-- **Cancelled** — **ALERT:** Professional no longer has malpractice coverage.
-- **Limit Eroded** — **ALERT:** Prior claims have significantly reduced the remaining coverage.
+- **Cancelled** — Professional no longer has malpractice coverage.
+- **Limit Eroded** — Prior claims have significantly reduced the remaining coverage.
 - **Tail Only** — Coverage only for past work; current work is uninsured.
 
-## Second-Party Use
+## Who Holds It
 
-The **Professional Firm** (second party) receives the E&O certificate from the insurance carrier (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Professional Firm (second party) receives the E&O certificate from the insurance carrier (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of their coverage limits and retroactive date. Most of the time, the document sits in their business files—the verification value is latent, there *if needed*.
 
@@ -76,7 +82,7 @@ The **Professional Firm** (second party) receives the E&O certificate from the i
 
 **Future Optionality:** If a claim arises or a contract is disputed, they have cryptographic proof of their coverage ready without needing to contact the broker or carrier.
 
-## Third-Party Use
+## Who Checks It
 
 The professional firm (second party) may hand the verified document to various third parties:
 
@@ -89,13 +95,7 @@ The professional firm (second party) may hand the verified document to various t
 **Lenders and Investors**
 **Due Diligence:** Verifying the "Malpractice Safety Net" of a target firm during a merger or acquisition (M&A) deal.
 
-## Verification Architecture
-
-**The "Claims-Made" Fraud Problem**
-
-- **Retroactive Date Tampering:** Changing a 2024 date to 2015 to "back-date" coverage for a known design error.
-- **Policy Padding:** Editing a $1M policy to read $10M to meet a client's "Master Service Agreement" requirement.
-- **Cancellation Hiding:** Keeping a paper certificate on file after the professional stopped paying the premium 6 months ago.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -123,13 +123,13 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the carrier's hashes and status changes plus structured metadata (policy number, coverage limits, retroactive date, professional category, policy period) — never firm names, specific claim details, or premium amounts — providing non-repudiation of the coverage terms and retroactive date.
 
-## Competition vs. ACORD 25 Forms
+## Compared With ACORD 25 Forms
 
 | Feature | Live Verify | Standard ACORD 25 (PDF) | Broker Portal |
 | :--- | :--- | :--- | :--- |
 | **Trust Anchor** | **Domain-Bound.** Bound to the Carrier. | **None.** Easily edited in Acrobat. | **System-Bound.** |
 | **Integrity** | **Binds Retro Date.** Protects the history. | **Zero.** Text can be deleted. | **High.** |
 | **Speed** | **Instant.** 5-second scan. | **N/A.** Requires reading. | **Slow.** Requires login. |
-| **Availability** | **Universal.** Any smartphone. | **Visual.** | **Restricted.** |
+| **Availability** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Visual.** | **Restricted.** |
 
-**Why Live Verify wins here:** The "Claims-Made" Reality. In professional services, the *integrity of the dates* is more important than the paper itself. Live Verify turns the **Static Certificate** into a live link to the carrier's ledger, ensuring that the "Professional Safety Net" is a cryptographically verified and active fact.
+**Where each fits:** The ACORD certificate is the format the market expects, and a broker portal gives the broker's own clients a dependable view of their coverage. The party asking for proof of cover, typically a client or counterparty, usually has no portal access and receives the certificate as a PDF. Live Verify lets them confirm that the carrier stands behind it, retroactive date included; the certificate keeps its familiar form and the portal its role.

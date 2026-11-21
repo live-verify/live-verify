@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Property Title Deed?
 
-A **title deed** is the legal instrument that transfers ownership of real property from one owner to another. It is the recorded step in the chain of title for a piece of land.
+A title deed is the legal instrument that transfers ownership of real property from one owner to another. It is the recorded step in the chain of title for a piece of land.
 
-In most jurisdictions, a deed is not fully effective against third parties until it is **Recorded** in the county's official land records.
+In most jurisdictions, a deed is not fully effective against third parties until it is Recorded in the county's official land records.
 
 ## What property registries actually need to do
 
@@ -213,7 +213,13 @@ verify:kingcounty.gov/recorder/v
 </pre>
 </div>
 
-## Data Verified
+## The Problem: Dirty Paper Fraud
+
+- **Signature Forgery:** The #1 real estate fraud. Criminals forging transfer authority on a Quitclaim deed.
+- **"Wild Deeds":** Recording a deed that looks real but has no connection to the previous owner in the chain.
+- **Notary Fraud:** Using a stolen or fabricated notary seal to make a fake deed look "Official."
+
+## What Is Checked
 
 Title or parcel reference, full legal description (Metes and Bounds or Lot/Block), tax parcel ID (APN), prior instrument reference, current instrument number, recording timestamp, transfer type, chain position, and optionally sale-history summary.
 
@@ -226,28 +232,28 @@ Title or parcel reference, full legal description (Metes and Bounds or Lot/Block
 - **Trustee's / Executor's Deed:** Transfers from trusts, estates, or foreclosures.
 - **Correction Deed:** Issued to fix errors in previous filings.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the County Recorder or Registrar) and the current title-chain status.
 
-**Important:** this page should model the **title / chain-of-history layer**, not every possible property state. Occupancy, listing status, vacancy, physical destruction, and similar matters are better handled by a separate multidimensional property-state record.
+**Important:** this page should model the title / chain-of-history layer, not every possible property state. Occupancy, listing status, vacancy, physical destruction, and similar matters are better handled by a separate multidimensional property-state record.
 
 **Status Indications:**
 - **Recorded** — Document is authentic and part of the official chain of title.
 - **Verified-But-Superseded** — Document was authentic when recorded, but later recorded transfers mean it is now historical only. A privacy-preserving response may state that later transfers exist and how many, without disclosing current owner identity or successor instrument details.
-- **Voided/Fraud Alert** — **ALERT:** County has flagged this instrument as fraudulent or revoked by court order.
+- **Voided/Fraud Alert** — County has flagged this instrument as fraudulent or revoked by court order.
 - **Amended** — Superseded by a "Correction Deed" (linked hash).
 - **Pending** — Received by the county but not yet fully indexed.
 
-## Second-Party Use
+## Who Holds It
 
-The **Property Owner (Grantee)** benefits from verification.
+The Property Owner (Grantee) benefits from verification.
 
 **Equity Protection:** Proving to a lender or a buyer that the deed is the "Verified Last-in-Chain" instrument. This stops "Title Theft" before it can happen, as the owner can set a "Watch" on their own property hash.
 
 **Estate Planning:** Ensuring that a deed transferring a home into a family trust is verified and recorded correctly, preventing probate delays.
 
-## Third-Party Use
+## Who Checks It
 
 **Title Insurance Companies**
 **Chain of Title Integrity:** During a home sale, the title officer scans every deed in the 30-year history. "Verified by County" ensures no "Wild Deeds" or fake instruments were inserted into the records to hide a lien or steal ownership.
@@ -258,13 +264,7 @@ The **Property Owner (Grantee)** benefits from verification.
 **Real Estate Attorneys**
 **Litigation Evidence:** In a "Quiet Title" action, providing the court with a cryptographically verified history of every transfer, making it impossible for opposing parties to present forged paper deeds.
 
-## Verification Architecture
-
-**The "Dirty Paper" Fraud Problem**
-
-- **Signature Forgery:** The #1 real estate fraud. Criminals forging transfer authority on a Quitclaim deed.
-- **"Wild Deeds":** Recording a deed that looks real but has no connection to the previous owner in the chain.
-- **Notary Fraud:** Using a stolen or fabricated notary seal to make a fake deed look "Official."
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -289,16 +289,16 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the county recorder's hashes and status changes plus structured metadata (parcel number, deed date, grantor/grantee names, recording date, document type) — never plaintext or sensitive personal information — providing non-repudiation of the recorded property transfer.
 
 
-## Competition vs. Blockchain (NFTs)
+## Compared With Blockchain (NFTs)
 
 | Feature | Live Verify | Blockchain (NFT) | Traditional Paper |
 | :--- | :--- | :--- | :--- |
 | **Legal Standing** | **High.** Binds to existing laws. | **Low.** Courts don't yet recognize NFTs as deeds. | **Standard.** |
-| **Accessibility** | **Universal.** Any smartphone. | **Technical.** Requires crypto-wallets. | **Visual.** |
+| **Accessibility** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Technical.** Requires crypto-wallets. | **Visual.** |
 | **Implementation** | **Cheap.** API over existing DB. | **Expensive.** Requires new legal framework. | **Manual.** |
 | **Trust Anchor** | **The County.** (Elected Official). | **The Network.** (Decentralized). | **The Paper.** |
 
-**Why Live Verify wins here:** The "Recorder's Counter" reality. Real estate law is 500 years old. It moves slowly. Live Verify provides **"Digital Integrity for Paper Reality"**—it gives the benefits of a blockchain (immutability and verification) without requiring the world to rewrite its property laws or abandon the physical deed. For ordinary homeowner privacy, a separate short-lived ownership-proof use case should sit on top of this permanent title layer rather than reusing the permanent deed artifact directly.
+**Where each fits:** The recorder's office and the paper deed remain the legal foundation of title, and nothing here changes that. Ledger-based title systems may suit jurisdictions that choose to legislate for them. Live Verify is a modest addition to the existing arrangement: it lets someone holding a copy of a deed confirm it against the county's own domain, without new law or special software. For ordinary homeowner privacy, a separate short-lived ownership-proof use case should sit on top of this permanent title layer rather than reusing the permanent deed artifact directly.
 
 ## See Also
 

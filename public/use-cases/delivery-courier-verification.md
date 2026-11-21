@@ -15,7 +15,7 @@ furtherDerivations: 1
 
 Most deliveries don't need verification. An Amazon envelope dropped at the door, a letterbox parcel, a "leave in safe place" delivery — the courier comes and goes without meaningful interaction. The package is the point, and it either arrives or it doesn't.
 
-Verification matters when the delivery requires the resident to **open the door and engage with the courier** — and especially when the courier needs to **enter the property**:
+Verification matters when the delivery requires the resident to open the door and engage with the courier — and especially when the courier needs to **enter the property**:
 
 - **Signature-required deliveries** — the courier needs face-to-face interaction. This is the entry point for home-invasion attempts disguised as deliveries.
 - **Large or heavy items requiring indoor delivery** — furniture, appliances, white goods. "We need to bring this to your kitchen" is a different trust decision from accepting an envelope.
@@ -56,7 +56,13 @@ Live Verify allows a resident to scan the driver's ID badge or a printed deliver
   </div>
 </div>
 
-## Data Verified
+## The Problem: Delivery Camouflage Fraud
+
+- **Uniform Theft:** Criminals buying old uniforms on eBay to pose as drivers.
+- **Stolen IDs:** Using a lost/stolen badge to gain access to high-end apartment complexes.
+- **Fake Door Tags:** Leaving "Missed Delivery" tags with a fake phone number to steal PII or payment info for "Re-delivery fees."
+
+## What Is Checked
 
 Courier name, employee ID, company division (Express/Ground/Freight), hub location, photograph (via hash), expiration date, background check status.
 
@@ -65,7 +71,7 @@ Courier name, employee ID, company division (Express/Ground/Freight), hub locati
 - **Delivery Manifest (Door Tag):** Left on the door for missed deliveries.
 - **Contractor Identification:** For third-party "Gig" delivery partners.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`fedex.com`, `ups.com`, `dhl.com`, `usps.gov`) and the driver's current status.
 
@@ -73,11 +79,11 @@ Shows the issuer domain (`fedex.com`, `ups.com`, `dhl.com`, `usps.gov`) and the 
 - **On Duty** — Driver is currently clocked in and assigned to a route.
 - **Verified** — Person is an active employee in good standing.
 - **Inactive** — Person is no longer employed (e.g., fired or resigned).
-- **Fraud Alert** — **ALERT:** This ID has been reported stolen or misused.
+- **Fraud Alert** — This ID has been reported stolen or misused.
 
-## Second-Party Use
+## Who Holds It
 
-The **Courier / Driver** (second party) receives the ID badge from the courier company (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Courier / Driver (second party) receives the ID badge from the courier company (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified credential. Most of the time, the badge sits in their pocket or lanyard—the verification value is latent, there *if needed*.
 
@@ -85,7 +91,7 @@ The **Courier / Driver** (second party) receives the ID badge from the courier c
 
 **Future Optionality:** If a dispute arises about their employment, delivery assignments, or an incident during a delivery, they have cryptographic proof of their authorized status ready without needing to contact the company.
 
-## Third-Party Use
+## Who Checks It
 
 The courier (second party) may hand the verified credential to various third parties:
 
@@ -98,13 +104,7 @@ The courier (second party) may hand the verified credential to various third par
 **Insurance Companies**
 **Liability Verification:** Verifying that a driver involved in a parking lot accident was actually on duty for the claimed company at the time of the incident.
 
-## Verification Architecture
-
-**The "Delivery Camouflage" Fraud Problem**
-
-- **Uniform Theft:** Criminals buying old uniforms on eBay to pose as drivers.
-- **Stolen IDs:** Using a lost/stolen badge to gain access to high-end apartment complexes.
-- **Fake Door Tags:** Leaving "Missed Delivery" tags with a fake phone number to steal PII or payment info for "Re-delivery fees."
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -138,7 +138,7 @@ This pattern applies across the gig economy: anyone doing 50+ brief interactions
 
 **Primary scenario: Physical OCR, not text-to-hash.**
 
-This use case is fundamentally **doorstep-based**. The verification happens in person: a resident looks through a peephole, a doorman stands at a lobby desk, a security guard checks credentials at a gate. The badge is physical (lanyard, card, e-ink display), and the verification happens via camera/OCR on the spot.
+This use case is fundamentally doorstep-based. The verification happens in person: a resident looks through a peephole, a doorman stands at a lobby desk, a security guard checks credentials at a gate. The badge is physical (lanyard, card, e-ink display), and the verification happens via camera/OCR on the spot.
 
 **Text-to-hash applicability is limited to:**
 - **Insurance claims / HR disputes:** An employee emails a photo of their badge to HR or an insurer. The recipient selects the text (employee ID, salt, verify line) from the digital image and verifies.
@@ -161,7 +161,7 @@ _[Content merged from: delivery-driver-verification]_
 
 With the rise of "Gig Work" (like Amazon Flex), the person delivering your package is often driving their own personal car and wearing a simple vest.
 
-The **Driver Badge** is their "Security Key." It proves they are an authorized worker currently on an active route.
+The Driver Badge is their "Security Key." It proves they are an authorized worker currently on an active route.
 
 Scammers often wear fake high-visibility vests to get inside apartment buildings or gated communities to "case" homes or steal packages. Live Verify allows a doorman or resident to scan the badge and see a green "ON-DUTY" status from the company's domain, stopping "Fake Courier" home invasions.
 
@@ -196,7 +196,7 @@ Scammers often wear fake high-visibility vests to get inside apartment buildings
   </div>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Driver name, photo (hash), route ID, vehicle type/plate (partial), employment status (Active/On-Duty), delivery company name, date of authorization.
 
@@ -205,7 +205,7 @@ Driver name, photo (hash), route ID, vehicle type/plate (partial), employment st
 - **Vehicle Window Permit:** For independent contractors (DSP/Flex).
 - **Delivery App Dashboard:** Digital proof shown on the driver's phone.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`amazon.com`, `ups.com`, `fedex.com`) and current worker status.
 
@@ -215,9 +215,9 @@ Shows the issuer domain (`amazon.com`, `ups.com`, `fedex.com`) and current worke
 - **Suspended** — Driver under review; access restricted.
 - **Invalid** — Badge reported lost or stolen.
 
-## Second-Party Use
+## Who Holds It
 
-The **Delivery Driver** (second party) receives the ID badge from the logistics company (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Delivery Driver (second party) receives the ID badge from the logistics company (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified credential proving their employment and route assignment. Most of the time, the badge sits on their lanyard—the verification value is latent, there *if needed*.
 
@@ -225,7 +225,7 @@ The **Delivery Driver** (second party) receives the ID badge from the logistics 
 
 **Future Optionality:** If a dispute arises about their employment, an incident during a delivery, or access issues, they have cryptographic proof of their authorized status ready without needing to contact the company.
 
-## Third-Party Use
+## Who Checks It
 
 The delivery driver (second party) may hand the verified credential to various third parties:
 
@@ -238,7 +238,7 @@ The delivery driver (second party) may hand the verified credential to various t
 **Law Enforcement**
 **Impersonation Checks:** Verifying the credentials of individuals claiming to be "Delivery Drivers" during neighborhood patrols or suspicious activity stops.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Fake Courier" Fraud Problem**
 
@@ -285,16 +285,16 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. In-App Notifications
+## Compared With In-App Notifications
 
 | Feature | Live Verify | App Notification (Amazon App) | Uniform / Physical Badge |
 | :--- | :--- | :--- | :--- |
 | **Integrity** | **Cryptographic.** Binds face to duty status. | **High.** Direct from server. | **Low.** Easily bought online. |
-| **Accessibility** | **Universal.** Doormen can verify without an app. | **Closed Loop.** Only the *recipient* sees the alert. | **Visual.** Trusted only via logo. |
+| **Accessibility** | **Open.** Doormen can verify with Live Verify on their own phone; no courier app or account. | **Closed Loop.** Only the *recipient* sees the alert. | **Visual.** Trusted only via logo. |
 | **Trust Anchor** | **Domain-Bound.** Bound to the Company. | **System-Bound.** | **Zero.** Easily faked. |
 | **Field Access** | **Instant.** 5-second scan. | **Zero.** Doorman cannot see the customer's phone. | **Instant.** |
 
-**Why Live Verify wins here:** The "Doorman Dilemma." In a large apartment building, the doorman doesn't know which of the 500 residents ordered an Amazon package. They cannot see the resident's private app notification. Live Verify turns the **Driver's Badge** into a public-facing trust bridge, allowing the doorman to verify the driver independently.
+**Where each fits:** The carrier's app notification is the best assurance a recipient can get, because it comes straight from the company's servers to the person who placed the order. It reaches only that person. A doorman, receptionist or neighbour taking the parcel has no view of someone else's phone, and Live Verify gives them a way to check the driver's badge against the delivery company's own domain. The two sit together comfortably: the app for the customer, the badge check for everyone else at the door.
 
 ## Food Delivery Drivers
 

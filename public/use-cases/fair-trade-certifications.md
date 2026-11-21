@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is Fair Trade?
 
-If you see a **Fairtrade Certified** logo on a bag of coffee, it means the farmers in Colombia or Ethiopia were paid a fair price and work in safe conditions.
+If you see a Fairtrade Certified logo on a bag of coffee, it means the farmers in Colombia or Ethiopia were paid a fair price and work in safe conditions.
 
 This "Ethical Premium" is worth billions of dollars. Large retailers (like Starbucks or Whole Foods) only buy from certified cooperatives.
 
-"Greenwashing" is a major fraud: unscrupulous companies often put fake logos on their bags to charge more for "Slave-Labor" coffee. Verified hashes allow a consumer or a grocery store buyer to scan the bag and see the **verified audit status** from the global standard-body's domain instantly.
+"Greenwashing" is a major fraud: unscrupulous companies often put fake logos on their bags to charge more for "Slave-Labor" coffee. Verified hashes allow a consumer or a grocery store buyer to scan the bag and see the verified audit status from the global standard-body's domain instantly.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 2px solid #388e3c; border-radius: 8px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #388e3c; color: #fff; padding: 20px; display: flex; align-items: center; justify-content: center;">
@@ -47,7 +47,13 @@ This "Ethical Premium" is worth billions of dollars. Large retailers (like Starb
   </div>
 </div>
 
-## Data Verified
+## The Problem: Greenwashing Fraud
+
+- **Logo Misuse:** Putting the Fairtrade logo on a non-certified product to charge a premium price.
+- **Audit Forgery:** Creating a fake "FLOCERT" audit report to hide unsafe working conditions or under-payment of farmers.
+- **Decertification Hiding:** Continuing to use a "Certified" paper certificate after the cooperative has been banned for labor violations.
+
+## What Is Checked
 
 Producer cooperative name, Fairtrade ID (FLO ID), specific product certified (e.g., Coffee, Cocoa, Cotton), region of origin, latest audit date, compliance status, certification body (e.g., FLOCERT), expiration date.
 
@@ -57,25 +63,25 @@ Producer cooperative name, Fairtrade ID (FLO ID), specific product certified (e.
 - **Transaction Certificate:** Proving a specific shipment is certified.
 - **Worker Rights Attestation:** For labor-intensive industries.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`fairtrade.net`, `flocert.net`, `rainforest-alliance.org`) and current standing.
 
 **Status Indications:**
 - **Certified** — Producer is in good standing and audit is current.
-- **Suspended** — **ALERT:** Non-compliance detected; status paused.
+- **Suspended** — Non-compliance detected; status paused.
 - **Decertified** — Permanently removed from the system due to major violations (e.g., child labor).
 - **Expired** — Re-audit overdue.
 
-## Second-Party Use
+## Who Holds It
 
-The **Producer Cooperative** benefits from verification.
+The Producer Cooperative benefits from verification.
 
 **Export Contracts:** Proving to a major coffee buyer (e.g., Starbucks or Nespresso) that their "Fairtrade" claim is verified by FLOCERT. This ensures they receive the "Fairtrade Minimum Price" and the "Fairtrade Premium," which can be worth millions in extra revenue.
 
 **Access to Markets:** Speeding up the onboarding process for high-end European or North American retailers who have strict "Ethical Sourcing" mandates.
 
-## Third-Party Use
+## Who Checks It
 
 **Sustainability Auditors (ESG)**
 **Supply Chain Mapping:** Large corporations can verify the hashes of all their producers' certificates to ensure 100% of their "Ethical" supply chain is legitimate, defending against "Greenwashing" accusations.
@@ -86,13 +92,7 @@ The **Producer Cooperative** benefits from verification.
 **Customs Authorities**
 **Tariff Benefits:** In some jurisdictions, "Ethical" goods receive preferential import treatment. Verification provides the legal proof needed for these benefits.
 
-## Verification Architecture
-
-**The "Greenwashing" Fraud Problem**
-
-- **Logo Misuse:** Putting the Fairtrade logo on a non-certified product to charge a premium price.
-- **Audit Forgery:** Creating a fake "FLOCERT" audit report to hide unsafe working conditions or under-payment of farmers.
-- **Decertification Hiding:** Continuing to use a "Certified" paper certificate after the cooperative has been banned for labor violations.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -118,13 +118,13 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the certifying body's hashes and status changes plus structured metadata (producer ID, certified product type, production region, audit status, audit number, issue date, expiration date, certifier name) — never plaintext producer contact information — providing non-repudiation of the fair trade certification.
 
 
-## Competition vs. Public Databases (FLOCERT)
+## Compared With Public Databases (FLOCERT)
 
 | Feature | Live Verify | FLOCERT Public Search | Static Logo |
 | :--- | :--- | :--- | :--- |
 | **Trust Anchor** | **Domain-Bound.** Bound to the Standard Body. | **Database.** Direct from source. | **Zero.** Just a JPEG. |
 | **Integrity** | **Binds Audit.** Protects the status. | **Data-Only.** Doesn't verify the paper. | **Vulnerable.** |
 | **Speed** | **Instant.** Scan at the point of sale. | **Slow.** Requires typing FLO ID and finding record. | **N/A.** |
-| **Hardware** | **Universal.** Any smartphone camera. | **Technical.** Requires laptop/dedicated search. | **Visual.** |
+| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Technical.** Requires laptop/dedicated search. | **Visual.** |
 
-**Why Live Verify wins here:** The "Supermarket Aisle" reality. Consumers decide to buy ethical products in seconds. They won't navigate a complex B2B database like FLOCERT. Live Verify turns the **Product Package** into a live, trusted bridge to the farmer's reality, making ethical shopping a "Verified Fact."
+**Where each fits:** FLOCERT's public search is the definitive source on whether an operator is certified, and trade buyers and auditors who know the FLO ID should use it. A shopper, a small retailer or an importer in another country is more likely to be looking at a certificate or a claim on packaging than at a database. Live Verify lets them confirm the certifying body stands behind that document, and the register remains the place for a full audit-level check.

@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is an ESTA?
 
-If you are a citizen of a "Visa Waiver" country (like the UK, Japan, or France), you don't need a formal visa to visit the US for vacation. Instead, you need an **ESTA (Electronic System for Travel Authorization)**.
+If you are a citizen of a "Visa Waiver" country (like the UK, Japan, or France), you don't need a formal visa to visit the US for vacation. Instead, you need an ESTA (Electronic System for Travel Authorization).
 
-This is a digital permit that links your passport to the US border system. You apply online, and if approved, you print out a **Confirmation Notice**.
+This is a digital permit that links your passport to the US border system. You apply online, and if approved, you print out a Confirmation Notice.
 
 Airlines are fined thousands of dollars for every passenger they let onto a plane without a valid ESTA. But the real source of truth is already the government's live status system. That makes ESTA a weak fit for standalone document verification: the better answer is usually easier access to the official status page or API, not a new printable verification layer.
 
@@ -50,7 +50,13 @@ Airlines are fined thousands of dollars for every passenger they let onto a plan
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Approval Fraud
+
+- **Fabricated PDFs:** Scammers creating fake "ESTA Approved" letters for people who are ineligible (e.g., due to a criminal record or travel to a restricted country).
+- **Date Alteration:** Editing the "Expiration Date" on a 2024 approval to make it look like it's valid for a 2026 trip.
+- **Passport Swapping:** Editing the name or passport number on a valid approval to match a different person.
+
+## What Is Checked
 
 Application number, full name, date of birth, passport number, country of citizenship, authorization status (Approved/Pending), issuance date, expiration date.
 
@@ -59,7 +65,7 @@ Application number, full name, date of birth, passport number, country of citize
 - **Group Application Summary:** For families traveling together.
 - **Status Change Notice:** Proving an old authorization was cancelled.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`cbp.dhs.gov`) and current travel standing.
 
@@ -69,15 +75,15 @@ Shows the issuer domain (`cbp.dhs.gov`) and current travel standing.
 - **Expired** — The 2-year validity period has ended.
 - **Pending** — Under manual review (usually resolved in 72 hours).
 
-## Second-Party Use
+## Who Holds It
 
-The **Traveler (Citizen of VWP Country)** benefits from verification.
+The Traveler (Citizen of VWP Country) benefits from verification.
 
 **Airline Boarding:** In the narrow case where a traveler is holding only a printout and the carrier lacks a smoother official lookup flow, verification can act as a convenience wrapper around the official status record.
 
 **Travel Administration:** A traveler or travel arranger can use the printout as a quick human-readable reference, while understanding that the real authority remains the official CBP status.
 
-## Third-Party Use
+## Who Checks It
 
 **Airlines (International Carriers)**
 The ideal answer is direct carrier integration with the official CBP status system. Live Verify would only be a convenience wrapper around that official state, not a replacement for it.
@@ -88,13 +94,7 @@ The ideal answer is direct carrier integration with the official CBP status syst
 **Private Security / Event Organizers**
 This is weak as a core use. If legal-entry status matters, direct official documentation or official system checks are better.
 
-## Verification Architecture
-
-**The "Fake Approval" Fraud Problem**
-
-- **Fabricated PDFs:** Scammers creating fake "ESTA Approved" letters for people who are ineligible (e.g., due to a criminal record or travel to a restricted country).
-- **Date Alteration:** Editing the "Expiration Date" on a 2024 approval to make it look like it's valid for a 2026 trip.
-- **Passport Swapping:** Editing the name or passport number on a valid approval to match a different person.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -121,13 +121,13 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the authorization it granted.
 
 
-## Competition vs. CBP Online Status Check
+## Compared With CBP Online Status Check
 
 | Feature | Live Verify | ESTA Official Website | Scanned PDF / Printout |
 | :--- | :--- | :--- | :--- |
 | **Integrity** | **Binds Identity.** Binds Passport to Status. | **High.** Direct DB access. | **Zero.** Easily forged. |
 | **Speed** | **Instant.** 5-second scan at check-in. | **Slow.** Requires typing Application # or Passport # + DOB. | **Instant.** |
 | **Trust** | **Cryptographic.** Bound to `cbp.dhs.gov`. | **High.** But prone to phishing sites. | **Low.** Easily faked. |
-| **Hardware** | **Universal.** Any smartphone camera. | **Technical.** Requires laptop/stable 5G. | **Visual.** |
+| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Technical.** Requires laptop/stable 5G. | **Visual.** |
 
 **Practical conclusion:** ESTA is primarily a direct-status-access problem. If convenience is the issue, the right fix is a shorter official check flow, airline integration, or a link/QR into the official page. Live Verify would only be a thin convenience layer over that existing source of truth.

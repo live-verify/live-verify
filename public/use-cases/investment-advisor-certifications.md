@@ -42,7 +42,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Fiduciary Fraud
+
+- **Ghost Credentials:** A barred advisor using their old, unexpired "SEC Registration" wall certificate to lure in victims.
+- **ADV Falsification:** Editing the mandatory "ADV Brochure" to remove mention of a prior felony conviction or a regulatory fine.
+- **Identity Swapping:** Using a real person's CRD number but editing the photo on the "Representative Card."
+
+## What Is Checked
 
 Representative name, photo (hash), Individual CRD number, Firm CRD number, registration status (Registered/Suspended/Barred), jurisdictions of authority, ADV Part 2B (Brochure Supplement) status, date of last filing, disciplinary disclosure flag.
 
@@ -52,42 +58,36 @@ Representative name, photo (hash), Individual CRD number, Firm CRD number, regis
 - **SEC Registration Certificate:** For the RIA firm's office.
 - **Client Service Agreement:** (Linked hash) for legal onboarding.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`sec.gov`, `finra.org`) and current regulatory standing.
 
 **Status Indications:**
 - **Registered** — Representative is authorized to provide investment advice for a fee.
-- **Barred** — **ALERT:** Permanently prohibited from the industry.
+- **Barred** — Permanently prohibited from the industry.
 - **Suspended** — Temporarily restricted (dates and reasons verified).
 - **Inactive** — No longer affiliated with a registered firm.
 
-## Second-Party Use
+## Who Holds It
 
-The **Investment Advisor (IAR)** benefits from verification.
+The Investment Advisor (IAR) benefits from verification.
 
 **Trust Building:** Proving to a potential high-net-worth client that they are a "Verified Fiduciary" and not an unlicensed "Guru" or a "Barred Broker." The client can scan the badge during an initial meeting to see the "Active" status directly from the SEC domain.
 
 **Institutional Onboarding:** Proving to a major custodian bank (e.g., Schwab or Fidelity) that their individual credentials are verified and current, speeding up the "Trading Authority" setup.
 
-## Third-Party Use
+## Who Checks It
 
 **Retail Investors (Consumers)**
 **Fraud Prevention:** Before handing over life savings, an investor can verify the advisor's credentials. This stops "Affinity Fraud" where scammers pose as legitimate advisors to target specific religious or professional communities.
 
 **Compliance Departments (CCOs)**
-**Oversight:** Ensuring that every advisor in a large firm is actually keeping their filings current. Live Verify allows for **automated credential auditing** across thousands of employees.
+**Oversight:** Ensuring that every advisor in a large firm is actually keeping their filings current. Live Verify allows for automated credential auditing across thousands of employees.
 
 **Referral Platforms**
 **Merchant Vetting:** Ensuring that only verified, non-barred advisors are being recommended to users on financial lead-gen platforms.
 
-## Verification Architecture
-
-**The "Fake Fiduciary" Fraud Problem**
-
-- **Ghost Credentials:** A barred advisor using their old, unexpired "SEC Registration" wall certificate to lure in victims.
-- **ADV Falsification:** Editing the mandatory "ADV Brochure" to remove mention of a prior felony conviction or a regulatory fine.
-- **Identity Swapping:** Using a real person's CRD number but editing the photo on the "Representative Card."
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -115,13 +115,13 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the certifying organization's hashes and status changes plus structured metadata (advisor names, credential types, CRD numbers, approval dates, status) — never financial information — providing non-repudiation of advisor certification status.
 
-## Competition vs. SEC Advisor Search (IAPD)
+## Compared With SEC Advisor Search (IAPD)
 
 | Feature | Live Verify | IAPD / BrokerCheck (Web) | Scanned PDF Brochure |
 | :--- | :--- | :--- | :--- |
 | **Trust Anchor** | **Domain-Bound.** Bound to `sec.gov`. | **Database.** Direct from source. | **Zero.** Easily forged. |
 | **Integrity** | **Binds Identity.** Proves *Who* is at the desk. | **Vague.** Hard to prove the person in front of you is the person in the DB. | **None.** |
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires typing names/CRDs and navigating Gov UI. | **N/A.** |
-| **Hardware** | **Universal.** Any smartphone camera. | **Technical.** Requires laptop/dedicated search. | **Visual.** |
+| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Technical.** Requires laptop/dedicated search. | **Visual.** |
 
-**Why Live Verify wins here:** The "Meeting Moment." Trust is established in the first 5 minutes of a meeting. Clients are often too polite to type a person's ID into a government website while they are sitting there. Live Verify turns the **Advisor's Business Card** or **Wall Certificate** into a live, high-speed trust anchor, making "Fiduciary Duty" a verified fact in seconds.
+**Where each fits:** IAPD and BrokerCheck are the authoritative public records, with disciplinary history and detail that no certificate carries, and a client doing proper diligence should read them. The gap is the first meeting, when a client is looking at a business card or a wall certificate and is unlikely to stop and search a database by name. Live Verify gives a quick confirmation that the registration text is one the issuer stands behind, and points naturally to the fuller record for anyone who wants to read on.

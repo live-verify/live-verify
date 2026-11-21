@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is a Neobank Account Confirmation?
 
-Neo-banks (like Chime, Monzo, Revolut, N26) rarely have physical branches. When a customer opens an account, they receive a **digital confirmation PDF** (or email) listing their account details (IBAN, Routing Number, Account Number).
+Neo-banks (like Chime, Monzo, Revolut, N26) rarely have physical branches. When a customer opens an account, they receive a digital confirmation PDF (or email) listing their account details (IBAN, Routing Number, Account Number).
 
-Customers often need to **print this PDF** to prove they have a bank account to:
+Customers often need to print this PDF to prove they have a bank account to:
 1.  **Landlords:** To set up rent payments.
 2.  **Embassies:** For visa applications (proof of funds).
 3.  **Employers:** For direct deposit setup.
@@ -45,7 +45,14 @@ The problem? Anyone can inspect-element a PDF or email to change the numbers. A 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Photoshop Banking Fraud
+
+Because neo-bank documents are *born digital* (PDFs), they are trivial to edit before printing. Users can change:
+- **Balances:** Inflating funds for loans/visas.
+- **Names:** Putting their name on someone else's statement.
+- **Dates:** Making an old statement look recent.
+
+## What Is Checked
 
 Customer Name, Address (if verified), Account Number, Routing/Sort Code, IBAN, Account Status, Date of Opening.
 
@@ -54,7 +61,7 @@ Customer Name, Address (if verified), Account Number, Routing/Sort Code, IBAN, A
 - **Bank Statement:** Detailed transaction history (often requested by Visa officers).
 - **Direct Deposit Form:** Pre-filled form for employers.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `monzo.com`) and the status.
 
@@ -63,15 +70,15 @@ Shows the issuer domain (e.g., `monzo.com`) and the status.
 - **Closed** — Account has been closed (prevents using old statements).
 - **Restricted** — Account frozen for investigation.
 
-## Second-Party Use
+## Who Holds It
 
-The **Customer** benefits from verification.
+The Customer benefits from verification.
 
 **Visa Applications:** Embassies (e.g., Schengen, UK, US) require "original" bank statements. For online banks, *everything* is a printout. Verification proves the printout is authentic and not "Photoshopped."
 
 **Rental Applications:** Landlords require proof of funds. A verified statement beats a screenshot that could easily be edited to show $50,000 instead of $500.
 
-## Third-Party Use
+## Who Checks It
 
 **Government Agencies (Immigration)**
 **Visa Officers:** Can scan the printout submitted with a visa application to confirm the applicant actually has the funds claimed, without needing to subpoena the foreign bank.
@@ -82,13 +89,7 @@ The **Customer** benefits from verification.
 **Lenders**
 **Income Verification:** Mortgage brokers can verify the neo-bank statements provided as proof of down payment funds.
 
-## Verification Architecture
-
-**The "Photoshop Banking" Fraud Problem**
-Because neo-bank documents are *born digital* (PDFs), they are trivial to edit before printing. Users can change:
-- **Balances:** Inflating funds for loans/visas.
-- **Names:** Putting their name on someone else's statement.
-- **Dates:** Making an old statement look recent.
+## Who Issues It
 
 **Issuer Types** (First Party)
 - **Neo-banks:** (Chime, Current, Varo, Monzo, Revolut, N26, Starling).
@@ -113,18 +114,18 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the bank's hashes and status changes plus structured metadata (account number, account status, opening date) — never customer name, balance, or transaction history — providing non-repudiation of the account and an audit trail visa officers and lenders can inspect.
 
 
-## Competition vs. Open Banking / APIs
+## Compared With Open Banking / APIs
 
 | Feature | Live Verify | Open Banking (Plaid/Yodlee) | App-to-App |
 | :--- | :--- | :--- | :--- |
 | **User Privacy** | **High.** Verifier sees only what is printed. No login credential sharing. | **Low.** Requires sharing banking login/password with third party. | **Medium.** Requires specific app integrations. |
-| **Friction** | **Low.** Scan the paper. No app install needed for verifier. | **High.** Requires user to log in and authorize data sharing. | **High.** Both sides need the app. |
+| **Friction** | **Low.** Scan the paper. The verifier needs Live Verify on their phone, not the bank's app. | **High.** Requires user to log in and authorize data sharing. | **High.** Both sides need the app. |
 | **Physical World** | **Native.** Works on the printed page at an embassy desk. | **Non-existent.** Cannot "click" a link on paper. | **Low.** Requires digital handshake. |
 | **Cost** | **Zero/Low.** Static web hosting. | **High.** Aggregators charge per connection. | **High.** Development cost. |
 
 **Where Open Banking wins:** In the UK, EU, and US, Open Banking APIs (Plaid, TrueLayer, Yodlee) are the superior solution for institutional verifiers (mortgage lenders, large employers, visa processing centres) who can integrate programmatically. Live Verify does not replace this infrastructure where it exists.
 
-**Where Live Verify wins:** For **ad-hoc, low-tech interactions** (handing a paper to a landlord or a visa officer), Open Banking is overkill and technically difficult. Live Verify makes the *paper* smart without forcing the landlord to integrate with Plaid.
+**Where Live Verify wins:** For ad-hoc, low-tech interactions (handing a paper to a landlord or a visa officer), Open Banking is overkill and technically difficult. Live Verify makes the *paper* smart without forcing the landlord to integrate with Plaid.
 
 **Where Live Verify is the only option:** In markets without Open Banking infrastructure — much of Africa (M-Pesa, Airtel Money), Southeast Asia (GCash, GrabPay, Dana), Latin America outside Brazil (Mercantil, Nequi, Ualá), and parts of South Asia — there is no Plaid equivalent. A Kenyan freelancer proving income to a Nairobi landlord, or a Filipino worker providing bank proof for a visa application, has no API-based verification channel. The neobank publishing hashes on its own domain is the only verification path that works at the paper-and-phone level. These neobanks also have a strong issuer incentive: they are competing for legitimacy against traditional banks and *want* their statements to be independently verifiable.
 

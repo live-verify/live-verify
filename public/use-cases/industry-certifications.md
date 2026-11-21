@@ -36,7 +36,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Credential Mill Fraud
+
+- **Certificate Forgery:** Scammers creating fake certificates from reputable organizations (e.g., Cisco or Microsoft) for people who didn't pass the exam.
+- **Status Faking:** Changing an "Expired" date to "Active" on a PDF to keep a job that requires current certification.
+- **Identity Theft:** Using a real person's credential ID but editing the name on the certificate.
+
+## What Is Checked
 
 Certified individual name, certification title (e.g., PMP, CISSP, AWS Architect), unique credential ID, issuing organization name, specialization/domain, effective date, expiration date, PDU (Professional Development Unit) status.
 
@@ -46,7 +52,7 @@ Certified individual name, certification title (e.g., PMP, CISSP, AWS Architect)
 - **Exam Score Report:** (Linked hash) for recent test results.
 - **Badge Metadata:** For digital badges (with Live Verify back-link).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`pmi.org`, `isc2.org`, `amazon.com`) and current credential standing.
 
@@ -56,9 +62,9 @@ Shows the issuer domain (`pmi.org`, `isc2.org`, `amazon.com`) and current creden
 - **Expired** — Mandatory renewal or continuing education (PDUs) missed.
 - **Retired** — Credential version no longer supported.
 
-## Second-Party Use
+## Who Holds It
 
-The **Certified Professional** benefits from verification.
+The Certified Professional benefits from verification.
 
 **Resume Integrity:** Proving to a recruiter that the "PMP" or "CISSP" listed on their resume is verified by the source. This distinguishes the professional from the "Resume Padders" who claim certifications they never actually earned or let lapse years ago.
 
@@ -66,7 +72,7 @@ The **Certified Professional** benefits from verification.
 
 **Project Bidding:** Including verified hashes of all team member certifications in a high-stakes government or corporate RFP.
 
-## Third-Party Use
+## Who Checks It
 
 **Hiring Managers / Recruiters**
 **Instant Vetting:** Scanning the certificates of 50+ candidates in minutes. Live Verify allows an applicant tracking system (ATS) to automatically validate credentials against the issuing organization's domain, stopping "Credential Forgery" at the scale of the entire hiring pipeline.
@@ -77,13 +83,7 @@ The **Certified Professional** benefits from verification.
 **Training Providers**
 **Prerequisite Proof:** Verifying that a student has passed the "Basic" level certification before allowing them to enroll in an "Advanced" course.
 
-## Verification Architecture
-
-**The "Credential Mill" Fraud Problem**
-
-- **Certificate Forgery:** Scammers creating fake certificates from reputable organizations (e.g., Cisco or Microsoft) for people who didn't pass the exam.
-- **Status Faking:** Changing an "Expired" date to "Active" on a PDF to keep a job that requires current certification.
-- **Identity Theft:** Using a real person's credential ID but editing the name on the certificate.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -109,13 +109,13 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the certification body's hashes and status changes plus structured metadata (holder names, certification types, certificate numbers, issue dates, expiration dates, status) — never assessment scores or performance details — providing non-repudiation of certification status.
 
-## Competition vs. Digital Badges (Credly)
+## Compared With Digital Badges (Credly)
 
 | Feature | Live Verify | Digital Badges (Credly/Acclaim) | Scanned PDF |
 | :--- | :--- | :--- | :--- |
 | **Trust Anchor** | **Domain-Bound.** Bound to the Org (PMI). | **System-Bound.** Trust the badge vendor. | **Zero.** Easily forged. |
 | **Interoperability** | **Universal.** Works across any cert body. | **Low.** Only for bodies who pay for Credly. | **Universal.** |
 | **Integrity** | **Binds Content.** Protects the ID #. | **High.** Direct digital link. | **Vulnerable.** |
-| **Hardware** | **Universal.** Any smartphone camera. | **Technical.** Requires app/portal access. | **Visual.** |
+| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Technical.** Requires app/portal access. | **Visual.** |
 
-**Why Live Verify wins here:** The "Paper Wall." Most high-end certifications are still issued as high-quality paper diplomas or PDFs. While digital badges are growing, they don't help in a face-to-face interview or a project bid binder. Live Verify turn the **Static Certificate** into a live digital dashboard, bringing "Digital Badge" integrity to the world of paper.
+**Where each fits:** Digital badges are a good fit where the certification body already issues them and the checker is looking at a profile or an email signature online; the badge links straight back to the record. Many certificates still arrive as a printed diploma or a PDF in an interview folder or a bid binder, and many bodies do not use a badge platform at all. Live Verify covers those documents by letting the reader confirm the text against the certification body's own domain, and a holder can carry both.

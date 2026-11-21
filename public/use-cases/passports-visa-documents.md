@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Passport?
 
-A **Passport** is your "Global Identity Card." It is the most powerful travel document in the world, proving both your identity and your citizenship. A **Visa** is the official permission granted by a *foreign* country allowing you to enter their borders for a specific purpose (work, study, or tourism).
+A Passport is your "Global Identity Card." It is the most powerful travel document in the world, proving both your identity and your citizenship. A Visa is the official permission granted by a *foreign* country allowing you to enter their borders for a specific purpose (work, study, or tourism).
 
 Beyond the airport, passports are used as the "Primary ID" for:
 1.  **Opening Bank Accounts:** Satisfying strict AML/KYC laws.
@@ -20,7 +20,7 @@ Beyond the airport, passports are used as the "Primary ID" for:
 
 **"High-Grade Clones"** are a major security threat. Sophisticated forgers can replicate holograms, security paper, and even RFID chips. But the strongest passport verification still belongs inside the passport's native machine-readable ecosystem: chip reads, MRZ checks, and official government systems.
 
-The Live Verify use case is narrower. It is for **third-party relying parties outside formal government verification channels**: hotels, employers, landlords, banks, remote onboarding teams, and background-check providers. Those parties often receive a scan, PDF, or phone photo of the data page but do not have chip-reading hardware or direct access to border-grade systems. In that setting, Live Verify turns the **Data Page Copy** into a live link back to the issuing authority's status.
+The Live Verify use case is narrower. It is for **third-party relying parties outside formal government verification channels**: hotels, employers, landlords, banks, remote onboarding teams, and background-check providers. Those parties often receive a scan, PDF, or phone photo of the data page but do not have chip-reading hardware or direct access to border-grade systems. In that setting, Live Verify turns the Data Page Copy into a live link back to the issuing authority's status.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #333; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
   <div style="background: #002d62; color: #fff; padding: 20px; display: flex; align-items: center; justify-content: space-between;">
@@ -57,7 +57,14 @@ The Live Verify use case is narrower. It is for **third-party relying parties ou
   </div>
 </div>
 
-## Data Verified
+## The Problem: Copied Data Page Fraud
+
+- **Identity Theft:** Using a real person's data on a cloned book with a different photo.
+- **Status Hiding:** Sending a scan of a passport that has since been reported lost, replaced, or revoked.
+- **Scan Reuse:** Reusing an old passport image in onboarding flows long after a replacement document was issued.
+- **The Doppelganger Attack:** Using a valid passport belonging to a similar-looking person. Live Verify with Photo Return (returning the official face on file) helps non-government verifiers detect this faster.
+
+## What Is Checked
 
 Full name, Nationality, Date of Birth, Passport Number, Document Serial Number, Issuing Authority ID, Place of Birth, Expiration Date, MRZ (Machine Readable Zone) checksums, Photo (via secure hash).
 
@@ -67,25 +74,25 @@ Full name, Nationality, Date of Birth, Passport Number, Document Serial Number, 
 - **Residency Permit (BRP):** Long-term stay authorization.
 - **Emergency Travel Document:** Temporary 1-way paper for lost passports.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`gov.uk`, `state.gov`, `singpass.gov.sg`) and the live security status.
 
 **Status Indications:**
 - **Valid** — Passport is authentic and in good standing.
-- **Reported Stolen/Lost** — **ALERT:** Bearer has reported this physical book missing.
-- **Revoked** — **ALERT:** Citizenship or travel rights have been terminated.
+- **Reported Stolen/Lost** — Bearer has reported this physical book missing.
+- **Revoked** — Citizenship or travel rights have been terminated.
 - **Replaced** — A newer passport version exists for this person (common in clone detection).
 
-## Second-Party Use
+## Who Holds It
 
-The **Passport Holder (Traveler)** benefits from verification.
+The Passport Holder (Traveler) benefits from verification.
 
 **Digital Onboarding:** Proving their identity to an online bank or crypto exchange in seconds. A verified hash allows the bank to trust the "Data Page" without requiring the user to record a 3D "Video Selfie" (which many find invasive and buggy).
 
 **Remote Work / Visas:** Providing a verified digital copy of their passport to a foreign employer, ensuring the HR team that the document is authentic without mailing the physical book across borders.
 
-## Third-Party Use
+## Who Checks It
 
 **Hotels and Hospitality**
 **Remote Copy Trust:** A hotel receiving a passport image during pre-arrival check-in can verify that the copied data page still maps to an issuer-backed record rather than trusting a bare JPEG sent over email or chat.
@@ -96,14 +103,7 @@ The **Passport Holder (Traveler)** benefits from verification.
 **Banks / KYC Teams**
 **Copy-of-Passport Workflows:** Many KYC teams still receive uploaded passport scans during onboarding. Live Verify gives them a stronger authenticity and status signal without requiring full passport-reader hardware.
 
-## Verification Architecture
-
-**The "Copied Data Page" Fraud Problem**
-
-- **Identity Theft:** Using a real person's data on a cloned book with a different photo.
-- **Status Hiding:** Sending a scan of a passport that has since been reported lost, replaced, or revoked.
-- **Scan Reuse:** Reusing an old passport image in onboarding flows long after a replacement document was issued.
-- **The Doppelganger Attack:** Using a valid passport belonging to a similar-looking person. Live Verify with **Photo Return** (returning the official face on file) helps non-government verifiers detect this faster.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -126,26 +126,26 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 ## Photo Return: Stronger Copy-of-ID Checks
 
-Verification responses can include the **issuing authority's authoritative photo** of the holder — not just status, but the actual face on file.
+Verification responses can include the issuing authority's authoritative photo of the holder — not just status, but the actual face on file.
 
 **Why This Matters:**
-A sophisticated forger can perfectly replicate holograms and security paper. But they **cannot forge what the government server sends back**. When a hotel, employer, or KYC analyst sees a returned photo that does not match the submitted document or the live selfie they requested, the fraud is exposed.
+A sophisticated forger can perfectly replicate holograms and security paper. But they cannot forge what the government server sends back. When a hotel, employer, or KYC analyst sees a returned photo that does not match the submitted document or the live selfie they requested, the fraud is exposed.
 
 ## Jurisdictional Witnessing (Optional)
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuing government's hashes and status changes plus structured metadata (passport number, document type, issuing country, expiration date) — never biometric data or full passport information — providing non-repudiation of passport issuance.
 
 
-## Competition vs. NFC (Electronic Passports)
+## Compared With NFC (Electronic Passports)
 
 | Feature | Live Verify | NFC / e-Passport | Scanned PDF / Image |
 | :--- | :--- | :--- | :--- |
 | **Primary Use Case** | **Third-party copy verification.** Good for uploaded scans and PDF workflows. | **Gold standard.** Best when native passport-reading infrastructure is available. | **Weak.** Easy to forge and replay. |
-| **Hardware** | **Universal.** Any smartphone camera or OCR-capable workflow. | **Restricted.** Requires NFC-capable devices and chip-reading support. | **Universal.** |
+| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Restricted.** Requires NFC-capable devices and chip-reading support. | **Universal.** |
 | **Verifier Access** | **Broad.** Useful for hotels, employers, banks, and screening teams. | **Limited.** Best suited to formal travel and government workflows. | **Broad.** But untrusted. |
 | **Status Signal** | **Good.** Issuer-domain response can show replacement or revocation state. | **Strong.** Native passport trust path. | **None.** Static copy only. |
 
-**Why Live Verify fits here:** It is the bridge for relying parties who handle passport copies outside the native passport ecosystem. It should not replace NFC or official border systems; it fills the gap where the verifier only has a copy and no access to passport-reader infrastructure.
+**Where each fits:** Reading the chip over NFC is the strongest check of a passport and remains the right method at borders and wherever reader infrastructure exists. Hotels, employers, banks and screening teams often handle only a copy and have no such infrastructure. Live Verify is for those copy-based workflows; it does not replace NFC or official border systems.
 
 ## Further Reading
 

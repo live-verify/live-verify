@@ -11,13 +11,13 @@ furtherDerivations: 1
 
 ## What is a Private Security License?
 
-A **Private Security License** (commonly known as a "Guard Card") is the official state credential that allows an individual to work as a security professional.
+A Private Security License (commonly known as a "Guard Card") is the official state credential that allows an individual to work as a security professional.
 
 It proves that the holder has passed a criminal background check (usually via the FBI/DOJ) and completed mandatory training in the use of force, power to arrest, and emergency response.
 
-**"Credential Swapping"** is a major safety risk: an unlicensed individual might use a friend's physical card to gain access to a high-security facility or sensitive event. **Armed Guards** present even higher risks; a guard whose firearms qualification has expired may still be carrying a weapon illegally.
+**"Credential Swapping"** is a major safety risk: an unlicensed individual might use a friend's physical card to gain access to a high-security facility or sensitive event. Armed Guards present even higher risks; a guard whose firearms qualification has expired may still be carrying a weapon illegally.
 
-Live Verify binds the **Guard's name, License Number, and Firearms Qualifications** to the state regulatory board's domain. A client or police officer can instantly verify that the guard standing before them is **Active, Vetted, and Qualified** to carry the weapons they are currently using.
+Live Verify binds the Guard's name, License Number, and Firearms Qualifications to the state regulatory board's domain. A client or police officer can instantly verify that the guard standing before them is Active, Vetted, and Qualified to carry the weapons they are currently using.
 
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #263238; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
   <div style="background: #263238; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
@@ -52,7 +52,13 @@ Live Verify binds the **Guard's name, License Number, and Firearms Qualification
   </div>
 </div>
 
-## Data Verified
+## The Problem: Phantom Guard Fraud
+
+- **Weapon Qualification Forgery:** Editing a "Firearms Qualified" line on a PDF to allow a guard to work higher-paying armed shifts without taking the required range tests.
+- **Status Concealment:** Terminated guards keeping their physical cards to gain access to apartments or businesses where they were formerly employed.
+- **Name Swapping:** Unlicensed individuals with criminal records using a "Clean" friend's Guard Card to get hired at a security firm.
+
+## What Is Checked
 
 Licensee Name, Date of Birth (partial), License Number, Registration Type (Armed/Unarmed), Specific Qualifications (Firearms, Baton, Pepper Spray), Expiration Date, Background Check Status, Training Revision ID.
 
@@ -62,25 +68,25 @@ Licensee Name, Date of Birth (partial), License Number, Registration Type (Armed
 - **Training Completion Certificate:** Verification of specific skill hours.
 - **Business License:** For the security firm itself.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `securityboard.gov`, `dps.state.tx.us`) and the current standing.
 
 **Status Indications:**
 - **Active** — Guard is fully authorized and vetted.
-- **Firearm Restricted** — **ALERT:** Guard is authorized for security work but *not* authorized to carry a weapon.
-- **Suspended/Revoked** — **ALERT:** License pulled due to misconduct or training failure.
+- **Firearm Restricted** — Guard is authorized for security work but *not* authorized to carry a weapon.
+- **Suspended/Revoked** — License pulled due to misconduct or training failure.
 - **Expired** — Background check or training is out of date.
 
-## Second-Party Use
+## Who Holds It
 
-The **Security Professional (Guard)** benefits from verification.
+The Security Professional (Guard) benefits from verification.
 
 **Job Efficiency:** Speeding up access to "High Value" sites. When a guard arrives for a shift at a jewelry exchange or a data center, the site manager can verify their armed status in 5 seconds via the hash, bypassing the 30-minute manual "Call the Office" vetting process.
 
 **Incident Accountability:** If a guard is involved in a use-of-force incident, the verified hash provides an immediate record that they were operating with valid, active legal authority at that exact timestamp.
 
-## Third-Party Use
+## Who Checks It
 
 **Building Managers / Venue Promoters**
 **Vetting Contractors:** Before a major event, the promoter scans the lanyards of the 50 "Sub-contracted" guards. Verification ensures the security firm didn't hire "Un-vetted Temp Labor" to fill the gaps, which is a major insurance and safety liability.
@@ -91,13 +97,7 @@ The **Security Professional (Guard)** benefits from verification.
 **Insurance Underwriters**
 **Risk Management:** Verifying that a client's security staff is 100% compliant with state licensing before binding a high-limit general liability policy.
 
-## Verification Architecture
-
-**The "Phantom Guard" Fraud Problem**
-
-- **Weapon Qualification Forgery:** Editing a "Firearms Qualified" line on a PDF to allow a guard to work higher-paying armed shifts without taking the required range tests.
-- **Status Concealment:** Terminated guards keeping their physical cards to gain access to apartments or businesses where they were formerly employed.
-- **Name Swapping:** Unlicensed individuals with criminal records using a "Clean" friend's Guard Card to get hired at a security firm.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -124,13 +124,13 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the state regulatory board's hashes and status changes plus structured metadata (license number, guard name, license type, weapon designation, expiration date) — never plaintext or sensitive personal information — providing non-repudiation of the guard's current license and qualifications status.
 
 
-## Competition vs. Physical ID Cards
+## Compared With Physical ID Cards
 
 | Feature | Live Verify | Holographic Card | Central Registry Lookup |
 | :--- | :--- | :--- | :--- |
 | **Trust Anchor** | **Domain-Bound.** Bound to the State Gov. | **Physical.** Trust the printer. | **Database.** High trust but manual. |
 | **Integrity** | **Binds Quals.** Protects the Armed status. | **Zero.** Doesn't protect the text. | **Data-Only.** |
 | **Speed** | **Instant.** 5-second scan at the door. | **N/A.** Just looking. | **Slow.** Requires typing 10-digit ID. |
-| **Hardware** | **Universal.** Any smartphone camera. | **Human Eye.** | **Technical.** Requires laptop/stable 5G. |
+| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Human Eye.** | **Technical.** Requires laptop/stable 5G. |
 
 **Why this remains strong:** Central registry lookup should remain primary where it is practical. But bouncers, site managers, and venue staff are often making a threshold decision at night, under pressure, with only the guard card in hand. That makes the displayed credential a real-world safety surface, and Live Verify a strong complementary bridge from that surface to current licensing status.

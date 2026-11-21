@@ -35,7 +35,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake SMS Fraud
+
+- **SMS Spoofing:** Using a computer to send a fake "M-Pesa Confirmation" message to a merchant's phone to steal goods.
+- **Screenshot Alteration:** Changing the name or amount on a legitimate receipt PDF to trick a landlord.
+- **Duplicate Use:** Showing the same "Completed" receipt to multiple people to "pay" for different items.
+
+## What Is Checked
 
 Transaction ID (Reference #), Sender phone/name, Recipient phone/name, exact amount (local currency), service fees, timestamp (to the second), current account balance (optional/linked), agent ID (for cash-in/out), issuing mobile money operator.
 
@@ -45,7 +51,7 @@ Transaction ID (Reference #), Sender phone/name, Recipient phone/name, exact amo
 - **Cash-Out Confirmation:** Issued by a physical agent kiosk.
 - **Micro-Loan Statement:** (Linked hash) for mobile-based credit.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`safaricom.co.ke`, `gcash.com`, `mtn.com`) and current transaction standing.
 
@@ -55,15 +61,15 @@ Shows the issuer domain (`safaricom.co.ke`, `gcash.com`, `mtn.com`) and current 
 - **Pending** — Transfer in progress or held for compliance review.
 - **Void** — Transaction ID not found or details mismatch.
 
-## Second-Party Use
+## Who Holds It
 
-The **Sender / Recipient** benefits from verification.
+The Sender / Recipient benefits from verification.
 
 **Payment Proof:** Proving to a small merchant or landlord that the "Ksh 12,500" was *actually sent* and isn't just a "Fake SMS" or "Altered Screenshot." In emerging markets, "Fake SMS" fraud is a massive problem; a verified hash from the operator's domain provides instant, authoritative proof.
 
 **Tax Compliance:** Providing verified digital receipts to a local tax authority or NGO auditor to justify business expenses in a cash-heavy environment.
 
-## Third-Party Use
+## Who Checks It
 
 **Micro-Lenders / Fintechs**
 **Credit Scoring:** Instantly verifying the "Transaction History" of an unbanked individual by scanning their paper or digital receipts. Verified volume and consistency act as a "Reputation Signal" for mobile-based loans.
@@ -74,13 +80,7 @@ The **Sender / Recipient** benefits from verification.
 **Law Enforcement / Anti-Money Laundering**
 **Fund Tracing:** Verifying the "Source of Funds" for high-value mobile transfers without requiring full account access.
 
-## Verification Architecture
-
-**The "Fake SMS" Fraud Problem**
-
-- **SMS Spoofing:** Using a computer to send a fake "M-Pesa Confirmation" message to a merchant's phone to steal goods.
-- **Screenshot Alteration:** Changing the name or amount on a legitimate receipt PDF to trick a landlord.
-- **Duplicate Use:** Showing the same "Completed" receipt to multiple people to "pay" for different items.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -108,13 +108,13 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the mobile operator's hashes and status changes plus structured metadata (Transaction ID, Sender phone, Recipient phone, exact amount, timestamp) — never plaintext or sensitive personal information — providing non-repudiation of the transaction receipt and an audit trail central banks can inspect.
 
-## Competition vs. SMS Confirmation
+## Compared With SMS Confirmation
 
 | Feature | Live Verify | SMS Confirmation | Scanned Image / PDF |
 | :--- | :--- | :--- | :--- |
 | **Integrity** | **Cryptographic.** Binds the *Transaction ID*. | **Low.** Easily spoofed with PC software. | **Zero.** Easily forged. |
 | **Trust Anchor** | **Domain-Bound.** Bound to the Operator. | **Network-Bound.** Prone to SIM-swapping. | **Visual.** |
 | **Availability** | **Instant.** Verified via QR/Hash. | **Laggy.** SMS delivery often fails in congested areas. | **Instant.** |
-| **Hardware** | **Universal.** Any smartphone camera. | **Basic.** Works on dumb-phones. | **Visual.** |
+| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Basic.** Works on dumb-phones. | **Visual.** |
 
-**Why Live Verify wins here:** The "Merchant's Defend." Small shop owners in Africa and Asia lose millions to "Fake SMS" scams. They need a **High-Trust, Offline-capable** way to verify that the numbers on the screen match the ledger. Live Verify turns the **Mobile Screen** into a live, trusted clinical link, ensuring the "Digital Cash" is actually in the bank.
+**Where each fits:** The SMS confirmation is the operator's own notification, works on any handset, and for the account holder it remains the normal way to learn that money has arrived. A merchant being shown a message or a receipt on a customer's phone is in a different position, because they cannot tell whether it came from the operator. Live Verify lets the merchant check the receipt text against the operator's domain, in addition to watching for their own confirmation message.

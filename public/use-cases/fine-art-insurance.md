@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is Fine Art Insurance?
 
-When an $85 million painting (like a Monet) moves from a museum in Paris to an exhibition in New York, it is covered by **"Nail-to-Nail" Insurance**. This means it is protected from the second it is taken off the wall until the second it is hung at the destination.
+When an $85 million painting (like a Monet) moves from a museum in Paris to an exhibition in New York, it is covered by "Nail-to-Nail" Insurance. This means it is protected from the second it is taken off the wall until the second it is hung at the destination.
 
 Museums will not ship national treasures without 100% cryptographic certainty that the insurance is real and active.
 
-Fraud is high-stakes here: a collector might edit a $1M policy to read $100M to trick a bank into giving an over-leveraged loan. Verified hashes ensure the **agreed value** matches the insurer's actual financial risk.
+Fraud is high-stakes here: a collector might edit a $1M policy to read $100M to trick a bank into giving an over-leveraged loan. Verified hashes ensure the agreed value matches the insurer's actual financial risk.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 2px solid #002366; background: #fff; padding: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <div style="background: #002366; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
@@ -49,7 +49,13 @@ Fraud is high-stakes here: a collector might edit a $1M policy to read $100M to 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Vanishing Masterpiece Fraud
+
+- **Value Inflation:** Editing an agreed value from $8.5M to $85M to trick a bank into an over-leveraged loan.
+- **Exclusion Concealment:** Deleting the line that excludes "Earthquake" or "Flood" before sending the policy to a museum in California or Venice.
+- **Ghost Policies:** Using fake Lloyd's letterhead to claim a work is insured to avoid the high cost of actual fine-art premiums.
+
+## What Is Checked
 
 Owner name, specific artwork title/artist, "Agreed Value" amount, coverage type (Nail-to-Nail), exhibition location(s), transit route, approved packing company ID, effective dates, issuing specialist syndicate.
 
@@ -59,25 +65,25 @@ Owner name, specific artwork title/artist, "Agreed Value" amount, coverage type 
 - **Title Insurance (Art):** Protecting against restitution or ownership claims.
 - **Valuation Endorsement:** Linking a verified appraisal to the policy.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`axa-art.com`, `hiscox.com`, `chubb.com`) and policy status.
 
 **Status Indications:**
 - **In Force** — Premium paid; masterpiece covered.
-- **Transit Active** — **ALERT:** The work is currently in the high-risk "Move" phase.
+- **Transit Active** — The work is currently in the high-risk "Move" phase.
 - **Terminated** — Coverage ended post-exhibition.
 - **Claim Active** — Incident reported; under investigation.
 
-## Second-Party Use
+## Who Holds It
 
-The **Art Owner (Collector / Museum)** benefits from verification.
+The Art Owner (Collector / Museum) benefits from verification.
 
 **Museum Loans:** Proving to a lending museum (e.g., the Louvre) that their $85M Monet is "Verified Insured" for the entire trip. Museums won't release masterpieces without 100% cryptographic certainty that the insurance is real and active.
 
 **Collateralized Finance:** Proving to a private bank that the art serving as collateral for a $50M loan is fully protected by a verified "All-Risk" policy.
 
-## Third-Party Use
+## Who Checks It
 
 **Museum Registrars**
 **Intake Integrity:** Before unpacking a crate, the museum registrar scans the insurance certificate. "Verified by AXA" ensures the owner hasn't "Self-Edited" the limits or excluded "Transit" coverage to save money.
@@ -88,13 +94,7 @@ The **Art Owner (Collector / Museum)** benefits from verification.
 **Customs (Cultural Property)**
 **Export Vetting:** Ensuring that a high-value work being exported has the verified insurance required for international movement of national treasures.
 
-## Verification Architecture
-
-**The "Vanishing Masterpiece" Fraud Problem**
-
-- **Value Inflation:** Editing an agreed value from $8.5M to $85M to trick a bank into an over-leveraged loan.
-- **Exclusion Concealment:** Deleting the line that excludes "Earthquake" or "Flood" before sending the policy to a museum in California or Venice.
-- **Ghost Policies:** Using fake Lloyd's letterhead to claim a work is insured to avoid the high cost of actual fine-art premiums.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -120,13 +120,13 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (artwork titles, artist names, agreed values, coverage types, exhibition locations, transit routes, packing company IDs, effective dates, specialty syndicate IDs) — never owner names or specific location details — providing non-repudiation of the policy and an audit trail customs authorities and museums can inspect.
 
-## Competition vs. Physical Provenance Logs
+## Compared With Physical Provenance Logs
 
 | Feature | Live Verify | Provenance Log (Paper) | Art Registry (Blockchain) |
 | :--- | :--- | :--- | :--- |
 | **Integrity** | **Binds Value.** Protects the $85M claim. | **Subjective.** Relies on old stickers/notes. | **High.** But art is off-chain. |
 | **Trust Anchor** | **Domain-Bound.** Trust the Payer. | **Signature-Bound.** | **Consensus-Bound.** |
-| **Hardware** | **Universal.** Any smartphone. | **Expert.** Requires magnifying glass/knowledge. | **Technical.** Requires crypto-wallet. |
+| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Expert.** Requires magnifying glass/knowledge. | **Technical.** Requires crypto-wallet. |
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Hours of expert review. | **Fast.** |
 
-**Why Live Verify wins here:** The "Handoff Momentum." High-end art moves in a small circle of trusted registrars and handlers. They don't have time for "Crypto-Onboarding." Live Verify turns the **Standard Insurance Folder** into a live digital anchor that matches the speed and prestige of the global art market.
+**Where each fits:** Provenance records and art registries address questions an insurance certificate does not: where a work has been, who has owned it, and whether it is what it is said to be. Experts and registrars will rightly keep relying on them. When a work is lent or shipped, the immediate question is whether cover is in place for the stated value, and the registrar or shipper asking usually has no relationship with the insurer. Live Verify lets them confirm the insurer stands behind the certificate, alongside the provenance file.

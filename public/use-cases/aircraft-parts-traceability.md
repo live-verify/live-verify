@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is Aircraft Parts Traceability?
 
-Every critical component on a commercial aircraft has a documented life history — where it was made, who certified it, which aircraft it's been installed on, how many flight cycles it's consumed, and whether it's been repaired, overhauled, or scrapped. This history lives in paper: the FAA **Form 8130-3** (Authorized Release Certificate) in the US, the EASA **Form 1** in Europe, and equivalent documents in every aviation jurisdiction. The paperwork follows the part through its entire life.
+Every critical component on a commercial aircraft has a documented life history — where it was made, who certified it, which aircraft it's been installed on, how many flight cycles it's consumed, and whether it's been repaired, overhauled, or scrapped. This history lives in paper: the FAA Form 8130-3 (Authorized Release Certificate) in the US, the EASA Form 1 in Europe, and equivalent documents in every aviation jurisdiction. The paperwork follows the part through its entire life.
 
-The problem: the paperwork is trivially forged. An 8130-3 is a single-page form. Templates circulate online. A counterfeiter manufacturing turbine blades from substandard alloy in a Shenzhen workshop can produce an 8130-3 that's indistinguishable from a genuine one. The part enters the supply chain through a broker, passes through one or two intermediaries, and arrives at an MRO (Maintenance, Repair & Overhaul) facility with paperwork that looks perfect. The FAA calls these **Suspected Unapproved Parts (SUPs)** and estimates they account for up to 2% of installed components. In a fleet of 25,000 commercial aircraft, each with millions of parts, 2% is a terrifying number.
+The problem: the paperwork is trivially forged. An 8130-3 is a single-page form. Templates circulate online. A counterfeiter manufacturing turbine blades from substandard alloy in a Shenzhen workshop can produce an 8130-3 that's indistinguishable from a genuine one. The part enters the supply chain through a broker, passes through one or two intermediaries, and arrives at an MRO (Maintenance, Repair & Overhaul) facility with paperwork that looks perfect. The FAA calls these Suspected Unapproved Parts (SUPs) and estimates they account for up to 2% of installed components. In a fleet of 25,000 commercial aircraft, each with millions of parts, 2% is a terrifying number.
 
-A **Verifiable Part Marking** is a laser-etched verification line on the physical component itself — not on the paperwork that accompanies it, but on the metal. The manufacturer etches the part number, serial number, and a verification domain during production. Anyone with a camera — an MRO engineer, an airline inspector, a regulator — scans the marking and gets a live response from the manufacturer's domain: what the part is, where it should be right now, and whether it's airworthy.
+A Verifiable Part Marking is a laser-etched verification line on the physical component itself — not on the paperwork that accompanies it, but on the metal. The manufacturer etches the part number, serial number, and a verification domain during production. Anyone with a camera — an MRO engineer, an airline inspector, a regulator — scans the marking and gets a live response from the manufacturer's domain: what the part is, where it should be right now, and whether it's airworthy.
 
 <div style="font-family: 'Courier New', monospace; background: #f0f0f0; padding: 15px; border: 2px solid #333; font-size: 0.9em; color: #000; line-height: 1.6; max-width: 550px; margin: 24px auto;">
   <div style="text-align: center; font-size: 0.7em; color: #666; margin-bottom: 10px;">— LASER ETCHED ON COMPONENT SURFACE —</div>
@@ -85,13 +85,22 @@ A **Verifiable Part Marking** is a laser-etched verification line on the physica
 
 The etching on the part is plain text. A forger who has physical access to a genuine part can photograph the etching and reproduce it on a counterfeit. Both parts now carry identical markings. Both scan as valid.
 
-The system catches this through **installation status**. A part can only be in one place at a time. The manufacturer's database records where each serial number currently lives — which airframe, which MRO, which warehouse. When a second scan comes from an unexpected location, the response changes from "Serviceable — Installed on G-XLEA" to "Location Conflict — Investigate."
+The system catches this through installation status. A part can only be in one place at a time. The manufacturer's database records where each serial number currently lives — which airframe, which MRO, which warehouse. When a second scan comes from an unexpected location, the response changes from "Serviceable — Installed on G-XLEA" to "Location Conflict — Investigate."
 
 The arbitration is straightforward: the genuine part has a documented chain of custody (manufacture → test → release certificate → sale → installation log → aircraft technical record). The counterfeit's chain has a gap or a fabrication. The aviation authority for each aircraft's registry state — the FAA, EASA, CAA, or equivalent — has jurisdiction and makes the airworthiness determination.
 
-This doesn't require the system to know which is genuine at the moment of scanning. It requires the system to flag that **two parts claim to be the same part**, and that one of them is lying. The investigation follows.
+This doesn't require the system to know which is genuine at the moment of scanning. It requires the system to flag that two parts claim to be the same part, and that one of them is lying. The investigation follows.
 
-## Data Verified
+## The Problem: Counterfeit Parts
+
+The FAA's SUP (Suspected Unapproved Parts) programme has identified thousands of counterfeit, substandard, or improperly documented parts in the supply chain. The economics drive the fraud:
+
+- **A new CFM56 high-pressure turbine blade costs $5,000-$15,000.** A counterfeit manufactured from non-certified alloy costs a fraction. The profit margin on a single fraudulent blade justifies the risk for criminal enterprises.
+- **Supply chains are long and opaque.** A part manufactured by Rolls-Royce in Derby might be sold to an airline in Singapore, removed during overhaul, sold to a broker in Miami, resold to a broker in Dubai, and installed on an aircraft in Kenya. Each intermediary adds a layer of paperwork. Each layer is an opportunity for a counterfeit to enter.
+- **Paper is the weakest link.** The 8130-3 form is the aviation industry's trust anchor — and it's a single page with no anti-forgery features. A colour printer produces one that's indistinguishable from genuine. The form carries a signature, but nobody verifies signatures across jurisdictions. A "John Smith, FAA Designee" signature on a form from a repair station in Southeast Asia is accepted at face value.
+- **Scrapped parts re-entering service.** When a life-expired part is scrapped, it's supposed to be physically mutilated (cut, crushed, drilled). But some scrap dealers sell "as removed" parts with new paperwork claiming they've been overhauled. The part looks fine externally — the metallurgical fatigue that makes it dangerous is invisible without laboratory testing.
+
+## What Is Checked
 
 Manufacturer name, part number, serial number, manufacture date, verification domain. The etching is minimal — identity only. The rich data (installation history, cycle counts, overhaul records, airworthiness directives) lives in the verification response, not on the part.
 
@@ -102,7 +111,7 @@ Manufacturer name, part number, serial number, manufacture date, verification do
 - **Airworthiness Directive Compliance Record:** Proof that mandatory modifications or inspections have been carried out.
 - **Life-Limited Parts Record:** Tracking cycles, hours, and calendar time against the manufacturer's life limit.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the manufacturer's domain (`rolls-royce.com`, `ge.com/aviation`, `safrangroup.com`) and the part's current status.
 
@@ -113,13 +122,13 @@ Shows the manufacturer's domain (`rolls-royce.com`, `ge.com/aviation`, `safrangr
 - **Unserviceable — Awaiting Repair** — Part has been removed and requires work before reinstallation.
 - **Scrapped — Do Not Install** — Part has been permanently retired (life limit reached, unrepairable damage, superseded by airworthiness directive). Installation of a scrapped part is a criminal offence.
 - **Life Limit Approaching** — Part has consumed >80% of its certified life. Remaining cycles/hours shown.
-- **Location Conflict — Investigate** — **CRITICAL:** A part with this serial number is recorded as being elsewhere. Possible counterfeit. Contact manufacturer and aviation authority.
-- **Not Found** — No part with this serial number exists in the manufacturer's records. **Do not install.** Possible counterfeit.
+- **Location Conflict — Investigate** — A part with this serial number is recorded as being elsewhere. Possible counterfeit. Contact manufacturer and aviation authority.
+- **Not Found** — No part with this serial number exists in the manufacturer's records. Do not install. Possible counterfeit.
 - **Stolen / Missing** — Part reported missing from an MRO, warehouse, or incident site. Contact law enforcement.
 
-## Second-Party Use
+## Who Holds It
 
-The **Airline / Operator** benefits from verification.
+The Airline / Operator benefits from verification.
 
 **Incoming parts inspection:** An airline receives a shipment of turbine blades from a broker. Before accepting them into inventory, the receiving inspector scans each part. The manufacturer's domain confirms each serial is genuine, serviceable, and not recorded as installed elsewhere. Three scans, three green responses, parts accepted. One "Not Found" or "Scrapped" — the entire shipment is quarantined and the broker investigated.
 
@@ -127,7 +136,7 @@ The **Airline / Operator** benefits from verification.
 
 **Fleet audit:** An airline conducts a periodic audit of its parts inventory. Scanning barcoded stock against the manufacturer's verification endpoints confirms nothing has been misrecorded, lost, or substituted.
 
-## Third-Party Use
+## Who Checks It
 
 **Aviation Authorities (FAA, EASA, CAA)**
 **Airworthiness Oversight:** When an authority issues an Airworthiness Directive (mandatory inspection or modification of a specific part), verification endpoints let them confirm compliance. Is part S/N ESN-884721 still installed on G-XLEA? Has the AD been complied with? The manufacturer's response includes AD compliance status — no need to wait for the airline to self-report.
@@ -147,16 +156,7 @@ The **Airline / Operator** benefits from verification.
 **Customs Authorities**
 **Import Screening:** Aircraft parts entering a country through customs can be spot-checked by scanning the etching. "Not Found" on a crate of turbine blades from an unfamiliar exporter triggers seizure and investigation. This is particularly relevant for parts transiting through jurisdictions with weak regulatory oversight.
 
-## Verification Architecture
-
-**The Counterfeit Parts Problem**
-
-The FAA's SUP (Suspected Unapproved Parts) programme has identified thousands of counterfeit, substandard, or improperly documented parts in the supply chain. The economics drive the fraud:
-
-- **A new CFM56 high-pressure turbine blade costs $5,000-$15,000.** A counterfeit manufactured from non-certified alloy costs a fraction. The profit margin on a single fraudulent blade justifies the risk for criminal enterprises.
-- **Supply chains are long and opaque.** A part manufactured by Rolls-Royce in Derby might be sold to an airline in Singapore, removed during overhaul, sold to a broker in Miami, resold to a broker in Dubai, and installed on an aircraft in Kenya. Each intermediary adds a layer of paperwork. Each layer is an opportunity for a counterfeit to enter.
-- **Paper is the weakest link.** The 8130-3 form is the aviation industry's trust anchor — and it's a single page with no anti-forgery features. A colour printer produces one that's indistinguishable from genuine. The form carries a signature, but nobody verifies signatures across jurisdictions. A "John Smith, FAA Designee" signature on a form from a repair station in Southeast Asia is accepted at face value.
-- **Scrapped parts re-entering service.** When a life-expired part is scrapped, it's supposed to be physically mutilated (cut, crushed, drilled). But some scrap dealers sell "as removed" parts with new paperwork claiming they've been overhauled. The part looks fine externally — the metallurgical fatigue that makes it dangerous is invisible without laboratory testing.
+## How Verification Works Here
 
 **The "Naughty Middleman" Problem**
 
@@ -251,7 +251,7 @@ Military aircraft, naval vessels, and ground vehicles face the same counterfeit 
 
 ## Rationale
 
-Aircraft parts traceability is the highest-stakes verification use case in this collection. A forged DBS certificate can ruin a career; a forged prescription can harm a patient; a forged aircraft part can kill 300 people. The paper-based system (Form 8130-3 / EASA Form 1) was designed for an era when supply chains were short and trust relationships were direct. The modern supply chain — with parts crossing multiple brokers, jurisdictions, and MRO facilities before reaching an aircraft — has outgrown paper. The part itself is the one constant: it's there at manufacture, there at every inspection, there at installation, and there if things go wrong. Making the part its own verification document — through a laser etching that any camera can read and any phone can check against the manufacturer's domain — puts the trust anchor on the thing that matters, not on the paper that accompanies it.
+Aircraft parts traceability is the highest-stakes verification use case in this collection. A forged DBS certificate can ruin a career; a forged prescription can harm a patient; a forged aircraft part can kill 300 people. The paper-based system (Form 8130-3 / EASA Form 1) was designed for an era when supply chains were short and trust relationships were direct. The modern supply chain — with parts crossing multiple brokers, jurisdictions, and MRO facilities before reaching an aircraft — has outgrown paper. The part itself is the one constant: it's there at manufacture, there at every inspection, there at installation, and there if things go wrong. Making the part its own verification document — through a laser etching that any camera can read and any phone with Live Verify can check against the manufacturer's domain — puts the trust anchor on the thing that matters, not on the paper that accompanies it.
 
 
 ## Jurisdictional Witnessing (Optional)

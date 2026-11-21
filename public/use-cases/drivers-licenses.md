@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is a Driver License?
 
-A **Driver License** is the world's most common ID. It proves you are allowed to operate a motor vehicle, but it's also your "Primary Identity" for buying alcohol, renting a car, or boarding a plane.
+A Driver License is the world's most common ID. It proves you are allowed to operate a motor vehicle, but it's also your "Primary Identity" for buying alcohol, renting a car, or boarding a plane.
 
 The problem? "High-Quality Fakes" are now so good that even expert bouncers and police can be fooled.
 
-But driver's licenses already have a native machine-readable layer: barcode/PDF417 on the card, and increasingly direct DMV or mobile-ID channels. That means Live Verify is at best a **complementary** path when the verifier only has a photo, scan, or visual presentation and lacks barcode or DMV tooling. It is not the natural dominant architecture for driver's licenses.
+But driver's licenses already have a native machine-readable layer: barcode/PDF417 on the card, and increasingly direct DMV or mobile-ID channels. That means Live Verify is at best a complementary path when the verifier only has a photo, scan, or visual presentation and lacks barcode or DMV tooling. It is not the natural dominant architecture for driver's licenses.
 
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 1px solid #333; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
   <div style="background: #1565c0; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
@@ -48,7 +48,12 @@ But driver's licenses already have a native machine-readable layer: barcode/PDF4
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake ID Fraud
+
+- **Birthdate Alteration:** Minors using "High-Quality Fakes" to buy alcohol or enter bars.
+- **Suspension Hiding:** A driver who lost their license keeping the physical card to fool employers or police.
+
+## What Is Checked
 
 Full name, date of birth, physical descriptors (Height/Eye Color), license number, license class (A/B/C), endorsements (Motorcycle/Hazmat), expiration date, REAL ID compliance status, organ donor status, issuing jurisdiction.
 
@@ -70,7 +75,7 @@ The card proves identity and basic validity. For points/violations, see [Authori
 
 For vehicle registration verification, see [Vehicle Registration](view.html?doc=vehicle-registration).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`dmv.ca.gov`, `nysdmv.com`) and current license status.
 
@@ -80,15 +85,15 @@ Shows the issuer domain (`dmv.ca.gov`, `nysdmv.com`) and current license status.
 - **Expired** — Renewal required.
 - **Stolen** — License reported missing (fraud detection).
 
-## Second-Party Use
+## Who Holds It
 
-The **Named Individual** benefits from verification.
+The Named Individual benefits from verification.
 
 **Age-Restricted Purchases:** Proving to a bartender or cannabis retailer that the "May 15, 1985" birthdate isn't a "Fake ID" modification. Verification against the DMV domain removes the retailer's fear of "Secret Shopper" fines.
 
 **Car Rental:** Proving to a rental agency that a license isn't currently suspended, even if the physical card looks perfect. This speeds up the "Counter Process" and ensures the driver is legally insured.
 
-## Third-Party Use
+## Who Checks It
 
 **Police Officers (Roadside)**
 Where barcode scanners or direct DMV queries exist, those remain the primary path. Live Verify is more plausible in lower-capability visual or copy-based checks than as the replacement for native law-enforcement tooling.
@@ -99,12 +104,8 @@ Where barcode scanners or direct DMV queries exist, those remain the primary pat
 **Hotels / Check-In**
 **Guest Verification:** Ensuring that the ID provided during check-in is authentic, reducing "Credit Card Chargeback" fraud built on stolen identities.
 
-## Verification Architecture
+## Who Issues It
 
-**The "Fake ID" Fraud Problem**
-
-- **Birthdate Alteration:** Minors using "High-Quality Fakes" to buy alcohol or enter bars.
-- **Suspension Hiding:** A driver who lost their license keeping the physical card to fool employers or police.
 **Issuer Types** (First Party)
 
 **State DMVs:** (The primary authority in the USA).
@@ -127,7 +128,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 ## Photo Return: Defeating Sibling Lending and High-Grade Clones
 
-Verification responses can include the **DMV's authoritative photo** of the license holder — not just status, but the actual face on file.
+Verification responses can include the DMV's authoritative photo of the license holder — not just status, but the actual face on file.
 
 **Why This Matters:**
 
@@ -136,7 +137,7 @@ Verification responses can include the **DMV's authoritative photo** of the lice
 | **Sibling lending** | Bouncer glances at card photo, older sibling gets younger one into bar | Verification returns DMV's photo — obvious mismatch |
 | **High-grade clone** | Perfect fake with fraudster's photo, all text hashes correctly | Text verifies, but returned photo doesn't match the clone's photo |
 
-A minor can buy a fake ID with perfect holograms and a perfectly cloned barcode. But they **cannot make the DMV server return their face**. When the bouncer's phone shows a different person than the one holding the card, the game is over.
+A minor can buy a fake ID with perfect holograms and a perfectly cloned barcode. But they cannot make the DMV server return their face. When the bouncer's phone shows a different person than the one holding the card, the game is over.
 
 **The Doppelganger Attack (The "Woman in Cabin 10" Problem)**
 
@@ -157,14 +158,14 @@ Geo-checking won't stop a single clone use, but it detects systematic abuse — 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the DMV's hashes and status changes plus structured metadata (license number, name, date of birth, license class, expiration date) — never plaintext driver information — providing non-repudiation of the driver's license.
 
-## Competition vs. Barcode Scanners (PDF417)
+## Compared With Barcode Scanners (PDF417)
 
 | Feature | Live Verify | Barcode Scanner (Handheld) | Visual Inspection |
 | :--- | :--- | :--- | :--- |
 | **Trust Anchor** | **Domain-Bound.** Bound to the DMV. | **Self-Contained.** Trust the data *on* the card. | **Human.** Prone to error. |
 | **Freshness** | **Real-time.** Shows if suspended *today*. | **Static.** Only shows what was printed years ago. | **Static.** |
 | **Integrity** | **Cryptographic.** Binds photo to status. | **Medium.** Easy to "Clone" a real barcode onto a fake ID. | **Zero.** |
-| **Hardware** | **Universal.** Any smartphone browser. | **Specialized.** Requires expensive scanners or apps. | **Human Eye.** |
+| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Specialized.** Requires expensive scanners or apps. | **Human Eye.** |
 
 **Practical conclusion:** Barcode/PDF417 plus direct DMV access is usually the better primary architecture. Live Verify mainly helps when a relying party has only the visible card or a copied image and still wants a lightweight bridge back to the issuer domain.
 

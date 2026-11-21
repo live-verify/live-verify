@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 These cards are the core government identity credential for non-drivers, and in many countries they already sit inside a broader machine-readable ecosystem: barcode, chip, NFC, wallet, or issuer-operated identity apps.
 
-That makes Live Verify a **complementary** tool here, not the dominant one. Its best case is when a human-readable card image or copy is being checked outside the native infrastructure. If a verifier already has NFC, a structured code, or direct access to the issuer's system, those remain the primary path.
+That makes Live Verify a complementary tool here, not the dominant one. Its best case is when a human-readable card image or copy is being checked outside the native infrastructure. If a verifier already has NFC, a structured code, or direct access to the issuer's system, those remain the primary path.
 
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
   <div style="background: #002d62; color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
@@ -46,7 +46,13 @@ That makes Live Verify a **complementary** tool here, not the dominant one. Its 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake ID Fraud
+
+- **Birthdate Tampering:** Minors using high-end printers to change their birth year on a valid ID to buy alcohol or enter venues.
+- **Identity Theft:** Using a stolen ID but editing the name or photo on the card.
+- **Status Faking:** Presenting a "Valid" paper ID for an identity that has been "Revoked" or "Flagged" by the government for fraud.
+
+## What Is Checked
 
 Full name, date of birth, residential address, unique ID number, sex, physical descriptors (Height/Eye Color), photo (via hash), document serial number, issuing authority, effective/expiration dates.
 
@@ -56,25 +62,25 @@ Full name, date of birth, residential address, unique ID number, sex, physical d
 - **Public Service Card:** Proving eligibility for welfare/health services.
 - **Tribal ID:** Issued by sovereign indigenous nations.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`mto.gov.on.ca`, `gov.uk`, `singpass.gov.sg`) and current identity standing.
 
 **Status Indications:**
 - **Valid** — Identity is verified and current in the government registry.
-- **Stolen/Lost** — **ALERT:** Bearer has reported this physical card missing.
+- **Stolen/Lost** — Bearer has reported this physical card missing.
 - **Superseded** — A newer ID card version exists for this person.
 - **Revoked** — Identity credentials terminated (e.g., due to fraud discovery).
 
-## Second-Party Use
+## Who Holds It
 
-The **Named Individual** benefits from verification.
+The Named Individual benefits from verification.
 
 **Age Verification:** Proving to a bouncer or retailer that their "July 20, 1985" birthdate isn't a "Fake ID" modification. Verification against the government domain removes the merchant's fear of "Underage Sales" fines.
 
 **KYC Onboarding:** Proving their identity to an online bank or crypto exchange without needing to wait for a 24-hour "Manual Review" of a high-res photo. A verified hash allows for instant, cryptographic trust.
 
-## Third-Party Use
+## Who Checks It
 
 **Hospitality / Alcohol Retailers**
 **Bouncer Efficiency:** Instantly confirming that a "Novice Fake" ID isn't authentic. Standard fakes look perfect to the eye; Live Verify connects the bouncer directly to the government source in seconds.
@@ -85,13 +91,7 @@ The **Named Individual** benefits from verification.
 **Financial Institutions**
 **Digital KYC:** Verifying the authenticity of a government ID during remote account opening, satisfying AML/CDD requirements without hardware scanners.
 
-## Verification Architecture
-
-**The "Fake ID" Fraud Problem**
-
-- **Birthdate Tampering:** Minors using high-end printers to change their birth year on a valid ID to buy alcohol or enter venues.
-- **Identity Theft:** Using a stolen ID but editing the name or photo on the card.
-- **Status Faking:** Presenting a "Valid" paper ID for an identity that has been "Revoked" or "Flagged" by the government for fraud.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -117,7 +117,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 ## Photo Return: Defeating Sibling Lending and High-Grade Clones
 
-Verification responses can include the **issuer's authoritative photo** of the credential holder — not just "valid/invalid" but the actual face on file.
+Verification responses can include the issuer's authoritative photo of the credential holder — not just "valid/invalid" but the actual face on file.
 
 **Why This Matters:**
 
@@ -126,7 +126,7 @@ Verification responses can include the **issuer's authoritative photo** of the c
 | **Sibling lending** | Bouncer squints at blurry card photo, waves through | Verification returns DMV's crisp photo — clear mismatch to person presenting |
 | **High-grade clone** | Fake card with swapped photo, text hashes correctly | Text verifies, but returned photo doesn't match the face on the cloned card |
 
-The cloner can perfectly replicate the card's text and even its holographic features. But they **cannot forge what the server sends back**. When the bouncer's phone displays the government's photo and it doesn't match the person in front of them, the fraud is exposed.
+The cloner can perfectly replicate the card's text and even its holographic features. But they cannot forge what the server sends back. When the bouncer's phone displays the government's photo and it doesn't match the person in front of them, the fraud is exposed.
 
 **The Doppelganger Attack (The "Woman in Cabin 10" Problem)**
 
@@ -148,13 +148,13 @@ Geo-checking won't stop a single clone use, but it detects systematic abuse and 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the government's hashes and status changes plus structured metadata (ID number, issue date, expiration date, status) — never biometric data, address, or personal identity details — providing non-repudiation of the ID and an audit trail government agencies can inspect.
 
 
-## Competition vs. NFC Chip Readers
+## Compared With NFC Chip Readers
 
 | Feature | Live Verify | NFC (eID / Chip) | Scanned PDF / Image |
 | :--- | :--- | :--- | :--- |
 | **Integrity** | **Cryptographic.** Binds photo to status. | **High.** Binds digital keys. | **Zero.** Easily forged. |
 | **Trust Anchor** | **Domain-Bound.** Bound to the Gov. | **Key-Bound.** Trust the PKI. | **Visual.** |
-| **Hardware** | **Universal.** Any smartphone camera. | **Restricted.** Requires NFC-enabled phones. |
+| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Restricted.** Requires NFC-enabled phones. |
 | **Adoption** | **High.** Works for cards without chips. | **Low.** Many US/Canada IDs lack chips. |
 
 **Practical conclusion:** Where NFC or official digital-ID infrastructure exists, that should dominate. Live Verify is more defensible in the technology-gap cases where the verifier only has a visible card or an image and needs a lightweight bridge to current issuer status.
