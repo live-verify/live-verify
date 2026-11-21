@@ -174,17 +174,22 @@ The most sophisticated attack against this model is not copying the claim (which
 
 **Honest assessment:** Content script isolation provides strong but not absolute protection against page-level manipulation. The domain-mismatch check is the backstop — it works even if the text swap somehow succeeds. The weakest link is the buyer not reading the verified detail, which is why the domain-mismatch warning should be prominent and unmissable.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Manufacturer Dealer Directories
 
-| Feature | Live Verify | "Authorized Dealer" Badge | Manufacturer Directory | Invoice Only |
+Today a buyer checks whether a seller is authorized by looking at the manufacturer's "where to buy" directory, by trusting the retailer's own "authorized dealer" badge, or, after the fact, by relying on the invoice. The directory is run by the manufacturer and remains the right way to find a seller in the first place. It answers a different question from a Live Verify authorization claim, which is checked on the retailer's own product page, and the two work side by side.
+
+| | Manufacturer directory | Invoice | Live Verify on the reseller authorization | "Authorized dealer" badge |
 | :--- | :--- | :--- | :--- | :--- |
-| **Issuer-controlled** | **Yes.** Manufacturer issues the claim. | **No.** Retailer self-asserts. | **Yes.** But often stale. | **Yes.** But post-purchase. |
-| **Domain-bound** | **Yes.** Claim names the authorized site. | **No.** | **Partially.** Links to retailer. | **No.** |
-| **Revocable** | **Immediate.** Endpoint returns REVOKED. | **No.** Badge persists. | **Slow.** Directory updates lag. | **No.** |
-| **Verifiable pre-purchase** | **Yes.** On the product page. | **No.** | **Requires leaving the site.** | **No.** |
-| **Detects site copying** | **Yes.** Domain mismatch warning. | **No.** | **No.** | **No.** |
+| **Who can check** | Anyone, by visiting the manufacturer's site. | The buyer, after purchase. | Anyone viewing the claim on the retailer's product page or storefront. | Anyone reading it. |
+| **What the checker gets** | The manufacturer's list of sellers, which may be incomplete or out of date. | A record of the sale from the seller, not the manufacturer. | Confirmation that the manufacturer issued this exact authorization for this reseller and site, and whether it has since been revoked. A claim copied onto another site is flagged as not matching. | The retailer's own statement. |
+| **What the buyer has to do** | Leave the retailer's site and search. | Buy first. | Check the claim where they see it. | Nothing. |
+| **Keeping up with changes** | Depends on how promptly the manufacturer updates the directory. | Does not apply. | The manufacturer revokes the claim when the authorization ends, and it stops verifying. | Badges stay up after authorization ends. |
+| **Reach** | One manufacturer's list. | One purchase. | Global in principle: any manufacturer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | A search, free. | Immediate, but only after paying. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | The manufacturer to keep its directory accurate. | Nothing beyond the sale. | The manufacturer to publish hashes, and Live Verify-aware software on the buyer's device. No manufacturer does this yet. | Nothing. |
+| **Best suited to** | Finding where to buy. | Warranty claims and returns. | Checking a particular seller before paying. | Nothing where warranty or authenticity matters. |
 
-**Practical conclusion:** manufacturer directories and "where to buy" pages remain useful, but they answer a different question ("where can I buy?") from the one the buyer is actually asking on a retailer's product page ("is this seller actually authorized?"). The verifiable claim answers the second question in place.
+**Where each fits:** Manufacturer directories and "where to buy" pages remain useful, but they answer a different question ("where can I buy?") from the one the buyer is actually asking on a retailer's product page ("is this seller actually authorized?"). The verifiable claim answers the second question in place, and the invoice remains the record that warranty and returns depend on.
 
 ## Authority Chain
 

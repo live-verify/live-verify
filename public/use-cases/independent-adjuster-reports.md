@@ -107,14 +107,19 @@ Independent adjusters are licensed professionals who investigate insurance loss 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Claims Management Portals
+## Where Each Fits: Live Verify and Claims Management Portals
 
-| Feature | Live Verify | Claims Portal (Guidewire) | Scanned PDF Report |
+Insurance carriers run claims management systems (Guidewire is one common example) where the claim is handled and the adjuster's field report is filed. Access is limited to the carrier, its adjusting firms and their staff. The portal and Live Verify answer different questions and work side by side: one is the carrier's working record, the other lets an outsider who is handed the report confirm that the adjusting firm stands behind it.
+
+| | Carrier claims portal | Live Verify on the field report | Scanned PDF report |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the IA Firm. | **System-Bound.** Trust the Carrier's IT. | **Zero.** Easily forged. |
-| **User Access** | **Universal.** Share with any contractor/bank. | **Zero.** External parties never get portal access. | **Universal.** |
-| **Integrity** | **Binds Details.** Protects the RCV amount. | **High.** | **Vulnerable.** |
-| **Interoperability** | **High.** Works across 100+ different IA firms. | **Low.** Every carrier uses a different system. | **Universal.** |
+| **Who can check** | The carrier, its adjusting firms and their authorized staff. | Anyone handed the report: the policyholder, a contractor, a mortgage lender, a lawyer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The full claim file, kept up to date as the claim moves on. | Confirmation that the adjusting firm issued this exact report, including its figures, as at its date, and whether it has been withdrawn. | A document whose figures may have been edited. |
+| **What the policyholder shares** | Nothing; the data stays inside the carrier's systems. | Only the report they chose to hand over. | Only the report they chose to hand over. |
+| **Reach** | One carrier's system; each carrier runs its own. | Global in principle: any adjusting firm, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Immediate for those with access; outsiders cannot get access. | A few seconds per check: one web lookup, with no fee to the standard and no portal account. | Immediate. |
+| **What it needs** | A login on that carrier's system. | The adjusting firm to publish hashes, and Live Verify-aware software on the checker's device. No adjusting firm does this yet. | Nothing. |
+| **Best suited to** | Managing the claim inside the carrier and its adjusting network. | Contractors, lenders and lawyers outside the carrier who need to rely on the report's figures. | Nothing where the amount matters. |
 
 **Where each fits:** The carrier's claims system, Guidewire or otherwise, is where the claim is actually handled, and the carrier and its adjusting firm should keep treating it as the working record. Contractors, mortgage lenders and public adjusters are never given access to it and see the field report only as a PDF passed on by the policyholder. Live Verify lets them confirm that the adjusting firm stands behind that report and its figures, without any change to how the claim is managed inside the carrier.
 

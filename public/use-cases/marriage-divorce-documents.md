@@ -119,14 +119,19 @@ The General Register Office issues marriage and divorce certificates under the M
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Certified Copies (Raised Seals)
+## Where Each Fits: Live Verify, Certified Copies and Online Record Searches
 
-| Feature | Live Verify | Certified Copy (Physical Seal) | Public Portal (Online Search) |
+Marriage and divorce records are kept by the local registrar, in the US usually the county clerk or a court. The registrar issues certified copies with a raised seal, and some offer an online record search. Coverage depends on where you are: some countries keep a national civil register, some a local one, and abroad a certified copy may also need an apostille. These and Live Verify answer different questions and work side by side.
+
+| | Certified copy with raised seal | Online record search | Live Verify on the certificate |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Cryptographic.** Protects every name/date. | **Binds Paper.** Doesn't prevent "Name Edits." | **Data-Only.** |
-| **Speed** | **Instant.** 5-second scan. | **Manual.** Requires physical inspection. | **Slow.** Requires search & CAPTCHAs. |
-| **Trust Anchor** | **Domain-Bound.** Bound to the County. | **Signature-Bound.** | **Gov-Bound.** |
-| **Cost** | **Low.** Standard web infra. | **High.** Fees of $20-$50 per copy are common. | **Medium.** Per-search fees. |
+| **Who can check** | Anyone who can inspect the original and recognize the seal. | Anyone who can find and use the county's search. | Anyone handed the certificate or a copy: an employer, a bank, a benefits office, an authority abroad. |
+| **What the checker gets** | Assurance that the paper came from the registrar, though the seal does not prevent edits to names or dates on a copy. | The index entry or record as the county publishes it. | Confirmation that the registrar issued this exact certificate, names and dates included, as at its date, and whether it has since been superseded. |
+| **What the holder shares** | The certified copy itself. | Nothing; the record is searched directly, where it is public. | Only the certificate they chose to hand over. Nothing is disclosed until they do. |
+| **Reach** | Accepted widely, but only checkable by someone who knows the seal. | One county or registry. | Global in principle: any registrar, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Ordering a copy takes time and a fee. | Varies; some searches charge per search. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | The original document, in hand. | A county that offers a search. | The registrar to publish hashes, and Live Verify-aware software on the checker's device. No registrar does this yet. |
+| **Best suited to** | Agencies and courts that require a certified copy. | Independent lookup where the record is public. | A copy presented to someone who cannot assess a seal and has no search to consult. |
 
 **Where each fits:** A certified copy with the registrar's seal is what many agencies and courts require, and where that is the rule it remains the document to obtain. Where a county offers an online record search, that is a useful independent check too. Live Verify helps in the many situations where a copy is presented to someone who cannot assess a seal and has no search portal to consult, such as an employer, a bank or an authority abroad. It confirms the names and dates match what the county issued, and discloses nothing until the holder presents the document.
 

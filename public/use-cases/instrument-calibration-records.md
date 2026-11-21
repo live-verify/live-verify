@@ -110,14 +110,19 @@ Accredited calibration labs provide NIST-traceable calibrations following ISO/IE
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With LIMS (Lab Information Mgmt)
+## Where Each Fits: Live Verify and Laboratory Information Systems
 
-| Feature | Live Verify | LIMS Software (LabWare) | Scanned PDF Record |
+A laboratory information management system (LIMS), such as LabWare, is the database a lab uses to track samples, instruments and calibration history. It is run by the lab itself and is open only to its own staff. The LIMS and Live Verify answer different questions and work side by side: one is the lab's internal record, the other lets an outside reader confirm a calibration record the lab has issued.
+
+| | Laboratory information system | Live Verify on the calibration record | Scanned PDF record |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Lab. | **System-Bound.** Trust the DB admin. | **Zero.** Easily forged. |
-| **User Access** | **Universal.** Share with any journal/auditor. | **Zero.** External parties never get LIMS logins. | **Universal.** |
-| **Integrity** | **Cryptographic.** Binds the Serial #. | **High.** | **Vulnerable.** |
-| **Permanence** | **Archival.** Text is permanent. | **Ephemeral.** Databases get migrated/lost. | **Vulnerable.** |
+| **Who can check** | Lab staff with a login. | Anyone handed the record or scanning the instrument's sticker: a journal, an auditor, a regulator, an expert witness. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The full instrument history, as the lab currently holds it. | Confirmation that the calibration lab issued this exact record, including the serial number and results, as at its date, and whether it has been withdrawn. | A document that may have been edited. |
+| **What the lab shares** | Nothing outside the lab. | Only the record it chose to hand over. | Only the record it chose to hand over. |
+| **Reach** | One lab's system. | Global in principle: any calibration lab, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Immediate for staff; outsiders do not get access. | A few seconds per check: one web lookup, with no fee to the standard and no login. | Immediate. |
+| **What it needs** | The lab's own software and administration. | The calibration lab to publish hashes, and Live Verify-aware software on the checker's device. No calibration lab does this yet. | Nothing. |
+| **Best suited to** | Day-to-day sample and instrument management inside the lab. | Readers outside the lab who need to rely on a specific calibration record. | Nothing where results depend on it. |
 
 **Where each fits:** A LIMS is the right system of record inside the laboratory, and nothing here replaces it for day-to-day sample and instrument management. The gap is the reader outside the lab: a journal, an auditor or a regulator who receives a calibration PDF and will never be given a LIMS login. Live Verify lets that reader confirm the lab stands behind the exact record, while the LIMS carries on as the source it was exported from.
 

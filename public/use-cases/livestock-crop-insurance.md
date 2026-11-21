@@ -101,14 +101,19 @@ NFU Mutual, a regulated agricultural insurer, is authorized by the FCA to issue 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With USDA Portals
+## Where Each Fits: Live Verify and USDA Systems
 
-| Feature | Live Verify | USDA / RMA Public Search | Scanned PDF Summary |
+In the US, federal crop insurance is overseen by USDA's Risk Management Agency and sold and serviced by approved insurance providers. Policy-level records sit in USDA and insurer systems that require a USDA login, while what RMA publishes openly is largely aggregated data. Other countries run their own agricultural insurance schemes, some public and some private, and many have no comparable public record. The federal systems and Live Verify answer different questions and work side by side: one is the official record for those with access, the other lets a bank officer or landlord confirm a coverage summary they have been handed.
+
+| | USDA and RMA systems | Live Verify on the coverage summary | Scanned PDF summary |
 | :--- | :--- | :--- | :--- |
-| **User Access** | **Open.** Any bank or landlord can verify. | **Restricted.** Requires secure eAuth Level 2 logins. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Carrier. | **Gov-Bound.** | **Zero.** Easily forged. |
-| **Detail** | **High.** Shows specific fields and head count. | **Low.** Often only shows aggregated county data. | **Full.** |
-| **Speed** | **Instant.** Scan at the farm gate. | **Slow.** Requires multiple Gov-ID hoops. | **Instant.** |
+| **Who can check** | Producers and approved insurance providers with USDA logins; the public sees aggregated data. | Anyone handed the summary: a farm lender, a landlord, a buyer of livestock or crop. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The official federal record, for those with access; county-level totals for everyone else. | Confirmation that the carrier issued this exact summary, including fields, crops or head count, as at its date, and whether the coverage has since been cancelled. | A summary whose fields or head count may have been edited. |
+| **What the producer shares** | Their login, which no lender should be given. | Only the summary they chose to hand over. | Only the summary they chose to hand over. |
+| **Reach** | US federal crop insurance. | Global in principle: any carrier, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free for those with access; setting up a login takes identity checks. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection at the farm. | Immediate. |
+| **What it needs** | A USDA login with the right access level. | The carrier to publish hashes, and Live Verify-aware software on the checker's device. No carrier does this yet. | Nothing. |
+| **Best suited to** | Administering policies and claims under the federal program. | A lender or landlord confirming coverage before a loan or lease. | Nothing where a loan depends on it. |
 
 **Where each fits:** USDA and RMA systems are the official record for federal crop insurance, and producers and approved insurance providers will continue to work through them. A local bank officer or landlord reviewing a loan or a lease usually has no access to those systems and is handed the coverage summary instead. Live Verify lets them confirm the carrier issued that summary, as a companion to the federal record.
 

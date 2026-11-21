@@ -293,17 +293,22 @@ Medi-Cal providers operate under DHCS oversight, which operates under CMS federa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Medicaid Program Integrity
 
-| Feature | Live Verify | Current Medi-Cal Billing | DHCS Post-Payment Review | Commercial Fraud Analytics |
+Medi-Cal, California's Medicaid program, is run by the Department of Health Care Services (DHCS), which pays claims largely as submitted and then reviews paid claims after the fact; commercial fraud analytics platforms add pattern detection on the same paid data. Every state Medicaid program has its own version of this pay-then-review approach, under federal oversight. These and verified encounter records answer different questions and work side by side: the reviews find patterns across many claims, while an encounter record lets a single claim be matched to a contemporaneous record before payment.
+
+| | DHCS post-payment review | Commercial fraud analytics | Live Verify on the encounter record | Claim submission alone |
 | :--- | :--- | :--- | :--- | :--- |
-| **When fraud is detected** | **Before payment.** Encounter hash check at claim submission. | **Never (by design).** Claims are trusted at submission. | **Months/years later.** Statistical analysis of paid claims. | **Weeks/months later.** Pattern detection on paid data. |
-| **Phantom billing detection** | **Immediate.** No encounter hash = no payment. | **Undetectable at submission.** | **Retrospective.** Requires investigation. | **Probabilistic.** Flagged for review. |
-| **Upcoding detection** | **Contemporaneous.** Encounter code ≠ billing code is visible. | **Undetectable.** Provider controls both records. | **Statistical.** Provider outlier analysis. | **Statistical.** Same approach. |
-| **Beneficiary awareness** | **Yes.** Patient receives encounter notification. | **No.** Patient may never see the claim. | **Sometimes.** If patient is contacted during investigation. | **No.** |
-| **Cost** | **Low.** Standard web infrastructure per provider. | **Zero.** (but fraud costs billions) | **High.** Investigators, auditors, prosecutors. | **Very high.** Licensed analytics platforms. |
+| **Who can check** | DHCS investigators and auditors. | The program or plan that licenses the platform. | DHCS or a managed care plan, at claim submission; the patient, from the encounter notice they receive. | Nobody; claims are trusted as submitted. |
+| **What the checker gets** | Statistical outliers and cases built by investigation. | Flags from pattern detection across paid claims. | Confirmation that the provider published an encounter record matching the claim, and its codes, at the time of service. A missing record, or codes that differ from the claim, is a reason to question the claim. | The provider's own data. |
+| **When problems are found** | Months or years after payment. | Weeks or months after payment. | Before payment, for claims with no matching encounter. | Not at submission. |
+| **What the patient shares** | Nothing, unless contacted in an investigation. | Nothing. | Nothing extra; they receive a copy of their own encounter record. | Nothing; they may never see the claim. |
+| **Reach** | One state program. | Programs and plans that buy the platform. | Global in principle: any provider or health program, in any country, that publishes hashes on its own domain. | Everywhere claims are paid. |
+| **Speed and cost** | Investigators, auditors and prosecutors. | License and operating costs. | A few seconds per check: one web lookup, with no fee to the standard. Providers' systems must publish records as care is given. | No checking cost. |
+| **What it needs** | Investigative staff and paid-claims data. | The platform and claims data feeds. | Providers' records systems to publish hashes at the point of care, DHCS to check them before paying, and Live Verify-aware software for patients who check their notices. No provider or program does this yet. | Nothing. |
+| **Best suited to** | Building cases and recovering money. | Spotting organized schemes and outlier providers across thousands of claims. | Phantom billing and stolen provider numbers, caught before money moves. It does not stop a provider who records false encounters at the time. | Nothing on its own. |
 
-**Where each fits:** Post-payment review and commercial analytics are good at what a single-claim check cannot do: spotting patterns across thousands of claims, outlier providers and organised schemes, and building cases for recovery. Their limitation is timing, since they act on claims already paid. A verified encounter record adds an earlier check at submission, so a claim with no matching encounter can be questioned before money moves. The statistical and investigative work continues alongside it for everything a per-encounter check does not catch.
+**Where each fits:** Post-payment review and commercial analytics are good at what a single-claim check cannot do: spotting patterns across thousands of claims, outlier providers and organized schemes, and building cases for recovery. Their limitation is timing, since they act on claims already paid. A verified encounter record adds an earlier check at submission, so a claim with no matching encounter can be questioned before money moves. The statistical and investigative work continues alongside it for everything a per-encounter check does not catch, including a provider willing to record false encounters as they go.
 
 ## Broader Applicability
 

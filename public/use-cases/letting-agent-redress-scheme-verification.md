@@ -182,9 +182,11 @@ Platforms can require or display the three claims, and — critically — cross-
 
 **Pattern:** Sovereign (each claim resolves up to a UK-government root). The tenant's human channel reads the domains (`companieshouse.gov.uk`, a real scheme domain, `london.gov.uk`); the machine channel walks each [authority chain](../../docs/authority-chain-spec.md) to a [sovereign root](../../docs/sovereign-roots.md). A claim that resolves only to `anchorgate-lettings.example` with nothing behind it is exactly the balk case. See the [Authority Chain Specification](../../docs/authority-chain-spec.md).
 
-## Compared With the Alternatives
+## Where Each Fits: Live Verify and Existing Tenant Checks
 
-| Existing control | What it does well | The gap this fraud exploited |
+Tenants in England are told to run several checks before paying a deposit: the redress-scheme registers, the deposit-protection schemes, Companies House, client money protection, the listing platform's own checks, and plain common sense. Each is run by a different body and each is authoritative for its own question. The table sets out what each does well, where it fell short in the fraud described above, and what a Live Verify claim would add and need. They work side by side.
+
+| Check | What it does well | Where it fell short in this fraud |
 |---|---|---|
 | Redress-scheme registers (PRS, TPO agent-finder) | Public membership lookup; gateway to complaints and awards | Membership is purchasable for £190 with a "simple joining process"; the register was still listing the scam agency weeks after warnings; a membership number is not bound to a domain, so displaying it proves nothing about *who* is displaying it |
 | Deposit-scheme lookups (MyDeposits, DPS, TDS) | Authoritative on whether a specific deposit registration exists | A £27 landlord insurance product generated an authentic-looking protection link; the schemes themselves note registration is "not designed to operate as property ownership or tenancy verification" |
@@ -192,8 +194,9 @@ Platforms can require or display the three claims, and — critically — cross-
 | Client Money Protection (CMP) schemes | Reimbursement when a legitimate member agent misappropriates client money | The scam agency was never holding client money in a protected account; a CMP badge is the same copyable string as a redress badge |
 | Listing-platform checks (OpenRent, Rightmove) | Platform-level identity checks on listers; in-platform messaging | The scammers moved the conversation off-platform to email early — a step the victim noticed but that no control converted into a warning |
 | "Look established, check reviews" folk advice | Catches sloppy, low-effort scams | Anchor Gate was polished — professional emails, safety paperwork, even a "calls recorded for training" message. Professionalism is precisely what the fraud invests in |
+| Live Verify claims on the agent's badge and listing (proposed) | Lets the tenant check *this* agent, *this* membership and *this* property against the issuers' own domains, in a few seconds, at the moment of payment, with no fee to the standard | Not yet available: it needs the agencies, the redress schemes and a source of incorporation data to publish hashes, and the tenant to have Live Verify-aware software on their phone. A scammer's own domain can self-attest, so it relies on the endorsement chain and the incorporation date to flag a new or unanchored agency |
 
-**Practical conclusion:** each existing control answers a question adjacent to the one the tenant is asking. The registers prove a membership exists somewhere; the deposit lookup proves a registration exists for something; Companies House proves a company exists. Only domain-bound claims answer the tenant's actual three questions — *this* agent, *this* membership, *this* property — at the moment the money is about to move. And where the existing controls are authoritative (Companies House on incorporation, the schemes on membership), Live Verify doesn't compete with them: it puts their answers in the tenant's hand.
+**Where each fits:** each existing control answers a question next to the one the tenant is asking. The registers show a membership exists somewhere; the deposit lookup shows a registration exists for something; Companies House shows a company exists and how old it is. Domain-bound claims would bring those answers together for *this* agent, *this* membership and *this* property at the moment the money is about to move. Where the existing controls are authoritative (Companies House on incorporation, the schemes on membership), Live Verify does not compete with them: it puts their answers in the tenant's hand.
 
 ## Related Use Cases
 

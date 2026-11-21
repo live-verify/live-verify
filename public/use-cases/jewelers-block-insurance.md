@@ -107,16 +107,21 @@ Chubb, a regulated specialty insurer, is authorized by the FCA to issue verified
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Manual Broker Letters
+## Where Each Fits: Live Verify and Broker Confirmation Letters
 
-| Feature | Live Verify | Manual Broker Letter | Scanned PDF |
+When a supplier wants to know that a jeweler's block policy is in force before handing over goods on memo, the usual route is a confirmation letter from the jeweler's broker. The broker can explain terms and exclusions in a way no certificate can. The letter and Live Verify answer different questions and work side by side: one is the broker's considered account of the cover, the other lets the supplier confirm on the spot that the carrier stands behind the certificate as presented.
+
+| | Broker confirmation letter | Live Verify on the insurance certificate | Scanned PDF certificate |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Cryptographic.** Binds the *Vault Class*. | **Subjective.** Relies on the broker's memory. | **Zero.** Easily forged. |
-| **Speed** | **Instant.** 5-second scan at the vault. | **Slow.** Takes 2-3 business days to get a "Confirmation." | **Instant.** |
-| **Availability** | **24/7.** Works during after-hours trades. | **Restricted.** Business hours only. | **Universal.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Carrier. | **Human.** Prone to social engineering. | **Vulnerable.** |
+| **Who can check** | The supplier, once the broker responds. | Anyone handed the certificate: a supplier, a consignor, a trade-show organizer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The broker's written account of the cover, with room for explanation of terms and exclusions. | Confirmation that the carrier issued this exact certificate, including the vault class and limits, as at its date, and whether it has since been cancelled. | A certificate whose limits or vault class may have been edited. |
+| **What the jeweler shares** | Whatever the broker is asked to confirm. | Only the certificate they chose to hand over. | Only the certificate they chose to hand over. |
+| **Reach** | Wherever the broker can be reached, in business hours. | Global in principle: any carrier, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Usually days, and dependent on office hours. | A few seconds per check, at any hour: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | A broker who responds, and care that the request is not being intercepted or spoofed. | The carrier to publish hashes, and Live Verify-aware software on the checker's device. No carrier does this yet. | Nothing. |
+| **Best suited to** | Large or unusual consignments, where the terms matter in detail. | Trades agreed out of hours or away from the office. | Nothing where the goods are valuable. |
 
-**Where each fits:** A broker's confirmation letter is still the right route when there is time, since the broker can explain terms and exclusions in a way a certificate cannot. Trades agreed out of hours or away from the office do not always allow two or three working days for that. Live Verify lets the supplier confirm then and there that the carrier stands behind the certificate as presented, and a broker letter can follow where the deal warrants it.
+**Where each fits:** A broker's confirmation letter is still the right route when there is time, since the broker can explain terms and exclusions in a way a certificate cannot. Trades agreed out of hours or away from the office do not always allow days for that. Live Verify lets the supplier confirm then and there that the carrier stands behind the certificate as presented, and a broker letter can follow where the deal warrants it.
 
 ## Independent Record (Optional)
 

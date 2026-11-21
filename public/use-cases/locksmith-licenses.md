@@ -126,16 +126,21 @@ Locksmith licensing bodies confirm standing and bonding. The dispatching firm or
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Review Sites (Yelp)
+## Where Each Fits: Live Verify and Review Sites
 
-| Feature | Live Verify | Yelp / Google Reviews | Physical ID Card |
+Review sites such as Yelp and Google reviews collect customers' opinions of a business. A locksmith license is issued by a state licensing board, in the states that license locksmiths. They answer different questions: reviews say how a business has treated customers, a license says whether this person is permitted to do the work. They work side by side.
+
+| | Review sites | Live Verify on the license badge | Physical ID card |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the State Gov. | **Social-Bound.** Trusted via crowd opinion. | **Zero.** Easily forged. |
-| **Integrity** | **Cryptographic.** Binds face to license. | **Vulnerable.** Reviews can be faked/bought. | **None.** |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires reading multiple reviews. | **Instant.** |
-| **Freshness** | **Real-time.** Shows if banned *today*. | **N/A.** | **Static.** |
+| **Who can check** | Anyone, before choosing a locksmith. | Anyone shown the badge: a customer at the door, a property manager, a police officer. | Whoever looks at it. |
+| **What the checker gets** | Other customers' experiences, which can be faked or bought. | Confirmation that the licensing board issued this exact license to the named person, as at its date, and whether it has since been suspended or revoked. | A card that may be forged. |
+| **What the locksmith shares** | Nothing; reviews are written by others. | Only the badge they chose to show. | The card. |
+| **Reach** | Businesses that have been reviewed. | Global in principle: any licensing board, in any country, that publishes hashes on its own domain. Many places do not license locksmiths at all. | Anywhere, but untrusted. |
+| **Speed and cost** | Free; takes time to read enough reviews. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | Enough genuine reviews to be meaningful. | The licensing board to publish hashes, and Live Verify-aware software on the customer's phone. No licensing board does this yet. | Nothing. |
+| **Best suited to** | Choosing a business when there is time. | Checking the person who has arrived at the door. | Nothing on its own. |
 
-**Where each fits:** Review sites tell you something a licence cannot: how a business has treated its previous customers. They are the right tool when you have time to choose. At the door, locked out, the question is narrower: whether the person who has arrived holds a current licence. Live Verify answers that from the badge in a few seconds. Reading reviews beforehand and checking the badge on arrival are complementary habits.
+**Where each fits:** Review sites tell you something a license cannot: how a business has treated its previous customers. They are the right tool when you have time to choose. At the door, locked out, the question is narrower: whether the person who has arrived holds a current license. Live Verify answers that from the badge in a few seconds. Reading reviews beforehand and checking the badge on arrival are complementary habits.
 
 ## See Also
 

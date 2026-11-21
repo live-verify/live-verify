@@ -109,14 +109,19 @@ Aviva, a regulated insurance claims administrator, is authorized by the FCA to i
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Claims Dashboards
+## Where Each Fits: Live Verify and Carrier Claims Apps
 
-| Feature | Live Verify | Carrier Mobile App | Scanned PDF Report |
+Most carriers give policyholders a mobile app or online claims dashboard where they can follow a claim, upload photos and see its history. It is run by the carrier and open only to the account holder. The app and Live Verify answer different questions and work side by side: one is the policyholder's own view of the claim, the other lets a third party who is handed the adjuster's report confirm that the carrier issued it.
+
+| | Carrier claims app or dashboard | Live Verify on the adjuster's report | Scanned PDF report |
 | :--- | :--- | :--- | :--- |
-| **User Control** | **High.** Share only the *Assessment*. | **Low.** App access reveals *full* account history. | **High.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Carrier. | **System-Bound.** | **Zero.** Easily forged. |
-| **Interoperability** | **High.** Verified PDF works for any body shop. | **Siloed.** | **Universal.** |
-| **Persistence** | **High.** Remains verifiable after claim closes. | **Low.** Past claims often hidden in old menus. | **Vulnerable.** |
+| **Who can check** | The policyholder, logged in to their own account. | Anyone handed the report: a body shop, a contractor, a lender, a prospective buyer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The full claim as the carrier currently holds it, including later updates. | Confirmation that the carrier issued this exact assessment, as at its date, and whether it has since been withdrawn. | A document whose figures may have been edited. |
+| **What the policyholder shares** | Their login, if they want someone else to look, which exposes the whole account. | Only the report they chose to hand over. | Only the report they chose to hand over. |
+| **Reach** | One carrier's customers. | Global in principle: any carrier, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Immediate for the policyholder. | A few seconds per check: one web lookup, with no fee to the standard and no account. | Immediate. |
+| **What it needs** | An account with that carrier. | The carrier to publish hashes, and Live Verify-aware software on the checker's device. No carrier does this yet. | Nothing. |
+| **Best suited to** | The policyholder following and managing their own claim. | A repairer or buyer who needs to rely on the assessment without seeing the rest of the account. | Nothing where the amount matters. |
 
 **Where each fits:** The carrier's app or claims dashboard is the natural place for the policyholder to follow a claim, upload photos and see its full history. A body shop, contractor or prospective buyer has no login to it and is handed the adjuster's report instead. Live Verify lets that person confirm, on the spot, that the carrier issued this exact report, without the policyholder opening the rest of the account to them.
 

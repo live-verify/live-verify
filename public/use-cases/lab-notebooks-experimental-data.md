@@ -111,14 +111,19 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Blockchain (Ocean Protocol)
+## Where Each Fits: Live Verify, Lab Notebook Systems and Science Blockchains
 
-| Feature | Live Verify | Science Blockchain (Ocean/DeSci) | ELN Audit Log |
+Inside an institution, the electronic lab notebook (ELN) and its audit log are the working record of experiments. Some research consortia also use shared ledgers, such as Ocean Protocol and other decentralized-science projects, to register data. These answer different questions from Live Verify and work side by side with it: the notebook holds the record, a ledger serves partners who have agreed to share one, and Live Verify lets a colleague outside both confirm a summary the institution has issued.
+
+| | ELN audit log | Science blockchain | Live Verify on the notebook summary |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the University. | **Consensus-Bound.** Trust the network. | **System-Bound.** |
-| **Interoperability** | **High.** PDFs stay verifiable across institutions. | **Low.** Requires all partners to use the same chain. | **Zero.** |
-| **Content Link** | **Binds Summary.** Protects the *Message*. | **Binds Files.** | **Vulnerable.** |
-| **Cost** | **Low.** Standard web infra. | **Medium.** Gas fees and storage costs. | **High.** Enterprise license fees. |
+| **Who can check** | Users of that institution's ELN. | Participants on that network. | Anyone handed the summary: a collaborator elsewhere, a journal, a patent attorney. |
+| **What the checker gets** | The full experimental record and its edit history. | A registered record of files or data on the ledger. | Confirmation that the institution issued this exact summary, as at its date, and whether it has since been withdrawn. |
+| **What the researcher shares** | Access to the ELN, which outsiders rarely get. | Whatever is put on the ledger. | Only the summary they chose to send. |
+| **Reach** | One institution's system. | Partners who all use the same network. | Global in principle: any institution, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Immediate for users; enterprise license fees. | Network fees and storage costs. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | The ELN, licensed and administered by the institution. | All partners on the same network. | The institution to publish hashes, and Live Verify-aware software on the checker's device. No research institution does this yet. |
+| **Best suited to** | The authoritative day-to-day record. | Consortia that have agreed on shared infrastructure. | Informal collaboration, where a summary travels to someone without access to either. |
 
 **Where each fits:** An electronic lab notebook with its audit log is the working record inside an institution, and shared ledgers can suit consortia whose members have all agreed to run the same infrastructure. Much collaboration is less formal: a researcher sends a PDF summary to a colleague elsewhere who has no access to the originating system. Live Verify lets that colleague confirm the institution stands behind the summary as sent, and the notebook stays the authoritative source behind it.
 

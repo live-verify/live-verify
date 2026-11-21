@@ -106,14 +106,19 @@ Veterinarians issue livestock health certificates under veterinary regulator aut
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Electronic CVI (GlobalVetLink)
+## Where Each Fits: Live Verify and Electronic CVI Platforms
 
-| Feature | Live Verify | eCVI Platforms (GVL) | Paper CVI Form |
+Electronic certificate of veterinary inspection (eCVI) platforms, GlobalVetLink among them, let accredited veterinarians issue CVIs electronically and route them to state animal health officials. Other countries run their own animal movement and health certification systems, some national and some shared across borders, and many still rely on paper. eCVI platforms and Live Verify answer different questions and work side by side: one carries structured data between vets and officials who use the platform, the other lets an inspector check a certificate in hand against the issuer's domain.
+
+| | eCVI platform | Live Verify on the health certificate | Paper CVI form |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the State Vet. | **System-Bound.** Trust the vendor. | **Zero.** Easily forged. |
-| **Field Access** | **Instant.** Scan the paper at the border. | **Difficult.** Requires inspectors to have specific app logins. | **Instant.** |
-| **Adoption** | **High.** Works with existing paper workflows. | **Medium.** Requires all vets to use the same software. | **Universal.** |
-| **Integrity** | **Binds Microchip.** Protects the data. | **Data-Only.** | **Vulnerable.** |
+| **Who can check** | Officials and vets with access to that platform. | Anyone handed the certificate: a checkpoint inspector, a sale barn, a buyer, a show official. | Whoever reads it. |
+| **What the checker gets** | Structured certificate data, routed to the destination state. | Confirmation that the issuer published this exact certificate, microchip and animal details included, as at its date, and whether it has since been withdrawn. | A form whose details may have been edited. |
+| **What the owner shares** | Nothing extra; the platform routes the data. | Only the certificate they chose to hand over. | Only the certificate they chose to hand over. |
+| **Reach** | Vets and states that use that platform. | Global in principle: any issuing authority, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Fast for users; vets pay for the platform. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection at the checkpoint. | Immediate. |
+| **What it needs** | The issuing vet and the checker both on the platform. | The issuer to publish hashes, and Live Verify-aware software on the inspector's phone. No issuer does this yet. | Nothing. |
+| **Best suited to** | Routine interstate movement between participating vets and states. | Checkpoints and sales where the inspector has the paper and no platform login. | Nothing where disease control depends on it. |
 
 **Where each fits:** Electronic CVI platforms work well where the issuing veterinarian and the receiving state both use them, and they give animal health officials structured data that paper cannot. An inspector at a checkpoint or a sale barn may not have a login for the particular platform a certificate came from, and plenty of certificates still travel on paper. Live Verify lets that inspector check the paper against the issuer's domain with a phone, and it can sit on top of a certificate that an eCVI platform produced.
 

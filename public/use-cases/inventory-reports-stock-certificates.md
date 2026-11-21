@@ -108,16 +108,21 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With WMS Portals (Warehouse Management)
+## Where Each Fits: Live Verify and Warehouse Management Portals
 
-| Feature | Live Verify | WMS Portal Access | Scanned PDF / Excel |
+A warehouse management system (WMS) is the custodian's live record of stock, and many offer a portal to the custodian's direct customers. Banks, auditors and buyers further away rarely get a login. The portal and Live Verify answer different questions and work side by side: one is the live stock record, the other lets an outsider confirm that a stock report or certificate they were sent is one the custodian stands behind.
+
+| | WMS portal | Live Verify on the stock report | Scanned PDF or spreadsheet |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Custodian. | **System-Bound.** | **Zero.** Easily forged. |
-| **User Access** | **Universal.** Share with any bank/auditor. | **Restricted.** Third parties never get WMS logins. | **Universal.** |
-| **Integrity** | **Binds Content.** Protects the Lot counts. | **Data-Only.** Doesn't protect the paper doc. | **Vulnerable.** |
-| **Persistence** | **High.** Remains verifiable post-release. | **Low.** Records often archived/hidden in-app. | **Vulnerable.** |
+| **Who can check** | The custodian and the customers it gives logins to. | Anyone handed the report: a lending bank, an auditor, a buyer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Current stock levels, lot by lot. | Confirmation that the custodian issued this exact report, lot counts included, as at its date, and whether it has since been withdrawn. | A report whose counts may have been edited. |
+| **What the depositor shares** | Portal access, on the custodian's terms. | Only the report they chose to hand over. | Only the report they chose to hand over. |
+| **Reach** | One custodian's system. | Global in principle: any warehouse or custodian, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Immediate for those with access. | A few seconds per check: one web lookup, with no fee to the standard and no login. | Immediate. |
+| **What it needs** | A login on that custodian's system. | The custodian to publish hashes, and Live Verify-aware software on the checker's device. No custodian does this yet. | Nothing. |
+| **Best suited to** | Day-to-day stock management for the custodian and its direct customers. | Inventory finance and audit, where the checker relies on a report sent by the borrower. | Nothing where lending depends on it. |
 
-**Where each fits:** A warehouse management system is the live record of stock, and the custodian and its direct customers are best served by it. Banks and auditors outside the supply chain rarely get a login and work from the reports they are emailed. Live Verify lets them confirm that the custodian issued the report in front of them, lot counts and all, without widening access to the warehouse system.
+**Where each fits:** A warehouse management system is the live record of stock, and the custodian and its direct customers are best served by it. Banks and auditors outside the supply chain rarely get a login and work from the reports they are emailed. Live Verify lets them confirm that the custodian issued the report in front of them, lot counts and all, without widening access to the warehouse system. A report confirms what the custodian stated at its date, not what is in the warehouse today.
 
 ## Independent Record (Optional)
 

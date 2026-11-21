@@ -148,16 +148,20 @@ Commercial issuer — self-authorized. Trust rests on the insured's domain reput
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With the Alternatives
+## Where Each Fits: Live Verify and Other Ways to Confirm a Broker's Authority
 
-| Method | Limitation |
-|--------|-----------|
-| **Paper letter of authority** | Easy to fabricate, no real-time status, no scope enforcement |
-| **Email confirmation from insured** | Depends on the underwriter knowing the right contact; emails can be spoofed |
-| **Broker management systems** | Insurer-specific; no cross-market standard; no insured-controlled revocation |
-| **Lloyd's ATLAS / market systems** | Covers Lloyd's market only; does not address domestic or international placement |
-| **Phone call to insured** | Slow, no audit trail, relies on reaching the right person |
-| **Verifiable claim (this approach)** | Insured-controlled, real-time, scopable, revocable, cross-market |
+Underwriters already have several ways to satisfy themselves that a broker has been appointed: insurer-side broker management systems, market systems such as those used in the Lloyd's and London market, and contacting the insured by email or phone. Each works within its own setting. They answer slightly different questions from a Live Verify claim and work side by side with it.
+
+| | Broker management systems | Lloyd's and London market systems | Email confirmation from the insured | Phone call to the insured | Live Verify on the letter of authority | Paper or PDF letter |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Who can check** | The insurer that runs the system. | Participants in that market. | An underwriter who knows the right contact at the insured. | An underwriter who can reach the right person. | Any underwriter, managing agent or adviser handed the claim. | Whoever receives it, by reading it. |
+| **What the checker gets** | The insurer's own record of which broker it deals with for the account. | The market's record for business placed there. | A reply from someone at the insured, if the address is genuine. | A conversation, with no record unless the underwriter makes one. | Confirmation that the insured stands behind this exact appointment and scope, as at its date. | A letter that may be out of date or edited. |
+| **What the broker shares** | Nothing extra; the insurer already holds the data. | What the market system requires. | Nothing; the underwriter goes to the insured. | Nothing; the underwriter goes to the insured. | The claim text, which they carry with their submissions. | The letter. |
+| **Revocation** | Updated when the insurer is told. | Updated when the market is told. | Only as current as the reply. | Only as current as the call. | The insured withdraws the claim at its own domain and it stops verifying. | None; an old letter keeps circulating. |
+| **Reach** | One insurer. | Business placed in that market. | Anywhere, if the contact is known. | Anywhere, if the person can be reached. | Global in principle: any insured, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Immediate inside the insurer. | Immediate for market participants. | Hours or days, depending on the reply. | Slow, and depends on reaching the right person across time zones. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | The insurer's own systems and records. | Membership of, or access to, that market. | A known, genuine contact, and an email that is not spoofed. | A known, genuine contact. | The insured to publish hashes, and Live Verify-aware software on the underwriter's device. No insured does this yet. | Nothing. |
+| **Best suited to** | An insurer's established relationships with its own brokers. | Placements within that market. | Occasional confirmation where a relationship already exists. | Resolving a specific doubt or dispute. | Following markets, cross-border placements and broker-of-record changes, where the underwriter has no direct line to the insured. | Nothing where the scope of authority matters. |
 
 <details>
 <summary>UK — London Market and Domestic</summary>
@@ -194,6 +198,8 @@ The Insurance Distribution Directive (2016/97/EU) requires intermediaries to act
 
 EU member states implement IDD through national regulators (BaFin in Germany, ACPR in France, DNB in the Netherlands). Cross-border placement within the EU requires the broker to demonstrate authorization in their home state and notify the host state regulator. A verifiable authority claim from the insured simplifies the chain: the insurer in the host state can confirm the broker's appointment directly, complementing the regulatory passport.
 </details>
+
+**Where each fits:** An insurer's own broker records and market systems remain the natural place to manage established relationships, and a call to the insured is still the right step when something looks wrong. They do not travel well: a following market, an overseas carrier or a new insurer often has no record and no direct contact. Live Verify gives any of them a quick check against the insured's own domain, with revocation the insured controls, wherever the underwriter has software that honours it.
 
 ## Further Derivations
 

@@ -113,14 +113,19 @@ HSBC Bank, a regulated international bank, is authorized by the FCA to issue ver
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With SWIFT (Electronic)
+## Where Each Fits: Live Verify and SWIFT
 
-| Feature | Live Verify | SWIFT MT700 (Electronic) | Scanned PDF L/C |
+Banks issue and advise letters of credit to each other over the SWIFT network, using messages such as the MT700, and SWIFT authenticates those messages between member banks. The SWIFT message and Live Verify answer different questions and work side by side: one is the authoritative interbank channel, the other lets a party outside the banking network confirm the printed or PDF credit they have been shown.
+
+| | SWIFT message between banks | Live Verify on the letter of credit | Scanned PDF letter of credit |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Bank. | **Network-Bound.** Trust the SWIFT keys. | **Zero.** Easily forged. |
-| **Accessibility** | **Universal.** Any local agent/broker can verify. | **Restricted.** Only banks have SWIFT terminals. | **Universal.** |
-| **Integrity** | **Binds Content.** Protects the text. | **Data-Only.** No "Human" document link. | **Vulnerable.** |
-| **Interoperability** | **High.** Works across non-SWIFT fintechs. | **Limited.** Only for legacy banks. | **Universal.** |
+| **Who can check** | Banks connected to SWIFT, in particular the issuing, advising and confirming banks. | Anyone handed the credit: a supplier, a freight forwarder, an insurance agent, a trade-finance platform. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The authenticated terms of the credit as sent between banks. | Confirmation that the issuing bank published this exact credit text, as at its date, and whether it has since been cancelled or amended. | A document whose terms may have been edited. |
+| **What the applicant shares** | Nothing; the banks exchange the message. | Only the credit they chose to hand over. | Only the credit they chose to hand over. |
+| **Reach** | Banks on the SWIFT network, worldwide. | Global in principle: any bank, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Fast between connected banks; membership and infrastructure are a bank's cost. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | SWIFT membership and connectivity. | The issuing bank to publish hashes, and Live Verify-aware software on the checker's device. No bank does this yet. | Nothing. |
+| **Best suited to** | Issuing, advising, confirming and paying the credit. | Non-bank parties who must decide whether to ship or insure on the strength of a credit they have only seen as a copy. | Nothing where goods ship against it. |
 
 **Where each fits:** SWIFT is how banks authenticate a letter of credit between themselves, and for the issuing, advising and confirming banks it is the authoritative channel. Freight forwarders, insurance agents and smaller suppliers are outside that network and see only the printed or PDF credit. Live Verify lets them confirm that copy against the issuing bank's domain, alongside the interbank message that the banks continue to depend on.
 

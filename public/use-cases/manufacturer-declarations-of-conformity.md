@@ -119,14 +119,20 @@ Manufacturers must declare that products meet applicable safety standards and di
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With QR Redirects
+## Where Each Fits: Live Verify and QR Codes on Products
 
-| Feature | Live Verify | Standard QR Code Redirect | Scanned PDF DoC |
+Many manufacturers print a QR code on the product or its packaging that leads to their support or documentation pages, sometimes including the declaration of conformity. The QR code is the manufacturer's own convenience link. It and Live Verify answer different questions and work side by side: one takes the reader to a web page, the other lets the reader confirm that the printed declaration in the manual is one the manufacturer stands behind.
+
+| | QR code redirect | Live Verify on the declaration of conformity | Scanned PDF declaration |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Manufacturer. | **Data-Only.** QR can redirect to any fake URL. | **Zero.** Easily forged. |
-| **Integrity** | **Cryptographic.** Binds the *Directives*. | **Vulnerable.** The landing page can be edited. | **Vulnerable.** |
-| **Persistence** | **High.** Text remains verifiable for 15 years. | **Low.** QR stickers get scratched or fade. | **Vulnerable.** |
-| **User Control** | **Targeted.** Verifies the *Exact Version*. | **General.** Often links to a generic "Help" page. | **Full.** But untrusted. |
+| **Who can check** | Anyone who scans the code. | Anyone holding the declaration: an importer, a market surveillance inspector, a buyer, a distributor. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Whatever page the code points to, which may be a general help page, and which can itself be changed or point somewhere false. | Confirmation that the manufacturer issued this exact declaration, including the directives and standards listed, as at its date, and whether it has since been withdrawn. | A declaration whose directives or standards may have been edited. |
+| **What the manufacturer shares** | A link of its choosing. | Only the declaration it printed or supplied. | Only the declaration it supplied. |
+| **Over the product's life** | As long as the sticker survives and the link still works. | Checkable for as long as the manufacturer keeps publishing the hash. | Survives, but cannot be trusted. |
+| **Reach** | Products carrying a code. | Global in principle: any manufacturer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | A scan and a page load. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | A code on the product, and a destination the manufacturer maintains. | The manufacturer to publish hashes, and Live Verify-aware software on the checker's device. No manufacturer does this yet. | Nothing. |
+| **Best suited to** | Reaching support, manuals and product information quickly. | Confirming that a specific version of the declaration is genuine. | Nothing where compliance is checked. |
 
 **Where each fits:** A QR code on the product is convenient and is often the fastest way to reach a manufacturer's support or documentation pages. It says little about the declaration itself, and a sticker may not last as long as the product does. Live Verify works from the printed text of the declaration in the manual, letting an importer, inspector or buyer confirm that the manufacturer stands behind that version. A manual can carry both without conflict.
 

@@ -191,17 +191,22 @@ The verifiable claim addresses these because:
 4. The browser extension detects domain mismatches when claims are copied to other listings
 5. The licence type is part of the verified response, allowing tenants to check it matches the occupancy
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Council Licensing Registers
 
-| Feature | Live Verify | Council Online Register | Phone Call to Council |
+In England and Wales, councils that run licensing schemes keep a register of licensed properties, and tenants can also phone the council's licensing team. The register and the phone line are run by the council and remain the authoritative routes. They answer a different question from a Live Verify licence claim, which is checked on the listing or in the property itself, and the two work side by side.
+
+| | Council online register | Phone call to the council | Live Verify on the licence claim |
 | :--- | :--- | :--- | :--- |
-| **Issuer-controlled** | **Yes.** Council issues the claim. | **Yes.** But requires the tenant to find and search it. | **Yes.** But slow and limited to office hours. |
-| **Verifiable at point of encounter** | **Yes.** On the listing or in the property. | **No.** Requires navigating to the council's site. | **No.** Requires a phone call. |
-| **Shows current status** | **Yes.** Live response from council. | **Partially.** Register may lag behind actual licence status. | **Yes.** If the officer has access. |
-| **Detects expired licence** | **Yes.** Endpoint returns EXPIRED. | **Depends.** Some registers remove expired entries. | **Yes.** |
-| **Detects wrong licence type** | **Yes.** Response includes licence type. | **Partially.** If the tenant knows what to look for. | **Yes.** If the tenant asks. |
-| **Detects copied claims** | **Yes.** Domain mismatch warning. | **No.** | **No.** |
-| **Available 24/7** | **Yes.** | **Yes.** But search quality varies. | **No.** |
+| **Who can check** | Anyone who can find the right council's register and search it. | Anyone who calls during office hours. | Anyone viewing the listing or the notice in the property: a tenant, a letting agent, an enforcement officer. |
+| **What the checker gets** | The register entry, in whatever format that council uses. | An officer's answer, if they have the records to hand. | Confirmation that the council issued this exact licence claim, including the licence type, and its current status, such as valid or expired. A claim copied onto another landlord's site is flagged as not matching. |
+| **What the landlord shares** | Nothing; the register is public. | Nothing. | The licence claim, which they or their agent display. |
+| **Keeping up with changes** | Depends on how promptly the council updates the register; some remove expired entries. | As current as the officer's records. | The council's response changes when the licence expires or is revoked. |
+| **Reach** | One council; formats and search quality vary from council to council. | One council. | Global in principle: any licensing authority, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Free, but finding the right scheme and register takes effort. | Free, but slow and limited to office hours. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A council that publishes a searchable register. | Time and a council that answers. | The council to publish hashes, and Live Verify-aware software on the checker's device. No council does this yet. |
+| **Best suited to** | Researching a property or landlord, and enforcement work. | Specific questions, such as whether a different licence should apply. | Checking at the point of viewing or signing, on the listing or in the property. |
+
+**Where each fits:** The council's register and its licensing team remain the authoritative sources, and are where a tenant or officer should go for anything beyond whether a particular licence is genuine and current. Most tenants never find the register, and a phone call does not fit an evening viewing. A council-issued claim on the listing or in the property lets the tenant check at the moment it matters; whether the licence type is the right one for how the property is actually used is still a question for the council.
 
 ## Authority Chain
 

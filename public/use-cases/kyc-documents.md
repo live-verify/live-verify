@@ -150,16 +150,21 @@ AI-generated deepfake documents and synthetic identities are emerging as the nex
 - **Singapore:** MAS has issued guidance on technology risks in digital onboarding including deepfake detection requirements
 - **Biometric countermeasures:** India's Aadhaar, Singapore's SingPass, EU's eIDAS 2.0 — government-issued digital identities provide stronger assurance than document-based KYC against cyber fraud
 
-## Compared With ID Verification APIs (Onfido)
+## Where Each Fits: Live Verify and Identity Verification Services
 
-| Feature | Live Verify | KYC API (Jumio/Onfido) | Scanned PDF ID |
+Identity verification services such as Onfido and Jumio check a person's ID document and face for the institution that calls them, and in some countries government digital identity schemes do the same job more directly. Coverage depends on where you are: some countries have a national digital identity, some take part in a multi-country scheme, and many rely on commercial vendors or on paper. These services and a verified KYC summary answer different questions and work side by side: one establishes who the person is, the other lets a later institution confirm that a bank has already done so and stands behind its result.
+
+| | Identity verification service | Live Verify on the bank's KYC summary | Scanned ID document |
 | :--- | :--- | :--- | :--- |
-| **User Privacy** | **High.** User shares only the *Vetted Profile*. | **Low.** Requires uploading raw ID photos to the cloud. | **High.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Bank. | **System-Bound.** Trust the vendor. | **Zero.** Easily forged. |
-| **Interoperability** | **High.** Works across all banks. | **Low.** Every bank uses a different API vendor. | **Universal.** |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires 30-120 seconds for AI processing. | **N/A.** |
+| **Who can check** | The institution that has integrated the service. | Any institution handed the summary: a lender, a neobank, an exchange, an examiner. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Its own fresh check of the person's ID document and likeness. | Confirmation that the bank issued this exact summary of its own vetting, as at its date, and whether it has since been withdrawn. It is the bank's result, not a fresh identity check. | An image that may have been altered. |
+| **What the customer shares** | Photos of their ID and usually a selfie, sent to the vendor. | Only the summary they chose to hand over. | A copy of their ID. |
+| **Reach** | Countries and document types the vendor supports, for institutions that pay for it. | Global in principle: any bank, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Usually quick, automated, and charged per check. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | A contract and integration with the vendor. | The bank to publish hashes, and Live Verify-aware software on the checker's device. No bank does this yet. | Nothing. |
+| **Best suited to** | Primary identity verification at onboarding. | Carrying a vetted result to an institution outside the original bank's integrations, where rules permit reliance on it. | Nothing where identity matters. |
 
-**Practical conclusion:** when government digital identity or direct KYC APIs are available, they should dominate. Live Verify is most credible as a portability layer for a vetted summary traveling outside those integrations, not as the primary architecture for identity verification itself.
+**Where each fits:** When government digital identity or direct KYC services are available, they should remain primary. Live Verify is most credible as a portability layer for a vetted summary traveling outside those integrations, not as the primary architecture for identity verification itself. Whether a second institution may rely on another bank's KYC at all is a question for its regulator, not for the technology.
 
 ---
 
@@ -263,14 +268,19 @@ Barclays Bank, a regulated financial institution, is authorized by the FCA to is
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Address Verification APIs (Experian)
+## Where Each Fits: Live Verify and Address Verification Services
 
-| Feature | Live Verify | Address API (Experian/Loqate) | Scanned PDF / Paper |
+Address verification services such as Experian and Loqate match an applicant's name and address against credit and address data, for lenders and others who integrate with them. Coverage depends on where you are and on the person: they work best for people with an established credit file in a country where such data is collected. These services and a verified utility bill answer different questions and work side by side.
+
+| | Address verification service | Live Verify on the utility bill | Scanned PDF or paper bill |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Cryptographic.** Binds the *Name* to the *Address*. | **Vague.** Only proves the address *exists*. | **Zero.** Easily forged. |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Utility. | **Data-Bound.** Trust the aggregator. | **Visual.** |
-| **Privacy** | **High.** User shares only the *Bill Summary*. | **Low.** Lenders see full credit history. | **High.** |
-| **Coverage** | **Universal.** Works for any small utility with a URL. | **Limited.** Only for people with credit records. | **Universal.** |
+| **Who can check** | Institutions that subscribe to the service. | Anyone handed the bill: a lender, a neobank, an embassy, a government office. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | A match, or no match, between the name and address and the provider's data. | Confirmation that the utility issued this exact bill, with this name and service address, as at its date. | A bill whose name or address may have been edited. |
+| **What the applicant shares** | Their name and address, which the institution sends to the provider. | Only the bill they chose to hand over. | Only the bill they chose to hand over. |
+| **Reach** | People who appear in the provider's data, in countries where it is collected. People with thin or no credit files are often not found. | Global in principle: any utility, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Fast and automated, usually charged per check. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | A subscription and integration with the provider. | The utility to publish hashes, and Live Verify-aware software on the checker's device. No utility does this yet. | Nothing. |
+| **Best suited to** | Clearing most applicants with established records quickly. | Applicants the automated check cannot find: younger people, recent arrivals, people without credit files. | Nothing where residence matters. |
 
 **Where each fits:** Address verification services work well for people with an established credit file, and a lender that already uses one can clear most applicants quickly that way. Applicants with little or no credit history, such as younger people and recent arrivals, are often not found, and they fall back on a utility or mobile bill. Live Verify lets the lender confirm that the utility issued that bill with that name and address, so it complements the automated check for the cases it cannot reach.
 

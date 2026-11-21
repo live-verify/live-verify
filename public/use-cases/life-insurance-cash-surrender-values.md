@@ -98,15 +98,22 @@ New York Life, a regulated life insurance carrier, is authorized by state insura
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Manual Verification
+## Where Each Fits: Live Verify and Asking the Insurer Directly
 
-| Feature | Live Verify | Direct Insurer Contact | Scanned PDF / Paper |
+The established way to confirm a policy's cash surrender value is to ask the insurer in writing, with the policyholder's authorization, and receive a current figure back. It is run by the insurer and gives an up-to-date answer. Asking directly and Live Verify answer different questions and work side by side: one gets today's figure, the other confirms a statement already in hand.
+
+| | Written request to the insurer | Live Verify on the surrender value statement | Scanned PDF or paper statement |
 | :--- | :--- | :--- | :--- |
-| **Speed** | **Instant.** Clip and verify. | **Days to weeks.** Written request required. | **Instant.** But unverifiable. |
-| **Trust Anchor** | **Domain-Bound.** Tied to the carrier. | **Phone/Letter.** Trust the process. | **Zero.** Trivially altered. |
-| **Currency** | **As-at date verified.** | **Current at time of response.** | **Unknown.** Could be years old. |
-| **Loan Disclosure** | **Included.** Outstanding loans in the hash. | **Included.** If specifically requested. | **Omittable.** Easy to crop or edit out. |
-| **Third-Party Access** | **Universal.** Anyone with the document. | **Restricted.** Requires policyholder authorization. | **Universal.** But worthless for trust. |
+| **Who can check** | The policyholder, or a third party they have authorized. | Anyone handed the statement: a lender, a divorce attorney, a life settlement broker, an executor. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The value as of the insurer's response, with loans and charges if asked for. | Confirmation that the insurer issued this exact statement, outstanding loans included, as at its date, and whether it has since been superseded. | A statement whose figures, or loan lines, may have been edited or cropped. |
+| **What the policyholder shares** | An authorization for the insurer to disclose to the third party. | Only the statement they chose to hand over. | Only the statement they chose to hand over. |
+| **How current** | Current at the time of the response. | As at the statement date; a newer statement shows as superseded. | Unknown; it could be years old. |
+| **Reach** | One insurer, by its own process. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Can take days or longer, by letter or form. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | The insurer's request process and the policyholder's authorization. | The insurer to publish hashes, and Live Verify-aware software on the checker's device. No insurer does this yet. | Nothing. |
+| **Best suited to** | A figure that must be current on a specific day, such as a surrender or a settlement closing. | Valuation in a divorce, an estate or a loan application, where a dated statement is enough. | Nothing where the value matters. |
+
+**Where each fits:** Where a transaction depends on today's value, such as an actual surrender or a closing, the insurer's own current figure remains the one to rely on. For most valuation work, a dated statement is what changes hands, and the question is only whether it is genuine and complete. Live Verify answers that in seconds, including the loan lines that a doctored copy would leave out.
 
 ## Further Derivations
 

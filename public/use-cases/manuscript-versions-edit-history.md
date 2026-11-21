@@ -110,14 +110,19 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Version Control (GitHub / Word Track Changes)
+## Where Each Fits: Live Verify, Track Changes and Version Control
 
-| Feature | Live Verify | Track Changes (Word) | GitHub (Version Control) |
+Authors and editors work on a text together with track changes in Word and similar tools, and some technically minded authors keep a full history in version control such as Git and GitHub. Both are drafting tools run by the people writing. They answer a different question from Live Verify, which lets an outside party confirm that a given manuscript version is the one a publisher recorded, and they work side by side.
+
+| | Track changes | Version control (GitHub) | Live Verify on the manuscript version |
 | :--- | :--- | :--- | :--- |
-| **Legal Weight** | **High.** Binds to the Publisher domain. | **Low.** Easily scrubbed or edited. | **Medium.** Proves the *Tech*. |
-| **Trust Anchor** | **Domain-Bound.** Trust the House. | **Self-Reported.** | **Protocol-Bound.** |
-| **Integrity** | **Cryptographic.** Binds the whole file. | **Vulnerable.** Metadata can be deleted. | **High.** |
-| **Adoption** | **High.** Works for traditional non-tech authors. | **Universal.** | **Low.** Only for tech-savvy authors. |
+| **Who can check** | Whoever has the file. | Whoever has access to the repository. | Anyone handed the version: an agent, a rights buyer, a translator, a tribunal. |
+| **What the checker gets** | The edits recorded in the file, which can be accepted, removed or scrubbed. | A detailed, hard-to-alter history of every change, for those who can read it. | Confirmation that the publisher recorded this exact version, as at its date. |
+| **What the author shares** | The file, with whatever history it still carries. | Repository access, or an export. | Only the version they chose to hand over. |
+| **Reach** | Anyone using compatible software. | Authors comfortable with version control. | Global in principle: any publisher, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Built into the editor. | Free or low cost, but a learning curve for most authors. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | Nothing beyond the editing software. | A repository and the habit of committing. | The publisher to publish hashes, and Live Verify-aware software on the checker's device. No publisher does this yet. |
+| **Best suited to** | Day-to-day collaboration between author and editor. | A thorough technical history of the text. | Showing an outsider which version the publisher recorded and when. |
 
 **Where each fits:** Track changes is how authors and editors actually work on a text together, and version control gives technically minded authors a thorough history. Neither is designed to show an outside party, such as an agent, a rights buyer or a tribunal, that a given PDF is the version the publisher recorded on a given date. Live Verify adds that confirmation against the publisher's domain and leaves the drafting tools as they are.
 

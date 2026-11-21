@@ -110,14 +110,19 @@ Hiscox, a regulated specialty insurer, is authorized by the FCA to issue verifie
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Secure Portals
+## Where Each Fits: Live Verify and Underwriter Portals
 
-| Feature | Live Verify | Secure Underwriter Portal | Scanned PDF |
+Kidnap and ransom policies are administered through the underwriter's secure portal, where the risk manager sees the full terms and history. Access is limited to named people at the insured. The portal and Live Verify answer different questions and work side by side: one is where the policy lives, the other lets the people handling a crisis confirm the confirmation letter they have to hand.
+
+| | Secure underwriter portal | Live Verify on the confirmation letter | Scanned PDF |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Cryptographic.** Binds the *Ransom Limit*. | **System-Bound.** | **Zero.** Easily forged. |
-| **Privacy** | **High.** Verification happens without a login. | **Low.** Portal access often reveals full policy/history. | **Medium.** |
-| **Field Access** | **Instant.** Scan the paper in the safe. | **Difficult.** Requires laptop/stable 5G. | **Instant.** |
-| **Freshness** | **Real-time.** Shows if cancelled *today*. | **Live.** | **Static.** |
+| **Who can check** | Named users at the insured, with a login. | Anyone handed the letter: a crisis team member, the response firm, local counsel. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The full policy, terms and history, kept current. | Confirmation that the underwriter issued this exact letter, including its limits, as at its date, and whether the cover has since been cancelled. | A letter whose limits may have been edited. |
+| **What the insured shares** | A login, if someone else is to look, which opens the whole policy. | Only the letter they chose to hand over. | Only the letter they chose to hand over. |
+| **Reach** | One underwriter's portal. | Global in principle: any underwriter, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Immediate for a logged-in user on a suitable device and connection. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection at the moment of the check. | Immediate. |
+| **What it needs** | Credentials and a device that can use the portal. | The underwriter to publish hashes, and Live Verify-aware software on the checker's phone. No underwriter does this yet. | Nothing. |
+| **Best suited to** | Administering the policy and reading its full terms. | A quick confirmation in the field, by people without a login. | Nothing in a crisis. |
 
 **Where each fits:** The underwriter's secure portal is where the policy is administered and where the full terms and history live, and the risk manager will keep using it. In a crisis the people in the room may have only the confirmation letter from the safe and a phone. Live Verify lets them confirm the letter against the underwriter's domain without a login, and the portal and the response firm's own procedures take over from there.
 

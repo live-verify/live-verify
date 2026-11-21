@@ -113,16 +113,21 @@ Massage therapy boards issue professional licenses under occupational regulator 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Window Posters / Public Lookup
+## Where Each Fits: Live Verify and State License Lookups
 
-| Feature | Live Verify | Laminated Wall Poster | State Website Search |
+State massage therapy boards publish a public license lookup, and licensees display their license at the place of work. Coverage depends on where you are: most US states license massage therapists, other countries vary, and some places have no licensing at all. The state lookup and Live Verify answer different questions and work side by side: one is the board's full record for anyone prepared to search it, the other lets a client confirm the displayed license or badge in the room.
+
+| | State website search | Live Verify on the license badge | Laminated wall poster |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Board. | **Visual.** Trusted via logo only. | **High.** Direct DB access. |
-| **Speed** | **Instant.** 5-second scan at the door. | **N/A.** Just looking. | **Slow.** Requires typing names and navigating portals. |
-| **Integrity** | **Cryptographic.** Binds face to status. | **Zero.** Easily swapped. | **None.** |
-| **Safety Data** | **High.** Shows background check status. | **None.** | **Passive.** |
+| **Who can check** | Anyone who searches by name or number. | Anyone shown the badge or displayed license: a client, a spa manager, a hotel, an inspector. | Whoever looks at it. |
+| **What the checker gets** | The board's current record, including status and any discipline. | Confirmation that the board issued this exact license to the named person, as at its date, and whether it has since been suspended, revoked or expired. | A poster that may belong to someone else or be forged. |
+| **What the therapist shares** | Nothing extra; the record is public. | Only the badge or license they display. | The poster. |
+| **Reach** | One state's board. | Global in principle: any licensing board, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free, but takes typing names and navigating the portal. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | A client prepared to search, and to match the record to the person in front of them. | The board to publish hashes, and Live Verify-aware software on the client's device. No licensing board does this yet. | Nothing. |
+| **Best suited to** | Checking before booking, and reading the full record. | Discreet confirmation at the door or in the treatment room. | Nothing on its own. |
 
-**Why this remains strong:** State portal lookup should remain primary where a verifier is prepared to use it directly. But in the actual service setting, the visible station license or displayed credential is the surface the client encounters. That makes this a good complementary case for discreet, in-room verification rather than a claim to replace the registry.
+**Where each fits:** State portal lookup should remain primary where a client is prepared to use it directly, and it carries the full record. But in the actual service setting, the visible license or badge is what the client encounters. That makes this a good complementary case for discreet, in-room verification rather than a claim to replace the registry.
 
 ## Independent Record (Optional)
 

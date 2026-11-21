@@ -106,16 +106,21 @@ The Named Individual benefits from verification.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With E-Verify / SAVE
+## Where Each Fits: Live Verify and E-Verify / SAVE
 
-| Feature | Live Verify | E-Verify (Employer System) | Physical Card |
+E-Verify and SAVE are US federal systems run by USCIS: E-Verify lets enrolled employers confirm work eligibility, and SAVE lets registered government agencies, such as benefit offices and DMVs, confirm immigration status. Other countries run their own status checks, some online and some not, and many offer third parties nothing at all. The official systems and Live Verify answer different questions and work side by side: one queries the government's record directly, the other lets whoever is handed a card or letter confirm that the issuing authority stands behind it.
+
+| | E-Verify / SAVE | Live Verify on the status document | Physical card alone |
 | :--- | :--- | :--- | :--- |
-| **User Access** | **Open.** Small businesses/landlords can verify. | **Restricted.** Only for registered federal contractors/employers. | **Manual.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to `uscis.gov`. | **Direct DB Access.** High trust. | **Mechanical.** Prone to forgery. |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Often flags for "Manual Review" taking 3-10 days. | **Instant.** |
-| **Interoperability** | **High.** Verified PDF works for banks/lawyers. | **Zero.** Data is trapped in the gov portal. | **Universal.** |
+| **Who can check** | Employers enrolled in E-Verify; agencies registered with SAVE. | Anyone handed the document: a landlord, a bank, a lawyer, a small employer. | Whoever is looking at it, by eye. |
+| **What the checker gets** | A result from the government's own record, which reflects the person's current status. Some cases are referred for further review before a final answer. | Confirmation that the authority issued this exact document, as at its date, and whether it has since been revoked. | A card that may be a high-quality forgery. |
+| **What the holder shares** | Personal details entered by the employer or agency into the federal system. | Only the document they chose to hand over. | The card itself. |
+| **Reach** | The United States only, and only to enrolled or registered parties. | Global in principle: any immigration authority, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Many checks return quickly once enrolled; cases needing manual review can take days. | A few seconds per check: one web lookup, with no fee to the standard and no account with the authority. | Immediate. |
+| **What it needs** | Enrollment or a registration agreement with the federal program. | The authority to publish hashes, and Live Verify-aware software on the checker's device. No immigration authority does this yet. | Nothing. |
+| **Best suited to** | Form I-9 work-eligibility checks and benefit eligibility decisions, where the law expects them. | Landlords, lenders, lawyers and others outside the federal programs who only have the document in hand. | Nothing where status matters. |
 
-**Narrower conclusion:** USCIS, SAVE, and other official status systems should remain primary where they are directly available and legally appropriate. This use case is more credible as a complementary bridge for copy and card workflows, where banks, landlords, DMV clerks, or other third parties only have the immigration document in hand and would otherwise fall back to visual inspection.
+**Where each fits:** USCIS, SAVE and other official status systems should remain primary where they are directly available and legally appropriate. Live Verify is a complementary bridge for copy and card workflows, where banks, landlords, DMV clerks or other third parties only have the immigration document in hand and would otherwise fall back to visual inspection. It confirms what the authority issued, as at its date; it is not a substitute for a current-status query where the law requires one.
 
 ## Independent Record (Optional)
 

@@ -90,14 +90,19 @@ The Insurer's Chief Risk Officer (CRO) benefits from verification.
 **Actuarial Audit Firms:** (Milliman, Towers Watson, Mercer).
 **National Assoc. of Insurance Commissioners (NAIC):** (Hosting the filing hashes).
 
-## Compared With SERFF Public Search
+## Where Each Fits: Live Verify and State Filing Searches
 
-| Feature | Live Verify | SERFF / State Public Search | Scanned PDF Memo |
+US state insurance regulators and the NAIC offer public searches of what insurers have filed, SERFF Filing Access being one; other countries' regulators publish insurer filings in their own ways, and some publish little. These searches and Live Verify answer different questions and work side by side: one shows what was filed with the regulator, the other confirms that a printed or PDF certification in someone's hands is the one the actuary or insurer stands behind.<!-- TODO(verify): whether reserve opinions and actuarial certifications are actually searchable in SERFF Filing Access, or only through NAIC annual-statement data -->
+
+| | State public filing search | Live Verify on the reserve certification | Scanned PDF memo |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Binds Content.** Protects the $ amounts. | **Data-Only.** Doesn't verify the paper doc. | **Zero.** Easily forged. |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Actuary/Insurer. | **Gov-Bound.** | **Visual.** |
-| **Speed** | **Instant.** Scan the paper in the boardroom. | **Slow.** Requires finding the EIN and navigating Gov UI. | **Instant.** |
-| **Immediacy** | **Real-time.** Shows if firm retracted opinion. | **Laggy.** Depends on annual gov filing cycles. | **Static.** |
+| **Who can check** | Anyone who can find the filing. | Anyone handed the certification: a board member, a rating agency, a lender, an acquirer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The filing as the regulator received it, in the regulator's format. | Confirmation that the actuary or insurer issued this exact certification, including its amounts, as at its date, and whether it has since been withdrawn. | A document whose amounts may have been edited. |
+| **What the insurer shares** | What the filing rules require to be public. | Only the certification it chose to hand over. | Only the certification it chose to hand over. |
+| **Reach** | Filings with that state's regulator. | Global in principle: any insurer or actuarial firm, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free or low cost, but finding the right filing takes some searching, and it follows the filing calendar. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | A filing in that system and a reader who knows how to find it. | The actuary or insurer to publish hashes, and Live Verify-aware software on the checker's device. No insurer or actuarial firm does this yet. | Nothing. |
+| **Best suited to** | Regulators and analysts researching a company's filed position. | Confirming that the certificate on the boardroom table matches what was signed. | Nothing where solvency matters. |
 
 **Where each fits:** State filing searches such as SERFF are the official record of what an insurer filed, and a regulator or analyst researching a company should start there. They do not confirm that the printed certificate on the table matches what the actuary signed, and they follow the filing cycle. Live Verify answers that narrower question for whoever is holding the document, and the public filing remains the place to see the wider regulatory picture.
 
@@ -184,14 +189,20 @@ The Insurer's Chief Actuary benefits from verification.
 **Actuarial Audit Firms:** (Milliman, Mercer, WTW).
 **National Assoc. of Insurance Commissioners (NAIC):** (Hosting the filing hashes).
 
-## Compared With SERFF Public Search
+## Where Each Fits: Live Verify and State Filing Searches for Long-Term Care Reserves
 
-| Feature | Live Verify | SERFF / State Public Search | Scanned PDF Memo |
+For long-term care blocks, the same state filing searches remain the official record of what was filed. The question here is longevity: these blocks run for decades, through acquisitions and system migrations, and the certification in the file is often what a later reader actually has. The filing search and Live Verify work side by side.
+
+| | State public filing search | Live Verify on the LTC actuarial opinion | Scanned PDF memo |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Binds Content.** Protects the $ amounts. | **Data-Only.** Doesn't verify the paper doc. | **Zero.** Easily forged. |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Actuary/Insurer. | **Gov-Bound.** | **Visual.** |
-| **Speed** | **Instant.** Scan the paper in the boardroom. | **Slow.** Requires finding the NAIC # and navigating Gov UI. | **Instant.** |
-| **Retention** | **50+ Years.** Durable for policy life. | **Variable.** State systems get purged/migrated. | **Vulnerable.** |
+| **Who can check** | Anyone who can find the filing. | Anyone handed the opinion: a regulator, a rating agency, a policyholder, an acquirer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The filing as the regulator received it. | Confirmation that the actuary or insurer issued this exact opinion, as at its date, and whether it has been superseded or corrected. | A document whose figures or caveats may have been changed. |
+| **What the insurer shares** | What the filing rules require to be public. | Only the opinion it chose to hand over. | Only the opinion it chose to hand over. |
+| **Over the life of the block** | Available for as long as the state keeps the filing in its systems. | Available for as long as the issuer, or a successor after an acquisition, keeps publishing the hash. | Survives, but cannot be trusted. |
+| **Reach** | Filings with that state's regulator. | Global in principle: any insurer or actuarial firm, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free or low cost, but finding the filing takes some searching. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | A filing in that system and a reader who knows how to find it. | The actuary or insurer to publish hashes, and Live Verify-aware software on the checker's device. No insurer or actuarial firm does this yet. | Nothing. |
+| **Best suited to** | The regulatory picture across a company's filings. | Confirming a specific opinion years later, when it is what sits in the file. | Nothing where solvency matters. |
 
 **Where each fits:** The state's public search is the right reference for filings while its systems hold them. Long-term care blocks can run for decades, through acquisitions and system migrations, and the certificate in the file is often what survives. Live Verify lets a later reader confirm that the actuary or insurer still stands behind that exact text, complementing the state record instead of substituting for it.
 

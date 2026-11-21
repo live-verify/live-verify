@@ -122,14 +122,19 @@ Steel mills and testing labs issue material test reports certified against EN 10
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With EDI / Blockchain (MetalBlock)
+## Where Each Fits: Live Verify and Mill-to-Customer Data Links
 
-| Feature | Live Verify | Metal-Specific Blockchain | Paper Mill Cert |
+Some steel mills send test data to their major customers electronically, through EDI links or industry shared-ledger projects. These links are set up between the mill and particular customers, and they move structured data cleanly between their systems. They and Live Verify answer different questions and work side by side: one connects the mill to its direct customers, the other lets anyone further down the chain confirm the mill certificate they have been handed.
+
+| | EDI link or shared ledger | Live Verify on the mill test report | Paper mill certificate |
 | :--- | :--- | :--- | :--- |
-| **Field Access** | **Instant.** Scan the paper at the yard. | **Difficult.** Requires yard workers to have private node access. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Mill. | **Consensus-Bound.** Trust the network. | **Zero.** Easily forged. |
-| **Interoperability** | **Universal.** PDFs work across all fabricators. | **Low.** Requires every link in the chain to use the same blockchain. | **Universal.** |
-| **Integrity** | **Binds Content.** Protects the chemical list. | **Data-Only.** | **Vulnerable.** |
+| **Who can check** | The mill's connected customers, and participants on the ledger. | Anyone handed the certificate: a fabricator, a distributor, a site inspector, an engineer of record. | Whoever reads it. |
+| **What the checker gets** | Test data in their own systems, as sent by the mill. | Confirmation that the mill issued this exact certificate, heat number and chemical and mechanical results included, as at its date, and whether it has since been withdrawn. | A certificate whose results may have been edited. |
+| **What the supplier shares** | Data over the link. | Only the certificate that travels with the material. | Only the certificate that travels with the material. |
+| **Reach** | Parties connected to that link or ledger. | Global in principle: any mill, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Automatic once set up; setup takes integration on both sides. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection at the yard. | Immediate. |
+| **What it needs** | Every link in the chain on the same system. | The mill to publish hashes, and Live Verify-aware software on the checker's device. No mill does this yet. | Nothing. |
+| **Best suited to** | Mills and their major customers. | Small fabricators and inspectors further down the chain. | Nothing where structural safety depends on it. |
 
 **Where each fits:** Where a mill and its major customers have EDI or a shared ledger in place, test data moves between their systems cleanly and those links are worth keeping. Further down the chain, small fabricators and site inspectors receive the mill certificate as paper or PDF and have no access to that infrastructure. Live Verify lets them check the certificate against the mill's domain at the yard, extending the reach of the mill's data instead of competing with it.
 

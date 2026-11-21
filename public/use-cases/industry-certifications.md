@@ -105,14 +105,19 @@ Accredited bodies issue professional certifications validated against ISO/IEC 17
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Digital Badges (Credly)
+## Where Each Fits: Live Verify and Digital Badges
 
-| Feature | Live Verify | Digital Badges (Credly/Acclaim) | Scanned PDF |
+Digital badge platforms, Credly among them, host an online record of a credential on behalf of the certification bodies that sign up with them; the holder shares a link and the reader clicks through to the record. The badge and Live Verify answer different questions and work side by side: one is an online profile entry, the other makes the printed or PDF certificate itself checkable.
+
+| | Digital badge platform | Live Verify on the certificate | Scanned PDF |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Org (PMI). | **System-Bound.** Trust the badge vendor. | **Zero.** Easily forged. |
-| **Interoperability** | **Universal.** Works across any cert body. | **Low.** Only for bodies who pay for Credly. | **Universal.** |
-| **Integrity** | **Binds Content.** Protects the ID #. | **High.** Direct digital link. | **Vulnerable.** |
-| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Technical.** Requires app/portal access. | **Visual.** |
+| **Who can check** | Anyone with the badge link, online. | Anyone handed the certificate: a hiring manager, a contracting officer, a training provider. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The badge record as the platform holds it, usually with the credential's current status and details. | Confirmation that the certification body issued this exact certificate, as at its date, and whether it has since been revoked. | A document that may have been edited. |
+| **What the holder shares** | A link to their badge, sometimes alongside a public profile. | Only the certificate they chose to hand over. | Only the certificate they chose to hand over. |
+| **Reach** | Only certification bodies that use a badge platform, and only for credentials they issue as badges. | Global in principle: any certification body, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | A click for the reader; the certification body pays for the platform. | A few seconds per check: one web lookup, with no fee to the standard and no platform in between. | Immediate. |
+| **What it needs** | The body to issue through the platform, and the holder to share the link. | The certification body to publish hashes, and Live Verify-aware software on the checker's device. No certification body does this yet. | Nothing. |
+| **Best suited to** | Online profiles, email signatures and job sites. | Printed diplomas and PDFs in application folders and bid binders. | Nothing where the credential matters. |
 
 **Where each fits:** Digital badges are a good fit where the certification body already issues them and the checker is looking at a profile or an email signature online; the badge links straight back to the record. Many certificates still arrive as a printed diploma or a PDF in an interview folder or a bid binder, and many bodies do not use a badge platform at all. Live Verify covers those documents by letting the reader confirm the text against the certification body's own domain, and a holder can carry both.
 

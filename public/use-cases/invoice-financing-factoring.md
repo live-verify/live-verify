@@ -106,14 +106,19 @@ Close Brothers, a regulated financial services firm, is authorized by the FCA to
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Manual VOD Calls
+## Where Each Fits: Live Verify and Verification-of-Debt Calls
 
-| Feature | Live Verify | Manual VOD (Phone/Email) | Scanned PDF NOA |
+Factors routinely confirm an invoice by contacting the buyer's accounts payable team by phone or email, a verification-of-debt (VOD) check. It is run by the factor, and it can surface things no document will. The call and Live Verify answer different questions and work side by side: one asks the buyer whether the debt is good, the other lets the buyer confirm that a notice of assignment, and the bank details on it, really came from the factor.
+
+| | Verification-of-debt call or email | Live Verify on the notice of assignment | Scanned PDF notice |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Factor. | **Human.** Prone to social engineering or "fake buyers." | **Zero.** Easily forged. |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Often takes 3-5 days to reach the buyer's AP manager. | **Instant.** |
-| **Integrity** | **Cryptographic.** Binds the *Bank Details*. | **Vague.** "Yes, we will pay that invoice." | **Vulnerable.** |
-| **Privacy** | **High.** Share only the *NOA*. | **Low.** Calls reveal the seller's cash situation. | **Vulnerable.** |
+| **Who can check** | The factor, by reaching the buyer. | The buyer's accounts payable team, or anyone else handed the notice. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The buyer's own word on whether the invoice is owed, and any dispute, set-off or delivery problem. | Confirmation that the factor issued this exact notice, including its payment details, as at its date, and whether it has since been withdrawn. | A notice whose bank details may have been changed. |
+| **What the seller shares** | The fact that it is factoring, which the conversation makes plain to the buyer. | Only the notice it chose to send. | Only the notice it chose to send. |
+| **Reach** | Wherever the factor can reach the right person, and be sure they are who they say. | Global in principle: any factor, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Staff time on both sides, and it can take days to reach the right person. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | A genuine contact at the buyer, and care against fake buyers and social engineering. | The factor to publish hashes, and Live Verify-aware software on the buyer's device. No factor does this yet. | Nothing. |
+| **Best suited to** | Confirming the debt itself before funding. | Confirming that payment instructions came from the factor before money is redirected. | Nothing where a payment is redirected. |
 
 **Where each fits:** A verification-of-debt call remains valuable, because a conversation with the buyer's accounts payable team can surface disputes, set-offs or delivery problems that no notice of assignment will mention. What a call handles less well is confirming that the payment instructions on a letter really came from the factor, and it can take days to reach the right person. Live Verify lets the buyer check the notice against the factor's domain straight away, and the two checks sit comfortably in the same process.
 

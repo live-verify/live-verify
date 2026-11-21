@@ -170,17 +170,22 @@ The most sophisticated attack against this model is not copying the claim (which
 
 **Honest assessment:** Content script isolation provides strong but not absolute protection against page-level manipulation. The domain-mismatch check is the backstop — it works even if the text swap somehow succeeds. The weakest link is the buyer not reading the verified detail, which is why the domain-mismatch warning should be prominent and unmissable.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify, the ATOL Holder Search and the ABTA Member Search
 
-| Feature | Live Verify | CAA ATOL Holder Search | ABTA Member Search | Paper ATOL Certificate |
+In the UK, the Civil Aviation Authority runs a public search of ATOL holders, and ABTA runs a search of its members. Other countries protect package travellers through their own licensing or bonding schemes, some shared across borders, and many offer no searchable register at all. These searches answer a different question from a Live Verify licence claim, which is checked on the booking site itself, and they work side by side.
+
+| | CAA ATOL holder search | ABTA member search | Live Verify on the licence claim | Paper ATOL certificate |
 | :--- | :--- | :--- | :--- | :--- |
-| **Issuer-controlled** | **Yes.** Licensing body issues the claim. | **Yes.** But requires leaving the booking site. | **Yes.** But requires separate lookup. | **Yes.** But trivially forged. |
-| **Domain-bound** | **Yes.** Claim names the licensed site. | **No.** | **No.** | **No.** |
-| **Revocable** | **Immediate.** Endpoint returns REVOKED. | **Updated periodically.** Search reflects current list. | **Updated periodically.** | **No.** Paper persists. |
-| **Verifiable pre-booking** | **Yes.** On the booking page. | **Requires navigating to caa.co.uk.** | **Requires navigating to abta.com.** | **Requires requesting the paper certificate.** |
-| **Detects site copying** | **Yes.** Domain mismatch warning. | **No.** | **No.** | **No.** |
+| **Who can check** | Anyone who knows to visit the CAA's site. | Anyone who knows to visit ABTA's site. | Anyone viewing the claim on the booking page. | The traveller, once it is issued. |
+| **What the checker gets** | The CAA's current list of licence holders. | ABTA's current list of members. | Confirmation that the licensing body issued this exact claim for this operator and site, and whether it has since been revoked. A claim copied onto another site is flagged as not matching. | A certificate that could have been forged. |
+| **What the traveller has to do** | Leave the booking site and search by name or number. | Leave the booking site and search. | Check the claim where they see it. | Ask for it, usually after paying. |
+| **Keeping up with changes** | Updated by the CAA as licences change. | Updated by ABTA as membership changes. | The licensing body revokes the claim when a licence ends, and it stops verifying. | Paper persists whatever happens. |
+| **Reach** | ATOL-protected sales in the UK. | ABTA members. | Global in principle: any licensing or bonding body, in any country, that publishes hashes on its own domain. | One booking. |
+| **Speed and cost** | Free, a minute or two for those who know where to look. | Free, a minute or two. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate once issued. |
+| **What it needs** | A traveller who knows the search exists. | A traveller who knows the search exists. | The licensing body to publish hashes, and Live Verify-aware software on the traveller's device. No licensing body does this yet. | Nothing. |
+| **Best suited to** | Researching an operator before booking. | Checking membership and its codes of conduct. | Checking at the moment of payment, on the booking page. | The traveller's record of protection for a booking. |
 
-**Practical conclusion:** the CAA's ATOL holder search and ABTA's member search remain useful, particularly for consumers who know to use them. But most consumers do not check — they see an ATOL logo on a booking site and assume it is genuine. The verifiable claim brings the licensing check to the point where the consumer is actually deciding whether to pay.
+**Where each fits:** The CAA's ATOL holder search and ABTA's member search remain the authoritative lists, and are useful particularly for consumers who know to use them. But most consumers do not check: they see an ATOL logo on a booking site and assume it is genuine. A verifiable claim brings the licensing check to the point where the consumer is actually deciding whether to pay, with the official searches still behind it.
 
 ## Authority Chain
 

@@ -109,14 +109,19 @@ Language proficiency tests like IELTS are accredited and regulated by Ofqual in 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Official Score Reports (Electronic)
+## Where Each Fits: Live Verify and Official Electronic Score Reports
 
-| Feature | Live Verify | Official Electronic Report | Scanned PDF / Paper |
+Testing bodies such as ETS send official score reports electronically to the institutions a candidate names, and many admissions offices and immigration authorities are set up to receive them. The electronic report and Live Verify answer different questions and work side by side: one is a direct channel from testing body to institution, the other lets anyone the candidate shows a score report confirm the testing body issued it.
+
+| | Official electronic score report | Live Verify on the score report | Scanned PDF or paper |
 | :--- | :--- | :--- | :--- |
-| **User Control** | **High.** Student shares only the *Verified PDF*. | **Low.** Testing body sends data directly to the school. | **High.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Test Body (ETS). | **System-Bound.** | **Zero.** Easily forged. |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Takes 3-7 days to "Send" and "Receive." | **Instant.** |
-| **Cost** | **Low.** Standard web infra. | **Medium.** Fees of $20+ per report are standard. | **None.** |
+| **Who can check** | Institutions registered with the testing body to receive scores. | Anyone handed the report: an employer, a smaller school, an institution abroad, a landlord. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Scores sent directly by the testing body, which never pass through the candidate's hands. | Confirmation that the testing body issued this exact report, as at its date, and whether it has since been cancelled. | A report whose scores may have been edited. |
+| **What the candidate shares** | Their scores, sent to each institution they name. | Only the report they chose to hand over. | Only the report they chose to hand over. |
+| **Reach** | Institutions that have a reporting arrangement with that testing body. | Global in principle: any testing body, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Takes days to send and receive; additional reports usually carry a fee. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate and free. |
+| **What it needs** | A receiving institution set up with the testing body, and the candidate ordering the report. | The testing body to publish hashes, and Live Verify-aware software on the checker's device. No testing body does this yet. | Nothing. |
+| **Best suited to** | University admissions and immigration applications that require direct reporting. | Employers and institutions without a reporting arrangement. | Nothing where the score matters. |
 
 **Where each fits:** Official electronic score reports sent directly from the testing body are what many admissions offices are set up to receive, and where an institution requires them they remain the route to use. The paper or PDF score report is what a candidate shows to employers, smaller schools, or institutions abroad that have no reporting arrangement with the test provider. Live Verify lets those readers confirm the report against the testing body's domain, and direct reporting continues for the institutions that depend on it.
 

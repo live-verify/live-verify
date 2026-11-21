@@ -107,14 +107,21 @@ Aviva, a regulated life insurance provider, is authorized by the FCA to issue ve
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With MIB Group (Medical Information Bureau)
+## Where Each Fits: Live Verify and Industry Exchanges Such as MIB
 
-| Feature | Live Verify | MIB Group (Industry DB) | Scanned PDF Notice |
+<!-- TODO(verify): MIB's scope (US and Canada, used for underwriting) -->
+
+MIB Group runs an information exchange for its member insurers in the US and Canada, used mainly to detect misrepresentation in insurance applications. It is not a register of claim decisions and is not open to beneficiaries, so it and a verified claim approval notice do not compete: they answer different questions for different people. They work side by side.
+
+| | Industry exchange (MIB) | Live Verify on the claim approval notice | Scanned PDF notice |
 | :--- | :--- | :--- | :--- |
-| **User Access** | **Universal.** Beneficiaries and funeral homes. | **Restricted.** Only for insurance companies. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Carrier. | **Data-Bound.** Trust the aggregator. | **Zero.** Easily forged. |
-| **Timeliness** | **Real-time.** Shows approval *today*. | **Laggy.** Depends on batch uploads. | **Static.** |
-| **Integrity** | **Binds Content.** Protects the $ amount. | **None.** For the specific notice. | **Vulnerable.** |
+| **Who can check** | Member insurers, under the exchange's rules. | Anyone handed the notice: a beneficiary, a funeral home, a probate court, an estate attorney. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Coded information other members have reported, for underwriting and fraud detection. | Confirmation that the carrier issued this exact approval notice, including the benefit amount, as at its date, and whether it has since been withdrawn. | A notice whose amount may have been edited. |
+| **What the beneficiary shares** | Nothing; the exchange is between insurers. | Only the notice they chose to hand over. | Only the notice they chose to hand over. |
+| **Reach** | Member insurers in the countries the exchange serves. | Global in principle: any carrier, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Fast for members; membership has its own terms. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | Insurer membership. | The carrier to publish hashes, and Live Verify-aware software on the checker's device. No carrier does this yet. | Nothing. |
+| **Best suited to** | Insurers checking applications and claims against each other's information. | A funeral home or court deciding whether to rely on a beneficiary's letter. | Nothing where payment depends on it. |
 
 **Where each fits:** Industry exchanges such as MIB serve insurers well for the purpose they were built for, which is sharing information between member companies. Beneficiaries, funeral homes and estate advisers are not members and hold only the letter the carrier sent. Live Verify lets them confirm that the carrier issued that approval notice, and the insurer-to-insurer exchange carries on unchanged.
 

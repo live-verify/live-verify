@@ -106,14 +106,19 @@ Actuaries assess the adequacy of insurance loss reserves for accounting and solv
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With SERFF Public Search
+## Where Each Fits: Live Verify and State Filing Searches
 
-| Feature | Live Verify | SERFF / State Public Search | Scanned PDF Memo |
+US state insurance regulators and the NAIC make insurers' filings available through public searches, SERFF Filing Access being one; other countries' regulators publish filings in their own ways, and some publish little. These searches and Live Verify answer different questions and work side by side: one is the filed record of an insurer's position, the other confirms that the opinion or memo on the table is one the actuary or insurer stands behind.<!-- TODO(verify): whether loss reserve opinions are searchable in SERFF Filing Access, or reach the public mainly through NAIC annual-statement data -->
+
+| | State public filing search | Live Verify on the reserve opinion | Scanned PDF memo |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Actuary/Insurer. | **Gov-Bound.** | **Zero.** Easily forged. |
-| **Speed** | **Instant.** Scan the paper in the boardroom. | **Slow.** Requires finding the NAIC # and navigating Gov UI. | **Instant.** |
-| **Immediacy** | **Real-time.** Shows if firm retracted opinion. | **Laggy.** Depends on annual filing cycles. | **Static.** |
-| **Detail** | **High.** Shows specific line-of-business limits. | **Low.** Often only shows aggregated totals. | **Vulnerable.** |
+| **Who can check** | Anyone who can find the filing. | Anyone handed the opinion: a board, a reinsurer, an acquirer, a rating agency. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The filing as the regulator received it, often in aggregated form. | Confirmation that the actuary or insurer issued this exact opinion, line-of-business detail included, as at its date, and whether it has since been withdrawn. | A memo whose figures may have been edited. |
+| **What the insurer shares** | What the filing rules require to be public. | Only the opinion it chose to hand over. | Only the opinion it chose to hand over. |
+| **Reach** | Filings with that state's regulator. | Global in principle: any insurer or actuarial firm, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free or low cost, but finding the right filing takes some searching, and it follows the annual filing cycle. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | A filing in that system and a reader who knows how to find it. | The actuary or insurer to publish hashes, and Live Verify-aware software on the checker's device. No insurer or actuarial firm does this yet. | Nothing. |
+| **Best suited to** | Regulators and analysts researching the company's overall position. | Reserve reviews, negotiations and transactions, where people work from the document in hand. | Nothing where reserves matter. |
 
 **Where each fits:** State filing searches are the official source for what an insurer has filed and are where a regulator or analyst should look for the company's overall position. In a reserve review or a negotiation, people are working from the opinion and memos handed across the table, which the public search does not reproduce page for page. Live Verify lets a reader confirm the actuary or insurer stands behind the document in hand, and the filed record remains the reference for everything else.
 

@@ -104,14 +104,19 @@ The Homeowner / Seller benefits from verification.
 **Municipal GIS Departments:** (In some jurisdictions).
 **State Boards of Professional Land Surveying.**
 
-## Compared With Digital Plat Portals
+## Where Each Fits: Live Verify and County GIS Viewers
 
-| Feature | Live Verify | County GIS Viewer | Paper Plat |
+Many US counties publish an online GIS viewer showing parcels drawn from assessor and recorded data. It is run by the county and is a convenient general reference, though usually not a legally binding depiction of a boundary. The GIS viewer and Live Verify answer different questions and work side by side: one shows parcels in context, the other lets whoever holds a surveyor's plat confirm that the surveyor issued it.
+
+| | County GIS viewer | Live Verify on the survey plat | Paper plat |
 | :--- | :--- | :--- | :--- |
-| **Precision** | **High.** Binds to the specific PE seal. | **Low.** GIS maps are often "General" and not legally binding. | **Instant.** |
-| **Integrity** | **Binds Text.** Protects measurements. | **Data-Only.** Doesn't protect the paper. | **Zero.** Easily edited. |
-| **Trust Anchor** | **The Surveyor.** (Professional Liability). | **The County.** (Assessor data). | **The Ink.** |
-| **Field Access** | **Instant.** Scan the paper at the property corner. | **Difficult.** Hard to align GIS pins with physical dirt. | **Instant.** |
+| **Who can check** | Anyone with a browser. | Anyone handed the plat: a buyer, a lender, a title company, a neighbor, a contractor at the site. | Whoever reads it. |
+| **What the checker gets** | An approximate parcel outline for orientation, generally without legal standing as a boundary. | Confirmation that the licensed surveyor issued this exact plat text, measurements included, as at its date, and whether it has since been superseded or withdrawn. | A plat whose measurements may have been edited. |
+| **What the owner shares** | Nothing; the data is public. | Only the plat they chose to hand over. | Only the plat they chose to hand over. |
+| **Reach** | One county's data. | Global in principle: any surveyor, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free and quick, though lining a map pin up with the ground can be hard. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection at the property. | Immediate. |
+| **What it needs** | A county that publishes a viewer. | The surveyor to publish hashes, and Live Verify-aware software on the checker's device. No surveyor does this yet. | Nothing. |
+| **Best suited to** | Seeing parcels in context and general orientation. | Relying on a specific survey's measurements in a sale, loan or dispute. | Nothing where the boundary matters. |
 
 **Where each fits:** A county GIS viewer is a convenient way to see parcels in context and remains the quickest general reference, though it is usually not a legally binding depiction of a boundary. The signed plat is what carries the surveyor's professional responsibility, and it is often read on paper at the property itself. Live Verify lets whoever is holding it confirm that the surveyor issued those exact measurements, with the county map still useful for orientation.
 
@@ -218,14 +223,19 @@ Surveyors measure land boundaries and create official survey documents.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Physical Iron Pins
+## Where Each Fits: Live Verify and Boundary Monuments
 
-| Feature | Live Verify | Iron Pins (In the Ground) | Scanned PDF / Paper |
+Iron pins and other monuments set in the ground are the physical evidence a surveyor works from. They are not a document and do not compete with one: the pin marks a point on the ground, and the survey records what the surveyor found and set. Live Verify applies only to the second, and the two are read together.
+
+| | Iron pins and monuments | Live Verify on the survey record | Scanned PDF or paper survey |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Surveyor. | **Physical.** Trust the iron. | **Zero.** Easily forged. |
-| **Reliability** | **High.** Digital record can't be moved. | **Low.** Pins are often pulled out or moved by neighbors. | **Vulnerable.** |
-| **Integrity** | **Cryptographic.** Binds every word. | **None.** No data on the pin. | **None.** |
-| **Speed** | **Instant.** 5-second scan. | **Very Slow.** Requires digging/metal detector. | **Instant.** |
+| **Who can check** | Anyone who can find them on the ground, usually best done by a surveyor. | Anyone handed the survey. | Whoever reads it. |
+| **What the checker gets** | A physical mark at a point, with no information of its own about who set it or why. | Confirmation that the surveyor issued this exact record of measurements and monuments, as at its date. It says nothing about whether a pin has since been moved. | A record whose measurements may have been edited. |
+| **What the owner shares** | Access to the land. | Only the survey they chose to hand over. | Only the survey they chose to hand over. |
+| **Reach** | The property itself. | Global in principle: any surveyor, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Finding a pin can mean probing, digging or a metal detector. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | Pins that are still in place and undisturbed. | The surveyor to publish hashes, and Live Verify-aware software on the checker's device. No surveyor does this yet. | Nothing. |
+| **Best suited to** | Marking the boundary on the ground; the primary evidence in a resurvey. | Confirming what the surveyor recorded, when pins have been disturbed or lost. | Nothing where the boundary is contested. |
 
 **Where each fits:** Monuments in the ground are the physical evidence a surveyor works from, and nothing on paper replaces a properly set and located pin. Pins do get disturbed or lost over the years, and they carry no information of their own. Live Verify keeps the surveyor's written record checkable so that it can be read alongside whatever markers remain; resolving a real discrepancy is still a job for a surveyor.
 

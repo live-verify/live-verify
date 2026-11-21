@@ -107,14 +107,19 @@ Solicitors validate living will directives and end-of-life care instructions.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With State Registries
+## Where Each Fits: Live Verify and Advance Directive Registries
 
-| Feature | Live Verify | State Registry (Online) | The "Fridge" Magnet |
+Some US states run an advance directive registry where people can lodge their documents, and hospitals or physicians can query it; other states have none, and other countries vary in the same way. A registry and Live Verify answer different questions and work side by side: the registry tells a hospital that a directive exists, and Live Verify lets a clinician confirm that the copy at the bedside is the one the issuer stands behind and still current.
+
+| | State registry | Live Verify on the directive | Copy kept at home |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Hospital/Firm. | **Gov-Bound.** Bound to the State. | **None.** Trust the paper. |
-| **Integrity** | **Cryptographic.** Protects every wish. | **Data-Only.** Doesn't protect the paper. | **Zero.** Easily forged. |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires login/fees and manual search. | **Instant.** |
-| **Freshness** | **Real-time.** Shows if superseded. | **Laggy.** Updates take weeks. | **Static.** |
+| **Who can check** | Hospitals, physicians and the person themselves, under the registry's rules. | Anyone handed the directive: a clinician, a hospital, a care home, a family member. | Whoever finds it. |
+| **What the checker gets** | Notice that a directive is lodged, and often a copy of it. | Confirmation that the issuing hospital or law firm published this exact directive, as at its date, and whether it has since been superseded. | A document that may be out of date or altered. |
+| **What the person shares** | Their directive, lodged with the state. | Only the copy they or their family hand over. | The copy itself. |
+| **Reach** | One state, where a registry exists. | Global in principle: any hospital or law firm, in any country, that publishes hashes on its own domain. | Wherever it is carried. |
+| **Speed and cost** | Varies; some involve fees, logins or a manual search. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | A state registry, a lodged directive, and a hospital able to query it. | The issuing hospital or law firm to publish hashes, and Live Verify-aware software on the checker's device. No issuer does this yet. | Nothing. |
+| **Best suited to** | Learning that a directive exists when no copy is to hand. | Confirming that the copy at the bedside is genuine and the latest one. | Nothing where treatment depends on it, unless confirmed. |
 
 **Where each fits:** A state registry is a sound place to lodge a directive, and where a hospital can query it the registry may be the only way to learn that a directive exists at all. The copy that reaches the bedside is usually paper brought by the family or found in the chart, and clinicians need to know quickly whether it is the current one. Live Verify lets them check that copy against the issuing hospital or law firm's domain, alongside any registry lookup the hospital already makes.
 

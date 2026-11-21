@@ -107,14 +107,20 @@ Regulates lead paint disclosure in residential properties.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Disclosure Portals
+## Where Each Fits: Live Verify and Disclosure Portals
 
-| Feature | Live Verify | Disclosure Portal | Scanned PDF / Paper |
+Lead paint disclosures are often delivered and signed through an online portal run by a property manager, brokerage or e-signature vendor. The portal serves the parties to the sale or tenancy well at the time. The portal and Live Verify answer different questions and work side by side: one delivers and records the signing, the other lets anyone later handed the signed disclosure confirm that the issuer stands behind its exact text.
+
+| | Disclosure portal | Live Verify on the signed disclosure | Scanned PDF or paper |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Cryptographic.** Protects the check-boxes. | **Data-Only.** | **Zero.** Easily forged. |
-| **Persistence** | **High.** Remains verifiable for decades. | **Low.** Portals often purge data after 3 years. | **Vulnerable.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Gov/Title Co. | **System-Bound.** Trust the vendor. | **Visual.** |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires paying a fee or finding a login. | **Instant.** |
+| **Who can check** | The parties with accounts on that portal. | Anyone handed the disclosure: a tenant, a buyer, a title company, a broker, a court. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The signed form and its signing record, for as long as the account and the data remain. | Confirmation that the issuer published this exact disclosure, check-boxes included, as at its date. | A form whose pages or check-boxes may have been changed. |
+| **What the holder shares** | Portal access, where it can be granted at all. | Only the disclosure they chose to hand over. | Only the disclosure they chose to hand over. |
+| **Over the years** | Depends on the vendor's retention, and on the account and the managing agent still existing. | Checkable for as long as the issuer keeps publishing the hash. | Survives, but cannot be trusted. |
+| **Reach** | One vendor's platform. | Global in principle: any issuer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Immediate for account holders; outsiders may need a login or a fee. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | An account on that portal. | The issuer, such as a title company or property management platform, to publish hashes, and Live Verify-aware software on the checker's device. No issuer does this yet. | Nothing. |
+| **Best suited to** | Delivering and signing the form at the start of a sale or tenancy. | Showing years later, in a dispute or a lawsuit, exactly what was disclosed. | Nothing where liability turns on it. |
 
 **Where each fits:** A disclosure portal is a practical way to deliver and sign the form at the start of a tenancy or sale, and the parties to that transaction are well served by it. Questions about the disclosure can arise many years later, sometimes after the portal account or the managing agent has gone. Live Verify keeps the signed text checkable against the issuer's domain for as long as the issuer publishes the hash, so the paper copy in someone's file can still be confirmed.
 

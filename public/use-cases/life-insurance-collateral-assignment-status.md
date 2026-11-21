@@ -108,14 +108,22 @@ New York Life, a regulated life insurance provider, is authorized by state insur
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Manual Verification
+## Where Each Fits: Live Verify and Asking the Insurer Directly
 
-| Feature | Live Verify | Phone/Letter Verification | Scanned PDF |
+A lender or attorney who needs to know whether a policy is already assigned has traditionally asked the insurer by phone or letter, with the policyholder's authorization. It is run by the insurer and gives an answer as of the day it replies. Asking directly and Live Verify answer different questions and work side by side: one gets the insurer's answer to a fresh request, the other confirms an assignment status statement already in hand.
+
+| | Phone or letter to the insurer | Live Verify on the assignment status statement | Scanned PDF |
 | :--- | :--- | :--- | :--- |
-| **Speed** | **Seconds.** Hash check against issuer domain. | **Days to weeks.** Manual request and mail. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Tied to the insurer. | **Reputation.** Trust the letterhead. | **Zero.** Easily forged. |
-| **Double-Pledge Prevention** | **Real-time.** Current as of the as-at date. | **Stale.** Reflects status at time of letter. | **None.** No currency guarantee. |
-| **Integrity** | **Cryptographic.** Binds assignment status to domain. | **Paper.** Can be altered after receipt. | **Vulnerable.** Trivially edited. |
+| **Who can check** | The policyholder, or a third party they have authorized. | Anyone handed the statement: a lender, an estate or divorce attorney, a life settlement buyer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The insurer's answer as of its reply, in a letter that can itself be altered later. | Confirmation that the insurer issued this exact status, assigned amount included, as at its date, and whether it is still current. | A statement whose assignment lines may have been edited or removed. |
+| **What the policyholder shares** | An authorization for the insurer to disclose. | Only the statement they chose to hand over. | Only the statement they chose to hand over. |
+| **How current** | Current at the time of the reply. | As at the statement date; the insurer can mark it no longer current when an assignment is added or released. | Unknown. |
+| **Reach** | One insurer, by its own process. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Can take days or longer. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | The insurer's request process and the policyholder's authorization. | The insurer to publish hashes, and Live Verify-aware software on the checker's device. No insurer does this yet. | Nothing. |
+| **Best suited to** | Formal acknowledgement of a new assignment, and anything a lender's counsel needs in writing. | A quick check for existing assignments before lending, settling an estate or dividing assets. | Nothing where a pledge is at stake. |
+
+**Where each fits:** The insurer's own records, and its formal acknowledgement when a new assignment is filed, remain the authority on what is pledged. What most checkers have in hand is a status statement passed on by the policyholder, and a request to the insurer can take days. Live Verify lets them confirm that statement against the insurer's domain straight away, and see whether the insurer still shows it as current, before a second lender is pledged the same value.
 
 ## Further Derivations
 

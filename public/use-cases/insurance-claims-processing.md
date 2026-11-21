@@ -96,14 +96,19 @@ The Patient benefits from verification.
 
 **Privacy Salt:** Highly critical. EOBs contain sensitive clinical and financial data. The hash must be salted to prevent "Guess-and-Check" attacks.
 
-## Compared With Patient Portals
+## Where Each Fits: Live Verify and Insurer Member Portals
 
-| Feature | Live Verify | Insurance Portal (Login) | Paper EOB |
+Health insurers give members an online portal where they can see claims and explanations of benefits (EOBs). It is run by the insurer and open only to the member, and providers reach the insurer through their own connections. The portal and Live Verify answer different questions and work side by side: one is the member's full account view, the other lets the member hand over a single EOB that the recipient can check.
+
+| | Insurer member portal | Live Verify on the EOB | Paper EOB |
 | :--- | :--- | :--- | :--- |
-| **User Control** | **High.** Share one specific EOB. | **Low.** Giving portal access reveals *full* medical history. | **Medium.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Insurer. | **System-Bound.** | **Zero.** Easily forged. |
-| **Interoperability** | **Universal.** Works across all carriers. | **Siloed.** | **Universal.** |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires 2FA, login, navigation. | **N/A.** |
+| **Who can check** | The member, logged in; providers through their own channels with the insurer. | Anyone handed the EOB: a hospital billing office, a lender, an employer's benefits team. | Whoever reads it. |
+| **What the checker gets** | Every claim and statement, kept current. | Confirmation that the insurer issued this exact EOB, as at its date, and whether it has since been withdrawn. | A statement that may have been edited. |
+| **What the member shares** | Their login, if someone else is to look, which exposes their whole claims history. | Only the EOB they chose to hand over. | Only the EOB they chose to hand over. |
+| **Reach** | One insurer's members. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | A login, often with a second factor, and some navigation. | A few seconds per check: one web lookup, with no fee to the standard and no account. | Immediate. |
+| **What it needs** | An account with that insurer. | The insurer to publish hashes, and Live Verify-aware software on the checker's device. No insurer does this yet. | Nothing. |
+| **Best suited to** | Members reviewing all their claims; connected providers. | Proving a single statement to someone outside the insurer. | Nothing where the amount matters. |
 
 **Where each fits:** The insurer's portal remains the best place for a member to see every claim and statement in one view, and providers already connected to the insurer will keep using their own channels. When a patient needs to show a single explanation of benefits to a hospital billing office or a lender, handing over portal access would expose far more than that one statement. Live Verify lets them share the one page and lets the recipient confirm the insurer issued it.
 
@@ -198,14 +203,19 @@ The Claims Adjuster benefits from verification.
 
 **Privacy Salt:** Highly critical. Internal notes contain sensitive medical/legal opinions. The hash must be salted to prevent unauthorized access to claim narratives.
 
-## Compared With Guidewire Audit Logs
+## Where Each Fits: Live Verify and Claims System Audit Logs
 
-| Feature | Live Verify | System Audit Log (Guidewire) | PDF Export |
+A carrier's claims system, Guidewire being a common one, keeps an audit log of diary notes and reserve changes. It is run by the carrier and open to its staff and to whoever the carrier grants access. The audit log and Live Verify answer different questions and work side by side: one is the carrier's internal history, the other lets an outside reviewer confirm that a diary entry they were sent is the text the carrier published.
+
+| | Claims system audit log | Live Verify on the diary entry | PDF export |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Carrier. | **Admin-Bound.** Can be edited by DB admins. | **Zero.** Easily forged. |
-| **Auditor Access** | **Universal.** Reinsurer can verify any PDF. | **Restricted.** Requires expensive licenses/login. | **Manual.** |
-| **Tamper Proof** | **Cryptographic.** Proves the *Text* of the note. | **Vulnerable.** Internal logs can be "cleaned up." | **Vulnerable.** |
-| **Immutability** | **High.** Once hashed, the note is fixed. | **Medium.** Database changes can be hidden. | **Zero.** |
+| **Who can check** | Carrier staff, internal auditors, and outsiders the carrier grants access. | Anyone handed the entry: a reinsurer, a regulator, a court. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The full history of the claim, in far more detail than any export. | Confirmation that the carrier published this exact note, including its reserve figures. An independent witness, if used, can show when the hash was first seen. | A document that may have been edited. |
+| **What the carrier shares** | System access, on its own terms. | Only the entries it chose to hand over. | Only the entries it chose to hand over. |
+| **Reach** | One carrier's system. | Global in principle: any carrier, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Immediate for those with access; access for outsiders needs licenses and logins. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | The carrier's system, and trust in how it is administered. | The carrier to publish hashes when notes are written, and Live Verify-aware software on the checker's device. No carrier does this yet. | Nothing. |
+| **Best suited to** | Internal claim handling and internal audit. | Reinsurers, regulators and litigants who review exported notes from outside the carrier. | Nothing where the record is contested. |
 
 **Where each fits:** The claims system and its audit log are where the carrier's own staff and internal auditors should work, and they hold far more detail than any exported file. Reinsurers and state regulators usually sit outside that system and review the PDFs sent to them. Live Verify gives those outside reviewers a way to confirm that a file note is the text the carrier published at the time, alongside whatever system access the carrier chooses to grant.
 
@@ -316,14 +326,19 @@ Aviva, a regulated insurance claims processor, is authorized by the FCA to issue
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Court Dockets (PACER)
+## Where Each Fits: Live Verify and Court Dockets
 
-| Feature | Live Verify | Court Docket (PACER) | Scanned PDF Release |
+Court dockets, such as PACER for US federal courts and the state courts' own systems, are the public record of filed cases, including any settlement a court has approved or that a party has filed. They are run by the courts. Dockets and Live Verify answer different questions and work side by side: one is the public record where a settlement is filed, the other lets a party handed a private release confirm that the payer stands behind it.
+
+| | Court docket | Live Verify on the settlement agreement | Scanned PDF release |
 | :--- | :--- | :--- | :--- |
-| **Privacy** | **High.** Private settlements stay private. | **Low.** Everything is public record (if filed). | **Medium.** |
-| **Granularity** | **High.** Shows exact dollar amounts. | **Low.** Many settlements are "Confidential" in court. | **Vulnerable.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Payer. | **Gov-Bound.** | **Zero.** Easily forged. |
-| **Interoperability** | **Universal.** PDFs stay verifiable. | **Siloed.** Requires PACER login/fees. | **Manual.** |
+| **Who can check** | Anyone with docket access, for settlements that were filed. | Anyone handed the agreement: a co-claimant, a lender, a lien holder, an accountant. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The filed record, which may omit or seal confidential terms. | Confirmation that the payer issued this exact agreement, including the amount and release terms, as at its date. | A document whose amount may have been edited. |
+| **What the parties share** | Whatever is filed becomes public, unless sealed. | Only the agreement they chose to hand over; nothing becomes public. | Only the agreement they chose to hand over. |
+| **Reach** | Cases filed in that court system. | Global in principle: any payer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Online search, sometimes with per-page fees. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | A filed case and an account where the court requires one. | The payer to publish hashes, and Live Verify-aware software on the checker's device. No insurer does this yet. | Nothing. |
+| **Best suited to** | Settlements that are filed or court-approved. | Private settlements that never reach a docket. | Nothing where the amount matters. |
 
 **Where each fits:** Where a settlement is filed with a court, the docket is the authoritative public record and should be consulted. Most insurance settlements are private agreements that never reach a docket, so there is nothing public to look up. Live Verify serves those cases: a party handed the release can confirm the payer stands behind its exact text, and the terms stay between the people who hold the document.
 

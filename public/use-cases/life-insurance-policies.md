@@ -103,14 +103,22 @@ Aviva, a regulated life insurance provider, is authorized by the FCA to issue ve
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With MIB Group (Industry DB)
+## Where Each Fits: Live Verify and Industry Exchanges Such as MIB
 
-| Feature | Live Verify | MIB Group (Industry Exchange) | Scanned PDF |
+<!-- TODO(verify): MIB's scope (US and Canada, used for underwriting) -->
+
+MIB Group runs an information exchange for member insurers in the US and Canada, used by underwriters at application time. It is not a register of policy wording and is not open to policyholders, so it and a verified policy document answer different questions for different people. They work side by side.
+
+| | Industry exchange (MIB) | Live Verify on the policy document | Scanned PDF |
 | :--- | :--- | :--- | :--- |
-| **User Access** | **Universal.** Policyholders and banks. | **Restricted.** Only for insurance companies. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Carrier. | **Data-Bound.** Trust the aggregator. | **Zero.** Easily forged. |
-| **Retention** | **50+ Years.** Archival text. | **Ephemeral.** Records often age out. | **Durable.** |
-| **Integrity** | **Cryptographic.** Binds the *Beneficiary*. | **Vague.** Often only shows "Coverage exists." | **Vulnerable.** |
+| **Who can check** | Member insurers, under the exchange's rules. | Anyone handed the policy: the policyholder, a bank, a family member, an executor. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Coded information other members have reported, for underwriting. It does not confirm an individual policy's terms. | Confirmation that the carrier issued this exact policy text, beneficiary included, as at its date, and whether it has since been replaced or cancelled. | A document whose beneficiary or amounts may have been edited. |
+| **What the policyholder shares** | Nothing directly; insurers report to the exchange. | Only the document they chose to hand over. | Only the document they chose to hand over. |
+| **Over the years** | Records are kept under the exchange's own retention rules. | Checkable for as long as the carrier, or a successor, keeps publishing the hash. | Survives, but cannot be trusted. |
+| **Reach** | Member insurers in the countries the exchange serves. | Global in principle: any carrier, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Fast for members; membership has its own terms. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | Insurer membership. | The carrier to publish hashes, and Live Verify-aware software on the checker's device. No carrier does this yet. | Nothing. |
+| **Best suited to** | Underwriters sharing information between insurers. | A bank or family checking a policy document, perhaps decades after it was issued. | Nothing where the payout matters. |
 
 **Where each fits:** MIB and similar exchanges do their job for underwriters, who need to share information between insurers at application time. They are not open to policyholders, banks or family members, and they do not confirm the wording of an individual policy. Live Verify lets someone holding a policy document, perhaps decades after it was written, confirm that the carrier stands behind it. The two serve different audiences and neither displaces the other.
 

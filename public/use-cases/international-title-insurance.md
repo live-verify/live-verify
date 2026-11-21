@@ -107,14 +107,19 @@ International title underwriters must be licensed by state insurance regulators 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Local Land Registries
+## Where Each Fits: Live Verify and Local Land Registries
 
-| Feature | Live Verify | Local Land Registry (e.g., France) | Scanned PDF Policy |
+Most countries keep a land registry or recording system, run by government, that is the legal record of who owns a property; how complete and how accessible it is varies a great deal from country to country. A title insurance policy is something else: an underwriter's promise to pay if title turns out to be defective. The registry and a verified policy answer different questions and are used together.
+
+| | Local land registry | Live Verify on the title policy | Scanned PDF policy |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Underwriter. | **Gov-Bound.** (In local language). | **Zero.** Easily forged. |
-| **Interoperability** | **High.** Verified PDF works for a US Bank. | **Low.** US banks can't easily parse French registries. | **Universal.** |
-| **Financial Backing** | **Direct.** Proves the $25M promise. | **None.** A registry only proves *who* owns it. | **Vulnerable.** |
-| **Speed** | **Instant.** 5-second scan. | **Very Slow.** Often takes weeks for a "Title Search." | **Instant.** |
+| **Who can check** | Anyone allowed to search that registry, usually in its language and on its terms. | Anyone handed the policy: a foreign lender, a notary, a lawyer, a tax authority. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The legal record of ownership and registered charges. | Confirmation that the underwriter issued this exact policy, including its insured amount, as at its date, and whether it has since been cancelled. It says nothing about ownership beyond what the policy itself states. | A policy whose terms may have been edited. |
+| **What the owner shares** | Nothing; registry entries are often public. | Only the policy they chose to hand over. | Only the policy they chose to hand over. |
+| **Reach** | One country or region, in its own language and procedures. | Global in principle: any underwriter, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Varies from an online search to a lengthy title search through a local professional. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | Access to the registry and the ability to read it, often through a local lawyer or notary. | The underwriter to publish hashes, and Live Verify-aware software on the checker's device. No title underwriter does this yet. | Nothing. |
+| **Best suited to** | Establishing who owns the property. | A lender in another country confirming that the insurance behind its collateral is genuine. | Nothing where the collateral matters. |
 
 **Where each fits:** The local land registry is the legal record of who owns the property, and a title search there is still how ownership is established. What it does not show is the underwriter's financial commitment, and a lender in another country may struggle to read or query it. Live Verify lets that lender confirm the policy text against the underwriter's domain in a few seconds; the registry search and the verified policy answer different questions and are used together.
 

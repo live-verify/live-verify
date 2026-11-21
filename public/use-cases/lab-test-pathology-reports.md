@@ -179,18 +179,23 @@ NHS pathology labs test specimens and issue reports following UK medical device 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Patient Portals / HIEs
+## Where Each Fits: Live Verify, Patient Portals and Health Information Exchanges
 
-| Feature | Live Verify | Patient Portal (MyQuest) | Health Info Exchange (HIE) |
+Laboratories give patients their results through portals (Quest's MyQuest is one), and providers receive results through health information exchanges and direct connections. How far these reach depends on where you are: some countries have national or regional health record systems, some rely on regional exchanges, and many have little connection between practices. These systems and Live Verify answer different questions and work side by side: they move results inside connected care, and Live Verify lets someone handed a printed or forwarded report confirm the lab issued it.
+
+| | Patient portal | Health information exchange | Live Verify on the lab report |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Lab. | **System-Bound.** Requires login. | **Network-Bound.** |
-| **User Access** | Capture the paper or select supported digital text; depends on issuer adoption and extraction. | Patient or authorised provider accesses the original results. | Receiving provider accesses connected records. |
-| **Integrity** | **Cryptographic.** Binds the *Diagnosis*. | **High.** Direct DB access. | **High.** |
-| **Cross-System** | Portable text check where the lab publishes hashes and the verifier supports it. | Downloads can travel beyond the portal. | Depends on participating systems and access arrangements. |
-
-**Practical fit:** Patient-carried results are useful precisely because they travel outside the issuing laboratory's system. Live Verify could authenticate that travelling text without requiring every receiving practice to integrate with the same portal or health-information exchange. Existing authenticated clinical exchange remains preferable where available; verification complements it.
+| **Who can check** | The patient, and providers they authorize. | Providers connected to that exchange. | Anyone handed the report: a new specialist, a clinic abroad, an insurer, an employer's occupational health service. |
+| **What the checker gets** | The original results from the lab's system. | Records shared by participating systems. | Confirmation that the lab issued this exact report text, as at its date, and whether it has since been corrected or withdrawn. |
+| **What the patient shares** | A login or a download, which can travel beyond the portal unverified. | Consent, where the exchange requires it. | Only the report they chose to hand over. |
+| **Reach** | One lab's patients. | Participating systems in that region or network. | Global in principle: any laboratory, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Immediate for the patient. | Fast for connected providers; connection takes integration. | A few seconds per check: one web lookup, with no fee to the standard. Depends on capturing the paper or selecting supported digital text. |
+| **What it needs** | A patient account. | Participation and access arrangements on both sides. | The lab to publish hashes, and Live Verify-aware software on the checker's device. No laboratory does this yet. |
+| **Best suited to** | Patients reviewing their own results. | Care between connected providers. | Results carried by the patient outside the lab's system and outside any shared exchange. |
 
 **Clinical limit:** An authentic report can contain a laboratory error, refer to a misidentified specimen, be outdated, or omit other relevant tests. Verification does not establish specimen identity, diagnostic accuracy, clinical relevance or completeness beyond the checked scope. The receiving clinician retains responsibility for interpretation and any further checks.
+
+**Where each fits:** Patient-carried results are useful precisely because they travel outside the issuing laboratory's system. Live Verify could authenticate that traveling text without requiring every receiving practice to integrate with the same portal or health information exchange. Existing authenticated clinical exchange remains preferable where available; verification complements it.
 
 ## Independent Record (Optional)
 

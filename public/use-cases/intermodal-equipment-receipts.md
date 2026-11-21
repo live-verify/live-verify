@@ -112,14 +112,19 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With EDI Messaging (322)
+## Where Each Fits: Live Verify and EDI Gate Messages
 
-| Feature | Live Verify | EDI 322 (Gate Event) | Paper EIR |
+Terminals, ocean carriers and equipment owners exchange gate events electronically using EDI messages such as the ANSI X12 322 transaction. It is a business-to-business channel between parties that have set up the integration. EDI and Live Verify answer different questions and work side by side: one moves gate data between back offices, the other lets whoever holds the printed equipment interchange receipt confirm that the terminal issued it.
+
+| | EDI 322 gate message | Live Verify on the interchange receipt | Paper interchange receipt |
 | :--- | :--- | :--- | :--- |
-| **User Access** | **Universal.** Any driver or local shop. | **Restricted.** Requires complex B2B IT setup. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Terminal. | **System-Bound.** | **Zero.** Easily forged. |
-| **Integrity** | **Binds Damage Codes.** Protects the text. | **Data-Only.** | **Vulnerable.** |
-| **Connectivity needed** | **Yes, for the check.** The paper can be read without a connection; checking it takes one small web request. | **Yes.** Requires server access. | **None.** |
+| **Who can check** | Terminals, carriers and equipment owners with an EDI integration. | Anyone holding the receipt: a driver, a small trucking company, a chassis repair shop, an insurer. | Whoever reads it. |
+| **What the checker gets** | Structured gate data in their own systems. | Confirmation that the terminal issued this exact receipt, damage codes included, as at the gate time. | A receipt whose damage codes may have been changed. |
+| **What the holder shares** | Nothing; data flows between the integrated parties. | Only the receipt they chose to hand over. | Only the receipt they chose to hand over. |
+| **Reach** | Parties connected to each other's EDI. | Global in principle: any terminal or depot, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Automatic and high-volume once set up; setup takes B2B IT work. | A few seconds per check: one web lookup, with no fee to the standard. The paper can be read offline; checking it needs a data connection. | Immediate. |
+| **What it needs** | An EDI integration between the parties. | The terminal to publish hashes, and Live Verify-aware software on the checker's device. No terminal does this yet. | Nothing. |
+| **Best suited to** | High-volume gate events between carriers, terminals and equipment owners. | Drivers and small firms without EDI who need to rely on the receipt in a damage dispute. | Nothing where a damage charge is at stake. |
 
 **Where each fits:** EDI 322 gate messages are how terminals, carriers and equipment owners exchange gate events at volume, and for parties with that integration they are the right channel. A driver, a small trucking company or a local repair shop has only the printed interchange receipt. Live Verify lets them confirm the terminal issued that receipt, damage codes included, while the EDI feed continues to serve the back offices.
 

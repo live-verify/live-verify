@@ -111,14 +111,19 @@ The SEC registers investment advisors and maintains certification records.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With SEC Advisor Search (IAPD)
+## Where Each Fits: Live Verify and IAPD / BrokerCheck
 
-| Feature | Live Verify | IAPD / BrokerCheck (Web) | Scanned PDF Brochure |
+In the US, the SEC's Investment Adviser Public Disclosure site (IAPD) and FINRA's BrokerCheck are the public records of registered advisers and brokers, including disciplinary history. Other countries keep their own public registers of authorized firms and individuals, and some keep none that the public can search. These registers and Live Verify answer different questions and work side by side: one is a database a client searches, the other confirms that the certificate or card in front of the client is one the regulator stands behind.
+
+| | IAPD / BrokerCheck | Live Verify on the registration certificate | Scanned PDF brochure |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to `sec.gov`. | **Database.** Direct from source. | **Zero.** Easily forged. |
-| **Integrity** | **Binds Identity.** Proves *Who* is at the desk. | **Vague.** Hard to prove the person in front of you is the person in the DB. | **None.** |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires typing names/CRDs and navigating Gov UI. | **N/A.** |
-| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Technical.** Requires laptop/dedicated search. | **Visual.** |
+| **Who can check** | Anyone, by searching online. | Anyone looking at the certificate, card or brochure. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The full current record: registrations, employment history, disclosures. | Confirmation that the regulator issued this exact registration text, as at its date, and whether it has since been revoked. | A document that may have been edited. |
+| **What the adviser shares** | Nothing extra; the record is public. | Only the certificate they chose to show. | Only the brochure they chose to hand over. |
+| **Reach** | US-registered advisers and brokers. | Global in principle: any regulator, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free; takes a name or CRD number and some searching, and the client must match the record to the person in front of them. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | A device and the patience to search. | The regulator to publish hashes, and Live Verify-aware software on the client's device. No regulator does this yet. | Nothing. |
+| **Best suited to** | Proper due diligence before handing over money. | A quick check at a first meeting, from a wall certificate or business card. | Nothing where money is at stake. |
 
 **Where each fits:** IAPD and BrokerCheck are the authoritative public records, with disciplinary history and detail that no certificate carries, and a client doing proper diligence should read them. The gap is the first meeting, when a client is looking at a business card or a wall certificate and is unlikely to stop and search a database by name. Live Verify gives a quick confirmation that the registration text is one the issuer stands behind, and points naturally to the fuller record for anyone who wants to read on.
 

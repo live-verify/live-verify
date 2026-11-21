@@ -101,14 +101,19 @@ The Exporter / Importer (Assured) benefits from verification.
 **Specialist Brokers:** (Marsh, Aon, Gallagher).
 **Lloyd's Syndicates.**
 
-## Compared With Blockchain (TradeLens)
+## Where Each Fits: Live Verify and Shared-Ledger Trade Platforms
 
-| Feature | Live Verify | Trade Finance Blockchain | Paper / PDF Certificate |
+Shared-ledger trade platforms let shippers, carriers, banks and insurers exchange trade documents on a common network; TradeLens, run by Maersk and IBM, was the best known and has since been discontinued. Such platforms and Live Verify answer different questions and work side by side: one serves members of the same network, the other lets a counterparty outside it confirm a cargo insurance certificate against the insurer's own domain.
+
+| | Shared-ledger trade platform | Live Verify on the insurance certificate | Paper or PDF certificate |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Carrier. | **Consensus-Bound.** Trust the network. | **Zero.** Easily forged. |
-| **Adoption** | **High.** Works with existing paper/PDF docs. | **Low.** Requires every party to join the same chain. | **Universal.** |
-| **Interoperability** | **High.** Verified PDF works for any local bank. | **Siloed.** Hard to verify if you aren't on the chain. | **Universal.** |
-| **Integrity** | **Binds Content.** Protects the $ amounts. | **Data-Only.** | **Vulnerable.** |
+| **Who can check** | Participants who have joined that network. | Anyone handed the certificate: a local bank, a port agent, a buyer, a small exporter. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Records shared on the network, in structured form. | Confirmation that the insurer issued this exact certificate, insured values included, as at its date, and whether it has since been cancelled. | A certificate whose values may have been edited. |
+| **What the shipper shares** | Whatever is put on the network. | Only the certificate they chose to hand over. | Only the certificate they chose to hand over. |
+| **Reach** | Members of that platform, for as long as it runs. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Fast among members; joining and integration come first. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | Every party on the same network. | The insurer to publish hashes, and Live Verify-aware software on the checker's device. No marine insurer does this yet. | Nothing. |
+| **Best suited to** | Trade lanes where all the main parties have joined. | Counterparties outside any platform who still receive paper or PDF. | Nothing where a claim or payment depends on it. |
 
 **Where each fits:** Shared-ledger trade platforms can work well among participants who have all joined the same network, and where they are in place there is no reason to abandon them. A local bank, port agent or small exporter outside the network still receives the certificate as paper or PDF. Live Verify lets them confirm it against the insurer's own domain, which gives a platform's members a way to deal with counterparties who are not on it.
 
@@ -203,14 +208,19 @@ The Shipowner / Operator benefits from verification.
 **Commercial Marine Carriers:** (Chubb, Swiss Re, Munich Re).
 **Lloyd's Syndicates.**
 
-## Compared With Equasis / Vessel Databases
+## Where Each Fits: Live Verify and Vessel Databases
 
-| Feature | Live Verify | Equasis / IHS Markit (Database) | Scanned PDF Policy |
+Equasis, a free public database backed by maritime administrations, and commercial vessel databases such as those formerly run by IHS Markit gather information on ships: history, ownership, inspections and often the name of the insurer. They are the right place to research a ship. They answer a different question from a verified hull and machinery policy, and the two work side by side.
+
+| | Equasis and commercial vessel databases | Live Verify on the policy declaration | Scanned PDF policy |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Underwriter. | **Data-Bound.** Trust the 3rd party database. | **Zero.** Easily forged. |
-| **Integrity** | **Cryptographic.** Binds the *Hull Value*. | **Vague.** Often only shows "Insurer Name." | **None.** |
-| **Freshness** | **Real-time.** Shows if premium was paid today. | **Laggy.** Database updates can take 1-2 weeks. | **Static.** |
-| **User Access** | **Universal.** Any port or lawyer can verify. | **Restricted.** Some high-tier data is pay-walled. | **Universal.** |
+| **Who can check** | Anyone registered with Equasis; subscribers for the commercial databases' fuller data. | Anyone handed the declaration: a port authority, a ship financier, a buyer, a lawyer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The ship's record, often including who insures it, but generally not the policy's terms. | Confirmation that the underwriter issued this exact declaration, hull value included, as at its date, and whether it has since been cancelled. | A document whose values may have been edited. |
+| **What the owner shares** | Nothing; the data is compiled by others. | Only the declaration they chose to hand over. | Only the declaration they chose to hand over. |
+| **Reach** | The world fleet, as far as the database covers it. | Global in principle: any underwriter, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free or by subscription; updated on the database's own schedule. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | A registration or subscription. | The underwriter to publish hashes, and Live Verify-aware software on the checker's device. No marine underwriter does this yet. | Nothing. |
+| **Best suited to** | Researching a ship's history, ownership and inspections. | Confirming the cover in a closing file or a port call. | Nothing where the hull value matters. |
 
 **Where each fits:** Equasis and the commercial vessel databases are the right place to research a ship: its history, ownership, inspections and the name of its insurer. They generally do not reproduce the terms of a particular policy, and they update on their own schedule. Live Verify lets a port, financier or lawyer confirm that the underwriter stands behind the declaration page in the closing file, alongside the database search.
 

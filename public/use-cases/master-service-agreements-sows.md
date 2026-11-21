@@ -105,14 +105,19 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With CLM Systems (Ironclad)
+## Where Each Fits: Live Verify and Contract Lifecycle Management Systems
 
-| Feature | Live Verify | CLM (Contract Lifecycle Mgmt) | Scanned PDF / Email |
+Contract lifecycle management (CLM) systems, Ironclad among them, are where a company drafts, approves, signs, stores and tracks its own contracts. They are run by the company, or by a vendor on its behalf, and open to its own staff. A CLM system and Live Verify answer different questions and work side by side: one is the company's system of record, the other lets an outsider handed a signed agreement or statement of work confirm that the party stands behind its text.
+
+| | CLM system | Live Verify on the signed agreement | Scanned PDF or email |
 | :--- | :--- | :--- | :--- |
-| **Interoperability** | **Universal.** PDFs work across all companies. | **Low.** Hard to verify if you don't use the same CLM. | **Universal.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Party. | **System-Bound.** Trust the vendor. | **Zero.** Easily forged. |
-| **Integrity** | **Binds Content.** Protects the "Fine Print." | **Data-Only.** | **Vulnerable.** |
-| **Cost** | **Low.** Standard web infra. | **Very High.** Enterprise license fees. | **None.** |
+| **Who can check** | The company's own staff, and counterparties only if both use the same system. | Anyone handed the agreement: an acquirer, an insurer, an auditor, a subcontractor. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The full contract record, with versions, approvals and renewal dates. | Confirmation that the party published this exact agreement text, fine print included, as at its date, and whether it has since been superseded or terminated. | A document whose terms may have been edited. |
+| **What the company shares** | Nothing outside its own users. | Only the agreements it chose to hand over. | Only the agreements it chose to hand over. |
+| **Reach** | One company's system. | Global in principle: any company, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Immediate for users; enterprise license fees. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | A license and a login. | The party to publish hashes, and Live Verify-aware software on the checker's device. No company does this yet. | Nothing. |
+| **Best suited to** | Managing the company's own contracts from draft to renewal. | Due diligence, audits and disputes, where an outsider must rely on a signed copy. | Nothing where the terms matter. |
 
 **Where each fits:** A contract lifecycle management system is the right home for a company's own contracts: drafting, approvals, renewals and search all belong there. It is not built for showing a signed agreement to an outsider, such as an acquirer, insurer or auditor, who will not be given a login. Live Verify lets that outsider confirm the PDF they received is the text the party published, and the contract system remains the system of record.
 

@@ -76,16 +76,21 @@ The Policyholder / Claimant benefits from verification.
 **External Actuaries (Watson Wyatt, Milliman)**
 **Completeness Vetting:** Actuaries traditionally rely on "management data." With Text-to-Hash, actuaries can verify the *completeness* of the data they are auditing by reconciled the witnessed hash list against the management spreadsheet.
 
-## Compared With National Reporting Databases
+## Where Each Fits: Live Verify and Claims Databases
 
-| Feature | Text-to-Hash (Witnessed) | Legacy Databases (CUE, ISO) |
+Industry claims databases, such as CUE in the UK and ISO ClaimSearch in the US, pool claims data from member insurers so that insurers can spot a claimant making the same claim twice or hiding a claims history. Other countries have their own industry databases, some share data across borders, and many have none. These databases and a witnessed notification receipt answer different questions: the databases protect insurers from dishonest claimants, while the receipt protects claimants, regulators and actuaries from an insurer that does not book what it was told. They work side by side.
+
+| | Industry claims database | Live Verify on the notification receipt, with an independent witness |
 | :--- | :--- | :--- |
-| **Primary Goal** | **Issuer Integrity.** Prevents unbooked liabilities. | **Claimant Integrity.** Prevents double-claiming. |
-| **Timing** | **Instant.** Witnessed at the second of notification. | **Laggy.** Often updated weeks after the event. |
-| **Authority** | **Cryptographic.** Witness provides neutral proof. | **Administrative.** Relies on insurer data entry. |
-| **Accessibility** | **Open Protocol.** Anyone with the receipt can verify. | **Closed Loop.** Only available to member insurers. |
+| **Who can check** | Member insurers, under the database's rules. | The claimant holding the receipt; regulators and actuaries reconciling witnessed records against reported claims. |
+| **What the checker gets** | Claims history across participating insurers, as those insurers reported it. | Confirmation that the insurer issued this exact receipt, as at the moment of notification, and a witness record of when the hash was first seen. |
+| **What the claimant shares** | Nothing directly; insurers submit the data. | Only the receipt they chose to hand over. The witness holds the hash, never the text. |
+| **Reach** | The insurers in that country's or scheme's membership. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Fast for members, once the data has been submitted; membership comes with the database's own terms. | A few seconds per check: one web lookup, with no fee to the standard. A witness service is a separate arrangement. |
+| **What it needs** | Insurer membership and accurate, timely submissions by the insurers themselves. | The insurer to publish hashes at first notice of loss, a witness to record them, and Live Verify-aware software on the checker's device. No insurer does this yet. |
+| **Best suited to** | Detecting claimant fraud across the market. | Proving that a claim was notified and when, so that it cannot quietly go unbooked. |
 
-**Why Text-to-Hash wins:** Legacy reporting systems like the UK's CUE or the US's ISO ClaimSearch are designed to help insurers catch fraudulent *policyholders*. They are virtually useless at catching fraudulent *management teams* because the insurer remains the gatekeeper of what data is uploaded. Text-to-Hash flips the script: the moment the public notifies the insurer, the "Witness" locks in the liability, making it impossible for management to hide it later.
+**Where each fits:** Industry databases such as CUE and ISO ClaimSearch do their job well: they help insurers catch dishonest claimants, and they should carry on doing so. They were not built to catch an insurer that leaves claims off its own books, because the insurer decides what it submits. A witnessed notification receipt addresses that narrower gap, giving the claimant proof of notification and giving regulators and actuaries a count to reconcile against reported reserves.
 
 ## Who Issues It
 

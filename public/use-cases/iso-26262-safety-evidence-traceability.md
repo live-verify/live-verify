@@ -125,17 +125,22 @@ A delivered safety-case package is a directory of files. A headless tool can ver
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With ALM Suites and Blockchain
+## Where Each Fits: Live Verify, ALM Suites and Evidence Blockchains
 
-| Feature | Live Verify | ALM Suite (Polarion / Codebeamer / qTest) | Evidence-Chain Blockchain | Hand-Assembled PDF Pack |
+Tier-1 suppliers assemble ISO 26262 safety cases in application lifecycle management (ALM) suites such as Polarion, Codebeamer or qTest, and some projects have tried anchoring evidence on a blockchain. The ALM suite is where traceability is authored and should stay that way. These tools and Live Verify answer different questions and work side by side: the suite builds the case, and Live Verify lets an OEM or assessor who receives the finished artifacts confirm that the supplier stands behind each one.
+
+| | ALM suite | Evidence-chain blockchain | Live Verify on the delivered artifacts | Hand-assembled PDF pack |
 | :--- | :--- | :--- | :--- | :--- |
-| **Assembles the safety case** | **No — out of scope.** | **Yes — this is its job.** | Partial. | Yes (manually, 312h). |
-| **Independent verify at OEM/assessor** | **Instant.** Scan/clip any artifact, no portal login. | Requires shared instance / federated access. | Requires node access. | None — trust the PDF. |
-| **Tamper-evidence** | **Binds content to issuer domain.** | Inside the tool's DB; not portable. | Data-only, chain-bound. | Vulnerable. |
-| **Whole-package anchor** | **Merkle root over all artifacts.** | Tool-specific export hash. | Yes, but heavyweight. | None. |
-| **Cross-org, cross-tool** | **Universal** — PDFs/exports work everywhere. | Low — both sides need the same suite. | Low — whole chain on one chain. | Universal but unverifiable. |
+| **Assembles the safety case** | Yes; this is its job. | In part. | No; out of scope. It works on what the suite produces. | Yes, by hand, which is where the 312 hours go. |
+| **Who can check** | Users of the same suite, or of a shared or federated instance. | Participants with access to that chain. | Anyone handed an artifact: the OEM, an independent assessor, a later auditor. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Live traceability inside the tool. | A record anchored on the chain. | Confirmation that the supplier issued this exact artifact, and whether it is current, superseded or withdrawn. A root hash over the whole package can be checked the same way. | Documents that may have been edited. |
+| **What the supplier shares** | Access to its instance, or a tool-specific export. | Whatever it puts on the chain. | Only the artifacts it chose to deliver. | Only the artifacts it chose to deliver. |
+| **Reach** | Organizations that run the same suite, or share an instance. | Parties on the same chain. | Global in principle: any supplier, in any country, that publishes hashes on its own domain, whatever tool produced the files. | Anywhere, but untrusted. |
+| **Speed and cost** | Fast inside the tool; licenses and access setup between companies. | Setup and operation of the chain. | A few seconds per check: one web lookup, with no fee to the standard. | Free to read, slow to re-confirm each cycle. |
+| **What it needs** | The suite, licensed on both sides or shared. | A chain both sides use. | The supplier to publish hashes, and Live Verify-aware software or tooling on the checker's side. No supplier does this yet. | Nothing. |
+| **Best suited to** | Authoring and maintaining traceability. | Settings where all parties already share a chain. | Handoff of finished evidence across companies and tools, and re-confirmation between releases. | Nothing where the safety case is audited. |
 
-**Why Live Verify is complementary here, not competitive:** The ALM suite does the 312 hours of authoring — and should keep doing it. Live Verify sits downstream of the package the suite produces, turning each finished artifact into a domain-bound, tamper-evident object and the whole delivery into a single Merkle-rooted set. It removes the *re-confirmation and handoff* cost that recurs every cycle and every audit, without pretending to remove the assembly cost that is the supplier's real complaint.
+**Where each fits:** The ALM suite does the 312 hours of authoring, and should keep doing it. Live Verify sits downstream of the package the suite produces, letting the OEM or assessor confirm each finished artifact against the supplier's domain and the whole delivery against a single root hash. It can reduce the re-confirmation and handoff effort that recurs every cycle and every audit; it does nothing about the assembly cost that is the supplier's real complaint.
 
 ## Further Derivations
 

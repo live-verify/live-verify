@@ -179,18 +179,22 @@ The patient benefits directly.
 
 **Directory accuracy enforcement:** Regulators in some jurisdictions require insurers to maintain accurate directories. Verifiable claims provide an independent check on directory accuracy.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Insurer Directories
 
-| Feature | Live Verify | Insurer's Online Directory | Provider's "We Accept..." | Phone Call to Insurer | Insurance Card |
+Today a patient checks whether a provider is in-network by searching the insurer's online directory, phoning the insurer, reading their insurance card, or trusting the provider's own "we accept" sign. The directory and the phone line are run by the insurer and remain the way to find a provider in the first place. They answer a different question from a Live Verify panel claim, which is checked on the provider's own website or premises, and the two work side by side.
+
+| | Insurer's online directory | Phone call to the insurer | Insurance card | Live Verify on the panel claim | Provider's "we accept" sign |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Issuer-controlled** | **Yes.** Insurer issues the claim. | **Yes.** But error rates are high. | **No.** Provider self-asserts. | **Yes.** But often incorrect. | **Yes.** But lists plans, not providers. |
-| **Domain-bound (web)** | **Yes.** Claim names the provider's site. | **No.** | **No.** | **No.** | **No.** |
-| **Revocable** | **Immediate.** Endpoint returns REVOKED. | **Slow.** Directory updates lag. | **No.** Signage persists. | **Depends on hold time.** | **No.** |
-| **Verifiable at point of booking** | **Yes.** On the provider's page or premises. | **Requires leaving the site.** | **No.** | **Requires a phone call.** | **No.** |
-| **Verifiable at physical premises** | **Yes.** Printed claim, scan or type. | **No.** Requires internet search. | **No.** | **Requires a phone call.** | **No.** |
-| **Detects stale claims** | **Yes.** Revoked status is immediate. | **No.** Directory may still list dropped providers. | **No.** | **Inconsistent.** | **No.** |
+| **Who can check** | Anyone, by searching the insurer's site. | A member, by calling. | The member holding it. | Anyone looking at the claim on the provider's website or premises. | Anyone reading it. |
+| **What the checker gets** | The insurer's listing, which may include out-of-date entries. | An answer from an agent, as accurate as the agent's information. | The member's plan, not which providers are in it. | Confirmation that the insurer issued this exact claim for this provider and, for web claims, this site, and whether it has since been revoked. | The provider's own statement. |
+| **What the patient has to do** | Leave the provider's page and search. | Call and wait. | Nothing more. | Check the claim where they see it. | Nothing more. |
+| **Keeping up with changes** | Depends on how promptly the insurer updates the directory. | Depends on the agent's records. | Does not apply. | The insurer revokes the claim when a provider leaves the panel, and it stops verifying. | Signs stay up after a provider leaves. |
+| **Reach** | One insurer's network. | One insurer's members. | One plan. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | A search, free. | Minutes, sometimes much longer on hold. | Immediate. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | The insurer to keep its directory accurate. | A member account and time. | Nothing. | The insurer to publish hashes, and Live Verify-aware software on the patient's device. No insurer does this yet. | Nothing. |
+| **Best suited to** | Finding providers: "which dentists near me take this plan?" | Resolving a specific question about coverage. | Knowing which plan you have. | Checking a specific provider at the point of booking or in the waiting room. | Nothing where the bill matters. |
 
-**Practical conclusion:** insurer directories remain necessary for search ("which dentists near me take Aetna?") but they answer a different question from the one the patient is asking on a provider's website or in a provider's waiting room ("is this provider actually in my network right now?"). The verifiable claim answers the second question in place.
+**Where each fits:** Insurer directories remain necessary for search ("which dentists near me take Aetna?") but they answer a different question from the one the patient is asking on a provider's website or in a provider's waiting room ("is this provider actually in my network right now?"). The verifiable claim answers the second question in place, and a phone call to the insurer is still the way to settle anything the claim does not cover, such as which treatments the plan pays for.
 
 ## Authority Chain
 

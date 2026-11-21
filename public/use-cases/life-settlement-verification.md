@@ -124,17 +124,21 @@ New York Life, a regulated life insurance carrier, is authorized by state insura
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Carrier Verification of Coverage
 
-| Feature | Live Verify | Carrier Phone/Fax Inquiry | Broker-Provided PDF | LISA / Industry Database |
+Licensed life settlement providers confirm a policy's details, loans and assignments directly with the carrier, through its portal or by phone or fax with the owner's authorization, and some industry data services are available to members. These remain the primary route for the provider. They answer a different question from a Live Verify statement, which travels with the transaction to parties who have no carrier access, and they work side by side.
+
+| | Carrier phone, fax or portal inquiry | Industry database | Live Verify on the carrier's policy statement | Broker-provided PDF |
 | :--- | :--- | :--- | :--- | :--- |
-| **Speed** | **Instant.** Clip and verify. | **Slow.** Days to weeks for a carrier response. | **Instant.** But unverifiable. | **Fast.** But access-restricted. |
-| **Trust Anchor** | **Domain-Bound.** Tied to the carrier. | **Voice.** Dependent on caller authentication. | **Zero.** Easily edited. | **Data-Bound.** Trust the aggregator. |
-| **Detects Loans** | **Yes.** Carrier-attested. | **Yes.** If asked. | **No.** Seller controls the document. | **Partial.** Depends on reporting lag. |
-| **Detects Prior Assignments** | **Yes.** Carrier-attested. | **Yes.** If asked. | **No.** Seller controls the document. | **Partial.** |
-| **Available to All Parties** | **Yes.** Buyer, seller, regulator, escrow agent. | **No.** Only authorized callers. | **Yes.** But untrusted. | **No.** Industry members only. |
+| **Who can check** | Authorized callers or portal users, usually the licensed provider. | Industry members only.<!-- TODO(verify): the original table names a "LISA / Industry Database"; confirm which industry database (if any) life settlement providers actually use for policy loans and assignments, and what it covers --> | Anyone handed the statement: buyer, seller, escrow agent, co-investor, regulator, attorney. | Anyone handed it. |
+| **What the checker gets** | The carrier's current answer, including loans and assignments if asked. | What members have reported, which may lag. | Confirmation that the carrier issued this exact statement, loans and prior assignments included, as at its date, and whether it is still current. | A document the seller's side controls, which may have been edited. |
+| **What the seller shares** | An authorization for the carrier to disclose. | Whatever is reported. | Only the statement they chose to hand over. | Only what they chose to hand over. |
+| **Reach** | One carrier, by its own process. | Members of that service. | Global in principle: any carrier, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Can take days or longer for a carrier response. | Fast for members. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | The owner's authorization and the carrier's process. | Membership. | The carrier to publish hashes, and Live Verify-aware software on the checker's device. No carrier does this yet. | Nothing. |
+| **Best suited to** | The licensed provider's own due diligence before purchase. | Cross-checking within the industry. | Parties further along the transaction who need to rely on the same facts without their own carrier access. | Nothing where the price depends on it. |
 
-**Practical conclusion:** Carrier portal login and direct carrier inquiry remain primary for licensed settlement providers. Live Verify is strongest when the verification artifact needs to travel — to an escrow agent, a co-investor, a regulator, or an attorney — and retain its integrity outside the carrier's own systems.
+**Where each fits:** Carrier portal login and direct carrier inquiry remain primary for licensed settlement providers. Live Verify is strongest when the verification artifact needs to travel — to an escrow agent, a co-investor, a regulator, or an attorney — and keep its integrity outside the carrier's own systems.
 
 ## Further Derivations
 

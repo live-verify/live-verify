@@ -247,16 +247,20 @@ The verifiable claim addresses these because:
 
 </details>
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify, Certification Registers and Provenance Ledgers
 
-| Feature | Live Verify | "Made in" Label | Certification Body Register | Blockchain Provenance |
+Origin claims today rest on the "Made in" label the manufacturer prints, on registers kept by certification bodies for schemes such as national origin marks, and, in some supply chains, on blockchain provenance systems. Which certification schemes exist depends on where you are: some countries run a national origin scheme, some products fall under regional ones, and many claims are backed by nothing but the label. These approaches and Live Verify answer different questions and work side by side.
+
+| | Certification body register | Blockchain provenance | Live Verify on the origin claim | "Made in" label alone |
 | :--- | :--- | :--- | :--- | :--- |
-| **Issued by certifier** | **Yes.** Claim originates from certification body. | **No.** Self-asserted by manufacturer. | **Yes.** But separate lookup. | **Varies.** Often self-asserted. |
-| **Verifiable at point of sale** | **Yes.** Online (clip) and physical (camera). | **No.** Trust the label. | **No.** Separate site. | **Sometimes.** QR to app. |
-| **Real-time status** | **Yes.** Endpoint reflects current certification. | **No.** Label persists. | **Yes.** But manual. | **Immutable.** Cannot revoke. |
-| **Product category specific** | **Yes.** Claim names covered categories. | **No.** Generic. | **Sometimes.** | **Varies.** |
-| **Government enforcement** | **Yes.** Endpoint traffic provides leads. | **No.** Complaint-driven. | **Passive.** | **No.** |
-| **Works on physical product** | **Yes.** Camera OCR. | **Already there.** | **No.** | **QR code.** |
+| **Who can check** | Anyone prepared to look the company up on the certifier's site. | Participants, or shoppers who scan a QR code into the system's app. | Anyone looking at the claim on a product page (by selecting the text) or on the product (with the camera). | Anyone reading it. |
+| **What the checker gets** | The certifier's authoritative list, including which product categories are covered. | Records written by supply-chain participants, often self-asserted. | Confirmation that the certification body issued this exact claim, naming the covered product categories, and whether it is still current. | The manufacturer's own statement. |
+| **What the manufacturer shares** | Its certification, listed publicly. | Whatever it writes to the ledger. | The claim text, displayed with the product. | The label. |
+| **Keeping up with changes** | Updated by the certifier. | Records stay once written; a withdrawal has to be added as a new entry. | The certifier revokes the claim when certification ends, and it stops verifying. | Labels persist whatever happens. |
+| **Reach** | One certification scheme. | Members of that supply chain's system. | Global in principle: any certification body, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free, but a separate lookup away from the product. | Varies; setup and running costs fall on the participants. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate and free. |
+| **What it needs** | A shopper who knows the register exists. | All participants on the same system. | The certification body to publish hashes, and Live Verify-aware software on the checker's device. No certification body does this yet. | Nothing. |
+| **Best suited to** | Looking a company up, and enforcement by the scheme. | Supply chains whose members have all joined. | Connecting the claim in front of a shopper or retailer to the certifier, at the point of sale. | Nothing where origin matters. |
 
 **Where each fits:** Each of the existing approaches keeps its place. The label is already on the product and costs nothing to read; the certification body's register is the authoritative list for anyone prepared to look a company up; a provenance ledger can suit supply chains whose members have all joined it. What a shopper or retailer lacks is a quick way to connect the claim in front of them to the certifier. Live Verify supplies that link from the claim text itself, and the lookups it generates can inform, though not replace, the complaint-driven enforcement that authorities already run.
 
