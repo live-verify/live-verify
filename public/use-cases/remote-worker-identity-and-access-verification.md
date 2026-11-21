@@ -143,17 +143,21 @@ This use case is complementary to:
 
 The difference is that this document binds those layers to the operational question that matters in remote work: **who is actually authorized to do this work, for this client, now?**
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and HR, Identity and Vendor Systems
 
-| Feature | Live Verify | Email Thread / PDF | HRIS + IAM + Vendor Portal | Video Call Eye-Test |
+Today an organisation tracks who is doing its work through its own HR system, identity and access management, device management and vendor portals, run by its own IT and procurement teams, and sometimes adds a video call to see the worker. Those systems are the record; the gap is that their answers do not travel to a staffing vendor, an auditor or a client security team outside them. A verifiable authorisation answers a narrower question, whether the named organisation stands behind this assignment as at a time, and works alongside them.
+
+| | HR, identity and vendor-portal systems | Video-call check | Live Verify on the access authorisation | Email thread or PDF |
 | :--- | :--- | :--- | :--- | :--- |
-| **Portable** | **Yes.** Claim travels with the worker or file. | **Yes.** But easy to forge. | **No.** Requires system access. | **No.** Momentary only. |
-| **Current status** | **Yes.** Can show revocation, expiry, mismatch. | **No.** Point-in-time artifact. | **Yes.** But fragmented across systems. | **Weak.** Human impression only. |
-| **Detects substitution** | **Partially.** Exposes assignment/device/issuer mismatches. | **No.** | **Partially.** Only if teams check all systems. | **Weak.** Easy to evade with staged calls. |
-| **Third-party verifiable** | **Yes.** Procurement, audit, client security. | **No.** | **No.** Internal-only. | **No.** |
-| **Works during audits/incidents** | **Yes.** Portable audit artifact. | **Weak.** Easy to backfill. | **Yes.** But slow and siloed. | **No.** |
+| **Who can check** | Staff with access to each internal system. | Whoever is on the call. | Anyone handed the authorisation: a hiring manager, procurement, client security, an auditor. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Live status of the worker, assignment, device and access, spread across several systems. | An impression of the person on screen at that moment, which a staged call can defeat. | Confirmation that the issuer stands behind this exact assignment, employer, device and scope, as at its stated time, or that it has been revoked. It does not prove who is at the keyboard. | A claim that may have been edited or backfilled. |
+| **What the worker shares** | Nothing directly; the systems hold the data. | Their face on camera. | Only the authorisation they or their employer chose to hand over. | Whatever is in the thread. |
+| **Reach** | Inside the organisation that runs the systems. | One call. | Global in principle: any employer, client or staffing firm, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Fast for insiders; slow and siloed when several teams must cross-check. | Minutes per call. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | System access for the checker. | Nothing. | The issuer to publish hashes, and Live Verify-aware software on the checker's device. No employer or staffing firm does this yet. | Nothing. |
+| **Best suited to** | Day-to-day access control and the authoritative record. | A first human impression. | Proof that crosses organisational lines: vendor to client, client to auditor, and after-the-fact incident review. | Nothing where access matters. |
 
-**Practical conclusion:** direct IAM, HRIS, and device-management systems remain primary. Live Verify is strongest as the bridge between them when a portable, time-sensitive, cross-organizational proof is needed.
+**Where each fits:** direct identity, HR and device-management systems remain primary, and nothing here replaces them or proves who is physically doing the work. Live Verify is useful as a bridge between organisations when a portable, time-stamped proof of assignment, employer and scope is needed, and can be checked by whoever is handed it, wherever they have software that honours it.
 
 ## Authority Chain
 

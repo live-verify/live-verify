@@ -151,17 +151,21 @@ Registered agents are licensed by offshore financial services regulators to issu
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With the Alternatives
+## Where Each Fits: Live Verify, Direct Contact, Registry Searches and Apostilles
 
-| Feature | Live Verify | Direct Contact with Agent | Registry Search | Apostilled Letter |
+Today a bank holding a registered agent letter can phone or email the corporate service provider that issued it, search the company registry of the jurisdiction of incorporation, or ask for the letter to be notarised and apostilled. Each confirms something different, and what a registry search shows varies by jurisdiction: some publish little beyond the company's existence and registered office. Live Verify answers one narrow question, whether the agent issued this exact letter and still stands behind it, and works alongside the others.
+
+| | Direct contact with the agent | Registry search | Apostilled letter | Live Verify on the letter |
 | :--- | :--- | :--- | :--- | :--- |
-| **Proves Letter Is Genuine** | **Yes.** Hash verified against agent's domain. | **Yes.** But slow and agent may refuse. | **N/A.** Registry doesn't issue agent letters. | **No.** Apostille proves notary, not content. |
-| **Speed** | **Instant.** | **Days to weeks.** Confidentiality policies delay responses. | **N/A.** | **Weeks.** |
-| **Scalable** | **Yes.** Automated. | **No.** Manual phone/email per letter. | **N/A.** | **No.** Physical process. |
-| **Detects Edits** | **Yes.** Any change to content breaks the hash. | **Only if agent reviews the specific letter.** | **N/A.** | **No.** |
-| **Current Status** | **Yes.** WITHDRAWN/EXPIRED returned in real time. | **Only if asked.** | **N/A.** | **Point in time.** |
+| **Who can check** | Whoever the agent is willing to answer, subject to its confidentiality policy. | Anyone with access to the registry, which may require an account or a fee. | Anyone who can read the apostille and check it with the issuing authority. | Anyone handed the letter: a bank, a correspondent bank, opposing counsel, an investigator. |
+| **What the checker gets** | The agent's own answer, including to follow-up questions. | The registry's public record of the company, which may not include directors or shareholders. | Confirmation that a notary or official signed, not that the letter's content is correct. | Confirmation that the agent issued this exact letter, as at its date, and whether it has since been withdrawn. |
+| **What the client shares** | Consent for the agent to discuss its affairs. | Nothing; the search uses the public record. | The letter. | Only the letter they chose to hand over. |
+| **Reach** | Any agent that replies. | Each jurisdiction's own registry, with its own access rules. | Countries in the Hague Apostille Convention. | Global in principle: any agent, in any jurisdiction, that publishes hashes on its own domain. |
+| **Speed and cost** | Days to weeks, one call or email per letter. | Usually quick, often with a search fee. | Weeks, with notary and apostille fees. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | An agent willing and permitted to answer. | A registry that publishes the facts in question. | A notary and the apostille authority. | The agent to publish hashes, and Live Verify-aware software on the checker's device. No corporate service provider does this yet. |
+| **Best suited to** | High-risk cases where follow-up questions matter. | Confirming the company exists and is in good standing. | Cross-border court and official use that requires it. | High-volume KYC queues, and later re-checks of letters already on file. |
 
-**Where each fits:** Contacting the registered agent directly is still the fullest check, because the agent can answer follow-up questions, and a registry search or an apostille each confirms something the letter itself does not. Direct contact is slow, does not scale across a large onboarding queue, and may go unanswered where the agent's confidentiality policy prevents a reply. Live Verify lets the agent confirm it issued the exact letter, and whether it has been withdrawn, while disclosing nothing beyond what the letter already says. The other checks remain available where more is needed.
+**Where each fits:** contacting the registered agent directly is still the fullest check, because the agent can answer follow-up questions, and a registry search or an apostille each confirms something the letter itself does not. Direct contact is slow, does not scale across a large onboarding queue, and may go unanswered where the agent's confidentiality policy prevents a reply. Live Verify lets the agent confirm, quickly and cheaply, that it issued the exact letter and whether it has been withdrawn, while disclosing nothing beyond what the letter already says; it does not tell the bank whether the directors named are nominees.
 
 ## Further Derivations
 

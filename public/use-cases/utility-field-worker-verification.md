@@ -264,16 +264,21 @@ Meter readers and field technicians have brief, high-volume interactions — 30-
 
 For longer engagements (e.g., a surveyor spending hours on a property boundary dispute), full credentials may be appropriate. But for routine meter reads, privacy-preserving IDs suffice.
 
-## Compared With Uniforms / Phone Calls
+## Where Each Fits: Live Verify, Calls to the Utility and Uniforms
 
-| Feature | Live Verify | Uniform & Clipboard | Calling Dispatch |
+Today a resident who doubts a utility worker can ring the utility on a number from their bill and ask whether the visit is genuine, and some utilities let vulnerable customers set a password that a genuine worker will quote. Otherwise the resident goes by the uniform, van and badge. The utility's dispatch and work-order systems are the record of who should be where, and a call reaches them. A verifiable badge answers the same question at the door without a phone call, and works alongside the utility's own checks.
+
+| | Calling the utility or dispatch | Live Verify on the worker's badge | Uniform and clipboard |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Company. | **Visual.** Trusted only via logo. | **Human.** Prone to social engineering. |
-| **Integrity** | **Cryptographic.** Binds face to status. | **Zero.** Uniforms are easily bought. | **Variable.** |
-| **Speed** | **Instant.** 5-second scan. | **N/A.** Just looking. | **Slow.** Often takes 10-20 minutes on hold. |
-| **Freshness** | **Real-time.** Shows if banned *today*. | **Static.** | **N/A.** |
+| **Who can check** | Any resident who calls a number they already trust, not one the worker gives them. | The resident at the door. | The resident, by looking. |
+| **What the checker gets** | The utility's answer from its own systems, if the call gets through to someone who can see them. | Confirmation that the utility stands behind this badge, as at the moment of the check, including whether the worker is on duty and, where included, has a service order for this address, plus a photo to compare. | An appearance; uniforms and vests are easy to buy. |
+| **What the worker shares** | Nothing directly. | Only the badge they chose to show. | Nothing beyond appearance. |
+| **Reach** | One utility. | Global in principle: any utility or contractor, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Can mean waiting on hold while the worker stands outside. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection at the door. | Instant, and worth what it costs. |
+| **What it needs** | A trusted number and someone to answer. | The utility to publish hashes, and Live Verify-aware software on the resident's phone. No utility does this yet. | Nothing. |
+| **Best suited to** | Any doubt that needs a conversation, and residents without a smartphone. | The resident deciding in seconds whether to open the door. | A first impression only. |
 
-**Why this remains strong:** The threshold moment is the real workflow. Residents decide to open their gate or door in seconds and often do not want to make a phone call while a stranger waits on the porch. Dispatch and company systems remain primary in the background, but the badge is the visible surface at the decision point. That makes this a strong complementary doorstep-verification case.
+**Where each fits:** dispatch and company systems remain primary in the background, and a call on a trusted number, or a pre-agreed password where the utility offers one, is still a sound check. The threshold moment is the real workflow: residents decide whether to open the door in seconds and often do not want to make a phone call while a stranger waits on the porch. A verifiable badge lets them check at that moment, wherever their phone has software that honours Live Verify.
 
 ## Independent Record (Optional)
 

@@ -200,16 +200,21 @@ Government issuer — authorized by state statute. Trust is rooted in government
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Review Sites (Google Reviews)
+## Where Each Fits: Live Verify, Review Sites and Licence Cards
 
-| Feature | Live Verify | Review Sites (Google/Glassdoor) | Physical License Card |
+Review sites such as Google Reviews are run by the platforms and collect opinions from past clients; licence cards and registers are run by licensing bodies, which differ by country and, in the US, by state. Reviews and a licence check answer different questions: reviews say how an agency has treated people, while a licence check says whether this person is currently registered. Both are worth having, and they work side by side.
+
+| | Review sites | Physical licence card | Live Verify on the agent's badge |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Gov/Board. | **Social-Bound.** Trusted only via crowd opinion. | **Zero.** Easily forged. |
-| **Integrity** | **Cryptographic.** Binds face to license. | **Vulnerable.** Reviews can be faked/bought. | **None.** Forged cards circulate freely. |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires reading multiple reviews. | **Instant.** No way to verify authenticity. |
-| **Safety Data** | **High.** Shows license status and regulatory history. | **Subjective.** Only shows customer satisfaction. | **N/A.** No way to check current status. |
+| **Who can check** | Anyone, before the viewing. | Anyone shown the card; where the licensing body runs a public register, the number can be looked up. | Anyone shown the badge, including at the door of the property. |
+| **What the checker gets** | Past clients' opinions of the agency or agent, which may include fake or bought reviews. | A card naming the agent and licence number, which on sight alone could be forged. | Confirmation that the licensing body or agency stands behind this badge, as at its date, including whether the licence is active. |
+| **What the agent shares** | Nothing directly; reviews are public. | The card. | Only the badge they chose to show. |
+| **Reach** | Wherever the platform operates and has enough reviews. | The card is recognised locally; register look-ups exist only where the body publishes one. | Global in principle: any licensing body or agency, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Free; takes time to read and weigh. | Instant to look at; a register search takes a few minutes where available. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection at the property. |
+| **What it needs** | Enough genuine reviews. | Nothing to look at it; a public register to check it. | The issuer to publish hashes, and Live Verify-aware software on the viewer's device. No licensing body or agency does this yet. |
+| **Best suited to** | Choosing an agency in the first place. | The agent's everyday identification. | Confirming, at a vacant property, that the person present currently holds the licence they claim. |
 
-**Where each fits:** Reviews are useful when choosing an agency, since they reflect how past clients were treated, and the physical licence card remains the agent's everyday identification. What neither offers is a check, at the door of a vacant property, that this particular person currently holds the licence they claim. Live Verify covers that moment by letting the viewer confirm the badge against the licensing body's domain before going in, alongside whatever research they did beforehand.
+**Where each fits:** reviews are useful when choosing an agency, since they reflect how past clients were treated, and the licence card remains the agent's everyday identification. What neither offers is a quick check, at the door of a vacant property, that this particular person currently holds the licence they claim. Live Verify covers that moment wherever the viewer has software that honours it, alongside whatever research they did beforehand.
 
 ## Independent Record (Optional)
 

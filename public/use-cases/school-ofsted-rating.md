@@ -159,15 +159,21 @@ The architecture is identical to [childcare Ofsted registration](childcare-ofste
 
 The domain mismatch detection works the same way: if a school copies a claim from another school's site, the browser extension detects that the embedded domain does not match the current page and shows an amber warning.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Inspectorate Websites
 
-| Feature | Live Verify | Ofsted Website Search | School's Own Website | Council Admissions Booklet |
+Each inspectorate publishes its own ratings: Ofsted in England, Estyn in Wales, Education Scotland, the ETI in Northern Ireland, state education agencies in the US, and so on; some countries have no single body at all. A parent can look a school up on the inspectorate's site, and that remains the authoritative record. A verifiable claim on the school's own website answers a narrower question at the point where parents actually read the rating, whether the inspectorate stands behind this rating for this school, and works alongside the inspectorate's search. <!-- TODO(verify): England replaced single-word Ofsted judgements with report cards from 2025; confirm how this page's rating examples should read now -->
+
+| | Inspectorate website search | Live Verify on the school's rating claim | School's own website | Council admissions booklet |
 | :--- | :--- | :--- | :--- | :--- |
-| **Issuer-controlled** | **Yes.** Ofsted issues the claim. | **Yes.** But requires the parent to navigate there. | **No.** Self-asserted by the school. | **No.** Transcribed by the council. |
-| **Verifiable at point of decision** | **Yes.** On the school's own website. | **No.** Requires leaving the site. | **No.** | **No.** |
-| **Shows current rating** | **Yes.** Live response from Ofsted. | **Yes.** If the parent checks. | **Not necessarily.** May be outdated. | **No.** Accurate at time of printing only. |
-| **Detects rating changes** | **Yes.** Endpoint returns current rating. | **Yes.** If checked after re-inspection. | **No.** | **No.** |
-| **Detects copied claims** | **Yes.** Domain mismatch warning. | **No.** | **No.** | **No.** |
+| **Who can check** | Any parent who leaves the school's site and searches the inspectorate's. | Any parent reading the claim on the school's website or a printed display. | Nobody; the school asserts it. | Nobody; it is a transcription. |
+| **What the checker gets** | The inspectorate's current published rating and full report. | Confirmation that the inspectorate stands behind this rating, for this school's domain, as at the moment of the check; a superseded rating shows as superseded, and a copied claim shows a domain mismatch. | The school's statement, which may be out of date. | The rating as it was when the booklet was printed. |
+| **What the school shares** | Nothing; the record is public. | Only the claim it chose to display. | Whatever it chooses. | Whatever the council transcribed. |
+| **Reach** | One inspectorate's schools; the parent must know which body applies. | Global in principle: any inspectorate or education agency, in any country, that publishes hashes on its own domain. | Anywhere, but self-asserted. | One council area. |
+| **Speed and cost** | Free; a few minutes to search. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. | Free. |
+| **What it needs** | A parent who thinks to look. | The inspectorate to publish hashes, and Live Verify-aware software on the parent's device. No inspectorate does this yet. | Nothing. | Nothing. |
+| **Best suited to** | Reading the full report and comparing schools. | Confirming the rating shown at the point of decision is current and genuine. | Introducing the school. | Overview of local options. |
+
+**Where each fits:** the inspectorate's own website remains the place to read the full report, and a parent comparing schools should still go there. The weak point is the rating the school displays on its own site, prospectus or reception wall, which may be out of date. A verifiable claim lets a parent check that rating where they see it, in seconds, wherever they have software that honours Live Verify.
 
 <details>
 <summary>Jurisdiction-Specific Verification Endpoints</summary>

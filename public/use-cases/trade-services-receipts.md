@@ -209,15 +209,21 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 **Canada:** GST/HST registration verification. Provincial trade licensing.
 
-## Compared With Paper Receipts
+## Where Each Fits: Live Verify and Paper Receipts
 
-| Feature | Verified Receipt | Handwritten Receipt | No Receipt |
+Today most small trade jobs end with a handwritten or typed receipt, an invoice from the tradesperson's software, or nothing at all. For some regulated work there is already an official trail: in the UK, for example, registered gas and electrical installers notify the work through their scheme and the homeowner receives a compliance certificate. Those schemes cover particular trades in particular countries. A verifiable receipt answers a different, broader question, whether the issuer stands behind this exact record of the job, and works alongside the trade schemes and the tax system rather than replacing them.
+
+| | Handwritten or typed receipt | Live Verify on the trade receipt | No receipt |
 | :--- | :--- | :--- | :--- |
-| **Tax Compliance** | **Automatic.** Pre-registered with authority. | **Uncertain.** May never be reported. | **None.** |
-| **License Proof** | **Linked.** License number verified. | **Claimed.** Could be fake or expired. | **N/A.** |
-| **Warranty Support** | **Strong.** Manufacturer can verify installer. | **Weak.** "We didn't install this." | **None.** |
-| **Court Evidence** | **Authenticated.** Cryptographic proof. | **Disputable.** "I didn't write that." | **N/A.** |
-| **Insurance Claims** | **Streamlined.** Insurer verifies instantly. | **Manual.** Requires investigation. | **Denied.** |
+| **Who can check** | Anyone handed it, with no way to confirm it. | Anyone handed the receipt: the customer, an insurer, a manufacturer, a court, a surveyor, the tax authority. | Nobody. |
+| **What the checker gets** | The tradesperson's own record, which may be disputed or never reported for tax. | Confirmation that the issuer stands behind this exact receipt, including the work, amount, licence number and date. Where the issuer is a tax authority or licensing body, that the job was registered with it; where it is the tradesperson's own domain, only the tradesperson's word. | Nothing. |
+| **What the customer shares** | The receipt. | Only the receipt they chose to hand over. | Nothing. |
+| **Reach** | Universal, but untrusted. | Global in principle: any tax authority, licensing body, trade platform or tradesperson, in any country, that publishes hashes on its own domain. | None. |
+| **Speed and cost** | Free and immediate. | A few seconds per check: one web lookup, with no fee to the standard. Pre-registering a job adds a step for the tradesperson. | None. |
+| **What it needs** | Nothing. | The issuer to publish hashes, and Live Verify-aware software on the checker's device. The pre-registration model also needs a tax authority or licensing body to run it. No issuer of this kind does this yet. | Nothing. |
+| **Best suited to** | Small jobs where nothing much rides on the record. | Work that may later matter for warranty, insurance, resale or a dispute. | Nothing. |
+
+**Where each fits:** for regulated gas and electrical work, the existing scheme notifications and compliance certificates remain the official record and should be kept. For everything else, a paper receipt is usually all there is. A verifiable receipt gives customers, insurers and courts a quick, cheap way to confirm who stands behind the record of a job, wherever they have software that honours Live Verify; how much it proves depends on whether the issuer is an authority or the tradesperson.
 
 ## Adoption Path
 

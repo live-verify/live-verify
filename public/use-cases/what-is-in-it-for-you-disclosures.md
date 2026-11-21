@@ -162,16 +162,21 @@ This page turns that instinct into a standardized prompt:
 
 That question is short enough for a meeting room, a kitchen table, or a phone screen.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Terms of Business Disclosures
 
-| Feature | Plain-English Verified Sheet | Terms of Business PDF | Verbal Answer |
+Today a firm's incentives are disclosed in its terms of business or client agreement, in the form and detail its regulator requires, and in whatever the adviser says when asked. Those legal disclosures are needed and should stay. A plain-English front sheet answers a different, simpler question, "what is in it for you if I say yes?", and the plainness comes from the sheet, not from Live Verify. What Live Verify adds is that anyone handed the sheet can confirm the firm stands behind its exact wording. The two work side by side.
+
+| | Terms of business PDF | Live Verify on the plain-English sheet | Adviser's verbal answer |
 | :--- | :--- | :--- | :--- |
-| **Easy to understand** | **High.** | **Low.** | **Medium but unreliable.** |
-| **Portable** | **Yes.** | **Yes.** | **No.** |
-| **Legally anchored** | **Yes.** | **Yes.** | **No.** |
-| **Useful in complaints** | **High.** | **Medium.** | **Low.** |
+| **Who can check** | The customer, if they read it. | Anyone handed the sheet: the customer, a family member, an ombudsman, a journalist or consumer advocate. | Whoever was present. |
+| **What the checker gets** | The full legal disclosure, often long and in technical language. | Confirmation that the firm stands behind this exact short answer about its incentives, as at its date. It is only as complete and honest as what the firm wrote. | Whatever the adviser chooses to say, which may be softer than the paperwork. |
+| **What the customer shares** | Nothing; they receive it. | Only the sheet they chose to show. | Nothing. |
+| **Reach** | One firm's customers. | Global in principle: any firm, in any country, that publishes hashes on its own domain. | One conversation. |
+| **Speed and cost** | Free, but slow to read and understand. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | Nothing beyond the firm's existing obligations. | The firm to write the sheet and publish hashes, and Live Verify-aware software on the checker's device. No firm does this yet. | Nothing. |
+| **Best suited to** | Legal and regulatory completeness. | A legible answer the customer can keep, show to family, and rely on later in a complaint. | A first conversation. |
 
-**Practical conclusion:** full legal disclosures should remain, but they should be paired with a portable plain-English object that answers the customer's real question in one screen.
+**Where each fits:** full legal disclosures should remain, and the regulator's rules decide what they contain. They are rarely what a customer actually reads. Pairing them with a short plain-English sheet answers the customer's real question in one screen, and Live Verify lets anyone later confirm, quickly and cheaply, that the firm stood behind those exact words, wherever they have software that honours it.
 
 ## Authority Chain
 

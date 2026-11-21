@@ -199,17 +199,21 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Uniforms / Management Call-Back
+## Where Each Fits: Live Verify, Management Call-Backs, ID Checks and Uniforms
 
-| Feature | Live Verify | Uniform & Visible Badge | Calling Building Management | Asking for ID |
+Today a resident deciding whether to let a maintenance worker in can ring building management, ask to see the worker's ID, or go by the uniform and badge. Building management's own work-order system is the record of who should be where, and a call-back to the office reaches it. A verifiable badge answers a narrower question, whether management or the contractor stands behind this worker for this unit and time window, and works alongside a call-back rather than replacing it.
+
+| | Calling building management | Asking for ID | Live Verify on the badge or work order | Uniform and visible badge |
 | :--- | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Verified by building mgmt or state licensing board. | **Visual.** Uniforms and vests easily faked. | **Human.** Assumes someone answers; risky to leave door open while calling. | **Document-Based.** Resident must visually inspect ID; forged credentials look realistic. |
-| **Integrity** | **Cryptographic.** Binds contractor to work order and unit. | **Zero.** Impostors in contractor clothing indistinguishable. | **Variable.** Management system may have lag or outdated info. | **Low.** Fake IDs are readily available online. |
-| **Speed** | **Instant.** 3-second scan at door. | **N/A.** Just looking. | **Slow.** 5+ minutes to reach management; awkward to leave door open. | **Slow.** Requires examining documents, asking questions. |
-| **Freshness** | **Real-time.** Shows if work order is active *today*, if license is current. | **Static.** Badge never updates. | **Variable.** Management may not know latest updates. | **Static.** ID doesn't update if license expired overnight. |
-| **Works Alone** | **Yes.** Resident can verify without needing to call anyone. | **Questionable.** Resident must judge appearance and make a call. | **No.** Resident must open door or leave it open to call. | **Somewhat.** Resident can examine ID but can't verify authenticity. |
+| **Who can check** | Any resident who can reach the office, often only in office hours. | The resident at the door. | The resident at the door. | The resident, by looking. |
+| **What the checker gets** | A person's answer from the work-order system, as up to date as the office knows. | A card naming the worker, which the resident cannot authenticate. | Confirmation that the issuer stands behind this badge for this unit and time window, as at the moment of the check, and a photo to compare with the face at the door. | An appearance, which anyone can copy. |
+| **What the worker shares** | Nothing directly. | Their ID card. | Only the badge they chose to show. | Nothing beyond appearance. |
+| **Reach** | One building's management. | Anywhere, but unverifiable. | Global in principle: any management company, contractor or licensing board, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Several minutes, if someone answers, with the door left waiting. | Quick to look at; no way to confirm. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection at the door. | Instant, and worth what it costs. |
+| **What it needs** | Someone to answer the phone. | Nothing. | The issuer to publish hashes, and Live Verify-aware software on the resident's phone. No management company or contractor does this yet. | Nothing. |
+| **Best suited to** | Any doubt that needs a conversation, and residents without a smartphone. | Matching a name to a face. | The resident deciding alone, in seconds, whether to open the door. | A first impression only. |
 
-**Why this remains strong:** The real issue is the home-entry threshold decision. A resident must decide alone, in seconds, at the front door, whether to allow a stranger into a private home. Building management systems remain primary in the background, but they are often not comfortably accessible at that moment. That makes the badge or work-order credential a strong surface for immediate, resident-controlled verification.
+**Where each fits:** building management's work-order system remains primary in the background, and a call to the office is still the fullest check when there is time for one. The real issue is the threshold decision: a resident must decide alone, in seconds, whether to let a stranger into a private home, and management is often not easy to reach at that moment. A verifiable badge or work order lets the resident check quickly at the door, wherever their phone has software that honours Live Verify.
 
 ---
 

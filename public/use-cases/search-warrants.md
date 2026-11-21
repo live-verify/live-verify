@@ -181,18 +181,21 @@ If an adversary can iterate through possible warrant numbers and discover which 
 
 The issuer-generated random salt line (printed on the warrant but not derivable from public information) prevents this. Without the salt, no amount of guessing case numbers will produce a valid hash. The warrant's existence is only confirmable by someone who possesses the physical or digital document.
 
-## Compared With the Alternatives
+## Where Each Fits: Live Verify, Court Clerks and Electronic Warrant Systems
 
-| Feature | Live Verify | Call the Court Clerk | Trust the Paper | Electronic Warrant Systems (JAWS, e-Warrants) |
+Warrants are issued by courts and, in many places, handled through electronic warrant systems that connect judges, clerks and police. Those systems differ by country and often by state or court, and some places still work entirely on paper. They serve officers and court staff well. The subject of the search, a landlord or a company receiving a warrant has no access to them, and can usually only trust the paper or try to reach a court clerk. A verifiable warrant answers the subject's narrower question, whether the court stands behind this exact warrant and its scope, and works alongside the court's own systems.
+
+| | Electronic warrant systems | Calling the court clerk | Live Verify on the warrant | Trusting the paper |
 | :--- | :--- | :--- | :--- | :--- |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Minutes to hours. Impossible after-hours, weekends, holidays. | **Instant.** | **Fast** — but only for law enforcement. |
-| **Accessibility** | **Open.** Anyone with the warrant can verify. | **Limited.** Requires knowing which court to call, reaching the right clerk. | **Open.** | **Closed.** Law enforcement and court personnel only. Not available to the public or the search subject. |
-| **After-Hours** | **24/7.** Hash lookup is always available. | **No.** Courts close at 5 PM. Warrants are often served at 6 AM. | **N/A.** | **24/7** for officers only. |
-| **Scope Verification** | **Yes.** Response confirms authorized scope. | **Maybe.** Clerk may read scope over the phone. | **Trusting the paper.** Subject can't verify alterations. | **Yes** — for officers. |
-| **Subject Access** | **Yes.** The person being searched can verify. | **Theoretically.** In practice, not while officers are at the door. | **No verification possible.** | **No.** Subject has no access. |
-| **Trust Anchor** | **Domain-bound.** Court's own domain. | **Voice on a phone.** | **The paper.** | **System-bound.** Internal law enforcement network. |
+| **Who can check** | Law-enforcement and court staff only. | Anyone who knows which court to call and reaches the right clerk. | Anyone handed or shown the warrant: the subject, a landlord, a company's legal team. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The warrant record, including scope and status, for officers. | Whatever the clerk can read out, if they have the file. | Confirmation that the court stands behind this exact warrant, as at the moment of the check, including the authorised scope and whether it has expired. | A document that could be forged or altered. |
+| **What the subject shares** | Nothing; they have no access. | Details of the warrant on the phone. | Only the warrant they were shown. | Nothing. |
+| **Reach** | The courts and agencies connected to that system. | One court, in office hours. | Global in principle: any court, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Fast, at any hour, for authorised users. | Minutes to hours; often impossible out of hours, when many warrants are served. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection at the door. | Immediate. |
+| **What it needs** | Credentials on the system. | An open court and a willing clerk. | The court to publish hashes, and Live Verify-aware software on the subject's device. No court does this yet. | Nothing. |
+| **Best suited to** | Issuing, tracking and returning warrants within the justice system. | Questions that need the court file. | The subject or a third-party recipient checking authenticity and scope at the moment of service, and the warrant return afterwards. | Nothing where rights are at stake. |
 
-**Why this remains strong:** Electronic warrant systems exist, but they are designed for law enforcement rather than the subject, landlord, or third-party recipient. That makes warrants one of the clearer cases where document-side verification is not replacing the native system; it is exposing a narrow civilian verification surface that the native system does not provide.
+**Where each fits:** electronic warrant systems are the right tool for officers, clerks and prosecutors, and should stay primary for them. They are not designed for the subject, the landlord or the third-party recipient, who usually cannot reach a clerk when a warrant is served at dawn. Live Verify gives those people a narrow way to check authenticity and scope in seconds, wherever they have software that honours it, without replacing anything the justice system already does.
 
 ## See Also
 

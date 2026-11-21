@@ -114,16 +114,21 @@ Travelers and surety companies issue bonds and performance guarantees and are re
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Corporate Seals (Gold Foil)
+## Where Each Fits: Live Verify, Corporate Seals and Powers of Attorney
 
-| Feature | Live Verify | Gold Foil Seal | Power of Attorney (POA) Paper |
+A surety bond carries the surety's corporate seal and an attached power of attorney showing that the agent who signed was authorised to bind the surety. Those are formalities that obligees and courts expect, and they stay. They answer a different question from a verification check: they show the bond was executed in the proper form, not that the surety's own records match this bond. Today an obligee who wants that confirmation usually contacts the surety directly, and on US federal work checks that the surety appears on the Treasury's Circular 570 list of approved sureties. Live Verify works alongside all of these. <!-- TODO(verify): Treasury Circular 570 as the list of approved sureties -->
+
+| | Corporate seal | Power of attorney | Live Verify on the bond |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Carrier. | **Physical.** Trust the sticker. | **Signature-Bound.** |
-| **Integrity** | **Binds Penal Sum.** Protects the amount. | **Zero.** Doesn't protect the text. | **Vulnerable.** |
-| **Freshness** | **Real-time.** Shows "Claim" status. | **Zero.** Paper is static. | **Static.** |
-| **Speed** | **Instant.** 5-second scan. | **N/A.** | **Slow.** Requires reading 5 pages. |
+| **Who can check** | Anyone holding the paper, by looking. | Anyone holding the paper, by reading it; some sureties let obligees confirm a POA with them. | Anyone handed the bond: a procurement officer, a subcontractor or supplier, a construction lender. |
+| **What the checker gets** | A seal of the expected appearance, which a forger can imitate. | The agent's claimed authority, including its limits. | Confirmation that the surety stands behind this exact bond, including the penal sum, as at the moment of the check, and its status (active, released, claim filed, exhausted). |
+| **What the contractor shares** | The bond. | The bond with its POA. | Only the bond they chose to hand over. |
+| **Reach** | Wherever the bond is presented. | Wherever the bond is presented. | Global in principle: any surety, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Immediate, but proves little on its own. | A few minutes to read; confirming with the surety takes longer. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | Nothing. | Nothing to read it; a reachable surety to confirm it. | The surety to publish hashes, and Live Verify-aware software on the checker's device. No surety does this yet. |
+| **Best suited to** | Meeting the formal requirements for execution. | Showing the signing agent's authority. | Confirming at bid opening, or before work starts, that the surety issued this bond for this penal sum and that it is still in force. |
 
-**Where each fits:** The corporate seal and the attached power of attorney are the formalities that obligees and courts expect on a bond, and they continue to be required. They do not let a contracting officer confirm, at bid opening, that the surety issued this bond for this penal sum. Live Verify adds that check against the surety's domain; the seal and power of attorney stay on the bond as before.
+**Where each fits:** the corporate seal and the attached power of attorney are the formalities that obligees and courts expect on a bond, and they continue to be required, as do checks that the surety is an approved one. They do not let a contracting officer confirm quickly, at bid opening, that the surety issued this bond for this penal sum. Live Verify adds that check against the surety's domain, wherever the checker has software that honours it; the seal and power of attorney stay on the bond as before.
 
 ## Independent Record (Optional)
 

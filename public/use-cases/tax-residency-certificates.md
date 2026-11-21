@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Tax Residency Certificate?
 
-You're a UK company paying dividends to a shareholder who claims to be tax-resident in Switzerland. Under the UK-Switzerland double taxation treaty, withholding tax drops from 15% to 0%. That's a significant sum on a large dividend. The shareholder provides a tax residency certificate — a letter from the Swiss Federal Tax Administration saying they're resident in Switzerland for tax purposes.
+You're a UK company paying dividends to a shareholder who claims to be tax-resident in Switzerland. Under the UK-Switzerland double taxation treaty, withholding tax drops from 15% to 0%. <!-- TODO(verify): the UK does not generally withhold tax on dividends, so this example of a 15% to 0% reduction looks wrong; pick a payment type and treaty rate that apply --> That's a significant sum on a large dividend. The shareholder provides a tax residency certificate — a letter from the Swiss Federal Tax Administration saying they're resident in Switzerland for tax purposes.
 
 Is it real? You're a payroll clerk in Manchester. You've never seen a Swiss tax document before. You don't read German. The certificate could be forged, expired, or issued for a different tax year. If you apply the reduced withholding rate based on a fake certificate, HMRC holds your company liable for the shortfall.
 
@@ -130,17 +130,21 @@ HMRC issues tax residency certificates and treaty eligibility declarations under
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With the Alternatives
+## Where Each Fits: Live Verify, Apostilles and Authority-to-Authority Checks
 
-| Feature | Live Verify | Apostille | Direct Contact with Foreign Tax Authority | Trust the Paper |
+Tax residency certificates are issued by each country's own tax authority, in its own format and language. A payer that doubts one can ask for it to be apostilled, or route a query through the government-to-government channels that tax treaties provide, which are open to tax authorities rather than private payers. Some tax authorities already print a verification code on their certificates that can be checked on their own website, but each does it differently, if at all. <!-- TODO(verify): which tax authorities already offer online verification codes on residency certificates (e.g. Spain's CSV), to name them here --> A verifiable certificate answers the payer's narrower question, whether the issuing authority stands behind this exact certificate for this tax year, and works alongside the existing routes.
+
+| | Apostille | Contact with the foreign tax authority | Live Verify on the certificate | Trusting the paper |
 | :--- | :--- | :--- | :--- | :--- |
-| **Proves Content** | **Yes.** Hash of full certificate text verified against issuer. | **No.** Proves the signature is genuine, not that the content is accurate or current. | **Yes.** But months, not seconds. | **No.** Paper proves nothing. |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Days to weeks to obtain. | **Months.** Bilateral government channels exist but are bureaucratic. | **Instant.** But no verification occurs. |
-| **Language-Independent** | **Yes.** Hash works regardless of document language. | **No.** Apostille itself may need translation. | **Depends.** Correspondence in the other authority's working language. | **No.** You still can't read it. |
-| **Current Status** | **Yes.** Real-time status (VALID/EXPIRED/REVOKED). | **No.** Apostille is point-in-time. Certificate may have been revoked since. | **Yes.** But you'll find out in three months. | **No.** No way to know if it's still valid. |
-| **Treaty Requirement** | **None.** Works for any treaty country. | **Varies.** Many tax treaties don't require apostille. | **Requires bilateral channels.** Not available to private companies. | **Default.** And the reason treaty fraud persists. |
+| **Who can check** | Anyone who can read the apostille and check it with the issuing authority. | Tax authorities, through treaty channels; private payers usually cannot use them. | Anyone handed the certificate: a paying company, a bank, a fund, an adviser, a tax authority. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Confirmation that the signature and seal are genuine, not that the content is accurate or still current. | The authority's own answer. | Confirmation that the issuing authority stands behind this exact certificate, as at the moment of the check, and its status (valid, expired, revoked). The response is the same whatever language the certificate is in. | A document in a language and format the payer may not know. |
+| **What the payee shares** | The certificate with its apostille. | Nothing directly. | Only the certificate they chose to hand over. | The certificate. |
+| **Reach** | Countries in the Hague Apostille Convention; many treaties do not require one. | Treaty partners. | Global in principle: any tax authority, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Days to weeks, with fees. | Slow: often months. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | The apostille authority in the issuing country. | A treaty channel and a requesting authority. | The tax authority to publish hashes, and Live Verify-aware software on the payer's device. No tax authority does this yet. | Nothing. |
+| **Best suited to** | Cases where the receiving authority requires legalisation. | Investigations and disputes between governments. | The payer deciding the withholding rate before the payment goes out. | Nothing where tax is at stake. |
 
-**Where each fits:** An apostille does its own job well: it confirms that the signature and seal on the certificate are genuine, and it remains the right tool where a receiving authority requires legalisation. Exchange between tax authorities is the proper channel for governments, though it is slow and not open to private payers. Neither tells the paying company whether this certificate's content is current for the tax year in question, which is the gap Live Verify fills: a quick check against the issuing authority's own record for the person making the withholding decision. The approaches sit alongside each other.
+**Where each fits:** an apostille does its own job well: it confirms that the signature and seal on the certificate are genuine, and it remains the right tool where a receiving authority requires legalisation. Exchange between tax authorities is the proper channel for governments, though it is slow and not open to private payers. Neither tells the paying company quickly whether this certificate is current for the tax year in question. Live Verify gives that person a quick check against the issuing authority's own record, wherever they have software that honours it, and the approaches sit alongside each other.
 
 ## Further Derivations
 

@@ -203,17 +203,22 @@ Australian-specific considerations: the RCSA operates across Australia and New Z
 
 </details>
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Industry-Body Directories
 
-| Feature | Live Verify | "Member" Badge | Industry Body Directory | Agency Self-Declaration |
+Industry bodies such as the REC in the UK, the ASA in the US and the RCSA in Australia and New Zealand publish member directories, and agencies display membership badges or statements on their own sites. Each body covers its own country or region, and a candidate looking at a foreign agency may not know which body to check. A directory search and a verifiable claim answer the same underlying question in different places: the directory on the body's site, the claim on the agency's own page, and they work side by side.
+
+| | Industry-body directory | Live Verify on the membership claim | "Member" badge | Agency self-declaration |
 | :--- | :--- | :--- | :--- | :--- |
-| **Issuer-controlled** | **Yes.** Industry body issues the claim. | **No.** Agency self-asserts. | **Yes.** But candidates rarely check. | **No.** |
-| **Domain-bound** | **Yes.** Claim names the authorized site. | **No.** | **No.** | **No.** |
-| **Revocable** | **Immediate.** Endpoint returns EXPELLED or SUSPENDED. | **No.** Badge persists. | **Slow.** Directory updates lag. | **No.** |
-| **Verifiable pre-disclosure** | **Yes.** On the agency's site or job listing. | **No.** | **Requires leaving the site.** | **No.** |
-| **Detects site cloning** | **Yes.** Domain mismatch warning. | **No.** | **No.** | **No.** |
+| **Who can check** | Anyone who leaves the agency's site and searches the right body's directory. | Anyone viewing the claim on the agency's site or job listing. | Nobody; it is an image any site can copy. | Nobody; it is the agency's own word. |
+| **What the checker gets** | The body's own record of the member, as current as the directory. | Confirmation that the body stands behind this exact claim, as at its date, for the named domain; a mismatch shows if the claim is copied to a clone site. | A logo. | A statement. |
+| **What the agency shares** | Nothing beyond its public listing. | Only the claim it chose to display. | The badge. | The statement. |
+| **Reach** | One body's members; the candidate must know which body applies. | Global in principle: any industry body, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. | Anywhere, but untrusted. |
+| **Speed and cost** | Free; a few minutes to find and search the directory. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate, and worth what it costs. | Free and immediate. |
+| **What it needs** | A public directory and a candidate who thinks to use it. | The body to publish hashes, and Live Verify-aware software on the candidate's device. No industry body does this yet. | Nothing. | Nothing. |
+| **After suspension or expulsion** | The listing is removed when the directory is updated. | The body's endpoint can return SUSPENDED or EXPELLED. | The badge can stay up indefinitely. | The statement can stay up indefinitely. |
+| **Best suited to** | Employers doing formal supplier due diligence, and anyone with time to look. | Candidates checking in place, under time pressure, before sending a passport copy or CV. | Nothing where trust matters. | Nothing where trust matters. |
 
-**Practical conclusion:** industry-body directories remain useful for employers conducting formal supplier due diligence. But they do not help the individual candidate on a cloned agency site who is about to hand over a passport copy. The verifiable claim answers the question the candidate is actually asking: "Is this agency genuinely a member of the body it claims?"
+**Where each fits:** industry-body directories remain the right tool for employers conducting formal supplier due diligence, and for anyone with the time to look. They do less for the individual candidate on a cloned agency site who is about to hand over a passport copy. A verifiable claim lets that candidate check membership on the page itself, in seconds, wherever they have software that honours Live Verify.
 
 ## Authority Chain
 

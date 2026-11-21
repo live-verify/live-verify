@@ -204,17 +204,21 @@ Self-authorized — the project or registry is the canonical authority for its o
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With the Alternatives
+## Where Each Fits: Live Verify, Signatures and Registry Provenance
 
-| Feature | Live Verify | GPG / Sigstore | Package Registry UI | `npm audit signatures` / CLI tools |
+Projects and package registries already protect release artifacts: maintainers sign tarballs with GPG, many registries now record Sigstore or similar provenance, registry web pages show versions and hashes, and command-line tools such as `npm audit signatures` check registry signatures. Each registry and ecosystem does this differently, and some do little. These tools answer "is this binary authentic?"; a verifiable announcement answers "is the message telling me to download it authentic?" The two are complementary.
+
+| | GPG or Sigstore signatures | Package registry web page | Registry CLI tools (e.g. `npm audit signatures`) | Live Verify on the release announcement |
 | :--- | :--- | :--- | :--- | :--- |
-| **Human-Readable** | **Yes.** Text on screen, copy-pasteable. | **No.** Binary signatures, opaque to humans. | **Partial.** Badge on website, but page itself unverified. | **No.** CLI output. |
-| **Copy-Paste Safe** | **Yes.** Forwarded announcement retains verifiability. | **No.** Signature is on the artifact, not the announcement. | **No.** Screenshot or paste loses provenance context. | **N/A.** |
-| **Anti-Phishing** | **Strong.** Fake "urgent upgrade" emails fail verification. | **None.** GPG doesn't cover the announcement. | **Weak.** If the registry itself is compromised, the UI lies. | **Medium.** Checks registry signatures but not the message telling you to upgrade. |
-| **Works Across Registries** | **Yes.** Same mechanism for npm, Maven, PyPI, curl, anything. | **Fragmented.** GPG, Sigstore, and nothing (crates.io) are three different worlds. | **Per-registry.** Each has its own UI. | **Per-registry.** Different CLI tools. |
-| **Cryptographic Proof of Binary** | **No.** Proves the announcement, not the binary. | **Yes.** This is their job. | **Indirect.** Shows the hash but doesn't prove the page wasn't altered. | **Yes.** |
+| **Who can check** | Anyone with the tools and the right public key or trust root; in practice, few people do. | Anyone visiting the registry. | Developers and pipelines using that registry's tooling. | Anyone reading the announcement: on a blog, in an email, in a forwarded message. |
+| **What the checker gets** | Proof that the artifact was signed by the holder of the key or identity, which is the strongest check on the bytes themselves. | Version, metadata and hashes as the registry displays them; the page itself is not separately verified. | Confirmation that installed packages carry valid registry signatures or attestations. | Confirmation that the project's or registry's domain stands behind this exact announcement text, including version and published hashes, as at its date. It says nothing directly about the bytes downloaded. |
+| **What the project shares** | Signatures alongside artifacts. | Registry metadata. | Registry signatures. | Only the announcement it published. |
+| **Reach** | Per ecosystem: GPG in some, Sigstore in others, nothing in some. | One registry. | One registry. | Global in principle: any project or registry, anywhere, that publishes hashes on its own domain, the same way for every ecosystem. |
+| **Speed and cost** | Free; takes some skill and set-up. | Free and quick. | Free and quick once installed. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | Published keys or a trust root, and a user who runs the check. | Trust in the registry. | The registry's signing infrastructure. | The project or registry to publish hashes, and Live Verify-aware software on the reader's device. No project or registry does this yet. |
+| **Best suited to** | Proving the artifact is authentic before installing it. | Browsing and choosing versions. | Automated checks in builds. | Spotting spoofed "urgent upgrade" messages and replayed old announcements before anyone follows the link. |
 
-**Why both matter:** Sigstore and GPG answer "is this binary authentic?" Live Verify answers "is this message telling me to download it authentic?" The XZ Utils attack worked not because GPG failed, but because a trusted human (Jia Tan) was the one signing. The next attack might not compromise the signing key — it might compromise the announcement.
+**Where each fits:** signatures and registry provenance should remain the check on the artifact itself, and nothing here replaces them. A verifiable announcement covers the human-facing message that prompts the upgrade, which signatures do not cover. Neither would have stopped the XZ Utils backdoor, where a trusted maintainer signed and announced the release; both help against impostors and altered pages.
 
 ## Further Derivations
 

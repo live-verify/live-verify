@@ -159,18 +159,21 @@ The solicitor's firm benefits directly.
 
 **Risk assessment:** Insurers providing professional indemnity cover for conveyancing firms could factor verifiable bank details into their risk models, potentially reducing premiums for firms that adopt the practice.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify, Confirmation of Payee and Phone Callbacks
 
-| Feature | Live Verify | Phone Callback | Confirmation of Payee (CoP) | PDF Letterhead |
+In the UK, banks run Confirmation of Payee, which checks, before a payment is sent, whether the name the payer enters matches the name on the account at that sort code and account number; the EU has a similar verification-of-payee scheme, and many countries have none. Solicitors and conveyancing guidance also tell buyers to phone the firm on a known number before transferring. A name check, a callback and a verifiable claim each answer a different question, and they work best together. <!-- TODO(verify): the EU verification-of-payee scheme and its coverage -->
+
+| | Confirmation of Payee | Phone callback to the solicitor | Live Verify on the bank details | PDF letterhead |
 | :--- | :--- | :--- | :--- | :--- |
-| **Independent of email** | **Yes.** Hash on solicitor's domain. | **Yes.** But phone number may be compromised. | **Yes.** Bank-side check. | **No.** Attached to email. |
-| **Tamper-evident** | **Yes.** Modified details break the hash. | **No.** Verbal confirmation only. | **Partial.** Checks name vs account. | **No.** PDF can be edited. |
-| **Instant** | **Yes.** Seconds. | **No.** Requires reaching the right person. | **Yes.** But only checks name match. | **No.** |
-| **Works before transfer** | **Yes.** | **Yes.** | **Yes.** | **No verification step.** |
-| **Covers sort code + account** | **Yes.** Full details verified. | **Yes.** If callback reaches genuine solicitor. | **Partial.** Name match only; not sort code or account. | **No.** |
-| **Revocable** | **Yes.** Immediate. | **No.** | **No.** | **No.** |
+| **Who can check** | Any payer whose bank and the payee's bank take part, automatically as the payment is set up. | The buyer, if they use a number they already had rather than one in the email. | The buyer, on the details as they arrived in the email. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Whether the account at that sort code and number is held in the name entered: a match, close match or no match. | The solicitor's own confirmation, if the genuine person is reached. | Confirmation that the solicitor's domain stands behind these exact details, as at the moment of the check, or that they have been withdrawn. The buyer must still see that the domain is the solicitor's own, since a criminal could substitute a look-alike verify line. | A document that can be edited in transit. |
+| **What the buyer shares** | The payee name and account details, with their own bank. | A phone call. | Nothing; they check the text they received. | Nothing. |
+| **Reach** | Banks taking part in the UK scheme, or a similar scheme elsewhere. | Anywhere the firm can be reached. | Global in principle: any firm, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Seconds, built into the payment, at no charge to the payer. | Minutes, if the right person is available before the deadline. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | Participating banks. | A genuine number and an available fee-earner. | The firm to publish hashes, and Live Verify-aware software on the buyer's device. No law firm does this yet. | Nothing. |
+| **Best suited to** | Catching a payment to an account in a different name. | Resolving any doubt directly with the firm. | Catching details altered in an intercepted email, before the buyer reaches the payment screen. | Nothing where money is at stake. |
 
-**Practical conclusion:** Confirmation of Payee (CoP), introduced by UK banks, checks whether the account name matches the payee name. This catches some fraud but not cases where the criminal has set up an account under a similar name. Phone callbacks work but rely on the buyer having a genuine phone number and the solicitor being available. Verifiable bank details complement both — they provide a cryptographic check of the actual sort code and account number against the solicitor's published claim. CoP and verifiable claims used together provide stronger protection than either alone.
+**Where each fits:** Confirmation of Payee checks whether the account name matches, which catches much fraud but not a criminal's account opened under a similar name; a callback on a known number remains sound advice. A verifiable claim adds a quick, cheap check that the sort code and account number in the email are the ones the solicitor published, wherever the buyer has software that honours Live Verify. Used together they give stronger protection than any one alone.
 
 ## Authority Chain
 

@@ -131,16 +131,21 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Scanned PDFs
+## Where Each Fits: Live Verify and Property-Management Portals
 
-| Feature | Live Verify | Scanned PDF / Paper | Digital Ledger (App) |
+Many leases are now created and stored in a property manager's or landlord platform's own portal, which the landlord and tenant can log in to. Those portals hold the authoritative record, but schools, motor-vehicle offices, lenders and insurers have no access to them, so the lease still travels as paper or PDF. A portal and a verifiable lease answer different questions: the portal serves the parties to the lease, while Live Verify lets a third party check the copy it has been handed. They work side by side.
+
+| | Property-management portal | Live Verify on the lease | Scanned PDF or paper |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Manager. | **Zero.** Easily forged. | **System-Bound.** |
-| **Integrity** | **Binds Rent Amount.** Protects math. | **Vulnerable.** | **High.** |
-| **Privacy** | **High.** Verifies only what's scanned. | **Low.** Exposes whole contract. | **Low.** Requires login. |
-| **Field Use** | **Seamless.** Scan the paper at the DMV. | **Manual.** | **N/A.** |
+| **Who can check** | The landlord and tenant, with their logins. | Anyone handed the lease: a school office, a motor-vehicle office, a lender, an insurer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The live record of the tenancy, including payments and renewals. | Confirmation that the property manager or platform stands behind this exact lease text, including rent and dates, as at its date, and whether it has been terminated or renewed. | A document whose rent or term may have been edited. |
+| **What the tenant shares** | Nothing; third parties cannot see it. | Only the lease or one-page summary they chose to hand over. | The whole contract. |
+| **Reach** | That portal's own users. | Global in principle: any property manager or platform, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Quick for the parties; unavailable to anyone else. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | An account on the portal. | The issuer to publish hashes, and Live Verify-aware software on the checker's device. Against rent padding by a landlord, the issuer has to be a manager or platform independent of that landlord. No property manager or platform does this yet. | Nothing. |
+| **Best suited to** | Running the tenancy day to day. | Proof of residence or rental income to a party outside the portal. | Nothing where the figures matter. |
 
-**Why this remains strong:** Leases are routinely carried into school offices, DMVs, banks, and other places that do not have access to the landlord's or tenant's private portal. This is a strong portability case: the paper or PDF lease is the artifact in motion, and the verifier needs a lightweight bridge back to issuer truth.
+**Where each fits:** the portal remains the right place for landlord and tenant to manage the tenancy. Leases are still carried into school offices, motor-vehicle offices, banks and other places that have no access to it, and there the paper or PDF is the thing in motion. Live Verify gives those checkers a quick, cheap way back to the issuer's own record, wherever they have software that honours it.
 
 ## Independent Record (Optional)
 

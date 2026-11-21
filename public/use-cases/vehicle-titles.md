@@ -133,18 +133,21 @@ The DVLA issues UK vehicle titles and registration certificates under the Vehicl
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Existing Title Verification Methods
+## Where Each Fits: Live Verify, NMVTIS, Vehicle History Reports and the DMV
 
-| Feature | Live Verify | NMVTIS | Carfax / AutoCheck | Calling the DMV | Trusting the Paper |
+In the US, titles are issued by each state's DMV or title office. The federal NMVTIS database gathers title, brand, salvage and theft data from the states, insurers and salvage yards, and consumers can buy NMVTIS reports through approved providers; commercial reports such as Carfax and AutoCheck add service, accident and auction records. Other countries keep vehicle ownership records in their own ways. The registry remains the source of truth, and these services do things a title check cannot, such as showing a vehicle's history across states. A verifiable title answers a narrower question for someone holding the paper, whether the issuing DMV stands behind this exact title and its current status, and works alongside them.
+
+| | NMVTIS | Commercial history reports (Carfax, AutoCheck) | Calling the DMV | Live Verify on the title | Trusting the paper |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Accessible to Consumers** | **Potentially yes, when working from the title in hand.** | **No.** Available to dealers and approved entities only. Consumers cannot query directly. | **Yes.** But it's a paid third-party report. | **Barely.** Business hours, long hold times, limited info by phone. | **Yes.** But meaningless without verification. |
-| **Real-Time** | **Yes.** Instant response from issuing DMV. | **No.** Batch-updated; can lag weeks behind actual title events. | **No.** Depends on data feeds from insurers, shops, auctions. Gaps are common. | **No.** Minutes to hours, if they answer at all. | **N/A.** |
-| **Authoritative** | **Yes.** If it resolves to the issuing DMV. | **Partially.** Federal aggregation of state data, but not all states participate fully. | **No.** Third-party compilation. Misses states, misses events, misses flood brands from certain jurisdictions. | **Yes.** But getting the info is the problem. | **No.** Paper can be forged. |
-| **Catches Title Washing** | **Yes.** Receiving state can verify the surrendered title's brand history at the source. | **Partially.** Only if both states report fully. | **Sometimes.** Known gaps in flood/salvage brand reporting. | **Maybe.** If you call the right state and ask the right questions. | **No.** That's the entire point of washing. |
-| **Catches Stolen Vehicles** | **Yes.** STOLEN status returned immediately. | **Yes.** This is NMVTIS's strongest feature. | **Sometimes.** Depends on when theft was reported and data lag. | **Yes.** But slow. | **No.** |
-| **Cost to Consumer** | **Free.** The verification is a GET request. | **Not available to consumers.** | **$25-50 per report.** | **Free but costly in time.** | **Free.** |
+| **Who can check** | Dealers, insurers, states and law enforcement; consumers through approved report providers. | Anyone who buys a report. | Anyone who gets through, in office hours; what the DMV will say by phone varies. | Anyone handed the title: a buyer, a dealer, a lender, an insurer, a receiving DMV. | Anyone, with no way to confirm it. |
+| **What the checker gets** | Title history and brands across reporting states, and theft and total-loss records. | A compiled history from many sources, with gaps where data is not reported. | The state's answer on its own records. | Confirmation that the issuing DMV stands behind this exact title, including VIN, brands, lienholder and odometer at issue, and its current status, such as stolen, superseded or lien recorded. It does not show earlier titles from other states, so it does not by itself catch a brand dropped by another state. | A document that may be forged, altered or superseded. |
+| **What the seller shares** | Nothing; the check runs on the VIN. | Nothing; the check runs on the VIN. | Nothing directly. | Only the title they chose to hand over. | The title. |
+| **Reach** | US states that report to the system. | The sources the provider has data from. | One state. | Global in principle: any vehicle registry, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Quick, with a fee for consumer reports. | Quick, with a fee per report. | Slow, with long holds. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection where the sale happens. | Immediate. |
+| **What it needs** | Reporting by states and industry. | The provider's data sources. | A reachable DMV. | The DMV to publish hashes, and Live Verify-aware software on the checker's device. No DMV does this yet. | Nothing. |
+| **Best suited to** | Cross-state history, title washing and theft checks. | Wider vehicle history, including accidents and service. | Specific questions about one state's record. | Confirming, in the parking lot, that the paper in hand is a current, genuine title. | Nothing where money is at stake. |
 
-**Narrower conclusion:** The registry remains the source of truth. This is strongest only where the relying party is in the field with the paper title and lacks a practical direct registry workflow. In that situation, the title becomes a bridge to DMV status rather than the core trust architecture by itself.
+**Where each fits:** the registry remains the source of truth, and NMVTIS and history reports remain the right tools for a vehicle's history across states. A verifiable title is useful where the buyer, lender or mechanic is in the field with the paper and lacks a practical direct registry workflow: it lets them confirm quickly that this is a current, genuine title, wherever they have software that honours Live Verify, while the history checks cover what came before.
 
 ## Further Derivations
 

@@ -161,17 +161,21 @@ The purchasing company (typically its IT department or procurement team) benefit
 
 **Vendor vetting:** Large enterprises that maintain approved-supplier lists can use verified authorizations as part of the onboarding check for a new software reseller, rather than relying on the reseller's self-reported partner status.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Vendor Partner Portals
 
-| Feature | Live Verify | "Partner" Badge | Vendor Partner Portal | Invoice Only |
+Software vendors run their own partner programmes and publish partner directories or portals; each vendor's is different, and some are hard to search or out of date. Buyers otherwise rely on the reseller's "partner" badge or on the invoice that arrives after purchase. A vendor directory and a verifiable claim answer related but different questions: the directory helps a buyer find who sells a product, while the claim lets a buyer on a reseller's own site check whether that seller is authorised. They work side by side.
+
+| | Vendor partner portal | Invoice | Live Verify on the reseller authorisation | "Partner" badge |
 | :--- | :--- | :--- | :--- | :--- |
-| **Issuer-controlled** | **Yes.** Vendor issues the claim. | **No.** Reseller self-asserts. | **Yes.** But often stale. | **Yes.** But post-purchase. |
-| **Domain-bound** | **Yes.** Claim names the authorized site. | **No.** | **Partially.** Links to partner page. | **No.** |
-| **Revocable** | **Immediate.** Endpoint returns REVOKED. | **No.** Badge persists. | **Slow.** Portal updates lag. | **No.** |
-| **Verifiable pre-purchase** | **Yes.** On the reseller's page. | **No.** | **Requires navigating the vendor portal.** | **No.** |
-| **Detects site copying** | **Yes.** Domain mismatch warning. | **No.** | **No.** | **No.** |
+| **Who can check** | Any buyer who leaves the reseller's site, finds the right portal and knows the partner's exact name. | The buyer, after purchase. | Any buyer reading the claim on the reseller's site. | Nobody; it is an image any site can copy. |
+| **What the checker gets** | The vendor's listing of partners and tiers, as current as the portal. | A record of what was bought and from whom, but nothing confirming the seller was authorised. | Confirmation that the vendor stands behind this exact authorisation, for the named site and product line, as at the moment of the check, or that it has been revoked; a mismatch shows if the claim is copied to another site. | A logo. |
+| **What the reseller shares** | Its public listing. | The invoice. | Only the claim it chose to display. | The badge. |
+| **Reach** | One vendor's programme. | One transaction. | Global in principle: any software vendor, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free; minutes to search, if the listing can be found. | Arrives after the money is committed. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | A searchable, up-to-date portal. | A purchase. | The vendor to publish hashes, and Live Verify-aware software on the buyer's device. No software vendor does this yet. | Nothing. |
+| **Best suited to** | Finding resellers and comparing partner tiers. | Records and audit after purchase. | Checking, before a large purchase, that this seller is authorised for this product. | Nothing where compliance matters. |
 
-**Practical conclusion:** vendor partner portals remain useful for discovering resellers, but they answer a different question ("who sells this?") from the one the buyer is actually asking on a reseller's website ("is this seller actually authorized to sell me this?"). The verifiable claim answers the second question in place.
+**Where each fits:** vendor partner portals remain useful for discovering resellers and comparing tiers, but they answer a different question ("who sells this?") from the one a buyer is asking on a reseller's website ("is this seller actually authorised to sell me this?"). A verifiable claim answers the second question in place, in seconds, wherever the buyer has software that honours Live Verify. It does not prove that any particular licence key is genuine.
 
 ## Authority Chain
 

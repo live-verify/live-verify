@@ -149,17 +149,21 @@ The business benefits directly.
 
 **Fair competition:** A competitor that suspects a rival is displaying a fabricated rating can check the rival's claim. If it does not verify, that is useful evidence for a complaint.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Review-Platform Widgets
 
-| Feature | Live Verify | Badge Image | Embedded Widget | Screenshot in Ad |
+Review platforms such as Trustpilot and Google Reviews hold the ratings and offer businesses embeddable widgets that load live data from the platform; anyone can also look the business up on the platform itself. Businesses also show static badge images, and advertisers use screenshots. A widget and a verifiable claim answer different questions: the widget shows live data, while the claim lets a reader confirm that the platform issued this rating for this site, as of a date. They work side by side.
+
+| | Embedded platform widget | Live Verify on the rating claim | Badge image | Screenshot in an ad |
 | :--- | :--- | :--- | :--- | :--- |
-| **Issuer-controlled** | **Yes.** Platform issues the claim. | **No.** Anyone can copy the image. | **Partially.** Widget loads from platform but can be misconfigured. | **No.** Static image. |
-| **Domain-bound** | **Yes.** Claim names the business site. | **No.** | **No.** Widget can be embedded anywhere. | **No.** |
-| **Time-bound** | **Yes.** "As of" date with automatic expiry. | **No.** Badge shows no date. | **Partially.** Widget shows live data but has no integrity proof. | **No.** Screenshot is frozen. |
-| **Verifiable offline** | **No.** The claim text is hashed on the device, but the check needs a connection. | **No.** | **No.** Requires live API call. | **No.** |
-| **Detects site copying** | **Yes.** Domain mismatch warning. | **No.** | **No.** | **No.** |
+| **Who can check** | Anyone viewing the page, though few can tell whether the widget is set up for the business shown. | Anyone viewing the claim on the business's site. | Nobody; any site can copy it. | Nobody; it is a static picture. |
+| **What the checker gets** | The platform's live data for whichever business the widget is configured to show. | Confirmation that the platform stands behind this exact rating, for the named site, as of its date; a mismatch shows if the claim is copied to another site. | An image with no date or source. | A frozen image with no link to the source. |
+| **What the business shares** | Its live rating and recent reviews. | Only the claim it chose to display. | The badge. | The screenshot. |
+| **Reach** | Sites that embed that platform's widget. | Global in principle: any review platform, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. | Anywhere, but untrusted. |
+| **Speed and cost** | Loads with the page; widgets are often part of a paid business plan. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. | Free and immediate. |
+| **What it needs** | The platform's widget code, correctly configured. | The platform to publish hashes, and Live Verify-aware software on the reader's device. No review platform does this yet. | Nothing. | Nothing. |
+| **Best suited to** | Showing live ratings and recent reviews on the business's site. | Confirming a displayed rating is genuine, current as of its date, and meant for this site; and for advertising regulators checking claims. | Decoration only. | Nothing where the rating matters. |
 
-**Practical conclusion:** embedded widgets from review platforms remain useful for showing live data, but they do not answer the question "is this rating claim genuine and intended for this site?" The verifiable claim answers that question and complements the widget rather than replacing it.
+**Where each fits:** embedded widgets from review platforms remain useful for showing live data, and looking the business up on the platform is still a sound check. Neither readily answers whether a displayed rating claim is genuine and intended for this site. A verifiable claim answers that in seconds, wherever the reader has software that honours Live Verify, and complements the widget rather than replacing it. It says nothing about whether the underlying reviews are themselves genuine; that remains the platform's job.
 
 ## Authority Chain
 

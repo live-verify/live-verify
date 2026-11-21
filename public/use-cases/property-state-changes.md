@@ -192,16 +192,21 @@ The property owner benefits from clarity.
 
 **Authority and use checks:** The person requesting a service may need only proof of current ownership plus whether the property is owner-occupied or tenanted.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify, Title Packs and Utility Bills
 
-| Feature | Property State Record | Full Deed / Title Pack | Utility Bill / Council Tax Bill |
+Today a lender, insurer or authority wanting to know a property's state usually asks for a full deed or title pack from the land registry, or for a utility or council tax bill as a proxy for who lives there. Those documents answer the questions they were designed for, and a state record would sit alongside them rather than replace them: the title pack remains the authority on ownership, and a state record answers the occupancy, market and physical questions that the title pack was never meant to cover.
+
+| | Full deed or title pack | Utility or council tax bill | Live Verify on a property state record |
 | :--- | :--- | :--- | :--- |
-| **Answers occupancy question** | **Yes.** | **Poorly.** | **Sometimes.** |
-| **Answers title question** | **Partly.** | **Yes.** | **No.** |
-| **Answers market question** | **Yes.** | **No.** | **No.** |
-| **Answers parcel/physical question** | **Yes.** | **Partly.** | **No.** |
+| **Who can check** | Anyone who can search the land registry, or who is handed an official copy. | Anyone handed the bill; it is usually taken on trust. | Anyone handed the record: a lender, insurer, local authority or contractor. |
+| **What the checker gets** | The authoritative picture of title, and some physical detail through plans and boundaries. Little or nothing on occupancy or market status. | An indication that someone at the address receives bills. It says nothing on title or whether the property is for sale. | Confirmation that the issuer stands behind this record's title, occupancy, market and parcel statuses, as at its effective date, with each source shown. |
+| **What the holder shares** | The full title, including charges and history the checker may not need. | Name, address and account details. | Only the state record they chose to hand over. |
+| **Reach** | Wherever a land registry exists; each country has its own, with different access rules. | Anywhere bills are issued, but untrusted. | Global in principle: any registry, lender or authority, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Registry searches are usually quick, with a fee per copy in many countries. | Free and immediate. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A registry the checker can reach. | Nothing. | The issuer to publish hashes, and Live Verify-aware software on the checker's device. No registry or lender does this yet. |
+| **Best suited to** | Conveyancing, lending against title, and any question about legal ownership or charges. | Low-stakes proof of address. | Ongoing monitoring of occupancy, sale status and physical change, where the deed is the wrong tool. |
 
-**Practical conclusion:** the property-state record should be the monitoring layer. It avoids overloading deeds and avoids using weak proxies for occupancy or risk.
+**Where each fits:** the title pack stays the right document for ownership and charges, and should keep that job. A property state record is a monitoring layer beside it, for lenders, insurers and authorities who need to know whether a property is tenanted, for sale or damaged, and who would otherwise lean on title documents or bills to guess. Live Verify lets that record be checked quickly and cheaply by whoever is handed it, wherever the checker has software that honours it.
 
 ## Authority Chain
 

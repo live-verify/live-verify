@@ -170,17 +170,21 @@ UK courts issue restraining orders and protective orders under the Protection fr
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With the Alternatives
+## Where Each Fits: Live Verify, Law-Enforcement Databases and Court Clerks
 
-| Feature | Live Verify | NCIC/CJIS (Law Enforcement Databases) | Calling the Court Clerk | Trusting the Paper |
+In the US, courts report protective orders to state systems and to the FBI's national NCIC database, which police query through dispatch; the same records feed the background check a licensed firearms dealer runs before a sale. Other countries have their own arrangements, and many have no shared register at all. Those systems serve the police and the courts. Schools, employers, landlords and shelters are outside them, and usually have only the paper or a call to the court clerk. A verifiable order answers their narrower question, whether the court stands behind this exact order and its current status, and works alongside the justice systems rather than replacing them. <!-- TODO(verify): that firearms background checks draw on NCIC protection-order records -->
+
+| | Law-enforcement databases (NCIC/CJIS) | Calling the court clerk | Live Verify on the order | Trusting the paper |
 | :--- | :--- | :--- | :--- | :--- |
-| **Access** | **Open.** Anyone with the document can verify. | **Restricted.** Law enforcement only. Schools, employers, landlords, firearms dealers have no access. | **Business hours only.** Often unhelpful or unable to confirm. | **None.** No verification at all. |
-| **Speed** | **Instant.** 5-second scan. | **Minutes.** Requires dispatch to run the query, often during a chaotic scene. | **Slow.** Hold times, transfers, clerk may not have the file. | **Instant but unverified.** |
-| **Availability** | **24/7.** | **24/7** but requires law enforcement credentials. | **Business hours.** Court clerks don't work nights, weekends, or holidays -- when most violations occur. | **Always available, always unverified.** |
-| **Freshness** | **Real-time.** Shows MODIFIED, DISMISSED, EXPIRED status. | **Good** but depends on court reporting speed to NCIC. | **Real-time** if the clerk checks the file. | **Frozen in time.** Paper shows the order as it was on the day it was printed. |
-| **Civilian Access** | **Yes.** Schools, employers, landlords, shelters, firearms dealers. | **No.** | **Theoretically.** In practice, clerks often refuse to confirm to non-parties. | **Yes, but meaningless.** |
+| **Who can check** | Law enforcement and other authorised agencies only. | Anyone who calls, though clerks often will not confirm details to non-parties. | Anyone handed the order: police, a school, an employer, a landlord, a shelter, the protected person. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The order as reported to the database, as current as the court's reporting. | The clerk's reading of the file, if they have it. | Confirmation that the court stands behind this exact order, as at the moment of the check, including whether it has been modified, dismissed or has expired. | The order as it was when printed, possibly edited or fabricated. |
+| **What the protected person shares** | Nothing; the police run the query. | Nothing directly. | Only the order they chose to show. | The order. |
+| **Reach** | The jurisdiction's own law-enforcement network; NCIC across the US. | One court. | Global in principle: any court, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Minutes, via dispatch, at any hour. | Business hours only, with hold times. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection. | Immediate. |
+| **What it needs** | Law-enforcement credentials and the court's report reaching the database. | An open court office and a willing clerk. | The court to publish hashes, and Live Verify-aware software on the checker's device. No court does this yet. | Nothing. |
+| **Best suited to** | Police enforcement and firearms background checks. | Confirming details that need a person and the full file. | Civilian checkers outside the justice systems, at any hour, and exposing fabricated orders used to harass. | Nothing where safety depends on it. |
 
-**Why this remains strong:** The gap is civilian verification. Police can eventually verify through NCIC/CJIS, but schools, employers, landlords, firearms dealers, victim shelters, and building managers cannot. That makes protective orders another strong case where the portable document is doing real work outside the native justice systems rather than trying to replace them.
+**Where each fits:** police should keep relying on NCIC and their state systems, and the court file remains the authority. The gap is civilian verification: schools, employers, landlords, victim shelters and building managers cannot query those systems and often cannot get a clerk to confirm. A verifiable order lets them check it quickly, at any hour, wherever they have software that honours Live Verify, and makes a fabricated order easy to spot.
 
 ## See Also
 

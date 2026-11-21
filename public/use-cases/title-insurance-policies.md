@@ -116,16 +116,21 @@ Title underwriters must be licensed by state insurance regulators to issue title
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Physical Policy Jackets
+## Where Each Fits: Live Verify, Public Records and the Policy Jacket
 
-| Feature | Live Verify | Physical Jacket (Folder) | Online Public Records |
+Title insurance is issued mainly in the US, by underwriters and their local agents, and a policy arrives as a jacket containing the schedules. Public land records, kept by each county or equivalent, show what is recorded against a property. Neither is a check on the policy itself: the records show the state of title, and the jacket is the contract. A verifiable policy answers a narrower question, whether the underwriter issued these exact schedule pages, and works alongside both.
+
+| | Online public land records | Physical policy jacket | Live Verify on the policy schedules |
 | :--- | :--- | :--- | :--- |
-| **Tamper Detection** | **High.** Protects the "Exceptions" text. | **Zero.** The paper inside the folder is easily swapped. | **Data-Only.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Underwriter. | **Brand-Bound.** Trust the logo. | **Gov-Bound.** |
-| **Speed** | **Instant.** 5-second scan. | **Manual.** requires deep reading. | **Slow.** requires search. |
-| **Freshness** | **Real-time.** Shows "Claim" status. | **Zero.** Paper is a snapshot. | **N/A.** |
+| **Who can check** | Anyone who can search the county records, sometimes for a fee. | Anyone holding the jacket, by reading it. | Anyone handed the policy: a buyer's attorney, a lender, an appraiser. |
+| **What the checker gets** | What has been recorded against the property: deeds, mortgages, liens, easements. Nothing about what the policy covers or excludes. | The full contract, including terms, conditions and exceptions, as printed. Pages could be swapped and the checker would not know. | Confirmation that the underwriter stands behind this exact text, including the amount of insurance and the Schedule B exceptions, as at its date, and the policy's current standing (active, endorsed, claim pending, void). |
+| **What the owner shares** | Nothing; the records are public. | The whole policy. | Only the policy pages they chose to hand over. |
+| **Reach** | One county or recording office at a time. | Wherever the paper goes. | Global in principle: any underwriter, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Varies by county; often quick online, sometimes slow. | Free; takes careful reading. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | Access to the recording office's search. | Nothing. | The underwriter to publish hashes, and Live Verify-aware software on the checker's device. No title underwriter does this yet. |
+| **Best suited to** | Title searches and understanding what is recorded. | Understanding the coverage in full. | Confirming at closing, refinance or resale that the schedules have not been altered and the policy is still in force. |
 
-**Where each fits:** Public land records remain the source for what is recorded against a property, and the policy jacket is the complete contract that anyone relying on coverage should read. Neither tells a lender or buyer whether the schedule pages in front of them are the ones the underwriter issued. Live Verify adds that confirmation at closing, with the full policy and the public record still there to be consulted.
+**Where each fits:** public land records remain the source for what is recorded against a property, and the policy jacket is the complete contract that anyone relying on coverage should read. Neither tells a lender or buyer whether the schedule pages in front of them are the ones the underwriter issued. Live Verify adds that confirmation quickly at closing, wherever the checker has software that honours it, with the full policy and the public record still there to be consulted.
 
 ## Independent Record (Optional)
 

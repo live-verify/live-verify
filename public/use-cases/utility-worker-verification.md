@@ -168,16 +168,21 @@ The regulatory chain anchors trust: the utility company is accountable to regula
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Comparison: Live Verify vs. Traditional Verification
+## Where Each Fits: Live Verify, Phone Checks and ID Cards
 
-| Feature | Live Verify | Phone Verification | Physical ID Card |
+In the UK, utilities and police advise residents to check a caller by ringing the company on a number from their bill, never one the caller gives them, and energy and water companies offer a password scheme for customers on the Priority Services Register, so a genuine worker can quote an agreed password. Workers also carry a photo ID card. Those checks reach the utility's own records and remain the advice to follow. A verifiable badge answers the same question at the door without a phone call, and works alongside them. <!-- TODO(verify): the UK Priority Services Register password scheme -->
+
+| | Phone check with the utility | Live Verify on the worker's badge | Physical ID card |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the regulated utility company. | **Vulnerable.** Caller could be spoofed or imposter. | **Zero.** Easily forged or stolen. |
-| **Integrity** | **Cryptographic.** Binds face to employment record. | **None.** No cryptographic proof. | **None.** |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires phone call and conversation. | **Instant.** But unverifiable. |
-| **Safety Data** | **High.** Shows DBS status and current shift. | **None.** Only verbal confirmation. | **N/A.** No dynamic status. |
+| **Who can check** | Any resident who calls a number they already trust. | The resident at the door, or a family member watching through a doorbell camera; also landlords and property managers. | The resident, by looking. |
+| **What the checker gets** | The utility's answer from its own records, or a password match where the customer has set one. | Confirmation that the utility stands behind this badge, as at the moment of the check, including whether the worker is on duty and the vetting status the utility records, plus a photo to compare. | A card that may be forged, stolen or out of date. |
+| **What the worker shares** | Their name or ID number for the call. | Only the badge they chose to show. | The card. |
+| **Reach** | One utility. | Global in principle: any utility, network operator or contractor, in any country, that publishes hashes on its own domain. | Anywhere, but unverifiable on sight. |
+| **Speed and cost** | A phone call and a conversation, with the worker waiting outside. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection at the door. | Immediate. |
+| **What it needs** | A trusted number, or a password set in advance. | The utility to publish hashes, and Live Verify-aware software on the checker's phone. No utility does this yet. | Nothing. |
+| **Best suited to** | Residents without a smartphone, and any doubt that needs a conversation. | The resident deciding in seconds whether to open the door. | Matching a name to a face. |
 
-**Why this remains strong:** The threshold moment is the real workflow. Vulnerable homeowners decide whether to open the door in seconds and often do not want to stay on the phone while a stranger stands on the porch. Utility systems remain primary in the background, but the ID badge is the visible surface at the decision point. That makes this a strong complementary safety case rather than an attempt to replace the company's own records.
+**Where each fits:** utility systems remain primary in the background, and a call on a trusted number, or the Priority Services Register password, is still sound advice. The threshold moment is the real workflow: vulnerable homeowners decide whether to open the door in seconds and often do not want to stay on the phone while a stranger stands on the porch. A verifiable badge lets them, or a family member, check at that moment, wherever their phone has software that honours Live Verify.
 
 ## Independent Record (Optional)
 

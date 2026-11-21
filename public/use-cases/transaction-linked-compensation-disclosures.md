@@ -200,17 +200,21 @@ The standing disclosure answers that in principle.
 The transaction record answers it in fact.
 </details>
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify, Terms of Business and Regulator Filings
 
-| Feature | Two-Layer Verified Disclosure | Terms of Business PDF | Adviser Verbal Answer | Regulator Filing Only |
+Today an adviser's or broker's compensation is disclosed, where the rules require it, in the firm's terms of business or client agreement, in filings to the financial regulator, and in whatever the adviser says when asked. What must be disclosed, and when, depends on the country and the product. These disclosures matter and remain required. A verifiable two-layer disclosure answers a narrower question, what the firm or product provider stands behind as paid on this specific deal, and works alongside them.
+
+| | Terms of business PDF | Regulator filing | Live Verify on the two-layer disclosure | Adviser's verbal answer |
 | :--- | :--- | :--- | :--- | :--- |
-| **General incentive model** | **Clear.** | **Buried.** | **Vague.** | **Indirect.** |
-| **Exact deal economics** | **Clear.** | **Usually absent.** | **Often omitted.** | **Rarely transaction-specific.** |
-| **Portable** | **Yes.** | **Yes, but unread.** | **No.** | **No.** |
-| **Useful in complaints** | **High.** | **Medium.** | **Low.** | **Medium.** |
-| **Hard to game with euphemisms** | **Stronger.** | **Weak.** | **Weak.** | **Weak.** |
+| **Who can check** | The client, if they read it. | The regulator; some filings are public, in summary form. | Anyone handed the disclosure: the client, an ombudsman or regulator, a compliance team, a counterparty. | Whoever was present. |
+| **What the checker gets** | The firm's general compensation model, often in standard wording among other terms. | Firm-level information, rarely tied to a single transaction. | Confirmation that the issuer stands behind this exact general position and this exact transaction record (who paid what, on what basis, for how long), as at its date. It is only as complete as what the issuer chose to record. | Whatever the adviser chooses to say. |
+| **What the client shares** | Nothing; they receive it. | Nothing. | Only the disclosure they chose to hand over. | Nothing. |
+| **Reach** | One firm's clients. | One regulator's jurisdiction. | Global in principle: any firm or product provider, in any country, that publishes hashes on its own domain. | One conversation. |
+| **Speed and cost** | Free to read, if anyone does. | Varies; not designed for individual clients. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | Nothing beyond the firm's existing obligations. | Regulatory reporting. | The firm or provider to issue both layers and publish hashes, and Live Verify-aware software on the checker's device. No firm or provider does this yet. | Nothing. |
+| **Best suited to** | The standing contractual and regulatory disclosure. | Supervision across the market. | Showing the client what actually happened on the deal in front of them, and reconstructing it years later in a complaint. | A first conversation. |
 
-**Practical conclusion:** a standing conflict disclosure is necessary but incomplete on its own. A transaction-specific compensation fact object complements it by showing the customer what actually happened on the deal in front of them.
+**Where each fits:** a standing disclosure in the terms of business, and the regulator's own reporting, remain necessary and should stay. On their own they rarely show what was paid on the deal in front of the client. A transaction-specific record complements them, giving the client, an ombudsman or a compliance team a quick, cheap check of what the firm stood behind at the time, wherever they have software that honours Live Verify.
 
 ## Relationship to Existing Use Cases
 

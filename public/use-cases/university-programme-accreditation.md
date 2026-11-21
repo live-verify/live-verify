@@ -209,17 +209,21 @@ The university benefits from verification.
 
 **Lending decisions:** Public and private lenders extending student finance can verify that the programme the student is enrolling in holds current professional accreditation, which is relevant to employability risk and, in some jurisdictions, to loan eligibility criteria.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Professional Body Directories
 
-| Feature | Live Verify | Logo / Text on Course Page | Professional Body Directory | University Prospectus |
+Professional bodies such as BCS, ABET and IChemE accredit specific programmes and publish directories of what they have accredited; each body covers its own profession, and many operate in one country or region. Universities repeat the claim on course pages and in prospectuses. The directory is the authoritative record and should be consulted for detailed conditions; a verifiable claim answers a narrower question on the course page itself, whether the body stands behind accreditation of this programme, and works alongside the directory.
+
+| | Professional body directory | Live Verify on the accreditation claim | Logo or text on the course page | University prospectus |
 | :--- | :--- | :--- | :--- | :--- |
-| **Issuer-controlled** | **Yes.** Professional body issues the claim. | **No.** University self-asserts. | **Yes.** But requires the student to find it. | **No.** |
-| **Programme-specific** | **Yes.** Claim names the exact programme. | **Often vague.** May imply broader scope. | **Yes.** | **Variable.** |
-| **Revocable** | **Immediate.** Endpoint returns REVOKED. | **No.** Page persists until manually updated. | **Slow.** Directory updates lag. | **No.** Printed or cached. |
-| **Verifiable on course page** | **Yes.** In place, at point of decision. | **No.** | **No.** Requires leaving the site. | **No.** |
-| **Detects site copying** | **Yes.** Domain mismatch warning. | **No.** | **No.** | **No.** |
+| **Who can check** | Any student who leaves the course page and searches the right body's directory. | Any student or employer reading the claim on the course page. | Nobody; the university asserts it. | Nobody; it is printed or cached. |
+| **What the checker gets** | The body's own record, including conditions such as campus, delivery mode and intake years, as current as the directory. | Confirmation that the body stands behind this exact claim, for the named programme and site, as at the moment of the check, or that it has been revoked; a mismatch shows if the claim is copied to another page. | A logo, which may imply broader scope than was granted. | The claim as at printing. |
+| **What the university shares** | Nothing beyond the public listing. | Only the claim it chose to display. | Whatever it chooses. | Whatever it chose at printing. |
+| **Reach** | One body's accredited programmes; the student must know which body applies. | Global in principle: any accrediting body, in any country, that publishes hashes on its own domain. | Anywhere, but self-asserted. | One edition. |
+| **Speed and cost** | Free; a few minutes to search, if the student thinks to. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. | Free. |
+| **What it needs** | A public, up-to-date directory. | The body to publish hashes, and Live Verify-aware software on the reader's device. No professional body does this yet. | Nothing. | Nothing. |
+| **Best suited to** | Detailed accreditation conditions and formal checks by employers and registration bodies. | Checking at the point of decision that this programme, at this site, is accredited now. | Signposting. | Overview. |
 
-**Practical conclusion:** Professional body directories remain the authoritative source and should be consulted for detailed accreditation conditions. Live Verify is complementary — it brings the verification to the course page where the student is actually making their decision, rather than requiring them to leave and search a separate directory.
+**Where each fits:** professional body directories remain the authoritative source and should be consulted for detailed accreditation conditions. Live Verify is complementary: it brings a quick check to the course page where the student is actually deciding, rather than requiring them to leave and search a separate directory, wherever they have software that honours it.
 
 ## Authority Chain
 

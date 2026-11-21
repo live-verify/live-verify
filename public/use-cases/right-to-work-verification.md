@@ -223,17 +223,22 @@ The worker benefits directly.
 
 Required. Immigration status is highly sensitive. The salt ensures each confirmation instance produces a unique hash, preventing cross-correlation between different checking occasions for the same individual.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and the Home Office Checking Services
 
-| Feature | Short-Lived RTW Confirmation | Passport Photocopy | Home Office Online Check | Employer Checking Service |
+In the UK, the Home Office runs an online right-to-work check, which an employer uses with a share code from the worker, and an Employer Checking Service for cases such as a pending application; many employers still also take a copy of a passport. Other countries run their own arrangements, such as E-Verify in the US, and many rely on document checks alone. The Home Office services are the legally recognised route and should remain so; a short-lived verifiable confirmation answers the same narrow question in a portable form, and would work alongside them rather than replace them.
+
+| | Home Office online check | Employer Checking Service | Live Verify on a short-lived right-to-work confirmation | Passport photocopy |
 | :--- | :--- | :--- | :--- | :--- |
-| **Proves current right to work** | **Yes.** | **At time of copy only.** | **Yes.** | **Yes.** |
-| **Privacy-preserving** | **High.** | **Low.** | **Medium.** | **Medium.** |
-| **Replay-resistant** | **Yes.** Expires fast. | **No.** | **No.** Screenshot persists. | **No.** |
-| **Excludes identity details** | **Yes.** Reference only. | **No.** Full passport page. | **No.** Shows name, DOB, photo. | **No.** |
-| **Machine-verifiable** | **Yes.** | **No.** | **No.** | **Partially.** |
+| **Who can check** | An employer or agency given the worker's share code and date of birth. | An employer who submits a request about a specific worker. | Anyone handed the confirmation: an employer, a recruitment agency, an auditor or inspector. | Anyone who looks at it, with no way to confirm it. |
+| **What the checker gets** | The Home Office's current record of the worker's right to work, with name, date of birth and photo. | A Home Office answer on the worker's status. | Confirmation that the Home Office stands behind this exact confirmation, for this reference, while it is valid. It identifies nobody on its own; the employer still checks identity. | The document as it was on the day it was copied. |
+| **What the worker shares** | A share code giving access to their status profile. | Details needed for the request. | Only the confirmation they chose to hand over, without immigration history or identity detail. | The full passport page. |
+| **Reach** | UK employment only. | UK employment only. | Global in principle: any immigration authority, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Quick online, free to the employer. | Can take several days. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The worker to generate a share code. | A submitted request and a Home Office reply. | The Home Office to issue confirmations and publish hashes, and Live Verify-aware software on the checker's device. No immigration authority does this yet. | Nothing. |
+| **Legal standing** | Gives the employer a statutory excuse when done as the guidance requires. | Gives a statutory excuse in the cases it covers. | None on its own today; it would need to be recognised by the Home Office before it could replace the existing check. | Gives a statutory excuse only for documents and checks the guidance accepts. |
+| **Best suited to** | The hiring check itself. | Workers whose status cannot be shown online. | Portable, replay-resistant proof for agencies, auditors and inspectors, without stale copies piling up. | Nothing where status may have changed. |
 
-**Practical conclusion:** the Home Office online checking service is the current best practice. A short-lived verifiable confirmation would strengthen it by making the result cryptographically verifiable, replay-resistant, and free of unnecessary identity detail.
+**Where each fits:** the Home Office online checking service is the current best practice, and employers should keep using it for the legal check. A short-lived verifiable confirmation would sit alongside it, giving agencies, auditors and inspectors a portable proof that carries no unnecessary identity detail, expires quickly and can be checked in seconds wherever the checker has software that honours Live Verify.
 
 ## Authority Chain
 

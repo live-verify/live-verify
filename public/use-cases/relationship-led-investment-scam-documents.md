@@ -149,17 +149,21 @@ This use case is complementary to:
 
 The difference is that this use case targets the social-engineering fraud layer built around fake investing, fake profits, and fake withdrawals.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify, App Store Listings and Customer-Service Calls
 
-| Feature | Live Verify | Screenshot / PDF | App Store Presence | Phone Call to "Customer Service" |
+Today a victim, relative or bank trying to judge a trading platform's documents has little to go on: the platform's presence in an app store, a call to its "customer service", or the screenshots and PDFs themselves. The strongest existing checks sit elsewhere: logging in directly to an account at a regulated broker, and looking the firm up on the financial regulator's public register, where one exists. These answer different questions from a document check, and they work side by side.
+
+| | App store presence | Call to the platform's "customer service" | Live Verify on a statement or withdrawal notice | Screenshot or PDF |
 | :--- | :--- | :--- | :--- | :--- |
-| **Portable** | **Yes.** Victim can show it anywhere. | **Yes.** But trivial to fake. | **No.** App listing proves little. | **No.** Ephemeral only. |
-| **Verifies fee demand** | **Yes.** Can show whether extra payment is actually due. | **No.** | **No.** | **Weak.** Caller may be scammer-controlled. |
-| **Helps bank intervention** | **Yes.** Fraud team can inspect one artifact. | **Weak.** | **Weak.** | **Weak.** |
-| **Detects clone-brand scams** | **Partially.** Domain mismatch becomes obvious. | **No.** | **No.** | **No.** |
-| **Works after the fact** | **Yes.** Useful in complaints and investigations. | **Weak.** Easy to fabricate later. | **No.** | **No.** |
+| **Who can check** | Anyone, by searching the store. | Anyone who rings the number given. | Anyone shown the document: the victim, a relative, a bank's fraud team, police. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Evidence that an app passed store review, which says little about the firm behind it. | Whatever the person answering chooses to say; the number may be run by the scammers. | Confirmation of which domain stands behind this exact document, as at its date. The checker must still confirm that domain belongs to a regulated firm; a scam site can publish on its own domain too. | A picture that is easy to fabricate. |
+| **What the holder shares** | Nothing. | Nothing beyond the call. | Only the document they chose to show. | Only the document they chose to show. |
+| **Reach** | Wherever the app is listed. | Wherever the call connects. | Global in principle: any broker, exchange or payment firm, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Free and quick. | Free; the answer is unreliable. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | Nothing. | A number that genuinely reaches the firm. | The platform to publish hashes, and Live Verify-aware software on the checker's device. No broker or exchange does this yet. | Nothing. |
+| **Best suited to** | A first, weak signal. | Nothing where money is at stake, unless the number comes from the regulator's register. | Showing a bank or relative that a fee demand or withdrawal notice did, or did not, come from the firm it names, including after the event in complaints and investigations. | Nothing where money is at stake. |
 
-**Practical conclusion:** direct login to a regulated broker or exchange remains primary. Live Verify is strongest when the artifact has escaped the platform and is being used to persuade someone else to send more money.
+**Where each fits:** logging in directly to a regulated broker or exchange, and checking the firm on the regulator's register, remain the primary defences. Live Verify is useful when a document has escaped the platform and is being used to persuade someone to send more money: a bank, a relative or the police can check in seconds whether it came from the firm it names, wherever they have software that honours Live Verify.
 
 ## Authority Chain
 

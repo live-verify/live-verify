@@ -114,16 +114,21 @@ Administers US Social Security benefit statements and payments.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Official Letter by Mail
+## Where Each Fits: Live Verify and my Social Security
 
-| Feature | Live Verify | Paper Letter (Standard Mail) | mySocialSecurity Login |
+In the US, the Social Security Administration sends benefit letters by mail and lets beneficiaries view their records and download a benefit verification letter through their online my Social Security account. Other countries have their own pension and benefit agencies with their own portals. The online account is the authoritative view for the beneficiary; a verifiable letter answers a narrower question for the lender, landlord or agency handed a copy, whether the SSA stands behind this exact letter, and works alongside the account.
+
+| | my Social Security online account | Live Verify on the benefit letter | Paper letter by mail |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the SSA. | **Physical.** Trust the envelope. | **System-Bound.** |
-| **Integrity** | **Cryptographic.** Binds the $ amount. | **Zero.** Easily forged once opened. | **High.** |
-| **Speed** | **Fast bridge from the shared artifact.** | **Very Slow.** Takes 7-10 days to arrive. | **Primary when used directly.** |
-| **Availability** | **Useful when the letter/PDF is what is being circulated.** | **Low.** People lose their letters. | **Primary when the beneficiary and verifier can use it directly.** |
+| **Who can check** | The beneficiary, with their login. | Anyone handed the letter or PDF: a lender, a landlord, a court, a state agency. | Anyone handed it, with no way to confirm it. |
+| **What the checker gets** | The SSA's current record of benefits and earnings. | Confirmation that the SSA stands behind this exact letter, including the amount and benefit type, as at its date, and its status at the moment of the check. | A document whose amount or benefit type may have been edited. |
+| **What the beneficiary shares** | Nothing directly; they can download and pass on a letter. | Only the letter they chose to hand over. | The letter. |
+| **Reach** | US Social Security beneficiaries. | Global in principle: any benefits agency, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Quick for the beneficiary; third parties cannot log in. | A few seconds per check: one web lookup, with no fee to the standard. | Free, but arrives by post and is easily lost. |
+| **What it needs** | An account and identity verification for the beneficiary. | The SSA to publish hashes, and Live Verify-aware software on the checker's device. No benefits agency does this yet. | Nothing. |
+| **Best suited to** | The beneficiary managing their own benefits and obtaining letters. | A lender, landlord or agency checking a letter it has been handed. | Nothing where the amount matters. |
 
-**Narrower conclusion:** SSA systems should remain primary where direct use is practical. Live Verify is complementary when the letter or PDF is already the thing being handed to lenders, landlords, or agencies and the verifier needs a lightweight bridge back to current SSA status.
+**Where each fits:** SSA systems should remain primary wherever the beneficiary or an authorised agency can use them directly. Live Verify fits when the letter or PDF is already what is being handed to lenders, landlords or agencies, giving the checker a quick, cheap way back to the SSA's own record, wherever they have software that honours it.
 
 ## See Also
 

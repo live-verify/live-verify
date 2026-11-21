@@ -160,16 +160,21 @@ Economic substance declarations are filed with offshore registrars and endorsed 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With the Alternatives
+## Where Each Fits: Live Verify, Agent Letters, Registry Searches and Automatic Exchange
 
-| Feature | Live Verify | Registered Agent Letter | Direct Registry Search | OECD Automatic Exchange |
+Substance declarations are filed with each jurisdiction's own authority, and what happens to them next differs by jurisdiction. Under the OECD framework, information on entities is exchanged between tax authorities; some registries publish limited company information to the public; and banks and advisers otherwise rely on a letter from the entity's registered agent. Each channel serves its own audience. A verifiable declaration answers a narrower question, whether the authority stands behind this exact filing and its status, for parties outside those channels, and works alongside them.
+
+| | Registered agent letter | Direct registry search | Automatic exchange between tax authorities | Live Verify on the declaration |
 | :--- | :--- | :--- | :--- | :--- |
-| **Proves Content** | **Yes.** Hash of full declaration verified against registrar. | **No.** Agent attests but isn't the authority. | **Varies.** Many registries don't publish substance details. | **No.** Reports go to home jurisdiction only. |
-| **Speed** | **Instant.** | **Days.** Agent drafts letter, notarizes, sends. | **Minutes to days.** Depends on registry. | **Annual.** Reports exchanged once per year. |
-| **Available to Banks** | **Yes.** Any party can verify. | **Yes.** But banks increasingly distrust agent letters. | **Varies.** Some registries require accounts. | **No.** Only available to tax authorities. |
-| **Current Status** | **Yes.** Real-time (ACCEPTED/NON-COMPLIANT). | **Point in time.** Letter is stale immediately. | **Varies.** | **Lagged.** 12-18 months behind. |
+| **Who can check** | Whoever the entity gives the letter to. | Anyone with access to the registry, which may require an account; many do not publish substance details. | Tax authorities only. | Anyone handed the declaration: a bank, a correspondent bank, an auditor, a foreign tax authority. |
+| **What the checker gets** | A regulated professional's statement about the entity, which is not the authority's own record. | Whatever the registry publishes, which varies widely. | The filed information, routed to the relevant home jurisdiction. | Confirmation that the authority stands behind this exact declaration, as at its date, and its status, such as accepted or found non-compliant. It confirms what was filed and how it was treated, not that the substance claimed is real. |
+| **What the entity shares** | The letter. | Nothing; the search uses the public record. | Nothing; the authorities exchange directly. | Only the declaration it chose to hand over. |
+| **Reach** | Wherever the letter is accepted. | One registry. | Participating jurisdictions, between governments. | Global in principle: any registrar or tax authority, in any jurisdiction, that publishes hashes on its own domain. |
+| **Speed and cost** | Days to obtain, often with agent fees. | Minutes to days, sometimes with fees. | Periodic; exchanges are not immediate. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A cooperative registered agent. | A registry that publishes the facts in question. | Treaty arrangements between authorities. | The authority to publish hashes, and Live Verify-aware software on the checker's device. No registrar or tax authority does this yet. |
+| **Best suited to** | A professional's attestation where one is wanted. | Basic company facts where the registry is public. | Government-to-government tax enforcement. | Banks, advisers and counterparties confirming a declaration they have been handed. |
 
-**Where each fits:** The existing channels each serve their intended audience: automatic exchange gets information to tax authorities, a registry search suits those with access to what the registry publishes, and an agent's letter adds a professional's attestation. Banks, advisers and counterparties are largely outside those channels and often have only the entity's own copy of its declaration. Live Verify lets them confirm that copy against the registrar's domain, without altering how the registrar reports to other authorities.
+**Where each fits:** the existing channels each serve their intended audience: automatic exchange gets information to tax authorities, a registry search suits those with access to what the registry publishes, and an agent's letter adds a professional's attestation. Banks, advisers and counterparties are largely outside those channels and often have only the entity's own copy of its declaration. Live Verify lets them confirm that copy quickly against the authority's domain, wherever they have software that honours it, without altering how the authority reports to other governments.
 
 ## Further Derivations
 

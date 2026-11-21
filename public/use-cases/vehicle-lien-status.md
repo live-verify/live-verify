@@ -113,15 +113,21 @@ Black Horse, a regulated motor finance provider and subsidiary of Lloyds Banking
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With HPI / Carfax
+## Where Each Fits: Live Verify and Vehicle History Checks
 
-| Feature | Live Verify | HPI / Carfax | Seller's Word |
+Vehicle history services such as HPI in the UK and Carfax in the US, along with the government-run NMVTIS database in the US, collect finance and other records from many lenders and sources and sell checks to buyers and dealers; other countries have their own registers or services, and some have none. These services answer a broader question than a lender's own claim: whether any reporting lender has an interest in the car. A verifiable claim from one lender answers only whether that lender has an interest, but answers it from the lender itself. The two work side by side.
+
+| | Vehicle history check (HPI, Carfax) | Live Verify on a lender's finance status | Seller's word |
 | :--- | :--- | :--- | :--- |
-| **Speed** | **Seconds.** Hash check against lender domain. | **Minutes.** Paid lookup, account required. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Tied to the actual lender. | **Aggregator.** Only as complete as their data sources. | **Zero.** No backing. |
-| **Currency** | **Real-time.** Current as of the as-at date. | **Near-real-time.** Depends on data feed lag. | **Unknown.** No date guarantee. |
-| **Cost to Buyer** | **Free.** Verification is a hash check. | **Paid.** GBP 10–30 per check (UK). | **Free.** |
-| **Integrity** | **Cryptographic.** Binds status to lender domain. | **Reputation.** Trust the brand. | **Vulnerable.** Easily fabricated. |
+| **Who can check** | Anyone who buys a check, usually online. | Anyone handed the status: a private buyer, a dealer, an auction house, an insurer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Finance and other records across the lenders and sources that report to the service, as current as its data feeds. | Confirmation that this lender stands behind this exact statement of finance on this vehicle, as at its date. It says nothing about other lenders. | A claim. |
+| **What the seller shares** | Nothing; the buyer runs the check on the registration or VIN. | Only the status they chose to share. | Nothing. |
+| **Reach** | Vehicles and lenders covered by that service, in its own country. | Global in principle: any lender, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Minutes, with a fee per check. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | Lenders reporting to the service. | The lender to publish hashes, and Live Verify-aware software on the buyer's device. No vehicle finance lender does this yet. | Nothing. |
+| **Best suited to** | Checking whether any reported finance or other problem exists. | Confirming a named lender's own position, for example that a finance agreement has been settled, close to the moment of sale. | Nothing where money is at stake. |
+
+**Where each fits:** a vehicle history check remains the right way to ask whether any finance is recorded against a car, and a buyer should still run one. A lender's own verifiable status adds a quick, free confirmation of that lender's position, as at a recent date, from the lender itself, wherever the buyer has software that honours Live Verify; it cannot rule out finance from lenders that did not issue a claim.
 
 ## Further Derivations
 

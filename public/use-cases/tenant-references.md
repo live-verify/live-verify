@@ -148,14 +148,18 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Ireland** | Letting agents, landlords | RTB (Residential Tenancies Board) registration provides some verification |
 | **New Zealand** | Property managers | Tenancy Tribunal records are public but references are informal |
 
-## Compared With Existing Referencing
+## Where Each Fits: Live Verify and Referencing Services
 
-| Feature | Live Verify | Homelet / Goodlord | Phone Call to Previous Landlord |
+In the UK, letting agents commonly use referencing services such as Homelet and Goodlord, which contact the previous landlord and combine that reference with credit, income and identity checks; other countries have their own practices, from central tenancy databases in Australia to the formal no-rent-debt certificate in Germany. Many landlords simply phone the previous landlord. A referencing service and a verifiable reference answer different questions: the service assesses the applicant as a whole, while Live Verify confirms where a particular reference came from. They work side by side.
+
+| | Referencing service (e.g. Homelet, Goodlord) | Phone call to the previous landlord | Live Verify on the reference |
 | :--- | :--- | :--- | :--- |
-| **Fraud Resistance** | **High.** Domain-bound to the letting agent. | **Medium.** Relies on contact details provided by the applicant. | **Low.** Applicant provides the phone number. |
-| **Speed** | **Seconds.** Scan and verify. | **1-3 days.** Waiting for previous landlord to respond to email. | **Hours-days.** Phone tag with busy landlords. |
-| **Cost** | **Low.** Standard web infra. | **£15-30 per reference.** Paid by tenant or agent. | **Free but slow.** |
-| **Coverage** | **Universal.** Any landlord with a domain. | **Limited.** Only agents who participate in the platform. | **Universal but unreliable.** |
-| **International** | **Works anywhere.** Domain-agnostic. | **UK/regional only.** | **Impractical across borders.** |
+| **Who can check** | Agents and landlords who commission the service. | Anyone with the number, usually supplied by the applicant. | Anyone handed the reference: a new landlord, a letting agent, a referencing service. |
+| **What the checker gets** | A combined assessment, including the previous landlord's response, credit and affordability checks. | Whatever the person answering says; it may be a friend of the applicant. | Confirmation that the issuing agent or landlord's domain stands behind this exact reference, including dates, rent and arrears, as at its date. The checker still judges whether that domain is a genuine agent; a fraudster can set up a domain too. |
+| **What the tenant shares** | Consent for credit, income and reference checks. | The previous landlord's contact details. | Only the reference they chose to hand over. |
+| **Reach** | Agents who use that service, mainly in the UK. | Wherever the landlord can be reached; awkward across borders. | Global in principle: any letting agent, platform or landlord, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Often a few days, waiting for the previous landlord to reply; a fee per reference, which in England the agent or landlord must bear. | Free, but can take days of phone tag. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A subscription or per-reference payment. | A reachable, honest referee. | The issuer to publish hashes, and Live Verify-aware software on the checker's device. No letting agent or platform does this yet. |
+| **Best suited to** | The full applicant assessment. | Informal questions a form does not ask. | Confirming that a landlord reference genuinely came from the agent it names, including across borders. |
 
-**Where each fits:** Referencing services such as Homelet and Goodlord combine the landlord reference with the wider assessment of an applicant, and remain the right choice for that fuller picture; a phone call is still useful for the informal questions a form does not ask. Their weak point is that the previous landlord's contact details usually come from the applicant. Live Verify fills that gap by resolving the reference against the letting agent's own domain, so the two work together: the referencing service does the assessment, and the hash confirms where the reference came from.
+**Where each fits:** referencing services combine the landlord reference with the wider assessment of an applicant, and remain the right choice for that fuller picture; a phone call is still useful for the informal questions a form does not ask. Their weak point is that the previous landlord's contact details usually come from the applicant. Live Verify fills that gap by resolving the reference against the issuing agent's own domain, quickly and cheaply, wherever the checker has software that honours it: the referencing service does the assessment, and the check confirms where the reference came from.

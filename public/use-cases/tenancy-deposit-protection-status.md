@@ -105,14 +105,21 @@ The Deposit Protection Service, a government-backed tenancy deposit scheme, is a
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Manual Verification
+## Where Each Fits: Live Verify and Scheme Website Lookups
 
-| Feature | Live Verify | Scheme Website Lookup | Landlord's Word |
+In England and Wales, deposits must be protected in one of three government-backed schemes (DPS, MyDeposits and TDS), each of which runs its own online lookup; Scotland and Northern Ireland have their own schemes, and many countries have no such requirement. The scheme lookups are the authoritative check and a tenant can use them today. A verifiable status record answers a narrower question, whether a scheme stood behind this protection status at a given time, in a form the tenant can keep and show to an adviser, solicitor or council later. The two work side by side.
+
+| | Scheme website lookup | Live Verify on the scheme's status record | Landlord's word |
 | :--- | :--- | :--- | :--- |
-| **Speed** | **Seconds.** Hash check against scheme domain. | **Minutes.** Search three separate sites. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Tied to the scheme. | **Session-Based.** Trust the website at that moment. | **Zero.** Unverifiable claim. |
-| **Cross-Scheme Coverage** | **Per-scheme.** Each scheme issues its own artifact. | **Manual.** Tenant must check all three. | **Opaque.** No way to confirm which scheme. |
-| **Integrity** | **Cryptographic.** Binds status to scheme domain. | **Ephemeral.** Screenshot can be faked. | **Vulnerable.** No evidence trail. |
+| **Who can check** | Anyone with the details the lookup asks for. | Anyone handed the status record: the tenant, a Citizens Advice adviser, a solicitor, a council officer, a new letting agent. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The scheme's live answer at that moment, on screen; a screenshot of it proves little later. | Confirmation that the scheme stands behind this exact status (protected, or not found in this scheme), as at its date. Each scheme answers only for itself. | A reference number that may not exist. |
+| **What the tenant shares** | Nothing; they search for themselves. | Only the status record they chose to hand over. | Nothing. |
+| **Reach** | One scheme per search; the tenant may need to try all three. | Global in principle: any deposit scheme, in any country, that publishes hashes on its own domain; still one scheme per record. | Anywhere, but untrusted. |
+| **Speed and cost** | Free; a few minutes, longer if several schemes must be searched. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | The tenant's deposit details. | The scheme to publish hashes, and Live Verify-aware software on the checker's device. No deposit scheme does this yet. | Nothing. |
+| **Best suited to** | The tenant checking their own deposit now. | Evidence kept for later: disputes, advice, enforcement and handovers between agents. | Nothing where the deposit matters. |
+
+**Where each fits:** the schemes' own lookups remain the right first check, and a tenant should use them. What they do not give is a record that someone else can rely on later. A verifiable status from the scheme's domain gives advisers, solicitors and enforcement officers a quick, cheap way to confirm what the scheme said and when, wherever they have software that honours Live Verify; it does not by itself answer whether a deposit is protected in some other scheme.
 
 ## Further Derivations
 

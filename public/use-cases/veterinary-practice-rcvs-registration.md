@@ -180,15 +180,21 @@ The pet owner benefits directly.
 
 **Evidence trail:** When investigating complaints against a practice, verified accreditation claims (or their absence) establish whether the practice was holding itself out as accredited at relevant times.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and the RCVS Find a Vet Lookup
 
-| Feature | Live Verify | RCVS Find a Vet Lookup | PSS Logo on Website | Phone Call to RCVS |
+In the UK, the RCVS publishes practices' Practice Standards Scheme accreditation through its Find a Vet search, and will answer questions by phone; practices also display the PSS logo. Elsewhere, regulation is run by national, state or provincial bodies, each with its own register, and in some places there is no practice-level accreditation at all. The regulator's own search is the authoritative record and remains the place to look. A verifiable claim answers a narrower question on the practice's own website or signage, whether the regulator stands behind this practice's accreditation and level, and works alongside the search.
+
+| | RCVS Find a Vet lookup | Phone call to the RCVS | Live Verify on the registration claim | PSS logo on the website |
 | :--- | :--- | :--- | :--- | :--- |
-| **Issuer-controlled** | **Yes.** RCVS issues the claim. | **Yes.** But requires the pet owner to navigate there. | **No.** Practice self-places the logo. | **Yes.** But slow. |
-| **Verifiable at point of encounter** | **Yes.** On the practice's own website. | **No.** Requires leaving the site. | **No.** Logo is not verifiable. | **No.** Requires a phone call. |
-| **Shows current status** | **Yes.** Live response from RCVS. | **Yes.** If the pet owner checks. | **No.** Logo is static. | **Yes.** |
-| **Shows accreditation level** | **Yes.** Part of verified text. | **Yes.** If the pet owner reads carefully. | **Partially.** Logo may not distinguish levels. | **Yes.** If asked. |
-| **Detects copied claims** | **Yes.** Domain mismatch warning. | **No.** | **No.** | **No.** |
+| **Who can check** | Any pet owner who leaves the practice's site and searches. | Anyone who calls, in office hours. | Any pet owner reading the claim on the practice's website or premises signage. | Nobody; the practice places it. |
+| **What the checker gets** | The RCVS's current record, including accreditation level, if read carefully. | The RCVS's answer to what is asked. | Confirmation that the RCVS stands behind this exact claim, including the accreditation level, for the named website, as at the moment of the check; a mismatch shows if the claim is copied to another site. | A logo, which may not show the level and may outlive the accreditation. |
+| **What the practice shares** | Nothing beyond its public listing. | Nothing directly. | Only the claim it chose to display. | The logo. |
+| **Reach** | UK practices. | UK practices. | Global in principle: any veterinary regulator, in any country, that publishes hashes on its own domain. | Anywhere, but self-asserted. |
+| **Speed and cost** | Free; a few minutes to search. | Free; slower. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | A pet owner who thinks to look. | Someone to answer. | The regulator to publish hashes, and Live Verify-aware software on the pet owner's device. No veterinary regulator does this yet. | Nothing. |
+| **Best suited to** | Finding and comparing practices. | Questions that need a person. | Checking an unfamiliar or online-only practice at the point of contact. | Signposting. |
+
+**Where each fits:** for a local practice a pet owner already knows and trusts, there is little reason to check anything, and the RCVS Find a Vet search remains the authoritative place to look up a practice. A verifiable claim is useful at the point of contact with an unfamiliar or online-only service, where a logo is easy to copy and few people leave the site to search: it lets the owner confirm the accreditation and its level in seconds, wherever they have software that honours Live Verify.
 
 ## Authority Chain
 

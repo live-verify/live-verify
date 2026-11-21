@@ -175,18 +175,21 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Existing Solutions
+## Where Each Fits: Live Verify, Pickup Apps and Paper Lists
 
-| Feature | Live Verify | School Pickup App (QR) | Paper Binder | Phone Call to Parent |
+Many schools already use commercial pickup-management apps, in which the parent authorises a collector and staff scan a QR code to see the authorisation and a photo; others keep a paper binder or call the parent. Where a school has a working app, it is usually the better tool for the busy dismissal moment. A verifiable authorisation answers the same question in a form that does not depend on any one vendor, and works alongside an app or in place of a paper list.
+
+| | Pickup app with QR code | Phone call to the parent | Live Verify on the pickup authorisation | Paper binder |
 | :--- | :--- | :--- | :--- | :--- |
-| **Speed** | Medium (text selection) | **Fast** (scan QR, see photo) | Slow (flip pages) | Very slow (parent may not answer) |
-| **Photo Matching** | Separate step | **Inline** (photo appears on scan) | Manual lookup | N/A |
-| **Real-time Revocation** | Yes | **Yes** | No (until binder updated) | N/A |
-| **Works Offline** | No (needs a connection) | Depends on app | Yes | No |
-| **Cross-System** | **Yes** (any school's domain) | No (app-specific) | N/A | N/A |
-| **Parent Friction** | Medium (school issues) | **Low** (self-service app) | High (paper forms) | N/A |
+| **Who can check** | Staff at a school using that app. | Staff who can reach the parent. | Staff at any school, or anyone shown the authorisation. | Staff at the front desk. |
+| **What the checker gets** | The app's live authorisation and the collector's photo, on screen as the QR is scanned. | The parent's word, if they answer. | Confirmation that the school stands behind this authorisation, for this collector, child and period, as at the moment of the check, or that it has been revoked. Photo matching is a separate step. | The list as it was last updated. |
+| **What the parent shares** | Collector details entered in the app. | A phone conversation. | Only the authorisation the school issued for the collector to carry. | A paper form. |
+| **Reach** | Schools on that vendor's platform. | Anywhere the parent can be reached. | Global in principle: any school or district, in any country, that publishes hashes on its own domain. | One school. |
+| **Speed and cost** | Fast: scan, see photo, release. A subscription for the school. | Slow, and the parent may not answer. | Slower than a QR scan at the gate, since staff must select or scan the text; one web lookup, with no fee to the standard. Needs a data connection. | Slow: flip pages. Works with no connection. |
+| **What it needs** | The school and parent both on the app. | A reachable parent. | The school to publish hashes, and Live Verify-aware software on the staff device. No school does this yet. | Someone to keep it up to date. |
+| **Best suited to** | High-volume daily dismissal at schools that have it. | Unusual cases and last-minute changes. | Schools without an app, collections across districts or systems, a backup when the app is down, and proof afterwards that an authorisation existed. | Small settings with few changes. |
 
-**Why QR often wins here:** The pickup moment is fast-paced and high-volume (50+ kids in 15 minutes at dismissal). QR scan → photo → release is the optimal UX. Live Verify is a fallback for schools without apps, or for edge cases where app-based verification fails.
+**Where each fits:** the pickup moment is fast-paced and high-volume, and for schools with a working app, scanning a QR code and matching the photo is often the faster and safer workflow. Live Verify fits schools that cannot or will not adopt an app, collections that cross districts or systems, a backup when the app is unavailable, and an audit trail that does not depend on a vendor's database, wherever staff have software that honours it.
 
 ## Related Use Cases
 

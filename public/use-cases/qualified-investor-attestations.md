@@ -172,17 +172,21 @@ The attestor is the trust anchor, not the investor. The regulatory body (PCAOB f
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Current Investor Qualification Checks
 
-| Feature | Verified Attestation | Self-Certification Letter | Platform-Specific Form | Audited Financials Package |
+Today each fund, platform or dealer establishes an investor's status for itself, usually from a self-certification letter, its own onboarding form, or a review of the investor's audited financials. The thresholds and rules differ by jurisdiction (US accredited investor and QIB, EU/UK professional client, Australian wholesale investor), and each counterparty runs its own check. A verifiable attestation from the investor's auditor or administrator does not replace initial diligence; it answers a narrower question, whether a named professional stands behind the investor's status as at a date, and works alongside the existing checks.
+
+| | Self-certification letter | Platform-specific form | Audited financials package | Live Verify on an auditor's attestation |
 | :--- | :--- | :--- | :--- | :--- |
-| **Reusable** | **Yes.** One attestation, many relationships. | **No.** Per-counterparty letter. | **No.** Per-platform form. | **Partially.** Same docs, different recipients. |
-| **Auditor-backed** | **Yes.** Attestor is the auditor/admin. | **No.** Self-asserted. | **No.** Self-asserted. | **Yes.** But the full package, not a portable claim. |
-| **Verification speed** | **Seconds.** Hash check. | **Days to weeks.** Manual review. | **Days to weeks.** Manual review. | **Weeks.** Full document review. |
-| **Privacy-preserving** | **Yes.** Threshold only, not exact AUM. | **Partially.** Letter may disclose more. | **Varies.** | **No.** Full financials disclosed. |
-| **Tamper-evident** | **Yes.** | **No.** | **No.** | **No.** |
+| **Who can check** | The counterparty that receives it, by reading it. | The platform that designed the form. | The counterparty's legal or compliance team, by reviewing the package. | Any counterparty handed the attestation: a platform, GP, dealer or regulator. |
+| **What the checker gets** | The investor's own statement that it meets the threshold. | The investor's answers in the platform's own format. | The underlying figures, which the checker must assess itself. | Confirmation that the named auditor or administrator issued this exact attestation of status, as at its date, and has not withdrawn it. |
+| **What the investor shares** | A letter, sometimes with supporting schedules. | Whatever the form asks for. | Full financial statements. | Only the attestation: the threshold met, not the exact AUM or net worth. |
+| **Reach** | Accepted by convention wherever self-certification is permitted. | One platform only. | Anywhere, but each recipient reviews it afresh. | Global in principle: any auditor, administrator or adviser, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Quick to produce; review is manual and can take days. | Repeated for every platform. | Slow: a full document review each time. | A few seconds per check: one web lookup, with no fee to the standard. The issuer's work in attesting is separate and may be charged for. |
+| **What it needs** | The counterparty to accept self-certification. | The investor to complete each platform's form. | Audited accounts and reviewer time. | The issuer to publish hashes, and Live Verify-aware software on the checker's device. No auditor or administrator does this yet. |
+| **Best suited to** | Low-risk relationships where the rules allow it. | Each platform's own records. | Initial diligence, and any case where the checker needs the numbers themselves. | Repeat re-verification of the same status across many relationships. |
 
-**Practical conclusion:** self-certification and audited financials packages remain necessary for initial diligence. Verified attestations accelerate the repetitive re-verification that currently consumes weeks of compliance time across dozens of relationships per year.
+**Where each fits:** self-certification and audited financials remain necessary for initial diligence, and a counterparty that needs the actual numbers should still ask for them. Where the same status is re-proved to dozens of counterparties a year, an auditor-issued attestation that each can check in seconds saves the repeated review, wherever the checker has software that honours Live Verify.
 
 ## Further Derivations
 

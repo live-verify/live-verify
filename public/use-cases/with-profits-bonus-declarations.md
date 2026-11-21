@@ -98,14 +98,21 @@ Prudential Assurance, a regulated life assurance provider, is authorized by the 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Annual Bonus Notice (Paper)
+## Where Each Fits: Live Verify, Insurer Portals and Paper Bonus Notices
 
-| Feature | Live Verify | Paper Bonus Notice | Insurer Online Portal |
+Insurers send each with-profits policyholder an annual bonus notice or statement, and many also offer an online portal where current values can be seen; a policyholder can also ask the insurer for a statement of their bonus history. The insurer's own records are the authority, and the policyholder or their adviser can ask for them. A verifiable bonus declaration answers a narrower question for whoever is handed a notice years later, whether the insurer stands behind this exact declaration for this policy and year, and works alongside the insurer's statements.
+
+| | Insurer online portal | Live Verify on the bonus declaration | Paper bonus notice |
 | :--- | :--- | :--- | :--- |
-| **Durability** | **Archival.** Verified record persists for the policy lifetime. | **Fragile.** Paper lost, misfiled, or damaged over decades. | **Ephemeral.** Portal redesigns lose historical data. |
-| **Trust Anchor** | **Domain-Bound.** Tied to the insurer's verified domain. | **Zero.** A letter anyone could reproduce. | **Session-Bound.** Screenshot proves nothing. |
-| **Third-Party Sharing** | **Instant.** IFA or solicitor verifies in seconds. | **Slow.** Requires posting or scanning original documents. | **Restricted.** Requires login credentials or a Subject Access Request. |
-| **Historical Record** | **Cumulative.** Every year's declaration independently verifiable. | **Scattered.** Depends on the policyholder's filing discipline. | **Incomplete.** Older years often unavailable. |
+| **Who can check** | The policyholder, with their login. | Anyone handed the declaration: an adviser, a solicitor, the Financial Ombudsman Service. | Anyone handed it, with no way to confirm it. |
+| **What the checker gets** | The insurer's current view of the policy; how far back the history goes varies. | Confirmation that the insurer stands behind this exact declaration, including the bonus rate, value added and total guaranteed value, as at its date, and the policy's current status (in force, MVR applied, matured, surrendered). It confirms what the insurer declared, not that the bonus was calculated correctly. | A letter anyone could reproduce or alter. |
+| **What the policyholder shares** | Nothing; third parties need the policyholder's login or a formal request to the insurer. | Only the declarations they chose to hand over. | The notice. |
+| **Reach** | One insurer's policyholders. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Quick for the policyholder; requests for older history can take weeks. | A few seconds per check: one web lookup, with no fee to the standard. | Free, but older notices are easily lost. |
+| **What it needs** | An account with the insurer. | The insurer to publish hashes and keep them available for the life of the policy, and Live Verify-aware software on the checker's device. No insurer does this yet. | Nothing. |
+| **Best suited to** | The policyholder checking their current position. | Building a year-by-year record that advisers, courts and the ombudsman can rely on. | Nothing where the value matters. |
+
+**Where each fits:** the insurer's portal and statements remain the authority on a policy's current value, and a policyholder or adviser should still ask the insurer for a full history when it matters. Each year's notice is still what gets filed, lost and produced years later in a surrender decision, a divorce or a complaint. Live Verify lets whoever is handed one confirm quickly that the insurer stands behind it, wherever they have software that honours it.
 
 ## Further Derivations
 

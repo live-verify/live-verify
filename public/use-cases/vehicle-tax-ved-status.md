@@ -112,16 +112,21 @@ Other jurisdictions would follow an equivalent chain rooted in their own governm
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Government Portal Lookup
+## Where Each Fits: Live Verify and Government Vehicle Lookups
 
-| Feature | Live Verify | Government Portal Lookup | Seller's Word |
+Vehicle tax and registration status is held by each country's or state's own authority, and many publish it: in the UK anyone can check a vehicle's tax and SORN status free on GOV.UK by entering its registration number, and the DVLA also offers an API for bulk lookups. Other jurisdictions offer similar lookups, some only to the owner, and some none at all. Where a free public lookup exists it is already the authoritative check, and Live Verify adds little for a buyer who will run it. A verifiable status mainly helps where the status travels inside something else, such as a listing or a fleet record, and works alongside the lookup. <!-- TODO(verify): the DVLA vehicle enquiry API and what it returns -->
+
+| | Government portal lookup | Live Verify on the status | Seller's word |
 | :--- | :--- | :--- | :--- |
-| **Speed** | **Seconds.** Hash check against issuing authority. | **Minutes.** Manual entry per vehicle. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Tied to government domain. | **Direct.** Same source, but not portable. | **Zero.** No backing. |
-| **Embeddable** | **Yes.** Clip into listings, emails, fleet dashboards. | **No.** Result stays on government site. | **No.** Just a claim. |
-| **Bulk Use** | **Scalable.** One hash per vehicle, verifiable programmatically. | **Manual.** One lookup at a time. | **N/A.** |
-| **Cost to Buyer** | **Free.** Verification is a hash check. | **Free.** But requires manual effort. | **Free.** |
-| **Integrity** | **Cryptographic.** Binds status to government domain. | **Ephemeral.** Screenshot can be fabricated. | **Vulnerable.** Easily fabricated. |
+| **Who can check** | Anyone with the registration number, where the authority publishes status publicly. | Anyone shown the status, in a listing, an email or a fleet system. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The authority's live answer, on its own site. | Confirmation that the authority stands behind this exact status for this vehicle, as at its date. | A claim. |
+| **What the owner shares** | Nothing; the registration number is visible on the car. | Only the status they chose to include. | Nothing. |
+| **Reach** | One jurisdiction's vehicles; access rules vary. | Global in principle: any vehicle authority, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free and quick per vehicle in the UK; bulk use needs an API integration. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | A public lookup or API. | The authority to publish hashes, and Live Verify-aware software on the checker's device. No vehicle authority does this yet. | Nothing. |
+| **Best suited to** | Any buyer or fleet manager checking status directly. | Status embedded in listings and records, checked without re-entering details, and jurisdictions without a public lookup. | Nothing. |
+
+**Where each fits:** where the authority already offers a free public lookup, as GOV.UK does, that remains the simplest and most authoritative check, and buyers should use it. A verifiable status is a modest convenience on top: it lets a status shown in a listing or a fleet record be confirmed in place, quickly, wherever the checker has software that honours Live Verify, and it would matter more in jurisdictions where no public lookup exists.
 
 ## Further Derivations
 

@@ -139,17 +139,19 @@ No regulatory chain. Trust rests on the organizer's domain — the same domain t
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With the Alternatives
+## Where Each Fits: Live Verify, iCal Files and Shared Calendar Platforms
 
-| Feature | Live Verify | iCal / CalDAV | Shared Platform (Google/Outlook) |
+Calendar events travel today as iCal (`.ics`) files, synced over CalDAV, or inside shared platforms such as Google Calendar and Microsoft Outlook. Within one organization, or between people on the same platform, the platform is the source of truth and works well. Email authentication such as DKIM and DMARC can also show that an invitation email came from the organizer's domain, while it remains an email. A verifiable event answers a narrower question that travels with the text, whether the organizer's domain stands behind these exact event details, and works alongside the calendar formats rather than replacing them.
+
+| | iCal or CalDAV | Shared calendar platform (Google, Outlook) | Live Verify on the event text |
 | :--- | :--- | :--- | :--- |
-| **Cross-org trust** | Domain-attested by each party | Unsigned blob | Only if both on same platform |
-| **Tamper detection** | Hash breaks on any change | None | Platform-internal only |
-| **Portable proof** | Works in any email/SMS client | Requires calendar app | Requires platform access |
-| **Response verification** | Each party attests independently | Accept/Decline invisible outside app | Platform-internal only |
-| **Phishing resistance** | Verify organizer domain before clicking links | None | Platform-level spam filtering |
+| **Who can check** | Nobody; a calendar app accepts the file as given. | Users on the same platform, inside it. | Anyone shown the event text: an attendee, an employer, a court, a homeowner, in any email or SMS client. |
+| **What the checker gets** | The event as written in the file, which anyone can create. | The platform's own record of the event and of each attendee's response. | Confirmation that the organizer's domain stands behind these exact details, as at the moment of the check, and whether the event has been cancelled or superseded; each response can be confirmed against the responder's own domain. |
+| **What the holder shares** | The file. | Nothing beyond the platform. | Only the event or response text they chose to forward. |
+| **Reach** | Any calendar app, but untrusted. | One platform, or organizations federated with it. | Global in principle: any organizer or email provider, anywhere, that publishes hashes on its own domain. |
+| **Speed and cost** | Free and immediate. | Free or part of a subscription; immediate within the platform. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A calendar app. | Both parties on the platform. | The organizer's system to publish hashes, and Live Verify-aware software on the checker's device. No calendar platform or email provider does this yet. |
+| **Best suited to** | Storing and syncing events. | Internal scheduling and scheduling between users of the same platform. | Cross-organization events whose details matter beyond the diary: appointments, hearings, service visits; and checking an organizer before following a meeting link. |
 {: .table .table-striped}
 
-**Where Live Verify is strongest:** cross-organizational scheduling where the parties do not share a calendar platform, and where the event details have legal or operational significance beyond "put it in my diary."
-
-**Where it adds little:** internal meetings within a single organization's calendar system.
+**Where each fits:** for internal meetings within a single organization's calendar system, Live Verify adds little, and the platform should remain the source of truth. It fits cross-organization scheduling where the parties do not share a calendar platform, and where the event details have legal or operational significance, such as a hearing date, a medical appointment or a service visit. There it lets anyone handed the event text check it quickly and cheaply, wherever they have software that honours Live Verify.

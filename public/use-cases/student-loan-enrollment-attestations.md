@@ -160,17 +160,21 @@ US accreditation is handled by regional and national accrediting agencies recogn
 Post-VET FEE-HELP reform, provider registration requirements were tightened, but enrollment verification remains institution-level.
 </details>
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Institutional Enrolment Reporting
 
-| Feature | Verified Enrollment Attestation | Institutional Bulk Reporting | Portal Self-Service |
+Today funding bodies such as the Student Loans Company in the UK, Federal Student Aid in the US and Australia's Department of Education learn about enrolments from the institutions themselves, through periodic bulk returns and through confirmations entered in online portals. Those returns remain necessary for funding calculations and statistics. A verifiable enrolment attestation answers a narrower question, whether a named person at the college stands behind this student's enrolment as at a date, and works alongside the existing reporting.
+
+| | Institutional bulk reporting | Portal self-service confirmation | Live Verify on the enrolment attestation |
 | :--- | :--- | :--- | :--- |
-| **Timing** | **Real-time.** At the point of enrollment. | **Months later.** Annual or termly returns. | **Variable.** Depends on institution. |
-| **Named individual** | **Yes.** Registrar/admissions officer named. | **No.** Institutional return. | **No.** |
-| **Witnessed by funding body** | **Yes.** Hash received at issuance. | **No.** Self-reported. | **No.** |
-| **Gap detection** | **Immediate.** Enrolled but no attestation = visible gap. | **Delayed.** Discovered at next reporting cycle. | **Not available.** |
-| **Tamper-evident** | **Yes.** Hash-based. | **No.** Data can be amended before submission. | **No.** |
+| **Who can check** | The funding body and regulators. | The funding body, through its portal. | Anyone handed the attestation: the funding body, a regulator, an immigration authority, an auditor, an employer or benefits office. |
+| **What the checker gets** | The institution's return, usually termly or annual, as the institution chose to submit it. | The institution's confirmation, with timing that depends on the institution. <!-- TODO(verify): which portal process this column refers to (e.g. SLC attendance confirmation) and how quickly confirmations reach the funding body --> | Confirmation that the college stands behind this exact enrolment, attested by the named individual, as at its date, and its current status (enrolled, withdrawn, suspended, revoked). |
+| **What the student shares** | Nothing directly. | Nothing directly. | Only the attestation they chose to hand over, for visa, benefits or employer purposes. |
+| **Reach** | One country's funding system. | One funding body's portal. | Global in principle: any college, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Slow: discrepancies surface at the next reporting cycle. | Varies. | A few seconds per check: one web lookup, with no fee to the standard. Where the funding body also records each attestation's hash at issue, gaps between claimed and attested enrolments show early. |
+| **What it needs** | The institution's student records system and reporting staff. | Portal access for the institution. | The college to publish hashes, and Live Verify-aware software on the checker's device. No college or funding body does this yet. |
+| **Best suited to** | Funding calculations and statistical analysis. | Routine operational confirmations. | Individually accountable enrolment claims, checked before the first loan disbursement, and portable proof for the student. |
 
-**Practical conclusion:** institutional bulk reporting remains necessary for detailed statistical analysis. Verified enrollment attestations add a real-time, individually-accountable, witnessed layer that catches enrollment fraud before the first loan disbursement, not months or years after.
+**Where each fits:** institutional bulk reporting remains necessary for funding and statistics, and attendance is better monitored through systems the funding body accesses directly. A verifiable enrolment attestation adds an individually accountable record, made at the point of enrolment, that a funding body, regulator or immigration authority can check quickly and cheaply, wherever they have software that honours Live Verify.
 
 ## Further Derivations
 

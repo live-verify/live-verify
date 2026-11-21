@@ -327,16 +327,21 @@ Most schools manage attendance records honestly and have no issues with record i
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Existing Solutions
+## Where Each Fits: Live Verify, Attendance Apps and Funding Audits
 
-| Feature | Live Verify | School/Childcare App | Paper Sign-In Sheet | Funding Body Audit |
+Today attendance and handovers are recorded on paper sign-in sheets or in school and childcare apps supplied by commercial vendors, and subsidised childcare is checked by the funding body's own audits, which differ by country (the page mentions the US CCDF, Australia's CCS and UK Tax-Free Childcare). Apps and audits do real work: apps give parents notifications and providers a tidy register, and audits catch inflated claims. A verifiable record answers a narrower question, whether the provider committed to this exact time and handover at the moment it happened, and works alongside them.
+
+| | School or childcare app | Funding-body audit | Live Verify on attendance and handover records | Paper sign-in sheet |
 | :--- | :--- | :--- | :--- | :--- |
-| **Bilateral verification** | **Yes.** Both parent/guardian and provider confirm the same record. | **Sometimes.** Some apps notify parents; few require confirmation. | **No.** Provider controls the sheet. | **Retrospective.** Compares claims against records months later. |
-| **Fraud detection timing** | **Real-time.** Before funding claim is submitted. | **Varies.** Depends on app design. | **Never.** Sheet says whatever the provider wrote. | **Months to years.** Money already gone. |
-| **Custody evidence** | **Cryptographic.** Timestamped, authority-chained, independently verifiable. | **App-dependent.** Records in vendor database; may not be admissible. | **Weak.** Handwriting on paper, easily disputed. | **N/A.** Not designed for custody. |
-| **Cross-system** | **Yes.** Works across any provider/school with a domain. | **No.** Locked to vendor ecosystem. | **N/A.** | **N/A.** |
-| **Parent portability** | **Yes.** Parent keeps verified records across providers. | **No.** Records stay with the app/provider. | **No.** Provider keeps the sheet. | **No.** |
-| **Autonomy transition** | **Built-in.** Student's own device becomes the verifying instrument. | **Varies.** Some apps support student accounts. | **N/A.** | **N/A.** |
+| **Who can check** | The provider, and parents to the extent the app shows them records. | The funding body's auditors. | Anyone handed a record: a parent, a funding body, a family court, child protection services, an insurer. | Whoever can see the sheet; it is the provider's own record. |
+| **What the checker gets** | The vendor's record, as the provider entered it; some apps notify parents, few ask them to confirm. | A retrospective comparison of claims against records, months or years later. | Confirmation that the provider stands behind this exact arrival, departure or handover record, as at the time it was issued; the parent's copy can later be set against what the provider claims. | Handwriting that can be filled in or changed later. |
+| **What the parent shares** | Nothing; the provider holds the data. | Nothing directly. | Only the records they chose to hand over. | Nothing. |
+| **Reach** | One vendor's app and the providers that use it; records rarely move between providers. | One country's funding scheme. | Global in principle: any school or provider, in any country, that publishes hashes on its own domain; the parent keeps records across providers. | One setting. |
+| **Speed and cost** | Fast in use; a subscription for the provider. | Slow, and labour-intensive for both sides. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection at the time of the check. | Free. |
+| **What it needs** | The provider to adopt the app. | Audit resources. | The provider to publish hashes at each event, and Live Verify-aware software on the parent's or checker's device. No school or childcare provider does this yet. | Nothing. |
+| **Best suited to** | Day-to-day registers and parent messaging. | Detecting systematic over-claiming across many providers. | Contemporaneous evidence a parent holds, for subsidy disputes, safeguarding questions and custody handovers; for older students, their own device confirming sign-in. | Low-stakes settings. |
+
+**Where each fits:** school and childcare apps remain the practical way to run a register, and funding-body audits remain the backstop against systematic over-claiming. What neither gives is a record the parent holds, committed by the provider at the moment of the handover, that they can produce later in a subsidy dispute or a family court. Live Verify adds that cheaply, across providers, wherever the checker has software that honours it.
 
 ## Further Derivations
 

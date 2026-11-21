@@ -176,18 +176,22 @@ Self-authorized — this is a sovereign body whose authority derives from statut
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Existing Systems
+## Where Each Fits: Live Verify and Government Work-Authorisation Portals
 
-| Feature | Live Verify | Government Portals (E-Verify, VEVO, Share Code) | Physical Document Inspection |
+Several countries run their own checking systems: E-Verify in the US, the Home Office share-code check in the UK, VEVO in Australia, and the Ministry of Manpower's online check in Singapore. Coverage depends on where you are: some countries have a mature employer-facing system, some have one only for certain permits, and many have none, leaving employers to inspect a card or letter. Where an official system exists it is the authoritative route and should remain primary. A verifiable permit answers a narrower question, whether the issuing authority stands behind this exact permit or grant notice and its current status, and works alongside the portals.
+
+| | Government portal (E-Verify, share code, VEVO) | Live Verify on the permit or grant notice | Physical document inspection |
 | :--- | :--- | :--- | :--- |
-| **Access** | **Useful when working from a copied or forwarded permit.** | **Primary.** Official current-status path. | **Open.** Anyone can look at a card. |
-| **Trust** | **Domain-bound.** Cryptographically tied to issuing authority's domain. | **High.** Direct database access. | **Low.** Visual inspection only; forgeries pass. |
-| **Speed** | **Fast bridge from the document to status.** | **Varies by jurisdiction.** Sometimes excellent, sometimes cumbersome. | **Instant.** But unreliable. |
-| **Coverage** | **Best for portability across copied human workflows.** | **Single-country.** Each portal serves one jurisdiction. | **International.** But no verification. |
-| **Worker Privacy** | **High.** Hash-based; no data upload. | **Low.** Full personal data entered into government systems. | **Medium.** Photocopies often retained. |
-| **Small Business Access** | **Potentially easier.** | **Often no.** Many small employers don't register for government portals. | **Yes.** But no fraud protection. |
+| **Who can check** | Employers registered with or using that country's system; some are open to landlords, banks or the worker. | Anyone handed the permit, grant notice or a copy: an employer, a bank, a landlord, a labour inspector, the worker. | Anyone who looks at it. |
+| **What the checker gets** | The authority's current record of the person's work entitlement, often with conditions. | Confirmation that the issuing authority stands behind this exact permit, including category, conditions and sponsor, as at the moment of the check, or that it has expired or been cancelled. | A card or letter that may be forged, expired or altered; forgeries can pass a visual check. |
+| **What the worker shares** | Identity details or a share code, entered into the government system. | Only the document they chose to hand over. | The document, often photocopied and kept. |
+| **Reach** | One country each. | Global in principle: any immigration or labour authority, in any country, that publishes hashes on its own domain. | Universal, but unverifiable on sight. |
+| **Speed and cost** | Varies by country: sometimes quick and free, sometimes cumbersome, and some require employer registration. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | A national system and, often, a registered checker. | The authority to publish hashes, and Live Verify-aware software on the checker's device. No immigration authority does this yet. | Nothing. |
+| **Legal standing** | The recognised route for employer compliance where it exists. | None on its own today; it would need the authority's recognition before it could satisfy a legal check. | Accepted in some systems for some documents. |
+| **Best suited to** | Formal right-to-work compliance. | Copied or forwarded permits and grant notices, checkers who cannot use the portal, and countries with no portal. | A first look. |
 
-**More realistic framing:** This is strongest where official systems are absent, fragmented, or hard for low-capability relying parties to use. Where a mature official system exists, that system should remain primary. Live Verify is a complementary portability layer for copied permits, grant notices, and forwarded status artifacts.
+**Where each fits:** where a mature official system exists, that system should remain primary for employers' legal checks. Live Verify is strongest where official systems are absent, fragmented, or hard for small employers, landlords, banks and inspectors to use, and for workers who want to check their own status. It is a quick, cheap, complementary layer for copied permits, grant notices and forwarded status documents, wherever the checker has software that honours it.
 
 ## Country-Specific Deep Dives
 

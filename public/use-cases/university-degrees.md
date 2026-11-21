@@ -123,16 +123,21 @@ The Graduate (Alumnus) benefits from verification.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Education Clearinghouses (NSC)
+## Where Each Fits: Live Verify and Degree Verification Services
 
-| Feature | Live Verify | National Student Clearinghouse | Physical Diploma |
+Degree checks today go through national or commercial services that query universities' records: the National Student Clearinghouse in the US, HEDD in the UK, national databases in some other countries, and digital credential platforms used by some universities. Coverage depends on where the degree was awarded: some countries have a national service, some universities belong to a commercial one, and many have neither, leaving the employer to write to the registrar. These services are the established route and should stay so where they cover the degree. A verifiable degree or transcript answers the same question from the document in hand, and works alongside them. <!-- TODO(verify): HEDD as the UK degree verification service and what it covers -->
+
+| | Clearinghouse or national verification service | Live Verify on the degree or transcript | Physical diploma |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the University. | **Data-Bound.** Trust the aggregator. | **Visual.** |
-| **Speed** | **Fast bridge from the artifact.** | **Primary where integrated.** Often takes time. | **Instant.** |
-| **Cost** | **Low.** Standard web infra. | **High.** Employers pay $15-$50 per check. | **Zero.** |
-| **Integrity** | **Cryptographic.** Binds GPA and Honors. | **Data-Only.** | **Vulnerable.** |
+| **Who can check** | Employers and agencies that use the service, usually with the graduate's consent. | Anyone handed the degree or transcript: an employer, an immigration authority, a licensing board. | Anyone who looks at it. |
+| **What the checker gets** | The university's record of the award, as reported to the service. | Confirmation that the university's domain stands behind this exact text, including subject, classification or GPA and honours, as at its date. The checker still needs to know the domain belongs to a recognised institution; a diploma mill can publish on its own domain. | Paper and seals that a forger can imitate. |
+| **What the graduate shares** | Consent and identifying details for the search. | Only the document they chose to hand over. | The diploma. |
+| **Reach** | Universities that report to that service, mainly in its own country. | Global in principle: any university, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Often quick where the university participates; usually a fee per check. Slower when records must be looked up by hand. | A few seconds per check: one web lookup, with no fee to the standard. | Instant, and proves little. |
+| **What it needs** | The university to participate and the checker to have an account. | The university to publish hashes, and Live Verify-aware software on the checker's device. No university does this yet. | Nothing. |
+| **Best suited to** | Routine pre-employment screening where the service covers the institution. | Degrees from institutions outside the checker's national service, and documents already being exchanged as PDF or paper. | Display. |
 
-**Narrower conclusion:** Registrar and clearinghouse systems should remain primary where they are available and accepted. Live Verify is complementary when the diploma, transcript, or completion letter is already being exchanged outside those systems and the verifier otherwise falls back to PDF trust or visual inspection.
+**Where each fits:** registrar and clearinghouse systems should remain primary where they are available and accepted. Live Verify is complementary when the diploma, transcript or completion letter is already being exchanged outside those systems, especially across borders, and the checker would otherwise fall back to trusting the PDF or inspecting the paper. It gives them a quick, cheap check wherever they have software that honours it.
 
 ## See Also
 

@@ -215,16 +215,21 @@ The registry model doesn't eliminate will fraud. It eliminates the solicitor's m
 
 See [Legal Witnessing Future Architecture](../../docs/legal-witnessing-future-architecture.md) for the generalised model — including the lawyer's verbal hash confirmation step, the three distinct attestation roles, and applicability beyond wills to powers of attorney, deeds, affidavits, and contracts.
 
-## Compared With Physical Security (Watermarks)
+## Where Each Fits: Live Verify, Security Paper and Probate Court Records
 
-| Feature | Live Verify | Watermarked Paper | Online Court Docket |
+Wills are usually printed on ordinary or security paper and stored by the testator, their lawyer or a will-storage service; some countries and states run will registers, mostly recording that a will exists and where it is kept. Once a will is admitted to probate, the court's record becomes the authoritative copy, and in many places, including England and Wales, it becomes public and copies can be ordered. These answer different questions at different stages, and a verifiable will works alongside them.
+
+| | Probate court record | Security or watermarked paper | Live Verify on the will |
 | :--- | :--- | :--- | :--- |
-| **Tamper Detection** | **High.** Protects the actual text. | **Low.** Only protects the paper. | **High.** |
-| **Versioning** | **Real-time.** Shows "Superseded." | **Zero.** Paper doesn't change. | **Manual.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Lawyer. | **Printer-Bound.** | **System-Bound.** |
-| **Cost** | **Free.** (Standard web hosting). | **High.** Specialized paper/ink. | **Medium.** Access fees. |
+| **Who can check** | Anyone with access to the court's records after probate, sometimes for a fee. | Anyone holding the original, by examining the paper. | Anyone handed a copy: an executor, a family member, a lawyer. |
+| **What the checker gets** | The will as proved, with the court's authority behind it. | Evidence that the sheet itself is genuine stock, not that each page is the original page. | Confirmation that the drafting firm stands behind this exact wording, as at its date, and whether the firm has marked it superseded. The firm can only mark it superseded if it knows of a later will. |
+| **What the holder shares** | Nothing; the record is the court's. | The original document. | Only the copy they chose to check. |
+| **Reach** | One court's jurisdiction, and only after probate. | Wherever the paper is. | Global in principle: any law firm or will registry, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Varies by court, often with a copy fee. | Immediate to examine; the paper costs more than plain stock. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A grant of probate. | Nothing beyond the paper. | The firm or registry to publish hashes, and Live Verify-aware software on the checker's device. No law firm or will registry does this yet. |
+| **Best suited to** | The authoritative record once the estate is being administered. | Resisting crude physical forgery. | Checking a copy before probate, without any filing during the testator's lifetime. |
 
-**Where each fits:** Once a will has been admitted to probate, the court docket is the authoritative record and the place to look. Before then most people keep their will private, and security paper only shows that the sheet itself has not been swapped. Live Verify lets an executor or family member confirm that the lawyer's firm stands behind the wording of the copy they hold and that it has not been superseded, without any filing during the testator's lifetime; the court process then proceeds as usual.
+**Where each fits:** once a will has been admitted to probate, the court record is the authoritative record and the place to look. Before then most people keep their will private, and security paper only shows that the sheet itself is genuine stock. Live Verify lets an executor or family member confirm quickly that the lawyer's firm stands behind the wording of the copy they hold and that the firm has not marked it superseded, without any filing during the testator's lifetime; the court process then proceeds as usual.
 
 ## Independent Record (Optional)
 

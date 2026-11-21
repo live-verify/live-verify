@@ -176,17 +176,21 @@ US equivalents would chain to the relevant federal or state authority roots depe
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify, Portal Logins and Helpdesk Calls
 
-| Feature | Live Verify | PDF / Email / SMS | Phone Call to Helpdesk | Raw Portal Login |
+Today the reliable way to check a fee demand is to log in to the real account or portal of the firm or authority said to be holding the money or goods, or to ring its helpdesk on a number found independently. Those checks are run by each firm or authority for its own customers. A verifiable notice answers a narrower question, whether the named issuer really sent this demand, and works alongside them, particularly when the person being asked to judge the demand is a bank, a relative or the police rather than the account holder.
+
+| | Direct portal login | Call to the helpdesk | Live Verify on the notice | PDF, email or SMS |
 | :--- | :--- | :--- | :--- | :--- |
-| **Portable** | **Yes.** Notice travels safely. | **Yes.** But trivially spoofed. | **No.** | **No.** |
-| **Verifiable outside portal** | **Yes.** Domain-bound check. | **No.** | **No.** | **No.** |
-| **Useful to banks/families/police** | **Yes.** One artifact to verify. | **Weak.** | **Weak.** | **Usually unavailable.** |
-| **Detects fabricated demands** | **Yes.** 404 if never issued. | **No.** | **Weak.** | **Mixed.** |
-| **Works after the fact** | **Yes.** Useful in complaints. | **Poorly.** | **Poorly.** | **Fragmented.** |
+| **Who can check** | The account holder, with their own credentials. | Anyone who reaches the real helpdesk, if they find the genuine number. | Anyone shown the notice: the recipient, their bank, a relative, the police. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The firm's own view of the account, including any genuine charges due. | The helpdesk's answer, which depends on reaching the real organisation. | Confirmation that the named issuer stands behind this exact demand, as at its date; nothing is found if it never issued it. | A message that is easy to spoof. |
+| **What the holder shares** | Nothing; they check for themselves. | Account details for the call. | Only the notice they chose to show. | Only the notice they chose to show. |
+| **Reach** | One firm's own customers. | One organisation. | Global in principle: any firm, court or authority, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Quick for the account holder; unavailable to anyone else. | Minutes to hours, depending on queues. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | A genuine portal and the holder's login. | A genuine number, found independently of the demand. | The issuer to publish hashes, and Live Verify-aware software on the checker's device. No firm or authority does this yet. | Nothing. |
+| **Best suited to** | The account holder confirming their own position. | Questions about the account that need a person. | A bank, relative or investigator checking a demand that has left the portal, including afterwards in complaints. | Nothing where money is at stake. |
 
-**Practical conclusion:** direct portal access remains the primary verification path where available. Release-fee scams succeed precisely because the demand is portable and social, escaping the portal entirely. A verification-chain mandate would complement existing portal systems by making the verification object portable too.
+**Where each fits:** direct portal access remains the primary check wherever it is available, and a call on an independently found number is a sound second. Release-fee scams succeed because the demand is portable and social and escapes the portal entirely. A verifiable notice makes the check portable too, so that whoever is shown the demand can confirm in seconds whether the named issuer sent it, wherever they have software that honours Live Verify.
 
 ## Further Derivations
 

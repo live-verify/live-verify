@@ -221,18 +221,21 @@ The pre-qualifying organization is the trust anchor. The regulatory or oversight
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Pre-Qualification Scheme Portals
 
-| Feature | Verifiable Claim | PDF Letter / Certificate | Phone / Email Confirmation | Scheme Portal Login |
+Pre-qualification is run by buyers themselves and by scheme operators such as Constructionline, Achilles and RISQS in the UK, with their own portals for registered users; other countries have their own schemes or none. Today a supplier proves its status with a PDF letter or certificate, by pointing the buyer to the scheme portal, or by having the buyer phone or email the pre-qualifying organisation. The portal remains the place for detailed assessment records; a verifiable claim answers the narrower question of current status and value tier for anyone shown it, and works alongside the portal.
+
+| | Scheme portal login | Phone or email confirmation | Live Verify on the pre-qualification claim | PDF letter or certificate |
 | :--- | :--- | :--- | :--- | :--- |
-| **Reusable** | **Yes.** One claim, many tenders and relationships. | **No.** Static document; may be outdated. | **No.** Per-enquiry. | **Partially.** Requires login credentials. |
-| **Issuer-controlled** | **Yes.** Buyer or scheme operator controls the content and can revoke. | **No.** Once issued, the PDF exists independently. | **Yes.** But slow and manual. | **Yes.** But access is limited to registered users. |
-| **Value-limit visible** | **Yes.** Hashed into the claim; cannot be altered. | **Partially.** Stated in the letter but can be misrepresented verbally. | **Yes.** If the person answering knows the details. | **Yes.** If the portal shows tier information. |
-| **Tamper-evident** | **Yes.** | **No.** | **N/A.** | **N/A.** |
-| **Real-time status** | **Yes.** Revocation reflected immediately. | **No.** Stale from the moment of issue. | **Yes.** But requires a phone call. | **Yes.** If checked at the right time. |
-| **Accessible to subcontractors** | **Yes.** Embedded on the supplier's public website. | **Only if shared.** | **Unlikely.** Buyers may not confirm to third parties. | **No.** Portal access is usually restricted. |
+| **Who can check** | Registered buyers with portal access. | Whoever contacts the pre-qualifying organisation and gets an answer; third parties may be refused. | Anyone shown the claim: a buyer's procurement team, a subcontractor, an insurer. | Anyone handed it, with no way to confirm it. |
+| **What the checker gets** | The scheme's current record, often with tier and assessment detail. | The answer of whoever responds, if they know the details. | Confirmation that the pre-qualifying organisation stands behind this exact claim, including the value limit, as at the moment of the check, or that it has expired or been withdrawn. | The status and tier as issued, which may since have lapsed. |
+| **What the supplier shares** | Whatever the scheme displays to registered users. | Nothing directly. | Only the claim it chose to present or display. | The letter. |
+| **Reach** | One scheme's registered users. | One organisation. | Global in principle: any buyer or scheme operator, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Quick for registered users; registration may carry a fee. | Slow and manual, per enquiry. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | A portal account. | Someone to answer. | The issuer to publish hashes, and Live Verify-aware software on the checker's device. No buyer or scheme operator does this yet. | Nothing. |
+| **Best suited to** | Detailed assessment records and supplier discovery. | Occasional queries that need a person. | Proving current status and value tier to many parties, including subcontractors outside the scheme. | A record of the original award. |
 
-**Practical conclusion:** PDF letters and scheme portal logins remain necessary for detailed assessment records. Verifiable claims address the specific problem of proving current status and value tier to multiple parties without requiring each party to contact the pre-qualifying organization.
+**Where each fits:** PDF letters and scheme portals remain necessary for detailed assessment records, and buyers with portal access should keep using it. Verifiable claims address the narrower problem of proving current status and value tier to many parties, including subcontractors and insurers who cannot log in, without each one contacting the pre-qualifying organisation, wherever they have software that honours Live Verify.
 
 ## Further Derivations
 
