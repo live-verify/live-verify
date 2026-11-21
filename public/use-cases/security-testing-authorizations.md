@@ -89,7 +89,7 @@ Without it, they're committing computer crimes. With it, they're performing a le
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #228B22; background: #fff; padding: 0;">
   <div style="background: #228B22; color: #fff; padding: 15px;">
-    <div style="font-weight: bold; font-size: 1.1em;">BUG BOUNTY SCOPE CONFIRMATION</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="securitytestingautho2"></span>BUG BOUNTY SCOPE CONFIRMATION</div>
     <div style="font-size: 0.8em;">Vulnerability Disclosure Program</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -110,9 +110,9 @@ Without it, they're committing computer crimes. With it, they're performing a le
 <p style="font-size: 0.85em; color: #666;">Program managed via: HackerOne<br>
     Safe harbor: Yes (no legal action for good-faith research)</p>
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      <div data-verify-line="securitytestingautho" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
+      <div data-verify-line="securitytestingautho2" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        <span data-verify-line="securitytestingautho">verify:nexus-tech.com/bounty</span> <span verifiable-text="end" data-for="securitytestingautho"></span>
+        <span data-verify-line="securitytestingautho2">verify:nexus-tech.com/bounty</span> <span verifiable-text="end" data-for="securitytestingautho2"></span>
       </div>
     </div>
   </div>
@@ -128,7 +128,7 @@ Verification confirms: "Yes, this researcher is registered in our program and th
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ff6600; background: #fff; padding: 0;">
   <div style="background: #ff6600; color: #fff; padding: 15px;">
-    <div style="font-weight: bold; font-size: 1.1em;">RED TEAM AUTHORIZATION</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="securitytestingautho3"></span>RED TEAM AUTHORIZATION</div>
     <div style="font-size: 0.8em;">Adversary Simulation Exercise</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -148,9 +148,9 @@ Verification confirms: "Yes, this researcher is registered in our program and th
 <p style="font-size: 0.85em; color: #666;">Authorized by: CEO + CISO + General Counsel<br>
     Board notification: Yes</p>
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      <div data-verify-line="securitytestingautho" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
+      <div data-verify-line="securitytestingautho3" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        <span data-verify-line="securitytestingautho">verify:nationalgrid.com/security</span> <span verifiable-text="end" data-for="securitytestingautho"></span>
+        <span data-verify-line="securitytestingautho3">verify:nationalgrid.com/security</span> <span verifiable-text="end" data-for="securitytestingautho3"></span>
       </div>
     </div>
   </div>

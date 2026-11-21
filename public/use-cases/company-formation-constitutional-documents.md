@@ -360,7 +360,7 @@ The solution is professional certification — a trusted intermediary who examin
   Mourant Ozannes LLP, Jersey<br>
   Date: 1 April 2026<br>
   <div style="margin-top: 12px; padding-top: 8px; border-top: 1px dashed #999;">
-    <span data-verify-line="certify1">verify:mourant.com/kyc/v</span> <span verifiable-text="end" data-for="certify1"></span>
+    <span data-verify-line="certify1">verify:mourant.com/kyc/v</span>
   </div>
   <span verifiable-text="end" data-for="certify1"></span>
 </div>
@@ -435,7 +435,7 @@ The fund manager may require a Legal Opinion from a law firm in the client's hom
   Hassan & Partners<br>
   Advocates, Amman, Jordan<br>
   <div style="margin-top: 12px; padding-top: 8px; border-top: 1px dashed #999;">
-    <span data-verify-line="legal-opinion1">verify:hassanpartners.jo/v</span> <span verifiable-text="end" data-for="legal-opinion1"></span>
+    <span data-verify-line="legal-opinion1">verify:hassanpartners.jo/v</span>
   </div>
   <span verifiable-text="end" data-for="legal-opinion1"></span>
 </div>

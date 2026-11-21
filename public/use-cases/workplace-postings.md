@@ -19,7 +19,7 @@ This is therefore primarily a publication-distribution problem. The best fix is 
 
 <div style="max-width: 500px; margin: 24px auto; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; border: 2px solid #003366; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
   <div style="background: #003366; color: #fff; padding: 15px; text-align: center;">
-    <h2 style="margin: 0; text-transform: uppercase; font-size: 1.2em; letter-spacing: 1px;">JOB SAFETY AND HEALTH</h2>
+    <h2 style="margin: 0; text-transform: uppercase; font-size: 1.2em; letter-spacing: 1px;"><span verifiable-text="start" data-for="osha"></span>JOB SAFETY AND HEALTH</h2>
     <div style="font-size: 0.9em; font-weight: bold; margin-top: 5px;">IT'S THE LAW!</div>
   </div>
 <div style="padding: 20px; font-size: 0.85em; line-height: 1.4; color: #333;">

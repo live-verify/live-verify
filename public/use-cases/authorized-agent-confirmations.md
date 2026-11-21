@@ -87,7 +87,7 @@ Most people will never encounter a repo agent or a bailiff. When they do, the en
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #003366; background: #fff; padding: 0;">
   <div style="background: #003366; color: #fff; padding: 15px;">
-    <div style="font-weight: bold; font-size: 1.1em;">HIGH COURT WRIT OF CONTROL</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="authorizedagentconfi2"></span>HIGH COURT WRIT OF CONTROL</div>
     <div style="font-size: 0.8em;">Enforcement Authorization</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -105,9 +105,9 @@ Most people will never encounter a repo agent or a bailiff. When they do, the en
 <p style="font-size: 0.85em; color: #666;">This writ authorizes the enforcement agent to take control of goods<br>
     Valid for 12 months from issue date</p>
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      <div data-verify-line="authorizedagentconfi" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
+      <div data-verify-line="authorizedagentconfi2" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        <span data-verify-line="authorizedagentconfi">verify:gov.uk/courts/writs</span> <span verifiable-text="end" data-for="authorizedagentconfi"></span>
+        <span data-verify-line="authorizedagentconfi2">verify:gov.uk/courts/writs</span> <span verifiable-text="end" data-for="authorizedagentconfi2"></span>
       </div>
     </div>
   </div>
@@ -123,7 +123,7 @@ For locksmiths and tree surgeons, the authorizing party is an individual homeown
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #228B22; background: #fff; padding: 0;">
   <div style="background: #228B22; color: #fff; padding: 15px;">
-    <div style="font-weight: bold; font-size: 1.1em;">PROPERTY ACCESS AUTHORIZATION</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="authorizedagentconfi3"></span>PROPERTY ACCESS AUTHORIZATION</div>
     <div style="font-size: 0.8em;">Locksmith Work Order — Verified</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -140,9 +140,9 @@ For locksmiths and tree surgeons, the authorizing party is an individual homeown
     License: MLA-2020-4421<br>
     Technician: Mike Roberts (ID: SE-447)</p>
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      <div data-verify-line="authorizedagentconfi" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
+      <div data-verify-line="authorizedagentconfi3" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        <span data-verify-line="authorizedagentconfi">verify:secureentry.co.uk/jobs</span> <span verifiable-text="end" data-for="authorizedagentconfi"></span>
+        <span data-verify-line="authorizedagentconfi3">verify:secureentry.co.uk/jobs</span> <span verifiable-text="end" data-for="authorizedagentconfi3"></span>
       </div>
     </div>
   </div>
@@ -160,7 +160,7 @@ For locksmiths and tree surgeons, the authorizing party is an individual homeown
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #228B22; background: #fff; padding: 0;">
   <div style="background: #228B22; color: #fff; padding: 15px;">
-    <div style="font-weight: bold; font-size: 1.1em;">TREE WORK AUTHORIZATION</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="authorizedagentconfi4"></span>TREE WORK AUTHORIZATION</div>
     <div style="font-size: 0.8em;">Verified Work Order</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -177,9 +177,9 @@ For locksmiths and tree surgeons, the authorizing party is an individual homeown
 <p style="font-size: 0.85em; color: #666;">Contractor: Greenwood Tree Services Ltd<br>
     Arboricultural Association member: AA-2018-772</p>
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      <div data-verify-line="authorizedagentconfi" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
+      <div data-verify-line="authorizedagentconfi4" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        <span data-verify-line="authorizedagentconfi">verify:greenwood-trees.co.uk/jobs</span> <span verifiable-text="end" data-for="authorizedagentconfi"></span>
+        <span data-verify-line="authorizedagentconfi4">verify:greenwood-trees.co.uk/jobs</span> <span verifiable-text="end" data-for="authorizedagentconfi4"></span>
       </div>
     </div>
   </div>
@@ -199,7 +199,7 @@ Three different authorization sources depending on context:
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ff6600; background: #fff; padding: 0;">
   <div style="background: #ff6600; color: #fff; padding: 15px;">
-    <div style="font-weight: bold; font-size: 1.1em;">VEHICLE REMOVAL NOTICE</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="authorizedagentconfi5"></span>VEHICLE REMOVAL NOTICE</div>
     <div style="font-size: 0.8em;">Private Land Parking Enforcement</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -216,9 +216,9 @@ Three different authorization sources depending on context:
     Authorized by: Riverside Retail Park Management<br>
     Recovery: QuickTow Services</p>
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      <div data-verify-line="authorizedagentconfi" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
+      <div data-verify-line="authorizedagentconfi5" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        <span data-verify-line="authorizedagentconfi">verify:parksecure.co.uk/removals</span> <span verifiable-text="end" data-for="authorizedagentconfi"></span>
+        <span data-verify-line="authorizedagentconfi5">verify:parksecure.co.uk/removals</span> <span verifiable-text="end" data-for="authorizedagentconfi5"></span>
       </div>
     </div>
   </div>
@@ -257,7 +257,7 @@ Simple notice inviting challenge before work begins:
 
 <div style="max-width: 500px; margin: 24px auto; font-family: sans-serif; border: 2px solid #ff6600; background: #fff; padding: 0;">
   <div style="background: #ff6600; color: #fff; padding: 12px; text-align: center;">
-    <div style="font-weight: bold; font-size: 1.1em;">ADVANCE NOTICE OF [WORK TYPE]</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="authorizedagentconfi6"></span>ADVANCE NOTICE OF [WORK TYPE]</div>
   </div>
   <div style="padding: 15px; font-size: 0.9em; line-height: 1.6;">
     <p><strong>Property:</strong> [Address]<br>
@@ -269,9 +269,9 @@ Simple notice inviting challenge before work begins:
       Contact: [Phone] or police non-emergency: 101
     </p>
 <p style="font-size: 0.8em; font-family: monospace; text-align: center; color: #666; margin-top: 15px;">
-      <div data-verify-line="authorizedagentconfi" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
+      <div data-verify-line="authorizedagentconfi6" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        <span data-verify-line="authorizedagentconfi">verify:propertyworks-auth.co.uk/advance</span> <span verifiable-text="end" data-for="authorizedagentconfi"></span>
+        <span data-verify-line="authorizedagentconfi6">verify:propertyworks-auth.co.uk/advance</span> <span verifiable-text="end" data-for="authorizedagentconfi6"></span>
       </div>
     </p>
   </div>
@@ -283,7 +283,7 @@ Full details including authorized individuals:
 
 <div style="max-width: 500px; margin: 24px auto; font-family: sans-serif; border: 2px solid #003366; background: #fff; padding: 0;">
   <div style="background: #003366; color: #fff; padding: 12px; text-align: center;">
-    <div style="font-weight: bold; font-size: 1.1em;">AUTHORIZED [WORK TYPE] IN PROGRESS</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="authorizedagentconfi7"></span>AUTHORIZED [WORK TYPE] IN PROGRESS</div>
   </div>
   <div style="padding: 15px; font-size: 0.9em; line-height: 1.6;">
     <p><strong>Property:</strong> [Address]<br>
@@ -300,9 +300,9 @@ Full details including authorized individuals:
       Anyone not listed — challenge or call police.
     </p>
 <p style="font-size: 0.8em; font-family: monospace; text-align: center; color: #666; margin-top: 15px;">
-      <div data-verify-line="authorizedagentconfi" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
+      <div data-verify-line="authorizedagentconfi7" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        <span data-verify-line="authorizedagentconfi">verify:propertyworks-auth.co.uk/works</span> <span verifiable-text="end" data-for="authorizedagentconfi"></span>
+        <span data-verify-line="authorizedagentconfi7">verify:propertyworks-auth.co.uk/works</span> <span verifiable-text="end" data-for="authorizedagentconfi7"></span>
       </div>
     </p>
   </div>

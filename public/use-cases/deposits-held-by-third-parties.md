@@ -78,7 +78,7 @@ A tenant, client, home buyer or subcontractor hands over money to be held and ge
 
 <div style="max-width: 550px; margin: 24px auto; font-family: sans-serif; border: 1px solid #1a5f1a; background: #f8fff8; padding: 0;">
   <div style="background: #1a5f1a; color: #fff; padding: 15px;">
-    <div style="font-weight: bold;">SKYLINE TOWERS HOA</div>
+    <div style="font-weight: bold;"><span verifiable-text="start" data-for="depositsheldbythirdp2"></span>SKYLINE TOWERS HOA</div>
     <div style="font-size: 0.8em;">Reserve Fund Status Certificate</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -89,9 +89,9 @@ A tenant, client, home buyer or subcontractor hands over money to be held and ge
     <strong>As of:</strong> December 31, 2025</p>
     <p style="font-size: 0.85em; color: #666;">Major components: Roof (2031), Elevator (2028), Facade (2033)</p>
     <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      <div data-verify-line="depositsheldbythirdp" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
+      <div data-verify-line="depositsheldbythirdp2" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        <span data-verify-line="depositsheldbythirdp">verify:skylinetowers-hoa.org/reserves</span> <span verifiable-text="end" data-for="depositsheldbythirdp"></span>
+        <span data-verify-line="depositsheldbythirdp2">verify:skylinetowers-hoa.org/reserves</span> <span verifiable-text="end" data-for="depositsheldbythirdp2"></span>
       </div>
     </div>
   </div>
@@ -119,7 +119,7 @@ A tenant, client, home buyer or subcontractor hands over money to be held and ge
 
 <div style="max-width: 550px; margin: 24px auto; font-family: 'Times New Roman', serif; border: 2px solid #003366; background: #fff; padding: 0;">
   <div style="background: #003366; color: #fff; padding: 15px; text-align: center;">
-    <div style="font-weight: bold;">RENDALL & RITTNER</div>
+    <div style="font-weight: bold;"><span verifiable-text="start" data-for="depositsheldbythirdp3"></span>RENDALL & RITTNER</div>
     <div style="font-size: 0.8em;">Managing Agents</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -130,9 +130,9 @@ A tenant, client, home buyer or subcontractor hands over money to be held and ge
     <strong>Your Notional Share:</strong> £8,550 (2.5%)<br>
     <strong>Statement Date:</strong> 31 March 2026</p>
     <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      <div data-verify-line="depositsheldbythirdp" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
+      <div data-verify-line="depositsheldbythirdp3" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        <span data-verify-line="depositsheldbythirdp">verify:rendall-rittner.co.uk/sinking</span> <span verifiable-text="end" data-for="depositsheldbythirdp"></span>
+        <span data-verify-line="depositsheldbythirdp3">verify:rendall-rittner.co.uk/sinking</span> <span verifiable-text="end" data-for="depositsheldbythirdp3"></span>
       </div>
     </div>
   </div>
@@ -160,7 +160,7 @@ A tenant, client, home buyer or subcontractor hands over money to be held and ge
 
 <div style="max-width: 550px; margin: 24px auto; font-family: 'Courier New', monospace; border: 1px solid #333; background: #fafafa; padding: 0;">
   <div style="background: #333; color: #fff; padding: 15px;">
-    <div style="font-weight: bold;">MORRISON & ASSOCIATES LLP</div>
+    <div style="font-weight: bold;"><span verifiable-text="start" data-for="depositsheldbythirdp4"></span>MORRISON & ASSOCIATES LLP</div>
     <div style="font-size: 0.8em;">Client Trust Account Statement</div>
   </div>
   <div style="padding: 20px; font-size: 0.85em; line-height: 1.6;">
@@ -171,9 +171,9 @@ A tenant, client, home buyer or subcontractor hands over money to be held and ge
     <strong>IOLTA Bank:</strong> First National Bank</p>
     <p style="font-size: 0.8em; color: #666;">Funds held pending court approval of final distribution.</p>
     <div style="margin-top: 15px; font-size: 0.8em; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      <div data-verify-line="depositsheldbythirdp" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
+      <div data-verify-line="depositsheldbythirdp4" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        <span data-verify-line="depositsheldbythirdp">verify:morrison-law.com/trust</span> <span verifiable-text="end" data-for="depositsheldbythirdp"></span>
+        <span data-verify-line="depositsheldbythirdp4">verify:morrison-law.com/trust</span> <span verifiable-text="end" data-for="depositsheldbythirdp4"></span>
       </div>
     </div>
   </div>
@@ -201,7 +201,7 @@ A tenant, client, home buyer or subcontractor hands over money to be held and ge
 
 <div style="max-width: 550px; margin: 24px auto; font-family: sans-serif; border: 1px solid #8B4513; background: #fffaf5; padding: 0;">
   <div style="background: #8B4513; color: #fff; padding: 15px;">
-    <div style="font-weight: bold;">CHICAGO TITLE INSURANCE</div>
+    <div style="font-weight: bold;"><span verifiable-text="start" data-for="depositsheldbythirdp5"></span>CHICAGO TITLE INSURANCE</div>
     <div style="font-size: 0.8em;">Earnest Money Escrow Receipt</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -211,9 +211,9 @@ A tenant, client, home buyer or subcontractor hands over money to be held and ge
     <strong>Received:</strong> February 10, 2026<br>
     <strong>Escrow #:</strong> 26-CT-449821</p>
     <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      <div data-verify-line="depositsheldbythirdp" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
+      <div data-verify-line="depositsheldbythirdp5" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        <span data-verify-line="depositsheldbythirdp">verify:chicagotitle.com/escrow</span> <span verifiable-text="end" data-for="depositsheldbythirdp"></span>
+        <span data-verify-line="depositsheldbythirdp5">verify:chicagotitle.com/escrow</span> <span verifiable-text="end" data-for="depositsheldbythirdp5"></span>
       </div>
     </div>
   </div>
@@ -242,7 +242,7 @@ A tenant, client, home buyer or subcontractor hands over money to be held and ge
 
 <div style="max-width: 550px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ff6600; background: #fff; padding: 0;">
   <div style="background: #ff6600; color: #fff; padding: 15px;">
-    <div style="font-weight: bold;">TURNER CONSTRUCTION</div>
+    <div style="font-weight: bold;"><span verifiable-text="start" data-for="depositsheldbythirdp6"></span>TURNER CONSTRUCTION</div>
     <div style="font-size: 0.8em;">Subcontractor Retainage Statement</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -252,9 +252,9 @@ A tenant, client, home buyer or subcontractor hands over money to be held and ge
     <strong>Retainage Held (10%):</strong> $240,000<br>
     <strong>Release Milestone:</strong> Substantial Completion + 60 days</p>
     <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      <div data-verify-line="depositsheldbythirdp" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
+      <div data-verify-line="depositsheldbythirdp6" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        <span data-verify-line="depositsheldbythirdp">verify:turnerconstruction.com/retainage</span> <span verifiable-text="end" data-for="depositsheldbythirdp"></span>
+        <span data-verify-line="depositsheldbythirdp6">verify:turnerconstruction.com/retainage</span> <span verifiable-text="end" data-for="depositsheldbythirdp6"></span>
       </div>
     </div>
   </div>
@@ -283,7 +283,7 @@ A tenant, client, home buyer or subcontractor hands over money to be held and ge
 
 <div style="max-width: 550px; margin: 24px auto; font-family: Georgia, serif; border: 2px solid #4a4a4a; background: #f9f9f9; padding: 0;">
   <div style="background: #4a4a4a; color: #fff; padding: 15px; text-align: center;">
-    <div style="font-weight: bold;">DIGNITY MEMORIAL</div>
+    <div style="font-weight: bold;"><span verifiable-text="start" data-for="depositsheldbythirdp7"></span>DIGNITY MEMORIAL</div>
     <div style="font-size: 0.8em;">Prepaid Funeral Trust Certificate</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -294,9 +294,9 @@ A tenant, client, home buyer or subcontractor hands over money to be held and ge
     <strong>Trustee:</strong> State Street Bank</p>
     <p style="font-size: 0.85em; color: #666;">Funds held in irrevocable trust per state regulations.</p>
     <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      <div data-verify-line="depositsheldbythirdp" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
+      <div data-verify-line="depositsheldbythirdp7" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        <span data-verify-line="depositsheldbythirdp">verify:dignitymemorial.com/trust</span> <span verifiable-text="end" data-for="depositsheldbythirdp"></span>
+        <span data-verify-line="depositsheldbythirdp7">verify:dignitymemorial.com/trust</span> <span verifiable-text="end" data-for="depositsheldbythirdp7"></span>
       </div>
     </div>
   </div>
@@ -325,7 +325,7 @@ A tenant, client, home buyer or subcontractor hands over money to be held and ge
 
 <div style="max-width: 550px; margin: 24px auto; font-family: sans-serif; border: 1px solid #0077be; background: #fff; padding: 0;">
   <div style="background: #0077be; color: #fff; padding: 15px;">
-    <div style="font-weight: bold;">COMMONWEALTH EDISON</div>
+    <div style="font-weight: bold;"><span verifiable-text="start" data-for="depositsheldbythirdp8"></span>COMMONWEALTH EDISON</div>
     <div style="font-size: 0.8em;">Security Deposit Confirmation</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -335,9 +335,9 @@ A tenant, client, home buyer or subcontractor hands over money to be held and ge
     <strong>Date Paid:</strong> August 15, 2024<br>
     <strong>Refund Eligibility:</strong> After 12 months good payment history</p>
     <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      <div data-verify-line="depositsheldbythirdp" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
+      <div data-verify-line="depositsheldbythirdp8" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        <span data-verify-line="depositsheldbythirdp">verify:comed.com/deposits</span> <span verifiable-text="end" data-for="depositsheldbythirdp"></span>
+        <span data-verify-line="depositsheldbythirdp8">verify:comed.com/deposits</span> <span verifiable-text="end" data-for="depositsheldbythirdp8"></span>
       </div>
     </div>
   </div>
@@ -360,7 +360,7 @@ A tenant, client, home buyer or subcontractor hands over money to be held and ge
 
 <div style="max-width: 550px; margin: 24px auto; font-family: 'Courier New', monospace; border: 1px solid #333; background: #fff; padding: 0;">
   <div style="background: #333; color: #fff; padding: 15px;">
-    <div style="font-weight: bold;">CLERK OF COURT — COOK COUNTY</div>
+    <div style="font-weight: bold;"><span verifiable-text="start" data-for="depositsheldbythirdp9"></span>CLERK OF COURT — COOK COUNTY</div>
     <div style="font-size: 0.8em;">Funds Deposit Receipt</div>
   </div>
   <div style="padding: 20px; font-size: 0.85em; line-height: 1.6;">
@@ -370,9 +370,9 @@ A tenant, client, home buyer or subcontractor hands over money to be held and ge
     <strong>Status:</strong> Held Pending Court Order<br>
     <strong>Deposit Date:</strong> November 3, 2025</p>
     <div style="margin-top: 15px; font-size: 0.8em; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      <div data-verify-line="depositsheldbythirdp" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
+      <div data-verify-line="depositsheldbythirdp9" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        <span data-verify-line="depositsheldbythirdp">verify:cookcountyclerk.gov/funds</span> <span verifiable-text="end" data-for="depositsheldbythirdp"></span>
+        <span data-verify-line="depositsheldbythirdp9">verify:cookcountyclerk.gov/funds</span> <span verifiable-text="end" data-for="depositsheldbythirdp9"></span>
       </div>
     </div>
   </div>
@@ -395,7 +395,7 @@ A tenant, client, home buyer or subcontractor hands over money to be held and ge
 
 <div style="max-width: 550px; margin: 24px auto; font-family: sans-serif; border: 1px solid #8B0000; background: #fff; padding: 0;">
   <div style="background: #8B0000; color: #fff; padding: 15px;">
-    <div style="font-weight: bold;">CRIMINAL COURT CLERK</div>
+    <div style="font-weight: bold;"><span verifiable-text="start" data-for="depositsheldbythirdp10"></span>CRIMINAL COURT CLERK</div>
     <div style="font-size: 0.8em;">Cash Bail Receipt</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -405,9 +405,9 @@ A tenant, client, home buyer or subcontractor hands over money to be held and ge
     <strong>Posted By:</strong> Angela Williams (Mother)<br>
     <strong>Date Posted:</strong> January 5, 2026</p>
     <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      <div data-verify-line="depositsheldbythirdp" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
+      <div data-verify-line="depositsheldbythirdp10" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        <span data-verify-line="depositsheldbythirdp">verify:courts.state.gov/bail</span> <span verifiable-text="end" data-for="depositsheldbythirdp"></span>
+        <span data-verify-line="depositsheldbythirdp10">verify:courts.state.gov/bail</span> <span verifiable-text="end" data-for="depositsheldbythirdp10"></span>
       </div>
     </div>
   </div>
@@ -431,7 +431,7 @@ A tenant, client, home buyer or subcontractor hands over money to be held and ge
 
 <div style="max-width: 550px; margin: 24px auto; font-family: sans-serif; border: 1px solid #003366; background: #fff; padding: 0;">
   <div style="background: #003366; color: #fff; padding: 15px;">
-    <div style="font-weight: bold;">U.S. IMMIGRATION & CUSTOMS ENFORCEMENT</div>
+    <div style="font-weight: bold;"><span verifiable-text="start" data-for="depositsheldbythirdp11"></span>U.S. IMMIGRATION & CUSTOMS ENFORCEMENT</div>
     <div style="font-size: 0.8em;">Immigration Bond Receipt (I-305)</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -441,9 +441,9 @@ A tenant, client, home buyer or subcontractor hands over money to be held and ge
     <strong>Obligor:</strong> [Redacted]<br>
     <strong>Received:</strong> ICE Chicago Field Office</p>
     <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      <div data-verify-line="depositsheldbythirdp" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
+      <div data-verify-line="depositsheldbythirdp11" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        <span data-verify-line="depositsheldbythirdp">verify:ice.gov/bonds/[tracking-number]</span> <span verifiable-text="end" data-for="depositsheldbythirdp"></span>
+        <span data-verify-line="depositsheldbythirdp11">verify:ice.gov/bonds/[tracking-number]</span> <span verifiable-text="end" data-for="depositsheldbythirdp11"></span>
       </div>
     </div>
   </div>
@@ -466,7 +466,7 @@ A tenant, client, home buyer or subcontractor hands over money to be held and ge
 
 <div style="max-width: 550px; margin: 24px auto; font-family: Georgia, serif; border: 2px solid #1a4d1a; background: #f9fff9; padding: 0;">
   <div style="background: #1a4d1a; color: #fff; padding: 15px; text-align: center;">
-    <div style="font-weight: bold;">CONGRESSIONAL COUNTRY CLUB</div>
+    <div style="font-weight: bold;"><span verifiable-text="start" data-for="depositsheldbythirdp12"></span>CONGRESSIONAL COUNTRY CLUB</div>
     <div style="font-size: 0.8em;">Membership Deposit Certificate</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -476,9 +476,9 @@ A tenant, client, home buyer or subcontractor hands over money to be held and ge
     <strong>Refund Terms:</strong> 80% after 30 years or upon resignation (waitlist)</p>
     <p style="font-size: 0.85em; color: #666;">Deposit held in club reserve fund per bylaws.</p>
     <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      <div data-verify-line="depositsheldbythirdp" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
+      <div data-verify-line="depositsheldbythirdp12" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        <span data-verify-line="depositsheldbythirdp">verify:congressionalcc.org/deposits</span> <span verifiable-text="end" data-for="depositsheldbythirdp"></span>
+        <span data-verify-line="depositsheldbythirdp12">verify:congressionalcc.org/deposits</span> <span verifiable-text="end" data-for="depositsheldbythirdp12"></span>
       </div>
     </div>
   </div>

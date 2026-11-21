@@ -63,7 +63,7 @@ When a vendor is told "you've been selected," or a customer is promised an SLA, 
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #228B22; background: #fff; padding: 0;">
   <div style="background: #228B22; color: #fff; padding: 15px;">
-    <div style="font-weight: bold; font-size: 1.1em;">PROJECT APPROVAL</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="operationalauthority2"></span>PROJECT APPROVAL</div>
     <div style="font-size: 0.8em;">Capital Project Authorization</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -79,9 +79,9 @@ When a vendor is told "you've been selected," or a customer is promised an SLA, 
 <p style="font-size: 0.85em; color: #666;">Project sponsor: Warehouse Manager<br>
     Expected completion: Q3 2026</p>
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      <div data-verify-line="operationalauthority" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
+      <div data-verify-line="operationalauthority2" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        <span data-verify-line="operationalauthority">verify:orion-logistics.com/projects</span> <span verifiable-text="end" data-for="operationalauthority"></span>
+        <span data-verify-line="operationalauthority2">verify:orion-logistics.com/projects</span> <span verifiable-text="end" data-for="operationalauthority2"></span>
       </div>
     </div>
   </div>
@@ -91,7 +91,7 @@ When a vendor is told "you've been selected," or a customer is promised an SLA, 
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #666; background: #fff; padding: 0;">
   <div style="background: #666; color: #fff; padding: 15px;">
-    <div style="font-weight: bold; font-size: 1.1em;">SERVICE LEVEL COMMITMENT</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="operationalauthority3"></span>SERVICE LEVEL COMMITMENT</div>
     <div style="font-size: 0.8em;">Customer SLA Authorization</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -107,9 +107,9 @@ When a vendor is told "you've been selected," or a customer is promised an SLA, 
 <p style="font-size: 0.85em; color: #666;">Authorized by: Robert Kim, Operations Director<br>
     Within standard parameters: Yes</p>
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      <div data-verify-line="operationalauthority" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
+      <div data-verify-line="operationalauthority3" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        <span data-verify-line="operationalauthority">verify:orion-logistics.com/sla</span> <span verifiable-text="end" data-for="operationalauthority"></span>
+        <span data-verify-line="operationalauthority3">verify:orion-logistics.com/sla</span> <span verifiable-text="end" data-for="operationalauthority3"></span>
       </div>
     </div>
   </div>

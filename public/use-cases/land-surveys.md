@@ -135,7 +135,7 @@ _[Content merged from: land-surveys-property-boundaries]_
 <div style="padding: 25px;">
     <div style="text-align: center; border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 20px;">
       <h3 style="margin: 0; color: #333;">BOUNDARY PLAT MAP</h3>
-      <div style="font-size: 1.1em; font-weight: bold; margin-top: 5px;">Property: <span verifiable-text="start" data-for="survey"></span>123 Desert Lane, Austin, TX</div>
+      <div style="font-size: 1.1em; font-weight: bold; margin-top: 5px;">Property: <span verifiable-text="start" data-for="survey2"></span>123 Desert Lane, Austin, TX</div>
     </div>
 <div style="font-size: 0.9em; line-height: 1.5; color: #333;">
       <p><strong>Legal Description:</strong> Lot 42, Block 7, Map of Skyline Heights, recorded in Travis County Doc #992288.</p>
@@ -149,9 +149,9 @@ _[Content merged from: land-surveys-property-boundaries]_
       <div style="width: 60px; height: 60px; border: 2px solid #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.6em; font-weight: bold; transform: rotate(-10deg);">RPLS SEAL</div>
       <div style="margin-left: 15px; font-size: 0.85em; font-style: italic;">"Accuracy and Integrity in Land Measurement."</div>
     </div>
-<div data-verify-line="survey" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
+<div data-verify-line="survey2" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.8em; color: #555; text-align: center;"
       title="Demo only: Surveyor doesn't yet offer verification&#10;endpoints, so this is illustrative">
-      <span data-verify-line="survey">verify:miller-surveying.com/v</span> <span verifiable-text="end" data-for="survey"></span>
+      <span data-verify-line="survey2">verify:miller-surveying.com/v</span> <span verifiable-text="end" data-for="survey2"></span>
     </div>
   </div>
 </div>

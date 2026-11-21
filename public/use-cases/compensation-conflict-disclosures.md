@@ -30,7 +30,7 @@ Currently, these claims are unverifiable. Disclosures exist in fine print or reg
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Helvetica Neue', sans-serif; border: 1px solid #2c5aa0; background: #fff; padding: 0;">
   <div style="background: #2c5aa0; color: white; padding: 15px;">
-    <div style="font-size: 1.1em; font-weight: bold;">COMPENSATION DISCLOSURE</div>
+    <div style="font-size: 1.1em; font-weight: bold;"><span verifiable-text="start" data-for="compensationconflict"></span>COMPENSATION DISCLOSURE</div>
     <div style="font-size: 0.85em; margin-top: 5px;">As required under Form CRS / Regulation Best Interest</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -80,7 +80,7 @@ Verified disclosures make the information scannable at the point of decision. Wh
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Georgia', serif; border: 2px solid #1a5f2a; background: #f8fff8; padding: 0;">
   <div style="background: #1a5f2a; color: white; padding: 15px; text-align: center;">
-    <div style="font-size: 1.2em; font-weight: bold;">CONFLICT-FREE ATTESTATION</div>
+    <div style="font-size: 1.2em; font-weight: bold;"><span verifiable-text="start" data-for="compensationconflict2"></span>CONFLICT-FREE ATTESTATION</div>
     <div style="font-size: 0.85em; margin-top: 5px;">Warranted Compensation Disclosure</div>
   </div>
   <div style="padding: 25px; font-size: 0.95em; line-height: 1.7; text-align: center;">
@@ -95,9 +95,9 @@ Verified disclosures make the information scannable at the point of decision. Wh
       Subject to liquidated damages per enrollment agreement
     </p>
 <div style="margin-top: 20px; font-size: 0.8em; font-family: monospace; color: #888;">
-      <div data-verify-line="compensationconflict" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
+      <div data-verify-line="compensationconflict2" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        <span data-verify-line="compensationconflict">verify:conflictfree.org/attest</span> <span verifiable-text="end" data-for="compensationconflict"></span>
+        <span data-verify-line="compensationconflict2">verify:conflictfree.org/attest</span> <span verifiable-text="end" data-for="compensationconflict2"></span>
       </div>
     </div>
   </div>
@@ -129,7 +129,7 @@ You can't just take someone's word for it. But you can ask the entities that *wo
     THIRD-PARTY PAYMENT CONFIRMATIONS
   </div>
   <div style="font-size: 0.85em; line-height: 1.8;">
-    <p><strong><span verifiable-text="start" data-for="compensationconflict"></span>Re:</strong> Dr. Sarah Chen, MD (NPI: 1234567890)</p>
+    <p><strong><span verifiable-text="start" data-for="compensationconflict3"></span>Re:</strong> Dr. Sarah Chen, MD (NPI: 1234567890)</p>
     <p><strong>Period:</strong> Calendar Year 2025</p>
 <div style="margin: 15px 0; padding: 10px; background: #fff; border: 1px dashed #666;">
       <p style="margin: 0;"><strong>Pfizer Inc.</strong> — $0.00 paid</p>
@@ -140,9 +140,9 @@ You can't just take someone's word for it. But you can ask the entities that *wo
     </div>
 <p style="font-size: 0.8em; color: #666;">Data aggregated from CMS Open Payments and direct issuer attestations.</p>
 <div style="margin-top: 15px; font-size: 0.8em; text-align: center; color: #888;">
-      <div data-verify-line="compensationconflict" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
+      <div data-verify-line="compensationconflict3" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        <span data-verify-line="compensationconflict">verify:openpaymentscheck.org/confirm</span> <span verifiable-text="end" data-for="compensationconflict"></span>
+        <span data-verify-line="compensationconflict3">verify:openpaymentscheck.org/confirm</span> <span verifiable-text="end" data-for="compensationconflict3"></span>
       </div>
     </div>
   </div>

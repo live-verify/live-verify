@@ -71,7 +71,7 @@ Property access rights verification provides on-demand proof that a person has a
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #228B22; background: #fff; padding: 0;">
   <div style="background: #228B22; color: #fff; padding: 15px;">
-    <div style="font-weight: bold; font-size: 1.1em;">ASSURED SHORTHOLD TENANCY AGREEMENT</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="propertyaccessrights2"></span>ASSURED SHORTHOLD TENANCY AGREEMENT</div>
     <div style="font-size: 0.8em;">Tenant Verification Copy</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -89,9 +89,9 @@ Property access rights verification provides on-demand proof that a person has a
 <p style="font-size: 0.85em; color: #666;">Managing Agent: CityLet Property Management<br>
     Deposit protected: Yes (TDS ref: 12345678)</p>
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      <div data-verify-line="propertyaccessrights" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
+      <div data-verify-line="propertyaccessrights2" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        <span data-verify-line="propertyaccessrights">verify:citylet-mgmt.co.uk/tenancies</span> <span verifiable-text="end" data-for="propertyaccessrights"></span>
+        <span data-verify-line="propertyaccessrights2">verify:citylet-mgmt.co.uk/tenancies</span> <span verifiable-text="end" data-for="propertyaccessrights2"></span>
       </div>
     </div>
   </div>
@@ -107,7 +107,7 @@ Property access rights verification provides on-demand proof that a person has a
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ff6600; background: #fff; padding: 0;">
   <div style="background: #ff6600; color: #fff; padding: 15px;">
-    <div style="font-weight: bold; font-size: 1.1em;">BOOKING CONFIRMATION</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="propertyaccessrights3"></span>BOOKING CONFIRMATION</div>
     <div style="font-size: 0.8em;">Authorized Guest Access</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -123,9 +123,9 @@ Property access rights verification provides on-demand proof that a person has a
 <p style="font-size: 0.85em; color: #666;">Property owner: J. Williams<br>
     Booked via: Direct / Owner website</p>
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      <div data-verify-line="propertyaccessrights" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
+      <div data-verify-line="propertyaccessrights3" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        <span data-verify-line="propertyaccessrights">verify:gardencottagebath.co.uk/bookings</span> <span verifiable-text="end" data-for="propertyaccessrights"></span>
+        <span data-verify-line="propertyaccessrights3">verify:gardencottagebath.co.uk/bookings</span> <span verifiable-text="end" data-for="propertyaccessrights3"></span>
       </div>
     </div>
   </div>
@@ -140,7 +140,7 @@ Property access rights verification provides on-demand proof that a person has a
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #666; background: #fff; padding: 0;">
   <div style="background: #666; color: #fff; padding: 15px;">
-    <div style="font-weight: bold; font-size: 1.1em;">KEYHOLDER AUTHORIZATION</div>
+    <div style="font-weight: bold; font-size: 1.1em;"><span verifiable-text="start" data-for="propertyaccessrights4"></span>KEYHOLDER AUTHORIZATION</div>
     <div style="font-size: 0.8em;">Property Access Permission</div>
   </div>
   <div style="padding: 20px; font-size: 0.9em; line-height: 1.6;">
@@ -156,9 +156,9 @@ Property access rights verification provides on-demand proof that a person has a
 <p style="font-size: 0.85em; color: #666;">Issued by property owner<br>
     Can be revoked at any time</p>
 <div style="margin-top: 15px; font-size: 0.8em; font-family: monospace; text-align: center; color: #666; border-top: 1px dashed #ccc; padding-top: 10px;">
-      <div data-verify-line="propertyaccessrights" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
+      <div data-verify-line="propertyaccessrights4" style="border-top: 1px dashed #999; margin-top: 30px; padding-top: 10px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #555; text-align: center;"
         title="Demo only: This is an illustrative example of the verification line">
-        <span data-verify-line="propertyaccessrights">verify:securekey-auth.co.uk/keyholders</span> <span verifiable-text="end" data-for="propertyaccessrights"></span>
+        <span data-verify-line="propertyaccessrights4">verify:securekey-auth.co.uk/keyholders</span> <span verifiable-text="end" data-for="propertyaccessrights4"></span>
       </div>
     </div>
   </div>

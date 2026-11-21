@@ -268,7 +268,7 @@ The problem is that the "Notary Seal" (the ink stamp or embossed circle) is a ph
 <div style="font-size: 1em; line-height: 1.6; color: #000; text-align: justify;">
     <p>State of <strong>CALIFORNIA</strong><br>
     County of <strong>LOS ANGELES</strong></p>
-<p>On March 15, 2026 before me, <span verifiable-text="start" data-for="notary"></span><strong>SARAH J. JENKINS</strong>, Notary Public, personally appeared <strong>JOHN JACOB DOE</strong>, who proved to me on the basis of satisfactory evidence to be the person whose name is subscribed to the within instrument.</p>
+<p>On March 15, 2026 before me, <span verifiable-text="start" data-for="notary2"></span><strong>SARAH J. JENKINS</strong>, Notary Public, personally appeared <strong>JOHN JACOB DOE</strong>, who proved to me on the basis of satisfactory evidence to be the person whose name is subscribed to the within instrument.</p>
 <p>I certify under PENALTY OF PERJURY under the laws of the State of California that the foregoing paragraph is true and correct.</p>
   </div>
 <div style="margin-top: 40px; display: flex; justify-content: space-between; align-items: flex-end;">
@@ -281,9 +281,9 @@ The problem is that the "Notary Seal" (the ink stamp or embossed circle) is a ph
     </div>
   </div>
 <div style="padding: 20px; background: #f9f9f9; border: 1px dashed #999; margin-top: 40px; text-align: center;">
-    <div data-verify-line="notary" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #000; font-weight: bold;"
+    <div data-verify-line="notary2" style="font-family: 'Courier New', monospace; font-size: 0.85em; color: #000; font-weight: bold;"
       title="Demo only: Individual notaries don't yet offer verification&#10;endpoints, so this is illustrative">
-      <span data-verify-line="notary">verify:sarahnotary.com/v</span> <span verifiable-text="end" data-for="notary"></span>
+      <span data-verify-line="notary2">verify:sarahnotary.com/v</span> <span verifiable-text="end" data-for="notary2"></span>
     </div>
   </div>
 </div>
