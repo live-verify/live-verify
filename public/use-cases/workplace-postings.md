@@ -83,12 +83,15 @@ A worker reading the breakroom wall, or a labor inspector walking through, has n
 
 **Pattern:** Sovereign
 
-The Health and Safety Executive regulates workplace safety and issues official poster requirements under the Health and Safety at Work Act 1974.
+In the United States, the Occupational Safety and Health Administration, part of the Department of Labor, publishes the official workplace safety poster that employers must display.
 
 ```
-✓ hse.gov.uk/workplace/verify — HSE workplace health and safety posting service
-  ✓ gov.uk/verifiers — UK government root namespace
+✓ osha.gov/posters/v — OSHA official workplace poster service
+  ✓ dol.gov — US Department of Labor
+    ✓ usa.gov/verifiers — US federal government root namespace
 ```
+
+Other countries differ. In Great Britain, the Health and Safety Executive issues the health and safety law poster under the Health and Safety at Work etc. Act 1974, and the chain would run from `hse.gov.uk` to `gov.uk/verifiers`.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 

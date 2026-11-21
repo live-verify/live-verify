@@ -121,12 +121,14 @@ Tax authorities are the sole issuers: HMRC (UK), IRS (US, via Form 6166), Eidgen
 
 **Pattern:** Sovereign
 
-HMRC issues tax residency certificates and treaty eligibility declarations under the Taxation (International and Other Provisions) Act 2010.
+A tax residency certificate is issued by the tax authority of the country where the taxpayer is resident, so the chain belongs to that country and not to the country of the company relying on it. In the example, a UK payer checks a certificate issued by the Swiss Federal Tax Administration.
 
 ```
-✓ hmrc.gov.uk/tax-residency/verify — HMRC tax residency certificate and treaty eligibility service
-  ✓ gov.uk/verifiers — UK government root namespace
+✓ estv.admin.ch/residence — Swiss Federal Tax Administration residence certificates
+  ✓ admin.ch/verifiers — Swiss federal government root namespace
 ```
+
+A certificate issued the other way, by HMRC for a UK resident claiming treaty relief abroad, would chain from `hmrc.gov.uk` to `gov.uk/verifiers`.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 

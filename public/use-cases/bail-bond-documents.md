@@ -126,12 +126,14 @@ High sensitivity. The existence of a bail document reveals that a person has bee
 
 **Pattern:** Sovereign
 
-UK courts issue bail orders and conditions of release authorized by the Bail Act 1976 and criminal procedure codes.
+In the United States, bail orders and release conditions are issued by state and county courts under each state's criminal procedure rules. The example is a county superior court in Arizona; the chain runs from the court to the state.
 
 ```
-✓ courts.gov.uk/bail/verify — UK courts issuing bail orders and release conditions
-  ✓ gov.uk/verifiers — UK government root namespace
+✓ courts.maricopa.gov/bail — County superior court bail orders and release conditions
+  ✓ az.gov/verifiers — State of Arizona root namespace
 ```
+
+Other countries differ. In England and Wales, bail is granted by the courts or the police under the Bail Act 1976, and the chain would run through the courts service to `gov.uk/verifiers`.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 

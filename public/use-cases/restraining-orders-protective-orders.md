@@ -161,12 +161,14 @@ Critical. The existence of a restraining order reveals domestic violence, stalki
 
 **Pattern:** Sovereign
 
-UK courts issue restraining orders and protective orders under the Protection from Harassment Act 1997 and related domestic abuse legislation.
+In the United States, restraining and protective orders are issued by state courts under state law. The example is a California court; the chain runs from the state court system to the state.
 
 ```
-✓ courts.gov.uk/protection/verify — UK courts protective and restraining orders
-  ✓ gov.uk/verifiers — UK government root namespace
+✓ courts.ca.gov/restraining-order/v — California courts restraining and protective orders
+  ✓ ca.gov/verifiers — State of California root namespace
 ```
+
+Other countries differ. In England and Wales, restraining orders are made by the courts under the Protection from Harassment Act 1997 and related domestic abuse legislation, and the chain would run through the courts service to `gov.uk/verifiers`.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
