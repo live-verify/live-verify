@@ -182,7 +182,7 @@ Some artists (Taylor Swift, Ed Sheeran, etc.) mandate resale at face value only:
 
 Unauthorized resale platforms can't update the binding — buyer gets a ticket that won't verify at entry.
 
-## Data Verified
+## What Is Checked
 
 Event name, venue, date/time, section/row/seat, ticket holder name, photo hash (if bound), transfer status, resale policy, price paid, purchase timestamp.
 
@@ -204,7 +204,7 @@ The endpoint returns status and context. For admission-critical use, these state
 - **SUSPENDED** — Ticket flagged for fraud investigation
 - **404** — Ticket not found (counterfeit or OCR error)
 
-## Second-Party Use
+## Who Holds It
 
 The **Ticket Holder** (second party) benefits from verification:
 
@@ -214,7 +214,7 @@ The **Ticket Holder** (second party) benefits from verification:
 
 **Resale Protection:** When buying from official resale, buyer can verify that transfer was properly recorded before paying, without treating the printable ticket as the primary source of truth.
 
-## Third-Party Use
+## Who Checks It
 
 **Venue Staff (Entry Control)**
 At smaller or lower-infrastructure venues, staff can use verification as a backstop. At larger venues, official scanner infrastructure and platform-native admission controls remain the primary mechanism.
@@ -228,7 +228,7 @@ Enforce anti-scalping policies. Verify that resale occurred at face value throug
 **Law Enforcement**
 Investigate counterfeit ticket operations. Verified records show which tickets were legitimate vs. fraudulent.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The Scalping/Counterfeit Problem**
 

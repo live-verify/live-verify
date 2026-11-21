@@ -45,7 +45,7 @@ A **Data Authorization Certificate** is a receipt for that digital handshake. It
   </div>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Customer identity (partial/redacted), authorized third party, specific accounts included, scope of access (read-only, payments, etc.), timestamp of consent, expiration date.
 
@@ -54,7 +54,7 @@ Customer identity (partial/redacted), authorized third party, specific accounts 
 - **Inter-bank Authorization:** Proof for the receiving bank.
 - **Revocation Certificate:** Proof that access was terminated.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the holding bank) and the current status of the token/access.
 
@@ -63,7 +63,7 @@ Shows the issuer domain (the holding bank) and the current status of the token/a
 - **Revoked** — Customer or bank terminated access.
 - **Expired** — Token/consent period has lapsed.
 
-## Second-Party Use
+## Who Holds It
 
 The **Bank Customer** benefits from verification.
 
@@ -73,7 +73,7 @@ The **Bank Customer** benefits from verification.
 
 **Mortgage Applications:** Providing "proof of funds" access to a lender often uses these aggregators. This certificate confirms the link was established.
 
-## Third-Party Use
+## Who Checks It
 
 **Regulators (CFPB, OCC)**
 
@@ -87,7 +87,7 @@ The **Bank Customer** benefits from verification.
 
 **Evidence:** In divorce or bankruptcy proceedings, proving whether specific parties had visibility into assets at specific times.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The Data Access Fraud Problem**
 

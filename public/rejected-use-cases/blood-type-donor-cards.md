@@ -40,7 +40,7 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Donor name, date of birth, ABO blood group, Rh factor (Positive/Negative), Donor ID number, specific phenotypes/antibodies (if relevant), last donation date, screening status (e.g., CMV negative).
 
@@ -49,7 +49,7 @@ Donor name, date of birth, ABO blood group, Rh factor (Positive/Negative), Donor
 - **Blood Type Certificate:** Official clinical document from a lab.
 - **Military Dog Tag Extract:** Verified blood type for service members.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`redcross.org`, `labcorp.com`) and the verified donor data.
 
@@ -58,7 +58,7 @@ Shows the issuer domain (`redcross.org`, `labcorp.com`) and the verified donor d
 - **Restricted** — (For donors) Temporary or permanent deferral from donating.
 - **Updated** — New testing has refined the blood type profile (e.g., rare sub-type identified).
 
-## Second-Party Use
+## Who Holds It
 
 The **Patient / Donor** benefits from verification.
 
@@ -68,7 +68,7 @@ The **Patient / Donor** benefits from verification.
 
 **Donation Efficiency:** Speeding up the intake process at a blood drive by providing a verified link to their previous donor record.
 
-## Third-Party Use
+## Who Checks It
 
 **Emergency Medical Services (EMS)**
 **Field Triage:** In a mass casualty event, paramedics can scan cards to prioritize "Universal Donors" (O-Neg) for field use or to relay patient types to the trauma center ahead of arrival.
@@ -79,7 +79,7 @@ The **Patient / Donor** benefits from verification.
 **Insurance Companies**
 **Critical Care Coverage:** Verifying foundational health markers as part of high-value life or disability underwriting.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Inaccurate Info" Problem**
 

@@ -50,7 +50,7 @@ The unfreeze notice is critical for proving access has been restored. Fraud incl
   <span data-verify-line="ofac">verify:treasury.gov/ofac</span> <span verifiable-text="end" data-for="ofac"></span>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Institution name, account/asset identifier, account holder name, type of hold/freeze, original freeze date, release date, reason for release, any continuing restrictions.
 
@@ -61,7 +61,7 @@ Institution name, account/asset identifier, account holder name, type of hold/fr
 - **Levy Release:** IRS or state tax levy satisfied.
 - **Fraud Hold Release:** Investigation completed, funds released.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`wellsfargo.com`, `treasury.gov`) and current account status.
 
@@ -72,7 +72,7 @@ Shows the issuer domain (`wellsfargo.com`, `treasury.gov`) and current account s
 - **Re-Frozen** — New hold placed after release.
 - **Expired** — OFAC license or court order no longer valid.
 
-## Second-Party Use
+## Who Holds It
 
 The **Account Holder** benefits from verification.
 
@@ -82,7 +82,7 @@ The **Account Holder** benefits from verification.
 
 **Employment:** Some employers check financial history. A verified release explains past freezes without casting continuing doubt.
 
-## Third-Party Use
+## Who Checks It
 
 **Banks / Financial Institutions**
 **Account Opening:** When opening new accounts, banks check for prior freezes. A verified release confirms the issue is resolved.
@@ -96,7 +96,7 @@ The **Account Holder** benefits from verification.
 **Business Partners**
 **Vendor Qualification:** Companies may require proof that prospective partners don't have frozen assets or sanctions issues.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The Asset Freeze Fraud Problem**
 

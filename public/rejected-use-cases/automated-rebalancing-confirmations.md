@@ -43,7 +43,7 @@ Estimated Tax Savings: $ 312.50
   <span data-verify-line="rebal">verify:wealthfront.com/confirms/v</span> <span verifiable-text="end" data-for="rebal"></span>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Account holder name, transaction date, securities sold/bought, tax-lot identification, net gain/loss realized, tax-loss harvesting (TLH) status, risk score at time of trade.
 
@@ -52,7 +52,7 @@ Account holder name, transaction date, securities sold/bought, tax-lot identific
 - **Tax-Loss Harvesting Summary:** Annual proof of realized losses for IRS reporting.
 - **Drift Report:** Explaining why rebalancing was triggered (e.g., asset class exceeded 5% drift).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`wealthfront.com`, `betterment.com`) and the status of the trade.
 
@@ -61,7 +61,7 @@ Shows the issuer domain (`wealthfront.com`, `betterment.com`) and the status of 
 - **Cancelled** — Trade was blocked (e.g., due to wash-sale rule detection).
 - **Corrected** — Original confirmation was adjusted (rare).
 
-## Second-Party Use
+## Who Holds It
 
 The **Investor** (second party) receives the rebalancing confirmation from the robo-advisor (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
 
@@ -71,7 +71,7 @@ The **Investor** (second party) receives the rebalancing confirmation from the r
 
 **Future Optionality:** If an IRS audit arises, a dispute about algorithm performance occurs, or a lender needs to verify asset movements, the investor has cryptographic proof ready without needing to contact the robo-advisor.
 
-## Third-Party Use
+## Who Checks It
 
 The investor (second party) may hand the verified document to various third parties:
 
@@ -84,7 +84,7 @@ Lenders analyzing "Source of Downpayment" often see thousands of small trades in
 **FINRA / SEC Regulators**
 Regulators can verify that the trades described in the investor's confirmation match the actual execution logs of the firm, ensuring the algorithm is operating as described in the prospectus.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Tax Fraud" Problem**
 

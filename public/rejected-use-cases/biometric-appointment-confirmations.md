@@ -48,7 +48,7 @@ Fraudsters often create fake notices to get into secure government facilities or
   </div>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Applicant name, Case Receipt Number, Appointment Date/Time, ASC (Application Support Center) location ID, form type (e.g., I-485, I-765), date of issuance.
 
@@ -57,7 +57,7 @@ Applicant name, Case Receipt Number, Appointment Date/Time, ASC (Application Sup
 - **Rescheduling Confirmation:** Proving a new date was authorized.
 - **ASC Attendance Stamp:** (Digital equivalent) proving fingerprints were taken.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`uscis.gov`) and the appointment standing.
 
@@ -67,7 +67,7 @@ Shows the issuer domain (`uscis.gov`) and the appointment standing.
 - **Rescheduled** — This notice is void; a new date has been set.
 - **Cancelled** — The underlying application was denied or withdrawn.
 
-## Second-Party Use
+## Who Holds It
 
 The **Applicant** benefits from verification.
 
@@ -75,7 +75,7 @@ The **Applicant** benefits from verification.
 
 **Work Authorization:** Proving to an employer that their "Biometrics are Scheduled," which is a key milestone in the Green Card/EAD process, showing the case is progressing.
 
-## Third-Party Use
+## Who Checks It
 
 **ASC Security / Staff**
 **Entry Control:** ASCs are high-security facilities. Guards can instantly verify notices at the door to prevent unauthorized entry or people trying to "skip the line" with fake appointments.
@@ -86,7 +86,7 @@ The **Applicant** benefits from verification.
 **Immigration Checkpoints**
 **Proof of Progress:** If an applicant is stopped by ICE/CBP while their case is pending, a verified biometric notice proves they are actively following the legal process.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Notice Fraud" Problem**
 
