@@ -187,6 +187,12 @@ MSc Computer Science on 28 June 2024.
                 the person checking sees, so it is your name they are trusting.
             </p>
             <p>
+                Nothing about the rest of the address is fixed. The subdomain and the path are yours to choose:
+                <code>verify:youruniversity.edu/PhD</code> works just as well, and you can use a different path
+                for each kind of document, such as <code>/PhD</code>, <code>/transcripts</code> and
+                <code>/staff-letters</code>. Each path can have its own hosting and its own endorser.
+            </p>
+            <p>
                 Owning the address does not mean hosting the files. A small file on your domain,
                 <code>verification-meta.json</code>, can carry a <code>hashesHostedAt</code> entry naming where the
                 hashes actually live, for example at a software vendor that issues documents for you. The lookup
