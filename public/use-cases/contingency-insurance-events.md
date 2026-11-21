@@ -121,11 +121,6 @@ Lloyd's of London underwrites contingency and event cancellation insurance globa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (policy number, event name and dates, coverage sections, coverage limits, endorsements, effective period) — never claims information or loss history — providing non-repudiation of insurance coverage and an audit trail for venue and lender verification.
-
-
 ## Compared With Central Registries (Lloyd's)
 
 | Feature | Live Verify | Lloyd's Market Database | Paper Evidence |
@@ -136,3 +131,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Confidentiality** | **High.** Only the specific event is verified. | **Low.** Central lists can reveal entire portfolios. | **Medium.** |
 
 **Where each fits:** the Lloyd's market's own records, reached through the placing broker, are the definitive source on a policy, and a call to that broker is the right step for any question of substance. A venue manager in the days before an event may not get an answer in time. Live Verify lets them check the evidence of insurance they hold, including its endorsements, against the issuer's domain on the spot.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

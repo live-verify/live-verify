@@ -116,12 +116,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Sponsorship is the "Financial Safety Net" of immigration. By turning the I-864 into a verifiable digital bridge, we ensure that the US government can hold sponsors accountable and that legitimate families can move through the visa process without unfair delays.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive USCIS's hashes and status changes plus structured metadata (sponsor name, beneficiary name, income level, household size, signature date) — never plaintext or sensitive personal information — providing non-repudiation of the sponsorship affidavit.
-
----
-
 ## Footnote: UK Certificate of Sponsorship (CoS)
 
 The UK's Certificate of Sponsorship is the functional equivalent of the I-864 for employer-sponsored work visas (Skilled Worker, Health & Care Worker, Senior or Specialist Worker, etc.). It is not a physical document — it is an electronic record issued by a Home Office–licensed sponsor via the Sponsorship Management System (SMS), referenced by a unique CoS number.
@@ -133,3 +127,7 @@ The UK's Certificate of Sponsorship is the functional equivalent of the I-864 fo
 - **Post-assignment changes** — Sponsor assigns CoS then withdraws or changes the role after the visa is granted.
 
 **How Live Verify would help:** A verifiable hash binding the CoS reference number, sponsor name, job title, SOC code, and salary to a `gov.uk` endpoint would let visa applicants, UKVI caseworkers, and third parties (banks, landlords checking right-to-work) instantly confirm the sponsorship is genuine — without exposing the full SMS record. Status values could include Assigned, Used, Withdrawn, or Expired.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

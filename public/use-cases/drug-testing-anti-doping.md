@@ -124,11 +124,6 @@ WADA-accredited laboratories conduct drug tests according to international anti-
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the testing lab's hashes and status changes plus structured metadata (sample ID, event name, collection date and time, test result, lab accreditation, doping control officer ID) — never plaintext athlete identity — providing non-repudiation of the anti-doping test result.
-
-
 ## Compared With ADAMS Database
 
 | Feature | Live Verify | ADAMS Portal (WADA) | Scanned PDF / Image |
@@ -139,3 +134,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Technical.** Requires laptop/dedicated app. | **Manual.** |
 
 **Where each fits:** ADAMS is the authoritative system for anti-doping organizations, and its restricted access is deliberate: whereabouts and test data are sensitive and results management belongs there. An athlete who wants to show a result or certificate to a sponsor, a club in another country or a journalist cannot give them an ADAMS login. Live Verify lets those outsiders confirm that the issuing body stands behind the document the athlete chose to share, leaving the database closed and the official process untouched.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

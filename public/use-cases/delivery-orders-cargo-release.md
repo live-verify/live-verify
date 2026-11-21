@@ -129,11 +129,6 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the freight broker's or carrier's hashes and status changes plus structured metadata (delivery order number, container number, bill of lading number, consignee, cargo description, port, release authorization date) — never plaintext shipper details — providing non-repudiation of the cargo release authorization.
-
-
 ## Compared With Port Community Systems (PCS)
 
 | Feature | Live Verify | Port Portal / PCS | Paper Delivery Order |
@@ -144,3 +139,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Connectivity needed** | **Yes, for the check.** The paper can be read without a connection; checking it takes one small web request. | **Yes.** Requires server access. | **None.** |
 
 **Where each fits:** Port community systems and EDI messages are how terminals, lines and brokers already exchange release data, and an integrated terminal should go on trusting that feed first. Not every haulier, depot or smaller broker is connected, and the driver at the gate is usually holding a printed delivery order. Live Verify lets the gate clerk confirm that the issuer stands behind that exact document, as a quick cross-check alongside the port system rather than a substitute for it.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

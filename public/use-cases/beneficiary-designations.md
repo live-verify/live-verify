@@ -194,12 +194,12 @@ The designation primitive is universal; the vehicle name, the regulator, and cru
 - [ISA/401(k)/Retirement Account Balance Confirmations](view.html?doc=retirement-account-balance-confirmations) — the account *balance*, not the beneficiary
 - [Last Will and Testament (Wills)](view.html?doc=wills-estate-documents) and [Probate Documents and Estate Proceedings](view.html?doc=probate-documents) — the estate context these designations override
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the provider's hashes and status changes plus structured metadata (key identifiers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the designation it recorded.
-
 ## Further Derivations
 
 1. **Per-asset designation extracts** — Class-specific records (POD bank, TOD brokerage/deed, pension survivor nomination) each verifiable in their own claim workflow.
 2. **Designation-vs-will conflict flag** — A response field that signals when a designation is known to conflict with a registered will, prompting the holder to reconcile the two while alive.
 3. **Annual beneficiary audit statement** — A yearly verifiable confirmation the holder is prompted to check, turning ghost-change detection into a routine habit rather than a post-death discovery.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

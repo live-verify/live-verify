@@ -202,14 +202,6 @@ The verifier walks the chain across domains. Each domain is authoritative for it
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the export control authority's hashes and status changes plus structured metadata (licence reference number, licensee name, consignee, controlled goods description, quantity authorized, licence expiry, onward transfer restrictions, end-user undertaking reference) — never plaintext supplier or buyer details — providing non-repudiation of the export licence.
-
-**Special Consideration: Classified Licences**
-
-Some export licences — particularly for military goods or intelligence-related technology — are themselves classified. These cannot be published as verifiable hashes without exposing the existence of a sensitive trade relationship. For classified licences, the witnessing model must support a "government-to-government only" verification path where the hash is queryable by authorised government endpoints but not by the public. The status response would return only "Authorised" or "Not Authorised" without disclosing any licence details. This is a limitation that applies to a small but important subset of export licences.
-
 ## Compared With SPIRE / LITE / ECJU Online
 
 | Feature | Live Verify | SPIRE/LITE (Gov Portal) | Paper Licence + PDF |
@@ -441,3 +433,7 @@ The ten-pack split is precisely the scale at which export control systems strugg
 **Perfect for diversion.** Ten GPUs is small enough to fit in a suitcase. Small enough to be "lost" in inventory. Small enough that a single corrupt employee at the distributor could redirect a pack without triggering volume-based audit flags. But ten H100s is worth ~$300,000 and provides meaningful compute for prohibited applications.
 
 **The verification chain changes this calculus.** Every pack is tracked. Every transfer is verified. Every downstream buyer can confirm their specific pack's provenance. And critically: a pack that was refused (like #042) cannot be laundered through a forged approval, because the verification endpoint is authoritative and the refusal is permanent
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

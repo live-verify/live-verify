@@ -199,11 +199,6 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the management company's hashes and status changes plus structured metadata (contractor ID, work order number, unit assignment, authorized time window) — never contractor address or service history — providing non-repudiation of the authorization and an audit trail residents and management can inspect.
-
-
 ## Compared With Uniforms / Management Call-Back
 
 | Feature | Live Verify | Uniform & Visible Badge | Calling Building Management | Asking for ID |
@@ -243,3 +238,7 @@ This use case belongs to the Mobile Service Staff in Ungated Facilities pattern.
 - [Delivery & Courier Verification](view.html?doc=delivery-courier-verification) — Recipients verify delivery drivers.
 - [Healthcare Facility Staff](view.html?doc=healthcare-facility-staff) — Patients verify hospital staff.
 - [Event Venue & Contractor Staff](view.html?doc=event-venue-staff) — Security verify event crews.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

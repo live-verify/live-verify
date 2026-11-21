@@ -115,6 +115,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Geotechnical reports are the "First Link" in the chain of structural safety. By turning technical summaries into verifiable digital bridges, we ensure that the buildings where we live and work are standing on the digital truth of the earth, not the creative editing of a developer.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the engineering firm's hashes and status changes plus structured metadata (project number, borehole count, bearing capacity, seismic classification, engineer license number, report date) — never plaintext or sensitive competitive information — providing non-repudiation of the geotechnical report.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -187,11 +187,11 @@ Moderate sensitivity. The employment claim includes the employee's name and empl
 | **Works at border** | **Yes.** 5-second scan. | **Impractical.** Immigration won't call your HR department. | **Unreliable.** | **Meaningless.** |
 | **Detects termination** | **Yes.** Real-time status. | **Maybe.** If HR updates are timely. | **No.** People leave old jobs on LinkedIn for months. | **Maybe.** If badge is deactivated. |
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the employer's hashes and status changes plus structured metadata (employment start date, job title, employment status, issue date) — never salary, disciplinary history, or performance ratings — providing non-repudiation of the employment and an audit trail consulates and banks can inspect.
-
 ## Further Derivations
 
 1. **Proof of self-employment / freelance status** — For sole traders and freelancers, the "employer" is the individual's registered business. The authority chain would go: business domain → Companies House / state secretary of state → tax authority. Useful for visa applications where self-employed individuals currently struggle to prove legitimate work.
 2. **Proof of enrollment (student equivalent)** — University confirms current enrollment for student visa renewals, travel, and discount eligibility. Same pattern: student carries verifiable letter, authority chain goes university → accrediting body → education ministry.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -98,10 +98,6 @@ Grant-giving agencies approve and document lottery funding for nonprofit organiz
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the foundation's hashes and status changes plus structured metadata (recipient organization, grant amount, award date) — never plaintext or sensitive personal information — providing non-repudiation of the grant award letter and an audit trail charity regulators can inspect.
-
 ## Compared With Email / Portals
 
 | Feature | Live Verify | Grant Portals (Fluxx/SmartSimple) | Email |
@@ -112,3 +108,6 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** Grant portals are well suited to managing an application, with its forms, reporting deadlines and correspondence with the funder, and email is fine for routine exchanges. Neither helps much when a nonprofit needs to show the award to someone outside that relationship, such as a bank or another donor, who will not be given a portal login. A verified award letter can be passed to them and checked against the funder's domain, while the portal carries on handling the grant itself.
 
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

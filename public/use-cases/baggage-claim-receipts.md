@@ -110,11 +110,6 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the airline's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the baggage claim receipt.
-
-
 ## Compared With Airline Apps
 
 | Feature | Live Verify | Airline Mobile App | Paper PIR |
@@ -124,3 +119,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Connectivity needed** | **Yes, for the check.** The paper/PDF can be kept and passed on without a connection; checking it takes one small web request. | **Yes.** No app access = no proof. | **None.** |
 
 **Where each fits:** the airline app is the best way for the passenger to follow a claim as it progresses. A travel insurer cannot be given access to the passenger's app, and needs something fixed to put on file. Live Verify lets the insurer confirm that the airline issued the property irregularity report it has been sent, so the app serves the passenger and the verified report serves the claim.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

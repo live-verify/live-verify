@@ -124,10 +124,6 @@ Surveyors conduct detailed inspections of residential properties.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the home inspector's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the home inspection report.
-
 ## Compared With Home Inspection Software Portals
 
 | Feature | Live Verify | Reporting Portal (Spectora) | Scanned PDF |
@@ -139,3 +135,6 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** Reporting platforms such as Spectora present an inspection well, with photographs, navigation and repair-request tools, and the client and their agent should use that view. Access often lapses, and a lender, insurer or later buyer usually receives only a PDF or a summary page. Live Verify lets them confirm that the inspector stands behind that text, including years later, while the portal remains the richer experience for the original client.
 
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -101,10 +101,6 @@ Klarna verifies merchants for buy-now-pay-later transactions and financial servi
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the BNPL provider's hashes and status changes plus structured metadata (merchant ID, verification date) — never plaintext or sensitive personal information — providing non-repudiation of the document.
-
 ## Compared With Static Badges
 
 | Feature | Live Verify | Static "Trust" Badge | Verified by Visa (3DS) |
@@ -114,3 +110,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Merchant.** Hash protects the URL/Name. | **None.** | **High.** |
 
 **Where each fits:** 3-D Secure and similar checks protect the payment step well, and remain the right control there. They come into play only after the shopper has started entering details, and a static badge on the page can be copied by anyone. Live Verify lets a shopper check, before checkout, that the lender's domain confirms this merchant, which complements the protection applied later at payment.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

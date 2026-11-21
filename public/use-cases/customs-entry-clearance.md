@@ -109,11 +109,6 @@ HMRC administers customs entry clearance and import duty collection under the Cu
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the customs authority's hashes and status changes plus structured metadata (entry number, clearance date, goods value, duty amount) — never importer names, shipping routes, or commercial terms — providing non-repudiation of the customs entry issuance.
-
-
 ## Compared With ACE Portal / Single Window
 
 | Feature | Live Verify | ACE Portal (Gov) | Scanned PDF |
@@ -124,3 +119,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Content.** Proves the *Duty Paid* matches. | **Data-Only.** | **Vulnerable.** |
 
 **Where each fits:** ACE and other single-window portals are the system of record for customs, and brokers and government officers who hold credentials should keep working in them. Lenders, auditors and domestic buyers have no login and are simply handed a copy of the entry summary. Live Verify gives those downstream parties a way to confirm that the customs authority stands behind the exact page in front of them, while the portal carries on serving the people it was built for.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

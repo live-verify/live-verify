@@ -120,10 +120,6 @@ Global Aerospace underwrites aircraft hull and liability insurance for aviation 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the underwriter's hashes and status changes (cancelled, grounded, deleted) plus structured metadata (aircraft registrations, policy numbers, coverage limits, effective dates) — never owner names, pilot details, or route information — providing non-repudiation of the certificate and an audit trail civil aviation authorities can inspect for uninsured operations.
-
 ## Compared With FAA Registries
 
 | Feature | Live Verify | FAA Civil Aviation Registry | Paper COI |
@@ -133,3 +129,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Freshness** | **Real-time.** Checks if the premium was paid today. | **Laggy.** Changes take weeks to update. | **Static.** |
 
 **Where each fits:** the national aircraft registry is the authority on ownership and registration, and remains the place to check those. It does not record insurance, and registries in different countries are not linked. The certificate of insurance is what airports, lessors and foreign authorities are actually handed, and Live Verify lets them confirm the insurer stands behind it, wherever the aircraft is registered.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

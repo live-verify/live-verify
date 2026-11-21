@@ -200,7 +200,6 @@ No single background check covers all jurisdictions. FBI checks only include fin
 
 Background check results contain sensitive information. The verification hash confirms the document is genuine without requiring the verifier to transmit the contents to the issuing agency.
 
-
 ## Authority Chain
 
 **Pattern:** Sovereign
@@ -214,6 +213,6 @@ The UK Disclosure and Barring Service issues criminal background check results u
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuing agency's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the background check result.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

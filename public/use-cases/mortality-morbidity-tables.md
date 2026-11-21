@@ -106,11 +106,6 @@ Actuaries publish statistical tables used to calculate insurance premiums and pe
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the standards body's hashes and status changes plus structured metadata (table name, version, certification date, effective date) — never underlying data or actuarial methodology — providing non-repudiation of the table and an audit trail regulators and insurers can inspect.
-
-
 ## Compared With Actuarial Portals (Mort.SOA.org)
 
 | Feature | Live Verify | SOA Mortality Table Portal | Scanned PDF Memo |
@@ -121,3 +116,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Freshness** | **Real-time.** Shows if table was restated. | **Live.** | **Static.** |
 
 **Where each fits:** The Society of Actuaries' table portal is the source for the data itself, and an actuary building a model should take the tables from there. An auditor or regulator reading a signed memo is asking something else: whether the table cited in this document is as published and has not since been restated. Live Verify lets them check that from the document, while the portal remains where the underlying numbers are obtained.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

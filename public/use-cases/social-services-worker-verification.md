@@ -129,6 +129,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Social services verification is about "Safety for the Vulnerable." By allowing families to instantly cross-reference a physical badge with a digital government record, we eliminate the primary weapon of predators: the fear of state authority.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the social services agency's hashes and status changes plus structured metadata (worker name, employee ID, role, office location) — never plaintext or sensitive personal information — providing non-repudiation of worker credential issuance.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

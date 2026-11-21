@@ -112,11 +112,6 @@ Certifies fingerprints and identity for background checks.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the fingerprinting authority's hashes and status changes plus structured metadata (fingerprint ID, submission date, clearance type, notary ID) — never fingerprint data, personal identification details, or background check results — providing non-repudiation of the fingerprint certification issuance.
-
-
 ## Compared With FBI Portal (CJIS)
 
 | Feature | Live Verify | FBI CJIS Portal | Scanned PDF Receipt |
@@ -127,3 +122,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Identity.** Protects the Card ID. | **Data-Only.** | **Vulnerable.** |
 
 **Where each fits:** The FBI's CJIS process is the only source of the background result itself, and access to it is properly limited to authorised entities. It also takes days. In the meantime an employer or licensing board may only want to know that the applicant attended and was fingerprinted. Live Verify lets them confirm that the collecting firm stands behind the receipt, which says nothing about the outcome of the check and does not replace it.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

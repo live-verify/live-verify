@@ -165,7 +165,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Pawnbroker regulations are among the oldest consumer protection laws in existence — some jurisdictions have had them since the 1800s. The regulatory intent is sound: record what you buy, from whom, and hold it long enough for the police to check. But the records are trapped in local silos. A verified transaction record doesn't change the regulation — it makes it work the way it was always supposed to, across jurisdictional boundaries, at the speed of a hash lookup instead of a detective's phone call.
 
+## Independent Record (Optional)
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the dealer's hashes and status changes plus structured metadata (dealer name/license, transaction ticket number, transaction date, hold period expiry, police reporting reference) — never seller ID details or personal information — providing non-repudiation of pawnbroker transaction records.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

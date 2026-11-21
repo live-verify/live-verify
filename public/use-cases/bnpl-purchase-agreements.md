@@ -105,10 +105,6 @@ Klarna issues buy-now-pay-later purchase agreements for UK consumers and merchan
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the BNPL provider's hashes and status changes plus structured metadata (loan amounts, APR, payment schedules, merchant names) — never plaintext (borrower SSN, full address, bank account details) — providing non-repudiation of the loan terms.
-
 ## Rationale
 
 ## Compared With Credit Reports (Experian/TransUnion)
@@ -121,3 +117,6 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** a credit bureau report is still the broadest single view of a borrower and the basis for most lending decisions. Some instalment loans are not reported, or appear only after a delay. Live Verify lets a consumer show a lender a statement that the provider stands behind, covering what the bureau file has not yet picked up, and equally lets them evidence a clean repayment record.
 
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

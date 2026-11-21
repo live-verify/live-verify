@@ -105,11 +105,6 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the corporation's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the board resolution.
-
-
 ## Compared With Corporate Registries (Delaware SOS)
 
 | Feature | Live Verify | Secretary of State (SOS) | Virtual Data Room (VDR) |
@@ -120,3 +115,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **Universal.** PDFs stay verifiable anywhere. | **Siloed.** | **Restricted.** Access usually revoked post-deal. |
 
 **Where each fits:** the Secretary of State is the authority on whether a company exists and is in good standing, and a data room is the right place for full diligence during a deal. Neither tells a bank outside the deal that the board approved a particular transaction. Live Verify lets the company or its law firm share that one resolution in a form the recipient can check, without opening the rest of the minute book.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

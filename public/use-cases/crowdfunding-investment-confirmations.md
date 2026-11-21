@@ -113,11 +113,6 @@ Seedrs issues investment confirmations for UK crowdfunding platforms.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the crowdfunding platform's hashes and status changes plus structured metadata (backer name, project title, pledge amount, reward tier, estimated delivery date, transaction date, pledge ID) — never plaintext payment information — providing non-repudiation of the pledge confirmation.
-
-
 ## Compared With Platform Dashboards
 
 | Feature | Live Verify | Platform Dashboard | Scanned PDF / Email |
@@ -128,3 +123,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires 2FA and navigation. | **N/A.** |
 
 **Where each fits:** the platform dashboard is the backer's own authoritative view and the place where any change to a pledge is made. A third party cannot see it without the backer's login. Live Verify lets the backer show a confirmation that the other person can check against the platform's domain, while the dashboard remains the record. Whether a pledge can be transferred is still a matter for the platform's terms.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

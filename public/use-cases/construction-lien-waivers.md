@@ -107,11 +107,6 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the claimant's hashes and status changes plus structured metadata (project name and ID, claimant name, payment amount, period covered, waiver date) — never details of disputes or partial payments — providing non-repudiation of the lien waiver and an audit trail for banks and title companies.
-
-
 ## Compared With Payment Portals (Textura)
 
 | Feature | Live Verify | Textura / Procore Pay | Paper / Email PDF |
@@ -122,3 +117,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Cost** | **Low.** Minimal infrastructure. | **High.** Fees often 0.2% of contract value. | **None.** |
 
 **Where each fits:** payment platforms handle waiver collection well for the parties on a project who use the same platform. A buyer's lawyer reviewing past waivers in a data room, or a lender who never joined the project, has no access to it, and the project workspace may have been closed. Live Verify lets them check a waiver PDF against the payee's domain, and it can be applied to waivers generated through a platform as readily as to those issued without one.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

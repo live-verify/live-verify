@@ -124,6 +124,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Construction permits are about "Community Trust." By allowing the public to instantly verify the legality of a construction project, we transform the permit from a passive piece of paper into a live, transparent contract between the builder and the city.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the municipality's hashes and status changes plus structured metadata (permit number, project address, work description, issue and expiration dates, contractor and owner names, license numbers) — never personal financial or insurance details — providing non-repudiation of the permit and an audit trail for neighbors and inspectors.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

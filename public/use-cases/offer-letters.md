@@ -164,11 +164,11 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Cost** | **Free at point of use.** | **Staff time.** | **Expensive.** Per-query fees. | **Free.** But worthless. |
 | **Detects withdrawal** | **Yes.** Instant status update. | **Maybe.** If HR is responsive. | **No.** | **No.** |
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the employer's hashes and status changes plus structured metadata (candidate name, position, start date, offer status) — never salary or compensation plaintext — providing non-repudiation of offer issuance and withdrawal/supersession events.
-
 ## Further Derivations
 
 1. **Internship and placement offer letters** — Lower stakes individually but the same verification need. Student visa applications (Tier 4/Student Route in the UK, J-1 in the US) require proof of a placement or internship offer. Universities and immigration authorities need to verify these offers are genuine. Same protocol, same authority chain — the employer is still PAYE/EIN-registered.
 2. **Contractor/consulting engagement letters** — SOW-based, no employment relationship, but the same verification need for visas and lending. A contractor relocating to a new country on a consulting engagement needs to prove the engagement is real. The engagement letter carries a verify line bound to the client's procurement domain. The authority chain follows: client domain → tax authority → statute.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

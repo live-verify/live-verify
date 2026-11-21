@@ -121,10 +121,6 @@ Administers federal tax exemptions for charitable organizations.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the IRS's hashes and status changes plus structured metadata (organization name, EIN, exemption date, classification) — never donor or financial plaintext — providing non-repudiation of the determination letter and an audit trail state charity bureaus can inspect.
-
 ## Compared With QR/NFC and IRS Search
 
 | Feature | Live Verify | QR Code | IRS Search / TEOS |
@@ -139,3 +135,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 ## See Also
 
 - [Professional Licenses](view.html?doc=professional-licenses) — Another case where a wall document is stronger as a visible surface than as the core artifact
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

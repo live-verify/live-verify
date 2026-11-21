@@ -129,11 +129,6 @@ Powers of attorney are drafted by legal professionals and overseen by the UK pub
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the law firm's hashes and status changes plus structured metadata (principal name, agent name, granted powers, effective date, notary seal number, signature date) — never plaintext or sensitive personal information — providing non-repudiation of the power of attorney and any revocations.
-
-
 ## Compared With QR/Holograms
 
 | Feature | Live Verify | Holographic Seal | QR Code |
@@ -146,3 +141,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 **Where each fits:** Seals and holograms show that a document passed through a formal execution process, and where law or institutional policy requires them they still have to be there. They cannot tell a bank teller whether the power has since been revoked, or whether the wording has been altered. Live Verify lets the teller check the text and its current status against the law firm's domain, including outside office hours, alongside the formalities the document already carries.
 
 See also [Legal Witnessing Future Architecture](../../docs/legal-witnessing-future-architecture.md) for a generalised model where witnesses attest to hash-specific documents and attestations are published to an independent registry — particularly relevant for LPAs where the donor's capacity is later contested.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

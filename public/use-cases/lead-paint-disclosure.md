@@ -107,11 +107,6 @@ Regulates lead paint disclosure in residential properties.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the property record issuer's hashes and status changes plus structured metadata (property address, disclosure date, seller/buyer names, signed status) — never lead inspection details or remediation costs — providing non-repudiation of the disclosure and an audit trail attorneys can inspect.
-
-
 ## Compared With Disclosure Portals
 
 | Feature | Live Verify | Disclosure Portal | Scanned PDF / Paper |
@@ -122,3 +117,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires paying a fee or finding a login. | **Instant.** |
 
 **Where each fits:** A disclosure portal is a practical way to deliver and sign the form at the start of a tenancy or sale, and the parties to that transaction are well served by it. Questions about the disclosure can arise many years later, sometimes after the portal account or the managing agent has gone. Live Verify keeps the signed text checkable against the issuer's domain for as long as the issuer publishes the hash, so the paper copy in someone's file can still be confirmed.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

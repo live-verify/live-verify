@@ -116,10 +116,6 @@ Zurich issues certificates of insurance for contractors and construction operati
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the broker's hashes and status changes plus structured metadata (policy numbers, coverage limits, effective dates, carrier names) — never contractor financial details or risk assessments — providing non-repudiation of the certificate it issued.
-
 ## Compared With Central Databases (ACORD)
 
 | Feature | Live Verify | ACORD Data Pool | Paper COI |
@@ -130,3 +126,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Freshness** | **Real-time.** Queries the broker's live file. | **Laggy.** Depends on batch uploads. | **Static.** |
 
 **Where each fits:** industry data pools serve insurers and brokers exchanging policy data among themselves, and do that job well. A property owner or site foreman is not a member and is simply handed a certificate by the contractor. Live Verify lets them check that certificate, including its limits, against the broker's or insurer's domain, which extends the reach of the industry's data without changing how it is exchanged.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

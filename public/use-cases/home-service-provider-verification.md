@@ -169,10 +169,6 @@ The strongest version is layered: the board or licensing body confirms scope and
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the state licensing board or company's hashes and status changes plus structured metadata (tradesperson names, license types, license numbers, company names, scope of work, insurance status, dispatch assignments) — never home addresses or job site locations — providing non-repudiation of the credential and an audit trail state licensing boards can inspect.
-
 ## Compared With Review Sites (Yelp)
 
 | Feature | Live Verify | Review Sites (Yelp/Google) | Physical ID Card |
@@ -189,3 +185,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 - [Locksmith Licenses](view.html?doc=locksmith-licenses) — Another threshold-decision trade with company and dispatch checks
 - [Pest Control Operator Licenses](view.html?doc=pest-control-operator-licenses) — Task-scope and chemical-category variant
 - [Trades and Home-Visit Cluster](../../trades-home-visit-cluster.md) — Cluster note for doorstep and threshold verification
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

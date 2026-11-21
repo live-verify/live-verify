@@ -120,6 +120,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Tax forms are the "Financial DNA" of a citizen. By turning wage statements into verifiable digital bridges, we protect the mortgage market from defaults and the government from the multi-billion dollar cost of refund fraud.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the payroll provider's or IRS's hashes and status changes plus structured metadata (employer EIN, employee SSN, tax year, total wages withheld, control number) — never plaintext or sensitive personal information — providing non-repudiation of the tax form.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

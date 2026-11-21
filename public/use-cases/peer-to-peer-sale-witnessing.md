@@ -149,7 +149,7 @@ No regulatory chain. Trust rests on the individual's domain.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
 An independent witness layer is the core of this use case — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the general mechanism. Here the witnessing firm goes further than hash custody: it verifies government-issued ID for both parties, records transaction details with timestamps, and retains identity information under strict access controls, disclosing it only via legal process or mutual consent. That gives both sides accountability (neither party can deny the transaction occurred), recourse (buyers can reach sellers after the fact), deterrence (sellers of stolen goods know their identity is on file), and evidence courts and police can rely on.
 

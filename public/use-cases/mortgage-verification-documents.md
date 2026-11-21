@@ -110,10 +110,6 @@ The borrower / employee (second party) may hand the verified document to various
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. Salary and employment status are highly sensitive. The hash MUST be salted to prevent "Guess-and-Check" searches for high-earning employees. Even though documents contain unique employee IDs and names, salary amounts and job titles are often enumerable (common salary bands like $50k, $75k, $100k, $145k combined with standard titles), making brute-force attacks feasible without salt.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the employer's hashes and status changes plus structured metadata (job title, employment status, employment dates, verification ID) — never employee names, salary amounts, or SSNs — providing non-repudiation of employment verification issuance.
-
 ## Compared With The Work Number (Equifax)
 
 | Feature | Live Verify | The Work Number | Manual Phone Check |
@@ -125,11 +121,9 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** Employment databases such as The Work Number give lenders a fast, automated answer for employees of participating employers, and where a record exists there a lender will reasonably use it. Many people work for small firms that do not participate, and their lenders fall back on a letter from the employer or a phone call. Live Verify lets the lender confirm that letter against the employer's domain, covering the applicants the database cannot.
 
-
 ---
 
 _[Content merged from: mortgage-income-verification]_
-
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="income"></span>
@@ -232,10 +226,6 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the payroll processor's hashes and status changes plus structured metadata (pay periods, gross amounts, YTD totals, verification IDs) — never employee names, SSNs, addresses, or bank details — providing non-repudiation of paystub issuance.
-
 ## Compared With The Work Number (Equifax)
 
 | Feature | Live Verify | The Work Number | Scanned PDF / Paper |
@@ -246,3 +236,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Cost** | **Low.** Standard web infra. | **Very High.** Lenders pay $50-$100 per check. | **None.** |
 
 **Where each fits:** For employers that report payroll to a verification service, a lender's automated income check is quick and well established. Paystubs from smaller employers that do not report still arrive as paper or PDF. Live Verify lets the lender confirm that the employer issued the stub as presented, and it gives an applicant the option of sharing a single pay period; the database route stays available wherever it applies.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

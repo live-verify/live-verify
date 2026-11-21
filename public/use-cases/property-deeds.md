@@ -284,11 +284,6 @@ HM Land Registry maintains the UK property register and issues property deed reg
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the county recorder's hashes and status changes plus structured metadata (parcel number, deed date, grantor/grantee names, recording date, document type) — never plaintext or sensitive personal information — providing non-repudiation of the recorded property transfer.
-
-
 ## Compared With Blockchain (NFTs)
 
 | Feature | Live Verify | Blockchain (NFT) | Traditional Paper |
@@ -304,3 +299,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 - [Proof of Home Ownership](view.html?doc=proof-of-home-ownership) — short-lived, salted, privacy-preserving proof derived from the permanent title layer
 - [Property State Changes](view.html?doc=property-state-changes) — separate multidimensional status layer for owner-occupier vs tenanted, for-sale, damage, merger, erosion, and similar state changes
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

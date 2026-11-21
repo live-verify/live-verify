@@ -113,11 +113,6 @@ Massage therapy boards issue professional licenses under occupational regulator 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the board's hashes and status changes plus structured metadata (license number, issue date, expiration date, license status) — never therapist name, address, or background check details — providing non-repudiation of the license and an audit trail law enforcement can inspect.
-
-
 ## Compared With Window Posters / Public Lookup
 
 | Feature | Live Verify | Laminated Wall Poster | State Website Search |
@@ -128,3 +123,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Safety Data** | **High.** Shows background check status. | **None.** | **Passive.** |
 
 **Why this remains strong:** State portal lookup should remain primary where a verifier is prepared to use it directly. But in the actual service setting, the visible station license or displayed credential is the surface the client encounters. That makes this a good complementary case for discreet, in-room verification rather than a claim to replace the registry.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

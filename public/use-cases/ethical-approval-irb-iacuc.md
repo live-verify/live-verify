@@ -120,10 +120,6 @@ Research ethics committees issue approval letters under healthcare research regu
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the IRB's hashes and status changes plus structured metadata (protocol ID, principal investigator name, study title, approval date, expiration date) — never plaintext or sensitive personal information — providing non-repudiation of the ethical approval.
-
 ## Compared With IRB Management Systems (Click/InfoEd)
 
 | Feature | Live Verify | IRB Portal (Click/InfoEd) | Scanned PDF Letter |
@@ -138,3 +134,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 ### Why Would a Journal Editor Bother?
 
 The reproducibility crisis has a document layer that nobody talks about. A journal receives a manuscript claiming "IRB-approved" with a protocol number. The editor has no practical way to check — they are outside the institution's ethics system, and no university gives journal editors login access to their IRB portal. The editor trusts the author. In 2024, investigations revealed paper mills fabricating entire ethics approval letters, complete with letterheads and protocol numbers, for studies that were never reviewed. A verifiable ethics approval — one the editor can scan and confirm against the university's own domain — closes the gap between institutional oversight and the global scientific publishing system. The five-second check replaces a trust assumption that has been systematically exploited.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

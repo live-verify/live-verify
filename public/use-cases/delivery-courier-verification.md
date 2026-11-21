@@ -114,10 +114,6 @@ The courier (second party) may hand the verified credential to various third par
 
 **Privacy Salt:** Required. Courier badges combine predictable values—partial names, hub locations, and standard ID formats. More critically, the hash must be salted to prevent "Stalking" attacks where someone could enumerate driver IDs and routes, creating serious safety risks for drivers. Salt also prevents "Competitor Reconnaissance" where rival firms could map out a company's delivery density and staffing patterns.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the courier company's hashes and status changes plus structured metadata (employee ID, hub assignment, on-duty status, route zone) — never driver full names, home addresses, or specific delivery routes — providing non-repudiation of credentials and employment status, with immutable timestamp proof critical for incident investigations.
-
 ## Privacy-Preserving Badge Design
 
 Courier drivers complete 100-300 stops per day. Each delivery is a 10-30 second interaction where their badge is visible to the recipient, neighbors, and any doorbell cameras recording the street. Exposing full names to this volume of strangers creates unnecessary privacy risk.
@@ -151,11 +147,9 @@ This use case is fundamentally doorstep-based. The verification happens in perso
 
 Courier verification bridges the "Uniform Trust Gap." By binding the physical presence of a delivery person to the company's digital HR/Dispatch record, it protects both the public from crime and the courier companies from brand damage.
 
-
 ---
 
 _[Content merged from: delivery-driver-verification]_
-
 
 ## What is a Driver ID Badge?
 
@@ -366,3 +360,7 @@ food safety credential" — relevant for allergy-sensitive or immunocompromised 
 ## Related E-Ink Scenarios
 
 See [E-Ink ID Cards](../e-ink-id-cards.md) for the full list of use cases sharing this pattern, including police officers, healthcare staff, hotel staff, residential building maintenance, and event venue crews.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

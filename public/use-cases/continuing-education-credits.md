@@ -110,11 +110,6 @@ Education providers issue continuing education certificates under medical regula
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the provider's hashes and status changes plus structured metadata (professional name, course title, credit hours by category, completion date, provider accreditation number, certificate ID) — never professional license numbers — providing non-repudiation of credit issuance and an audit trail for licensing board compliance verification.
-
-
 ## Compared With Central Learning Registries
 
 | Feature | Live Verify | Learning Management System (LMS) | Physical Certificate |
@@ -125,3 +120,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires login, data export, and manual upload. | **N/A.** |
 
 **Where each fits:** a learning management system is the right home for a provider's course records, and where a licensing board receives completions directly from it nothing more is needed. Many boards do not, and the professional submits certificates collected over the year. Live Verify lets the board confirm each certificate with the provider that issued it, whichever system that provider runs.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

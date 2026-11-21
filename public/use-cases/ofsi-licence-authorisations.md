@@ -150,6 +150,6 @@ Licences under proliferation sanctions regimes (Iran, DPRK) carry additional con
 - **UN:** UNSCR 1718 Committee (DPRK) and JCPOA procurement channel (Iran, though currently suspended) — international licensing/approval mechanisms for specific proliferation-sensitive goods.
 - **Key distinction:** Proliferation licensing requires technical assessment of goods/technology — not just financial controls; licensing decisions involve export control experts, intelligence agencies, and sometimes international bodies (IAEA).
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive OFSI's hashes and status changes plus structured metadata (licence reference, date of issue, licence holder name, designated person reference, regulation, authorised activity description, maximum amount, expiry date) — never designated person identity details or conditions annexes — providing non-repudiation of OFSI's licence authorisations.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

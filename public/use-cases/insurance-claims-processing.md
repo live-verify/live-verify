@@ -96,10 +96,6 @@ The Patient benefits from verification.
 
 **Privacy Salt:** Highly critical. EOBs contain sensitive clinical and financial data. The hash must be salted to prevent "Guess-and-Check" attacks.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the health insurer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the EOB.
-
 ## Compared With Patient Portals
 
 | Feature | Live Verify | Insurance Portal (Login) | Paper EOB |
@@ -111,11 +107,9 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** The insurer's portal remains the best place for a member to see every claim and statement in one view, and providers already connected to the insurer will keep using their own channels. When a patient needs to show a single explanation of benefits to a hospital billing office or a lender, handing over portal access would expose far more than that one statement. Live Verify lets them share the one page and lets the recipient confirm the insurer issued it.
 
-
 ---
 
 _[Content merged from: claims-diary-reserve-changes]_
-
 
 ## What is a Claims Diary?
 
@@ -204,10 +198,6 @@ The Claims Adjuster benefits from verification.
 
 **Privacy Salt:** Highly critical. Internal notes contain sensitive medical/legal opinions. The hash must be salted to prevent unauthorized access to claim narratives.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurance carrier's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing diary notes and reserve changes.
-
 ## Compared With Guidewire Audit Logs
 
 | Feature | Live Verify | System Audit Log (Guidewire) | PDF Export |
@@ -219,11 +209,9 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** The claims system and its audit log are where the carrier's own staff and internal auditors should work, and they hold far more detail than any exported file. Reinsurers and state regulators usually sit outside that system and review the PDFs sent to them. Live Verify gives those outside reviewers a way to confirm that a file note is the text the carrier published at the time, alongside whatever system access the carrier chooses to grant.
 
-
 ---
 
 _[Content merged from: claims-settlement-agreements]_
-
 
 ## What is a Settlement Agreement?
 
@@ -328,10 +316,6 @@ Aviva, a regulated insurance claims processor, is authorized by the FCA to issue
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurance carrier's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the settlement agreement.
-
 ## Compared With Court Dockets (PACER)
 
 | Feature | Live Verify | Court Docket (PACER) | Scanned PDF Release |
@@ -342,3 +326,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **Universal.** PDFs stay verifiable. | **Siloed.** Requires PACER login/fees. | **Manual.** |
 
 **Where each fits:** Where a settlement is filed with a court, the docket is the authoritative public record and should be consulted. Most insurance settlements are private agreements that never reach a docket, so there is nothing public to look up. Live Verify serves those cases: a party handed the release can confirm the payer stands behind its exact text, and the terms stay between the people who hold the document.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -168,6 +168,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Tourism is a "Reputation Export." By turning guide badges into verifiable digital bridges, we protect the safety of global travelers and the brand of the destination, ensuring that "Local Hospitality" is backed by cryptographic proof.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive tourism boards' hashes and status changes plus structured metadata (guide name, license ID, issuing tourism board, photograph hash, languages spoken, first aid certification status, insurance policy ID, expiration date, background check timestamp) — never plaintext or sensitive personal information — providing non-repudiation of the tour guide license.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

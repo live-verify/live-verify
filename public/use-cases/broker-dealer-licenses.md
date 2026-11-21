@@ -106,11 +106,6 @@ FINRA registers broker-dealers and representatives authorized to sell securities
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive FINRA's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the registration certificate.
-
-
 ## Compared With FINRA BrokerCheck (Search)
 
 | Feature | Live Verify | BrokerCheck Website | Paper Certificate |
@@ -121,3 +116,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Disclosures** | **Active Alert.** Can highlight a BARRED status in red. | **Deep.** Requires reading long PDF reports. | **Hidden.** |
 
 **Narrower conclusion:** BrokerCheck and other regulator search tools should remain primary where the verifier is prepared to use them directly. Live Verify is complementary when the business card or displayed credential is the visible surface in the room and the client wants a discreet bridge to the live regulatory record without name-search friction.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -182,10 +182,6 @@ Home health agencies issue care professional badges under healthcare regulator a
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the care agency's hashes and status changes plus structured metadata (worker names, license types, license numbers, scheduled visit IDs, duty statuses) — never sensitive personal information — providing non-repudiation of worker verification.
-
 ## Compared With Agency Phone Lines
 
 | Feature | Live Verify | Calling the Main Office | Static ID Card |
@@ -196,3 +192,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Availability** | **24/7.** Works for "Late Night" emergency visits. | **Restricted.** Offices often closed at night. | **N/A.** |
 
 **Why this remains strong:** The threshold moment is the real workflow. Patients decide whether to let someone into their home in seconds and often do not want to make a phone call while an official-looking visitor waits at the door. Agency systems remain primary in the background, but the badge is the visible surface at that moment. That makes this a strong complementary home-entry verification case.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

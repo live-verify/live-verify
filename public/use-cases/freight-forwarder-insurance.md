@@ -117,10 +117,6 @@ The TT Club, a mutual insurer specializing in logistics, is regulated by the FCA
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurance carrier's hashes and status changes plus structured metadata (certificate numbers, forwarder names, policy limits, expiration dates, coverage types) — never sensitive commercial information — providing non-repudiation of the cargo insurance certificate.
-
 ## Compared With Broker Confirmation
 
 | Feature | Live Verify | Manual Broker Call | Scanned PDF |
@@ -131,3 +127,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Availability** | **24/7.** Works across all time zones. | **Restricted.** Business hours only. | **Universal.** |
 
 **Where each fits:** A call to the broker is still the best way to ask about exclusions, endorsements or anything the certificate leaves unclear. It depends on the broker's office being open, and in international freight the shipper and the forwarder's broker are often many time zones apart. Live Verify lets the shipper confirm at any hour that the insurer stands behind the certificate and its limits, and keep the phone call for questions that need a person.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

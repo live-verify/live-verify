@@ -117,10 +117,6 @@ Administers election ballot custody and transfer records.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the county's hashes and status changes (in-transit, received, seal mismatch) plus structured metadata (precinct numbers, container IDs, seal numbers, ballot counts, timestamps) — never poll worker names or non-public addresses — providing non-repudiation of the transfer form and an audit trail state election oversight can inspect for chain-of-custody violations.
-
 ## Compared With Central Portals / GPS
 
 | Feature | Live Verify | Internal Election Portal | GPS Tracking on Trucks |
@@ -130,3 +126,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Connectivity needed** | **Yes, for the check.** The paper form can be read without a connection; checking it takes one small web request over any data connection, at the time or later. | **Yes.** | **Yes.** Requires cell signal. |
 
 **Where each fits:** the election office's internal system is the operational record, and GPS tracking tells officials where a vehicle went; both stay in place. Observers and party representatives are not given access to either, and should not need it. Live Verify lets them check the seal numbers and counts on a custody form against what the election office has published on its own domain. That confirms the office stands behind the form as written, and leaves the internal controls to the people responsible for them.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

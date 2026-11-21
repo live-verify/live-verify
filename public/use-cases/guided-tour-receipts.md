@@ -119,10 +119,6 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the tour operator's hashes and status changes plus structured metadata (booking reference IDs, activity titles, meeting point addresses, start dates and times, payment amounts, participant counts) — never participant names, contact details, or payment card information — providing non-repudiation of the voucher and booking terms and an audit trail tourism boards can inspect.
-
 ## Compared With QR Codes
 
 | Feature | Live Verify | Standard QR Code | Scanned PDF |
@@ -133,3 +129,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Connectivity needed** | **Yes, for the check.** The printed voucher can be read without a connection; checking it takes one small web request. | **Yes.** Requires live DB access to mean anything. | **None.** |
 
 **Where each fits:** A booking platform's own QR code, scanned in the platform's own app, is fast and ties straight into the operator's manifest, and guides who have that app should use it. A voucher may equally be presented to a subcontracted guide, a boat crew or a site gatekeeper who does not have it. Live Verify lets that person confirm, with an ordinary phone browser, that the operator stands behind the printed voucher, and the two codes can sit on the same page.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

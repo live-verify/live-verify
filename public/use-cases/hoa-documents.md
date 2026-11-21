@@ -100,10 +100,6 @@ The Homeowner (Member) benefits from verification.
 **HOA Secretary / Boards.**
 **Legal Data Platforms:** (e.g., HomeWiseDocs, CondoCerts).
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the HOA's hashes and status changes plus structured metadata (HOA legal name, adoption dates, revision versions, recording reference numbers) — never plaintext or sensitive personal information — providing non-repudiation of the bylaws and governance documents.
-
 ## Compared With Private Portals
 
 | Feature | Live Verify | Resident Portal (Associa) | Scanned PDF / Email |
@@ -118,7 +114,6 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 ---
 
 _[Content merged from: hoa-bylaws-revisions]_
-
 
 ## What is a Rule Change Notice?
 
@@ -235,3 +230,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Persistence** | **High.** Text remains verifiable post-sale. | **Low.** Access revoked after moving out. | **Vulnerable.** |
 
 **Where each fits:** For members, the association's portal remains the simplest way to find the current rules. A sale moves those rules from someone who has access to someone who does not yet have it, and the seller's own login ends on moving out. Live Verify lets the buyer and the closing professionals check the document they were handed against the association's own domain, which complements the portal during the period it cannot cover.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

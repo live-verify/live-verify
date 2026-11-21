@@ -116,11 +116,6 @@ Hiscox underwrites event cancellation and weather insurance for venues and organ
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (policy number, event date, coverage limit, weather triggers, monitoring station ID) — never payout amounts, event organizer identity, or commercial terms — providing non-repudiation of the policy issuance and immutable verification of trigger thresholds.
-
-
 ## Compared With Automated Payouts (Parametric)
 
 | Feature | Live Verify | Parametric Insurance (API) | Scanned PDF |
@@ -131,3 +126,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **Fast.** Automated payout. | **N/A.** |
 
 **Where each fits:** Parametric cover settled over an API is hard to improve on for speed: the trigger is measured and the payout follows without paperwork. That exchange runs between the insurer and the insured and is not visible to anyone else. Sponsors, venues, vendors and ticket-holders who are told the event is insured see only a certificate, and Live Verify lets them confirm the carrier stands behind its wording. The automated payout and the checkable certificate serve different audiences for the same policy.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -130,11 +130,6 @@ Hospitals issue discharge summaries under healthcare regulator authority (CQC in
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the hospital's hashes and status changes plus structured metadata (patient MRN, admission/discharge dates, primary diagnosis, facility ID) — never patient name, detailed medication lists, or specific clinical notes — providing non-repudiation of the discharge summary issuance.
-
-
 ## Compared With Patient Portals / HIEs
 
 | Feature | Live Verify | Patient Portal (Epic) | Health Info Exchange (HIE) |
@@ -145,3 +140,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Cross-System** | **Universal.** Works across any health system. | **Siloed.** Hard to share across different vendors. | **Limited.** Regional only. |
 
 **Where each fits:** Where the receiving clinician is on the same record system, or a health information exchange links the two organisations, the structured record is the better source and should be used. Many handovers do not look like that: the patient arrives at a clinic, pharmacy or care home on a different system, or in another region or country, carrying the printed discharge packet. Live Verify lets the person reading it confirm that the hospital issued that text, and it sits alongside portals and exchanges rather than competing with them.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

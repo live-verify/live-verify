@@ -138,11 +138,6 @@ UK courts issue court orders and judgments authorized by the Courts Act 2003 and
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the court's hashes and status changes plus structured metadata (case number, court jurisdiction, filing date, verdict amount) — never party names, judges' notes, or sensitive personal information — providing non-repudiation of the court order and judgment issuance.
-
-
 ## Compared With PACER / Online Dockets
 
 | Feature | Live Verify | PACER (Federal) | Paper with Seal |
@@ -153,3 +148,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Trust Anchor** | **Domain-Bound.** Bound to the Court. | **System-Bound.** | **The Paper.** |
 
 **Why this remains strong:** Court dockets remain primary for judges, clerks, and lawyers who can use them directly. The gap is the front line: police officers, bank tellers, landlords, employers, and other recipients of court orders often cannot practically navigate those systems at the moment they need to act. That makes court orders another strong portability case rather than an attempt to replace the docket itself.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

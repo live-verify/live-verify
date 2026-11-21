@@ -108,10 +108,6 @@ Health insurance carriers issue EOBs under federal insurance regulator authority
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the health insurer's hashes and status changes plus structured metadata (claim IDs, service dates, CPT codes, billed amounts, insurance payments, patient responsibility amounts, EOB dates) — never patient names or medical procedure details — providing non-repudiation of the EOB and an audit trail CMS and HSA administrators can inspect.
-
 ## Compared With Insurance Portals
 
 | Feature | Live Verify | Insurer Mobile App | Scanned PDF / Paper |
@@ -122,3 +118,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires 2FA, login, and navigation. | **N/A.** |
 
 **Where each fits:** The insurer's app is the member's complete view of claims and cover, and it is the right place to manage them. It is built for the member, not for showing one claim to someone else. Live Verify lets an HSA administrator, a second insurer or an employer benefits desk confirm that the insurer stands behind a single explanation of benefits the member chose to send, without anyone logging in to the member's account.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

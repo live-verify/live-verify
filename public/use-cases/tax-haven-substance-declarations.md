@@ -171,10 +171,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 **Where each fits:** The existing channels each serve their intended audience: automatic exchange gets information to tax authorities, a registry search suits those with access to what the registry publishes, and an agent's letter adds a professional's attestation. Banks, advisers and counterparties are largely outside those channels and often have only the entity's own copy of its declaration. Live Verify lets them confirm that copy against the registrar's domain, without altering how the registrar reports to other authorities.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive registrars' hashes and status changes plus structured metadata (entity name, registration number, relevant activity type, filing period, employee count, operating expenditure, premises address, number of board meetings held in jurisdiction, directors resident in jurisdiction, CIMA-directed activity status, date of filing) — never plaintext or sensitive personal information — providing non-repudiation of the economic substance declaration filing. Economic substance declarations have particular witnessing value for cross-jurisdictional enforcement: when the Cayman DITC reports a non-compliant entity to HMRC under spontaneous exchange of information, the witnessing record provides independent proof of what was originally filed.
-
 ## Further Derivations
 
 1. **Directed Management and Control Evidence** — Documentation proving that key management decisions are actually made in the jurisdiction (board minutes, resolutions, strategic plans). Complements the substance declaration by showing that directors aren't just rubber-stamping decisions made in London or New York.
@@ -182,3 +178,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 2. **Outsourced Activity Declarations** — When an entity outsources core income-generating activities (CIGA) to another entity in the same jurisdiction, both entities must file declarations. The outsourcing entity must demonstrate adequate supervision. Verification of these linked filings prevents the "substance laundering" problem where one entity's substance is counted multiple times.
 
 3. **IP Regime Nexus Declarations** — Under OECD BEPS Action 5, entities claiming preferential IP tax regimes must demonstrate a "nexus" between the IP income and the R&D expenditure that generated it. These declarations are filed with the jurisdiction's tax authority and are distinct from general substance declarations. Fraud is rampant — entities claim IP income in low-tax jurisdictions while all the actual R&D happens in high-tax countries.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

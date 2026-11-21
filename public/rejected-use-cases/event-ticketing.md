@@ -437,17 +437,6 @@ verify:radiohead.com/tour
 
 Here `radiohead.com` is the issuer, authorized by their management or label. The authority chain adapts to whoever controls the ticketing relationship.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-Some jurisdictions, contracts, or multi-party workflows may add an independent witness layer. When used, the witnessing firm:
-
-- Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
-- Receives structured content/metadata (event, date, seat)
-- Does **NOT** receive photos or personal information
-- Provides an immutable, timestamped audit trail—available to the jurisdiction on demand, to ticket holders during disputes, or as evidence in fraud prosecutions
-
-This provides:
-- **Non-repudiation:** Issuer cannot deny issuing the ticket
-- **Timestamp proof:** Ticket existed at a specific time
-- **Regulatory audit:** Jurisdictions can inspect for consumer protection compliance
-- **Resilience:** Verification works even if issuer's systems go down
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

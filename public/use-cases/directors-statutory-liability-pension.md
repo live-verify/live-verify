@@ -117,11 +117,6 @@ AIG underwrites directors liability insurance for pension plan fiduciaries.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (policy number, coverage limits, policy effective and expiration dates, named trustees, coverage scope, policy status) — never trustee compensation or specific claims — providing non-repudiation of D&O or pension trustee liability coverage and an audit trail for regulatory compliance and long-tail liability protection.
-
-
 ## Compared With Annual Reports
 
 | Feature | Live Verify | Pension Annual Report | PDF Scan of Policy |
@@ -132,3 +127,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Archival** | **Permanent.** Durable for 20-year tail. | **Low.** Often discarded after 5 years. | **Vulnerable.** |
 
 **Where each fits:** The plan's annual report is the proper place for members and regulators to see that fiduciary cover exists, and it will stay the formal disclosure. It is written once a year and seldom records the names, limits or triggers a particular trustee cares about. Live Verify lets a trustee, or someone acting for them long after retirement, confirm that the insurer stands behind the certificate they kept, which fills in detail the report was never meant to carry.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

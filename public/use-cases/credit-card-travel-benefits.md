@@ -111,11 +111,6 @@ American Express issues credit card travel insurance benefits for cardholders.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the card issuer's hashes and status changes plus structured metadata (benefit type, coverage limits, geographic scope, effective dates, benefit status) — never cardholder identity or account numbers — providing non-repudiation of benefit eligibility and an audit trail for claim disputes.
-
-
 ## Compared With Calling the Number
 
 | Feature | Live Verify | Calling the 800 Number | In-App Dashboard |
@@ -126,3 +121,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Cryptographic.** Binds every limit and term. | **Human.** Errors in reading the file. | **Vulnerable.** |
 
 **Where each fits:** calling the benefits line is still the way to ask a question about what is covered, and the banking app is the cardholder's own reference. Neither is easy to put in front of a rental agent at a busy counter. Live Verify lets the cardholder show a coverage letter that the agent can check against the bank's domain there and then.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

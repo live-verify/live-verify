@@ -99,11 +99,6 @@ The Shipper or Exporter benefits from verification.
 **NVOCCs:** (DHL, Kuehne+Nagel).
 **Maritime Platforms:** (TradeLens, GSBN).
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the carrier's hashes and status changes plus structured metadata (B/L number, vessel name, port of loading/discharge, container numbers) — never plaintext or sensitive personal information — providing non-repudiation of the bill of lading and an audit trail customs authorities can inspect.
-
-
 ## Compared With Electronic B/L (eBL)
 
 | Feature | Live Verify | eBL Platform (Bolero/WAVE) | Paper BOL |
@@ -114,11 +109,9 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** Electronic bill of lading platforms give their members a fully digital document with a clear record of who holds it, and where every party to a shipment is on the same platform that is a sound way to work. Many shipments involve at least one party who is not, and several platforms are in use. Live Verify applies to the paper or PDF document that those shipments still depend on, letting anyone confirm it against the carrier's domain. A carrier can offer both.
 
-
 ---
 
 _[Content merged from: ocean-bills-of-lading]_
-
 
 ## What is an Ocean Bill of Lading?
 
@@ -224,7 +217,6 @@ Ocean B/L verification is the "Holy Grail" of supply chain security. By bridging
 ---
 
 _[Content merged from: sea-waybills]_
-
 
 ## What is a Sea Waybill?
 
@@ -333,3 +325,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 ## Rationale
 
 Sea Waybills are the "High-Speed Rail" of maritime paper. By turning static receipts into verifiable digital bridges, we ensure that the "Trust" required for express shipping is backed by cryptographic proof, protecting the global supply chain from the high cost of manual auditing.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

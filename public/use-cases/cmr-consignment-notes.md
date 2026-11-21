@@ -109,10 +109,6 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the transport operator's hashes and status changes plus structured metadata (shipment number, routing, dates) — never plaintext or sensitive personal information — providing non-repudiation of the document.
-
 ## Compared With e-CMR (Digital Convention)
 
 | Feature | Live Verify | e-CMR (Standard) | Paper Carbon Copy |
@@ -123,3 +119,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Data.** Protects the Weight/Count. | **Digital Only.** | **Zero.** |
 
 **Where each fits:** where the carrier, the consignee and the countries on the route all support e-CMR, the electronic note is the better record. A great deal of road freight still moves on paper notes carried by independent drivers, through places with poor signal. Live Verify lets anyone handed the paper note check it against the carrier's domain, and it can serve as a step toward e-CMR adoption rather than a rival to it.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

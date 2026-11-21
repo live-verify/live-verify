@@ -178,6 +178,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Coercion Resistance** | **Variant 1: Strong.** No selections disclosed. Variant 2: Weak. Provable vote. | **Strong.** Portals don't show selections. | **N/A.** |
 | **Timestamp Proof** | **Strong.** Hash includes receipt timestamp. | **Medium.** Portal shows status but notification timing is not cryptographically bound. | **Weak.** SMS timestamps are carrier-dependent. |
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the election authority's hashes and status changes plus structured metadata (voter ID, election date, ballot status, timestamps) — never voter name, address, or selections — providing non-repudiation of the notification.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

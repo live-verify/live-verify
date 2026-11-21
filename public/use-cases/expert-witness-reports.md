@@ -112,11 +112,6 @@ Expert witnesses are accredited professionals qualified to provide testimony in 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the expert's hashes and status changes plus structured metadata (case name and number, report subject, expert name and credentials, report date, expert firm name, professional license number) — never plaintext opinions or damages — providing non-repudiation of the expert witness report.
-
-
 ## Compared With E-Discovery Platforms (Relativity)
 
 | Feature | Live Verify | E-Discovery (Relativity) | Scanned PDF Report |
@@ -127,3 +122,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Cost** | **Low.** Standard web infra. | **Very High.** Monthly "Seat Fees" and hosting. | **None.** |
 
 **Where each fits:** E-discovery platforms such as Relativity are built for managing large document sets during litigation, and the legal teams on a matter should keep using them for review and production. Access is limited to those teams and usually ends with the case. A report then circulates as a printout or PDF to judges, jurors, insurers and later proceedings, and Live Verify lets any of those readers confirm that the expert stands behind the exact text in front of them.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

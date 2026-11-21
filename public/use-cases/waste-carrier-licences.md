@@ -214,7 +214,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 The waste carrier licence system works perfectly in theory. In practice, nobody checks. The Environment Agency's public register exists but requires active lookup. The duty of care regulations place liability on the householder but give them no practical tool to discharge that duty at the doorstep. A verified licence — scannable from a van sticker, a card, or a digital display — turns a theoretical obligation into a three-second check. The incentive structure is already in place (householders are liable); the missing piece is the verification mechanism that makes the check trivially easy instead of impractically cumbersome.
 
+## Independent Record (Optional)
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the Environment Agency's hashes and status changes plus structured metadata (registration number, carrier name, tier level, registration date, renewal date, waste types) — never plaintext or sensitive personal information — providing non-repudiation of the waste carrier's licence status.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

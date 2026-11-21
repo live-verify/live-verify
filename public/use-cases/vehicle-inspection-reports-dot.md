@@ -129,16 +129,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Truck safety is a life-and-death domain. The narrow claim is not that report verification should outrank transport-authority systems, but that copied or printed inspection artifacts should have a credible path back to current issuer status instead of relying on paper alone.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the inspection authority's hashes and status changes plus structured metadata (VIN, inspection date, pass/fail status) — never plaintext or sensitive personal information — providing non-repudiation of issuing the vehicle inspection report.
-
-
----
-
-_[Content merged from: personal-vehicle-inspections]_
-
-
 ## UK MOT Certificates
 
 The MOT test (Ministry of Transport) is the UK's annual roadworthiness inspection for vehicles over 3 years old. It checks brakes, lights, emissions, tyres, and structural integrity.
@@ -191,7 +181,6 @@ Vehicle registration, VIN, make/model, test date, expiry date, pass/fail result,
 
 **Insurers:** Confirming MOT status when processing claims — some policies are void if the vehicle had no valid MOT at the time of an accident.
 
-
 ---
 
 ## German TÜV (Hauptuntersuchung)
@@ -243,3 +232,7 @@ All follow the same narrow verification model:
 
 - [Vehicle Registration](view.html?doc=vehicle-registration) — A related vehicle-state use case where direct lookup or issuer QR is often primary
 - [Vehicle Display Postings](view.html?doc=vehicle-display-postings) — Visible roadside/parking surfaces bridging to live status
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

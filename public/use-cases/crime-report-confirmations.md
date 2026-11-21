@@ -161,10 +161,6 @@ Self-authorized — this is a sovereign body whose authority derives from statut
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the reporting body's hashes and status changes plus structured metadata (reference number, report date, crime category) — never victim addresses, personal information, or crime details — providing non-repudiation of the crime report issuance.
-
 ## Compared With Phone Verification
 
 | Feature | Live Verify | Phone Verification | Trusting the PDF |
@@ -211,3 +207,7 @@ Regardless of whether investigation happens, the receipt is what the insurer nee
 
 1. **Anti-social behaviour reports** — Similar pattern: victim reports ASB, receives a reference number, may need it for housing applications, council complaints, or civil proceedings. Verifiable confirmations prove the report exists without requiring the council or police to answer verification calls.
 2. **CIFAS fraud markers** — When a person is flagged in the UK's CIFAS fraud prevention database, they receive notification. A verifiable confirmation could prove the marker exists (or has been removed) without requiring CIFAS to field verification calls from lenders and employers. See also [CIFAS fraud prevention markers](/use-cases/cifas-fraud-prevention-markers).
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

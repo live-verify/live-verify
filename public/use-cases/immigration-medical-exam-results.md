@@ -114,11 +114,6 @@ Civil surgeons and panel physicians issue I-693 medical exam results under US im
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the civil surgeon's hashes and status changes plus structured metadata (applicant A-Number, date of exam, vaccination status, result status) — never sensitive personal medical information — providing non-repudiation of the medical exam results.
-
-
 ## Compared With e-Medical (State Dept)
 
 | Feature | Live Verify | e-Medical (Electronic Filing) | Paper I-693 (Standard) |
@@ -129,3 +124,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Freshness** | **Real-time.** Shows if results retracted. | **High.** | **Static.** |
 
 **Where each fits:** Electronic filing through eMedical-style systems sends results directly to the government and removes the paper form altogether; where a clinic and the receiving authority are both connected, it is the stronger channel. Many examinations are still recorded on a paper form handed to the applicant, and the applicant can see nothing of what an electronic system holds. Live Verify lets the applicant, their lawyer or the receiving officer confirm that the examining doctor stands behind the form, for clinics and cases that electronic filing does not cover.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -113,10 +113,6 @@ HSBC Bank, a regulated international bank, is authorized by the FCA to issue ver
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuing bank's hashes and status changes plus structured metadata (L/C numbers, beneficiary names, applicant names, currency amounts, expiry dates, port information, goods descriptions, UCP versions) — never specific contract numbers or payment routing details — providing non-repudiation of the letter of credit and an audit trail customs authorities and central banks can inspect.
-
 ## Compared With SWIFT (Electronic)
 
 | Feature | Live Verify | SWIFT MT700 (Electronic) | Scanned PDF L/C |
@@ -131,3 +127,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 ### The Substitution Fraud
 
 A letter of credit is a promise from a bank to pay the seller when the seller presents conforming documents. The fraud is not in the L/C itself — it is in the documents presented against it. A seller ships inferior goods but presents a forged inspection certificate, a fabricated bill of lading, or an altered commercial invoice that matches the L/C terms perfectly. The advising bank examines the documents "on their face" and pays out. The buyer opens the container and finds waste instead of electronics. If the inspection certificate, the bill of lading, and the commercial invoice are each independently verifiable against their respective issuers' domains, the document substitution becomes detectable before the bank releases payment — not months later in an arbitration proceeding.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

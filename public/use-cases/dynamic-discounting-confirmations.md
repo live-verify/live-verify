@@ -118,10 +118,6 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the platform's hashes and status changes plus structured metadata (invoice amounts, discount percentages, payment dates, platform IDs) — never supplier or buyer names or specific invoice details — providing non-repudiation of the discount transaction it processed.
-
 ## Compared With ERP Logins
 
 | Feature | Live Verify | ERP Dashboard (SAP) | Scanned PDF Confirmation |
@@ -132,3 +128,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires manual data export and upload. | **Instant.** |
 
 **Where each fits:** Inside the buyer's ERP or the discounting platform itself, the data is live and complete, and the buyer, supplier and platform should keep working there. A supplier's local bank, auditor or factor is outside that loop and will not be given access to another company's SAP. Live Verify lets such a third party confirm that the platform issued the confirmation the supplier handed over, with nothing to integrate on either side.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

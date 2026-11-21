@@ -76,10 +76,6 @@ The Policyholder / Claimant benefits from verification.
 **External Actuaries (Watson Wyatt, Milliman)**
 **Completeness Vetting:** Actuaries traditionally rely on "management data." With Text-to-Hash, actuaries can verify the *completeness* of the data they are auditing by reconciled the witnessed hash list against the management spreadsheet.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (claim reference, policy number, date of loss, date reported) — never plaintext or sensitive personal information — providing non-repudiation of the claim notification.
-
 ## Compared With National Reporting Databases
 
 | Feature | Text-to-Hash (Witnessed) | Legacy Databases (CUE, ISO) |
@@ -121,3 +117,7 @@ Insurance is a "Business of Promises." The value of an insurance policy is entir
 Although leaving ten years before the final 2001 collapse, the experience informed the understanding that "management-curated reality" is a primary failure mode of regulated 
 financial entities. Live Verify with independent witnessing is designed to neutralize the charismatic "distortion field" by anchoring ground-truth data in a neutral, 
 external service. [Some hansard minutes on Indi](https://hansard.parliament.uk/commons/2001-07-04/debates/b705a9b5-5bfc-44df-b0c8-65a6827b9e63/IndependentInsuranceCompany).
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

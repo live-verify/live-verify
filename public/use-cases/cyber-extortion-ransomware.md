@@ -118,11 +118,6 @@ Beazley underwrites cyber extortion and ransomware insurance for enterprises glo
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (policy number, coverage limits, incident type authorization, incident date, insured entity name, effective period) — never incident details, ransom amounts, or claims history — providing non-repudiation of insurance coverage and an audit trail for emergency response coordination.
-
-
 ## Compared With Secure Portals
 
 | Feature | Live Verify | Secure Underwriter Portal | Scanned PDF Report |
@@ -137,3 +132,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 ### Why Would You Bother Verifying in a Crisis?
 
 Because the crisis itself creates the vulnerability. The company's email is down. The CISO is communicating on a personal phone. A PDF arrives claiming to be from the insurer, authorizing a USD 2.4 million Bitcoin payment to a specific wallet. In a normal week, the CFO would verify through multiple channels. During a ransomware attack, normal channels are destroyed — and the pressure to pay before the attacker's deadline creates urgency that overrides caution. A rogue IT staffer or a social engineer who has infiltrated the incident-response communication channel can insert a fabricated authorization pointing to their own wallet. The five-second verification against the insurer's domain is the one check that works when every other internal control has been compromised.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

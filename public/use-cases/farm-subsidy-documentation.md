@@ -114,11 +114,6 @@ The RPA administers UK farm subsidy payments and eligibility certifications unde
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the USDA's hashes and status changes plus structured metadata (key identifiers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the eligibility determination it issued.
-
-
 ## Compared With USDA Portals (Farmers.gov)
 
 | Feature | Live Verify | Farmers.gov Portal | Paper Eligibility Notice |
@@ -129,3 +124,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Technical.** Requires laptop/dedicated app. | **Visual.** |
 
 **Where each fits:** Farmers.gov is where a producer manages their own USDA business, and its strict authentication is appropriate for that. The producer's bank, landlord or equipment dealer has no such access and sees only the eligibility notice the farmer brings in. Live Verify lets that third party confirm the notice is as the agency issued it, while the farmer goes on using the portal for everything else.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

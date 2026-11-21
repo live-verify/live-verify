@@ -111,6 +111,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Wetland fill is a "Point of No Return" for an ecosystem. By turning static permits into verifiable digital bridges, we ensure that every shovel of dirt moved is authorized by the digital truth of the law, protecting the planet's watersheds from the high cost of documentary deception.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive USACE's hashes and status changes plus structured metadata (permit ID, fill acreage, mitigation ratio, credit count) — never plaintext or sensitive personal information — providing non-repudiation of issuing the wetlands fill permit.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

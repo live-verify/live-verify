@@ -106,11 +106,6 @@ Ocean carriers and port operators issue VGM declarations required by internation
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the shipper's or weighing facility's hashes and status changes plus structured metadata (container ID, VGM in kilograms, weighing method, weighing date, shipper name) — never cargo contents or consignee details — providing non-repudiation of weight and an audit trail for port authorities and maritime safety oversight.
-
-
 ## Compared With EDI Messaging (VERMAS)
 
 | Feature | Live Verify | EDI VERMAS Message | Paper VGM Form |
@@ -121,3 +116,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Connectivity** | **Strong.** Works via simple web URL. | **Fragile.** Requires heavy B2B EDI infrastructure. | **Offline.** |
 
 **Where each fits:** the EDI message is how the verified weight reaches the carrier and terminal systems, and that channel should stay as it is. The driver at the gate has no view of it and carries paper. Live Verify lets the gate clerk and driver check that paper against the shipper's domain, so the figure on the form can be compared with the one the carrier received electronically.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

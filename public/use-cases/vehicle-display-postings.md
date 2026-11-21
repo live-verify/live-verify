@@ -155,7 +155,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Vehicle postings are visible trust surfaces used in moments of immediate decision: get in this car, issue this ticket, allow this vehicle to wait here, or clear it from the bay. By turning static postings into live digital bridges, we ensure that the visible permission on or in the vehicle is backed by the current truth of the issuing registry, protecting passengers, enforcement staff, and legitimate permit holders.
 
+## Independent Record (Optional)
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (license number, vehicle plate, expiration date) — never plaintext or sensitive personal information — providing non-repudiation of issuing the vehicle posting.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

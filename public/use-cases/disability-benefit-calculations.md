@@ -110,11 +110,6 @@ Actuaries calculate individual disability benefit entitlements based on earnings
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the benefits authority's hashes and status changes plus structured metadata (claim number, benefit amount, calculation date, occupation class) — never claimant name, medical history, or claim details — providing non-repudiation of the disability benefit calculation issuance.
-
-
 ## Compared With Employment Verification (The Work Number)
 
 | Feature | Live Verify | Equifax (The Work Number) | Scanned PDF |
@@ -125,3 +120,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** Scan the worksheet. | **Slow.** Requires specific lender credentials and fees. | **Instant.** |
 
 **Where each fits:** Employment and income verification services such as The Work Number are quick and well established for confirming salary and employment status, and lenders connected to them will keep using them for that. They are not built to show the terms of an individual disability claim, and many of the people who need to see a benefit worksheet have no subscription. Live Verify lets a lender, lawyer or family member confirm that the carrier issued this specific calculation, alongside whatever the aggregator reports about earnings.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

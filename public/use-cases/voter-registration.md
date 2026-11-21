@@ -104,10 +104,10 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Voter registration is the "Trust Link" of democracy. By turning registration cards into verifiable digital bridges, we ensure that "One Person, One Vote" is backed by cryptographic proof, protecting the integrity of the ballot box and building public trust in elections.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the election authority's hashes and status changes plus structured metadata (voter registration number, voter name, registration date, voter status, precinct) — never voter address or political affiliation — providing non-repudiation of voter registration issuance.
-
 ## Further Reading
 
 [Deep dive: Voting Proof](https://github.com/live-verify/live-verify/tree/main/deep-dives/Voting_Proof.md)
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

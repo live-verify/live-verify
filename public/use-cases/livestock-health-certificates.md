@@ -106,11 +106,6 @@ Veterinarians issue livestock health certificates under veterinary regulator aut
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the State Veterinarian's hashes and status changes plus structured metadata (animal ID, microchip, test results, vaccination dates) — never owner or farm location plaintext — providing non-repudiation of the health certificate and an audit trail biosecurity officials can inspect.
-
-
 ## Compared With Electronic CVI (GlobalVetLink)
 
 | Feature | Live Verify | eCVI Platforms (GVL) | Paper CVI Form |
@@ -121,3 +116,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Microchip.** Protects the data. | **Data-Only.** | **Vulnerable.** |
 
 **Where each fits:** Electronic CVI platforms work well where the issuing veterinarian and the receiving state both use them, and they give animal health officials structured data that paper cannot. An inspector at a checkpoint or a sale barn may not have a login for the particular platform a certificate came from, and plenty of certificates still travel on paper. Live Verify lets that inspector check the paper against the issuer's domain with a phone, and it can sit on top of a certificate that an eCVI platform produced.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

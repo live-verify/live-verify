@@ -111,11 +111,6 @@ State cosmetology and barber boards license practitioners in personal care servi
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the state board's hashes and status changes plus structured metadata (license number, practitioner name, license level, issue and expiration dates, disciplinary status) — never photographs or personal details — providing non-repudiation of licensing status and an audit trail for salon oversight and public health protection.
-
-
 ## Compared With Window Stickers / Public Lookup
 
 | Feature | Live Verify | Window/Wall Sticker | State Website Lookup |
@@ -126,3 +121,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **User Privacy** | **Targeted.** Verifies *this* person. | **Open.** | **Open.** Scrape-able by data brokers. |
 
 **Why this remains strong:** State website lookup should remain primary where it is practical. But salon and barber trust decisions are often made from the displayed station license in the room, not from a planned registry search. That makes this a complementary surface-verification case rather than a replacement for the board database.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

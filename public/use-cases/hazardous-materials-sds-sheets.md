@@ -122,10 +122,6 @@ Chemical manufacturers must provide accurate Safety Data Sheets regulated by hea
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the chemical manufacturer's hashes and status changes plus structured metadata (product names, CAS numbers, GHS classifications, signal words, emergency contact info, revision dates) — never specific industrial facilities or end-use details — providing non-repudiation of the SDS and an audit trail OSHA and first responders can inspect.
-
 ## Compared With QR Codes / Digital Binders
 
 | Feature | Live Verify | Standard QR Code | Digital SDS Portal |
@@ -136,3 +132,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Field Use** | **Universal.** Works for printed "Cheat Sheets." | **Fragile.** Codes get torn/dirty. | **N/A.** |
 
 **Where each fits:** A digital SDS portal is the easiest way for a safety manager to keep a whole library current, and a QR code on a drum is a handy pointer to the latest sheet. Printed binders and posted summaries persist because they have to be readable where screens and connectivity are not dependable. Live Verify adds a way for a worker, inspector or contractor to confirm that a printed sheet is one the manufacturer still stands behind, so the paper copy and the portal agree.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

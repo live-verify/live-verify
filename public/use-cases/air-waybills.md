@@ -90,10 +90,6 @@ The Shipper or Consignee benefits from verification.
 **Airlines:** (United Cargo, Lufthansa Cargo, etc.)
 **Freight Forwarders:** (DHL Global Forwarding, Kuehne+Nagel, etc.)
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the carrier's hashes and status changes plus structured metadata (shipment number, routing, dates) — never plaintext or sensitive personal information — providing non-repudiation of the document.
-
 ## Compared With e-AWB (Electronic Air Waybill)
 
 | Feature | Live Verify | e-AWB (IATA) |
@@ -105,11 +101,9 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** where the airline, forwarder and handler are all connected, e-AWB is the better route, and it removes paper from most of the journey. Paper still accompanies freight on trucking legs and through customs in places that require it, and banks and insurers are generally outside the cargo community systems. Live Verify gives those parties a way to check the printed waybill against the issuer's domain, alongside e-AWB rather than as an alternative to it.
 
-
 ---
 
 _[Content merged from: house-air-waybills-hawb]_
-
 
 ## What is a House Air Waybill (HAWB)?
 
@@ -203,10 +197,6 @@ The Actual Shipper (SME / Manufacturer) benefits from verification.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the carrier's hashes and status changes plus structured metadata (shipment number, routing, dates) — never plaintext or sensitive personal information — providing non-repudiation of the document.
-
 ## Compared With IATA e-AWB
 
 | Feature | Live Verify | IATA e-AWB (Cargo-XML) | Paper HAWB |
@@ -217,3 +207,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Content.** Protects the weight/count. | **Data-Only.** | **Vulnerable.** |
 
 **Where each fits:** forwarders already set up for Cargo-XML messaging have little reason to move away from e-AWB between connected parties. Many smaller forwarders still issue house waybills as PDF or paper, and the shipper or bank receiving one is not on the e-AWB network. Live Verify lets that recipient confirm the forwarder issued the document with those weights and piece counts, and it can sit on the same paperwork that larger forwarders also transmit electronically.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

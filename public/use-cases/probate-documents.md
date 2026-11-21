@@ -114,11 +114,6 @@ UK probate courts issue grant of probate and letters testamentary under the Admi
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the probate court's hashes and status changes plus structured metadata (case number, estate name, decedent name, filing date, probate status) — never detailed asset values or beneficiary information — providing non-repudiation of probate document issuance.
-
-
 ## Compared With Certified Copies (Purple Ink)
 
 | Feature | Live Verify | Certified Copy (Ink/Seal) | Online Docket (Public) |
@@ -129,3 +124,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Revocation** | **Real-time.** Shows "REVOKED." | **Zero.** The paper stays the same. | **Manual.** |
 
 **Where each fits:** A certified copy from the court is what banks and registrars are accustomed to accepting, and the court's docket remains the authoritative record of the case. Both take time to check, and a certified copy does not change if the grant is later revoked. Live Verify lets the person about to release funds confirm that the court stands behind the order as presented and see its current status, as a quick first check beside the certified copy.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

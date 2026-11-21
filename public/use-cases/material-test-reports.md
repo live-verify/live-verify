@@ -122,10 +122,6 @@ Steel mills and testing labs issue material test reports certified against EN 10
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the mill's hashes and status changes plus structured metadata (heat numbers, material grades, test results, dates) — never plaintext (customer names, project details, proprietary alloy formulas) — providing non-repudiation of the certificate and an audit trail building code authorities can inspect.
-
 ## Compared With EDI / Blockchain (MetalBlock)
 
 | Feature | Live Verify | Metal-Specific Blockchain | Paper Mill Cert |
@@ -136,3 +132,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Content.** Protects the chemical list. | **Data-Only.** | **Vulnerable.** |
 
 **Where each fits:** Where a mill and its major customers have EDI or a shared ledger in place, test data moves between their systems cleanly and those links are worth keeping. Further down the chain, small fabricators and site inspectors receive the mill certificate as paper or PDF and have no access to that infrastructure. Live Verify lets them check the certificate against the mill's domain at the yard, extending the reach of the mill's data instead of competing with it.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

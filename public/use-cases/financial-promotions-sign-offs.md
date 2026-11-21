@@ -134,6 +134,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Financial promotions are the "Front Line of Consumer Risk." By turning sign-offs into verifiable digital bridges, we protect the public from predatory marketing and ensure that "Investor Trust" is backed by the cryptographic truth of the compliance office.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the authorized firm's hashes and status changes plus structured metadata (promotion IDs, campaign names, approval dates, expiration dates, approving officer IDs, approved channels, compliance checkboxes) — never promotional content, claims data, or performance figures — providing non-repudiation of the sign-off and an audit trail the FCA and FINRA can inspect.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

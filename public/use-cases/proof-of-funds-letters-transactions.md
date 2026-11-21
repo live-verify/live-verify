@@ -17,7 +17,6 @@ Because a POF is the difference between an offer being accepted or rejected, it 
 
 <div style="max-width: 650px; margin: 24px auto; font-family: 'Times New Roman', serif; border: 1px solid #ccc; background: #fff; padding: 50px 60px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); position: relative;">
 
-
   <!-- Bank Logo -->
   <div style="text-align: center; margin-bottom: 5px;">
     <div style="font-weight: bold; font-size: 1.8em; color: #004a99; font-family: sans-serif; letter-spacing: 2px;">RIDGEMONT PRIVATE BANK</div>
@@ -125,6 +124,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Proof of Funds is the "Ticket to the Game" in high-value commerce. By turning bank letters into verifiable digital bridges, we protect the marketplace from "Phantom Buyers" and ensure that "Proof of Wealth" is backed by the digital truth of the ledger.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the bank's hashes and status changes plus structured metadata (account holder name, available balance, date of issuance, issuing bank/branch) — never plaintext or sensitive personal information — providing non-repudiation of the proof of funds letter and an audit trail banks can inspect.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -114,10 +114,6 @@ Actuaries model potential loss from natural disasters to quantify insurance risk
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the modeling firm's hashes and status changes plus structured metadata (PML values, return periods, portfolio descriptions, model versions) — never plaintext (detailed location data, proprietary model parameters) — providing non-repudiation of the PML report.
-
 ## Compared With API Data Feeds
 
 | Feature | Live Verify | API Integration | Scanned PDF Report |
@@ -128,3 +124,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Cost** | **Low.** Standard web infra. | **Very High.** Seven-figure software licenses. | **None.** |
 
 **Where each fits:** a direct data feed gives a reinsurer far more than a report does, and where a broker and reinsurer have built one it should be used. During renewals a submission pack goes to many reinsurers, most of whom have no such link with that broker. Live Verify lets each of them confirm the modelling firm issued the report in the pack, without any integration, and leaves the feeds in place where they exist.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

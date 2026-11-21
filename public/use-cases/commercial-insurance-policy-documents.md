@@ -132,11 +132,6 @@ AIG issues commercial insurance policies for UK businesses and organizations.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (policy number, coverage limits, effective dates, endorsement list, insured entity name) — never claims history or loss details — providing non-repudiation of insurance coverage and an audit trail for lender and vendor verification.
-
-
 ## Compared With ACORD Data Feeds
 
 | Feature | Live Verify | ACORD IVANS (Carrier Feed) | Scanned PDF Summary |
@@ -148,3 +143,6 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** carrier data feeds serve agencies on the network well for keeping their management systems in step with policy changes. Lenders, landlords and customers are outside that network and receive a broker's summary instead. Live Verify lets them check that summary against the issuer's domain and see whether it has since been cancelled, while the feeds continue to do the back-office work.
 
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

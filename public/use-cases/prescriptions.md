@@ -169,10 +169,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 **Why this remains strong:** PDMP is powerful but walled off. It exists inside the healthcare system for healthcare professionals. The people who most need to verify prescriptions outside that system — customs officers holding a bag of codeine, school administrators looking at a bottle of Ritalin, sports officials reviewing a TUE claim — have zero access to PDMP. That makes prescriptions a strong complementary case outside the native clinical systems.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the prescriber's hashes and status changes plus structured metadata (medication type, schedule classification, prescriber ID, fill dates) — never plaintext such as patient names — providing non-repudiation of writing the prescription.
-
 ## Further Derivations
 
 1. **Veterinary prescriptions** — Controlled substances for animals carry the same fraud risks as human prescriptions. Ketamine, tramadol, and gabapentin are all diverted from veterinary channels. A verified veterinary prescription bound to the practice domain (e.g., `parkviewvets.co.uk/rx/v`) confirms the animal, the medication, the dosage, and the prescribing veterinarian.
@@ -182,3 +178,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 ## See Also
 
 - [Proof of Insurance (Policyholder Confirmation)](view.html?doc=proof-of-insurance-status) — Another strong portable-claim case for relying parties outside the source system
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

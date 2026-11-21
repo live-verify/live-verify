@@ -144,10 +144,6 @@ Traditional registration cards carry a `verify:` text line like any other Live V
 
 The camera-mode scan works identically to text-mode `verify:` lines — the QR code simply encodes the verification URL. In this domain, that matters because QR may actually be the better primary surface. Registration is a case where Live Verify should generally ride on top of issuer QR or direct lookup patterns rather than argue against them.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive DMVs' hashes and status changes plus structured metadata (plate number, VIN, year/make/model, colour, registered owner name and address, registration expiration date, insurance status, registration status, any holds or flags) — never plaintext or sensitive personal information — providing non-repudiation of the vehicle registration.
-
 ## Further Derivations
 
 1. **Disabled Person Placards** — Proving legitimate parking rights. Placard fraud is endemic — people use deceased relatives' placards, borrow others', or forge them. A verifiable placard bound to the issuing authority's domain (and optionally to the holder's identity) would let parking enforcement scan and confirm legitimacy instantly.
@@ -156,3 +152,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 - [Vehicle Display Postings](view.html?doc=vehicle-display-postings) — Stronger as visible safety/authority surfaces than as standalone core artifacts
 - [Auto Insurance Documents](view.html?doc=auto-insurance-documents) — Similar split between stronger portable claims and weaker card/status artifacts
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

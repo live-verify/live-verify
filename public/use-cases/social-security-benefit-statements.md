@@ -114,11 +114,6 @@ Administers US Social Security benefit statements and payments.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the SSA's hashes and status changes plus structured metadata (beneficiary name, monthly benefit amount, benefit type, effective date) — never plaintext or sensitive personal information — providing non-repudiation of issuing the Social Security benefit statement.
-
-
 ## Compared With Official Letter by Mail
 
 | Feature | Live Verify | Paper Letter (Standard Mail) | mySocialSecurity Login |
@@ -133,3 +128,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 ## See Also
 
 - [Proof of Insurance (Policyholder Confirmation)](view.html?doc=proof-of-insurance-status) — Another strong portable-claim case where the verifier often lacks direct system access
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

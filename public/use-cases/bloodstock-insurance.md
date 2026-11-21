@@ -120,11 +120,6 @@ Lycetts underwrites insurance for thoroughbred and bloodstock animals globally.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive Lloyd's syndicate's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the bloodstock insurance certificate.
-
-
 ## Compared With Registry Databases
 
 | Feature | Live Verify | Jockey Club Registry | Paper Certificate |
@@ -135,3 +130,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Financial Link** | **Yes.** Directly links the horse to the money. | **No.** Registries don't track insurance data. | **Vulnerable.** |
 
 **Where each fits:** the breed registry is the authority on a horse's identity and parentage, and buyers and lenders should keep using it for that. It holds nothing about insurance. Live Verify covers the mortality certificate, letting a lender or buyer at the stable confirm the underwriter stands behind the cover and the insured sum stated, so the two answer different questions about the same horse.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

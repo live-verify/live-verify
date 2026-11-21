@@ -218,10 +218,6 @@ NHS hospitals issue staff badges under healthcare regulator authority (CQC in th
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the facility's or state board's hashes and status changes plus structured metadata (staff names, employee IDs, roles, department affiliations, shift status, clearance dates, license types, license numbers, license expiration dates, license statuses) — never patient names or medical unit assignments — providing non-repudiation of the credential and an audit trail CQC and state medical boards can inspect.
-
 ## Compared With Uniforms / Caller Systems
 
 | Feature | Live Verify | Uniform & Badge | Calling Nurse Station | Patient Recognition | Manual License Lookup |
@@ -373,3 +369,7 @@ This use case is part of the Mobile Service Staff in Ungated Facilities pattern.
 - [Delivery & Courier Verification](view.html?doc=delivery-courier-verification) — Recipients verify delivery persons.
 - [Residential Building Staff](view.html?doc=residential-building-staff) — Residents verify maintenance and contractors.
 - [Event Venue & Contractor Staff](view.html?doc=event-venue-staff) — Venue security verify temporary crews.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

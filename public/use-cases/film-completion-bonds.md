@@ -117,11 +117,6 @@ Film Finances underwrites film and media production completion bonds globally.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the completion guarantor's hashes and status changes plus structured metadata (bond number, production company name, guaranteed budget, approved screenplay reference, delivery schedule, bond issue date, expiration date) — never plaintext production details — providing non-repudiation of the film completion bond.
-
-
 ## Compared With Legal "Opinion Letters"
 
 | Feature | Live Verify | Attorney Opinion Letter | Scanned PDF |
@@ -132,3 +127,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Freshness** | **Real-time.** Shows "Takeover" status today. | **Snapshot.** Only valid for the day it was written. | **Static.** |
 
 **Where each fits:** An attorney's opinion letter offers what a document check cannot: legal analysis of the bond's terms, and a professional who answers for that analysis. Financiers will keep commissioning one at closing. It describes the position on the day it was written and takes time to produce. Live Verify lets a bank, distributor or department head confirm, at any point during production, that the guarantor still stands behind the certificate as issued, in between formal legal reviews.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -146,10 +146,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 **Narrower conclusion:** The registry remains the source of truth. This is strongest only where the relying party is in the field with the paper title and lacks a practical direct registry workflow. In that situation, the title becomes a bridge to DMV status rather than the core trust architecture by itself.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the DMV's hashes and status changes plus structured metadata (VIN, title number, brand status, issue date) — never plaintext or sensitive personal information — providing non-repudiation of issuing the vehicle title.
-
 ## Further Derivations
 
 1. **Boat / Watercraft Titles** — Similar ownership-and-brand structure, different registries. US Coast Guard for documented vessels, state DNR (Department of Natural Resources) for smaller craft. Hull Identification Numbers (HIN) instead of VINs. Same title washing problem exists — hurricane-damaged boats titled in lenient states.
@@ -159,3 +155,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 - [Vehicle Registration](view.html?doc=vehicle-registration) — Related vehicle-state artifact where issuer QR/direct lookup is often primary
 - [Vehicle Inspection Reports (DOT, MOT, TÜV)](view.html?doc=vehicle-inspection-reports-dot) — Another vehicle document family where official authority lookup may already dominate
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

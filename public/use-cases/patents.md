@@ -273,7 +273,6 @@ This is complementary to OCR verification—timestamping proves *when*, verifica
 
 **Prior art:** [Blockchains for Patent Filing](https://paulhammant.com/2016/11/02/blockchains-for-patent-filing/) (Paul Hammant, 2016)
 
+## Independent Record (Optional)
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the patent office's hashes and status changes plus structured metadata (patent numbers, applicant names, filing dates, grant dates, claim counts, status) — never detailed claims or technical specifications — providing non-repudiation of patent status.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

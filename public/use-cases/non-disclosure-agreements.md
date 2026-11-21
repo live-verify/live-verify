@@ -115,11 +115,6 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (party names, effective date, agreement ID, confidentiality scope) — never secret information or confidential terms plaintext — providing non-repudiation of NDA issuance and status changes.
-
-
 ## Compared With E-Signature (DocuSign)
 
 | Feature | Live Verify | E-Signature (Digital PKI) | Physical Paper |
@@ -130,3 +125,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Content.** Protects the *text*. | **High.** | **Zero.** |
 
 **Where each fits:** E-signature platforms are a sound way to execute an agreement, and while the signed file stays in its original electronic form its embedded signature is strong evidence. That evidence does not survive printing or rescanning, and checking it years later can depend on the signing account or service still being available. Live Verify lets someone holding a printed or filed copy confirm the text against the law firm's domain, so an agreement can be signed electronically and remain checkable on paper.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

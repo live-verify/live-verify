@@ -67,7 +67,6 @@ The Industrial Hygienist / Safety Manager benefits from verification.
 **Environmental Health Officers**
 - **Incident Investigation:** Verifying the historical airflow logs after an reported exposure event to see if the system was in-spec on that date.
 
-
 ## Authority Chain
 
 **Pattern:** Regulated
@@ -82,7 +81,6 @@ Accredited HVAC engineers certify ventilation systems meet building code standar
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the HVAC engineer's hashes and status changes plus structured metadata (system IDs, test dates, face velocities, filter status, next test dates, regulation references, inspector names) — never facility addresses or commercial tenant details — providing non-repudiation of the certification and an audit trail health officers and environmental regulators can inspect.
-
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

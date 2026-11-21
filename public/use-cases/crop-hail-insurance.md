@@ -106,11 +106,6 @@ NFU Mutual underwrites crop and hail insurance for UK agricultural operations.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the policy it issued.
-
-
 ## Compared With USDA Portals (MPCI)
 
 | Feature | Live Verify | USDA / RMA Portal | Paper Schedule |
@@ -121,3 +116,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Private Market** | **Universal.** Works for non-gov "Hail-Only" policies. | **Zero.** USDA doesn't track private hail-only data. | **Manual.** |
 
 **Where each fits:** the USDA systems are the authoritative record for federal crop insurance and remain so. They do not hold private hail-only policies, and a local lender may have no access to them in any case. Live Verify lets the lender confirm that a private insurer stands behind the schedule the farmer presents, so the federal record and the private cover can both be evidenced.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -119,10 +119,6 @@ AIG underwrites environmental liability and pollution insurance for contaminated
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (policy number, coverage limits, policy period, retroactive date, site location, coverage type) — never contamination details or remediation plans — providing non-repudiation of pollution coverage and an audit trail for EPA financial assurance compliance and property liability disputes.
-
 ## Compared With Broker Letters
 
 | Feature | Live Verify | Manual Broker Letter | Scanned PDF |
@@ -133,3 +129,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Takes days to retrieve archival files. | **Instant.** |
 
 **Where each fits:** A broker's letter is still the usual way to confirm current pollution cover, and it comes with someone who can explain the policy. Its weak point is time: contamination can surface long after the policy period, when retrieving the file is slow or the broker is no longer in business. Live Verify lets a site owner, buyer or regulator confirm that the carrier stands behind the declarations page as issued, including its retroactive date, alongside whatever the broker can still supply.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

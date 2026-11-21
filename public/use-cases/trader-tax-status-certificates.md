@@ -216,7 +216,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 The genius of this use case is the incentive flip. Currently, the only party with interest in tax compliance is HMRC, and they're resource-constrained. The customer has no incentive to check — and in the "cash discount" scenario, active incentive not to. A trader tax status certificate, especially combined with joint-liability regulation, turns every customer into a compliance checkpoint. The trader can't hide their status; the customer can't claim ignorance. The verification is the mechanism that aligns incentives between the tax authority, the trader, and the customer.
 
+## Independent Record (Optional)
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the tax authority's hashes and status changes plus structured metadata (business name, masked UTR, VAT status, registration date, filing status) — never full UTR or personal financial data — providing non-repudiation of trader tax status issuance.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

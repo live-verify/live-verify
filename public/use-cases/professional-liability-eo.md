@@ -119,10 +119,6 @@ Hiscox issues professional liability and E&O insurance and is regulated by the U
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the carrier's hashes and status changes plus structured metadata (policy number, coverage limits, retroactive date, professional category, policy period) — never firm names, specific claim details, or premium amounts — providing non-repudiation of the coverage terms and retroactive date.
-
 ## Compared With ACORD 25 Forms
 
 | Feature | Live Verify | Standard ACORD 25 (PDF) | Broker Portal |
@@ -133,3 +129,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Availability** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Visual.** | **Restricted.** |
 
 **Where each fits:** The ACORD certificate is the format the market expects, and a broker portal gives the broker's own clients a dependable view of their coverage. The party asking for proof of cover, typically a client or counterparty, usually has no portal access and receives the certificate as a PDF. Live Verify lets them confirm that the carrier stands behind it, retroactive date included; the certificate keeps its familiar form and the portal its role.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

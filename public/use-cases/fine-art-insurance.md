@@ -116,10 +116,6 @@ AXA Art, a specialist insurer, is regulated by the FCA to provide fine art cover
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (artwork titles, artist names, agreed values, coverage types, exhibition locations, transit routes, packing company IDs, effective dates, specialty syndicate IDs) — never owner names or specific location details — providing non-repudiation of the policy and an audit trail customs authorities and museums can inspect.
-
 ## Compared With Physical Provenance Logs
 
 | Feature | Live Verify | Provenance Log (Paper) | Art Registry (Blockchain) |
@@ -130,3 +126,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Hours of expert review. | **Fast.** |
 
 **Where each fits:** Provenance records and art registries address questions an insurance certificate does not: where a work has been, who has owned it, and whether it is what it is said to be. Experts and registrars will rightly keep relying on them. When a work is lent or shipped, the immediate question is whether cover is in place for the stated value, and the registrar or shipper asking usually has no relationship with the insurer. Live Verify lets them confirm the insurer stands behind the certificate, alongside the provenance file.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

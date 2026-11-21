@@ -192,7 +192,6 @@ Browser extension allows verification of digital contracts page-by-page with aut
 
 Amendments reference the original contract and modify specific terms. Each amendment is verified separately, with the amendment hash chain linked to the original contract hash.
 
-
 ## Authority Chain
 
 **Pattern:** Commercial
@@ -207,6 +206,6 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the parties' or notary's hashes and status changes plus structured metadata (contract execution date, effective date, parties' roles, page count, signature dates) — never contract terms or financial amounts — providing non-repudiation of execution and an audit trail for dispute resolution.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

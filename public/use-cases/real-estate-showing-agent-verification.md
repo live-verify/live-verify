@@ -200,11 +200,6 @@ Government issuer — authorized by state statute. Trust is rooted in government
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the regulator's hashes and status changes plus structured metadata (license number, issue date, expiration date, license status) — never agent name, address, or showing history — providing non-repudiation of the license and an audit trail property owners and regulators can inspect.
-
-
 ## Compared With Review Sites (Google Reviews)
 
 | Feature | Live Verify | Review Sites (Google/Glassdoor) | Physical License Card |
@@ -215,3 +210,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Safety Data** | **High.** Shows license status and regulatory history. | **Subjective.** Only shows customer satisfaction. | **N/A.** No way to check current status. |
 
 **Where each fits:** Reviews are useful when choosing an agency, since they reflect how past clients were treated, and the physical licence card remains the agent's everyday identification. What neither offers is a check, at the door of a vacant property, that this particular person currently holds the licence they claim. Live Verify covers that moment by letting the viewer confirm the badge against the licensing body's domain before going in, alongside whatever research they did beforehand.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

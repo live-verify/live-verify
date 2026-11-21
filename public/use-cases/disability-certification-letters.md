@@ -164,11 +164,11 @@ The authority chain is what exposes ESA letter mills and other fraudulent certif
 
 **Where each fits:** Each existing route has its place. Phoning the certifying office is still right when the letter raises a question only the clinician can answer, and insurer or agency portals work well for parties who already hold accounts with them. Most letters, though, are shown to a landlord, employer, airline or venue with no such account and no good reason to learn the diagnosis. Live Verify gives that reader a way to confirm the certifier stands behind the letter as written, without a central register of disabled people and without disclosing more than the page already says.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the certifying physician's hashes and status changes (REVIEW_DUE, EXPIRED, REVOKED, SUPERSEDED) plus structured metadata (certification type, functional limitation category, accommodation type, validity dates) — never patient names, diagnoses, or medical details — providing non-repudiation of the certification and an audit trail regulators can inspect for patterns of fraudulent certification, resilient to the physician's practice closing.
-
 ## Further Derivations
 
 1. **Service animal and emotional support animal certifications** — the highest-fraud subcategory in disability certification. ESA letter mills are a billion-dollar industry built on fake or barely-legal medical certifications. The distinction between legitimate psychiatric service animals and fraudulent ESA letters sold online deserves dedicated treatment, including the authority chain differences and the specific fraud patterns.
 2. **Workplace fitness-to-work certifications** — the inverse of disability certification. Proving someone CAN work after illness or injury, often issued by the same occupational health physicians who issue disability certifications. Return-to-work clearances, fitness-for-duty evaluations, and post-injury medical clearances follow the same verification pattern but answer the opposite question.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

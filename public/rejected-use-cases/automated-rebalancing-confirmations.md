@@ -99,28 +99,9 @@ Regulators can verify that the trades described in the investor's confirmation m
 
 **Privacy Salt:** Not required. Rebalancing confirmations contain highly unpredictable variables—unique account numbers, specific transaction IDs, precise dates and timestamps, investor names, exact security tickers, specific share quantities, and detailed gain/loss calculations with many decimal places. These elements combined provide sufficient entropy that enumeration attacks are infeasible. Adding salt would provide no additional security benefit.
 
-## Jurisdictional Witnessing
+## Independent Record (Optional)
 
-A jurisdiction may require robo-advisors to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
-
-- Receives all hashes from the robo-advisor, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change (cancelled, corrected), or even a 404 (record deleted)
-- Receives structured content/metadata (account IDs, transaction dates, securities traded, gain/loss amounts)
-- Does **NOT** receive plaintext (investor names, account balances, personal financial details)
-- Provides an immutable, timestamped audit trail—available to the jurisdiction on demand, to investors/third parties during disputes, or as expert witness testimony in legal proceedings
-
-This provides:
-- **Non-repudiation:** Robo-advisor cannot deny executing the rebalancing trades
-- **Timestamp proof:** Trades occurred at a specific time (critical for tax-loss harvesting timing)
-- **Regulatory audit:** SEC/FINRA can inspect the witness ledger for algorithm compliance
-- **Resilience:** Verification works even if robo-advisor's systems go down
-
-**Public Blockchain (Non-Party)**
-
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
-
-1. **Robo-advisor domain** — Direct check against the issuer
-2. **Witnessing firm** — Independent confirmation with timestamp
-3. **Public blockchain** — Decentralized trust anchor via rollup inclusion
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).
 
 ## Competition vs. 1099-B Forms
 

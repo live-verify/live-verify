@@ -115,11 +115,6 @@ Independent auditors conduct ERISA compliance audits required by the US Departme
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the auditor's hashes and status changes plus structured metadata (plan name, plan year ending, audit result, funding status, auditor enrollment number, audit date, auditor firm name) — never plaintext plan details or member information — providing non-repudiation of the ERISA compliance audit report.
-
-
 ## Compared With Form 5500 Public Search (EFAST2)
 
 | Feature | Live Verify | EFAST2 Search (DOL) | Scanned PDF |
@@ -130,3 +125,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Freshness** | **Real-time.** Shows if firm retracted opinion. | **Laggy.** Depends on annual filing cycles. | **Static.** |
 
 **Where each fits:** EFAST2 is the official public record of what a plan filed with the Department of Labor, and it is the right source for filing history and for comparison across plans. It records what was submitted and follows the annual filing cycle. Live Verify adds a different check: a trustee, participant or acquirer holding the audit report can confirm that the audit firm itself stands behind that text. The federal filing and the auditor's own confirmation are best read together.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

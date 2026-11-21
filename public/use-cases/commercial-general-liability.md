@@ -116,10 +116,6 @@ Carriers must be licensed by state insurance regulators to issue commercial liab
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the carrier's hashes and status changes plus structured metadata (policy numbers, coverage limits, business descriptions, policy dates) — never business financial details, loss histories, or underwriting notes — providing non-repudiation of the policy it issued.
-
 ## Compared With Broker Confirmation Calls
 
 | Feature | Live Verify | Manual Broker Call | Scanned PDF |
@@ -130,3 +126,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Cryptographic.** Binds every digit. | **Vague.** "Yes, they have a policy." | **Vulnerable.** |
 
 **Where each fits:** a call to the broker remains the fuller check, since a person can answer questions about exclusions and endorsements. It depends on office hours and can take a day or two. Live Verify covers the moment when a subcontractor turns up on a Saturday and the foreman needs to know whether the carrier stands behind the certificate being shown, leaving the broker call for anything that needs discussion.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

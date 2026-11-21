@@ -111,11 +111,6 @@ Records US border entry admissions and permits.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive CBP's hashes and status changes plus structured metadata (I-94 numbers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the admission record it created.
-
-
 ## Compared With DHS SAVE System
 
 | Feature | Live Verify | DHS SAVE System | Paper Printout |
@@ -131,3 +126,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 - [Advance Parole and Re-Entry Permits](view.html?doc=advance-parole-reentry-permits) — Similar “official system primary, artifact bridge secondary” pattern
 - [Work Permits & Work Visas](view.html?doc=work-permits) — Broader right-to-work framing across jurisdictions
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

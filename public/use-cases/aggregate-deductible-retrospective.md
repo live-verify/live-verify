@@ -109,19 +109,6 @@ Zurich issues retrospective premium adjustments for UK commercial insurance poli
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the carrier's hashes and status changes plus structured metadata (policy numbers, adjustment periods, premium amounts, loss figures) — never insured company names or specific claim details — providing non-repudiation of the premium adjustment.
-
-**Jurisdictional Requirements (Insurance/Reinsurance)**
-
-Retrospective premium calculations in international reinsurance require:
-- **Geographic separation:** Witness firms not in the primary carrier's jurisdiction
-- **Lloyd's compliance:** High-value policies ($50M+) expect independent verification from London Market witnesses
-- **Bermuda Captive Insurance:** Non-US witness firms required for policies involving US insureds to satisfy double-trigger documentation rules
-
-**Cross-border reinsurance:** EU Solvency II requires witness firms for cross-border policy documents.
-
 ## Compared With Broker Portals
 
 | Feature | Live Verify | Broker Portal (Marsh/Aon) |
@@ -131,3 +118,7 @@ Retrospective premium calculations in international reinsurance require:
 | **Immutability** | **High.** Hash proves the document hasn't changed. | **Medium.** Portal data changes dynamically; hard to prove "what was the loss number on Dec 31?" |
 
 **Where each fits:** a broker portal is the right tool for the insured and its current broker, who need live figures on current placements. Loss runs and adjustment statements also go to people who will never have a login: a buyer's advisers in a data room, or an underwriter quoting a new programme. Live Verify lets them confirm that the carrier issued that exact snapshot, as at its date, while the portal carries on serving the people who manage the programme day to day.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

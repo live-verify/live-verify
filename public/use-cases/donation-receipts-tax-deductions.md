@@ -144,11 +144,6 @@ Charities issue receipts confirming donation amounts for tax purposes.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the charity's hashes and status changes plus structured metadata (donation date, amount, charity EIN, tax year) — never donor name, payment method, or donor personal information — providing non-repudiation of the donation receipt issuance.
-
-
 ## Compared With Existing Systems
 
 | Feature | Live Verify | IRS TEOS / HMRC Charities Register | Paper Receipt / Declaration |
@@ -159,3 +154,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Audit-ability** | **High.** Individual receipts verifiable on demand. | **None** for individual gifts (US). Bulk only (UK — HMRC sees aggregate claims, not individual declarations). | **Low.** |
 
 **Where each fits:** IRS Tax Exempt Organization Search and the HMRC charities register answer a question Live Verify does not attempt: whether the organization is a recognised charity at all. That check stays necessary. Neither register says anything about an individual gift, so a tax preparer, auditor or matching-gift employer looking at one receipt still has only the paper. Live Verify lets them confirm that the charity stands behind that receipt and its amount, used together with the official register rather than in place of it.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

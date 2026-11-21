@@ -95,11 +95,6 @@ The Shipper (Manufacturer) benefits from verification.
 **Airlines / Carriers.**
 **IATA:** (Providing the global validation framework).
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the shipper's hashes and status changes plus structured metadata (shipment number, goods classification, hazard category, departure date) — never shipper name, detailed cargo routing, or commercial shipping value — providing non-repudiation of the dangerous goods declaration issuance.
-
-
 ## Compared With e-DGD (Electronic Data)
 
 | Feature | Live Verify | e-DGD (IATA Digital) | Paper DGD Form |
@@ -111,11 +106,9 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** IATA's e-DGD is the better route wherever shipper, forwarder, handler and airline are all connected to it, because the data arrives structured and ahead of the freight. Many warehouses still work from the declaration attached to the pallet, and the person loading may have no tablet or platform access. Live Verify lets that person confirm, with an ordinary phone, that the shipper stands behind the exact wording on the form, and it can run alongside e-DGD for the same consignment.
 
-
 ---
 
 _[Content merged from: dangerous-goods-declarations-imo-icao]_
-
 
 ## What is an IMO Declaration?
 
@@ -206,10 +199,6 @@ The Shipper (Manufacturer) benefits from verification.
 **Certified DG Packers.**
 **Ocean Carriers / Ship Lines.**
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the shipper's hashes and status changes plus structured metadata (shipment number, goods classification, hazard category, departure date) — never shipper names, cargo routing details, or commercial shipping value — providing non-repudiation of the dangerous goods declaration issuance.
-
 ## Compared With Port Community Systems (PCS)
 
 | Feature | Live Verify | PCS / Central Hub | Paper DGD |
@@ -224,7 +213,6 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 ---
 
 _[Content merged from: dangerous-goods-transport-road]_
-
 
 ## What is a Hazmat Manifest?
 
@@ -325,10 +313,6 @@ Dangerous goods declarations are issued by certified shippers and packers, regul
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the shipper's hashes and status changes plus structured metadata (shipment number, goods classification, hazard category, departure date) — never shipper name, detailed hazmat routing, or driver information — providing non-repudiation of the hazmat manifest issuance.
-
 ## Compared With Central Portals (ERMA)
 
 | Feature | Live Verify | Gov Hazmat Portal | Paper Manifest |
@@ -339,3 +323,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Data.** Protects the UN Number. | **Data-Only.** | **Vulnerable.** |
 
 **Where each fits:** Government hazmat portals hold authoritative registration and routing data, and dispatch centres and regulators with logins should keep relying on them. A first responder at a roadside incident usually has the paper manifest from the cab and a phone. Live Verify lets that responder confirm quickly that the shipper issued the manifest as written, which complements the portal lookup rather than standing in for it.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

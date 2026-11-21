@@ -119,11 +119,6 @@ Security guard licenses are issued and monitored by the UK private security regu
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the state regulatory board's hashes and status changes plus structured metadata (license number, guard name, license type, weapon designation, expiration date) — never plaintext or sensitive personal information — providing non-repudiation of the guard's current license and qualifications status.
-
-
 ## Compared With Physical ID Cards
 
 | Feature | Live Verify | Holographic Card | Central Registry Lookup |
@@ -134,3 +129,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Human Eye.** | **Technical.** Requires laptop/stable 5G. |
 
 **Why this remains strong:** Central registry lookup should remain primary where it is practical. But bouncers, site managers, and venue staff are often making a threshold decision at night, under pressure, with only the guard card in hand. That makes the displayed credential a real-world safety surface, and Live Verify a strong complementary bridge from that surface to current licensing status.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

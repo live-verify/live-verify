@@ -115,10 +115,6 @@ Franchisors disclose franchise agreements under UK and US franchise regulations.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the franchisor's hashes and status changes plus structured metadata (franchise names, FDD versions, distribution dates, Item 19 details, expiration dates) — never financial or operational secrets — providing non-repudiation of the FDD.
-
 ## Compared With State Registry Search
 
 | Feature | Live Verify | State Registry (Online) | Scanned PDF |
@@ -129,3 +125,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Completeness** | **High.** Verifies the *specific* candidate's copy. | **Low.** Only shows the generic filing. | **Vulnerable.** |
 
 **Where each fits:** State franchise registries are the official record of what a franchisor has filed, and a prospect's lawyer should look there. Not every state keeps one, searching can be slow, and the registry holds the generic filing rather than the copy handed to a particular candidate. Live Verify lets the prospect or their lender confirm that the franchisor stands behind the disclosure document actually received, including its financial performance figures, as a complement to the registry search.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

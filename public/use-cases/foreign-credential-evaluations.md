@@ -158,11 +158,11 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 **Where each fits:** Contacting the agency directly gives a full answer from the source and remains the right step for a contested or high-stakes case, and the NACES and AICE lists are the place to confirm that an agency is accredited at all. Neither scales to an officer processing hundreds of applications, and the membership lists say nothing about whether a particular report was issued. Live Verify fills that gap: a quick check that this report, with this equivalency, came from the agency named on it and has not been revised or withdrawn.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the evaluation agency's hashes and status changes plus structured metadata (report numbers, applicant identifiers, equivalency determinations, evaluation dates) — never sensitive personal information — providing non-repudiation of the credential evaluation.
-
 ## Further Derivations
 
 1. **Professional license reciprocity assessments** — mutual recognition agreements between countries (e.g., Washington Accord for engineering, Lisbon Recognition Convention for academic degrees). These assessments determine whether a professional license earned in one country is recognized in another, following a similar evaluation-and-report pattern with similar fraud risks. The verification need is identical: did this accredited body actually issue this reciprocity assessment?
 2. **Language proficiency score reports** — IELTS, TOEFL, Duolingo English Test. Similar pattern, similar fraud risk, similar verification need for immigration and university admission. Score reports are PDFs from testing organizations, routinely forged to show higher scores than actually achieved. The stakes are the same: a fraudulent IELTS score can qualify an applicant for immigration who wouldn't otherwise meet the language requirement.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

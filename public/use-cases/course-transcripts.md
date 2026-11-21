@@ -118,10 +118,6 @@ University registrars are governed by the Office for Students in the UK, which s
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the university's hashes and status changes plus structured metadata (student ID, course codes, credit hours, grades, degree program, graduation date) — never student name, social security number, or detailed personal academic history — providing non-repudiation of the transcript issuance and immutable proof critical for degree conferral disputes.
-
 ## Compared With Official Electronic Delivery (Parchment)
 
 | Feature | Live Verify | Electronic Delivery (Parchment) | Scanned PDF / Paper |
@@ -132,3 +128,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Cost** | **Low.** Standard web infra. | **Medium.** Fees of $10-$20 per transcript are common. | **None.** |
 
 **Narrower conclusion:** Official registrar delivery and transcript vendors should remain primary where they are available and accepted. Live Verify is complementary when the candidate's transcript PDF is already the artifact in circulation and the verifier otherwise falls back to trusting a scan or waiting for formal delivery.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

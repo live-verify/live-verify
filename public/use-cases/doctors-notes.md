@@ -179,12 +179,12 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 **Where each fits:** Trusting the paper is the right default for most absences and keeps the employment relationship free of suspicion. Occupational health review remains the proper route for long or complex absences where clinical judgment is needed, and telemedicine platforms can confirm the notes they issued themselves. The gap is the routine note from an unfamiliar practice, which today is either accepted unseen or challenged awkwardly. Live Verify lets HR or a school confirm that the practice issued the note with those dates, without learning the diagnosis.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the medical practice's hashes and status changes plus structured metadata (date ranges, practice identifier, note type, assessment date, fitness period) — never plaintext patient names or diagnoses — providing non-repudiation of the doctor's note.
-
 ## Further Derivations
 
 1. **Fit-with-adjustments notes** — The UK Fit Note allows a doctor to certify that a patient *may be fit* for work with specific adjustments (modified hours, altered duties, workplace adaptations). A verified fit-with-adjustments note lets the employer confirm both the adjustment recommendations and their source, streamlining the return-to-work process without requiring occupational health involvement for straightforward cases.
 
 2. **Mental health crisis notes** — When a student or employee experiences a mental health crisis, the treating clinician can issue a verified note confirming incapacity without disclosing the nature of the condition. This is particularly valuable in contexts where mental health stigma prevents people from seeking documentation — the verification confirms "a real clinician assessed this person" without revealing whether the issue was physical or psychological.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

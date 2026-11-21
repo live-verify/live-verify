@@ -103,9 +103,6 @@ HMRC administers bonded warehouse duty deferral and inventory control under the 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the customs authority's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the warehouse document.
 ## Compared With Customs ACE Portal
 
 | Feature | Live Verify | ACE Portal (Gov) | Paper Receipt |
@@ -116,3 +113,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Efficiency** | **Instant.** Scan the pallet tag. | **Slow.** Login, search entry #, find line item. | **Manual.** |
 
 **Where each fits:** the customs portal is the official record of entries and remains what brokers and customs offices file against and query. Truckers, lenders and auditors on the warehouse floor generally hold no credentials for it. Live Verify lets them check a receipt or pallet tag against the warehouse operator's domain on the spot, and the customs system stays the reference for the entry itself.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

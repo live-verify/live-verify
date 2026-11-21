@@ -104,10 +104,6 @@ The Homeowner / Seller benefits from verification.
 **Municipal GIS Departments:** (In some jurisdictions).
 **State Boards of Professional Land Surveying.**
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the surveyor's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the survey.
-
 ## Compared With Digital Plat Portals
 
 | Feature | Live Verify | County GIS Viewer | Paper Plat |
@@ -122,7 +118,6 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 ---
 
 _[Content merged from: land-surveys-property-boundaries]_
-
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #333; color: #fff; padding: 15px; text-align: center; display: flex; align-items: center; justify-content: center;">
@@ -223,10 +218,6 @@ Surveyors measure land boundaries and create official survey documents.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the surveyor's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the survey.
-
 ## Compared With Physical Iron Pins
 
 | Feature | Live Verify | Iron Pins (In the Ground) | Scanned PDF / Paper |
@@ -237,3 +228,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **Very Slow.** Requires digging/metal detector. | **Instant.** |
 
 **Where each fits:** Monuments in the ground are the physical evidence a surveyor works from, and nothing on paper replaces a properly set and located pin. Pins do get disturbed or lost over the years, and they carry no information of their own. Live Verify keeps the surveyor's written record checkable so that it can be read alongside whatever markers remain; resolving a real discrepancy is still a job for a surveyor.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

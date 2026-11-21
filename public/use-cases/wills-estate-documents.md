@@ -147,11 +147,6 @@ Solicitors draft and verify wills and testamentary estate documents.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive attorneys' hashes and status changes plus structured metadata (testator name, date of execution, witness names, executor name, page number, revision ID, law firm/attorney ID, drafting date) — never plaintext or sensitive personal information — providing non-repudiation of the Last Will and Testament.
-
-
 ## Future Architecture: Registry-Based Hash Witnessing
 
 **The core vulnerability today:** The solicitor who drafts the will is also the custodian of the canonical version. If the solicitor is the adversary — or is compromised, negligent, or complicit — they control the only authoritative copy. The witnesses attest to the signing ceremony but not to the document's contents (this is by design — testamentary privacy means the testator shouldn't have to reveal their inheritance plan to witnesses). The result is that nobody in the room except the solicitor knows what the document actually says, and nobody outside the room holds an independent record of what was signed.
@@ -230,3 +225,7 @@ See [Legal Witnessing Future Architecture](../../docs/legal-witnessing-future-ar
 | **Cost** | **Free.** (Standard web hosting). | **High.** Specialized paper/ink. | **Medium.** Access fees. |
 
 **Where each fits:** Once a will has been admitted to probate, the court docket is the authoritative record and the place to look. Before then most people keep their will private, and security paper only shows that the sheet itself has not been swapped. Live Verify lets an executor or family member confirm that the lawyer's firm stands behind the wording of the copy they hold and that it has not been superseded, without any filing during the testator's lifetime; the court process then proceeds as usual.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

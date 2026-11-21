@@ -155,11 +155,6 @@ Local authorities employ building inspectors authorized by the Building Act 1984
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the municipal authority's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the badge.
-
-
 ## Compared With ID Badges / Phone Calls
 
 | Feature | Live Verify | Holographic Badge | Calling the Office |
@@ -170,3 +165,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Revocation** | **Real-time.** Suspended/stolen badges fail immediately. | **None.** Physical badge still looks valid. | **Maybe.** If office knows and tells you. |
 
 **Why this remains strong:** The doorstep workflow is the real issue. Homeowners are often intimidated by officials and may not want a long conversation or phone call while someone waits outside. City systems remain primary in the background, but the badge is the visible surface at the decision point. That makes this a strong complementary case for non-confrontational verification before entry.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

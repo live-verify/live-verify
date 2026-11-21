@@ -111,11 +111,6 @@ Professional translators certify that translations are accurate and complete.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the translation firm's hashes and status changes plus structured metadata (certificate ID, source and target languages, document type, translator name and credentials, certification date) — never source or translated text — providing non-repudiation of the certification and an audit trail for immigration and legal proceedings.
-
-
 ## Compared With Physical Seals / Notarization
 
 | Feature | Live Verify | Notary Seal (Embossed) | Scanned PDF |
@@ -126,3 +121,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **Manual.** Requires visual expert. | **N/A.** |
 
 **Where each fits:** a notary's seal attests to who signed the certification, and where an authority requires notarization it still has to be obtained. The seal says nothing about whether the translated text has since been altered. Live Verify lets the receiving office confirm that the translation firm stands behind the exact wording, so it accompanies the seal rather than replacing it. Neither one vouches for the accuracy of the translation itself.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

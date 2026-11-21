@@ -148,9 +148,10 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 **Where each fits:** Court case lookup portals are the public record and remain the place to see the full docket, and NCIC gives officers fast, authoritative answers inside the law enforcement system. A call to the clerk is still the right step when something is disputed. The gap is everyone outside those systems, such as employers, victims, families dealing with a bondsman, and officers in another state, who hold the document but cannot easily reach the issuing court, especially after hours. Live Verify lets anyone holding the document check it against the court's domain, alongside the existing channels.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the bail bond issuer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the bail bond document.
 ## Further Derivations
 
 1. **Pretrial supervision documents** — Electronic monitoring agreements, drug testing schedules, curfew orders, check-in requirements, GPS ankle bracelet terms. These are the ongoing compliance documents that flow from bail conditions. The bail order sets the rules; pretrial supervision documents are the operational implementation. Each carries its own verify line bound to the pretrial services agency's domain (e.g., `pretrial.maricopa.gov/v`), creating a verifiable chain from court order through supervision compliance. When a defendant's GPS monitor shows them at the victim's address, the supervision document proves the no-contact condition existed and was communicated.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

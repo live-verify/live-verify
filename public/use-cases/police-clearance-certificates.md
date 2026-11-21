@@ -194,11 +194,11 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 **Why this remains strong:** The current default for most immigration authorities worldwide is still "trust the paper." Bilateral law enforcement channels are too slow for routine processing, Interpol channels are restricted, and apostilles prove signature rather than content. That makes police clearance certificates one of the clearer cases where a portable verification bridge is genuinely doing work outside the issuer's native system.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the police authority's hashes and status changes plus structured metadata (certificate number, applicant name, date of issue, clearance status, issuing authority) — never conviction details or applicant addresses — providing non-repudiation of police clearance certificate issuance.
-
 ## Further Derivations
 
 1. **Interpol notices and diffusions** — International law enforcement alerts (Red Notices, Blue Notices) — verification that a notice is real or that a claimed "Interpol clearance" is genuine. Currently, anyone can fabricate a letter claiming Interpol has cleared them. A verify line bound to `interpol.int` would settle it instantly.
 2. **Safeguarding/vulnerable person checks** — DBS in the UK, Working with Children Check in Australia — enhanced background checks for people working with children or vulnerable adults. Higher sensitivity, stricter privacy requirements, but the same verification pattern: scan, hash, check against the issuing authority's domain.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

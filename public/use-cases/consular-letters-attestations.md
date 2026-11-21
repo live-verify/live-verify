@@ -113,11 +113,6 @@ Self-authorized — this is a sovereign body whose authority derives from statut
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the embassy's or consulate's hashes and status changes plus structured metadata (document type, attestation date, issuing post, certification level, recipient name) — never attestation content details or reasons for refusal — providing non-repudiation of the letter and an audit trail for border and visa authorities.
-
-
 ## Compared With Legalization (Apostille)
 
 | Feature | Live Verify | Apostille / Legalization | Scanned PDF |
@@ -128,3 +123,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Cost** | **Low.** Standard web infra. | **High.** Fees can be $50-$200 per document. | **None.** |
 
 **Where each fits:** where a receiving authority requires an apostille or full legalization, that is what must be obtained, and Live Verify does not change the legal requirement. An apostille authenticates the signature and seal rather than the contents. For consular letters accepted without legalization, or as a further check on one that has been legalized, Live Verify lets the recipient confirm the mission stands behind the text, including figures such as a stated income.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

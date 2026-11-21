@@ -120,10 +120,6 @@ Unum underwrites disability income insurance policies for UK individuals and emp
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (policy number, occupation class, monthly benefit amount, elimination period, benefit period, effective date) — never insured names, medical information, or claim history — providing non-repudiation of the policy issuance and benefit terms.
-
 ## Compared With Broker Confirmation
 
 | Feature | Live Verify | Manual Broker Call | Scanned PDF |
@@ -134,3 +130,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Cryptographic.** Binds the "Occupation Class." | **Vague.** "Yes, they have a policy." | **Vulnerable.** |
 
 **Where each fits:** A call to the broker remains the way to get advice, an explanation of terms, or an answer about something the document does not cover. It is slower, tied to office hours and depends on the broker still holding the account. Live Verify handles the narrower task of confirming that the carrier stands behind this policy page, which is useful to a lender or lawyer with no line to the broker, and to a policyholder decades into a policy that has outlasted several brokers.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

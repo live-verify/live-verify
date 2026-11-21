@@ -105,10 +105,6 @@ Accredited bodies issue professional certifications validated against ISO/IEC 17
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the certification body's hashes and status changes plus structured metadata (holder names, certification types, certificate numbers, issue dates, expiration dates, status) — never assessment scores or performance details — providing non-repudiation of certification status.
-
 ## Compared With Digital Badges (Credly)
 
 | Feature | Live Verify | Digital Badges (Credly/Acclaim) | Scanned PDF |
@@ -119,3 +115,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Technical.** Requires app/portal access. | **Visual.** |
 
 **Where each fits:** Digital badges are a good fit where the certification body already issues them and the checker is looking at a profile or an email signature online; the badge links straight back to the record. Many certificates still arrive as a printed diploma or a PDF in an interview folder or a bid binder, and many bodies do not use a badge platform at all. Live Verify covers those documents by letting the reader confirm the text against the certification body's own domain, and a holder can carry both.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

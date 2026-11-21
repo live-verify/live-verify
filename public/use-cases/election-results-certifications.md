@@ -153,7 +153,6 @@ Unlike many use cases, election results are inherently public. Verification does
 
 When recounts occur, the recount report should reference the original certified result hash and explain any changes, creating an auditable correction trail.
 
-
 ## Authority Chain
 
 **Pattern:** Sovereign
@@ -168,6 +167,6 @@ Self-authorized — this is a sovereign body whose authority derives from statut
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the election authority's hashes and status changes plus structured metadata (election date, jurisdiction, office, candidate names, vote counts, total ballots, certification date, certifying officials) — never plaintext voter information — providing non-repudiation of the election results certification.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

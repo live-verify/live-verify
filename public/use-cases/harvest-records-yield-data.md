@@ -117,11 +117,6 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the equipment manufacturer's or producer's hashes and status changes plus structured metadata (harvest ID, field/section, crop type, total yield in bushels per acre, harvest date, equipment ID) — never producer financial data or lease terms — providing non-repudiation of yield data and an audit trail for crop insurance and lender verification.
-
-
 ## Compared With Ag-Tech APIs
 
 | Feature | Live Verify | Ag-Tech API (FieldView) | Paper Scale Ticket |
@@ -132,3 +127,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires account linking and permissions. | **N/A.** |
 
 **Where each fits:** Ag-tech platform integrations give an insurer or lender far richer data than a summary page, and where the farmer is content to link accounts they are the better source. Many farmers prefer not to share field-level maps, and an adjuster or loan officer may deal with several equipment brands and have integrations with none of them. Live Verify lets that person confirm the equipment maker or platform stands behind the yield summary the farmer hands over, leaving the detailed data where it is.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

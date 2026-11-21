@@ -114,11 +114,6 @@ Travelers and surety companies issue bonds and performance guarantees and are re
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the surety's hashes and status changes plus structured metadata (bond number, penal sum, principal/obligee names, effective/expiration dates) — never sensitive contractor or project details — providing non-repudiation of surety bond issuance and claim events.
-
-
 ## Compared With Corporate Seals (Gold Foil)
 
 | Feature | Live Verify | Gold Foil Seal | Power of Attorney (POA) Paper |
@@ -129,3 +124,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **N/A.** | **Slow.** Requires reading 5 pages. |
 
 **Where each fits:** The corporate seal and the attached power of attorney are the formalities that obligees and courts expect on a bond, and they continue to be required. They do not let a contracting officer confirm, at bid opening, that the surety issued this bond for this penal sum. Live Verify adds that check against the surety's domain; the seal and power of attorney stay on the bond as before.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

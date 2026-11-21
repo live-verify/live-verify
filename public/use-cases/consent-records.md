@@ -280,7 +280,6 @@ User carries verified consent records between services, proving preferences.
 **Consent Receipts**
 Automatic generation of verifiable receipt when consent is given, for user's records.
 
+## Independent Record (Optional)
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the organization's hashes and status changes plus structured metadata (consent type, version, timestamp, consent method) — never party names, personal identifiers, or consent scope details — providing non-repudiation of the consent record issuance and immutable proof of consent timestamp.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

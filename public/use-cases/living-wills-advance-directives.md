@@ -107,11 +107,6 @@ Solicitors validate living will directives and end-of-life care instructions.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (declarant name, date of execution, health care agent name) — never plaintext or sensitive personal information — providing non-repudiation of the advance directive and an audit trail hospitals can rely on.
-
-
 ## Compared With State Registries
 
 | Feature | Live Verify | State Registry (Online) | The "Fridge" Magnet |
@@ -122,3 +117,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Freshness** | **Real-time.** Shows if superseded. | **Laggy.** Updates take weeks. | **Static.** |
 
 **Where each fits:** A state registry is a sound place to lodge a directive, and where a hospital can query it the registry may be the only way to learn that a directive exists at all. The copy that reaches the bedside is usually paper brought by the family or found in the chart, and clinicians need to know quickly whether it is the current one. Live Verify lets them check that copy against the issuing hospital or law firm's domain, alongside any registry lookup the hospital already makes.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

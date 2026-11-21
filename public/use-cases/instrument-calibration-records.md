@@ -110,10 +110,6 @@ Accredited calibration labs provide NIST-traceable calibrations following ISO/IE
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the calibration lab's hashes and status changes plus structured metadata (instrument IDs, calibration dates, pass/fail results, reference standard IDs, technician credentials) — never client names, laboratory addresses, or proprietary measurement details — providing non-repudiation of the certificate and the results and an audit trail state quality authorities can inspect.
-
 ## Compared With LIMS (Lab Information Mgmt)
 
 | Feature | Live Verify | LIMS Software (LabWare) | Scanned PDF Record |
@@ -124,3 +120,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Permanence** | **Archival.** Text is permanent. | **Ephemeral.** Databases get migrated/lost. | **Vulnerable.** |
 
 **Where each fits:** A LIMS is the right system of record inside the laboratory, and nothing here replaces it for day-to-day sample and instrument management. The gap is the reader outside the lab: a journal, an auditor or a regulator who receives a calibration PDF and will never be given a LIMS login. Live Verify lets that reader confirm the lab stands behind the exact record, while the LIMS carries on as the source it was exported from.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

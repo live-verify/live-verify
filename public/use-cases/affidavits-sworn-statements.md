@@ -114,10 +114,6 @@ The Affiant (signer) benefits from verification.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the notary or court's hashes and status changes plus structured metadata (signer name, statement date) — never plaintext or sensitive personal information — providing non-repudiation of the document.
-
 ## Compared With e-Notary / Digital Signatures
 
 | Feature | Live Verify | e-Notary (Digital Sig) | Wet Ink (Traditional) |
@@ -129,3 +125,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 **Where each fits:** e-notarization works well while a document stays in its signed digital form, and wet-ink notarization remains what many courts and counterparties expect. Affidavits are also printed for a judge, flattened into a case file, or posted to another party, and the digital signature does not carry over to those copies. Live Verify lets whoever holds one of those copies confirm that the notary or issuing firm stands behind the exact text, so it adds to either form of notarization rather than standing in for it.
 
 See also [Legal Witnessing Future Architecture](../../docs/legal-witnessing-future-architecture.md) for a generalised model where the commissioner/notary confirms the hash corresponds to the sworn statement, and the attestation is published to an independent registry.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

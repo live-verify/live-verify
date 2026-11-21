@@ -153,10 +153,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 **Where each fits:** Contacting the audit firm directly remains the most thorough check, since a conversation can cover scope and context that the report does not, and regulators keep their own formal channels for supervisory purposes. In practice a direct request can take weeks, and the firm may be unable to answer without its client's consent. Live Verify handles the simpler question of whether the report presented is the one the firm issued, with the entity's own presentation of the report serving as the consent. Deeper enquiries can then go to the firm where they are warranted.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the auditor's hashes and status changes plus structured metadata (entity registration number, audit period, report type, auditor's opinion) — never plaintext or sensitive personal information — providing non-repudiation of the report and a withdrawal audit trail regulators can inspect.
-
 ## Further Derivations
 
 1. **Suspicious Activity Report (SAR) Filing Confirmations** — Entities can prove they filed SARs with their jurisdiction's Financial Intelligence Unit (FIU) when they detected suspicious activity. This matters when the entity is later accused of complicity in money laundering — "we reported it" is a key defense, and a verified SAR filing confirmation proves the report was made. (Note: the SAR content itself remains confidential — only the fact of filing is verified.)
@@ -164,3 +160,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 2. **Remediation Reports** — When a compliance audit identifies deficiencies, the entity must remediate them. A remediation report — verified against the auditor's domain — confirms that the entity addressed the findings. This prevents the common pattern where an entity receives a qualified opinion, does nothing, and presents only the original report (minus the qualifications) to its bank.
 
 3. **Independent AML Risk Assessments** — Separate from compliance audits, these assessments evaluate an entity's inherent money laundering risk based on its business activities, client base, geographic exposure, and product complexity. Verified risk assessments help banks calibrate their due diligence intensity — a low-risk assessment from a credible firm means the bank can apply simplified due diligence rather than enhanced due diligence.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

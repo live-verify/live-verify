@@ -112,6 +112,6 @@ For trades that require licensing (electrical, gas, plumbing), the contractor's 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
 Not typically needed for quotes and estimates. The issuer endpoint is the source of truth. Witnessing would only add value in high-value commercial tenders where independent timestamping of bid submission matters.

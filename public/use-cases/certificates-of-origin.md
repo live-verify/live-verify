@@ -137,10 +137,6 @@ Chambers of commerce issue origin certificates that customs agencies rely upon f
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the Chamber's hashes and status changes plus structured metadata (key identifiers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the certificate it issued.
-
 ## Compared With Blockchain (TradeLens)
 
 | Feature | Live Verify | TradeLens / GSBN | Paper COI |
@@ -152,11 +148,6 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** shared trade platforms can work well among the carriers, ports and authorities that have joined them. Most certificates of origin are still issued on paper or PDF by local chambers whose counterparties are not on any common platform. Live Verify lets a chamber of any size make its certificates checkable from its own domain, and a platform member can use both.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the certificate it issued.
-
-
 ## Compared With eCO (Electronic Registry)
 
 | Feature | Live Verify | eCO Registry (ICC) | Paper Certificate |
@@ -167,3 +158,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Content.** Proves the *Country* matches the chamber record. | **Data-Only.** Doesn't verify the actual paper. | **Zero.** |
 
 **Where each fits:** the ICC's electronic registry is a sound route where the chamber participates and the checking officer has access to it. A customs officer at a border gate may not, and many smaller chambers issue outside the registry. Live Verify lets the officer check the paper against the issuing chamber's own domain, so each chamber keeps its independence and the registry continues to serve those who use it.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

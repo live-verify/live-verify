@@ -124,6 +124,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Events permits are the "Contract with the Neighborhood." By turning static cards into live digital bridges, we ensure that the public's right to peace and safety is protected by the digital truth of the city vault.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the city authority's hashes and status changes plus structured metadata (permit number, event name, organizer, authorized location, authorized hours, permit issue date, expiration date) — never plaintext contact or insurance details — providing non-repudiation of the event permit.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

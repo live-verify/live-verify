@@ -111,6 +111,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Training is the "Code of the Workforce." By turning certificates into verifiable digital bridges, we ensure that "Job Readiness" is backed by cryptographic proof, protecting workers from danger and companies from the high cost of un-vetted labor.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive training providers' hashes and status changes plus structured metadata (trainee name, employer name, course title, course ID, training date, expiration/recertification date, credit hours, instructor name/ID) — never plaintext or sensitive personal information — providing non-repudiation of the training certificate.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

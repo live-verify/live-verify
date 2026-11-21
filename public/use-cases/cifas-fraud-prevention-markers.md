@@ -207,7 +207,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 CIFAS is one of the most powerful fraud prevention tools in the UK — and one of the least transparent to the individuals it affects. The system works well for its members (banks catching fraud) but poorly for individuals (no portable proof of status, no notification when markers are filed, no way to quickly demonstrate a clean record or a successful appeal). A verified status certificate doesn't change how CIFAS works internally — it gives the individual a portable, cryptographically verifiable document that makes their status visible to anyone, not just CIFAS members.
 
-
 ## Jurisdictional Equivalents
 
 | | UK | US | EU |
@@ -253,6 +252,6 @@ Identity fraud is increasingly cyber-enabled — data breaches feed the creation
 - **EU:** NIS2 Directive (2024) — cybersecurity obligations for financial sector; PSD3 (proposed) includes fraud liability provisions
 - **Crypto dimension:** Crypto-enabled fraud (pig butchering scams, fake investment platforms) is the fastest-growing fraud type globally — CIFAS-equivalent systems must expand to cover crypto wallet addresses, not just bank accounts
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive CIFAS's hashes and status changes plus structured metadata (key identifiers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the fraud marker it registered.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

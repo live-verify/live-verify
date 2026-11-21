@@ -165,10 +165,6 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the event organizer's hashes and status changes plus structured metadata (staff names, roles, assigned zones, access times, company affiliations, manager authorizations) — never event locations or attendee details — providing non-repudiation of the credential and an audit trail event insurance providers and local authorities can inspect.
-
 ## Compared With Printed Badges / Radio Check-In
 
 | Feature | Live Verify | Printed/Laminated Badge | Radio Check-In | Visual Assessment |
@@ -206,3 +202,7 @@ This use case belongs to the Mobile Service Staff in Ungated Facilities pattern.
 - [Delivery & Courier Verification](view.html?doc=delivery-courier-verification) — Recipients verify delivery drivers.
 - [Healthcare Facility Staff](view.html?doc=healthcare-facility-staff) — Patients verify hospital support workers.
 - [Residential Building Staff](view.html?doc=residential-building-staff) — Residents verify maintenance contractors.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

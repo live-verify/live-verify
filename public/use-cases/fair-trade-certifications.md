@@ -113,11 +113,6 @@ Fairtrade certifies producers and supply chains that meet ethical sourcing stand
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the certifying body's hashes and status changes plus structured metadata (producer ID, certified product type, production region, audit status, audit number, issue date, expiration date, certifier name) — never plaintext producer contact information — providing non-repudiation of the fair trade certification.
-
-
 ## Compared With Public Databases (FLOCERT)
 
 | Feature | Live Verify | FLOCERT Public Search | Static Logo |
@@ -128,3 +123,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Technical.** Requires laptop/dedicated search. | **Visual.** |
 
 **Where each fits:** FLOCERT's public search is the definitive source on whether an operator is certified, and trade buyers and auditors who know the FLO ID should use it. A shopper, a small retailer or an importer in another country is more likely to be looking at a certificate or a claim on packaging than at a database. Live Verify lets them confirm the certifying body stands behind that document, and the register remains the place for a full audit-level check.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

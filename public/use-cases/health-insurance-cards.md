@@ -192,11 +192,11 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 The strongest claim is not "trust the card." It is "bridge human-readable coverage artifacts back to live payer status." The card remains the coarse in-person layer; the excerpt is the stronger portable layer.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the health insurer's hashes and status changes plus structured metadata (member ID, group number, effective dates, plan type) — never plaintext or sensitive personal information — providing non-repudiation of issuing the insurance card.
-
 ## Further Derivations
 
 1. **Dental and vision insurance cards** — Separate coverage, separate cards, separate verification. Same architecture but different insurers (Delta Dental, VSP, EyeMed) and different eligibility statuses. Often bundled with medical but administered independently.
 2. **Medicare/Medicaid cards** — Government-issued, different verification infrastructure. Medicare uses CMS systems; Medicaid varies by state. The verification pattern is identical but the issuer is a government agency, not a private insurer, and the authority chain runs through CMS or state Medicaid offices rather than state insurance commissioners.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

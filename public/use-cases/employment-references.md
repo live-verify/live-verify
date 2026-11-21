@@ -204,11 +204,6 @@ No regulatory chain. Trust rests on the issuer's domain reputation.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the employer's hashes and status changes plus structured metadata (employee name, employment dates, job title, HRIS reference ID) — never salary, rehire status details, or termination reasons — providing non-repudiation of the employment reference issuance.
-
-
 ## Compared With The Work Number (Equifax)
 
 | Feature | Live Verify | The Work Number | Manual Phone Check |
@@ -231,3 +226,7 @@ Employment references and VOE letters are strong candidates for a government-man
 - Employees currently depend on their former employer's goodwill to get a timely reference. A mandate gives the employee a right to a verifiable confirmation, with a time-limited salt they control.
 
 **Implementation path:** Tax authorities (HMRC, IRS) could require that any employer filing payroll returns must also operate a Live Verify endpoint (or delegate to their payroll provider — Workday, ADP, Sage, Xero — who would offer it as a standard feature). Small employers using basic payroll software would get verification hosting bundled in, just as they currently get RTI/PAYE filing bundled in.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -100,42 +100,9 @@ The **Bank Customer** benefits from verification.
 **Banks & Credit Unions:** The data holders.
 **Aggregators (Plaid, Yodlee, Finicity):** acting as authorized intermediaries.
 
-## Jurisdictional Witnessing
+## Independent Record (Optional)
 
-A jurisdiction may require the issuer to retain a **witnessing firm** for regulatory compliance. The witnessing firm:
-
-- Receives all hashes from the issuer, and any subsequent changes to the payload as they happen—which may manifest as a new hash, a status change, or even a 404 (record deleted)
-- Receives structured content/metadata (key identifiers and dates)
-- Does **NOT** receive plaintext or sensitive personal information
-- Provides an immutable, timestamped audit trail—available to the jurisdiction on demand, to document holders/third parties during disputes, or as expert witness testimony in legal proceedings
-
-This provides:
-- **Non-repudiation:** Issuer cannot deny issuing the document
-- **Timestamp proof:** Document existed at a specific time
-- **Regulatory audit:** Jurisdictions can inspect the witness ledger for fraud detection
-- **Resilience:** Verification works even if issuer's systems go down
-
-**Jurisdictional Requirements (Banking)**
-
-Banking regulators vary widely:
-
-**US Banks (OCC, FDIC, Federal Reserve):** Do not mandate external witnessing for domestic use; verification via bank's own systems is sufficient.
-
-**International/EU Banks (PSD2, Banking Regulation):** Require independent witness firms for:
-- Open Banking consent records (PSD2 compliance)
-- Large cross-border transfers (suspicious activity reporting)
-- Cryptocurrency/stablecoin gateway documents
-
-**Cross-border use:** When documents are shared internationally, witness firms from neutral OECD jurisdictions prevent regulatory arbitrage.
-
-**Public Blockchain (Non-Party)**
-
-Witnessing firms may periodically commit rollups to an inexpensive public blockchain, providing an ultimate immutability guarantee. The blockchain is a "non-party"—infrastructure, not a participant in the transaction. This creates multiple verification paths:
-
-1. **Issuer domain** — Direct check against the issuer
-2. **Witnessing firm** — Independent confirmation with timestamp
-3. **Public blockchain** — Decentralized trust anchor via rollup inclusion
-
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).
 
 ## Competition vs. QR/NFC/APIs
 
@@ -147,4 +114,3 @@ Witnessing firms may periodically commit rollups to an inexpensive public blockc
 | **Use Case** | **Compliance/Legal/Audit.** Proving the *agreement*. | **Functional.** Doing the *work*. | **Convenience.** |
 
 **Why OCR wins here:** You don't use OCR to *move* the money or data. You use it to *audit* the permissions. APIs are invisible to the average user. A certificate saying "You granted access to X" is a tangible artifact that brings transparency to the invisible web of Open Banking connections.
-

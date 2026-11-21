@@ -95,10 +95,6 @@ The Insured (Vehicle Owner) benefits from verification.
 **Adjusting Firms:** (Third-party firms like Crawford & Co).
 **Body Shop Management Systems:** (CCC One, Mitchell, Audatex).
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the repair estimate.
-
 ## Compared With Central Databases (CARFAX)
 
 | Feature | Live Verify | CARFAX / Autocheck | Paper Estimate |
@@ -109,11 +105,9 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Practical conclusion for claims documents:** This is a strong Live Verify fit. The insurer remains the source of truth, but the estimate or claim summary is exactly the kind of human-readable artifact that gets emailed, printed, negotiated over, and later re-opened outside the carrier's native system.
 
-
 ---
 
 _[Content merged from: auto-insurance-id-cards]_
-
 
 ## What is an Auto ID Card?
 
@@ -199,10 +193,6 @@ The Policyholder benefits from verification.
 **Insurance Carriers:** (Geico, Progressive, State Farm, etc.)
 **State DMVs / Insurance Verification Networks:** (As oversight and status-distribution bodies).
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the ID card.
-
 ## Compared With DMV Databases (ALIR/IIVS)
 
 | Feature | Live Verify | DMV Central DB (IIVS) | Paper Card |
@@ -215,11 +205,9 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Narrower conclusion for ID cards:** portability is the only strong part of this sub-case. Where official insurer or DMV-linked systems are available, they should remain primary. Live Verify is only the bridge when the visible card is all the relying party has.
 
-
 ---
 
 _[Content merged from: auto-insurance-policies]_
-
 
 ## What is a Declarations Page?
 
@@ -276,10 +264,6 @@ The Policyholder benefits from verification.
 **Attorneys (Personal Injury)**
 **Demand Letters:** When an accident happens, lawyers need to know the *true* policy limits. Verification prevents "Ghost Limits" fraud where a driver claims to have $1M in coverage but only has the state minimum.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the declarations page.
-
 ## Compared With ACORD Certificates
 
 | Feature | Live Verify | ACORD 25 (Standard) |
@@ -290,11 +274,9 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** the ACORD certificate is the format most counterparties ask for, and where the broker is known and reachable a call to them settles any doubt. A declarations page is the carrier's own statement of the policy, and the person handed one often has no relationship with either the broker or the carrier. Live Verify lets that person check the page against the carrier's domain, and it can equally be applied to the certificate.
 
-
 ---
 
 _[Content merged from: auto-transport-damage-reports]_
-
 
 ## What is an Auto Transport Report?
 
@@ -390,10 +372,6 @@ The Vehicle Owner (or Dealer) benefits from verification.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the carrier's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the transport report.
-
 ## Compared With Central Portals
 
 | Feature | Live Verify | SuperDispatch / Carrier Portal | Paper Carbon Copy |
@@ -403,3 +381,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Sharing** | **Easy.** Share the PDF/Link with any insurer. | **Hard.** Requires "Exporting" reports or giving portal access. | **Manual.** |
 
 **Where each fits:** a carrier or dispatch portal is the working system for the transport company and its drivers, and holds the full history of a job. The customer in the driveway, and later their insurer, has no login to it. Live Verify gives them a condition report they can check against the carrier's domain, fixed as it was at handover, while the portal continues to run the operation.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

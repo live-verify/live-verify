@@ -116,10 +116,6 @@ Certifies building elevations for federal flood insurance.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the surveyor's hashes and status changes plus structured metadata (property addresses, FEMA flood zones, base flood elevations, survey dates, surveyor licenses) — never property owner names or precise location details — providing non-repudiation of the certificate and an audit trail state insurance companies can inspect.
-
 ## Compared With FEMA Map Service Center
 
 | Feature | Live Verify | FEMA MSC (Public Map) | Scanned PDF |
@@ -130,3 +126,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires address search and map reading. | **Instant.** |
 
 **Where each fits:** FEMA's Map Service Center is the authority on flood zones, and every lender and insurer will keep consulting it. A map describes an area; the elevation certificate describes one building, and it reaches the insurer, buyer or lender as a PDF from a surveyor they have never dealt with. Live Verify lets them confirm the surveyor stands behind the figures on that certificate. The zone still comes from FEMA, and the two are read together.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

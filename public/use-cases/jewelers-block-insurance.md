@@ -107,11 +107,6 @@ Chubb, a regulated specialty insurer, is authorized by the FCA to issue verified
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurance underwriter's hashes and status changes plus structured metadata (insured name, location, stock limit, transit limit, vault classification, effective dates) — never plaintext inventory details — providing non-repudiation of the jewelers block insurance certificate.
-
-
 ## Compared With Manual Broker Letters
 
 | Feature | Live Verify | Manual Broker Letter | Scanned PDF |
@@ -122,3 +117,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Trust Anchor** | **Domain-Bound.** Bound to the Carrier. | **Human.** Prone to social engineering. | **Vulnerable.** |
 
 **Where each fits:** A broker's confirmation letter is still the right route when there is time, since the broker can explain terms and exclusions in a way a certificate cannot. Trades agreed out of hours or away from the office do not always allow two or three working days for that. Live Verify lets the supplier confirm then and there that the carrier stands behind the certificate as presented, and a broker letter can follow where the deal warrants it.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

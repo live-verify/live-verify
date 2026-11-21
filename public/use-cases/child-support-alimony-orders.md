@@ -168,15 +168,11 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 **Where each fits:** State Disbursement Units handle the money and remain the channel for remitting payments, and the federal OCSE systems coordinate enforcement between agencies and across states. The court clerk is still the authority when an order is disputed. None of these is built to answer an employer's question about the document in front of them: is this order authentic, and is this the current amount? Live Verify fills that employer-facing gap and leaves payment processing and enforcement where they are.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the court's hashes and status changes plus structured metadata (key identifiers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the order it issued.
-
-### This Protects Both Parents
-
-The custodial parent needs the employer to garnish the correct amount — not a lower figure from an outdated or altered order. The paying parent needs protection against a fabricated order that inflates the amount, or an old order presented to a new employer after the court reduced the obligation. Both sides are vulnerable to document manipulation in opposite directions, and both benefit from the same verification mechanism: the employer scans the order, the court's domain confirms it is current, and the amount is what the judge actually ordered. Neither parent can game the system, and neither parent is victimized by the other's forgery.
-
 ## Further Derivations
 
 1. **Property division orders** — Court orders dividing marital assets (real estate, retirement accounts, business interests). Banks, title companies, and pension administrators all need to verify these orders before transferring assets. Same verification architecture: court issues the order, parties and institutions scan to confirm authenticity and current status.
 2. **Income withholding orders for other debts** — Student loans, tax liens, bankruptcy wage orders. The same employer garnishment mechanism applies: employer receives a withholding directive, needs to verify it's real before deducting from an employee's paycheck. The pattern is identical; only the issuer and statute change.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

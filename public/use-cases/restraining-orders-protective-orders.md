@@ -186,11 +186,11 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 - [Search Warrants](view.html?doc=search-warrants) — Similar court-order pattern where the affected civilian is outside official systems
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the court's hashes and status changes plus structured metadata (case number, order type, petitioner/respondent names, issue date, expiration date, conditions) — never plaintext or sensitive personal information — providing non-repudiation of the restraining order and its current status. Restraining orders have particular witnessing value because the respondent may later claim they were never served or never knew about the order. A timestamped witness record proves the order existed and was verifiable as of a specific date -- independent of service of process.
-
 ## Further Derivations
 
 1. **Emergency/Temporary Protective Orders (EPOs/TPOs):** Ex parte orders issued without the respondent present, often by police or judges after hours. Shorter duration (5-21 days), even more urgent verification need -- the respondent hasn't been to court yet and may not even know the order exists. Verification is critical because these orders expire fast and are frequently replaced by longer-term orders.
 2. **Civil Harassment Restraining Orders:** Non-domestic restraining orders covering neighbor disputes, workplace harassment, and stalking by strangers. Same verification architecture, different legal standard (no intimate relationship required). Growing category as courts handle more workplace and online stalking cases.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

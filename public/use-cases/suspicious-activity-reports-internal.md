@@ -196,6 +196,6 @@ Financial institutions must be able to detect proliferation financing indicators
 - **US:** FinCEN advisories on North Korea and Iran PF typologies; Treasury has issued specific guidance on proliferation trade finance red flags.
 - **Singapore:** MAS has issued PF-specific guidance given Singapore's role as a technology trade hub; *Strategic Goods (Control) Act* violations trigger both criminal prosecution and MAS enforcement.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive banks' hashes and status changes plus structured metadata (Internal SAR tracking ID, FinCEN E-Filing ID, filing date, institution name, branch ID, primary subject name or account hash) — never plaintext or sensitive personal information — providing non-repudiation of the internal SAR filing record.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

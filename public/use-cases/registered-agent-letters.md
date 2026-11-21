@@ -163,10 +163,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 **Where each fits:** Contacting the registered agent directly is still the fullest check, because the agent can answer follow-up questions, and a registry search or an apostille each confirms something the letter itself does not. Direct contact is slow, does not scale across a large onboarding queue, and may go unanswered where the agent's confidentiality policy prevents a reply. Live Verify lets the agent confirm it issued the exact letter, and whether it has been withdrawn, while disclosing nothing beyond what the letter already says. The other checks remain available where more is needed.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the corporate service provider's hashes and status changes plus structured metadata (company number, letter date, company status, director names, agent name) — never plaintext or sensitive personal information — providing non-repudiation of the registered agent letter and corporate status confirmation.
-
 ## Further Derivations
 
 1. **Nominee Director Disclosure Letters** — Agent confirms which directors on its letter are nominees (professional directors) vs. principals. This is the critical missing piece in most agent letters — the bank sees "Director: John Smith" but doesn't know if John Smith is a real decision-maker or a professional nominee who sits on 200 boards. A verified disclosure, bound to the agent's domain, brings transparency to nominee arrangements without requiring public beneficial ownership registers.
@@ -174,3 +170,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 2. **Power of Attorney Confirmations** — Agent confirms that a specific individual holds power of attorney for the entity, with defined scope and expiry. POAs are frequently forged in offshore fraud — someone presents themselves as authorized to act for a company when the company has never heard of them. Verified POA confirmations from the agent's domain prevent this.
 
 3. **Agent Termination Notices** — When an agent terminates its relationship with an entity (due to unpaid fees, AML concerns, or client request), the termination notice becomes an important document. A verified termination notice proves the agent is no longer responsible for the entity — protecting the agent from liability and alerting third parties that the entity's documentation from this agent is no longer current.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

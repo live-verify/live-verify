@@ -130,6 +130,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Travel documentation is the "High-Volume Friction" of global business. By turning itineraries into verifiable digital bridges, we eliminate the friction of manual auditing and protect the multibillion-dollar travel budget from the high cost of "Small-Ticket" fraud.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive travel suppliers' hashes and status changes plus structured metadata (booking reference number, traveler name, company name, trip dates, flight numbers/classes, hotel names/room types, itemized costs, total trip price, booking source, cancellation policy tier, date of issuance) — never plaintext or sensitive personal information — providing non-repudiation of the travel and hospitality booking.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

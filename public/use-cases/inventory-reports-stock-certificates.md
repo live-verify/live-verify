@@ -108,10 +108,6 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the warehouse operator's hashes and status changes plus structured metadata (lot numbers, quantities, valuation amounts, depositor IDs, location codes) — never depositor names, detailed product specifications, or customer identities — providing non-repudiation of the inventory report and quantities and an audit trail financial institutions and regulators can inspect.
-
 ## Compared With WMS Portals (Warehouse Management)
 
 | Feature | Live Verify | WMS Portal Access | Scanned PDF / Excel |
@@ -122,3 +118,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Persistence** | **High.** Remains verifiable post-release. | **Low.** Records often archived/hidden in-app. | **Vulnerable.** |
 
 **Where each fits:** A warehouse management system is the live record of stock, and the custodian and its direct customers are best served by it. Banks and auditors outside the supply chain rarely get a login and work from the reports they are emailed. Live Verify lets them confirm that the custodian issued the report in front of them, lot counts and all, without widening access to the warehouse system.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

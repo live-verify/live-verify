@@ -115,10 +115,10 @@ Certified public scales are regulated by weights and measures authorities to ens
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the scale operator's hashes and status changes plus structured metadata (gross weights, tare weights, net weights, timestamps, scale IDs, ticket numbers) — never vehicle plates, driver names, commodity types, or shipper/receiver identities — providing non-repudiation of issuing the weight measurement.
-
 ## Rationale
 
 Weight is the "Truth of Trade." By turning scale tickets into verifiable digital bridges, we protect the billions of dollars in commerce that rely on accurate measurement and ensure that "What You Pay For" is "What You Get."
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

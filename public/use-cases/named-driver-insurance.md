@@ -112,10 +112,6 @@ Direct Line, a regulated motor insurer, is authorized by the FCA to issue verifi
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (policy numbers, named driver names, vehicle registrations, effective/expiration dates, coverage status) — never sensitive personal information — providing non-repudiation of the named driver authorization.
-
 ## Compared With National Databases (MID)
 
 | Feature | Live Verify | MID / National DB (UK) | Paper Certificate |
@@ -133,3 +129,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 - [Driver's Licenses](view.html?doc=drivers-licenses) — License card verification
 - [Vehicle Registration](view.html?doc=vehicle-registration) — Registration and insurance status
 - [Additional Driver Endorsements](view.html?doc=additional-driver-endorsements) — Temporary driver coverage
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

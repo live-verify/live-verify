@@ -234,12 +234,12 @@ The pattern depends on who operates the building. NHS hospitals and government b
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the building operator's hashes and status changes plus structured metadata (sign locations, department mappings, update dates) — never sensitive personal information — providing non-repudiation of wayfinding sign accuracy.
-
 ## Further Derivations
 
 1. **Emergency evacuation routing.** In a fire or other emergency, the verification response switches from normal navigation to evacuation routing: "Nearest fire exit is 40m west. Do NOT use lifts. Follow blue emergency lights." The physical sign stays the same; the response changes based on the trust's emergency status flag. This turns every wayfinding sign into an evacuation guide — no new signage needed.
 
 2. **Accessibility audit trail.** Disability rights organisations can systematically scan every wayfinding sign in a hospital and build a verified map of accessibility features — step-free routes, accessible toilets, hearing loops, tactile paving. The verification response includes this data; the audit produces an evidence-based accessibility report bound to the trust's own domain.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -106,10 +106,6 @@ Actuaries assess the adequacy of insurance loss reserves for accounting and solv
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the loss reserve opinion.
-
 ## Compared With SERFF Public Search
 
 | Feature | Live Verify | SERFF / State Public Search | Scanned PDF Memo |
@@ -121,3 +117,6 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** State filing searches are the official source for what an insurer has filed and are where a regulator or analyst should look for the company's overall position. In a reserve review or a negotiation, people are working from the opinion and memos handed across the table, which the public search does not reproduce page for page. Live Verify lets a reader confirm the actuary or insurer stands behind the document in hand, and the filed record remains the reference for everything else.
 
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

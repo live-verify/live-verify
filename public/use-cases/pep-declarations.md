@@ -176,6 +176,6 @@ PEPs are the primary targets of unexplained wealth orders and kleptocracy enforc
 - **Australia:** Foreign PEPs are a specific category under AML/CTF Rules; ACIC unexplained wealth referrals increasingly target foreign PEP-linked assets in Australian real estate
 - **International:** UNCAC Art. 52 requires enhanced scrutiny of PEP financial activities; Mutual Legal Assistance Treaties (MLATs) enable cross-border PEP asset freezing
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the regulator's hashes and status changes plus structured metadata (declaration reference, business name, declaration date, PEP status) — never detailed PEP relationship information or sensitive political connections — providing non-repudiation of PEP declaration issuance.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

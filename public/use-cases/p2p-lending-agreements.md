@@ -120,10 +120,6 @@ Funding Circle, a regulated P2P lending platform, is authorized by the FCA to is
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the P2P lending platform's hashes and status changes plus structured metadata (loan IDs, principal amounts, APRs, payment terms, origination dates) — never plaintext such as borrower names — providing non-repudiation of issuing the lending agreement.
-
 ## Compared With API (Aggregators)
 
 | Feature | Live Verify | Plaid / Yodlee (API) | Scanned PDF |
@@ -134,3 +130,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires login/MFA. | **Manual.** |
 
 **Where each fits:** Account aggregators are useful where a lender wants an ongoing or broad view of an applicant's finances and the applicant is willing to connect their accounts. Sometimes a single document is all that is needed, such as a loan note or statement placed in a mortgage file. Live Verify lets the lender confirm that the platform issued that document, without requiring credentials or wider access, and aggregation remains available for cases that call for the fuller picture.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

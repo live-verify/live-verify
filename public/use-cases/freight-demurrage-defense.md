@@ -116,11 +116,6 @@ The UK P&I Club, a mutual insurance association, is regulated by the FCA and iss
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the P&I Club's hashes and status changes plus structured metadata (vessel name, IMO number, member name, coverage scope, limit of cover, coverage class, policy effective date, expiration date) — never plaintext member financial details — providing non-repudiation of the FD&D insurance certificate.
-
-
 ## Compared With Club Member Search
 
 | Feature | Live Verify | Club Website Search | Scanned PDF |
@@ -131,3 +126,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Authority** | **Domain-Bound.** Bound to the Club. | **High.** Direct DB. | **Medium.** |
 
 **Where each fits:** A P&I club's own vessel search is the direct source for whether a ship is entered, and correspondents and lawyers who know the IMO number will keep using it. It often does not show the terms on the certificate, and some detail sits behind member logins. Live Verify lets a port agent, counterparty lawyer or court in another country confirm that the club stands behind the certificate as presented, with the club's search still available for entry status.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

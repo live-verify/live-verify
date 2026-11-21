@@ -101,11 +101,6 @@ NFU Mutual, a regulated agricultural insurer, is authorized by the FCA to issue 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurance provider's hashes and status changes plus structured metadata (policy number, coverage type, acreage, coverage level, effective dates) — never farm location, farmer identity, or production history — providing non-repudiation of the insurance policy and an audit trail USDA administrators can inspect.
-
-
 ## Compared With USDA Portals
 
 | Feature | Live Verify | USDA / RMA Public Search | Scanned PDF Summary |
@@ -116,3 +111,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** Scan at the farm gate. | **Slow.** Requires multiple Gov-ID hoops. | **Instant.** |
 
 **Where each fits:** USDA and RMA systems are the official record for federal crop insurance, and producers and approved insurance providers will continue to work through them. A local bank officer or landlord reviewing a loan or a lease usually has no access to those systems and is handed the coverage summary instead. Live Verify lets them confirm the carrier issued that summary, as a companion to the federal record.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

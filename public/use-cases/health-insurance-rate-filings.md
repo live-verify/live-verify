@@ -114,10 +114,6 @@ Actuaries and insurers issue rate filings under federal insurance regulator auth
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the rate filing certification.
-
 ## Compared With SERFF Database
 
 | Feature | Live Verify | SERFF / State Public Search | Scanned PDF Memo |
@@ -128,3 +124,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Immediacy** | **Real-time.** Shows if firm retracted opinion. | **Laggy.** Depends on gov indexing. | **Static.** |
 
 **Where each fits:** SERFF and the state public search tools are the regulatory record of a rate filing, complete with correspondence and supporting exhibits, and analysts preparing for a hearing should work from them. In the hearing room, and in press coverage afterwards, people handle a copy of the actuarial memorandum instead. Live Verify lets a consumer advocate or journalist confirm that the actuary or insurer stands behind that copy, with the state system still holding the full file.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

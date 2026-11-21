@@ -171,6 +171,6 @@ This differs from police officers, where full name and badge number are typicall
 
 PEO verification restores "Trust in the Street." By allowing instant, zero-friction verification of municipal authority, it protects vulnerable populations from extortion and ensures that the city's legitimate revenue isn't diverted to criminals.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the municipality's hashes and status changes plus structured metadata (officer name/ID, division, badge authority level) — never plaintext or sensitive personal information — providing non-repudiation of officer credential issuance and citation records.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

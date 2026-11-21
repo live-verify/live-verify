@@ -108,6 +108,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Proof of Delivery is the "Closing Link" in the global supply chain. Live Verify turns a fleeting physical event (the handoff) into a permanent, verifiable digital fact, reducing billions in "Loss and Dispute" costs annually.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the carrier's hashes and status changes plus structured metadata (waybill number, delivery timestamp, consignee name, delivery address, condition status, recipient ID) — never plaintext or sensitive personal information — providing non-repudiation of the delivery.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

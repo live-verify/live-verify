@@ -117,10 +117,6 @@ Medical device manufacturers issue implant cards under healthcare products regul
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the device manufacturer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the implant card.
-
 ## Compared With UDI Barcodes
 
 | Feature | Live Verify | GS1 / UDI Barcode | Physical Implant Card |
@@ -131,3 +127,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Specialized.** Requires 2D barcode scanners. | **Visual.** |
 
 **Where each fits:** UDI barcodes do their job well inside hospitals and the supply chain, where scanners and registries are in place to track a device from manufacture to implantation. After surgery the patient is left with a wallet card, and an emergency clinician or airport screener may have nothing but a phone. Live Verify lets them confirm the card against the manufacturer's domain and see its current status. The card usually prints the UDI as well, so both remain available.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

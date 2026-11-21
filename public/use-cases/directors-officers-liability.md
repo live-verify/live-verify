@@ -122,10 +122,6 @@ AIG underwrites directors and officers liability insurance for UK companies.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (policy number, coverage limits, policy period, issue date, retroactive date) — never company names, director names, or litigation details — providing non-repudiation of the D&O policy issuance and immutable proof of coverage terms critical for claims-made disputes.
-
 ## Compared With Broker Confirmation
 
 | Feature | Live Verify | Manual Broker Letter | Data Room PDF |
@@ -136,3 +132,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Archival** | **Permanent.** Durable for 20-year tail. | **Ephemeral.** Brokers go out of business. | **Vulnerable.** |
 
 **Where each fits:** A broker's confirmation letter carries professional judgement and context that a hash lookup cannot, and for a live placement the broker remains the person to ask. The letter takes days to arrange and depends on the broker still holding the file. Live Verify suits the other cases: a director, acquirer or lender who needs to confirm on the day that the carrier issued this declarations page, or who comes back to it years later during the claims-made tail when the original broker may no longer be involved.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

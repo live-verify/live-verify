@@ -292,7 +292,7 @@ For router manufacturers and ISPs, the brand domain is the quick-connect trust a
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
 Not typically required for Wi-Fi credential postings. The credentials are ephemeral (they rotate), non-personal (the SSID and password are the same for all guests), and the security value is in the real-time verification, not in a historical audit trail.
 

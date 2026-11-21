@@ -141,11 +141,11 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 **Where each fits:** Pulling a fresh report is still the right step for a mortgage or any decision that needs the full, current file, and consumer-permissioned data services suit lenders who need ongoing access. Both require the consumer's SSN or credentials, and a pull may leave a hard inquiry on the file. Live Verify covers the lighter cases, such as a rental application or a utility deposit, where the applicant has already supplied a report and the recipient only needs to know that it is the one the bureau issued and whether a newer one exists.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the credit bureau's hashes and status changes plus structured metadata (credit score, report date, score model, number of hard inquiries, derogatory marks count) — never account details, payment history plaintext, or personal identifiers — providing non-repudiation of the credit report issuance.
-
 ## Further Derivations
 
 1. **Business credit reports** — Dun & Bradstreet PAYDEX scores, Experian Business credit reports, Equifax Business. Same verification architecture, different data (payment history with suppliers, legal filings, company financials). Business-to-business lending decisions depend on these.
 2. **Tenant screening reports** — Combined credit + eviction history + criminal background. The landlord-side equivalent: a bundled report from services like TransUnion SmartMove or Experian RentBureau. Verification confirms the screening company actually produced this combined report with these results.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

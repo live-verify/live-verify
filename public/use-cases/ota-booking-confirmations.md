@@ -117,10 +117,6 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the OTA's hashes and status changes plus structured metadata (confirmation number, booking dates, price, property ID) — never guest name, payment method, or loyalty account — providing non-repudiation of the booking and an audit trail tax authorities and insurers can inspect.
-
 ## Compared With API Sync (Direct)
 
 | Feature | Live Verify | API Sync (Direct) | Scanned PDF / Image |
@@ -131,3 +127,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Cost** | **Low.** Marginal implementation. | **High.** Requires complex API keys. | **Free.** |
 
 **Where each fits:** A direct API connection suits a company and a travel platform with an ongoing relationship, such as a corporate travel programme where bookings flow into expenses automatically. It is a poor fit for a one-off check on a single past trip, where nobody wants to link an employee's personal travel account. Live Verify lets a finance or audit team confirm one confirmation against the travel agency's domain, and managed travel continues through the integration.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

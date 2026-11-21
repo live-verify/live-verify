@@ -93,10 +93,6 @@ Verifying that "travel expenses" were actually incurred and not just fabricated 
 
 **Privacy Salt:** Not required. Airline ancillary receipts contain highly unpredictable variables—unique ticket numbers, specific flight numbers with dates, passenger names, transaction authorization codes, and precise timestamps. These elements combined provide sufficient entropy that enumeration attacks are infeasible. Adding salt would provide no additional security benefit.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the airline's hashes and status changes plus structured metadata (ticket numbers, flight numbers, service types, amounts) — never plaintext (passenger names, passport details, payment card numbers) — providing non-repudiation of the receipt.
-
 ## Compared With Corporate Cards
 
 | Feature | Live Verify | Corporate Card Feed |
@@ -108,11 +104,9 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** a corporate card feed is the efficient way to reconcile spending when the employee used the company card, and it needs no action from the traveller. It often shows only the airline name and an amount, and it sees nothing paid on a personal card or at a kiosk. A verified receipt fills in the line-item detail for those cases, so finance teams can use the feed for matching and the receipt for what was actually bought.
 
-
 ---
 
 _[Content merged from: airline-compensation-letters]_
-
 
 ## What is an Airline Compensation Letter?
 
@@ -210,11 +204,9 @@ The Passenger benefits from verification.
 
 **Where each fits:** the airline's own portal is the authoritative place for the passenger to view their records, and a forwarded email is fine where nobody has a reason to doubt it. An insurer, lawyer or employer cannot log in as the passenger, and should not be asked to. Live Verify lets the passenger hand over one letter that the recipient can check against the airline's domain, without sharing credentials or the rest of the travel history.
 
-
 ---
 
 _[Content merged from: airline-refund-confirmations]_
-
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="refund"></span>LUFTHANSA
@@ -299,11 +291,9 @@ The Passenger or Travel Agent benefits from verification.
 
 **Where each fits:** a card statement is good evidence that money moved, and for many refund checks that is enough. It takes days to show a refund, gives no breakdown of fare, tax and penalty, and sharing it means showing unrelated personal spending. A verified refund document from the airline supplies the breakdown on its own, and the statement remains available if proof of the credit landing is also wanted.
 
-
 ---
 
 _[Content merged from: airline-upgrade-confirmations]_
-
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="upgrade"></span>UNITED AIRLINES
@@ -387,11 +377,9 @@ The Business Traveler benefits from verification.
 
 **Where each fits:** the statement proves the payment and is what most reconciliation runs on. It does not say what was bought, in which cabin, or how many miles were used. A verified upgrade receipt adds those details from the airline itself, so the two together answer both whether it was paid and what it was for.
 
-
 ---
 
 _[Content merged from: airport-lounge-access-confirmations]_
-
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="lounge"></span>PRIORITY PASS
@@ -492,3 +480,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Time** | **Exact.** Proves you were there during the delay. | **Date Only.** |
 
 **Where each fits:** for confirming that a lounge charge was made and settled, the statement is sufficient. It does not record the lounge, the time or the number of guests, which is what an expense approver usually asks about. A verified lounge receipt carries that context, and sits beside the statement line rather than replacing it.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

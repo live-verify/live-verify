@@ -327,10 +327,6 @@ Most schools manage attendance records honestly and have no issues with record i
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the provider's hashes and status changes plus structured metadata (child enrolment ID, room/class, arrival/departure times, caregiver names, hours claimed) — never plaintext like child names or personal details — providing non-repudiation of the attendance record and enabling real-time funding fraud detection and custody evidence trails.
-
 ## Compared With Existing Solutions
 
 | Feature | Live Verify | School/Childcare App | Paper Sign-In Sheet | Funding Body Audit |
@@ -347,3 +343,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 1. **Excursion and off-site activity attendance** — Verified attendance for school excursions, sports carnivals, and camp stays. Parent consents (see [Consent Records](view.html?doc=consent-records)) and the child's attendance at the off-site location are verified separately. If a child is injured on an excursion, the verified attendance record proves they were in the school's care.
 2. **Before/after school care handover** — Many children attend before-school or after-school care operated by a different provider on school grounds. The handover between school and OSHC provider is a second daily transfer of responsibility that currently has no verified record.
 3. **Transport handover (school bus / shuttle)** — Child boards a bus at stop A, exits at stop B. The driver or attendant confirms. For younger children, the receiving adult at the destination confirms. Creates a chain: parent → bus → school → bus → parent, with each link verified.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -179,11 +179,6 @@ NHS pathology labs test specimens and issue reports following UK medical device 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the laboratory's hashes and status changes plus structured metadata (specimen ID, test type, result status, report date, pathologist ID) — never patient name, diagnosis details, or medical history — providing non-repudiation of the test results and an audit trail insurers and clinicians can inspect.
-
-
 ## Compared With Patient Portals / HIEs
 
 | Feature | Live Verify | Patient Portal (MyQuest) | Health Info Exchange (HIE) |
@@ -196,3 +191,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 **Practical fit:** Patient-carried results are useful precisely because they travel outside the issuing laboratory's system. Live Verify could authenticate that travelling text without requiring every receiving practice to integrate with the same portal or health-information exchange. Existing authenticated clinical exchange remains preferable where available; verification complements it.
 
 **Clinical limit:** An authentic report can contain a laboratory error, refer to a misidentified specimen, be outdated, or omit other relevant tests. Verification does not establish specimen identity, diagnostic accuracy, clinical relevance or completeness beyond the checked scope. The receiving clinician retains responsibility for interpretation and any further checks.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

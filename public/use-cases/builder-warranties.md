@@ -118,11 +118,6 @@ NHBC administers warranty programs that protect homebuyers against structural de
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the warranty it issued.
-
-
 ## Compared With Home Inspection Reports
 
 | Feature | Live Verify | Home Inspection (Visual) | Builder Website Portal |
@@ -132,3 +127,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Transfer** | **Easy.** Proves transferability to next owner. | **N/A.** | **Hard.** New owner has no login. |
 
 **Where each fits:** a home inspection assesses the physical condition of the house on the day, which a document check cannot do, and the builder's portal works for the original owner who holds the login. A second owner, years later, usually has neither a login nor any dealings with the builder. Live Verify lets that owner, or their buyer's solicitor, confirm the warranty provider still stands behind the certificate in the homeowner's file.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

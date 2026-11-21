@@ -110,10 +110,6 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the carrier's hashes and status changes plus structured metadata (invoice numbers, shipper names, Bill of Lading references, totals, line-item breakdowns, payment terms, dates) — never delivery addresses or customer payment details — providing non-repudiation of the invoice and an audit trail freight audit firms and financial regulators can inspect.
-
 ## Compared With EDI (Electronic Data Interchange)
 
 | Feature | Live Verify | EDI 210 (Invoicing) | Scanned PDF Invoice |
@@ -124,3 +120,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Line Items.** Protects the FSC. | **Data-Only.** | **Vulnerable.** |
 
 **Where each fits:** EDI 210 is the efficient way to invoice between large carriers and large shippers, and those already exchanging it have no reason to change. Setting it up takes IT work and network fees that many small carriers and shippers cannot justify, so they send PDF or paper invoices. Live Verify lets a shipper, auditor or factoring company confirm that the carrier stands behind such an invoice and its line items, and it covers the part of the market EDI was never likely to reach.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

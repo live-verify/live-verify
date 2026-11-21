@@ -130,6 +130,6 @@ No regulatory chain. Trust rests on each party's domain.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
 Useful for high-value agreements or where one party is likely to dispute. A witness firm receiving both parties' hashes provides independent timestamped proof that both claims existed at the time of agreement.

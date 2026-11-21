@@ -97,6 +97,6 @@ No regulatory chain. Trust rests on each party's corporate domain.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
 More relevant here than for most commercial cases. M&A transactions are high-value, multi-party, and frequently disputed. Independent timestamping of each party's attested terms provides non-repudiation that neither party's system alone can offer.

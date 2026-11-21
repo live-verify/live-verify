@@ -119,11 +119,6 @@ Legal & General certifies actuarial pricing for UK annuity products.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the certification.
-
-
 ## Compared With DOI SERFF Database
 
 | Feature | Live Verify | SERFF / State Website |
@@ -133,3 +128,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Trust** | **Brand-bound.** `prudential.com` vouches for it. | **Gov-bound.** High trust, but low usability. |
 
 **Where each fits:** the state filing database is the official record of what an insurer filed, and for regulators, compliance staff and advisers who know their way around it, it is the place to look. A consumer handed a printed illustration is unlikely to find the matching filing among thousands. Live Verify lets that consumer confirm the insurer stands behind the figures on the page in front of them, while the filing itself stays where it has always been.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

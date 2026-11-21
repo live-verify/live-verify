@@ -149,11 +149,6 @@ The Manufacturer / Processor benefits from verification.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the certification body's hashes and status changes plus structured metadata (facility name, facility location, audit scope, audit rating, certification code edition, audit date, expiration date, auditor firm name) — never plaintext food process details — providing non-repudiation of the food safety certification.
-
-
 ## Compared With Private Portals (ReposiTrak)
 
 | Feature | Live Verify | Supplier Portals (ReposiTrak) | Scanned PDF |
@@ -164,3 +159,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Content.** Protects the audit score. | **Data-Only.** | **Vulnerable.** |
 
 **Where each fits:** Supplier compliance portals such as ReposiTrak do much more than hold a certificate: they track expiries, chase renewals and give a retailer one view of its supply base. Retailers and suppliers who are on the same portal should keep using it. A supplier with customers on several portals, or a buyer on none, still passes the certificate around as a PDF. Live Verify lets any recipient confirm the certification body stands behind it, and a portal can run the same check on documents uploaded to it.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

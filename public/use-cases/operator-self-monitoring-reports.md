@@ -132,6 +132,6 @@ Live Verify is complementary to these controls, not a replacement — it secures
 
 Self-reporting is not inherently bad — as the public discussion of the Southern Water case put it, "the problem is that you need to validate." What fails is validation that depends on a discretionary, invisible-to-remove spot check. Live Verify does not audit the operator; it removes the operator's ability to edit its own history undetectably, so that when validation *does* happen — by a regulator, an NGO, or a journalist — there is a fixed, domain-anchored record to validate against. It makes the gap between spot checks safe to live in.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the operator's hashes and status changes plus structured metadata (site/outfall identifiers, reporting period, parameter names and limits) — never individual measured values or commercially sensitive process details — providing non-repudiation of self-monitoring return publication and restatement events.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

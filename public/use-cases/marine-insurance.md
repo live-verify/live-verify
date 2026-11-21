@@ -101,10 +101,6 @@ The Exporter / Importer (Assured) benefits from verification.
 **Specialist Brokers:** (Marsh, Aon, Gallagher).
 **Lloyd's Syndicates.**
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (policy number, cargo description, amount insured, voyage route) — never shipper identity or invoice details — providing non-repudiation of the insurance and an audit trail banks can inspect.
-
 ## Compared With Blockchain (TradeLens)
 
 | Feature | Live Verify | Trade Finance Blockchain | Paper / PDF Certificate |
@@ -116,11 +112,9 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** Shared-ledger trade platforms can work well among participants who have all joined the same network, and where they are in place there is no reason to abandon them. A local bank, port agent or small exporter outside the network still receives the certificate as paper or PDF. Live Verify lets them confirm it against the insurer's own domain, which gives a platform's members a way to deal with counterparties who are not on it.
 
-
 ---
 
 _[Content merged from: marine-hull-machinery]_
-
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Times New Roman', Georgia, serif; border: 2px solid #002366; background: #fff; padding: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <div style="background: #002366; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
@@ -209,11 +203,6 @@ The Shipowner / Operator benefits from verification.
 **Commercial Marine Carriers:** (Chubb, Swiss Re, Munich Re).
 **Lloyd's Syndicates.**
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the underwriter's hashes and status changes plus structured metadata (policy number, vessel IMO, hull value, trading limits, effective dates) — never classification status changes or claims history — providing non-repudiation of the insurance and an audit trail lenders and maritime authorities can inspect.
-
-
 ## Compared With Equasis / Vessel Databases
 
 | Feature | Live Verify | Equasis / IHS Markit (Database) | Scanned PDF Policy |
@@ -225,11 +214,9 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** Equasis and the commercial vessel databases are the right place to research a ship: its history, ownership, inspections and the name of its insurer. They generally do not reproduce the terms of a particular policy, and they update on their own schedule. Live Verify lets a port, financier or lawyer confirm that the underwriter stands behind the declaration page in the closing file, alongside the database search.
 
-
 ---
 
 _[Content merged from: pi-club-certificates]_
-
 
 ## What is a P&I Certificate?
 
@@ -252,7 +239,6 @@ Thieves use "Fake P&I Papers" to sneak dangerous or uninsured ships into ports. 
     </div>
   </div>
 </div>
-
 
 **Certificate Variations:** Multiple certificate types or levels may exist.
 
@@ -380,3 +366,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 ## Rationale
 
 Prevents fake P&I certificates. Domain binding verifies International Group P&I club. Extremely high limits ($1bn+ pollution/collision liability). Port state control verification. Oil Pollution Act (OPA 90) compliance. Long claims tail.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

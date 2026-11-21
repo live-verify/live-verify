@@ -229,10 +229,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 **Where each fits:** Trusting the paper is the right default for most absences, and it keeps the relationship between employer and employee free of suspicion. Patient portals and HR integrations work well where both sides already use the same platform, and a call to the court clerk remains the route for anything contested. The gap is the ordinary case where the employer would like some assurance but has nobody to ask: hospitals will not confirm appointments, and a summons is awkward to question. Live Verify lets the employer confirm the letter against the institution's own domain without learning the medical reason or the nature of the case.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the court or issuing authority's hashes and status changes plus structured metadata (case number, appointment date) — never plaintext or sensitive personal information — providing non-repudiation of the document.
-
 ## Further Derivations
 
 1. **Recurring appointment series** — Patients with chronic conditions (dialysis, chemotherapy, physiotherapy) attend regularly. A single verified appointment series document covers multiple dates, with the endpoint returning the next scheduled date and overall series status. The employer verifies once and knows the pattern is genuine, rather than receiving a new letter every week.
@@ -240,3 +236,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 2. **Attendance confirmation (post-appointment)** — After the appointment or court date, the institution updates the verification status from CONFIRMED to COMPLETED. This lets the employer confirm not just that the appointment existed, but that the employee actually attended. Particularly relevant for court-ordered appointments (probation, community service) where attendance is a legal requirement.
 
 3. **Protected absence aggregation** — Over the course of a year, an employee may have multiple verified absences across different categories: hospital appointments, jury duty, a witness summons. A privacy-preserving aggregation allows the employer to see total verified protected-absence days without re-examining individual documents — useful for workforce planning and compliance reporting.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

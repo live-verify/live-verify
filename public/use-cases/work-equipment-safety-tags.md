@@ -73,7 +73,6 @@ The Machine Operator benefits from verification.
 **Insurance Risk Engineers**
 - **Premium Vetting:** Verifying that a high-risk factory is maintaining its 100% inspection rate for heavy machinery.
 
-
 ## Authority Chain
 
 **Pattern:** Regulated
@@ -88,6 +87,6 @@ Work equipment inspectors verify that machinery is maintained and guarded to pre
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive employers' hashes and status changes plus structured metadata (machine ID/serial, facility location, last inspection date, inspection result, inspector ID, next inspection due date, regulation reference) — never plaintext or sensitive personal information — providing non-repudiation of the safety inspection certification.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

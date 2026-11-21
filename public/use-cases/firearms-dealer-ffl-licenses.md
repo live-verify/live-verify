@@ -120,10 +120,6 @@ Issues federal firearms dealer licenses for lawful commerce.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the ATF's hashes and status changes plus structured metadata (FFL numbers, license types, expiration dates, responsible person IDs, issuing ATF regions) — never licensed dealer premises addresses or details identifying protected federal facilities — providing non-repudiation of the license and an audit trail state law enforcement can inspect.
-
 ## Compared With ATF FFL EzCheck
 
 | Feature | Live Verify | FFL EzCheck (Web) | Paper License |
@@ -134,3 +130,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Mobile Use** | **High.** Built for phones. | **Low.** Web form is hard to use on mobile. | **High.** |
 
 **Where each fits:** ATF's FFL eZ Check is the official lookup and the one the regulations point dealers towards; a dealer shipping a firearm should continue to use it. It confirms a licence number rather than the copy of the licence in hand, and typing the number into a web form is awkward at a show table or shipping counter. Live Verify offers a quick check of the document itself in those settings, as an additional step and not a replacement for the official query.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -240,7 +240,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 - [Driver's Licenses](view.html?doc=drivers-licenses) — Licence validity and categories
 - [Vehicle Registration](view.html?doc=vehicle-registration) — Registration, insurance status, and plate verification
 
+## Independent Record (Optional)
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the DVLA's hashes and status changes plus structured metadata (licence number, record date, penalty points total, endorsement codes and dates, disqualification status) — never plaintext or sensitive personal information — providing non-repudiation of the driving record issuance.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

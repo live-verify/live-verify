@@ -154,12 +154,12 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 - [Corporate Internal Approvals](view.html?doc=corporate-internal-approvals) — approvals inside an organization rather than professional sign-offs
 - [Calibration Certificates](view.html?doc=calibration-certificates) and [Quality Control Inspection Reports](view.html?doc=quality-control-inspection-reports) — adjacent professional attestations
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the professional's or approving authority's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the professional approval.
-
 ## Further Derivations
 
 1. **Revision-bound design approvals** — Each approved revision carries its own record, so a recipient can confirm they hold the controlling revision and detect a lifted stamp on a later, unapproved set.
 2. **QP batch release verification** — Pharmaceutical batch releases verifiable by distributors and inspectors against the specific batch number, blunting release reuse.
 3. **Co-signed / peer-reviewed sign-offs** — Approvals requiring a second qualified reviewer (e.g., independent design check, second-radiologist read), binding both professionals.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

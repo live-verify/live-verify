@@ -71,7 +71,6 @@ The Facility Manager / Landlord benefits from verification.
 **Maintenance Engineers**
 - **Safe Working:** Verifying that a specific panel was recently vetted before opening it for maintenance.
 
-
 ## Authority Chain
 
 **Pattern:** Regulated
@@ -86,6 +85,6 @@ The contractor publishes the result on its own domain. A registration body (NICE
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the electrical contractor's hashes and status changes plus structured metadata (panel IDs, test dates, insulation resistance values, test results, electrician licenses) — never facility addresses or identification details — providing non-repudiation of the inspection and an audit trail state regulators can inspect.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

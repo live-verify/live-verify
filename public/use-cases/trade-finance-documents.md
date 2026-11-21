@@ -108,7 +108,6 @@ Trade finance is the "Credit Engine of the Planet." By turning B/Ls into verifia
 
 _[Content merged from: trade-finance-certificates-of-origin]_
 
-
 ## What is a Certificate of Origin (C/O)?
 
 In global trade, the Certificate of Origin (C/O) is the "Nationality Passport" for a shipment. It is an official document from a Chamber of Commerce or a Ministry of Trade declaring exactly where the goods were manufactured. This document determines the Import Duty (tax)—which can range from 0% (under a Free Trade Agreement) to 100% (under Anti-Dumping rules).
@@ -206,7 +205,6 @@ Certificates of origin are the "Diplomatic Documents" of trade. By turning stati
 ---
 
 _[Content merged from: trade-finance-commercial-invoices]_
-
 
 ## What is a Trade Finance Invoice?
 
@@ -312,6 +310,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 The commercial invoice is the "DNA of Global Wealth." By turning static bills into verifiable digital bridges, we protect the global tax base and the banking system from the multi-billion dollar cost of trade-based fraud.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuing bank's hashes and status changes plus structured metadata (letter of credit number, parties involved, letter amount, expiration date, transaction reference) — never detailed commercial terms or bank routing information — providing non-repudiation of trade finance document issuance.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

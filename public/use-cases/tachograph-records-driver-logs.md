@@ -114,11 +114,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Hours of Service compliance is the "Safety Foundation" of the trucking industry. By turning logs into verifiable digital bridges, we ensure that the "Truth of the Road" is backed by cryptographic proof, protecting both drivers from exploitation and the public from fatigued driving.
 
+## Independent Record (Optional)
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the ELD provider's or carrier's hashes and status changes plus structured metadata (driver name/ID, vehicle ID, duty status times, date) — never driver location or schedule plaintext — providing non-repudiation of log issuance and compliance audit trails.
-
-### The Specific Consequence
-
-A driver who has been awake for 18 hours has reaction times comparable to someone at twice the legal blood-alcohol limit. When a 40-ton truck at highway speed drifts across the median, the outcome is not a fender-bender — it is a multi-vehicle fatality. In 2024, the FMCSA reported that driver fatigue was a factor in over 13% of fatal large-truck crashes in the US. The falsified log — the "ghost log" that shows the driver resting when they were actually driving — is the specific document failure that enables this. A verifiable driver log, bound to the ELD provider's domain, means a weigh-station officer or a carrier's own safety manager can confirm the hours are what the device actually recorded, not what someone edited afterward.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -118,11 +118,6 @@ HOA disclosures are issued by property managers and regulated by the California 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the HOA or management company's hashes and status changes plus structured metadata (key identifiers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the disclosure it issued.
-
-
 ## Compared With HOA Search Portals
 
 | Feature | Live Verify | HomeWiseDocs / CondoCerts | Scanned PDF |
@@ -133,3 +128,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Content.** Proves the *Dues* match. | **Data-Only.** | **Vulnerable.** |
 
 **Where each fits:** disclosure portals are the established way to order a current resale package, and a lender or title company that needs a fresh one will still order it there. A buyer or agent who has already been handed a document may only want to know that it is authentic. Live Verify lets them check it against the management firm's domain, without ordering a second copy, and without replacing the portal for new requests.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

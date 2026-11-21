@@ -114,6 +114,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Visa denials are the "Permanent Record" of global mobility. By turning notices into verifiable digital bridges, we protect the integrity of borders and ensure that "Travel History" is based on the digital truth of the consulate, not the creative editing of an applicant.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive foreign ministries' hashes and status changes plus structured metadata (case number, applicant full name, date of birth, nationality, denial section code, denial date, consular post location, issuing officer ID, waiver eligibility status) — never plaintext or sensitive personal information — providing non-repudiation of the visa denial notice.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

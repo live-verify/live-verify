@@ -168,11 +168,6 @@ The regulatory chain anchors trust: the utility company is accountable to regula
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the utility company's hashes and status changes plus structured metadata (worker ID, name, role, DBS check date, shift status) — never plaintext or sensitive personal information — providing non-repudiation of the worker's current employment and authorization status.
-
-
 ## Comparison: Live Verify vs. Traditional Verification
 
 | Feature | Live Verify | Phone Verification | Physical ID Card |
@@ -183,3 +178,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Safety Data** | **High.** Shows DBS status and current shift. | **None.** Only verbal confirmation. | **N/A.** No dynamic status. |
 
 **Why this remains strong:** The threshold moment is the real workflow. Vulnerable homeowners decide whether to open the door in seconds and often do not want to stay on the phone while a stranger stands on the porch. Utility systems remain primary in the background, but the ID badge is the visible surface at the decision point. That makes this a strong complementary safety case rather than an attempt to replace the company's own records.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

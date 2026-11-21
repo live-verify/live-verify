@@ -116,11 +116,6 @@ Title underwriters must be licensed by state insurance regulators to issue title
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive title underwriters' hashes and status changes plus structured metadata (Policy Number, Named Insured, Amount of Insurance, Property Address/Parcel ID, Effective Date, Schedule B Exceptions) — never plaintext or sensitive personal information — providing non-repudiation of the policy document and issuer liability.
-
-
 ## Compared With Physical Policy Jackets
 
 | Feature | Live Verify | Physical Jacket (Folder) | Online Public Records |
@@ -131,3 +126,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Freshness** | **Real-time.** Shows "Claim" status. | **Zero.** Paper is a snapshot. | **N/A.** |
 
 **Where each fits:** Public land records remain the source for what is recorded against a property, and the policy jacket is the complete contract that anyone relying on coverage should read. Neither tells a lender or buyer whether the schedule pages in front of them are the ones the underwriter issued. Live Verify adds that confirmation at closing, with the full policy and the public record still there to be consulted.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

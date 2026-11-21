@@ -106,10 +106,6 @@ The Named Individual benefits from verification.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the government agency's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the immigration status document.
-
 ## Compared With E-Verify / SAVE
 
 | Feature | Live Verify | E-Verify (Employer System) | Physical Card |
@@ -120,3 +116,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **High.** Verified PDF works for banks/lawyers. | **Zero.** Data is trapped in the gov portal. | **Universal.** |
 
 **Narrower conclusion:** USCIS, SAVE, and other official status systems should remain primary where they are directly available and legally appropriate. This use case is more credible as a complementary bridge for copy and card workflows, where banks, landlords, DMV clerks, or other third parties only have the immigration document in hand and would otherwise fall back to visual inspection.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

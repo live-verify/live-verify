@@ -104,10 +104,6 @@ Nationwide Building Society, a regulated lender, is authorized by the FCA to iss
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the lender's hashes and status changes plus structured metadata (loan numbers, borrower identifiers, property addresses, satisfaction dates) — never financial account details — providing non-repudiation of lien release.
-
 ## Compared With County Land Records (GIS)
 
 | Feature | Live Verify | County GIS / Online Search | Scanned PDF Release |
@@ -118,3 +114,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Audit-ability** | **High.** Proves the bank's intent. | **Medium.** Only shows what was *filed*. | **None.** |
 
 **Where each fits:** The county land record is the legal record of whether a lien has been released, and a title search there remains essential. There can be a gap between a lender issuing a satisfaction and the county recording it, and during that gap the owner holds only the lender's letter. Live Verify lets a title officer or buyer confirm the lender issued it, which helps bridge the wait; it does not substitute for getting the release recorded.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

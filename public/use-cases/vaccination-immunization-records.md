@@ -125,10 +125,6 @@ Schools and employers use verification to filter thousands of vaccine cards, ins
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive healthcare providers' hashes and status changes plus structured metadata (vaccine types, lot numbers, administration dates, dose numbers) — never plaintext (patient names, dates of birth, provider identities) — providing non-repudiation that the vaccine was administered. This is critical for outbreak investigations and school enrollment disputes; the witness's records survive even if the healthcare provider's systems go down or the provider closes.
-
 ## Jurisdictional Variation
 
 Vaccination requirements for school enrollment, employment, and travel vary significantly by jurisdiction and change with political administrations:
@@ -143,3 +139,7 @@ The verification system is agnostic to policy — it answers "did this person re
 ## Rationale
 
 Immunization records are proof of medical history. By turning static cards into verifiable digital bridges, we ensure that records are authentic regardless of how jurisdictions choose to use them — whether for school enrollment, travel requirements, employment compliance, or simply personal health records.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

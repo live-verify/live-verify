@@ -117,10 +117,6 @@ Actuaries certify that insurers have set aside sufficient reserves for future cl
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the auditing firm's hashes and status changes plus structured metadata (company name, fiscal year, opinion type) — never plaintext or sensitive personal information — providing non-repudiation of the document.
-
 ## Compared With Digital Signatures (PKI)
 
 | Feature | Live Verify | Digital Signature (PKI) |
@@ -132,3 +128,6 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** a digitally signed PDF remains the right choice while the opinion stays in its original electronic form, for example a direct filing with a regulator that validates the signature. Opinions also get printed for board books, scanned, and uploaded to data rooms, and a signature does not usually survive that journey. Live Verify covers those later copies, letting a reader with only a browser confirm that the firm still stands behind the text, so the two can sit on the same document.
 
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

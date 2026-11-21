@@ -380,12 +380,12 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Fraud Detection** | **At submission.** Fake documents 404 before the petition is approved. | **Post-approval.** Fraud discovered after the worker is already in the US. | **Inconsistent.** Depends on whether the contacted party responds honestly. | **Different fraud type.** Catches identity fraud, not petition fraud. |
 | **Worker Protection** | **Yes.** Worker can verify their own LCA and client letter. | **Limited.** Worker is interviewed but can't independently verify documents. | **No.** Worker rarely has access to verify employer claims. | **No.** Worker can't use E-Verify to check their own petition terms. |
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuing agency's hashes and status changes plus structured metadata (receipt numbers, beneficiary names, approval/denial dates, visa petition types) — never wage data or job details — providing non-repudiation of visa document status.
-
 ## Further Derivations
 
 1. **Prevailing wage determination letters** — DOL's National Prevailing Wage Center issues wage determinations that employers use for PERM labor certifications (green card pathway). Same forge-and-submit risk as LCAs, same verification model.
 2. **I-140 approval notices** — The employer-sponsored green card petition approval. Workers who change employers under AC21 portability need to prove their I-140 was approved and not revoked — same verification need as I-797 notices but for the immigrant petition.
 3. **STEM OPT employer training plans (Form I-983)** — Signed by both the employer and the STEM OPT student, these plans attest that the training is genuinely educational. Fraudulent training plans from body shops let students work in non-training roles while maintaining F-1 status.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

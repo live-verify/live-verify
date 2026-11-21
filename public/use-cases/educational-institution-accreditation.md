@@ -121,11 +121,6 @@ Educational institutions must maintain accreditation through the Office for Stud
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the accrediting body's hashes and status changes plus structured metadata (institution name, accreditation level, accreditation period, accredited programs, next reaffirmation date) — never financial details or compliance violation specifics — providing non-repudiation of accreditation status and an audit trail for regulatory oversight.
-
-
 ## Compared With CHEA Database
 
 | Feature | Live Verify | CHEA / DAPIP Database | Scanned PDF |
@@ -136,3 +131,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Alerting** | **Active.** Can show "PROBATION" in red. | **Passive.** | **Hidden.** |
 
 **Where each fits:** The CHEA and DAPIP databases are the reference for whether an institution is accredited, and admissions offices, employers and regulators doing careful checks should continue to consult them. They do not vouch for a certificate on a wall or a PDF in a prospectus, and a visiting parent or an overseas applicant may not know the databases exist. Live Verify lets that reader confirm the accreditor stands behind the certificate as displayed, and the database remains there for anyone who wants the full record.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

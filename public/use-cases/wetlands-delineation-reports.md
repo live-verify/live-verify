@@ -113,6 +113,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Wetlands are the "Filter of the Planet." By turning technical surveys into verifiable digital bridges, we ensure that land development is based on the digital truth of the ecosystem, protecting the environment and the multi-billion dollar real estate market from the high cost of scientific deception.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the environmental firm's hashes and status changes plus structured metadata (wetland acreage, delineation date, scientist certification) — never plaintext or sensitive personal information — providing non-repudiation of issuing the wetlands delineation report.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

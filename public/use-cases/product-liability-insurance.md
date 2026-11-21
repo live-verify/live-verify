@@ -110,6 +110,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Product liability is the "Long-Tail Risk" of the global economy. By turning static COIs into verifiable digital bridges, we ensure that the "Chain of Accountability" from factory to shelf is backed by cryptographic proof, protecting both consumers and commerce.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (policy number, product categories, coverage limits, retroactive date) — never claims history or specific product pricing — providing non-repudiation of the policy and an audit trail retailers and regulators can inspect.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

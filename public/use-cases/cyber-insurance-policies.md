@@ -119,10 +119,6 @@ Beazley underwrites cyber liability and data breach insurance for global enterpr
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (policy number, coverage limits, policy period, issue date, industry codes) — never company names, system details, or breach history — providing non-repudiation of the cyber insurance policy issuance and immutable proof of coverage terms critical for breach disputes.
-
 ## Compared With Automated Security Scans (Bitsight)
 
 | Feature | Live Verify | Security Rating (Bitsight/SecurityScorecard) | Scanned PDF |
@@ -133,3 +129,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Freshness** | **Real-time.** Queries the carrier's live file. | **Weekly/Monthly.** Scans take time to refresh. | **Static.** |
 
 **Where each fits:** Security ratings services such as Bitsight and SecurityScorecard measure something a policy document cannot: how a company's defences look from the outside, tracked over time. A counterparty weighing technical risk should keep using them. What a rating does not show is whether cover is in place and at what limits, and that is the question a contract clause usually asks. Live Verify lets a customer or partner with no relationship to the insurer confirm that the policy text they were handed is the insurer's own, so the two answer different questions about the same vendor.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

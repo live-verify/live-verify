@@ -30,7 +30,6 @@ In the US, you also sign a HIPAA Authorization, which tells the hospital exactly
   </div>
 </div>
 
-
 ## The Problem: Patient Consent Fraud
 
 Patient consent fraud has severe ethical, legal, and medical consequences:
@@ -146,7 +145,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Patient consent forms and HIPAA authorizations are legally and ethically critical for protecting patient autonomy and privacy in healthcare. Verification directly combats consent fraud and unauthorized PHI disclosure by providing instant, tamper-evident proof that the patient's agreement was obtained for a specific procedure or data use. Domain binding ensures legitimacy, enhancing patient trust and reducing legal liability for healthcare providers.
 
+## Independent Record (Optional)
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the healthcare provider's hashes and status changes plus structured metadata (patient ID, procedure/authorization scope, consent form version, date) — never plaintext PHI — providing non-repudiation of consent form issuance and authorization records.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

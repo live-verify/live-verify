@@ -123,7 +123,6 @@ Best practice: sureties notify obligees when bonds are released. The verificatio
 
 Some states maintain registries of active contractor bonds. Release notifications could include verification hashes, allowing the registry to confirm releases are genuine before updating records.
 
-
 ## Authority Chain
 
 **Pattern:** Regulated
@@ -138,6 +137,6 @@ Travelers and surety bond providers issue bond releases and are regulated by the
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive sureties' hashes and status changes plus structured metadata (surety company name, bond number, principal, obligee, bond type, bond amount, project or license description, release date, reason for release, any continuing obligations) — never plaintext or sensitive personal information — providing non-repudiation of the bond release.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

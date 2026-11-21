@@ -109,10 +109,6 @@ Aviva, a regulated insurance claims administrator, is authorized by the FCA to i
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the adjuster's or insurance company's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the adjuster report.
-
 ## Compared With Claims Dashboards
 
 | Feature | Live Verify | Carrier Mobile App | Scanned PDF Report |
@@ -123,3 +119,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Persistence** | **High.** Remains verifiable after claim closes. | **Low.** Past claims often hidden in old menus. | **Vulnerable.** |
 
 **Where each fits:** The carrier's app or claims dashboard is the natural place for the policyholder to follow a claim, upload photos and see its full history. A body shop, contractor or prospective buyer has no login to it and is handed the adjuster's report instead. Live Verify lets that person confirm, on the spot, that the carrier issued this exact report, without the policyholder opening the rest of the account to them.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

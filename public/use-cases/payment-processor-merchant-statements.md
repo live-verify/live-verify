@@ -107,6 +107,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Merchant statements are the "Vital Signs" of a business. By turning static summaries into verifiable digital bridges, we protect the lending and acquisition markets from the multi-billion dollar cost of revenue fraud and ensure that "Success" is a cryptographic fact.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the payment processor's hashes and status changes plus structured metadata (merchant ID, business name, period date range, statement ID) — never plaintext or sensitive personal information — providing non-repudiation of the merchant statement and an audit trail tax authorities can inspect.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

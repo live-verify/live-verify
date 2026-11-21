@@ -114,6 +114,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 [Employment References](view.html?doc=employment-references) verify *past* employment. Job offers verify a *future* commitment. The two are complementary: the reference says "she worked here and was good," the offer says "we want her to work here at this salary." Both travel outside their source systems and both benefit from issuer attestation.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
 Not typically needed. The employer's endpoint is the source of truth. Witnessing might add value for executive-level offers where the terms have material financial significance and disputes are likelier.

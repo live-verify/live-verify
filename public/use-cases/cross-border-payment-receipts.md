@@ -114,11 +114,6 @@ Wise processes cross-border payment transfers and international remittances.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the bank's or fintech's hashes and status changes plus structured metadata (transaction reference, amount and currency, remittance date, sender and recipient bank names, payment status) — never personal names or bank account details — providing non-repudiation of payment and an audit trail for dispute resolution and regulatory compliance.
-
-
 ## Compared With SWIFT gpi (Tracking)
 
 | Feature | Live Verify | SWIFT gpi (Bank Tracking) | Scanned PDF / Image |
@@ -129,3 +124,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **High.** Works for non-SWIFT fintechs. | **Limited.** Only for SWIFT-member banks. | **Universal.** |
 
 **Where each fits:** SWIFT gpi gives the banks in the chain a reliable trace of a payment, and it is the right tool between them. The person waiting for the money usually sees only a receipt sent by the payer, and some providers are outside SWIFT altogether. Live Verify lets that recipient confirm the provider issued the receipt with those amounts and rates. It does not show that funds have arrived, which the bank trace and the recipient's own account still answer.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

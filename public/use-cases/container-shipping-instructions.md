@@ -98,11 +98,6 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the shipper's or freight forwarder's hashes and status changes plus structured metadata (shipping instruction ID, booking reference, cargo type, port of loading, port of discharge, sailing date) — never cargo value or consignee customer contact details — providing non-repudiation of shipping instructions and an audit trail for customs and carrier liability disputes.
-
-
 ## Compared With EDI / Blockchain
 
 | Feature | Live Verify | EDI (Shipping Standard) | GSBN Blockchain |
@@ -113,3 +108,6 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** EDI is the established channel between carriers and large shippers and remains the right choice for high-volume, system-to-system exchange; consortium blockchains serve their members in a similar way. Neither reaches parties outside those systems, such as the exporter's local bank or a foreign customs agent, who see only a PDF. Live Verify fills that gap by letting anyone holding the draft confirm it against the carrier's domain, alongside the EDI flow.
 
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

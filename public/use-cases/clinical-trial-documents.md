@@ -156,10 +156,6 @@ Clinical trial sponsors and research institutions issue consent forms under heal
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the trial sponsor's or IRB's hashes and status changes plus structured metadata (trial NCT/protocol number, participant ID, consent date, ICF version, investigator name) — never participant medical information or identifiers — providing non-repudiation of informed consent and an audit trail for FDA and IRB oversight.
-
 ## Interaction Reporting (POST-Only Form)
 
 After successful verification, the endpoint can return a POST-only form for the verifying party to report the interaction. This enables the trial team to track encounters without exposing participant data.
@@ -284,3 +280,7 @@ This extends the witnessing model from *consent documents* to *the entire intera
 ### This Protects Both Sides
 
 The participant needs to know they signed the current version of the consent form — the one that includes the newly discovered cardiac side effect, not the version from three months ago that omitted it. The research institution needs proof that the participant received the correct version, because if an adverse event occurs and the consent form version is disputed, the institution faces regulatory sanctions, litigation, and reputational damage. Both sides benefit from an independently verifiable record. The participant can scan their copy and confirm it matches what the institution filed with the IRB. The institution can demonstrate, years later during an FDA audit, that the consent form the participant held was genuinely version 4.2 and not a printout of version 3.1.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

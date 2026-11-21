@@ -104,10 +104,6 @@ The homeowner (second party) may hand the verified document to various third par
 
 **Privacy Salt:** Required. Escrow statements contain a mix of enumerable and unique values—loan numbers that might follow predictable patterns, property addresses that are public records, and round dollar amounts for taxes and insurance. While some elements are unique, the hash must be salted to prevent unauthorized enumeration of homeowner financial data and to protect the privacy of escrow account details from being discovered through brute-force attempts.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the servicer's hashes and status changes plus structured metadata (loan number, disbursement amounts, balance changes, payment adjustments) — never homeowner names, property addresses, or personal financial details — providing non-repudiation of the escrow statement issuance and immutable proof critical for RESPA compliance disputes.
-
 ## Compared With Servicer Portals
 
 | Feature | Live Verify | Servicer Mobile App | Scanned PDF / Printout |
@@ -119,11 +115,9 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** The servicer's app is the convenient place to see the current escrow position, and for day-to-day questions it is all most homeowners need. It shows the latest figures rather than what was stated on a given date. Live Verify lets a homeowner, housing counsellor or regulator confirm that the servicer issued a particular analysis statement as printed, which matters when a past figure is in dispute. The app stays the live view; the verified statement is the dated record.
 
-
 ---
 
 _[Content merged from: escrow-closing-documents]_
-
 
 ## What are Escrow Wire Instructions?
 
@@ -237,10 +231,6 @@ Escrow companies are licensed by state regulators to hold funds during real esta
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the title company's hashes and status changes plus structured metadata (escrow number, transaction amount, wire date, title company ID) — never buyer/seller names, property addresses, or bank account details — providing non-repudiation of wire instruction issuance and immutable proof critical for wire fraud investigations.
-
 ## Compared With Secure Portals (Qualia)
 
 | Feature | Live Verify | Secure Portal (Qualia/CertifID) | Scanned PDF / Email |
@@ -252,11 +242,9 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** Secure closing portals such as Qualia and CertifID do more than confirm a document: they manage the transaction and, in some cases, back the wire with their own guarantees, so a buyer who is already enrolled should use them. Some buyers never complete the sign-up, and some are at the bank counter with a printout. Live Verify lets the buyer or the bank teller confirm that the wire instructions on the page are the ones the escrow firm issued, as a second check alongside the portal and the usual call-back.
 
-
 ---
 
 _[Content merged from: escrow-closing-statements-ma]_
-
 
 ## What is an M&A Settlement Statement?
 
@@ -336,11 +324,9 @@ The selling shareholders (second party) may hand the verified document to variou
 
 **Where each fits:** A virtual data room is the right tool while a deal is live: controlled access, version history and a full index of the documents. Access generally ends some time after closing. Live Verify suits what comes afterwards, when a tax auditor, a later buyer or a court is handed the escrow agreement as a PDF and has no route into a room that no longer exists. They can still confirm that the escrow agent stands behind that text.
 
-
 ---
 
 _[Content merged from: escrow-instructions-closing]_
-
 
 ## What are Escrow Instructions?
 
@@ -425,3 +411,6 @@ The seller (second party) may hand the verified document to various third partie
 
 **Where each fits:** Portals such as CertifID are well suited to parties willing to set up a login, and they add protections around the transfer that a document check does not. Many closings still take place around a table with paper, and some participants will not create an account for a single transaction. Live Verify lets them check the printed instructions against the title company's own domain there and then, and it works as a companion to the portal rather than a rival.
 
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

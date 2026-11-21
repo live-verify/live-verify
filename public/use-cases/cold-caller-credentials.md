@@ -334,9 +334,6 @@ Badge verification can include authorized work region. A London-region meter rea
 **Visit Authorization:**
 For specific appointments, verification can confirm: "Sarah Jenkins is authorized to visit 42 Oak Lane on January 15, 2026 for meter reading."
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the regulatory body's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the credential certificate.
 ## Compared With Current Methods
 
 | Feature | Live Verify | Password Scheme | Visual Inspection |
@@ -355,3 +352,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 - [Home Service Provider Verification](view.html?doc=home-service-provider-verification) — Scheduled contractor and tradesperson visits
 - [Trades and Home-Visit Cluster](../../trades-home-visit-cluster.md) — Cluster note for threshold-decision cases
 - [Anti-Vishing: Real-Time Call Verification](../../docs/anti-vishing-real-time-call-verification.md) — extends the cold-caller credential concept to phone calls using RCS-delivered verification with one-time code words
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

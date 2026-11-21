@@ -131,10 +131,6 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the property manager's hashes and status changes plus structured metadata (agreement ID, rent amount, lease start date, lease end date, property address, status) — never plaintext or tenant details like names or SSNs — providing non-repudiation of the lease terms.
-
 ## Compared With Scanned PDFs
 
 | Feature | Live Verify | Scanned PDF / Paper | Digital Ledger (App) |
@@ -145,3 +141,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Field Use** | **Seamless.** Scan the paper at the DMV. | **Manual.** | **N/A.** |
 
 **Why this remains strong:** Leases are routinely carried into school offices, DMVs, banks, and other places that do not have access to the landlord's or tenant's private portal. This is a strong portability case: the paper or PDF lease is the artifact in motion, and the verifier needs a lightweight bridge back to issuer truth.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

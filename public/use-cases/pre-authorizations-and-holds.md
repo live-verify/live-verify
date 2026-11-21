@@ -156,12 +156,12 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 - [Corporate Internal Approvals](view.html?doc=corporate-internal-approvals), [Professional Approvals & Sign-Offs](view.html?doc=professional-approvals), [Civil & Administrative Approvals](view.html?doc=civil-administrative-approvals) — the other approval dynamics
 - [Refund Confirmations](view.html?doc=refund-confirmations) — adjacent transactional confirmation
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (authorization number, approved service/limit, validity window, provider it applies to, approval date) — never member/cardholder identifying information — providing non-repudiation of pre-authorization issuance and consumption/expiry events.
-
 ## Further Derivations
 
 1. **Single-use medical prior authorizations (burn-on-verify)** — Procedure/drug authorizations consumed on first verification at the point of service, so they cannot be replayed for a second claim.
 2. **Payment pre-auth hold confirmations** — Time-boxed hold records that merchants verify before capture and that expire automatically with the hold.
 3. **RMA / return-authorization verification** — Single-use return approvals that warehouses verify on intake, defeating unauthorized and double returns.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

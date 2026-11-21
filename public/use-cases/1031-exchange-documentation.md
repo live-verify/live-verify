@@ -123,27 +123,6 @@ Qualified Intermediaries are licensed third-party custodians required by the IRS
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the QI's hashes and status changes plus structured metadata (exchanger name, property addresses, identification dates, fair market values) — never social security numbers or bank account details — providing non-repudiation of the identification form.
-
-**Jurisdictional Requirements (United States / IRS)**
-
-The IRS does not mandate or recognize third-party witnessing firms for federal tax documents. The IRS maintains authoritative records within its own systems, and verification occurs via direct query to IRS endpoints.
-
-However:
-- **State tax authorities** may have different requirements (e.g., state-level charity registration requires independent witness firms)
-- **International stakeholders** (foreign tax authorities, treaty partners) may demand independent verification from witness firms not located in the US
-- **FATCA compliance** (Foreign Account Tax Compliance Act) may require US documents to be witnessed by non-US firms when shared across borders
-
-**Verification Framework Differences**
-
-The FATCA/CRS frameworks require geographic separation (independent witness firms outside the issuer's jurisdiction) for cross-border documents originating from certain financial centers. This reflects a principle of independent external verification for documents crossing regulatory jurisdictions.
-
-The IRS maintains its own verification infrastructure for federal tax documents (1031 determinations, EIN assignments, tax rulings). These documents are verified through direct IRS system queries rather than through independent witness firms. This represents a different verification model—issuer-maintained records for domestic purposes, with the expectation that treaty partners will conduct direct verification with the IRS.
-
-Both models serve distinct purposes: FATCA/CRS-style geographic separation prevents collusion when documents enter non-issuing jurisdictions; issuer-maintained systems provide efficient verification for routine domestic transactions. As international document verification evolves, blockchain-based rollups and decentralized architectures may converge these models into infrastructure-neutral standards applicable across jurisdictions.
-
 ## Compared With QR/NFC
 
 | Feature | Live Verify | QR Code |
@@ -154,3 +133,7 @@ Both models serve distinct purposes: FATCA/CRS-style geographic separation preve
 | **Privacy** | **High.** No data leaked until the specific hash is queried. | **Variable.** If the QR encodes the data, anyone with a camera can read it instantly without an audit trail. |
 
 **Where each fits:** a QR code is quick to scan and suits documents that are mostly handled on screens or at a counter, and nothing stops an intermediary printing one alongside the verify line. Exchange paperwork tends to be read years later by an auditor working from a photocopy or scanned PDF, where a code may no longer scan but the text can still be read and, if need be, retyped. Live Verify covers that reader, and confirms that the intermediary stands behind the exact wording on the page.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

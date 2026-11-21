@@ -112,11 +112,6 @@ Building Research Establishment issues BREEAM certifications for green building 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the certifying body's hashes and status changes plus structured metadata (certificate number, issue date, certification type, certification level, expiration date) — never property details, building specifications, or auditor names — providing non-repudiation of the environmental certification issuance.
-
-
 ## Compared With Project Directories
 
 | Feature | Live Verify | USGBC Project Directory | Scanned PDF |
@@ -127,3 +122,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Points.** Protects the data. | **Data-Only.** | **Vulnerable.** |
 
 **Where each fits:** The USGBC project directory is the authoritative listing, and anyone researching a building from their desk gets more from it than from a plaque: scorecards, dates and project detail. A tenant, visitor or valuer standing in the lobby is looking at the plaque or a framed certificate and is unlikely to run a directory search by address. Live Verify lets them confirm the certifying body stands behind what is displayed, and the directory remains the fuller reference.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

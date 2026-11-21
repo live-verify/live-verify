@@ -129,10 +129,6 @@ Vanguard UK, a regulated investment manager, is authorized by the FCA to issue v
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the administrator's hashes and status changes plus structured metadata (NAV per share, total balance, performance percentages, fee amounts, period dates) — never investor names, account numbers, or detailed holdings — providing non-repudiation of the NAV and performance figures.
-
 ## Compared With Investor Portals
 
 | Feature | Live Verify | Investor Portal (CitcoOne) | Scanned PDF Statement |
@@ -443,3 +439,7 @@ The document holder already has the numbers — verification just proves those n
 
 - [Qualified Investor and Accredited Status Attestations](view.html?doc=qualified-investor-attestations) — reusable QIB/accredited investor attestations that accelerate platform onboarding and fund subscription compliance
 - [Corporate Signing Authority and Delegation Limits](view.html?doc=contract-signing-authority) — verifiable authority claims for who can commit a fund or company to obligations
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

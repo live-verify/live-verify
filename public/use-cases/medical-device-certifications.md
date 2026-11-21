@@ -137,10 +137,6 @@ Notified bodies issue medical device certifications under healthcare products re
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the Notified Body's hashes and status changes plus structured metadata (certificate numbers, manufacturer names, device classifications, model numbers, standards, expiry dates) — never sensitive commercial information — providing non-repudiation of the device certification.
-
 ## Compared With EUDAMED / FDA Databases
 
 | Feature | Live Verify | EUDAMED / FDA Database | Scanned PDF |
@@ -151,3 +147,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Immediacy** | **Real-time.** Shows "RECALLED" status in red. | **Laggy.** Database updates can take days. | **Hidden.** |
 
 **Where each fits:** EUDAMED and the FDA databases are the authoritative public registers, and regulatory staff doing a full review of a device should consult them. Procurement and receiving staff more often have a certificate in a shipment folder and need to know whether it is one the notified body issued and still stands behind. Live Verify answers that from the certificate itself, and the registers remain the reference for the device's wider regulatory status.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

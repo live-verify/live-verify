@@ -118,10 +118,6 @@ Barclays Bank, a regulated financial institution, is authorized by the FCA to is
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the bank's hashes and status changes plus structured metadata (account holder names, data scopes, third-party service names, consent dates, expiration dates) — never account balances or financial details — providing non-repudiation of data sharing consent.
-
 ## Compared With OAuth Tokens
 
 | Feature | Live Verify | OAuth Token (JWT) | Dashboard (Online Banking) |
@@ -132,3 +128,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Connectivity needed** | **Yes, for the check.** The receipt can be kept and read without a connection; checking it takes one small web request. | **Yes.** | **Yes.** |
 
 **Where each fits:** OAuth tokens are the mechanism that actually enforces a consent between the bank and the third party, and the bank's dashboard is where a customer should go to review or revoke access. Neither gives the customer a durable, readable record to show an ombudsman, an adviser or a court. A verified consent receipt provides that record, confirmed against the bank's domain, and the tokens and dashboard carry on doing the technical work.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -91,10 +91,6 @@ The Guest (Traveler) benefits from verification.
 **Online Travel Agencies (OTAs):** (Booking.com, Expedia).
 **Global Distribution Systems (GDS):** (Amadeus, Sabre).
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the document.
-
 ## Compared With In-App Notifications
 
 | Feature | Live Verify | App Notification | Scanned PDF / Email |
@@ -106,11 +102,9 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** The hotel's app notification tells the guest promptly and reliably that a booking was cancelled, and for the guest that is enough. A travel insurer, an employer's expenses team or a card issuer handling a dispute cannot see it. Live Verify lets them confirm that the hotel stands behind the cancellation confirmation the guest forwards, so the app serves the guest and the document serves the claim.
 
-
 ---
 
 _[Content merged from: hotel-upgrade-confirmations]_
-
 
 ## What is a Room Upgrade Notice?
 
@@ -195,11 +189,6 @@ The Guest (Loyalty Member) benefits from verification.
 **Loyalty Programs:** (Marriott Bonvoy, Hilton Honors).
 **Travel Agencies:** (Amex Fine Hotels & Resorts, Virtuoso).
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the hotel or OTA's hashes and status changes plus structured metadata (booking reference IDs, guest names, cancellation dates, refund amounts, room types, stay dates, upgrade methods, upgrade values, points balances, elite statuses) — never payment card details or personal contact information — providing non-repudiation of the cancellation, upgrade, or statement and an audit trail corporate finance teams and insurers can inspect.
-
-
 ## Compared With Mobile Apps
 
 | Feature | Live Verify | Hotel Mobile App | Scanned PDF / Email |
@@ -211,11 +200,9 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** A reservation that shows in the hotel's own app, and in the property's own system, will normally settle any question at check-in. Difficulties arise when the two disagree, when the booking came through an agent, or when the question comes up after the stay. Live Verify gives the guest and the front desk a shared reference: the confirmation text the brand stands behind, checked against the brand's domain, used alongside the property system.
 
-
 ---
 
 _[Content merged from: hotel-loyalty-program-statements]_
-
 
 ## What is a Points Statement?
 
@@ -311,11 +298,6 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the hotel or OTA's hashes and status changes plus structured metadata (booking reference IDs, guest names, cancellation dates, refund amounts, room types, stay dates, upgrade methods, upgrade values, points balances, elite statuses) — never payment card details or personal contact information — providing non-repudiation of the cancellation, upgrade, or statement and an audit trail corporate finance teams and insurers can inspect.
-
-
 ## Compared With Mobile Apps
 
 | Feature | Live Verify | Hotel Mobile App | Scanned PDF Statement |
@@ -326,3 +308,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Technical.** Requires app install/login. | **Visual.** |
 
 **Where each fits:** Within one hotel group, the loyalty app is all a member needs to prove status. It carries little weight at a competitor's desk, and showing it reveals the member's whole stay history. Live Verify lets a member present a single statement that the issuing chain stands behind, for a status match or a partner benefit, while the app remains their everyday account.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

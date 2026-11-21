@@ -121,10 +121,6 @@ Zurich processes business interruption insurance claims and loss calculations.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the carrier's hashes and status changes plus structured metadata (claim amounts, calculation breakdowns, incident dates, claim numbers) — never plaintext (business financial details, forensic accountant working papers) — providing non-repudiation of the adjustment.
-
 ## Compared With Forensic Audits
 
 | Feature | Live Verify | Manual Forensic Audit | Scanned PDF |
@@ -135,3 +131,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Result.** Proves the final number. | **Binds Process.** Verifies the data. | **Vulnerable.** |
 
 **Where each fits:** a forensic audit is how the loss figure is established, and there is no shortcut for that work. Live Verify does not examine the books. It lets a bank or agency that later receives the settlement summary confirm that the insurer issued it with that figure, so the result of the audit reaches third parties unaltered.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

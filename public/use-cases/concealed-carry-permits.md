@@ -119,9 +119,6 @@ Issues concealed carry weapons permits after background checks.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuing authority's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the permit.
 ## Compared With Police Database (NCIC)
 
 | Feature | Live Verify | NCIC / NLETS (Police DB) | Physical Card |
@@ -132,3 +129,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Cross-State** | **Seamless.** Works via URL. | **Complex.** State-to-state data sharing is often laggy. | **Hard.** Officers can't recognize 50 different state cards. |
 
 **Narrower conclusion:** Police and licensing databases should remain primary for official enforcement and adjudication. Live Verify is more credible as a complementary bridge when an officer, dealer, or range staff member only has the physical permit in hand and lacks a practical direct path into the issuing state's system.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -133,10 +133,6 @@ The Art Collector benefits from verification.
 **Independent Firms:** (Appraisers Association of America members).
 **Art Research Firms:** (Artnet, Artprice).
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the appraiser's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the appraisal.
-
 ## Compared With Appraisal Databases
 
 | Feature | Live Verify | Private Portal (Sotheby's) | Blockchain Art Registry |
@@ -147,11 +143,9 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** an auction house or appraiser portal serves its own clients well, and a blockchain registry suits collectors who want a public record. A collector showing one appraisal to one lender or insurer may not want either: the recipient has no portal login, and the collector may not want the rest of the collection visible. Live Verify lets that single report be checked against the appraiser's domain, and it can be used alongside whichever registry the owner already keeps.
 
-
 ---
 
 _[Content merged from: art-certificates-of-authenticity]_
-
 
 ## What is a Certificate of Authenticity (COA)?
 
@@ -246,10 +240,6 @@ The Art Owner benefits from verification.
 **Major Galleries:** (Gagosian, Pace, Hauser & Wirth).
 **Scholarly Committees:** Dedicated authentication boards.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the document.
-
 ## Compared With NFTs / Blockchain
 
 | Feature | Live Verify | NFT (Digital Twin) | Physical Seal (Microchip) |
@@ -260,11 +250,9 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** a token or an embedded chip can be useful where the buyer and seller are both comfortable with that technology, and a chip does tie a record to the physical object in a way text cannot. Much of the market still trades on a paper certificate from an estate or foundation. Live Verify lets a buyer or insurer confirm that the estate stands behind the wording of that certificate, without asking anyone to adopt a wallet, and nothing prevents it accompanying a token or chip.
 
-
 ---
 
 _[Content merged from: art-edition-numbers]_
-
 
 ## What is an Edition Number?
 
@@ -362,10 +350,6 @@ The Collector benefits from verification.
 **Foundries:** (For bronze sculptures).
 **Artist Estates:** (Managing posthumous editions).
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the document.
-
 ## Compared With Physical Holograms
 
 | Feature | Live Verify | Hologram Sticker | Blind Stamp (Embossing) |
@@ -376,11 +360,9 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** holograms and blind stamps authenticate the sheet itself, which is something a text hash does not attempt. They do not confirm the edition number or size written on the sheet. Live Verify lets a buyer check that the publisher stands behind those written details, so the physical mark and the verify line each cover what the other cannot.
 
-
 ---
 
 _[Content merged from: artist-signatures-stamps]_
-
 
 ## What is a Signature Authentication?
 
@@ -472,10 +454,6 @@ The Collector or Gallerist benefits from verification.
 **Artist Foundations:** (e.g., Picasso Administration).
 **Art Research Foundations:** (IFAR, Appraisers Association).
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the document.
-
 ## Compared With Visual Connoisseurship
 
 | Feature | Live Verify | Visual Inspection (The Eye) | Carbon Dating / Chemical |
@@ -486,11 +464,9 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** connoisseurship and laboratory analysis are how an attribution is actually reached, and nothing here substitutes for either. What Live Verify adds is a way for a later buyer, lender or insurer, who was not in the room and may be in another country, to confirm that the expert or laboratory issued the report they have been shown and has not withdrawn it. It verifies the report, not the painting.
 
-
 ---
 
 _[Content merged from: art-provenance-documentation]_
-
 
 ## What is Art Provenance?
 
@@ -614,10 +590,6 @@ Expert appraisals authenticate artworks and determine fair market value.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the document.
-
 ## Compared With Physical Labels / Archival Photos
 
 | Feature | Live Verify | Gallery Labels (Reverse of Frame) | Archival Photo (Black & White) |
@@ -652,13 +624,11 @@ This is an ideal text-to-hash use case.
 
 Art fraud does not always mean creating a forgery from scratch. The more sophisticated pattern is substitution: a genuine painting is appraised, a genuine certificate of authenticity is issued, and then the painting is swapped for a copy while the original certificate continues to circulate with the fake. The certificate is real — it just no longer describes the object it accompanies. A verifiable appraisal or COA does not solve the physical substitution on its own, but it eliminates one critical enabler: the ability to detach a certificate from its context. If the verification response includes the appraised dimensions, medium, and a photo of the work, the buyer viewing the physical piece can compare what they see against what the institution attested — and a mismatch between the described work and the object in front of them becomes immediately visible.
 
-
 ---
 
 <a id="chattel"></a>
 
 _[Content merged from: personal-property-chattel-appraisals]_
-
 
 ## What is a Personal Property (Chattel) Appraisal?
 
@@ -756,3 +726,7 @@ The Owner benefits from verification.
 ## Text-to-Hash Suitability
 
 Chattel appraisals circulate as PDFs emailed to insurers, estate attorneys, and tax preparers, and as paper certificates handed over with the item. Browser/PDF text selection is the primary path (the recipient is reading the report on a screen); physical OCR is the secondary path when an adjuster or executor inspects the original paper certificate alongside the item. Either way, the clean typed text of an appraisal report is an ideal text-to-hash target.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

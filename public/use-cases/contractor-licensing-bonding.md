@@ -132,11 +132,6 @@ State licensing boards issue contractor licenses and bonding to protect consumer
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the licensing authority's hashes and status changes plus structured metadata (license number, classification, issue date, expiration date, bond amount, surety company) — never personal details, disciplinary history details, or criminal records — providing non-repudiation of the license issuance.
-
-
 ## Compared With State Search Portals
 
 | Feature | Live Verify | State Website Search | Scanned PDF |
@@ -147,3 +142,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Field Use** | **High.** Mobile-optimized workflow. | **Low.** Hard to use on a construction site. | **Universal.** |
 
 **Where each fits:** the state board's website is the official register and the fullest source, including complaint history, and a homeowner with time should look there. On a doorstep or at a kitchen table, searching it on a phone is awkward, and a mistyped number proves little. Live Verify lets the homeowner check the pocket card they are shown against the board's domain, as a quick first step before any fuller search.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -130,11 +130,6 @@ Issues employment authorization documents for non-citizens.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive USCIS's hashes and status changes plus structured metadata (USCIS number, card number, employment authorization category, expiration date, card issue date) — never plaintext personal identification — providing non-repudiation of the employment authorization document.
-
-
 ## Compared With E-Verify / SAVE
 
 | Feature | Live Verify | E-Verify (Employer System) | Physical EAD Card |
@@ -151,3 +146,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 - [Work Permits & Work Visas](view.html?doc=work-permits) — Broader international framing with official systems kept primary
 - [Border Crossing Receipts (I-94)](view.html?doc=border-crossing-receipts-i94) — Similar “artifact bridge, official system primary” pattern
 - [Advance Parole and Re-Entry Permits](view.html?doc=advance-parole-reentry-permits) — Another immigration-status edge-case bridge
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

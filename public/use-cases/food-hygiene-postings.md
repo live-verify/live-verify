@@ -118,7 +118,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Food safety is a "High-Frequency, Low-Trust" domain. By allowing the public to instantly verify the truth behind the window sticker, we create a powerful incentive for restaurant owners to maintain consistent standards between inspections.
 
+## Independent Record (Optional)
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the health department's hashes and status changes plus structured metadata (establishment names, hygiene ratings, inspection dates, inspector IDs, violation details) — never establishment addresses or exact location details — providing non-repudiation of the rating and an audit trail health authorities and food safety regulators can inspect.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

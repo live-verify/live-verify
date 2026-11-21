@@ -116,6 +116,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Personal training is a "High-Touch, Low-Oversight" service. By turning professional badges into verifiable digital bridges, we create a "Shield of Safety" that protects clients and rewards the dedicated professionals who maintain their standards.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the certification body's hashes and status changes plus structured metadata (trainer name, credential type, certification ID, expiration date, insurance and background check status) — never personal background information — providing non-repudiation of trainer credential issuance.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

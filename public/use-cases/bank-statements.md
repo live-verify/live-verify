@@ -109,10 +109,6 @@ The Bank Customer benefits from verification.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the bank's hashes and status changes plus structured metadata (account number, statement period, balance) — never plaintext or sensitive personal information — providing non-repudiation of the document.
-
 ## Where Each Fits: Live Verify and Open Banking
 
 Open-banking data sharing (the UK and EU schemes, India's Account Aggregator, aggregators such as Plaid in the US) and Live Verify answer different questions and work side by side. Open banking is a data feed between a bank and a registered, integrated firm. Live Verify makes the statement itself checkable by whoever is handed it.
@@ -126,3 +122,7 @@ Open-banking data sharing (the UK and EU schemes, India's Account Aggregator, ag
 | **Best suited to** | Continuous affordability checks and onboarding by lenders and fintechs. | One-off proof to a party outside the scheme, or across borders. | Nothing where the amount matters. |
 
 **Where each fits:** a lender already connected to an open-banking scheme will often prefer the live feed, and should. A statement is still what changes hands everywhere else: tenancy applications, visa and immigration files, court bundles, supplier due diligence, and any case where the bank and the checker are in different countries. Live Verify covers those, and gives a customer who would rather not grant account access a way to prove a balance with a single page.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -121,10 +121,6 @@ Accredited inspection firms issue certificates for crane safety compliance under
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the inspection firm's hashes and status changes plus structured metadata (equipment serial number, inspection date, pass/fail status, load test results, next inspection due date, inspector ID) — never owner names or site locations — providing non-repudiation of the inspection and an audit trail for OSHA compliance and accident liability protection.
-
 ## Compared With QR Stickers
 
 | Feature | Live Verify | Standard QR Sticker | Paper Inspection Log |
@@ -135,3 +131,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Trust Anchor** | **Domain-Bound.** Trust the Inspector. | **Platform-Bound.** | **Visual.** |
 
 **Where each fits:** a QR sticker on the machine is quick and convenient, and many inspection firms already use them. A sticker can be moved to another machine or worn unreadable on site. Live Verify ties the serial number and inspection status together in text that the inspection firm stands behind, and the two can be printed on the same tag so that either will do.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -405,7 +405,6 @@ Aggregate verified incident rates across suppliers. Procurement decisions inform
 **Insurance Integration**
 Organizations with verified robust reporting cultures qualify for lower premiums—blameless culture becomes financially rewarded.
 
+## Independent Record (Optional)
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the reporting organization's hashes and status changes plus structured metadata (incident categories, severity classifications, dates/times, regulatory notification timestamps) — never plaintext or sensitive personal information — providing non-repudiation of the incident report and reporting timeline.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -175,11 +175,6 @@ This is the primary use case. A woman alone late at night can make an informed s
 
 **Privacy Salt:** Required. Private hire drivers work in high-risk environments, often alone with strangers. Badge information is visible to 10-20 passengers per day, plus doorbell cameras, CCTV, and pedestrians. More critically, salt prevents "Stalking" attacks where someone could enumerate driver badges and correlate them with GPS data to track individuals across shifts—creating serious safety risks. Salt also prevents "Competitor Reconnaissance" where rival platforms could map out a company's driver deployment and earnings patterns.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the licensing authority's hashes and status changes plus structured metadata (licence numbers, vehicle details, operator affiliations, DBS check dates, expiry dates) — never plaintext (driver full names, home addresses, passenger trip data, GPS routes) — providing non-repudiation of the driver licence and an audit trail regulators can inspect for fraud and safety incidents.
-3. **Public blockchain** — Decentralized trust anchor via rollup inclusion
-
 ## Authority Chain
 
 **Pattern:** Regulated
@@ -283,3 +278,7 @@ Recommended action: Share this verification with an emergency contact
 ## Related E-Ink Scenarios
 
 See [E-Ink ID Cards](../e-ink-id-cards.md) for the full list of use cases sharing this pattern, including police officers, healthcare staff, hotel staff, residential building maintenance, courier drivers, and event venue crews.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

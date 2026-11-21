@@ -113,10 +113,6 @@ Zurich underwrites construction site and builders risk insurance for UK projects
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (project values, coverage limits, construction dates, policy numbers) — never contractor financial details or project owner private information — providing non-repudiation of the coverage it issued.
-
 ## Compared With Project Management Software (Procore)
 
 | Feature | Live Verify | Procore / Autodesk Build | Scanned PDF |
@@ -126,3 +122,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Interoperability** | **Universal.** Works for any bank/owner. | **Siloed.** Only works for people on that specific project. | **Universal.** |
 
 **Where each fits:** project management software is where the project team keeps its documents, and for people on the project it is the convenient place to find the certificate. What it holds is whatever the contractor uploaded. A lender or owner outside the platform can use Live Verify to check the same certificate against the insurer's domain, which adds an independent confirmation to the copy in the project system.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

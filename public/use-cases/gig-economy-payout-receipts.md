@@ -105,10 +105,6 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the gig platform's hashes and status changes plus structured metadata (driver names, partner IDs, payout periods, gross earnings, tips, promotions, fees, net payouts, trip counts) — never pickup/dropoff addresses or passenger details — providing non-repudiation of the statement and earnings and an audit trail tax authorities and financial regulators can inspect.
-
 ## Compared With Employment Verifiers (Argyle)
 
 | Feature | Live Verify | Argyle / Pinwheel (API) | Scanned PDF |
@@ -119,3 +115,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires worker to find login/pass and link accounts. | **N/A.** |
 
 **Where each fits:** Payroll-connectivity services such as Argyle and Pinwheel give a lender a continuing, structured feed of earnings, and for a worker who is happy to link an account that is often the smoothest route. Some workers would rather not hand over platform credentials, some platforms are not on those networks, and some checkers such as a landlord or a small lender are not customers of either. Live Verify covers those cases with a single earnings statement that the platform stands behind.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

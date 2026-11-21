@@ -119,10 +119,6 @@ The UK Foreign, Commonwealth & Development Office legalises and authenticates do
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the apostille authority's hashes and status changes plus structured metadata (document type, jurisdiction, date) — never plaintext or sensitive personal information — providing non-repudiation of the document.
-
 ## Compared With e-Apostille (Registry)
 
 | Feature | Live Verify | e-Apostille Registry | Wet Ink / Embossed |
@@ -132,3 +128,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Connectivity needed** | **Yes, for the check.** The paper can be read without a connection; checking it takes one small web request. | **Yes.** Requires live DB access. | **None.** Physical security features (ribbons, grommets). |
 
 **Why this remains strong:** e-Apostille registries are the right source of truth where they exist and are easy to use, but the practical problem is still cross-border portability from the paper artifact in hand. Live Verify is strongest as a cleaner bridge from that artifact to the issuing authority's current record.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -170,11 +170,6 @@ For livestock moving interstate, the health certificate (separate document) carr
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the breed registry's hashes and status changes plus structured metadata (registration numbers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the registration it issued.
-
-
 ## Compared With Registry Databases
 
 | Feature | Live Verify | Registry Online Lookup | Paper Certificate |
@@ -186,3 +181,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** | **Minutes.** Registration, login, search. | **Instant but meaningless.** |
 
 **Where each fits:** the registry's own online lookup is the fullest source, and a buyer with time before a visit should use it. Some registries restrict lookups or require an account, and at the point of collection few buyers will stop to register and search. Live Verify lets them check the certificate they are handed, including the microchip number printed on it, against the registry's domain in a moment, as a complement to the lookup.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

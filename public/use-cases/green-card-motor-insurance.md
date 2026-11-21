@@ -118,11 +118,6 @@ The Motor Insurer's Bureau (MIB), regulated by the FCA, issues verified internat
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (valid from and to dates, country code, vehicle registration number, vehicle category, make and model, policyholder name, policy number) — never plaintext driver details — providing non-repudiation of the green card motor insurance certificate.
-
-
 ## Compared With Central Databases (MID)
 
 | Feature | Live Verify | MID / National DB (UK) | Paper Green Card |
@@ -133,3 +128,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Freshness** | **Real-time.** Shows if premium was paid today. | **Laggy.** Often 24-48 hours behind. | **Static.** |
 
 **Where each fits:** National motor insurance databases such as the UK's MID are the right check for police and insurers in their own country, and they hold more than a certificate shows. Their reach generally ends at the border, and an officer abroad has no terminal for another country's database. The Green Card exists for that situation, and Live Verify lets the officer or the other driver after a collision confirm that the insurer stands behind the card presented. Each national database keeps its domestic role.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

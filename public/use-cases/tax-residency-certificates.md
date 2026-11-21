@@ -142,10 +142,10 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 **Where each fits:** An apostille does its own job well: it confirms that the signature and seal on the certificate are genuine, and it remains the right tool where a receiving authority requires legalisation. Exchange between tax authorities is the proper channel for governments, though it is slow and not open to private payers. Neither tells the paying company whether this certificate's content is current for the tax year in question, which is the gap Live Verify fills: a quick check against the issuing authority's own record for the person making the withholding decision. The approaches sit alongside each other.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the tax authority's hashes and status changes plus structured metadata (taxpayer TIN, tax year, country of residence, treaty reference, certificate number, issue date) — never plaintext or sensitive personal information — providing non-repudiation of the tax residency certificate. Tax residency certificates have particular witnessing value for audit defense — the witnessing record proves verification occurred at the time of the withholding decision, demonstrating good faith even if the certificate later proves forged.
-
 ## Further Derivations
 
 1. **OECD Common Reporting Standard (CRS) self-certifications** — The form individuals sign declaring their tax residency for automatic exchange of financial account information between countries. Different from the government-issued certificate (it's a self-declaration, not an authority attestation) but addresses a related verification need. Banks collect millions of these annually under CRS and have no way to verify that the declared country of tax residence is accurate. A Live Verify-enabled CRS self-certification could cross-reference the declaration against the individual's actual government-issued residency certificate.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

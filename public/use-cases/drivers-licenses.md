@@ -154,10 +154,6 @@ DMVs can monitor verification request patterns:
 
 Geo-checking won't stop a single clone use, but it detects systematic abuse — a cloned license being used by a fraud ring across multiple venues triggers investigation before the victim even knows their identity was stolen.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the DMV's hashes and status changes plus structured metadata (license number, name, date of birth, license class, expiration date) — never plaintext driver information — providing non-repudiation of the driver's license.
-
 ## Compared With Barcode Scanners (PDF417)
 
 | Feature | Live Verify | Barcode Scanner (Handheld) | Visual Inspection |
@@ -172,3 +168,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 ## Further Reading
 
 [Deep dive: Government IDs](https://github.com/live-verify/live-verify/tree/main/deep-dives/Government_IDs.md)
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

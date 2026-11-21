@@ -119,10 +119,6 @@ Health insurers issue SBCs under federal insurance regulator authority (CMS in t
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (plan names, deductible amounts, copay tiers, network IDs, effective dates) — never subscriber names, member IDs, or claims history — providing non-repudiation of the SBC and coverage terms.
-
 ## Compared With Healthcare.gov (Federal Registry)
 
 | Feature | Live Verify | Healthcare.gov / CMS Search | Scanned PDF SBC |
@@ -133,3 +129,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Coverage** | **Universal.** Works for private "Off-Market" plans. | **Limited.** Only for Exchange-based plans. | **Full.** |
 
 **Where each fits:** Healthcare.gov and the CMS plan data are the official reference for marketplace plans and are well suited to comparing options at enrolment. They do not list every plan, and they do not vouch for the printed summary a patient brings to a front desk. Live Verify lets the practice, or the patient, confirm the insurer stands behind that summary of benefits and coverage as issued. For the full plan filing, the government sources remain the place to look.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -256,10 +256,6 @@ Personal issuer — individual attestation, no regulatory chain.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive hashes of verification events plus structured metadata (state authority ID, verification timestamp, photo date) — never photos or personally identifiable information — providing non-repudiation through aggregate audit without individual tracking.
-
 ## NFC and Other Transmission Methods
 
 While OCR works, other transmission methods may be more practical:
@@ -315,3 +311,7 @@ Biometric likeness claims complement, not replace, other identity documents:
 | Age Verification | Date of birth | "This is the person with that DOB" |
 
 The likeness claim is a verification layer that can be combined with any other identity document to prove current possession.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -111,11 +111,6 @@ Solicitors authenticate easement agreements and property access rights.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the authority's hashes and status changes plus structured metadata (property identifier, easement type, recording date) — never property owner names, property address plaintext, or legal descriptions — providing non-repudiation of the easement agreement issuance.
-
-
 ## Compared With County Records Search
 
 | Feature | Live Verify | County Search (Online) | Physical Deed Room |
@@ -126,3 +121,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **User Access** | **Universal.** Anyone with the document. | **Difficult.** Many counties charge fees or require logins. | **Restricted.** |
 
 **Where each fits:** The county's online records and the deed room remain the legal source for what is recorded against a parcel, and a title search will always go there. They take time, sometimes a fee or an account, and a search does not tell you whether the copy in your hand matches the recorded instrument. Live Verify answers that one question for a neighbour, contractor or utility crew standing on the land with the document. A full title examination is still the job of the county record.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

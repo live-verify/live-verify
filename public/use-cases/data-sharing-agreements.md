@@ -114,9 +114,6 @@ Research institutions document legal agreements for sharing research data.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the data controller's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the data sharing agreement.
 ## Compared With CLM Systems (Ironclad)
 
 | Feature | Live Verify | CLM (Contract Lifecycle Mgmt) | Scanned PDF |
@@ -127,3 +124,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Cost** | **Low.** Standard web infra. | **Very High.** Enterprise software fees. | **None.** |
 
 **Where each fits:** A contract lifecycle management system serves an institution well for its own drafting, approvals and renewals, and nothing here suggests replacing it. The difficulty comes when the counterparty, a funder or a data protection reviewer sits outside that system and will not be given access to it. Live Verify lets any of them confirm that the signed PDF they hold carries the wording the institution stands behind, while each side keeps its own CLM.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -113,6 +113,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Toll receipts are the "Digital Breadcrumbs" of modern travel. By turning these micro-transactions into verifiable digital bridges, we eliminate the high-volume "Paper Friction" that costs businesses millions in lost time and fraudulent expenses.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the toll authority's hashes and status changes plus structured metadata (transaction ID, date/time, toll amount) — never plaintext or sensitive personal information — providing non-repudiation of issuing the toll receipt.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

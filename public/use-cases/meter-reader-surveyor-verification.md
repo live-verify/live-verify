@@ -192,10 +192,6 @@ Government issuer — California state appraisal board is a government agency wi
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the regulator's hashes and status changes plus structured metadata (registration number, professional name, qualification level, status date) — never property addresses or surveyor routes — providing non-repudiation of the registration and an audit trail homeowners and regulators can inspect.
-
 ## Compared With Review Sites (Yelp / Google)
 
 | Feature | Live Verify | Review Sites (Yelp/Google) | Physical ID Card |
@@ -207,3 +203,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Access Control** | **Real-time gate.** Homeowner can refuse entry immediately. | **Retroactive.** Only useful after bad experience. | **None.** Already at the door. |
 
 **Where each fits:** Review sites remain the place to judge a firm's quality of work before booking a survey, and the physical ID card is still what the visitor carries. Neither can tell a homeowner at the door whether this particular person is currently registered and in good standing, and a homeowner has only seconds to decide. Live Verify fills that gap by letting the badge be checked against the regulator's or utility's domain before entry; the earlier research and the card itself keep their roles.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

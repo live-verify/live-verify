@@ -106,10 +106,6 @@ Close Brothers, a regulated financial services firm, is authorized by the FCA to
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the factor's or financing company's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the invoice assignment.
-
 ## Compared With Manual VOD Calls
 
 | Feature | Live Verify | Manual VOD (Phone/Email) | Scanned PDF NOA |
@@ -120,3 +116,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Privacy** | **High.** Share only the *NOA*. | **Low.** Calls reveal the seller's cash situation. | **Vulnerable.** |
 
 **Where each fits:** A verification-of-debt call remains valuable, because a conversation with the buyer's accounts payable team can surface disputes, set-offs or delivery problems that no notice of assignment will mention. What a call handles less well is confirming that the payment instructions on a letter really came from the factor, and it can take days to reach the right person. Live Verify lets the buyer check the notice against the factor's domain straight away, and the two checks sit comfortably in the same process.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -124,11 +124,6 @@ Banks are regulated depository institutions that guarantee cashier's checks with
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the instrument it issued.
-
-
 ## Compared With Positive Pay / Call-In
 
 | Feature | Live Verify | Positive Pay (Corporate) | Calling the Bank |
@@ -139,3 +134,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **Fast.** | **Very Slow.** |
 
 **Where each fits:** positive pay is the right control for businesses that have it through their bank, and a call to the issuing bank during opening hours is still a sound check. A private seller accepting a cashier's check in the evening or at a weekend has neither. Live Verify lets that seller confirm the bank issued the check with that payee, amount and date, while positive pay goes on protecting commercial accounts.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

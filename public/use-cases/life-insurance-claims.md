@@ -107,10 +107,6 @@ Aviva, a regulated life insurance provider, is authorized by the FCA to issue ve
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurance carrier's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the death benefit claim approval.
-
 ## Compared With MIB Group (Medical Information Bureau)
 
 | Feature | Live Verify | MIB Group (Industry DB) | Scanned PDF Notice |
@@ -121,3 +117,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Content.** Protects the $ amount. | **None.** For the specific notice. | **Vulnerable.** |
 
 **Where each fits:** Industry exchanges such as MIB serve insurers well for the purpose they were built for, which is sharing information between member companies. Beneficiaries, funeral homes and estate advisers are not members and hold only the letter the carrier sent. Live Verify lets them confirm that the carrier issued that approval notice, and the insurer-to-insurer exchange carries on unchanged.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

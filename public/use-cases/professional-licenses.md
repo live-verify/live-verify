@@ -132,10 +132,10 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Professional licensing is about public protection. The registry remains primary. Live Verify adds value when visible display artifacts or portable status documents need to bridge back to current board standing without assuming that the framed certificate itself is the thing being trusted.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the licensing board's hashes and status changes plus structured metadata (license number, profession, jurisdiction, licensure date, expiration date, status) — never plaintext or sensitive personal information — providing non-repudiation of the professional's current license standing.
-
 ## Further Reading
 
 [Deep dive: Medical Licenses and Professional Licensing](https://github.com/live-verify/live-verify/tree/main/deep-dives/Medical_License.md)
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

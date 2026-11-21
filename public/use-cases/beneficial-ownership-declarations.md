@@ -189,9 +189,6 @@ Opaque beneficial ownership is the primary obstacle to asset recovery — klepto
 - **Italy:** Anti-mafia confiscation regime traces assets through complex corporate structures; Antimafia Investigation Directorate (DIA) uses corporate registry data
 - **FATF:** Recommendation 4 (confiscation and provisional measures) explicitly links UBO transparency to effective asset recovery
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the filing authority's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the declaration.
 ## Compared With Registry Portals
 
 | Feature | Live Verify | Public Registry Portal | Private KYC Utility (Swift) |
@@ -201,3 +198,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Immediacy** | **Instant.** Scan the document during onboarding. | **Slow.** Login, search, pay fee, download PDF. | **Fast.** But siloed. |
 
 **Where each fits:** the government registry is the record itself, and a regulated firm doing full due diligence will still consult it or a shared KYC utility it belongs to. A counterparty abroad, faced with an unfamiliar registry site in another language and a fee to pay, often relies on the extract the company hands over. Live Verify lets that counterparty confirm the registry issued the extract as it reads, as a first check that works alongside a fuller registry search.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

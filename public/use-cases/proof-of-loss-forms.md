@@ -129,6 +129,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Proof of Loss is the "Point of No Return" in a claim. By turning sworn statements into verifiable digital bridges, we protect the insurance pool from the $80 billion annual cost of fraud and ensure that honest policyholders are paid accurately and quickly.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (claim number, policy number, loss date, claimed amount, cause of loss, notary ID) — never plaintext or sensitive personal information — providing non-repudiation of the proof of loss statement.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

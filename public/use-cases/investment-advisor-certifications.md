@@ -111,10 +111,6 @@ The SEC registers investment advisors and maintains certification records.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the certifying organization's hashes and status changes plus structured metadata (advisor names, credential types, CRD numbers, approval dates, status) — never financial information — providing non-repudiation of advisor certification status.
-
 ## Compared With SEC Advisor Search (IAPD)
 
 | Feature | Live Verify | IAPD / BrokerCheck (Web) | Scanned PDF Brochure |
@@ -125,3 +121,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Technical.** Requires laptop/dedicated search. | **Visual.** |
 
 **Where each fits:** IAPD and BrokerCheck are the authoritative public records, with disciplinary history and detail that no certificate carries, and a client doing proper diligence should read them. The gap is the first meeting, when a client is looking at a business card or a wall certificate and is unlikely to stop and search a database by name. Live Verify gives a quick confirmation that the registration text is one the issuer stands behind, and points naturally to the fuller record for anyone who wants to read on.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

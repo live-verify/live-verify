@@ -110,10 +110,6 @@ Genworth, a regulated mortgage insurance provider, is authorized by the FCA to i
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurance carrier's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the mortgage indemnity insurance certificate.
-
 ## Compared With MERS / Industry Databases
 
 | Feature | Live Verify | MERS / Industry Portal | Scanned PDF Certificate |
@@ -124,3 +120,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Cryptographic.** Binds the *LTV Ratio*. | **Data-Only.** | **Vulnerable.** |
 
 **Where each fits:** Industry registries such as MERS serve their members well for tracking loans and servicing rights at scale, and participants will keep relying on them. A loan buyer or auditor reviewing a file may not be a member, and is in any case examining the certificate in the file and not a database row. Live Verify lets them confirm that the insurer stands behind that certificate, in step with whatever registry checks they also run.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

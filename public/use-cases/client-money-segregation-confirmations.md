@@ -156,6 +156,6 @@ Falsifying client money segregation reports is a form of securities fraud — it
 - **Singapore:** SFA client money rules enforced by MAS; segregation failures can trigger MAS enforcement action and market misconduct proceedings
 - **Hong Kong:** SFC Client Securities Rules / Client Money Rules; SFC has taken enforcement action for segregation failures linked to market misconduct
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the firm's or auditor's hashes and status changes plus structured metadata (firm name, FCA FRN, attestation date, segregation status, shortfall amount if any, auditor name) — never individual account details or client names — providing non-repudiation of the segregation attestation and compliance standing.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -177,12 +177,12 @@ UK courts issue legal name change orders under the Enrolment of Deeds (Change of
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the court or vital records agency's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the name change document.
-
 ## Why Not Just Show ID?
 
 A passport or driver's license shows your *current* name. It doesn't prove you were ever called something else. When the question is "prove you used to be James Thompson," showing ID that says "James Wilson" doesn't help.
 
 The name change document is the bridge document—it connects the before and after. Verification ensures that bridge is genuine, not fabricated to create a false identity history.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -110,6 +110,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 P&I insurance is the "Global Shield" of the oceans. By turning certificates into verifiable digital bridges, we protect the world's coastlines from the catastrophic cost of un-insured oil spills and ensure that "Safety at Sea" is backed by cryptographic proof.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the P&I club's hashes and status changes plus structured metadata (vessel IMO, gross tonnage, policy year, coverage limits) — never beneficial owner or claim history — providing non-repudiation of the certificate and an audit trail port state control authorities can inspect.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -99,11 +99,6 @@ The Liquidator (Executor) benefits from verification.
 **Regional Notary Councils.**
 **Central Successions Registries:** (e.g., *Registre des Dispositions de Dernières Volontés*).
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the Notary Chamber's hashes and status changes plus structured metadata (testator name, notary name, archive reference, date of act) — never plaintext estate details or heir information — providing non-repudiation of notarial act issuance and revocation/supersession events.
-
-
 ## Compared With Apostilles
 
 | Feature | Live Verify | Apostille (Traditional) | Online Will Search |
@@ -118,7 +113,6 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 ---
 
 _[Content merged from: notarized-documents]_
-
 
 ## What is a Notarization?
 
@@ -210,10 +204,6 @@ The issuer domain is visible from the `verify:` line on the document itself (e.g
 **Remote Online Notary (RON) Platforms:** (e.g., Proof, Notarize - hosting the cryptographically secure session hashes).
 **National Notary Associations.**
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the Notary's hashes and status changes plus structured metadata (notary name, document type, execution date) — never plaintext signer information or document terms — providing non-repudiation of notarization.
-
 ## The End of the Notary Seal
 
 Traditional notary seals — rubber stamps, embossers, digital images — are visual trust signals. They say "this looks official." But they're trivially forged: a $20 custom stamp, a Photoshopped image, or a stolen embosser.
@@ -257,7 +247,6 @@ The browser extension is the long-term path for notarized document verification.
 ---
 
 _[Content merged from: notary-services]_
-
 
 ## What are Notary Services?
 
@@ -356,7 +345,6 @@ Notarization is the "Trust Link" of the legal system. By turning static stamps i
 ---
 
 _[Content merged from: remote-online-notarizations]_
-
 
 ## What is a Remote Online Notarization (RON)?
 
@@ -464,3 +452,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 ## Rationale
 
 RON verification solves the "Digital-to-Physical" trust gap. By turning an electronic seal into a verifiable digital bridge, it ensures that "Remote" trust is just as strong as "In-Person" trust.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

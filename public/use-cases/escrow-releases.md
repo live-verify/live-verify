@@ -126,7 +126,6 @@ Live Verify doesn't prevent wire fraud directly, but it provides an independent 
 
 Complex transactions may require multiple parties to verify the same release. The hash provides a single source of truth that all parties can independently confirm.
 
-
 ## Authority Chain
 
 **Pattern:** Regulated
@@ -141,6 +140,6 @@ Escrow releases are issued by licensed title and escrow companies regulated by t
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the escrow holder's hashes and status changes plus structured metadata (file number, property reference, sale price or holdback amount, closing date, release date, recipient name, condition status) — never plaintext transaction terms — providing non-repudiation of the escrow release.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

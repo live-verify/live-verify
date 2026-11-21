@@ -138,6 +138,6 @@ Pest control is a "toxic trust" domain. The risk is not abstract credential infl
 - [Cold-Caller Credentials](view.html?doc=cold-caller-credentials) — Doorstep verification before opening the door
 - [Trades and Home-Visit Cluster](../../trades-home-visit-cluster.md) — Cluster note for threshold-decision cases
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the licensing authority's hashes and status changes plus structured metadata (license number, operator name, license type, expiration date, regulatory body) — never detailed pest control work history — providing non-repudiation of pest control operator license issuance.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

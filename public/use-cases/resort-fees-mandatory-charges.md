@@ -122,10 +122,10 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the hotel's hashes and status changes plus structured metadata (fee amounts, stay dates, confirmation numbers) — never plaintext like guest names or personal details — providing non-repudiation of the mandatory fee disclosure.
-
 ## Rationale
 
 Resort fee verification brings "Price Transparency" to the final mile of travel. By turning the hotel bill into a verifiable digital bridge, it protects consumers from hidden charges, enables regulatory enforcement at scale, and gives every guest portable proof they can hand to anyone who needs to verify it.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

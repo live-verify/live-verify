@@ -105,11 +105,6 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the legal department's hashes and status changes plus structured metadata (agreement ID, parties, execution date, status) — never liability caps, IP rights, or payment terms — providing non-repudiation of the contract and an audit trail insurers and auditors can inspect.
-
-
 ## Compared With CLM Systems (Ironclad)
 
 | Feature | Live Verify | CLM (Contract Lifecycle Mgmt) | Scanned PDF / Email |
@@ -120,3 +115,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Cost** | **Low.** Standard web infra. | **Very High.** Enterprise license fees. | **None.** |
 
 **Where each fits:** A contract lifecycle management system is the right home for a company's own contracts: drafting, approvals, renewals and search all belong there. It is not built for showing a signed agreement to an outsider, such as an acquirer, insurer or auditor, who will not be given a login. Live Verify lets that outsider confirm the PDF they received is the text the party published, and the contract system remains the system of record.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

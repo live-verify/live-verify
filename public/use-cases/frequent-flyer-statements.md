@@ -116,10 +116,6 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the airline's hashes and status changes plus structured metadata (loyalty IDs, mileage balances, tier statuses, transaction dates, award redemptions) — never member names or travel itineraries — providing non-repudiation of the statement and mileage balance and an audit trail regulators can inspect.
-
 ## Compared With Loyalty Apps
 
 | Feature | Live Verify | Airline Mobile App | Scanned PDF Statement |
@@ -130,3 +126,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Freshness** | **Real-time.** Shows if account is suspended. | **Live.** | **Static.** |
 
 **Where each fits:** The airline's app is the member's live view of their account, and nothing replaces it for booking, upgrades and day-to-day use. It is not designed to be shown to someone else, and doing so exposes far more than a tier or balance. Live Verify lets another airline's status-match desk, a hotel partner or an employer confirm that the airline issued a statement the member chose to share. The app stays the member's own tool; the statement is for third parties.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

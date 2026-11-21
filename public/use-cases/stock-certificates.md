@@ -54,7 +54,6 @@ If you are buying a small business or investing in a private startup, you need t
   </div>
 </div>
 
-
 Shareholder name, number of shares, share class, certificate number, company name and jurisdiction, issue date, par value (if any), transfer agent name, CUSIP/ISIN number, authorized signatures, any restrictive legends, transfer endorsements.
 
 **Document Types:**
@@ -325,7 +324,6 @@ Collectible and archival value:
 
 Historical certificates may verify as "Cancelled - Historical interest only."
 
-
 ## Authority Chain
 
 **Pattern:** Regulated
@@ -340,6 +338,6 @@ Transfer agents and company registrars issue stock certificates and are regulate
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's (company or transfer agent's) hashes and status changes plus structured metadata (certificate number, share count, shareholder name, certificate date, corporate actions) — never plaintext or sensitive shareholder information — providing non-repudiation of the stock certificate.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

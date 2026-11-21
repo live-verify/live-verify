@@ -402,7 +402,6 @@ Domain binding to the issuing organization addresses the patterns above. A fake 
 
 Unlike venue-admission credentials (where the issuer controls the door), these memberships create value through distributed third-party recognition. The AAA tow truck driver, the IEEE conference, the partner yacht club, and the union hiring hall all need to trust the card—but none of them control the membership database. Live Verify bridges this trust gap, turning a paper or plastic card into a credential that anyone can check with a smartphone that has Live Verify on it and a data connection, without a phone call to the issuer.
 
+## Independent Record (Optional)
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the membership organization's hashes and status changes plus structured metadata (member names, member numbers, membership tiers, membership grades, expiration dates) — never plaintext or sensitive personal information — providing non-repudiation of the membership status and benefit eligibility.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -149,10 +149,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 **Where each fits:** Each existing route has its use: a registry search is the direct way to look a company up, an agent's letter adds context from someone who knows the entity, and an apostilled certificate is what many foreign authorities formally require. What none of them does is tie the certificate in hand to the registry's current view, since an apostille authenticates the certifying official at a point in time and a search is carried out separately from the document. Live Verify adds that link, and can be used alongside the apostille where one is still required.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the registry's hashes and status changes plus structured metadata (company number, issue date, validity period, status) — never shareholder names, beneficial owners, or registered agent details — providing non-repudiation of the certificate and an audit trail banks and regulators can inspect.
-
 ## Further Derivations
 
 1. **Certificate of Incumbency** — Lists current directors, officers, shareholders, and registered agent. More detailed than good standing — proves who controls the entity. Frequently forged to misrepresent ownership in banking and M&A contexts.
@@ -160,3 +156,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 2. **Register of Directors / Register of Members** — Certified extracts from the company's statutory registers. In jurisdictions moving toward public beneficial ownership registers (BVI, Cayman), these certified extracts become key verification documents.
 
 3. **Registered Agent Confirmation of Authority** — The registered agent confirms it acts for the entity and that the entity is in compliance. Distinct from a registry-issued certificate — this is the agent's own attestation, verified against the agent's domain rather than the registry's.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

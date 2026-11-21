@@ -101,11 +101,9 @@ The Insurer's Chief Risk Officer (CRO) benefits from verification.
 
 **Where each fits:** State filing searches such as SERFF are the official record of what an insurer filed, and a regulator or analyst researching a company should start there. They do not confirm that the printed certificate on the table matches what the actuary signed, and they follow the filing cycle. Live Verify answers that narrower question for whoever is holding the document, and the public filing remains the place to see the wider regulatory picture.
 
-
 ---
 
 _[Content merged from: ltc-insurance-reserve-certifications]_
-
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="ltc-res"></span>
@@ -197,11 +195,9 @@ The Insurer's Chief Actuary benefits from verification.
 
 **Where each fits:** The state's public search is the right reference for filings while its systems hold them. Long-term care blocks can run for decades, through acquisitions and system migrations, and the certificate in the file is often what survives. Live Verify lets a later reader confirm that the actuary or insurer still stands behind that exact text, complementing the state record instead of substituting for it.
 
-
 ---
 
 _[Content merged from: workers-comp-reserve-certifications]_
-
 
 ## What are Reserve Certifications?
 
@@ -318,10 +314,10 @@ Actuaries certify the adequacy of insurance reserves under regulatory standards.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer or actuary's hashes and status changes plus structured metadata (reserve amounts, claim IDs, valuation dates, actuary credentials) — never claimant names, medical details, or employer identities — providing non-repudiation of the reserve certification and amounts and an audit trail state insurance commissioners and the DOL can inspect.
-
 ## Rationale
 
 Reserve certifications are the "Deep Liability" records of the economy. By turning technical attestations into verifiable digital bridges, we protect the stability of corporations and ensure that the "Promise to Pay" for injured workers is backed by cryptographic proof.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

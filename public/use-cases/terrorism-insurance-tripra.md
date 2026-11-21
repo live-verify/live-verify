@@ -119,10 +119,10 @@ Insurance carriers issue TRIPRA terrorism coverage and are regulated by the UK F
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the carrier's hashes and status changes plus structured metadata (coverage limits, premiums, policy numbers, effective dates) — never property owner names, addresses, or tenant details — providing non-repudiation of terrorism coverage issuance.
-
 ## Rationale
 
 Terrorism insurance is the "Backstop of Urban Finance." By turning specialty disclosures into verifiable digital bridges, we ensure that the multi-billion dollar capital markets are based on the digital truth of the policy, protecting both city skylines and global investors.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

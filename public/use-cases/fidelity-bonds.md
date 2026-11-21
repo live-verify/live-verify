@@ -118,10 +118,6 @@ Travelers underwrites employee fidelity bonds and crime insurance for employers.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the surety's hashes and status changes plus structured metadata (bond amounts, coverage types, ERISA compliance flags, effective dates, bond types) — never principal company names or covered employee lists — providing non-repudiation of the bond and an audit trail state regulators and the DOL can inspect.
-
 ## Compared With Broker Letters
 
 | Feature | Live Verify | Manual Broker Letter | Scanned PDF |
@@ -132,3 +128,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Cryptographic.** Binds the $ limit. | **Vague.** "They are bonded." | **Vulnerable.** |
 
 **Where each fits:** A broker's letter comes with a person who can answer follow-up questions, and for an unusual bond that conversation is worth the wait. It takes days and happens in office hours. A procurement team checking many bidders against a deadline, or a client in another time zone, can use Live Verify to confirm that the surety stands behind each certificate and its limit, and then call the broker only where something needs explaining.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

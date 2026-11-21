@@ -109,11 +109,6 @@ Monzo Bank, a regulated neo-bank, is authorized by the FCA to issue verified ban
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the bank's hashes and status changes plus structured metadata (account number, account status, opening date) — never customer name, balance, or transaction history — providing non-repudiation of the account and an audit trail visa officers and lenders can inspect.
-
-
 ## Compared With Open Banking / APIs
 
 | Feature | Live Verify | Open Banking (Plaid/Yodlee) | App-to-App |
@@ -129,3 +124,6 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where Live Verify is the only option:** In markets without Open Banking infrastructure — much of Africa (M-Pesa, Airtel Money), Southeast Asia (GCash, GrabPay, Dana), Latin America outside Brazil (Mercantil, Nequi, Ualá), and parts of South Asia — there is no Plaid equivalent. A Kenyan freelancer proving income to a Nairobi landlord, or a Filipino worker providing bank proof for a visa application, has no API-based verification channel. The neobank publishing hashes on its own domain is the only verification path that works at the paper-and-phone level. These neobanks also have a strong issuer incentive: they are competing for legitimacy against traditional banks and *want* their statements to be independently verifiable.
 
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

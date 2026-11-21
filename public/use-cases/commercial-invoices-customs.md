@@ -113,10 +113,6 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the exporter's hashes and status changes plus structured metadata (invoice number, HS codes, invoice value, country of origin, date of issuance) — never exporter/importer names or commercial terms — providing non-repudiation of the commercial invoice issuance.
-
 ## Compared With Customs Single Windows (ACE)
 
 | Feature | Live Verify | ACE Portal (Gov) | Private EDI |
@@ -127,3 +123,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Freshness** | **Real-time.** Shows "Cancelled" status. | **Laggy.** Updates take 24-48 hours. | **Live.** |
 
 **Where each fits:** the customs single window is the official record of what was declared, and EDI serves trading partners who are already connected. A bank, carrier or buyer outside those systems sees only the invoice. Live Verify lets them confirm the exporter issued it with those line items and has not cancelled it. That shows the exporter stands behind the document, and can also be compared with what was declared to customs.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

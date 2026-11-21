@@ -114,11 +114,6 @@ Radiology departments issue medical imaging reports under health professional re
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the radiology group's hashes and status changes plus structured metadata (patient accession numbers, study types, radiologist names, study dates, report status) — never sensitive clinical details — providing non-repudiation of the imaging report.
-
-
 ## Compared With Patient Portals / CD-ROMs
 
 | Feature | Live Verify | Patient Portal (MyChart) | CD-ROM / PACS Link |
@@ -129,3 +124,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires 2FA and login. | **Very Slow.** |
 
 **Where each fits:** A patient portal is the best way for patients to see their own records, and where two clinicians share a records system or an image exchange the specialist should use it, not least because it gives access to the images themselves. Often the specialist is in a separate practice and the patient arrives with a printed report. Live Verify lets the specialist confirm the imaging centre issued that report, without the patient opening their whole history; the images still travel by the usual routes.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

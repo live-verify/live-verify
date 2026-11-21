@@ -112,11 +112,6 @@ The Homeowner (Insured) benefits from verification.
 **Agency Networks:** (Hosting verified hashes for local agents).
 **Insurtech Platforms:** (Lemonade, Hippo).
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurance company's hashes and status changes plus structured metadata (policy number, insured name, coverage form, dwelling limit, personal property limit, personal liability limit, deductible, policy period) — never plaintext property address — providing non-repudiation of the homeowners insurance declarations page.
-
-
 ## Compared With Broker Portals
 
 | Feature | Live Verify | Broker Portal | Scanned PDF / Paper |
@@ -128,11 +123,9 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** A broker or carrier portal is the right place for the policyholder and agent to manage cover, and a lender with a direct feed from the carrier will rely on that. Landlords, property managers, lawyers and smaller lenders deal with many insurers and have logins with none. Live Verify lets them confirm that the insurer stands behind the declarations page they were given, and the portal continues to serve the people who hold accounts.
 
-
 ---
 
 _[Content merged from: homeowners-renters-claims]_
-
 
 ## What is a Property Claim?
 
@@ -219,10 +212,6 @@ The Homeowner / Renter benefits from verification.
 **Independent Adjusting Firms:** (e.g., Crawford & Co, Eberl).
 **Estimating Software:** (e.g., Xactimate/Verisk - hosting the underlying data hashes).
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurance company's hashes and status changes plus structured metadata (claim ID, insured name, property address, damage category, estimated replacement cost, adjuster name and ID, restoration contractor name, loss date, estimate date) — never plaintext claim details or settlement amounts — providing non-repudiation of the property claim estimate.
-
 ## Compared With CLUE Reports (LexisNexis)
 
 | Feature | Live Verify | CLUE Report (LexisNexis) | Scanned PDF Estimate |
@@ -234,11 +223,9 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Where each fits:** CLUE reports give underwriters a multi-year loss history across insurers, which a single document cannot provide, and they will remain part of underwriting. They summarise claims and take time to update. A restoration contractor, public adjuster or buyer who needs the approved scope of one claim can use Live Verify to confirm that the insurer issued the estimate as written. The loss-history database and the verified estimate answer different questions.
 
-
 ---
 
 _[Content merged from: homeowners-renters-insurance]_
-
 
 ## What is Homeowners Insurance?
 
@@ -341,10 +328,6 @@ Aviva, a regulated home and contents insurer, is authorized by the FCA to issue 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurance company's hashes and status changes plus structured metadata (policy number, insured name, coverage form, dwelling limit, personal property limit, personal liability limit, deductible, policy period, renewal date) — never plaintext property or personal information — providing non-repudiation of the homeowners insurance policy document.
-
 ## Compared With ACORD Data Feeds
 
 | Feature | Live Verify | ACORD Data Pool (IVANS) | Scanned PDF |
@@ -355,3 +338,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **User Control** | **High.** Homeowner shares only what is needed. | **Low.** Lenders see the full data stream. | **High.** |
 
 **Where each fits:** Where agency and lender are both on a network such as IVANS, policy data moves automatically, and that is the efficient path. A closing brings together a buyer, a seller, a title company and sometimes a private lender, not all of whom are connected. Live Verify lets any of them confirm the evidence-of-insurance page against the insurer's own domain, with the industry data exchange carrying on as before.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

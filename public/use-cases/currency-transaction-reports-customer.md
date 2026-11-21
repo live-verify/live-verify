@@ -167,11 +167,6 @@ Cash generated from trade-based laundering enters the banking system via deposit
 - **US:** FinCEN has issued specific advisories linking CTR patterns to TBML (FIN-2006-A003, updated 2020); CBP Trade Transparency Units cross-reference CTR data with customs declarations to identify pricing anomalies
 - **Emerging:** Trade finance digitisation (blockchain-based letters of credit, e-bills of lading) may provide new verification points — Live Verify could authenticate trade documents that are currently vulnerable to TBML manipulation
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the bank's hashes and status changes plus structured metadata (financial institution name, filing date, amount, FinCEN filing reference ID, transaction type) — never plaintext or sensitive personal information — providing non-repudiation of the CTR filing and an immutable audit trail for compliance inspection.
-
-
 ## Compared With Internal Bank Logs
 
 | Feature | Live Verify | Bank Internal Log | Paper Receipt |
@@ -182,3 +177,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Portability** | **High.** Verified PDF works for any 3rd party. | **None.** Requires bank intervention. | **High.** |
 
 **Where each fits:** the bank's internal compliance log is the record regulators rely on, and it is properly closed to customers and outsiders. A customer who later has to show a tax auditor, lawyer or another bank where a large cash transaction went cannot point to that log. Live Verify lets them present a receipt the bank stands behind, naming them and the amount, which the third party can check on the bank's domain while the internal record stays internal.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

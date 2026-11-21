@@ -109,11 +109,6 @@ Schedules and administers USCIS immigration interviews.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive USCIS's hashes and status changes plus structured metadata (receipt number, applicant name, form type, interview date and time, interview location, appointment status, notice date) — never plaintext case details — providing non-repudiation of the immigration interview notice.
-
-
 ## Compared With USCIS Case Status Online
 
 | Feature | Live Verify | Case Status Online (Web) | Paper Notice |
@@ -124,3 +119,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Trust Anchor** | **Domain-Bound.** Bound to `uscis.gov`. | **High.** Direct DB access. | **Medium.** |
 
 **Where each fits:** USCIS Case Status Online is the applicant's authoritative view of their case and should stay their first reference. It reports a status rather than who is due where and when, and entering a receipt number is impractical for a guard admitting a queue of visitors. Live Verify lets the guard, or an employer or school asked to excuse an absence, confirm the notice itself is as the agency issued it. The case-status site continues to serve applicants and their lawyers.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

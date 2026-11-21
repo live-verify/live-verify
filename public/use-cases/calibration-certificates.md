@@ -155,10 +155,6 @@ The tool owner (second party) may hand the verified document to various third pa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the lab's hashes and status changes plus structured metadata (instrument IDs, measurement results, calibration dates, uncertainty values) — never plaintext (client company names, proprietary measurement techniques) — providing non-repudiation of the calibration certificate.
-
 ## Compared With Physical Tamper Seals
 
 | Feature | Live Verify | Lead/Plastic Wire Seal | Sticker (Hologram) |
@@ -180,3 +176,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Connectivity needed** | **Yes, for the check.** The sticker can be read without a connection; checking it takes one small web request. | **Yes.** Requires server/database access. | **None.** |
 
 **Where each fits:** Asset management software remains the system of record for calibration schedules, recall lists and audit history, and nothing here replaces it. Its limit is at the point of use, where an inspector looking at a tool would need a login and a search to see its status, and where certificates arrive from several labs on different platforms. Live Verify fills that gap by letting anyone check the certificate or sticker text against the issuing lab's domain.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

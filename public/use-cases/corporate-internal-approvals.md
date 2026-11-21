@@ -159,12 +159,12 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 - [B2B Credit Control](view.html?doc=b2b-credit-control) — credit-limit approvals and trade references
 - [Professional Approvals & Sign-Offs](view.html?doc=professional-approvals) — approvals where a qualified professional signs off a work product
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the approver's hashes and status changes plus structured metadata (approval ID, document type, approval date, approver name and title, approval status) — never document contents or requestor identities — providing non-repudiation of authorization and an audit trail for internal controls and financial audits.
-
 ## Further Derivations
 
 1. **Dual-control / four-eyes approvals** — Records that bind *both* required approvers, so a recipient can confirm a high-value item carried a genuine second signature and was not single-approved in breach of policy.
 2. **Capital-expenditure approvals** — Capex authorizations with committee references and phased release conditions, verifiable by the vendor at each release gate.
 3. **Change-advisory-board (CAB) approvals** — Production-change/deployment approvals tied to a change ticket, verifiable by auditors and operations as part of ITGC evidence. When the approval is re-checked automatically by the deployment pipeline at execution time (not just read by a human), see [Release Approval Execution Gates](release-approval-execution-gates.md).
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

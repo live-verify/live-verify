@@ -120,11 +120,6 @@ Self-authorized — this is a sovereign body whose authority derives from statut
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the Fish and Wildlife Service's hashes and status changes plus structured metadata (permit number, permittee name, location, authorized species, take limit, mitigation requirements, permit expiration date) — never plaintext project details — providing non-repudiation of the take permit.
-
-
 ## Compared With ECOS Database
 
 | Feature | Live Verify | ECOS / FWS Public Portal | Paper Permit |
@@ -135,3 +130,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Connectivity needed** | **Yes, for the check.** The paper permit can be read on site without a connection; checking it takes one small web request. | **Yes.** Requires a data connection. | **None.** |
 
 **Where each fits:** The Fish and Wildlife Service's public portal is the complete record of a permit, including history and conditions, and agency staff and consultants at a desk should use it. On a job site the question is narrower: whether the paper permit in the site office is the one the agency issued. Live Verify lets an inspector, contractor or concerned neighbour settle that from the document itself, and the portal stays the place for anything more detailed.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -113,10 +113,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Sanctions compliance is the "First Line of Financial Defense." By turning attestations into verifiable digital bridges, we ensure that global trade is transparent and that "Clean Status" is backed by the real-time cryptographic truth of the world's most critical risk databases.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the screening provider's hashes and status changes plus structured metadata (subject name, datasets searched, screening date, dataset version IDs) — never plaintext or sensitive personal information — providing non-repudiation of the sanctions screening attestation.
-
 ## Jurisdictional Equivalents
 
 | | UK | US | EU |
@@ -192,7 +188,6 @@ Sanctions screening for proliferation financing requires different capabilities 
 - **EU:** *EU Dual-Use Regulation (2021/821)* — recast regulation expanded controls on cyber-surveillance technology; national licensing authorities in each member state.
 - **FATF:** 2020 guidance on counter-proliferation financing specifically addresses screening requirements — institutions must go beyond name matching to identify proliferation-indicative trade patterns.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the document.
-
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

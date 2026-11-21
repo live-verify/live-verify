@@ -115,10 +115,6 @@ Environmental consultants are accredited to conduct phase I and phase II site as
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the environmental consultant's hashes and status changes plus structured metadata (property addresses, assessment types, ASTM standards, primary findings, lead assessor names and licenses, report dates) — never detailed remediation costs or liability exposure details — providing non-repudiation of the assessment and an audit trail environmental regulators and lenders can inspect.
-
 ## Compared With Environmental Data Portals
 
 | Feature | Live Verify | EDR / Environmental Data Portals | Scanned PDF Report |
@@ -129,3 +125,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** Scan the report. | **Slow.** Requires subscription and manual search. | **Instant.** |
 
 **Where each fits:** EDR and similar data services do a job a report cannot do for itself: they assemble the public-record history of a site and its surroundings, and consultants rely on them to write an assessment in the first place. The assessment adds a professional opinion, and that opinion is what gets passed to lenders, buyers and their lawyers as a PDF. Live Verify lets those readers confirm the consultant stands behind the exact findings they were sent, while the database search remains the raw material underneath.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

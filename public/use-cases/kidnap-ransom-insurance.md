@@ -110,10 +110,6 @@ Hiscox, a regulated specialty insurer, is authorized by the FCA to issue verifie
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the insurer's hashes and status changes plus structured metadata (aggregate ransom limits, response firm names, effective dates, covered classes) — never insured company names or specific executive identities — providing non-repudiation of the policy and an audit trail government agencies and international regulators can inspect.
-
 ## Compared With Secure Portals
 
 | Feature | Live Verify | Secure Underwriter Portal | Scanned PDF |
@@ -124,3 +120,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Freshness** | **Real-time.** Shows if cancelled *today*. | **Live.** | **Static.** |
 
 **Where each fits:** The underwriter's secure portal is where the policy is administered and where the full terms and history live, and the risk manager will keep using it. In a crisis the people in the room may have only the confirmation letter from the safe and a phone. Live Verify lets them confirm the letter against the underwriter's domain without a login, and the portal and the response firm's own procedures take over from there.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -111,10 +111,6 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the researcher's or institution's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing the lab notebook or experimental data.
-
 ## Compared With Blockchain (Ocean Protocol)
 
 | Feature | Live Verify | Science Blockchain (Ocean/DeSci) | ELN Audit Log |
@@ -125,3 +121,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Cost** | **Low.** Standard web infra. | **Medium.** Gas fees and storage costs. | **High.** Enterprise license fees. |
 
 **Where each fits:** An electronic lab notebook with its audit log is the working record inside an institution, and shared ledgers can suit consortia whose members have all agreed to run the same infrastructure. Much collaboration is less formal: a researcher sends a PDF summary to a colleague elsewhere who has no access to the originating system. Live Verify lets that colleague confirm the institution stands behind the summary as sent, and the notebook stays the authoritative source behind it.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

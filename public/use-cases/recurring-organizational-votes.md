@@ -348,4 +348,4 @@ Identity escrow provides:
 - Can't retaliate for survey responses
 - Third-party escrow strengthens legal protection
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the organization's hashes and status changes plus structured metadata (election ID, vote count, result announced date) — never individual ballots, voter identities, or voting patterns — providing non-repudiation of the election and an audit trail members can inspect.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

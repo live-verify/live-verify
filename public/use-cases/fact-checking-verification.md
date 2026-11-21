@@ -110,10 +110,6 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the fact-checker's hashes and status changes plus structured metadata (article text digests, author names, publication dates, fact-checker organizations, source timestamps) — never source identities, unnamed source locations, or attribution details — providing non-repudiation of the fact-check verdict and an audit trail regulators and historians can inspect.
-
 ## Compared With Community Notes (X)
 
 | Feature | Live Verify | Community Notes (Social) | Blockchains (Numbers Protocol) |
@@ -124,3 +120,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** Verified at publication. | **Slow.** Takes hours/days for a note to appear. | **Variable.** |
 
 **Where each fits:** Community Notes adds context from many contributors, directly where a post is being read, and that is something a published fact-check cannot do. Content-provenance ledgers likewise answer a separate question about where a piece of media originated. Live Verify addresses a narrower point: a reader who meets a quoted or screenshotted fact-check can confirm that the named organisation published exactly that text. It says nothing about whether the verdict is right, and it sits comfortably beside crowd notes and provenance tools.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

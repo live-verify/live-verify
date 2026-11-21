@@ -453,10 +453,6 @@ Phone calls are one channel among many. The same scams — pig-butchering, autho
 
 For the full channel-agnostic taxonomy of impersonation scams and how Live Verify applies to each, see: [Impersonation Scam Verification](view.html?doc=impersonation-scam-verification).
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the agency's hashes and status changes plus structured metadata (caller name, badge number, case reference number, authorization date and time, expiration time) — never plaintext call details — providing non-repudiation of the inbound call authorization.
-
 ## Further Derivations
 
 1. **Video call verification** — For government video appointments (immigration interviews, remote court appearances) or commercial video calls (telehealth, financial advisor), an SMS verification confirming the video link is genuine and who will be on the other end.
@@ -466,3 +462,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 ## See Also
 
 - [Anti-Vishing: Real-Time Call Verification](../../docs/anti-vishing-real-time-call-verification.md) — the complement to inbound call verification: how organizations authenticate their outbound calls to customers using RCS-delivered Live Verify claims
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

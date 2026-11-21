@@ -123,7 +123,6 @@ In the US, UCC Article 7 governs warehouse receipts. An Live Verify system helps
 
 _[Content merged from: warehouse-receipts-storage]_
 
-
 ## What are Warehouse Storage Receipts?
 
 In the logistics and retail industries, a Warehouse Receipt is the proof that goods (e.g., 500 pallets of electronics or 10,000 lbs of grain) are physically present in a specific facility. These documents are often used as Collateral for bank loans (Inventory Financing).
@@ -226,10 +225,6 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Warehousing is the "Physical Bank" of the supply chain. By turning receipts into verifiable digital bridges, we create a transparent "Chain of Custody" that turns idle inventory into a trusted, bankable financial asset.
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the warehouse operator's hashes and status changes plus structured metadata (receipt number, warehouse location, commodity details, date issued) — never plaintext or sensitive personal information — providing non-repudiation of issuing the warehouse receipt.
-
-### The Double-Pledge Problem
-
-A warehouse receipt for 500 metric tons of copper cathodes is a bearer-like instrument: whoever holds it can pledge it as collateral. The fraud pattern is simple — the commodity owner pledges the receipt to Bank A, then presents a copy (or a subtly altered version showing different lot numbers) to Bank B. Both banks believe they have a secured interest in the same copper. When the owner defaults, the banks discover they are fighting over one pile of metal with two claims. This is not hypothetical: the 2014 Qingdao port scandal involved billions of dollars in multiply-pledged metal receipts. A verifiable receipt with real-time status — showing "PLEDGED - JPMorgan" the moment Bank B tries to verify — stops the double-pledge at the point of the second transaction, before the second bank extends credit.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

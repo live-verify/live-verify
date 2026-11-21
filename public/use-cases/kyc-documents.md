@@ -150,10 +150,6 @@ AI-generated deepfake documents and synthetic identities are emerging as the nex
 - **Singapore:** MAS has issued guidance on technology risks in digital onboarding including deepfake detection requirements
 - **Biometric countermeasures:** India's Aadhaar, Singapore's SingPass, EU's eIDAS 2.0 — government-issued digital identities provide stronger assurance than document-based KYC against cyber fraud
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the bank or KYC provider's hashes and status changes plus structured metadata (verification dates, document types, PEP status, sanctions check results) — never plaintext such as customer names or passport numbers — providing non-repudiation of performing KYC verification.
-
 ## Compared With ID Verification APIs (Onfido)
 
 | Feature | Live Verify | KYC API (Jumio/Onfido) | Scanned PDF ID |
@@ -165,11 +161,9 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 **Practical conclusion:** when government digital identity or direct KYC APIs are available, they should dominate. Live Verify is most credible as a portability layer for a vetted summary traveling outside those integrations, not as the primary architecture for identity verification itself.
 
-
 ---
 
 _[Content merged from: kyc-proof-of-address]_
-
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="address"></span>
@@ -279,3 +273,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Coverage** | **Universal.** Works for any small utility with a URL. | **Limited.** Only for people with credit records. | **Universal.** |
 
 **Where each fits:** Address verification services work well for people with an established credit file, and a lender that already uses one can clear most applicants quickly that way. Applicants with little or no credit history, such as younger people and recent arrivals, are often not found, and they fall back on a utility or mobile bill. Live Verify lets the lender confirm that the utility issued that bill with that name and address, so it complements the automated check for the cases it cannot reach.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

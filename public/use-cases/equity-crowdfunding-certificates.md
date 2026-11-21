@@ -116,11 +116,6 @@ Crowdcube issues equity crowdfunding investment certificates for UK startups.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the platform's hashes and status changes plus structured metadata (investor ID, investment amount, funding round date, security class) — never investor name, personal financial details, or cap table information — providing non-repudiation of the equity certificate issuance.
-
-
 ## Compared With Cap Table Software (Carta)
 
 | Feature | Live Verify | Carta / Pulley (Platform) | Scanned PDF |
@@ -131,3 +126,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Integrity** | **Binds Content.** Protects the share count. | **Data-Only.** | **Vulnerable.** |
 
 **Where each fits:** Cap-table platforms such as Carta and Pulley are the working record of who owns what, and a company and its existing investors should keep managing holdings there. A prospective buyer, a bank or an estate executor usually has no invitation to the platform, and the platform a company uses can change over the years. Live Verify lets that outside party confirm the transfer agent or issuer stands behind the certificate they were shown, without needing an account.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

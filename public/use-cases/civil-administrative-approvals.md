@@ -153,11 +153,12 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 - [Research Grants and Funding](view.html?doc=research-grants-funding) — grant-award documents in depth
 - [Corporate Internal Approvals](view.html?doc=corporate-internal-approvals) and [Professional Approvals & Sign-Offs](view.html?doc=professional-approvals) — the private-sector siblings
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the administrative authority's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the approval document.
 ## Further Derivations
 
 1. **Condition-schedule binding** — The full schedule of conditions is bound into the verified record, so a condition-stripped copy fails verification.
 2. **Appeal-outcome tracking** — The decision record updates to reflect appeal status (upheld, varied, overturned), so a relying party always sees the current legal position.
 3. **Grant-award draw-down verification** — Award records that funders and auditors verify at each draw-down stage against the approved amount and purpose.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

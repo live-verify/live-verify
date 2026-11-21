@@ -205,34 +205,6 @@ Aggregated absence certificates across multiple registries: "Clear across all 50
 **Absence Escrow**
 Transactions that complete only if absence status remains clear through closing date.
 
+## Independent Record (Optional)
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the document.
-
-**Jurisdictional Requirements (Banking & Financial Services)**
-
-Banking regulators vary widely:
-
-**US Banks (OCC, FDIC, Federal Reserve):** Do not mandate external witnessing; verification via bank's own systems is sufficient for domestic use.
-
-**International Banks / EU Banks (PSD2, Banking Regulation):** May require independent witness firms for cross-border transactions, especially for:
-- Open Banking consent records (PSD2 compliance)
-- Large cross-border transfers (suspicious activity reporting)
-- Cryptocurrency/stablecoin gateway documents
-
-**Non-Bank Financial Institutions (Credit Unions, FinTechs):** May voluntarily use witness firms to satisfy enterprise customers' audit requirements, even where not mandated by regulators.
-
-**Jurisdictional Requirements (International/Cross-Border)**
-
-Documents crossing national borders require multi-jurisdictional witnessing:
-
-**Treaty Partners:** When documents are shared between treaty partners (e.g., US-EU, Canada-US), witnessing firms must:
-- Be located in neutral jurisdictions recognizable to both parties
-- Comply with both nations' discovery/transparency requirements
-- Maintain audit trails accessible to both tax/regulatory authorities
-
-**Non-Treaty Jurisdictions:** For documents involving non-OECD nations or jurisdictions with weak international cooperation frameworks:
-- Use witnesses from OECD member states
-- Deploy blockchain rollups to public ledgers (e.g., Ethereum) for immutable proof
-- Consider additional apostille/certification requirements under the Hague Apostille Convention
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

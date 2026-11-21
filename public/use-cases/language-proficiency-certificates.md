@@ -109,10 +109,6 @@ Language proficiency tests like IELTS are accredited and regulated by Ofqual in 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the testing organization's hashes and status changes plus structured metadata (test dates, score ranges, section breakdowns, test center IDs) — never plaintext such as test taker names — providing non-repudiation of issuing the language proficiency certificate.
-
 ## Compared With Official Score Reports (Electronic)
 
 | Feature | Live Verify | Official Electronic Report | Scanned PDF / Paper |
@@ -123,3 +119,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Cost** | **Low.** Standard web infra. | **Medium.** Fees of $20+ per report are standard. | **None.** |
 
 **Where each fits:** Official electronic score reports sent directly from the testing body are what many admissions offices are set up to receive, and where an institution requires them they remain the route to use. The paper or PDF score report is what a candidate shows to employers, smaller schools, or institutions abroad that have no reporting arrangement with the test provider. Live Verify lets those readers confirm the report against the testing body's domain, and direct reporting continues for the institutions that depend on it.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

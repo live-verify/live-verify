@@ -198,10 +198,6 @@ The issuer-generated random salt line (printed on the warrant but not derivable 
 
 - [Restraining Orders and Protective Orders](view.html?doc=restraining-orders-protective-orders) — Another court-order family where civilian verifiers are outside the native justice systems
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the court's hashes and status changes plus structured metadata (court jurisdiction, case number, issuing judge, address for search, date of issuance, expiration date) — never plaintext or sensitive personal information — providing non-repudiation of the search warrant and an audit trail prosecutors can inspect.
-
 ## International Landscape
 
 Warrant requirements exist in most democracies, making this use case globally applicable:
@@ -212,3 +208,7 @@ Warrant requirements exist in most democracies, making this use case globally ap
 - **Australia:** Search warrants issued under the Crimes Act 1914 (federal) and state equivalents.
 
 In authoritarian regimes, warrants are often dispensed with entirely — or fabricated as a veneer of legality. In either case, the document's verifiability (or absence) becomes a civil liberties marker: a genuine warrant from an independent court, verifiable against that court's domain, is evidence that due process occurred. A 404 is evidence that it didn't.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

@@ -144,11 +144,9 @@ The Homeowner / Resident benefits from verification.
 
 Utility worker verification is about "Personal Safety at the Door." By allowing a resident to instantly cross-reference a physical badge with a digital corporate record, it neutralizes the primary weapon of home-invasion scammers: the fake uniform.
 
-
 ---
 
 _[Content merged from: meter-reader-surveyor-verification]_
-
 
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 2px solid #333; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
   <div style="background: #004a99; color: #fff; padding: 15px; text-align: center; display: flex; align-items: center; justify-content: center;">
@@ -266,11 +264,6 @@ Meter readers and field technicians have brief, high-volume interactions — 30-
 
 For longer engagements (e.g., a surveyor spending hours on a property boundary dispute), full credentials may be appropriate. But for routine meter reads, privacy-preserving IDs suffice.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the utility's hashes and status changes plus structured metadata (worker ID, duty status, dates) — never plaintext or sensitive personal information — providing non-repudiation of issuing field worker credentials.
-
-
 ## Compared With Uniforms / Phone Calls
 
 | Feature | Live Verify | Uniform & Clipboard | Calling Dispatch |
@@ -281,3 +274,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Freshness** | **Real-time.** Shows if banned *today*. | **Static.** | **N/A.** |
 
 **Why this remains strong:** The threshold moment is the real workflow. Residents decide to open their gate or door in seconds and often do not want to make a phone call while a stranger waits on the porch. Dispatch and company systems remain primary in the background, but the badge is the visible surface at the decision point. That makes this a strong complementary doorstep-verification case.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

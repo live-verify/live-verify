@@ -141,6 +141,6 @@ Trust registration is primarily a tax transparency measure. Trusts are a dominan
 - **Offshore jurisdictions:** Jersey, Guernsey, Cayman, BVI trust registers — increasing transparency requirements under FATF/EU/UK pressure; Economic Substance Requirements
 - **OECD:** Mandatory Disclosure Rules for CRS Avoidance Arrangements (MDR) — specifically targets trust structures used to circumvent CRS
 
-## Jurisdictional Witnessing (Optional)
+## Independent Record (Optional)
 
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive HMRC's hashes and status changes plus structured metadata (trust name, UTR, date of registration, trust type, date of settlement, lead trustee name, number of beneficiaries, annual declaration status) — never individual beneficiary identities or full beneficial ownership details — providing non-repudiation of HMRC's registration confirmations.
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).

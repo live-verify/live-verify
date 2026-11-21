@@ -111,10 +111,6 @@ Cold chain logistics providers are regulated by food safety authorities to ensur
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Jurisdictional Witnessing (Optional)
-
-An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the issuer's hashes and status changes plus structured metadata (key identifiers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the temperature record it issued.
-
 ## Compared With IoT Dashboards
 
 | Feature | Live Verify | IoT Cloud (Live Tracking) | Paper Strip Chart |
@@ -129,3 +125,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 ### When Edited Data Reaches Patients
 
 The consequences are not abstract. In 2023, a US pharmacy received a shipment of insulin that had experienced a 6-hour temperature excursion during a connecting flight. The carrier's compliance report was edited to remove the excursion. The insulin was dispensed to diabetic patients. Compromised insulin does not announce itself — it simply loses potency gradually, and the patient's blood sugar climbs without explanation. For vaccines, the failure mode is worse: a spoiled vaccine produces no immune response, but the patient believes they are protected. A verifiable cold chain report, bound to the sensor provider's domain, means the receiving pharmacy or hospital can confirm the data was not altered after the sensor recorded it. The carrier cannot silently erase the excursion that should have triggered a rejection.
+
+## Independent Record (Optional)
+
+An independent witness can keep a dated record that this document was verified, in case the issuer later withdraws it. The witness holds the hash and never the text. It can be [a witness the person checking chooses](../witnessing.html) or [a witness the issuer contracts for the holder's benefit](../witnessing-issuer-fed.html).
