@@ -192,15 +192,19 @@ Government issuer — California state appraisal board is a government agency wi
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Review Sites (Yelp / Google)
+## Where Each Fits: Live Verify, Review Sites and the Physical ID Card
 
-| Feature | Live Verify | Review Sites (Yelp/Google) | Physical ID Card |
+Review sites such as Yelp and Google collect customers' opinions of a firm's work; the physical ID card is what the visitor carries. They answer different questions from Live Verify: a review says whether past customers were happy with a firm, while a Live Verify check on the badge says whether the regulator, utility or firm stands behind this person's credential today. All three can be used together.
+
+| | Review sites (Yelp, Google) | Physical ID card alone | Live Verify on the badge |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to regulatory authority. | **Social-Bound.** Trusted only via crowd opinion. | **Zero.** Easily forged. |
-| **Integrity** | **Cryptographic.** Binds face to registration status. | **Vulnerable.** Reviews can be faked/bought. | **None.** |
-| **Speed** | **Instant.** 5-second scan at the door. | **Slow.** Requires reading multiple reviews. | **Instant.** |
-| **Safety Data** | **High.** Shows current registration status and authority. | **None.** Only shows quality of work. | **N/A.** |
-| **Access Control** | **Real-time gate.** Homeowner can refuse entry immediately. | **Retroactive.** Only useful after bad experience. | **None.** Already at the door. |
+| **Who can check** | Anyone, usually before booking. | Anyone at the door, by eye. | The homeowner at the door, with Live Verify on their phone. |
+| **What the checker gets** | Other customers' opinions of the firm's work, which may include fake or paid reviews. | A name, photo and logo, which may be forged. | Confirmation that the issuer stands behind this exact credential, including registration and current standing. |
+| **What the visitor shares** | Nothing; reviews are about the firm. | The card. | Only the badge they chose to show. |
+| **Reach** | Wherever the platform operates and the firm has reviews. | Anywhere, but unchecked. | Global in principle: any regulator, utility or firm, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Free, but takes time to read and weigh reviews. | Immediate. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection at the door. |
+| **What it needs** | Enough genuine reviews to be meaningful. | Nothing. | The issuer to publish hashes, and Live Verify-aware software on the homeowner's device. No issuer of this kind does so yet. |
+| **Best suited to** | Choosing a firm before booking a survey. | A first look at who is at the door. | Deciding whether to let this particular person in. |
 
 **Where each fits:** Review sites remain the place to judge a firm's quality of work before booking a survey, and the physical ID card is still what the visitor carries. Neither can tell a homeowner at the door whether this particular person is currently registered and in good standing, and a homeowner has only seconds to decide. Live Verify fills that gap by letting the badge be checked against the regulator's or utility's domain before entry; the earlier research and the card itself keep their roles.
 

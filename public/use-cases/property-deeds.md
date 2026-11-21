@@ -284,16 +284,21 @@ HM Land Registry maintains the UK property register and issues property deed reg
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Blockchain (NFTs)
+## Where Each Fits: Live Verify, Blockchain Title Records and the Paper Deed
 
-| Feature | Live Verify | Blockchain (NFT) | Traditional Paper |
+In the US, deeds are recorded with the county recorder, and the recorded instrument is the legal record of title; other countries keep national or regional land registers. Some projects have proposed recording title on a blockchain, for example as NFTs. These are not really competitors: the recorder's record is the legal foundation, a blockchain title system would need new law to carry legal weight, and Live Verify only lets someone check a copy of a deed against the recorder's domain.
+
+| | Blockchain title record (NFT) | Live Verify on the deed | Paper deed alone |
 | :--- | :--- | :--- | :--- |
-| **Legal Standing** | **High.** Binds to existing laws. | **Low.** Courts don't yet recognize NFTs as deeds. | **Standard.** |
-| **Accessibility** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Technical.** Requires crypto-wallets. | **Visual.** |
-| **Implementation** | **Cheap.** API over existing DB. | **Expensive.** Requires new legal framework. | **Manual.** |
-| **Trust Anchor** | **The County.** (Elected Official). | **The Network.** (Decentralized). | **The Paper.** |
+| **Who can check** | Anyone with crypto-wallet or blockchain tools. | Anyone handed a copy, with Live Verify on their device. | Anyone, by eye. |
+| **What the checker gets** | A token record on a ledger, whose legal standing depends on the jurisdiction recognising it. | Confirmation that the county recorder stands behind this exact deed text, as recorded, and any later status it shows. | The document as presented. |
+| **What the owner shares** | A public on-chain record. | Only the copy they chose to hand over. | The paper. |
+| **Reach** | Only where law recognises it as title. | Global in principle: any recorder or registry, in any country, that publishes hashes on its own domain. | Wherever deeds are recorded on paper. |
+| **Speed and cost** | Needs a new legal framework and specialist tools. | A few seconds per check: one web lookup, with no fee to the standard. | Visual inspection. |
+| **What it needs** | Legislation, and wallets or tools for those checking. | The recorder to publish hashes, and Live Verify-aware software on the checker's device. No recorder does this yet. | Nothing. |
+| **Best suited to** | Jurisdictions that choose to legislate for ledger-based title. | Checking a copy of a recorded deed. | The legal record itself, together with the recorder's index. |
 
-**Where each fits:** The recorder's office and the paper deed remain the legal foundation of title, and nothing here changes that. Ledger-based title systems may suit jurisdictions that choose to legislate for them. Live Verify is a modest addition to the existing arrangement: it lets someone holding a copy of a deed confirm it against the county's own domain, without new law or special software. For ordinary homeowner privacy, a separate short-lived ownership-proof use case should sit on top of this permanent title layer rather than reusing the permanent deed artifact directly.
+**Where each fits:** The recorder's office and the paper deed remain the legal foundation of title, and nothing here changes that. Ledger-based title systems may suit jurisdictions that choose to legislate for them. Live Verify is a modest addition to the existing arrangement: it lets someone holding a copy of a deed confirm it against the county's own domain, with no new law, though the checker does need Live Verify-aware software. For ordinary homeowner privacy, a separate short-lived ownership-proof use case should sit on top of this permanent title layer rather than reusing the permanent deed artifact directly.
 
 ## See Also
 

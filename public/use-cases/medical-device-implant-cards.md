@@ -117,14 +117,20 @@ Medical device manufacturers issue implant cards under healthcare products regul
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With UDI Barcodes
+## Where Each Fits: Live Verify and UDI Barcodes
 
-| Feature | Live Verify | GS1 / UDI Barcode | Physical Implant Card |
+The Unique Device Identifier (UDI), usually printed as a GS1 barcode, identifies a device model and production lot or serial number. It is required in the US and the EU and is used across the supply chain, with national UDI databases behind it in some markets. A UDI says which device this is; Live Verify says whether the manufacturer stands behind the card and its current status. The two work side by side, and the card usually carries both.
+
+| | UDI barcode | Live Verify on the implant card | Physical implant card alone |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Manufacturer. | **Self-Contained.** Trust the data *on* the sticker. | **Zero.** Easily forged. |
-| **Freshness** | **Real-time.** Shows if recalled *today*. | **Static.** Only shows what was printed years ago. | **Static.** |
-| **Integrity** | **Cryptographic.** Binds the *Serial #*. | **Medium.** Easy to clone a barcode. | **Vulnerable.** |
-| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Specialized.** Requires 2D barcode scanners. | **Visual.** |
+| **Who can check** | Staff with a barcode scanner and access to the hospital or national UDI records. | Anyone handed the card who has Live Verify on their phone: a radiologist, an emergency clinician, an airport screener. | Anyone can read it; nobody can confirm it. |
+| **What the checker gets** | The device identifier as printed, which can be looked up in a UDI database. | Confirmation that the manufacturer issued this exact card text, including the serial number and MRI status, and any current status such as a recall. | Whatever the card says. |
+| **What the patient shares** | The identifier on the card. | Only the card they chose to show. | Only the card they chose to show. |
+| **Reach** | Wherever UDI is mandated and scanners and databases are in place, mainly inside hospitals and the supply chain. | Global in principle: any manufacturer, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Fast where scanners are already installed. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection at the time. | Immediate and free. |
+| **What it needs** | A scanner, and a database or records system to resolve the identifier. | The manufacturer to publish hashes, and Live Verify-aware software on the checker's device. No manufacturer does this yet. | Nothing. |
+| **Current status** | The barcode is fixed at printing; recall status lives elsewhere. | The manufacturer can show a recall or safety notice against the card. | Fixed at printing. |
+| **Best suited to** | Tracking a device from manufacture to implantation, and inventory inside hospitals. | Confirming a patient's card at the point of care, away from hospital systems. | Nothing where the scan decision matters. |
 
 **Where each fits:** UDI barcodes do their job well inside hospitals and the supply chain, where scanners and registries are in place to track a device from manufacture to implantation. After surgery the patient is left with a wallet card, and an emergency clinician or airport screener may have nothing but a phone. Live Verify lets them confirm the card against the manufacturer's domain and see its current status. The card usually prints the UDI as well, so both remain available.
 

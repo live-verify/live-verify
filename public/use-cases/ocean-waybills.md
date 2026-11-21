@@ -99,13 +99,19 @@ The Shipper or Exporter benefits from verification.
 **NVOCCs:** (DHL, Kuehne+Nagel).
 **Maritime Platforms:** (TradeLens, GSBN).
 
-## Compared With Electronic B/L (eBL)
+## Where Each Fits: Live Verify and Electronic Bills of Lading
 
-| Feature | Live Verify | eBL Platform (Bolero/WAVE) | Paper BOL |
+Electronic bill of lading platforms, such as Bolero and WAVE BL, replace the paper document with a digital record whose holder is tracked by the platform. Several platforms are in use and parties generally need to be on the same one. Live Verify applies to the paper or PDF document that many shipments still rely on. The two answer different needs and work side by side; a carrier can offer both.
+
+| | eBL platform (Bolero, WAVE BL) | Live Verify on the bill of lading | Paper bill of lading alone |
 | :--- | :--- | :--- | :--- |
-| **Connectivity** | **Needed for the check.** One small web request at the gate. | **Fragile.** Requires all parties to be on the same platform. | **Manual.** Relies on watermarks. |
-| **Trust** | **Domain-Bound.** Trust the Carrier directly. | **Closed Loop.** Trust the platform provider. | **Visual.** Very easy to forge. |
-| **Interoperability** | **Universal.** Works for any carrier with a domain. | **Siloed.** Bolero users can't easily talk to WAVE users. | **Universal.** |
+| **Who can check** | Parties registered on the same platform. | Anyone handed the document: a port gate, a bank, a buyer, customs. | Anyone can inspect it; forgeries can be hard to spot. |
+| **What the checker gets** | A digital document with a clear record of who holds it and the right to transfer it. | Confirmation that the carrier issued this exact document text, as at its date, and its current status. It does not record who holds the original. | The document as presented. |
+| **What the holder shares** | Access within the platform. | Only the document they chose to hand over. | The paper. |
+| **Reach** | Members of that platform; moving between platforms is not straightforward. | Global in principle: any carrier, in any country, that publishes hashes on its own domain. | Universal. |
+| **Speed and cost** | Fast once all parties are onboarded; membership and fees apply. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection at the time. | Couriered between parties, which takes days. |
+| **What it needs** | Every party on the same platform. | The carrier to publish hashes, and Live Verify-aware software on the checker's device. No carrier does this yet. | Nothing beyond physical delivery. |
+| **Best suited to** | Shipments where every party is on the platform, and where transfer of title must be managed digitally. | Checking paper or PDF documents where parties are not on a shared platform. | Where the law or a bank still requires the original paper. |
 
 **Where each fits:** Electronic bill of lading platforms give their members a fully digital document with a clear record of who holds it, and where every party to a shipment is on the same platform that is a sound way to work. Many shipments involve at least one party who is not, and several platforms are in use. Live Verify applies to the paper or PDF document that those shipments still depend on, letting anyone confirm it against the carrier's domain. A carrier can offer both.
 

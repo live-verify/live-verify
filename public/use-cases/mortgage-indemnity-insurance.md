@@ -110,14 +110,19 @@ Genworth, a regulated mortgage insurance provider, is authorized by the FCA to i
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With MERS / Industry Databases
+## Where Each Fits: Live Verify and MERS and Industry Databases
 
-| Feature | Live Verify | MERS / Industry Portal | Scanned PDF Certificate |
+In the US, MERS and other industry systems track mortgage loans and servicing rights for their members, and mortgage insurers run their own portals for lenders they work with. Other countries have their own arrangements. These serve participants well at scale; Live Verify answers a narrower question about the certificate in a loan file: does the insurer stand behind it? They work side by side.
+
+| | MERS and industry portals | Live Verify on the certificate | Scanned PDF certificate |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Insurer. | **Data-Bound.** Trust the aggregator. | **Zero.** Easily forged. |
-| **User Access** | **Universal.** Any buyer or auditor can verify. | **Restricted.** Requires paid membership. | **Instant.** |
-| **Timeliness** | **Real-time.** Shows if premium paid *today*. | **Laggy.** Updates take weeks. | **Static.** |
-| **Integrity** | **Cryptographic.** Binds the *LTV Ratio*. | **Data-Only.** | **Vulnerable.** |
+| **Who can check** | Members and participants with access. | Anyone handed the certificate: a loan buyer, an auditor, a regulator. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The records the system holds, in the form it holds them. | Confirmation that the insurer issued this exact certificate, with its coverage percentage and LTV, and whether it is in force, cancelled or lapsed. | A document whose coverage figures may have been edited. |
+| **What the holder shares** | Access is between the system and its members. | Only the certificate they chose to hand over. | Only the certificate they chose to hand over. |
+| **Reach** | The market and membership the system serves. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Efficient for members at volume; membership and integration come first. | A few seconds per check: one web lookup, with no fee to the standard and no membership. | Immediate. |
+| **What it needs** | Membership or a relationship with the system or insurer. | The insurer to publish hashes, and Live Verify-aware software on the checker's device. No insurer does this yet. | Nothing. |
+| **Best suited to** | Tracking loans and servicing at scale among participants. | A loan buyer or auditor checking certificates in the file, member or not. | Nothing where default risk matters. |
 
 **Where each fits:** Industry registries such as MERS serve their members well for tracking loans and servicing rights at scale, and participants will keep relying on them. A loan buyer or auditor reviewing a file may not be a member, and is in any case examining the certificate in the file and not a database row. Live Verify lets them confirm that the insurer stands behind that certificate, in step with whatever registry checks they also run.
 

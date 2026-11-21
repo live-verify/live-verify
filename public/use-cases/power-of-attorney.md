@@ -129,14 +129,20 @@ Powers of attorney are drafted by legal professionals and overseen by the UK pub
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With QR/Holograms
+## Where Each Fits: Live Verify, Holographic Seals and QR Codes
 
-| Feature | Live Verify | Holographic Seal | QR Code |
+Powers of attorney often carry seals or holograms from the formal execution process, and some carry a QR code linking to a record. In some countries a public body also registers powers of attorney. These answer different questions from Live Verify: a seal shows the document went through a formal process, a QR code goes wherever its maker pointed it, and a Live Verify check says whether the issuer still stands behind this exact text. They work side by side.
+
+| | Holographic seal | QR code | Live Verify on the power of attorney |
 | :--- | :--- | :--- | :--- |
-| **Revocation** | **Instant.** Shows "REVOKED" today. | **Zero.** The seal is permanent. | **Variable.** Just a link. |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Lawyer. | **Physical.** Trust the sticker. | **Low.** Easily phished. |
-| **Readability** | **High.** Full text is protected. | **None.** Seals don't protect text. | **None.** |
-| **Privacy** | **High.** Hash protects details. | **Low.** Anyone can see the seal. | **Variable.** |
+| **Who can check** | Anyone, by eye. | Anyone with a phone camera. | Anyone handed the document, with Live Verify on their device: a bank teller, a care home, a hospital. |
+| **What the checker gets** | Evidence that the document passed through a formal execution process; nothing about the text or later changes. | Whatever page the code leads to, which may not be the issuer's. | Confirmation that the issuing law firm stands behind this exact text, and its current status, such as revoked. |
+| **What the holder shares** | The document. | The document. | Only the document they chose to show. |
+| **Reach** | Anywhere, but seals can be copied. | Anywhere, but the link may be anyone's. | Global in principle: any firm or registry, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Immediate. | A few seconds. | A few seconds per check: one web lookup, with no fee to the standard, including outside office hours. |
+| **What it needs** | Familiarity with what a genuine seal looks like. | Trust in wherever the code leads. | The issuer to publish hashes, and Live Verify-aware software on the checker's device. No issuer of this kind does so yet. |
+| **Revocation** | Not shown; the seal is permanent. | Depends on the linked page. | The issuer can mark the power revoked. |
+| **Best suited to** | Meeting formal execution requirements. | Linking to further information. | Checking the wording and whether the power still stands, before acting on it. |
 
 **Where each fits:** Seals and holograms show that a document passed through a formal execution process, and where law or institutional policy requires them they still have to be there. They cannot tell a bank teller whether the power has since been revoked, or whether the wording has been altered. Live Verify lets the teller check the text and its current status against the law firm's domain, including outside office hours, alongside the formalities the document already carries.
 

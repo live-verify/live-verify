@@ -114,14 +114,20 @@ UK probate courts issue grant of probate and letters testamentary under the Admi
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Certified Copies (Purple Ink)
+## Where Each Fits: Live Verify, Certified Copies and the Court Docket
 
-| Feature | Live Verify | Certified Copy (Ink/Seal) | Online Docket (Public) |
+Probate courts issue certified copies of grants and orders, and many publish an online docket or index of cases. Procedures differ by country and, in the US, by state and county. Banks and registrars are accustomed to accepting certified copies, and the docket is the authoritative record of the case. Live Verify answers a narrower question about the copy in hand: does the court stand behind it as worded, and is it still in force? They work side by side.
+
+| | Certified copy (ink and seal) | Online court docket | Live Verify on the order |
 | :--- | :--- | :--- | :--- |
-| **Tamper Proof** | **High.** Binds text to status. | **Low.** Seals are easy to forge. | **High.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Court. | **Physical.** Trust the paper. | **System-Bound.** |
-| **Speed** | **Instant.** 5-second scan. | **Manual.** requires visual audit. | **Slow.** Requires Case # and search. |
-| **Revocation** | **Real-time.** Shows "REVOKED." | **Zero.** The paper stays the same. | **Manual.** |
+| **Who can check** | Anyone handed the copy, by eye. | Anyone who has the case number and can search the court's system. | Anyone handed the order: a bank, a registrar, a buyer of estate property. |
+| **What the checker gets** | A document bearing the court's seal; seals can be forged. | The court's record of the case and its filings. | Confirmation that the court issued this exact order, as at its date, and its current status, such as revoked. |
+| **What the executor shares** | The certified copy. | Nothing; the docket is public where available. | Only the order they chose to hand over. |
+| **Reach** | Anywhere the copy is accepted. | One court's system at a time. | Global in principle: any court, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Obtaining copies takes time and a fee; checking one is a visual inspection. | Free or low cost, but needs the case number and a search. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | Familiarity with what genuine seals look like. | Online access to that court's records. | The court to publish hashes, and Live Verify-aware software on the checker's device. No court does this yet. |
+| **Revocation** | Not shown; the paper stays the same. | Shown on the docket, if checked. | The court can mark the order revoked. |
+| **Best suited to** | Formal acceptance by banks and registrars. | The authoritative record of the case. | A quick first check before releasing funds or transferring property. |
 
 **Where each fits:** A certified copy from the court is what banks and registrars are accustomed to accepting, and the court's docket remains the authoritative record of the case. Both take time to check, and a certified copy does not change if the grant is later revoked. Live Verify lets the person about to release funds confirm that the court stands behind the order as presented and see its current status, as a quick first check beside the certified copy.
 

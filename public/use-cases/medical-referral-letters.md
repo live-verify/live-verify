@@ -186,18 +186,21 @@ Australian chain (GP practice → AHPRA):
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With the Alternatives
+## Where Each Fits: Live Verify and Electronic Referral Systems
 
-| Feature | Live Verify | System-to-System (eRS, HMO portals) | Phone Call to Referring Practice | Accepting the Letter on Trust |
+Electronic referral systems send referrals directly between practices: the NHS e-Referral Service in England, and the authorization portals of US health plans and networks, for example. Coverage depends on where you are and which network you are in: some countries have a national system, some have only insurer networks, and many have none. Where a referral travels as a letter the patient carries, the alternatives are a phone call to the referring practice or taking the letter on trust. These approaches answer different questions and work side by side.
+
+| | System-to-system referral (eRS, HMO portals) | Phone call to the referring practice | Live Verify on the letter | Accepting the letter on trust |
 | :--- | :--- | :--- | :--- | :--- |
-| **Speed** | **Instant.** Clip and verify in seconds. | **Fast** (when both ends are connected). | **Slow.** Minutes to days. Often impossible after hours. | **Instant.** Zero verification. |
-| **Coverage** | **Universal.** Any practice with a domain. | **Limited.** NHS England (eRS), specific HMO/PPO networks (US), no cross-border. | **Universal** (in theory). | **Universal.** |
-| **Detects fabrication** | **Yes.** Hash mismatch or 404 = not genuine. | **Yes.** System-to-system, no patient handling. | **Yes** (if you reach the right person). | **No.** |
-| **Detects alteration** | **Yes.** Any change to urgency, specialty, or reason breaks the hash. | **Yes.** Patient cannot alter system-to-system data. | **Maybe.** Depends on what the receptionist checks. | **No.** |
-| **Cross-border** | **Yes.** Domain-based, works internationally. | **No.** Domestic networks only. | **Difficult.** Time zones, language barriers. | **Fails.** Foreign referrals are untrusted. |
-| **Private sector** | **Yes.** Works for any practice. | **Partial.** Some private networks; many not connected. | **Yes** (in theory). | **Yes** (by default). |
+| **Who can check** | Practices connected to the same network. | Any receiving practice that can reach the referrer. | Any receiving clinician or insurer handed the letter. | Nobody checks. |
+| **What the checker gets** | The referral as the referrer entered it; the patient never handles it. | Whatever the person who answers can confirm. | Confirmation that the referring practice issued this exact letter, including urgency, specialty and reason. | The letter as presented, possibly altered. |
+| **What the patient shares** | Nothing; the referral moves between systems. | The letter, and consent for the call. | Only the letter they chose to hand over. | The letter. |
+| **Reach** | Within one national system or one insurer network; not across borders. | Wherever the referrer can be reached, subject to hours, time zones and language. | Global in principle: any practice, in any country, that publishes hashes on its own domain. | Anywhere, but unchecked. |
+| **Speed and cost** | Fast once both ends are connected. | Minutes to days, and staff time on both sides. | A few seconds per check: one web lookup, with no fee to the standard and no link between the practices. | Immediate. |
+| **What it needs** | Both practices connected to the same system. | Someone at the referring practice who can confirm the details. | The referring practice to publish hashes, and Live Verify-aware software on the checker's device. No practice does this yet. | Nothing. |
+| **Best suited to** | Routine referrals within the network. | Occasional doubtful letters where the referrer is easy to reach. | Private, specialist-to-specialist and cross-border referrals that travel as letters. | Low-stakes cases only. |
 
-**Where Live Verify fits:** System-to-system referral platforms (NHS eRS, HMO authorization portals) solve the problem within their scope — referrals where the patient never handles the document and both ends are connected to the same network. Live Verify covers the cases these systems do not: private referrals, cross-border referrals, specialist-to-specialist outside the system pathway, and any context where the referral travels as a document the patient carries. It is complementary to existing electronic referral systems, not a replacement for them.
+**Where each fits:** System-to-system referral platforms such as NHS eRS and HMO authorization portals solve the problem within their scope: referrals where the patient never handles the document and both ends are connected to the same network. Live Verify covers the cases these systems do not reach: private referrals, cross-border referrals, specialist-to-specialist referrals outside the system pathway, and any context where the referral travels as a document the patient carries. It is complementary to existing electronic referral systems, not a replacement for them.
 
 ## Further Derivations
 

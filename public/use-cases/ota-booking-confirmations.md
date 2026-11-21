@@ -117,16 +117,21 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With API Sync (Direct)
+## Where Each Fits: Live Verify and Direct API Integration
 
-| Feature | Live Verify | API Sync (Direct) | Scanned PDF / Image |
+Online travel agencies such as Expedia and Booking.com offer direct integrations that let a company's travel or expense system receive bookings automatically. These suit an ongoing relationship. Live Verify answers a narrower question about a single confirmation someone is handed: did the agency issue it? The two work side by side.
+
+| | Direct API integration | Live Verify on the confirmation | Scanned PDF or image |
 | :--- | :--- | :--- | :--- |
-| **User Privacy** | **High.** Share only the *one* trip. | **Low.** API access often sees the *full* history. | **High.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the OTA. | **System-Bound.** Trust the app. | **Zero.** Easily forged. |
-| **Connectivity** | **Needed for the check.** One small web request per document. | **Needed.** Requires live sync. | **Static.** |
-| **Cost** | **Low.** Marginal implementation. | **High.** Requires complex API keys. | **Free.** |
+| **Who can check** | A company whose systems are connected to the agency. | Anyone handed the confirmation: an expense auditor, a visa officer, an insurer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Booking data direct from the agency, often across many trips. | Confirmation that the agency issued this exact confirmation, as at its date, and whether it has since been cancelled. | A document that may have been edited. |
+| **What the traveller shares** | Access to bookings through the linked account, which may cover more than one trip. | Only the confirmation they chose to hand over. | Only the confirmation they chose to hand over. |
+| **Reach** | The agencies and companies that have integrated. | Global in principle: any agency, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Automatic once set up; integration and credentials come first. | A few seconds per check: one web lookup, with no fee to the standard and no integration. | Free and immediate. |
+| **What it needs** | An integration and an account link. | The agency to publish hashes, and Live Verify-aware software on the checker's device. No agency does this yet. | Nothing. |
+| **Best suited to** | Managed corporate travel, with bookings flowing into expenses. | One-off checks on a single trip. | Nothing where money or entry depends on it. |
 
-**Where each fits:** A direct API connection suits a company and a travel platform with an ongoing relationship, such as a corporate travel programme where bookings flow into expenses automatically. It is a poor fit for a one-off check on a single past trip, where nobody wants to link an employee's personal travel account. Live Verify lets a finance or audit team confirm one confirmation against the travel agency's domain, and managed travel continues through the integration.
+**Where each fits:** A direct API connection suits a company and a travel platform with an ongoing relationship, such as a corporate travel programme where bookings flow into expenses automatically. It is a poor fit for a one-off check on a single past trip, where nobody wants to link an employee's personal travel account. Live Verify lets a finance or audit team confirm one confirmation against the agency's domain, and managed travel continues through the integration.
 
 ## Independent Record (Optional)
 

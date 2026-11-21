@@ -98,14 +98,19 @@ Network coverage guarantees are issued by telecom providers and regulated by the
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Speedtest Apps
+## Where Each Fits: Live Verify and Speed-Test Apps
 
-| Feature | Live Verify | Speedtest App (Ookla/Fast) |
+Speed-test apps such as Ookla's Speedtest and Fast.com measure the connection a device is getting at that moment. They answer a different question from a verified coverage guarantee: a speed test measures performance now, a verified guarantee records what the carrier committed to at contract signing. They do not compete; in a dispute they are read together.
+
+| | Speed-test app | Live Verify on the coverage guarantee |
 | :--- | :--- | :--- |
-| **Time** | **Past.** Proves what was promised *at contract signing*. | **Present.** Measures what is happening *now*. |
-| **Legal Weight** | **High.** It's a contract document. | **Low.** "Your phone might be broken." |
-| **Granularity** | **Site Specific.** Can cover a whole warehouse campus. | **Point Specific.** Measures one device's location. |
-| **Integration** | **Paper/PDF Contract.** Lives with the legal docs. | **App.** Requires active testing. |
+| **Who can check** | Anyone with the app on a device at the location. | Anyone handed the guarantee: the customer, a regulator, an arbitrator. |
+| **What the checker gets** | A measurement of one device's connection, at one place and time. | Confirmation that the carrier issued this exact guarantee, with its location and signal commitments, as at its date, and whether it has since been superseded. |
+| **What the holder shares** | Test results, if they choose to. | Only the document they chose to hand over. |
+| **Reach** | Anywhere the app runs and there is a connection to test. | Global in principle: any carrier, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Free and quick to run. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A device at the location; results can be disputed as device-specific. | The carrier to publish hashes, and Live Verify-aware software on the checker's device. No carrier does this yet. |
+| **Best suited to** | Showing what the network delivers now. | Showing what the carrier promised. |
 
 **Where each fits:** A speed test is the right way to measure what the network is delivering now, and that measurement is what shows whether a service level is being met. It cannot show what the carrier committed to when the contract was signed. A verified coverage document records that commitment as the carrier issued it, so in a dispute the two are read together: one for the promise, the other for the performance.
 

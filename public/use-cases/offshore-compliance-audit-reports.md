@@ -142,14 +142,19 @@ Offshore compliance audit reports are issued by licensed auditors and endorsed b
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With the Alternatives
+## Where Each Fits: Live Verify, the Auditor and the Regulator
 
-| Feature | Live Verify | Direct Contact with Auditor | Regulator Confirmation | Client Self-Attestation |
+Today a bank, counterparty or investor shown an offshore audit report can ask the audit firm directly, look for confirmation from the regulator, or rely on the client's own word. These answer different questions from Live Verify, and they work side by side.
+
+| | Direct contact with the auditor | Regulator confirmation | Live Verify on the report | Client self-attestation |
 | :--- | :--- | :--- | :--- | :--- |
-| **Proves Report Is Genuine** | **Yes.** Hash verified against auditor's domain. | **Yes.** But slow and auditor may decline (client confidentiality). | **Varies.** Regulators rarely confirm individual audits. | **No.** Self-serving. |
-| **Confirms Opinion** | **Yes.** Hash covers the full report including opinion. | **Yes.** If auditor responds. | **No.** Regulators don't disclose audit opinions. | **No.** |
-| **Speed** | **Instant.** | **Days to weeks.** | **Weeks to months.** Formal request process. | **Instant.** But worthless. |
-| **Detects Edits** | **Yes.** Any change breaks the hash. | **Only if auditor reviews the specific report line by line.** | **N/A.** | **N/A.** |
+| **Who can check** | Anyone the audit firm agrees to talk to, usually with the client's consent. | Parties entitled to use the regulator's formal channels. | Anyone the client hands the report to. | Anyone; nothing is checked. |
+| **What the checker gets** | The fullest answer: whether the report is genuine, plus scope and context a conversation can cover. | Whatever the regulator is able to disclose, which usually excludes individual audit opinions. | Confirmation that the audit firm issued this exact report, including its opinion, as at its date, and whether it has been withdrawn or reissued. | The client's own statement. |
+| **What the client shares** | Consent for the auditor to discuss its affairs. | Depends on the regulator's process. | Only the report it chose to hand over; presenting it is the consent. | Its own statement. |
+| **Reach** | Any audit firm that will respond. | One regulator's jurisdiction. | Global in principle: any audit firm, in any country, that publishes hashes on its own domain. | Anywhere, but unchecked. |
+| **Speed and cost** | Days to weeks, and staff time on both sides. | Formal requests can take weeks or months. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | A responsive firm and client consent. | Standing to ask, and a regulator that will answer. | The audit firm to publish hashes, and Live Verify-aware software on the checker's device. No audit firm does this yet. | Nothing. |
+| **Best suited to** | Deep due diligence where context matters. | Supervisory matters. | Confirming the report in hand is the one the firm issued, before deciding whether to dig deeper. | Nothing where risk matters. |
 
 **Where each fits:** Contacting the audit firm directly remains the most thorough check, since a conversation can cover scope and context that the report does not, and regulators keep their own formal channels for supervisory purposes. In practice a direct request can take weeks, and the firm may be unable to answer without its client's consent. Live Verify handles the simpler question of whether the report presented is the one the firm issued, with the entity's own presentation of the report serving as the consent. Deeper enquiries can then go to the firm where they are warranted.
 

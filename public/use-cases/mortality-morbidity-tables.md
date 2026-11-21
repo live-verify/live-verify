@@ -106,14 +106,19 @@ Actuaries publish statistical tables used to calculate insurance premiums and pe
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Actuarial Portals (Mort.SOA.org)
+## Where Each Fits: Live Verify and the SOA Mortality Table Portal
 
-| Feature | Live Verify | SOA Mortality Table Portal | Scanned PDF Memo |
+The Society of Actuaries publishes standard mortality and morbidity tables through its online table portal, and other actuarial bodies publish their own tables for their markets. The portal is where actuaries get the numbers; Live Verify checks a certification or memo that cites a table. They answer different questions and work side by side.
+
+| | SOA table portal | Live Verify on the certification | Scanned PDF memo |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Cryptographic.** Binds every digit. | **Data-Only.** Doesn't protect the specific paper doc. | **Zero.** Easily forged. |
-| **Trust Anchor** | **Domain-Bound.** Bound to the SOA. | **Database.** Direct from source. | **Visual.** |
-| **User Access** | **Universal.** Any regulator or auditor. | **Difficult.** Requires navigating complex XLS/XML downloads. | **Instant.** |
-| **Freshness** | **Real-time.** Shows if table was restated. | **Live.** | **Static.** |
+| **Who can check** | Anyone who can find the table and work with the download formats. | Anyone handed the document: a regulator, an auditor, a product team. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The table data itself, direct from the source. | Confirmation that the issuing body published this exact certification text, and whether the table has since been superseded or recalled. | A document whose figures or dates may have been edited. |
+| **What the holder shares** | Nothing; the portal is public. | Only the document they chose to hand over. | Only the document they chose to hand over. |
+| **Reach** | Tables published by the SOA; other bodies have their own sources. | Global in principle: any actuarial body or certifier, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Free to access; matching a memo to the right table and version takes actuarial work. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | Familiarity with the portal and its file formats. | The issuing body to publish hashes, and Live Verify-aware software on the checker's device. No actuarial body does this yet. | Nothing. |
+| **Best suited to** | Obtaining tables to build models and price products. | Checking that a cited certification is genuine and current. | Nothing where reserves depend on it. |
 
 **Where each fits:** The Society of Actuaries' table portal is the source for the data itself, and an actuary building a model should take the tables from there. An auditor or regulator reading a signed memo is asking something else: whether the table cited in this document is as published and has not since been restated. Live Verify lets them check that from the document, while the portal remains where the underlying numbers are obtained.
 

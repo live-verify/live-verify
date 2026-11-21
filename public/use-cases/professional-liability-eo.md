@@ -119,14 +119,19 @@ Hiscox issues professional liability and E&O insurance and is regulated by the U
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With ACORD 25 Forms
+## Where Each Fits: Live Verify, ACORD 25 Certificates and Broker Portals
 
-| Feature | Live Verify | Standard ACORD 25 (PDF) | Broker Portal |
+In the US, proof of liability cover is usually given on the ACORD 25 certificate of insurance, issued by the broker as a PDF, and brokers run portals where their own clients can see their coverage. Other markets use their own certificate formats. The certificate is the format the market expects; Live Verify answers whether the carrier stands behind the one in hand. They work side by side.
+
+| | Broker portal | Live Verify on the certificate | ACORD 25 certificate (PDF) alone |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Carrier. | **None.** Easily edited in Acrobat. | **System-Bound.** |
-| **Integrity** | **Binds Retro Date.** Protects the history. | **Zero.** Text can be deleted. | **High.** |
-| **Speed** | **Instant.** 5-second scan. | **N/A.** Requires reading. | **Slow.** Requires login. |
-| **Availability** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Visual.** | **Restricted.** |
+| **Who can check** | The broker's own clients, logged in. | Anyone handed the certificate: a client, a counterparty, a procurement team. | Anyone can read it; nobody can confirm it. |
+| **What the checker gets** | A dependable view of the insured's own coverage. | Confirmation that the carrier issued this exact certificate, including limits and retroactive date, and its current status. | A form that may have been edited, and which states that it confers no rights. <!-- TODO(verify): the ACORD 25 wording "confers no rights" --> |
+| **What the insured shares** | Nothing; it is their own view. | Only the certificate they chose to hand over. | The PDF. |
+| **Reach** | That broker's clients. | Global in principle: any carrier or broker, in any country, that publishes hashes on its own domain. | Wherever the form is used, mainly the US. |
+| **Speed and cost** | Quick for clients once logged in. | A few seconds per check: one web lookup, with no fee to the standard and no portal login. | Immediate. |
+| **What it needs** | A client account with the broker. | The carrier or broker to publish hashes, and Live Verify-aware software on the checker's device. No carrier does this yet. | Nothing. |
+| **Best suited to** | The insured managing their own cover. | A counterparty confirming cover before signing. | Routine paperwork, where taken on trust. |
 
 **Where each fits:** The ACORD certificate is the format the market expects, and a broker portal gives the broker's own clients a dependable view of their coverage. The party asking for proof of cover, typically a client or counterparty, usually has no portal access and receives the certificate as a PDF. Live Verify lets them confirm that the carrier stands behind it, retroactive date included; the certificate keeps its familiar form and the portal its role.
 

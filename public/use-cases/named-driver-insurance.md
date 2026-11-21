@@ -112,14 +112,21 @@ Direct Line, a regulated motor insurer, is authorized by the FCA to issue verifi
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With National Databases (MID)
+## Where Each Fits: Live Verify and National Motor Insurance Databases
 
-| Feature | Live Verify | MID / National DB (UK) | Paper Certificate |
+<!-- TODO(verify): the extent of public access to the Motor Insurance Database -->
+
+Many countries keep a national record of insured vehicles; in the UK it is the Motor Insurance Database (MID), used by the police and insurers. Coverage and public access depend on the country: some have such a database, some do not, and public access is usually limited. The database and Live Verify answer different questions and work side by side: the database says whether a vehicle is insured, Live Verify says whether the insurer stands behind a certificate naming this driver.
+
+| | National database (e.g. MID) | Live Verify on the certificate | Paper certificate alone |
 | :--- | :--- | :--- | :--- |
-| **Driver Specificity** | **High.** Verifies *who* is covered. | **Low.** Often only shows if the *car* is insured. | **Vulnerable.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Carrier. | **Gov-Bound.** | **Zero.** Easily forged. |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires specialized police terminal access. | **Instant.** |
-| **User Access** | **Open.** Any citizen or car owner can verify. | **Restricted.** Usually only for Police/DVLA. | **Universal.** |
+| **Who can check** | Police and insurers fully; the public only in limited circumstances. | Anyone handed the certificate: a car owner, a hire or car-share company, the other party after a collision. | Anyone can read it; nobody can confirm it. |
+| **What the checker gets** | Whether the vehicle is recorded as insured; it may not show which drivers are covered. | Confirmation that the insurer issued this exact certificate, with its named drivers, and its current status, such as excluded or cancelled. | Whatever the paper says. |
+| **What the holder shares** | The vehicle registration. | Only the certificate they chose to show. | The certificate. |
+| **Reach** | One country's vehicles and insurers. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Fast for police at the roadside. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection. | Immediate. |
+| **What it needs** | Insurers reporting to the database, and access to it. | The insurer to publish hashes, and Live Verify-aware software on the checker's device. No insurer does this yet. | Nothing. |
+| **Best suited to** | Enforcement: is this vehicle insured at all? | Confirming that a particular driver is covered. | Nothing where liability matters. |
 
 **Where each fits:** A national motor insurance database is the right tool for police and licensing authorities, who need to know quickly whether a vehicle is insured at all. It is generally not open to the public and often records the vehicle, not each named driver. Live Verify lets a car owner, a hire company or the other party after a collision confirm that the insurer's certificate names a particular driver, alongside the official database that enforcement uses.
 

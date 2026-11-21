@@ -114,14 +114,19 @@ Radiology departments issue medical imaging reports under health professional re
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Patient Portals / CD-ROMs
+## Where Each Fits: Live Verify, Patient Portals and Image Transfer
 
-| Feature | Live Verify | Patient Portal (MyChart) | CD-ROM / PACS Link |
+Patient portals, run by hospitals and imaging centres, let patients see their own reports, and images move between providers on CDs or through image-exchange links. Live Verify answers a narrower question about the printed report the patient hands over: did this imaging centre issue this exact text? The three work side by side.
+
+| | Patient portal | CD-ROM or image-exchange link | Live Verify on the printed report |
 | :--- | :--- | :--- | :--- |
-| **User Control** | **High.** Patient shares only the *Summary*. | **Low.** App access often reveals *full* clinical history. | **Vulnerable.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Lab. | **System-Bound.** | **Zero.** Easily forged files. |
-| **Interoperability** | **Universal.** Works for any specialist. | **Siloed.** Hard to share across systems. | **Hardware-Locked.** |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires 2FA and login. | **Very Slow.** |
+| **Who can check** | The patient, and anyone they log in for or grant access to. | A clinician with a CD drive, a viewer, or access to the exchange. | Anyone handed the report: a specialist, an insurer, an employer's medical officer. |
+| **What the checker gets** | The patient's record as the provider holds it, often much more than one report. | The images themselves, sometimes with the report. | Confirmation that the imaging centre issued this exact report text, and whether an addendum has been issued. No images. |
+| **What the patient shares** | Often access to a wider record than the one report. | The study on the disc or behind the link. | Only the report they chose to hand over. |
+| **Reach** | The provider's own portal; sharing across different systems is uneven. | Wherever the receiving clinic can read the disc or reach the exchange. | Global in principle: any imaging provider, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Quick for the patient once logged in; slower to share with a third party. | Can be slow: discs are posted or carried, links need setting up. | A few seconds per check: one web lookup, with no fee to the standard and no account with the imaging centre. |
+| **What it needs** | An account with the provider and a login. | Compatible hardware or software, or a connection to the exchange. | The imaging centre to publish hashes, and Live Verify-aware software on the checker's device. No imaging provider does this yet. |
+| **Best suited to** | Patients viewing their own results; clinicians on the same records system. | Moving the images a specialist needs to review. | Confirming a printed or PDF report from another provider, without exposing the wider record. |
 
 **Where each fits:** A patient portal is the best way for patients to see their own records, and where two clinicians share a records system or an image exchange the specialist should use it, not least because it gives access to the images themselves. Often the specialist is in a separate practice and the patient arrives with a printed report. Live Verify lets the specialist confirm the imaging centre issued that report, without the patient opening their whole history; the images still travel by the usual routes.
 

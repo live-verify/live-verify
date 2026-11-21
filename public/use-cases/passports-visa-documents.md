@@ -131,14 +131,19 @@ Verification responses can include the issuing authority's authoritative photo o
 **Why This Matters:**
 A sophisticated forger can perfectly replicate holograms and security paper. But they cannot forge what the government server sends back. When a hotel, employer, or KYC analyst sees a returned photo that does not match the submitted document or the live selfie they requested, the fraud is exposed.
 
-## Compared With NFC (Electronic Passports)
+## Where Each Fits: Live Verify and Electronic Passport Chips
 
-| Feature | Live Verify | NFC / e-Passport | Scanned PDF / Image |
+Electronic passports carry a chip, readable over NFC, that is signed by the issuing country; border systems and some apps read it. Nearly all countries now issue chipped passports, but reading them needs NFC hardware and supporting software, and a copy or scan has no chip at all. Reading the chip is the strongest check of a passport in hand. Live Verify answers a different question, for copies, and the two work side by side. <!-- TODO(verify): that nearly all countries now issue chipped (biometric) passports -->
+
+| | NFC chip reading | Live Verify on the passport or visa | Scanned PDF or image |
 | :--- | :--- | :--- | :--- |
-| **Primary Use Case** | **Third-party copy verification.** Good for uploaded scans and PDF workflows. | **Gold standard.** Best when native passport-reading infrastructure is available. | **Weak.** Easy to forge and replay. |
-| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Restricted.** Requires NFC-capable devices and chip-reading support. | **Universal.** |
-| **Verifier Access** | **Broad.** Useful for hotels, employers, banks, and screening teams. | **Limited.** Best suited to formal travel and government workflows. | **Broad.** But untrusted. |
-| **Status Signal** | **Good.** Issuer-domain response can show replacement or revocation state. | **Strong.** Native passport trust path. | **None.** Static copy only. |
+| **Who can check** | Border authorities and anyone with an NFC-capable device and chip-reading software. | Anyone handed a copy, with Live Verify on their device: hotels, employers, banks, screening teams. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Signed data from the chip, including the photo, proving the passport is genuine and unaltered. | Confirmation that the issuing authority stands behind this exact text, and its current status, such as replaced or revoked. | A copy that may have been edited or replayed. |
+| **What the holder shares** | The physical passport, held to the reader. | Only the page or copy they chose to share. | Only the copy they chose to send. |
+| **Reach** | Wherever the checker has chip-reading support for that country's passports. | Global in principle: any issuing authority, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Seconds with the passport present and a reader to hand. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection. | Immediate. |
+| **What it needs** | The physical passport and NFC hardware and software. | The issuing authority to publish hashes, and Live Verify-aware software on the checker's device. No passport or visa issuer does this yet. | Nothing. |
+| **Best suited to** | Border control and any in-person check where readers exist. | Copy-based workflows: uploaded scans and PDFs. | Nothing where identity matters. |
 
 **Where each fits:** Reading the chip over NFC is the strongest check of a passport and remains the right method at borders and wherever reader infrastructure exists. Hotels, employers, banks and screening teams often handle only a copy and have no such infrastructure. Live Verify is for those copy-based workflows; it does not replace NFC or official border systems.
 

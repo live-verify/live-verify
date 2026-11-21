@@ -108,14 +108,19 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With EDI (Electronic Data Interchange)
+## Where Each Fits: Live Verify and EDI
 
-| Feature | Live Verify | EDI (AS2/SFTP) | Scanned PDF Manifest |
+Electronic Data Interchange (EDI), carried over channels such as AS2 or SFTP, is how shippers, carriers and large receivers exchange shipment data system to system. It is the authoritative channel between the systems at either end. Live Verify answers a narrower question at the dock: is this printed packing list the one the shipper issued? The two work side by side.
+
+| | EDI (AS2, SFTP) | Live Verify on the packing list | Scanned PDF manifest |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Shipper. | **System-Bound.** Trust the network. | **Zero.** Easily forged. |
-| **Field Access** | **Instant.** Scan the paper at the dock. | **Hard.** Requires access to secure portals. | **Instant.** |
-| **Integrity** | **Binds Details.** Protects weights/SKUs. | **High.** Direct DB-to-DB. | **Vulnerable.** |
-| **Cost** | **Free.** (Marginal implementation). | **High.** Requires complex integration. | **Free.** |
+| **Who can check** | Trading partners whose systems are connected. | Anyone handed the paper: a driver, a receiving clerk, a customs officer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Structured shipment data, direct from the sender's system. | Confirmation that the shipper issued this exact list, with its weights and SKUs, as at its date. | A document whose quantities may have been edited. |
+| **What the shipper shares** | The data agreed with each partner. | The printed list that travels with the goods. | The list. |
+| **Reach** | Partners who have set up a connection. | Global in principle: any shipper, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Efficient at volume; setting up each connection takes integration work. | A few seconds per check: one web lookup, with no fee to the standard and no connection between the parties. | Immediate. |
+| **What it needs** | Integrated systems at both ends, and access to them. | The shipper to publish hashes, and Live Verify-aware software on the checker's device. No shipper does this yet. | Nothing. |
+| **Best suited to** | High-volume data exchange between established partners. | Checking paper at the handoff, and parties outside the EDI network. | Nothing where the count matters. |
 
 **Where each fits:** EDI is how shippers, carriers and large receivers exchange shipment data at scale, and for the systems at either end it is the authoritative channel. At the dock, the driver and the receiving clerk are usually working from a printed packing list with no view of those messages. Live Verify lets them confirm the paper against the shipper's domain at the handoff, and the EDI exchange continues between head offices.
 

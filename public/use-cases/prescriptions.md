@@ -157,17 +157,21 @@ For controlled substances, an additional chain applies: DEA registration (US) or
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With the Alternatives
+## Where Each Fits: Live Verify and Existing Prescription Checks
 
-| Feature | Live Verify | PDMP (Prescription Drug Monitoring Program) | Calling the Prescriber | E-Prescribing (EPCS) | Trusting the Paper |
+In the US, state Prescription Drug Monitoring Programs (PDMPs) let prescribers and pharmacists see a patient's controlled-substance history, and electronic prescribing (including EPCS for controlled substances) sends prescriptions straight from prescriber to pharmacy. Other countries have their own e-prescribing systems, and some have none. Outside those systems, people can call the prescriber or trust the paper. These answer different questions and work side by side. <!-- TODO(verify): that PDMPs are US state programmes with some sharing between states -->
+
+| | PDMP | Electronic prescribing (EPCS) | Calling the prescriber | Live Verify on the prescription | Trusting the paper |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Who can access** | **Anyone with the document.** Patient, pharmacist, customs officer, school nurse. | **Pharmacy-only.** Not accessible to patients, border agents, or schools. | **Anyone.** But requires phone access and cooperation. | **Pharmacy-only.** Closed-loop, pharmacy-to-prescriber. | **Anyone.** No verification at all. |
-| **Speed** | **Instant.** 5-second scan. | **Fast** (for pharmacists). Seconds within the system. | **Slow.** Minutes to hours. After-hours impossible. | **Fast** (within the loop). Seconds. | **Instant.** Zero-second "verification." |
-| **International use** | **Works.** Domain-based, no system integration needed. | **Fails.** US-only, state-by-state. | **Fails.** Time zones, language barriers, no obligation to respond. | **Fails.** No cross-border interop. | **Fails.** No way to authenticate foreign prescriptions. |
-| **Detects forgery** | **Yes.** Hash mismatch = forgery. | **Partial.** Detects doctor shopping but not forged paper. | **Yes** (if you reach the doctor). | **Yes** (within the loop). | **No.** |
-| **Detects "FILLED" status** | **Yes.** Status changes on fill. | **Yes.** Core function. | **No.** Doctor may not know. | **Yes.** | **No.** |
+| **Who can check** | Prescribers and pharmacists with access to that state's program. | The prescriber and the receiving pharmacy. | Anyone who can reach the prescriber's office. | Anyone handed the prescription: a pharmacist, a customs officer, a school nurse, a sports official. | Anyone, by eye. |
+| **What the checker gets** | The patient's dispensing history, which reveals doctor shopping but does not check a paper prescription. | The prescription direct from the prescriber, with no paper to forge. | Whatever the office confirms, if someone answers. | Confirmation that the prescriber issued this exact prescription, and its current status, such as filled. | The paper as presented. |
+| **What the patient shares** | Nothing; access is by professionals. | Nothing; the prescription moves between systems. | Consent for the call. | Only the prescription they chose to show. | The paper. |
+| **Reach** | One US state's program, with some sharing between states. | Within the systems that connect prescriber and pharmacy; not across borders. | Wherever the prescriber can be reached, subject to hours, time zones and language. | Global in principle: any prescriber or health system, in any country, that publishes hashes on its own domain. | Anywhere, but unchecked. |
+| **Speed and cost** | Seconds for those with access. | Seconds within the system. | Minutes to hours; often impossible out of hours. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | Professional access to the program. | Prescriber and pharmacy both on the system. | A reachable prescriber. | The prescriber or health system to publish hashes, and Live Verify-aware software on the checker's device. No prescriber does this yet. | Nothing. |
+| **Best suited to** | Spotting misuse of controlled substances across pharmacies. | Routine dispensing within the system. | Occasional doubtful prescriptions. | Checks outside the clinical systems: at borders, in schools, in sport, and abroad. | Nothing where controlled drugs are involved. |
 
-**Why this remains strong:** PDMP is powerful but walled off. It exists inside the healthcare system for healthcare professionals. The people who most need to verify prescriptions outside that system — customs officers holding a bag of codeine, school administrators looking at a bottle of Ritalin, sports officials reviewing a TUE claim — have zero access to PDMP. That makes prescriptions a strong complementary case outside the native clinical systems.
+**Where each fits:** PDMPs and electronic prescribing are the right tools inside the healthcare system, and pharmacists should keep using them. The people who most need to check a prescription outside that system, such as customs officers looking at a bag of codeine, school staff handed a bottle of stimulant medication, or sports officials reviewing an exemption, have no access to them. Live Verify gives them a way to confirm the prescription itself, as a complement to the clinical systems.
 
 ## Further Derivations
 

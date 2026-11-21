@@ -138,14 +138,19 @@ Certifies good standing status of offshore registered entities.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With the Alternatives
+## Where Each Fits: Live Verify and Current Good-Standing Checks
 
-| Feature | Live Verify | Registry Website Search | Registered Agent Letter | Apostilled Certificate |
+Today a bank or counterparty checking an offshore company's good standing can search the registry's website, ask the company's registered agent for a letter, or require a certificate with an apostille. Each offshore jurisdiction runs its own registry, with its own search service and update practices. These routes answer different questions from Live Verify and work side by side.
+
+| | Registry website search | Registered agent letter | Apostilled certificate | Live Verify on the certificate |
 | :--- | :--- | :--- | :--- | :--- |
-| **Proves Document Is Genuine** | **Yes.** Hash verified against registry domain. | **No.** You search separately; no link to the document. | **No.** Agent attests, but isn't the registry. | **No.** Apostille proves the notary is real, not that the certificate is current. |
-| **Real-Time Status** | **Yes.** STRUCK OFF returned immediately. | **Varies.** Some registries update daily, some weekly. | **Point in time.** Letter is stale immediately. | **Point in time.** |
-| **Speed** | **Instant.** | **Minutes.** Manual search. | **Days.** Agent drafts and sends. | **Weeks.** Notarization + apostille chain. |
-| **Works Offline** | **No.** Needs network. | **No.** | **Yes.** Physical letter. | **Yes.** Physical document. |
+| **Who can check** | Anyone with access to that registry's search, which may require an account or fee. | The party the letter is addressed to. | Any authority in a country party to the Hague Apostille Convention. | Anyone handed the certificate. |
+| **What the checker gets** | The registry's record, found by a separate search with no link to the document in hand. | The agent's attestation, from someone who knows the entity but is not the registry. | Authentication of the official who signed or certified the document, at that point in time. | Confirmation that the registry issued this exact certificate, and its current status, such as struck off. |
+| **What the company shares** | Its name or number for the search. | The letter. | The certificate with its apostille. | Only the certificate it chose to hand over. |
+| **Reach** | One registry at a time; update frequency varies. | Wherever the agent will write. | Countries party to the Convention. | Global in principle: any registry, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Minutes per search, plus any registry fee. | Days, and usually an agent's fee. | Weeks for the notarisation and apostille chain, with fees. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | Knowing which registry to search and how. | An agent willing to attest. | Notarisation and an apostille from the designated authority. | The registry to publish hashes, Live Verify-aware software on the checker's device, and a data connection at the time of the check. No registry does this yet. |
+| **Best suited to** | Looking a company up directly. | Context from someone who knows the entity. | Formal requirements of foreign authorities. | Tying the certificate in hand to the registry's current view. |
 
 **Where each fits:** Each existing route has its use: a registry search is the direct way to look a company up, an agent's letter adds context from someone who knows the entity, and an apostilled certificate is what many foreign authorities formally require. What none of them does is tie the certificate in hand to the registry's current view, since an apostille authenticates the certifying official at a point in time and a search is carried out separately from the document. Live Verify adds that link, and can be used alongside the apostille where one is still required.
 

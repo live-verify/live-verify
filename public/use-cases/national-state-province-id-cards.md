@@ -143,16 +143,21 @@ States can monitor verification request patterns:
 
 Geo-checking won't stop a single clone use, but it detects systematic abuse and can trigger card revocation and investigation before major fraud occurs.
 
-## Compared With NFC Chip Readers
+## Where Each Fits: Live Verify and NFC Chip Reading
 
-| Feature | Live Verify | NFC (eID / Chip) | Scanned PDF / Image |
+Many national ID cards carry a chip that a reader or NFC phone can check against the issuing government's keys. Coverage depends on where you are: many countries, including EU member states, issue chipped cards, while many cards, including most US state and Canadian provincial IDs, have no chip. Where the chip exists it is the stronger check of the physical card. Live Verify answers a different question, mainly for a card image or copy, and the two work side by side. <!-- TODO(verify): that most US state and Canadian provincial IDs carry no chip while EU national ID cards do -->
+
+| | NFC chip reading | Live Verify on the card | Scanned PDF or image |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Cryptographic.** Binds photo to status. | **High.** Binds digital keys. | **Zero.** Easily forged. |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Gov. | **Key-Bound.** Trust the PKI. | **Visual.** |
-| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Restricted.** Requires NFC-enabled phones. |
-| **Adoption** | **High.** Works for cards without chips. | **Low.** Many US/Canada IDs lack chips. |
+| **Who can check** | Anyone with an NFC reader or phone and software that supports that country's card. | Anyone shown the card or a copy of it, with Live Verify on their device. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Signed data from the chip, including the photo, that proves the card is genuine and unaltered. | Confirmation that the issuing authority stands behind this exact card text, and its current status, such as revoked or flagged. | An image that may have been edited. |
+| **What the holder shares** | The physical card, held to the reader. | Only the card or copy they chose to show. | Only the image they chose to send. |
+| **Reach** | Countries that issue chipped cards, where the checker's software supports them. | Global in principle: any issuing authority, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Seconds with the card in hand; needs NFC hardware and supporting software. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection. | Immediate. |
+| **What it needs** | A chipped card, the physical card present, and a compatible reader. | The issuing authority to publish hashes, and Live Verify-aware software on the checker's device. No issuing authority does this yet. | Nothing. |
+| **Best suited to** | In-person checks of chipped cards. | Cards without chips, and copies or images checked remotely. | Nothing where identity matters. |
 
-**Practical conclusion:** Where NFC or official digital-ID infrastructure exists, that should dominate. Live Verify is more defensible in the technology-gap cases where the verifier only has a visible card or an image and needs a lightweight bridge to current issuer status.
+**Where each fits:** Where NFC or official digital-ID infrastructure exists, it should be the first choice. Live Verify is more defensible in the gaps, where the verifier has only a visible card without a chip, or an image or copy, and needs a lightweight way to confirm the issuer's current status.
 
 ## Further Reading
 

@@ -147,16 +147,22 @@ Japan:
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Government Lookup
+## Where Each Fits: Live Verify and Government Inspection Lookups
 
-| Feature | Live Verify | Government portal (gov.uk, KBA, etc.) | Seller's Word |
+Many inspection regimes have an official online lookup: the UK's MOT history service on gov.uk, for example. Coverage depends on the country: some offer a public lookup by registration, some do not, and in places such as the US, Australia and Canada it varies by state or province. The government lookup and Live Verify answer slightly different questions and work side by side: the lookup gives the current record, Live Verify confirms the status shown on a listing as the authority issued it.
+
+| | Government lookup (e.g. gov.uk) | Live Verify on the listing | Seller's word |
 | :--- | :--- | :--- | :--- |
-| **Speed** | **Seconds.** Inline verification without leaving the listing. | **Minutes.** Separate site, manual lookup. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Tied to the inspection authority's domain. | **Government.** Same data source, different delivery. | **Zero.** No backing. |
-| **Context** | **In-place.** Verified where the buyer is already looking. | **Out-of-band.** Requires leaving the listing page. | **Embedded.** But unverified. |
-| **Cost** | **Free.** Hash verification. | **Free or low-cost.** Varies by country. | **Free.** |
-| **Currency** | **Snapshot.** As of issue date, with expiry. | **Live.** Always current. | **Unknown.** No date guarantee. |
-| **Integrity** | **Cryptographic.** Tamper-evident. | **Trusted source.** But not portable. | **Vulnerable.** Easily fabricated. |
+| **Who can check** | Anyone who knows the registration and finds the right service. | Any buyer viewing the listing with Live Verify on their device. | Nobody checks. |
+| **What the checker gets** | The live official record, always current. | Confirmation that the inspection authority issued this exact status, as at its date, with its expiry. | A claim with no backing. |
+| **What the seller shares** | The registration number. | The inspection status on the listing. | Whatever they choose to say. |
+| **Reach** | Countries that offer a public lookup; each has its own service. | Global in principle: any inspection authority, in any country, that publishes hashes on its own domain. | Anywhere, but unchecked. |
+| **Speed and cost** | Free or low cost; a separate site and a manual lookup. | A few seconds per check, in place on the listing: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | A public lookup in that country. | The inspection authority to publish hashes, and Live Verify-aware software on the buyer's device. No authority does this yet. | Nothing. |
+| **Currency** | Live. | A snapshot as at the issue date; the authority can mark it superseded. | Unknown. |
+| **Best suited to** | The definitive check before buying. | A quick first check while browsing, and countries with no public lookup. | Nothing where safety matters. |
+
+**Where each fits:** Where a government lookup exists it is the definitive, current record, and a buyer about to pay should use it. Live Verify makes the status shown on a listing checkable where the buyer is already looking, and gives the same assurance in countries with no public lookup. It shows the status as at its date, so it complements the official record rather than replacing it.
 
 ## Further Derivations
 

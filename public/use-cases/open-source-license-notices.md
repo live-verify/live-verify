@@ -93,14 +93,19 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Digital SBOMs (SPDX/CycloneDX)
+## Where Each Fits: Live Verify and Machine-Readable SBOMs
 
-| Feature | Live Verify | Digital SBOM (JSON/XML) |
+A software bill of materials (SBOM) in a standard format such as SPDX or CycloneDX lists every component and licence in a product, for automated analysis. A verified printed notice is a readable summary on the box or screen. They answer different needs and work together; the notice can point to the full SBOM.
+
+| | Machine-readable SBOM (SPDX, CycloneDX) | Live Verify on the printed notice |
 | :--- | :--- | :--- |
-| **Human Readable** | **Yes.** It's text on paper/screen. | **No.** It's a machine-readable data file. |
-| **Accessibility** | **Universal.** Any camera can read it. | **Specialized.** Needs SBOM analysis tools. |
-| **Physical Link** | **Strong.** Ties the physical box to the digital record. | **Weak.** Usually a file sitting on a server somewhere. |
-| **Completeness** | **Summary.** Lists key licenses/packages. | **Exhaustive.** Lists every dependency of a dependency. |
+| **Who can check** | Anyone with SBOM analysis tools and access to the file. | Anyone reading the notice with Live Verify on their device: an administrator, a customs inspector, a compliance auditor. |
+| **What the checker gets** | An exhaustive list of components and licences, including transitive dependencies. | Confirmation that the manufacturer stands behind this exact summary of key licences and packages, as at its date. |
+| **What the holder shares** | The file, where the manufacturer publishes it. | The notice as shipped. |
+| **Reach** | Anywhere the file and tools are available. | Global in principle: any manufacturer, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Automated once tools are in place. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | SBOM tooling and a way to tie the file to the physical product. | The manufacturer to publish hashes, and Live Verify-aware software on the checker's device. No manufacturer does this yet. |
+| **Best suited to** | Automated security and licence analysis. | A readable, checkable summary tied to the physical product. |
 
 **Where each fits:** A machine-readable SBOM is the right artefact for automated security and licence analysis, and it is far more complete than any printed notice. It is not something a customs inspector or an administrator unboxing a device can read off the packaging. A verified printed notice acts as a readable summary that the manufacturer stands behind, and can point to the full SBOM for those with the tools to use it.
 

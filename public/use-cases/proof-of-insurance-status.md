@@ -174,14 +174,18 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **Australia** | APRA, ASIC | Public liability proof required for many licences and venue hire |
 | **EU** | EIOPA + national regulators | Motor insurance databases exist in most countries; other types lack centralised verification |
 
-## Compared With Existing Insurance Verification
+## Where Each Fits: Live Verify, Broker Certificates and the Motor Insurers' Database
 
-| Feature | Live Verify | ACORD-25 / Broker Certificates | Motor Insurers' Database (MID) |
+Proof of insurance today usually means a certificate issued by the broker, such as the ACORD 25 form in the US, and for motor cover in the UK, a check against the Motor Insurers' Database (MID). Coverage depends on where you are and the type of cover: some countries have a national database for motor insurance, few have one for anything else. These answer different questions from a policyholder confirmation checkable with Live Verify, and they work side by side. <!-- TODO(verify): the extent of public access to the Motor Insurance Database -->
+
+| | Motor Insurers' Database (MID) | ACORD 25 or broker certificate | Live Verify on the policyholder confirmation |
 | :--- | :--- | :--- | :--- |
-| **Fraud Resistance** | **High.** Hash resolves against insurer's domain. | **Low.** PDF from broker, easily forged. | **High.** Centralised database. |
-| **Coverage** | **All policy types.** Any insurer with a domain. | **All types** but no verification layer. | **Motor only.** |
-| **Freshness** | **Real-time.** Reflects current policy status. | **Point-in-time.** Certificate date only. | **Near-real-time.** Daily updates. |
-| **Cost** | **Free to policyholder.** Mandated. | **Free** but unverifiable. | **Free** but limited scope. |
-| **Time-Limited** | **Yes.** Salt expiry prevents stale proofs. | **No.** Certificate circulates indefinitely. | **N/A.** Database lookup. |
+| **Who can check** | Police and insurers fully; the public in limited circumstances. | Anyone handed the certificate. | Anyone handed the confirmation within its validity period: a landlord, a client, a platform. |
+| **What the checker gets** | Whether a vehicle is recorded as insured, from a central database. | A broker's form, which may have been edited and does not show later cancellation. | Confirmation that the insurer issued this confirmation of active cover, and its current status, such as lapsed. |
+| **What the policyholder shares** | The vehicle registration. | The certificate. | Only the confirmation they chose to hand over; under the time-limited model it stops working when its salt expires. |
+| **Reach** | Motor insurance in the UK; other countries have their own databases or none. | All policy types, wherever the form is used. | Global in principle: any insurer, in any country, that publishes hashes on its own domain, for any type of cover. |
+| **Speed and cost** | Fast for those with access. | Immediate, but unchecked. | A few seconds per check: one web lookup, with no fee to the standard; under the mandate model described above, free to the policyholder. |
+| **What it needs** | Insurers reporting to the database. | Nothing beyond the broker issuing it. | The insurer to publish hashes, and Live Verify-aware software on the checker's device. No insurer does this yet. |
+| **Best suited to** | Motor enforcement. | Routine paperwork, where taken on trust. | Public liability, professional indemnity, employers' liability and other cover with no central database. |
 
-**Practical conclusion:** This is a strong Live Verify use case precisely where no MID-equivalent exists. For public liability, professional indemnity, employers' liability, and similar proofs, the portable insurer-issued confirmation is often the best available bridge between policyholder and relying party. Motor remains the weaker edge where dedicated databases may already dominate.
+**Where each fits:** For motor cover, a national database such as the MID already gives enforcement a fast central check, and Live Verify adds little there. For public liability, professional indemnity, employers' liability and similar cover, there is usually no such database, and a portable confirmation from the insurer is the best available link between policyholder and relying party.

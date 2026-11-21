@@ -104,14 +104,19 @@ Mobile network operators are regulated by central banks to issue payment receipt
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With SMS Confirmation
+## Where Each Fits: Live Verify and SMS Confirmations
 
-| Feature | Live Verify | SMS Confirmation | Scanned Image / PDF |
+Mobile money operators such as M-Pesa, GCash and MTN send an SMS confirmation for each transaction. Each operator runs its own service in the countries where it is licensed. The SMS tells the account holder about their own account; Live Verify lets someone else, such as a merchant or landlord, check a receipt they are shown. The two work side by side.
+
+| | SMS confirmation | Live Verify on the receipt | Screenshot or PDF |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Cryptographic.** Binds the *Transaction ID*. | **Low.** Easily spoofed with PC software. | **Zero.** Easily forged. |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Operator. | **Network-Bound.** Prone to SIM-swapping. | **Visual.** |
-| **Availability** | **Instant.** Verified via QR/Hash. | **Laggy.** SMS delivery often fails in congested areas. | **Instant.** |
-| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Basic.** Works on dumb-phones. | **Visual.** |
+| **Who can check** | The account holder, on their own handset. | Anyone shown the receipt who has Live Verify on their phone: a merchant, a landlord, an auditor. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The operator's message about their own account, if it is the recipient's own phone. A message shown on someone else's phone may be spoofed. | Confirmation that the operator issued this exact receipt, with its transaction ID and amount, and its current status, such as reversed. | An image that may have been edited. |
+| **What the holder shares** | Nothing; the recipient gets their own message. | Only the receipt they chose to show. | Only the receipt they chose to show. |
+| **Reach** | Customers of that operator, in the countries where it is licensed. | Global in principle: any operator, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Arrives with the transaction; can be delayed when networks are busy. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection. | Immediate. |
+| **What it needs** | Any handset, including basic phones. | The operator to publish hashes, and a smartphone with Live Verify-aware software. No operator does this yet. | Nothing. |
+| **Best suited to** | The recipient confirming money has arrived in their own account. | A third party checking a receipt shown to them, and later audit. | Nothing where the amount matters. |
 
 **Where each fits:** The SMS confirmation is the operator's own notification, works on any handset, and for the account holder it remains the normal way to learn that money has arrived. A merchant being shown a message or a receipt on a customer's phone is in a different position, because they cannot tell whether it came from the operator. Live Verify lets the merchant check the receipt text against the operator's domain, in addition to watching for their own confirmation message.
 

@@ -109,14 +109,21 @@ The local planning authority (here, City of York Council) is the authoritative s
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Manual Verification
+## Where Each Fits: Live Verify, Council Planning Portals and Local Authority Searches
 
-| Feature | Live Verify | Council Planning Portal | Local Authority Search (CON29) |
+In England and Wales, planning records are held by each local planning authority and published on its own planning portal, and a buyer's solicitor normally orders a formal local authority search (the CON29 enquiries) as part of conveyancing. Other countries have their own planning systems. These answer different questions from Live Verify and work side by side: the formal search remains the legal check, and Live Verify gives a quick, tamper-evident snapshot of one application's status. <!-- TODO(verify): that CON29 local searches are an England-and-Wales procedure -->
+
+| | Council planning portal | Local authority search (CON29) | Live Verify on the planning status |
 | :--- | :--- | :--- | :--- |
-| **Speed** | **Seconds.** Hash check against council domain. | **Minutes to hours.** Navigate portal, find application, read conditions. | **Days to weeks.** Submitted as part of formal search pack. |
-| **Trust Anchor** | **Domain-Bound.** Tied to the planning authority. | **Institutional.** Trust the portal content is current. | **Institutional.** Trust the council's search response. |
-| **Standardisation** | **Uniform format.** Same structure regardless of council. | **None.** Each council has different portal design and data presentation. | **Standard form.** But free-text answers vary by council. |
-| **Integrity** | **Cryptographic.** Binds planning status to domain. | **None.** Portal content can change without notice. | **Institutional.** Paper/PDF response from council. |
+| **Who can check** | Anyone who can find the application on that council's portal. | The solicitor who orders it. | Anyone handed the status: a buyer, a solicitor, a mortgage lender. |
+| **What the checker gets** | The council's current record of the application, conditions and discharge notices, to be read and interpreted. | The council's formal answers to standard enquiries, which conveyancers and lenders rely on. | Confirmation that the planning authority issued this exact status, including conditions discharged, as at its date. |
+| **What the seller shares** | The address or application number. | Nothing; the search is about the property. | Only the status they chose to hand over. |
+| **Reach** | One council; each portal is laid out differently. | Councils in England and Wales. | Global in principle: any planning authority, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Free; minutes to hours of navigation and reading. | A fee, and days to weeks to come back. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | Time and familiarity with the portal. | Ordering the search through the conveyancing process. | The planning authority to publish hashes, and Live Verify-aware software on the checker's device. No planning authority does this yet. |
+| **Best suited to** | Researching an application in detail. | The formal check that conveyancing and lenders require. | A quick, consistent check early in a sale, before or alongside the formal search. |
+
+**Where each fits:** The local authority search remains the formal check that conveyancing and lenders rely on, and the council's portal is where the full planning file can be read. Live Verify does not replace either. It gives a buyer or solicitor an early, consistent snapshot of one permission, as the council issued it, so problems surface before the formal search comes back.
 
 ## Further Derivations
 

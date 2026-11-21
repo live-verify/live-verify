@@ -157,18 +157,21 @@ Without a salt, an attacker who knows someone works at Pinnacle Engineering coul
 
 The salt is also critical because pay stubs contain structured, predictable data. Unlike a free-text document, the fields and formats are constrained. This makes enumeration attacks more feasible without salt protection.
 
-## Compared With the Alternatives
+## Where Each Fits: Live Verify and Current Income Checks
 
-| Feature | Live Verify | Call the Employer | Plaid / Payroll API | Tax Returns | Trust the PDF |
+A lender, landlord or agency checking income today can call the employer, connect to payroll data through a service such as Plaid's payroll products, ask for tax returns or official tax transcripts, or trust the PDF. Payroll connections depend on the employer using a supported payroll provider, and tax records differ by country. These answer different questions and work side by side.
+
+| | Calling the employer | Payroll API (e.g. Plaid) | Tax returns | Live Verify on the payslip | Trusting the PDF |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Speed** | **Instant.** Scan and verify. | **Slow.** Days to reach the right person in HR. | **Minutes.** But requires setup. | **Weeks to months.** Annual filing only. | **Instant.** But meaningless. |
-| **Privacy** | **High.** Employee controls what's shared. No credentials exposed. | **Medium.** HR may disclose more than intended. Employee may not know the call happened. | **Low.** Requires employee's payroll login. Scrapes full history, deductions, SSN. | **High.** But reveals everything on the return. | **N/A.** No verification occurs. |
-| **Integrity** | **Cryptographic.** Every field is hash-protected. | **Verbal.** "She earns about $80k" — no paper trail, no precision. | **High.** Direct API to payroll system. | **High.** IRS/HMRC data. But 6-18 months old. | **Zero.** Any number can be changed. |
-| **Coverage** | **Universal.** Any employer with a domain. | **Universal.** But requires the employer to answer. | **Limited.** Only employers using supported payroll providers. | **Universal.** But massively delayed. | **Universal.** But unverified. |
-| **Detects Termination** | **Yes.** NOT_EMPLOYED status in real time. | **Sometimes.** If you reach the right person. | **Maybe.** If the employee's access is revoked. | **No.** Tax returns are historical. | **No.** |
-| **Cost** | **Free for verifier.** Issuer pays. | **Free.** But costs time. | **$2-$10 per verification.** Plus credential risk. | **Free.** Via IRS transcript. But slow. | **Free.** And worthless. |
+| **Who can check** | Anyone who reaches the right person in HR. | Verifiers integrated with the service. | Anyone the applicant gives them to; official transcripts via the tax authority's process. | Anyone handed the payslip. | Nobody checks. |
+| **What the checker gets** | A verbal or written confirmation, often imprecise. | Payroll data direct from the payroll system, often including history and deductions. | Annual income as filed, which can be many months old. | Confirmation that the employer issued this exact payslip, as at its pay date, and current employment status if the employer provides it. | Figures that may have been edited. |
+| **What the employee shares** | Consent for the call, though they may not know when it happens. | Their payroll login or a connection to their payroll account. | The whole return. | Only the payslip they chose to hand over. | The PDF. |
+| **Reach** | Any employer that answers. | Employers using supported payroll providers. | Countries with accessible tax records. | Global in principle: any employer or payroll provider, in any country, that publishes hashes on its own domain. | Universal, but unverified. |
+| **Speed and cost** | Days to reach HR, and staff time. | Minutes once set up; the verifier usually pays per check. | Slow to obtain and only updated annually. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | A reachable, willing HR contact. | An integrated verifier and a supported payroll provider. | A filed return and time. | The employer or payroll provider to publish hashes, and Live Verify-aware software on the checker's device. No employer does this yet. | Nothing. |
+| **Best suited to** | Small employers and occasional checks. | Lenders who check many applicants and whose applicants' payroll providers are supported. | Self-employed income and long-run history. | A payslip already in circulation, where the alternatives are credential sharing, stale returns or phone calls. | Nothing where money depends on it. |
 
-**Narrower conclusion:** Direct payroll APIs should remain primary where they are available, accepted, and proportionate. Live Verify is strongest when the pay stub or payslip PDF is already the artifact in circulation and the alternatives are invasive credential sharing, stale tax returns, or manual employer calls.
+**Where each fits:** Direct payroll APIs should remain the first choice where they are available, accepted and proportionate. Live Verify is strongest when the payslip PDF is already the document in circulation and the alternatives are sharing payroll credentials, waiting on tax returns, or calling the employer.
 
 ## Further Derivations
 

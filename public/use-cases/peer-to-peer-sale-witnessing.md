@@ -153,18 +153,22 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer is the core of this use case — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the general mechanism. Here the witnessing firm goes further than hash custody: it verifies government-issued ID for both parties, records transaction details with timestamps, and retains identity information under strict access controls, disclosing it only via legal process or mutual consent. That gives both sides accountability (neither party can deny the transaction occurred), recourse (buyers can reach sellers after the fact), deterrence (sellers of stolen goods know their identity is on file), and evidence courts and police can rely on.
 
-## Compared With Existing Solutions
+## Where Each Fits: Witnessed Sales and Other Ways to Sell Privately
 
-| Feature | Witnessed P2P Sale | Facebook Marketplace | Pawn Shop | Cash in Parking Lot |
+Private sellers today meet buyers through marketplaces such as Facebook Marketplace and Craigslist, sell to a pawn shop, or simply exchange cash in a car park. Pawn shops are regulated locally, and record-keeping rules vary by country and state. A witnessing organisation that checks both parties' ID and issues a receipt checkable with Live Verify adds a record and recourse; it does not replace the marketplace, which is where buyer and seller find each other. No such witnessing organisation exists yet; the service described here is an illustration.
+
+| | Marketplace meetup (Facebook Marketplace, Craigslist) | Pawn shop | Witnessed sale with a Live Verify receipt | Cash in a car park |
 | :--- | :--- | :--- | :--- | :--- |
-| **Identity Verified** | **Yes.** Government ID. | **Partial.** Facebook profile. | **Yes.** Required by law. | **No.** |
-| **Serial Recorded** | **Yes.** In witnessed record. | **No.** | **Yes.** Police database. | **No.** |
-| **Post-Sale Contact** | **Yes.** Via relay. | **Maybe.** If account exists. | **Yes.** Store has records. | **No.** |
-| **Price Received** | **Full market value.** | **Full market value.** | **30-50% of value.** | **Full market value.** |
-| **Convenience** | **Medium.** Witness step. | **High.** | **Low.** Must go to shop. | **High.** |
-| **Stolen Goods Check** | **Optional.** Serial lookup. | **No.** | **Yes.** Required by law. | **No.** |
+| **Who can check** | Each party sees the other's platform profile. | The shop, and police where local rules require records. | Buyer, seller, an insurer, a court or the police, from the receipt. | Nobody. |
+| **What the checker gets** | A profile, which may not be the person's real identity. | The shop's records of the seller's ID and the item. | Confirmation that the witnessing organisation recorded this sale, item and serial number, and its current status, such as disputed or on police hold. | Nothing. |
+| **What the parties share** | Platform profiles and messages. | The seller's ID with the shop. | Government ID with the witness, who keeps it in escrow; the receipt carries only anonymous references. | Nothing. |
+| **Reach** | Wherever the platform operates. | Local shops. | Global in principle: any witnessing organisation, in any country, that publishes hashes on its own domain. | Anywhere. |
+| **Speed and cost** | Quick and usually free. | A trip to the shop; the seller generally receives well below market value. | A witness step adds time and possibly a fee; checking the receipt afterwards takes a few seconds and one web lookup. | Quick and free. |
+| **What it needs** | An account on the platform. | A shop nearby. | A witnessing organisation, both parties willing to show ID, and Live Verify-aware software on the checker's device. | Nothing. |
+| **Stolen goods** | No check. | Checks and reporting where local law requires them. | Optional serial lookup, and a record police can follow. | No check. |
+| **Best suited to** | Finding a buyer, and low-value sales. | A quick sale where price matters less than speed. | Higher-value items where both parties want a record and recourse. | Low-value items between people who trust each other. |
 
-**Why Witnessed P2P Sales Win:** Full market value (unlike pawn shops) plus identity verification and recourse (unlike parking lot deals). The small friction of a witness step provides significant protection for both parties.
+**Where each fits:** Marketplaces are where most private sales start, and for low-value items a meetup is enough. For higher-value items, a witness step gives both parties identity escrow, a record of the serial number and a way back to the other party, while the seller still receives the market price rather than a pawn shop's offer. The cost is the extra step, and the service only works where a witnessing organisation exists.
 
 ## Implementation Models
 

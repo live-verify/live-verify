@@ -221,18 +221,21 @@ The pattern applies across jurisdictions. Each certification body would operate 
 
 </details>
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify, Organic Logos and Certification Body Registers
 
-| Feature | Live Verify | Organic Logo on Listing | Certification Body Register | Paper Certificate |
+Organic certification is run by certification bodies under national or regional rules, and many publish registers of the operators they certify; on retail platforms, shoppers usually see only an organic logo. Coverage depends on where you are: organic schemes and registers differ by country and region, and a product may be certified under more than one. The register and Live Verify answer the same question from different places and work side by side: the register is the authoritative source, Live Verify carries the certifier's claim onto the product page.
+
+| | Organic logo on the listing | Certification body register | Live Verify on the listing | Paper certificate |
 | :--- | :--- | :--- | :--- | :--- |
-| **Issued by certifier** | **Yes.** Claim originates from the certification body. | **No.** Logo placed by producer or platform. | **Yes.** But requires leaving the platform. | **Yes.** But physical only. |
-| **Verifiable on platform** | **Yes.** In place, on the product page. | **No.** Trust the logo image. | **No.** Separate site. | **No.** Not digital. |
-| **Real-time status** | **Yes.** Endpoint reflects current certification. | **No.** Logo persists regardless of status. | **Yes.** But manual lookup. | **No.** Paper persists. |
-| **Product category specific** | **Yes.** Claim names covered categories. | **No.** Logo covers the brand generically. | **Sometimes.** Varies by register. | **Yes.** But not visible online. |
-| **Multi-platform** | **Yes.** Same claim on all platforms. | **No.** Each platform manages its own data. | **N/A.** | **N/A.** |
-| **Detects suspension** | **Yes.** SUSPENDED status. | **No.** | **Requires checking.** | **No.** |
+| **Who can check** | Nobody; it is an image placed by the producer or platform. | Anyone who leaves the platform and searches the register. | Any shopper or platform viewing the listing with Live Verify on their device. | Whoever is given the paper, usually a trade buyer. |
+| **What the checker gets** | A logo, which persists whatever the certification status. | The certifier's current record, sometimes with the product categories covered. | Confirmation that the certifier issued this claim, the categories it covers, and its current status, such as suspended. | The certificate as issued, which says nothing about later suspension. |
+| **What the producer shares** | The logo. | Its name or operator number for the search. | Only the claim on the listing. | The certificate. |
+| **Reach** | Every listing, unchecked. | The certifier's own operators; each body has its own register. | Global in principle: any certification body, in any country, that publishes hashes on its own domain; the same claim can appear on every platform. | Offline only. |
+| **Speed and cost** | Immediate. | Free, but a separate manual lookup. | A few seconds per check, in place on the product page: one web lookup, with no fee to the standard. | Immediate for the holder. |
+| **What it needs** | Nothing. | Knowing which body certified the product, and time to search. | The certification body to publish hashes, and Live Verify-aware software on the shopper's device. No certification body does this yet. | Nothing. |
+| **Best suited to** | Recognition at a glance. | Authoritative checks by trade buyers and enforcement. | Checking certification at the point of purchase online. | Trade paperwork. |
 
-**Practical conclusion:** certification body registers remain the authoritative source, but consumers purchasing on retail platforms do not visit them. The verifiable claim brings the certification body's authority to the product page where the purchasing decision actually happens.
+**Where each fits:** Certification body registers remain the authoritative source, but shoppers buying on retail platforms do not visit them. A verifiable claim brings the certification body's own status, including any suspension, to the product page where the purchasing decision happens, while the register stays the reference for trade buyers and enforcement.
 
 ## Authority Chain
 

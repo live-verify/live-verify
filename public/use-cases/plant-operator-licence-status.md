@@ -147,15 +147,21 @@ The issuing bodies — CPCS, NPORS, state WHS regulators — already maintain da
 
 Optional. Operator licence status is not special category data in the way that criminal record checks are. However, a salt may be useful where an operator does not want repeated verifications of the same card to be correlatable across different sites or employers.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Current Operator Card Checks
 
-| Feature | Verifiable Status Claim | Plastic Card (Current) | Phone Call to Scheme | Online Card Checker (where available) |
+Operator competence schemes, such as CPCS and NPORS in the UK and state-issued High Risk Work Licences in Australia, issue cards to qualified operators; in the US, employers certify their own forklift operators. Coverage depends on where you are: some countries have national schemes, some have state schemes, and some leave it to employers. Today a site manager reads the plastic card, phones the scheme, or uses an online card checker where one exists. These work side by side with Live Verify.
+
+| | Phone call to the scheme | Online card checker (where available) | Live Verify on the status claim | Plastic card alone |
 | :--- | :--- | :--- | :--- | :--- |
-| **Confirms current status** | **Yes.** Real-time from issuer. | **No.** Shows expiry date only. No revocation visibility. | **Yes.** But slow and not scalable. | **Yes.** But requires manual lookup. |
-| **Category-specific** | **Yes.** Status for the specific equipment category. | **Partial.** All categories on one card. | **Yes.** | **Yes.** |
-| **Forgery-resistant** | **Yes.** Cryptographically verifiable. | **No.** Plastic cards are counterfeited. | **N/A.** | **Partial.** Relies on correct input. |
-| **Scalable for gate checks** | **Yes.** Machine-verifiable. | **No.** Visual inspection only. | **No.** One call at a time. | **Partial.** Manual per-operator lookup. |
-| **Worker can share proactively** | **Yes.** | **Yes.** But unverifiable. | **No.** Employer must call. | **No.** Employer must look up. |
+| **Who can check** | An employer or site manager who calls. | Anyone who looks the card up. | Anyone shown the claim, including at a site gate, with Live Verify on their device. | Anyone, by eye. |
+| **What the checker gets** | The scheme's current record, as told over the phone. | The scheme's current record, if the details are entered correctly. | Confirmation that the scheme issued this status for this operator and equipment category, and its current state, such as suspended or expired. | The categories and expiry printed on the card; nothing about revocation. |
+| **What the operator shares** | Their card details. | Their card details. | Only the claim they chose to show. | The card. |
+| **Reach** | One scheme at a time. | Schemes that offer a checker. | Global in principle: any scheme or regulator, in any country, that publishes hashes on its own domain. | Anywhere, but counterfeits exist. |
+| **Speed and cost** | Slow; one call per operator. | Minutes per operator, entered by hand. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | A reachable scheme. | A checker for that scheme and time to use it. | The scheme to publish hashes, and Live Verify-aware software on the checker's device. No scheme does this yet. | Nothing. |
+| **Best suited to** | Occasional doubtful cases. | Checks before a worker starts on site. | Checking many operators at a gate, and the operator sharing proof in advance. | A first look. |
+
+**Where each fits:** Online card checkers, where a scheme offers one, already give the scheme's current view and are the right tool for pre-start checks. The plastic card shows only what was printed and cannot show a suspension, and phone calls do not scale to a busy gate. Live Verify lets the operator carry a claim the scheme stands behind, category by category, that a site manager can check in seconds.
 
 ## Authority Chain
 

@@ -192,15 +192,21 @@ The nurse or midwife benefits by proving their registration status without relyi
 
 **Inspection evidence:** During inspections, CQC inspectors can verify nursing registration claims displayed on badges or agency documentation. A care home or agency displaying verifiable claims demonstrates active compliance with registration checking requirements.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Current Registration Checks
 
-| Feature | Live Verify | NMC Register Lookup | Employer Confirmation | Agency Booking Sheet |
+Nursing regulators keep public registers: the NMC's register at nmc.org.uk in the UK, and the equivalents listed above elsewhere. Each covers its own jurisdiction. In practice, ward staff often rely instead on the employer's or the agency's word. The register and Live Verify draw on the same source, the regulator, and work side by side: the register is the official record, Live Verify puts the regulator's claim where the nurse is presented.
+
+| | Register lookup (nmc.org.uk) | Employer confirmation | Agency booking sheet | Live Verify on the registration claim |
 | :--- | :--- | :--- | :--- | :--- |
-| **Issuer-controlled** | **Yes.** NMC issues the claim. | **Yes.** But requires the recipient to navigate there. | **No.** Employer asserts. | **No.** Agency asserts. |
-| **Verifiable at point of care** | **Yes.** Clip from badge or agency site. | **No.** Requires navigating to nmc.org.uk. | **No.** Requires contacting the employer. | **No.** Requires trusting the agency. |
-| **Shows current status** | **Yes.** Live response from NMC. | **Yes.** If checked at that moment. | **No.** May be outdated. | **No.** Reflects status at time of booking. |
-| **Detects struck-off nurse** | **Yes.** Endpoint returns STRUCK OFF. | **Yes.** If checked. | **Possibly.** If employer is informed. | **No.** Agency may not have updated. |
-| **Works at shift start** | **Yes.** Single clip action. | **Possible.** If ward staff have time. | **No.** | **No.** Already on the ward. |
+| **Who can check** | Anyone who navigates to the register and searches. | Whoever can reach the employer. | Whoever receives the sheet. | Anyone shown the claim on a badge, booking confirmation or agency site. |
+| **What the checker gets** | The regulator's current record. | The employer's statement, which may be out of date. | The agency's statement, as at booking. | Confirmation that the regulator issued this claim, and its current status, such as conditions of practice or struck off. |
+| **What the nurse shares** | Name or PIN for the search. | Consent for the contact. | Whatever the agency includes. | Only the claim shown. |
+| **Reach** | One regulator's register; other countries have their own. | Wherever the employer can be reached. | The agency's bookings. | Global in principle: any regulator, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Free; takes time that busy ward staff may not have at shift start. | Can take hours or days. | Immediate, but only as reliable as the agency. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | Time and access to the register. | A reachable, informed employer. | Trust in the agency. | The regulator to publish hashes, and Live Verify-aware software on the checker's device. No regulator does this yet. |
+| **Best suited to** | Hiring and periodic checks by employers. | Permanent staff, where the employer monitors registration. | Shift logistics. | Agency and locum nurses checked at the start of a shift. |
+
+**Where each fits:** The register remains the official record, and employers checking registration at hiring and monitoring it afterwards should keep using it. The gap is agency and locum nursing, where a nurse arrives at shift start and ward staff have no time to search. Live Verify carries the regulator's own current status to where the nurse is presented, so a lapsed or struck-off registration shows up at the door of the ward.
 
 ## Authority Chain
 

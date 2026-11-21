@@ -101,14 +101,21 @@ Northbridge Building Society, a regulated mortgage lender, is authorized by the 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Manual Redemption Requests
+## Where Each Fits: Live Verify and Requesting Figures From the Lender
 
-| Feature | Live Verify | Postal / Portal Request | Scanned PDF |
+Today a solicitor obtains a redemption figure by requesting it from the lender, by post or through the lender's portal. Getting the figure straight from the lender remains the trusted route for the solicitor who asked for it. Live Verify answers a different question, for everyone further down the chain who is handed a copy: is this the statement the lender issued, with these figures and this validity window? The two work side by side.
+
+| | Request to the lender (post or portal) | Live Verify on the statement | Forwarded scanned PDF |
 | :--- | :--- | :--- | :--- |
-| **Speed** | **Seconds.** Hash check against lender domain. | **Days.** Request, wait, receive by post or portal. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Tied to the lender. | **Reputation.** Trust the letterhead. | **Zero.** Easily forged. |
-| **Currency** | **Time-Stamped.** As-at date and validity window are hash-bound. | **Stale Risk.** Figures age from the moment of issue. | **None.** No way to confirm the date is real. |
-| **Integrity** | **Cryptographic.** Binds balance, ERC status, and validity to domain. | **Paper.** Can be altered after receipt. | **Vulnerable.** Trivially edited. |
+| **Who can check** | The borrower's solicitor or someone else authorised to ask the lender. | Anyone handed the statement: the buyer's solicitor, a second lender, a conveyancer in the chain. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The figure direct from the lender. | Confirmation that the lender issued this exact statement, as at its date, and whether it is still within its validity window. | A document whose balance or dates may have been edited. |
+| **What the borrower shares** | Authority for the lender to deal with their solicitor. | Only the statement they chose to hand over. | Only the statement they chose to hand over. |
+| **Reach** | The lender's own customers and their authorised representatives. | Global in principle: any lender, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Can take days to arrive, and a fresh figure is needed if completion slips. | A few seconds per check: one web lookup, with no fee to the standard and no relationship with the lender. It does not produce a new figure. | Immediate. |
+| **What it needs** | An authorised request to the lender. | The lender to publish hashes, and Live Verify-aware software on the checker's device. No lender does this yet. | Nothing. |
+| **Best suited to** | Obtaining the figure in the first place, and fresh figures when dates move. | Confirming a forwarded statement is genuine and still in date. | Nothing where completion money depends on it. |
+
+**Where each fits:** The borrower's solicitor will still request the redemption figure from the lender, and a fresh one whenever completion moves. Once issued, that statement is forwarded to others in the transaction who have no channel to the lender. Live Verify lets them confirm it is genuine and within its validity window in seconds, rather than taking the copy on trust or waiting for a reply.
 
 ## Further Derivations
 

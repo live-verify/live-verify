@@ -183,16 +183,21 @@ The first is about registry truth over time.
 
 The second is about privacy-preserving reuse in the present.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify Ownership Proofs, Title Extracts and Utility Bills
 
-| Feature | Short-Lived Ownership Proof | Full Title Extract / Deed Copy | Utility Bill |
+Today a homeowner proving ownership usually hands over a copy of the title register or deed, from the land registry or county recorder, or falls back on a utility bill. Land records are kept nationally in some countries and by county or region in others. The permanent title record remains the legal source; a short-lived ownership proof issued from it, checkable with Live Verify, is a narrower object for routine sharing. They work side by side.
+
+| | Full title extract or deed copy | Utility bill | Short-lived ownership proof (Live Verify) |
 | :--- | :--- | :--- | :--- |
-| **Proves current ownership** | **Yes.** | **Yes.** | **Weakly / indirectly.** |
-| **Privacy-preserving** | **High.** | **Low.** | **Medium.** |
-| **Replay-resistant** | **Yes.** Expires fast. | **No.** | **No.** |
-| **Good for routine sharing** | **Yes.** | **Poor.** | **Sometimes.** |
+| **Who can check** | Anyone handed the copy; the registry can confirm it on request. | Anyone, by eye. | Anyone handed the proof within its validity window: an insurer, a school, a contractor, a court. |
+| **What the checker gets** | The permanent record of ownership, often with instrument history and more detail than needed. | Evidence that someone receives bills at the address; not ownership. | Confirmation that the registry stands behind the statement that this person is the current registered owner, as at that moment. After expiry it no longer verifies. |
+| **What the homeowner shares** | The full extract, which can be kept, copied and replayed. | The bill, including account details. | Only the short-lived proof, which stops working after its window. |
+| **Reach** | Wherever the record is accepted. | Anywhere, but weak. | Global in principle: any land registry or recorder, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Obtaining an official copy can take time and a fee. | Immediate. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | Access to the registry. | A bill in the owner's name. | The registry to issue short-lived proofs and publish hashes, and Live Verify-aware software on the checker's device. No registry does this yet. |
+| **Best suited to** | Conveyancing, lending against the property, and anything that turns on land law. | Address checks, not ownership. | Routine homeowner-to-third-party sharing. |
 
-**Practical conclusion:** permanent title records remain primary for land law. Short-lived ownership proofs are the better object for routine homeowner-to-third-party sharing.
+**Where each fits:** Permanent title records remain the primary source for land law, and conveyancing and lending should keep using them. For routine sharing with an insurer, a school or a contractor, a full extract reveals more than is needed and can be replayed indefinitely. A short-lived ownership proof gives the third party what they need for the task at hand and then expires.
 
 ## Authority Chain
 

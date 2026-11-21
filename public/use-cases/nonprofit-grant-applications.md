@@ -98,13 +98,19 @@ Grant-giving agencies approve and document lottery funding for nonprofit organiz
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Email / Portals
+## Where Each Fits: Live Verify, Grant Portals and Email
 
-| Feature | Live Verify | Grant Portals (Fluxx/SmartSimple) | Email |
+Funders manage grants through portals such as Fluxx and SmartSimple, and much correspondence still goes by email. These serve the relationship between funder and grantee well. Live Verify answers a narrower question for someone outside that relationship, such as a bank or another donor: did this funder issue this award letter? They work side by side.
+
+| | Grant portal (Fluxx, SmartSimple) | Email | Live Verify on the award letter |
 | :--- | :--- | :--- | :--- |
-| **Shareability** | **High.** Send the PDF to anyone (bank, donor). | **Low.** Login required. Hard to share access with a bank. | **Medium.** Can forward, but easy to fake. |
-| **Permanence** | **High.** Independent of portal access. | **Medium.** What if you lose your login? | **Medium.** Buried in inboxes. |
-| **Trust** | **Cryptographic.** Mathematical certainty. | **Siloed.** Trust depends on portal security. | **Zero.** Easily spoofed. |
+| **Who can check** | The funder and the grantee's users with a login. | Whoever received the message. | Anyone handed the letter: a bank, another donor, an auditor. |
+| **What the checker gets** | The grant record and its history, inside the portal. | A forwarded message, which may be spoofed or edited. | Confirmation that the funder issued this exact award letter, as at its date, and whether it has been amended or withdrawn. |
+| **What the holder shares** | Access is not normally shared with third parties. | The message they choose to forward. | Only the letter they chose to hand over. |
+| **Reach** | Users of that funder's portal. | Anyone with email. | Global in principle: any funder, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Part of the funder's grant system; access depends on keeping a login. | Free and immediate. | A few seconds per check: one web lookup, with no fee to the standard and no portal login. |
+| **What it needs** | A portal account. | Nothing. | The funder to publish hashes, and Live Verify-aware software on the checker's device. No funder does this yet. |
+| **Best suited to** | Managing the application, reporting and correspondence. | Routine exchanges. | Showing the award to a third party such as a bank or co-funder. |
 
 **Where each fits:** Grant portals are well suited to managing an application, with its forms, reporting deadlines and correspondence with the funder, and email is fine for routine exchanges. Neither helps much when a nonprofit needs to show the award to someone outside that relationship, such as a bank or another donor, who will not be given a portal login. A verified award letter can be passed to them and checked against the funder's domain, while the portal carries on handling the grant itself.
 

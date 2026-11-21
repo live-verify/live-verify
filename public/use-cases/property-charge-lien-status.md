@@ -106,14 +106,21 @@ HM Land Registry, a government agency, is the authoritative source for registere
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Manual Verification
+## Where Each Fits: Live Verify and Land Registry Official Searches
 
-| Feature | Live Verify | Official Search (Form OS1/OS2) | Seller's Solicitor Disclosure |
+In England and Wales, a buyer's solicitor confirms registered charges by an official search of the register at HM Land Registry (forms OS1 and OS2), which also gives a priority period protecting the buyer while the purchase completes; the seller's solicitor also discloses charges. Other countries have their own land registers and search procedures. The official search does something Live Verify cannot: it protects the buyer's priority. Live Verify answers a narrower question, quickly: does the registry stand behind this charge status, as at its date? They work side by side. <!-- TODO(verify): that OS1/OS2 official searches give a priority period -->
+
+| | Official search (OS1/OS2) | Seller's solicitor disclosure | Live Verify on the charge status |
 | :--- | :--- | :--- | :--- |
-| **Speed** | **Seconds.** Hash check against registry domain. | **Hours to days.** Submitted and returned via portal. | **Variable.** Depends on solicitor responsiveness. |
-| **Trust Anchor** | **Domain-Bound.** Tied to the land registry. | **Institutional.** Trust the registry's process. | **Professional.** Trust the solicitor's obligation. |
-| **Currency** | **As-at date shown.** Snapshot is timestamped. | **Priority period.** Protected window after search. | **Unknown.** No guaranteed currency. |
-| **Integrity** | **Cryptographic.** Binds charge status to domain. | **Institutional.** Registry-issued but paper/PDF. | **None.** Relies on professional duty. |
+| **Who can check** | Conveyancers, through the registry's portal. | The buyer's solicitor, receiving it. | Anyone handed the status: a buyer, a lender, a solicitor early in a transaction. |
+| **What the checker gets** | The registry's formal search result, with a priority period protecting the application. | The solicitor's statement, backed by professional duty. | Confirmation that the registry issued this exact charge status, as at its date. No priority protection. |
+| **What the seller shares** | Nothing; the search is about the title. | Whatever disclosure requires. | Only the status they chose to hand over. |
+| **Reach** | Registered land in England and Wales. | The transaction at hand. | Global in principle: any land registry, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Hours to days, with a fee. | Depends on the solicitor's responsiveness. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A conveyancer with registry access. | A responsive solicitor. | The registry to publish hashes, and Live Verify-aware software on the checker's device. No land registry does this yet. |
+| **Best suited to** | The formal pre-completion check, with priority. | Disclosure within the transaction. | An early, quick snapshot of charges, before the formal search. |
+
+**Where each fits:** The official search remains essential before completion, because it gives the buyer a priority period that nothing else does. Earlier in a transaction, a buyer, lender or solicitor may simply want to know what charges stand against the property. Live Verify lets them check a registry-issued status in seconds, so problems surface early, without replacing the formal search.
 
 ## Further Derivations
 

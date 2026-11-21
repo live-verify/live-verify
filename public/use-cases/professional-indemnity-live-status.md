@@ -161,17 +161,21 @@ The client benefits directly.
 
 **Comparison shopping:** When a client is choosing between firms, the presence and status of a verifiable PI claim is one signal of operational credibility. A firm that embeds a live insurer-issued claim is demonstrating that its cover is current and that it is willing to let clients verify this independently.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Current Ways of Checking PI Cover
 
-| Feature | Live Verify | PDF Certificate | Firm's Website Statement | Regulator's Register | Phone Call to Insurer |
+A client deciding whether to instruct a professional firm can today look at the firm's own website statement, ask for a PDF certificate, check the regulator's register where one records insurance, or phone the insurer. Coverage depends on the profession and the country: some regulators record insurance on their registers, many do not. Regulator registers remain necessary for disciplinary records and practising certificates, and answer a different question from Live Verify, which confirms the insurer's current position on the firm's cover. They work side by side.
+
+| | Regulator's register | Phone call to insurer | Firm's website statement | Live Verify on the firm's site | PDF certificate |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Issuer-controlled** | **Yes.** Insurer issues the claim. | **Initially.** But editable after issue. | **No.** Firm self-asserts. | **Yes.** But updated periodically. | **Refused.** Insurer won't confirm to third parties. |
-| **Domain-bound** | **Yes.** Claim names the firm's site. | **No.** | **No.** | **No.** | **No.** |
-| **Revocable** | **Immediate.** Endpoint returns REVOKED. | **No.** PDF persists indefinitely. | **No.** Text persists. | **Delayed.** Days to weeks. | **N/A.** |
-| **Verifiable pre-instruction** | **Yes.** On the firm's website. | **Requires requesting it.** | **No.** | **Requires visiting the register.** | **Usually refused.** |
-| **Detects stale claims** | **Yes.** Revoked status is immediate. | **No.** | **No.** | **Partially.** If the register is current. | **N/A.** |
+| **Who can check** | Anyone who visits the register. | Anyone who calls, though insurers often will not confirm cover to third parties. | Anyone reading the site. | Any prospective client on the firm's site, with Live Verify on their device. | Whoever asks the firm for it. |
+| **What the checker gets** | The regulator's record, as current as its last update. | Whatever the insurer is willing to say. | The firm's own assertion. | Confirmation that the insurer issued this claim for this firm, and its current status, such as revoked, with a warning if it appears on a site other than the one it names. | The certificate as issued, which may have been edited and does not show later cancellation. |
+| **What the firm shares** | What the regulator requires. | Consent, if the insurer asks for it. | Whatever it chooses to say. | The claim on its site. | The PDF. |
+| **Reach** | One regulator's members. | One insurer at a time. | One firm's site. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. | Anywhere, but unchecked. |
+| **Speed and cost** | Free, but the client must leave the site and search. | Slow, and often unproductive. | Immediate. | A few seconds per check, in place on the site: one web lookup, with no fee to the standard. | A request and a wait. |
+| **What it needs** | A register that records insurance, and a client who knows to look. | A willing insurer. | Trust in the firm. | The insurer to publish hashes, and Live Verify-aware software on the client's device. No insurer does this yet. | Nothing. |
+| **Best suited to** | Disciplinary records, practising certificates and regulatory standing. | Rarely practical for clients. | First impressions. | Checking current cover before instructing the firm. | Contract files, where taken on trust. |
 
-**Practical conclusion:** regulator registers remain necessary for disciplinary records, practising certificates, and other regulatory functions. They answer a different question from the one the client is asking on a firm's website ("does this firm actually have current PI cover right now?"). The verifiable claim answers that question in place, at the moment the client is deciding whether to instruct the firm.
+**Where each fits:** Regulator registers remain necessary for disciplinary records, practising certificates and other regulatory functions. They answer a different question from the one a client is asking on a firm's website: does this firm have current indemnity cover right now? A verifiable claim from the insurer answers that in place, at the moment the client is deciding whether to instruct the firm.
 
 ## Authority Chain
 

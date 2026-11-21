@@ -110,16 +110,21 @@ Because the operator is the issuer, the chain deliberately shows the regulator a
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Regulator Databases and Public Portals
+## Where Each Fits: Live Verify, Regulator Spot Checks and Public Portals
 
-| Approach | Weakness | Live Verify contribution |
-| --- | --- | --- |
-| **Regulator spot-check audit** | Discretionary and defundable; stopping it leaves no trace | Per-report check needs no audit budget; anyone can run it |
-| **Operator's public data portal** | Operator controls the page; can restate or delete silently | Domain-anchored hash makes restatement a visible `Superseded`/404 event |
-| **Screenshots / archived pages** | Repudiable ("never on our site"); no cryptographic tie | Self-evidencing hash bound to the operator's own domain |
-| **Trusting the filed number** | Says nothing about whether the figure was later altered | Fixes the as-published figure at source; tamper-evident |
+Self-reported figures are checked today by regulator spot-check audits, published on the operator's own data portal, and sometimes captured in screenshots or web archives. Each regulator and regime sets its own reporting and audit rules. Live Verify does a narrower job than an audit: it fixes what was published, and when, so a later restatement shows. It does not test whether the measurement is true. These work side by side.
 
-Live Verify is complementary to these controls, not a replacement — it secures the *integrity and non-repudiation of the self-report*, leaving the *truth of the measurement* to physical audit.
+| | Regulator spot-check audit | Operator's public data portal | Screenshots and archived pages | Live Verify on the report | Trusting the filed number |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Who can check** | The regulator. | Anyone who visits the portal. | Whoever captured the page. | Anyone holding a copy of the report. | Nobody checks. |
+| **What the checker gets** | A physical test of whether the measurement is true, for the sample audited. | The operator's current figures, which the operator can restate or remove. | A copy of what the page once showed, which the operator can dispute. | Confirmation that the operator published this exact report, as at its date, and whether it has since been superseded or withdrawn. | The figure as filed. |
+| **What the operator shares** | Access for inspection. | What it chooses to publish. | Nothing further. | The report as published. | The filing. |
+| **Reach** | One regulator's jurisdiction, and only the reports sampled. | One operator. | Pages someone thought to capture. | Global in principle: any operator, in any country, that publishes hashes on its own domain. | Anywhere. |
+| **Speed and cost** | Costly; depends on the regulator's budget and discretion. | Free to view. | Free, but ad hoc. | A few seconds per check: one web lookup, with no fee to the standard and no audit budget. | Free. |
+| **What it needs** | A funded regulator willing to inspect. | Nothing beyond the operator's site. | Someone to have captured the page in time. | The operator to publish hashes, and Live Verify-aware software on the checker's device. No operator does this yet. | Nothing. |
+| **Best suited to** | Catching false measurements. | Routine public access to the figures. | Evidence that a page once existed. | Showing that a published report has been restated or removed. | Nothing where public health is at stake. |
+
+**Where each fits:** Live Verify is complementary to these controls, not a replacement. It secures the integrity of the self-report as published, so restatement or deletion becomes visible, and leaves the truth of the measurement to physical audit. Regulator spot checks remain the only one of these that catches a false reading.
 
 ## Related Use Cases
 

@@ -153,16 +153,22 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With the Alternatives
+## Where Each Fits: Live Verify and Current Ways of Checking an Offer
 
-| Feature | Live Verify | Calling the Employer | Background Check Services (Equifax/The Work Number) | Trusting the PDF |
+Today a consulate, lender or landlord shown an offer letter can call the employer, use an employment verification service such as The Work Number, or take the PDF on trust. These answer different questions: a verification service reports on people already on the payroll, while an offer concerns a job that has not started. They work side by side.
+
+| | Calling the employer | Employment verification service (e.g. The Work Number) | Live Verify on the offer letter | Trusting the PDF |
 | :--- | :--- | :--- | :--- | :--- |
-| **Verifiable** | **Yes.** Domain-bound to employer's HR system. | **Slow.** HR won't confirm details for privacy reasons. May take days. | **No.** Don't cover offers — only post-start employment. | **No.** Unverifiable. |
-| **Real-time status** | **Yes.** ACTIVE, WITHDRAWN, SUPERSEDED — instantly. | **Maybe.** If you reach the right person. | **N/A.** No offer data. | **No.** A withdrawn offer still looks valid on paper. |
-| **Works at scale** | **Yes.** Automated hash lookup. | **No.** One phone call per applicant. Consulates process thousands. | **No.** No offer coverage. | **N/A.** |
-| **Authority chain** | **Yes.** Employer → HMRC/IRS. | **No.** You're trusting whoever answers the phone. | **Partial.** Equifax is trusted, but doesn't cover offers. | **No.** |
-| **Cost** | **Free at point of use.** | **Staff time.** | **Expensive.** Per-query fees. | **Free.** But worthless. |
-| **Detects withdrawal** | **Yes.** Instant status update. | **Maybe.** If HR is responsive. | **No.** | **No.** |
+| **Who can check** | Anyone who reaches the right person at the employer. | Verifiers with an account, typically lenders. | Anyone handed the letter: a consulate, a lender, a landlord, a relocation firm. | Nobody checks. |
+| **What the checker gets** | Whatever HR is willing to confirm; many will not discuss details. | Employment and income records for current or past employees; generally not offers. <!-- TODO(verify): that verification services such as The Work Number do not hold offer data; confirm from Equifax product documentation --> | Confirmation that the employer issued this exact offer, and its current status, such as active, withdrawn or superseded. | The letter as presented, which may be fabricated or rescinded. |
+| **What the candidate shares** | Consent for the call. | Consent for the verifier to see their record. | Only the letter they chose to hand over. | The letter. |
+| **Reach** | Any employer that answers. | Employees of participating employers, mainly in the US. | Global in principle: any employer, in any country, that publishes hashes on its own domain. | Anywhere, but unchecked. |
+| **Speed and cost** | Staff time; one call per applicant, which can take days. | Fast; the verifier pays per query. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | A reachable, willing HR contact. | The employer to participate, and the candidate to be on the payroll. | The employer to publish hashes, and Live Verify-aware software on the checker's device. No employer does this yet. | Nothing. |
+| **Withdrawal** | Known if HR is responsive. | Not covered. | The employer can mark the offer withdrawn. | A withdrawn offer still looks valid. |
+| **Best suited to** | Occasional checks with an accessible employer. | Income and employment checks once the job has started. | Visa, mortgage and rental decisions made before the start date. | Nothing where the decision matters. |
+
+**Where each fits:** Once a candidate is on the payroll, employment verification services and payslips take over, and they suit lenders well. Before the start date there is only the offer letter, and calling HR is slow and often unproductive. Live Verify lets a consulate, lender or landlord confirm the letter against the employer's domain and see whether the offer has been withdrawn, in the window where nothing else covers it.
 
 ## Further Derivations
 

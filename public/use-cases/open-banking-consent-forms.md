@@ -118,14 +118,19 @@ Barclays Bank, a regulated financial institution, is authorized by the FCA to is
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With OAuth Tokens
+## Where Each Fits: Live Verify, OAuth Tokens and the Bank's Dashboard
 
-| Feature | Live Verify | OAuth Token (JWT) | Dashboard (Online Banking) |
+In open banking, the consent a customer grants is enforced between the bank and the third party by OAuth tokens, and the customer can review or revoke it in the bank's online dashboard. Coverage depends on where you are: open-banking rules and schemes exist in some countries and regions (PSD2 in the EU, for example) and not in others. Tokens, dashboards and a verified consent receipt answer different questions and work side by side.
+
+| | OAuth token | Bank's online dashboard | Live Verify on the consent receipt |
 | :--- | :--- | :--- | :--- |
-| **Human Readable** | **Yes.** "I authorized X to see Y." | **No.** Just an opaque string of code. | **Yes.** |
-| **Durability** | **High.** Survives as a PDF/Paper audit trail. | **None.** Tokens are short-lived. | **System-Locked.** |
-| **Transparency** | **High.** Proof is in the user's hand. | **Low.** Only the systems see the token. | **Medium.** requires login. |
-| **Connectivity needed** | **Yes, for the check.** The receipt can be kept and read without a connection; checking it takes one small web request. | **Yes.** | **Yes.** |
+| **Who can check** | The bank's and third party's systems. | The customer, logged in. | Anyone the customer hands the receipt to: an ombudsman, an adviser, a court. |
+| **What the checker gets** | Machine-enforced access with defined scope and expiry; not readable by people. | The current list of consents, and the means to revoke them. | Confirmation that the bank issued this exact consent record, as at its date, and whether it has since been revoked or expired. |
+| **What the customer shares** | Nothing directly; the systems exchange the token. | Nothing; it is their own view. | Only the receipt they chose to hand over. |
+| **Reach** | Wherever the open-banking scheme or API operates. | That bank's own customers. | Global in principle: any bank, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Automatic. | Quick for the customer once logged in. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | Both systems integrated with the scheme. | An online banking login. | The bank to publish hashes, and Live Verify-aware software on the checker's device. The receipt can be kept and read offline, but checking it needs a connection. No bank does this yet. |
+| **Best suited to** | Enforcing the consent. | Reviewing and revoking access. | A durable, readable record for a dispute or audit. |
 
 **Where each fits:** OAuth tokens are the mechanism that actually enforces a consent between the bank and the third party, and the bank's dashboard is where a customer should go to review or revoke access. Neither gives the customer a durable, readable record to show an ombudsman, an adviser or a court. A verified consent receipt provides that record, confirmed against the bank's domain, and the tokens and dashboard carry on doing the technical work.
 

@@ -177,15 +177,21 @@ The employee is the primary beneficiary and carrier of the document.
 
 Moderate sensitivity. The employment claim includes the employee's name and employer — not highly secret (it's on LinkedIn), but the verification endpoint should include a salt to prevent enumeration of who works at a given company. Without the salt, an attacker who knows that `hr.hsbc.co.uk` is the endpoint could try common names to discover HSBC employees.
 
-## Compared With the Alternatives
+## Where Each Fits: Live Verify and Other Signs of Employment
 
-| Feature | Live Verify | HR Phone Call | LinkedIn | Company Badge |
+Someone asked to show they are employed, by a border officer, a landlord or a lender, can today point to a phone call to HR, a LinkedIn profile or a company badge. These answer different questions: LinkedIn is a self-written profile, a badge gets you into a building, and a call to HR is a direct but slow confirmation. Live Verify confirms an employer-issued statement the employee carries. They work side by side.
+
+| | HR phone call | LinkedIn profile | Company badge | Live Verify on the employment letter |
 | :--- | :--- | :--- | :--- | :--- |
-| **Verifiable** | **Yes.** Domain-bound to employer. | **Slow.** Requires calling HR during business hours, correct time zone, correct department. | **No.** Self-reported, trivially edited. | **No.** Easily faked or borrowed. |
-| **Authority chain** | **Yes.** Employer → tax authority → statute. | **No.** You're trusting whoever answers the phone. | **No.** | **No.** |
-| **Available 24/7** | **Yes.** Hash lookup is always on. | **No.** Business hours only. | **Yes.** But unverified. | **Yes.** But unverifiable. |
-| **Works at border** | **Yes.** 5-second scan. | **Impractical.** Immigration won't call your HR department. | **Unreliable.** | **Meaningless.** |
-| **Detects termination** | **Yes.** Real-time status. | **Maybe.** If HR updates are timely. | **No.** People leave old jobs on LinkedIn for months. | **Maybe.** If badge is deactivated. |
+| **Who can check** | Anyone who reaches the right HR contact in business hours. | Anyone online. | Anyone, by eye. | Anyone handed the letter: a border officer, a landlord, a lender. |
+| **What the checker gets** | Whatever the person who answers confirms. | The person's own description of their career, which may be out of date. | A card that may be borrowed, expired or faked. | Confirmation that the employer issued this exact statement, as at its date, and current employment status if the employer provides it. |
+| **What the employee shares** | Consent for the call. | Their public profile. | The badge. | Only the letter they chose to hand over. |
+| **Reach** | Wherever HR answers, subject to time zones. | Wherever the platform is used. | Anywhere, but unchecked. | Global in principle: any employer, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Slow; business hours only. | Immediate and free. | Immediate. | A few seconds per check, at any hour: one web lookup, with no fee to the standard. |
+| **What it needs** | A reachable, willing HR contact. | Nothing. | Nothing. | The employer to publish hashes, and Live Verify-aware software on the checker's device. No employer does this yet. |
+| **Best suited to** | Formal employment verification with time to spare. | Professional networking. | Building access. | Showing current employment at a border, to a landlord or to a lender, on the spot. |
+
+**Where each fits:** A call to HR remains a direct check where there is time to make one, and LinkedIn and badges serve their own purposes. None of them lets an employee prove current employment on the spot, out of hours or across a border. Live Verify lets the employee carry a statement the employer stands behind, checkable in seconds against the employer's domain.
 
 ## Further Derivations
 

@@ -99,14 +99,20 @@ The Liquidator (Executor) benefits from verification.
 **Regional Notary Councils.**
 **Central Successions Registries:** (e.g., *Registre des Dispositions de Dernières Volontés*).
 
-## Compared With Apostilles
+## Where Each Fits: Live Verify, Apostilles and Will Register Searches
 
-| Feature | Live Verify | Apostille (Traditional) | Online Will Search |
+An apostille, issued by a designated authority in countries party to the Hague Apostille Convention, certifies the signature and capacity of the official on a public document so that other member countries recognise it. Some countries also keep registers of wills that can be searched. Each answers a different question from Live Verify, and they work side by side.
+
+| | Apostille | Will register search | Live Verify on the notarial document |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Notary Org. | **Gov-Bound.** Trust the state seal. | **Database.** High trust but manual. |
-| **Integrity** | **High.** Protects every line of text. | **Low.** Only verifies the signature. | **None.** For the specific paper. |
-| **Speed** | **Instant.** 5-second scan. | **Very Slow.** Often takes weeks to get. | **Medium.** requires manual entry. |
-| **Revocation** | **Real-time.** Shows latest status. | **Zero.** Apostilles never expire. | **Manual.** |
+| **Who can check** | Any authority in a member country, by checking the apostille itself or the issuing authority's records. | Those permitted to search the register, which varies by country. | Anyone handed the document or a copy. |
+| **What the checker gets** | Confirmation that the signature and seal of the official are genuine; not a check of each line of the text. | Whether a will is recorded, and where, as the register holds it. | Confirmation that the notary's organisation stands behind this exact text, as at its date, and its current status, such as revoked or superseded. |
+| **What the holder shares** | The document with its apostille attached. | Details needed to search. | Only the document they chose to hand over. |
+| **Reach** | Countries party to the Convention; others use consular legalisation. | The country that keeps the register. | Global in principle: any notarial body, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Obtaining one takes from days to weeks and a fee, depending on the country. | Varies; often a manual request. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | An application to the designated authority. | A register in that country, and access to it. | The notarial body to publish hashes, and Live Verify-aware software on the checker's device. No notarial body does this yet. |
+| **Later changes** | Fixed when issued; it does not reflect a later revocation of the act. | As current as the register. | The issuer can mark the document revoked or superseded. |
+| **Best suited to** | Formal cross-border recognition, where it is required. | Finding whether and where a will exists. | Quick checks of a copy's wording and current status. |
 
 **Where each fits:** An apostille is what the Hague Convention provides for cross-border recognition of a public document, and where a foreign authority requires one it must still be obtained. It certifies the signature and capacity of the official, not each line of the text, and it does not change if the act is later replaced. Live Verify lets a recipient confirm that the notary's organisation stands behind the copy as worded and see its current status, as a complement to the apostille and to any register search.
 

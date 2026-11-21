@@ -207,18 +207,21 @@ The pharmacy benefits directly by proving its legitimacy.
 
 **Pharmacy supplier vetting:** Care homes and hospitals procuring medicines from external pharmacies can verify registration status at point of order rather than relying on periodic manual checks against the register.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify, the GPhC Register and Pharmacy Logos
 
-| Feature | Live Verify | GPhC Register Lookup | EU Common Logo | Internet Pharmacy Logo (Voluntary) |
+Pharmacy regulators keep public registers: in Great Britain the General Pharmaceutical Council (GPhC) register is comprehensive and searchable. Online pharmacies in EU member states must display the EU common logo, which links to the national register, and the GPhC has run a voluntary internet pharmacy logo. Coverage depends on where you are: each country has its own regulator and rules. These and Live Verify draw on the same source, the regulator, and work side by side. <!-- TODO(verify): EU common logo being mandatory for EU online pharmacies, and the GPhC voluntary internet pharmacy logo -->
+
+| | GPhC register lookup | EU common logo | Internet pharmacy logo (voluntary) | Live Verify on the pharmacy's site |
 | :--- | :--- | :--- | :--- | :--- |
-| **Issuer-controlled** | **Yes.** GPhC issues the claim. | **Yes.** But requires the patient to navigate there. | **Yes.** EU-mandated logo linking to national register. | **Yes.** But adoption is voluntary. |
-| **Verifiable at point of purchase** | **Yes.** On the pharmacy's own website. | **No.** Requires leaving the site. | **Partially.** Logo links to register, but requires a click-through. | **Partially.** If the patient clicks the logo. |
-| **Shows current status** | **Yes.** Live response from GPhC. | **Yes.** If the patient checks. | **Yes.** If the patient follows the link. | **No.** Static logo. |
-| **Detects suspended registration** | **Yes.** Endpoint returns SUSPENDED. | **Yes.** If checked. | **Yes.** If the patient follows the link. | **No.** Logo remains on site. |
-| **Detects copied claims on fake sites** | **Yes.** Domain mismatch warning. | **No.** | **No.** Logo can be copied. | **No.** Logo can be copied. |
-| **Works without patient initiative** | **Yes.** Clip is a single action on the page. | **No.** Patient must know the register URL. | **Partially.** Logo is visible but requires action. | **No.** |
+| **Who can check** | Anyone who knows the register exists and goes there. | Any patient who clicks the logo through to the register. | Any patient who clicks the logo, where the pharmacy displays one. | Any patient on the pharmacy's site with Live Verify on their device. |
+| **What the checker gets** | The regulator's current record. | The national register entry the logo links to. | Whatever the logo links to; a copied logo may link nowhere useful. | Confirmation that the regulator issued this claim, its current status, such as suspended, and a warning if the claim is shown on a site other than the one it names. |
+| **What the pharmacy shares** | Its name or registration number. | The logo and link. | The logo. | The claim on its site. |
+| **Reach** | Great Britain; other countries have their own registers. | EU member states. | Pharmacies that chose to display it. | Global in principle: any regulator, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Free, but the patient must leave the site and search. | A click-through and a read of the register page. | A click-through, if any. | A few seconds per check, in place on the site: one web lookup, with no fee to the standard. |
+| **What it needs** | Patient initiative and knowledge of the register. | Patient initiative; the logo can be copied onto a fake site. | Patient initiative; the logo can be copied. | The regulator to publish hashes, and Live Verify-aware software on the patient's device. No pharmacy regulator does this yet. |
+| **Best suited to** | Authoritative checks by anyone prepared to search. | A route to the register at the point of sale in the EU. | Signalling registration. | Checking the site at the moment of purchase. |
 
-**Practical conclusion:** The GPhC register is comprehensive and publicly searchable. The EU Common Logo (for EU member states) provides a click-through link to the national register. The problem is that patients ordering medication online do not use these tools. They see a professional-looking website, find the medication they need, and order it. A verifiable claim embedded on the pharmacy's own site turns "trust this site" into "check this site" at the moment the patient is making their purchase decision.
+**Where each fits:** The GPhC register is comprehensive and publicly searchable, and the EU common logo gives a click-through to the national register. The trouble is that patients ordering medication online seldom use these tools: they see a professional-looking website and order. A verifiable claim on the pharmacy's own site brings the regulator's current status to the moment of purchase, and the register remains the authoritative record behind it.
 
 ## Authority Chain
 

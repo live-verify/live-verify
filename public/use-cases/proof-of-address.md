@@ -149,17 +149,21 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **India** | BSNL, Jio, state electricity boards | Aadhaar is primary but utility bills remain common for address proof |
 | **South Africa** | Eskom, Telkom, municipal utilities | FICA requires proof of address for financial account opening |
 
-## Compared With Existing Address Verification
+## Where Each Fits: Live Verify and Existing Address Verification
 
-| Feature | Live Verify | Credit Bureau Data (Experian etc.) | Manual Document Review |
+Firms that must check a customer's address today typically query credit bureau data, such as Experian's, or review a utility bill or bank statement by hand. Coverage depends on where you are: credit bureau address data is well developed in some countries and thin or absent in many others. Bureau data and Live Verify answer different questions and work side by side: one draws on aggregated reported data, the other on the provider's confirmation of the bill in hand.
+
+| | Credit bureau data (Experian etc.) | Live Verify on the bill or confirmation | Manual document review |
 | :--- | :--- | :--- | :--- |
-| **Fraud Resistance** | **High.** Hash resolves against the utility's own domain. | **Medium.** Data is aggregated and can be stale or incomplete. | **Low.** PDFs are trivially forged. |
-| **Speed** | **Seconds.** Hash lookup. | **Seconds.** API call. | **Hours-days.** Manual review queue. |
-| **Cost** | **Low.** Static hosting. | **High.** Per-lookup fees from data providers. | **High.** Staff time. |
-| **Freshness** | **Real-time.** Status reflects current account state. | **Weeks-months.** Credit data updates on reporting cycles. | **Point-in-time.** Whatever the bill date says. |
-| **Coverage** | **Any provider with a domain.** | **Limited to reporting providers.** Many smaller utilities don't report. | **Universal but unreliable.** |
+| **Who can check** | Firms with a contract with the bureau. | Anyone handed the document: a bank, a landlord, a government office. | Anyone, by eye. |
+| **What the checker gets** | Address data that providers have reported, which can be stale or incomplete. | Confirmation that the utility or telco issued this exact document, as at its date, and its current account status if the provider shows it. | A document that may have been forged. |
+| **What the customer shares** | Consent to a lookup; the bureau already holds the data. | Only the document they chose to hand over. | The document. |
+| **Reach** | Countries with developed credit reporting, and providers that report to the bureau. | Global in principle: any utility or telco, in any country, that publishes hashes on its own domain. | Universal, but unreliable. |
+| **Speed and cost** | Seconds by API; per-lookup fees apply. | A few seconds per check: one web lookup, with no fee to the standard. | Staff time, from hours to days in a review queue. |
+| **What it needs** | A bureau contract and a customer with a credit footprint. | The provider to publish hashes, and Live Verify-aware software on the checker's device. No utility or telco does this yet. | Trained reviewers. |
+| **Best suited to** | High-volume automated checks of customers with a credit history. | Customers with a thin credit file, recent movers, and countries without bureau coverage. | Fallback cases. |
 
-**Why this remains strong:** Credit bureau address data is a proxy — it reflects what providers *reported* weeks or months ago. Live Verify is a direct check against the provider's own current records. In this domain, that issuer-side confirmation is the native source of truth rather than a replacement for some better central system.
+**Where each fits:** Credit bureau checks are fast and suit high-volume onboarding where the customer has a credit footprint. Bureau data reflects what providers reported, which can lag a move, and many people have little or no credit history. Live Verify lets the firm check a bill against the provider's own domain, which covers those customers and markets directly.
 
 ## See Also
 

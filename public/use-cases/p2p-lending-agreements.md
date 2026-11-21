@@ -120,14 +120,19 @@ Funding Circle, a regulated P2P lending platform, is authorized by the FCA to is
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With API (Aggregators)
+## Where Each Fits: Live Verify and Account Aggregators
 
-| Feature | Live Verify | Plaid / Yodlee (API) | Scanned PDF |
+Account aggregators such as Plaid and Yodlee let a lender connect to an applicant's financial accounts, with the applicant's consent, to see balances and transactions. Coverage depends on where you are and which institutions the aggregator supports. Aggregation and Live Verify answer different questions and work side by side: one gives a broad view of the applicant's accounts, the other confirms a single document from a P2P platform.
+
+| | Account aggregator (Plaid, Yodlee) | Live Verify on the agreement | Scanned PDF |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Platform. | **System-Bound.** Trust the aggregator. | **Zero.** Easily forged. |
-| **Privacy** | **High.** Share only the *Summary*. | **Low.** Aggregators often scrape full history. | **High.** |
-| **Connectivity** | **Needed for the check.** One small web request per document. | **Needed.** Requires live API sync. | **Static.** |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires login/MFA. | **Manual.** |
+| **Who can check** | A lender integrated with the aggregator. | Anyone handed the document: a lender, a mortgage underwriter, an auditor. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Account data, often including transaction history, for the accounts connected. | Confirmation that the platform issued this exact agreement or statement, as at its date, and its current status. | A document that may have been edited. |
+| **What the borrower shares** | A connection to their accounts, made by logging in. | Only the document they chose to hand over. | Only the document they chose to hand over. |
+| **Reach** | Institutions and countries the aggregator supports. | Global in principle: any platform, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Quick once the applicant logs in; the lender pays for the service. | A few seconds per check: one web lookup, with no fee to the standard and no login. | Immediate. |
+| **What it needs** | An integrated lender, a supported institution, and the applicant's login. | The platform to publish hashes, and Live Verify-aware software on the checker's device. No P2P platform does this yet. | Nothing. |
+| **Best suited to** | An ongoing or broad view of an applicant's finances. | A single loan note or statement in a file. | Nothing where the loan decision depends on it. |
 
 **Where each fits:** Account aggregators are useful where a lender wants an ongoing or broad view of an applicant's finances and the applicant is willing to connect their accounts. Sometimes a single document is all that is needed, such as a loan note or statement placed in a mortgage file. Live Verify lets the lender confirm that the platform issued that document, without requiring credentials or wider access, and aggregation remains available for cases that call for the fuller picture.
 

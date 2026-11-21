@@ -119,16 +119,21 @@ Security guard licenses are issued and monitored by the UK private security regu
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Physical ID Cards
+## Where Each Fits: Live Verify, Guard Cards and Licensing Registers
 
-| Feature | Live Verify | Holographic Card | Central Registry Lookup |
+Security guard licensing is run by national or state regulators, depending on the country, and many publish an online register. Guards carry a physical licence card. Coverage depends on where you are: some countries have a national licensing body, some license by state, and registers differ in what they show. The register is the authoritative source; Live Verify carries its current status to the card in hand. They work side by side.
+
+| | Physical licence card | Central registry lookup | Live Verify on the licence |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the State Gov. | **Physical.** Trust the printer. | **Database.** High trust but manual. |
-| **Integrity** | **Binds Quals.** Protects the Armed status. | **Zero.** Doesn't protect the text. | **Data-Only.** |
-| **Speed** | **Instant.** 5-second scan at the door. | **N/A.** Just looking. | **Slow.** Requires typing 10-digit ID. |
-| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Human Eye.** | **Technical.** Requires laptop/stable 5G. |
+| **Who can check** | Anyone, by eye. | Anyone who can reach the register and enter the licence number. | Anyone shown the licence, with Live Verify on their device: venue staff, site managers, clients. |
+| **What the checker gets** | The name, photo and categories printed on the card, which may be forged or out of date. | The regulator's current record. | Confirmation that the regulator issued this exact licence, including any armed endorsement, and its current status, such as suspended. |
+| **What the guard shares** | The card. | Their licence number. | Only the licence they chose to show. |
+| **Reach** | Anywhere, but unchecked. | One regulator's register. | Global in principle: any licensing body, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Immediate. | Free, but slower: finding the register and typing in the number. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection. |
+| **What it needs** | Nothing. | A register for that jurisdiction and time to search it. | The licensing body to publish hashes, and Live Verify-aware software on the checker's device. No licensing body does this yet. |
+| **Best suited to** | A first look. | Hiring and contract checks where there is time. | Threshold decisions at a door or gate, at night and under pressure. |
 
-**Why this remains strong:** Central registry lookup should remain primary where it is practical. But bouncers, site managers, and venue staff are often making a threshold decision at night, under pressure, with only the guard card in hand. That makes the displayed credential a real-world safety surface, and Live Verify a strong complementary bridge from that surface to current licensing status.
+**Where each fits:** A central registry lookup should remain the first choice where it is practical. But door staff, site managers and venue staff often make a threshold decision at night, under pressure, with only the guard's card in hand. Live Verify links that card to the regulator's current licensing status, as a complement to the register.
 
 ## Independent Record (Optional)
 

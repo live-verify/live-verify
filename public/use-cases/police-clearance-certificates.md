@@ -181,18 +181,21 @@ Australia (AFP → gov.au):
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Existing Verification Methods
+## Where Each Fits: Live Verify and Existing Ways of Checking Police Clearance
 
-| Feature | Live Verify | Bilateral Law Enforcement Requests | Interpol Channels | Apostille | Trusting the Paper |
+Police clearance certificates are issued by national or regional police authorities, and each country has its own. An immigration officer, employer or adoption agency abroad can today rely on bilateral law-enforcement requests, Interpol channels, an apostille, or the paper itself. Coverage depends on where you are: bilateral arrangements exist between some countries and not others, Interpol channels are open only to law enforcement, and apostilles only between countries party to the Hague Convention. These answer different questions from Live Verify and work side by side.
+
+| | Bilateral law-enforcement request | Interpol channels | Apostille | Live Verify on the certificate | Trusting the paper |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Speed** | **5 seconds.** Scan and verify. | **Months.** Formal request through diplomatic channels. | **Days to weeks.** Law enforcement only. | **Days.** Proves signature, not content. | **Instant.** But no verification. |
-| **Access** | **Anyone.** Immigration officer, employer, adoption agency. | **Government only.** Bilateral agreement required. | **Law enforcement only.** Not accessible to immigration caseworkers. | **Anyone.** But only proves the signature is real. | **Anyone.** No verification at all. |
-| **Content Verification** | **Yes.** Hash confirms the document content hasn't been altered. | **Yes.** Full record exchange (when it happens). | **Yes.** But limited to Interpol member cooperation. | **No.** Proves the signing official is real, not that the content is accurate. | **No.** Visual inspection only. |
-| **Multilingual** | **Language-agnostic.** Hash works regardless of document language. | **Requires translation.** | **English/French/Spanish/Arabic.** | **Requires translation.** | **Officer may not read the language.** |
-| **Routine Use** | **Yes.** Designed for high-volume daily processing. | **No.** Reserved for serious cases. Not used for routine immigration. | **No.** Not available for visa processing. | **Yes.** But proves form, not substance. | **Yes.** The current default for most countries. |
-| **Coverage** | **Any participating authority.** Scales with adoption. | **Bilateral only.** Depends on which countries have agreements. | **194 member countries.** But access is restricted. | **Hague Convention members.** ~120 countries. | **Universal.** Every country issues paper. |
+| **Who can check** | Governments with an agreement. | Law enforcement only. | Any authority in a member country. | Anyone handed the certificate: an immigration officer, an employer, an adoption agency. | Anyone, by eye. |
+| **What the checker gets** | A full record exchange, when it happens. | Information shared between police forces. | Confirmation that the signing official is genuine; not a check of the content. | Confirmation that the issuing authority issued this exact certificate, as at its date, and whether it has been withdrawn. | The document as presented, perhaps in a language the officer cannot read. |
+| **What the applicant shares** | Consent, where required. | Nothing directly. | The certificate with its apostille. | Only the certificate they chose to hand over. | The certificate. |
+| **Reach** | Only between countries with an agreement. | Interpol's member countries, for police use. | Countries party to the Hague Convention. | Global in principle: any police authority, in any country, that publishes hashes on its own domain. | Every country issues paper. |
+| **Speed and cost** | Months; reserved for serious cases. | Days to weeks. | Days to obtain, with a fee. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | A bilateral agreement and a formal request. | Law-enforcement standing. | An application to the designated authority. | The issuing authority to publish hashes, and Live Verify-aware software on the checker's device. No police authority does this yet. | Nothing. |
+| **Best suited to** | Serious cases needing the underlying record. | Police investigations. | Formal recognition where it is required. | Routine, high-volume checks of the certificate itself. | Nothing where safety matters. |
 
-**Why this remains strong:** The current default for most immigration authorities worldwide is still "trust the paper." Bilateral law enforcement channels are too slow for routine processing, Interpol channels are restricted, and apostilles prove signature rather than content. That makes police clearance certificates one of the clearer cases where a portable verification bridge is genuinely doing work outside the issuer's native system.
+**Where each fits:** The default for most immigration authorities is still to trust the paper. Bilateral channels are too slow for routine processing, Interpol channels are closed to caseworkers, and an apostille confirms a signature, not the content. Live Verify fills the routine gap by letting the certificate itself be checked against the issuing authority's domain; the formal channels remain for serious cases and the apostille wherever it is required.
 
 ## Further Derivations
 

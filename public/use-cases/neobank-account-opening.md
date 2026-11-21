@@ -109,20 +109,21 @@ Monzo Bank, a regulated neo-bank, is authorized by the FCA to issue verified ban
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Open Banking / APIs
+## Where Each Fits: Live Verify and Open Banking
 
-| Feature | Live Verify | Open Banking (Plaid/Yodlee) | App-to-App |
+Open banking lets a registered firm pull account data from a bank with the customer's consent, either through a national or regional scheme (the UK and the EU have them) or through commercial aggregators such as Plaid and Yodlee. Coverage depends on where you are: some countries have a scheme, some rely on aggregators, and many have nothing. Bank-specific app-to-app checks are a third route. These answer different questions from Live Verify and work side by side: open banking is a data feed to an integrated firm, Live Verify makes the bank's confirmation letter checkable by whoever is handed it.
+
+| | Open banking or aggregator | App-to-app check | Live Verify on the confirmation |
 | :--- | :--- | :--- | :--- |
-| **User Privacy** | **High.** Verifier sees only what is printed. No login credential sharing. | **Low.** Requires sharing banking login/password with third party. | **Medium.** Requires specific app integrations. |
-| **Friction** | **Low.** Scan the paper. The verifier needs Live Verify on their phone, not the bank's app. | **High.** Requires user to log in and authorize data sharing. | **High.** Both sides need the app. |
-| **Physical World** | **Native.** Works on the printed page at an embassy desk. | **Non-existent.** Cannot "click" a link on paper. | **Low.** Requires digital handshake. |
-| **Cost** | **Zero/Low.** Static web hosting. | **High.** Aggregators charge per connection. | **High.** Development cost. |
+| **Who can check** | A firm registered with the scheme or signed up with an aggregator. | A verifier using the same app or integration as the bank. | Anyone handed the confirmation: a landlord, an employer, a visa officer. |
+| **What the checker gets** | Account data direct from the bank, for as long as consent lasts. | Whatever the integration exposes. | Confirmation that the bank issued this exact confirmation, as at its date. |
+| **What the customer shares** | Consented access to account data, granted by logging in to the bank. | Access through the shared app. | Only the document they chose to hand over. |
+| **Reach** | Where a scheme or aggregator covers the bank. | Only between parties on the same app. | Global in principle: any bank, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Fast once integrated; registration, integration and often per-connection fees come first. | Fast once both sides are set up; development effort first. | A few seconds per check: one web lookup, with no fee to the standard and no integration. |
+| **What it needs** | A scheme or aggregator covering the bank, and an integrated checker. | Both sides on the same app. | The bank to publish hashes, and Live Verify-aware software on the checker's device. No bank does this yet. |
+| **Best suited to** | Institutional verifiers who check many customers: lenders, large employers, visa processing centres. | Repeated checks between parties already connected. | One-off checks of a printed or PDF document, and markets with no open banking. |
 
-**Where Open Banking wins:** In the UK, EU, and US, Open Banking APIs (Plaid, TrueLayer, Yodlee) are the superior solution for institutional verifiers (mortgage lenders, large employers, visa processing centres) who can integrate programmatically. Live Verify does not replace this infrastructure where it exists.
-
-**Where Live Verify wins:** For ad-hoc, low-tech interactions (handing a paper to a landlord or a visa officer), Open Banking is overkill and technically difficult. Live Verify makes the *paper* smart without forcing the landlord to integrate with Plaid.
-
-**Where Live Verify is the only option:** In markets without Open Banking infrastructure — much of Africa (M-Pesa, Airtel Money), Southeast Asia (GCash, GrabPay, Dana), Latin America outside Brazil (Mercantil, Nequi, Ualá), and parts of South Asia — there is no Plaid equivalent. A Kenyan freelancer proving income to a Nairobi landlord, or a Filipino worker providing bank proof for a visa application, has no API-based verification channel. The neobank publishing hashes on its own domain is the only verification path that works at the paper-and-phone level. These neobanks also have a strong issuer incentive: they are competing for legitimacy against traditional banks and *want* their statements to be independently verifiable.
+**Where each fits:** Where open banking or an aggregator covers the bank, institutional verifiers that can integrate will often prefer it, and Live Verify does not replace that infrastructure. For one-off checks, such as handing a paper to a landlord or a visa officer, integrating is out of proportion, and Live Verify lets the paper itself be checked. In many markets without open-banking coverage, including much of Africa, Southeast Asia and parts of Latin America and South Asia, there is no API route at all, and a neobank publishing hashes on its own domain would give its customers a way to prove their account to anyone. Neobanks competing for legitimacy against traditional banks have a reason to want that.
 
 ## Independent Record (Optional)
 

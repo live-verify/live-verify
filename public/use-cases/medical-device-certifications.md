@@ -137,14 +137,20 @@ Notified bodies issue medical device certifications under healthcare products re
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With EUDAMED / FDA Databases
+## Where Each Fits: Live Verify and the EUDAMED and FDA Databases
 
-| Feature | Live Verify | EUDAMED / FDA Database | Scanned PDF |
+EUDAMED is the European Union's medical device database, and the FDA publishes searchable databases of US clearances, approvals and registrations. Coverage depends on the market: the EU and the US each have their own register, other countries run their own or rely on these, and many buyers face certificates from markets they do not know. The registers and Live Verify answer different questions and work side by side: the registers say what the regulator has on record, Live Verify says whether the notified body or certifier stands behind the certificate in the buyer's hands.
+
+| | EUDAMED / FDA databases | Live Verify on the certificate | Scanned PDF |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Notified Body. | **Gov-Bound.** | **Zero.** Easily forged. |
-| **Speed** | **Instant.** 5-second scan at procurement. | **Slow.** Requires searching by school name and state. | **Instant.** |
-| **Integrity** | **Binds Models.** Protects the specific part #s. | **Data-Only.** Doesn't protect the paper. | **Vulnerable.** |
-| **Immediacy** | **Real-time.** Shows "RECALLED" status in red. | **Laggy.** Database updates can take days. | **Hidden.** |
+| **Who can check** | Anyone who knows which register to search and how to search it. | Anyone handed the certificate: a hospital buyer, a distributor, a customs officer, an auditor. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The regulator's public record for the device or manufacturer, as far as it has been entered. | Confirmation that the certifier issued this exact certificate, with its classes and models, and whether it still stands behind it. | A document whose scope or dates may have been edited. |
+| **What the holder shares** | Nothing; the register is public. | Only the certificate they chose to hand over. | Only the certificate they chose to hand over. |
+| **Reach** | The market each register covers: EUDAMED for the EU, the FDA databases for the US. | Global in principle: any notified body or certifier, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Free to search; the time goes in finding the right entry and matching it to the paper. | A few seconds per check: one web lookup, with no fee to the standard and no integration between buyer and certifier. | Free and immediate. |
+| **What it needs** | The record to have been entered, and a checker who can match it to the certificate in hand. | The certifier to publish hashes, and Live Verify-aware software on the checker's device. No certifier does this yet. | Nothing. |
+| **Withdrawal and suspension** | Shown once the register has been updated. | The certifier can mark the certificate withdrawn or suspended at its own endpoint. | Not shown. |
+| **Best suited to** | Full regulatory review of a device and its market status. | Checking a certificate at goods-in or procurement against the body that issued it. | Nothing where patient safety matters. |
 
 **Where each fits:** EUDAMED and the FDA databases are the authoritative public registers, and regulatory staff doing a full review of a device should consult them. Procurement and receiving staff more often have a certificate in a shipment folder and need to know whether it is one the notified body issued and still stands behind. Live Verify answers that from the certificate itself, and the registers remain the reference for the device's wider regulatory status.
 

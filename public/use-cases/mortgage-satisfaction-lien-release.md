@@ -104,14 +104,19 @@ Nationwide Building Society, a regulated lender, is authorized by the FCA to iss
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With County Land Records (GIS)
+## Where Each Fits: Live Verify and County Land Records
 
-| Feature | Live Verify | County GIS / Online Search | Scanned PDF Release |
+In the US, releases of mortgages and deeds of trust are recorded with the county recorder or clerk, and many counties offer an online search. Other countries keep their own land registers. The county record is the legal record of whether a lien has been released; Live Verify answers a narrower question about the lender's satisfaction letter: did this lender issue it, and has the release been recorded yet? The two work side by side.
+
+| | County land records search | Live Verify on the satisfaction | Scanned PDF release |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Lender. | **Database.** High trust but manual. | **Zero.** Easily forged. |
-| **Integrity** | **Binds Content.** Protects the account #. | **Data-Only.** Doesn't verify the paper. | **Vulnerable.** |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires finding the parcel # and navigating old UIs. | **Instant.** |
-| **Audit-ability** | **High.** Proves the bank's intent. | **Medium.** Only shows what was *filed*. | **None.** |
+| **Who can check** | Anyone, usually a title examiner, who can find the parcel or document and search that county's system. | Anyone handed the release: a title officer, a buyer's attorney, a new lender. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | What has been recorded against the property, which is the legal record. | Confirmation that the lender issued this exact release, with its account and recording references, and its current status, such as recorded or amended. | A document whose account or amount may have been edited. |
+| **What the homeowner shares** | Nothing; the record is public. | Only the release they chose to hand over. | Only the release they chose to hand over. |
+| **Reach** | One county at a time, each with its own search system. | Global in principle: any lender, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Free or low cost, but searches can be slow and systems vary between counties. | A few seconds per check: one web lookup, with no fee to the standard and no relationship with the lender. | Immediate. |
+| **What it needs** | The release to have been recorded, and a searcher who knows the county's system. | The lender to publish hashes, and Live Verify-aware software on the checker's device. No lender does this yet. | Nothing. |
+| **Best suited to** | The title search that decides whether the lien is legally released. | Covering the gap between the lender's letter and recording, and catching forged or altered releases. | Nothing where title depends on it. |
 
 **Where each fits:** The county land record is the legal record of whether a lien has been released, and a title search there remains essential. There can be a gap between a lender issuing a satisfaction and the county recording it, and during that gap the owner holds only the lender's letter. Live Verify lets a title officer or buyer confirm the lender issued it, which helps bridge the wait; it does not substitute for getting the release recorded.
 

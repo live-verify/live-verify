@@ -97,15 +97,21 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 Pension transfer scams are not abstract. A worker with 30 years of service receives a call from a "pension adviser" showing a transfer value of GBP 400,000 and an "investment opportunity" returning 8% annually. The transfer value statement looks real — same scheme name, same format, plausible numbers. The worker signs. The money leaves the DB scheme and enters a fraudulent SIPP or offshore structure. Six months later the "investment" is worthless and the defined benefit pension is gone permanently. There is no undo. The worker loses their retirement income for life, and the state picks up the cost through means-tested benefits. A verifiable transfer value statement — one the worker or their legitimate IFA can scan and confirm came from the actual scheme administrator — would have stopped the fraud at the moment of decision, before the irreversible transfer was signed.
 
-## Compared With Manual Verification
+## Where Each Fits: Live Verify and Asking the Scheme Directly
 
-| Feature | Live Verify | Direct Scheme Contact | Scanned PDF / Letter |
+Today an adviser, receiving scheme or court that needs to rely on a transfer value can write to the pension scheme's administrator, with the member's authority, or accept the letter as presented. Asking the scheme directly remains the authoritative route. Live Verify answers a narrower question for anyone handed the statement: did the scheme issue it, with this value and guarantee date? The two work side by side.
+
+| | Direct contact with the scheme | Live Verify on the statement | Scanned PDF or letter |
 | :--- | :--- | :--- | :--- |
-| **Speed** | **Instant.** Clip and verify. | **Weeks.** Written request to scheme administrator. | **Instant.** But unverifiable. |
-| **Trust Anchor** | **Domain-Bound.** Tied to the scheme administrator. | **Phone/Letter.** Trust the process. | **Zero.** Trivially altered. |
-| **Guarantee Period** | **Verified.** Expiry date in the hash. | **Confirmed.** If specifically asked. | **Editable.** Dates easily changed. |
-| **Scheme Status** | **Included.** Open/closed status verified. | **Included.** If specifically requested. | **Omittable.** Easy to remove warnings. |
-| **Third-Party Access** | **Universal.** Anyone with the document. | **Restricted.** Requires member authorization and weeks of turnaround. | **Universal.** But worthless for trust. |
+| **Who can check** | The member, and others they authorise in writing. | Anyone handed the statement: an adviser, a receiving scheme, a court, the other party in a divorce. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Whatever the administrator confirms, including scheme status if asked. | Confirmation that the scheme issued this exact statement, with its transfer value, guarantee period and transfer status, as at its date. | A document whose value, dates or warnings may have been edited or removed. |
+| **What the member shares** | Authority for the scheme to deal with the third party. | Only the statement they chose to hand over. | Only the statement they chose to hand over. |
+| **Reach** | The scheme's own members and their authorised representatives. | Global in principle: any scheme, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Written requests can take weeks. | A few seconds per check: one web lookup, with no fee to the standard and no authority form. | Immediate. |
+| **What it needs** | A written request and the member's authorisation. | The scheme administrator to publish hashes, and Live Verify-aware software on the checker's device. No scheme does this yet. | Nothing. |
+| **Best suited to** | Obtaining the figure, and questions the statement does not answer. | Confirming a statement already in hand before acting on it. | Nothing where a transfer or settlement depends on it. |
+
+**Where each fits:** The scheme administrator is the source of the transfer value, and anyone with questions beyond the statement should still ask the scheme. Most people who rely on the figure, such as advisers, receiving schemes and courts, are handed a letter or PDF and face weeks of delay to confirm it. Live Verify lets them check that statement against the scheme's domain in seconds, including whether the guarantee period still applies, and makes a fabricated transfer value in a pension scam easy to expose.
 
 ## Further Derivations
 

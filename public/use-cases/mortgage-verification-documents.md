@@ -110,14 +110,19 @@ The borrower / employee (second party) may hand the verified document to various
 
 **Privacy Salt:** ABSOLUTELY CRITICAL. Salary and employment status are highly sensitive. The hash MUST be salted to prevent "Guess-and-Check" searches for high-earning employees. Even though documents contain unique employee IDs and names, salary amounts and job titles are often enumerable (common salary bands like $50k, $75k, $100k, $145k combined with standard titles), making brute-force attacks feasible without salt.
 
-## Compared With The Work Number (Equifax)
+## Where Each Fits: Live Verify and The Work Number
 
-| Feature | Live Verify | The Work Number | Manual Phone Check |
+The Work Number, run by Equifax, is a US employment and income verification database fed by participating employers; lenders query it for a fee. Other countries have their own services or none. It and Live Verify answer the question from different starting points, one from a database record and the other from the letter the employer issued, and they work side by side.
+
+| | The Work Number | Manual phone check | Live Verify on the letter |
 | :--- | :--- | :--- | :--- |
-| **User Privacy** | **High.** Employee shares only the *Single VOE*. | **Low.** Lenders see full historical data pool. | **Medium.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Employer. | **Data-Bound.** Trust the aggregator. | **Human.** Prone to social engineering. |
-| **Interoperability** | **Universal.** Works for any small firm with a URL. | **Limited.** Only for large firms who pay for TWN. | **Universal.** |
-| **Cost** | **Low.** Standard web infra. | **Very High.** Lenders pay $50-$100 per check. | **High.** Costs in human time. |
+| **Who can check** | Lenders and other verifiers with an account. | Anyone who can reach the employer's HR or payroll staff. | Anyone handed the letter: a lender, a broker, an underwriter. |
+| **What the checker gets** | The employment and income record the employer has reported, which may cover more history than the single letter. | Whatever the person on the phone confirms; the caller must trust the number they dialled. | Confirmation that the employer issued this exact letter, as at its date. |
+| **What the employee shares** | Consent for the verifier to see their record. | Consent for the call. | Only the letter they chose to hand over. |
+| **Reach** | US employees of participating employers. | Any employer that answers. | Global in principle: any employer, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Fast and automated; the verifier pays per check. | Staff time on both sides, and it can take days. | A few seconds per check: one web lookup, with no fee to the standard and no account with the employer. |
+| **What it needs** | The employer to report payroll to the service, and a verifier account. | Someone at the employer who can confirm. | The employer to publish hashes, and Live Verify-aware software on the checker's device. No employer does this yet. |
+| **Best suited to** | High-volume lending where the employer participates. | Occasional checks with small employers. | Applicants whose employer does not participate, and checks across borders. |
 
 **Where each fits:** Employment databases such as The Work Number give lenders a fast, automated answer for employees of participating employers, and where a record exists there a lender will reasonably use it. Many people work for small firms that do not participate, and their lenders fall back on a letter from the employer or a phone call. Live Verify lets the lender confirm that letter against the employer's domain, covering the applicants the database cannot.
 
@@ -226,14 +231,19 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With The Work Number (Equifax)
+## Where Each Fits: Live Verify and Payroll Verification Services for Paystubs
 
-| Feature | Live Verify | The Work Number | Scanned PDF / Paper |
+For employers that report payroll to a verification service such as The Work Number, a lender can check income from the database. Otherwise the applicant supplies paystubs as paper or PDF. The database and Live Verify work side by side: one reads the reported payroll record, the other confirms a single stub the applicant hands over.
+
+| | The Work Number | Live Verify on the paystub | Scanned PDF or paper |
 | :--- | :--- | :--- | :--- |
-| **User Privacy** | **High.** Employee shares only the *Single Paystub*. | **Low.** Lenders see full historical data pool. | **High.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Employer. | **Data-Bound.** Trust the aggregator. | **Zero.** Easily forged. |
-| **Interoperability** | **Universal.** Works for any small firm with a URL. | **Limited.** Only for large firms who pay for TWN. | **Universal.** |
-| **Cost** | **Low.** Standard web infra. | **Very High.** Lenders pay $50-$100 per check. | **None.** |
+| **Who can check** | Lenders and verifiers with an account. | Anyone handed the stub. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The income record the employer has reported, often over several periods. | Confirmation that the employer issued this exact stub, as at its pay date. | A document whose figures may have been edited. |
+| **What the employee shares** | Consent for the verifier to see their payroll record. | Only the pay period they chose to hand over. | Only the stub they chose to hand over. |
+| **Reach** | US employees of participating employers. | Global in principle: any employer or payroll provider, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Fast and automated; the verifier pays per check. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The employer to report payroll, and a verifier account. | The employer or payroll provider to publish hashes, and Live Verify-aware software on the checker's device. No employer does this yet. | Nothing. |
+| **Best suited to** | Income checks where the employer participates. | Stubs from employers outside the service, or where the applicant prefers to share a single period. | Nothing where the loan amount depends on it. |
 
 **Where each fits:** For employers that report payroll to a verification service, a lender's automated income check is quick and well established. Paystubs from smaller employers that do not report still arrive as paper or PDF. Live Verify lets the lender confirm that the employer issued the stub as presented, and it gives an applicant the option of sharing a single pay period; the database route stays available wherever it applies.
 

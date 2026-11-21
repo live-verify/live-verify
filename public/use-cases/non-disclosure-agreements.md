@@ -115,14 +115,20 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With E-Signature (DocuSign)
+## Where Each Fits: Live Verify and E-Signature Platforms
 
-| Feature | Live Verify | E-Signature (Digital PKI) | Physical Paper |
+E-signature platforms such as DocuSign handle the signing of an agreement and attach a digital signature to the electronic file. Live Verify answers a different question, mainly for printed or rescanned copies: does the issuing firm stand behind this exact text? The two work side by side.
+
+| | E-signature platform | Live Verify on the NDA | Physical paper alone |
 | :--- | :--- | :--- | :--- |
-| **Persistence** | **High.** Survives being printed and scanned. | **Low.** Crypto signature is lost when printed. | **Manual.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Law Firm. | **System-Bound.** Trust the SaaS vendor. | **The Ink.** |
-| **Self-Sovereign** | **High.** The paper is the proof. | **Low.** Requires the SaaS account to stay active. | **Total.** |
-| **Integrity** | **Binds Content.** Protects the *text*. | **High.** | **Zero.** |
+| **Who can check** | Anyone with the original electronic file and software that validates its signature, or access to the platform. | Anyone holding a copy, printed or electronic. | Anyone can read it; checking ink signatures needs an expert. |
+| **What the checker gets** | Strong evidence of who signed and that the file is unchanged, while it stays in its original electronic form. | Confirmation that the law firm or issuer published this exact text, as at its date, and whether it has been superseded or terminated. | The text as presented. |
+| **What the holder shares** | The signed file. | Only the document they chose to hand over. | The paper. |
+| **Reach** | Wherever the platform's signatures are accepted and can be validated. | Global in principle: any firm, in any country, that publishes hashes on its own domain. | Universal. |
+| **Speed and cost** | Fast to sign; usually a paid subscription. | A few seconds per check: one web lookup, with no fee to the standard. | Free. |
+| **What it needs** | The original file, and later checks can depend on the account or service remaining available. | The firm to publish hashes, and Live Verify-aware software on the checker's device. No law firm does this yet. | Nothing. |
+| **Printing and scanning** | The digital signature does not survive printing. | Survives printing and scanning, since the check is on the visible text. | Not applicable. |
+| **Best suited to** | Executing the agreement. | Checking a printed or filed copy years later. | Low-stakes agreements. |
 
 **Where each fits:** E-signature platforms are a sound way to execute an agreement, and while the signed file stays in its original electronic form its embedded signature is strong evidence. That evidence does not survive printing or rescanning, and checking it years later can depend on the signing account or service still being available. Live Verify lets someone holding a printed or filed copy confirm the text against the law firm's domain, so an agreement can be signed electronically and remain checkable on paper.
 
