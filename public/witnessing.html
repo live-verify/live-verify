@@ -1,0 +1,228 @@
+<!--
+    Copyright (C) 2025, Paul Hammant
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is witnessing? - Live Verify</title>
+    <meta name="description" content="Witnessing: an independent party keeps a dated record that an issuer confirmed a document, so the proof survives if the issuer later deletes or denies it.">
+    <style>
+        :root {
+            --bg: #f6f8fb; --surface: #ffffff; --ink: #0f172a; --ink-soft: #475569;
+            --ink-faint: #64748b; --line: #e2e8f0; --accent: #2563eb; --accent-dark: #1d4ed8;
+            --accent-soft: #eff4ff; --radius: 16px;
+            --shadow-sm: 0 1px 2px rgba(15,23,42,0.06), 0 1px 3px rgba(15,23,42,0.08);
+            --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font); background: var(--bg);
+            background-image: radial-gradient(1200px 500px at 50% -120px, #eef2f9 0%, var(--bg) 70%);
+            min-height: 100vh; padding: 28px 20px 56px; color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 880px; margin: 0 auto; }
+        .breadcrumbs { font-size: 0.85em; color: var(--ink-faint); margin-bottom: 18px; }
+        .breadcrumbs a { color: var(--ink-faint); text-decoration: none; }
+        .breadcrumbs a:hover { text-decoration: underline; }
+        .breadcrumbs .sep { margin: 0 8px; opacity: 0.6; }
+        .badge {
+            display: inline-block; background: var(--accent-soft); color: var(--accent-dark);
+            border: 1px solid #e3ebfb; padding: 7px 15px; border-radius: 999px;
+            font-size: 0.8em; font-weight: 700; letter-spacing: 1px; margin-bottom: 18px;
+        }
+        h1 { font-size: clamp(1.9em, 5vw, 2.6em); font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; margin-bottom: 14px; }
+        .lede { font-size: 1.12em; line-height: 1.65; color: var(--ink-soft); max-width: 64ch; margin-bottom: 10px; }
+        .card {
+            background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+            padding: 24px 26px; margin: 16px 0; box-shadow: var(--shadow-sm);
+        }
+        .card h2 { font-size: 1.26em; font-weight: 750; letter-spacing: -0.01em; margin-bottom: 6px; }
+        .card .what { font-size: 0.88em; color: var(--ink-faint); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+        .card p, .card li { line-height: 1.7; color: var(--ink-soft); max-width: 72ch; }
+        .card p + p { margin-top: 10px; }
+        .card .diff { margin-top: 12px; padding: 12px 14px; background: var(--accent-soft); border: 1px solid #e3ebfb; border-left: 3px solid var(--accent); border-radius: 10px; }
+        .card .diff strong { color: var(--accent-dark); }
+        .card strong { color: var(--ink); }
+        a { color: var(--accent); }
+        code {
+            font-family: var(--mono); font-size: 0.88em; background: var(--accent-soft);
+            color: var(--accent-dark); padding: 0.12em 0.4em; border-radius: 6px; border: 1px solid #e3ebfb;
+        }
+        .intro-note {
+            font-size: 0.96em; line-height: 1.65; color: var(--ink-soft); margin: 8px 0 4px;
+            background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 3px solid #16a34a;
+            border-radius: var(--radius); padding: 16px 20px;
+        }
+        .intro-note strong { color: #052e16; }
+        .cta-box { text-align: center; margin: 30px 0 8px; }
+        .cta {
+            display: inline-block; background: var(--accent); color: #fff; padding: 14px 36px;
+            border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1em;
+            box-shadow: var(--shadow-sm); margin: 6px; transition: transform 0.15s, background 0.15s;
+        }
+        .cta:hover { transform: translateY(-2px); background: var(--accent-dark); }
+        .cta.secondary { background: var(--surface); color: var(--accent); border: 1px solid var(--line); }
+        .cta.secondary:hover { background: var(--accent-soft); }
+        .site-foot { margin-top: 30px; text-align: center; color: var(--ink-faint); font-size: 0.92em; line-height: 1.7; }
+        .site-foot a { color: var(--accent); text-decoration: none; font-weight: 600; }
+        .forward-hint { text-align: center; font-size: 0.88em; color: var(--ink-faint); margin-top: 6px; }
+        @media print {
+            body { background: #fff; padding: 0; }
+            .breadcrumbs, .cta-box, .forward-hint { display: none; }
+            .card { box-shadow: none; break-inside: avoid; }
+        }
+        @media (max-width: 520px) { .card { padding: 20px 18px; } }
+        .card h3 { font-size: 1.04em; font-weight: 700; margin: 16px 0 6px; }
+        .card ul, .card ol { margin: 8px 0 8px 22px; }
+        .card li + li { margin-top: 4px; }
+        .status-note {
+            font-size: 0.96em; line-height: 1.65; color: var(--ink-soft); margin: 8px 0 4px;
+            background: #fffbeb; border: 1px solid #fde68a; border-left: 3px solid #d97706;
+            border-radius: var(--radius); padding: 16px 20px;
+        }
+        .status-note strong { color: #451a03; }
+        .subpages { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; margin: 16px 0; }
+        .subpages a {
+            display: block; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+            padding: 16px 18px; text-decoration: none; color: var(--ink-soft); line-height: 1.55; box-shadow: var(--shadow-sm);
+        }
+        .subpages a strong { display: block; color: var(--accent-dark); margin-bottom: 4px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.93em; }
+        th, td { text-align: left; vertical-align: top; padding: 9px 10px; border-bottom: 1px solid var(--line); line-height: 1.55; color: var(--ink-soft); }
+        th { color: var(--ink); font-weight: 700; }
+        td:first-child { min-width: 11em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="index.html">Home</a><span class="sep">&rsaquo;</span><span>Witnessing</span>
+        </nav>
+
+        <div class="badge">OPTIONAL LAYER</div>
+        <h1>What is witnessing?</h1>
+        <p class="lede">A Live Verify check asks the issuer, right now, whether it stands behind a document. Witnessing answers a later question: can you still prove the issuer said yes, after it has stopped saying so?</p>
+        <p class="status-note"><strong>Status: a design, not a service.</strong> Witnessing sits outside the core
+            Live Verify specification. No witnessing organisation operates today, the reference apps have no witness
+            plugin, and any company names or prices on these pages are illustrations.</p>
+
+        <div class="card">
+            <h2>The gap it closes</h2>
+            <p>A verified document is only as durable as the issuer's willingness to keep answering. An issuer that
+                comes to regret a claim &mdash; a bookmaker facing a large payout, an employer who wishes a reference
+                had not been written, a contractor disowning certified work &mdash; can remove the hash from its
+                server. The lookup then finds nothing, and the issuer says it never issued the document.</p>
+            <p>The holder still has the text, and can show what hash it produces. What they cannot show is that the
+                issuer ever published that hash. It is one party's word against the other's. A witness is a third
+                party who looked at the time and wrote down what it saw.</p>
+        </div>
+
+        <div class="card">
+            <h2>How it works</h2>
+            <p>A witness is a company the person checking has chosen in advance and added to their Live Verify app as
+                a plugin. Each time that person verifies a document:</p>
+            <ol>
+                <li>The app sends the witness the hash and the address it was looked up at. It does not send the
+                    document's text.</li>
+                <li>The witness makes its own lookup at the issuer's domain, so its record is something it saw for
+                    itself and not something it was told.</li>
+                <li>The witness stores what came back: the hash, the address, the issuer's answer, the chain of
+                    authorities above the issuer, and the time.</li>
+                <li>Usually nothing more happens. If a dispute arises years later, the witness provides a formal
+                    statement of what it recorded.</li>
+            </ol>
+            <p>Witnessing is a dated web lookup made by a credible third party. The technical bar is low. The value
+                is the organisation's credibility, its record-keeping, and its willingness to stand behind the record
+                later.</p>
+        </div>
+
+        <div class="card">
+            <h2>What the witness holds, and what it never holds</h2>
+            <ul>
+                <li><strong>Holds:</strong> the hash, the address it was seen at, the issuer's response, the
+                    authority chain, and the time of the lookup.</li>
+                <li><strong>Never holds:</strong> the document's text. A hash cannot be turned back into the
+                    document, so the witness cannot read what it has witnessed.</li>
+                <li><strong>Does learn:</strong> that someone checked a document from that issuer at that time. A
+                    witness is a party you choose to tell, and should be chosen with that in mind.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>What a witness can and cannot say later</h2>
+            <p>It can say: &ldquo;On this date, at this time, we looked up this hash at this issuer's address and
+                received this answer.&rdquo; Together with the holder's copy of the text, which produces that same
+                hash, this establishes that the issuer confirmed the document.</p>
+            <p>It cannot say:</p>
+            <ul>
+                <li><strong>What the document said.</strong> It never had the text.</li>
+                <li><strong>Who the rightful holder is.</strong> It does not know whose document it is.</li>
+                <li><strong>That the issuer's claim was true.</strong> It records that the issuer answered, not that
+                    the issuer was right.</li>
+                <li><strong>What the issuer said afterwards.</strong> A record shows the answer at the moment of the
+                    lookup; an issuer may properly revoke later.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Timing, and more than one witness</h2>
+            <p>The record has to be made before the issuer has a reason to withdraw the hash. Once a dispute has
+                started it is too late. That is why the plugin model matters: the record is made as a by-product of
+                the ordinary check, without anyone having to foresee the dispute.</p>
+            <p>Nothing stops a person using two or three witnesses. Independent records are harder to dismiss than
+                one, and each is only another lookup.</p>
+        </div>
+
+        <div class="card">
+            <h2>An older version of the same idea</h2>
+            <p>In London's over-the-counter gold market, trade confirmations were for years copied to a firm in
+                Switzerland whose only job was to keep them. It took no part in the trade and did not need to
+                understand it. By one trader's account nobody ever asked it to settle a dispute: the knowledge that a
+                neutral copy existed was enough. Most of the value of a witness is that it is rarely called.</p>
+        </div>
+
+        <div class="card">
+            <h2>Two ways a witness comes to hold a record</h2>
+            <p>This page describes the model where the person checking chooses the witness. There is a second model
+                for regulated sectors, where a regulator requires the issuer to send every hash it publishes to a
+                witness. The two are complementary, and are compared on the
+                <a href="witnessing-issuer-fed.html">issuer-fed witnessing</a> page.</p>
+        </div>
+
+        <div class="subpages">
+            <a href="witnessing-assurance.html"><strong>How a witness proves its own honesty</strong>From a reputable firm's word to a tamper-evident log anyone can audit.</a>
+            <a href="witnessing-business.html"><strong>How witnesses are paid</strong>Who pays, for what, and why this is a market and not a fee on the standard.</a>
+            <a href="witnessing-issuer-fed.html"><strong>Issuer-fed witnessing</strong>The regulated-sector model, where the issuer sends every hash to a witness.</a>
+        </div>
+
+        <div class="cta-box">
+            <a class="cta secondary" href="https://github.com/live-verify/live-verify/blob/main/docs/WITNESSING-THIRD-PARTIES.md">Full design notes on GitHub</a>
+            <a class="cta secondary" href="use-cases/">Use cases</a>
+            <a class="cta secondary" href="index.html">Back to home</a>
+        </div>
+
+        <div class="site-foot">
+            Live Verify is an open standard begun by <a href="https://paulhammant.com">Paul Hammant</a>
+            &middot; <a href="mailto:paul@hammant.org">paul@hammant.org</a>
+            &middot; <a href="https://github.com/live-verify/live-verify">Source &amp; spec on GitHub</a>
+        </div>
+    </div>
+</body>
+</html>

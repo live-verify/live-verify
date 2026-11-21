@@ -1,0 +1,180 @@
+<!--
+    Copyright (C) 2025, Paul Hammant
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issuer-fed witnessing - Live Verify</title>
+    <meta name="description" content="Issuer-fed witnessing for regulated sectors: the issuer sends every hash and status change to an independent witness, giving regulators an audit trail the issuer cannot rewrite.">
+    <style>
+        :root {
+            --bg: #f6f8fb; --surface: #ffffff; --ink: #0f172a; --ink-soft: #475569;
+            --ink-faint: #64748b; --line: #e2e8f0; --accent: #2563eb; --accent-dark: #1d4ed8;
+            --accent-soft: #eff4ff; --radius: 16px;
+            --shadow-sm: 0 1px 2px rgba(15,23,42,0.06), 0 1px 3px rgba(15,23,42,0.08);
+            --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font); background: var(--bg);
+            background-image: radial-gradient(1200px 500px at 50% -120px, #eef2f9 0%, var(--bg) 70%);
+            min-height: 100vh; padding: 28px 20px 56px; color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 880px; margin: 0 auto; }
+        .breadcrumbs { font-size: 0.85em; color: var(--ink-faint); margin-bottom: 18px; }
+        .breadcrumbs a { color: var(--ink-faint); text-decoration: none; }
+        .breadcrumbs a:hover { text-decoration: underline; }
+        .breadcrumbs .sep { margin: 0 8px; opacity: 0.6; }
+        .badge {
+            display: inline-block; background: var(--accent-soft); color: var(--accent-dark);
+            border: 1px solid #e3ebfb; padding: 7px 15px; border-radius: 999px;
+            font-size: 0.8em; font-weight: 700; letter-spacing: 1px; margin-bottom: 18px;
+        }
+        h1 { font-size: clamp(1.9em, 5vw, 2.6em); font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; margin-bottom: 14px; }
+        .lede { font-size: 1.12em; line-height: 1.65; color: var(--ink-soft); max-width: 64ch; margin-bottom: 10px; }
+        .card {
+            background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+            padding: 24px 26px; margin: 16px 0; box-shadow: var(--shadow-sm);
+        }
+        .card h2 { font-size: 1.26em; font-weight: 750; letter-spacing: -0.01em; margin-bottom: 6px; }
+        .card .what { font-size: 0.88em; color: var(--ink-faint); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+        .card p, .card li { line-height: 1.7; color: var(--ink-soft); max-width: 72ch; }
+        .card p + p { margin-top: 10px; }
+        .card .diff { margin-top: 12px; padding: 12px 14px; background: var(--accent-soft); border: 1px solid #e3ebfb; border-left: 3px solid var(--accent); border-radius: 10px; }
+        .card .diff strong { color: var(--accent-dark); }
+        .card strong { color: var(--ink); }
+        a { color: var(--accent); }
+        code {
+            font-family: var(--mono); font-size: 0.88em; background: var(--accent-soft);
+            color: var(--accent-dark); padding: 0.12em 0.4em; border-radius: 6px; border: 1px solid #e3ebfb;
+        }
+        .intro-note {
+            font-size: 0.96em; line-height: 1.65; color: var(--ink-soft); margin: 8px 0 4px;
+            background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 3px solid #16a34a;
+            border-radius: var(--radius); padding: 16px 20px;
+        }
+        .intro-note strong { color: #052e16; }
+        .cta-box { text-align: center; margin: 30px 0 8px; }
+        .cta {
+            display: inline-block; background: var(--accent); color: #fff; padding: 14px 36px;
+            border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1em;
+            box-shadow: var(--shadow-sm); margin: 6px; transition: transform 0.15s, background 0.15s;
+        }
+        .cta:hover { transform: translateY(-2px); background: var(--accent-dark); }
+        .cta.secondary { background: var(--surface); color: var(--accent); border: 1px solid var(--line); }
+        .cta.secondary:hover { background: var(--accent-soft); }
+        .site-foot { margin-top: 30px; text-align: center; color: var(--ink-faint); font-size: 0.92em; line-height: 1.7; }
+        .site-foot a { color: var(--accent); text-decoration: none; font-weight: 600; }
+        .forward-hint { text-align: center; font-size: 0.88em; color: var(--ink-faint); margin-top: 6px; }
+        @media print {
+            body { background: #fff; padding: 0; }
+            .breadcrumbs, .cta-box, .forward-hint { display: none; }
+            .card { box-shadow: none; break-inside: avoid; }
+        }
+        @media (max-width: 520px) { .card { padding: 20px 18px; } }
+        .card h3 { font-size: 1.04em; font-weight: 700; margin: 16px 0 6px; }
+        .card ul, .card ol { margin: 8px 0 8px 22px; }
+        .card li + li { margin-top: 4px; }
+        .status-note {
+            font-size: 0.96em; line-height: 1.65; color: var(--ink-soft); margin: 8px 0 4px;
+            background: #fffbeb; border: 1px solid #fde68a; border-left: 3px solid #d97706;
+            border-radius: var(--radius); padding: 16px 20px;
+        }
+        .status-note strong { color: #451a03; }
+        .subpages { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; margin: 16px 0; }
+        .subpages a {
+            display: block; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+            padding: 16px 18px; text-decoration: none; color: var(--ink-soft); line-height: 1.55; box-shadow: var(--shadow-sm);
+        }
+        .subpages a strong { display: block; color: var(--accent-dark); margin-bottom: 4px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.93em; }
+        th, td { text-align: left; vertical-align: top; padding: 9px 10px; border-bottom: 1px solid var(--line); line-height: 1.55; color: var(--ink-soft); }
+        th { color: var(--ink); font-weight: 700; }
+        td:first-child { min-width: 11em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="index.html">Home</a><span class="sep">&rsaquo;</span><a href="witnessing.html">Witnessing</a><span class="sep">&rsaquo;</span><span>Issuer-fed witnessing</span>
+        </nav>
+
+        <div class="badge">WITNESSING</div>
+        <h1>Issuer-fed witnessing</h1>
+        <p class="lede">In regulated sectors a witness can be fed by the issuer itself. A regulator requires the issuer to send every hash it publishes, and every later change, to an independent firm. This is a business in its own right and a benefit to the issuer, the regulator and the public.</p>
+        <p class="status-note"><strong>Status: a design, not a service.</strong> Witnessing sits outside the core
+            Live Verify specification. No witnessing organisation operates today, the reference apps have no witness
+            plugin, and any company names or prices on these pages are illustrations.</p>
+
+        <div class="card">
+            <h2>How it differs from the plugin model</h2>
+            <table>
+                <thead><tr><th></th><th>Chosen by the person checking</th><th>Fed by the issuer</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Who engages the witness</strong></td><td>The person checking, through a plugin in their app</td><td>The issuer, because a regulator or contract requires it</td></tr>
+                    <tr><td><strong>Who pays</strong></td><td>The person checking, or their firm, solicitor or insurer</td><td>The issuer, as a cost of compliance</td></tr>
+                    <tr><td><strong>Does the issuer know?</strong></td><td>No. The witness makes an ordinary public lookup</td><td>Yes. The issuer sends the hashes</td></tr>
+                    <tr><td><strong>What the witness receives</strong></td><td>One hash, its address, the issuer's answer and the time</td><td>Every hash and every status change, as they happen</td></tr>
+                    <tr><td><strong>Coverage</strong></td><td>Only the documents that person checked</td><td>Everything the issuer publishes, continuously</td></tr>
+                    <tr><td><strong>Main value</strong></td><td>Protection in an individual dispute</td><td>A regulatory audit trail and non-repudiation at scale</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>What the issuer-fed witness holds</h2>
+            <ul>
+                <li><strong>Every hash</strong> the issuer publishes, as it is published.</li>
+                <li><strong>Every later change</strong>: a new status, a revocation, or a deletion. A deletion is
+                    itself recorded, which the plugin model cannot do.</li>
+                <li><strong>Never</strong> the document's text, in whole or in part. No names, amounts, dates or
+                    other fields are sent. As in the plugin model, the witness cannot read what it has
+                    witnessed.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Who benefits</h2>
+            <ul>
+                <li><strong>The regulator</strong> can inspect one independent record of everything a firm has
+                    attested to, without relying on the firm's own account of its history.</li>
+                <li><strong>The issuer</strong> gains proof of what it did and did not issue, which protects it
+                    against forged documents bearing its name and against claims that it altered its records.</li>
+                <li><strong>Holders and checkers</strong> gain a record the issuer cannot quietly rewrite, and a
+                    second place to confirm a hash if the issuer's own service is unavailable.</li>
+                <li><strong>The witness</strong> has a continuing contract with each issuer it serves, which is a
+                    steadier business than occasional attestations.</li>
+            </ul>
+        </div>
+
+        <div class="cta-box">
+            <a class="cta secondary" href="witnessing.html">What is witnessing?</a>
+            <a class="cta secondary" href="witnessing-assurance.html">How a witness proves its own honesty</a>
+            <a class="cta secondary" href="witnessing-business.html">How witnesses are paid</a>
+        </div>
+
+        <div class="site-foot">
+            Live Verify is an open standard begun by <a href="https://paulhammant.com">Paul Hammant</a>
+            &middot; <a href="mailto:paul@hammant.org">paul@hammant.org</a>
+            &middot; <a href="https://github.com/live-verify/live-verify">Source &amp; spec on GitHub</a>
+        </div>
+    </div>
+</body>
+</html>
