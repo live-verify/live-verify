@@ -4,16 +4,16 @@ category: "Site & Equipment Safety"
 volume: "Large"
 retention: "3-5 years (commercial wiring cycle)"
 slug: "electrical-safety-inspections"
-verificationMode: "clip"
+verificationMode: "both"
 tags: ["electrical-safety", "eawr", "nfpa-70e", "fixed-wire-test", "panel-inspection", "fire-prevention", "electrical-code"]
 furtherDerivations: 1
 ---
 
 ## What is an Electrical System Inspection?
 
-Fixed electrical installations (wiring, fuse boxes, panels) are a primary source of workplace fires. Under the **EAWR** (UK) and **NFPA 70E** (US), these systems must be periodically inspected by a qualified electrician to find loose connections, overloaded circuits, or degraded insulation.
+Fixed electrical installations (wiring, fuse boxes, panels) are a primary source of workplace fires. Under the EAWR (UK) and NFPA 70E (US), these systems must be periodically inspected by a qualified electrician to find loose connections, overloaded circuits, or degraded insulation.
 
-**Inspection Certificates** or stickers placed on electrical panels provide the "Stamp of Safety" for the facility. "Pencil Whipping" is common here to avoid the cost of remedial wiring. Verified hashes bind the **Panel/Circuit ID, Test Result, and Electrician's License** to the contractor's or the city's domain.
+An inspection certificate, or a sticker placed on the panel itself, is the evidence that the work was done. A verified hash binds the Panel/Circuit ID, Test Result, and Electrician's License to the contractor's or the city's domain.
 
 <div style="max-width: 400px; margin: 24px auto; font-family: sans-serif; border: 3px solid #ff9800; border-radius: 8px; background: #fff; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #ff9800; color: #fff; padding: 12px; text-align: center; font-weight: bold;">
@@ -35,25 +35,35 @@ Fixed electrical installations (wiring, fuse boxes, panels) are a primary source
   </div>
 </div>
 
-## Data Verified
+## The Problem: Inspections Signed Off but Not Done
 
-Panel ID, Circuit number, test date, insulation resistance (MΩ), earth loop impedance (Ω), test result (Satisfactory/Unsatisfactory), electrician name/license, next inspection date, regulation reference (e.g., BS 7671 / NFPA 70).
+A facility manager, insurer or fire inspector looking at a panel sticker has no way to tell whether the test behind it was carried out. Remedial wiring is expensive, so there is pressure to record a pass without doing the work.
 
-## Data Visible After Verification
+- **Pencil whipping:** A pass is recorded for a panel that was never tested, to avoid the cost of remedial work.
+- **Fake or copied stickers:** A sticker is printed, or lifted from another panel, with no inspection behind it.
+- **Expired passes:** An old sticker stays on the panel long after the inspection interval has lapsed.
+
+## What Is Checked
+
+The text on the panel sticker: panel ID, location, test date, condition (Satisfactory/Unsatisfactory), and the electrician's name and licence number.
+
+The full inspection report is a separate document with its own hash. It carries the measured values (insulation resistance, earth loop impedance), the circuit numbers, the next inspection date and the regulation reference (e.g., BS 7671 / NFPA 70).
+
+## What the Checker Sees
 
 Shows the issuer domain (the Electrical Contractor) and the current safety standing.
 
 **Status Indications:**
 - **Satisfactory** — System is safe for continued use.
-- **Unsatisfactory** — **CRITICAL:** Remedial work required; fire/shock risk detected.
-- **Expired** — **ALERT:** Periodic inspection is overdue.
+- **Unsatisfactory** — Remedial work required; fire/shock risk detected.
+- **Expired** — Periodic inspection is overdue.
 
-## Second-Party Use
+## Who Holds It
 
-The **Facility Manager / Landlord** benefits from verification.
+The Facility Manager / Landlord benefits from verification.
 - **Insurance Compliance:** Proving to a commercial property insurer that the building's wiring is verified safe, which is often a condition of fire coverage.
 
-## Third-Party Use
+## Who Checks It
 
 **Fire Marshals / Safety Inspectors**
 - **Rapid Vetting:** Scanning stickers on panels during a fire safety audit to ensure they aren't fake or expired.
@@ -66,11 +76,11 @@ The **Facility Manager / Landlord** benefits from verification.
 
 **Pattern:** Regulated
 
-NICEIC is an accredited UK electrical safety certification body.
+The contractor publishes the result on its own domain. A registration body (NICEIC in the UK, in this example) vouches that the contractor is registered to do the work.
 
 ```
-✓ eicr.niceic.com — Issues electrical inspection certificates
-  ✓ niceic.com — Certifies UK electrical safety inspections
+✓ miller-electric.com/v — Electrical contractor; issues inspection results for its own work
+  ✓ niceic.com/verify — Electrical contractor registration
     ✓ gov.uk/verifiers — UK government root namespace
 ```
 
