@@ -35,7 +35,7 @@ claim's `verify:` line, answered by a **plain, unsigned response**. Full treatme
 
 ## 2. Query privacy: the lookup leaks
 
-Only a hash crosses the wire — document *content* confidentiality is unconditional. Query *privacy*
+Only a hash crosses the wire — document *content* confidentiality holds as long as the client software is honest (a platform coerced into shipping an eavesdropping client is covered in [weaknesses_audit.md](weaknesses_audit.md) item 36). Query *privacy*
 is not. Full treatment: the privacy caveats in the [README](../README.md).
 
 - **2a. Confirmation oracle for guessable documents — OPEN (mitigated by authoring practice).**
