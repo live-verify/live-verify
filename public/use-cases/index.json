@@ -1,6 +1,6 @@
 {
-  "generated": "2026-11-21T11:41:11.697Z",
-  "totalUseCases": 613,
+  "generated": "2026-11-21T12:15:08.615Z",
+  "totalUseCases": 614,
   "totalFurtherDerivations": 941,
   "categories": {
     "Real Estate & Property": 45,
@@ -19,7 +19,7 @@
     "Chain of Custody & Logistics": 18,
     "Travel & Hospitality": 22,
     "Healthcare & Medical Records": 16,
-    "Professional & Educational Qualifications": 26,
+    "Professional & Educational Qualifications": 27,
     "Art, Media & Publishing": 8,
     "Customs & Trade Compliance": 8,
     "Sports & Athletics": 6,
@@ -11068,6 +11068,27 @@
       ]
     },
     {
+      "slug": "support-letters",
+      "title": "Support Letters",
+      "category": "Professional & Educational Qualifications",
+      "volume": "Large",
+      "retention": "5-10 years (the life of the application and any later review)",
+      "verificationMode": "clip",
+      "furtherDerivations": 0,
+      "snippet": "A support letter is one person's statement, in their own name, about another person or their work, written for someone who has a decision to make: an…",
+      "tags": [
+        "support-letter",
+        "recommendation-letter",
+        "letter-of-support",
+        "expert-letter",
+        "character-reference",
+        "immigration",
+        "national-interest-waiver",
+        "grant-application",
+        "first-hand-knowledge"
+      ]
+    },
+    {
       "slug": "surety-bond-releases",
       "title": "Surety Bond Releases",
       "category": "Insurance Claims & Operations",
@@ -12660,11 +12681,11 @@
       "count": 32
     },
     {
-      "name": "Legal & Court Documents",
-      "count": 26
+      "name": "Professional & Educational Qualifications",
+      "count": 27
     },
     {
-      "name": "Professional & Educational Qualifications",
+      "name": "Legal & Court Documents",
       "count": 26
     },
     {
