@@ -90,16 +90,21 @@ The Shipper or Consignee benefits from verification.
 **Airlines:** (United Cargo, Lufthansa Cargo, etc.)
 **Freight Forwarders:** (DHL Global Forwarding, Kuehne+Nagel, etc.)
 
-## Compared With e-AWB (Electronic Air Waybill)
+## Where Each Fits: Live Verify and IATA e-AWB
 
-| Feature | Live Verify | e-AWB (IATA) |
+The electronic air waybill (e-AWB) is IATA's standard for replacing the paper master waybill with electronic messages between airlines, forwarders and handlers, often exchanged through cargo community systems. It is widely used, but adoption varies by airline, airport and country, and some lanes still need paper. e-AWB and Live Verify answer different questions and work side by side: e-AWB moves the data between connected parties, while Live Verify lets anyone holding the printed waybill check it.
+
+| | IATA e-AWB | Live Verify on the air waybill |
 | :--- | :--- | :--- |
-| **Adoption** | **Universal.** Works even for small forwarders/airlines not fully integrated. | **High but not 100%.** Many lanes/countries still require paper. |
-| **Physical Handoff** | **Strong.** Verifies the paper accompanying the freight in the truck. | **Weak.** Truckers often don't have access to the e-AWB system; they carry paper. |
-| **Interoperability** | **Web-based.** Anyone (bank, insurer, customs) can verify. | **Siloed.** Cargo Community Systems (CCS) require membership/login. |
-| **Data Integrity** | **Snapshot.** Proves what was printed at origin. | **Dynamic.** System data updates; audit trail of changes can be complex. |
+| **Who can check** | Airlines, forwarders and handlers connected to the messaging or a cargo community system. | Anyone handed the waybill: a trucker, a bank, an insurer, a customs officer. |
+| **What the checker gets** | Structured shipment data that updates as the shipment moves. | Confirmation that the issuer stands behind this exact printed waybill, as at origin. |
+| **What the shipper shares** | Data with connected parties. | Only the waybill they chose to hand over. |
+| **Reach** | Wherever the airline, forwarder and handler have all adopted it; some countries and lanes still require paper. | Global in principle: any carrier or forwarder that publishes hashes on its own domain. |
+| **Speed and cost** | Fast between connected parties; joining needs integration and often membership of a community system. | A few seconds per check: one web lookup, with no fee to the standard and no integration with the issuer. |
+| **What it needs** | All parties connected to the same messaging. | The issuer to publish hashes, and Live Verify-aware software on the checker's device. No airline or forwarder does this yet. |
+| **Best suited to** | Removing paper between connected cargo parties. | Paper legs: trucking, customs, banks and insurers outside the cargo systems. |
 
-**Where each fits:** where the airline, forwarder and handler are all connected, e-AWB is the better route, and it removes paper from most of the journey. Paper still accompanies freight on trucking legs and through customs in places that require it, and banks and insurers are generally outside the cargo community systems. Live Verify gives those parties a way to check the printed waybill against the issuer's domain, alongside e-AWB rather than as an alternative to it.
+**Where each fits:** where the airline, forwarder and handler are all connected, e-AWB is the better route, and it removes paper from most of the journey. Paper still accompanies freight on trucking legs and through customs in places that require it, and banks and insurers are generally outside the cargo community systems. Live Verify gives those parties a quick way to check the printed waybill against the issuer's domain, if their software honours it, alongside e-AWB rather than as an alternative to it.
 
 ---
 
@@ -197,14 +202,19 @@ The Actual Shipper (SME / Manufacturer) benefits from verification.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With IATA e-AWB
+## Where Each Fits: Live Verify and e-AWB for House Waybills
 
-| Feature | Live Verify | IATA e-AWB (Cargo-XML) | Paper HAWB |
+Forwarders that are set up for IATA's Cargo-XML messaging can send house waybill data electronically to airlines and other connected parties. Many smaller forwarders still issue house waybills as PDF or paper. e-AWB messaging and Live Verify answer different questions and work side by side: the messaging moves data between connected parties, while Live Verify lets a shipper or bank check the house waybill it has been handed.
+
+| | Cargo-XML e-AWB messaging | Live Verify on the house waybill | Paper or PDF house waybill |
 | :--- | :--- | :--- | :--- |
-| **User Access** | **Universal.** Any small shipper/bank can verify. | **Restricted.** Requires complex IATA Cargo-XML messaging setup. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Forwarder. | **System-Bound.** | **Zero.** Easily forged. |
-| **Interoperability** | **High.** PDFs stay verifiable across systems. | **Medium.** Requires both parties to be on the e-AWB network. | **Universal.** |
-| **Integrity** | **Binds Content.** Protects the weight/count. | **Data-Only.** | **Vulnerable.** |
+| **Who can check** | Parties connected to the same messaging network. | Anyone handed the waybill: a small shipper, a bank, an insurer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Structured data from the forwarder's system. | Confirmation that the forwarder issued this exact waybill, with those weights and piece counts, as at its date. | A document that may have been edited. |
+| **What the shipper shares** | Data with connected parties. | Only the waybill they chose to hand over. | The waybill. |
+| **Reach** | Forwarders and airlines that have set up the messaging. | Global in principle: any forwarder that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Fast once set up; the messaging setup is substantial work. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | Both parties on the network. | The forwarder to publish hashes, and Live Verify-aware software on the checker's device. No forwarder does this yet. | Nothing. |
+| **Best suited to** | High-volume exchange between connected parties. | Shippers and banks outside the network. | Nothing where the weights or counts matter. |
 
 **Where each fits:** forwarders already set up for Cargo-XML messaging have little reason to move away from e-AWB between connected parties. Many smaller forwarders still issue house waybills as PDF or paper, and the shipper or bank receiving one is not on the e-AWB network. Live Verify lets that recipient confirm the forwarder issued the document with those weights and piece counts, and it can sit on the same paperwork that larger forwarders also transmit electronically.
 

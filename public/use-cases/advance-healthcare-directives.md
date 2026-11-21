@@ -131,16 +131,21 @@ Solicitors draft and certify healthcare directives under mental capacity law.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With HIEs and EHRs
+## Where Each Fits: Live Verify and Health Information Exchanges
 
-| Feature | Live Verify | Health Info Exchange (HIE) | Wallet Card / USB |
+A health information exchange (HIE) shares patient records, which can include advance directives, between hospitals and providers that belong to it. Coverage depends on where the patient is: some regions and health systems share records well, others only within one vendor's network, and many places have no exchange at all. An exchange and Live Verify answer different questions and work side by side: the exchange brings the directive into the clinical record, while Live Verify lets staff check a paper copy or card that arrives with the patient.
+
+| | Health information exchange | Live Verify on the directive | Wallet card or USB stick |
 | :--- | :--- | :--- | :--- |
-| **Interoperability** | **Broad.** Works on any phone or browser that has Live Verify. No integration with the issuer needed. | **Limited.** Requires hospitals to be on the same network (e.g., Epic to Epic). Often fails across state lines. | **Medium.** USBs may be blocked by hospital security; physical cards can be lost. |
-| **Speed** | **Instant.** Scan and view. | **Variable.** Can take time to query external records; may require patient consent (impossible if unconscious). | **Fast.** But relies on physical possession. |
-| **Authority** | **High.** Shows issuer domain (Registry/Notary). | **High.** Trusted clinical data. | **Low.** Could be an old/fake card. |
-| **Revocation** | **Real-time.** Status changes to REVOKED instantly. | **Good.** Updates eventually propagate. | **None.** Physical card still looks valid after revocation. |
+| **Who can check** | Clinicians at hospitals connected to the same exchange or network. | Anyone handed the directive: emergency staff, a care home, a hospital in another state or country. | Whoever finds the card or stick. |
+| **What the checker gets** | The directive inside the patient's clinical record, alongside other trusted data. | Confirmation that the registry or notary stands behind this exact text, and whether it has since been revoked. | A card or file that may be out of date or not genuine. |
+| **What the patient shares** | Records available across the network, subject to its consent rules. | Only the directive they or their family chose to hand over. | The card or file. |
+| **Reach** | Only within the exchange's network; it can fail across state lines or between vendors. | Global in principle: any registry or notary that publishes hashes on its own domain. | Wherever the patient carries it, though hospitals often block USB sticks. |
+| **Speed and cost** | Fast once connected; querying outside records can take time, and joining an exchange takes integration work. | A few seconds per check: one web lookup, with no fee to the standard and no integration with the issuer. | Immediate. |
+| **What it needs** | Both hospitals on the same exchange, and the directive uploaded to it. | The registry or notary to publish hashes, and Live Verify-aware software on the checker's device. No registry does this yet. | The patient to carry it. |
+| **Best suited to** | Hospitals inside the patient's usual care network. | Paper directives brought in by family, and hospitals outside the network. | A reminder that a directive exists. |
 
-**Where each fits:** where the treating hospital and the patient's usual provider share a health information exchange, the exchange is the better source, because it delivers the directive inside the clinical record. Directives also arrive as paper carried by family, or as a wallet card, at hospitals outside that network or in another state. Live Verify lets staff there check the paper against the registry or notary that issued it, including whether it has since been revoked, without any integration. It complements the exchange rather than replacing it.
+**Where each fits:** where the treating hospital and the patient's usual provider share a health information exchange, the exchange is the better source, because it delivers the directive inside the clinical record. Directives also arrive as paper carried by family, or as a wallet card, at hospitals outside that network or in another state. Live Verify lets staff there check the paper against the registry or notary that issued it, including whether it has since been revoked, without any integration, provided they have software that honours it. It complements the exchange rather than replacing it.
 
 ## Independent Record (Optional)
 

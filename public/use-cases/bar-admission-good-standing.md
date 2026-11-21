@@ -131,15 +131,21 @@ UK solicitors are regulated by the SRA under the Legal Services Act:
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Public Search (Attorney Search)
+## Where Each Fits: Live Verify and Public Attorney Search
 
-| Feature | Live Verify | Public Attorney Search | Paper Certificate |
+Most US state bars and court systems, and many bar associations and law societies elsewhere, offer a free public search of admitted lawyers and their current standing. Coverage depends on the jurisdiction: some publish detailed status, some only names, and some offer nothing online. A public search and Live Verify answer different questions and work side by side: the search shows standing today, while Live Verify confirms that a specific good-standing letter is one the court or bar issued, as at its date.
+
+| | Public attorney search | Live Verify on the good-standing letter | Paper certificate |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Binds Date.** Proves standing *as of the letter date*. | **Live.** Shows standing *today*. | **Static.** Easily faked. |
-| **Efficiency** | **Fast bridge from the letter.** | **Primary.** Live status path. | **Manual.** Compare seals. |
-| **Trust** | **Domain-Bound.** Bound to `nycourts.gov`. | **High.** But prone to "Similar Name" errors. | **Medium.** |
+| **Who can check** | Anyone who finds the right jurisdiction's search. | Anyone handed the letter: another state's bar, a court for admission pro hac vice, a law firm, an employer. | Anyone comparing seals and signatures by eye. |
+| **What the checker gets** | Current standing, though a common name can lead to the wrong lawyer. | Confirmation that the issuing court or bar stands behind this exact letter, for this lawyer, as at its date. | A certificate that may have been forged or be out of date. |
+| **What the lawyer shares** | Nothing; the register is public. | Only the letter they chose to hand over. | The certificate. |
+| **Reach** | One jurisdiction's lawyers. | Global in principle: any court or bar that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Free and quick, once the right site is found. | A few seconds per check: one web lookup, with no fee to the standard. | No lookup needed. |
+| **What it needs** | The checker to find the right search and the right person. | The issuer to publish hashes, and Live Verify-aware software on the checker's device. No court or bar does this yet. | Nothing. |
+| **Best suited to** | Checking current standing. | Admissions and applications where the letter itself is what is submitted. | Nothing where standing matters. |
 
-**Narrower conclusion:** Public attorney search should remain primary where it is practical. Live Verify is complementary when the good-standing letter is already the artifact in motion and the verifier wants to bind that specific letter to the correct lawyer without name-search ambiguity.
+**Where each fits:** public attorney search should remain the primary check where it is practical, because it shows standing today. Live Verify is complementary when the good-standing letter is already the document being passed around and the checker wants to tie that specific letter to the right lawyer without the ambiguity of a name search, provided their software honours it.
 
 ## See Also
 

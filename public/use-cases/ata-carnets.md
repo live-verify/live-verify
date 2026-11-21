@@ -115,15 +115,23 @@ Chambers of commerce issue carnets to certify the temporary export of goods acro
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With e-ATA (Digital Carnet)
+## Where Each Fits: Live Verify and the Digital e-ATA Carnet
 
-| Feature | Live Verify | e-ATA (ICC Project) | Paper Carnet (Traditional) |
+<!-- TODO(verify): the status and country coverage of the ICC e-ATA carnet system -->
+
+ATA carnets are issued by national chambers of commerce under a chain guaranteed internationally through the ICC, and the ICC has been developing a digital carnet, e-ATA, to replace the paper document. Coverage depends on the crossing: the digital carnet works only where the customs administrations involved have joined it, and many crossings still run on the paper carnet and its stamps. e-ATA and Live Verify answer different questions and work side by side: e-ATA replaces the paper with a shared record, while Live Verify lets an officer check the paper carnet that is still in use.
+
+| | e-ATA digital carnet | Live Verify on the paper carnet | Paper carnet checked by eye |
 | :--- | :--- | :--- | :--- |
-| **Connectivity** | **Needed for the check.** The paper carnet can be carried and read without a connection; checking it takes one small web request over any data connection. | **Needed.** Requires the app and a connection to the platform at the border. | **Manual.** Relies on physical stamps. |
-| **Trust** | **Domain-Bound.** Trust the National Chamber. | **Platform-Bound.** Requires all countries to join the same IT system. | **Visual.** Prone to stamp forgery. |
-| **Audit Trail** | **Hybrid.** Physical stamps + digital snapshots. | **Digital Only.** Hard to reconcile with physical boxes in a truck. | **Physical.** Hard to audit centrally. |
+| **Who can check** | Customs officers connected to the platform. | Any customs officer, freight agent or insurer handed the carnet. | Any officer looking at the stamps and vouchers. |
+| **What the checker gets** | The carnet record and its movements across borders. | Confirmation that the national chamber issued this exact carnet, with its goods list, as at its date, and whether it has since been cancelled. | Stamps and forms that can be forged. |
+| **What the holder shares** | The digital carnet. | Only the carnet they present. | The carnet. |
+| **Reach** | Only between customs administrations that have joined the system. | Global in principle: any issuing chamber that publishes hashes on its own domain. | Every country in the carnet system. |
+| **Speed and cost** | Fast where connected; needs the app and the platform at the border. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection at the border. | No lookup; relies on the officer's judgement. |
+| **What it needs** | Both customs administrations on the platform, and a connection to it. | The chamber to publish hashes, and Live Verify-aware software on the officer's device. No chamber does this yet. | Nothing beyond the stamps. |
+| **Best suited to** | Crossings where every party is on the system. | Crossings still running on paper, and officers with no platform access. | Nothing where forgery is a concern. |
 
-**Where each fits:** where both the issuing and the receiving customs administrations are on the e-ATA system and the officer has a working connection to it, the digital carnet is the more complete record. Many crossings still run on the paper carnet, and an officer at a smaller port may have no access to the platform. Live Verify lets that officer check the paper against the national chamber's domain with an ordinary browser, and the stamps and the e-ATA record continue to do their own jobs.
+**Where each fits:** where both the issuing and the receiving customs administrations are on the e-ATA system and the officer has a working connection to it, the digital carnet is the more complete record. Many crossings still run on the paper carnet, and an officer at a smaller port may have no access to the platform. Live Verify lets that officer check the paper against the national chamber's domain, if their device has software that honours it, and the stamps and the e-ATA record continue to do their own jobs.
 
 ## Independent Record (Optional)
 

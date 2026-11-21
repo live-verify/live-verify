@@ -119,15 +119,21 @@ Legal & General certifies actuarial pricing for UK annuity products.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With DOI SERFF Database
+## Where Each Fits: Live Verify and State Filing Databases
 
-| Feature | Live Verify | SERFF / State Website |
+US insurers file annuity products and rates with state insurance departments, mostly through SERFF, and states offer some public access to those filings. Other countries regulate product disclosures in their own ways, and not all make filings public. A filing database and Live Verify answer different questions and work side by side: the database holds what the insurer filed with the regulator, while Live Verify lets a consumer confirm that the printed illustration in their hands is one the insurer stands behind.
+
+| | SERFF or state filing database | Live Verify on the illustration or certification |
 | :--- | :--- | :--- |
-| **Consumer Access** | **Universal.** Scan the brochure. | **Very Hard.** Public access to filing databases is notoriously difficult for non-experts. |
-| **Linking** | **Direct.** Binds the physical paper to the filing. | **Disconnected.** Finding the filing for "SecureIncome Plus v3" among 5,000 filings is hard. |
-| **Trust** | **Brand-bound.** `prudential.com` vouches for it. | **Gov-bound.** High trust, but low usability. |
+| **Who can check** | Regulators, compliance staff and advisers who know how to search filings; public access is possible but hard for consumers. | Anyone handed the document: a consumer, a family member, an adviser. |
+| **What the checker gets** | The official filing, as the regulator received it. | Confirmation that the insurer issued this exact page, with its figures, as at its date. |
+| **What the consumer shares** | Nothing; filings sit with the regulator. | Only the document they chose to show. |
+| **Reach** | One state's filings. | Global in principle: any insurer that publishes hashes on its own domain. |
+| **Speed and cost** | Free, but finding the right filing among thousands takes skill and time. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | Knowledge of the filing system and the product's filing details. | The insurer to publish hashes, and Live Verify-aware software on the checker's device. No insurer does this yet. |
+| **Best suited to** | Regulatory review and professional research. | A consumer checking the figures in front of them. |
 
-**Where each fits:** the state filing database is the official record of what an insurer filed, and for regulators, compliance staff and advisers who know their way around it, it is the place to look. A consumer handed a printed illustration is unlikely to find the matching filing among thousands. Live Verify lets that consumer confirm the insurer stands behind the figures on the page in front of them, while the filing itself stays where it has always been.
+**Where each fits:** the state filing database is the official record of what an insurer filed, and for regulators, compliance staff and advisers who know their way around it, it is the place to look. A consumer handed a printed illustration is unlikely to find the matching filing among thousands. Live Verify lets that consumer confirm the insurer stands behind the figures on the page in front of them, if they have software that honours it, while the filing itself stays where it has always been.
 
 ## Independent Record (Optional)
 

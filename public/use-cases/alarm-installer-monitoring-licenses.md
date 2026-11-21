@@ -116,15 +116,22 @@ Security alarm installers are licensed and monitored by the UK private security 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Online Lookups
+## Where Each Fits: Live Verify and State Licence Lookups
 
-| Feature | Live Verify | State Website Lookup |
+States that license alarm installers usually publish a free online lookup of licence holders. Coverage depends on where you are: some states license installers and monitoring staff, others do not, and the same is true across other countries. A lookup and Live Verify answer slightly different questions and work side by side: the lookup tells you whether a named person holds a licence, while Live Verify tells you whether the badge in front of you is one the agency issued.
+
+| | State online lookup | Live Verify on the licence badge |
 | :--- | :--- | :--- |
-| **Speed** | **Instant.** Scan the badge at the door. | **Slow.** Ask for name, type it in, scroll results. |
-| **Photo ID** | **Strong.** Verification can display the official photo to compare with the person standing there. | **Weak.** Text-only lookups don't show the face, allowing ID theft (using a real name but wrong person). |
-| **Privacy** | **Targeted.** Checks *this* person. | **Open.** Anyone can scrape the whole database. |
+| **Who can check** | Anyone who knows the agency's site and the person's name or number. | Anyone shown the badge: a homeowner at the door, a business owner, a general contractor. |
+| **What the checker gets** | The agency's current record for that name or number. | Confirmation that the agency issued this exact badge, with its details and photo, and whether the licence has since been suspended or revoked. |
+| **Matching the person** | Text only, so someone could quote a real licensee's name. | The badge's photo is part of what is checked, so the homeowner can compare it with the face at the door. <!-- TODO(verify): page lists 'photo (hash)' among checked fields; confirm the verified badge text covers the printed photo --> |
+| **What the installer shares** | Nothing; the register is public. | Only the badge they chose to show. |
+| **Reach** | One state's licensees. | Global in principle: any licensing agency that publishes hashes on its own domain. |
+| **Speed and cost** | Free; typing a name and reading results takes a few minutes, awkward on a doorstep. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | The checker to find the right agency and search it. | The agency to publish hashes, and Live Verify-aware software on the checker's device. No licensing agency does this yet. |
+| **Best suited to** | Checking a company or installer before booking. | The moment of deciding whether to open the door. |
 
-**Why this remains strong:** State website lookup should remain primary where it is practical. But at the doorstep the homeowner is making an immediate entry decision from the badge in hand, often without a comfortable or realistic registry workflow. That makes this a strong threshold-verification case rather than an attempt to replace the licensing database.
+**Where each fits:** the state lookup should remain the primary check where it is practical, such as when choosing a company in advance. At the doorstep, though, the homeowner is deciding on entry from the badge in hand, often without a realistic way to search a register. Live Verify suits that moment, for a homeowner whose phone has software that honours it, and complements the licensing database rather than replacing it.
 
 ## Independent Record (Optional)
 

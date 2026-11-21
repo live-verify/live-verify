@@ -101,15 +101,21 @@ Klarna verifies merchants for buy-now-pay-later transactions and financial servi
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Static Badges
+## Where Each Fits: Live Verify, Payment Authentication and Static Badges
 
-| Feature | Live Verify | Static "Trust" Badge | Verified by Visa (3DS) |
+Card payments are protected by 3-D Secure (Visa Secure and its equivalents), which authenticates the shopper at the payment step, and many sites show static "trusted merchant" or lender badges. 3-D Secure is used internationally, and in some regions strong customer authentication is required. These and Live Verify answer different questions and work side by side: 3-D Secure protects the payment, while Live Verify lets a shopper check, before checkout, that the lender confirms this merchant.
+
+| | 3-D Secure at payment | Live Verify on the merchant certificate | Static trust badge |
 | :--- | :--- | :--- | :--- |
-| **Trust** | **Cryptographic.** Bound to the Bank's domain. | **Zero.** Just a JPEG image that anyone can copy. | **High.** But only at the *payment* step. |
-| **Verification** | **Pre-Payment.** User verifies *before* giving data. | **None.** | **Late.** Happens after user submits info. |
-| **Integrity** | **Binds Merchant.** Hash protects the URL/Name. | **None.** | **High.** |
+| **Who can check** | Applied automatically to the shopper's card payment. | Any shopper on the merchant's site. | Nobody; it is an image. |
+| **What the checker gets** | Authentication of the shopper by their bank, at the payment step. | Confirmation that the lender stands behind this exact certificate, for this merchant name and website, and whether it has since been withdrawn. | A logo that anyone can copy. |
+| **What the shopper shares** | Card details, before authentication. | Nothing; the check happens before any details are entered. | Nothing. |
+| **Reach** | Card payments wherever issuers and merchants support it. | Global in principle: any lender that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Part of checkout. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | Card issuer and merchant support. | The lender to publish hashes, and Live Verify-aware software on the shopper's device. No lender does this yet. | Nothing. |
+| **Best suited to** | Protecting the payment. | Deciding whether to start checkout on an unfamiliar site. | Nothing. |
 
-**Where each fits:** 3-D Secure and similar checks protect the payment step well, and remain the right control there. They come into play only after the shopper has started entering details, and a static badge on the page can be copied by anyone. Live Verify lets a shopper check, before checkout, that the lender's domain confirms this merchant, which complements the protection applied later at payment.
+**Where each fits:** 3-D Secure and similar checks protect the payment step well, and remain the right control there. They come into play only after the shopper has started entering details, and a static badge on the page can be copied by anyone. Live Verify lets a shopper whose software honours it check, before checkout, that the lender's domain confirms this merchant, which complements the protection applied later at payment.
 
 ## Independent Record (Optional)
 

@@ -217,17 +217,21 @@ For medical appointments, the NHS or health system issues the appointment confir
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With the Alternatives
+## Where Each Fits: Live Verify and Other Ways to Confirm an Absence
 
-| Feature | Live Verify | Calling the Hospital/Court | Employer Trusts the Paper | Patient Portals | HR Software Integration |
+When an employee needs time off for a medical appointment or a court date, the employer can phone the hospital or court, use a patient portal or HR platform where both sides are on it, or simply accept the letter. These existing routes vary by country and employer, and each has its place. Live Verify answers a narrower question than most of them, whether the institution really issued this letter, and works alongside them.
+
+| | Calling the hospital or court | Patient portal | HR software integration | Live Verify on the confirmation letter | Accepting the paper |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Speed** | **Instant.** 5-second scan. | **Slow/Impossible.** Hospitals won't confirm. Courts may take days. | **Instant.** Zero verification. | **Slow.** Employee must grant portal access. | **Varies.** Requires integration. |
-| **Scalable** | **Yes.** Works for any volume. | **No.** Each call is manual (if they answer). | **Yes** (by accepting everything). | **No.** Per-employee setup. | **Partial.** Platform lock-in. |
-| **Detects forgery** | **Yes.** Hash mismatch = forgery. | **Theoretically** (if you reach someone). | **No.** | **Yes** (within platform). | **Partial.** |
-| **Privacy-preserving** | **Yes.** Confirms appointment exists without revealing reason. | **No.** Receptionist may disclose details. | **N/A.** | **No.** Portal shows medical history. | **Partial.** |
-| **Works for legal summons** | **Yes.** Same mechanism. | **Possible but slow.** Court clerk offices. | **Risky.** Cannot challenge protected absence. | **No.** No patient portal equivalent. | **No.** |
+| **Who can check** | Anyone who can get through to the right office. | Someone the employee grants portal access to. | Employers on a platform that is integrated with the provider. | The employer or anyone the employee hands the letter to. | Nobody checks. |
+| **What the checker gets** | Whatever the office is willing to say; hospitals often decline to confirm appointments, and court offices may take time to reply. | The employee's record inside the portal, often far more than the appointment. | Whatever the integration passes across. | Confirmation that the hospital or court issued this exact letter, as at its date, without the medical reason or case details. | The letter as presented. |
+| **What the employee shares** | Their name and details with the office, by phone. | Portal access, which may expose medical history. | Data shared through the platform. | Only the letter they chose to hand over. | The letter. |
+| **Reach** | Any institution that answers the phone. | One provider's patients. | Providers and employers on the same platform. | Global in principle: any hospital, clinic or court that publishes hashes on its own domain, for medical appointments and summonses alike. | Universal. |
+| **Speed and cost** | Slow, and each call is manual. | Per-employee setup. | Fast once integrated; integration costs time and money. | A few seconds per check: one web lookup, with no fee to the standard and no integration with the institution. | Free and immediate. |
+| **What it needs** | Someone at the institution willing to answer. | A portal, and the employee's consent. | Both sides on the same platform. | The institution to publish hashes, and Live Verify-aware software on the checker's device. No hospital or court does this yet. | Trust. |
+| **Best suited to** | Contested cases, especially court dates. | Cases where the employee is happy to share their record. | Large employers already integrated with providers. | Ordinary cases where the employer wants some assurance and has nobody to ask. | Most absences. |
 
-**Where each fits:** Trusting the paper is the right default for most absences, and it keeps the relationship between employer and employee free of suspicion. Patient portals and HR integrations work well where both sides already use the same platform, and a call to the court clerk remains the route for anything contested. The gap is the ordinary case where the employer would like some assurance but has nobody to ask: hospitals will not confirm appointments, and a summons is awkward to question. Live Verify lets the employer confirm the letter against the institution's own domain without learning the medical reason or the nature of the case.
+**Where each fits:** Trusting the paper is the right default for most absences, and it keeps the relationship between employer and employee free of suspicion. Patient portals and HR integrations work well where both sides already use the same platform, and a call to the court clerk remains the route for anything contested. The gap is the ordinary case where the employer would like some assurance but has nobody to ask: hospitals will often not confirm appointments, and a summons is awkward to question. Live Verify lets the employer, if their software honours it, confirm the letter against the institution's own domain without learning the medical reason or the nature of the case.
 
 ## Further Derivations
 

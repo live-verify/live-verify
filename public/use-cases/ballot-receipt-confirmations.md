@@ -169,14 +169,22 @@ Self-authorized — this is a sovereign body whose authority derives from statut
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With the Alternatives
+## Where Each Fits: Live Verify, Ballot Tracking Portals and Plain Text Messages
 
-| Feature | Live Verify | BallotTrax / Ballot Tracking Portals | Plain SMS / Email |
+In the US, many election authorities already tell voters by text or email when their ballot has been received, through ballot tracking services such as BallotTrax, and voters can look up their status on the portal. Other countries handle this differently, and many send no confirmation at all. A tracking portal and Live Verify answer different questions and work side by side: the portal shows the voter their current status, while Live Verify lets the voter confirm that a confirmation message they hold really came from the election authority.
+
+| | Ballot tracking portal | Plain text or email notification | Live Verify on the ballot confirmation |
 | :--- | :--- | :--- | :--- |
-| **Anti-Phishing** | **Strong.** Hash ties message to government domain; spoofed messages fail verification. | **Weak.** Portal is legitimate, but the *notification* pointing to it can be spoofed. | **None.** No way to distinguish real from fake. |
-| **Connectivity needed** | **Yes, for the check.** Voter retains the text and can re-verify later, whenever connected. | **Yes.** Requires portal to be online. | **None.** Message is just text. |
-| **Coercion Resistance** | **Variant 1: Strong.** No selections disclosed. Variant 2: Weak. Provable vote. | **Strong.** Portals don't show selections. | **N/A.** |
-| **Timestamp Proof** | **Strong.** Hash includes receipt timestamp. | **Medium.** Portal shows status but notification timing is not cryptographically bound. | **Weak.** SMS timestamps are carrier-dependent. |
+| **Who can check** | The voter, by looking themselves up. | The voter, who receives it. | The voter, or anyone they choose to show it to. |
+| **What the checker gets** | The ballot's current status from the authority's system, without the voter's selections. | A message that looks official, but a spoofed one looks the same. | Confirmation that the election authority issued this exact confirmation, including its receipt timestamp. |
+| **What the voter shares** | Nothing; they look themselves up. | Nothing. | Only the confirmation they choose to show. In the opt-in "how I voted" variant this would include their selections, which raises the ballot secrecy concerns discussed above. |
+| **Reach** | Jurisdictions that offer a portal. | Jurisdictions that send notifications. | Global in principle: any election authority that publishes hashes on its own domain. |
+| **Speed and cost** | Free and quick, when the portal is online. | Immediate. | A few seconds per check: one web lookup, with no fee to the standard. The voter can keep the text and check it again later. |
+| **Spoofed notifications** | The portal itself is genuine, but a fake notification can point elsewhere. | Cannot be told apart from real ones. | A fake confirmation does not match a hash on the authority's domain. |
+| **What it needs** | A portal run by or for the authority. | A notification service. | The election authority to publish hashes, and Live Verify-aware software on the checker's device. No election authority does this yet. |
+| **Best suited to** | Checking where a ballot is. | Prompting the voter. | A confirmation the voter can keep and rely on later. |
+
+**Where each fits:** ballot tracking portals are the right way for voters to follow their ballot, and they already work well where they exist, without exposing selections. The notification that points to them, though, can be imitated. Live Verify lets a voter whose software honours it confirm that a participation confirmation came from the election authority itself, and keep it as a record with its timestamp. The "how I voted" variant is a policy decision for each jurisdiction, not something Live Verify settles.
 
 ## Independent Record (Optional)
 

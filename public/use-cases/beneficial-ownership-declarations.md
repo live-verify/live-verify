@@ -189,15 +189,21 @@ Opaque beneficial ownership is the primary obstacle to asset recovery — klepto
 - **Italy:** Anti-mafia confiscation regime traces assets through complex corporate structures; Antimafia Investigation Directorate (DIA) uses corporate registry data
 - **FATF:** Recommendation 4 (confiscation and provisional measures) explicitly links UBO transparency to effective asset recovery
 
-## Compared With Registry Portals
+## Where Each Fits: Live Verify, Registry Portals and Shared KYC Utilities
 
-| Feature | Live Verify | Public Registry Portal | Private KYC Utility (Swift) |
+Many countries keep a register of companies' beneficial owners, run by a government registry, and banks also pool due-diligence information through shared KYC utilities such as Swift's. Coverage depends on where the company is: some registers are public, some are open only to authorities or to those with a legitimate interest, and many countries have none. These and Live Verify answer different questions and work side by side: the register is the record itself, a KYC utility serves its members, and Live Verify lets a counterparty confirm an extract the company has handed over.
+
+| | Government registry portal | Shared KYC utility | Live Verify on the ownership extract |
 | :--- | :--- | :--- | :--- |
-| **User Privacy** | **High.** Only the specific company is verified. | **Low.** Many registries are public/searchable (privacy risk). | **Very Low.** Centralized data pool. |
-| **Trust** | **Cryptographic.** Bound to the Gov domain. | **Medium.** Prone to UI spoofing/phishing. | **High.** But requires expensive membership. |
-| **Immediacy** | **Instant.** Scan the document during onboarding. | **Slow.** Login, search, pay fee, download PDF. | **Fast.** But siloed. |
+| **Who can check** | The public or authorised users, depending on the country. | Member institutions. | Anyone handed the extract: a bank, a supplier, an investor, a counterparty abroad. |
+| **What the checker gets** | The registry's own record, as it stands. | Shared due-diligence data held by the utility. | Confirmation that the registry issued this exact extract, as at its date. |
+| **What the company shares** | What the law requires it to file, sometimes publicly. | Data with all members of the utility. | Only the extract it chose to hand over. |
+| **Reach** | One country's companies. | Members and the companies they cover. | Global in principle: any registry that publishes hashes on its own domain. |
+| **Speed and cost** | Can involve logins, searches in another language and fees. | Fast for members; membership is costly. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | Access to the register in that country. | Membership. | The registry to publish hashes, and Live Verify-aware software on the checker's device. No registry does this yet. |
+| **Best suited to** | Full due diligence. | Banks onboarding correspondents and clients. | A first check of an extract by a counterparty with no easy access to the register. |
 
-**Where each fits:** the government registry is the record itself, and a regulated firm doing full due diligence will still consult it or a shared KYC utility it belongs to. A counterparty abroad, faced with an unfamiliar registry site in another language and a fee to pay, often relies on the extract the company hands over. Live Verify lets that counterparty confirm the registry issued the extract as it reads, as a first check that works alongside a fuller registry search.
+**Where each fits:** the government registry is the record itself, and a regulated firm doing full due diligence will still consult it or a shared KYC utility it belongs to. A counterparty abroad, faced with an unfamiliar registry site in another language and a fee to pay, often relies on the extract the company hands over. Live Verify lets that counterparty, with software that honours it, confirm the registry issued the extract as it reads, as a first check that works alongside a fuller registry search.
 
 ## Independent Record (Optional)
 

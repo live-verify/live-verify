@@ -117,16 +117,22 @@ Actuaries certify that insurers have set aside sufficient reserves for future cl
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Digital Signatures (PKI)
+## Where Each Fits: Live Verify and Digital Signatures
 
-| Feature | Live Verify | Digital Signature (PKI) |
+A digitally signed PDF carries a cryptographic signature from the signing actuary or firm, which PDF software can validate against a certificate authority it trusts. Digital signatures are used worldwide, though which certificates a reader's software trusts varies by country and by product (the EU, for example, has its own framework for qualified signatures). A signature and Live Verify answer different questions and can sit on the same opinion: the signature protects the electronic file, while Live Verify covers the text once it has been printed, scanned or flattened.
+
+| | Digital signature on the PDF | Live Verify on the opinion |
 | :--- | :--- | :--- |
-| **Workflow Integration** | **Seamless.** Works on printed copies in board books or scanned PDFs in data rooms. | **Fragile.** Breaks if the PDF is printed, scanned, or flattened. |
-| **Verifier Access** | **Universal.** Anyone with a browser. | **Restricted.** Often requires specific software or trust anchors to validate the signature chain. |
-| **Revocation** | **Instant.** Issuer removes hash or changes status to WITHDRAWN. | **Complex.** Requires CRL (Certificate Revocation List) or OCSP checking, which often fails in long-term archives. |
-| **Firm vs. Individual** | **Firm-Centric.** Binds to the firm's domain. | **Individual-Centric.** Binds to the signer's personal token (unless using expensive corp seals). |
+| **Who can check** | Anyone with the original signed file and PDF software that trusts the signer's certificate. | Anyone with the opinion in any form, including a printed board book or a scanned PDF in a data room. |
+| **What the checker gets** | Confirmation that the file has not changed since it was signed, and who signed it. | Confirmation that the firm stands behind this exact text, as at its date, and whether it has since withdrawn it. |
+| **What the insurer shares** | The signed file. | Only the opinion they chose to hand over. |
+| **Reach** | Wherever the file stays in its original electronic form; the signature is lost once the PDF is printed, scanned or flattened. | Global in principle: any firm, in any country, that publishes hashes on its own domain, on paper or on screen. |
+| **Speed and cost** | Validation is quick in the reader's software; signing certificates cost money and need managing. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **Revocation** | Relies on certificate revocation checks, which can be hard to run on long-archived files. | The firm changes the status at its own domain. |
+| **What it needs** | A signing certificate, and reader software that trusts it. | The firm to publish hashes, and Live Verify-aware software on the checker's device. No actuarial firm does this yet. |
+| **Best suited to** | Direct electronic filings with a regulator that validates signatures. | Printed, scanned and forwarded copies read by boards, auditors and acquirers. |
 
-**Where each fits:** a digitally signed PDF remains the right choice while the opinion stays in its original electronic form, for example a direct filing with a regulator that validates the signature. Opinions also get printed for board books, scanned, and uploaded to data rooms, and a signature does not usually survive that journey. Live Verify covers those later copies, letting a reader with only a browser confirm that the firm still stands behind the text, so the two can sit on the same document.
+**Where each fits:** a digitally signed PDF remains the right choice while the opinion stays in its original electronic form, for example a direct filing with a regulator that validates the signature. Opinions also get printed for board books, scanned, and uploaded to data rooms, and a signature does not usually survive that journey. Live Verify covers those later copies, letting a reader whose device has software that honours it confirm that the firm still stands behind the text, so the two can sit on the same document.
 
 ## Independent Record (Optional)
 

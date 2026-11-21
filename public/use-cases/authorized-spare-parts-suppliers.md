@@ -181,17 +181,21 @@ The most sophisticated attack against this model is not copying the claim (which
 
 **Honest assessment:** Content script isolation provides strong but not absolute protection against page-level manipulation. The domain-mismatch check is the backstop — it works even if the text swap somehow succeeds. The weakest link is the buyer not reading the verified detail, which is why the domain-mismatch warning should be prominent and unmissable.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Manufacturer Dealer Locators
 
-| Feature | Live Verify | "Genuine Parts" Badge | Manufacturer Dealer Locator | Invoice / Packing Slip Only |
+Manufacturers publish dealer and distributor locators on their own websites so buyers can find an authorised source of parts, while suppliers often display "genuine parts" badges of their own. A dealer locator and Live Verify answer different questions and work side by side: the locator answers "where can I buy parts?", while Live Verify answers "is this supplier, on this page, authorised by the manufacturer?" at the point of ordering.
+
+| | Manufacturer dealer locator | Live Verify on the supplier's authorisation claim | "Genuine parts" badge | Invoice or packing slip |
 | :--- | :--- | :--- | :--- | :--- |
-| **Issuer-controlled** | **Yes.** Manufacturer issues the claim. | **No.** Supplier self-asserts. | **Yes.** But often stale and incomplete. | **Yes.** But post-purchase. |
-| **Domain-bound** | **Yes.** Claim names the authorized site. | **No.** | **Partially.** Links to dealer, rarely to parts-only suppliers. | **No.** |
-| **Revocable** | **Immediate.** Endpoint returns REVOKED. | **No.** Badge persists. | **Slow.** Directory updates lag. | **No.** |
-| **Verifiable pre-order** | **Yes.** On the supplier's parts page. | **No.** | **Requires leaving the site.** | **No.** |
-| **Detects site copying** | **Yes.** Domain mismatch warning. | **No.** | **No.** | **No.** |
+| **Who can check** | Anyone who goes to the manufacturer's site and searches. | Anyone reading the claim on the supplier's parts page: a procurement team, a workshop, an owner. | Nobody; the supplier puts it there. | The buyer, after purchase. |
+| **What the checker gets** | The manufacturer's list of dealers, which may leave out parts-only suppliers or lag behind changes. | Confirmation that the manufacturer stands behind this exact claim, for this supplier and website, and whether it has since been revoked. A claim copied to another site is flagged. | A logo that anyone can copy. | A document from the supplier, after the money has gone. |
+| **What the supplier shares** | Nothing; the list is the manufacturer's. | Only the claim it chooses to display. | The badge. | The paperwork. |
+| **Reach** | One manufacturer's network, as far as the locator lists it. | Global in principle: any manufacturer that publishes hashes on its own domain. | Universal, but untrusted. | Each order. |
+| **Speed and cost** | Free; needs leaving the supplier's site to search. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. | Immediate, but too late. |
+| **What it needs** | The manufacturer to keep the locator current. | The manufacturer to publish hashes, and Live Verify-aware software on the checker's device. No manufacturer does this yet. | Nothing. | A completed order. |
+| **Best suited to** | Finding an authorised source. | Checking a supplier before ordering. | Nothing where authenticity matters. | Records after purchase. |
 
-**Practical conclusion:** manufacturer dealer locators remain useful for finding an authorized source, but they answer a different question ("where can I get parts?") from the one the procurement team is actually asking on a supplier's parts page ("are these actually genuine parts from an authorized source?"). The verifiable claim answers the second question in place.
+**Where each fits:** manufacturer dealer locators remain useful for finding an authorised source, but they answer a different question ("where can I get parts?") from the one the procurement team is asking on a supplier's parts page ("is this supplier authorised to sell genuine parts?"). The verifiable claim answers the second question in place, in a few seconds, for a checker whose software honours Live Verify.
 
 ## Authority Chain
 

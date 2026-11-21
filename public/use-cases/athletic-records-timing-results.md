@@ -123,15 +123,21 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 **Realistic scope:** Live Verify is a bridge technology for the long tail of athletic events that haven't digitized. For elite sports and well-funded programs, digital-native verification is already dominant. This use case targets the gap — the rural high school meet timed by a volunteer with a stopwatch and a printed certificate.
 
-## Compared With Result Databases
+## Where Each Fits: Live Verify, Online Results Databases and Photo-Finish Images
 
-| Feature | Live Verify | Online Results (Athletic.net) | Photo-Finish (Visual) |
+Meet results are published online by timing companies, federations and results sites such as Athletic.net, and important finishes are settled from photo-finish images. These differ by sport and country, and many small meets publish results late or not at all. They answer different questions from Live Verify and work side by side: a results database lists everyone's performances, a photo-finish image settles the order at the line, and Live Verify lets an athlete show a single result certificate that the timing company or federation stands behind.
+
+| | Online results database | Photo-finish image | Live Verify on the result certificate |
 | :--- | :--- | :--- | :--- |
-| **Trust** | **Cryptographic.** Bound to the Federation domain. | **Social.** Relies on the meet director uploading correctly. | **Forensic.** Requires expert eyes to interpret. |
-| **Integrity** | **Binds Performance.** Proves the *result* matches the *athlete*. | **Database.** Prone to data entry errors or "Ghost Results." | **Static.** Just an image of the finish line. |
-| **Speed** | **Instant.** Scan the bib or certificate. | **Variable.** Meet results can take days to appear online. | **Slow.** Requires access to specialized software. |
+| **Who can check** | Anyone who searches the site. | Officials and those with the timing software. | Anyone handed the certificate: a college recruiter, a selection panel, a meet entry system. |
+| **What the checker gets** | Results as uploaded by the meet, which can contain entry errors. | The raw evidence of the finish, which takes expertise to read. | Confirmation that the timing company or federation issued this exact result, for this athlete, as at its date. |
+| **What the athlete shares** | Nothing; results are public. | Nothing. | Only the certificate they chose to show. |
+| **Reach** | Meets that upload to that site. | Meets with photo-finish equipment. | Global in principle: any timing company or federation that publishes hashes on its own domain. |
+| **Speed and cost** | Free; uploads can take days. | Needs specialist software and training. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | The meet to upload results. | Photo-finish equipment and an operator. | The timing company or federation to publish hashes, and Live Verify-aware software on the checker's device. No timing company does this yet. |
+| **Best suited to** | Browsing and comparing performances. | Settling close finishes. | An athlete proving one result to someone who was not there. |
 
-**Why OCR fits the gap:** Athletic results are decentralized. Thousands of local meets happen every weekend without digital integration. Live Verify allows a kid in a rural high school to carry a "Token of Proof" from their local timing company that is as trustworthy as an Olympic final result, bridging the gap between the field and the recruiters.
+**Where each fits:** results databases remain the place to browse and compare performances, and photo-finish images remain how close finishes are decided. Many local meets, though, are never well recorded online. Live Verify would let an athlete from such a meet carry a result certificate from the local timing company that a recruiter can check in a few seconds, with software that honours it, bridging the gap between the field and the people deciding on places.
 
 ## Independent Record (Optional)
 

@@ -202,18 +202,21 @@ The homeowner benefits directly.
 
 **Installation validation:** Boiler and appliance manufacturers (Worcester Bosch, Vaillant, Baxi) require installation by a registered contractor for warranty to apply. Verified registration at the time of installation proves the warranty condition was met.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Trade Registers
 
-| Feature | Live Verify | Registry Website Lookup | Plastic ID Card | Phone Call to Registry |
+Many trades are covered by an official or industry register, such as Gas Safe in the UK, which offers an online lookup, a photo ID card for each engineer and often a phone line. Coverage depends on the trade and the country: some trades have a mandatory national register, some a voluntary scheme, and many have nothing. A register and Live Verify answer different questions and work side by side: the register is the full record, while Live Verify lets a homeowner check the claim on a contractor's own website or card at the moment of choosing.
+
+| | Register website lookup | Phone call to the register | Live Verify on the contractor's registration claim | Plastic ID card |
 | :--- | :--- | :--- | :--- | :--- |
-| **Issuer-controlled** | **Yes.** Registry issues the claim. | **Yes.** But requires the homeowner to navigate there. | **Yes.** But static at time of printing. | **Yes.** But slow and inconvenient. |
-| **Verifiable at point of encounter** | **Yes.** On the contractor's own website. | **No.** Requires leaving the site. | **Partially.** Card shown at door, but no live status. | **Partially.** If the homeowner calls before letting them in. |
-| **Shows current status** | **Yes.** Live response from registry. | **Yes.** If the homeowner knows to check. | **No.** Shows status at time of printing. | **Yes.** But requires a phone call. |
-| **Detects expired registration** | **Yes.** Endpoint returns EXPIRED. | **Yes.** If checked. | **No.** Card may still look valid. | **Yes.** |
-| **Detects scope overreach** | **Yes.** Response includes registered categories. | **Yes.** If the homeowner reads carefully. | **Partially.** Categories printed but may be outdated. | **Yes.** If the homeowner asks. |
-| **Detects copied claims** | **Yes.** Domain mismatch warning. | **No.** | **No.** | **No.** |
+| **Who can check** | Anyone who knows the register's site and the contractor's number. | Anyone who calls during opening hours. | Anyone reading the claim on the contractor's website or card. | Anyone shown the card. |
+| **What the checker gets** | The register's current record, including the categories of work covered. | The same, from a person. | Confirmation that the register stands behind this exact claim, including its categories, and whether it has since expired or been withdrawn. A claim copied to another firm's website is flagged. | A card that was correct when printed. |
+| **What the contractor shares** | Their registration number. | Their registration number. | Only the claim they chose to display. | The card. |
+| **Reach** | One register's members. | One register's members. | Global in principle: any register that publishes hashes on its own domain. | Wherever the card is shown. |
+| **Speed and cost** | Free; a few minutes, if the homeowner knows to check. | Free or cheap; slower. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | The homeowner to know the register exists and how to use it. | Someone to answer. | The register to publish hashes, and Live Verify-aware software on the checker's device. No register does this yet. | Nothing. |
+| **Best suited to** | Careful checks before booking. | Homeowners who prefer to talk to someone. | A check at the moment of choosing, without knowing the register's address. | A first look at the door. |
 
-**Practical conclusion:** The registry lookup tools work well for the small number of homeowners who use them. The problem is that most people do not. They see "Gas Safe Registered" on a website or a badge and take it at face value. A verifiable claim embedded on the contractor's own site turns "trust me" into "check me" at the moment the homeowner is making their decision — without requiring them to know the registry's URL, navigate to it, and enter a number.
+**Where each fits:** register lookups work well for the homeowners who use them, and remain the authoritative record. Most people, though, see "Gas Safe Registered" on a website or a badge and take it at face value. A verifiable claim on the contractor's own site lets a homeowner whose software honours Live Verify check it in a few seconds at the moment they are deciding, without needing to know the register's address or enter a number.
 
 ## Authority Chain
 

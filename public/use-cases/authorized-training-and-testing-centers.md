@@ -160,17 +160,21 @@ The candidate benefits directly.
 
 **Vendor vetting:** An organization purchasing bulk training or exam vouchers for its employees can verify that the provider is genuinely authorized before committing budget.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Certification Body Directories
 
-| Feature | Live Verify | "Authorized Center" Badge | Certification Body Directory | Word of Mouth |
+Certification bodies and exam providers publish "find a test center" directories of the training providers and test centres they authorise, while centres themselves often display "authorized center" badges. A directory and Live Verify answer different questions and work side by side: the directory answers "where can I take this exam?", while Live Verify answers "is this centre, on this booking page, authorised?" at the moment of booking.
+
+| | Certification body directory | Live Verify on the centre's authorisation claim | "Authorized center" badge | Word of mouth |
 | :--- | :--- | :--- | :--- | :--- |
-| **Issuer-controlled** | **Yes.** Certification body issues the claim. | **No.** Center self-asserts. | **Yes.** But often stale. | **No.** |
-| **Domain-bound** | **Yes.** Claim names the authorized site. | **No.** | **Partially.** Links to center. | **No.** |
-| **Revocable** | **Immediate.** Endpoint returns REVOKED. | **No.** Badge persists. | **Slow.** Directory updates lag. | **No.** |
-| **Verifiable pre-booking** | **Yes.** On the booking page. | **No.** | **Requires leaving the site.** | **No.** |
-| **Detects site copying** | **Yes.** Domain mismatch warning. | **No.** | **No.** | **No.** |
+| **Who can check** | Anyone who goes to the certification body's site and searches. | Anyone reading the claim on the centre's booking page. | Nobody; the centre puts it there. | Nobody. |
+| **What the checker gets** | The certification body's list of centres, which can lag behind changes. | Confirmation that the certification body stands behind this exact claim, for this centre and website, and whether it has since been revoked. A claim copied to another site is flagged. | A logo that anyone can copy. | Someone else's experience. |
+| **What the centre shares** | Nothing; the directory is the certification body's. | Only the claim it chooses to display. | The badge. | Nothing. |
+| **Reach** | One certification body's centres. | Global in principle: any certification body that publishes hashes on its own domain. | Universal, but untrusted. | Local. |
+| **Speed and cost** | Free; needs leaving the booking page to search. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. | Free. |
+| **What it needs** | The certification body to keep the directory current. | The certification body to publish hashes, and Live Verify-aware software on the checker's device. No certification body does this yet. | Nothing. | A friend who knows. |
+| **Best suited to** | Finding a centre. | Checking a centre before paying. | Nothing where the qualification matters. | A first impression. |
 
-**Practical conclusion:** certification body directories and "find a test center" tools remain useful, but they answer a different question ("where can I take this exam?") from the one the candidate is actually asking on a center's booking page ("is this center actually authorized?"). The verifiable claim answers the second question in place.
+**Where each fits:** certification body directories and "find a test center" tools remain useful, but they answer a different question ("where can I take this exam?") from the one the candidate is asking on a centre's booking page ("is this centre authorised?"). The verifiable claim answers the second question in place, in a few seconds, for a candidate whose software honours Live Verify.
 
 ## Authority Chain
 

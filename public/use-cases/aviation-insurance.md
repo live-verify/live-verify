@@ -120,15 +120,21 @@ Global Aerospace underwrites aircraft hull and liability insurance for aviation 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With FAA Registries
+## Where Each Fits: Live Verify and National Aircraft Registries
 
-| Feature | Live Verify | FAA Civil Aviation Registry | Paper COI |
+Every country keeps a civil aircraft register (in the US, the FAA's), which records ownership and registration but not insurance. Insurance is evidenced by a certificate from the insurer, and each country's registry covers only its own aircraft. A registry and Live Verify answer different questions and work side by side: the registry says who owns and registers the aircraft, while Live Verify lets an airport, lessor or foreign authority confirm the insurance certificate it has been handed.
+
+| | National aircraft registry | Live Verify on the certificate of insurance | Paper or PDF certificate |
 | :--- | :--- | :--- | :--- |
-| **Granularity** | **High.** Shows insurance limits and dates. | **Zero.** FAA registry shows ownership but *not* insurance. | **High.** But untrusted. |
-| **Cross-Border** | **Universal.** Works for any N-number or G-registration. | **Siloed.** National registries don't talk. | **Manual.** |
-| **Freshness** | **Real-time.** Checks if the premium was paid today. | **Laggy.** Changes take weeks to update. | **Static.** |
+| **Who can check** | Anyone, through the registry's public search. | Anyone handed the certificate: an airport, an FBO, a lessor, a foreign civil aviation authority. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Ownership and registration details, but nothing about insurance. | Confirmation that the insurer issued this exact certificate, with its limits and dates, and whether it has since been cancelled. | A certificate that may have been edited. |
+| **What the operator shares** | Nothing; the register is public. | Only the certificate they chose to hand over. | The certificate. |
+| **Reach** | Aircraft on that country's register. | Global in principle: any insurer that publishes hashes on its own domain, whatever the aircraft's registration. | Universal, but untrusted. |
+| **Speed and cost** | Free; updates can take time. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The registry's records. | The insurer to publish hashes, and Live Verify-aware software on the checker's device. No aviation insurer does this yet. | Nothing. |
+| **Best suited to** | Ownership and registration checks. | Confirming insurance cover before access or a lease. | Nothing where cover matters. |
 
-**Where each fits:** the national aircraft registry is the authority on ownership and registration, and remains the place to check those. It does not record insurance, and registries in different countries are not linked. The certificate of insurance is what airports, lessors and foreign authorities are actually handed, and Live Verify lets them confirm the insurer stands behind it, wherever the aircraft is registered.
+**Where each fits:** the national aircraft registry is the authority on ownership and registration, and remains the place to check those. It does not record insurance, and registries in different countries are not linked. The certificate of insurance is what airports, lessors and foreign authorities are actually handed, and Live Verify lets them confirm the insurer stands behind it, wherever the aircraft is registered, if their software honours it.
 
 ## Independent Record (Optional)
 

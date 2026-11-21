@@ -150,17 +150,22 @@ The verifiable opt-out confirmation addresses the gaps described above because:
 
 This is an emerging use case. The legal frameworks are still developing, and platform opt-out mechanisms are not yet standardized. But the direction is clear: creators are gaining data rights, and those rights need verifiable artifacts to be enforceable.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify, Platform Settings, Email Confirmations and robots.txt
 
-| Feature | Live Verify | Platform Settings Page | Email Confirmation | robots.txt / ai.txt |
+Today a creator's opt-out is recorded in a platform's own settings page, often followed by a confirmation email, while a website owner can also signal a preference to crawlers through robots.txt or similar files. These answer different questions from Live Verify and work side by side: settings and email record the creator's choice with the platform, robots.txt tells crawlers what a whole site wants, and Live Verify gives the creator a confirmation from the platform that others can check later.
+
+| | Platform settings page | Email confirmation | robots.txt or similar file | Live Verify on the opt-out confirmation |
 | :--- | :--- | :--- | :--- | :--- |
-| **Portable** | **Yes.** Creator holds the confirmation. | **No.** Locked inside the platform. | **Partially.** Forwardable but not verifiable. | **No.** Site-level, not creator-level. |
-| **Independently verifiable** | **Yes.** Anyone can check the hash. | **No.** Requires platform login. | **No.** Email can be fabricated. | **No.** Can be changed silently. |
-| **Tamper-evident** | **Yes.** Revocation is visible. | **No.** Platform can change without notice. | **No.** | **No.** |
-| **Creator-level granularity** | **Yes.** Per-creator, per-scope. | **Yes.** But not exportable. | **Yes.** But not verifiable. | **No.** Applies to entire site. |
-| **Useful in legal proceedings** | **Yes.** Hash + date + issuer. | **Weak.** Screenshot evidence. | **Weak.** Email headers can be disputed. | **Weak.** No creator-specific record. |
+| **Who can check** | The creator, logged in to their account. | Whoever the creator forwards it to. | Any crawler or person who reads the site's file. | Anyone the creator shows it to: a regulator, an AI company, a court, a collecting society. |
+| **What the checker gets** | The platform's current setting for that account. | A message that looks like it came from the platform, but cannot easily be authenticated by a third party. | A site-wide statement of what crawlers may do, as it stands today. | Confirmation that the platform issued this exact confirmation, naming the creator, scope and date, and whether it has since been withdrawn or narrowed. |
+| **What the creator shares** | Nothing; it stays inside the platform. | The email. | Nothing creator-specific; the file covers the entire site. | Only the confirmation they chose to show. |
+| **Reach** | One platform's users. | Wherever it is forwarded. | Crawlers that choose to read and honour it. | Global in principle: any platform that publishes hashes on its own domain. |
+| **Speed and cost** | Immediate for the creator. | Immediate. | Free, and immediate for crawlers that honour it. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **Record over time** | Shows the current setting, and can change without notice. | Fixed, but easy to dispute. | Can be changed at any time, leaving no record of what it said before. | Fixed as at its date, with any later change shown by the platform's status. |
+| **What it needs** | An account on the platform. | Nothing more. | Control of the website. | The platform to publish hashes, and Live Verify-aware software on the checker's device. No platform does this yet. |
+| **Best suited to** | Managing the preference day to day. | The creator's own records. | Signalling a site-wide preference to crawlers. | Proving to a third party that an opt-out was registered, and when. |
 
-**Practical conclusion:** platform settings pages and email confirmations serve as the creator's internal record of their preference. The verifiable confirmation serves as the external, portable, independently checkable proof that the preference was registered — the artifact a regulator, AI company, or court can rely on.
+**Where each fits:** platform settings pages and email confirmations remain the creator's working record of their preference, and robots.txt remains the way a site owner talks to crawlers. The verifiable confirmation adds something none of them gives: a portable record of the opt-out, issued by the platform, that a regulator, AI company or court can check quickly with software that honours Live Verify, including whether the platform has since changed it.
 
 ## Authority Chain
 

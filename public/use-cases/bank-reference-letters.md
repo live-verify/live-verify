@@ -120,16 +120,21 @@ Bank references are heavily used in cross-border contexts: Middle Eastern busine
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Traditional Bank References
+## Where Each Fits: Live Verify and Traditional Bank References
 
-| Feature | Live Verify | Traditional Bank Letter | Phone/Fax Enquiry |
+A bank reference is either a letter on the bank's letterhead, given to the customer to pass on, or an enquiry made directly by phone, fax or between banks. Both work well where the recipient already knows the issuing bank, and less well across borders. They answer the same question as Live Verify and work side by side with it; the difference is how easily a stranger in another country can confirm the answer.
+
+| | Direct enquiry by phone, fax or between banks | Live Verify on the reference letter | Letter on letterhead, unverified |
 | :--- | :--- | :--- | :--- |
-| **Forgery Resistance** | **Cryptographic.** Resolves to bank's domain. | **None.** Letterhead is trivially reproducible. | **Medium.** Caller could be spoofed. |
-| **Cross-Border Usability** | **High.** Works from any country with internet access. | **Low.** Recipient cannot authenticate a foreign bank's letterhead. | **Low.** Time zones, language barriers, cost. |
-| **Speed** | **Seconds.** Instant verification. | **Days to weeks.** Postal or email, then manual review. | **Hours to days.** Phone tag across time zones. |
-| **Cost** | **Low.** Standard web infrastructure. | **Medium.** Banks charge £20-50 per reference letter. | **High.** Staff time on both sides. |
+| **Who can check** | A recipient who can reach the bank, or a bank using its own enquiry channels. | Anyone handed the letter: a landlord, a consulate, a supplier, a bank abroad. | Nobody; letterhead can be copied. |
+| **What the checker gets** | The bank's answer, directly. | Confirmation that the bank issued this exact letter, as at its date. | A letter that may have been forged or edited. |
+| **What the customer shares** | Consent for the bank to answer. | Only the letter they chose to hand over. | The letter. |
+| **Reach** | Works best within one country, or between banks with an existing relationship. | Global in principle: any bank that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Hours to days, with staff time on both sides and across time zones. | A few seconds per check: one web lookup, with no fee to the standard. | Free to receive; banks often charge to issue a letter. |
+| **What it needs** | A reachable contact at the bank. | The bank to publish hashes, and Live Verify-aware software on the checker's device. No bank does this yet. | Nothing. |
+| **Best suited to** | Recipients with an existing relationship with the bank. | Recipients abroad, or with no channel to the bank. | Nothing where money is at stake. |
 
-**Where each fits:** where the recipient already has a relationship with the issuing bank, or a bank-to-bank enquiry channel exists, those routes work and carry their own assurances. A landlord, consulate or bank in another country usually has neither, and cannot judge a foreign letterhead. Live Verify lets them confirm the bank issued the letter as written, without replacing the direct enquiry where one is available.
+**Where each fits:** where the recipient already has a relationship with the issuing bank, or a bank-to-bank enquiry channel exists, those routes work and carry their own assurances. A landlord, consulate or bank in another country usually has neither, and cannot judge a foreign letterhead. Live Verify lets them confirm the bank issued the letter as written, if their software honours it, without replacing the direct enquiry where one is available.
 
 ## Further Derivations
 

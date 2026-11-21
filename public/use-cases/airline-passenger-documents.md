@@ -93,16 +93,21 @@ Verifying that "travel expenses" were actually incurred and not just fabricated 
 
 **Privacy Salt:** Not required. Airline ancillary receipts contain highly unpredictable variables—unique ticket numbers, specific flight numbers with dates, passenger names, transaction authorization codes, and precise timestamps. These elements combined provide sufficient entropy that enumeration attacks are infeasible. Adding salt would provide no additional security benefit.
 
-## Compared With Corporate Cards
+## Where Each Fits: Live Verify and Corporate Card Feeds
 
-| Feature | Live Verify | Corporate Card Feed |
+Companies that issue corporate cards receive a transaction feed from the card issuer, which expense systems use to reconcile spending automatically. A card feed and Live Verify answer different questions and work side by side: the feed shows that the company card paid a merchant an amount, while Live Verify lets the finance team confirm what the airline says was bought.
+
+| | Corporate card feed | Live Verify on the ancillary fee receipt |
 | :--- | :--- | :--- |
-| **Granularity** | **High.** Shows exactly *what* was bought (Wifi vs Alcohol). | **Low.** Often just shows "DELTA AIR LINES $15.00". |
-| **Coverage** | **Universal.** Works for personal cards used for business. | **Limited.** Only works if the employee uses the mandatory corporate card. |
-| **Immediacy** | **Instant.** Scan receipt immediately. | **Laggy.** Card feeds can take days to sync. |
-| **Cash/Kiosk** | **Yes.** Covers kiosk prints. | **No.** Misses cash or non-integrated payments. |
+| **Who can check** | The company's finance team, automatically. | Anyone the traveller gives the receipt to: an expense approver, an auditor, a client being recharged. |
+| **What the checker gets** | The merchant name and amount, often with no detail of what was bought. | Confirmation that the airline issued this exact receipt, with its line items, as at its date. |
+| **What the traveller shares** | Nothing; the feed arrives on its own. | Only the receipt they chose to submit. |
+| **Reach** | Spending on the company card only; personal cards, cash and some kiosk payments are missed. | Global in principle: any airline that publishes hashes on its own domain, however the fee was paid. |
+| **Speed and cost** | No effort from the traveller; feeds can take days to arrive. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A corporate card programme and an integrated expense system. | The airline to publish hashes, and Live Verify-aware software on the checker's device. No airline does this yet. |
+| **Best suited to** | Matching and reconciling card spending. | Showing what was bought, and spending outside the card. |
 
-**Where each fits:** a corporate card feed is the efficient way to reconcile spending when the employee used the company card, and it needs no action from the traveller. It often shows only the airline name and an amount, and it sees nothing paid on a personal card or at a kiosk. A verified receipt fills in the line-item detail for those cases, so finance teams can use the feed for matching and the receipt for what was actually bought.
+**Where each fits:** a corporate card feed is the efficient way to reconcile spending when the employee used the company card, and it needs no action from the traveller. It often shows only the airline name and an amount, and it sees nothing paid on a personal card or at a kiosk. A verified receipt fills in the line-item detail for those cases, for finance teams whose software honours Live Verify, so they can use the feed for matching and the receipt for what was actually bought.
 
 ---
 
@@ -194,15 +199,21 @@ The Passenger benefits from verification.
 **Airlines:** (Ryanair, EasyJet, Lufthansa, etc.)
 **ADR Bodies:** (Alternative Dispute Resolution entities like CEDR)
 
-## Compared With Email / Portals
+## Where Each Fits: Live Verify, Forwarded Emails and Airline Portals
 
-| Feature | Live Verify | Forwarded Email | Airline Portal |
+Airlines send compensation letters by email and show them in the passenger's online account. Both work well for the passenger; the question is what happens when the letter has to be shown to someone else. The portal, email and Live Verify answer different questions and work side by side: the portal is the passenger's own view, while Live Verify lets an insurer, lawyer or employer check the one letter they are given.
+
+| | Airline portal | Live Verify on the compensation letter | Forwarded email |
 | :--- | :--- | :--- | :--- |
-| **Authenticity** | **Cryptographic.** Sender verified by domain. | **Weak.** Emails are easily edited/spoofed. | **High.** But requires login credentials. |
-| **Sharing** | **Easy.** Send the link or paper to insurer. | **Messy.** Forwarding chains, PDF attachments. | **Hard.** Can't give insurer your airline password. |
-| **Privacy** | **Selective.** Share only the specific letter. | **Low.** Email headers expose metadata. | **Low.** Portal access exposes full history. |
+| **Who can check** | The passenger, logged in. | Anyone handed the letter: an insurer, a lawyer, an employer, a claims agency. | Whoever receives it, on trust. |
+| **What the checker gets** | The airline's own record, authoritatively. | Confirmation that the airline issued this exact letter, as at its date. | A message that can be edited or spoofed. |
+| **What the passenger shares** | Their login, which they should not give out, and with it their whole travel history. | Only the letter they chose to hand over. | The email, including its headers. |
+| **Reach** | One airline's passengers. | Global in principle: any airline that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Immediate for the passenger. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | An account. | The airline to publish hashes, and Live Verify-aware software on the checker's device. No airline does this yet. | Nothing. |
+| **Best suited to** | The passenger's own records. | Showing the letter to a third party. | Cases where nobody has reason to doubt it. |
 
-**Where each fits:** the airline's own portal is the authoritative place for the passenger to view their records, and a forwarded email is fine where nobody has a reason to doubt it. An insurer, lawyer or employer cannot log in as the passenger, and should not be asked to. Live Verify lets the passenger hand over one letter that the recipient can check against the airline's domain, without sharing credentials or the rest of the travel history.
+**Where each fits:** the airline's own portal is the authoritative place for the passenger to view their records, and a forwarded email is fine where nobody has a reason to doubt it. An insurer, lawyer or employer cannot log in as the passenger, and should not be asked to. Live Verify lets the passenger hand over one letter that the recipient, with software that honours it, can check against the airline's domain, without sharing credentials or the rest of the travel history.
 
 ---
 
@@ -281,15 +292,21 @@ The Passenger or Travel Agent benefits from verification.
 **Airlines:** (Lufthansa, Air France, Emirates, etc.)
 **IATA BSP:** (Bank Settlement Plan) which processes agent refunds.
 
-## Compared With Credit Card Statements
+## Where Each Fits: Live Verify and Card Statements for Refunds
 
-| Feature | Live Verify | Credit Card Statement |
+A card statement from the card issuer shows that a refund was credited. It answers a different question from the airline's refund confirmation, and the two work side by side: the statement shows money moved, while Live Verify lets the checker confirm the airline's own breakdown of the refund.
+
+| | Card statement | Live Verify on the refund confirmation |
 | :--- | :--- | :--- |
-| **Detail** | **High.** Shows breakdown of tax vs fare vs penalty. | **Low.** Just shows "LUFTHANSA CR EUR 2750". |
-| **Privacy** | **High.** Reveals only this transaction. | **Low.** Employee must share full bank statement (revealing personal spending) to prove the refund. |
-| **Timeliness** | **Instant.** Available as soon as airline processes. | **Slow.** Refunds can take 3-10 days to appear on statements. |
+| **Who can check** | Anyone the cardholder shows it to. | Anyone handed the confirmation: an employer, an insurer, a travel agent. |
+| **What the checker gets** | Evidence that a credit from the airline landed, usually as a single line and amount. | Confirmation that the airline issued this exact refund, with its fare, tax and penalty breakdown, as at its date. |
+| **What the traveller shares** | The statement, which shows unrelated personal spending unless redacted. | Only the confirmation they chose to hand over. |
+| **Reach** | Any card. | Global in principle: any airline that publishes hashes on its own domain. |
+| **Speed and cost** | Free, once the refund appears, which can take some days. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A statement showing the credit. | The airline to publish hashes, and Live Verify-aware software on the checker's device. No airline does this yet. |
+| **Best suited to** | Proving the money arrived. | Showing what the refund was made up of. |
 
-**Where each fits:** a card statement is good evidence that money moved, and for many refund checks that is enough. It takes days to show a refund, gives no breakdown of fare, tax and penalty, and sharing it means showing unrelated personal spending. A verified refund document from the airline supplies the breakdown on its own, and the statement remains available if proof of the credit landing is also wanted.
+**Where each fits:** a card statement is good evidence that money moved, and for many refund checks that is enough. It can take days to show a refund, gives no breakdown of fare, tax and penalty, and sharing it means showing unrelated personal spending. A verified refund document from the airline supplies the breakdown on its own, for checkers whose software honours it, and the statement remains available if proof of the credit landing is also wanted.
 
 ---
 
@@ -367,15 +384,21 @@ The Business Traveler benefits from verification.
 **Airlines:** (United, American, Delta, Emirates, etc.)
 **Upgrade Auctions:** (Plusgrade) third-party platforms used by many airlines for bidding on upgrades.
 
-## Compared With Credit Card Statements
+## Where Each Fits: Live Verify and Card Statements for Upgrades
 
-| Feature | Live Verify | Credit Card Statement |
+A card statement shows that the airline took a payment. It answers a different question from the upgrade confirmation, and the two work side by side: the statement proves payment, while Live Verify lets the checker confirm what the airline says the payment was for.
+
+| | Card statement | Live Verify on the upgrade confirmation |
 | :--- | :--- | :--- |
-| **Granularity** | **High.** Shows "Upgrade SFO-LHR" distinct from "Baggage". | **Low.** Just shows "UNITED AIRLINES $550". |
-| **Context** | **Full.** Shows Class of Service (Economy -> Business). | **None.** No flight details or class info. |
-| **Mileage Info** | **Yes.** Shows miles burned (crucial for value calculations). | **No.** Only shows cash. |
+| **Who can check** | Anyone the cardholder shows it to, and expense systems that import it. | Anyone handed the confirmation: an expense approver, an auditor, a client being recharged. |
+| **What the checker gets** | The airline's name and an amount. | Confirmation that the airline issued this exact confirmation, with flight, cabin, cash paid and miles used. |
+| **What the traveller shares** | The statement line, or the whole statement. | Only the confirmation they chose to submit. |
+| **Reach** | Any card. | Global in principle: any airline that publishes hashes on its own domain. |
+| **Speed and cost** | Free; most reconciliation already runs on it. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A statement. | The airline to publish hashes, and Live Verify-aware software on the checker's device. No airline does this yet. |
+| **Best suited to** | Proving payment. | Showing what was bought, including miles. |
 
-**Where each fits:** the statement proves the payment and is what most reconciliation runs on. It does not say what was bought, in which cabin, or how many miles were used. A verified upgrade receipt adds those details from the airline itself, so the two together answer both whether it was paid and what it was for.
+**Where each fits:** the statement proves the payment and is what most reconciliation runs on. It does not say what was bought, in which cabin, or how many miles were used. A verified upgrade receipt adds those details from the airline itself, for checkers whose software honours it, so the two together answer both whether it was paid and what it was for.
 
 ---
 
@@ -471,15 +494,21 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Credit Card Statements
+## Where Each Fits: Live Verify and Card Statements for Lounge Visits
 
-| Feature | Live Verify | Credit Card Statement |
+A card statement shows that a lounge operator or access programme took a payment. It answers a different question from the lounge's visit confirmation, and the two work side by side: the statement proves the charge, while Live Verify lets an approver confirm when and where the visit happened and who it covered.
+
+| | Card statement | Live Verify on the lounge visit confirmation |
 | :--- | :--- | :--- |
-| **Guest Detail** | **High.** Shows "Guests: 2". | **None.** Just shows "$64.00". |
-| **Location** | **Exact.** "The Club at SJC". | **Vague.** "PRIORITY PASS HONG KONG". |
-| **Time** | **Exact.** Proves you were there during the delay. | **Date Only.** |
+| **Who can check** | Anyone the cardholder shows it to, and expense systems that import it. | Anyone handed the confirmation: an expense approver, an auditor. |
+| **What the checker gets** | An amount and a merchant name, which may be the access programme rather than the lounge, with only a date. | Confirmation that the lounge operator issued this exact confirmation, with the lounge, time of entry and number of guests. |
+| **What the traveller shares** | The statement line, or the whole statement. | Only the confirmation they chose to submit. |
+| **Reach** | Any card. | Global in principle: any lounge operator that publishes hashes on its own domain. |
+| **Speed and cost** | Free. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A statement. | The operator to publish hashes, and Live Verify-aware software on the checker's device. No lounge operator does this yet. |
+| **Best suited to** | Confirming the charge was made and settled. | Answering an approver's questions about the visit. |
 
-**Where each fits:** for confirming that a lounge charge was made and settled, the statement is sufficient. It does not record the lounge, the time or the number of guests, which is what an expense approver usually asks about. A verified lounge receipt carries that context, and sits beside the statement line rather than replacing it.
+**Where each fits:** for confirming that a lounge charge was made and settled, the statement is sufficient. It does not record the lounge, the time or the number of guests, which is what an expense approver usually asks about. A verified lounge receipt carries that context, for approvers whose software honours it, and sits beside the statement line rather than replacing it.
 
 ## Independent Record (Optional)
 

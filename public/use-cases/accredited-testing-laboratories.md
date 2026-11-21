@@ -159,18 +159,22 @@ The manufacturer commissioning tests benefits directly.
 
 **Chain of testing integrity:** When multiple laboratories are involved in a product certification chain, each laboratory's accreditation can be verified independently.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Accreditation Body Directories
 
-| Feature | Live Verify | UKAS / A2LA Directory Search | Paper Certificate on Lab Wall | PDF of Accreditation Schedule |
+Testing laboratories are accredited by a national accreditation body, such as UKAS in the UK or A2LA in the US, which publishes a searchable directory and a schedule of each lab's accredited scope. Most countries have such a body, and many recognise each other's accreditations through international arrangements, but each directory covers only its own body's labs. The directory and Live Verify answer different questions and work side by side: the directory says which labs are accredited, while the verify line lets a customer check the specific claim on the lab's own website.
+
+| | Accreditation body directory | Live Verify on the lab's accreditation claim | Certificate on the lab wall | PDF of the accreditation schedule |
 | :--- | :--- | :--- | :--- | :--- |
-| **Issuer-controlled** | **Yes.** Accreditation body issues the claim. | **Yes.** But requires separate lookup. | **Yes.** But static document. | **Yes.** But static document. |
-| **Domain-bound** | **Yes.** Claim names the laboratory's site. | **No.** | **No.** | **No.** |
-| **Revocable** | **Immediate.** Endpoint returns SUSPENDED. | **Delayed.** Directory updates lag. | **No.** Certificate persists. | **No.** PDF persists. |
-| **Scope-specific** | **Yes.** Claim names the test method. | **Yes.** But requires navigating the schedule. | **Partially.** Certificate is summary only. | **Yes.** But requires downloading and reading. |
-| **Verifiable in place** | **Yes.** On the laboratory's site. | **No.** Requires leaving the site. | **No.** Requires visiting the lab. | **No.** Requires requesting the PDF. |
-| **Detects site copying** | **Yes.** Domain mismatch warning. | **No.** | **No.** | **No.** |
+| **Who can check** | Anyone who leaves the lab's site and searches the right body's directory. | Anyone reading the claim on the lab's website: a manufacturer, an importer, a regulator. | Only visitors to the lab. | Anyone sent the PDF. |
+| **What the checker gets** | The accreditation body's own record, including the full schedule of accredited methods. | Confirmation that the accreditation body stands behind this exact claim, for the named lab, site and method, and whether it has since been suspended. A claim copied to a different website is flagged. | A certificate that may be out of date or not the lab's own. | A document that may be out of date or edited. |
+| **What the lab shares** | Nothing extra; the directory is public. | Only the claim it chooses to display. | The certificate. | The schedule. |
+| **Reach** | One accreditation body's labs. | Global in principle: any accreditation body, in any country, that publishes hashes on its own domain. | Wherever the certificate hangs. | Wherever the PDF is sent. |
+| **Speed and cost** | Free; finding the lab and reading the schedule for the right method takes some time. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate, but only on site. | Immediate, and worth what it costs. |
+| **If accreditation is suspended** | The directory is updated by the body, sometimes with a delay. | The claim returns a suspended status as soon as the body updates its hash. | The certificate stays on the wall. | The PDF keeps circulating. |
+| **What it needs** | The checker to know which body to search and to read the schedule. | The accreditation body to publish hashes, and Live Verify-aware software on the checker's device. No accreditation body does this yet. | Nothing. | Nothing. |
+| **Best suited to** | Authoritative research into a lab's full scope. | A quick check of a claim on a lab's site, for the method the customer needs. | Nothing where the result matters. | Nothing where the result matters. |
 
-**Practical conclusion:** accreditation body directories remain the authoritative record, and this approach complements rather than replaces them. The directory answers "which labs are accredited?" while the verifiable claim answers the question the manufacturer is actually asking on a laboratory's website: "is this specific lab actually accredited for the test I need?"
+**Where each fits:** accreditation body directories remain the authoritative record, and this approach complements rather than replaces them. The directory answers "which labs are accredited, and for what?" while the verifiable claim answers the question a manufacturer is asking on a laboratory's website: "is this lab accredited for the test I need?", in a few seconds and without leaving the page, provided the checker has software that honours Live Verify.
 
 ## Authority Chain
 

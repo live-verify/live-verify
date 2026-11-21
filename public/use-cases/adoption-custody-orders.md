@@ -159,16 +159,21 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 **If a court cannot guarantee real-time status updates, this use case may create false confidence.**
 
-## Compared With Certified Copies
+## Where Each Fits: Live Verify and Certified Copies
 
-| Feature | Live Verify | Certified Copy (Raised Seal) |
+A certified copy is issued by the court clerk, usually with a raised seal or stamp, to show that it matches the order on file. Certified copies are how courts in most countries already let orders travel to schools, police and other agencies. A certified copy and Live Verify answer different questions and work side by side: the copy says what the order said on the day it was certified, while Live Verify can also tell the checker whether the court still stands behind it.
+
+| | Certified copy with seal | Live Verify on the order |
 | :--- | :--- | :--- |
-| **Freshness** | **Real-time.** Can indicate if the order was modified yesterday. | **Static.** Only proves the order existed *on the day the copy was printed*. |
-| **Accessibility** | **Instant.** Police/Schools can verify on the spot. | **Slow.** Requires calling the court clerk (often impossible) to check validity. |
-| **Cost** | **Low.** Self-service. | **High.** Certified copies cost money and require trips to the courthouse. |
-| **Tamper Proofing** | **Cryptographic.** Hash breaks if text changes. | **Physical.** Raised seals are hard to forge but not impossible; colored paper can be photocopied. |
+| **Who can check** | Anyone handed the copy, by looking at the seal; confirming it further means contacting the clerk's office. | Anyone handed the order: a school, a police officer, a doctor, an airline, another court. |
+| **What the checker gets** | A copy that matched the court record on the day it was certified. | Confirmation that the court issued this exact text, and whether it has since been modified or vacated, if the court keeps its status up to date. |
+| **What the parent shares** | The certified copy. | Only the order they chose to hand over. |
+| **Reach** | Recognised widely, though a seal from one court is hard for an agency elsewhere to judge, especially across borders. | Global in principle: any court, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Copies carry a clerk's fee and often a trip to the courthouse; checking one by phone can be slow, especially out of hours. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A clerk's office to certify copies. | The court to publish hashes and keep the status current, and Live Verify-aware software on the checker's device. No court does this yet. |
+| **Best suited to** | Formal filings and agencies that require a certified copy. | On-the-spot checks where an outdated order could do harm. |
 
-**Why OCR is a bridge solution:** The "freshness" problem is massive in family law. A paper "Certified Copy" from 6 months ago is dangerous because it doesn't show that the judge stripped custody last week. A live verification link to the court record prevents the enforcement of stale/dangerous orders — *but only if the court maintains real-time status updates*. Long-term, direct court API integration is the better answer.
+**Where each fits:** certified copies remain what courts, registries and many agencies formally require, and Live Verify does not change that. Their weakness is that a copy from six months ago cannot show that custody was changed last week. Live Verify lets a school or police officer check the order against the court in a few seconds, provided the court keeps its status up to date and the checker has software that honours it; direct links between court systems and agencies would serve those that have them better still.
 
 ## Independent Record (Optional)
 

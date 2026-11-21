@@ -114,15 +114,22 @@ The Affiant (signer) benefits from verification.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With e-Notary / Digital Signatures
+## Where Each Fits: Live Verify, e-Notarization and Wet-Ink Notarization
 
-| Feature | Live Verify | e-Notary (Digital Sig) | Wet Ink (Traditional) |
+Affidavits are sworn before a notary or commissioner, either in person with a wet-ink signature and stamp, or through e-notarization, where the document carries a digital signature. Which forms are accepted depends on where you are: some jurisdictions accept remote online notarization, others require in-person wet ink, and rules differ between courts. Notarization and Live Verify answer different questions and can sit on the same affidavit: notarization records that the oath was taken, while Live Verify lets the holder of any copy confirm the text has not changed.
+
+| | e-Notarization with digital signature | Live Verify on the affidavit | Wet-ink notarization |
 | :--- | :--- | :--- | :--- |
-| **Physicality** | **Bridges Gap.** Verifies the *printed* version of an e-notarized doc. | **Purely Digital.** Verification breaks if you print it out (signature invalid). | **Purely Physical.** Relies on looking at a rubber stamp. |
-| **Court Filing** | **Easy.** Courts often require paper or flattened PDFs. OCR works on both. | **Hard.** Flattening a PDF removes the crypto-signature. | **Standard.** But prone to forgery. |
-| **Long-Term** | **Durable.** Text is readable in 50 years. | **Fragile.** Root certificates expire; proprietary formats become obsolete. | **Durable.** |
+| **Who can check** | Anyone with the original signed file and software that validates the signature. | Anyone holding the affidavit, printed or digital: a court, opposing counsel, a registry. | Anyone looking at the stamp and signature, who must judge them by eye. |
+| **What the checker gets** | Confirmation that the electronic file has not changed since it was signed. | Confirmation that the notary or issuing firm stands behind this exact text, as at its date. | A stamp and signature that are hard to judge and can be forged. |
+| **What the deponent shares** | The signed file. | Only the affidavit they chose to hand over. | The paper affidavit. |
+| **Reach** | Wherever the file stays in its original electronic form and remote notarization is accepted; the signature is lost when the document is printed or flattened. | Global in principle: any notary or firm that publishes hashes on its own domain. | Accepted almost everywhere. |
+| **Speed and cost** | Quick to validate in the right software; platforms and certificates cost money. | A few seconds per check: one web lookup, with no fee to the standard. | No checking cost; following up with the notary takes time. |
+| **Long-term** | Depends on certificates and formats remaining checkable. | The text stays readable; checking depends on the issuer keeping its hashes online. | Paper lasts, but the stamp proves little years later. |
+| **What it needs** | An e-notary platform, a signing certificate, and acceptance by the receiving court. | The notary or firm to publish hashes, and Live Verify-aware software on the checker's device. No notary does this yet. | A notary in person. |
+| **Best suited to** | Documents that stay digital from signing to filing. | Printed and flattened copies passed between parties. | Courts and registries that require wet ink. |
 
-**Where each fits:** e-notarization works well while a document stays in its signed digital form, and wet-ink notarization remains what many courts and counterparties expect. Affidavits are also printed for a judge, flattened into a case file, or posted to another party, and the digital signature does not carry over to those copies. Live Verify lets whoever holds one of those copies confirm that the notary or issuing firm stands behind the exact text, so it adds to either form of notarization rather than standing in for it.
+**Where each fits:** e-notarization works well while a document stays in its signed digital form, and wet-ink notarization remains what many courts and counterparties expect. Affidavits are also printed for a judge, flattened into a case file, or posted to another party, and the digital signature does not carry over to those copies. Live Verify lets whoever holds one of those copies, with software that honours it, confirm that the notary or issuing firm stands behind the exact text, so it adds to either form of notarization rather than standing in for it.
 
 See also [Legal Witnessing Future Architecture](../../docs/legal-witnessing-future-architecture.md) for a generalised model where the commissioner/notary confirms the hash corresponds to the sworn statement, and the attestation is published to an independent registry.
 

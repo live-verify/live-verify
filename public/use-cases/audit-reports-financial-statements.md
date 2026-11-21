@@ -129,16 +129,21 @@ CPAs certify that financial statements accurately represent a company's financia
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With SEC EDGAR Database
+## Where Each Fits: Live Verify and Public Filing Systems such as SEC EDGAR
 
-| Feature | Live Verify | SEC EDGAR (Public) | Private PDF |
+Listed companies in the US file their audited financial statements with the SEC, which publishes them free on EDGAR. Other countries have their own filing systems, and what is filed publicly varies: some require private companies to file accounts, many do not. A public filing and Live Verify answer different questions and work side by side: the filing is the official public copy, while Live Verify lets the reader of any copy, including a private company's report, confirm the audit firm issued it.
+
+| | SEC EDGAR or other public filing | Live Verify on the audit report | Audit report as PDF |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Auditor. | **Gov-Bound.** Bound to the filing. | **Zero.** Easily forged. |
-| **Coverage** | **Universal.** Works for private company audits. | **Limited.** Only for public companies. | **Full.** |
-| **Integrity** | **Binds Content.** Proves every word matches. | **Data-Only.** Doesn't protect the paper. | **Vulnerable.** |
-| **Freshness** | **Real-time.** Shows "Withdrawn" status. | **Laggy.** Re-filings take time. | **Static.** |
+| **Who can check** | Anyone, for companies that file. | Anyone handed the report: a lender, a donor, a buyer, a landlord. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The filed statements and report, as submitted to the regulator. | Confirmation that the audit firm issued this exact report, as at its date, and whether it has since withdrawn it. | A document that may have been edited. |
+| **What the company shares** | Everything in the filing, publicly. | Only the report it chose to hand over. | The PDF. |
+| **Reach** | Companies required to file in that jurisdiction; in the US, SEC registrants only. | Global in principle: any audit firm that publishes hashes on its own domain, for private and public companies alike. | Universal, but untrusted. |
+| **Speed and cost** | Free; finding the right filing takes a few minutes. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | A filing obligation. | The audit firm to publish hashes, and Live Verify-aware software on the checker's device. No audit firm does this yet. | Nothing. |
+| **Best suited to** | Listed companies and public scrutiny. | Private companies and non-profits whose reports are shared privately, and copies circulating away from the filing. | Nothing where the figures matter. |
 
-**Where each fits:** for a listed company, the filing on EDGAR is the authoritative copy and the natural place to check. Private companies and non-profits do not file there, and their audit reports reach lenders and donors as PDFs. Live Verify lets those readers confirm the audit firm issued the report and has not withdrawn it, without the report having to be made public. A listed company's report can carry a verify line as well, for copies that circulate away from the filing.
+**Where each fits:** for a listed company, the filing on EDGAR is the authoritative copy and the natural place to check. Private companies and non-profits do not file there, and their audit reports reach lenders and donors as PDFs. Live Verify lets those readers, with software that honours it, confirm the audit firm issued the report and has not withdrawn it, without the report having to be made public. A listed company's report can carry a verify line as well, for copies that circulate away from the filing.
 
 ## Independent Record (Optional)
 

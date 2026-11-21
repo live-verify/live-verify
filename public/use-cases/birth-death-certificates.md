@@ -119,16 +119,21 @@ The Named Person or Next of Kin benefits from verification.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Physical Security (Paper)
+## Where Each Fits: Live Verify, Security Paper and Government Verification Networks
 
-| Feature | Live Verify | Security Paper (Intaglio/Void) | EVVE (Gov-to-Gov) |
+Birth and death certificates are protected by security paper and printing features, and in the US government agencies can confirm them with the issuing state through EVVE, a network for government users. Coverage depends on where the certificate was issued: each country, and in the US each state, uses its own paper and its own channels, and few offer any check to the private sector. These and Live Verify answer different questions and work side by side: security paper protects the sheet, government networks serve officials, and Live Verify lets a private-sector checker confirm the text of a certificate presented to them.
+
+| | Government verification network (such as EVVE) | Security paper features | Live Verify on the certificate |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Cryptographic.** Protects the *text*. | **Mechanical.** Protects the *paper*. | **Database.** Direct server check. |
-| **Public Access** | **Useful when the certificate is the artifact being shared.** | **Visual.** Anyone can look at it. | **Primary for government channels.** |
-| **Interoperability** | **Potentially high outside gov-only systems.** | **Low.** Requires expert knowledge of 50 different state paper types. | **None.** Private Gov-only network. |
-| **Cost** | **Low.** Standard web infra. | **High.** Specialty printing and chemical paper. | **High.** Per-query fees are common. |
+| **Who can check** | Authorised government agencies. | Anyone, though judging the features takes expertise in each issuer's paper. | Anyone handed the certificate: a bank, an insurer, an employer, a foreign authority. |
+| **What the checker gets** | Confirmation from the issuing vital records office. | Evidence that the paper is genuine, but not that the text on it is unaltered. | Confirmation that the issuing office stands behind this exact text, as at its date. |
+| **What the holder shares** | Nothing extra; agencies query the record. | The certificate. | Only the certificate they chose to hand over. |
+| **Reach** | Government users, for participating issuers. | Wherever the certificate goes, if the checker knows that issuer's paper. | Global in principle: any vital records office that publishes hashes on its own domain. |
+| **Speed and cost** | Fast for those with access; access and charges are set by the operator. | No lookup; specialty printing costs the issuer. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | Government access. | Specialty paper and a trained eye. | The issuing office to publish hashes, and Live Verify-aware software on the checker's device. No vital records office does this yet. |
+| **Best suited to** | Passports, benefits and other government decisions. | A first physical check. | Private-sector and cross-border checks where the certificate itself is presented. |
 
-**Narrower conclusion:** Government channels should remain primary where they exist and are usable. Live Verify is strongest only for private-sector and cross-jurisdiction workflows where the certificate itself is being presented outside those channels and the verifier otherwise falls back to paper inspection.
+**Where each fits:** government channels should remain primary where they exist and are usable. Live Verify is most useful for private-sector and cross-jurisdiction checks, where the certificate itself is presented outside those channels and the checker would otherwise fall back to inspecting the paper, provided their software honours it.
 
 ## See Also
 

@@ -109,15 +109,21 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Public Price Databases
+## Where Each Fits: Live Verify and Public Price Databases
 
-| Feature | Live Verify | Public Database (Artnet/Artprice) | Private PDF / Invoice |
+Price databases such as Artnet and Artprice compile auction results from sales around the world, and valuers and researchers rely on them for what a lot sold for. They answer a different question from Live Verify and work side by side: the database records the public sale price, while Live Verify lets a buyer prove the private details of their own purchase, as invoiced by the auction house.
+
+| | Public price database | Live Verify on the invoice or sale record | Invoice as PDF or paper |
 | :--- | :--- | :--- | :--- |
-| **Privacy** | **High.** Only the specific buyer/lot is verified. | **Low.** Everyone sees the price (but not who bought it). | **None.** Easily forged with Photoshop. |
-| **Authority** | **Direct.** Binds the paper to the house's domain. | **Indirect.** Relies on third-party scrapers/reporters. | **Subjective.** "Is this signature real?" |
-| **Detail** | **Full.** Includes premium, tax, and bidder ID. | **Partial.** Often just hammer price + premium. | **Full.** But untrusted. |
+| **Who can check** | Subscribers and, for some data, the public. | Anyone handed the invoice: a bank, a tax office, an insurer, a later buyer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The published result for the lot, usually the hammer price or price with premium, without the buyer's identity. | Confirmation that the auction house issued this exact invoice, including premium, tax and buyer, as at its date. | A document that may have been edited. |
+| **What the buyer shares** | Nothing; the result is published by the house. | Only the invoice they chose to hand over. | The invoice. |
+| **Reach** | Sales the database covers, across many houses and countries. | Global in principle: any auction house that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Fast to search; many services charge a subscription. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The house to publish results and the database to collect them. | The auction house to publish hashes, and Live Verify-aware software on the checker's device. No auction house does this yet. | Nothing. |
+| **Best suited to** | Market research and valuation. | Proving a specific purchase to a bank or tax office. | Nothing where the amount matters. |
 
-**Where each fits:** public price databases are the right reference for what a lot sold for, and valuers and researchers will go on using them. They do not show who bought it or what that buyer paid in premium and tax. Live Verify lets a collector prove those private details to a bank or tax office by showing an invoice the auction house stands behind, without the house publishing any bidder data.
+**Where each fits:** public price databases are the right reference for what a lot sold for, and valuers and researchers will go on using them. They do not show who bought it or what that buyer paid in premium and tax. Live Verify lets a collector prove those private details to a bank or tax office by showing an invoice the auction house stands behind, without the house publishing any bidder data, provided the checker has software that honours it.
 
 ## Independent Record (Optional)
 

@@ -110,15 +110,21 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Airline Apps
+## Where Each Fits: Live Verify and Airline Apps
 
-| Feature | Live Verify | Airline Mobile App | Paper PIR |
+Airlines let passengers follow a delayed or lost bag through their app or website, using the reference on the property irregularity report (PIR). The app and Live Verify answer different questions and work side by side: the app shows the passenger the bag's current status, while Live Verify lets a travel insurer confirm the report the passenger has sent it.
+
+| | Airline app or tracing website | Live Verify on the property irregularity report | Paper or PDF report |
 | :--- | :--- | :--- | :--- |
-| **Shareability** | **High.** Can be sent to any insurance company. | **Low.** Cannot share "App access" with an insurer. | **High.** But untrusted. |
-| **Integrity** | **Cryptographic.** Binds the claim details. | **Dynamic.** Status changes in-app. | **Zero.** Easily forged. |
-| **Connectivity needed** | **Yes, for the check.** The paper/PDF can be kept and passed on without a connection; checking it takes one small web request. | **Yes.** No app access = no proof. | **None.** |
+| **Who can check** | The passenger, using their reference. | Anyone sent the report: a travel insurer, a card benefits provider, an employer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The current status of the claim, which changes as it progresses. | Confirmation that the airline issued this exact report, with its details, as at its date. | A document that may have been edited. |
+| **What the passenger shares** | Nothing; app access cannot easily be passed to an insurer. | Only the report they chose to send. | The report. |
+| **Reach** | One airline's passengers. | Global in principle: any airline or handling agent that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Immediate for the passenger. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The app and a connection. | The airline to publish hashes, and Live Verify-aware software on the checker's device. No airline does this yet. | Nothing. |
+| **Best suited to** | Following the bag. | Supporting an insurance or benefits claim. | Nothing where the claim is large. |
 
-**Where each fits:** the airline app is the best way for the passenger to follow a claim as it progresses. A travel insurer cannot be given access to the passenger's app, and needs something fixed to put on file. Live Verify lets the insurer confirm that the airline issued the property irregularity report it has been sent, so the app serves the passenger and the verified report serves the claim.
+**Where each fits:** the airline app is the best way for the passenger to follow a claim as it progresses. A travel insurer cannot be given access to the passenger's app, and needs something fixed to put on file. Live Verify lets the insurer confirm that the airline issued the property irregularity report it has been sent, if the insurer's software honours it, so the app serves the passenger and the verified report serves the claim.
 
 ## Independent Record (Optional)
 

@@ -162,17 +162,21 @@ The visa applicant benefits directly.
 
 **Adviser vetting:** Employers using immigration advisers to handle sponsored worker visas can verify the adviser's registration before engaging them. A failed or mismatched verification is a reason to choose a different adviser.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Immigration Adviser Registers
 
-| Feature | Live Verify | OISC Register Search | Adviser's Own Website Claim |
+In the UK, immigration advisers must be regulated, and the regulator (the OISC) publishes a register that anyone can search. <!-- TODO(verify): the OISC was renamed the Immigration Advice Authority in 2025; confirm current name before publishing --> Other countries vary: some regulate immigration advisers and keep a register, some rely on lawyers' professional bodies, and many have nothing. A register and Live Verify answer different questions and work side by side: the register is the regulator's full record, while Live Verify lets a client check the claim on the adviser's own website.
+
+| | Regulator's register search | Live Verify on the adviser's authorisation claim | Adviser's own website claim |
 | :--- | :--- | :--- | :--- |
-| **Issuer-controlled** | **Yes.** Regulator issues the claim. | **Yes.** Regulator maintains the register. | **No.** Adviser self-asserts. |
-| **Domain-bound** | **Yes.** Claim names the authorized site. | **No.** | **No.** |
-| **Revocable** | **Immediate.** Endpoint returns SUSPENDED or CANCELLED. | **Updated periodically.** Register reflects current status but client must re-check. | **No.** Website claim persists after suspension. |
-| **Verifiable in place** | **Yes.** On the adviser's own page. | **No.** Requires leaving to search a separate site. | **No.** Self-assertion only. |
-| **Detects site copying** | **Yes.** Domain mismatch warning. | **No.** | **No.** |
+| **Who can check** | Anyone who leaves the adviser's site and searches the register. | Anyone reading the claim on the adviser's website. | Nobody; it is the adviser's own statement. |
+| **What the checker gets** | The regulator's current record, including the level and categories of advice authorised. | Confirmation that the regulator stands behind this exact claim, for this adviser and website, and whether it has since been suspended or cancelled. A claim copied to another website is flagged. | A statement that may be out of date or invented. |
+| **What the adviser shares** | Nothing; the register is public. | Only the claim they choose to display. | Their claim. |
+| **Reach** | One regulator's advisers. | Global in principle: any regulator that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Free; a few minutes, if the client knows the register exists. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The client to know about the register and search it. | The regulator to publish hashes, and Live Verify-aware software on the checker's device. No regulator does this yet. | Nothing. |
+| **Best suited to** | Authoritative checks and research. | A check at the moment of choosing an adviser. | Nothing where the client's case matters. |
 
-**Practical conclusion:** regulatory registers remain the authoritative source and are complementary to this approach. The verifiable claim brings the register's answer to the point where the client is making their decision — the adviser's own website — rather than requiring the client to find and search the register independently.
+**Where each fits:** regulatory registers remain the authoritative source, and this approach complements them. The verifiable claim brings the register's answer to where the client is deciding, the adviser's own website, so a client whose software honours Live Verify can check it in a few seconds rather than having to find and search the register.
 
 ## Authority Chain
 

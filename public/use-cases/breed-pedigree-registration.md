@@ -170,17 +170,21 @@ For livestock moving interstate, the health certificate (separate document) carr
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Registry Databases
+## Where Each Fits: Live Verify and Breed Registry Lookups
 
-| Feature | Live Verify | Registry Online Lookup | Paper Certificate |
+Breed registries, such as kennel clubs and breed societies, keep pedigree and registration records, and many offer an online lookup. Coverage depends on the breed and the country: some registries have open lookups, some restrict them to members or charge fees, and some have none. A lookup and Live Verify answer much the same question and work side by side; the difference is whether the buyer can check the certificate they are handed without an account.
+
+| | Registry online lookup | Live Verify on the registration certificate | Paper certificate |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the registry. | **System-Bound.** Trust the website. | **Zero.** Easily forged. |
-| **Connectivity needed** | **Yes, for the check.** Scan paper at a show, farm, or doorstep; the check takes one small web request, no login. | **Yes.** Requires internet + login. | **None.** Instant but unverifiable. |
-| **Buyer Access** | **Ordinary smartphone.** Needs Live Verify on it (an app today); no account with the registry. | **Limited.** Many registries restrict online lookups or charge fees. | **Vulnerable to forgery.** |
-| **Microchip Binding** | **Yes.** Hash includes microchip ID. | **Varies.** Not all lookups show microchip. | **No link.** |
-| **Speed** | **Instant.** | **Minutes.** Registration, login, search. | **Instant but meaningless.** |
+| **Who can check** | Anyone the registry allows, sometimes members only. | Anyone handed the certificate: a buyer at collection, a show official, a vet, a breeder. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The registry's full record, which may or may not show the microchip number. | Confirmation that the registry issued this exact certificate, including the microchip number printed on it, and whether it has since been cancelled. | A certificate that may have been forged. |
+| **What the breeder shares** | Nothing extra; the record sits with the registry. | Only the certificate they chose to hand over. | The certificate. |
+| **Reach** | One registry's animals. | Global in principle: any registry that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | A few minutes; may need an account or a fee. | A few seconds per check: one web lookup, with no fee to the standard and no account with the registry. | Free and immediate. |
+| **What it needs** | Access to the lookup. | The registry to publish hashes, and Live Verify-aware software on the checker's device. No registry does this yet. | Nothing. |
+| **Best suited to** | Research before a visit. | A check at the point of collection. | Nothing where the pedigree matters. |
 
-**Where each fits:** the registry's own online lookup is the fullest source, and a buyer with time before a visit should use it. Some registries restrict lookups or require an account, and at the point of collection few buyers will stop to register and search. Live Verify lets them check the certificate they are handed, including the microchip number printed on it, against the registry's domain in a moment, as a complement to the lookup.
+**Where each fits:** the registry's own online lookup is the fullest source, and a buyer with time before a visit should use it. Some registries restrict lookups or require an account, and at the point of collection few buyers will stop to register and search. Live Verify lets them check the certificate they are handed, including the microchip number printed on it, against the registry's domain in a few seconds, if they have software that honours it, as a complement to the lookup.
 
 ## Independent Record (Optional)
 

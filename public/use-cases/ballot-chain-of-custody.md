@@ -117,15 +117,21 @@ Administers election ballot custody and transfer records.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Central Portals / GPS
+## Where Each Fits: Live Verify, Internal Election Systems and GPS Tracking
 
-| Feature | Live Verify | Internal Election Portal | GPS Tracking on Trucks |
+Election offices keep chain-of-custody records in their own internal systems, and many track ballot transport vehicles by GPS. How this is done depends on the jurisdiction. These and Live Verify answer different questions and work side by side: the internal system is the office's operational record, GPS shows where a vehicle went, and Live Verify lets an outside observer confirm that the office stands behind a custody form as written.
+
+| | Internal election office system | GPS tracking of vehicles | Live Verify on the custody transfer form |
 | :--- | :--- | :--- | :--- |
-| **Observer Access** | **High.** External parties can verify without system access. | **Zero.** Observers are never given logins to sensitive gov systems. | **None.** Proves where the truck went, not what's in the box. |
-| **Integrity** | **Binds Content.** Proves the *count* and *seal* numbers. | **Vulnerable.** Internal DB can be edited by admins. | **N/A.** |
-| **Connectivity needed** | **Yes, for the check.** The paper form can be read without a connection; checking it takes one small web request over any data connection, at the time or later. | **Yes.** | **Yes.** Requires cell signal. |
+| **Who can check** | Election staff with access. | Officials monitoring the vehicles. | Anyone holding the form: observers, party representatives, auditors, courts. |
+| **What the checker gets** | The office's full operational record. | Where a vehicle went and when, but not what it carried. | Confirmation that the election office issued this exact form, with its counts and seal numbers, as at its date. |
+| **What the office shares** | Nothing outside the office. | Nothing outside the office, usually. | Only the forms it chooses to publish hashes for. |
+| **Reach** | One office's staff. | One office's fleet. | Global in principle: any election office that publishes hashes on its own domain. |
+| **Speed and cost** | Immediate for staff. | Immediate for officials; needs equipment and signal. | A few seconds per check: one web lookup, with no fee to the standard, at the time or later. |
+| **What it needs** | The office's systems and controls. | Trackers on the vehicles. | The election office to publish hashes, and Live Verify-aware software on the checker's device. No election office does this yet. |
+| **Best suited to** | Running the election. | Monitoring transport. | Independent checks by observers who have no system access. |
 
-**Where each fits:** the election office's internal system is the operational record, and GPS tracking tells officials where a vehicle went; both stay in place. Observers and party representatives are not given access to either, and should not need it. Live Verify lets them check the seal numbers and counts on a custody form against what the election office has published on its own domain. That confirms the office stands behind the form as written, and leaves the internal controls to the people responsible for them.
+**Where each fits:** the election office's internal system is the operational record, and GPS tracking tells officials where a vehicle went; both stay in place. Observers and party representatives are not given access to either, and should not need it. Live Verify lets them check the seal numbers and counts on a custody form against what the election office has published on its own domain, with software that honours it. That confirms the office stands behind the form as written, and leaves the internal controls to the people responsible for them.
 
 ## Independent Record (Optional)
 

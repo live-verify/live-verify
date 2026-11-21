@@ -156,17 +156,22 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 | **India** | UGC (University Grants Commission) | Regulates academic standards; predatory journal problem |
 | **Japan** | JST / JSPS | Notable cases (STAP cell scandal, 2014) drove reform |
 
-## Compared With Existing Tools
+## Where Each Fits: Live Verify, Retraction Watch and Crossref or PubMed Metadata
 
-| Feature | Live Verify | Retraction Watch Database | CrossRef / PubMed Metadata |
+The Retraction Watch Database collects retractions from across publishers into one searchable place, and Crossref and PubMed carry retraction and correction metadata that publishers deposit with their records. Both are international and already widely used by researchers, librarians and tools. They answer "which papers have been retracted?"; Live Verify answers "did this publisher really issue this notice?", and the two work side by side.
+
+| | Retraction Watch Database | Crossref / PubMed metadata | Live Verify on the retraction notice |
 | :--- | :--- | :--- | :--- |
-| **Source** | **Publisher's domain.** First-party authoritative. | **Third-party curated.** Volunteer-maintained. | **Metadata aggregator.** Depends on publisher updates. |
-| **Speed** | **Real-time.** Publisher updates hash immediately. | **Days-weeks.** Manual curation lag. | **Days-months.** Metadata propagation varies. |
-| **Fake retraction detection** | **Yes.** Hash must resolve against the real publisher's domain. | **No.** Lists retractions but can't authenticate them. | **No.** Trusts publisher metadata feeds. |
-| **Programmatic** | **Yes.** Any client can check. | **Yes.** API available. | **Yes.** CrossRef API. |
-| **Coverage** | **Any publisher with a domain.** | **~40,000 entries.** Growing but not exhaustive. | **Broad but incomplete.** Not all publishers update promptly. |
+| **Who can check** | Anyone searching the database, and tools that use its data. | Anyone, and any reference manager or pipeline that reads the metadata. | Anyone holding the notice or the paper's DOI: a co-author, a reviewer, a regulator, a journalist. |
+| **What the checker gets** | A curated list of retractions across many publishers in one place. | Machine-readable status that publishers have deposited, linked to the paper's record. | Confirmation that the publisher issued this exact notice, as at its date, from its own domain, with any later change in status. |
+| **What the holder shares** | Nothing; the record is public. | Nothing; the record is public. | Only the notice or paper they chose to hand over. |
+| **Reach** | International, across publishers, as far as curation has reached. | International, as far as publishers deposit and update their metadata. | Global in principle: any publisher that publishes hashes on its own domain. |
+| **Speed and cost** | Free to search; entries depend on manual curation, so there can be a lag. | Free to query; updates depend on each publisher depositing them. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **Fake notices** | Lists retractions but does not authenticate a notice someone shows you. | Reflects what the publisher deposited; a notice outside that record is not checked. | A notice that does not match a hash on the named publisher's domain is not confirmed. |
+| **What it needs** | Curators to find and record each retraction. | Publishers to deposit and update metadata. | The publisher to publish hashes, and Live Verify-aware software on the checker's device. No publisher does this yet. |
+| **Best suited to** | Surveying retractions across the literature, and research on retraction itself. | Automated citation checking at scale. | Confirming a specific notice, and spotting fabricated ones. |
 
-**Why Live Verify adds value here:** Retraction Watch is invaluable but it's a third-party watchdog with curation lag. CrossRef metadata depends on publishers updating their feeds. Live Verify makes the *publisher themselves* the real-time source of truth — and makes it impossible to fabricate a retraction notice that doesn't resolve against the real publisher's domain.
+**Where each fits:** Retraction Watch and Crossref or PubMed metadata are the right tools for finding retractions across the literature, and reference managers already use them. A notice that is being relied on in a dispute, a misconduct case or a regulatory file needs something different: proof that the named publisher really issued it. Live Verify supplies that quickly from the publisher's own domain, for checkers whose software honours it, and makes a fabricated notice easy to spot.
 
 ### Why Would You Bother Checking Retraction Status?
 

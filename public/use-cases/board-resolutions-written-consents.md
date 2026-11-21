@@ -105,16 +105,21 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Corporate Registries (Delaware SOS)
+## Where Each Fits: Live Verify, Corporate Registries and Virtual Data Rooms
 
-| Feature | Live Verify | Secretary of State (SOS) | Virtual Data Room (VDR) |
+A Secretary of State, such as Delaware's, or a national companies registry elsewhere, records whether a company exists and is in good standing, and during a deal the board's minutes and resolutions are shared through a virtual data room. Registries vary by country in what they hold, but board resolutions are rarely filed with them. These and Live Verify answer different questions and work side by side: the registry confirms the company, the data room supports full diligence, and Live Verify lets a recipient check one resolution.
+
+| | Secretary of State or companies registry | Virtual data room | Live Verify on the resolution |
 | :--- | :--- | :--- | :--- |
-| **Granularity** | **High.** Verifies specific *resolutions*. | **Low.** SOS only tracks broad status (e.g., Good Standing). | **Full.** But requires gated access. |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Law Firm/Corp. | **Gov-Bound.** | **System-Bound.** Trust the VDR vendor. |
-| **Cost** | **Low.** Standard web infra. | **High.** SOS filings/searches cost fees. | **High.** VDRs cost thousands/month. |
-| **Interoperability** | **Universal.** PDFs stay verifiable anywhere. | **Siloed.** | **Restricted.** Access usually revoked post-deal. |
+| **Who can check** | Anyone, by search, often for a fee. | Invited parties, during the deal. | Anyone handed the resolution: a bank, a counterparty, an auditor, a notary. |
+| **What the checker gets** | The company's existence and good standing; not its board decisions. | The full set of documents the company chose to load. | Confirmation that the company or its law firm issued this exact resolution, as at its date. |
+| **What the company shares** | What it is required to file. | Everything in the room, with invited parties. | Only the resolution it chose to hand over. |
+| **Reach** | Companies formed in that jurisdiction. | Parties invited to that room; access usually ends after the deal. | Global in principle: any company or law firm that publishes hashes on its own domain. |
+| **Speed and cost** | Searches and certificates often carry fees. | Convenient for invited parties; the company pays for the platform. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | The company to be registered. | A data room subscription and invitations. | The company or law firm to publish hashes, and Live Verify-aware software on the checker's device. No company or law firm does this yet. |
+| **Best suited to** | Confirming the company exists and is in good standing. | Full diligence during a transaction. | A bank or counterparty outside the deal needing one authority. |
 
-**Where each fits:** the Secretary of State is the authority on whether a company exists and is in good standing, and a data room is the right place for full diligence during a deal. Neither tells a bank outside the deal that the board approved a particular transaction. Live Verify lets the company or its law firm share that one resolution in a form the recipient can check, without opening the rest of the minute book.
+**Where each fits:** the Secretary of State is the authority on whether a company exists and is in good standing, and a data room is the right place for full diligence during a deal. Neither tells a bank outside the deal that the board approved a particular transaction. Live Verify lets the company or its law firm share that one resolution in a form the recipient can check, if their software honours it, without opening the rest of the minute book.
 
 ## Independent Record (Optional)
 

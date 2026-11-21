@@ -118,15 +118,21 @@ NHBC administers warranty programs that protect homebuyers against structural de
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Home Inspection Reports
+## Where Each Fits: Live Verify, Home Inspections and Builder Portals
 
-| Feature | Live Verify | Home Inspection (Visual) | Builder Website Portal |
+A home inspection assesses a house's physical condition, and builders or warranty providers often give the first owner an online portal for warranty documents and claims. These answer different questions from Live Verify: an inspection looks at the building, a portal serves the account holder, and Live Verify lets a later owner or their solicitor confirm that the warranty provider stands behind a certificate in the homeowner's file. They work side by side.
+
+| | Home inspection | Builder or warranty provider portal | Live Verify on the warranty certificate |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Cryptographic.** Binds the *Legal Promise*. | **Subjective.** Relies on what the inspector can *see*. | **Hard.** Requires login/password. |
-| **Duration** | **10-20 Years.** Matches the legal statute. | **Snapshot.** Only valid for the day of inspection. | **Ephemeral.** Portals change. |
-| **Transfer** | **Easy.** Proves transferability to next owner. | **N/A.** | **Hard.** New owner has no login. |
+| **Who can check** | The inspector the buyer hires. | The account holder, usually the first owner. | Anyone handed the certificate: a later owner, a buyer's solicitor, a lender. |
+| **What the checker gets** | An assessment of visible condition on the day, which a document check cannot give. | The warranty record for that account. | Confirmation that the provider issued this exact certificate, with its terms and dates, and whether it still stands. |
+| **What the owner shares** | Access to the house. | Their login, which is hard to pass on. | Only the certificate they chose to hand over. |
+| **Reach** | Wherever an inspector can visit. | One builder's or provider's customers. | Global in principle: any builder or warranty provider that publishes hashes on its own domain. |
+| **Speed and cost** | A visit and a fee. | Immediate for the account holder. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | An inspector. | An account. | The provider to publish hashes, and Live Verify-aware software on the checker's device. No warranty provider does this yet. |
+| **Best suited to** | The building's condition. | The first owner's claims. | Later owners and their advisers, years on. |
 
-**Where each fits:** a home inspection assesses the physical condition of the house on the day, which a document check cannot do, and the builder's portal works for the original owner who holds the login. A second owner, years later, usually has neither a login nor any dealings with the builder. Live Verify lets that owner, or their buyer's solicitor, confirm the warranty provider still stands behind the certificate in the homeowner's file.
+**Where each fits:** a home inspection assesses the physical condition of the house on the day, which a document check cannot do, and the builder's portal works for the original owner who holds the login. A second owner, years later, usually has neither a login nor any dealings with the builder. Live Verify lets that owner, or their buyer's solicitor, confirm the warranty provider still stands behind the certificate in the homeowner's file, if their software honours it.
 
 ## Independent Record (Optional)
 

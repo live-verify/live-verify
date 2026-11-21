@@ -113,15 +113,21 @@ Zurich underwrites construction site and builders risk insurance for UK projects
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Project Management Software (Procore)
+## Where Each Fits: Live Verify and Project Management Platforms
 
-| Feature | Live Verify | Procore / Autodesk Build | Scanned PDF |
+Construction teams keep project documents, including insurance certificates, in platforms such as Procore or Autodesk Build. A platform and Live Verify answer different questions and work side by side: the platform holds whatever the contractor uploaded, while Live Verify lets a lender or owner confirm that the insurer stands behind the certificate.
+
+| | Project management platform | Live Verify on the builders risk certificate | Scanned PDF |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Insurer. | **System-Bound.** Relies on the GC uploading correctly. | **Zero.** Easily forged. |
-| **Freshness** | **Real-time.** Queries the carrier's live file. | **Static.** Relies on the last manual update. | **Manual.** |
-| **Interoperability** | **Universal.** Works for any bank/owner. | **Siloed.** Only works for people on that specific project. | **Universal.** |
+| **Who can check** | People with access to that project. | Anyone handed the certificate: a construction lender, an owner, a subcontractor. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The copy the contractor uploaded, as at the last update. | Confirmation that the insurer issued this exact certificate, as at its date, and whether the policy has since been cancelled. | A document that may have been edited. |
+| **What the contractor shares** | Documents with the project team. | Only the certificate they chose to hand over. | The PDF. |
+| **Reach** | Users of that project. | Global in principle: any insurer that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Convenient for project members; subscription paid by the team. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | A platform subscription and project access. | The insurer to publish hashes, and Live Verify-aware software on the checker's device. No insurer does this yet. | Nothing. |
+| **Best suited to** | Keeping project documents together. | Independent confirmation of cover by people outside the platform. | Nothing where cover matters. |
 
-**Where each fits:** project management software is where the project team keeps its documents, and for people on the project it is the convenient place to find the certificate. What it holds is whatever the contractor uploaded. A lender or owner outside the platform can use Live Verify to check the same certificate against the insurer's domain, which adds an independent confirmation to the copy in the project system.
+**Where each fits:** project management software is where the project team keeps its documents, and for people on the project it is the convenient place to find the certificate. What it holds is whatever the contractor uploaded. A lender or owner outside the platform can use Live Verify, if their software honours it, to check the same certificate against the insurer's domain, which adds an independent confirmation to the copy in the project system.
 
 ## Independent Record (Optional)
 

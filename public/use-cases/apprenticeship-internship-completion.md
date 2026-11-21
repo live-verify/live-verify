@@ -130,15 +130,21 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 **The trust hierarchy:** Verification proves "this domain attests to this claim." For major employers, that attestation is valuable because their reputation is on the line. For unknown companies, the verifier still needs to assess whether the *issuer* is credible — and verification doesn't help with that step.
 
-## Compared With LinkedIn / Background Checks
+## Where Each Fits: Live Verify, LinkedIn and Background Checks
 
-| Feature | Live Verify | LinkedIn | Background Check (Checkr/Hireright) |
+Employers usually learn about a candidate's apprenticeship or internship from their CV or LinkedIn profile, and confirm it, when it matters, through a background screening company that contacts the former employer. Screening firms operate in many countries, though what they can confirm and how quickly depends on the country and on the former employer's willingness to respond. These answer different questions and work side by side with Live Verify: a profile is the candidate's own account, a background check is an independent investigation, and Live Verify confirms one certificate.
+
+| | LinkedIn profile | Background check | Live Verify on the completion certificate |
 | :--- | :--- | :--- | :--- |
-| **Trust** | **Cryptographic.** Bound to company domain. | **Social.** Self-reported; zero verification for internships. | **High.** But slow and expensive. |
-| **Speed** | **Instant.** Scan and see "Verified by techno-dynamic.com." | **N/A.** Just looking at a profile. | **Slow.** Takes 3-7 days to call the company. |
-| **Portability** | **High.** Certificate works in any country/language. | **High.** Global platform. | **Low.** Tied to a specific employer request. |
+| **Who can check** | Anyone viewing the profile. | An employer who orders and pays for it, with the candidate's consent. | Anyone handed the certificate: a recruiter, a university, an immigration officer. |
+| **What the checker gets** | The candidate's own description; internships are rarely confirmed by the employer. | A report from a screening firm, which may cover much more than one placement. | Confirmation that the issuing company stands behind this exact certificate, as at its date. |
+| **What the candidate shares** | Their public profile. | Consent to a broader investigation. | Only the certificate they chose to hand over. |
+| **Reach** | Global. | Depends on the screening firm's coverage of the former employer's country. | Global in principle: any company or training provider that publishes hashes on its own domain. |
+| **Speed and cost** | Free and immediate. | Takes days and carries a fee. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A profile. | A screening contract and a responsive former employer. | The issuing company to publish hashes, and Live Verify-aware software on the checker's device. No employer does this yet. |
+| **Best suited to** | Discovering candidates and their stated history. | Formal pre-employment screening across a whole history. | A quick check during early screening. |
 
-**Why OCR fits major employers:** Recruitment is about speed and trust. A recruiter can verify a candidate's "Fortune 500" internship *during* the initial phone screen by scanning their PDF/paper certificate, bypassing the 5-day delay and $50 cost of a formal background check. For unknown companies, the recruiter still needs to assess the issuer's credibility separately.
+**Where each fits:** a background check remains the right tool for formal pre-employment screening, and LinkedIn remains where recruiters find candidates and read their stated history. A recruiter could use Live Verify to check an internship certificate during a first phone screen, before paying for a full check, if their software honours it. It confirms only that the named company issued the certificate; for an unfamiliar company, the recruiter still has to judge whether the issuer itself is credible.
 
 ## Independent Record (Optional)
 

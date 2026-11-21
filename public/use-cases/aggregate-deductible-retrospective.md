@@ -109,15 +109,22 @@ Zurich issues retrospective premium adjustments for UK commercial insurance poli
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Broker Portals
+## Where Each Fits: Live Verify and Broker Portals
 
-| Feature | Live Verify | Broker Portal (Marsh/Aon) |
+Large brokers give their clients online portals showing policies, loss runs and programme figures for the placements they handle. A portal and Live Verify answer different questions and work side by side: the portal gives the insured and its broker live figures, while Live Verify lets someone without a login confirm that a specific loss run or adjustment statement is what the carrier issued.
+
+| | Broker portal | Live Verify on the loss run or adjustment statement |
 | :--- | :--- | :--- |
-| **Cross-Carrier** | **Universal.** Works for any carrier document. | **Siloed.** Portals usually only show data for *current* placements. Hard to get historical data from 5 years ago/different broker. |
-| **M&A Access** | **Easy.** Seller sends verified PDFs to Data Room. Buyer verifies. | **Hard.** Buyer cannot access Seller's private broker portal without complex permissioning. |
-| **Immutability** | **High.** Hash proves the document hasn't changed. | **Medium.** Portal data changes dynamically; hard to prove "what was the loss number on Dec 31?" |
+| **Who can check** | The insured and its broker, with a login. | Anyone handed the document: a buyer's advisers in a data room, an underwriter quoting a new programme, an auditor. |
+| **What the checker gets** | Live, current figures, usually for current placements. | Confirmation that the carrier issued this exact snapshot, as at its date. |
+| **What the insured shares** | Portal access, which is hard to extend to outsiders. | Only the documents they chose to hand over. |
+| **Reach** | One broker's placements; history from earlier years or another broker can be hard to get. | Global in principle: any carrier that publishes hashes on its own domain. |
+| **Speed and cost** | Immediate for users with access; setting up access for a third party takes permissioning. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **Point-in-time record** | Figures change as claims develop, so showing what a number was on a past date can be hard. | Each document is fixed as at its date. |
+| **What it needs** | A login, and a current relationship with the broker. | The carrier to publish hashes, and Live Verify-aware software on the checker's device. No carrier does this yet. |
+| **Best suited to** | Day-to-day management of a current programme. | Due diligence, new quotes and audits by people with no portal access. |
 
-**Where each fits:** a broker portal is the right tool for the insured and its current broker, who need live figures on current placements. Loss runs and adjustment statements also go to people who will never have a login: a buyer's advisers in a data room, or an underwriter quoting a new programme. Live Verify lets them confirm that the carrier issued that exact snapshot, as at its date, while the portal carries on serving the people who manage the programme day to day.
+**Where each fits:** a broker portal is the right tool for the insured and its current broker, who need live figures on current placements. Loss runs and adjustment statements also go to people who will never have a login: a buyer's advisers in a data room, or an underwriter quoting a new programme. Live Verify lets them confirm that the carrier issued that exact snapshot, as at its date, if their software honours it, while the portal carries on serving the people who manage the programme day to day.
 
 ## Independent Record (Optional)
 

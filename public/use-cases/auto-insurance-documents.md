@@ -95,15 +95,21 @@ The Insured (Vehicle Owner) benefits from verification.
 **Adjusting Firms:** (Third-party firms like Crawford & Co).
 **Body Shop Management Systems:** (CCC One, Mitchell, Audatex).
 
-## Compared With Central Databases (CARFAX)
+## Where Each Fits: Live Verify and Vehicle History Reports
 
-| Feature | Live Verify | CARFAX / Autocheck | Paper Estimate |
+Vehicle history services such as CARFAX and AutoCheck compile accident and claim reports from insurers, police, repairers and other sources into a history for each vehicle. Similar services exist in some other countries and not in others. A history report and Live Verify answer different questions and work side by side: the history report summarises a vehicle's past across many sources, while Live Verify lets someone confirm a specific estimate or claim document the insurer issued.
+
+| | Vehicle history report | Live Verify on the estimate or claim summary | Paper estimate |
 | :--- | :--- | :--- | :--- |
-| **Granularity** | **High.** Shows line-item parts/labor. | **Low.** Often just says "Accident Reported - Damage to Front." | **High.** But untrusted. |
-| **Speed** | **Real-time.** Available as soon as the adjuster hits "save." | **Laggy.** Can take weeks or months for claims to appear in CARFAX. | **Instant.** |
-| **Trust** | **Cryptographic.** Bound to the Insurer's domain. | **Reporting-Based.** Relies on data feeds which can be incomplete. | **Zero.** Easily forged. |
+| **Who can check** | Anyone who buys a report on the vehicle. | Anyone handed the document: the policyholder, a repair shop, a buyer, a lender, a lawyer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | A summary across sources, often brief (for example, damage reported to the front), and only what has been reported to the service. | Confirmation that the insurer issued this exact estimate, with its line items, as at its date. | A document that may have been edited. |
+| **What the holder shares** | Nothing; the report is about the vehicle. | Only the document they chose to hand over. | The estimate. |
+| **Reach** | Vehicles and sources the service covers, mainly in its own country. | Global in principle: any insurer that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Quick to buy; claims can take a while to appear. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | Data feeds from insurers and others, and a fee per report. | The insurer to publish hashes, and Live Verify-aware software on the checker's device. No insurer does this yet. | Nothing. |
+| **Best suited to** | Screening a used vehicle's history. | Settling what a specific estimate or claim said. | Nothing where the amount matters. |
 
-**Practical conclusion for claims documents:** This is a strong Live Verify fit. The insurer remains the source of truth, but the estimate or claim summary is exactly the kind of human-readable artifact that gets emailed, printed, negotiated over, and later re-opened outside the carrier's native system.
+**Where each fits:** vehicle history reports remain the right tool for screening a car's past across many sources. Claim documents are different: an estimate or claim summary gets emailed, printed, negotiated over, and reopened later outside the insurer's own systems. Live Verify lets whoever holds one, with software that honours it, confirm the insurer stands behind that exact version, while the insurer remains the source of truth.
 
 ---
 
@@ -193,17 +199,21 @@ The Policyholder benefits from verification.
 **Insurance Carriers:** (Geico, Progressive, State Farm, etc.)
 **State DMVs / Insurance Verification Networks:** (As oversight and status-distribution bodies).
 
-## Compared With DMV Databases (ALIR/IIVS)
+## Where Each Fits: Live Verify and Insurance Verification Databases
 
-| Feature | Live Verify | DMV Central DB (IIVS) | Paper Card |
+Many US states run electronic insurance verification systems, fed by insurers, that police and motor vehicle agencies use to check whether a vehicle is insured, and some other countries keep a national motor insurance database. Coverage depends on where you are: some states and countries have such a system, some do not, and access is usually restricted to officials. These systems and Live Verify answer different questions and work side by side: the system gives officials the insurer-reported status, while Live Verify lets someone who has only the ID card check it.
+
+| | State or national insurance verification system | Live Verify on the insurance ID card | Paper card |
 | :--- | :--- | :--- | :--- |
-| **Freshness** | **Real-time.** Queries the insurer directly. | **Laggy.** Often 24-72 hours behind. | **Static.** |
-| **Availability** | **Broad.** Useful outside restricted official channels. | **Variable.** Often restricted or state-bounded. | **Manual.** |
-| **Accessibility** | **Open.** Dealers and rental agents can verify. | **Restricted.** Only police/DMV have access. | **Zero.** |
+| **Who can check** | Police and motor vehicle agencies, and sometimes other authorised users. | Anyone shown the card: a dealer, a rental agent, another driver after an accident, a parking operator. | Anyone who looks at it, on trust. |
+| **What the checker gets** | The insurer-reported status for that vehicle, which may lag behind recent changes. | Confirmation that the insurer issued this exact card, as at its date, and whether the policy has since been cancelled. | A card that may be out of date or forged. |
+| **What the driver shares** | Nothing; officials query the record. | Only the card they chose to show. | The card. |
+| **Reach** | One state's or country's vehicles, and usually only officials. | Global in principle: any insurer that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Fast for those with access. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | Official access, and insurers reporting to the system. | The insurer to publish hashes, and Live Verify-aware software on the checker's device. No insurer does this yet. | Nothing. |
+| **Best suited to** | Enforcement and registration. | Private parties who have only the card. | Nothing where cover matters. |
 
-**Practical conclusion for ID cards:** the stronger answer is still direct insurer or DMV-linked status. Live Verify is most defensible when a relying party only has the visible card and lacks access to those native systems.
-
-**Narrower conclusion for ID cards:** portability is the only strong part of this sub-case. Where official insurer or DMV-linked systems are available, they should remain primary. Live Verify is only the bridge when the visible card is all the relying party has.
+**Where each fits:** where an insurer or official verification system is available, it should remain the primary check. Its users are mostly officials, though, and a dealer, rental agent or other driver usually has only the card in front of them. Live Verify serves that party, if their software honours it, as a bridge from the visible card to the insurer.
 
 ---
 
@@ -264,15 +274,21 @@ The Policyholder benefits from verification.
 **Attorneys (Personal Injury)**
 **Demand Letters:** When an accident happens, lawyers need to know the *true* policy limits. Verification prevents "Ghost Limits" fraud where a driver claims to have $1M in coverage but only has the state minimum.
 
-## Compared With ACORD Certificates
+## Where Each Fits: Live Verify and ACORD Certificates
 
-| Feature | Live Verify | ACORD 25 (Standard) |
+In the US, brokers commonly issue proof of cover on standard ACORD certificate forms, and counterparties check them, when in doubt, by calling the broker. An ACORD certificate and Live Verify answer different questions and work side by side: the certificate is the familiar summary format, while Live Verify lets someone with no relationship to the broker or carrier confirm a declarations page, or a certificate, against the carrier.
+
+| | ACORD certificate | Live Verify on the declarations page |
 | :--- | :--- | :--- |
-| **Trust** | **Cryptographic.** Bound to insurer. | **Visual.** Prone to easy editing. |
-| **Speed** | **Instant.** Scan and verify. | **Slow.** Requires calling the broker. |
-| **Integrity** | **Binds Content.** | **Binds Nothing.** Just a template. |
+| **Who can check** | Anyone who receives it, by calling the broker. | Anyone handed the page: a lender, a lessor, a landlord, a court. |
+| **What the checker gets** | A standard summary on a familiar form, which can be edited and states that it confers no rights. | Confirmation that the carrier issued this exact declarations page, as at its date, and whether the policy has since been cancelled. |
+| **What the policyholder shares** | The certificate. | Only the page they chose to hand over. |
+| **Reach** | Widely used in the US. | Global in principle: any carrier that publishes hashes on its own domain. |
+| **Speed and cost** | Quick to issue; checking means a call to a broker who may be slow to answer. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A broker to issue it and to answer queries. | The carrier to publish hashes, and Live Verify-aware software on the checker's device. No carrier does this yet. |
+| **Best suited to** | Counterparties who expect the standard form. | Checkers with no relationship to the broker or carrier. |
 
-**Where each fits:** the ACORD certificate is the format most counterparties ask for, and where the broker is known and reachable a call to them settles any doubt. A declarations page is the carrier's own statement of the policy, and the person handed one often has no relationship with either the broker or the carrier. Live Verify lets that person check the page against the carrier's domain, and it can equally be applied to the certificate.
+**Where each fits:** the ACORD certificate is the format most counterparties ask for, and where the broker is known and reachable a call to them settles any doubt. A declarations page is the carrier's own statement of the policy, and the person handed one often has no relationship with either the broker or the carrier. Live Verify lets that person, if their software honours it, check the page against the carrier's domain, and it can equally be applied to the certificate.
 
 ---
 
@@ -372,15 +388,21 @@ The Vehicle Owner (or Dealer) benefits from verification.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Central Portals
+## Where Each Fits: Live Verify and Carrier Dispatch Portals
 
-| Feature | Live Verify | SuperDispatch / Carrier Portal | Paper Carbon Copy |
+Vehicle transport companies run their jobs through dispatch platforms and carrier portals, such as Super Dispatch, where drivers record inspections and condition reports. A portal and Live Verify answer different questions and work side by side: the portal runs the operation and holds the job history, while Live Verify gives the customer and their insurer a condition report they can check, fixed as it was at handover.
+
+| | Dispatch platform or carrier portal | Live Verify on the condition report | Paper carbon copy |
 | :--- | :--- | :--- | :--- |
-| **Field Access** | **Universal.** Scan the paper/tablet. | **Restricted.** Requires app login usually for drivers only. | **Instant.** |
-| **Integrity** | **Cryptographic.** Binds the origin state. | **Database-Bound.** Relies on the portal not being "corrected" later. | **Zero.** Easily forged. |
-| **Sharing** | **Easy.** Share the PDF/Link with any insurer. | **Hard.** Requires "Exporting" reports or giving portal access. | **Manual.** |
+| **Who can check** | The transport company and its drivers, with logins. | Anyone handed the report: the customer, their insurer, a dealer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The full job record, which can be edited later. | Confirmation that the carrier issued this exact report, as at handover. | A copy that may have been altered. |
+| **What the customer shares** | Nothing; they rarely have access. | Only the report they chose to send. | The copy. |
+| **Reach** | Users of that platform. | Global in principle: any carrier that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Immediate for users; sharing with outsiders means exporting reports or granting access. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | A subscription and logins. | The carrier to publish hashes, and Live Verify-aware software on the checker's device. No carrier does this yet. | Nothing. |
+| **Best suited to** | Running the transport operation. | Damage disputes and insurance claims after delivery. | Nothing where a claim is likely. |
 
-**Where each fits:** a carrier or dispatch portal is the working system for the transport company and its drivers, and holds the full history of a job. The customer in the driveway, and later their insurer, has no login to it. Live Verify gives them a condition report they can check against the carrier's domain, fixed as it was at handover, while the portal continues to run the operation.
+**Where each fits:** a carrier or dispatch portal is the working system for the transport company and its drivers, and holds the full history of a job. The customer in the driveway, and later their insurer, has no login to it. Live Verify gives them a condition report they can check against the carrier's domain, fixed as it was at handover, with software that honours it, while the portal continues to run the operation.
 
 ## Independent Record (Optional)
 

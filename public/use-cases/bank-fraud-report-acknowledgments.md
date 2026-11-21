@@ -205,17 +205,21 @@ The witnessing organization performs its own GET against the bank's verification
 
 See [Witnessing and Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full witnessing protocol.
 
-## Compared With Phone Records
+## Where Each Fits: Live Verify, the Bank's Own Records and Phone or Email Records
 
-| Feature | Live Verify | Phone Records / Emails | Bank's Internal System |
+When a customer reports fraud, the bank records it in its own case system, and the customer is left with whatever call logs, emails or reference numbers they kept. Complaint routes differ by country (in the US the CFPB and bank regulators, in the UK the Financial Ombudsman Service), but in each the customer's own evidence is usually thin. The bank's records and Live Verify answer different questions and work side by side: the bank's system runs the investigation, while Live Verify gives the customer an acknowledgment that a regulator, credit bureau or ombudsman can check.
+
+| | Bank's internal case system | Customer's call logs and emails | Live Verify on the fraud report acknowledgment |
 | :--- | :--- | :--- | :--- |
-| **Proof of report date** | **Cryptographic.** Timestamped hash on bank's domain. | **Weak.** Call logs prove a call happened, not what was said. | **Bank-controlled.** They can edit their own records. |
-| **Content proof** | **Exact.** Hash covers what was acknowledged. | **None.** No record of what was discussed. | **Opaque.** Customer can't see internal notes. |
-| **Regulatory filing** | **Direct evidence.** Attach to CFPB/OCC complaint. | **Circumstantial.** "I called them." | **Adversarial.** Bank produces its own version. |
-| **Credit bureau disputes** | **Authoritative.** Bank's own domain confirms fraud was reported. | **Indirect.** Bureau must contact bank anyway. | **Conflicted.** Bank confirms to bureau on its own timeline. |
-| **Permanence** | **Snapshot.** Immutable hash. | **Ephemeral.** Voicemails deleted, emails buried. | **Mutable.** Internal systems change. |
+| **Who can check** | Bank staff; outsiders see it only if the bank produces it. | Anyone the customer shows them to. | Anyone the customer shows it to: a regulator, a credit bureau, an ombudsman, a court. |
+| **What the checker gets** | The bank's full account of the case, which the bank controls and can amend. | Proof that a call or email happened, but not what was said or agreed. | Confirmation that the bank issued this exact acknowledgment, with its date and terms. |
+| **What the customer shares** | Nothing; it is the bank's record. | Their own logs. | Only the acknowledgment they chose to show. |
+| **Reach** | One bank. | Universal, but weak as evidence. | Global in principle: any bank that publishes hashes on its own domain. |
+| **Speed and cost** | Immediate for the bank; obtaining it may take a formal request. | Free, if the customer kept them. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | The bank's systems. | The customer to keep records. | The bank to publish hashes, and Live Verify-aware software on the checker's device. No bank does this yet. |
+| **Best suited to** | Running and documenting the investigation. | Background evidence. | Showing when the fraud was reported, and in what terms, in a complaint or dispute. |
 
-**Where each fits:** the bank's internal case system is where the investigation is run, and call logs and emails are still worth keeping. None of them gives the customer something a regulator, credit bureau or ombudsman can check independently. A verified acknowledgment does: it shows that the bank's own domain stands behind a statement that the report was received on a given date and in given terms. It sits alongside the bank's records rather than competing with them.
+**Where each fits:** the bank's internal case system is where the investigation is run, and call logs and emails are still worth keeping. None of them gives the customer something a regulator, credit bureau or ombudsman can check independently. A verified acknowledgment does: it shows that the bank's own domain stands behind a statement that the report was received on a given date and in given terms, for a checker whose software honours Live Verify. It sits alongside the bank's records rather than competing with them.
 
 ## International Equivalents
 

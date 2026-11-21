@@ -123,16 +123,22 @@ Qualified Intermediaries are licensed third-party custodians required by the IRS
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With QR/NFC
+## Where Each Fits: Live Verify and QR Codes
 
-| Feature | Live Verify | QR Code |
+A QR code is a general-purpose way to put a link on a printed page, and a qualified intermediary could print one on its letters today without anyone else's involvement. A QR code and Live Verify answer different questions and can sit on the same page: the code takes the reader to a web page, while the verify line lets the reader confirm that the intermediary stands behind the exact wording printed on the letter.
+
+| | QR code on the letter | Live Verify on the identification letter |
 | :--- | :--- | :--- |
-| **Audit Trail** | **Superior.** The paper document itself is the artifact. The hash proves the *content* of the paper existed at the timestamp. | **Weak.** QR codes are often just links. They don't inherently prove the *text* surrounding them hasn't changed unless the QR contains the full text (too large). |
-| **Professionalism** | **High.** A discreet `verify:` line at the bottom of a legal letter looks standard. | **Low.** A giant QR code on a formal legal designation letter looks out of place. |
-| **Longevity** | **High.** Text is durable. | **Medium.** QR codes can be damaged by folding, stapling, or scanning/copying degradation. |
-| **Privacy** | **High.** No data leaked until the specific hash is queried. | **Variable.** If the QR encodes the data, anyone with a camera can read it instantly without an audit trail. |
+| **Who can check** | Anyone with a phone camera, which most people already have. | Anyone holding the letter or a copy of it: the exchanger, a closing attorney, a CPA, an IRS examiner. |
+| **What the checker gets** | Whatever page the code points to. Unless that page reproduces the full text, it does not show whether the wording on the paper has been changed. | Confirmation that the intermediary issued this exact text, as at its date, and whether it has since been withdrawn. |
+| **What the exchanger shares** | The letter, including the link. | Only the letter they chose to hand over. |
+| **Reach** | Works anywhere the link resolves. | Global in principle: any intermediary that publishes hashes on its own domain. |
+| **Speed and cost** | A few seconds to scan; cheap to print. | A few seconds per check: one web lookup, with no fee to the standard and no integration between checker and intermediary. |
+| **Durability on paper** | Can stop scanning once a letter has been folded, stapled, photocopied or scanned at low quality. | The text can still be read, and if need be retyped, from a worn copy years later. |
+| **What it needs** | A printed code and a live page behind it. | The intermediary to publish hashes, and Live Verify-aware software on the checker's device. No intermediary does this yet. |
+| **Best suited to** | Pointing a reader quickly to the intermediary's site or a portal. | Confirming the wording of the letter itself, including at audit years later. |
 
-**Where each fits:** a QR code is quick to scan and suits documents that are mostly handled on screens or at a counter, and nothing stops an intermediary printing one alongside the verify line. Exchange paperwork tends to be read years later by an auditor working from a photocopy or scanned PDF, where a code may no longer scan but the text can still be read and, if need be, retyped. Live Verify covers that reader, and confirms that the intermediary stands behind the exact wording on the page.
+**Where each fits:** a QR code is quick to scan with any phone and suits documents that are mostly handled on screens or at a counter, and nothing stops an intermediary printing one alongside the verify line. Exchange paperwork tends to be read years later by an auditor working from a photocopy or scanned PDF, where a code may no longer scan but the text can still be read and, if need be, retyped. Live Verify covers that reader, provided they have software that honours it, and confirms that the intermediary stands behind the exact wording on the page.
 
 ## Independent Record (Optional)
 

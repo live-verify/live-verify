@@ -308,17 +308,22 @@ Salt must be per-patient, per-interaction, and non-deterministic.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Existing Solutions
+## Where Each Fits: Live Verify Care Logs, Health Records and Inspection
 
-| Feature | This System | Electronic Health Record (EHR) | Paper Nursing Notes | Periodic Inspection |
+Today care is documented in the institution's electronic health record (EHR) or in paper nursing notes, and regulators check care quality through periodic inspection. These are established and, in the case of the EHR, the clinical record that care depends on. The care log described on this page is a proposal, not a product: LiDAR and voice capture would generate records, and Live Verify would make each one checkable by the patient and others. It would sit alongside the EHR and inspection, answering a different question: what interactions happened, when, and for how long, in a record the patient holds.
+
+| | Electronic health record | Periodic inspection | Proposed care log with Live Verify records | Paper nursing notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **Record generation** | **Hands-free.** Voice + LiDAR. | **Manual.** Worker types into system. | **Manual.** Worker writes notes. | **N/A.** |
-| **Record holder** | **Patient.** Verified copy held independently. | **Institution.** Patient may request access. | **Institution.** Filed in nursing station. | **Regulator.** Snapshot at inspection. |
-| **Timestamp integrity** | **Blockchain-anchored.** Consensus timestamp at time of event. | **System-logged.** Institution controls the system. | **Self-reported.** Often retrospective. | **N/A.** |
-| **Worker burden** | **Near-zero.** Speak procedure, confirm patient, say "done". | **Significant.** Typing, clicking, navigating menus. | **Significant.** Handwriting, filing. | **N/A.** |
-| **Privacy compliance** | **By architecture.** Patient name never spoken aloud. | **By policy.** Depends on screen positioning, verbal handovers. | **By policy.** Paper visible to passers-by. | **N/A.** |
-| **Real-time ward visibility** | **Yes.** Live view of who is where, doing what. | **Delayed.** Data available after entry. | **No.** Data available after shift. | **No.** |
-| **Non-repudiation** | **Blockchain + patient copy.** Institution cannot deny or alter. | **Audit log.** But institution controls the system. | **None.** | **None.** |
+| **Who can check** | Clinical staff; patients by request. | The regulator, at inspection. | The patient, their family or representative, and anyone they share records with, such as a solicitor, a regulator or a coroner. | Staff with access to the notes. |
+| **What the checker gets** | The full clinical record, kept and controlled by the institution. | A snapshot of the service on the day of inspection. | Confirmation that the institution issued each interaction record as it stands, with start and end times; with optional blockchain anchoring, evidence of when each was committed. | Notes, often written after the event. |
+| **What the patient holds** | Nothing, unless they request access. | Nothing. | Their own copy of the log. | Nothing. |
+| **Reach** | One institution's system. | One regulator's providers. | Any institution that deploys the capture system and publishes hashes on its own domain. | One ward. |
+| **Effort for staff** | Significant typing and navigation. | Preparation for inspections. | Little at the bedside by design, though staff would be tracked and recorded, which needs careful handling. | Handwriting and filing. |
+| **Speed and cost** | Already in place, at significant cost. | Periodic. | A few seconds per check: one web lookup, with no fee to the standard. Deploying sensors, earpieces and the AI would be a substantial investment. | Cheap. |
+| **What it needs** | An EHR system. | A regulator. | LiDAR sensors, voice capture and AI on the ward, the institution to publish hashes, and Live Verify-aware software on the checker's device. No institution does this yet. | Paper. |
+| **Best suited to** | Clinical decisions and continuity of care. | Oversight across a service. | Patient-held evidence of care delivered, staffing evidence and worker defence. | Where nothing else exists. |
+
+**Where each fits:** the electronic health record remains the clinical record that care depends on, and inspection remains how regulators oversee a service. Neither gives the patient or the care worker a record of their own. The proposed care log would add that, provided institutions invest in the capture system and publish hashes, and checkers have software that honours Live Verify. It records that interactions took place and how long they lasted, not whether the care was good.
 
 ## Further Derivations
 

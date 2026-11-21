@@ -196,18 +196,21 @@ Verifiable branch and call center claims address the root problem: the customer 
 3. Instant — a single check, not a phone call to the bank
 4. Accessible — works for anyone who can type a URL or use a QR code, not just app users
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Existing Anti-Impersonation Measures
 
-| Feature | Live Verify | "Call Back" Advice | In-App Call Verify | Caller ID |
+Banks currently protect customers against impersonation by telling them to hang up and call back on a known number, by confirming genuine calls inside their mobile app, and by caller ID, which customers see anyway. These vary by bank and country. They answer different questions from Live Verify and work side by side: call-back and in-app checks confirm a live call, while Live Verify lets a customer check a reference on a letter, a branch card or a caller's details against the bank's own domain.
+
+| | Hang up and call back | In-app call verification | Caller ID | Live Verify on the bank's reference |
 | :--- | :--- | :--- | :--- | :--- |
-| **Customer action required** | **Check one reference.** | **Hang up, find number, call, wait, explain.** | **Open app, check notification.** | **None (passive).** |
-| **Works for non-app users** | **Yes.** | **Yes.** | **No.** | **Yes.** |
-| **Resistant to spoofing** | **Yes.** Criminal cannot forge bank domain response. | **Yes** (if customer actually calls back). | **Yes.** | **No.** Trivially spoofed. |
-| **Covers letters/post** | **Yes.** Reference on correspondence. | **No.** | **No.** | **N/A.** |
-| **Covers in-branch** | **Yes.** Branch verification card/signage. | **N/A.** | **No.** | **N/A.** |
-| **Completion rate** | **Higher.** Single, fast step. | **Low.** Multi-step, high abandonment. | **Moderate.** App-dependent. | **N/A.** |
+| **Who can check** | Any customer willing to end the call and phone the bank. | Customers who use the bank's app. | Anyone with a phone. | Any customer given a reference by phone, in a letter or in a branch. |
+| **What the checker gets** | A conversation with the real bank, if they reach it. | Confirmation inside the app that the bank is calling. | A number that can easily be spoofed. | Confirmation that the bank stands behind this exact reference, as at its date. |
+| **What the customer does** | Hangs up, finds the number, calls, waits and explains. | Opens the app and checks the notification. | Nothing. | Checks one reference. |
+| **Reach** | Every customer, if they follow the advice. | App users only. | Every phone. | Global in principle: any bank that publishes hashes on its own domain, for calls, letters and branches. |
+| **Speed and cost** | Slow; many customers give up. | Quick for app users; the bank must build it. | Immediate. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | The customer to follow the advice. | An app the customer uses. | Nothing. | The bank to publish hashes, and Live Verify-aware software on the customer's device. No bank does this yet. |
+| **Best suited to** | Any doubt, for any customer. | Calls to app users. | Nothing where fraud is a concern. | Customers outside the app, letters and branch visits. |
 
-**Practical conclusion:** in-app call verification is effective for digitally engaged customers and Live Verify does not replace it. For customers who do not use mobile banking apps, for letters and physical correspondence, and for in-branch confidence, verifiable claims fill a gap that current anti-vishing measures do not cover.
+**Where each fits:** in-app call verification is effective for digitally engaged customers and Live Verify does not replace it, and hanging up and calling back remains sound advice for anyone. For customers who do not use mobile banking apps, for letters and physical correspondence, and for confidence in a branch, a verifiable reference offers a quicker check that existing anti-vishing measures do not cover, provided the customer has software that honours Live Verify.
 
 ## Authority Chain
 

@@ -111,16 +111,21 @@ Records US border entry admissions and permits.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With DHS SAVE System
+## Where Each Fits: Live Verify and DHS SAVE
 
-| Feature | Live Verify | DHS SAVE System | Paper Printout |
+DHS runs SAVE, which lets registered government agencies confirm a person's immigration status, including from I-94 records, as part of benefit and licensing decisions. Other countries have their own status checks for officials and employers. SAVE and Live Verify answer different questions: SAVE is the formal status check for government users, while Live Verify could help a private relying party who has only an emailed or printed I-94.
+
+| | DHS SAVE | Live Verify on the I-94 printout | Paper printout |
 | :--- | :--- | :--- | :--- |
-| **Accessibility** | **Helpful when only the printout is in hand.** | **Primary for formal government/legal-presence checks.** | **Manual.** |
-| **Speed** | **Fast bridge from the printout.** | **Can be slow.** Often takes days for manual verification. | **Instant.** |
-| **Trust** | **Cryptographic.** Bound to `cbp.gov`. | **High.** Direct DB access. | **Low.** Easily faked. |
-| **Integration** | **Lightweight.** | **Heavy.** Requires complex API integration and federal vetting. | **None.** |
+| **Who can check** | Registered government agencies. | Anyone handed the printout: a landlord, a university, a private employer, a bank. | Anyone, on trust. |
+| **What the checker gets** | A formal status answer from DHS; some cases need further manual verification, which takes longer. | Confirmation that CBP issued this exact record, as at its date. | A printout that may have been edited. |
+| **What the traveller shares** | Nothing extra; agencies query the system. | Only the printout they chose to hand over. | The printout. |
+| **Reach** | US agencies that have registered. | Global in principle: any immigration authority that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Integration and federal vetting before use. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | An agency agreement with DHS. | CBP to publish hashes, and Live Verify-aware software on the checker's device. CBP does not do this. | Nothing. |
+| **Best suited to** | Formal immigration-status decisions. | Private parties working from a printout outside government systems. | Nothing where status matters. |
 
-**Narrower conclusion:** This is not a replacement for SAVE, CBP systems, or formal immigration-status adjudication. It is only defensible as a lighter bridge for relying parties who are already working from an emailed or printed I-94 outside those systems.
+**Where each fits:** this is not a replacement for SAVE, CBP systems, or formal immigration-status adjudication. It is only defensible as a lighter bridge for relying parties who are already working from an emailed or printed I-94 outside those systems, and who have software that honours Live Verify.
 
 ## See Also
 

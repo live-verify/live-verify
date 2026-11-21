@@ -207,17 +207,21 @@ The appraiser benefits directly by proving their standing.
 
 **Independent check:** A buyer relying on a valuation, or a co-heir reviewing an estate appraisal, can clip the appraiser's credential and confirm it is current and unrevoked.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Appraiser Registers
 
-| Feature | Live Verify | Register Lookup (ASC/RICS) | Letters After Name | AMC Self-Declaration |
+Appraiser regulators publish registers: in the US the Appraisal Subcommittee runs a national registry of state-licensed appraisers, and in the UK RICS lists its registered valuers. Coverage depends on where you are: many countries have a register of some kind, some rely on professional bodies, and some have none. A register and Live Verify answer different questions and work side by side: the register is the authority's full record, while Live Verify lets the reader of an appraisal report check the credential printed in it.
+
+| | Register lookup (ASC, RICS) | Live Verify on the credential in the report | Letters after the name | Self-declaration to a management company |
 | :--- | :--- | :--- | :--- | :--- |
-| **Issuer-controlled** | **Yes.** Authority issues the claim. | **Yes.** But requires navigating there. | **No.** Typed by the report author. | **No.** Declared by the appraiser. |
-| **Verifiable at point of encounter** | **Yes.** In the report's signature block. | **No.** Requires leaving the document. | **No.** | **No.** |
-| **Shows current status** | **Yes.** Live response from authority. | **Yes.** If someone checks. | **No.** Static text. | **No.** As-of onboarding only. |
-| **Detects suspension/revocation** | **Yes.** Endpoint returns the status. | **Yes.** If checked. | **No.** | **No.** |
-| **Detects copied credentials** | **Yes.** Domain mismatch warning. | **N/A.** | **N/A.** | **N/A.** |
+| **Who can check** | Anyone who leaves the report and searches the right register. | Anyone reading the report: a lender, an underwriter, a borrower, a court. | Nobody; they are typed by the report's author. | The company that collected it. |
+| **What the checker gets** | The authority's current record for that appraiser. | Confirmation that the authority stands behind this exact credential statement, and whether it has since been suspended or revoked. A credential copied into someone else's report is flagged. | Text that may be out of date or invented. | A statement as at onboarding. |
+| **What the appraiser shares** | Nothing; the register is public. | Only the credential statement in their report. | Their letters. | Their declaration. |
+| **Reach** | One regulator's appraisers. | Global in principle: any regulator or professional body that publishes hashes on its own domain. | Universal, but untrusted. | One company's panel. |
+| **Speed and cost** | Free, but few report readers take the time. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. | No further cost. |
+| **What it needs** | The reader to know which register to search. | The regulator to publish hashes, and Live Verify-aware software on the checker's device. No appraisal regulator does this yet. | Nothing. | Nothing. |
+| **Best suited to** | Authoritative research and periodic panel reviews. | A check at the moment the report is read. | Nothing where the credential matters. | Initial onboarding only. |
 
-**Practical conclusion:** Appraiser registers are authoritative and public, but recipients rarely use them — they read the letters after the name and accept them. A verifiable credential embedded where the report is read turns those letters into a regulator-issued, checkable statement.
+**Where each fits:** appraiser registers are authoritative and public, and remain the record that counts, but report readers rarely use them; they read the letters after the name and accept them. A verifiable credential where the report is read lets those letters be checked against the regulator in a few seconds, by readers whose software honours Live Verify.
 
 ## Authority Chain
 

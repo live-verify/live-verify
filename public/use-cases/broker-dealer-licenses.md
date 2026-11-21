@@ -106,16 +106,21 @@ FINRA registers broker-dealers and representatives authorized to sell securities
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With FINRA BrokerCheck (Search)
+## Where Each Fits: Live Verify and FINRA BrokerCheck
 
-| Feature | Live Verify | BrokerCheck Website | Paper Certificate |
-| :--- | :--- | :--- |
-| **Integrity** | **Binds Identity.** Proves *this* person is the one. | **Live.** Shows status *today*. | **Static.** Easily forged. |
-| **User Experience** | **Seamless.** Scan the badge/paper. | **Hard.** Ask for CRD #, type it, find the right name. | **Manual.** |
-| **Trust** | **Domain-Bound.** Bound to `finra.org`. | **High.** Direct DB access. | **Medium.** |
-| **Disclosures** | **Active Alert.** Can highlight a BARRED status in red. | **Deep.** Requires reading long PDF reports. | **Hidden.** |
+In the US, FINRA's BrokerCheck is a free public search of registered brokers and firms, including disciplinary disclosures. Other countries have their own regulator registers, such as the FCA's register in the UK, and coverage and detail vary. BrokerCheck and Live Verify answer different questions and work side by side: BrokerCheck shows the full record today, while Live Verify lets a client check the credential on a business card or display in front of them.
 
-**Narrower conclusion:** BrokerCheck and other regulator search tools should remain primary where the verifier is prepared to use them directly. Live Verify is complementary when the business card or displayed credential is the visible surface in the room and the client wants a discreet bridge to the live regulatory record without name-search friction.
+| | FINRA BrokerCheck | Live Verify on the broker's credential | Paper certificate |
+| :--- | :--- | :--- | :--- |
+| **Who can check** | Anyone who searches by name or CRD number. | Anyone shown the credential: a prospective client, an employer, a compliance officer. | Anyone, on trust. |
+| **What the checker gets** | Current registration and detailed disclosures, which can take time to read. | Confirmation that the regulator stands behind this exact credential, for this person, and its current status, including a bar or suspension. | A certificate that may have been forged or be out of date. |
+| **What the broker shares** | Nothing; the record is public. | Only the credential they chose to show. | The certificate. |
+| **Reach** | FINRA-registered brokers and firms. | Global in principle: any regulator that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Free; finding the right person among similar names takes a few minutes. | A few seconds per check: one web lookup, with no fee to the standard. | No lookup. |
+| **What it needs** | The client to search and read the record. | The regulator to publish hashes, and Live Verify-aware software on the checker's device. No regulator does this yet. | Nothing. |
+| **Best suited to** | Full research into a broker's history. | A discreet check in the room. | Nothing where money is at stake. |
+
+**Where each fits:** BrokerCheck and other regulator search tools should remain primary where the client is prepared to use them, and they give the fuller history. Live Verify is complementary when the business card or displayed credential is what is in front of the client, offering a discreet route to the regulator's record without the friction of a name search, for clients whose software honours it.
 
 ## Independent Record (Optional)
 

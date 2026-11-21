@@ -120,16 +120,21 @@ Lycetts underwrites insurance for thoroughbred and bloodstock animals globally.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Registry Databases
+## Where Each Fits: Live Verify and Breed Registries
 
-| Feature | Live Verify | Jockey Club Registry | Paper Certificate |
+Thoroughbreds are recorded in national stud books, kept by bodies such as the Jockey Club, which hold each horse's identity and parentage. Each country has its own stud book. A registry and Live Verify answer different questions about the same horse: the registry says who the horse is, and Live Verify confirms what the insurer has agreed to cover.
+
+| | Breed registry or stud book | Live Verify on the mortality insurance certificate | Paper certificate |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Binds Value.** Proves the *insured amount*. | **Binds Identity.** Proves *who* the horse is. | **Zero.** Easily faked. |
-| **Confidentiality** | **High.** Only the specific policy is verified. | **Low.** Many registries are public or easily queried. | **Medium.** |
-| **Speed** | **Instant.** Scan the paper at the stable. | **Slow.** Requires login/subscription. | **Instant.** |
-| **Financial Link** | **Yes.** Directly links the horse to the money. | **No.** Registries don't track insurance data. | **Vulnerable.** |
+| **Who can check** | Registry users, sometimes by login or subscription. | Anyone handed the certificate: a lender, a buyer, a syndicate member, a stud. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The horse's identity and parentage; nothing about insurance. | Confirmation that the underwriter issued this exact certificate, with its insured sum and dates, and whether the cover has since been cancelled. | A certificate that may have been edited. |
+| **What the owner shares** | Nothing; the registry holds the record. | Only the certificate they chose to hand over. | The certificate. |
+| **Reach** | One country's stud book. | Global in principle: any underwriter that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Quick for users; may need a subscription. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | Registry access. | The underwriter to publish hashes, and Live Verify-aware software on the checker's device. No underwriter does this yet. | Nothing. |
+| **Best suited to** | Identity and breeding. | Lending against, or buying, an insured horse. | Nothing where the sum matters. |
 
-**Where each fits:** the breed registry is the authority on a horse's identity and parentage, and buyers and lenders should keep using it for that. It holds nothing about insurance. Live Verify covers the mortality certificate, letting a lender or buyer at the stable confirm the underwriter stands behind the cover and the insured sum stated, so the two answer different questions about the same horse.
+**Where each fits:** the breed registry is the authority on a horse's identity and parentage, and buyers and lenders should keep using it for that. It holds nothing about insurance. Live Verify covers the mortality certificate, letting a lender or buyer at the stable, with software that honours it, confirm the underwriter stands behind the cover and the insured sum stated, so the two answer different questions about the same horse.
 
 ## Independent Record (Optional)
 

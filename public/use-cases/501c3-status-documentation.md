@@ -121,16 +121,21 @@ Administers federal tax exemptions for charitable organizations.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With QR/NFC and IRS Search
+## Where Each Fits: Live Verify, IRS Search and QR Codes
 
-| Feature | Live Verify | QR Code | IRS Search / TEOS |
+The IRS runs Tax Exempt Organization Search, a free public lookup of an organisation's current exempt status, and an organisation could also print a QR code on material that links to its record. These cover US organisations only; charities elsewhere sit on their own national registers, where those exist. IRS search, QR codes and Live Verify answer slightly different questions and work side by side: the search tells you the current IRS record, while Live Verify confirms that the determination letter in front of you is one the IRS issued.
+
+| | IRS Tax Exempt Organization Search | QR code on the letter | Live Verify on the determination letter |
 | :--- | :--- | :--- | :--- |
-| **Trust Model** | **Strong.** Links directly to `irs.gov`. | **Depends on what it resolves to.** | **Primary.** Direct IRS status path. |
-| **User Experience** | **Fast.** Scan the letter -> verified. | **Fast.** Scan the code. | **Sometimes slower.** Search workflow and user error. |
-| **Connectivity needed** | **Yes, for the check.** The letter can be carried and read without a connection; checking it takes one small web request. | **Yes.** Just a link. | **Yes.** Requires internet to search DB. |
-| **Phishing Resistance** | **High.** `verify:` line is human-readable. | **Variable.** Depends on visible domain and user behaviour. | **High.** If the user navigates directly to IRS. |
+| **Who can check** | Anyone who goes to the IRS site and searches by name or EIN. | Anyone with a phone camera. | Anyone handed the letter: a donor, a grant-maker, a corporate matching programme, a venue. |
+| **What the checker gets** | The IRS's current record for that organisation, straight from the source. | Whatever page the code points to; the checker has to judge whether that page is genuine. | Confirmation that the IRS stands behind this exact letter, as at its date, and whether it has since been revoked. |
+| **What the organisation shares** | Nothing; the record is public. | The letter, including the link. | Only the letter they chose to hand over. |
+| **Reach** | US organisations only. | Works anywhere the link resolves. | Global in principle: any tax authority or charity regulator, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Free; a search takes a minute or two, and similar names can cause mistakes. | A few seconds to scan. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | The checker to navigate to the real IRS site and find the right entry. | A printed code and a live page behind it. | The IRS to publish hashes, and Live Verify-aware software on the checker's device. The IRS does not do this. |
+| **Best suited to** | Any checker willing to search the IRS directly; it remains the primary answer. | Pointing a reader to a page quickly. | Bridging a shared or displayed letter back to the issuer without a manual search. |
 
-**Narrower conclusion:** IRS search should remain the dominant answer when the verifier is prepared to use it directly. Live Verify is complementary when the determination letter itself is the thing being shared and the goal is to bridge that visible or portable artifact back to current IRS status without manual search friction.
+**Where each fits:** IRS search should remain the main answer when the checker is prepared to use it directly, and it shows current status rather than the status on a letter's date. Live Verify is complementary when the determination letter itself is what is being shared, and the aim is to tie that letter back to its issuer in a few seconds without a manual search, for checkers whose software honours it.
 
 ## See Also
 

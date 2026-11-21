@@ -119,15 +119,21 @@ The UK Foreign, Commonwealth & Development Office legalises and authenticates do
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With e-Apostille (Registry)
+## Where Each Fits: Live Verify and e-Apostille Registers
 
-| Feature | Live Verify | e-Apostille Registry | Wet Ink / Embossed |
+Under the Hague Apostille Convention, each member country designates authorities that issue apostilles, and many now run an e-Register where a recipient can check an apostille by its number and date, or issue e-Apostilles directly. Coverage depends on the issuing country: some have an e-Register, some issue only paper, and countries outside the Convention use consular legalisation instead. An e-Register and Live Verify answer much the same question and work side by side; the difference is how the checker gets from the paper in hand to the issuer's record.
+
+| | e-Register or e-Apostille | Live Verify on the apostille | Paper apostille with seal |
 | :--- | :--- | :--- | :--- |
-| **User Experience** | **Seamless.** Scan the paper you are holding. | **Primary where cleanly available.** Often still awkward across jurisdictions. | **Manual.** Compare seals to pictures in a book. |
-| **Trust Anchor** | **Domain-Bound.** `dos.ny.gov` is the source of truth. | **Centralized.** Only works if the specific registry is known. | **Visual.** Easily fooled by high-quality copies. |
-| **Connectivity needed** | **Yes, for the check.** The paper can be read without a connection; checking it takes one small web request. | **Yes.** Requires live DB access. | **None.** Physical security features (ribbons, grommets). |
+| **Who can check** | Anyone who knows which country's register to use and can find it. | Anyone handed the apostille, in any country. | Anyone comparing the seal and signature with reference examples. |
+| **What the checker gets** | The issuing authority's own record of that apostille. | Confirmation that the issuing authority stands behind this exact text, as at its date. | A judgement by eye, which a good copy can fool. |
+| **What the holder shares** | The apostille details. | Only the apostille they chose to hand over. | The paper apostille. |
+| **Reach** | One issuing country's apostilles, where it runs a register. | Global in principle: any issuing authority that publishes hashes on its own domain. | Every Convention country. |
+| **Speed and cost** | Free where available; finding the right register and entering details can be awkward across borders. | A few seconds per check: one web lookup, with no fee to the standard. | No lookup needed. |
+| **What it needs** | A register in the issuing country, and the checker to find and use it. | The issuing authority to publish hashes, and Live Verify-aware software on the checker's device. No apostille authority does this yet. | Reference examples and a trained eye. |
+| **Best suited to** | Checkers who know the issuing country's register. | A foreign official holding the paper with no idea where its register lives. | Nothing where forgery is a concern. |
 
-**Why this remains strong:** e-Apostille registries are the right source of truth where they exist and are easy to use, but the practical problem is still cross-border portability from the paper artifact in hand. Live Verify is strongest as a cleaner bridge from that artifact to the issuing authority's current record.
+**Where each fits:** e-Registers and e-Apostilles are the right source of truth where they exist and are easy to use. The practical problem remains cross-border: an official abroad is holding paper from a country whose register they may never have used. Live Verify gives that official a quick route from the paper to the issuing authority, provided they have software that honours it.
 
 ## Independent Record (Optional)
 

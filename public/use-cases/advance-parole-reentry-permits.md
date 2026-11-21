@@ -116,16 +116,21 @@ Issues immigration travel permits for temporary protection.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Central Databases (CBP)
+## Where Each Fits: Live Verify and CBP Systems
 
-| Feature | Live Verify | CBP Systems (TECS) |
+US Customs and Border Protection and USCIS hold the official record of advance parole documents and re-entry permits in their own systems, which border officers use directly and airlines reach through their carrier channels. Other countries run their own border and immigration systems in the same way. Those systems and Live Verify answer different questions: the systems give government users the authoritative status, while Live Verify could help a relying party with no access, who is looking only at the paper.
+
+| | CBP and USCIS systems | Live Verify on the travel document |
 | :--- | :--- | :--- |
-| **User Access** | **Potential bridge for lower-capability relying parties.** | **Primary for government/border use.** |
-| **Airline Check-in** | **Possible fallback from the paper artifact.** | **Dominant if direct carrier access exists.** |
-| **Physical Security** | **Tamper-Evident.** Hash protects the printed dates/names. | **None.** The paper itself has weak security features compared to a passport. |
-| **Cost** | **Low.** Standard web infrastructure. | **High.** Secure leased lines/VPNs required for database access. |
+| **Who can check** | Border officers and other authorised government users; airlines through carrier systems where they have access. | Anyone handed the document: an airline agent without direct access, a DMV, an employer. |
+| **What the checker gets** | The official, current record held by the government. | Confirmation that USCIS issued this exact text, with its names and dates, as at the document's date. |
+| **What the holder shares** | Nothing extra; officers query the record. | Only the document they chose to hand over. |
+| **Reach** | US government users and connected carriers. | Global in principle: any immigration authority that publishes hashes on its own domain. |
+| **Speed and cost** | Fast for connected users; access needs secure, government-controlled connections. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | Authorised access to government systems. | USCIS to publish hashes, and Live Verify-aware software on the checker's device. USCIS does not do this. |
+| **Best suited to** | All border and immigration decisions. | Relying parties outside government who would otherwise have only the paper. |
 
-**Narrower conclusion:** This is only strong as an edge-case bridge for airlines, DMVs, or other relying parties that are staring at the paper and do not have a clean official status path. It is not a substitute for border systems, carrier document systems, or USCIS/CBP databases.
+**Where each fits:** CBP and USCIS systems are and should remain the basis for border and immigration decisions, and Live Verify is no substitute for them. It is useful only at the edges: an airline agent, a DMV or an employer looking at the paper without a clean official status path, who has software that honours Live Verify and could confirm that the printed names and dates are what USCIS issued.
 
 ## See Also
 

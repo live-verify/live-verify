@@ -103,16 +103,21 @@ HMRC administers bonded warehouse duty deferral and inventory control under the 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Customs ACE Portal
+## Where Each Fits: Live Verify and Customs Systems such as ACE
 
-| Feature | Live Verify | ACE Portal (Gov) | Paper Receipt |
+In the US, entries into and out of bonded warehouses are recorded in CBP's ACE system, which brokers and warehouse operators access with credentials. Other countries run their own customs systems for bonded goods. ACE and Live Verify answer different questions and work side by side: ACE is the official record of the entry, while Live Verify lets someone on the warehouse floor check a receipt or pallet tag issued by the operator.
+
+| | Customs system (ACE) | Live Verify on the warehouse receipt or tag | Paper receipt |
 | :--- | :--- | :--- | :--- |
-| **User Access** | **Universal.** Any trucker/bank/auditor. | **Restricted.** Requires expensive "ACE Portal" credentials. | **Instant.** |
-| **Trust** | **Cryptographic.** Bound to the Warehouse Operator. | **High.** Gov database. | **Zero.** Easily forged. |
-| **Connectivity needed** | **Yes, for the check.** The paper can be read without a connection; checking it takes one small web request. | **Yes.** Requires live gov system access. | **None.** |
-| **Efficiency** | **Instant.** Scan the pallet tag. | **Slow.** Login, search entry #, find line item. | **Manual.** |
+| **Who can check** | Customs, brokers and operators with credentials. | Anyone handed the receipt or tag: a trucker, a lender, an auditor, an insurer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The official entry and its line items. | Confirmation that the warehouse operator issued this exact receipt, as at its date. | A receipt that may have been forged. |
+| **What the importer shares** | Data filed with customs. | Only the documents they chose to hand over. | The receipt. |
+| **Reach** | One country's customs system and its credentialed users. | Global in principle: any warehouse operator that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Credentialed users must log in and search by entry number. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | Credentials for the customs system. | The operator to publish hashes, and Live Verify-aware software on the checker's device. No warehouse operator does this yet. | Nothing. |
+| **Best suited to** | Customs filing and compliance. | Checks on the warehouse floor and by lenders and auditors. | Nothing where the goods matter. |
 
-**Where each fits:** the customs portal is the official record of entries and remains what brokers and customs offices file against and query. Truckers, lenders and auditors on the warehouse floor generally hold no credentials for it. Live Verify lets them check a receipt or pallet tag against the warehouse operator's domain on the spot, and the customs system stays the reference for the entry itself.
+**Where each fits:** the customs portal is the official record of entries and remains what brokers and customs offices file against and query. Truckers, lenders and auditors on the warehouse floor generally hold no credentials for it. Live Verify lets them check a receipt or pallet tag against the warehouse operator's domain on the spot, if their device has software that honours it, and the customs system stays the reference for the entry itself.
 
 ## Independent Record (Optional)
 

@@ -133,15 +133,21 @@ The Art Collector benefits from verification.
 **Independent Firms:** (Appraisers Association of America members).
 **Art Research Firms:** (Artnet, Artprice).
 
-## Compared With Appraisal Databases
+## Where Each Fits: Live Verify, Client Portals and Blockchain Registries
 
-| Feature | Live Verify | Private Portal (Sotheby's) | Blockchain Art Registry |
+Auction houses and large appraisal firms give their own clients online portals holding appraisals and valuations, and some collectors register works on blockchain-based art registries. Both are run privately and cover only the clients or works enrolled in them. They answer different questions from Live Verify and work side by side: a portal manages a client's whole collection, a registry keeps a public trail, and Live Verify lets one appraisal be checked by whoever it is shown to.
+
+| | Auction house or appraiser portal | Blockchain art registry | Live Verify on the appraisal |
 | :--- | :--- | :--- | :--- |
-| **Privacy** | **High.** Only the specific report is shared. | **Low.** Accessing a portal might reveal the collector's entire portfolio. | **Low.** Public ledgers can reveal transaction history. |
-| **User Experience** | **Instant.** Scan the PDF/Paper in the data room. | **Hard.** Requires logins, passwords, and permissions. | **Medium.** Requires crypto-wallets/explorers. |
-| **Authority** | **Domain-Bound.** Trust the brand you know. | **Portal-Bound.** | **Ambiguous.** Who controls the registry? |
+| **Who can check** | The client, and anyone given access to their account. | Anyone able to use the registry or a blockchain explorer. | Anyone handed the appraisal: a lender, an insurer, a buyer, a tax authority. |
+| **What the checker gets** | The firm's records for that client, often across the whole collection. | A public record of what was registered, by whoever registered it. | Confirmation that the appraiser issued this exact report, with its values, as at its date. |
+| **What the collector shares** | Access that may reveal the rest of the collection. | A record that may expose ownership and transaction history publicly. | Only the report they chose to hand over. |
+| **Reach** | One firm's clients. | Works and owners enrolled in that registry. | Global in principle: any appraiser that publishes hashes on its own domain. |
+| **Speed and cost** | Immediate for the client; giving an outsider access takes setup. | Depends on the registry; needs familiarity with wallets or explorers. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A client relationship with the firm. | Registration, and trust in whoever runs the registry. | The appraiser to publish hashes, and Live Verify-aware software on the checker's device. No appraiser does this yet. |
+| **Best suited to** | A collector managing their holdings with one house. | Collectors who want a public record. | Showing one appraisal to one lender or insurer. |
 
-**Where each fits:** an auction house or appraiser portal serves its own clients well, and a blockchain registry suits collectors who want a public record. A collector showing one appraisal to one lender or insurer may not want either: the recipient has no portal login, and the collector may not want the rest of the collection visible. Live Verify lets that single report be checked against the appraiser's domain, and it can be used alongside whichever registry the owner already keeps.
+**Where each fits:** an auction house or appraiser portal serves its own clients well, and a blockchain registry suits collectors who want a public record. A collector showing one appraisal to one lender or insurer may not want either: the recipient has no portal login, and the collector may not want the rest of the collection visible. Live Verify lets that single report be checked against the appraiser's domain, by a recipient whose software honours it, and it can be used alongside whichever registry the owner already keeps.
 
 ---
 
@@ -240,15 +246,21 @@ The Art Owner benefits from verification.
 **Major Galleries:** (Gagosian, Pace, Hauser & Wirth).
 **Scholarly Committees:** Dedicated authentication boards.
 
-## Compared With NFTs / Blockchain
+## Where Each Fits: Live Verify, NFTs and Embedded Chips
 
-| Feature | Live Verify | NFT (Digital Twin) | Physical Seal (Microchip) |
+Some artists, estates and platforms issue a token (NFT) as a digital twin of a physical work, and some fit a microchip or tag to the work or its frame. These answer different questions from a certificate of authenticity: a token records ownership on a ledger and a chip tags the object, while Live Verify confirms that the estate or foundation stands behind the wording of a paper certificate. They can be used together.
+
+| | NFT as digital twin | Embedded chip or tag | Live Verify on the certificate of authenticity |
 | :--- | :--- | :--- | :--- |
-| **Physical Link** | **Textual.** Binds the *claim* to the art. | **None.** The token is on-chain; the art is off-chain. Easy to "de-couple." | **Mechanical.** A chip is glued/embedded in the frame. |
-| **Market Standard** | **High.** Matches the traditional "Paper COA" culture of high-end art. | **Low.** High-end collectors are skeptical of crypto-volatility and tech-debt. | **Medium.** Seen as invasive by some conservators. |
-| **Durability** | **Durable.** Text is archival. | **Fragile.** Requires the blockchain/IPFS to exist in 100 years. | **Fragile.** Chips can break or be removed. |
+| **Who can check** | Anyone able to use the blockchain and a wallet or explorer. | Anyone with a compatible reader. | Anyone handed the certificate: a buyer, a dealer, an insurer, an auction house. |
+| **What the checker gets** | A record of the token and its holder, kept separately from the physical work. | Confirmation that the tag in the object is the one that was registered. | Confirmation that the issuer stands behind this exact certificate, as at its date, and whether it has since withdrawn it. |
+| **Link to the object** | None in itself; the token and the work can drift apart. | Physical: the tag is attached to the object, though it can be removed or fail. | Through the description on the certificate, which names the work. |
+| **What the owner shares** | A token record that may be public. | Access to the object. | Only the certificate they chose to show. |
+| **Reach** | Wherever the chain and its storage remain available. | Wherever readers and the registry behind them exist. | Global in principle: any estate, foundation or artist that publishes hashes on its own domain. |
+| **What it needs** | A wallet, a chain and the long-term survival of both. | A chip fitted to the work, which some conservators dislike. | The issuer to publish hashes, and Live Verify-aware software on the checker's device. No estate or foundation does this yet. |
+| **Best suited to** | Buyers and sellers who are comfortable with tokens. | Tying a record to the physical object. | The paper certificate that much of the market still trades on. |
 
-**Where each fits:** a token or an embedded chip can be useful where the buyer and seller are both comfortable with that technology, and a chip does tie a record to the physical object in a way text cannot. Much of the market still trades on a paper certificate from an estate or foundation. Live Verify lets a buyer or insurer confirm that the estate stands behind the wording of that certificate, without asking anyone to adopt a wallet, and nothing prevents it accompanying a token or chip.
+**Where each fits:** a token or an embedded chip can be useful where the buyer and seller are both comfortable with that technology, and a chip does tie a record to the physical object in a way text cannot. Much of the market still trades on a paper certificate from an estate or foundation. Live Verify lets a buyer or insurer whose software honours it confirm that the estate stands behind the wording of that certificate, without asking anyone to adopt a wallet, and nothing prevents it accompanying a token or chip.
 
 ---
 
@@ -350,13 +362,19 @@ The Collector benefits from verification.
 **Foundries:** (For bronze sculptures).
 **Artist Estates:** (Managing posthumous editions).
 
-## Compared With Physical Holograms
+## Where Each Fits: Live Verify, Holograms and Blind Stamps
 
-| Feature | Live Verify | Hologram Sticker | Blind Stamp (Embossing) |
+Print publishers mark editions with hologram stickers or blind stamps (embossed marks) to show that a sheet came from them. These do something Live Verify does not attempt, authenticating the sheet itself, and they work side by side with it: the physical mark says the paper is the publisher's, while Live Verify confirms what the publisher says about the edition number and size.
+
+| | Hologram sticker | Blind stamp | Live Verify on the edition details |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Binds Content.** Hash protects the *Number* and *Artist Name*. | **Binds Paper.** Proves the paper is real, but not what is written on it. | **Physical.** Hard to forge, but can be faked with a custom die. |
-| **Registry Link** | **Direct.** Links instantly to the publisher's database. | **Manual.** Requires looking up a serial number on a website. | **None.** Just a mark on the paper. |
-| **Durability** | **Archival.** Ink/pencil text lasts centuries. | **Fragile.** Stickers peel off or degrade over time. | **Durable.** But can be flattened. |
+| **Who can check** | Anyone who can inspect the sticker, and look up its serial number where one is given. | Anyone who can inspect the paper closely. | Anyone with the edition details: a buyer, a dealer, an insurer. |
+| **What the checker gets** | A sign the sheet came from the publisher, though not what is written on it. | A physical mark that is hard to forge, though a custom die can fake it. | Confirmation that the publisher stands behind this exact edition number, size and artist name. |
+| **What the owner shares** | The print. | The print. | Only the details they chose to show. |
+| **Reach** | Wherever the print goes. | Wherever the print goes. | Global in principle: any publisher that publishes hashes on its own domain. |
+| **Durability** | Stickers can peel or fade. | Long-lasting, though it can be flattened. | The text lasts as long as the sheet; checking depends on the publisher keeping its hashes online. |
+| **What it needs** | The publisher to apply it. | The publisher's die. | The publisher to publish hashes, and Live Verify-aware software on the checker's device. No print publisher does this yet. |
+| **Best suited to** | Showing the sheet is genuine. | Showing the sheet is genuine. | Confirming the written edition details. |
 
 **Where each fits:** holograms and blind stamps authenticate the sheet itself, which is something a text hash does not attempt. They do not confirm the edition number or size written on the sheet. Live Verify lets a buyer check that the publisher stands behind those written details, so the physical mark and the verify line each cover what the other cannot.
 
@@ -454,13 +472,19 @@ The Collector or Gallerist benefits from verification.
 **Artist Foundations:** (e.g., Picasso Administration).
 **Art Research Foundations:** (IFAR, Appraisers Association).
 
-## Compared With Visual Connoisseurship
+## Where Each Fits: Live Verify, Connoisseurship and Laboratory Analysis
 
-| Feature | Live Verify | Visual Inspection (The Eye) | Carbon Dating / Chemical |
+An attribution is reached by an expert's examination of the work and, where needed, by scientific analysis of its materials. Live Verify does not compete with either; it answers a different question. Connoisseurship and laboratory work decide whether the signature or work is genuine, and Live Verify lets a later reader confirm that the expert or laboratory really issued the report they are shown.
+
+| | Expert examination | Scientific analysis of materials | Live Verify on the authentication report |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Cryptographic.** Bound to the expert's domain. | **Subjective.** Relies on the reputation of the person standing there. | **Scientific.** Analysis of physical matter. |
-| **Durability** | **High.** The report is permanent. | **Low.** The expert dies or changes their mind. | **High.** But invasive (requires taking a sample). |
-| **Speed** | **Instant.** Scan the report. | **Slow.** Requires scheduling a viewing with an expert. | **Very Slow.** Takes weeks/months in a lab. |
+| **Who can check** | The expert who examines the work. | A laboratory with a sample or access to the work. | Anyone handed the report: a buyer, a lender, an insurer, an auction house abroad. |
+| **What the checker gets** | An informed opinion on whether the signature or work is genuine. | Physical evidence about the materials and their age. | Confirmation that the expert or laboratory issued this exact report, as at its date, and has not withdrawn it. It says nothing about the work itself. |
+| **What the owner shares** | Access to the work. | Access to the work, and sometimes a sample. | Only the report they chose to hand over. |
+| **Reach** | Wherever the expert can see the work. | Wherever the work can be taken or sampled. | Global in principle: any expert or laboratory that publishes hashes on its own domain. |
+| **Speed and cost** | Needs a viewing to be arranged. | Can take weeks and may be invasive. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A recognised expert. | A suitable laboratory. | The expert or laboratory to publish hashes, and Live Verify-aware software on the checker's device. No expert or laboratory does this yet. |
+| **Best suited to** | Reaching an attribution. | Testing an attribution against physical evidence. | Later readers who were not in the room. |
 
 **Where each fits:** connoisseurship and laboratory analysis are how an attribution is actually reached, and nothing here substitutes for either. What Live Verify adds is a way for a later buyer, lender or insurer, who was not in the room and may be in another country, to confirm that the expert or laboratory issued the report they have been shown and has not withdrawn it. It verifies the report, not the painting.
 
@@ -590,13 +614,19 @@ Expert appraisals authenticate artworks and determine fair market value.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Physical Labels / Archival Photos
+## Where Each Fits: Live Verify, Gallery Labels and Archival Photographs
 
-| Feature | Live Verify | Gallery Labels (Reverse of Frame) | Archival Photo (Black & White) |
+Provenance is built from physical evidence such as exhibition and gallery labels on the back of a frame and archival photographs, assessed by provenance researchers. Live Verify answers a different question: whether the institution really issued the provenance summary a buyer or lender has been handed, and whether it still stands. The two work side by side.
+
+| | Gallery labels on the reverse | Archival photographs | Live Verify on the provenance summary |
 | :--- | :--- | :--- | :--- |
-| **Trust** | **Cryptographic.** Bound to the institution's domain. | **Visual.** Very easy to forge using tea-stained paper. | **Subjective.** Is that the *exact* same painting in the grainy 1920s photo? |
-| **Searchability** | **Instant.** Links to the full digital archive entry. | **None.** Just a physical sticker. | **Hard.** Requires visual comparison experts. |
-| **Updateability** | **Yes.** Can note "New claim surfaced" instantly. | **Static.** Once it's on the frame, it stays there. | **Fixed.** |
+| **Who can check** | Anyone who can examine the back of the work, ideally a specialist. | Specialists who compare the photograph with the work. | Anyone handed the summary: a buyer, a lender, an auction house. |
+| **What the checker gets** | Primary evidence of where the work has been, though labels can be forged. | Primary evidence that a work was in a place at a time, though matching it to this work takes judgement. | Confirmation that the institution issued this exact summary, as at its date, and whether it has since revised it. |
+| **What the owner shares** | Access to the work. | The photograph. | Only the summary they chose to hand over. |
+| **Reach** | Wherever the work is. | Wherever the archive is. | Global in principle: any institution that publishes hashes on its own domain. |
+| **Speed and cost** | Needs expert examination. | Needs archive research and comparison. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A specialist eye. | Access to archives. | The institution to publish hashes, and Live Verify-aware software on the checker's device. No institution does this yet. |
+| **Best suited to** | Building the provenance. | Building the provenance. | Passing a summary of it to someone who needs to rely on it. |
 
 **Where each fits:** labels on the reverse and archival photographs are primary evidence, and provenance researchers will keep relying on them. A research summary handed to a buyer or lender is a different thing: a statement by an institution, which may later be revised when a claim surfaces. Live Verify lets the reader confirm the institution issued that summary and see whether it still stands, leaving the physical evidence to be assessed by those qualified to assess it.
 

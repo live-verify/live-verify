@@ -107,15 +107,21 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 ## Rationale
 
-## Compared With Credit Reports (Experian/TransUnion)
+## Where Each Fits: Live Verify and Credit Bureau Reports
 
-| Feature | Live Verify | Credit Bureau Report | Paper Disclosure |
+Credit bureaus such as Experian and TransUnion compile borrowers' credit histories from lenders' reports, and lenders base most decisions on them. Coverage depends on where you are: most developed markets have one or more bureaus, many countries have thin or no coverage, and whether buy-now-pay-later loans are reported varies by provider and country. A bureau report and Live Verify answer different questions and work side by side: the report is the broad view, while Live Verify lets a consumer show one provider's statement that the provider stands behind.
+
+| | Credit bureau report | Live Verify on the BNPL agreement or statement | Paper disclosure |
 | :--- | :--- | :--- | :--- |
-| **Completeness** | **High.** Catches "Off-Bureau" debt. | **Low.** Many BNPL providers don't report all loans. | **High.** But untrusted. |
-| **Timeliness** | **Real-time.** Proves the loan status *today*. | **Laggy.** Updates take 30-60 days. | **Static.** |
-| **Trust** | **Cryptographic.** Bound to the Lender. | **Reporting-Bound.** Relies on data file uploads. | **Zero.** |
+| **Who can check** | Lenders and others with a permitted purpose, and the consumer. | Anyone the consumer shows it to: a mortgage lender, a landlord, a debt adviser. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The broadest single view of the borrower, but only of what lenders report, and with a lag. | Confirmation that the provider issued this exact agreement or statement, as at its date. | A document that may have been edited. |
+| **What the consumer shares** | Their whole file, with consent. | Only the documents they chose to show. | The document. |
+| **Reach** | Lenders that report to that bureau, in that country. | Global in principle: any provider that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Quick for subscribers; lenders pay per report. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | Lenders reporting, and a permitted purpose. | The provider to publish hashes, and Live Verify-aware software on the checker's device. No BNPL provider does this yet. | Nothing. |
+| **Best suited to** | Most lending decisions. | Showing a loan, or a clean repayment record, that the bureau file does not yet reflect. | Nothing where the amount matters. |
 
-**Where each fits:** a credit bureau report is still the broadest single view of a borrower and the basis for most lending decisions. Some instalment loans are not reported, or appear only after a delay. Live Verify lets a consumer show a lender a statement that the provider stands behind, covering what the bureau file has not yet picked up, and equally lets them evidence a clean repayment record.
+**Where each fits:** a credit bureau report is still the broadest single view of a borrower and the basis for most lending decisions. Some instalment loans are not reported, or appear only after a delay. Live Verify lets a consumer show a lender a statement that the provider stands behind, covering what the bureau file has not yet picked up, and equally lets them evidence a clean repayment record, wherever the lender's software honours it.
 
 ## Independent Record (Optional)
 
