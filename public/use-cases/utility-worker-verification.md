@@ -13,7 +13,7 @@ furtherDerivations: 0
 
 When a utility worker arrives at your door claiming to read the meter or inspect the gas line, you are faced with a critical decision: do you open the door to a stranger?
 
-The **Verified Badge** is the worker's digital or physical ID. It proves:
+The Verified Badge is the worker's digital or physical ID. It proves:
 1.  **Identity:** They are a real employee of the utility company, not an impostor.
 2.  **Employment Status:** They are currently on shift and assigned to your area.
 3.  **Safety:** They have passed a Disclosure and Barring Service (DBS) check for public-facing work.
@@ -44,22 +44,27 @@ This is a strong Live Verify fit because the decision is immediate, physical, an
       <div style="width: 100px; height: 125px; background: #eee; display: flex; align-items: center; justify-content: center; color: #777; border: 1px solid #ccc; border-radius: 4px;">[PHOTO ID]</div>
     </div>
     <div style="flex-grow: 1; background: #f9f9f9; border: 1px solid #999; padding: 12px; font-size: 0.9em; color: #000; line-height: 1.5;">
-      SERVICE ENGINEER<br>
+      <span verifiable-text="start" data-for="utility"></span>SERVICE ENGINEER<br>
       JAMES T<br>
       Employee ID: BG-992288<br>
       Company: British Gas<br>
       Role: Meter Reader<br>
-      DBS Cleared: Yes<br>
-      Verified via British Gas employee directory.<br>
-      Includes current DBS background clearance<br>
-      and active shift authorization.<br>
-      <span style="font-family: 'Courier New', monospace;"
-        title="Verification endpoint for utility company employee credentials">verify:staff.britishgas.co.uk/v</span>
+      DBS check: 12 JAN 2026<br>
+      Service area: Reading RG1-RG6<br>
+      Salt: 9f3k7m2x<br>
+      <span data-verify-line="utility" style="font-family: 'Courier New', monospace;"
+        title="Demo only: utilities don't yet offer verification&#10;endpoints, so this is illustrative">verify:staff.britishgas.co.uk/v</span> <span verifiable-text="end" data-for="utility"></span>
     </div>
   </div>
 </div>
 
-## Data Verified
+## The Problem: Bogus Caller Fraud
+
+- **Home Invasion Burglary:** Criminals posing as meter readers, gas engineers, or water inspectors to gain entry to homes for theft or assessment before a planned burglary.
+- **Identity Theft:** Predators using fake utility company credentials to target vulnerable, elderly residents.
+- **Casing:** Fake utility workers mapping properties, entry points, and resident schedules as part of organized burglary operations.
+
+## What Is Checked
 
 Worker name, photo (hash), employee ID, company name, role (meter reader/engineer/installer), DBS check date, service area, current shift status.
 
@@ -118,15 +123,15 @@ Fields:
 
 Utility workers should never tell homeowners "don't bother" or "that's not necessary." Every report is logged. The company can triage later—but the homeowner is never made to feel their input isn't wanted.
 
-## Second-Party Use
+## Who Holds It
 
-The **Utility Worker (Meter Reader/Engineer)** benefits from verification.
+The Utility Worker (Meter Reader/Engineer) benefits from verification.
 
 **Customer Trust:** Proving to a homeowner at the door that they are a genuine employee of the utility company, verified and vetted. This removes the "Bogus Caller" threat perception and allows the worker to gain access faster, reducing refused entries and repeat visits.
 
 **Shift Authorization:** Workers benefit from the credibility that comes from being verified as currently on duty in the assigned area, which shortcuts the verification conversation and builds confidence.
 
-## Third-Party Use
+## Who Checks It
 
 **Vulnerable Homeowners (Elderly Residents)**
 **Safety at the Door:** Before opening the door, a resident (or their remote family via doorbell cam) can scan the badge. Instant verification as "ON_DUTY" ensures the person at the door isn't a "Bogus Caller" predator with a stolen uniform or forged credentials. This is especially critical for elderly and vulnerable people targeted by criminals.
@@ -137,13 +142,7 @@ The **Utility Worker (Meter Reader/Engineer)** benefits from verification.
 **Property Managers (Commercial/Residential)**
 **Building Access Control:** Property managers can verify utility workers before granting access to secure buildings, substations, or service corridors. Instant "ON_DUTY" confirmation allows fast-tracked building entry without extensive phone verification.
 
-## Verification Architecture
-
-**The "Bogus Caller" Fraud Problem**
-
-- **Home Invasion Burglary:** Criminals posing as meter readers, gas engineers, or water inspectors to gain entry to homes for theft or assessment before a planned burglary.
-- **Identity Theft:** Predators using fake utility company credentials to target vulnerable, elderly residents.
-- **Casing:** Fake utility workers mapping properties, entry points, and resident schedules as part of organized burglary operations.
+## Who Issues It
 
 **Issuer Types** (First Party)
 

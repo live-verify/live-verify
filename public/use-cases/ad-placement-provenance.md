@@ -30,7 +30,7 @@ didn't serve it"); the ad network is invisible; the exchange is invisible; the r
 invisible. Accountability dissolves into the chain precisely because the chain is hidden from the
 one person harmed by it.
 
-This use case does **not** claim to stop malvertising or to vet ad code for safety — ad payloads are
+This use case does not claim to stop malvertising or to vet ad code for safety — ad payloads are
 dynamic, per-impression executable code, and verifying their *safety* is a different problem with
 different tooling. What it does is make the **provenance and liability chain of a specific ad
 placement visible to the end user, on demand, as a deliberate action** — turning "who placed this?"
@@ -42,13 +42,13 @@ The verifiable artifact is not the ad's pixels or its code — it is a short, si
 manifest**: a human-readable statement of *which parties stood in the chain that put this ad here*,
 each vouching for the link below it. The user surfaces it by an explicit gesture:
 
-1. **Right-click the ad** (or long-press on mobile) and choose **"Show ad provenance."**
+1. **Right-click the ad** (or long-press on mobile) and choose "Show ad provenance."
 2. The browser/extension reads the placement manifest bound to that ad slot and **walks its
    provenance chain** — the same `authorizedBy` walk Live Verify already uses for credential
    [authority chains](../../docs/authority-chain-app-display.md), here applied to liability rather
    than credentials.
-3. A panel renders the chain **origin-to-page**, from the **advertiser** (why the ad exists), through
-   every **ad reseller** that passed the placement onward, to the **ad presenter** that put it on the
+3. A panel renders the chain origin-to-page, from the advertiser (why the ad exists), through
+   every ad reseller that passed the placement onward, to the ad presenter that put it on the
    page — each party's role assigned by the browser from its position in the chain, not from what the
    party calls itself.
 
@@ -57,7 +57,7 @@ behind their back, and the result is attribution — not a safety verdict.
 
 ## No clip path: ad provenance is live-only
 
-Every other Live Verify use case has a **clip / photograph / OCR** path — the claim is printed on a
+Every other Live Verify use case has a clip / photograph / OCR path — the claim is printed on a
 document, and the verifiable text (with its `verify:` line) travels with it, so a person can capture and
 check it anywhere. **Ad provenance has no such path, and cannot.** It is different in kind, for two
 reasons:
@@ -73,7 +73,7 @@ reasons:
   model: the user turns verification inward via a gesture the page cannot touch, and the browser draws
   the result over the page.
 
-That is why the panel above is styled as **browser chrome**, not as page content: it must be visually
+That is why the panel above is styled as browser chrome, not as page content: it must be visually
 unmistakable that *the browser is saying this, not the page.* A page-drawn look-alike is exactly the
 attack this design exists to defeat.
 
@@ -90,7 +90,7 @@ genuine.
 
 **This is the single thing browser makers must make much, much clearer:** a *visual, spoof-resistant
 indicator* between UI a website drew (DOM-rendered) and UI the browser or an extension drew
-(chrome-rendered), so a user always knows the **source and trust boundary** of what they are looking
+(chrome-rendered), so a user always knows the source and trust boundary of what they are looking
 at. The mockup below sketche the distinction and a concrete design pattern browsers could adopt —
 a top-bar chip, a connected border tying the panel to a chrome anchor. Hopefully making it unmistakable
 that the panel is *"Secure UI from the browser, not from this page."*
@@ -131,7 +131,7 @@ there:
 </div>
 
 **Step 2 — the right-click.** Wondering who is behind the banner (or having landed on a scam version of
-it), the reader **right-clicks the ad** (long-press on mobile). The context menu is drawn by the
+it), the reader right-clicks the ad (long-press on mobile). The context menu is drawn by the
 *browser*, not the page, so the ad cannot suppress or fake it — the reader chooses **"Show ad
 provenance."**
 
@@ -166,7 +166,7 @@ and draws the panel:
   </div>
 </div>
 
-The panel is **drawn by the browser, over the page — not by the page's own JavaScript** (see
+The panel is drawn by the browser, over the page — not by the page's own JavaScript (see
 [No clip path: this use case is live-only](#no-clip-path-ad-provenance-is-live-only)). It shows **the ad
 exactly as placed** (the creative text is the other half of the evidence, alongside the chain), then the
 resolved chain of parties. There is no `verify:` line and nothing to clip: the browser already walked
@@ -196,7 +196,7 @@ collapses to two named, recognisable hops:
   </div>
 </div>
 
-Two things stand out against the SleepWell example. First, **the chain is short** — one advertiser, one
+Two things stand out against the SleepWell example. First, the chain is short — one advertiser, one
 integrated platform that both resold and presented the ad. There are no anonymous re-sellers stacked in
 the middle, and *that shortness is itself the signal*: the fewer, more recognisable the hops, the less
 room for a murky party to hide. Second, **the presenter is a party the reader recognises and can hold to
@@ -214,22 +214,22 @@ explanations are written out below so nothing depends on a hover:
   <p style="margin: 6px 0;"><strong title="Put this ad on the page you are reading. The party a complaint lands on, and the one held to account.">AD PRESENTER</strong> — put this ad on the page you are reading. The party a complaint lands on, and the one held to account.</p>
 </div>
 
-The chain reads **origin to page**: the **advertiser** at the top is why the ad exists; each **ad
-reseller** passed the placement onward (there may be many — the depth is the point); and the **ad
+The chain reads **origin to page**: the advertiser at the top is why the ad exists; each **ad
+reseller passed the placement onward (there may be many — the depth is the point); and the ad
 presenter** at the bottom is the party that put it on the page in front of the reader. If the banner
 had instead been a malware dropper or a scam, the same panel names every party that handled it — and,
 critically, names the presenter, who can no longer say "nothing to do with us."
 
 ### Three roles, and only three
 
-The overlay deliberately uses **three plain roles**, not the ad-industry's dozen self-flattering job
+The overlay deliberately uses three plain roles, not the ad-industry's dozen self-flattering job
 titles:
 
 - **Advertiser** — the origin. The ad exists to sell their product; they commissioned the creative.
   Topmost, because everything downstream serves their demand.
 - **Ad reseller** — any intermediary that passed the placement onward. Exchanges, networks, DSPs,
   re-sellers-of-re-sellers — from the reader's point of view they are all the same role: *someone who
-  resold this ad's placement toward the page.* There can be **N of them**, and how many is itself the
+  resold this ad's placement toward the page.* There can be N of them, and how many is itself the
   signal.
 - **Ad presenter** — the party that put the ad on the page the reader is on. The one a complaint lands
   on, and the one held to account (see below).
@@ -243,7 +243,7 @@ overlay does not use it for the role at all.
 
 No single party authors the overlay — the whole point is to attribute actors who would deny
 involvement, so none of them can be trusted to write it. The browser assembles it from separate
-domains, and — crucially — **assigns the roles itself from the structure of the walk**, not from what
+domains, and — crucially — assigns the roles itself from the structure of the walk, not from what
 any party says about itself:
 
 - **The chain's *shape* comes from the manifest bound to the slot**, walked upward: each party's record
@@ -251,8 +251,8 @@ any party says about itself:
   Live Verify uses for credential [authority chains](../../docs/authority-chain-app-display.md), here
   expressing *liability* rather than authorisation.
 - **The *role* is derived by the browser from position in the confirmed walk, not self-published.** The
-  leaf of the demand (the party nothing points *up* from) is the **advertiser**; the party whose domain
-  serves the page the reader is on is the **ad presenter**; everything between them is an **ad
+  leaf of the demand (the party nothing points *up* from) is the advertiser; the party whose domain
+  serves the page the reader is on is the ad presenter; everything between them is an **ad
   reseller**, and the browser can label its depth ("reseller 2 of 3"). A party cannot self-declare a
   better rank — its position in the chain is a fact of who-attested-whom, which it does not control.
 - **Only *identity* is self-published** — a party's `formalName` (e.g. "GetCheapClicks Media Ltd,
@@ -262,7 +262,7 @@ any party says about itself:
 - **A line is *confirmed* only if the party above it attests the one below.** `getcheapclicks.example`
   appears in the chain only because `brightreach.example` — the party above it — actually vouched that
   it accepted GetCheapClicks' placement. A reseller cannot insert itself unless the party above signed
-  for it; an unconfirmed link renders **struck**, not hidden (see
+  for it; an unconfirmed link renders struck, not hidden (see
   [Status Indications](#data-visible-after-verification)).
 
 So the lines are independent GETs to independent domains, stitched by the walk: the manifest gives the
@@ -279,14 +279,14 @@ its own rank, and no party writes the whole overlay.
 
 ## Why the Ad Presenter is the Accountability Endpoint
 
-The chain **terminates at the ad presenter's own domain** — the party whose page the reader is on. It
+The chain terminates at the ad presenter's own domain — the party whose page the reader is on. It
 anchors there not because the presenter is *trusted* (it is the party most motivated to evade), but
 because it is the one the harmed reader can actually reach and complain to, and the one the signed
-chain **pins**.
+chain pins.
 
 The presenter's instinct, when a scam or malware ad is reported, is the neutral-conduit defence:
 *"we didn't create that ad, we just host the page — it came through an ad chain we don't control."* In
-the US that is the **Section 230** claim; in the EU it is the DSA hosting-provider defence; in the UK,
+the US that is the Section 230 claim; in the EU it is the DSA hosting-provider defence; in the UK,
 the Online Safety Act intermediary defences. All of them turn on the presenter being a **passive
 conduit** that did not participate in placing the content.
 
@@ -299,18 +299,18 @@ turns the presenter's "nothing to do with us" from an assertion into a falsifiab
 the chain contradicts.
 
 - Each party in the chain signs "I accepted this placement from the party below me" — the presenter
-  included. That is an attestation of **participation and liability**, not of safety.
+  included. That is an attestation of participation and liability, not of safety.
 - Whether the resellers were diligent (malware-sniffed the payload, held real indemnity) is a
   contractual matter between them — but the *existence and shape* of the signed chain is something the
   reader can surface at will.
 
 **The evidentiary object is the whole chain plus the claim text.** What a reader (or a regulator, or
-law enforcement) is handed is not just the presenter's name: it is the **complete resolved chain**
+law enforcement) is handed is not just the presenter's name: it is the complete resolved chain
 (advertiser → resellers → presenter, each link confirmed) **together with the verified text of the ad
-itself** — the creative or scam copy that was actually shown. This package is **self-evidencing**: any
+itself — the creative or scam copy that was actually shown. This package is self-evidencing**: any
 recipient can re-walk it and re-verify exactly what the reporter saw (see
 [Chain-Escalated Reporting](../../docs/chain-escalated-reporting.md) and the reporting section below).
-Crucially, it establishes **participation** — *who signed for this ad appearing where* — which is the
+Crucially, it establishes participation — *who signed for this ad appearing where* — which is the
 fact that defeats a neutral-conduit immunity, not merely *who to blame*.
 
 **Honest limit.** Establishing participation is not establishing guilt. The chain proves *who
@@ -318,11 +318,11 @@ participated in placing this exact ad*; it does not prove the ad was unlawful, h
 party breached a duty. That remains for a court. Provenance strips the "we weren't involved" evasion; it
 does not adjudicate the wrong.
 
-## Data Verified
+## What Is Checked
 
 The placement reference, the publisher slot, the issue timestamp, the ordered provenance chain
 (each party's domain and self-published role description), and the salt. The manifest binds *which
-parties stood in this placement's chain* — it does **not** bind, vouch for, or verify the ad's
+parties stood in this placement's chain* — it does not bind, vouch for, or verify the ad's
 creative content, its executable behaviour, or its safety.
 
 **What is deliberately NOT included:**
@@ -332,7 +332,7 @@ creative content, its executable behaviour, or its safety.
 - the auction price, bid data, or commercial terms
 - any user-identifying or targeting data about the person who saw the ad
 
-## Data Visible After Verification
+## What the Checker Sees
 
 The ordered chain of parties, top-down, each with its self-published role description (e.g. "Ad
 exchange that ran the auction"), exactly as the credential authority-chain display works. Tapping a
@@ -348,9 +348,9 @@ party can reveal its `formalName` (the registered company behind the domain) whe
 - **Expired** — The placement manifest's validity window has passed (per-impression manifests are
   short-lived; the slot must re-issue).
 
-## Second-Party Use
+## Who Holds It
 
-The **publisher** benefits directly. Signing and surfacing a provenance manifest:
+The publisher benefits directly. Signing and surfacing a provenance manifest:
 
 - **Converts a liability they already bear into a transparency feature.** Users increasingly blame
   the site they were on for a bad ad; a publisher that can *show* the chain demonstrates it isn't
@@ -361,7 +361,7 @@ The **publisher** benefits directly. Signing and surfacing a provenance manifest
 - **Differentiates "responsible ad" publishers.** A site that proxies ads through its own domain and
   exposes provenance is making a checkable claim that ad-stuffed competitors cannot.
 
-## Third-Party Use
+## Who Checks It
 
 **End users / readers**
 
@@ -388,15 +388,15 @@ rewards the diligent intermediary and isolates the murky re-seller who refuses t
 
 ## Reporting up the chain (a post-verification action)
 
-Seeing a bad ad, a user can do more than read its provenance — they can **report it**, and the
+Seeing a bad ad, a user can do more than read its provenance — they can report it, and the
 resolved chain becomes the report's routing table. The report is a
 [post-verification action](../../docs/post-verification-actions.md): the user invokes a "report this"
-gesture and the complaint is escalated **root-first** down the chain.
+gesture and the complaint is escalated root-first down the chain.
 
 - **The report is the whole chain plus the URL**, from the browser's point of view — self-evidencing,
   so any recipient can re-walk and re-verify exactly what the reporter saw.
 - **The honest root gets first dibs**, then the report steps down toward the leaf one party at a time;
-  the first party to **consume** it (accept responsibility for acting) stops the cascade.
+  the first party to consume it (accept responsibility for acting) stops the cascade.
 - **Why root-first:** the party knowingly complicit in fraud is usually *far from the root* — a rogue
   re-seller deep in the chain. Routing root-first sends the report *past* them to the honest parties
   above first, the ones holding indemnity over them and able to cut them off. The bad actor is the
@@ -411,7 +411,7 @@ gesture and the complaint is escalated **root-first** down the chain.
 The full mechanism — payload, escalation order, the honest-roots list, and consumption receipts — is
 specified in [Chain-Escalated Reporting](../../docs/chain-escalated-reporting.md).
 
-## Verification Architecture
+## How Verification Works Here
 
 This use case is an instance of [Safe-Sequence Platform Disclosure](../../docs/safe-sequence-platform-disclosure.md):
 the platform (the ad supply chain) is the subject, the user turns verification inward via a
@@ -427,12 +427,12 @@ machinery:
 - Each party publishes a `verification-meta.json`-style record with its `formalName` (identity only —
   the *role* is assigned by the browser from chain position, not self-published) and an `authorizedBy`
   pointer to the party that accepted its placement. The walk resolves the chain from the presenter up
-  to the advertiser, and is rendered **origin-to-page** (advertiser at top, presenter at the accountable
+  to the advertiser, and is rendered origin-to-page (advertiser at top, presenter at the accountable
   bottom) for reading.
-- A link is **confirmed** only if the party above it actually attests the one below — the same
+- A link is confirmed only if the party above it actually attests the one below — the same
   property that stops a fraudulent credential issuer from claiming an endorsement it doesn't have. A
   re-seller cannot fabricate "placed by a reputable network" unless that network signed for it.
-- The architecture verifies **the shape and attestation of the chain**, never the payload. This
+- The architecture verifies the shape and attestation of the chain, never the payload. This
   boundary is deliberate and stated plainly to users: provenance ≠ safety.
 
 This is explicitly a *provenance and accountability* mechanism, not a malware control. It does not

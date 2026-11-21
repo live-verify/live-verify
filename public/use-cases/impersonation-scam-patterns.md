@@ -13,8 +13,8 @@ furtherDerivations: 0
 
 Every scam that impersonates a real organization follows the same structure:
 
-1. A person or message **claims to represent** a legitimate organization
-2. The target **cannot verify** that claim
+1. A person or message claims to represent a legitimate organization
+2. The target cannot verify that claim
 3. The scammer exploits that gap to extract money, information, or compliance
 
 The channel doesn't matter. The same scam — say, a fake bank fraud alert — can arrive as a phone call, an SMS, an email, a WhatsApp message, a social media DM, or even an in-person visit. The scam is the scam. The channel is just transport.
@@ -147,7 +147,7 @@ Scams that exploit panic to bypass rational judgment.
 Across all scam types and all channels, the verification moment is the same:
 
 1. Someone claims to represent a real organization
-2. The target asks: **"Prove it"**
+2. The target asks: "Prove it"
 3. A real representative produces a verifiable claim from their organization's domain
 4. A scammer cannot
 
@@ -167,7 +167,7 @@ The infrastructure is identical in every case: a claim is made, hashed, and publ
 
 ## What Live Verify Cannot Prevent
 
-Live Verify disrupts impersonation — the moment a scammer claims to represent a real organization. It does **not** address:
+Live Verify disrupts impersonation — the moment a scammer claims to represent a real organization. It does not address:
 
 - **Pure social engineering** — A scammer who never claims organizational affiliation ("I'm a friend of your son's") operates outside the verification model. There's no domain to verify against.
 - **The grooming phase** — In pig-butchering and romance scams, the weeks of personal relationship-building happen before any organization is impersonated. Live Verify cannot prevent someone from being befriended on Tinder.
@@ -176,9 +176,9 @@ Live Verify disrupts impersonation — the moment a scammer claims to represent 
 
 These are the boundaries. Within them, the principle holds: impersonation of a real organization, on any channel, is exposed by the inability to produce a verifiable claim against that organization's domain.
 
-## Second-Party Use
+## Who Holds It
 
-The **target of the scam** — the person being contacted.
+The target of the scam — the person being contacted.
 
 **The universal test:** "Can you send me something I can verify?" This works regardless of channel. On a phone call, it's "send me a verification text." In an email or message, it's "where's the verify line?" At the door, it's "let me scan your badge."
 
@@ -189,7 +189,7 @@ The **target of the scam** — the person being contacted.
 - **In-person:** "Can I scan your ID?" (See: [Cold-Caller Credentials](view.html?doc=cold-caller-credentials))
 - **Any channel:** If someone claiming to represent an organization cannot produce a verifiable claim against that organization's domain, disengage.
 
-## Third-Party Use
+## Who Checks It
 
 **Telecom companies and messaging platforms** — If legitimate organizations adopt verified contact, platforms can more confidently flag or suppress unverified messages/calls claiming organizational authority.
 
@@ -201,7 +201,7 @@ The **target of the scam** — the person being contacted.
 
 **Social media platforms** — When presented with forged court orders demanding content takedown (as documented in the CNN/OpenAI reporting on Chinese state actors), platforms can verify the document against the claimed court's domain. 404 = ignore the forged order.
 
-## Verification Architecture
+## How Verification Works Here
 
 **Why Scams Work — The Trust Gap**
 

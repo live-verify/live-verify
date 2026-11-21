@@ -130,7 +130,7 @@ This rollup is useful for:
 
 The legal model would be:
 
-- certain document classes are designated **high-risk reliance objects**
+- certain document classes are designated high-risk reliance objects
 - designated objects must be issuable in standardized verifiable form
 - the form must expose the issuer domain clearly
 - the object must chain to the relevant regulator, public authority, or statutory root where applicable

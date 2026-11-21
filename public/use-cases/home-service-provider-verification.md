@@ -13,7 +13,7 @@ furtherDerivations: 0
 
 When you hire a plumber or electrician, you are letting a stranger into your private home.
 
-The **Verified Credential** is the worker's digital or physical doorstep credential. It is strongest when it proves four narrow things:
+The Verified Credential is the worker's digital or physical doorstep credential. It is strongest when it proves four narrow things:
 1.  **Which company is actually standing at the door** — so the homeowner can detect bait-and-switch or undisclosed subcontractor substitution.
 2.  **What task they are here to do** — not just "electrician," but whether the worker is assigned for this job at this address now.
 3.  **Whether their license scope matches the claimed work** — for example, whether the claimed trade authorization actually covers the service being offered.
@@ -43,18 +43,26 @@ The **Verified Credential** is the worker's digital or physical doorstep credent
       <div style="width: 100px; height: 125px; background: #eee; display: flex; align-items: center; justify-content: center; color: #777; border: 1px solid #ccc; border-radius: 4px;">[PHOTO ID]</div>
     </div>
     <div style="flex-grow: 1; background: #f9f9f9; border: 1px solid #999; padding: 12px; font-size: 0.9em; color: #000; line-height: 1.5;">
-      MASTER ELECTRICIAN<br>
+      <span verifiable-text="start" data-for="tradesperson"></span>MASTER ELECTRICIAN<br>
       MIKE J. MILLER<br>
       License #: ELEC-992288 (TX)<br>
       Company: Sparky's Power, LLC<br>
       Salt: a4e62b6<br>
-      <span style="font-family: 'Courier New', monospace;"
-        title="Demo only: Licensing board doesn't yet offer verification&#10;endpoints, so this is illustrative">verify:tx-license.gov/v</span>
+      <span data-verify-line="tradesperson" style="font-family: 'Courier New', monospace;"
+        title="Demo only: Licensing board doesn't yet offer verification&#10;endpoints, so this is illustrative">verify:tx-license.gov/v</span> <span verifiable-text="end" data-for="tradesperson"></span>
     </div>
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Tradesman Fraud
+
+- **Identity Theft:** Burglars posing as gas inspectors or repair workers to gain entry to homes to steal or case the interior.
+- **Licensure Hiding:** A contractor whose license was revoked for unsafe work keeping their physical card to find work through private Craigslist ads.
+- **Insurance Forgery:** Creating a fake COI PDF to trick a homeowner into thinking they are protected against accidents.
+- **Company Substitution:** Homeowner books one company, but a different and less trusted company arrives at the door.
+- **Scope Overreach:** Worker is licensed for one class of work but claims authority for a broader or more dangerous task.
+
+## What Is Checked
 
 Tradesperson name, professional license type (Master/Journeyman), license number, company name, salt. The badge text is deliberately minimal — it identifies the worker and company, not the job details.
 
@@ -119,15 +127,15 @@ Fields:
 
 Tradespeople should never tell homeowners "don't bother" or "that's not necessary." Every report is logged. The licensing board can triage later—but the homeowner is never made to feel their input isn't wanted.
 
-## Second-Party Use
+## Who Holds It
 
-The **Tradesperson (Plumber/Electrician)** benefits from verification.
+The Tradesperson (Plumber/Electrician) benefits from verification.
 
 **Customer Trust:** Proving to a homeowner at the door that they are not just licensed in the abstract, but are the right worker from the right company for the right job. This removes stranger-danger friction without forcing the homeowner into a long phone call.
 
 **Job Bidding:** Including a "Verified License Badge" in digital quotes to win more work from premium clients who value safety.
 
-## Third-Party Use
+## Who Checks It
 
 **Homeowners (Vulnerable Residents)**
 **Doorstep Decision:** Before opening the door, a resident or remote family member can scan the credential and see not just licensure, but company identity, assignment, and task scope. That is what prevents fake-repairman and bait-and-switch scams.
@@ -138,15 +146,7 @@ The **Tradesperson (Plumber/Electrician)** benefits from verification.
 **Insurance Companies**
 **Claim Adjudication:** Verifying that a plumbing repair was performed by a verified, licensed professional before paying out a water-damage claim.
 
-## Verification Architecture
-
-**The "Fake Tradesman" Fraud Problem**
-
-- **Identity Theft:** Burglars posing as gas inspectors or repair workers to gain entry to homes to steal or case the interior.
-- **Licensure Hiding:** A contractor whose license was revoked for unsafe work keeping their physical card to find work through private Craigslist ads.
-- **Insurance Forgery:** Creating a fake COI PDF to trick a homeowner into thinking they are protected against accidents.
-- **Company Substitution:** Homeowner books one company, but a different and less trusted company arrives at the door.
-- **Scope Overreach:** Worker is licensed for one class of work but claims authority for a broader or more dangerous task.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -160,11 +160,11 @@ The **Tradesperson (Plumber/Electrician)** benefits from verification.
 
 **Pattern:** Regulated / commercial
 
-The strongest version is layered: the board or licensing body confirms scope and standing; the company or marketplace confirms assignment and firm identity for this visit.
+The strongest version is layered: the board or licensing body confirms scope and standing; the company or marketplace confirms assignment and firm identity for this visit. The chain below shows the board layer, which is the one on the badge above; a company or marketplace claim would start from its own domain.
 
 ```
-✓ pro.checkatrade.com/verify — Confirms company identity, assignment, and marketplace standing
-  ✓ gov.uk/verifiers — jurisdictional or board root where applicable
+✓ tx-license.gov/v — Licensing board; confirms licence scope and standing
+  ✓ texas.gov — Texas state government
 ```
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
@@ -173,7 +173,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the state licensing board or company's hashes and status changes plus structured metadata (tradesperson names, license types, license numbers, company names, scope of work, insurance status, dispatch assignments) — never home addresses or job site locations — providing non-repudiation of the credential and an audit trail state licensing boards can inspect.
 
-## Competition vs. Review Sites (Yelp)
+## Compared With Review Sites (Yelp)
 
 | Feature | Live Verify | Review Sites (Yelp/Google) | Physical ID Card |
 | :--- | :--- | :--- | :--- |
@@ -182,7 +182,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires reading multiple reviews. | **Instant.** |
 | **Safety Data** | **High.** Shows background/insurance status. | **None.** Only shows quality of work. | **N/A.** |
 
-**Why Live Verify wins here:** The "Threshold Moment." Homeowners make the decision to open the door in seconds. They don't want to read 50 Yelp reviews while a stranger stands on their porch. Live Verify turns the **ID Badge** into a live, non-confrontational safety tool that provides instant, high-authority trust.
+**Where each fits:** Review sites are the right tool when choosing a tradesperson: they show the quality of past work over many jobs, which a licence check does not, and the physical ID card is still what the worker carries to the door. The gap is the moment at the door itself, when the homeowner has seconds to decide and cannot tell from reviews whether this particular person is the licensed worker from the company they booked. Live Verify lets the badge be checked against the issuer's domain at that point, alongside the research done beforehand.
 
 ## See Also
 

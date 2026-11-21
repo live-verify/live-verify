@@ -11,7 +11,7 @@ furtherDerivations: 0
 
 ## What is an Inspector Badge?
 
-A **Building Inspector Badge** is the identification carried by city officials who enter private homes and businesses to check for safety (Electrical, Plumbing, Fire).
+A Building Inspector Badge is the identification carried by city officials who enter private homes and businesses to check for safety (Electrical, Plumbing, Fire).
 
 Because these officials have the legal right to walk into your kitchen or basement, criminals often pose as "Inspectors" to gain entry for burglary or to extort fake fines.
 
@@ -31,23 +31,29 @@ Live Verify allows a homeowner to scan the badge at the door and see a green "AC
   </div>
   <div style="padding: 15px; flex-grow: 1; display: flex; flex-direction: column;">
     <div style="flex-grow: 1;">
-      <div style="color: #1a237e; font-weight: bold;">CITY OF CHICAGO</div>
-      <div style="font-size: 0.8em; color: #666;">DEPARTMENT OF BUILDINGS</div>
+      <div style="color: #1a237e; font-weight: bold;"><span verifiable-text="start" data-for="inspector"></span>MIDSOMER DISTRICT COUNCIL</div>
+      <div style="font-size: 0.8em; color: #666;">BUILDING CONTROL</div>
     </div>
     <div style="background: #f9f9f9; border: 1px solid #999; padding: 10px; font-size: 0.85em; color: #000; line-height: 1.4;">
       ELECTRICAL SAFETY INSPECTOR<br>
       RAYMOND STANTZ<br>
       Badge #: 992288<br>
-      The bearer is authorized to enter premises<br>
+      The bearer is authorised to enter premises<br>
       for official safety inspections.<br>
-      Chicago Municipal Code 13-8.<br>
-      <span style="font-family: 'Courier New', monospace;"
-        title="Demo only: City of Chicago doesn't yet offer verification&#10;endpoints, so this is illustrative">vfy:cityofchicago.org/inspectors</span>
+      Building Act 1984.<br>
+      <span data-verify-line="inspector" style="font-family: 'Courier New', monospace;"
+        title="Demo only: local authorities don't yet offer verification&#10;endpoints, so this is illustrative">verify:inspector.localauthority.gov.uk/v</span> <span verifiable-text="end" data-for="inspector"></span>
     </div>
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Official Fraud
+
+- **Identity Theft:** Scammers buying realistic-looking "Inspector" uniforms and fake IDs online.
+- **Credential Hiding:** A terminated inspector keeping their physical badge and continuing to "inspect" businesses to demand bribes.
+- **Scope Misrepresentation:** An electrical inspector pretending they have the authority to shut down a restaurant for "Health Violations."
+
+## What Is Checked
 
 Inspector name, photo (hash), badge number, department/division (Electrical, Plumbing, Fire), authority statute, employment status (Active/Retired/Suspended), jurisdiction.
 
@@ -65,7 +71,7 @@ The endpoint returns a simple status code:
 - **ALERT** — Badge reported lost/stolen; do not admit, consider calling police
 - **404** — Badge not found (retired, terminated, or never issued)
 
-The issuer domain is visible from the `verify:` line on the badge itself (e.g., `cityofchicago.org`).
+The issuer domain is visible from the `verify:` line on the badge itself (e.g., `inspector.localauthority.gov.uk`).
 
 ## Post-Verification Actions
 
@@ -81,7 +87,7 @@ Status: OK
 Are you a homeowner? You may report details of this inspection visit.
 You will NEVER be told not to do this or that it is not needed.
 
-POST to: https://cityofchicago.org/inspect/report/992288
+POST to: https://inspector.localauthority.gov.uk/report/992288
 
 Fields:
 - Your address
@@ -109,18 +115,18 @@ The message explicitly states reporting is *always* appropriate. This prevents:
 
 Every report is logged. The city can triage later—but the citizen is never told their input isn't wanted.
 
-## Second-Party Use
+## Who Holds It
 
-The **Property Owner** (Homeowner or Business) benefits from verification.
+The Property Owner (Homeowner or Business) benefits from verification.
 
 **Anti-Scam Protection:** Criminals often pose as "Gas Inspectors" or "Building Officials" to gain entry to a home to case it for burglary or to extort "On-the-spot fines" from elderly residents. Scanning the badge instantly proves the person at the door is a legitimate city official.
 
 **Corporate Security:** Large industrial sites can integrate the inspector's verified hash into their visitor management logs, creating a digital record of exactly who from the city accessed the facility.
 
-## Third-Party Use
+## Who Checks It
 
 **Police Departments**
-**Impersonation Calls:** When a suspicious homeowner calls 911 about a "Fake Inspector," the dispatcher can ask the homeowner to scan the badge. If it verifies against the city domain, the police response can be downgraded from "Trespassing" to "Routine."
+**Impersonation Calls:** When a suspicious homeowner calls the police about a "Fake Inspector," the dispatcher can ask the homeowner to scan the badge. If it verifies against the city domain, the police response can be downgraded from "Trespassing" to "Routine."
 
 **City Human Resources**
 **Liability Control:** Ensuring that only active, background-checked employees are using their badges to enter private properties.
@@ -128,13 +134,7 @@ The **Property Owner** (Homeowner or Business) benefits from verification.
 **Utility Companies**
 **Joint Inspections:** Verifying the credentials of municipal partners during joint safety sweeps.
 
-## Verification Architecture
-
-**The "Fake Official" Fraud Problem**
-
-- **Identity Theft:** Scammers buying realistic-looking "Inspector" uniforms and fake IDs online.
-- **Credential Hiding:** A terminated inspector keeping their physical badge and continuing to "inspect" businesses to demand bribes.
-- **Scope Misrepresentation:** An electrical inspector pretending they have the authority to shut down a restaurant for "Health Violations."
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -160,11 +160,11 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the municipal authority's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the badge.
 
 
-## Competition vs. ID Badges / Phone Calls
+## Compared With ID Badges / Phone Calls
 
 | Feature | Live Verify | Holographic Badge | Calling the Office |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to `cityofchicago.org`. | **Mechanical.** Hard to forge, but non-verifiable. | **Human.** Relies on someone answering the phone. |
+| **Trust Anchor** | **Domain-Bound.** Bound to the council's own domain. | **Mechanical.** Hard to forge, but non-verifiable. | **Human.** Relies on someone answering the phone. |
 | **Photo Verification** | **Confirms authenticity.** Badge photo is real; homeowner compares face. | **Static.** Photo is on the badge, but is the badge real? | **None.** Voice only. |
 | **Speed** | **Instant.** 5-second scan. | **N/A.** Just looking. | **Slow.** Often takes 5-10 minutes on hold. |
 | **Revocation** | **Real-time.** Suspended/stolen badges fail immediately. | **None.** Physical badge still looks valid. | **Maybe.** If office knows and tells you. |

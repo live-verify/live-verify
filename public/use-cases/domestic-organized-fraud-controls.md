@@ -56,7 +56,7 @@ This layer helps after the fraud is discovered: proving report dates, protective
 
 - [Release Fee Demand Notices](view.html?doc=release-fee-demand-notices)
 
-This is the policy layer. The invariant across scam scripts is: **pay this first to unlock that**.
+This is the policy layer. The invariant across scam scripts is: pay this first to unlock that.
 
 ## Why these belong together
 

@@ -13,7 +13,7 @@ furtherDerivations: 0
 
 When you open your door to someone claiming to be from the council, the utility company, or a surveying firm, you are letting a stranger into your private home.
 
-The **Verified Badge** is the worker's digital or physical ID. It proves:
+The Verified Badge is the worker's digital or physical ID. It proves:
 1.  **Professional Registration:** They are a genuine chartered surveyor, registered appraiser, or authorized meter reader—not an imposter.
 2.  **Current Status:** They are in good standing with their regulatory body and qualified to access your property.
 3.  **Authorization:** They work for a legitimate firm or utility company and have genuine authority to conduct the inspection or reading.
@@ -42,22 +42,26 @@ The **Verified Badge** is the worker's digital or physical ID. It proves:
       <div style="width: 100px; height: 125px; background: #eee; display: flex; align-items: center; justify-content: center; color: #777; border: 1px solid #ccc; border-radius: 4px;">[PHOTO ID]</div>
     </div>
     <div style="flex-grow: 1; background: #f9f9f9; border: 1px solid #999; padding: 12px; font-size: 0.9em; color: #000; line-height: 1.5;">
-      CHARTERED SURVEYOR<br>
+      <span verifiable-text="start" data-for="surveyor"></span>CHARTERED SURVEYOR<br>
       CLAIRE M. ROBERTS MRICS<br>
       RICS Number: 8834221<br>
-      Firm: Savills<br>
+      Firm: Causton Surveyors LLP<br>
       Role: Chartered Surveyor<br>
-      Status: ACTIVE / REGISTERED<br>
-      Verified via RICS Members Register.<br>
-      Professional liability insurance and<br>
-      regulatory compliance confirmed.<br>
-      <span style="font-family: 'Courier New', monospace;"
-        title="Verify against RICS Members Register">verify:members.rics.org/v</span>
+      Salt: 5t8w2q9r<br>
+      <span data-verify-line="surveyor" style="font-family: 'Courier New', monospace;"
+        title="Demo only: the register doesn't yet offer verification&#10;endpoints, so this is illustrative">verify:members.rics.org/v</span> <span verifiable-text="end" data-for="surveyor"></span>
     </div>
   </div>
 </div>
 
-## Data Verified
+## The Problem: Bogus Caller Fraud
+
+- **Impersonation:** Criminals posing as "Council Surveyors," "Meter Readers," or "Water Board Inspectors" to gain entry to homes to steal valuables or case properties for later burglary.
+- **Authority Forging:** Fake appointments or forged credentials claiming property inspection is required by law, using psychological pressure to gain entry.
+- **Mortgage Fraud:** Fake appraisers or valuers inflating property values in collusion with dishonest lenders or borrowers.
+- **Utility Fraud:** Impersonating meter readers to access properties, steal identifying information, or case homes for robbery.
+
+## What Is Checked
 
 Worker name, photo (hash), professional registration number, firm affiliation, qualification level (MRICS/FRICS or equivalent), role (surveyor/appraiser/meter reader), current assignment status, issuing regulatory body.
 
@@ -116,9 +120,9 @@ Fields:
 
 Surveyors and meter readers should never tell homeowners "don't bother" or "that's not necessary" with recording visits. Every report is logged. The regulatory body can triage later—but the homeowner is never made to feel their input isn't wanted.
 
-## Second-Party Use
+## Who Holds It
 
-The **Surveyor, Meter Reader, or Appraiser** benefits from verification.
+The Surveyor, Meter Reader, or Appraiser benefits from verification.
 
 **Customer Trust:** Proving to a homeowner at the door that they are a verified professional registered with a legitimate regulatory authority. This removes the "Bogus Caller" friction and allows the worker to access the property faster and conduct their work with cooperation rather than suspicion.
 
@@ -126,7 +130,7 @@ The **Surveyor, Meter Reader, or Appraiser** benefits from verification.
 
 **Faster Site Access:** Homeowners are more willing to grant immediate property access when they see a green "ACTIVE" status from a trusted authority, reducing delays and callbacks.
 
-## Third-Party Use
+## Who Checks It
 
 **Homeowners (Vulnerable Residents)**
 **Personal Safety:** Before opening the door, a resident (or their remote family via doorbell cam) can scan the badge. "Verified by Regulatory Authority" ensures the person at the door isn't a fake surveyor, bogus meter reader, or criminal impersonating a utility company worker.
@@ -148,14 +152,7 @@ The **Surveyor, Meter Reader, or Appraiser** benefits from verification.
 
 **Compliance Documentation:** Creating audit trails of verified professional inspections for regulatory compliance and liability protection.
 
-## Verification Architecture
-
-**The "Bogus Caller" Fraud Problem**
-
-- **Impersonation:** Criminals posing as "Council Surveyors," "Meter Readers," or "Water Board Inspectors" to gain entry to homes to steal valuables or case properties for later burglary.
-- **Authority Forging:** Fake appointments or forged credentials claiming property inspection is required by law, using psychological pressure to gain entry.
-- **Mortgage Fraud:** Fake appraisers or valuers inflating property values in collusion with dishonest lenders or borrowers.
-- **Utility Fraud:** Impersonating meter readers to access properties, steal identifying information, or case homes for robbery.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -199,7 +196,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the regulator's hashes and status changes plus structured metadata (registration number, professional name, qualification level, status date) — never property addresses or surveyor routes — providing non-repudiation of the registration and an audit trail homeowners and regulators can inspect.
 
-## Competition vs. Review Sites (Yelp / Google)
+## Compared With Review Sites (Yelp / Google)
 
 | Feature | Live Verify | Review Sites (Yelp/Google) | Physical ID Card |
 | :--- | :--- | :--- | :--- |
@@ -209,4 +206,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Safety Data** | **High.** Shows current registration status and authority. | **None.** Only shows quality of work. | **N/A.** |
 | **Access Control** | **Real-time gate.** Homeowner can refuse entry immediately. | **Retroactive.** Only useful after bad experience. | **None.** Already at the door. |
 
-**Why Live Verify wins here:** The "Threshold Moment." Homeowners make the decision to open the door in seconds. They don't want to read 50 Yelp reviews while a stranger in a high-vis vest stands on their porch. Live Verify turns the **ID Badge** into a live, non-confrontational safety tool that provides instant, high-authority verification at the moment of maximum vulnerability—the property threshold.
+**Where each fits:** Review sites remain the place to judge a firm's quality of work before booking a survey, and the physical ID card is still what the visitor carries. Neither can tell a homeowner at the door whether this particular person is currently registered and in good standing, and a homeowner has only seconds to decide. Live Verify fills that gap by letting the badge be checked against the regulator's or utility's domain before entry; the earlier research and the card itself keep their roles.

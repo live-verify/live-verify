@@ -13,7 +13,7 @@ furtherDerivations: 0
 
 When you arrange to view a property, you're meeting a stranger at a vacant location. You found the listing online. A person claims to be the agent at the door. You're about to walk into an empty property alone with someone you've never met.
 
-The **Verified Badge** is the agent's digital credential. It proves:
+The Verified Badge is the agent's digital credential. It proves:
 1. **Identity:** They are a registered real estate professional with a current license.
 2. **Agency:** They are affiliated with a legitimate agency and properly insured.
 3. **Status:** Their license is active, not expired or revoked.
@@ -42,21 +42,26 @@ Documented cases in the USA, Canada, and Australia show criminals posing as agen
       <div style="width: 100px; height: 125px; background: #eee; display: flex; align-items: center; justify-content: center; color: #777; border: 1px solid #ccc; border-radius: 4px;">[PHOTO ID]</div>
     </div>
     <div style="flex-grow: 1; background: #f9f9f9; border: 1px solid #999; padding: 12px; font-size: 0.9em; color: #000; line-height: 1.5;">
-      ESTATE AGENT<br>
+      <span verifiable-text="start" data-for="agent"></span>ESTATE AGENT<br>
       SARAH MITCHELL<br>
-      License #: ARLA-22881 (UK) / DRE-01234567 (CA)<br>
-      Agency: Knight Frank<br>
-      Status: ACTIVE / INSURED<br>
-      Verified via the Property Authority.<br>
-      Includes current professional indemnity insurance<br>
-      and agent credentials verification.<br>
-      <span style="font-family: 'Courier New', monospace;"
-        title="Verification endpoint for agent credentials">verify:propertymark.co.uk/v</span>
+      Licence #: ARLA-22881<br>
+      Agency: Causton Estates<br>
+      Issued by: ARLA Propertymark<br>
+      Salt: 2b7j5d8g<br>
+      <span data-verify-line="agent" style="font-family: 'Courier New', monospace;"
+        title="Demo only: the register doesn't yet offer verification&#10;endpoints, so this is illustrative">verify:agents.propertymark.co.uk/v</span> <span verifiable-text="end" data-for="agent"></span>
     </div>
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Agent Fraud
+
+- **Luring Victims:** Criminals post fake property listings, then pose as agents to lure viewers to empty properties for robbery or assault.
+- **Unregistered Operators:** Individuals conducting property viewings without licenses, lacking professional indemnity insurance, and operating outside regulatory oversight.
+- **Case Casing:** Using fake viewings to case residential or commercial properties for future burglary or fraud.
+- **Sex Trafficking:** In rare cases, fake agent schemes are used to isolate and exploit victims.
+
+## What Is Checked
 
 Agent name, photo (hash), licence number, agency affiliation, licence status, professional indemnity insurance status, issuing regulatory body.
 
@@ -76,7 +81,7 @@ The endpoint returns a simple status code:
 - **REVOKED** — License revoked for serious violations; property viewing not authorized
 - **404** — License not found (forged badge, wrong jurisdiction, or data entry error)
 
-The issuer domain is visible from the `verify:` line on the badge itself (e.g., `propertymark.co.uk` or `dre.ca.gov`).
+The issuer domain is visible from the `verify:` line on the badge itself (e.g., `agents.propertymark.co.uk`).
 
 ## Post-Verification Actions
 
@@ -103,7 +108,7 @@ RECORD THIS SHOWING
 - Showing date/time: [timestamp]
 - My notes/observations: [optional]
 
-POST to: https://propertymark.co.uk/viewer-feedback
+POST to: https://agents.propertymark.co.uk/viewer-feedback
 
 Fields:
 - Property address: [address]
@@ -129,9 +134,9 @@ After scanning a verified agent, the app offers to share the agent's verified id
 1. **Safety:** Someone knows where you are and with whom.
 2. **Deterrent:** The criminal knows the victim is broadcasting their identity and location to a third party.
 
-## Second-Party Use
+## Who Holds It
 
-The **Estate Agent** benefits from verification.
+The Estate Agent benefits from verification.
 
 **Customer Trust:** Proving to a property viewer at the door that they are a legitimate, licensed professional with active insurance and verified credentials. This removes friction, especially with cautious buyers and sellers who are wary of property-show scams.
 
@@ -139,7 +144,7 @@ The **Estate Agent** benefits from verification.
 
 **Competitive Advantage:** Including a "Verified License Badge" in email confirmations and property viewing invitations signals professionalism and commitment to viewer safety.
 
-## Third-Party Use
+## Who Checks It
 
 **Property Viewers (Primary Safety Case)**
 **Assault Prevention:** Before viewing a property alone, a viewer (or their emergency contact via shared location) can scan the agent's badge. "Verified by [Authority]" confirms the person isn't a criminal posing as an agent to lure the victim to a vacant property.
@@ -152,14 +157,7 @@ The **Estate Agent** benefits from verification.
 **Mortgage Lenders & Title Companies**
 **Transaction Verification:** Confirming agent credentials on property transaction documents before closing. Reduces fraud risk if agent identity was misrepresented during the sale process.
 
-## Verification Architecture
-
-**The "Fake Agent" Fraud Problem**
-
-- **Luring Victims:** Criminals post fake property listings, then pose as agents to lure viewers to empty properties for robbery or assault.
-- **Unregistered Operators:** Individuals conducting property viewings without licenses, lacking professional indemnity insurance, and operating outside regulatory oversight.
-- **Case Casing:** Using fake viewings to case residential or commercial properties for future burglary or fraud.
-- **Sex Trafficking:** In rare cases, fake agent schemes are used to isolate and exploit victims.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -207,7 +205,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the regulator's hashes and status changes plus structured metadata (license number, issue date, expiration date, license status) — never agent name, address, or showing history — providing non-repudiation of the license and an audit trail property owners and regulators can inspect.
 
 
-## Competition vs. Review Sites (Google Reviews)
+## Compared With Review Sites (Google Reviews)
 
 | Feature | Live Verify | Review Sites (Google/Glassdoor) | Physical License Card |
 | :--- | :--- | :--- | :--- |
@@ -216,4 +214,4 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires reading multiple reviews. | **Instant.** No way to verify authenticity. |
 | **Safety Data** | **High.** Shows license status and regulatory history. | **Subjective.** Only shows customer satisfaction. | **N/A.** No way to check current status. |
 
-**Why Live Verify wins here:** The "Threshold Moment." Property viewers make the decision to enter a vacant building in seconds. They don't want to read 50 Google reviews while a stranger stands at the door. Live Verify turns the **Agent Badge** into a live, non-confrontational safety tool that provides instant, high-authority confirmation and creates a documented deterrent.
+**Where each fits:** Reviews are useful when choosing an agency, since they reflect how past clients were treated, and the physical licence card remains the agent's everyday identification. What neither offers is a check, at the door of a vacant property, that this particular person currently holds the licence they claim. Live Verify covers that moment by letting the viewer confirm the badge against the licensing body's domain before going in, alongside whatever research they did beforehand.

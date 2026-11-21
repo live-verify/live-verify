@@ -35,18 +35,27 @@ An unexpected knock. Someone in a Royal Mail uniform with a package requiring a 
       <div style="width: 100px; height: 125px; background: #eee; border: 2px solid #DA291C; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #000; font-size: 0.7em; text-align: center;">[POSTAL WORKER PHOTO]</div>
     </div>
     <div style="flex-grow: 1; color: #000">
-      <div style="font-size: 0.85em;">POSTAL DELIVERY OFFICER</div>
+      <div style="font-size: 0.85em;"><span verifiable-text="start" data-for="postal"></span>POSTAL DELIVERY OFFICER</div>
       <div style="font-size: 1.3em; font-weight: bold; margin: 0 0 4px 0;">David P 7721</div>
       <div style="font-size: 0.85em;">Employee ID: RM-441882</div>
       <div style="font-size: 0.85em;">Depot: London EC1</div>
+      <div style="font-size: 0.85em;">Salt: 4h8n2v6c</div>
       <div style="font-family: 'Courier New', monospace; font-size: 0.95em">
-          verify://staff.royalmail.com/v
+          <span data-verify-line="postal">verify:staff.royalmail.com/v</span> <span verifiable-text="end" data-for="postal"></span>
       </div>
     </div>
   </div>
 </div>
 
-## Data Verified
+## The Problem: Doorstep Fraud
+
+- **Fake Postal Worker Impersonation:** Criminals wearing similar uniforms to gain entry, case homes, or steal packages.
+- **Uniform Theft:** Using stolen postal service uniforms to impersonate workers and commit fraud.
+- **Fake "Signature Required" Pretexts:** Claiming a package needs signature to gain entry or obtain personal information.
+- **Fake "Customs Fee" Scams:** Claiming to collect customs or import duties on delivered parcels (common on international shipments).
+- **Suspicious Package Targeting:** Targeting vulnerable recipients (elderly, isolated) with fake delivery claims.
+
+## What Is Checked
 
 Worker name, photo (hash), employee ID, company/service, depot assignment, role, current shift status.
 
@@ -55,7 +64,7 @@ Worker name, photo (hash), employee ID, company/service, depot assignment, role,
 - **Courier Service ID:** Worn by DPD, Hermes/Evri, Yodel, and other private courier company employees.
 - **Delivery Manifest (Door Tag):** Left on the door for missed deliveries or requiring signature.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`staff.royalmail.com`, `staff.usps.gov`, courier company domain) and the worker's current status.
 
@@ -66,9 +75,9 @@ Shows the issuer domain (`staff.royalmail.com`, `staff.usps.gov`, courier compan
 - **TERMINATED** — Worker no longer employed; credential invalid.
 - **404** — Record not found; credential does not exist in issuer system.
 
-## Second-Party Use
+## Who Holds It
 
-The **Postal/Courier Worker** (second party) receives the ID badge from the postal service or courier company (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Postal/Courier Worker (second party) receives the ID badge from the postal service or courier company (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified credential proving their employment and depot assignment. Most of the time, the badge sits in their pocket or on their uniform—the verification value is latent, there *if needed*.
 
@@ -78,7 +87,7 @@ The **Postal/Courier Worker** (second party) receives the ID badge from the post
 
 **Future Optionality:** If a dispute arises about their employment, incident verification, or an allegation during a delivery, they have cryptographic proof of their authorized status ready without needing to contact their employer.
 
-## Third-Party Use
+## Who Checks It
 
 The postal/courier worker (second party) may hand the verified credential to various third parties:
 
@@ -94,15 +103,7 @@ The postal/courier worker (second party) may hand the verified credential to var
 **Law Enforcement**
 **Impersonation Checks:** Police can verify credentials of individuals claiming to be postal workers during neighborhood safety checks or suspicious activity investigations.
 
-## Verification Architecture
-
-**The "Doorstep Fraud" Problem**
-
-- **Fake Postal Worker Impersonation:** Criminals wearing similar uniforms to gain entry, case homes, or steal packages.
-- **Uniform Theft:** Using stolen postal service uniforms to impersonate workers and commit fraud.
-- **Fake "Signature Required" Pretexts:** Claiming a package needs signature to gain entry or obtain personal information.
-- **Fake "Customs Fee" Scams:** Claiming to collect customs or import duties on delivered parcels (common on international shipments).
-- **Suspicious Package Targeting:** Targeting vulnerable recipients (elderly, isolated) with fake delivery claims.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -148,7 +149,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 **Primary scenario: Physical OCR, not text-to-hash.**
 
-This use case is fundamentally **doorstep-based**. The verification happens in person: a resident looks through a peephole, a concierge stands at a lobby desk, a security guard checks credentials at a gate. The badge is physical (card, uniform badge, e-ink display), and the verification happens via camera/OCR on the spot.
+This use case is fundamentally doorstep-based. The verification happens in person: a resident looks through a peephole, a concierge stands at a lobby desk, a security guard checks credentials at a gate. The badge is physical (card, uniform badge, e-ink display), and the verification happens via camera/OCR on the spot.
 
 **Text-to-hash applicability is limited to:**
 - **Insurance claims / HR disputes:** An employee emails a photo of their badge to HR or an insurer. The recipient selects the text (employee ID, salt, verify line) from the digital image and verifies.
