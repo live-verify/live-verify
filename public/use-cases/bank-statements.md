@@ -11,18 +11,18 @@ furtherDerivations: 1
 
 ## What is a Bank Statement?
 
-A **Bank Statement** is the ultimate proof of wealth. It shows exactly how much money you have and where it came from.
+A Bank Statement is the ultimate proof of wealth. It shows exactly how much money you have and where it came from.
 
 Lenders use them to approve mortgages. Governments use them to approve Visas. Fraudsters use "Inspect Element" or Photoshop to turn a $500 balance into $50,000 in seconds.
 
-Verifying a bank statement directly against the bank's domain ensures that the balance on the page is the **truth**, without forcing the user to give their bank password to a risky "data scraping" app.
+Verifying a bank statement directly against the bank's domain confirms that the bank issued this exact page, with every figure as shown, as at the statement date, without the person checking needing any access to the account itself.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="bank"></span>CHASE                                              Page 1 of 4
 JPMorgan Chase Bank, N.A.
 
 Account Holder:                         Account Number:
-NORTHBRIDGE INDUSTRIES, INC.             ****-****-9982
+NORTHBRIDGE INDUSTRIES, INC.             **-**-9982
 1007 Mountain Drive                     Period: Mar 01 - Mar 31, 2026
 Fairport, NY 10001
 
@@ -40,9 +40,15 @@ Alteration of balances is a federal crime.
 <span data-verify-line="bank">verify:chase.com/statements/v</span> <span verifiable-text="end" data-for="bank"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Photoshopped Balance Fraud
 
-The full visible text of the **verified page** — account holder name, account number (masked), the summary block (balances, deposits, withdrawals, statement date range, issuing entity), **and the transaction rows on that page**. This is [page-at-a-time hashing](../../docs/page-at-a-time-hashing.md): the verifiable unit is one rendered page, so a deleted withdrawal or inserted deposit *on a page you check* changes that page's hash and fails to verify — not just the summary balance. A multi-page statement has one hash per page.
+- **Balance Inflation:** Changing a $5,000 balance to $50,000 to qualify for a loan.
+- **Transaction Deletion:** Removing a large "Gambling Withdrawal" or "IRS Penalty" from the statement before sending it to a landlord.
+- **Fabricated Statements:** Using a realistic-looking template to create a statement for a non-existent account at a real bank.
+
+## What Is Checked
+
+The full visible text of the verified page — account holder name, account number (masked), the summary block (balances, deposits, withdrawals, statement date range, issuing entity), and the transaction rows on that page. This is [page-at-a-time hashing](../../docs/page-at-a-time-hashing.md): the verifiable unit is one rendered page, so a deleted withdrawal or inserted deposit *on a page you check* changes that page's hash and fails to verify — not just the summary balance. A multi-page statement has one hash per page.
 
 **Reliability depends on how the page is read.** In Chrome-extension mode (DOM text, no OCR) and future PDF mode (text-layer extraction), a full page of dense rows hashes deterministically — this is the strong path, and the one to prefer for a presented statement. Camera-OCR on a *printed* dense page is more fragile: every misread row breaks the page hash, so on paper the reliable unit may fall back to the summary block. The app should tell the verifier which was checked, never imply the rows were verified when OCR couldn't read them.
 
@@ -53,7 +59,7 @@ The full visible text of the **verified page** — account holder name, account 
 - **Verification of Deposit (VOD):** 1-page summary for lenders.
 - **Transaction Receipt:** For high-value wires or transfers.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`chase.com`, `wellsfargo.com`) and the account standing.
 
@@ -62,9 +68,9 @@ Shows the issuer domain (`chase.com`, `wellsfargo.com`) and the account standing
 - **Amended** — A correction was issued for this period.
 - **Inactive** — Account has been closed since this statement was issued.
 
-## Second-Party Use
+## Who Holds It
 
-The **Bank Customer** benefits from verification.
+The Bank Customer benefits from verification.
 
 **Mortgage Applications:** Proving to a lender that the $1.5M balance isn't a "Photoshopped PDF" but is a verified asset. This speeds up the "Pre-Approval" process significantly.
 
@@ -72,10 +78,10 @@ The **Bank Customer** benefits from verification.
 
 **Dispute Resolution:** If a transaction is "missing" from the bank's internal record later, the verified statement serves as cryptographic proof of what the bank previously attested to.
 
-## Third-Party Use
+## Who Checks It
 
 **Mortgage Lenders / Underwriters**
-**Asset Verification:** Lenders currently use manual "bank login" scrapers (like Plaid) which many users find invasive. Live Verify allows the user to simply send a PDF/Paper statement that the lender can trust without needing the user's password.
+**Asset Verification:** A lender outside an open-banking scheme, or dealing with a foreign bank, can trust a PDF or paper statement the applicant sends, without asking for access to the account.
 
 **Regulators (The Fed / FDIC)**
 **Systemic Audit:** Regulators receiving a feed of statement hashes can verify that the bank isn't "running two sets of books" (i.e., telling the customer they have $1M but telling the regulator they only have $100k).
@@ -83,13 +89,7 @@ The **Bank Customer** benefits from verification.
 **M&A Due Diligence**
 **Liquidity Verification:** Buyers in a corporate acquisition can instantly verify the target company's cash-on-hand claims by scanning recent statements.
 
-## Verification Architecture
-
-**The "Photoshopped Balance" Fraud Problem**
-
-- **Balance Inflation:** Changing a $5,000 balance to $50,000 to qualify for a loan.
-- **Transaction Deletion:** Removing a large "Gambling Withdrawal" or "IRS Penalty" from the statement before sending it to a landlord.
-- **Fabricated Statements:** Using a realistic-looking template to create a statement for a non-existent account at a real bank.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -102,9 +102,9 @@ The **Bank Customer** benefits from verification.
 **Pattern:** Regulated
 
 ```
-✓ statements.hsbc.co.uk/verify — Provides retail and commercial banking in the UK
-  ✓ fca.org.uk/register — Regulates UK banks and deposit-takers
-    ✓ gov.uk/verifiers — UK government root namespace
+✓ chase.com/statements/v — Provides retail and commercial banking in the US
+  ✓ occ.gov/verify — Regulates national banks and federal savings associations
+    ✓ treasury.gov/verifiers — US Treasury Department root namespace
 ```
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
@@ -113,13 +113,16 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the bank's hashes and status changes plus structured metadata (account number, statement period, balance) — never plaintext or sensitive personal information — providing non-repudiation of the document.
 
-## Competition vs. Open Banking (Plaid/Finicity)
+## Where Each Fits: Live Verify and Open Banking
 
-| Feature | Live Verify | Open Banking (Plaid) | Paper / Scanned PDF |
+Open-banking data sharing (the UK and EU schemes, India's Account Aggregator, aggregators such as Plaid in the US) and Live Verify answer different questions and work side by side. Open banking is a data feed between a bank and a registered, integrated firm. Live Verify makes the statement itself checkable by whoever is handed it.
+
+| | Open-banking data feed | Live Verify on the statement | Unverified PDF or paper |
 | :--- | :--- | :--- | :--- |
-| **Privacy** | **High.** No passwords shared. No data scraping. | **Low.** Requires bank password; scrapes full history. | **Medium.** But untrusted. |
-| **Integrity** | **Cryptographic.** Every line is protected. | **High.** Direct API access. | **Zero.** Easily edited. |
-| **User Control** | **High.** User chooses which statement to share. | **Low.** Once linked, the app has continuous access. | **High.** |
-| **Interoperability** | **Universal.** Works for any bank with a domain. | **Limited.** Only works for banks on the Plaid network. | **Manual.** |
+| **Who can check** | A registered firm that has integrated with the scheme or an aggregator. | Anyone handed the statement: a landlord, a visa officer, a court, a supplier. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Live account data, often ongoing, for as long as consent lasts. | Confirmation that the bank issued this exact page, as at the statement date. | A document that may have been edited. |
+| **What the customer shares** | Consented access to account data. | Only the statement they chose to hand over. | Only the statement they chose to hand over. |
+| **Reach** | Banks and countries inside the scheme. | Any bank that publishes hashes on its own domain, in any country. | Universal, but untrusted. |
+| **Best suited to** | Continuous affordability checks and onboarding by lenders and fintechs. | One-off proof to a party outside the scheme, or across borders. | Nothing where the amount matters. |
 
-**Why Live Verify wins here:** Trust without Intrusion. Many high-net-worth individuals and privacy-conscious users refuse to give their bank passwords to third-party "scrapers." Live Verify provides the **same level of trust** as an API, but preserves the user's security and privacy.
+**Where each fits:** a lender already connected to an open-banking scheme will often prefer the live feed, and should. A statement is still what changes hands everywhere else: tenancy applications, visa and immigration files, court bundles, supplier due diligence, and any case where the bank and the checker are in different countries. Live Verify covers those, and gives a customer who would rather not grant account access a way to prove a balance with a single page.
