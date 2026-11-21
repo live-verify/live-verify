@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is an Informed Consent Form?
 
-Before a patient can participate in a high-stakes clinical trial (like testing a new cancer drug), they must sign an **Informed Consent Form (ICF)**.
+Before a patient can participate in a high-stakes clinical trial (like testing a new cancer drug), they must sign an Informed Consent Form (ICF).
 
 This isn't just a signature; it's a legal and ethical requirement that proves the patient understands the risks.
 
-In pharmaceutical research, "Consent Fraud" is a serious crime. Sites sometimes "Backdate" these forms to hide that they started testing before the patient signed, or they use an **outdated version** of the form that lacks new safety warnings. Verified hashes ensure the patient and the FDA are looking at the exact, current version of the truth.
+In pharmaceutical research, "Consent Fraud" is a serious crime. Sites sometimes "Backdate" these forms to hide that they started testing before the patient signed, or they use an outdated version of the form that lacks new safety warnings. Verified hashes ensure the patient and the FDA are looking at the exact, current version of the truth.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: 'Helvetica', Arial, sans-serif; border: 1px solid #ccc; background: #fff; padding: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="text-align: left; margin-bottom: 30px; border-bottom: 2px solid #004d40; padding-bottom: 10px;">
@@ -40,7 +40,13 @@ In pharmaceutical research, "Consent Fraud" is a serious crime. Sites sometimes 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Paper Integrity
+
+- **Backdating Consent:** Sites "dating" a consent form to yesterday to cover up that they started trial procedures before the patient actually signed.
+- **Wrong Versioning:** Using a 2024 consent form in 2026, missing critical new safety warnings.
+- **Fabricated Participants:** Creating "Ghost Participants" to collect site fees from the sponsor.
+
+## What Is Checked
 
 Participant ID (coded/pseudonymized), trial NCT/Protocol number, Informed Consent Form (ICF) version number, date of consent, investigator name, site location, HIPAA authorization status, withdrawal status.
 
@@ -50,7 +56,7 @@ Participant ID (coded/pseudonymized), trial NCT/Protocol number, Informed Consen
 - **Re-Consent Notice:** For protocol amendments.
 - **Participant ID Card:** For emergency medical reference.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`mayoclinic.org`, `pfizer.com`) and current enrollment status.
 
@@ -62,7 +68,7 @@ Shows the issuer domain (`mayoclinic.org`, `pfizer.com`) and current enrollment 
 
 ## Participant ID Card Design
 
-The **Participant ID Card** is distinct from the Informed Consent Form. While the ICF is a multi-page legal document kept in files, the ID card is a portable token the participant carries for emergencies.
+The Participant ID Card is distinct from the Informed Consent Form. While the ICF is a multi-page legal document kept in files, the ID card is a portable token the participant carries for emergencies.
 
 **Physical Form Factor:**
 - Laminated card or molded plastic on a lanyard
@@ -87,7 +93,7 @@ A QR code seems faster to scan, but consider the real-world scenario: a trial ru
 
 **The uncomfortable truth:** QR codes assume system integration that doesn't exist in the fragmented US healthcare landscape. A QR pointing to UC's clinical trial management system is useless to a South Carolina hospital with no federation agreement.
 
-Live Verify with a **public verification endpoint** (`verify:ucsf.edu/trials/v`) handles this correctly:
+Live Verify with a public verification endpoint (`verify:ucsf.edu/trials/v`) handles this correctly:
 - No integration required between health systems
 - The domain (ucsf.edu) is the trust anchor
 - Anyone with internet access can verify
@@ -95,13 +101,13 @@ Live Verify with a **public verification endpoint** (`verify:ucsf.edu/trials/v`)
 
 QR could encode that same public URL—but then it's just Live Verify with a different encoding. The verification model is identical; only the scanning speed differs.
 
-## Second-Party Use
+## Who Holds It
 
-The **Trial Participant** benefits from verification.
+The Trial Participant benefits from verification.
 
 **Emergency Care and EMTALA Context**
 
-In the US, EMTALA (Emergency Medical Treatment and Labor Act) requires hospitals to provide stabilizing treatment regardless of ability to pay. Financial discussions happen *after* treatment. So clinical trial verification in an ER is **not about billing**—it's about **patient safety**.
+In the US, EMTALA (Emergency Medical Treatment and Labor Act) requires hospitals to provide stabilizing treatment regardless of ability to pay. Financial discussions happen *after* treatment. So clinical trial verification in an ER is not about billing—it's about patient safety.
 
 When a trial participant is rushed to an out-of-network ER, the medical team needs to know:
 - Is this person in a clinical trial?
@@ -115,7 +121,7 @@ The Participant ID card enables this: scan → verify → see trial details → 
 
 **Personal Portability:** Allowing the participant to carry a "Verified Proof of Enrollment" to other specialist visits, ensuring their full care team is aware of their experimental status.
 
-## Third-Party Use
+## Who Checks It
 
 **FDA / Regulatory Auditors**
 **GCP Compliance:** During a "Good Clinical Practice" (GCP) audit, inspectors can instantly verify that the paper consent forms in the Trial Master File match the digital logs at the sponsor. This prevents "Post-Hoc Consent" where sites fabricate paperwork after an audit is announced.
@@ -126,13 +132,7 @@ The Participant ID card enables this: scan → verify → see trial details → 
 **Trial Sponsors (Big Pharma)**
 **Site Monitoring:** Remote monitors can verify that sites are using the correct, latest version of the ICF by scanning the verification hashes of uploaded site documents.
 
-## Verification Architecture
-
-**The "Paper Integrity" Problem**
-
-- **Backdating Consent:** Sites "dating" a consent form to yesterday to cover up that they started trial procedures before the patient actually signed.
-- **Wrong Versioning:** Using a 2024 consent form in 2026, missing critical new safety warnings.
-- **Fabricated Participants:** Creating "Ghost Participants" to collect site fees from the sponsor.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -162,7 +162,7 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 
 ## Interaction Reporting (POST-Only Form)
 
-After successful verification, the endpoint can return a **POST-only form** for the verifying party to report the interaction. This enables the trial team to track encounters without exposing participant data.
+After successful verification, the endpoint can return a POST-only form for the verifying party to report the interaction. This enables the trial team to track encounters without exposing participant data.
 
 **Example Response:**
 ```
@@ -199,7 +199,7 @@ Fields requested by trial team:
 
 **The Authentication Gap**
 
-This architecture has an inherent weakness: **anyone who sees the card can submit a report**. The system authenticates the *document*, not the *reporter*.
+This architecture has an inherent weakness: anyone who sees the card can submit a report. The system authenticates the *document*, not the *reporter*.
 
 | Actor | Can Scan Card | Can Submit Report | Legitimate? |
 |-------|---------------|-------------------|-------------|
@@ -232,7 +232,7 @@ The system accepts some noise in exchange for low friction on legitimate safety-
 
 ## Merkleized Interaction History
 
-For **trial investors** (pharma sponsors, VCs) and **regulatory adjudicators** (FDA, IRBs), a cryptographic audit trail of participant interactions provides stronger guarantees than logs alone.
+For trial investors (pharma sponsors, VCs) and regulatory adjudicators (FDA, IRBs), a cryptographic audit trail of participant interactions provides stronger guarantees than logs alone.
 
 **The Problem:** Trial sites have historically hidden adverse events, backdated reports, or "lost" inconvenient documentation. Simple database logs can be edited.
 
@@ -266,18 +266,18 @@ Interaction #4 (hash) ─┘
 
 This extends the witnessing model from *consent documents* to *the entire interaction history* of the trial.
 
-## Competition vs. eConsent Platforms (Medidata)
+## Compared With eConsent Platforms (Medidata)
 
 | Feature | Live Verify | eConsent Platform | Paper ICF | QR Code |
 | :--- | :--- | :--- | :--- | :--- |
 | **User Privacy** | **High.** Participant keeps the anchor. | **Low.** Data resides in a 3rd party cloud. | **High.** | **High.** |
 | **Trust Anchor** | **Domain-Bound.** Trust the Hospital. | **System-Bound.** Trust the Vendor. | **Zero.** | Depends on what's encoded. |
 | **Integrity** | **Binds Content.** Proves the Version. | **Digital Only.** | **Vulnerable.** | Static data only; no version binding. |
-| **Offline Proof** | **Strong.** Works in the clinic or field. | **None.** | **Medium.** | **Strong** for embedded data; **None** for URL. |
+| **Connectivity needed** | **Yes, for the check.** The paper form can be read in the clinic or field without a connection; checking it takes one small web request. | **Yes.** | **None.** | **None** for embedded data; yes for URL. |
 | **Cross-System Verification** | **Strong.** Public URL, no integration needed. | **None.** Requires vendor access. | **None.** | **Weak.** URL to issuer's system requires credentials. |
 | **Human Readable** | **Yes.** Text is the source of truth. | **No.** Data in vendor system. | **Yes.** | **No.** Opaque encoding. |
 
-**Why Live Verify wins here:** The Hybrid Reality. While eConsent is growing, many global sites still rely on paper due to local laws or tech barriers. Live Verify provides **Digital Audit-ability** for physical paper, ensuring that even "Low-Tech" sites meet "High-Tech" integrity standards.
+**Where each fits:** eConsent platforms give sponsors and sites an integrated record, and where a site uses one it remains the system of record. Many sites still consent on paper, because of local rules or limited infrastructure, and a participant or monitor may have no access to the vendor's system. Live Verify lets them confirm that the hospital or sponsor stands behind that version of the form, so paper sites and eConsent sites can be audited to a similar standard.
 
 **The No-Integration Reality:** US healthcare is fragmented. A QR code pointing to UC San Francisco's clinical trial system is useless to a South Carolina ER with no federation agreement, no login credentials, and no shared PKI. Live Verify with a *public* verification endpoint works across health system boundaries because the trust anchor is the domain itself, not a shared backend.
 

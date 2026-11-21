@@ -104,7 +104,7 @@ When to layer:
 
 | Need | Approach |
 |------|----------|
-| High legal weight / non-repudiation | Digital signatures (PAdES) + Verifiable Credentials; add Live Verify for human inspection and offline fallback |
+| High legal weight / non-repudiation | Digital signatures (PAdES) + Verifiable Credentials; add Live Verify for human inspection and as the fallback once the document is printed |
 | High-volume scanning | QR/barcodes for throughput; add Live Verify to keep a human-verifiable pathway and reduce redirect spoofing |
 | Field verification with privacy | Live Verify alone — no PII transmission, works in browser or on phone, issuer hosts a simple OK/REVOKED endpoint |
 | Anti-clone physical goods | NFC-secured labels; optionally pair with printed Live Verify declarations for paperwork |

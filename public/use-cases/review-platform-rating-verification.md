@@ -75,7 +75,22 @@ The extension shows an amber warning:
 
 **Domain management note:** Many businesses legitimately operate multiple domains, landing pages, and campaign microsites. A domain mismatch is not necessarily evidence of fraud or copying — it may indicate that the business's `allowedDomains` list hasn't been updated to include a new domain. The platform should make it straightforward for businesses to register additional authorized domains. The mismatch warning is a prompt to check, not an accusation.
 
-## Data Verified
+## The Problem: Fake Rating Badge
+
+- **Badge copying:** Any website can display "Rated 4.8 on Google" with a star image. There is no technical barrier.
+- **Stale ratings:** A business that was once highly rated may continue displaying an old badge long after its rating has dropped.
+- **Widget injection:** A Trustpilot widget for Business A can be embedded on Business B's site by changing the widget parameters.
+- **Screenshot fraud:** A screenshot of a high rating is commonly used in social media advertising with no link back to the source.
+- **Review manipulation:** Even genuine ratings can be gamed, but that is the platform's problem to detect. The verifiable claim addresses a different question: is the displayed rating actually what the platform says it is right now?
+
+The verifiable claim addresses these because:
+
+1. The review platform issues the claim — it is not self-asserted by the business
+2. The claim names the specific site where it applies
+3. The "as of" date pins the rating to a point in time; expiry is automatic when the rating is recalculated
+4. The browser extension can detect domain mismatches automatically
+
+## What Is Checked
 
 Business legal name, business site domain, review platform name, aggregate star rating, review count, recalculation date ("as of" date), and current claim status.
 
@@ -85,7 +100,7 @@ Business legal name, business site domain, review platform name, aggregate star 
 
 **Privacy Salt:** Not required. Review ratings are public data that the business wants to display.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `trustpilot.com`, `google.com/maps`, `yelp.com`) and the current claim status.
 
@@ -106,9 +121,9 @@ The `allowedDomains` field enables browser extensions to detect domain mismatche
 - **Revoked** — The business's profile has been removed from the platform (e.g., for review manipulation).
 - **404** — No such rating claim was issued by the claimed platform.
 
-## Second-Party Use
+## Who Holds It
 
-The **business** benefits directly.
+The business benefits directly.
 
 **Customer trust:** A plumber, solicitor, or restaurant can show prospective customers that its displayed rating is genuine and current, not a screenshot from two years ago or a fabricated badge.
 
@@ -116,7 +131,7 @@ The **business** benefits directly.
 
 **Dispute resolution:** If a customer or competitor alleges that a displayed rating is fake, the business can point to a cryptographically verified claim tied to the platform's own data.
 
-## Third-Party Use
+## Who Checks It
 
 **Consumers**
 
@@ -134,31 +149,14 @@ The **business** benefits directly.
 
 **Fair competition:** A competitor that suspects a rival is displaying a fabricated rating can check the rival's claim. If it does not verify, that is useful evidence for a complaint.
 
-## Verification Architecture
-
-**The Fake Rating Badge Problem**
-
-- **Badge copying:** Any website can display "Rated 4.8 on Google" with a star image. There is no technical barrier.
-- **Stale ratings:** A business that was once highly rated may continue displaying an old badge long after its rating has dropped.
-- **Widget injection:** A Trustpilot widget for Business A can be embedded on Business B's site by changing the widget parameters.
-- **Screenshot fraud:** A screenshot of a high rating is commonly used in social media advertising with no link back to the source.
-- **Review manipulation:** Even genuine ratings can be gamed, but that is the platform's problem to detect. The verifiable claim addresses a different question: is the displayed rating actually what the platform says it is right now?
-
-The verifiable claim addresses these because:
-
-1. The review platform issues the claim — it is not self-asserted by the business
-2. The claim names the specific site where it applies
-3. The "as of" date pins the rating to a point in time; expiry is automatic when the rating is recalculated
-4. The browser extension can detect domain mismatches automatically
-
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | Badge Image | Embedded Widget | Screenshot in Ad |
 | :--- | :--- | :--- | :--- | :--- |
 | **Issuer-controlled** | **Yes.** Platform issues the claim. | **No.** Anyone can copy the image. | **Partially.** Widget loads from platform but can be misconfigured. | **No.** Static image. |
 | **Domain-bound** | **Yes.** Claim names the business site. | **No.** | **No.** Widget can be embedded anywhere. | **No.** |
 | **Time-bound** | **Yes.** "As of" date with automatic expiry. | **No.** Badge shows no date. | **Partially.** Widget shows live data but has no integrity proof. | **No.** Screenshot is frozen. |
-| **Verifiable offline** | **Yes.** Claim text is hashable. | **No.** | **No.** Requires live API call. | **No.** |
+| **Verifiable offline** | **No.** The claim text is hashed on the device, but the check needs a connection. | **No.** | **No.** Requires live API call. | **No.** |
 | **Detects site copying** | **Yes.** Domain mismatch warning. | **No.** | **No.** | **No.** |
 
 **Practical conclusion:** embedded widgets from review platforms remain useful for showing live data, but they do not answer the question "is this rating claim genuine and intended for this site?" The verifiable claim answers that question and complements the widget rather than replacing it.

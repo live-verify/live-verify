@@ -45,7 +45,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Scratch and Dent Fraud
+
+- **Damage Erasure:** A trucker editing the PDF EIR to remove a "Dent" notation before returning the container, to avoid a $1,000 repair fee.
+- **Timestamp Tampering:** Changing the "Outgate Time" to hide that a truck sat at the gate for 4 hours (which triggers a penalty for the terminal).
+- **Identity Theft:** Using a "Clean" driver's ID on a paper EIR while an unauthorized or uninsured driver actually takes the load.
+
+## What Is Checked
 
 Container ID, Chassis ID, Trucking company name, Driver ID (hash), Outgate/Ingate status, detailed damage codes (e.g., SC-1, DT-4), seal integrity status, terminal location ID, precise timestamp, issuing terminal operator.
 
@@ -55,7 +61,7 @@ Container ID, Chassis ID, Trucking company name, Driver ID (hash), Outgate/Ingat
 - **Street Turn Receipt:** When equipment is transferred between truckers outside the port.
 - **Chassis Inspection Report:** Specifically for the road-worthiness of the trailer.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Terminal Operator or Port Authority) and current asset status.
 
@@ -65,15 +71,15 @@ Shows the issuer domain (the Terminal Operator or Port Authority) and current as
 - **Damage Claim Active** — Terminal has flagged the asset for repair billing.
 - **Lost/Stolen** — Asset reported missing from the fleet.
 
-## Second-Party Use
+## Who Holds It
 
-The **Trucking Company / Driver** benefits from verification.
+The Trucking Company / Driver benefits from verification.
 
 **Liability Defense:** Proving to the Steamship Line (e.g., Maersk) that the "12-inch scratch" was already noted on the verified EIR at the moment of pickup. Verification prevents the carrier from charging the trucker $500 for a repair they didn't cause.
 
 **Billing Disputes:** Providing verified "Outgate vs Ingate" timestamps to a customer to justify "Demurrage" or "Detention" charges based on actual terminal data.
 
-## Third-Party Use
+## Who Checks It
 
 **Ocean Carriers (Steamship Lines)**
 **Maintenance Audit:** Instantly verifying the condition reports from 100+ different global terminals. Live Verify allows the carrier to build a digital history of every asset's damage, identifying "Repeat Offender" truckers who consistently damage containers.
@@ -84,13 +90,7 @@ The **Trucking Company / Driver** benefits from verification.
 **Chassis Pool Managers**
 **Inventory Control:** Verifying the "Road-Worthiness" status of thousands of chassis moving across multiple port complexes.
 
-## Verification Architecture
-
-**The "Scratch and Dent" Fraud Problem**
-
-- **Damage Erasure:** A trucker editing the PDF EIR to remove a "Dent" notation before returning the container, to avoid a $1,000 repair fee.
-- **Timestamp Tampering:** Changing the "Outgate Time" to hide that a truck sat at the gate for 4 hours (which triggers a penalty for the terminal).
-- **Identity Theft:** Using a "Clean" driver's ID on a paper EIR while an unauthorized or uninsured driver actually takes the load.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -116,13 +116,13 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the terminal's hashes and status changes plus structured metadata (equipment numbers, check-in dates, damage codes, gate times) — never cargo descriptions or values — providing non-repudiation of receipt acceptance.
 
-## Competition vs. EDI Messaging (322)
+## Compared With EDI Messaging (322)
 
 | Feature | Live Verify | EDI 322 (Gate Event) | Paper EIR |
 | :--- | :--- | :--- | :--- |
 | **User Access** | **Universal.** Any driver or local shop. | **Restricted.** Requires complex B2B IT setup. | **Instant.** |
 | **Trust Anchor** | **Domain-Bound.** Bound to the Terminal. | **System-Bound.** | **Zero.** Easily forged. |
 | **Integrity** | **Binds Damage Codes.** Protects the text. | **Data-Only.** | **Vulnerable.** |
-| **Offline Proof** | **Strong.** The paper is the anchor. | **None.** Requires server access. | **Medium.** |
+| **Connectivity needed** | **Yes, for the check.** The paper can be read without a connection; checking it takes one small web request. | **Yes.** Requires server access. | **None.** |
 
-**Why Live Verify wins here:** The "Gate Moment." Terminals are high-pressure bottlenecks. When a driver disputes a damage code with a gate clerk, they are looking at a piece of paper or a handheld screen. They don't have access to the back-end EDI logs. Live Verify turns the **Trucker's Receipt** into a live, trusted safety link that provides "Port-Grade" security in seconds.
+**Where each fits:** EDI 322 gate messages are how terminals, carriers and equipment owners exchange gate events at volume, and for parties with that integration they are the right channel. A driver, a small trucking company or a local repair shop has only the printed interchange receipt. Live Verify lets them confirm the terminal issued that receipt, damage codes included, while the EDI feed continues to serve the back offices.

@@ -11,7 +11,7 @@ furtherDerivations: 2
 
 ## What is a 501(c)(3) Letter?
 
-A **501(c)(3) Determination Letter** is the official document from the IRS granting a non-profit organization tax-exempt status. It is the "Golden Ticket" of the charity world.
+A 501(c)(3) Determination Letter is the official document from the IRS granting a non-profit organization tax-exempt status. It is the "Golden Ticket" of the charity world.
 
 Without this letter:
 1.  **Donors** cannot deduct their contributions.
@@ -54,7 +54,13 @@ The IRS's own database/search path should remain primary where the verifier is w
   <span verifiable-text="end" data-for="501c3"></span>
 </div>
 
-## Data Verified
+## The Problem: 501(c)(3) Fraud
+
+- **Name Spoofing:** Creating a fake charity with a name very similar to a famous one (e.g., "Cancer Fund of America" vs "American Cancer Society").
+- **Status Misrepresentation:** Claiming to be tax-exempt when the status was actually revoked years ago for non-filing.
+- **Photoshop:** Altering an old determination letter to change the year or the address.
+
+## What Is Checked
 
 Organization name, EIN (Employer Identification Number), effective date of exemption, public charity status classification, address at time of issuance.
 
@@ -62,7 +68,7 @@ Organization name, EIN (Employer Identification Number), effective date of exemp
 - **Determination Letter (Form 1045)**
 - **Affirmation Letter** (issued later to confirm status hasn't changed)
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g., `irs.gov`) and current status.
 
@@ -71,9 +77,9 @@ Shows the issuer domain (e.g., `irs.gov`) and current status.
 - **Revoked** — Exemption was automatically revoked (e.g., for failure to file Form 990 for 3 years).
 - **Suspended** — Under investigation or temporarily suspended.
 
-## Second-Party Use
+## Who Holds It
 
-The **Non-Profit Organization** (second party) receives the determination letter from the IRS (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Non-Profit Organization (second party) receives the determination letter from the IRS (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** The organization has their own verified copy of tax-exempt status. Most of the time, the document sits in organizational files—the verification value is latent, there *if needed*.
 
@@ -81,7 +87,7 @@ The **Non-Profit Organization** (second party) receives the determination letter
 
 **Future Optionality:** If a grant application arises, a state registration is needed, or a donor questions their tax-deductibility, the organization has cryptographic proof ready without needing to contact the IRS.
 
-## Third-Party Use
+## Who Checks It
 
 The non-profit organization (second party) may hand the verified document to various third parties:
 
@@ -94,13 +100,7 @@ Platforms like Benevity or CyberGrants verify charities before allowing employee
 **State Regulators**
 State Attorneys General can verify the federal status of organizations soliciting funds in their jurisdiction.
 
-## Verification Architecture
-
-**The 501(c)(3) Fraud Problem**
-
-- **Name Spoofing:** Creating a fake charity with a name very similar to a famous one (e.g., "Cancer Fund of America" vs "American Cancer Society").
-- **Status Misrepresentation:** Claiming to be tax-exempt when the status was actually revoked years ago for non-filing.
-- **Photoshop:** Altering an old determination letter to change the year or the address.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -125,13 +125,13 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the IRS's hashes and status changes plus structured metadata (organization name, EIN, exemption date, classification) — never donor or financial plaintext — providing non-repudiation of the determination letter and an audit trail state charity bureaus can inspect.
 
-## Competition vs. QR/NFC and IRS Search
+## Compared With QR/NFC and IRS Search
 
 | Feature | Live Verify | QR Code | IRS Search / TEOS |
 | :--- | :--- | :--- | :--- |
 | **Trust Model** | **Strong.** Links directly to `irs.gov`. | **Depends on what it resolves to.** | **Primary.** Direct IRS status path. |
 | **User Experience** | **Fast.** Scan the letter -> verified. | **Fast.** Scan the code. | **Sometimes slower.** Search workflow and user error. |
-| **Offline Proof** | **Medium.** Hash proves integrity of the paper text. | **Low.** Just a link. | **None.** Requires internet to search DB. |
+| **Connectivity needed** | **Yes, for the check.** The letter can be carried and read without a connection; checking it takes one small web request. | **Yes.** Just a link. | **Yes.** Requires internet to search DB. |
 | **Phishing Resistance** | **High.** `verify:` line is human-readable. | **Variable.** Depends on visible domain and user behaviour. | **High.** If the user navigates directly to IRS. |
 
 **Narrower conclusion:** IRS search should remain the dominant answer when the verifier is prepared to use it directly. Live Verify is complementary when the determination letter itself is the thing being shared and the goal is to bridge that visible or portable artifact back to current IRS status without manual search friction.

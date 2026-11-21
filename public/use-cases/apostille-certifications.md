@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is an Apostille?
 
-If you want to use a US document (like a Birth Certificate or a Diploma) in another country (like Spain or Italy), foreign officials won't just trust a US notary stamp. They need an **Apostille**.
+If you want to use a US document (like a Birth Certificate or a Diploma) in another country (like Spain or Italy), foreign officials won't just trust a US notary stamp. They need an Apostille.
 
 An Apostille is an "International Notary" certificate issued by the Secretary of State. It basically says: "We know this Notary, and their signature is legitimate."
 
@@ -55,7 +55,13 @@ This remains a strong portability case because the apostille is specifically des
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Legalization Fraud
+
+- **Phony Apostilles:** High-quality forgeries of state certificates, often attached to fake degrees or fabricated legal documents.
+- **Seal Theft:** Using a genuine state seal image on a fabricated certificate number.
+- **Underlying Fraud:** An Apostille is only as good as the underlying signature. If the Notary signature was forged, the Apostille (if it could be verified) would be part of a fraudulent chain.
+
+## What Is Checked
 
 Signer name, capacity of signer (Notary/Judge/Clerk), seal/stamp identification, location of issuance, date of issuance, certificate number (Apostille ID), issuing authority (Secretary of State).
 
@@ -64,7 +70,7 @@ Signer name, capacity of signer (Notary/Judge/Clerk), seal/stamp identification,
 - **Certificate of Authentication:** For non-Hague countries (requires multi-step legalization).
 - **Federal Apostille:** Issued by U.S. Dept of State for federal documents (FBI checks, etc.).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`dos.ny.gov`, `state.gov`) and the document status.
 
@@ -73,15 +79,15 @@ Shows the issuer domain (`dos.ny.gov`, `state.gov`) and the document status.
 - **Invalid** — Serial number not found or details mismatch.
 - **Withdrawn** — Authority has revoked the authentication (e.g., discovery of fraud in the underlying document).
 
-## Second-Party Use
+## Who Holds It
 
-The **Document Holder** (e.g., expat, international student) benefits from verification.
+The Document Holder (e.g., expat, international student) benefits from verification.
 
 **Visa Applications:** Proving to a foreign consulate (e.g., Spain, Italy) that their background check or birth certificate is legitimately authenticated for use abroad.
 
 **Property Purchase:** Verifying their own Power of Attorney document before sending it overseas to ensure it won't be rejected by a foreign notary.
 
-## Third-Party Use
+## Who Checks It
 
 **Foreign Governments / Registries**
 **Authenticity Check:** A land registry in Greece receiving a US Power of Attorney needs to know if the "Apostille" attached to it is real. Scanning the verification link instantly proves the New York Secretary of State actually issued it, without needing to understand US state seals.
@@ -92,13 +98,7 @@ The **Document Holder** (e.g., expat, international student) benefits from verif
 **Universities (Admissions)**
 **Degree Validation:** Verifying that a foreign transcript's authentication is legitimate.
 
-## Verification Architecture
-
-**The "Fake Legalization" Fraud Problem**
-
-- **Phony Apostilles:** High-quality forgeries of state certificates, often attached to fake degrees or fabricated legal documents.
-- **Seal Theft:** Using a genuine state seal image on a fabricated certificate number.
-- **Underlying Fraud:** An Apostille is only as good as the underlying signature. If the Notary signature was forged, the Apostille (if it could be verified) would be part of a fraudulent chain.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -123,12 +123,12 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the apostille authority's hashes and status changes plus structured metadata (document type, jurisdiction, date) — never plaintext or sensitive personal information — providing non-repudiation of the document.
 
-## Competition vs. e-Apostille (Registry)
+## Compared With e-Apostille (Registry)
 
 | Feature | Live Verify | e-Apostille Registry | Wet Ink / Embossed |
 | :--- | :--- | :--- | :--- |
 | **User Experience** | **Seamless.** Scan the paper you are holding. | **Primary where cleanly available.** Often still awkward across jurisdictions. | **Manual.** Compare seals to pictures in a book. |
 | **Trust Anchor** | **Domain-Bound.** `dos.ny.gov` is the source of truth. | **Centralized.** Only works if the specific registry is known. | **Visual.** Easily fooled by high-quality copies. |
-| **Offline Check** | **Medium.** Hash protects the printed text integrity. | **None.** Requires live DB access. | **Strong.** Physical security features (ribbons, grommets). |
+| **Connectivity needed** | **Yes, for the check.** The paper can be read without a connection; checking it takes one small web request. | **Yes.** Requires live DB access. | **None.** Physical security features (ribbons, grommets). |
 
 **Why this remains strong:** e-Apostille registries are the right source of truth where they exist and are easy to use, but the practical problem is still cross-border portability from the paper artifact in hand. Live Verify is strongest as a cleaner bridge from that artifact to the issuing authority's current record.

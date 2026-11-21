@@ -13,7 +13,7 @@ furtherDerivations: 1
 
 In an election, ballots are often driven from a local school (polling place) to a central counting facility. During that drive, the ballots are in a "Black Box" of risk.
 
-The **Chain-of-Custody Form** is the paper that follows the box. It lists:
+The Chain-of-Custody Form is the paper that follows the box. It lists:
 1.  **The Count:** "There are exactly 1,242 ballots in this box."
 2.  **The Seal:** "The box is locked with Seal #AZ-009988."
 3.  **The Witnesses:** Two people (one from each party) must sign it.
@@ -47,7 +47,13 @@ Timestamp:        Nov 3, 2026 - 8:15 PM MST
   <span data-verify-line="ballot">verify:elections.maricopa.gov/custody/v</span> <span verifiable-text="end" data-for="ballot"></span>
 </div>
 
-## Data Verified
+## The Problem: Ballot Box Fraud
+
+- **Box Substitution:** Swapping a box of real ballots for a box of fake ballots during transport. The seal numbers won't match the verified origin record.
+- **Count Inflation:** Changing the count on the paper form from 1,000 to 1,200 to hide extra ballots.
+- **Fabricated Transfers:** Creating a fake transfer form for a non-existent precinct.
+
+## What Is Checked
 
 Precinct number, Container ID, Seal Number (unique plastic/wire seal), ballot count (from machine or hand count), names of two bipartisan witnesses/custodians, precise timestamp, transfer location.
 
@@ -56,7 +62,7 @@ Precinct number, Container ID, Seal Number (unique plastic/wire seal), ballot co
 - **Drop Box Retrieval Form:** Documenting the 2-person pickup from ballot drop boxes.
 - **Tabulation Intake Form:** Final receipt at the central counting facility.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`maricopa.gov`, `miamidade.gov`) and the transfer status.
 
@@ -64,11 +70,11 @@ Shows the issuer domain (`maricopa.gov`, `miamidade.gov`) and the transfer statu
 - **Logged** — Origin precinct has recorded the transfer.
 - **In-Transit** — Transport team has confirmed possession.
 - **Received** — Central counting has verified the seal and count.
-- **Seal Mismatch** — **ALERT:** Intake count or seal number does not match origin record.
+- **Seal Mismatch** — Intake count or seal number does not match origin record.
 
-## Second-Party Use
+## Who Holds It
 
-The **Election Official/Poll Worker** (second party) receives the transfer form from the county election department (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Election Official/Poll Worker (second party) receives the transfer form from the county election department (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** The poll worker has their own verified copy of the ballot transfer. Most of the time, the document sits in election records—the verification value is latent, there *if needed*.
 
@@ -76,7 +82,7 @@ The **Election Official/Poll Worker** (second party) receives the transfer form 
 
 **Future Optionality:** If a recount occurs, an election challenge arises, or a legal dispute emerges about chain-of-custody, the poll worker has cryptographic proof ready without needing to contact the county election office.
 
-## Third-Party Use
+## Who Checks It
 
 The election official/poll worker (second party) may hand the verified document to various third parties:
 
@@ -89,13 +95,7 @@ Fact-checking claims of "mysterious boxes appearing." Verified chain-of-custody 
 **The Courts**
 In an election contest, verified custody forms provide a cryptographically solid audit trail that is harder to challenge than mere photocopies.
 
-## Verification Architecture
-
-**The "Ballot Box" Fraud Problem**
-
-- **Box Substitution:** Swapping a box of real ballots for a box of fake ballots during transport. The seal numbers won't match the verified origin record.
-- **Count Inflation:** Changing the count on the paper form from 1,000 to 1,200 to hide extra ballots.
-- **Fabricated Transfers:** Creating a fake transfer form for a non-existent precinct.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -121,12 +121,12 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the county's hashes and status changes (in-transit, received, seal mismatch) plus structured metadata (precinct numbers, container IDs, seal numbers, ballot counts, timestamps) — never poll worker names or non-public addresses — providing non-repudiation of the transfer form and an audit trail state election oversight can inspect for chain-of-custody violations.
 
-## Competition vs. Central Portals / GPS
+## Compared With Central Portals / GPS
 
 | Feature | Live Verify | Internal Election Portal | GPS Tracking on Trucks |
 | :--- | :--- | :--- | :--- |
 | **Observer Access** | **High.** External parties can verify without system access. | **Zero.** Observers are never given logins to sensitive gov systems. | **None.** Proves where the truck went, not what's in the box. |
 | **Integrity** | **Binds Content.** Proves the *count* and *seal* numbers. | **Vulnerable.** Internal DB can be edited by admins. | **N/A.** |
-| **Offline Proof** | **Strong.** Paper form works if the counting center Wi-Fi is jammed. | **None.** | **Weak.** Requires cell signal. |
+| **Connectivity needed** | **Yes, for the check.** The paper form can be read without a connection; checking it takes one small web request over any data connection, at the time or later. | **Yes.** | **Yes.** Requires cell signal. |
 
-**Why Live Verify wins here:** Trust through Decentralization. In a polarized election, the "Opposition" does not trust the government's internal database. Live Verify allows the opposition to verify the paper records against a public-facing domain without needing "Super-User" access to the voting system, creating a bipartisan trust bridge.
+**Where each fits:** the election office's internal system is the operational record, and GPS tracking tells officials where a vehicle went; both stay in place. Observers and party representatives are not given access to either, and should not need it. Live Verify lets them check the seal numbers and counts on a custody form against what the election office has published on its own domain. That confirms the office stands behind the form as written, and leaves the internal controls to the people responsible for them.

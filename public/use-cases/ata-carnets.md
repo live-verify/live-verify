@@ -11,9 +11,9 @@ furtherDerivations: 1
 
 ## What is an ATA Carnet?
 
-An **ATA Carnet** is a "Passport for Goods." It allows businesses to temporarily ship equipment (like camera gear for a movie, or instruments for a rock band) into a foreign country without paying customs duties.
+An ATA Carnet is a "Passport for Goods." It allows businesses to temporarily ship equipment (like camera gear for a movie, or instruments for a rock band) into a foreign country without paying customs duties.
 
-The catch is that you **must** bring the goods back home. If you sell the gear in the foreign country, you owe massive fines.
+The catch is that you must bring the goods back home. If you sell the gear in the foreign country, you owe massive fines.
 
 The Carnet is a physical booklet of colored papers that customs officers stamp at every border. If the booklet is fake or altered, the gear can be seized at the airport, ruining a tour or a film shoot.
 
@@ -50,7 +50,13 @@ The Carnet is a physical booklet of colored papers that customs officers stamp a
   </div>
 </div>
 
-## Data Verified
+## The Problem: Temporary Import Fraud
+
+- **Ghost Exports:** Claiming to re-export goods (to close the carnet and get the bond back) while actually selling them on the black market in the foreign country.
+- **Value Under-reporting:** Listing a $1M diamond as "Glass Sample" on the paper carnet to reduce the bond requirement.
+- **Date Forgery:** Altering the "Valid Until" date to avoid paying duties when equipment stays in a country longer than 12 months.
+
+## What Is Checked
 
 Carnet number, holder name, total items, value of goods, countries of transit, expiration date, intended use (Commercial Samples, Professional Equipment, Fair/Exhibition).
 
@@ -60,7 +66,7 @@ Carnet number, holder name, total items, value of goods, countries of transit, e
 - **White Vouchers:** For the country of destination (Import/Re-export).
 - **Blue Vouchers:** For transit countries.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`uscib.org`, `iccwbo.org`) and document status.
 
@@ -70,15 +76,15 @@ Shows the issuer domain (`uscib.org`, `iccwbo.org`) and document status.
 - **Expired** — Re-export deadline passed; duties may be triggered.
 - **Invalid** — Serial number mismatch or fraudulent document.
 
-## Second-Party Use
+## Who Holds It
 
-The **Carnet Holder** (Exporter) benefits from verification.
+The Carnet Holder (Exporter) benefits from verification.
 
 **Customs Clearance:** Proving to a Japanese customs officer that the Nashville band's 42 flight cases are "Verified Professional Equipment" and not illegal imports intended for sale. A verified carnet prevents the seizure of equipment or the demand for cash duties at the border.
 
 **Bond Management:** Proving to the bond insurer that the carnet was properly closed at the final port of entry, speeding up the release of the collateral deposit.
 
-## Third-Party Use
+## Who Checks It
 
 **Customs Authorities (Foreign)**
 **Risk Assessment:** Customs can verify the Carnet data against the national chamber of commerce record instantly. If the paper says "Musical Instruments" but the hash says "Luxury Watches," the discrepancy triggers an immediate inspection.
@@ -89,13 +95,7 @@ The **Carnet Holder** (Exporter) benefits from verification.
 **Event Organizers**
 **Trade Show Logistics:** Ensuring all international exhibitors have valid carnets for their displays, preventing last-minute booth empty spaces due to customs hold-ups.
 
-## Verification Architecture
-
-**The "Temporary Import" Fraud Problem**
-
-- **Ghost Exports:** Claiming to re-export goods (to close the carnet and get the bond back) while actually selling them on the black market in the foreign country.
-- **Value Under-reporting:** Listing a $1M diamond as "Glass Sample" on the paper carnet to reduce the bond requirement.
-- **Date Forgery:** Altering the "Valid Until" date to avoid paying duties when equipment stays in a country longer than 12 months.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -119,12 +119,12 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the customs authority's hashes and status changes plus structured metadata (carnet number, items, dates) — never plaintext or sensitive personal information — providing non-repudiation of the document.
 
-## Competition vs. e-ATA (Digital Carnet)
+## Compared With e-ATA (Digital Carnet)
 
 | Feature | Live Verify | e-ATA (ICC Project) | Paper Carnet (Traditional) |
 | :--- | :--- | :--- | :--- |
-| **Connectivity** | **Offline-Ready.** Paper works when port Wi-Fi fails. | **Fragile.** Requires live app + cloud connectivity at the border. | **Manual.** Relies on physical stamps. |
+| **Connectivity** | **Needed for the check.** The paper carnet can be carried and read without a connection; checking it takes one small web request over any data connection. | **Needed.** Requires the app and a connection to the platform at the border. | **Manual.** Relies on physical stamps. |
 | **Trust** | **Domain-Bound.** Trust the National Chamber. | **Platform-Bound.** Requires all countries to join the same IT system. | **Visual.** Prone to stamp forgery. |
 | **Audit Trail** | **Hybrid.** Physical stamps + digital snapshots. | **Digital Only.** Hard to reconcile with physical boxes in a truck. | **Physical.** Hard to audit centrally. |
 
-**Why Live Verify wins here:** Customs borders are "Disconnected Edges." An officer in a remote port may not have the right app or credentials for the ICC's global e-ATA system. But they *always* have a phone with a browser. Live Verify turns the persistent paper carnet into a universal digital bridge that works across any border, app-free.
+**Where each fits:** where both the issuing and the receiving customs administrations are on the e-ATA system and the officer has a working connection to it, the digital carnet is the more complete record. Many crossings still run on the paper carnet, and an officer at a smaller port may have no access to the platform. Live Verify lets that officer check the paper against the national chamber's domain with an ordinary browser, and the stamps and the e-ATA record continue to do their own jobs.

@@ -10,11 +10,18 @@ furtherDerivations: 1
 
 # Membership Cards with External Benefits
 
-Membership credentials where the primary verification need is **outside** the issuing organization's own premises. These aren't about getting through the club's front door—they're about proving membership to third parties who provide benefits, discounts, or services based on that status.
+Membership credentials where the primary verification need is outside the issuing organization's own premises. These aren't about getting through the club's front door—they're about proving membership to third parties who provide benefits, discounts, or services based on that status.
 
-## Why Live Verify Matters Here
+## The Problem: Fake Membership Cards
 
-A gym membership card only needs to work at the gym—they have your photo on file. But an **AAA card** needs to convince a tow truck driver at 2am on a highway that you're entitled to free roadside assistance. The driver can't call AAA's membership database. A **professional society ID** needs to convince a conference registration desk that you qualify for the $400 member discount. These are high-trust, low-verification situations ripe for fraud.
+A gym membership card only needs to work at the gym—they have your photo on file. But an AAA card needs to convince a tow truck driver at 2am on a highway that you're entitled to free roadside assistance. The driver can't call AAA's membership database. A professional society ID needs to convince a conference registration desk that you qualify for the $400 member discount. In each case a third party grants something of value on the strength of a card it cannot check, and the fraud is low-tech:
+
+- **Counterfeit cards:** Fake AAA cards printed for roadside assistance fraud.
+- **Expired memberships:** Lapsed credentials presented for current benefits.
+- **Tier inflation:** Premium status (AAA Premier, IEEE Fellow) claimed for enhanced benefits.
+- **Reciprocal abuse:** Membership at Club A fabricated to access Club B's facilities.
+- **Union card fraud:** Fake credentials used to access hiring halls or job sites.
+- **Discount hunting:** Fake alumni or veterans cards used for retail discounts.
 
 ---
 
@@ -41,21 +48,21 @@ A gym membership card only needs to work at the gym—they have your photo on fi
 
 **Examples:** AAA (US), CAA (Canada), RAC/AA (UK), ADAC (Germany), NRMA (Australia)
 
-### Data Verified
-**Member Name**, **Member Number**, **Membership Tier** (Basic, Plus, Premier), **Valid Through Date**, **Home Club** (regional affiliate), **Covered Vehicles** (if listed), **Household Members** (if applicable).
+### What Is Checked
+**Member Name**, Member Number, Membership Tier (Basic, Plus, Premier), Valid Through Date, Home Club (regional affiliate), Covered Vehicles (if listed), Household Members (if applicable).
 
-### Data Visible After Verification
+### What the Checker Sees
 **Status Indications:**
 - **Active** — Membership current, benefits available
 - **Expired** — Lapsed membership, not entitled to services
 - **Suspended** — Account issue (e.g., payment dispute)
 - **Tier Confirmed** — Confirms specific tier (matters for tow distance limits)
 
-### Second-Party Use (Member Verifying Their Own Card)
+### Who Holds It (Member Verifying Their Own Card)
 **Pre-Trip Confirmation:** Before a road trip, members verify their card is current and shows the correct tier—discovering an expired card at roadside is too late.
 **Household Coverage:** Verifying that spouse/dependent cards are properly linked to the primary membership.
 
-### Third-Party Use
+### Who Checks It
 
 **Tow Truck Operators & Roadside Assistance Contractors**
 The primary use case. Contractor arrives at roadside, member presents card. Contractor needs to know: (1) Is this a real AAA member? (2) What tier—how many free tow miles? Verification answers both instantly without calling dispatch.
@@ -92,10 +99,10 @@ Some auto insurers offer discounts for AAA members (assuming safer drivers). Ver
 
 **Examples:** IEEE, ACM, ASME, ASCE, AMA, ABA, AICPA, RIBA, ICE, AIAA
 
-### Data Verified
-**Member Name**, **Member Number**, **Membership Grade** (Student, Member, Senior Member, Fellow), **Society/Division Affiliations**, **Expiration Year**, **Certifications Held** (if applicable).
+### What Is Checked
+**Member Name**, Member Number, Membership Grade (Student, Member, Senior Member, Fellow), Society/Division Affiliations, Expiration Year, Certifications Held (if applicable).
 
-### Data Visible After Verification
+### What the Checker Sees
 **Status Indications:**
 - **Active** — Current dues-paid member
 - **Expired** — Lapsed membership
@@ -103,11 +110,11 @@ Some auto insurers offer discounts for AAA members (assuming safer drivers). Ver
 - **Grade Confirmed** — Verifies claimed grade (Fellow vs. Member matters)
 - **Good Standing** — No ethics violations or suspensions
 
-### Second-Party Use (Member Verifying Their Own Card)
+### Who Holds It (Member Verifying Their Own Card)
 **Credential Claims:** Professionals listing "IEEE Senior Member" on resumes can prove the claim is current and accurate.
 **CE Tracking:** Verifying membership includes access to continuing education credits.
 
-### Third-Party Use
+### Who Checks It
 
 **Conference Registration Desks**
 The $800 non-member rate vs. $400 member rate creates strong incentive for fraud. Registration staff scan the card, verify against `membership.ieee.org`, confirm Senior Member status, apply correct pricing. No more trusting faded cards or expired credentials.
@@ -142,20 +149,20 @@ IEEE Xplore, ACM Digital Library offer member pricing. Institutional access asid
 
 **Examples:** Private golf clubs, yacht clubs, city/university clubs, dining clubs
 
-### Data Verified
-**Member Name**, **Home Club Name**, **Member Since Date**, **Membership Category** (Full, Social, Junior, etc.), **Good Standing Status**, **Reciprocal Privileges Included**.
+### What Is Checked
+**Member Name**, Home Club Name, Member Since Date, Membership Category (Full, Social, Junior, etc.), Good Standing Status, Reciprocal Privileges Included.
 
-### Data Visible After Verification
+### What the Checker Sees
 **Status Indications:**
 - **Good Standing** — Eligible for reciprocal privileges
 - **Restricted** — Member but reciprocal suspended (e.g., unpaid balance)
 - **Resigned/Expelled** — No longer a member
 - **Reciprocal Tier** — Some clubs have tiered reciprocal access
 
-### Second-Party Use (Member Verifying Their Own Card)
+### Who Holds It (Member Verifying Their Own Card)
 **Pre-Travel Planning:** Before visiting a reciprocal club abroad, verify your home membership is current and includes reciprocal privileges.
 
-### Third-Party Use
+### Who Checks It
 
 **Host Club Staff**
 The classic scenario: Member of Winged Foot visits Royal Melbourne in Australia. Royal Melbourne's front desk needs to verify: (1) Is this person actually a Winged Foot member? (2) Are they in good standing? (3) Does their membership category include reciprocal privileges? A phone call to New York at 8am Melbourne time isn't practical. Verification solves this instantly.
@@ -191,10 +198,10 @@ University clubs, business clubs with reciprocal networks (e.g., the University 
 
 **Examples:** IBEW, UA (Plumbers & Pipefitters), Carpenters, Ironworkers, SAG-AFTRA, IATSE, Teamsters, Equity (UK actors/performers), Musicians' Union (UK), BECTU (UK broadcasting/entertainment), Actors' Equity Association (US stage), MEAA (Australia)
 
-### Data Verified
-**Member Name**, **Card/Book Number**, **Local Union**, **Trade Classification** (Journeyman, Apprentice, Foreman), **Dues-Paid Status**, **Certifications** (welding certs, OSHA cards linked).
+### What Is Checked
+**Member Name**, Card/Book Number, Local Union, Trade Classification (Journeyman, Apprentice, Foreman), Dues-Paid Status, Certifications (welding certs, OSHA cards linked).
 
-### Data Visible After Verification
+### What the Checker Sees
 **Status Indications:**
 - **Dues Current** — Eligible for dispatch, benefits
 - **Dues Delinquent** — Not eligible until caught up
@@ -202,11 +209,11 @@ University clubs, business clubs with reciprocal networks (e.g., the University 
 - **Retired** — Pension eligible, not active workforce
 - **Suspended/Expelled** — Disciplinary action
 
-### Second-Party Use (Member Verifying Their Own Card)
+### Who Holds It (Member Verifying Their Own Card)
 **Benefit Eligibility:** Before a medical procedure, verify your dues are current and health fund benefits are active.
 **Pension Verification:** Approaching retirement, verify years of service and pension credits are correctly recorded.
 
-### Third-Party Use
+### Who Checks It
 
 **Hiring Hall Dispatch**
 Union member shows up for the morning shape-up. Dispatcher needs to verify: dues current, classification correct, available for dispatch. Verification against union database confirms eligibility before sending member to a job.
@@ -241,17 +248,17 @@ SAG-AFTRA members on a film set. Payroll company verifies union status to ensure
 
 **Note:** Alumni *association* membership is separate from being a graduate. Many universities have paid alumni associations with specific benefits beyond the free "you graduated" status.
 
-### Data Verified
-**Member Name**, **Graduation Year & Degree**, **Association Membership Type** (Annual, Life), **Membership Status**, **Chapter Affiliation** (regional clubs).
+### What Is Checked
+**Member Name**, Graduation Year & Degree, Association Membership Type (Annual, Life), Membership Status, Chapter Affiliation (regional clubs).
 
-### Data Visible After Verification
+### What the Checker Sees
 **Status Indications:**
 - **Active Member** — Dues current, benefits available
 - **Life Member** — Permanent status
 - **Lapsed** — Was a member, not currently
 - **Graduate (Non-Member)** — Graduated but not association member
 
-### Third-Party Use
+### Who Checks It
 
 **University Career Services**
 Some career services (job boards, networking events, resume reviews) are restricted to paid alumni association members, not just any graduate. Verification confirms association membership.
@@ -287,10 +294,10 @@ Alumni associations negotiate discounts (insurance, travel, etc.). Vendors verif
 
 **Examples:** VFW, American Legion, DAV, Masons, Elks, Moose, Rotary, Lions, Knights of Columbus
 
-### Data Verified
-**Member Name**, **Member Number**, **Post/Lodge Number**, **Membership Type** (Annual, Life), **Service Record** (for veterans orgs), **Good Standing Status**.
+### What Is Checked
+**Member Name**, Member Number, Post/Lodge Number, Membership Type (Annual, Life), Service Record (for veterans orgs), Good Standing Status.
 
-### Third-Party Use
+### Who Checks It
 
 **VA Benefit Advocacy**
 VFW and American Legion provide accredited representatives for VA claims. Verification confirms member eligibility for these free advocacy services.
@@ -356,7 +363,7 @@ For professional bodies, verification status carries weight beyond "can they use
 
 ## Text-to-Hash Suitability
 
-This use case has **two distinct verification modes** with different tooling needs:
+This use case has two distinct verification modes with different tooling needs:
 
 **1. In-Person / Point-of-Service (OCR-primary)**
 - Tow truck driver verifying AAA card at roadside
@@ -364,7 +371,7 @@ This use case has **two distinct verification modes** with different tooling nee
 - Union hiring hall dispatching members
 - Golf club front desk checking reciprocal credentials
 
-These are **physical card + camera/OCR** scenarios. The verifier has the card in hand (or can see it through a window). Text-to-hash isn't practical here — the member doesn't have a laptop open, and the verifier needs instant confirmation.
+These are physical card + camera/OCR scenarios. The verifier has the card in hand (or can see it through a window). Text-to-hash isn't practical here — the member doesn't have a laptop open, and the verifier needs instant confirmation.
 
 **2. Remote / Administrative (Text-to-hash primary)**
 - HR verifying IEEE Senior Member claim on a resume (candidate emails membership PDF)
@@ -373,7 +380,7 @@ These are **physical card + camera/OCR** scenarios. The verifier has the card in
 - Union pension fund verifying eligibility from submitted documentation
 - Hotel booking system accepting membership proof for pre-applied discounts
 
-These are **digital document** scenarios. The verifier receives a PDF, email, or screenshot and can select text with a browser extension.
+These are digital document scenarios. The verifier receives a PDF, email, or screenshot and can select text with a browser extension.
 
 **Guidance for implementers:**
 - For organizations with strong in-person verification needs (AAA, unions, club front desks), invest in OCR/camera tooling
@@ -382,28 +389,18 @@ These are **digital document** scenarios. The verifier receives a PDF, email, or
 
 ---
 
-## The Fake Membership Card Problem
-
-Membership fraud is low-tech and widespread:
-- **Counterfeit cards:** Fake AAA cards printed for roadside assistance fraud
-- **Expired memberships:** Presenting lapsed credentials for current benefits
-- **Tier inflation:** Claiming premium status (AAA Premier, IEEE Fellow) for enhanced benefits
-- **Reciprocal abuse:** Fabricating membership at Club A to access Club B's facilities
-- **Union card fraud:** Fake credentials to access hiring halls or job sites
-- **Discount hunting:** Fake alumni/veterans cards for retail discounts
-
-**The Fix:** Domain binding to the issuing organization. A fake AAA card won't hash to `member.aaa.com`. A lapsed IEEE membership returns `EXPIRED` from `membership.ieee.org`. The tow truck driver, the conference desk, and the partner club can all verify instantly—no phone calls, no waiting.
-
 ## Why This Works Better Than Database Lookups
+
+Domain binding to the issuing organization addresses the patterns above. A fake AAA card won't hash to `member.aaa.com`. A lapsed IEEE membership returns `EXPIRED` from `membership.ieee.org`. The tow truck driver, the conference desk, and the partner club can all verify instantly—no phone calls, no waiting.
 
 - Many verifiers lack direct database access (tow truck contractors, hotel clerks)
 - International reciprocal clubs can't query each other's member databases
-- Verification works offline—the card contains everything needed
+- The card carries the text to be checked—the verifier needs a smartphone with Live Verify on it and a data connection at the moment of the check
 - The physical card itself becomes the proof—scan it, verify it, done
 
 ## Rationale
 
-Unlike venue-admission credentials (where the issuer controls the door), these memberships create value through **distributed third-party recognition**. The AAA tow truck driver, the IEEE conference, the partner yacht club, and the union hiring hall all need to trust the card—but none of them control the membership database. Live Verify bridges this trust gap, turning a paper or plastic card into a cryptographically verifiable credential that works anywhere, anytime, without a phone call.
+Unlike venue-admission credentials (where the issuer controls the door), these memberships create value through distributed third-party recognition. The AAA tow truck driver, the IEEE conference, the partner yacht club, and the union hiring hall all need to trust the card—but none of them control the membership database. Live Verify bridges this trust gap, turning a paper or plastic card into a credential that anyone can check with a smartphone that has Live Verify on it and a data connection, without a phone call to the issuer.
 
 
 ## Jurisdictional Witnessing (Optional)

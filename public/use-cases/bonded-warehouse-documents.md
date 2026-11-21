@@ -37,7 +37,13 @@ furtherDerivations: 1
   </div>
 </div>
 
-## Data Verified
+## The Problem: Leakage Fraud
+
+- **Ghost Removals:** Physically removing goods from the warehouse to sell them domestically while keeping the "Admitted" paper receipt on an empty pallet to fool inspectors.
+- **Value Swapping:** Admitting a box of "Luxury Watches" but re-writing the exit paper to read "Plastic Toys" to pay lower duties.
+- **Fictitious Admissions:** Creating a fake warehouse receipt to trick a bank into giving a loan for cargo that doesn't exist.
+
+## What Is Checked
 
 Importer name, Customs Entry Number, Warehouse Receipt Number, Class of Warehouse (1-11), inventory description, gross weight, declared value, bond reference, admission date, duty deferral status.
 
@@ -47,7 +53,7 @@ Importer name, Customs Entry Number, Warehouse Receipt Number, Class of Warehous
 - **Withdrawal for Export:** Exiting to another country without paying domestic duty.
 - **Transfer Document:** Moving goods between two bonded warehouses.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Warehouse Operator) and current cargo status.
 
@@ -57,15 +63,15 @@ Shows the issuer domain (the Warehouse Operator) and current cargo status.
 - **In-Transit** — Moving between bonded facilities.
 - **Seized/Hold** — Customs has frozen the cargo (e.g., for investigation).
 
-## Second-Party Use
+## Who Holds It
 
-The **Importer** benefits from verification.
+The Importer benefits from verification.
 
 **Trade Finance:** Proving to a bank that $2.5M worth of watches is "Verified in Custody" at a bonded warehouse. This allows the importer to use the cargo as collateral for a loan before the duties are even paid.
 
 **Audit Compliance:** Providing a "Verified Admission Log" to Customs during an annual audit to prove that all deferred-duty goods are accounted for.
 
-## Third-Party Use
+## Who Checks It
 
 **Customs Authorities (CBP / HMRC)**
 **Inventory Control:** Customs officers can walk the warehouse floor and scan the paper receipts attached to pallets. "Verified by Warehouse System" ensures the importer hasn't "ghosted" the cargo (sold it without paying duty).
@@ -76,13 +82,7 @@ The **Importer** benefits from verification.
 **Cargo Insurers**
 **Risk Monitoring:** Insurers can verify that high-value cargo is actually inside the high-security bonded zone and not sitting on an unmonitored loading dock.
 
-## Verification Architecture
-
-**The "Leakage" Fraud Problem**
-
-- **Ghost Removals:** Physically removing goods from the warehouse to sell them domestically while keeping the "Admitted" paper receipt on an empty pallet to fool inspectors.
-- **Value Swapping:** Admitting a box of "Luxury Watches" but re-writing the exit paper to read "Plastic Toys" to pay lower duties.
-- **Fictitious Admissions:** Creating a fake warehouse receipt to trick a bank into giving a loan for cargo that doesn't exist.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -106,13 +106,13 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 ## Jurisdictional Witnessing (Optional)
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the customs authority's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the warehouse document.
-## Competition vs. Customs ACE Portal
+## Compared With Customs ACE Portal
 
 | Feature | Live Verify | ACE Portal (Gov) | Paper Receipt |
 | :--- | :--- | :--- | :--- |
 | **User Access** | **Universal.** Any trucker/bank/auditor. | **Restricted.** Requires expensive "ACE Portal" credentials. | **Instant.** |
 | **Trust** | **Cryptographic.** Bound to the Warehouse Operator. | **High.** Gov database. | **Zero.** Easily forged. |
-| **Offline Proof** | **Strong.** The paper is the audit anchor. | **None.** Requires live gov system access. | **Medium.** |
+| **Connectivity needed** | **Yes, for the check.** The paper can be read without a connection; checking it takes one small web request. | **Yes.** Requires live gov system access. | **None.** |
 | **Efficiency** | **Instant.** Scan the pallet tag. | **Slow.** Login, search entry #, find line item. | **Manual.** |
 
-**Why Live Verify wins here:** The "Warehouse Floor" workflow. Customs inspectors and warehouse managers don't want to carry laptops and log into slow government portals while walking between rows of cargo. A self-verifying pallet tag provides the **immediate confirmation** needed for high-speed logistics and enforcement.
+**Where each fits:** the customs portal is the official record of entries and remains what brokers and customs offices file against and query. Truckers, lenders and auditors on the warehouse floor generally hold no credentials for it. Live Verify lets them check a receipt or pallet tag against the warehouse operator's domain on the spot, and the customs system stays the reference for the entry itself.

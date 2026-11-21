@@ -11,11 +11,11 @@ furtherDerivations: 1
 
 ## What is a Take Permit?
 
-If a construction project (like a new solar farm) is built in a habitat where an endangered animal lives (like the Desert Tortoise), they might accidentally harm or kill some individuals. By law, they must get an **Incidental Take Permit**.
+If a construction project (like a new solar farm) is built in a habitat where an endangered animal lives (like the Desert Tortoise), they might accidentally harm or kill some individuals. By law, they must get an Incidental Take Permit.
 
 This permit is a "Contract with the Earth." It says: "You are allowed to harm 15 tortoises, but in exchange, you must spend $1 million restoring 400 acres of habitat elsewhere."
 
-"Poaching and Paving" is a real risk: unscrupulous developers often "Edit" their permits to increase the allowed kill limit to avoid the cost of new mitigation. Verified hashes ensure the crew in the field is following the **exact legal limit** set by federal biologists.
+"Poaching and Paving" is a real risk: unscrupulous developers often "Edit" their permits to increase the allowed kill limit to avoid the cost of new mitigation. Verified hashes ensure the crew in the field is following the exact legal limit set by federal biologists.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 2px solid #2e7d32; background: #fff; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <div style="background: #2e7d32; color: #fff; padding: 15px; text-align: center; display: flex; align-items: center; justify-content: center;">
@@ -51,7 +51,13 @@ This permit is a "Contract with the Earth." It says: "You are allowed to harm 15
   </div>
 </div>
 
-## Data Verified
+## The Problem: Poaching and Paving Fraud
+
+- **Species Swapping:** Taking a permit issued for a "Least Concern" species and editing the PDF to cover a "Critically Endangered" one.
+- **Limit Inflation:** Changing a "Take Limit of 2" to "20" to avoid the cost of more extensive mitigation.
+- **Location Fraud:** Using a permit for a low-risk site to cover an illegal project in a high-risk "Critical Habitat" zone.
+
+## What Is Checked
 
 Permittee name, project location, authorized species (Latin/Common name), take limit (numerical), mitigation requirements, effective/expiration dates, HCP (Habitat Conservation Plan) reference, issuing agency (FWS/NOAA).
 
@@ -61,25 +67,25 @@ Permittee name, project location, authorized species (Latin/Common name), take l
 - **Enhancement of Survival Permit:** For conservation work.
 - **BiOp (Biological Opinion):** (Linked hash) for federal agency actions.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`fws.gov`, `noaa.gov`) and current permit status.
 
 **Status Indications:**
 - **Active** — Permit is valid; project is authorized.
 - **Suspended** — Work stopped (e.g., due to mitigation failure).
-- **Exceeded** — **ALERT:** Take limit has been reached; work must stop.
+- **Exceeded** — Take limit has been reached; work must stop.
 - **Expired** — Permit lapsed; unauthorized take is a federal crime.
 
-## Second-Party Use
+## Who Holds It
 
-The **Permittee (Developer / Researcher)** benefits from verification.
+The Permittee (Developer / Researcher) benefits from verification.
 
 **Compliance Shield:** Proving to a suspicious environmental NGO or a local park ranger that the "Desert Tortoise" they just moved was authorized under a verified federal permit. This prevents immediate project shutdowns and legal threats.
 
 **Lender Requirements:** Proving to an ESG-conscious lender that the project has all verified environmental permits in place before capital is released.
 
-## Third-Party Use
+## Who Checks It
 
 **Environmental Inspectors / Rangers**
 **Field Enforcement:** An inspector in a remote desert location can scan the paper permit held by the work crew. "Verified by fws.gov" ensures the crew isn't using a "Photoshopped" permit to destroy habitat for an illegal expansion.
@@ -90,13 +96,7 @@ The **Permittee (Developer / Researcher)** benefits from verification.
 **Insurance Carriers**
 **Pollution/Liability Underwriting:** Verifying that a construction project is operating within its environmental permits to prevent massive fines and legal liabilities.
 
-## Verification Architecture
-
-**The "Poaching and Paving" Fraud Problem**
-
-- **Species Swapping:** Taking a permit issued for a "Least Concern" species and editing the PDF to cover a "Critically Endangered" one.
-- **Limit Inflation:** Changing a "Take Limit of 2" to "20" to avoid the cost of more extensive mitigation.
-- **Location Fraud:** Using a permit for a low-risk site to cover an illegal project in a high-risk "Critical Habitat" zone.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -125,13 +125,13 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the Fish and Wildlife Service's hashes and status changes plus structured metadata (permit number, permittee name, location, authorized species, take limit, mitigation requirements, permit expiration date) — never plaintext project details — providing non-repudiation of the take permit.
 
 
-## Competition vs. ECOS Database
+## Compared With ECOS Database
 
 | Feature | Live Verify | ECOS / FWS Public Portal | Paper Permit |
 | :--- | :--- | :--- | :--- |
 | **Field Access** | **Instant.** Scan the paper at the job-site. | **Difficult.** Requires navigating complex gov search forms on mobile in remote areas. | **Instant.** |
 | **Trust Anchor** | **Domain-Bound.** Bound to `fws.gov`. | **Database.** High trust but manual. | **Zero.** Easily forged. |
 | **Integrity** | **Binds Mitigation.** Protects the text. | **Data-Only.** Doesn't verify the paper. | **Vulnerable.** |
-| **Offline Proof** | **Strong.** The paper is the anchor. | **None.** Requires high-speed data. | **Medium.** |
+| **Connectivity needed** | **Yes, for the check.** The paper permit can be read on site without a connection; checking it takes one small web request. | **Yes.** Requires a data connection. | **None.** |
 
-**Why Live Verify wins here:** The "Remote Site" reality. Endangered species habitat is often in "Dead Zones" without reliable 5G. Live Verify turns the **Physical Permit** into a live, trusted safety link that works anywhere there is a phone camera, protecting the most vulnerable parts of our ecosystem.
+**Where each fits:** The Fish and Wildlife Service's public portal is the complete record of a permit, including history and conditions, and agency staff and consultants at a desk should use it. On a job site the question is narrower: whether the paper permit in the site office is the one the agency issued. Live Verify lets an inspector, contractor or concerned neighbour settle that from the document itself, and the portal stays the place for anything more detailed.

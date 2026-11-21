@@ -11,15 +11,13 @@ furtherDerivations: 1
 
 ## What is a Calibration Certificate?
 
-A **Calibration Certificate** is proof that a measuring device or tool is accurate. It's the "birth certificate" for a precision tool—proving that a wrench, a pressure gauge, a thermometer, or an analytical balance actually measures what it claims to measure.
+A Calibration Certificate is proof that a measuring device or tool is accurate. It's the "birth certificate" for a precision tool—proving that a wrench, a pressure gauge, a thermometer, or an analytical balance actually measures what it claims to measure.
 
 **Examples:**
 - **Industrial Labs:** In high-tech manufacturing (microchips, vaccines, pharmaceuticals), even a tiny measurement error can ruin a $10 million batch of product.
 - **Field Tools:** If a doctor uses an uncalibrated thermometer, they might miss a fever. If a mechanic uses an uncalibrated torque wrench, a wheel might fall off a plane.
 
-**Metrology** is the science of measurement. A **Calibration Certificate** from an accredited lab (ISO 17025 certified) proves that the instrument was tested against a **National Standard** (like NIST or NPL) and is accurate within specified tolerances.
-
-**The Fraud Problem:** Because these certificates are required by law (FDA, ISO, FAA), some shady companies "Dry-Lab" their results—meaning they just write down fake "perfect" numbers without actually testing the instrument. They also forge dates, edit PDFs to extend expiration, or claim NIST traceability when their own reference standards are expired. Verified hashes stop this dangerous fraud.
+**Metrology** is the science of measurement. A Calibration Certificate from an accredited lab (ISO 17025 certified) proves that the instrument was tested against a National Standard (like NIST or NPL) and is accurate within specified tolerances.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="cal-long"></span>
@@ -57,7 +55,22 @@ David Chen, Metrologist                                      [SEAL]
 <span data-verify-line="cal-long">verify:metrologyservices.com/v</span> <span verifiable-text="end" data-for="cal-long"></span>
 </div>
 
-## Data Verified
+## The Problem: Calibration Certificate Fraud
+
+An auditor, quality inspector or customer is shown a calibration certificate as proof that an instrument measures correctly. Because these certificates are required by regulators and quality standards (FDA, ISO, FAA), there is pressure to have one on file whether or not the work was done, and a PDF or a sticker gives the checker no way to confirm it with the lab. An instrument that is out of tolerance can spoil a production batch or put an unsafe part into service.
+
+**Lab-Side Fraud (Dry-Labbing):**
+- **Fabricated Measurements:** A technician simply writing "In-Tolerance" numbers without actually running the tests (dry-labbing).
+- **Traceability Fraud:** Claiming NIST linkage when the lab's own reference standards are expired or unverified.
+- **Scope Fraud:** A lab providing certificates for instruments they aren't accredited to calibrate.
+
+**User-Side Fraud (Pencil Whipping):**
+- **Fake Stickers:** Mechanics buying calibration void stickers online and writing in their own dates to bypass company policy.
+- **Date Alteration:** Editing a 2024 certificate PDF to read 2026 to avoid the cost of recalibration.
+- **Certificate Reuse:** Presenting old calibration certificates as current to pass audits.
+- **Fraudulent Copies:** Photocopying or scanning certificates from tools that ARE calibrated to cover tools that ARE NOT.
+
+## What Is Checked
 
 Instrument description, make/model/serial number, calibration date, expiration (due) date, as-found/as-left status, measurement data (test points and uncertainty), accreditation status (ISO 17025), reference standard used (NIST/NPL traceability), technician name/credentials, lab accreditation ID, environmental conditions (temperature/humidity), next service date.
 
@@ -68,7 +81,7 @@ Instrument description, make/model/serial number, calibration date, expiration (
 - **Service Report:** Including repair, cleaning notes, and adjustments made.
 - **Traceability Tree:** Visual map back to national standards (NIST, NPL, PTB).
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Accredited Lab) and the certification standing.
 
@@ -84,7 +97,7 @@ Shows the issuer domain (the Accredited Lab) and the certification standing.
 
 Calibration is inherently point-in-time (it drifts) and scope-bounded (a lab accredited for one
 instrument class may claim broader). A calibration certificate carries no personal data, so on
-verification the lab can safely **echo the accreditation scope and the calibration interval** —
+verification the lab can safely echo the accreditation scope and the calibration interval —
 `accredited_scope` (the exact instrument classes the lab holds accreditation for),
 `calibrated_on`, and `recalibration_due`. This lets the user see that an instrument outside the lab's
 accredited scope, or past its recalibration date, is not covered by the certificate even though the
@@ -93,9 +106,9 @@ enrichment: no personal data, revealing scope and freshness the terse claim with
 [safety-certifications](safety-certifications.md) and
 [verification-enrichment-hazards.md](../../docs/verification-enrichment-hazards.md)).
 
-## Second-Party Use
+## Who Holds It
 
-The **Tool Owner / Quality Manager** (second party) receives the calibration certificate from the accredited lab (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Tool Owner / Quality Manager (second party) receives the calibration certificate from the accredited lab (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of the calibration results. Most of the time, the document sits in their quality records or the sticker stays on the tool—the verification value is latent, there *if needed*.
 
@@ -103,7 +116,7 @@ The **Tool Owner / Quality Manager** (second party) receives the calibration cer
 
 **Future Optionality:** If an audit arises—whether ISO compliance, FDA inspection, or customer quality review—they have cryptographic proof of calibration ready without needing to contact the lab.
 
-## Third-Party Use
+## Who Checks It
 
 The tool owner (second party) may hand the verified document to various third parties:
 
@@ -119,20 +132,7 @@ The tool owner (second party) may hand the verified document to various third pa
 **Legal Expert Witnesses**
 **Forensic Accuracy:** In litigation involving faulty measurements (bridge failure, structural collapse, medical malpractice), verifying the calibration of the original engineering/diagnostic tools used is a primary forensic step.
 
-## Verification Architecture
-
-**The Calibration Certificate Fraud Problem**
-
-**Lab-Side Fraud (Dry-Labbing):**
-- **Fabricated Measurements:** A technician simply writing "In-Tolerance" numbers without actually running the tests (dry-labbing).
-- **Traceability Fraud:** Claiming NIST linkage when the lab's own reference standards are expired or unverified.
-- **Scope Fraud:** A lab providing certificates for instruments they aren't accredited to calibrate.
-
-**User-Side Fraud (Pencil Whipping):**
-- **Fake Stickers:** Mechanics buying calibration void stickers online and writing in their own dates to bypass company policy.
-- **Date Alteration:** Editing a 2024 certificate PDF to read 2026 to avoid the cost of recalibration.
-- **Certificate Reuse:** Presenting old calibration certificates as current to pass audits.
-- **Fraudulent Copies:** Photocopying or scanning certificates from tools that ARE calibrated to cover tools that ARE NOT.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -159,7 +159,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the lab's hashes and status changes plus structured metadata (instrument IDs, measurement results, calibration dates, uncertainty values) — never plaintext (client company names, proprietary measurement techniques) — providing non-repudiation of the calibration certificate.
 
-## Competition vs. Physical Tamper Seals
+## Compared With Physical Tamper Seals
 
 | Feature | Live Verify | Lead/Plastic Wire Seal | Sticker (Hologram) |
 | :--- | :--- | :--- | :--- |
@@ -168,15 +168,15 @@ An independent witness layer may apply — see [Witnessing Third Parties](../../
 | **Auditability** | **Digital.** Can be automated. | **Manual.** Requires physical eyes. | **Manual.** |
 | **Persistence** | **High.** Archival for 10+ years. | **Fragile.** Cut during maintenance. | **Fragile.** Peeled/Scratched. |
 
-**Why Live Verify wins here:** Persistence of Data. A wire seal only proves the device wasn't opened. It doesn't prove the device is *accurate*. Live Verify turns the data *results* into a verifiable artifact, ensuring that the metrologist's actual work remains trustworthy even after the physical seal is broken for the next service cycle.
+**Where each fits:** A wire seal or tamper sticker is the right tool for showing that an instrument has not been opened or adjusted since it was calibrated, and it does that at a glance with no equipment. What it does not carry is the calibration data itself, and it is cut or peeled at the next service. Live Verify covers that part: the results on the certificate stay checkable against the lab's domain after the seal is gone. The two are used together.
 
-## Competition vs. Asset Management Software
+## Compared With Asset Management Software
 
 | Feature | Live Verify | Asset Management SW | Paper / Excel Log |
 | :--- | :--- | :--- | :--- |
 | **Field Access** | **Instant.** Scan the sticker on the tool. | **Difficult.** Requires laptop/tablet and login to complex ERP. | **Slow.** Find the binder. |
 | **Integrity** | **Cryptographic.** Binds data to the Lab domain. | **Database-Bound.** Can be edited by IT/Admins (audit trail weak). | **Zero.** Easily faked. |
 | **Vendor Neutral** | **Yes.** Works across 10 different accredited labs. | **No.** Often requires all labs to use the same software platform. | **Yes.** |
-| **Offline Proof** | **Strong.** The sticker is the anchor; no network needed to verify. | **None.** Requires server/database access. | **Manual.** |
+| **Connectivity needed** | **Yes, for the check.** The sticker can be read without a connection; checking it takes one small web request. | **Yes.** Requires server/database access. | **None.** |
 
-**Why Live Verify wins here:** The "Factory Floor" reality. Quality inspectors don't want to log into an SAP or Fluke database every time they see a wrench. Live Verify turns the **Sticker on the Tool** into a live, trusted data-point, bringing "Metrology-Grade" trust to the point of use.
+**Where each fits:** Asset management software remains the system of record for calibration schedules, recall lists and audit history, and nothing here replaces it. Its limit is at the point of use, where an inspector looking at a tool would need a login and a search to see its status, and where certificates arrive from several labs on different platforms. Live Verify fills that gap by letting anyone check the certificate or sticker text against the issuing lab's domain.

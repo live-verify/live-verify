@@ -11,14 +11,14 @@ furtherDerivations: 1
 
 ## What is an Open Banking Consent?
 
-**Open Banking** allows you to securely share your financial data (like transaction history) with third-party apps (like Mint, Wise, or a mortgage lender). To do this, you must grant **Explicit Consent**.
+**Open Banking** allows you to securely share your financial data (like transaction history) with third-party apps (like Mint, Wise, or a mortgage lender). To do this, you must grant Explicit Consent.
 
-The **Consent Form** is the legal receipt for this digital handshake. It proves:
+The Consent Form is the legal receipt for this digital handshake. It proves:
 1.  **Who:** Which app you let in (e.g., "Plaid" or "BudgetApp").
 2.  **What:** Exactly which data they can see (e.g., "Account Balance Only" vs "Full History").
 3.  **When:** When the permission expires (usually 90 days).
 
-**"Consent Creep"** is a major privacy risk. An app authorized for a one-time "Credit Check" might continue to scrape your data for months after you've deleted the app. Verified hashes turn these invisible digital permissions into a tangible, auditable artifact. You can scan the "Consent Receipt" to see its **Live Status** (Active vs Revoked) on the bank's own domain.
+**"Consent Creep"** is a major privacy risk. An app authorized for a one-time "Credit Check" might continue to scrape your data for months after you've deleted the app. Verified hashes turn these invisible digital permissions into a tangible, auditable artifact. You can scan the "Consent Receipt" to see its Live Status (Active vs Revoked) on the bank's own domain.
 
 <div style="max-width: 600px; margin: 24px auto; font-family: sans-serif; border: 1px solid #ddd; background: #fff; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
   <div style="background: #004d40; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
@@ -51,7 +51,13 @@ The **Consent Form** is the legal receipt for this digital handshake. It proves:
   </div>
 </div>
 
-## Data Verified
+## The Problem: Ghost Access Fraud
+
+- **Consent Tampering:** A fintech app editing the "Receipt PDF" to hide that they have access to the user's primary savings account.
+- **Revocation Hiding:** Keeping a "Verified" looking paper after the user has revoked access in their banking app.
+- **Impersonation:** Creating a fake "Bank Consent" screen to trick users into revealing their SSN or login details.
+
+## What Is Checked
 
 Customer ID (masked), Third-Party Provider (TPP) name, Authorization ID, Access Scope (AIS/PIS), Specific accounts shared, Transaction history depth (e.g., "90 days"), Consent timestamp, Expiry timestamp, Regulatory jurisdiction (PSD2/UK/Dodd-Frank).
 
@@ -61,25 +67,25 @@ Customer ID (masked), Third-Party Provider (TPP) name, Authorization ID, Access 
 - **TPP Authorization:** (Linked hash) proving the fintech app is registered.
 - **Audit Log Extract:** For regulatory compliance reporting.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Bank) and the live status of the API link.
 
 **Status Indications:**
 - **Active** — Data is currently being shared with the third party.
 - **Expired** — 90-day window has passed; link is inactive.
-- **Revoked by User** — **ALERT:** Access was terminated by the customer.
-- **TPP Suspended** — **ALERT:** Bank has blocked the app due to security concerns.
+- **Revoked by User** — Access was terminated by the customer.
+- **TPP Suspended** — Bank has blocked the app due to security concerns.
 
-## Second-Party Use
+## Who Holds It
 
-The **Bank Customer** benefits from verification.
+The Bank Customer benefits from verification.
 
 **Privacy Defense:** Proving to themselves (or their family) exactly what data is being shared. If they see "Full Transaction History" on the verified hash but only wanted "Balance Check," they can revoke access immediately.
 
 **Dispute Resolution:** If an unauthorized payment occurs, the "Consent Receipt" is the cryptographic proof of what the bank was authorized to do. "I authorized *Inquiry* access, not *Payment* access."
 
-## Third-Party Use
+## Who Checks It
 
 **Regulators (FCA / CFPB)**
 **Consumer Protection Audit:** Verifying that banks are correctly implementing the "Right to Revoke" and "90-day Renewal" rules. Live Verify allows a regulator to audit 1,000 consumer consent records in minutes by scanning hashes.
@@ -90,13 +96,7 @@ The **Bank Customer** benefits from verification.
 **Data Protection Officers (GDPR)**
 **Compliance Proof:** Maintaining an immutable record of user consent to defend against "Unauthorized Processing" lawsuits.
 
-## Verification Architecture
-
-**The "Ghost Access" Fraud Problem**
-
-- **Consent Tampering:** A fintech app editing the "Receipt PDF" to hide that they have access to the user's primary savings account.
-- **Revocation Hiding:** Keeping a "Verified" looking paper after the user has revoked access in their banking app.
-- **Impersonation:** Creating a fake "Bank Consent" screen to trick users into revealing their SSN or login details.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -122,13 +122,13 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the bank's hashes and status changes plus structured metadata (account holder names, data scopes, third-party service names, consent dates, expiration dates) — never account balances or financial details — providing non-repudiation of data sharing consent.
 
-## Competition vs. OAuth Tokens
+## Compared With OAuth Tokens
 
 | Feature | Live Verify | OAuth Token (JWT) | Dashboard (Online Banking) |
 | :--- | :--- | :--- | :--- |
 | **Human Readable** | **Yes.** "I authorized X to see Y." | **No.** Just an opaque string of code. | **Yes.** |
 | **Durability** | **High.** Survives as a PDF/Paper audit trail. | **None.** Tokens are short-lived. | **System-Locked.** |
 | **Transparency** | **High.** Proof is in the user's hand. | **Low.** Only the systems see the token. | **Medium.** requires login. |
-| **Offline Proof** | **Strong.** Protects the agreement text. | **Zero.** | **None.** |
+| **Connectivity needed** | **Yes, for the check.** The receipt can be kept and read without a connection; checking it takes one small web request. | **Yes.** | **Yes.** |
 
-**Why Live Verify wins here:** The "Transparency Gap." OAuth tokens move the data, but humans don't understand them. Live Verify turns the **Invisible Digital Agreement** into a human-readable "Data Receipt," bringing the security of the API to the world of consumer rights and legal audits.
+**Where each fits:** OAuth tokens are the mechanism that actually enforces a consent between the bank and the third party, and the bank's dashboard is where a customer should go to review or revoke access. Neither gives the customer a durable, readable record to show an ombudsman, an adviser or a court. A verified consent receipt provides that record, confirmed against the bank's domain, and the tokens and dashboard carry on doing the technical work.

@@ -15,7 +15,7 @@ Every school day, millions of children are released to adults who aren't their p
 
 Schools maintain "authorized pickup lists" — but these are often paper binders, outdated spreadsheets, or closed-ecosystem apps. When Grandma shows up and the front desk doesn't recognize her, the 30-second interaction becomes tense for everyone.
 
-A **Pickup Authorization** is a verifiable document proving: "Parent X has authorized Person Y to pick up Child Z from this school until Date D."
+A Pickup Authorization is a verifiable document proving: "Parent X has authorized Person Y to pick up Child Z from this school until Date D."
 
 **Perspective:** This use case is written from the school staff's perspective. An adult arrives claiming authorization to collect a child.
 
@@ -53,7 +53,14 @@ A **Pickup Authorization** is a verifiable document proving: "Parent X has autho
   </div>
 </div>
 
-## Data Verified
+## The Problem: Wrong Adult
+
+- **Outdated lists:** Paper binder says Grandma is authorized, but Parent revoked that two months ago after a family dispute.
+- **Custody violations:** Non-custodial parent shows up on the wrong day, claims they're authorized.
+- **Identity confusion:** "I'm the nanny" — but is this the current nanny or the one who was fired last month?
+- **Social engineering:** Adult claims emergency ("Mom was in an accident, she sent me") to extract child.
+
+## What Is Checked
 
 Authorized person's name, photo (hash), relationship to child, child's name/grade, designating parent's name, authorization date, expiration date, any restrictions (e.g., "Fridays only," "after 3pm only"), school-issued authorization ID.
 
@@ -75,9 +82,9 @@ The endpoint returns a simple status code:
 
 The issuer domain is visible from the `verify:` line on the document itself (e.g., `lincoln-elementary.edu`).
 
-## Second-Party Use
+## Who Holds It
 
-The **Authorized Pickup Person** (second party) receives the authorization credential from the school (first party), **keeps it**, and presents it when picking up.
+The Authorized Pickup Person (second party) receives the authorization credential from the school (first party), keeps it, and presents it when picking up.
 
 **Confidence at the Door:** Grandma doesn't have to argue with skeptical staff or wait while they flip through binders. She presents the credential, staff verifies, child is released.
 
@@ -85,7 +92,7 @@ The **Authorized Pickup Person** (second party) receives the authorization crede
 
 **Proof of Legitimacy:** If challenged by another parent or bystander ("Who are you taking that child?"), the authorized person has verifiable proof of their status.
 
-## Third-Party Use
+## Who Checks It
 
 **School Front Desk Staff**
 The primary use case. Staff member sees unfamiliar adult claiming authorization. Instead of calling the parent (who may be in a meeting), flipping through paper lists (outdated), or trusting a verbal claim (dangerous), they verify the credential in seconds.
@@ -104,7 +111,7 @@ The most dangerous pickup moments occur in custody disputes:
 - **Estranged relative** (grandparent cut off after family conflict) attempts pickup
 - **Abduction risk** — one parent fears the other will take the child and flee
 
-In these cases, the custody order (see [Adoption Papers and Custody Orders](view.html?doc=adoption-custody-orders)) defines who has legal authority. The school's pickup authorization **must align** with the custody order — but it's a separate operational document.
+In these cases, the custody order (see [Adoption Papers and Custody Orders](view.html?doc=adoption-custody-orders)) defines who has legal authority. The school's pickup authorization must align with the custody order — but it's a separate operational document.
 
 **Critical integration:**
 - Schools should require custody documentation before issuing pickup authorizations
@@ -141,17 +148,10 @@ This is faster than text selection and provides the critical photo-matching step
 **Live Verify value proposition:**
 - Schools that can't or won't adopt apps
 - Interoperability across districts/systems
-- Offline-capable verification
+- A check that needs Live Verify and a data connection, not a vendor's app or account
 - Audit trail that doesn't depend on a vendor's database
 
-## Verification Architecture
-
-**The "Wrong Adult" Problem**
-
-- **Outdated lists:** Paper binder says Grandma is authorized, but Parent revoked that two months ago after a family dispute.
-- **Custody violations:** Non-custodial parent shows up on the wrong day, claims they're authorized.
-- **Identity confusion:** "I'm the nanny" — but is this the current nanny or the one who was fired last month?
-- **Social engineering:** Adult claims emergency ("Mom was in an accident, she sent me") to extract child.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -179,14 +179,14 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the school's hashes and status changes plus structured metadata (authorized person name, relationship to child, child's name/grade, authorization date, expiration date) — never plaintext or sensitive personal information — providing non-repudiation of the authorization and an audit trail child welfare authorities can inspect.
 
-## Competition vs. Existing Solutions
+## Compared With Existing Solutions
 
 | Feature | Live Verify | School Pickup App (QR) | Paper Binder | Phone Call to Parent |
 | :--- | :--- | :--- | :--- | :--- |
 | **Speed** | Medium (text selection) | **Fast** (scan QR, see photo) | Slow (flip pages) | Very slow (parent may not answer) |
 | **Photo Matching** | Separate step | **Inline** (photo appears on scan) | Manual lookup | N/A |
 | **Real-time Revocation** | Yes | **Yes** | No (until binder updated) | N/A |
-| **Works Offline** | Yes (if cached) | Depends on app | Yes | No |
+| **Works Offline** | No (needs a connection) | Depends on app | Yes | No |
 | **Cross-System** | **Yes** (any school's domain) | No (app-specific) | N/A | N/A |
 | **Parent Friction** | Medium (school issues) | **Low** (self-service app) | High (paper forms) | N/A |
 

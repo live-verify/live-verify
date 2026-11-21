@@ -11,7 +11,7 @@ furtherDerivations: 3
 
 ## What is a DG Declaration?
 
-You cannot just put a box of Lithium batteries or chemicals on a plane. By international law, you must file a **Dangerous Goods (DG) Declaration**.
+You cannot just put a box of Lithium batteries or chemicals on a plane. By international law, you must file a Dangerous Goods (DG) Declaration.
 
 This document tells the pilot and the ground crew: "This box is dangerous. If it leaks, use *this* specific fire extinguisher."
 
@@ -42,7 +42,13 @@ Date:       15 MAR 2026
 <span data-verify-line="dgr">verify:iata-dgr.org/v</span> <span verifiable-text="end" data-for="dgr"></span></pre>
 </div>
 
-## Data Verified
+## The Problem: Phantom Batteries Fraud
+
+- **Misclassification:** Declaring dangerous Lithium batteries as "General Cargo" or "Toys" on the paper form to save on freight costs and bypass safety checks.
+- **Quantity Inflation:** Shipping 500kg of chemicals but only declaring 50kg on the paper to meet "Passenger Plane" limits.
+- **Signature Forgery:** Forging the signature of a certified "Dangerous Goods Professional" who never actually saw the cargo.
+
+## What Is Checked
 
 Shipper name, Air Waybill (AWB) number, UN Number (e.g., UN3480), Proper Shipping Name, Hazard Class (1-9), Packing Group (I, II, III), Net Quantity per package, emergency contact number, signatory name, date of declaration.
 
@@ -51,7 +57,7 @@ Shipper name, Air Waybill (AWB) number, UN Number (e.g., UN3480), Proper Shippin
 - **Cargo Aircraft Only (CAO) Notice:** For goods prohibited on passenger planes.
 - **NOTOC (Notice to Captain):** (Linked hash) proving the pilot was informed of the hazmat on board.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Shipper, Airline, or IATA Validator) and current safety status.
 
@@ -61,15 +67,15 @@ Shows the issuer domain (the Shipper, Airline, or IATA Validator) and current sa
 - **Suspended** — Recalled/Blocked (e.g., due to battery fire safety alert).
 - **Invalid** — Signatory not authorized or details mismatch.
 
-## Second-Party Use
+## Who Holds It
 
-The **Shipper (Manufacturer)** benefits from verification.
+The Shipper (Manufacturer) benefits from verification.
 
 **Vessel Acceptance:** Proving to the Airline (e.g., Lufthansa Cargo) that the batteries were packed and declared by a "Verified Certified Professional." This prevents the cargo from being rejected at the airport warehouse due to "Paperwork Inconsistency."
 
 **Liability Protection:** In the event of an in-flight fire, the shipper can prove they provided a cryptographically verified, accurate declaration of the hazard level, defending against "Willful Misdeclaration" criminal charges.
 
-## Third-Party Use
+## Who Checks It
 
 **Airline Loadmasters / Pilots**
 **Flight Safety:** The Captain uses the DGD data to calculate fire suppression needs and cargo placement. Verification ensures the data isn't "guessed" or fabricated, preventing catastrophic mid-air incidents.
@@ -80,13 +86,7 @@ The **Shipper (Manufacturer)** benefits from verification.
 **Insurance Companies**
 **Aviation Liability:** Verifying that all hazardous cargo on a lost aircraft was properly declared and met all IATA safety standards before paying out a multimillion-dollar hull claim.
 
-## Verification Architecture
-
-**The "Phantom Batteries" Fraud Problem**
-
-- **Misclassification:** Declaring dangerous Lithium batteries as "General Cargo" or "Toys" on the paper form to save on freight costs and bypass safety checks.
-- **Quantity Inflation:** Shipping 500kg of chemicals but only declaring 50kg on the paper to meet "Passenger Plane" limits.
-- **Signature Forgery:** Forging the signature of a certified "Dangerous Goods Professional" who never actually saw the cargo.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -100,16 +100,16 @@ The **Shipper (Manufacturer)** benefits from verification.
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the shipper's hashes and status changes plus structured metadata (shipment number, goods classification, hazard category, departure date) — never shipper name, detailed cargo routing, or commercial shipping value — providing non-repudiation of the dangerous goods declaration issuance.
 
 
-## Competition vs. e-DGD (Electronic Data)
+## Compared With e-DGD (Electronic Data)
 
 | Feature | Live Verify | e-DGD (IATA Digital) | Paper DGD Form |
 | :--- | :--- | :--- | :--- |
 | **Field Access** | **Instant.** Scan the paper on the pallet. | **Hard.** Requires warehouse staff to have tablet access to IATA's private cloud. | **Instant.** |
 | **Trust Anchor** | **Domain-Bound.** Bound to the Shipper/Packer. | **Platform-Bound.** Trust the IATA central hub. | **Zero.** Easily forged. |
-| **Connectivity** | **Strong.** Paper works inside lead-shielded warehouses. | **Fragile.** Requires 100% 5G/Wi-Fi coverage on the tarmac. | **Offline.** |
+| **Connectivity** | **Needed for the check.** The paper can be read inside a shielded warehouse; checking it takes one small web request, made wherever there is signal. | **Needed.** Requires coverage wherever the declaration is consulted. | **Offline.** |
 | **Integrity** | **Binds Content.** Proves the *UN Number* matches. | **Data-Only.** | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Warehouse reality." Air cargo hubs are massive, metal-clad buildings where Wi-Fi is spotty and staff move fast. They rely on the "Persistent Paper" attached to the boxes. Live Verify turns that paper into a **Live Safety Link**, ensuring the person loading the plane has the same verified data as the person who packed the box.
+**Where each fits:** IATA's e-DGD is the better route wherever shipper, forwarder, handler and airline are all connected to it, because the data arrives structured and ahead of the freight. Many warehouses still work from the declaration attached to the pallet, and the person loading may have no tablet or platform access. Live Verify lets that person confirm, with an ordinary phone, that the shipper stands behind the exact wording on the form, and it can run alongside e-DGD for the same consignment.
 
 
 ---
@@ -121,9 +121,9 @@ _[Content merged from: dangerous-goods-declarations-imo-icao]_
 
 When a shipping container full of chemicals (like Acetone or Pesticides) is put on a ship, the captain needs to know exactly where to put it. Flammable items can't be next to explosive items.
 
-The **IMO Dangerous Goods Declaration** is the "Safety Blueprint" for the container.
+The IMO Dangerous Goods Declaration is the "Safety Blueprint" for the container.
 
-Fraudsters often edit these PDFs to hide that a chemical is toxic, just to get it onto a faster ship or to save on port fees. Verified hashes allow the ship's captain and port firefighters to see the **un-altered hazard class** instantly, preventing catastrophic fires at sea.
+Fraudsters often edit these PDFs to hide that a chemical is toxic, just to get it onto a faster ship or to save on port fees. Verified hashes allow the ship's captain and port firefighters to see the un-altered hazard class instantly, preventing catastrophic fires at sea.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="imo-dgd"></span>DANGEROUS GOODS DECLARATION (IMO)
@@ -154,7 +154,7 @@ Date:       15 MAR 2026
 <span data-verify-line="imo-dgd">verify:hapaq-lloyd.com/dgd/v</span> <span verifiable-text="end" data-for="imo-dgd"></span></pre>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Shipper name, Consignee name, UN Number, Class/Division, Packing Group, Proper Shipping Name, Flash point (for maritime), marine pollutant status, number/type of packages, container ID, signatory name, date.
 
@@ -163,25 +163,25 @@ Shipper name, Consignee name, UN Number, Class/Division, Packing Group, Proper S
 - **Multimodal DG Form:** For shipments moving by road and sea.
 - **Container Packing Certificate:** Proving the DG was properly braced inside the box.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Shipper or Carrier) and current safety status.
 
 **Status Indications:**
 - **Verified** — Declaration matches the shipper's official safety filing.
 - **Accepted** — Port/Carrier has verified the physical labels and placards.
-- **Blocked** — **ALERT:** Discrepancy found in hazard class; do not load.
+- **Blocked** — Discrepancy found in hazard class; do not load.
 - **Void** — Replaced by an amended declaration.
 
-## Second-Party Use
+## Who Holds It
 
-The **Shipper (Manufacturer)** benefits from verification.
+The Shipper (Manufacturer) benefits from verification.
 
 **Vessel Space Allocation:** Proving to the Ocean Carrier (e.g., Hapag-Lloyd) that the hazardous chemicals are "Verified Accurately Declared." Carriers are extremely risk-averse with DG; a verified hash prevents the container from being "Left on the Dock" due to paperwork suspicion.
 
 **Liability Defense:** If a container leaks at sea, the shipper can prove they provided a cryptographically verified, accurate declaration of the chemical's flash point and class, defending against claims of "Negligent Misdeclaration."
 
-## Third-Party Use
+## Who Checks It
 
 **Vessel Command (The Captain)**
 **Stowage Safety:** The Captain uses the DGD to ensure flammable liquids (Class 3) aren't stored next to explosives or acids. Verification ensures the data isn't "guessed," preventing catastrophic ship-board fires.
@@ -192,7 +192,7 @@ The **Shipper (Manufacturer)** benefits from verification.
 **Marine Insurers**
 **Risk Management:** Ensuring that all "Hazardous Loads" on a vessel were properly declared before writing high-value hull/cargo policies.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Phantom Chemical" Fraud Problem**
 
@@ -210,16 +210,16 @@ The **Shipper (Manufacturer)** benefits from verification.
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the shipper's hashes and status changes plus structured metadata (shipment number, goods classification, hazard category, departure date) — never shipper names, cargo routing details, or commercial shipping value — providing non-repudiation of the dangerous goods declaration issuance.
 
-## Competition vs. Port Community Systems (PCS)
+## Compared With Port Community Systems (PCS)
 
 | Feature | Live Verify | PCS / Central Hub | Paper DGD |
 | :--- | :--- | :--- | :--- |
 | **Field Access** | **Instant.** Scan the paper at the gate. | **Difficult.** Requires truckers/clerks to have complex portal logins. | **Instant.** |
 | **Trust Anchor** | **Domain-Bound.** Trust the Shipper. | **System-Bound.** Trust the Port's IT vendor. | **Zero.** Easily forged. |
-| **Connectivity** | **Strong.** Paper works at remote berths. | **Fragile.** Port IT systems often experience downtime. | **Offline.** |
+| **Connectivity** | **Needed for the check.** The paper travels to remote berths and can be read there; checking it takes one small web request over any data connection. | **Fragile.** Port IT systems often experience downtime. | **Offline.** |
 | **Interoperability** | **Universal.** Works across any port/carrier. | **Siloed.** Hamburg's PCS doesn't talk to Singapore's. | **Universal.** |
 
-**Why Live Verify wins here:** The "Intermodal Handoff." A chemical container moves from Factory (Truck) -> Port Gate -> Vessel -> Destination Port. At every step, a different entity takes responsibility. Live Verify turns the **Existing Paper Standard** into a universal digital bridge that moves *with the cargo*, providing "Single Source of Truth" trust without needing a global IT integration.
+**Where each fits:** A port community system is the right tool inside the port it serves: terminal, customs and carrier see the same structured record. The paper declaration is what travels with the container across truck, gate, vessel and the destination port, where each party uses a different system or none. Live Verify covers those handoffs by letting anyone holding the declaration check it against the shipper's own domain, without replacing the port's system at either end.
 
 ---
 
@@ -228,11 +228,11 @@ _[Content merged from: dangerous-goods-transport-road]_
 
 ## What is a Hazmat Manifest?
 
-When a truck carries hazardous materials (like Gasoline or Acid), the driver must carry a **Transport Document** (called an ADR note in Europe or a Hazmat Manifest in the US).
+When a truck carries hazardous materials (like Gasoline or Acid), the driver must carry a Transport Document (called an ADR note in Europe or a Hazmat Manifest in the US).
 
-If the truck crashes, **First Responders** (Firefighters) look for this paper first. It tells them: "Approach from upwind" or "Do not use water on this fire."
+If the truck crashes, First Responders (Firefighters) look for this paper first. It tells them: "Approach from upwind" or "Do not use water on this fire."
 
-Fraudsters often "Downgrade" the hazard on the paper form to bypass tunnel restrictions or to save on insurance. Verified hashes allow firefighters to scan the paperwork at the crash site and see the **verified hazard class** from the shipper's domain instantly.
+Fraudsters often "Downgrade" the hazard on the paper form to bypass tunnel restrictions or to save on insurance. Verified hashes allow firefighters to scan the paperwork at the crash site and see the verified hazard class from the shipper's domain instantly.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="road-dg"></span>DANGEROUS GOODS TRANSPORT DOCUMENT
@@ -258,7 +258,7 @@ fire extinguishers and ADR/DOT placards.
 <span data-verify-line="road-dg">verify:trans-euro.com/dg/v</span> <span verifiable-text="end" data-for="road-dg"></span></pre>
 </div>
 
-## Data Verified
+## What Is Checked
 
 Consignor name, Carrier ID (DOT/MC #), UN Number (e.g., UN1203), Proper Shipping Name, Hazard Class (1-9), Packing Group (I, II, III), ADR Tunnel Code (e.g., D/E), total quantity, emergency contact information, date of transport.
 
@@ -268,7 +268,7 @@ Consignor name, Carrier ID (DOT/MC #), UN Number (e.g., UN1203), Proper Shipping
 - **SDS (Safety Data Sheet):** (Linked hash) for technical chemical properties.
 - **Driver Training Certificate:** Proving the driver is "Hazmat Endorsed."
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Shipper or Carrier) and the safety standing.
 
@@ -276,17 +276,17 @@ Shows the issuer domain (the Shipper or Carrier) and the safety standing.
 - **Verified** — Transport document matches the official manifest.
 - **In-Transit** — Goods are currently on the road.
 - **Delivered** — Shipment completed; cargo transferred.
-- **Restriction Active** — **ALERT:** Recent safety restriction on this chemical/route.
+- **Restriction Active** — Recent safety restriction on this chemical/route.
 
-## Second-Party Use
+## Who Holds It
 
-The **Truck Driver / Carrier** benefits from verification.
+The Truck Driver / Carrier benefits from verification.
 
 **Roadside Inspections:** Proving to a Highway Patrol officer or Gendarmerie that the "Gasoline" declaration is verified by the shipper. This prevents the truck from being impounded due to a suspected "Paperwork Forgery" designed to hide more dangerous chemicals.
 
 **Tunnel/Bridge Access:** Instantly proving compliance with "Tunnel Codes" (e.g., ADR Code D/E) to tunnel authorities, ensuring the truck is allowed to enter restricted infrastructure.
 
-## Third-Party Use
+## Who Checks It
 
 **Highway Patrol / First Responders**
 **Accident Response:** If a tanker crashes, firefighters scan the hash on the paperwork or vehicle. "Verified by EuroChem" provides instant, trusted confirmation of the hazard class, potentially saving lives by ensuring the correct fire-suppression method is used.
@@ -297,7 +297,7 @@ The **Truck Driver / Carrier** benefits from verification.
 **Environmental Agencies**
 **Liability Tracking:** Ensuring that high-risk chemicals are being moved by carriers with the verified insurance and safety records required for hazardous transport.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "High-Road" Fraud Problem**
 
@@ -329,13 +329,13 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the shipper's hashes and status changes plus structured metadata (shipment number, goods classification, hazard category, departure date) — never shipper name, detailed hazmat routing, or driver information — providing non-repudiation of the hazmat manifest issuance.
 
-## Competition vs. Central Portals (ERMA)
+## Compared With Central Portals (ERMA)
 
 | Feature | Live Verify | Gov Hazmat Portal | Paper Manifest |
 | :--- | :--- | :--- | :--- |
 | **Field Access** | **Instant.** Scan the paper at the crash site. | **Difficult.** Requires responders to have specific portal logins and stable internet. | **Instant.** |
 | **Trust Anchor** | **Domain-Bound.** Bound to the Shipper. | **Gov-Bound.** | **Zero.** Easily forged. |
-| **Connectivity** | **Strong.** Works in rural areas/dead zones. | **Fragile.** Portals often lag during emergencies. | **Offline.** |
+| **Connectivity** | **Needed for the check.** The paper manifest can be read in a dead zone; checking it takes one small web request once there is signal. | **Fragile.** Portals often lag during emergencies. | **Offline.** |
 | **Integrity** | **Binds Data.** Protects the UN Number. | **Data-Only.** | **Vulnerable.** |
 
-**Why Live Verify wins here:** The "Emergency Response" reality. In a highway accident, seconds matter. First responders don't have time to navigate a government portal. Live Verify turns the **Paper Manifest** into a live, trusted safety link that works anywhere there is a phone, ensuring that responders know exactly what they are dealing with before they approach the flames.
+**Where each fits:** Government hazmat portals hold authoritative registration and routing data, and dispatch centres and regulators with logins should keep relying on them. A first responder at a roadside incident usually has the paper manifest from the cab and a phone. Live Verify lets that responder confirm quickly that the shipper issued the manifest as written, which complements the portal lookup rather than standing in for it.

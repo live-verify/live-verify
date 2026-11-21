@@ -13,9 +13,9 @@ furtherDerivations: 1
 
 **Peer-to-Peer (P2P) Lending** allows individuals or small businesses to borrow money directly from other individuals through platforms like LendingClub or Prosper.
 
-The **Lending Agreement** (or Promissory Note) is the legal contract that says: "Investor Group A lent Person B $10,000 at 8% interest."
+The Lending Agreement (or Promissory Note) is the legal contract that says: "Investor Group A lent Person B $10,000 at 8% interest."
 
-**"Loan Padding"** is a common financial fraud where a borrower "edits" a P2P agreement to show a smaller debt than they actually have, or a higher "verified income" stream, to trick a traditional bank into giving them a mortgage. **"Duplicate Financing"** occurs when a borrower uses the same set of un-verified paper documents to take out three different loans from three different platforms at once. Live Verify binds the **Loan ID, Amount, and APR** to the fintech platform's domain.
+**"Loan Padding"** is a common financial fraud where a borrower "edits" a P2P agreement to show a smaller debt than they actually have, or a higher "verified income" stream, to trick a traditional bank into giving them a mortgage. "Duplicate Financing" occurs when a borrower uses the same set of un-verified paper documents to take out three different loans from three different platforms at once. Live Verify binds the Loan ID, Amount, and APR to the fintech platform's domain.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="p2p"></span>
@@ -47,7 +47,13 @@ private ledger. Alteration is a violation of federal lending laws.
 <span data-verify-line="p2p">verify:lendingclub.com/v</span> <span verifiable-text="end" data-for="p2p"></span>
 </div>
 
-## Data Verified
+## The Problem: FinTech Forgery Fraud
+
+- **Balance Deflation:** A borrower editing their P2P dashboard or PDF to hide a large debt from a mortgage underwriter.
+- **APR Tampering:** Editing a 25% "Bad Credit" interest rate to look like a 7% "Prime" rate.
+- **Phantom Origination:** Creating a fake loan agreement from a real platform to "wash" stolen money or commit identity theft.
+
+## What Is Checked
 
 Borrower name, Loan ID, Principal amount, Fixed/Variable APR, Monthly payment amount, Loan Term (months), Origination date, Maturity date, Platform ID.
 
@@ -57,19 +63,19 @@ Borrower name, Loan ID, Principal amount, Fixed/Variable APR, Monthly payment am
 - **Payment History Report:** (Linked hash) proving on-time performance.
 - **Payoff Letter:** Proving the debt is satisfied.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the P2P platform) and the current loan standing.
 
 **Status Indications:**
 - **Current** — Payments are up to date; loan is in good standing.
 - **Paid in Full** — Debt is satisfied; note is void.
-- **Delinquent** — **ALERT:** Payments are > 30 days overdue.
+- **Delinquent** — Payments are > 30 days overdue.
 - **Charged Off** — Loan has defaulted; legal collection in progress.
 
-## Second-Party Use
+## Who Holds It
 
-The **Borrower** (second party) receives the promissory note from the P2P platform (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Borrower (second party) receives the promissory note from the P2P platform (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of the loan terms. Most of the time, the document sits in their files—the verification value is latent, there *if needed*.
 
@@ -77,7 +83,7 @@ The **Borrower** (second party) receives the promissory note from the P2P platfo
 
 **Future Optionality:** If a dispute arises about payment terms or if they apply for additional financing, they have cryptographic proof ready without needing to contact the platform.
 
-## Third-Party Use
+## Who Checks It
 
 The borrower (second party) may hand the verified document to various third parties:
 
@@ -90,13 +96,7 @@ The borrower (second party) may hand the verified document to various third part
 **Asset-Backed Security (ABS) Investors**
 **Portfolio Audit:** Investors buying "bundles" of P2P loans can verify the underlying promissory notes at scale by scanning hashes, ensuring the "Pool" hasn't been corrupted with fake or inflated loans.
 
-## Verification Architecture
-
-**The " FinTech Forgery" Fraud Problem**
-
-- **Balance Deflation:** A borrower editing their P2P dashboard or PDF to hide a large debt from a mortgage underwriter.
-- **APR Tampering:** Editing a 25% "Bad Credit" interest rate to look like a 7% "Prime" rate.
-- **Phantom Origination:** Creating a fake loan agreement from a real platform to "wash" stolen money or commit identity theft.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -124,13 +124,13 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the P2P lending platform's hashes and status changes plus structured metadata (loan IDs, principal amounts, APRs, payment terms, origination dates) — never plaintext such as borrower names — providing non-repudiation of issuing the lending agreement.
 
-## Competition vs. API (Aggregators)
+## Compared With API (Aggregators)
 
 | Feature | Live Verify | Plaid / Yodlee (API) | Scanned PDF |
 | :--- | :--- | :--- | :--- |
 | **Trust Anchor** | **Domain-Bound.** Bound to the Platform. | **System-Bound.** Trust the aggregator. | **Zero.** Easily forged. |
 | **Privacy** | **High.** Share only the *Summary*. | **Low.** Aggregators often scrape full history. | **High.** |
-| **Connectivity** | **Offline-Ready.** Proves the paper. | **None.** Requires live API sync. | **Static.** |
+| **Connectivity** | **Needed for the check.** One small web request per document. | **Needed.** Requires live API sync. | **Static.** |
 | **Speed** | **Instant.** 5-second scan. | **Slow.** Requires login/MFA. | **Manual.** |
 
-**Why Live Verify wins here:** The "Loan File" reality. In a mortgage closing, "Paper Artifacts" (PDFs) are still the standard. Lenders don't want to maintain 50 different "Fintech Logins" for every applicant. Live Verify turns the **Static PDF Note** into a live, trusted digital link that carries its own proof of truth into the lender's file.
+**Where each fits:** Account aggregators are useful where a lender wants an ongoing or broad view of an applicant's finances and the applicant is willing to connect their accounts. Sometimes a single document is all that is needed, such as a loan note or statement placed in a mortgage file. Live Verify lets the lender confirm that the platform issued that document, without requiring credentials or wider access, and aggregation remains available for cases that call for the fuller picture.

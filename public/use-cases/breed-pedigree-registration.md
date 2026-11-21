@@ -60,7 +60,16 @@ A pedigree certificate proves an animal's lineage — who its parents, grandpare
 
 The certificate is the financial backbone of breeding. A "registered" Golden Retriever puppy sells for 3-5x the price of an unregistered one. A Thoroughbred with a verified pedigree tracing back to champion bloodlines can be worth millions. A Wagyu bull with confirmed genetics commands premium stud fees.
 
-## Data Verified
+## The Problem: Pedigree Fraud
+
+- **Pedigree Padding:** Fabricating a lineage to sell a "Grade" animal as a pedigree for 3-10x the price. The most common form of animal fraud by volume.
+- **Paper Recycling:** Using a deceased animal's genuine pedigree papers for a different, unrelated animal. The microchip won't match, but buyers rarely check before paying.
+- **Forged Registration Certificates:** Color-printing fake KC/AKC papers. Surprisingly easy — the certificates are designed for prestige, not security.
+- **Breeding Restriction Bypass:** Selling a puppy as "KC-registered, breeding quality" when the parent carries a "not for breeding" endorsement, meaning the offspring cannot be registered.
+- **Puppy Farm Laundering:** Industrial breeders forging or recycling pedigree papers to disguise high-volume operations as small hobby breeders.
+- **Stud Fee Fraud:** Claiming a dog or stallion has a pedigree or championship record it doesn't actually hold, to charge inflated stud fees.
+
+## What Is Checked
 
 Registered name, breed, sex, date of birth, microchip/tattoo ID, DNA profile reference, sire and dam (with their registration numbers), extended pedigree (3-5 generations), breeder name, current owner, health test results, championship titles, breeding endorsements or restrictions.
 
@@ -74,7 +83,7 @@ Registered name, breed, sex, date of birth, microchip/tattoo ID, DNA profile ref
 
 See also: [Livestock Health Certificates](livestock-health-certificates.md) for veterinary/transport verification, [Bloodstock Insurance](bloodstock-insurance.md) for equine financial coverage.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`thekennelclub.org.uk`, `akc.org`, `jockeyclub.com`, `angus.org`) and registration standing.
 
@@ -85,9 +94,9 @@ Shows the issuer domain (`thekennelclub.org.uk`, `akc.org`, `jockeyclub.com`, `a
 - **Cancelled** — Registration revoked. Lineage claims are invalid.
 - **Transferred** — Ownership has changed; current owner differs from certificate.
 
-## Second-Party Use
+## Who Holds It
 
-The **Animal Owner / Breeder** benefits from verification.
+The Animal Owner / Breeder benefits from verification.
 
 **Selling puppies/kittens:** Proving to buyers that the advertised "KC-registered" or "AKC-registered" puppy is genuinely registered with the claimed lineage. This is the highest-volume scenario — millions of pedigree pets are sold annually, and buyers routinely receive forged or photocopied papers.
 
@@ -95,7 +104,7 @@ The **Animal Owner / Breeder** benefits from verification.
 
 **Show entry:** Proving registration and breeding eligibility for conformation shows, field trials, and breed-specific competitions.
 
-## Third-Party Use
+## Who Checks It
 
 **Pet Buyers**
 **Due Diligence:** The single largest fraud surface. Online puppy scams cost UK consumers an estimated 2 million per year. Buyers are shown pedigree papers (often photographed, not even printed) that are entirely fabricated, belong to a different animal, or are from a puppy farm masquerading as a small breeder. Scanning the certificate with Live Verify instantly reveals whether the registry actually issued it.
@@ -112,16 +121,7 @@ The **Animal Owner / Breeder** benefits from verification.
 **Kennel / Cattery Inspectors**
 **Welfare Audits:** Verifying that a breeding establishment's animals match their claimed registrations, helping detect puppy farms using forged papers.
 
-## Verification Architecture
-
-**The "Pedigree Fraud" Problem**
-
-- **Pedigree Padding:** Fabricating a lineage to sell a "Grade" animal as a pedigree for 3-10x the price. The most common form of animal fraud by volume.
-- **Paper Recycling:** Using a deceased animal's genuine pedigree papers for a different, unrelated animal. The microchip won't match, but buyers rarely check before paying.
-- **Forged Registration Certificates:** Color-printing fake KC/AKC papers. Surprisingly easy — the certificates are designed for prestige, not security.
-- **Breeding Restriction Bypass:** Selling a puppy as "KC-registered, breeding quality" when the parent carries a "not for breeding" endorsement, meaning the offspring cannot be registered.
-- **Puppy Farm Laundering:** Industrial breeders forging or recycling pedigree papers to disguise high-volume operations as small hobby breeders.
-- **Stud Fee Fraud:** Claiming a dog or stallion has a pedigree or championship record it doesn't actually hold, to charge inflated stud fees.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -135,7 +135,7 @@ The **Animal Owner / Breeder** benefits from verification.
 
 **Racehorses and high-value livestock: Salt is CRITICAL.** Horse names, sire/dam combinations, and registration numbers are public knowledge (racing databases, auction catalogues, breed society records). Without a salt, an attacker can hash known horse identities and probe the registry's verification endpoint to map which champion stallions are at which yards — enabling targeted theft of animals worth millions. Because the inputs are guessable, the salt is the only thing preventing enumeration.
 
-To protect against this, racehorse and high-value livestock registries should support **owner-issued expiring links** (owner-initiated re-salting with timeout): the holder — the registered owner, or a delegate they have authorized (trainer, syndicate manager, solicitor) — logs into the registry portal (or app), requests a time-limited verification for a specific animal, and receives a freshly salted hash with a short TTL (e.g., 24-48 hours). The holder sends this link by email, RCS, or message to the prospective buyer. The buyer verifies within the window; after expiry the endpoint returns 404. This means:
+To protect against this, racehorse and high-value livestock registries should support owner-issued expiring links (owner-initiated re-salting with timeout): the holder — the registered owner, or a delegate they have authorized (trainer, syndicate manager, solicitor) — logs into the registry portal (or app), requests a time-limited verification for a specific animal, and receives a freshly salted hash with a short TTL (e.g., 24-48 hours). The holder sends this link by email, RCS, or message to the prospective buyer. The buyer verifies within the window; after expiry the endpoint returns 404. This means:
 - The holder controls exactly when and to whom verification is available
 - There is no permanent hash sitting on a long-lived endpoint for attackers to discover
 - Each prospective buyer interaction gets its own ephemeral link — no link accumulation
@@ -175,14 +175,14 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the breed registry's hashes and status changes plus structured metadata (registration numbers, dates) — never plaintext or sensitive personal information — providing non-repudiation of the registration it issued.
 
 
-## Competition vs. Registry Databases
+## Compared With Registry Databases
 
 | Feature | Live Verify | Registry Online Lookup | Paper Certificate |
 | :--- | :--- | :--- | :--- |
 | **Trust Anchor** | **Domain-Bound.** Bound to the registry. | **System-Bound.** Trust the website. | **Zero.** Easily forged. |
-| **Offline Use** | **Camera mode.** Scan paper at a show, farm, or doorstep. | **None.** Requires internet + login. | **Instant but unverifiable.** |
-| **Buyer Access** | **Universal.** Any phone, no account needed. | **Limited.** Many registries restrict online lookups or charge fees. | **Vulnerable to forgery.** |
+| **Connectivity needed** | **Yes, for the check.** Scan paper at a show, farm, or doorstep; the check takes one small web request, no login. | **Yes.** Requires internet + login. | **None.** Instant but unverifiable. |
+| **Buyer Access** | **Ordinary smartphone.** Needs Live Verify on it (an app today); no account with the registry. | **Limited.** Many registries restrict online lookups or charge fees. | **Vulnerable to forgery.** |
 | **Microchip Binding** | **Yes.** Hash includes microchip ID. | **Varies.** Not all lookups show microchip. | **No link.** |
 | **Speed** | **Instant.** | **Minutes.** Registration, login, search. | **Instant but meaningless.** |
 
-**Why Live Verify wins here:** The "Doorstep Moment." When a buyer drives two hours to collect a puppy, they're emotionally committed and under social pressure. They're not going to pull out a laptop, create a Kennel Club account, and run a registry search while the breeder watches. But they will point their phone at the certificate for two seconds. Live Verify turns that awkward moment into a confident purchase — or an instant red flag that saves them thousands.
+**Where each fits:** the registry's own online lookup is the fullest source, and a buyer with time before a visit should use it. Some registries restrict lookups or require an account, and at the point of collection few buyers will stop to register and search. Live Verify lets them check the certificate they are handed, including the microchip number printed on it, against the registry's domain in a moment, as a complement to the lookup.

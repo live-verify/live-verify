@@ -168,7 +168,7 @@ The statutory record of who serves as a director and in what capacity.
 
 **Registry Lag:** In many jurisdictions, director changes take days or weeks to appear on the public register. During this window, a removed director may still appear as current. Live Verify can only be as fresh as the registry's data. The verification response should include the "as at" date so the verifier knows the snapshot age.
 
-## Data Verified
+## What Is Checked
 
 **Certificate of Incorporation:** Company name, company number, jurisdiction, date of incorporation, company type (limited by shares, limited by guarantee, corporation, LLC, etc.), registered office location.
 
@@ -194,7 +194,7 @@ The statutory record of who serves as a director and in what capacity.
 
 **Privacy Salt:** Required for Register of Members and Register of Directors when they include personal details (date of birth, residential address). The registry may salt personal details so that the hash can be verified without exposing PII to intermediaries. The verification response confirms the register is authentic without revealing individual shareholder addresses. Trust Deeds require particular care — beneficiary names and trust property details are sensitive. The hash covers the full text, but the verification response reveals only status.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (e.g. `companieshouse.gov.uk`, `corp.delaware.gov`) and the document status.
 
@@ -205,9 +205,9 @@ Shows the issuer domain (e.g. `companieshouse.gov.uk`, `corp.delaware.gov`) and 
 - **Struck Off** — Company removed from the register for non-compliance.
 - **404** — No such document was filed with this registry.
 
-## Second-Party Use
+## Who Holds It
 
-The **company** benefits from verification.
+The company benefits from verification.
 
 **Faster bank account opening:** Instead of a bank manually inspecting a PDF certificate of incorporation and phoning Companies House to confirm, the bank clips the verified certificate. Account opening that takes weeks can be reduced to hours.
 
@@ -217,7 +217,7 @@ The **company** benefits from verification.
 
 **Share transfer certainty:** When a shareholder sells their stake, the buyer can verify the seller's holding against the Register of Members before exchanging funds.
 
-## Third-Party Use
+## Who Checks It
 
 **Banks and Financial Institutions**
 
@@ -316,13 +316,13 @@ The structure chart is a signed diagram showing the chain of ownership from the 
   </div>
 </div>
 
-**How the law firm certification works:** The certification details — firm name, date, signatory — are **inside** the verifiable text block, not separate from it. The entire structure chart including the "Certified by" line is hashed as one unit, and that hash verifies against the law firm's domain (`mourant.com/kyc/v`). This means the law firm is the issuer of the whole document. If someone changes the diagram content, the hash breaks. If someone changes the certifier's name to a different firm, the hash breaks. If someone keeps the text identical but tries to verify it against a different domain, it fails because only Mourant's endpoint holds the hash.
+**How the law firm certification works:** The certification details — firm name, date, signatory — are inside the verifiable text block, not separate from it. The entire structure chart including the "Certified by" line is hashed as one unit, and that hash verifies against the law firm's domain (`mourant.com/kyc/v`). This means the law firm is the issuer of the whole document. If someone changes the diagram content, the hash breaks. If someone changes the certifier's name to a different firm, the hash breaks. If someone keeps the text identical but tries to verify it against a different domain, it fails because only Mourant's endpoint holds the hash.
 
 The law firm doesn't just *sign* the structure chart — it *issues* it. The diagram and the certification are a single verifiable claim because the law firm authored both. This is the same pattern as a notarized document: the notary's statement is part of the document, not a detachable endorsement.
 
 **The text representation problem:** Structure charts are typically visual diagrams — boxes and arrows in a PDF. For Live Verify, the chart must be rendered as text (as above) so that clip mode can hash it. The certifying firm produces the text version alongside or instead of the visual diagram. Camera mode could work with a printed text version.
 
-**What it proves (and what it doesn't):** Verification confirms that Mourant Ozannes produced this specific structure chart on this date with this signatory. It does **not** independently prove each link in the chain — the BVI incorporation, the Jersey trust, the Jordanian UBO's identity. Those are separately verifiable if the underlying registries participate. The structure chart is the law firm's professional attestation that they have examined the underlying documents and this is the ownership structure they found. The fund manager can then verify the underlying documents individually for additional assurance.
+**What it proves (and what it doesn't):** Verification confirms that Mourant Ozannes produced this specific structure chart on this date with this signatory. It does not independently prove each link in the chain — the BVI incorporation, the Jersey trust, the Jordanian UBO's identity. Those are separately verifiable if the underlying registries participate. The structure chart is the law firm's professional attestation that they have examined the underlying documents and this is the ownership structure they found. The fund manager can then verify the underlying documents individually for additional assurance.
 
 **Why it matters for fund managers:** A London hedge fund receiving an investment from a BVI company owned by a Jersey trust settled by a Jordanian national needs to see the whole chain in one place. The structure chart is often the first document reviewed in KYC. If any link in the chain is fabricated — a company that doesn't exist, a trust that was never settled, a UBO who isn't who they claim to be — the structure chart verification fails because the certifying firm would not have issued the hash.
 
@@ -330,7 +330,7 @@ The law firm doesn't just *sign* the structure chart — it *issues* it. The dia
 
 When a London fund manager receives KYC documents from an overseas client, the documents themselves may be genuine but the fund manager has no direct relationship with the issuing registry. A Certificate of Incorporation from the BVI Companies Registry is meaningless if the fund manager cannot confirm it came from the registry.
 
-The solution is **professional certification** — a trusted intermediary who examines the original documents and attests to their authenticity. The UK government and FCA generally accept certification from:
+The solution is professional certification — a trusted intermediary who examines the original documents and attests to their authenticity. The UK government and FCA generally accept certification from:
 
 - **Notary Public** — the global standard. A notary's certification is recognized in virtually every jurisdiction. The notary examines the original, stamps the copy, and signs.
 - **Lawyer or Solicitor** — registered with a national bar association or law society. The lawyer certifies they have seen the original and the copy is a true and complete reproduction.
@@ -394,9 +394,9 @@ This pattern extends to every category of certifying professional:
 
 ### FATF Grey List and Black List: Enhanced Due Diligence
 
-If the client's country of origin is on the **FATF Grey List** (Jurisdictions under Increased Monitoring — as of 2026 this includes countries like Nigeria, South Africa, Turkey, and others) or the **FATF Black List** (High-Risk Jurisdictions subject to a Call for Action — currently Myanmar, Iran, North Korea), the standard certification may not be sufficient.
+If the client's country of origin is on the FATF Grey List (Jurisdictions under Increased Monitoring — as of 2026 this includes countries like Nigeria, South Africa, Turkey, and others) or the FATF Black List (High-Risk Jurisdictions subject to a Call for Action — currently Myanmar, Iran, North Korea), the standard certification may not be sufficient.
 
-The fund manager may require a **Legal Opinion** from a law firm in the client's home jurisdiction, confirming:
+The fund manager may require a Legal Opinion from a law firm in the client's home jurisdiction, confirming:
 
 1. The legality of the client's business activities under local law
 2. The source of wealth is consistent with known business operations
@@ -444,7 +444,7 @@ The fund manager may require a **Legal Opinion** from a law firm in the client's
 
 **The verification value:** Without Live Verify, a fund manager receives a Legal Opinion as a PDF attachment from the client's lawyer. They have no way to confirm the opinion was actually issued by that firm, that the signatory is a real partner, or that the opinion hasn't been altered. A clipped verification against the law firm's domain confirms the firm stands behind the text. If the firm later discovers issues and withdraws the opinion, the endpoint returns WITHDRAWN.
 
-## Verification Architecture
+## How Verification Works Here
 
 **The "Unverifiable PDF" Problem**
 
@@ -528,18 +528,18 @@ The company registry is the authoritative source for formation documents and sta
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition vs. Current Practice
+## Compared With Current Practice
 
 | Feature | Live Verify | Registry Website Lookup | PDF/Printout from Company | Certified Copy (ordered from registry) |
 | :--- | :--- | :--- | :--- | :--- |
 | **Tamper-evident** | **Yes.** Hash mismatch = altered. | **N/A.** Screen, not document. | **No.** PDF is editable. | **Yes.** But physical only. |
 | **Staleness detection** | **Yes.** SUPERSEDED status. | **Current.** But manual lookup. | **No.** Copy persists. | **No.** Copy persists. |
-| **Verifiable offline** | **After first check.** Result cached. | **No.** Requires connectivity. | **No.** | **No.** |
+| **Verifiable offline** | **No.** Each check needs a connection. | **No.** Requires connectivity. | **No.** | **No.** |
 | **Multi-page integrity** | **Yes.** Merkle root covers all pages. | **N/A.** | **No.** Pages can be swapped. | **Yes.** But physical. |
 | **Audit trail** | **Yes.** Verification is logged. | **No.** Browsing isn't evidence. | **No.** | **Yes.** With receipt. |
 | **Cost** | **Free.** Standard web request. | **Free.** But manual effort. | **Free.** But unverifiable. | **£15–£50 per document.** |
 
-**Why Live Verify wins here:** The documents that matter most in corporate transactions — incorporation certificates, articles, and registers — are the ones most often exchanged as unverifiable PDFs. Live Verify turns every copy into a verifiable copy, regardless of how many times it has been forwarded, downloaded, or printed. The registry remains the source of truth, but the truth now travels with the document.
+**Where each fits:** the registry remains the source of truth, and a certified copy ordered from it is still what some transactions and jurisdictions require. A direct registry lookup is also the right check for anyone who wants the current position. What Live Verify adds is a way to check the copies that actually circulate, forwarded PDFs and printouts, against the registry's domain, including whether a later filing has superseded them.
 
 ## Further Derivations
 

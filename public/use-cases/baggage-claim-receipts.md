@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Baggage PIR?
 
-When your suitcase doesn't arrive at the airport, the airline agent gives you a **Property Irregularity Report (PIR)**. This is a simple thermal-paper receipt with a reference number like `CDG-AF-998877`.
+When your suitcase doesn't arrive at the airport, the airline agent gives you a Property Irregularity Report (PIR). This is a simple thermal-paper receipt with a reference number like `CDG-AF-998877`.
 
 This receipt is the only "Proof of Loss" accepted by travel insurance companies.
 
@@ -45,7 +45,13 @@ Because these receipts are easy to forge with a basic printer, "baggage fraud" i
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Lost Bag Fraud
+
+- **PIR Forgery:** Using a template to create a realistic Property Irregularity Report for a flight the traveler actually took, just to collect insurance money.
+- **Amount Inflation:** Editing a $50 authorization to read $500.
+- **Double-Dipping:** Claiming full value from both the airline and the private insurer.
+
+## What Is Checked
 
 Passenger name, Property Irregularity Report (PIR) reference, flight details, baggage tag numbers, damage description or delay status, authorization amount for expenses, date of report.
 
@@ -54,7 +60,7 @@ Passenger name, Property Irregularity Report (PIR) reference, flight details, ba
 - **Damage Report:** Issued when a bag is broken but delivered.
 - **Baggage Fee Receipt:** Proving payment for excess/checked bags.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`airfrance.com`, `delta.com`) and the claim status.
 
@@ -64,15 +70,15 @@ Shows the issuer domain (`airfrance.com`, `delta.com`) and the claim status.
 - **Closed** — Claim settled and paid.
 - **Denied** — Claim rejected (e.g., report filed too late).
 
-## Second-Party Use
+## Who Holds It
 
-The **Passenger** benefits from verification.
+The Passenger benefits from verification.
 
 **Travel Insurance Payout:** Insurers (e.g., Allianz, AMEX) require a PIR from the airline to pay for "Delayed Baggage" coverage. A verified PIR prevents the insurer from rejecting the claim due to "unreadable" or "suspicious" documentation.
 
 **Emergency Purchases:** Proving to a shop that you have a verified "EUR 100 authorization" from the airline might allow for direct billing or just peace of mind when spending money you expect to get back.
 
-## Third-Party Use
+## Who Checks It
 
 **Travel Insurance Companies**
 **Fraud Detection:** People often forge PIRs to claim $500 for "lost bags" that were never actually lost. Scanning the verification hash instantly proves the airline has an active PIR for that passenger/flight.
@@ -83,13 +89,7 @@ The **Passenger** benefits from verification.
 **Corporate Travel Agencies (TMCs)**
 **Support:** TMCs can monitor the verified status of a client's lost bag to provide proactive updates and handle the paperwork for them.
 
-## Verification Architecture
-
-**The "Fake Lost Bag" Fraud Problem**
-
-- **PIR Forgery:** Using a template to create a realistic Property Irregularity Report for a flight the traveler actually took, just to collect insurance money.
-- **Amount Inflation:** Editing a $50 authorization to read $500.
-- **Double-Dipping:** Claiming full value from both the airline and the private insurer.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -115,12 +115,12 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the airline's hashes and status changes plus structured metadata (key identifiers and dates) — never plaintext or sensitive personal information — providing non-repudiation of the baggage claim receipt.
 
 
-## Competition vs. Airline Apps
+## Compared With Airline Apps
 
 | Feature | Live Verify | Airline Mobile App | Paper PIR |
 | :--- | :--- | :--- | :--- |
 | **Shareability** | **High.** Can be sent to any insurance company. | **Low.** Cannot share "App access" with an insurer. | **High.** But untrusted. |
 | **Integrity** | **Cryptographic.** Binds the claim details. | **Dynamic.** Status changes in-app. | **Zero.** Easily forged. |
-| **Offline Proof** | **Strong.** The paper/PDF is the anchor. | **None.** No app access = no proof. | **Medium.** |
+| **Connectivity needed** | **Yes, for the check.** The paper/PDF can be kept and passed on without a connection; checking it takes one small web request. | **Yes.** No app access = no proof. | **None.** |
 
-**Why Live Verify wins here:** The Insurance Bridge. Airline apps are "Walled Gardens." While they are great for the passenger, they are useless for the **Travel Insurer** who needs a trusted artifact to justify a payout. Live Verify turns the airline's internal record into a portable, verifiable document that bridges the gap between the airline and the insurance industry.
+**Where each fits:** the airline app is the best way for the passenger to follow a claim as it progresses. A travel insurer cannot be given access to the passenger's app, and needs something fixed to put on file. Live Verify lets the insurer confirm that the airline issued the property irregularity report it has been sent, so the app serves the passenger and the verified report serves the claim.

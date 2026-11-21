@@ -11,14 +11,14 @@ furtherDerivations: 1
 
 ## What is an OTA Confirmation?
 
-An **Online Travel Agency (OTA)** confirmation is the digital receipt issued when you book a flight, hotel, or car rental through a site like Expedia or Booking.com.
+An Online Travel Agency (OTA) confirmation is the digital receipt issued when you book a flight, hotel, or car rental through a site like Expedia or Booking.com.
 
 It is your "Central Itinerary." It proves:
 1.  **Payment:** The price you paid (including taxes and fees).
 2.  **Rights:** Which room type or flight class you are entitled to.
 3.  **Status:** Whether the booking is "Confirmed" or "Pending."
 
-**"Itinerary Padding"** is a common corporate fraud where employees "edit" their confirmation PDF to show a higher price (e.g., changing $150 to $250) or a "First Class" ticket when they actually flew "Economy." They then submit this to their company for reimbursement. Verified hashes bind the **Confirmation ID, Price, and Class of Service** to the OTA's domain.
+**"Itinerary Padding"** is a common corporate fraud where employees "edit" their confirmation PDF to show a higher price (e.g., changing $150 to $250) or a "First Class" ticket when they actually flew "Economy." They then submit this to their company for reimbursement. Verified hashes bind the Confirmation ID, Price, and Class of Service to the OTA's domain.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <span verifiable-text="start" data-for="ota"></span>
@@ -44,7 +44,13 @@ Total Price (including VAT):                          CHF 1,450.00
 <span data-verify-line="ota">verify:booking.com/v</span> <span verifiable-text="end" data-for="ota"></span>
 </div>
 
-## Data Verified
+## The Problem: JPEG Itinerary Fraud
+
+- **Price Padding:** Changing a $100 budget hotel receipt to $300 to get a higher reimbursement.
+- **Status Faking:** Showing a "Confirmed" itinerary to get a travel visa, and then immediately cancelling the booking for a full refund.
+- **Class Inflation:** Editing "Premium Economy" to "Business Class" on an airline itinerary.
+
+## What Is Checked
 
 Passenger/Guest name, OTA Confirmation Number, Supplier Reference (PNR/Hotel ID), Total Price, Currency, Dates of travel, Class of Service (e.g., "Economy" vs "Business"), Cancellation policy terms, Issuing platform.
 
@@ -54,19 +60,19 @@ Passenger/Guest name, OTA Confirmation Number, Supplier Reference (PNR/Hotel ID)
 - **Cancellation Notice:** (Linked hash) proving a refund is due.
 - **Boarding Pass:** (Linked hash) for airline segments.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`booking.com`, `expedia.com`) and current reservation status.
 
 **Status Indications:**
 - **Confirmed/Paid** — Reservation is active and funds received.
-- **Cancelled** — **ALERT:** The trip was voided (e.g., for expense fraud detection).
+- **Cancelled** — The trip was voided (e.g., for expense fraud detection).
 - **Checked-In** — Guest has arrived at the hotel/flight.
 - **Refunded** — Funds returned to the original payment method.
 
-## Second-Party Use
+## Who Holds It
 
-The **Traveler** (second party) receives the booking confirmation from the OTA (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Traveler (second party) receives the booking confirmation from the OTA (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of the reservation details and price paid. Most of the time, the document sits in their email or files—the verification value is latent, there *if needed*.
 
@@ -74,7 +80,7 @@ The **Traveler** (second party) receives the booking confirmation from the OTA (
 
 **Future Optionality:** If an expense claim is disputed or a visa application is challenged, they have cryptographic proof ready without needing to contact the OTA.
 
-## Third-Party Use
+## Who Checks It
 
 The traveler (second party) may hand the verified document to various third parties:
 
@@ -87,13 +93,7 @@ The traveler (second party) may hand the verified document to various third part
 **Travel Insurers**
 **Claim Substantiation:** If a traveler claims their trip was cancelled due to illness, the insurer verifies the "Cancelled" status and the "Non-refundable" price directly from the OTA hash.
 
-## Verification Architecture
-
-**The "JPEG Itinerary" Fraud Problem**
-
-- **Price Padding:** Changing a $100 budget hotel receipt to $300 to get a higher reimbursement.
-- **Status Faking:** Showing a "Confirmed" itinerary to get a travel visa, and then immediately cancelling the booking for a full refund.
-- **Class Inflation:** Editing "Premium Economy" to "Business Class" on an airline itinerary.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -121,13 +121,13 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the OTA's hashes and status changes plus structured metadata (confirmation number, booking dates, price, property ID) — never guest name, payment method, or loyalty account — providing non-repudiation of the booking and an audit trail tax authorities and insurers can inspect.
 
-## Competition vs. API Sync (Direct)
+## Compared With API Sync (Direct)
 
 | Feature | Live Verify | API Sync (Direct) | Scanned PDF / Image |
 | :--- | :--- | :--- | :--- |
 | **User Privacy** | **High.** Share only the *one* trip. | **Low.** API access often sees the *full* history. | **High.** |
 | **Trust Anchor** | **Domain-Bound.** Bound to the OTA. | **System-Bound.** Trust the app. | **Zero.** Easily forged. |
-| **Connectivity** | **Offline-Ready.** Proves the paper. | **None.** Requires live sync. | **Static.** |
+| **Connectivity** | **Needed for the check.** One small web request per document. | **Needed.** Requires live sync. | **Static.** |
 | **Cost** | **Low.** Marginal implementation. | **High.** Requires complex API keys. | **Free.** |
 
-**Why Live Verify wins here:** The "Hiring/Audit" reality. When a new employee joins a company, they bring their "Paper/PDF" past with them. The company doesn't want to "Sync" with the employee's private Expedia account. Live Verify allows for **discrete, high-trust verification** of a single document without invading the traveler's digital life.
+**Where each fits:** A direct API connection suits a company and a travel platform with an ongoing relationship, such as a corporate travel programme where bookings flow into expenses automatically. It is a poor fit for a one-off check on a single past trip, where nobody wants to link an employee's personal travel account. Live Verify lets a finance or audit team confirm one confirmation against the travel agency's domain, and managed travel continues through the integration.

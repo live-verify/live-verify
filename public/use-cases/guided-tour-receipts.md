@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Tour Voucher?
 
-When you book an excursion (like a desert trek or a boat tour) through a site like Viator or TripAdvisor, you receive a **Booking Confirmation** or Voucher.
+When you book an excursion (like a desert trek or a boat tour) through a site like Viator or TripAdvisor, you receive a Booking Confirmation or Voucher.
 
 This is your "Ticket" to meet the guide at a specific time and place (often a remote boat dock or park entrance).
 
@@ -46,7 +46,13 @@ meeting point.
 <span data-verify-line="tour">verify:sahara-expeditions.com/v</span> <span verifiable-text="end" data-for="tour"></span>
 </div>
 
-## Data Verified
+## The Problem: Voucher Forgery Fraud
+
+- **Duplicate Use:** Printing 10 copies of one $600 voucher and handing them to 10 different friends. Verification shows the "Checked-In" status, stopping the 2nd person at the gate.
+- **Amount Tampering:** Editing a $50 "Basic Tour" receipt to read $500 to get a higher reimbursement from a company or insurer.
+- **Fabricated Operators:** Creating fake tour companies with real-looking websites to sell "Vapor-Tours" to unsuspecting tourists.
+
+## What Is Checked
 
 Lead participant name, booking reference ID, activity title, meeting point address/coordinates, start date/time, total price paid, number of participants, operator name, liability waiver status.
 
@@ -56,7 +62,7 @@ Lead participant name, booking reference ID, activity title, meeting point addre
 - **Liability Waiver:** (Linked hash) proving the participant signed the safety terms.
 - **Tour Operator License:** (Linked hash) proving the guide is officially permitted.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`sahara-expeditions.com`, `viator.com`, `getyourguide.com`) and current booking standing.
 
@@ -66,9 +72,9 @@ Shows the issuer domain (`sahara-expeditions.com`, `viator.com`, `getyourguide.c
 - **Checked-In** — Participant has already been scanned at the meeting point (fraud detection).
 - **Delayed** — Start time has changed; click for new instructions.
 
-## Second-Party Use
+## Who Holds It
 
-The **Traveler** (second party) receives the tour voucher from the operator (first party), **keeps it**, and may later hand it to third parties for various reasons, or never do so.
+The Traveler (second party) receives the tour voucher from the operator (first party), keeps it, and may later hand it to third parties for various reasons, or never do so.
 
 **Personal Record:** They have their own verified copy of the booking confirmation. Most of the time, the voucher sits in their travel documents—the verification value is latent, there *if needed*.
 
@@ -76,7 +82,7 @@ The **Traveler** (second party) receives the tour voucher from the operator (fir
 
 **Future Optionality:** If a dispute arises—whether about cancellations, refunds, or service quality—they have cryptographic proof ready without needing to contact the operator.
 
-## Third-Party Use
+## Who Checks It
 
 The traveler (second party) may hand the verified document to various third parties:
 
@@ -89,13 +95,7 @@ The traveler (second party) may hand the verified document to various third part
 **OTA Platforms (Viator / Expedia)**
 **Vendor Audit:** Ensuring that the local tour operators are issuing vouchers that match the data transmitted through the platform's API.
 
-## Verification Architecture
-
-**The "Voucher Forgery" Fraud Problem**
-
-- **Duplicate Use:** Printing 10 copies of one $600 voucher and handing them to 10 different friends. Verification shows the "Checked-In" status, stopping the 2nd person at the gate.
-- **Amount Tampering:** Editing a $50 "Basic Tour" receipt to read $500 to get a higher reimbursement from a company or insurer.
-- **Fabricated Operators:** Creating fake tour companies with real-looking websites to sell "Vapor-Tours" to unsuspecting tourists.
+## Who Issues It
 
 **Issuer Types (First Party)**
 
@@ -123,13 +123,13 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the tour operator's hashes and status changes plus structured metadata (booking reference IDs, activity titles, meeting point addresses, start dates and times, payment amounts, participant counts) — never participant names, contact details, or payment card information — providing non-repudiation of the voucher and booking terms and an audit trail tourism boards can inspect.
 
-## Competition vs. QR Codes (Offline)
+## Compared With QR Codes
 
 | Feature | Live Verify | Standard QR Code | Scanned PDF |
 | :--- | :--- | :--- | :--- |
 | **Integrity** | **Cryptographic.** Binds the *Participant Name*. | **Data-Only.** Often just a raw URL or ID string. | **Zero.** Easily forged. |
-| **Interoperability** | **Universal.** Any smartphone browser. | **App-Locked.** Often requires the specific "Viator" app to decode. | **Universal.** |
+| **Interoperability** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **App-Locked.** Often requires the specific "Viator" app to decode. | **Universal.** |
 | **Trust Anchor** | **Domain-Bound.** Bound to the Operator. | **Platform-Bound.** | **Visual.** |
-| **Offline Check** | **Strong.** Protects the printed text integrity. | **None.** Requires live DB access to mean anything. | **Vulnerable.** |
+| **Connectivity needed** | **Yes, for the check.** The printed voucher can be read without a connection; checking it takes one small web request. | **Yes.** Requires live DB access to mean anything. | **None.** |
 
-**Why Live Verify wins here:** The "Remote Meeting" reality. Many tours start in places with terrible Wi-Fi (deserts, mountains, boat docks). A guide often has to trust the paper voucher. Live Verify turns the **Printed Text** into an immutable anchor that proves the voucher's data hasn't been altered since issuance, even before the guide syncs with the home office.
+**Where each fits:** A booking platform's own QR code, scanned in the platform's own app, is fast and ties straight into the operator's manifest, and guides who have that app should use it. A voucher may equally be presented to a subcontracted guide, a boat crew or a site gatekeeper who does not have it. Live Verify lets that person confirm, with an ordinary phone browser, that the operator stands behind the printed voucher, and the two codes can sit on the same page.

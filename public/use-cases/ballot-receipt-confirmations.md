@@ -11,11 +11,11 @@ furtherDerivations: 2
 
 ## What is a Ballot Receipt Confirmation?
 
-After a citizen casts their ballot — whether in person, by mail, or via drop box — jurisdictions increasingly send a **confirmation** that the ballot was received and counted. In the US, systems like BallotTrax ("Where's My Ballot") already push these notifications via email, SMS, and increasingly RCS.
+After a citizen casts their ballot — whether in person, by mail, or via drop box — jurisdictions increasingly send a confirmation that the ballot was received and counted. In the US, systems like BallotTrax ("Where's My Ballot") already push these notifications via email, SMS, and increasingly RCS.
 
 Today these confirmations are unverifiable plaintext. A phishing email saying "Your ballot was REJECTED — click here to fix it" is indistinguishable from a real one. A verified hash ties the confirmation to the election authority's domain, making spoofed ballot-status messages instantly detectable.
 
-This use case has **two variants**, reflecting a genuine policy tension:
+This use case has two variants, reflecting a genuine policy tension:
 
 ### Variant 1: "I Voted" Confirmation (Participation Only)
 
@@ -41,7 +41,7 @@ Received:       Oct 28, 2026 2:14 PM MDT
 
 ### Variant 2: "How I Voted" Personal Record (Voter's Choice)
 
-Some voters want a verified record of their **selections** — not for the government to prove how they voted, but for themselves: a personal receipt they can keep, share, or use to confirm their ballot wasn't altered. This variant is opt-in, generated at the voter's request, and the voter controls who sees it.
+Some voters want a verified record of their selections — not for the government to prove how they voted, but for themselves: a personal receipt they can keep, share, or use to confirm their ballot wasn't altered. This variant is opt-in, generated at the voter's request, and the voter controls who sees it.
 
 <div style="max-width: 650px; margin: 24px auto; border: 1px solid #ccc; background: #fff; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 0.85em; white-space: pre; color: #000; line-height: 1.6;"><span verifiable-text="start" data-for="selections"></span>PERSONAL BALLOT RECORD
@@ -71,7 +71,14 @@ Received:       Oct 28, 2026 2:14 PM MDT
 
 **The policy tension:** Variant 2 enables a voter to prove how they voted. This is exactly what ballot secrecy laws are designed to prevent — because provable votes enable vote-buying and coercion ("Show me your receipt or else"). Some jurisdictions explicitly prohibit ballot receipts that reveal selections. Others (particularly those with open-count systems like some Scandinavian countries) are more permissive. Whether to offer Variant 2 is a jurisdictional policy decision, not a technical one. Live Verify can support either variant; the question is whether the election authority chooses to issue the second one.
 
-## Data Verified
+## The Problem: Ballot Notification Fraud
+
+- **Phishing / Suppression:** Fake "ballot rejected" emails designed to discourage voters or harvest credentials. This is the dominant threat. Verified notifications make spoofed messages instantly detectable.
+- **Status Fabrication:** Fake "ballot counted" messages designed to make voters complacent when their ballot was actually rejected. The voter trusts the fake confirmation and doesn't cure.
+- **Notification Denial:** Election authorities claiming they notified a voter when they didn't, or vice versa. Verified notifications create a mutual audit trail.
+- **Receipt Fabrication:** (Variant 2) Creating a fake "how I voted" receipt to satisfy a vote-buyer. This is the coercion risk — but it exists with or without Live Verify, since photos of marked ballots serve the same purpose.
+
+## What Is Checked
 
 **Variant 1 (Participation):** Voter name, voter ID, precinct, election name and date, ballot status (received/counted/rejected), voting method (in-person/mail/drop-box), receipt timestamp.
 
@@ -83,7 +90,7 @@ Received:       Oct 28, 2026 2:14 PM MDT
 - **Ballot Rejected Notice:** Notification that the ballot had an issue (signature mismatch, late arrival) — with cure instructions.
 - **Personal Ballot Record:** (Variant 2) Opt-in record of the voter's selections.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (`sos.colorado.gov`, `elections.king.gov`) and ballot status.
 
@@ -91,14 +98,14 @@ Shows the issuer domain (`sos.colorado.gov`, `elections.king.gov`) and ballot st
 - **Received** — Ballot arrived at the election office, awaiting processing.
 - **Signature Verified** — Ballot signature matched voter file; proceeding to count.
 - **Counted** — Ballot was tabulated in the official count.
-- **Curing Required** — **ALERT:** Signature mismatch or missing information; voter must act before the cure deadline.
-- **Rejected** — **CRITICAL:** Ballot was not counted (reason provided: late, duplicate, ineligible).
+- **Curing Required** — Signature mismatch or missing information; voter must act before the cure deadline.
+- **Rejected** — Ballot was not counted (reason provided: late, duplicate, ineligible).
 - **Challenged** — Ballot is under review (provisional ballot adjudication).
-- **Spoofed** — **CRITICAL:** Hash not found at issuer domain; this message did not come from the election authority.
+- **Spoofed** — Hash not found at issuer domain; this message did not come from the election authority.
 
-## Second-Party Use
+## Who Holds It
 
-The **Voter** benefits from verification.
+The Voter benefits from verification.
 
 **Anti-Phishing:** During election season, voters receive dozens of messages about their ballot. A verified confirmation from `sos.colorado.gov` is instantly distinguishable from a phishing email claiming "your ballot was rejected — click here." This is the primary value.
 
@@ -108,7 +115,7 @@ The **Voter** benefits from verification.
 
 **Personal Archive:** (Variant 2) A voter who wants a verified record of their own selections for personal reference — years later, they can confirm exactly how they voted in a particular election.
 
-## Third-Party Use
+## Who Checks It
 
 **Election Integrity Organizations**
 **Systematic Monitoring:** Watchdog groups can verify that ballot-status notifications being sent to voters are genuine and consistent with official records, detecting mass phishing campaigns or misinformation attacks.
@@ -122,14 +129,7 @@ The **Voter** benefits from verification.
 **Voter Assistance Organizations**
 **Cure Support:** Organizations helping voters cure rejected ballots can verify the rejection notice is genuine before advising the voter on next steps.
 
-## Verification Architecture
-
-**The Ballot Notification Fraud Problem**
-
-- **Phishing / Suppression:** Fake "ballot rejected" emails designed to discourage voters or harvest credentials. This is the dominant threat. Verified notifications make spoofed messages instantly detectable.
-- **Status Fabrication:** Fake "ballot counted" messages designed to make voters complacent when their ballot was actually rejected. The voter trusts the fake confirmation and doesn't cure.
-- **Notification Denial:** Election authorities claiming they notified a voter when they didn't, or vice versa. Verified notifications create a mutual audit trail.
-- **Receipt Fabrication:** (Variant 2) Creating a fake "how I voted" receipt to satisfy a vote-buyer. This is the coercion risk — but it exists with or without Live Verify, since photos of marked ballots serve the same purpose.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -169,13 +169,13 @@ Self-authorized — this is a sovereign body whose authority derives from statut
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Competition
+## Compared With the Alternatives
 
 | Feature | Live Verify | BallotTrax / Ballot Tracking Portals | Plain SMS / Email |
 | :--- | :--- | :--- | :--- |
 | **Anti-Phishing** | **Strong.** Hash ties message to government domain; spoofed messages fail verification. | **Weak.** Portal is legitimate, but the *notification* pointing to it can be spoofed. | **None.** No way to distinguish real from fake. |
-| **Offline Proof** | **Strong.** Voter retains verified text; can re-verify later. | **Weak.** Requires portal to be online. | **None.** Message is just text. |
-| **Coercion Resistance** | **Variant 1: Strong.** No selections disclosed. **Variant 2: Weak.** Provable vote. | **Strong.** Portals don't show selections. | **N/A.** |
+| **Connectivity needed** | **Yes, for the check.** Voter retains the text and can re-verify later, whenever connected. | **Yes.** Requires portal to be online. | **None.** Message is just text. |
+| **Coercion Resistance** | **Variant 1: Strong.** No selections disclosed. Variant 2: Weak. Provable vote. | **Strong.** Portals don't show selections. | **N/A.** |
 | **Timestamp Proof** | **Strong.** Hash includes receipt timestamp. | **Medium.** Portal shows status but notification timing is not cryptographically bound. | **Weak.** SMS timestamps are carrier-dependent. |
 
 ## Jurisdictional Witnessing (Optional)

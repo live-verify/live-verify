@@ -11,7 +11,7 @@ furtherDerivations: 1
 
 ## What is a Delivery Order?
 
-When a shipping container arrives at a port, the terminal operator won't just give it to any trucker. They need a **Delivery Order (DO)**.
+When a shipping container arrives at a port, the terminal operator won't just give it to any trucker. They need a Delivery Order (DO).
 
 This is the "Golden Ticket" that authorizes the release of the cargo. It proves:
 1.  **Freight is Paid:** The ship line has been settled.
@@ -62,7 +62,13 @@ Cargo theft via "Fictitious Pickup" is a huge problem. Thieves use forged paper 
   </div>
 </div>
 
-## Data Verified
+## The Problem: Fake Release Fraud
+
+- **Ghost Pickups:** Thieves creating a fake "Delivery Order" for a $200,000 container of electronics, posing as a legitimate trucking company.
+- **Hold Removal:** Editing a PDF to remove a "Freight Hold" or "Customs Hold" notation to trick the terminal into releasing cargo before payment.
+- **Date Alteration:** Changing the "Last Free Day" to avoid paying storage fees to the terminal.
+
+## What Is Checked
 
 Delivery Order (DO) number, Consignee name, Trucking company (if specified), Container ID, Bill of Lading (B/L) number, Port Terminal ID, freight payment status, customs clearance status, expiration date (Last Free Day), issuing broker/carrier.
 
@@ -72,17 +78,17 @@ Delivery Order (DO) number, Consignee name, Trucking company (if specified), Con
 - **Customs Release:** (Form 3461) Proving the government has released the goods.
 - **Gate Pass:** Handed to the driver for physical exit.
 
-## Data Visible After Verification
+## What the Checker Sees
 
 Shows the issuer domain (the Customs Broker or Carrier) and the release standing.
 
 **Status Indications:**
 - **Released** — All holds cleared; cargo authorized for pickup.
-- **Freight Hold** — **ALERT:** Ocean freight not yet paid; do not release.
+- **Freight Hold** — Ocean freight not yet paid; do not release.
 - **Customs Hold** — Government has blocked the release.
 - **Picked Up** — Cargo has already left the terminal (fraud detection).
 
-## Second-Party Use
+## Who Holds It
 
 **The Trucker (Driver)** benefits from verification.
 
@@ -90,7 +96,7 @@ Shows the issuer domain (the Customs Broker or Carrier) and the release standing
 
 **Liability Protection:** Confirming the "Last Free Day" is verified, ensuring the trucker won't be hit with unexpected "Demurrage" charges at the gate.
 
-## Third-Party Use
+## Who Checks It
 
 **Terminal Operators (Stevedores)**
 **Anti-Theft:** Cargo theft via "Fictitious Pickup" is a billion-dollar problem. Thieves use forged paper DOs to trick gate clerks into releasing containers. Live Verify allows the clerk to verify the order against the broker's domain, stopping the theft at the gate.
@@ -101,13 +107,7 @@ Shows the issuer domain (the Customs Broker or Carrier) and the release standing
 **Marine Insurers**
 **Risk Mitigation:** Ensuring that high-value cargo is only released to verified, authorized carriers.
 
-## Verification Architecture
-
-**The "Fake Release" Fraud Problem**
-
-- **Ghost Pickups:** Thieves creating a fake "Delivery Order" for a $200,000 container of electronics, posing as a legitimate trucking company.
-- **Hold Removal:** Editing a PDF to remove a "Freight Hold" or "Customs Hold" notation to trick the terminal into releasing cargo before payment.
-- **Date Alteration:** Changing the "Last Free Day" to avoid paying storage fees to the terminal.
+## Who Issues It
 
 **Issuer Types** (First Party)
 
@@ -134,13 +134,13 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 An independent witness layer may apply — see [Witnessing Third Parties](../../docs/WITNESSING-THIRD-PARTIES.md) for the full mechanism (what a witness receives, non-repudiation, optional public-blockchain rollups). For this use case: a witness would receive the freight broker's or carrier's hashes and status changes plus structured metadata (delivery order number, container number, bill of lading number, consignee, cargo description, port, release authorization date) — never plaintext shipper details — providing non-repudiation of the cargo release authorization.
 
 
-## Competition vs. Port Community Systems (PCS)
+## Compared With Port Community Systems (PCS)
 
 | Feature | Live Verify | Port Portal / PCS | Paper Delivery Order |
 | :--- | :--- | :--- | :--- |
 | **Trust Anchor** | **Domain-Bound.** Bound to the Broker. | **System-Bound.** Trust the Port's IT. | **Zero.** Easily forged. |
 | **User Access** | **Universal.** Any trucker with a phone. | **Restricted.** Requires complex EDI/Portal logins. | **Instant.** |
 | **Integrity** | **Binds Content.** Proves the *Container #*. | **Data-Only.** Doesn't protect the paper. | **Vulnerable.** |
-| **Offline Proof** | **Strong.** The paper is the anchor. | **None.** Requires server access. | **Medium.** |
+| **Connectivity needed** | **Yes, for the check.** The paper can be read without a connection; checking it takes one small web request. | **Yes.** Requires server access. | **None.** |
 
-**Why Live Verify wins here:** The "Gate Clerk" reality. Gate operations are high-pressure and fast. Clerks often handle hundreds of trucks an hour. They don't have time to cross-reference multiple slow portals. Live Verify turns the **Trucker's Document** into a live, high-speed trust token that provides "Port-Grade" security in seconds.
+**Where each fits:** Port community systems and EDI messages are how terminals, lines and brokers already exchange release data, and an integrated terminal should go on trusting that feed first. Not every haulier, depot or smaller broker is connected, and the driver at the gate is usually holding a printed delivery order. Live Verify lets the gate clerk confirm that the issuer stands behind that exact document, as a quick cross-check alongside the port system rather than a substitute for it.
