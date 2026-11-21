@@ -228,9 +228,17 @@ MSc Computer Science on 28 June 2024.
                 One institution can have several chains, because different bodies supervise different things it
                 does. A university's <code>/PhD</code> path would be endorsed by the regulator of degree-awarding
                 bodies, under the education ministry. Its teaching hospital's clinic letters would be endorsed
-                by the health regulator, under the health ministry. Its staff support letters might have no
-                endorser at all and show as the university's own word. Each path states its own chain, and the
+                by the health regulator, under the health ministry. Each path states its own chain, and the
                 reader sees the one that applies to the document in their hand.
+            </p>
+            <p>
+                An endorsement can also be given at a distance. Staff support letters are not something any
+                regulator supervises, but the national list of recognised universities might still endorse that
+                path in limited terms: it recognises this as a genuine UK university, and notes that support
+                letters are ad hoc references the university may choose to give. The mechanism is a short
+                <code>authorityBasis</code> line in the path's <code>verification-meta.json</code>, shown to the
+                reader. Because the endorser confirms the whole file, it can set that wording as a condition of
+                endorsing, so the reader sees how far the endorser's word goes and no further.
             </p>
             <p>
                 That officialness cuts both ways, and this is the point of it. The body above you can withdraw
