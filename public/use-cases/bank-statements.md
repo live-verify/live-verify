@@ -111,17 +111,19 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 
 ## Where Each Fits: Live Verify and Open Banking
 
-Open-banking data sharing (the UK and EU schemes, India's Account Aggregator, aggregators such as Plaid in the US) and Live Verify answer different questions and work side by side. Open banking is a data feed between a bank and a registered, integrated firm. Live Verify makes the statement itself checkable by whoever is handed it.
+Open-banking data sharing lets a registered firm pull account data straight from a bank with the customer's consent. Coverage depends on where you are: some countries run their own scheme (the UK, India's Account Aggregator), some share a multi-country one (the EU), some rely on commercial aggregators (Plaid in the US), and many have nothing. Open banking and Live Verify answer different questions and work side by side: one is a data feed between a bank and an integrated firm, the other makes the statement itself checkable by whoever is handed it.
 
 | | Open-banking data feed | Live Verify on the statement | Unverified PDF or paper |
 | :--- | :--- | :--- | :--- |
 | **Who can check** | A registered firm that has integrated with the scheme or an aggregator. | Anyone handed the statement: a landlord, a visa officer, a court, a supplier. | Nobody; it can only be taken on trust. |
 | **What the checker gets** | Live account data, often ongoing, for as long as consent lasts. | Confirmation that the bank issued this exact page, as at the statement date. | A document that may have been edited. |
 | **What the customer shares** | Consented access to account data. | Only the statement they chose to hand over. | Only the statement they chose to hand over. |
-| **Reach** | Banks and countries inside the scheme. | Any bank that publishes hashes on its own domain, in any country. | Universal, but untrusted. |
+| **Reach** | Only where a national or multi-country scheme exists and the bank takes part. A statement from a bank outside the checker's scheme cannot be checked this way. | Global in principle: any bank, in any country, that publishes hashes on its own domain. | Universal, but untrusted. |
+| **Speed and cost** | Fast once both sides are integrated; integration, registration and often per-call fees come first. | A few seconds per check: one web lookup, with no fee to the standard and no integration between checker and bank. | Free and immediate, and worth what it costs. |
+| **What it needs** | A scheme in that country, a participating bank, and a checker registered and integrated with it. | The bank to publish hashes, and Live Verify-aware software on the checker's device. No bank does this yet. | Nothing. |
 | **Best suited to** | Continuous affordability checks and onboarding by lenders and fintechs. | One-off proof to a party outside the scheme, or across borders. | Nothing where the amount matters. |
 
-**Where each fits:** a lender already connected to an open-banking scheme will often prefer the live feed, and should. A statement is still what changes hands everywhere else: tenancy applications, visa and immigration files, court bundles, supplier due diligence, and any case where the bank and the checker are in different countries. Live Verify covers those, and gives a customer who would rather not grant account access a way to prove a balance with a single page.
+**Where each fits:** a lender already connected to an open-banking scheme will often prefer the live feed, and should. A statement is still what changes hands everywhere else: tenancy applications, visa and immigration files, court bundles, supplier due diligence, and any case where the bank and the checker are in different countries or no scheme exists at all. Live Verify covers those quickly and cheaply wherever the checker has software that honours it, and gives a customer who would rather not grant account access a way to prove a balance with a single page.
 
 ## Independent Record (Optional)
 
