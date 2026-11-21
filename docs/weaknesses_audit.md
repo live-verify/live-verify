@@ -110,7 +110,9 @@ But none of this is specified:
 - **What happens if issuer and witness disagree?** No dispute resolution mechanism.
 - **Why is a blockchain needed if the witness is trusted?** Not explained.
 
-The witnessing concept is promising, but it reads as aspirational rather than implementable. The [WITNESSING-THIRD-PARTIES.md](WITNESSING-THIRD-PARTIES.md) document adds party-model context but doesn't resolve these gaps.
+**Partly addressed (November 2026).** The boilerplate is gone from the use cases (see item 16), witnessing is now labelled as a design outside the core specification, and the site pages answer two of the questions above: who pays ([how witnesses are paid](../public/witnessing-business.html)) and why a blockchain is at most an optional anchor for a tamper-evident log ([how a witness proves its own honesty](../public/witnessing-assurance.html)). Still open: no specification for how clients verify a published root, no stated service level, and no mechanism for an issuer and witness that disagree.
+
+The original assessment: the witnessing concept is promising, but it reads as aspirational rather than implementable. The [WITNESSING-THIRD-PARTIES.md](WITNESSING-THIRD-PARTIES.md) document adds party-model context but doesn't resolve these gaps.
 
 ### 11. Multi-page contract verification is underspecified
 
@@ -174,7 +176,9 @@ Three different URL prefix conventions appear across the codebase:
 
 The docs/NORMALIZATION.md spec mentions both `verify:` and `vfy:` as valid. But the coexistence is never explained — when should an issuer use which? Is `verify://` (with `//`) valid?
 
-### 16. Jurisdictional witnessing boilerplate across 422 files
+### 16. ~~Jurisdictional witnessing boilerplate across 422 files~~ — RESOLVED
+
+**Resolved (November 2026).** Witnessing is now explained once, on the site's [witnessing pages](../public/witnessing.html), and each use case ends with a one-line "Independent Record (Optional)" section linking to them. Seven use cases where witnessing is central keep their own text. The original finding follows.
 
 The identical witnessing section is pasted into 422 of 437 use case files. It is never tailored to the specific use case. A bail bond and a restaurant hygiene rating have the same witnessing requirements — which is implausible.
 
@@ -188,7 +192,7 @@ Several features are described in the present tense as if they exist, but have n
 |---------|-------------|----------------------|
 | E-ink ID cards with rotating salts | [Technical_Concepts.md](Technical_Concepts.md), e-ink-id-cards.md | Detailed spec exists (salt mechanics, hardware architecture, 6 use cases); no prototype |
 | Authority chain verification | Verification-Response-Format.md | Concept only; no root authority lists shipped |
-| Blockchain witnessing rollups | 422 use case files | No blockchain named, no rollup spec |
+| Blockchain witnessing rollups | Witnessing pages (formerly 422 use case files) | Now labelled as an optional design; still no rollup spec |
 | SaaS verification providers | SAAS-VERIFICATION-PROVIDERS.md | Market analysis, not a working service |
 | Biometric liveness detection | biometric-likeness-claims.md | Mentioned, not specified |
 
@@ -341,7 +345,7 @@ The [decentralized professional graph](decentralized-professional-graph.md) argu
 3. **Fix the 404 ambiguity** — distinguish "hash not found" from "server error" from "OCR likely failed." Even a simple heuristic (multiple retries with slightly different normalization?) would help.
 4. **Label aspirational vs. implemented features** — blockchain witnessing, authority chains, biometric liveness. Be explicit about what exists today and what is future work. (E-ink ID cards now have a detailed spec; still no prototype.)
 5. **Standardize status codes** — define a base set (`OK`, `EXPIRED`, `REVOKED`, `SUPERSEDED`, `SUSPENDED`) that all use cases share, with documented sector-specific extensions.
-6. **Extract witnessing boilerplate** — replace 422 identical sections with a reference to a single witnessing document, plus a per-use-case sentence on what witnessing means for that scenario.
+6. ~~**Extract witnessing boilerplate** — replace 422 identical sections with a reference to a single witnessing document, plus a per-use-case sentence on what witnessing means for that scenario.~~ — DONE (see item 16)
 7. ~~**Fix the `photo_url` double-brace typo**~~ — DONE.
 8. **Settle `verify:` vs `vfy:` vs `verify://`** — document when each is appropriate, or pick one.
 9. **Write a `.vcv` reference parser** — the format is bespoke; without a reference implementation, every renderer will interpret the spec differently. Even a small Node.js or Python parser that handles the four parsing rules would prevent drift.
