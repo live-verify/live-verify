@@ -1,5 +1,9 @@
 # Witnessing and Third Parties
 
+> The reader-facing explanation is on the site: [What is witnessing?](../public/witnessing.html), with sub-pages on [how a witness proves its own honesty](../public/witnessing-assurance.html), [how witnesses are paid](../public/witnessing-business.html) and [issuer-fed witnessing](../public/witnessing-issuer-fed.html). This document holds the fuller design notes. Witnessing is outside the core specification and nothing here is built yet.
+
+> **Rule that holds in every mode:** a witness never receives any of the document's text, in whole or in part. It holds hashes, the addresses they were seen at, the issuer's responses, the authority chain, and times.
+
 ## Party Model
 
 ### First Party (Issuer)
@@ -57,7 +61,7 @@ Witnessing can be engaged from either direction:
 | **Who engages the witness** | The issuer (required by regulator) | The second party (by choice) |
 | **Who pays** | The issuer (cost of compliance) | The second party (or their insurer/solicitor) |
 | **Issuer's knowledge** | Issuer knows — they send hashes to the witness | Issuer doesn't know — witness fetches publicly |
-| **What the witness receives** | Hashes + structured metadata from the issuer | HTTP response from a public GET |
+| **What the witness receives** | Every hash and status change from the issuer; no document text or fields | HTTP response from a public GET |
 | **Ongoing relationship** | Continuous — witness receives all hash changes | Point-in-time — witness records a single fetch |
 | **Primary value** | Regulatory audit trail; non-repudiation at scale | Individual dispute protection; expert witness testimony |
 
@@ -68,8 +72,7 @@ Both modes result in the same outcome: an independent third party who can attest
 A jurisdiction may require the issuer to retain a witnessing firm for regulatory compliance. The witnessing firm:
 
 - Receives all hashes from the issuer, and any subsequent changes to the payload as they happen — which may manifest as a new hash, a status change, or even a 404 (record deleted)
-- Receives structured content/metadata (amounts, dates, confirmation numbers)
-- Does **NOT** receive plaintext (names, personal details)
+- Does **NOT** receive any of the document's text or fields — no names, amounts, dates or reference numbers
 - Provides an immutable, timestamped audit trail — available to the jurisdiction on demand, to second/third parties during disputes, or as expert witness testimony in legal proceedings
 
 This gives:
@@ -80,6 +83,8 @@ This gives:
 - **Resilience**: Verification works even if issuer's systems go down
 
 ### Voluntary Witnessing
+
+The expected everyday form is a **witness plugin**: the person checking registers a witnessing organization in their Live Verify app, and each verification they perform sends that witness the hash and the address it was looked up at. The witness then makes its own lookup and records the result. The manual form below (sending a URL to a witness by hand) is the same interaction without the plugin.
 
 A person who suspects the issuer may renege can ask a witnessing organization to independently fetch and record the verification endpoint *before* the issuer has any reason to delete it.
 
@@ -183,6 +188,18 @@ The expert witness model is particularly interesting: the witnessing organizatio
 
 ---
 
+## How a Witness Proves Its Own Honesty
+
+A witness's records are only useful if they cannot have been altered or back-dated. Three levels, each stronger than the last:
+
+1. **Reputable firm.** Ordinary records and a signed statement on request. Simple and familiar to courts; alteration inside the firm would be undetectable.
+2. **Tamper-evident log.** Each day's records are combined into one Merkle root, and the root is published. After publication nothing beneath it can be changed or back-dated without detection, and an inclusion proof shows a given record was in a given day's root. This is the Certificate Transparency pattern. Where the root is published matters: one social-media post is weak; several independent places, a time-stamping authority, or witnesses countersigning one another's roots are much stronger.
+3. **Public anchor.** The same daily root is also written to a public blockchain, so the proof survives the witness going out of business. Individual records never go on-chain.
+
+Whatever the level, the witness must make its own lookup at the issuer's domain; a log of what users reported is a tamper-evident record of hearsay.
+
+---
+
 ## Timing
 
 The witness must fetch the URL **before** the issuer has reason to delete it. Once the dispute starts, it's too late — the issuer has already removed the endpoint.
@@ -224,7 +241,7 @@ This is exactly the voluntary witnessing model: a credible third party in a neut
 ## Architecture Diagram
 
 ```
-┌─────────────┐    hash + structured data    ┌──────────────────┐
+┌─────────────┐   hashes + status changes    ┌──────────────────┐
 │ First Party │ ────────────────────────────► │  Witnessing Firm │
 │  (Issuer)   │                              │  (regulatory)    │
 └──────┬──────┘                              └────────┬─────────┘
