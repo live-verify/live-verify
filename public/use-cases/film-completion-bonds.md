@@ -117,14 +117,19 @@ Film Finances underwrites film and media production completion bonds globally.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Legal "Opinion Letters"
+## Where Each Fits: Live Verify and Attorney Opinion Letters
 
-| Feature | Live Verify | Attorney Opinion Letter | Scanned PDF |
+Film financiers usually commission an attorney's opinion letter on the completion bond and the wider financing documents at closing. An opinion letter and Live Verify answer different questions and work side by side: one is professional legal analysis of what the bond means, the other confirms that the guarantor stands behind the bond certificate as presented.
+
+| | Attorney opinion letter | Live Verify on the bond certificate | Unverified scan or PDF |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Guarantor. | **Credential-Bound.** Trust the lawyer. | **Zero.** Easily forged. |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires 3-5 days of billable legal review. | **Instant.** |
-| **Cost** | **Low.** Standard web infra. | **Very High.** Lawyers charge $1,000+ per letter. | **None.** |
-| **Freshness** | **Real-time.** Shows "Takeover" status today. | **Snapshot.** Only valid for the day it was written. | **Static.** |
+| **Who can check** | The client who commissioned it, and whoever they share it with. | Anyone handed the certificate: a bank, a distributor, an investor, a studio. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Legal analysis of the bond's terms, from a lawyer who answers for that analysis. | Confirmation that the guarantor stands behind this exact certificate, as at its date, and whether its status has since changed. | A document that may have been edited. |
+| **What the holder shares** | The letter, under whatever terms the law firm sets. | Only the certificate they chose to hand over. | Only the certificate they chose to hand over. |
+| **Reach** | Wherever the lawyer is qualified to advise. | Global in principle: any guarantor, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Days of billable legal work. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | Instructing a lawyer. | The guarantor to publish hashes, and Live Verify-aware software on the checker's device. No completion guarantor does this yet. | Nothing. |
+| **Best suited to** | Closing a financing, where the terms need interpreting. | Checking the bond is still in place at any point during production. | Nothing where money is being advanced. |
 
 **Where each fits:** An attorney's opinion letter offers what a document check cannot: legal analysis of the bond's terms, and a professional who answers for that analysis. Financiers will keep commissioning one at closing. It describes the position on the day it was written and takes time to produce. Live Verify lets a bank, distributor or department head confirm, at any point during production, that the guarantor still stands behind the certificate as issued, in between formal legal reviews.
 

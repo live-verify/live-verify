@@ -186,17 +186,22 @@ The customer benefits directly.
 
 **Complaint investigation:** When a consumer reports a food safety or trading standards issue at a branded location, the investigator can check whether the location is (or was) a licensed franchise. This affects which entity is responsible and what enforcement powers apply.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify, Store Locators and Platform Listings
 
-| Feature | Live Verify | Brand Store Locator | Delivery Platform Listing | Signage Alone |
+Today a customer can check a franchise location against the brand's own store locator, or rely on the delivery platform's listing, which the operator usually sets up. Live Verify works alongside both: the store locator answers "where is my nearest outlet?", and Live Verify answers "is this outlet, here, a current franchise of the brand?" on the premises or the ordering page.
+
+| | Brand store locator | Delivery platform listing | Live Verify on the location claim | Signage alone |
 | :--- | :--- | :--- | :--- | :--- |
-| **Issuer-controlled** | **Yes.** Franchisor issues the claim. | **Yes.** But updated periodically. | **No.** Operator self-lists. | **No.** Operator self-asserts. |
-| **Location-specific** | **Yes.** Claim names the address and operator. | **Yes.** But no per-location status. | **Partially.** Address listed, status unknown. | **No.** |
-| **Revocable** | **Immediate.** Endpoint returns TERMINATED. | **Slow.** Locator updates lag. | **Very slow.** Platform rarely re-checks. | **No.** Signage persists. |
-| **Verifiable on-site** | **Yes.** On the premises or listing. | **Requires leaving the site/location.** | **No.** | **No.** |
-| **Detects fake locations** | **Yes.** No claim exists to verify. | **Partially.** If locator is current. | **No.** | **No.** |
+| **Who can check** | Anyone who leaves the premises or listing and looks it up. | Anyone on that platform. | Anyone looking at the claim, in the shop or on any listing that carries it. | Nobody; signage can be reproduced. |
+| **What the checker gets** | The brand's list of locations, as at its last update. | The operator's own description of itself. | Confirmation that the franchisor stands behind this claim for this address and operator, and whether it has since been terminated. | A brand name on a sign. |
+| **What the operator shares** | Nothing; the brand publishes the list. | Its own listing. | The franchisor's claim, displayed on its premises and listings. | Its signage. |
+| **Reach** | One brand's locator. | One platform. | Global in principle: any franchisor, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free; a minute or two, away from where the decision is made. | Free and immediate. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **After a termination** | Removed when the locator is next updated. | Often stays up until the platform acts. | The franchisor marks the claim terminated, and the next check shows it. | The sign stays up. |
+| **What it needs** | A locator that is kept current. | Nothing beyond the platform. | The franchisor to publish hashes, and Live Verify-aware software on the customer's device. No franchisor does this yet. | Nothing. |
+| **Best suited to** | Finding the nearest outlet. | Browsing and ordering. | Checking a specific outlet in place. | Nothing where quality standards matter. |
 
-**Practical conclusion:** brand store locators answer "where is my nearest [brand]?" — a different question from the one the customer is asking at the counter or on the ordering page: "is this actually a real [brand]?" The verifiable claim answers the second question in place.
+**Where each fits:** Brand store locators answer "where is my nearest outlet?", which is a different question from the one the customer is asking at the counter or on the ordering page: "is this actually a current franchise?" Platforms carry the operator's own description. Live Verify answers the second question in place, using the franchisor's own word, wherever the customer has software that honours it.
 
 ## Authority Chain
 

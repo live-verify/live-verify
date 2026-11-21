@@ -118,14 +118,19 @@ Travelers underwrites employee fidelity bonds and crime insurance for employers.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Broker Letters
+## Where Each Fits: Live Verify and Broker Letters
 
-| Feature | Live Verify | Manual Broker Letter | Scanned PDF |
+Today a client or plan sponsor who wants to confirm a fidelity bond usually asks the insurance broker or surety for a letter. A broker's letter and Live Verify answer different questions and work side by side: one brings a person who can explain the cover, the other lets anyone confirm that the surety stands behind a bond certificate and its limit.
+
+| | Broker letter | Live Verify on the bond certificate | Unverified scan or PDF |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Carrier. | **Human.** Prone to social engineering or typos. | **Zero.** Easily forged. |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Takes 2-3 business days. | **Instant.** |
-| **Availability** | **24/7.** Works during after-hours bidding. | **Business Hours Only.** | **Universal.** |
-| **Integrity** | **Cryptographic.** Binds the $ limit. | **Vague.** "They are bonded." | **Vulnerable.** |
+| **Who can check** | Whoever asks the broker and is given an answer. | Anyone handed the certificate: a client, a plan auditor, a procurement team. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | A written statement, and someone to ask about exclusions and conditions. | Confirmation that the surety stands behind this exact certificate, including its limit, as at its date, and whether it has since been cancelled. | A document that may have been edited. |
+| **What the holder shares** | Permission for the broker to discuss their cover. | Only the certificate they chose to hand over. | Only the certificate they chose to hand over. |
+| **Reach** | Wherever the broker can be reached, in their office hours. | Global in principle: any surety or insurer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Can take days; costs the broker's time. | A few seconds per check: one web lookup, with no fee to the standard, at any hour. | Free and immediate. |
+| **What it needs** | A broker willing to respond, and a way to be sure the letter really came from them. | The surety to publish hashes, and Live Verify-aware software on the checker's device. No surety does this yet. | Nothing. |
+| **Best suited to** | Unusual bonds, or questions about what the cover actually includes. | Routine checks of many bidders or contractors against a deadline. | Nothing where the limit matters. |
 
 **Where each fits:** A broker's letter comes with a person who can answer follow-up questions, and for an unusual bond that conversation is worth the wait. It takes days and happens in office hours. A procurement team checking many bidders against a deadline, or a client in another time zone, can use Live Verify to confirm that the surety stands behind each certificate and its limit, and then call the broker only where something needs explaining.
 

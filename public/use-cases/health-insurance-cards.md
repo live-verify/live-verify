@@ -173,16 +173,19 @@ Bupa, a regulated health insurer, is authorized by the FCA to issue verified hea
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With the Alternatives
+## Where Each Fits: Live Verify and Payer Eligibility Checks
 
-| Feature | Live Verify | EDI 270/271 Eligibility Check | Insurer Phone Verification | Insurer Portal Login | Trust the Card |
+In the US, providers confirm a patient's cover through the payer: by the standard EDI 270/271 eligibility transaction, usually through a clearinghouse; by logging in to the payer's provider portal; or by phoning the payer. These are the authoritative answers. Live Verify works side by side with them: it lets someone shown a card or coverage document, who may not have those routes, confirm that the payer stands behind it.
+
+| | EDI 270/271 eligibility check | Payer phone line | Payer provider portal | Live Verify on the card | Card taken at face value |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Verifiable** | **Yes.** Domain-bound to the insurer. | **Yes.** Direct electronic query. | **Yes.** But slow. | **Yes.** But requires credentialing. | **No.** Card is a piece of plastic. |
-| **Who Can Use It** | **Anyone.** Front desk staff with a phone. | **Back office only.** Requires clearinghouse enrollment, EDI software, NPI. | **Anyone.** But requires hold time. | **Credentialed providers only.** Portal login, NPI verification. | **Anyone.** But no verification occurs. |
-| **Speed** | **Instant.** 5-second scan. | **Minutes to hours.** Batch processing common; real-time available but complex. | **10-45 minutes.** Hold times, IVR menus, transferred between departments. | **Minutes.** Login, navigate, search by member ID. | **Instant.** But meaningless. |
-| **Cost** | **Free.** GET request. | **$0.10-0.50** per transaction via clearinghouse. | **Free.** But staff time is expensive. | **Free.** But setup and maintenance costs. | **Free.** And worthless. |
-| **Point of Use** | **Front desk.** Before patient is seen. | **Back office.** After patient is seen. | **Anywhere.** But nobody has 30 minutes. | **Desktop only.** Not mobile-friendly. | **Front desk.** No verification. |
-| **Real-Time** | **Yes.** Current status at moment of scan. | **Mostly.** Some payers batch responses. | **Yes.** But 30 minutes later. | **Yes.** When portal is up. | **No.** Card could be months old. |
+| **Who can check** | Providers enrolled with a clearinghouse, using billing software. | Providers, if they can wait on hold. | Credentialed providers with a portal login. | Anyone shown the card: front desk staff, an urgent-care clinic, a pharmacy. | Anyone, by eye; it can only be taken on trust. |
+| **What the checker gets** | Detailed, current eligibility and benefits from the payer's system. | An answer from payer staff, with the chance to ask follow-up questions. | Current eligibility and benefits, on screen. | Confirmation that the payer stands behind this card, and whether the cover it names is still active. | A member ID and group number that may not be real or current. |
+| **What the patient shares** | Their member details. | Their member details. | Their member details. | Only the card. | Only the card. |
+| **Reach** | Payers and providers connected through clearinghouses. | Any payer with a provider line. | One payer per portal. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Often real-time, sometimes batched; clearinghouse fees and software setup apply. | Can take a long time on hold, and costs staff time. | A few minutes per patient once logged in. | A few seconds per check: one web lookup, with no fee to the standard and no enrolment. | Free and immediate. |
+| **What it needs** | Clearinghouse enrolment and billing software. | A payer line and staff time. | Credentialing with each payer. | The payer to publish hashes, and Live Verify-aware software on the checker's device. No payer does this yet. | Nothing. |
+| **Best suited to** | Billing and detailed benefit checks. | Complicated or disputed cases. | Providers working regularly with that payer. | A quick front-desk status check before the patient is seen. | Nothing where payment depends on it. |
 
 **Where each fits:** The 270/271 eligibility transaction is the authoritative answer on coverage and remains the right tool for billing staff who are enrolled with a clearinghouse; payer portals and phone lines likewise serve credentialed providers. Those routes are not open to everyone who is shown a card, and they tend to be used after the patient has been seen. Live Verify sits beside them, bringing the payer's own confirmation to simpler situations:
 
@@ -190,7 +193,7 @@ See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the 
 - a provider reviewing a portable coverage excerpt before planned care
 - a patient sending detailed cover information outside the payer portal
 
-The strongest claim is not "trust the card." It is "bridge human-readable coverage artifacts back to live payer status." The card remains the coarse in-person layer; the excerpt is the stronger portable layer.
+The aim is not "trust the card." It is to link human-readable coverage documents back to the payer's own status. The card remains the coarse in-person layer; the excerpt is the more detailed portable layer.
 
 ## Further Derivations
 

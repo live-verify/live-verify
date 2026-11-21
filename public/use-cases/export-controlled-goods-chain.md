@@ -202,15 +202,20 @@ The verifier walks the chain across domains. Each domain is authoritative for it
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With SPIRE / LITE / ECJU Online
+## Where Each Fits: Live Verify and Government Licensing Portals
 
-| Feature | Live Verify | SPIRE/LITE (Gov Portal) | Paper Licence + PDF |
+Export licences are issued through each government's own licensing system: in the UK, SPIRE and its successor LITE, run by the Export Control Joint Unit; in the US, BIS's SNAP-R; elsewhere, other national portals. Coverage depends on where the goods are: each authority runs its own system, EU member states work under a shared regulation but issue licences nationally, and the systems do not talk to one another. The portals and Live Verify answer different questions and work side by side: one is the record between applicant and regulator, the other lets a third party check a licence document they have been handed. <!-- TODO(verify): LITE as the successor to SPIRE for UK export licensing -->
+
+| | Government licensing portal | Live Verify on the licence document | Paper licence or forwarded PDF |
 | :--- | :--- | :--- | :--- |
-| **Field Access** | **Instant.** Scan the paper at the freight dock. | **Restricted.** Only the licensee has portal access. | **Instant but unverifiable.** |
-| **Chain Walking** | **Cross-domain.** Follow references across jurisdictions. | **Single jurisdiction.** SPIRE knows UK licences only. | **Manual.** Phone calls and faxes. |
-| **Third-Party Access** | **Open.** Any buyer, forwarder, or bank can verify. | **Closed.** Third parties cannot query SPIRE. | **Trust-based.** "Here's my PDF." |
-| **Real-Time Status** | **Live.** Suspension/revocation reflected immediately. | **Delayed.** Portal updates are not real-time for third parties. | **Static.** Paper doesn't update. |
-| **Multi-Jurisdiction** | **Native.** Each authority verifies its own link. | **Siloed.** No interop between UK SPIRE and US BIS SNAP-R. | **Impossible at speed.** |
+| **Who can check** | The licensee and the authority. Forwarders, banks and onward buyers generally cannot query it. | Anyone handed the licence or onward-transfer document: a forwarder at the dock, a bank, a downstream buyer, a customs officer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The full licence record, applications and conditions, for the licensee's own licences. | Confirmation that the issuing authority stands behind this exact document, as at its date. | A document that may have been altered or reused. |
+| **What the holder shares** | Nothing; third parties have no access. | Only the licence document they chose to hand over. | Only the document they chose to hand over. |
+| **Reach** | One jurisdiction per system. A UK portal does not answer for a US licence, or the reverse. | Global in principle: any licensing authority, in any country, that publishes hashes on its own domain. Each link in a cross-border chain is checked against its own authority. | Anywhere, but untrusted. |
+| **Speed and cost** | Part of the licensing process for the licensee; for a third party the usual route is phone calls and emails to the licensee's compliance team. | A few seconds per check: one web lookup, with no fee to the standard and no account with the authority. | Free and immediate. |
+| **What it needs** | A registered account with that authority. | The authority to publish hashes, and Live Verify-aware software on the checker's device. No licensing authority does this yet. | Nothing. |
+| **Suspension and revocation** | Recorded in the portal, visible to the licensee. | The authority can change the hash's status, and the next check shows it. | Paper does not change when a licence is revoked. |
+| **Best suited to** | Applying for, managing and reporting on licences. | Third parties along the supply chain confirming a licence, especially across borders. | Nothing where diversion is a risk. |
 
 **Where each fits:** Licensing systems such as SPIRE, SNAP-R and ELAN are designed around the relationship between applicant and regulator, and they handle that well; the licensee and the authority should continue to treat them as the record. Freight forwarders, banks and downstream buyers are not users of those systems and typically see only a forwarded PDF, often issued in another jurisdiction. Live Verify lets each of them confirm that the issuing authority stands behind the licence document as presented, without opening the government system to third parties.
 

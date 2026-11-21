@@ -149,14 +149,19 @@ The Manufacturer / Processor benefits from verification.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Private Portals (ReposiTrak)
+## Where Each Fits: Live Verify and Supplier Compliance Portals
 
-| Feature | Live Verify | Supplier Portals (ReposiTrak) | Scanned PDF |
+Supplier compliance portals such as ReposiTrak are commercial services where retailers collect and track their suppliers' certificates, including food safety audits under schemes such as SQF and BRCGS. A portal and Live Verify answer different questions and work side by side: one manages a retailer's whole supply base, the other lets any recipient confirm that the certification body stands behind a particular certificate.
+
+| | Supplier compliance portal | Live Verify on the certificate | Unverified scan or PDF |
 | :--- | :--- | :--- | :--- |
-| **User Access** | **Universal.** Any retailer/buyer can verify. | **Restricted.** Requires all parties to pay for the portal. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Auditor. | **System-Bound.** Trust the portal vendor. | **Zero.** Easily forged. |
-| **Interoperability** | **High.** Works across 100+ different cert bodies. | **Low.** Hard to export "Trust" to other systems. | **Universal.** |
-| **Integrity** | **Binds Content.** Protects the audit score. | **Data-Only.** | **Vulnerable.** |
+| **Who can check** | Retailers and suppliers subscribed to the same portal. | Anyone handed the certificate: a retail buyer, a distributor, an importer, a portal itself. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Uploaded certificates, with expiry tracking, renewal reminders and a view across all suppliers. | Confirmation that the certification body stands behind this exact certificate, including its grade, as at its date, and whether it has since been suspended. | A document that may have been edited. |
+| **What the supplier shares** | Its documents, uploaded to each portal its customers use. | Only the certificate it chose to hand over. | Only the certificate it chose to hand over. |
+| **Reach** | Members of that portal. | Global in principle: any certification body, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Fast once both sides are on it; subscription fees apply. | A few seconds per check: one web lookup, with no fee to the standard and no subscription. | Free and immediate. |
+| **What it needs** | Both parties on the same portal. | The certification body to publish hashes, and Live Verify-aware software on the checker's device. No certification body does this yet. | Nothing. |
+| **Best suited to** | Ongoing supplier management by a large retailer. | Checking a certificate from a supplier outside the portal, or across borders. | Nothing where food safety depends on it. |
 
 **Where each fits:** Supplier compliance portals such as ReposiTrak do much more than hold a certificate: they track expiries, chase renewals and give a retailer one view of its supply base. Retailers and suppliers who are on the same portal should keep using it. A supplier with customers on several portals, or a buyer on none, still passes the certificate around as a PDF. Live Verify lets any recipient confirm the certification body stands behind it, and a portal can run the same check on documents uploaded to it.
 

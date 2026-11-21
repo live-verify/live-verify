@@ -115,14 +115,19 @@ Franchisors disclose franchise agreements under UK and US franchise regulations.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With State Registry Search
+## Where Each Fits: Live Verify and State Franchise Registries
 
-| Feature | Live Verify | State Registry (Online) | Scanned PDF |
+In the US, franchisors must give prospects a Franchise Disclosure Document under federal rules, and a number of states also require the document to be registered and keep their own registries. Many states have no registry, and other countries regulate franchise disclosure differently or not at all. The registry and Live Verify answer different questions and work side by side: one holds the filing made with the state, the other confirms that the franchisor stands behind the copy a particular prospect was handed.
+
+| | State franchise registry | Live Verify on the disclosure document | Unverified scan or PDF |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Brand. | **Gov-Bound.** | **Zero.** Easily forged. |
-| **Integrity** | **Binds "Item 19".** Protects the numbers. | **Data-Only.** Doesn't verify the paper doc. | **Vulnerable.** |
-| **User Access** | **Instant.** Scan the paper at the meeting. | **Difficult.** Requires searching by state and paying fees. | **Instant.** |
-| **Completeness** | **High.** Verifies the *specific* candidate's copy. | **Low.** Only shows the generic filing. | **Vulnerable.** |
+| **Who can check** | Anyone who searches the registry of a state that keeps one. | Anyone handed the document: the prospect, their lawyer, a lender. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The franchisor's filing with that state. | Confirmation that the franchisor stands behind this exact document, including its financial performance figures, as at its date. | A document that may have been edited. |
+| **What the holder shares** | Nothing; the filings are public where they exist. | Only the document they chose to hand over. | Only the document they chose to hand over. |
+| **Reach** | Only states with a registry. | Global in principle: any franchisor, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Varies by state; searching or obtaining copies can be slow. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | A registry in the relevant state. | The franchisor to publish hashes, and Live Verify-aware software on the checker's device. No franchisor does this yet. | Nothing. |
+| **Best suited to** | Legal due diligence on what the franchisor has filed. | Confirming that the copy received is the franchisor's own, page by page. | Nothing where an investment depends on it. |
 
 **Where each fits:** State franchise registries are the official record of what a franchisor has filed, and a prospect's lawyer should look there. Not every state keeps one, searching can be slow, and the registry holds the generic filing rather than the copy handed to a particular candidate. Live Verify lets the prospect or their lender confirm that the franchisor stands behind the disclosure document actually received, including its financial performance figures, as a complement to the registry search.
 

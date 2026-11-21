@@ -122,14 +122,19 @@ Chemical manufacturers must provide accurate Safety Data Sheets regulated by hea
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With QR Codes / Digital Binders
+## Where Each Fits: Live Verify, QR Codes and Digital SDS Portals
 
-| Feature | Live Verify | Standard QR Code | Digital SDS Portal |
+Many workplaces now keep safety data sheets in a digital SDS management portal, and manufacturers often print a QR code on containers that links to the latest sheet. Both are useful, and Live Verify works alongside them: it answers a narrower question, whether a printed sheet in the binder is one the manufacturer still stands behind.
+
+| | Container QR code | Digital SDS portal | Live Verify on the printed sheet |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Manufacturer. | **Data-Only.** Often just a raw URL link. | **System-Bound.** |
-| **Integrity** | **Cryptographic.** Protects the *Text*. | **Vulnerable.** QR can link to a fake page. | **High.** |
-| **Connectivity needed** | **Yes, for the check.** The paper/binder can be read without a connection; checking it takes one small web request. | **Yes.** Requires live internet to mean anything. | **Yes.** |
-| **Field Use** | **Universal.** Works for printed "Cheat Sheets." | **Fragile.** Codes get torn/dirty. | **N/A.** |
+| **Who can check** | Anyone with a phone who scans the code. | Staff with access to the employer's portal. | Anyone holding the printed sheet: a worker, an inspector, a contractor, a firefighter. |
+| **What the checker gets** | Whatever page the code links to, which is only as trustworthy as the link. | The portal's current library, maintained by the employer or vendor. | Confirmation that the manufacturer stands behind this exact sheet, and whether it has since been superseded. |
+| **Reach** | Products whose labels carry a code. | One employer's sites. | Global in principle: any manufacturer, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Fast, if the code is legible. | Fast for staff once the portal is set up; usually a paid service. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **When a sheet is superseded** | The link may point to the new sheet, or to nothing. | The portal updates when the vendor or manager does. | The manufacturer marks the old version superseded, and the next check shows it. |
+| **What it needs** | An intact label and a data connection. | A subscription and someone to maintain it. | The manufacturer to publish hashes, Live Verify-aware software on the checker's device, and a data connection at the moment of the check. No manufacturer does this yet. |
+| **Best suited to** | Finding the latest sheet from the container itself. | Keeping a whole site's library current. | Confirming that the paper copy in the binder is still current. |
 
 **Where each fits:** A digital SDS portal is the easiest way for a safety manager to keep a whole library current, and a QR code on a drum is a handy pointer to the latest sheet. Printed binders and posted summaries persist because they have to be readable where screens and connectivity are not dependable. Live Verify adds a way for a worker, inspector or contractor to confirm that a printed sheet is one the manufacturer still stands behind, so the paper copy and the portal agree.
 

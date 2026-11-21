@@ -157,17 +157,22 @@ The restaurant owner benefits from verification.
 
 **Enforcement monitoring:** Officers can check whether restaurants are displaying outdated or incorrect ratings on delivery platforms — a form of misleading advertising under existing food safety legislation. The verification endpoint provides the evidence.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Today's Rating Displays
 
-| Feature | Live Verify | Platform-Displayed Rating | FSA Website Lookup | Physical Window Sticker |
+The Food Standards Agency publishes hygiene ratings for England, Wales and Northern Ireland on its own website, and restaurants display the sticker in their window; Scotland runs a separate scheme, and other countries have their own or none. Delivery platforms show a copy of the rating on their own listings. Live Verify does not replace the FSA's site: it lets the rating the platform shows be checked against the FSA, on the ordering page itself. <!-- TODO(verify): the FSA scheme covers England, Wales and Northern Ireland and Scotland runs a separate scheme -->
+
+| | FSA website lookup | Window sticker | Live Verify on the platform listing | Rating as copied by the platform |
 | :--- | :--- | :--- | :--- | :--- |
-| **FSA-issued** | **Yes.** Claim originates from the FSA. | **No.** Platform's own data. | **Yes.** But requires leaving the platform. | **Yes.** But physical only. |
-| **Verifiable on platform** | **Yes.** In place, on the ordering page. | **No.** Trust the platform's data. | **No.** Separate site. | **No.** Not digital. |
-| **Real-time status** | **Yes.** Endpoint reflects current rating. | **No.** Updated on platform's schedule. | **Yes.** But manual lookup. | **No.** Sticker persists. |
-| **Multi-platform** | **Yes.** Same claim on all platforms. | **No.** Each platform has its own copy. | **N/A.** | **N/A.** |
-| **Detects stale data** | **Yes.** SUPERSEDED status. | **No.** | **Requires comparison.** | **No.** |
+| **Who can check** | Anyone who leaves the platform and searches the FSA site. | Anyone standing outside the premises. | Anyone looking at the listing, on any platform that carries the claim. | Nobody; the consumer must trust the platform. |
+| **What the checker gets** | The FSA's current rating and inspection date. | The rating at the time the sticker was issued. | Confirmation that the FSA stands behind this rating for this establishment, and whether it has since been superseded. | Whatever the platform last copied, which may be stale. |
+| **What the restaurant shares** | Nothing; the ratings are public. | The sticker, if it chooses to display it. | The FSA's claim, embedded on its own site and on platform listings. | Nothing; the platform sources the data itself. |
+| **Reach** | Establishments in the FSA's scheme. | One premises. | Global in principle: any food authority, in any country, that publishes hashes on its own domain. | One platform. |
+| **Speed and cost** | Free; a minute or two away from the ordering page. | Free, but only in person. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **Shows a downgrade** | Yes. | No; an old sticker can stay up. | Yes: a superseded rating shows as superseded. | Only when the platform next updates. |
+| **What it needs** | A browser and the restaurant's name. | Being there. | The FSA to publish hashes, and Live Verify-aware software on the consumer's device. No food authority does this yet. | Nothing. |
+| **Best suited to** | The authoritative record, for anyone willing to look. | Walk-in customers. | Consumers deciding on a delivery platform, and platforms checking their own data. | Nothing where the rating matters. |
 
-**Practical conclusion:** the FSA website remains the authoritative source, but consumers ordering on delivery platforms do not visit it. The verifiable claim brings the FSA's authority to the page where the ordering decision actually happens.
+**Where each fits:** The FSA website remains the authoritative source, but consumers ordering on delivery platforms rarely leave the app to visit it, and the window sticker is invisible to them. Live Verify carries the FSA's own word to the ordering page, so a stale copy shows up as superseded, wherever the consumer has software that honours it.
 
 ## Authority Chain
 

@@ -105,14 +105,19 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Employment Verifiers (Argyle)
+## Where Each Fits: Live Verify and Payroll-Connectivity Services
 
-| Feature | Live Verify | Argyle / Pinwheel (API) | Scanned PDF |
+Payroll-connectivity services such as Argyle and Pinwheel let a lender or landlord pull a worker's earnings from gig platforms after the worker links their account. These services and Live Verify answer different questions and work side by side: one is a continuing data feed between a platform and a paying customer of the service, the other makes a single payout receipt checkable by whoever is handed it.
+
+| | Payroll-connectivity service | Live Verify on the payout receipt | Unverified PDF or screenshot |
 | :--- | :--- | :--- | :--- |
-| **User Privacy** | **High.** Worker shares only the *Statement*. | **Low.** API access often reveals *full* account history. | **High.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Platform. | **System-Bound.** Trust the aggregator. | **Zero.** Easily forged. |
-| **Interoperability** | **Universal.** Works for any platform with a URL. | **Limited.** Only for platforms on the API network. | **Universal.** |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires worker to find login/pass and link accounts. | **N/A.** |
+| **Who can check** | Lenders and landlords who are customers of the service. | Anyone handed the receipt: a landlord, a small lender, a car dealer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Structured earnings data, often going back months, for as long as access lasts. | Confirmation that the platform stands behind this exact receipt, as at its date. | A document that may have been edited. |
+| **What the worker shares** | Their platform login, and often more account history than the checker needs. | Only the receipt they chose to hand over. | Only the receipt they chose to hand over. |
+| **Reach** | Platforms the service connects to, mostly in the markets it serves. | Global in principle: any platform, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | A few minutes for the worker to link accounts; the checker pays the service. | A few seconds per check: one web lookup, with no fee to the standard and no integration. | Free and immediate. |
+| **What it needs** | A worker willing to link their account, and a platform the service supports. | The platform to publish hashes, and Live Verify-aware software on the checker's device. No gig platform does this yet. | Nothing. |
+| **Best suited to** | Lenders who want ongoing, detailed income data. | One-off proof of income to a checker who is not a customer of any service. | Nothing where rent or a loan depends on it. |
 
 **Where each fits:** Payroll-connectivity services such as Argyle and Pinwheel give a lender a continuing, structured feed of earnings, and for a worker who is happy to link an account that is often the smoothest route. Some workers would rather not hand over platform credentials, some platforms are not on those networks, and some checkers such as a landlord or a small lender are not customers of either. Live Verify covers those cases with a single earnings statement that the platform stands behind.
 

@@ -218,22 +218,21 @@ NHS hospitals issue staff badges under healthcare regulator authority (CQC in th
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Uniforms / Caller Systems
+## Where Each Fits: Live Verify and Today's Bedside Checks
 
-| Feature | Live Verify | Uniform & Badge | Calling Nurse Station | Patient Recognition | Manual License Lookup |
+Today a patient who doubts whether someone entering their room is genuine staff can call the nurse station, rely on recognising the person, look up a clinician's licence on the state board's website, or simply trust the uniform and badge. Behind the scenes, the facility's own credentialing systems and the state licensing boards remain the authority. Live Verify works alongside them: it brings the facility's and the board's word to the badge the patient can see.
+
+| | Calling the nurse station | State board licence lookup | Recognising the person | Live Verify on the staff badge | Uniform and badge alone |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Verified by facility or state board. | **Visual.** Uniforms easily faked. | **Human.** Assumes phone is answered; prone to social engineering. | **Personal.** Only works if patient knows staff; fails for new staff or medicated patients. | **Manual.** Requires searching state board websites; slow and error-prone. |
-| **Integrity** | **Cryptographic.** Binds identity and license status. | **Zero.** Impostors in scrubs are indistinguishable. | **Variable.** Phone system can be spoofed. | **None.** Visual recognition is unreliable. | **Good but manual.** License info available but requires patient effort. |
-| **Speed** | **Instant.** 3-second scan from doorway or bed. | **N/A.** Just looking. | **Slow.** 5+ minutes to reach someone; patient unable to verify alone. | **Instant but unreliable.** | **Slow.** 10+ minutes of searching state websites; impractical bedside. |
-| **Freshness** | **Real-time.** Shows if license suspended *today*; if provider credentialed *today*. | **Static.** Badge never changes. | **Variable.** Phone system may have lag. | **Static.** Patient can't know if staff was terminated overnight. | **Depends.** State boards update regularly but patient must refresh manually. |
-| **Verifies License Status** | **Yes.** Shows if active, suspended, or expired. | **No.** Badge is silent on license status. | **Maybe.** Staff may confirm verbally but unverified. | **No.** Patient can't see license status. | **Yes but manual.** Patient can lookup but time-consuming. |
-| **Works When Patient is Alone** | **Yes.** Patient can verify without involving others. | **No.** Patient must judge visually. | **No.** Patient must call or use button; risky during medical procedures. | **No.** Patient must recognize person. | **No.** Requires internet access, privacy to lookup. |
+| **Who can check** | A patient who can reach the call button or phone, and staff who answer. | Anyone with a browser, the clinician's name and time to search. | A patient who has met the person before. | A patient or relative who can see the badge, from the bed or doorway. | Anyone, by eye; it can only be taken on trust. |
+| **What the checker gets** | A colleague's word that the person works there. | The clinician's current licence status from the board. | Familiarity, which fails with new staff, night shifts and medicated patients. | Confirmation that the facility stands behind this badge for this person and role, and, for clinicians, that the licence it names is active, as at the time of the check. | A uniform, which anyone can buy. |
+| **What the staff member shares** | Their name. | Their name and licence details. | Their face. | Only what is on the badge. | Only what is on the badge. |
+| **Reach** | One facility, when the line is answered. | One state board per search. | Only people the patient already knows. | Global in principle: any facility or licensing board, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Minutes, and it can leave the patient alone with the person while they wait. | Many minutes of searching; impractical at the bedside. | Immediate, but unreliable. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | A working call system and staff free to answer. | Internet access, privacy and patience. | Prior contact. | The facility (and, for licence status, the board) to publish hashes, and Live Verify-aware software on the patient's device. No hospital or board does this yet. | Nothing. |
+| **Best suited to** | Patients able to make a call, when staff are nearby. | Deliberate checks by family members or advocates before treatment. | Long-stay patients with familiar staff. | A patient alone, deciding in seconds whether to let someone in or accept treatment. | Nothing where safety depends on it. |
 
-**Why this remains strong:** Healthcare has two critical complementary workflows where the badge or displayed credential is the surface the patient encounters, even though facility systems and state license registries remain primary in the background:
-
-1. **"Private Room Workflow"** (support staff): A patient cannot easily reach a phone, call a nurse station, or safely leave their room to verify a stranger's identity. Live Verify gives patients a non-invasive way to verify support staff at the moment of entry—from bed, through a doorway camera, or by viewing the badge through a partially open door.
-
-2. **"Bedside Credential Verification"** (clinical staff): Before allowing a physician to order medications, perform procedures, or access your medical record, a patient can instantly verify their license status—no manual state board lookup, no awkward conversation, just a quick scan. This is particularly important for patients about to undergo treatment, high-acuity patients unable to advocate for themselves, or family members protecting vulnerable relatives.
+**Where each fits:** The facility's credentialing systems and the state licensing boards remain primary, and calling the nurse station is still the right move when a patient can do it safely. Healthcare has two moments where the badge is the only surface the patient encounters: a support worker entering a private room, when the patient cannot easily reach a phone or leave the bed, and a clinician about to order medication or perform a procedure, when a licence lookup on the board's website is impractical. Live Verify gives the patient or a relative a quick check at those moments, wherever they have software that honours it, while the systems behind it stay authoritative.
 
 ## Bedside NFC: Verification Without the Patient Lifting a Phone
 

@@ -120,14 +120,19 @@ Issues federal firearms dealer licenses for lawful commerce.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With ATF FFL EzCheck
+## Where Each Fits: Live Verify and ATF's FFL eZ Check
 
-| Feature | Live Verify | FFL EzCheck (Web) | Paper License |
+FFL eZ Check is the ATF's official online lookup for confirming a federal firearms licence by its number. It and Live Verify answer different questions and work side by side: one confirms that a licence number is valid in ATF's records, the other confirms that the copy of the licence in hand is the one ATF issued.
+
+| | FFL eZ Check | Live Verify on the licence | Unverified paper or PDF licence |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to `atf.gov`. | **Database.** Direct from source. | **Zero.** Easily forged. |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires typing 15 digits into a web form. | **Instant.** |
-| **Integrity** | **Binds Photo/Signer.** Protects every word. | **Data-Only.** Doesn't verify the paper. | **Vulnerable.** |
-| **Mobile Use** | **High.** Built for phones. | **Low.** Web form is hard to use on mobile. | **High.** |
+| **Who can check** | Anyone with the licence number and a browser. | Anyone handed the licence: a shipping dealer, a distributor, a private seller. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Whether the licence number is valid, with the licensee's details from ATF's records. | Confirmation that ATF stands behind this exact licence text, as at its date, and whether it has since been revoked. | A document that may have been edited. |
+| **What the holder shares** | The licence number. | Only the licence copy they chose to hand over. | Only the copy they chose to hand over. |
+| **Reach** | US federal licences. | US federal licences; the standard itself works for any licensing body in any country that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free; a minute or two of typing the number into a web form, which is awkward on a phone. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The full licence number and a browser. | ATF to publish hashes, and Live Verify-aware software on the checker's phone. ATF does not do this yet. | Nothing. |
+| **Best suited to** | The official pre-shipment check the regulations point dealers to. | A quick check of the document at a show table or shipping counter, alongside the official query. | Nothing where a firearm is being shipped. |
 
 **Where each fits:** ATF's FFL eZ Check is the official lookup and the one the regulations point dealers towards; a dealer shipping a firearm should continue to use it. It confirms a licence number rather than the copy of the licence in hand, and typing the number into a web form is awkward at a show table or shipping counter. Live Verify offers a quick check of the document itself in those settings, as an additional step and not a replacement for the official query.
 

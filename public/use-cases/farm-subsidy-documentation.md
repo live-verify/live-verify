@@ -114,14 +114,19 @@ The RPA administers UK farm subsidy payments and eligibility certifications unde
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With USDA Portals (Farmers.gov)
+## Where Each Fits: Live Verify and the Farmers.gov Portal
 
-| Feature | Live Verify | Farmers.gov Portal | Paper Eligibility Notice |
+Farmers.gov is the USDA's online portal where producers sign in to manage their own programmes, payments and eligibility. It and Live Verify answer different questions and work side by side: one is the farmer's own account with the agency, the other lets a bank or landlord check the eligibility notice the farmer hands them.
+
+| | Farmers.gov portal | Live Verify on the eligibility notice | Unverified paper notice |
 | :--- | :--- | :--- | :--- |
-| **User Access** | **Open.** Any bank or landlord can verify. | **Restricted.** Requires secure USDA eAuthentication Level 2. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the USDA. | **Gov-Bound.** | **Zero.** Easily forged. |
-| **Integrity** | **Binds Content.** Protects the $ limit. | **Data-Only.** Doesn't protect the paper. | **Vulnerable.** |
-| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Technical.** Requires laptop/dedicated app. | **Visual.** |
+| **Who can check** | The producer, after signing in with USDA eAuthentication. | Anyone handed the notice: a lender, a landlord, an equipment dealer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The producer's full record with the agency, kept current. | Confirmation that the USDA stands behind this exact notice, including its payment limits, as at its date. | A document that may have been edited. |
+| **What the farmer shares** | Nothing directly; a third party has no access, so the farmer prints or screenshots. | Only the notice they chose to hand over. | Only the notice they chose to hand over. |
+| **Reach** | US federal programmes, for the producer's own account. | Global in principle: any agency, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free for the producer once their account is set up. | A few seconds per check: one web lookup, with no fee to the standard and no account with the USDA. | Free and immediate. |
+| **What it needs** | A verified USDA login. | The USDA to publish hashes, and Live Verify-aware software on the checker's phone. No agency does this yet. | Nothing. |
+| **Best suited to** | The farmer managing their own applications and payments. | A lender confirming eligibility before an operating loan. | Nothing where a loan depends on it. |
 
 **Where each fits:** Farmers.gov is where a producer manages their own USDA business, and its strict authentication is appropriate for that. The producer's bank, landlord or equipment dealer has no such access and sees only the eligibility notice the farmer brings in. Live Verify lets that third party confirm the notice is as the agency issued it, while the farmer goes on using the portal for everything else.
 

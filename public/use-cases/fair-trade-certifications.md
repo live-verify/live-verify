@@ -113,14 +113,19 @@ Fairtrade certifies producers and supply chains that meet ethical sourcing stand
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Public Databases (FLOCERT)
+## Where Each Fits: Live Verify and FLOCERT's Public Search
 
-| Feature | Live Verify | FLOCERT Public Search | Static Logo |
+FLOCERT, the certification body for Fairtrade, runs a public online search of certified operators. Other ethical-sourcing schemes keep their own registers. The register and Live Verify answer different questions and work side by side: one is the certifier's full list, the other lets whoever is handed a certificate or label confirm that the certifier stands behind it.
+
+| | FLOCERT public search | Live Verify on the certificate | Logo alone |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Standard Body. | **Database.** Direct from source. | **Zero.** Just a JPEG. |
-| **Integrity** | **Binds Audit.** Protects the status. | **Data-Only.** Doesn't verify the paper. | **Vulnerable.** |
-| **Speed** | **Instant.** Scan at the point of sale. | **Slow.** Requires typing FLO ID and finding record. | **N/A.** |
-| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Technical.** Requires laptop/dedicated search. | **Visual.** |
+| **Who can check** | Anyone with the operator's FLO ID or name and a browser. | Anyone handed the certificate or looking at the label: a shopper, a retailer, an importer. | Nobody; a logo can be printed by anyone. |
+| **What the checker gets** | The operator's certification status and scope, straight from the certifier's records. | Confirmation that the certifier stands behind this exact certificate text, as at its date, and whether it has since been withdrawn. | A claim with nothing behind it. |
+| **What the holder shares** | Nothing; the register is public. | Only the certificate or label they chose to show. | The logo. |
+| **Reach** | Fairtrade-certified operators worldwide; other schemes need their own registers. | Global in principle: any certification body, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free; takes a few minutes to find the ID and match the record to the product. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The FLO ID or operator name, and the patience to match it to the goods in hand. | The certifier to publish hashes, and Live Verify-aware software on the checker's phone. No certification body does this yet. | Nothing. |
+| **Best suited to** | Trade buyers and auditors doing full due diligence. | Quick checks at the shelf or the loading bay. | Nothing where the premium matters. |
 
 **Where each fits:** FLOCERT's public search is the definitive source on whether an operator is certified, and trade buyers and auditors who know the FLO ID should use it. A shopper, a small retailer or an importer in another country is more likely to be looking at a certificate or a claim on packaging than at a database. Live Verify lets them confirm the certifying body stands behind that document, and the register remains the place for a full audit-level check.
 

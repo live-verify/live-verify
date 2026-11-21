@@ -180,15 +180,21 @@ The practice or employer benefits by proving its practitioners are registered.
 
 **Inspection evidence:** The CQC inspects healthcare services and checks that practitioners hold appropriate registration. Verifiable claims provide a current, machine-checkable record of registration status at the time of inspection.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Allied Health Registers
 
-| Feature | Live Verify | HCPC Online Register | Employer Manual Check |
+Allied health regulators keep public registers: the HCPC in the UK covers a range of professions under one register, AHPRA does the same in Australia, and in other countries the arrangements differ by profession and region, and some have no public register at all. Employers check these registers at onboarding and record the result. The register remains the authority; Live Verify brings the regulator's own statement to the practice website or premises, where patients meet the claim.
+
+| | HCPC online register | Employer's manual check | Live Verify on the registration claim |
 | :--- | :--- | :--- | :--- |
-| **Issuer-controlled** | **Yes.** HCPC issues the claim. | **Yes.** But requires the checker to navigate there. | **No.** Employer checks manually, records result locally. |
-| **Verifiable at point of care** | **Yes.** On the practice website or premises. | **No.** Requires leaving the site. | **No.** Done at onboarding, not at point of care. |
-| **Shows current status** | **Yes.** Live response from HCPC. | **Yes.** If the checker looks it up. | **No.** Status at time of last check only. |
-| **Confirms profession** | **Yes.** Profession is in the hashed text. | **Yes.** If the checker reads the result. | **Yes.** If recorded correctly. |
-| **Detects lapsed registration** | **Yes.** Endpoint returns LAPSED. | **Yes.** If checked. | **No.** Until next periodic re-check. |
+| **Who can check** | Anyone who goes to the HCPC's site and searches. | The employer, at onboarding and periodic re-checks. | Anyone looking at the claim on the practice website or premises. |
+| **What the checker gets** | Current registration and profession, from the regulator. | The status at the time of the last check, as recorded by the employer. | Confirmation that the HCPC stands behind this claim, including the profession, and whether registration has since lapsed or been suspended. |
+| **What the practitioner shares** | Nothing; the register is public. | Their registration number. | The HCPC's claim, displayed on their site or premises. |
+| **Reach** | UK-registered professions. Other countries have their own registers. | One employer's staff. | Global in principle: any regulator, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Free; a minute or two away from the practice's page. | Staff time, at intervals. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | A checker who knows to look. | A process to repeat the check. | The HCPC to publish hashes, and Live Verify-aware software on the checker's device. No allied health regulator does this yet. |
+| **Best suited to** | Deliberate checks by employers and agencies. | Employment records. | Patients checking a private practitioner's claim at the point of booking. |
+
+**Where each fits:** The HCPC register is authoritative and public, and employers should keep checking it. Patients seeing a private physiotherapist or dietitian rarely do, and an employer's record shows only the status at its last check. Live Verify puts the regulator's own statement where the patient meets the practitioner, including the profession and any lapse, wherever the patient has software that honours it.
 
 ## Authority Chain
 

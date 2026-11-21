@@ -116,14 +116,19 @@ The UK P&I Club, a mutual insurance association, is regulated by the FCA and iss
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Club Member Search
+## Where Each Fits: Live Verify and P&I Clubs' Vessel Searches
 
-| Feature | Live Verify | Club Website Search | Scanned PDF |
+P&I clubs that provide FD&D cover typically offer an online search showing whether a ship is entered with them, with fuller detail sometimes kept behind member logins. The club's search and Live Verify answer different questions and work side by side: one says whether a vessel is entered, the other confirms that the club stands behind the certificate as presented, including its terms.
+
+| | Club vessel search | Live Verify on the FD&D certificate | Unverified scan or PDF |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Cryptographic.** Binds the *Legal Limit*. | **Vague.** Often only shows "Entered" without the limit details. | **Zero.** Easily forged. |
-| **User Access** | **Universal.** Any attorney or port can verify. | **Restricted.** Some Clubs require private logins for detailed data. | **Instant.** |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires IMO # search and UI navigation. | **N/A.** |
-| **Authority** | **Domain-Bound.** Bound to the Club. | **High.** Direct DB. | **Medium.** |
+| **Who can check** | Anyone with the vessel's IMO number, for public data; members for more detail. | Anyone handed the certificate: a port agent, a counterparty's lawyer, a court. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Whether the vessel is entered, often without the limits or terms of cover. | Confirmation that the club stands behind this exact certificate, including its limits, as at its date, and whether it has since been cancelled. | A document that may have been edited. |
+| **What the holder shares** | Nothing; public entry data is open. | Only the certificate they chose to hand over. | Only the certificate they chose to hand over. |
+| **Reach** | One club per search. | Global in principle: any club or insurer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free; a few minutes of searching and navigating. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The IMO number, and sometimes a login. | The club to publish hashes, and Live Verify-aware software on the checker's device. No P&I club does this yet. | Nothing. |
+| **Best suited to** | Confirming entry status for a known vessel. | Confirming the terms on a certificate, across borders and outside office hours. | Nothing where a ship's release depends on it. |
 
 **Where each fits:** A P&I club's own vessel search is the direct source for whether a ship is entered, and correspondents and lawyers who know the IMO number will keep using it. It often does not show the terms on the certificate, and some detail sits behind member logins. Live Verify lets a port agent, counterparty lawyer or court in another country confirm that the club stands behind the certificate as presented, with the club's search still available for entry status.
 

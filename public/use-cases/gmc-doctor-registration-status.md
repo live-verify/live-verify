@@ -214,18 +214,22 @@ The doctor benefits directly by proving their registration status.
 
 **Provider inspections:** The CQC inspects healthcare providers and checks that employed doctors are properly registered. Verifiable claims displayed at premises or on provider websites provide an auditable trail of registration status.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Medical Registers
 
-| Feature | Live Verify | GMC Register Lookup | NHS Profile Page | Clinic Self-Assertion |
+Every country has its own medical regulator and register: in the UK the General Medical Council keeps a single national register, in the US each state board licenses its own doctors, and in some places the register is hard to find or not public at all. In the UK, NHS profile pages also show doctors' details. The register is the authoritative source and Live Verify does not replace it: it brings the regulator's own statement to the clinic website or waiting room, where the patient actually meets the claim.
+
+| | GMC register lookup | NHS profile page | Live Verify on the registration claim | Clinic's own statement |
 | :--- | :--- | :--- | :--- | :--- |
-| **Issuer-controlled** | **Yes.** GMC issues the claim. | **Yes.** But requires the patient to navigate there. | **Partially.** NHS sources data from GMC but is a separate system. | **No.** The clinic writes it. |
-| **Verifiable at point of encounter** | **Yes.** On the clinic's own website or premises. | **No.** Requires leaving the site. | **No.** Requires finding the NHS profile. | **No.** No verification mechanism. |
-| **Shows current status** | **Yes.** Live response from GMC. | **Yes.** If the patient checks. | **Yes.** If the patient finds the profile. | **No.** Static text on website. |
-| **Detects suspension** | **Yes.** Endpoint returns SUSPENDED. | **Yes.** If checked. | **Yes.** If the patient checks. | **No.** Text remains unchanged. |
-| **Detects copied claims** | **Yes.** Domain mismatch warning. | **N/A.** | **N/A.** | **N/A.** Not verifiable. |
-| **Works for private practice** | **Yes.** Any website or premises. | **Yes.** But patient must know to check. | **Not always.** NHS profiles may not cover private-only doctors. | **No.** |
+| **Who can check** | Anyone who goes to the GMC's site and searches. | Anyone who finds the doctor's NHS profile. | Anyone looking at the claim on the clinic's website or premises. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Current registration, licence status and any conditions, from the regulator. | Information drawn from the GMC and NHS records, for doctors who have a profile. | Confirmation that the GMC stands behind this claim about this doctor, and whether the doctor has since been suspended or removed. | Text the clinic wrote. |
+| **What the doctor or clinic shares** | Nothing; the register is public. | Nothing; NHS publishes it. | The GMC's claim, displayed on its own site or premises. | Its own wording. |
+| **Reach** | UK doctors. Other countries have their own registers. | NHS doctors; may not cover private-only practice. | Global in principle: any regulator, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free; a minute or two away from the clinic's page. | Free, if the profile can be found. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **If the claim is copied to another site** | Not applicable; the patient searches by name. | Not applicable. | The check warns that the claim is being shown on a domain it was not issued for. | Nothing stops it. |
+| **What it needs** | A patient who knows to look. | A profile for that doctor. | The GMC to publish hashes, and Live Verify-aware software on the patient's device. No medical regulator does this yet. | Nothing. |
+| **Best suited to** | Employers, agencies and anyone doing a deliberate check. | NHS patients looking up their own doctors. | Patients checking a private clinic's claim at the point of booking. | Nothing where safety depends on it. |
 
-**Practical conclusion:** The GMC register is authoritative and publicly available. The problem is that patients do not use it. They see a doctor's name on a clinic website, read "GMC registered," and accept it. A verifiable claim embedded at the point of encounter turns the clinic's assertion into a regulator-issued, checkable statement.
+**Where each fits:** The GMC register is authoritative and publicly available, and employers and agencies should keep using it. The problem is that patients rarely do: they see a doctor's name on a clinic website, read "GMC registered", and accept it. Live Verify puts the regulator's own statement at the point of encounter, so a patient can check it there, wherever they have software that honours it.
 
 ## Authority Chain
 

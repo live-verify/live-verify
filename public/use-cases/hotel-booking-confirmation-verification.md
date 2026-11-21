@@ -118,15 +118,21 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Email Confirmation
+## Where Each Fits: Live Verify and Calling the Hotel
 
-| Feature | Live Verify | Email / PDF Confirmation | Phone Call to Hotel |
+Today an embassy, employer or traveller who doubts a booking confirmation can phone the hotel or the booking site, or simply accept the email or PDF. Calling remains the authoritative check. Live Verify works side by side with it: it lets anyone handed a confirmation confirm that the hotel or booking site stands behind it, without a call.
+
+| | Phone call to the hotel | Live Verify on the confirmation | Unverified email or PDF confirmation |
 | :--- | :--- | :--- | :--- |
-| **Speed** | **Seconds.** Hash check against issuer domain. | **Instant.** | **Minutes to hours.** Hold queues, time zones. |
-| **Trust Anchor** | **Domain-Bound.** Tied to the hotel or OTA. | **Zero.** Trivially forged. | **Reputation.** Trust the voice on the phone. |
-| **Currency** | **Live.** Returns current status (may now be CANCELLED). | **Frozen.** Shows status at time of issue only. | **Live.** But not auditable. |
-| **Scale** | **Automated.** Embassies can batch-verify. | **Manual.** Each PDF must be eyeballed. | **Unscalable.** One call per booking. |
-| **Integrity** | **Cryptographic.** Binds booking details to domain. | **None.** Easily edited. | **None.** Verbal confirmation only. |
+| **Who can check** | Anyone who can reach the hotel, in its time zone and language. | Anyone handed the confirmation: a visa officer, an expenses team, the traveller. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The hotel's word on the booking now, and the chance to ask questions. | Confirmation that the hotel or booking site stands behind this exact confirmation, as at its date, and whether it has since been cancelled. | A document that may have been fabricated. |
+| **What the traveller shares** | Their name and booking details, which the hotel may decline to discuss with third parties. | Only the confirmation they chose to hand over. | Only the confirmation they chose to hand over. |
+| **Reach** | Any hotel that answers. | Global in principle: any hotel or booking site, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Minutes to hours, with hold queues and time zones; one call per booking. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | A genuine phone number and someone willing to answer. | The hotel or booking site to publish hashes, and Live Verify-aware software on the checker's device. No hotel or booking site does this yet. | Nothing. |
+| **Best suited to** | Individual doubts that need a conversation. | Visa and expenses teams checking many confirmations. | Nothing where a visa or reimbursement depends on it. |
+
+**Where each fits:** A call to the hotel is still the surest check of a single booking, and it lets the caller ask questions. It does not scale to a visa section or an expenses team handling many confirmations, often across time zones, and the answer leaves no record. Live Verify lets them confirm that the hotel or booking site stands behind each confirmation, and whether it has since been cancelled, wherever the checker has software that honours it.
 
 ## Further Derivations
 

@@ -112,14 +112,19 @@ The Homeowner (Insured) benefits from verification.
 **Agency Networks:** (Hosting verified hashes for local agents).
 **Insurtech Platforms:** (Lemonade, Hippo).
 
-## Compared With Broker Portals
+## Where Each Fits: Live Verify and Broker and Carrier Portals
 
-| Feature | Live Verify | Broker Portal | Scanned PDF / Paper |
+Insurers and brokers give policyholders and agents online portals to view and manage cover, and some lenders receive policy data directly from carriers. A portal and Live Verify answer different questions and work side by side: one serves the people who hold accounts, the other lets anyone handed a declarations page confirm that the insurer stands behind it.
+
+| | Broker or carrier portal | Live Verify on the declarations page | Unverified PDF or paper |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Cryptographic.** Binds the *Address* to the *Limit*. | **System-Bound.** | **Zero.** Easily forged. |
-| **Interoperability** | **Universal.** Works across all carriers. | **Siloed.** Hard to aggregate 50 different logins. | **Universal.** |
-| **Freshness** | **Real-time.** Shows if cancelled *today*. | **Laggy.** Often 24-48 hours behind. | **Static.** |
-| **Audit-ability** | **High.** Digital trail for regulators. | **Low.** Internal only. | **Manual.** |
+| **Who can check** | The policyholder, their agent, and lenders with a direct arrangement. | Anyone handed the page: a mortgage lender, a landlord, a property manager, a lawyer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The full policy record. | Confirmation that the insurer stands behind this exact page, including the address, limits and mortgagee, as at its date, and whether the policy has since been cancelled. | A document that may have been edited. |
+| **What the policyholder shares** | Account access, or downloaded documents. | Only the page they chose to hand over. | Only the page they chose to hand over. |
+| **Reach** | One carrier or broker per login. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Fast for account holders. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | A login with that carrier or broker. | The insurer to publish hashes, and Live Verify-aware software on the checker's device. No insurer does this yet. | Nothing. |
+| **Best suited to** | Managing cover, and lenders with a direct feed. | Third parties who deal with many insurers and have logins with none. | Nothing where a loan or lease depends on it. |
 
 **Where each fits:** A broker or carrier portal is the right place for the policyholder and agent to manage cover, and a lender with a direct feed from the carrier will rely on that. Landlords, property managers, lawyers and smaller lenders deal with many insurers and have logins with none. Live Verify lets them confirm that the insurer stands behind the declarations page they were given, and the portal continues to serve the people who hold accounts.
 
@@ -212,14 +217,19 @@ The Homeowner / Renter benefits from verification.
 **Independent Adjusting Firms:** (e.g., Crawford & Co, Eberl).
 **Estimating Software:** (e.g., Xactimate/Verisk - hosting the underlying data hashes).
 
-## Compared With CLUE Reports (LexisNexis)
+## Where Each Fits: Live Verify and CLUE Loss-History Reports
 
-| Feature | Live Verify | CLUE Report (LexisNexis) | Scanned PDF Estimate |
+In the US, CLUE reports from LexisNexis give insurers a property's and a policyholder's claims history across insurers. Other countries have their own claims-history databases, or none open to the industry. CLUE and Live Verify answer different questions and work side by side: one summarises years of losses, the other confirms the approved scope of a single claim.
+
+| | CLUE report | Live Verify on the claim estimate | Unverified PDF estimate |
 | :--- | :--- | :--- | :--- |
-| **Granularity** | **High.** Shows line-item repairs. | **Low.** Often just says "Water Loss - $14k." | **High.** But untrusted. |
-| **Speed** | **Real-time.** Available as soon as approved. | **Laggy.** Updates take 30-90 days. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Insurer. | **Data-Bound.** Trust the aggregator. | **Zero.** Easily forged. |
-| **Interoperability** | **Universal.** Works for any contractor. | **Restricted.** Requires expensive data access. | **Universal.** |
+| **Who can check** | Insurers, under permitted-purpose rules; homeowners can request their own report. <!-- TODO(verify): CLUE access rules: insurer access under permitted-purpose rules, and homeowners able to request their own report --> | Anyone handed the estimate: a restoration contractor, a public adjuster, a buyer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | A multi-year summary of claims, usually without line-item detail. | Confirmation that the insurer stands behind this exact estimate, including line items, as at its date. | A document that may have been edited. |
+| **What the homeowner shares** | Consent, where the law requires it. | Only the estimate they chose to hand over. | Only the estimate they chose to hand over. |
+| **Reach** | US properties and policyholders reported by participating insurers. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Paid access for insurers; claims appear after a reporting delay. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | Access to the database. | The insurer to publish hashes, and Live Verify-aware software on the checker's device. No insurer does this yet. | Nothing. |
+| **Best suited to** | Underwriting, using loss history across insurers. | Contractors and buyers who need the approved scope of one claim. | Nothing where payment depends on it. |
 
 **Where each fits:** CLUE reports give underwriters a multi-year loss history across insurers, which a single document cannot provide, and they will remain part of underwriting. They summarise claims and take time to update. A restoration contractor, public adjuster or buyer who needs the approved scope of one claim can use Live Verify to confirm that the insurer issued the estimate as written. The loss-history database and the verified estimate answer different questions.
 
@@ -328,14 +338,19 @@ Aviva, a regulated home and contents insurer, is authorized by the FCA to issue 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With ACORD Data Feeds
+## Where Each Fits: Live Verify and ACORD Data Exchange
 
-| Feature | Live Verify | ACORD Data Pool (IVANS) | Scanned PDF |
+Insurers, agencies and lenders in the US exchange policy data in ACORD standard formats, often over networks such as IVANS. Where both sides are connected, data moves automatically. The data exchange and Live Verify answer different questions and work side by side: one is a feed between connected businesses, the other lets anyone handed an evidence-of-insurance page confirm that the insurer stands behind it.
+
+| | ACORD data exchange | Live Verify on the evidence of insurance | Unverified PDF |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Cryptographic.** Binds the *Address* to the *Limit*. | **Data-Only.** Doesn't verify the actual paper doc. | **Zero.** Easily forged. |
-| **Interoperability** | **Universal.** Works across all carriers. | **Limited.** Only for agencies on the IVANS network. | **Universal.** |
-| **Freshness** | **Real-time.** Shows if cancelled *today*. | **Laggy.** Often 24-48 hours behind. | **Static.** |
-| **User Control** | **High.** Homeowner shares only what is needed. | **Low.** Lenders see the full data stream. | **High.** |
+| **Who can check** | Agencies, carriers and lenders connected to the network. | Anyone handed the page: a buyer, a seller, a title company, a private lender. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Structured policy data straight into their systems. | Confirmation that the insurer stands behind this exact page, including address and limits, as at its date, and whether the policy has since been cancelled. | A document that may have been edited. |
+| **What the homeowner shares** | Policy data passed between businesses on their behalf. | Only the page they chose to hand over. | Only the page they chose to hand over. |
+| **Reach** | Participants on that network. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Automated once connected; joining the network costs money and setup. | A few seconds per check: one web lookup, with no fee to the standard and no network membership. | Free and immediate. |
+| **What it needs** | Both parties connected. | The insurer to publish hashes, and Live Verify-aware software on the checker's device. No insurer does this yet. | Nothing. |
+| **Best suited to** | High-volume policy data between established partners. | Closings and one-off checks by parties who are not connected. | Nothing where a closing depends on it. |
 
 **Where each fits:** Where agency and lender are both on a network such as IVANS, policy data moves automatically, and that is the efficient path. A closing brings together a buyer, a seller, a title company and sometimes a private lender, not all of whom are connected. Live Verify lets any of them confirm the evidence-of-insurance page against the insurer's own domain, with the industry data exchange carrying on as before.
 

@@ -109,14 +109,19 @@ Schedules and administers USCIS immigration interviews.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With USCIS Case Status Online
+## Where Each Fits: Live Verify and USCIS Case Status Online
 
-| Feature | Live Verify | Case Status Online (Web) | Paper Notice |
+USCIS Case Status Online lets an applicant, or anyone with their receipt number, see the current status of a case. Other countries' immigration services run their own tracking, or none. Case Status Online and Live Verify answer different questions and work side by side: one reports where a case stands, the other confirms that the agency issued a particular notice naming who is due where and when.
+
+| | USCIS Case Status Online | Live Verify on the interview notice | Unverified paper notice |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Binds Identity.** Proves *Who* is scheduled. | **General.** Often just says "Interview Scheduled." | **Low.** Easily faked. |
-| **Speed** | **Instant.** 5-second scan at the door. | **Slow.** Requires typing 13-char receipt # and solving CAPTCHAs. | **Instant.** |
-| **Field Access** | **High.** Built for security guards. | **Low.** Gov websites are hard to use on handheld devices. | **Universal.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to `uscis.gov`. | **High.** Direct DB access. | **Medium.** |
+| **Who can check** | Anyone with the receipt number and a browser. | Anyone handed the notice: a security guard at the field office, an employer, a school. | Anyone, by eye; it can only be taken on trust. |
+| **What the checker gets** | The case's current status, often in general terms such as "interview scheduled". | Confirmation that USCIS stands behind this exact notice, including the name, date, time and place, as at its date, and whether it has since been rescheduled or cancelled. | A notice that may have been fabricated or edited. |
+| **What the holder shares** | Their receipt number. | Only the notice they chose to hand over. | Only the notice they chose to hand over. |
+| **Reach** | US immigration cases. | Global in principle: any immigration authority, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free; a minute or two of typing and verification steps, awkward on a handheld device. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The receipt number and a browser. | USCIS to publish hashes, and Live Verify-aware software on the checker's device. USCIS does not do this yet. | Nothing. |
+| **Best suited to** | Applicants and their lawyers following a case. | A guard admitting visitors, or an employer or school asked to excuse an absence. | Nothing where entry or employment depends on it. |
 
 **Where each fits:** USCIS Case Status Online is the applicant's authoritative view of their case and should stay their first reference. It reports a status rather than who is due where and when, and entering a receipt number is impractical for a guard admitting a queue of visitors. Live Verify lets the guard, or an employer or school asked to excuse an absence, confirm the notice itself is as the agency issued it. The case-status site continues to serve applicants and their lawyers.
 

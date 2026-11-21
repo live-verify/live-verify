@@ -116,14 +116,19 @@ AXA Art, a specialist insurer, is regulated by the FCA to provide fine art cover
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Physical Provenance Logs
+## Where Each Fits: Live Verify, Provenance Records and Art Registries
 
-| Feature | Live Verify | Provenance Log (Paper) | Art Registry (Blockchain) |
+Provenance records, kept on paper by owners, dealers and museums, trace where a work has been and who has owned it. Art registries, some built on blockchains, record a work's identity and history. Neither checks an insurance certificate, and Live Verify does not establish provenance: they answer different questions and work side by side.
+
+| | Paper provenance record | Blockchain art registry | Live Verify on the insurance certificate |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Binds Value.** Protects the $85M claim. | **Subjective.** Relies on old stickers/notes. | **High.** But art is off-chain. |
-| **Trust Anchor** | **Domain-Bound.** Trust the Payer. | **Signature-Bound.** | **Consensus-Bound.** |
-| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Expert.** Requires magnifying glass/knowledge. | **Technical.** Requires crypto-wallet. |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Hours of expert review. | **Fast.** |
+| **Question it answers** | Where has this work been, and who has owned it? | What has been registered about this work? | Is this cover in place, for this value, from this insurer? |
+| **Who can check** | Experts who can read labels, stamps and archive records. | Anyone using that registry's tools. | Anyone handed the certificate: a lending museum, a registrar, a shipper, a bank. |
+| **What the checker gets** | An expert view of the work's history. | The registry's record, which is only as good as what was entered. | Confirmation that the insurer stands behind this exact certificate, including the agreed value, as at its date. |
+| **Reach** | Wherever the records and experts are. | Works registered on that registry. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Hours or longer of expert review. | Varies with the registry. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | Access to the records and the expertise to read them. | The work to be registered, and the registry's tools. | The insurer to publish hashes, and Live Verify-aware software on the checker's device. No fine-art insurer does this yet. |
+| **Best suited to** | Attribution, title and due diligence on the work itself. | A shared record of a work's history. | Confirming cover before a loan or a shipment. |
 
 **Where each fits:** Provenance records and art registries address questions an insurance certificate does not: where a work has been, who has owned it, and whether it is what it is said to be. Experts and registrars will rightly keep relying on them. When a work is lent or shipped, the immediate question is whether cover is in place for the stated value, and the registrar or shipper asking usually has no relationship with the insurer. Live Verify lets them confirm the insurer stands behind the certificate, alongside the provenance file.
 

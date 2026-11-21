@@ -189,14 +189,19 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Uniforms / Peepholes
+## Where Each Fits: Live Verify and Calling the Front Desk
 
-| Feature | Live Verify | Uniform & Name Tag | Calling the Front Desk |
+Today a hotel guest who is unsure about someone at the door is told to call the front desk, and otherwise relies on the uniform and name tag. The hotel's own staff systems remain the authority. Calling and Live Verify work side by side: the call reaches someone who knows the schedule, and Live Verify gives a quicker first check of the badge.
+
+| | Calling the front desk | Live Verify on the staff badge | Uniform and name tag alone |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Brand. | **Visual.** Trusted via logo only. | **Human.** Prone to social engineering. |
-| **Integrity** | **Cryptographic.** Binds face to status. | **Zero.** Uniforms are easily faked. | **Variable.** |
-| **Speed** | **Instant.** 5-second scan through peephole. | **N/A.** Just looking. | **Slow.** Often takes 5+ minutes to reach a rep. |
-| **Freshness** | **Real-time.** Shows if banned *today*. | **Static.** | **N/A.** |
+| **Who can check** | Any guest who can get through. | A guest who can see the badge through the peephole or door camera. | Anyone, by eye; it can only be taken on trust. |
+| **What the checker gets** | A colleague's word on whether the visit was scheduled, and the chance to ask. | Confirmation that the hotel stands behind this badge for this person, and whether they are on duty, as at the time of the check. | A uniform, which anyone can buy. |
+| **What the staff member shares** | Their name. | Only what is on the badge. | Only what is on the badge. |
+| **Reach** | One hotel, when the desk answers. | Global in principle: any hotel or facility, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Minutes, with someone waiting outside the door. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | A working phone and staff free to answer. | The hotel to publish hashes, and Live Verify-aware software on the guest's phone. No hotel does this yet. | Nothing. |
+| **Best suited to** | Anything unexpected, and the fallback when in doubt. | A quick first check before opening the door. | Recognising staff at a glance in public areas. |
 
 **Where each fits:** Uniforms and name tags let guests recognise staff at a glance, and calling the front desk is sound advice whenever something feels wrong. The call takes a few minutes, and many guests will not make it with someone waiting outside the door. Live Verify offers a quicker first check of the badge against the hotel brand's own domain. It is a supplement to the phone call, which remains the fallback when a guest is still unsure.
 

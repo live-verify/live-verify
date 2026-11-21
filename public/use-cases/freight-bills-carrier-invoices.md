@@ -110,14 +110,19 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With EDI (Electronic Data Interchange)
+## Where Each Fits: Live Verify and EDI Invoicing
 
-| Feature | Live Verify | EDI 210 (Invoicing) | Scanned PDF Invoice |
+EDI 210 is the standard electronic freight invoice that carriers and shippers exchange once their systems are connected, usually through a value-added network or an integration provider. EDI and Live Verify answer different questions and work side by side: one is a machine-to-machine data feed between integrated partners, the other makes a PDF or paper invoice checkable by whoever receives it.
+
+| | EDI 210 invoicing | Live Verify on the freight bill | Unverified scan or PDF invoice |
 | :--- | :--- | :--- | :--- |
-| **User Access** | **Universal.** Any small shipper/auditor. | **Restricted.** Requires heavy IT setup and VAN fees. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Carrier. | **System-Bound.** | **Zero.** Easily forged. |
-| **Interoperability** | **High.** Works for any trucker with a URL. | **Low.** Small truckers don't use EDI. | **Universal.** |
-| **Integrity** | **Binds Line Items.** Protects the FSC. | **Data-Only.** | **Vulnerable.** |
+| **Who can check** | Trading partners who have set up an EDI connection with each other. | Anyone handed the invoice: a shipper, a freight auditor, a factoring company. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Structured invoice data straight into their systems. | Confirmation that the carrier stands behind this exact invoice, including its line items and surcharges, as at its date. | A document that may have been edited, or sent by an impostor. |
+| **What the holder shares** | A data feed agreed with each partner. | Only the invoice it chose to send. | Only the invoice it chose to send. |
+| **Reach** | Partners who have connected, mostly larger carriers and shippers. | Global in principle: any carrier, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Fast and automated once running; setup takes IT work and often network fees. | A few seconds per check: one web lookup, with no fee to the standard and no integration between carrier and shipper. | Free and immediate. |
+| **What it needs** | EDI capability on both sides, and a mapping agreed between them. | The carrier to publish hashes, and Live Verify-aware software on the checker's device. No carrier does this yet. | Nothing. |
+| **Best suited to** | High-volume invoicing between large, connected partners. | Small carriers, occasional lanes, and third parties such as auditors and factors. | Nothing where payment is at risk. |
 
 **Where each fits:** EDI 210 is the efficient way to invoice between large carriers and large shippers, and those already exchanging it have no reason to change. Setting it up takes IT work and network fees that many small carriers and shippers cannot justify, so they send PDF or paper invoices. Live Verify lets a shipper, auditor or factoring company confirm that the carrier stands behind such an invoice and its line items, and it covers the part of the market EDI was never likely to reach.
 

@@ -117,14 +117,19 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Ag-Tech APIs
+## Where Each Fits: Live Verify and Ag-Tech Data Platforms
 
-| Feature | Live Verify | Ag-Tech API (FieldView) | Paper Scale Ticket |
+Equipment makers and farm-data platforms such as FieldView collect yield data from combines and let farmers share it with insurers, lenders and agronomists by linking accounts. A platform integration and Live Verify answer different questions and work side by side: one is a detailed data feed between connected systems, the other lets anyone handed a yield summary confirm that the platform stands behind it.
+
+| | Ag-tech platform integration | Live Verify on the yield report | Unverified paper scale ticket or report |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the OEM. | **System-Bound.** | **Zero.** Easily forged. |
-| **User Privacy** | **High.** Share only the *Yield Summary*. | **Low.** API access often reveals *full* farm maps. | **High.** |
-| **Interoperability** | **Universal.** Works across all combine brands. | **Low.** Hard to link a JD combine to a Case IH app. | **Universal.** |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires account linking and permissions. | **N/A.** |
+| **Who can check** | Insurers, lenders and advisers whose systems are linked to that platform, with the farmer's permission. | Anyone handed the report: a landlord, a crop adjuster, a loan officer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Field-level data and maps, often far richer than a summary. | Confirmation that the equipment maker or platform stands behind this exact summary, as at its date. | A document that may have been edited. |
+| **What the farmer shares** | Account access, which can include full field maps. | Only the summary they chose to hand over. | Only the document they chose to hand over. |
+| **Reach** | One platform; data from other equipment brands often sits elsewhere. | Global in principle: any equipment maker or platform, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Rich and automated once linked; setting up accounts and permissions takes time. | A few seconds per check: one web lookup, with no fee to the standard and no account linking. | Free and immediate. |
+| **What it needs** | Accounts on both sides and the farmer's consent to link them. | The platform to publish hashes, and Live Verify-aware software on the checker's device. No ag-tech platform does this yet. | Nothing. |
+| **Best suited to** | Detailed agronomic or insurance analysis. | Rent, loan and claim checks that need only the totals. | Nothing where rent or a claim depends on it. |
 
 **Where each fits:** Ag-tech platform integrations give an insurer or lender far richer data than a summary page, and where the farmer is content to link accounts they are the better source. Many farmers prefer not to share field-level maps, and an adjuster or loan officer may deal with several equipment brands and have integrations with none of them. Live Verify lets that person confirm the equipment maker or platform stands behind the yield summary the farmer hands over, leaving the detailed data where it is.
 

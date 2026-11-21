@@ -117,14 +117,19 @@ The TT Club, a mutual insurer specializing in logistics, is regulated by the FCA
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Broker Confirmation
+## Where Each Fits: Live Verify and Broker Confirmation
 
-| Feature | Live Verify | Manual Broker Call | Scanned PDF |
+Today a shipper who wants to confirm a forwarder's liability cover usually calls or emails the forwarder's insurance broker. A broker's confirmation and Live Verify answer different questions and work side by side: one brings a person who can explain the cover, the other lets anyone confirm that the insurer stands behind the certificate and its limits.
+
+| | Broker call or email | Live Verify on the insurance certificate | Unverified scan or PDF |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Carrier. | **Human.** Prone to social engineering or typos. | **Zero.** Easily forged. |
-| **Integrity** | **Binds Limits.** Protects every digit. | **Vague.** "Yes, they are insured." | **Vulnerable.** |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Often takes 24-48 hours. | **Instant.** |
-| **Availability** | **24/7.** Works across all time zones. | **Restricted.** Business hours only. | **Universal.** |
+| **Who can check** | Whoever reaches the broker and is given an answer. | Anyone handed the certificate: a shipper, a cargo owner, a procurement team. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | A spoken or written answer, and someone to ask about exclusions and endorsements. | Confirmation that the insurer stands behind this exact certificate, including its limits, as at its date, and whether it has since been cancelled. | A document that may have been edited. |
+| **What the holder shares** | Permission for the broker to discuss their cover. | Only the certificate they chose to hand over. | Only the certificate they chose to hand over. |
+| **Reach** | Wherever the broker can be reached, in their office hours. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Can take a day or more, especially across time zones. | A few seconds per check: one web lookup, with no fee to the standard, at any hour. | Free and immediate. |
+| **What it needs** | A broker willing to respond, and confidence that the contact details are genuine. | The insurer to publish hashes, and Live Verify-aware software on the checker's device. No insurer does this yet. | Nothing. |
+| **Best suited to** | Questions about what the policy actually covers. | Routine confirmation of cover and limits before awarding work. | Nothing where cargo value is at risk. |
 
 **Where each fits:** A call to the broker is still the best way to ask about exclusions, endorsements or anything the certificate leaves unclear. It depends on the broker's office being open, and in international freight the shipper and the forwarder's broker are often many time zones apart. Live Verify lets the shipper confirm at any hour that the insurer stands behind the certificate and its limits, and keep the phone call for questions that need a person.
 

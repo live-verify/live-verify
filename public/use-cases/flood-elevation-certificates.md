@@ -116,14 +116,19 @@ Certifies building elevations for federal flood insurance.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With FEMA Map Service Center
+## Where Each Fits: Live Verify and FEMA's Flood Maps
 
-| Feature | Live Verify | FEMA MSC (Public Map) | Scanned PDF |
+FEMA's Map Service Center publishes the flood maps that set a property's flood zone in the US. Other countries publish their own flood maps, and many do not tie insurance to a surveyed floor height at all. The map and Live Verify answer different questions and work side by side: one says what zone an area is in, the other confirms the surveyor stands behind the measured elevation of one building.
+
+| | FEMA flood maps | Live Verify on the elevation certificate | Unverified scan or PDF |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Binds Property Data.** Protects the *Floor Elevation*. | **Binds Geography.** Only shows the *Zone*. | **Zero.** Easily forged. |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Surveyor. | **Gov-Bound.** Bound to FEMA. | **Visual.** |
-| **Specificity** | **Exact.** Verifies *this specific building*. | **General.** Shows the whole neighborhood. | **Full.** But untrusted. |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires address search and map reading. | **Instant.** |
+| **Who can check** | Anyone, online. | Anyone handed the certificate: an insurer, a lender, a buyer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The flood zone and base flood elevation for the area. | Confirmation that the surveyor stands behind this exact certificate, including the lowest-floor elevation, as at its date. | A document that may have been edited. |
+| **What the holder shares** | Nothing; the maps are public. | Only the certificate they chose to hand over. | Only the certificate they chose to hand over. |
+| **Reach** | US flood zones. | Global in principle: any surveyor or authority, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free; a few minutes of address search and map reading. | A few seconds per check: one web lookup, with no fee to the standard and no relationship with the surveyor. | Free and immediate. |
+| **What it needs** | The property address. | The surveyor to publish hashes, and Live Verify-aware software on the checker's device. No surveyor does this yet. | Nothing. |
+| **Best suited to** | Establishing the flood zone and area risk. | Confirming the building-specific figures that set the premium. | Nothing where the premium depends on it. |
 
 **Where each fits:** FEMA's Map Service Center is the authority on flood zones, and every lender and insurer will keep consulting it. A map describes an area; the elevation certificate describes one building, and it reaches the insurer, buyer or lender as a PDF from a surveyor they have never dealt with. Live Verify lets them confirm the surveyor stands behind the figures on that certificate. The zone still comes from FEMA, and the two are read together.
 

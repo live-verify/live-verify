@@ -144,17 +144,22 @@ This use case provides the missing piece: a verifiable claim from the training p
 
 Not required. Food hygiene certificate status is not special category data. The certificate reference and qualification level are occupational credentials with no sensitivity comparable to health data or criminal records.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Training Provider Portals
 
-| Feature | Verifiable Certificate Status | Training Provider Web Portal | Paper Certificate | Photocopy of Certificate |
-| :--- | :--- | :--- | :--- | :--- |
-| **Proves qualification is current** | **Yes.** | **Yes.** If employer checks. | **No.** Point-in-time only. | **No.** |
-| **Worker can share proactively** | **Yes.** | **No.** Employer must look up. | **Yes.** But unverifiable. | **Yes.** But unverifiable. |
-| **Machine-verifiable** | **Yes.** | **No.** | **No.** | **No.** |
-| **Works across providers** | **Yes.** Standard format. | **No.** Each provider has own portal. | **No.** Each provider has own format. | **No.** |
-| **Detects expired certificates** | **Yes.** Status is live. | **Yes.** If employer checks. | **No.** Certificate looks the same after expiry. | **No.** |
+Some training providers and accrediting bodies run web portals where an employer can look up a food hygiene certificate. Each provider runs its own, and many workers' certificates come from providers with none, so most employers rely on the paper. A provider's portal and Live Verify work side by side: the portal remains the provider's record, and Live Verify lets the worker carry proof any employer can check.
 
-**Practical conclusion:** training provider web portals exist but are rarely checked by employers. Paper certificates remain the de facto proof, even though they provide no protection against expiry or misuse. A verifiable certificate status confirmation would complement the existing system by giving workers a portable, standardised way to demonstrate their qualification is current.
+| | Training provider web portal | Live Verify on the status confirmation | Unverified paper certificate or photocopy |
+| :--- | :--- | :--- | :--- |
+| **Who can check** | An employer who knows which provider issued it and looks it up. | Anyone handed the confirmation: an employer, an agency, an environmental health officer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The provider's current record. | Confirmation that the provider stands behind this exact confirmation, including qualification level and expiry, as at its date. | A document that may have been fabricated. |
+| **What the worker shares** | Their certificate reference. | Only the confirmation they chose to hand over. | Only the certificate they chose to hand over. |
+| **Reach** | One provider per portal. | Global in principle: any training provider or accrediting body, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free; a few minutes per certificate, once the right portal is found. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **Shows whether it has expired** | Yes, if the employer checks. | Yes: the provider can mark it expired or withdrawn, and the next check shows that. | No; it looks the same after expiry. |
+| **What it needs** | A portal from that provider. | The provider to publish hashes, and Live Verify-aware software on the checker's device. No training provider does this yet. | Nothing. |
+| **Best suited to** | Employers who deal with a small number of providers. | Employers and agencies taking on staff trained by many providers. | Nothing where food safety depends on it. |
+
+**Where each fits:** Training provider portals are authoritative, and an employer who knows the provider can and should use them; in practice they are rarely checked, because every provider has its own. Live Verify gives workers a portable confirmation that any employer can check in seconds from one place, wherever the checker has software that honours it. It complements food safety regulation and the provider's records rather than replacing either.
 
 ## Authority Chain
 

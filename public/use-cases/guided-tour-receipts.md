@@ -119,16 +119,21 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With QR Codes
+## Where Each Fits: Live Verify and Booking-Platform QR Codes
 
-| Feature | Live Verify | Standard QR Code | Scanned PDF |
+Booking platforms and tour operators often put a QR code on the voucher, which the guide scans with the platform's or operator's own app to check it against the booking manifest. A QR code and Live Verify answer different questions and work side by side: one ties into the operator's live system for staff who have the app, the other lets anyone handed the voucher confirm that the operator stands behind its text.
+
+| | Booking-platform QR code | Live Verify on the voucher | Unverified PDF or printout |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Cryptographic.** Binds the *Participant Name*. | **Data-Only.** Often just a raw URL or ID string. | **Zero.** Easily forged. |
-| **Interoperability** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **App-Locked.** Often requires the specific "Viator" app to decode. | **Universal.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Operator. | **Platform-Bound.** | **Visual.** |
-| **Connectivity needed** | **Yes, for the check.** The printed voucher can be read without a connection; checking it takes one small web request. | **Yes.** Requires live DB access to mean anything. | **None.** |
+| **Who can check** | Guides and staff with the platform's or operator's app and login. | Anyone handed the voucher: a subcontracted guide, a boat crew, a site gatekeeper. | Anyone, by eye; it can only be taken on trust. |
+| **What the checker gets** | The booking in the manifest, with check-in recorded. | Confirmation that the operator stands behind this exact voucher, including participant names and date, as at its issue, and whether it has since been cancelled. | A document that may have been edited. |
+| **What the traveller shares** | The voucher with its code. | Only the voucher. | Only the voucher. |
+| **Reach** | Staff on that platform's or operator's system. | Global in principle: any operator or booking platform, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Fast for staff with the app. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The app, a login and a data connection. | The operator to publish hashes, Live Verify-aware software on the checker's phone, and a data connection at the moment of the check. No tour operator does this yet. | Nothing. |
+| **Best suited to** | The operator's own guides, checking in against the manifest. | Subcontractors and third parties who are not on the operator's system. | Nothing where a place costs money. |
 
-**Where each fits:** A booking platform's own QR code, scanned in the platform's own app, is fast and ties straight into the operator's manifest, and guides who have that app should use it. A voucher may equally be presented to a subcontracted guide, a boat crew or a site gatekeeper who does not have it. Live Verify lets that person confirm, with an ordinary phone browser, that the operator stands behind the printed voucher, and the two codes can sit on the same page.
+**Where each fits:** A booking platform's own QR code, scanned in the platform's own app, is fast and ties straight into the operator's manifest, and guides who have that app should use it. A voucher may equally be presented to a subcontracted guide, a boat crew or a site gatekeeper who does not have it. Live Verify lets that person confirm, with a phone that has Live Verify on it, that the operator stands behind the printed voucher, and the two codes can sit on the same page.
 
 ## Independent Record (Optional)
 

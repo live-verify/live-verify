@@ -167,15 +167,21 @@ The restaurant or food producer benefits from verification.
 
 **Protecting the integrity of certification:** Bodies such as the HFA, HMC, KLBD, OU, and IFANCA invest significant effort in inspection and compliance. Fraudulent use of their logos undermines their authority and the trust that communities place in them. Verifiable claims give these bodies a mechanism to make their certifications checkable without requiring consumers to visit the certification body's website separately.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Today's Certification Displays
 
-| Feature | Live Verify | Logo on Website | Certification Body Website | Paper Certificate |
+Halal and kosher certification is issued by many independent religious authorities, each with its own standards; some publish lists of certified establishments on their websites, and certified premises usually display a paper certificate. Coverage varies by certifier and by country. Live Verify does not replace the certifier's own list: it lets the claim shown on a restaurant's site or a delivery platform be checked against the certifier, where the consumer is ordering.
+
+| | Certification body's website | Paper certificate on the premises | Live Verify on the certification claim | Logo on a website or listing |
 | :--- | :--- | :--- | :--- | :--- |
-| **Issued by certification body** | **Yes.** Claim originates from the certifying authority. | **No.** Logo is a copyable image. | **Yes.** But requires separate lookup. | **Yes.** But physical only. |
-| **Verifiable in place** | **Yes.** On the page where the consumer is ordering. | **No.** Logo is not verifiable. | **No.** Separate site. | **No.** Must visit premises. |
-| **Shows scope** | **Yes.** Claim text specifies what is certified. | **No.** Logo is generic. | **Varies.** Some bodies publish scope. | **Yes.** But physical only. |
-| **Reflects expiry** | **Yes.** Endpoint returns EXPIRED. | **No.** Logo persists. | **Varies.** Some bodies update registers. | **No.** Paper persists. |
-| **Works on third-party platforms** | **Yes.** Same claim on all authorized sites. | **No.** Platform may display logo without checking. | **No.** Separate site. | **No.** |
+| **Who can check** | Anyone who looks up the certifier's list. | Anyone at the premises. | Anyone looking at the claim, on the restaurant's site or any platform that carries it. | Nobody; a logo can be pasted by anyone. |
+| **What the checker gets** | The certifier's current list, with scope where the certifier publishes it. | The certificate as issued, which may have expired. | Confirmation that the certifier stands behind this claim, including what is certified, and whether it has since expired or been withdrawn. | An image. |
+| **What the establishment shares** | Nothing; the certifier publishes it. | Its certificate. | The certifier's claim, embedded on its own site and listings. | The logo. |
+| **Reach** | One certifier's list. | One premises. | Global in principle: any certifier, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free; a few minutes on a separate site, if the certifier publishes a list. | Free, but only in person. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | A certifier that keeps its list public and current. | Being there. | The certifier to publish hashes, and Live Verify-aware software on the consumer's device. No certification body does this yet. | Nothing. |
+| **Best suited to** | Checking a certifier's full list, or its standards. | Walk-in customers. | Consumers ordering online or through delivery platforms. | Nothing where observance depends on it. |
+
+**Where each fits:** The certifying body's own list remains the authority, and the certificate on the wall serves customers who walk in. Consumers ordering online see only a logo, which anyone can copy. Live Verify carries the certifier's own claim, with its scope and expiry, to the page where they order, wherever they have software that honours it; it says nothing about which certifier's standards a consumer should accept.
 
 ## Authority Chain
 

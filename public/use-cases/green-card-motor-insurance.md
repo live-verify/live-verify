@@ -118,14 +118,19 @@ The Motor Insurer's Bureau (MIB), regulated by the FCA, issues verified internat
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Central Databases (MID)
+## Where Each Fits: Live Verify and National Motor Insurance Databases
 
-| Feature | Live Verify | MID / National DB (UK) | Paper Green Card |
+Many countries keep a national database of insured vehicles, such as the UK's Motor Insurance Database, which police and insurers query in that country. The Green Card system, run through national insurers' bureaux across Europe and neighbouring countries, exists because those databases do not reach across borders. National databases and Live Verify answer different questions and work side by side: one is the domestic record, the other lets an officer or another driver abroad check the card in front of them. <!-- TODO(verify): how the motor Green Card system is administered (national insurers' bureaux) -->
+
+| | National insurance database | Live Verify on the Green Card | Unverified paper Green Card |
 | :--- | :--- | :--- | :--- |
-| **Cross-Border** | **Universal.** Works via URL across all countries. | **Siloed.** French police can't easily check UK MID. | **Universal.** The global standard. |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Carrier. | **Gov-Bound.** | **Visual.** Trusted via stamp. |
-| **Speed** | **Instant.** 5-second scan at the checkpoint. | **Slow.** Requires specialized terminal access. | **Instant.** |
-| **Freshness** | **Real-time.** Shows if premium was paid today. | **Laggy.** Often 24-48 hours behind. | **Static.** |
+| **Who can check** | Police, insurers and others with access in that country; in some countries the public can run a basic lookup on their own vehicle. | Anyone handed the card: a border officer, police in another country, the other driver after a collision. | Anyone, by eye; it can only be taken on trust. |
+| **What the checker gets** | Whether a vehicle is recorded as insured, often with more detail than the card shows. | Confirmation that the insurer stands behind this exact card, as at its date, and whether the policy has since been cancelled. | A card that may be forged. |
+| **What the driver shares** | Nothing; the officer queries by registration. | Only the card. | Only the card. |
+| **Reach** | Vehicles insured in that country, checked from within it. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. | Wherever the Green Card is recognised, but untrusted. |
+| **Speed and cost** | Fast for those with access; others have none. | A few seconds per check: one web lookup, with no fee to the standard. Needs a data connection at the checkpoint. | Free and immediate. |
+| **What it needs** | Access to that country's system. | The insurer to publish hashes, and Live Verify-aware software on the checker's device. No insurer does this yet. | Nothing. |
+| **Best suited to** | Domestic enforcement and claims. | Checks across borders, where no shared database exists. | Nothing where the driver may be uninsured. |
 
 **Where each fits:** National motor insurance databases such as the UK's MID are the right check for police and insurers in their own country, and they hold more than a certificate shows. Their reach generally ends at the border, and an officer abroad has no terminal for another country's database. The Green Card exists for that situation, and Live Verify lets the officer or the other driver after a collision confirm that the insurer stands behind the card presented. Each national database keeps its domestic role.
 

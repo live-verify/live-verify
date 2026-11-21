@@ -110,14 +110,19 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Community Notes (X)
+## Where Each Fits: Live Verify, Community Notes and Provenance Ledgers
 
-| Feature | Live Verify | Community Notes (Social) | Blockchains (Numbers Protocol) |
+Community Notes, on X, lets contributors attach context to posts, shown once raters with differing views agree it is helpful. Content-provenance ledgers, such as Numbers Protocol, record where a piece of media came from on a blockchain. Neither competes with Live Verify: each answers a different question, and they work side by side.
+
+| | Community Notes | Provenance ledger | Live Verify on the fact-check |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Fact-Checker. | **Social-Bound.** Trust the "Crowd" consensus. | **Byzantine.** Trust the decentralized ledger. |
-| **Authority** | **Expert.** Relies on professional ethics. | **Democratic.** Prone to mob-rule/bias. | **Technological.** |
-| **Integrity** | **Binds Text.** Protects every comma. | **Vague.** Only annotates the link. | **High.** But requires technical wallet. |
-| **Speed** | **Instant.** Verified at publication. | **Slow.** Takes hours/days for a note to appear. | **Variable.** |
+| **Question it answers** | Do contributors from different viewpoints think this post needs context? | Where and when was this media first registered? | Did this fact-checking organisation publish exactly this text? |
+| **Who can check** | Anyone reading the post on that platform. | Anyone using that network's tools. | Anyone shown the fact-check, as a screenshot, quote or printout. |
+| **What the checker gets** | A note alongside the post, written by the crowd. | A registration record for the media. | Confirmation that the named organisation stands behind this exact text, as at its date, and whether it has since been withdrawn. It says nothing about whether the verdict is right. |
+| **Reach** | One platform. | Media registered on that ledger. | Global in principle: any publisher or fact-checker, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Free to readers; a note can take hours or days to appear. | Varies with the network. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | Enough contributors and raters to reach agreement. | The media to be registered, and the network's tools to read it. | The fact-checker to publish hashes, and Live Verify-aware software on the reader's device. No fact-checker does this yet. |
+| **Best suited to** | Adding context to a viral post where people are reading it. | Tracing the origin of photos and video. | Showing that a quoted or screenshotted fact-check is genuine, and that the publisher has not silently changed it. |
 
 **Where each fits:** Community Notes adds context from many contributors, directly where a post is being read, and that is something a published fact-check cannot do. Content-provenance ledgers likewise answer a separate question about where a piece of media originated. Live Verify addresses a narrower point: a reader who meets a quoted or screenshotted fact-check can confirm that the named organisation published exactly that text. It says nothing about whether the verdict is right, and it sits comfortably beside crowd notes and provenance tools.
 

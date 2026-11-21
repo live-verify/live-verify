@@ -129,14 +129,20 @@ Vanguard UK, a regulated investment manager, is authorized by the FCA to issue v
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Investor Portals
+## Where Each Fits: Live Verify and Investor Portals
 
-| Feature | Live Verify | Investor Portal (CitcoOne) | Scanned PDF Statement |
+Fund administrators such as Citco give investors an online portal holding their statements, capital account history and notices. The portal and Live Verify answer different questions and work side by side: one is the investor's working record, the other lets a lender, auditor or adviser who has no login check a statement the investor hands them.
+
+| | Investor portal | Live Verify on the NAV statement | Unverified PDF statement |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Administrator. | **System-Bound.** Trust the portal vendor. | **Zero.** Easily forged. |
-| **Integrity** | **Cryptographic.** Binds every digit. | **High.** Direct DB access. | **Vulnerable.** |
-| **User Access** | **Universal.** Share with any bank/auditor. | **Restricted.** Lenders never get portal access. | **Universal.** |
-| **Madoff Protection** | **High.** Separates Manager from Admin. | **Medium.** Manager might control the portal. | **Zero.** |
+| **Who can check** | Investors, and sometimes their named advisers, with a login. | Anyone handed the statement: a lender taking the holding as collateral, an auditor, a family-office lawyer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Full account history, documents and notices, direct from the administrator's records. | Confirmation that the administrator stands behind this exact statement, including the NAV and the holding, as at its date. | A document that may have been edited. |
+| **What the investor shares** | A login, or downloaded files. | Only the statement they chose to hand over. | Only the statement they chose to hand over. |
+| **Reach** | Investors of funds that administrator serves. | Global in principle: any administrator, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free and immediate for the investor. | A few seconds per check: one web lookup, with no fee to the standard and no account with the administrator. | Free and immediate. |
+| **Independence from the manager** | Depends on who runs the portal; usually the administrator. | The check goes to the administrator's own domain, not the manager's. | None; the statement may have come from anyone. |
+| **What it needs** | Access granted by the administrator. | The administrator to publish hashes, and Live Verify-aware software on the checker's device. No fund administrator does this yet. | Nothing. |
+| **Best suited to** | The investor's ongoing record of their holdings. | Proof of a holding to a third party who will never get a login. | Nothing where money is lent against it. |
 
 **Where each fits:** The administrator's investor portal is the primary channel for investors, with history, documents and notices in one place, and investors should continue to use it. A lender taking the holding as collateral, an auditor or a family-office lawyer is not an investor and will not be issued a login. Live Verify lets them confirm that the administrator, and not only the manager, stands behind the statement they were given, and the portal remains the investor's working record.
 

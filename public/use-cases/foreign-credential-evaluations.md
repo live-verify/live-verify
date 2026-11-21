@@ -146,15 +146,19 @@ Foreign credential evaluations are performed by accredited agencies that are rec
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Existing Verification
+## Where Each Fits: Live Verify, Agency Confirmation and Accreditation Lists
 
-| Feature | Live Verify | Contacting the Agency Directly | Checking NACES/AICE Lists | Trusting the PDF |
+Today a licensing board, university or immigration officer can confirm an evaluation by contacting the evaluation agency directly, and can check that the agency itself is recognised through membership lists such as NACES and AICE in the US. Other countries have their own recognition bodies and lists. These answer different questions from Live Verify and work side by side with it: the lists say whether an agency is accredited, the agency's own answer is authoritative, and Live Verify confirms that a particular report came from that agency.
+
+| | Contacting the agency directly | NACES or AICE membership lists | Live Verify on the evaluation report | Unverified PDF |
 | :--- | :--- | :--- | :--- | :--- |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Days to weeks. Verification departments are overwhelmed with requests. | **Minutes.** Confirms the agency exists. | **Instant.** But no verification. |
-| **Scope** | **Full.** Confirms this specific report was issued with this equivalency. | **Full.** But slow. | **Partial.** Confirms agency is accredited, not that this report was issued. | **None.** No verification occurs. |
-| **Access** | **Open.** Anyone with a phone camera — immigration officer, HR manager, admissions clerk. | **Restricted.** Requires phone/email during business hours, may require applicant consent. | **Open.** Lists are public. | **Open.** Anyone can read a PDF. |
-| **Fraud Resistance** | **High.** Hash-bound to issuer domain; authority chain to accrediting body. | **High.** Direct confirmation from the source. | **Low.** Confirms agency exists, not that this report is real. | **None.** Fake PDFs pass. |
-| **Scalability** | **High.** Handles thousands of verifications per second. | **Low.** One phone call or email at a time. Agencies have backlogs. | **N/A.** Doesn't verify individual reports. | **N/A.** |
+| **Who can check** | A receiving institution, usually with the applicant's consent, during office hours. | Anyone; the lists are public. | Anyone handed the report: an immigration officer, a licensing board, an admissions office, an employer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | A full answer from the source, including anything the report does not say. | Whether the agency is a member in good standing. Nothing about any individual report. | Confirmation that the agency stands behind this exact report, including its equivalency finding, as at its date, and whether it has since been revised or withdrawn. | A document that may have been forged. |
+| **What the holder shares** | Consent for the agency to release information. | Nothing. | Only the report they chose to hand over. | Only the report they chose to hand over. |
+| **Reach** | Any agency willing to respond. | Agencies in those associations. | Global in principle: any evaluation agency, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Days to weeks, and staff time on both sides. | Free; a few minutes. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | An agency with capacity to answer verification requests. | Nothing beyond a browser. | The agency to publish hashes, and Live Verify-aware software on the checker's device. No evaluation agency does this yet. | Nothing. |
+| **Best suited to** | Contested or high-stakes cases. | Deciding whether to accept an agency's evaluations at all. | Routine checks of many reports in a busy caseload. | Nothing where a licence or visa depends on it. |
 
 **Where each fits:** Contacting the agency directly gives a full answer from the source and remains the right step for a contested or high-stakes case, and the NACES and AICE lists are the place to confirm that an agency is accredited at all. Neither scales to an officer processing hundreds of applications, and the membership lists say nothing about whether a particular report was issued. Live Verify fills that gap: a quick check that this report, with this equivalency, came from the agency named on it and has not been revised or withdrawn.
 

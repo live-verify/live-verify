@@ -169,14 +169,20 @@ The strongest version is layered: the board or licensing body confirms scope and
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Review Sites (Yelp)
+## Where Each Fits: Live Verify and Review Sites
 
-| Feature | Live Verify | Review Sites (Yelp/Google) | Physical ID Card |
+Review sites such as Yelp and Google reviews collect customers' opinions of tradespeople and service companies. They and Live Verify answer different questions and work side by side: reviews help a homeowner choose whom to hire, and Live Verify helps them decide whether the person at the door is the licensed worker the company sent.
+
+| | Review sites | Live Verify on the doorstep credential | Unverified ID card |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Gov/Board. | **Social-Bound.** Trusted only via crowd opinion. | **Zero.** Easily forged. |
-| **Integrity** | **Cryptographic.** Binds face to license. | **Vulnerable.** Reviews can be faked/bought. | **None.** |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires reading multiple reviews. | **Instant.** |
-| **Safety Data** | **High.** Shows background/insurance status. | **None.** Only shows quality of work. | **N/A.** |
+| **Question it answers** | Have other customers been happy with this company's work? | Is this person the worker the company assigned, with the licence and cover the credential states? | None, reliably. |
+| **Who can check** | Anyone, before booking. | The homeowner at the door, or anyone else handed the credential. | Anyone, by eye; it can only be taken on trust. |
+| **What the checker gets** | Many opinions about past jobs, which may include fake or paid reviews. | Confirmation that the issuer (the company or licensing board) stands behind this credential for this person, as at the time of the check, and whether it has since been withdrawn. | A card that may be forged. |
+| **What the worker shares** | Nothing; reviews are about the company. | Only what is on the credential. | Only what is on the card. |
+| **Reach** | Companies listed on that site. | Global in principle: any company or licensing board, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free; takes time to read and weigh. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | Enough genuine reviews. | The company or board to publish hashes, and Live Verify-aware software on the homeowner's phone. No issuer of this kind does this yet. | Nothing. |
+| **Best suited to** | Choosing a tradesperson. | Deciding whether to let a particular person in. | Nothing where safety depends on it. |
 
 **Where each fits:** Review sites are the right tool when choosing a tradesperson: they show the quality of past work over many jobs, which a licence check does not, and the physical ID card is still what the worker carries to the door. The gap is the moment at the door itself, when the homeowner has seconds to decide and cannot tell from reviews whether this particular person is the licensed worker from the company they booked. Live Verify lets the badge be checked against the issuer's domain at that point, alongside the research done beforehand.
 

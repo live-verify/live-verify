@@ -124,16 +124,21 @@ Surveyors conduct detailed inspections of residential properties.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Home Inspection Software Portals
+## Where Each Fits: Live Verify and Inspection Reporting Platforms
 
-| Feature | Live Verify | Reporting Portal (Spectora) | Scanned PDF |
+Most home inspectors now deliver their reports through reporting software such as Spectora, which gives the client an online view with photographs and repair-request tools. The platform and Live Verify answer different questions and work side by side: one is the client's rich view of the inspection, the other lets a lender, insurer or later buyer who has only a PDF confirm that the inspector stands behind it.
+
+| | Inspection reporting platform | Live Verify on the report | Unverified PDF |
 | :--- | :--- | :--- | :--- |
-| **User Control** | **High.** Buyer shares only the *Summary*. | **Low.** Portal access often reveals the full 80-page file. | **High.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Inspector. | **System-Bound.** Trust the portal vendor. | **Zero.** Easily forged. |
-| **Persistence** | **High.** Text remains verifiable for 10 years. | **Low.** Access often expires after 12 months. | **Vulnerable.** |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires login and navigation. | **N/A.** |
+| **Who can check** | The client and their agent, through the platform's link or login. | Anyone handed the report or its summary: a lender, an insurer, a later buyer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The full report, with photographs, navigation and repair-request tools. | Confirmation that the inspector stands behind this exact text, as at the inspection date. | A document that may have had pages removed. |
+| **What the client shares** | Access to the whole report. | Only the report or summary they chose to hand over. | Only the document they chose to hand over. |
+| **Reach** | Clients of inspectors on that platform, for as long as access lasts. | Global in principle: any inspector, in any country, that publishes hashes on its own domain, for as long as they keep them published. | Anywhere, but untrusted. |
+| **Speed and cost** | Free for the client; paid for by the inspector. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The platform link or login. | The inspector to publish hashes, and Live Verify-aware software on the checker's device. No inspector does this yet. | Nothing. |
+| **Best suited to** | The buyer and agent working through the findings. | Third parties checking that the copy they received is complete and unaltered. | Nothing where the price depends on it. |
 
-**Where each fits:** Reporting platforms such as Spectora present an inspection well, with photographs, navigation and repair-request tools, and the client and their agent should use that view. Access often lapses, and a lender, insurer or later buyer usually receives only a PDF or a summary page. Live Verify lets them confirm that the inspector stands behind that text, including years later, while the portal remains the richer experience for the original client.
+**Where each fits:** Reporting platforms such as Spectora present an inspection well, with photographs, navigation and repair-request tools, and the client and their agent should use that view. Access often lapses, and a lender, insurer or later buyer usually receives only a PDF or a summary page. Live Verify lets them confirm that the inspector stands behind that text, including years later if the inspector keeps the hashes published, while the portal remains the richer experience for the original client.
 
 ## Independent Record (Optional)
 

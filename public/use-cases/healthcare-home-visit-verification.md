@@ -182,16 +182,21 @@ Home health agencies issue care professional badges under healthcare regulator a
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Agency Phone Lines
+## Where Each Fits: Live Verify and Calling the Agency
 
-| Feature | Live Verify | Calling the Main Office | Static ID Card |
+Today a patient or relative who wants to check a visiting nurse or aide is usually told to phone the home-care agency's office. The agency's own records, and the state's nursing licence registers, remain the authority. A phone call and Live Verify work side by side: the call reaches a person who can answer questions, and Live Verify gives a quick answer at the door.
+
+| | Calling the agency office | Live Verify on the care worker's badge | Unverified ID card |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Agency. | **Human.** Prone to social engineering or "fake numbers." | **Zero.** Easily forged. |
-| **Integrity** | **Cryptographic.** Binds face to license. | **Vague.** "Yes, Sarah works here." | **None.** |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Often takes 5-10 minutes on hold. | **Instant.** |
-| **Availability** | **24/7.** Works for "Late Night" emergency visits. | **Restricted.** Offices often closed at night. | **N/A.** |
+| **Who can check** | Anyone who has the agency's genuine number and can get through. | Anyone at the door who can see the badge: the patient, a relative, a neighbour. | Anyone, by eye; it can only be taken on trust. |
+| **What the checker gets** | A staff member's confirmation that the worker was sent, and the chance to ask more. | Confirmation that the agency stands behind this badge for this person, their role and licence, as at the time of the check, and whether it has since been withdrawn. | A card that may be forged. |
+| **What the worker shares** | Their name. | Only what is on the badge. | Only what is on the card. |
+| **Reach** | One agency, in its office hours. | Global in principle: any agency, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Minutes on hold, with the visitor waiting outside; often not possible at night. | A few seconds per check: one web lookup, with no fee to the standard, at any hour. | Immediate. |
+| **What it needs** | The agency's real number, not one supplied by the visitor, and someone to answer. | The agency to publish hashes, and Live Verify-aware software on the checker's phone. No home-care agency does this yet. | Nothing. |
+| **Best suited to** | Questions about the visit, or anything the badge does not answer. | Deciding at the door, in seconds, whether to let someone in. | Nothing where safety depends on it. |
 
-**Why this remains strong:** The threshold moment is the real workflow. Patients decide whether to let someone into their home in seconds and often do not want to make a phone call while an official-looking visitor waits at the door. Agency systems remain primary in the background, but the badge is the visible surface at that moment. That makes this a strong complementary home-entry verification case.
+**Where each fits:** Agency records stay primary, and a call to the office is still the right step when there is time and someone answers. The decision to open the door is usually made in seconds, often by an elderly patient who does not want to phone while an official-looking visitor waits outside, and sometimes at night. Live Verify gives them a quick check at that moment, wherever they have software that honours it, with the phone call kept for anything that needs a person.
 
 ## Independent Record (Optional)
 

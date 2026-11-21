@@ -100,14 +100,19 @@ The Homeowner (Member) benefits from verification.
 **HOA Secretary / Boards.**
 **Legal Data Platforms:** (e.g., HomeWiseDocs, CondoCerts).
 
-## Compared With Private Portals
+## Where Each Fits: Live Verify and Resident Portals
 
-| Feature | Live Verify | Resident Portal (Associa) | Scanned PDF / Email |
+Many associations, or the management companies that run them such as Associa, give owners an online resident portal holding the governing documents, notices and payments. The portal and Live Verify answer different questions and work side by side: one is the owners' working record, the other lets outsiders who are sent a copy of the bylaws confirm that the association stands behind it.
+
+| | Resident portal | Live Verify on the governing documents | Unverified PDF or email |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the HOA. | **System-Bound.** Trust the portal vendor. | **Zero.** Easily forged. |
-| **User Access** | **Universal.** Share with any buyer/lawyer. | **Restricted.** Third parties never get logins. | **Universal.** |
-| **Integrity** | **Binds Content.** Protects the fine-print. | **Vulnerable.** Portal can be "Cleaned up" by admins. | **Zero.** |
-| **Persistence** | **High.** Remains verifiable after sale. | **Low.** Access cut off after move-out. | **Vulnerable.** |
+| **Who can check** | Owners and managers with a login. | Anyone sent the document: a buyer, a lender, a title company, a lawyer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The association's current documents, notices and accounts. | Confirmation that the association stands behind this exact text, as at its date, and whether it has since been amended. | A document that may have had pages removed or edited. |
+| **What the owner shares** | Nothing; outsiders do not get logins. | Only the document they chose to send. | Only the document they chose to send. |
+| **Reach** | Members of that association, while they own there. | Global in principle: any association, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free for owners; usually part of the management contract. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | A login. | The association or its manager to publish hashes, and Live Verify-aware software on the checker's device. No association does this yet. | Nothing. |
+| **Best suited to** | Owners and managers running the association. | Buyers and closing professionals checking what they were sent. | Nothing where a purchase depends on it. |
 
 **Where each fits:** A resident portal is the natural home for an association's documents, and owners and managers should keep using it for notices, payments and current rules. Buyers, lenders, title companies and lawyers are not residents and are not given logins; they receive documents by email. Live Verify lets them confirm that the association stands behind the copy they were sent, without the portal having to open up to outsiders.
 
@@ -220,16 +225,21 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With HOA Web Portals
+## Where Each Fits: Live Verify and Portals for Rule Change Notices
 
-| Feature | Live Verify | Private Resident Portal | Scanned PDF / Email |
+Rule change notices are usually posted on the association's resident portal as well as in the lobby or mailbox. The portal and Live Verify work side by side here too: the portal is where owners find the current rules, and Live Verify lets anyone holding a printed notice confirm that the board actually issued it, and that it has not since been superseded.
+
+| | Resident portal | Live Verify on the rule change notice | Unverified posted or emailed notice |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the HOA. | **System-Bound.** | **Zero.** Easily forged. |
-| **User Access** | **Universal.** Share with any buyer/lawyer. | **Restricted.** Third parties never get resident logins. | **Universal.** |
-| **Integrity** | **Binds Text.** Protects the fine-print. | **Vulnerable.** Portal can be "Cleaned up" by admins. | **Zero.** |
-| **Persistence** | **High.** Text remains verifiable post-sale. | **Low.** Access revoked after moving out. | **Vulnerable.** |
+| **Who can check** | Owners with a login. | Anyone holding the notice: a resident, a tenant, on-site staff, a buyer's lawyer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The rules as the portal currently shows them. | Confirmation that the association stands behind this exact notice, including any fine amounts, as at its date, and whether it has since been superseded. | A notice that may have been fabricated or edited. |
+| **What the holder shares** | Nothing; access is limited to owners. | Only the notice. | Only the notice. |
+| **Reach** | Owners of that association, while they own there. | Global in principle: any association, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free for owners. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | A login. | The association or its manager to publish hashes, and Live Verify-aware software on the checker's device. No association does this yet. | Nothing. |
+| **Best suited to** | Owners looking up the current rules. | Checking a notice in the lobby or mailbox, or one handed over during a sale. | Nothing where a fine or a sale depends on it. |
 
-**Where each fits:** For members, the association's portal remains the simplest way to find the current rules. A sale moves those rules from someone who has access to someone who does not yet have it, and the seller's own login ends on moving out. Live Verify lets the buyer and the closing professionals check the document they were handed against the association's own domain, which complements the portal during the period it cannot cover.
+**Where each fits:** For members, the association's portal remains the simplest way to find the current rules. Tenants, on-site staff and buyers often have no login, and the seller's own access ends on moving out. Live Verify lets any of them check the notice they were handed against the association's own domain, which complements the portal where it cannot reach.
 
 ## Independent Record (Optional)
 

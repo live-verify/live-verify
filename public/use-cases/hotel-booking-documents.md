@@ -91,14 +91,19 @@ The Guest (Traveler) benefits from verification.
 **Online Travel Agencies (OTAs):** (Booking.com, Expedia).
 **Global Distribution Systems (GDS):** (Amadeus, Sabre).
 
-## Compared With In-App Notifications
+## Where Each Fits: Live Verify and Hotel App Notifications
 
-| Feature | Live Verify | App Notification | Scanned PDF / Email |
+Hotel groups and booking sites tell guests about cancellations through their apps and accounts. The app and Live Verify answer different questions and work side by side: one tells the guest, the other lets a travel insurer, an expenses team or a card issuer confirm the cancellation the guest forwards.
+
+| | Hotel app notification | Live Verify on the cancellation confirmation | Unverified PDF or email |
 | :--- | :--- | :--- | :--- |
-| **User Privacy** | **High.** Share only the *Cancellation*. | **Low.** App access reveals *full* stay history. | **Vulnerable.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Hotel. | **System-Bound.** | **Zero.** Easily forged. |
-| **Interoperability** | **Universal.** Works for any insurer/employer. | **Zero.** Insurers don't have logins to your Hilton app. | **Universal.** |
-| **Audit-ability** | **High.** Creates a digital audit trail. | **None.** For external parties. | **Low.** |
+| **Who can check** | The guest, signed in. | Anyone handed the confirmation: an expenses team, a travel insurer, a card issuer handling a dispute. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The guest's bookings and cancellations, kept current. | Confirmation that the hotel stands behind this exact cancellation, including any refund amount, as at its date. | A document that may have been fabricated or edited. |
+| **What the guest shares** | Whatever is on screen, which may include their whole stay history. | Only the confirmation they chose to forward. | Only the document they chose to forward. |
+| **Reach** | One hotel group's guests. | Global in principle: any hotel or booking site, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free and immediate for the guest. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The guest's login. | The hotel to publish hashes, and Live Verify-aware software on the checker's device. No hotel does this yet. | Nothing. |
+| **Best suited to** | Keeping the guest informed. | Expense audits, insurance claims and chargeback disputes. | Nothing where a refund is in question. |
 
 **Where each fits:** The hotel's app notification tells the guest promptly and reliably that a booking was cancelled, and for the guest that is enough. A travel insurer, an employer's expenses team or a card issuer handling a dispute cannot see it. Live Verify lets them confirm that the hotel stands behind the cancellation confirmation the guest forwards, so the app serves the guest and the document serves the claim.
 
@@ -189,14 +194,19 @@ The Guest (Loyalty Member) benefits from verification.
 **Loyalty Programs:** (Marriott Bonvoy, Hilton Honors).
 **Travel Agencies:** (Amex Fine Hotels & Resorts, Virtuoso).
 
-## Compared With Mobile Apps
+## Where Each Fits: Live Verify and Hotel Apps for Upgrades
 
-| Feature | Live Verify | Hotel Mobile App | Scanned PDF / Email |
+A room upgrade normally shows in the hotel's app and in the property's own reservation system, and at check-in that usually settles it. Live Verify works alongside both: it gives the guest and the front desk a shared reference when the two disagree, when the booking came through an agent, or when a question comes up after the stay.
+
+| | Hotel app and property system | Live Verify on the upgrade confirmation | Unverified PDF or email |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Brand. | **System-Bound.** | **Zero.** Easily forged. |
-| **User Privacy** | **High.** Share only the *Upgrade* status. | **Low.** App access reveals *full* travel history. | **Vulnerable.** |
-| **Persistence** | **High.** Remains verifiable after stay. | **Low.** Past stay data is often hard to find in-app. | **Vulnerable.** |
-| **Front Desk Speed** | **Instant.** 5-second scan. | **Slow.** Requires finding phone and loading app. | **N/A.** |
+| **Who can check** | The guest in the app; front desk staff in the property system. | Anyone handed the confirmation: the front desk, a travel agent, a corporate travel team. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The reservation as each system currently holds it. | Confirmation that the brand stands behind this exact upgrade confirmation, as at its date, and whether it has since been withdrawn. | A document that may have been edited. |
+| **What the guest shares** | Their phone screen, which may show other stays. | Only the confirmation they chose to show. | Only the document they chose to show. |
+| **Reach** | One brand's systems. | Global in principle: any hotel brand, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Fast when the systems agree. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The guest's login, and systems that agree with each other. | The brand to publish hashes, and Live Verify-aware software on the checker's device. No hotel brand does this yet. | Nothing. |
+| **Best suited to** | Routine check-ins. | Disputes at the desk, agent bookings, and questions after the stay. | Nothing where the rate is disputed. |
 
 **Where each fits:** A reservation that shows in the hotel's own app, and in the property's own system, will normally settle any question at check-in. Difficulties arise when the two disagree, when the booking came through an agent, or when the question comes up after the stay. Live Verify gives the guest and the front desk a shared reference: the confirmation text the brand stands behind, checked against the brand's domain, used alongside the property system.
 
@@ -298,14 +308,19 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Mobile Apps
+## Where Each Fits: Live Verify and Hotel Loyalty Apps
 
-| Feature | Live Verify | Hotel Mobile App | Scanned PDF Statement |
+Every major hotel group gives loyalty members an app showing their points and status. The app and Live Verify answer different questions and work side by side: one is the member's own account, the other lets a rival chain's status-match desk or a partner confirm a statement the member chose to share.
+
+| | Hotel loyalty app | Live Verify on the points statement | Unverified PDF statement |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Hotel. | **System-Bound.** | **Zero.** Easily forged. |
-| **User Privacy** | **High.** Share only the *Balance/Status*. | **Low.** Showing the app reveals *all* past/future stays. | **Vulnerable.** |
-| **Interoperability** | **High.** Verified PDF works for status-matching. | **Zero.** Hard to "link" a Marriott app to a Hilton desk. | **Universal.** |
-| **Hardware** | **Ordinary smartphone.** Needs Live Verify on it (an app today). | **Technical.** Requires app install/login. | **Visual.** |
+| **Who can check** | The member, signed in; others only see what is shown on screen. | Anyone handed the statement: a rival chain's status-match desk, a partner, an auditor. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The live account: points, status and all past and future stays. | Confirmation that the issuing chain stands behind this exact statement, including balance and status, as at its date. | A document that may have been edited. |
+| **What the member shares** | Whatever is on screen, which often reveals their whole stay history. | Only the statement they chose to hand over. | Only the statement they chose to hand over. |
+| **Reach** | One hotel group's members. | Global in principle: any hotel group or loyalty programme, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free and immediate for the member. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The member's login. | The chain to publish hashes, and Live Verify-aware software on the checker's device. No hotel group does this yet. | Nothing. |
+| **Best suited to** | Everyday account use within one group. | Status matches and partner benefits. | Nothing where status has value. |
 
 **Where each fits:** Within one hotel group, the loyalty app is all a member needs to prove status. It carries little weight at a competitor's desk, and showing it reveals the member's whole stay history. Live Verify lets a member present a single statement that the issuing chain stands behind, for a status match or a partner benefit, while the app remains their everyday account.
 

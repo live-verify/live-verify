@@ -152,17 +152,22 @@ This use case provides a verifiable, provider-issued status confirmation that cl
 
 Not required. First aid certificate status is not sensitive personal data in the way that criminal record status or medical records are. The verifiable claim contains only a certificate reference and its status. No personal details appear in the claim. A salt could be added if the training provider or certificate holder preferred it, but it is not necessary for the basic use case.
 
-## Compared With Current Practice
+## Where Each Fits: Live Verify and Training Providers' Own Checks
 
-| Feature | Verifiable Status Confirmation | Paper/PDF Certificate | Provider Online Lookup | Phone/Email to Provider |
+Today, an employer who wants to confirm a first aid certificate either uses the training provider's online lookup, where the provider offers one, or phones or emails the provider. Each provider runs its own arrangements, and coverage varies by provider and by country. These checks and Live Verify answer the same narrow question in different ways and work side by side: the provider's own channels stay authoritative, and Live Verify lets the holder hand over something any recipient can check.
+
+| | Provider online lookup | Phone or email to provider | Live Verify on the status confirmation | Unverified paper or PDF certificate |
 | :--- | :--- | :--- | :--- | :--- |
-| **Proves qualification is current** | **Yes.** | **No.** Point-in-time only. | **Yes.** Where available. | **Yes.** But slow. |
-| **Holder can share proactively** | **Yes.** | **Yes.** But unverifiable. | **No.** Third party must check. | **No.** Third party must contact. |
-| **Machine-verifiable** | **Yes.** | **No.** | **No.** Manual web lookup. | **No.** |
-| **Works across providers** | **Yes.** Each provider issues via their own domain. | **No.** Format varies. | **Partial.** Provider-specific. | **Yes.** But no standard process. |
-| **Resistant to fabrication** | **Yes.** | **No.** Trivially fabricated. | **Yes.** | **Yes.** |
+| **Who can check** | Anyone who knows which provider issued it and has the reference. | Anyone willing to contact the provider in office hours. | Anyone handed the confirmation: an employer, an event organiser, a regulator. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The provider's current record, where a lookup exists. | An answer from the provider's staff. | Confirmation that the provider stands behind this exact confirmation, including its expiry date, as at its date. | A document that may have been fabricated. |
+| **What the holder shares** | Their certificate reference. | Their name and reference, and consent for the provider to answer. | Only the confirmation they chose to hand over. | Only the certificate they chose to hand over. |
+| **Reach** | One provider per lookup; many providers have none. | Any provider that answers. | Global in principle: any training provider, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free; a few minutes, once the right site is found. | Hours or days, and staff time on both sides. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **Shows whether it has expired** | Yes, from the provider's records. | Yes, if asked. | Yes: the provider can mark it expired or withdrawn, and the next check shows that. | No; an expired certificate looks the same. |
+| **What it needs** | A lookup from that provider. | A provider able to respond. | The provider to publish hashes, and Live Verify-aware software on the checker's device. No training provider does this yet. | Nothing. |
+| **Best suited to** | Occasional checks against a provider that offers one. | Unusual cases, or providers with no lookup. | Routine checks of many first aiders from many providers. | Nothing where safety depends on it. |
 
-**Practical conclusion:** most first aid certificate verification today relies on trusting a paper or PDF document, or on manual contact with the training provider. A verifiable status confirmation would give training providers a standardised way to let their certificate holders prove currency, and give employers and regulators a reliable way to check it.
+**Where each fits:** A provider's own lookup or a call to its office will remain the authoritative answer, and an employer who deals with one provider may find that enough. Most employers and event organisers see certificates from many providers, often in several countries, and in practice they trust the paper. Live Verify gives them one quick way to confirm any provider's certificate is genuine and current, wherever the checker has software that honours it.
 
 ## Authority Chain
 

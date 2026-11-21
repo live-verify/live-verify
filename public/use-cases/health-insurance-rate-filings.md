@@ -114,14 +114,19 @@ Actuaries and insurers issue rate filings under federal insurance regulator auth
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With SERFF Database
+## Where Each Fits: Live Verify and SERFF
 
-| Feature | Live Verify | SERFF / State Public Search | Scanned PDF Memo |
+In the US, insurers file rates with state regulators, mostly through SERFF, the system run by the National Association of Insurance Commissioners, and many states offer a public search of filings. Other countries regulate premiums differently, and many publish nothing comparable. SERFF and Live Verify answer different questions and work side by side: one is the full regulatory record, the other confirms that the actuary or insurer stands behind a copy of the certification circulating outside it.
+
+| | SERFF and state public search | Live Verify on the actuarial certification | Unverified PDF memo |
 | :--- | :--- | :--- | :--- |
-| **User Experience** | **Universal.** Scan the memo at the hearing. | **Hard.** Requires navigating complex gov search forms. | **Instant.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Actuary/Insurer. | **Gov-Bound.** | **Zero.** Easily forged. |
-| **Integrity** | **Binds Content.** Protects the % increase. | **Data-Only.** | **Vulnerable.** |
-| **Immediacy** | **Real-time.** Shows if firm retracted opinion. | **Laggy.** Depends on gov indexing. | **Static.** |
+| **Who can check** | Regulators; the public, where a state offers public access. | Anyone handed the memo: a consumer advocate, a journalist, a legislator at a hearing. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The full filing, with correspondence and supporting exhibits. | Confirmation that the actuary or insurer stands behind this exact memo, including its stated increases, as at its date, and whether it has since been withdrawn. | A document that may have been edited. |
+| **What the holder shares** | Nothing; public filings are open. | Only the memo they chose to hand over. | Only the memo they chose to hand over. |
+| **Reach** | States that use the system and open filings to the public. | Global in principle: any insurer or actuary, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free; finding a filing can take time with the search forms. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | Public access in that state, and the filing's tracking number or company name. | The insurer or actuary to publish hashes, and Live Verify-aware software on the checker's device. No insurer does this yet. | Nothing. |
+| **Best suited to** | Analysis of the whole filing before a hearing. | Confirming the copy being quoted in a hearing room or the press. | Nothing where premiums are being debated. |
 
 **Where each fits:** SERFF and the state public search tools are the regulatory record of a rate filing, complete with correspondence and supporting exhibits, and analysts preparing for a hearing should work from them. In the hearing room, and in press coverage afterwards, people handle a copy of the actuarial memorandum instead. Live Verify lets a consumer advocate or journalist confirm that the actuary or insurer stands behind that copy, with the state system still holding the full file.
 

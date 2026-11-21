@@ -119,14 +119,19 @@ Health insurers issue SBCs under federal insurance regulator authority (CMS in t
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Healthcare.gov (Federal Registry)
+## Where Each Fits: Live Verify and Healthcare.gov Plan Data
 
-| Feature | Live Verify | Healthcare.gov / CMS Search | Scanned PDF SBC |
+In the US, Healthcare.gov and the plan data published by CMS let anyone look up plans sold on the federal marketplace; some states run their own marketplaces. The plan data and Live Verify answer different questions and work side by side: one is the official reference for marketplace plans, the other confirms that the insurer stands behind the printed summary of benefits someone has in hand.
+
+| | Healthcare.gov and CMS plan data | Live Verify on the summary of benefits | Unverified PDF or paper summary |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Insurer. | **Gov-Bound.** Bound to the US Gov. | **Zero.** Easily forged. |
-| **Integrity** | **Binds Details.** Protects the copay $ amounts. | **Data-Only.** Doesn't verify the paper doc. | **Vulnerable.** |
-| **Speed** | **Instant.** Scan the paper in the lobby. | **Slow.** Requires finding the Plan ID and navigating Gov UI. | **Instant.** |
-| **Coverage** | **Universal.** Works for private "Off-Market" plans. | **Limited.** Only for Exchange-based plans. | **Full.** |
+| **Who can check** | Anyone, online. | Anyone handed the summary: a buyer, a practice front desk, an employer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Official plan details for marketplace plans. | Confirmation that the insurer stands behind this exact summary, including deductibles and copays, as at its date. | A document that may have been edited. |
+| **What the holder shares** | Nothing; the data is public. | Only the summary they chose to hand over. | Only the summary they chose to hand over. |
+| **Reach** | Plans on the federal marketplace; state marketplaces and employer plans are elsewhere. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free; a few minutes to find the plan ID and navigate. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The plan ID and a browser. | The insurer to publish hashes, and Live Verify-aware software on the checker's device. No insurer does this yet. | Nothing. |
+| **Best suited to** | Comparing marketplace plans at enrolment. | Checking a summary handed over by a broker, or brought to a front desk. | Nothing where a purchase depends on it. |
 
 **Where each fits:** Healthcare.gov and the CMS plan data are the official reference for marketplace plans and are well suited to comparing options at enrolment. They do not list every plan, and they do not vouch for the printed summary a patient brings to a front desk. Live Verify lets the practice, or the patient, confirm the insurer stands behind that summary of benefits and coverage as issued. For the full plan filing, the government sources remain the place to look.
 

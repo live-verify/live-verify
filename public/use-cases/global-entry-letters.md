@@ -115,16 +115,21 @@ Enrolls and verifies trusted traveler program members.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With TTP Online Portal
+## Where Each Fits: Live Verify and the Trusted Traveler Programs System
 
-| Feature | Live Verify | TTP Official Portal | Physical TTP Card |
+US Customs and Border Protection runs the Trusted Traveler Programs (TTP) online system, where members manage their Global Entry status, and issues members a physical card. Other countries run their own trusted-traveller schemes. Global Entry is a status held by the government, so the official record is the real answer; Live Verify on the confirmation letter only helps a third party who will never see that record.
+
+| | TTP online system | Physical Global Entry card | Live Verify on the membership letter |
 | :--- | :--- | :--- | :--- |
-| **Integrity** | **Binds Passport to Status.** | **High.** Direct DB access. | **Mechanical.** Prone to forgery. |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires 2FA, login, and navigation. | **Instant.** |
-| **Field Access** | **High.** Works for airlines/employers. | **Zero.** Third parties never get TTP logins. | **Visual.** Trusted only via logo. |
-| **Trust Anchor** | **Domain-Bound.** Bound to `cbp.dhs.gov`. | **High.** | **Medium.** |
+| **Who can check** | The member, signed in, and CBP. | Anyone shown the card, by eye. | Anyone handed the letter: an airline, an employer, a travel manager. |
+| **What the checker gets** | The member's current status, direct from CBP. | A card that looks genuine. | Confirmation that CBP stands behind this exact letter, as at its date. Not whether status is still active today, unless CBP marks it revoked. |
+| **What the member shares** | Nothing; third parties have no access. | The card. | Only the letter they chose to hand over. |
+| **Reach** | US programmes, for the member's own account. | Wherever the card is shown. | Global in principle: any government or programme, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Free for the member; a few minutes to sign in with two-factor authentication. | Free and immediate. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | The member's login. | Nothing, but visual checks are easily fooled. | CBP to publish hashes, and Live Verify-aware software on the checker's device. CBP does not do this yet. |
+| **Best suited to** | The authoritative answer on current status. | Showing membership in person. | A third party who needs more than the member's word and cannot use the official system. |
 
-**Practical conclusion:** Global Entry is mainly a direct-official-status problem. The stronger answer is easier access to the TTP system for the relying party or a simpler official status page, not elevating the confirmation letter into a primary trust artifact.
+**Where each fits:** Global Entry is mainly a question of current official status, and the official system is the right answer; easier access to it for relying parties, or a simple official status page, would serve better than making the confirmation letter a primary trust document. Live Verify is a modest addition for airlines or employers who are handed the letter and have no other route, and only if CBP chose to publish hashes.
 
 ## Independent Record (Optional)
 

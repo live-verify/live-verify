@@ -370,15 +370,21 @@ Each document type has its own authority chain:
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Existing Verification
+## Where Each Fits: Live Verify and Existing H-1B Checks
 
-| Feature | Live Verify | USCIS Site Visits | Manual Phone/Email Verification | E-Verify |
+Today USCIS relies on its own site visits, carried out on a sample of petitions, and on adjudicators phoning or emailing the parties named in the documents; employers separately use E-Verify to confirm work authorisation. Each of these answers a different question from Live Verify, and they work side by side: site visits check what is happening on the ground, E-Verify checks the right to work, and Live Verify would let each supporting document be checked against the party that issued it.
+
+| | USCIS site visits | Phone or email to the issuer | E-Verify | Live Verify on each supporting document |
 | :--- | :--- | :--- | :--- | :--- |
-| **Speed** | **Instant.** 5-second scan per document. | **Months.** FDNS visits are scheduled weeks to months after approval. | **Days to weeks.** Phone calls to overseas employers may never connect. | **Real-time.** But limited to employment authorization only. |
-| **Scope** | **Full petition.** Client letter, LCA, experience, certifications — all verifiable. | **Partial.** Confirms current employment; can't verify historical experience or original client letter. | **One document at a time.** Each verification is a separate inquiry. | **Narrow.** Only confirms work authorization, not job details, wages, or credentials. |
-| **Scale** | **Unlimited.** Every petition, every document, every time. | **Tiny fraction.** FDNS visits fewer than 5% of approved petitions. | **Doesn't scale.** Individual inquiries by individual adjudicators. | **Universal.** But narrow scope. |
-| **Fraud Detection** | **At submission.** Fake documents 404 before the petition is approved. | **Post-approval.** Fraud discovered after the worker is already in the US. | **Inconsistent.** Depends on whether the contacted party responds honestly. | **Different fraud type.** Catches identity fraud, not petition fraud. |
-| **Worker Protection** | **Yes.** Worker can verify their own LCA and client letter. | **Limited.** Worker is interviewed but can't independently verify documents. | **No.** Worker rarely has access to verify employer claims. | **No.** Worker can't use E-Verify to check their own petition terms. |
+| **Who can check** | USCIS officers. | An adjudicator, an employer or a worker willing to chase the issuer. | Enrolled US employers. | Anyone handed the document: an adjudicator, an end-client, the worker. |
+| **What the checker gets** | First-hand evidence of whether the job exists as described, at the time of the visit. | Whatever the contacted party says, if they reply. | Whether the employee is authorised to work in the US. Nothing about the petition's terms. | Confirmation that the issuer (the end-client, the Department of Labor, an overseas employer, a certification body) stands behind this exact document, as at its date, and whether it has since been withdrawn. |
+| **What the holder shares** | Access to the worksite and staff. | Consent and contact details. | Identity and employment details. | Only the document. |
+| **Reach** | Petitions selected for a visit, usually after approval. | Any issuer that answers; overseas employers often do not. | US employment only. | Global in principle: any issuer, in any country, that publishes hashes on its own domain, including overseas employers. |
+| **Speed and cost** | Weeks to months, and officer time. | Days to weeks per inquiry. | Fast for enrolled employers. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | Officers to visit. | A reachable, honest respondent. | Employer enrolment. | Each issuer to publish hashes, and Live Verify-aware software on the checker's device. No issuer of these documents does this yet. |
+| **Best suited to** | Confirming the job exists as described. | One-off doubts about a particular document. | Identity and work-authorisation checks at hiring. | Checking client letters, LCAs, experience letters and certifications at the point of submission. |
+
+**Where each fits:** Site visits see what no document can, and E-Verify is the right tool for work authorisation; neither checks whether a client letter or an overseas experience letter is genuine, and phone inquiries do not scale. Live Verify would let an adjudicator, an end-client or the worker confirm that each supporting document came from the party named on it, but only where those parties publish hashes, and it says nothing about whether the job itself is real.
 
 ## Further Derivations
 

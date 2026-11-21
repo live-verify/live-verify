@@ -108,14 +108,19 @@ Health insurance carriers issue EOBs under federal insurance regulator authority
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Insurance Portals
+## Where Each Fits: Live Verify and Insurer Apps
 
-| Feature | Live Verify | Insurer Mobile App | Scanned PDF / Paper |
+Health insurers give members an app or online account showing every claim and explanation of benefits. The app and Live Verify answer different questions and work side by side: one is the member's complete view of their claims, the other lets a third party check a single explanation of benefits the member chose to send.
+
+| | Insurer app or member portal | Live Verify on the explanation of benefits | Unverified PDF or paper |
 | :--- | :--- | :--- | :--- |
-| **User Control** | **High.** Patient shares only the *Single Claim*. | **Low.** App access often reveals *full* medical history. | **Vulnerable.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Insurer. | **System-Bound.** | **Zero.** Easily forged. |
-| **Interoperability** | **Universal.** Works for any HSA provider. | **Siloed.** | **Universal.** |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires 2FA, login, and navigation. | **N/A.** |
+| **Who can check** | The member, signed in. | Anyone handed the document: an HSA or FSA administrator, a second insurer, an employer benefits desk. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The member's full claims history and cover. | Confirmation that the insurer stands behind this exact explanation of benefits, including what was paid and what the patient owes, as at its date. | A document that may have been edited. |
+| **What the member shares** | Whatever is on screen, which may include much more medical history than one claim. | Only the document they chose to send. | Only the document they chose to send. |
+| **Reach** | One insurer's members. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free for the member; a login with two-factor authentication. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The member's login. | The insurer to publish hashes, and Live Verify-aware software on the checker's device. No insurer does this yet. | Nothing. |
+| **Best suited to** | Managing claims and cover. | Reimbursement claims and disputes that need one document. | Nothing where money is being reimbursed. |
 
 **Where each fits:** The insurer's app is the member's complete view of claims and cover, and it is the right place to manage them. It is built for the member, not for showing one claim to someone else. Live Verify lets an HSA administrator, a second insurer or an employer benefits desk confirm that the insurer stands behind a single explanation of benefits the member chose to send, without anyone logging in to the member's account.
 

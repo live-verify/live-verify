@@ -105,14 +105,19 @@ IATA accredits travel agents to sell airline tickets under international standar
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With IATA Check-a-Code
+## Where Each Fits: Live Verify and IATA's Check-a-Code
 
-| Feature | Live Verify | IATA Check-a-Code (Web) | Scanned PDF |
+IATA's Check-a-Code is the public online lookup for confirming an accredited travel agency's IATA code; associations such as ASTA keep their own member directories. The lookup and Live Verify answer different questions and work side by side: one confirms a code in IATA's records, the other confirms that IATA stands behind the credential document a supplier has been handed.
+
+| | IATA Check-a-Code | Live Verify on the agency credential | Unverified PDF certificate |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to IATA. | **Database.** Direct from source. | **Zero.** Easily forged. |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Requires typing 8 digits and solving CAPTCHAs. | **Instant.** |
-| **Integrity** | **Binds Details.** Protects the Financial Tier. | **Data-Only.** Doesn't verify the paper. | **Vulnerable.** |
-| **User Access** | **Universal.** Any airline/buyer can verify. | **Public.** But often limited to 1 query at a time. | **Universal.** |
+| **Who can check** | Anyone with the agency's code and a browser. | Anyone handed the credential: an airline, a hotel, a tour operator, a buyer. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | Whether the code is valid, with the agency's name and location from IATA's records. | Confirmation that IATA stands behind this exact credential, including name, address and accreditation type, as at its date, and whether it has since been suspended. | A document that may have been edited or borrowed. |
+| **What the agency shares** | Its code. | Only the credential it chose to hand over. | Only the document it chose to hand over. |
+| **Reach** | IATA-accredited agencies worldwide. | Global in principle: any accrediting body or association, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free; a minute or so per code, one query at a time. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | The code and a browser. | IATA or the association to publish hashes, and Live Verify-aware software on the checker's device. Neither does this yet. | Nothing. |
+| **Best suited to** | A supplier checking a single agency code from a desk. | Checking the credential document itself, including the details that tie it to a specific agency. | Nothing where credit is being extended. |
 
 **Where each fits:** IATA's Check-a-Code is the direct, authoritative lookup for an agency code, and a supplier checking one agency from a desk loses nothing by using it. It confirms the code rather than the certificate, and it handles one query at a time. Live Verify suits a hotel, tour operator or airline desk that is handed a credential as a document and wants to confirm IATA stands behind what it says. The official lookup remains available beside it.
 

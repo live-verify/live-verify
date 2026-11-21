@@ -112,14 +112,19 @@ Certifies fingerprints and identity for background checks.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With FBI Portal (CJIS)
+## Where Each Fits: Live Verify and the FBI's CJIS Process
 
-| Feature | Live Verify | FBI CJIS Portal | Scanned PDF Receipt |
+In the US, fingerprints submitted for a background check go to the FBI through its Criminal Justice Information Services (CJIS) division, and results go only to authorised entities. Other countries run their own criminal-record checks, and many have no fingerprint-based route open to employers. The CJIS result and Live Verify answer different questions and work side by side: one is the outcome of the background check, the other confirms that the fingerprinting itself took place as the certificate says.
+
+| | FBI CJIS background result | Live Verify on the fingerprinting certificate | Unverified scan or PDF receipt |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Notary/Firm. | **Gov-Bound.** | **Zero.** Easily forged. |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Takes 3-7 days for "Background Result." | **Instant.** |
-| **Accessibility** | **Open.** Any employer can verify the *event*. | **Restricted.** Only authorized entities can see results. | **Universal.** |
-| **Integrity** | **Binds Identity.** Protects the Card ID. | **Data-Only.** | **Vulnerable.** |
+| **Who can check** | Authorised employers, agencies and licensing boards. | Anyone handed the certificate: an employer, a licensing board, a client. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The criminal-history result itself. | Confirmation that the collecting firm or notary stands behind this exact certificate, as at its date. It says nothing about the background result. | A document that may have been edited. |
+| **What the holder shares** | Consent for the check to be run and released to the authorised recipient. | Only the certificate they chose to hand over. | Only the certificate they chose to hand over. |
+| **Reach** | US checks, released only to those entitled to see them. | Global in principle: any fingerprinting provider, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Typically days, with a processing fee. | A few seconds per check: one web lookup, with no fee to the standard. | Free and immediate. |
+| **What it needs** | Authorisation to receive results. | The fingerprinting provider to publish hashes, and Live Verify-aware software on the checker's device. No provider does this yet. | Nothing. |
+| **Best suited to** | Deciding whether the applicant has a disqualifying record. | Confirming attendance and fingerprinting while the result is pending. | Nothing where identity matters. |
 
 **Where each fits:** The FBI's CJIS process is the only source of the background result itself, and access to it is properly limited to authorised entities. It also takes days. In the meantime an employer or licensing board may only want to know that the applicant attended and was fingerprinted. Live Verify lets them confirm that the collecting firm stands behind the receipt, which says nothing about the outcome of the check and does not replace it.
 

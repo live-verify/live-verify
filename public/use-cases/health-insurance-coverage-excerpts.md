@@ -107,17 +107,21 @@ These providers often operate outside the patient's primary insurer workflow. A 
 **Case Managers and Care Coordinators**
 Care coordinators can move a verified summary between patient, payer, and provider without forcing every participant into the same portal.
 
-## Compared With the Alternatives
+## Where Each Fits: Live Verify, Payer Systems and Wallet Cards
 
-| Feature | Live Verify Coverage Excerpt | EDI 270/271 / Portal | Wallet Card |
+The payer's own eligibility systems, reached through EDI 270/271 or a provider portal, are the authoritative source on a patient's cover. The wallet card is the quick in-person signal. A coverage excerpt with Live Verify works alongside both: it is for the cases where detailed cover has to travel between people outside the payer's systems.
+
+| | EDI 270/271 or payer portal | Wallet card | Live Verify on the coverage excerpt |
 | :--- | :--- | :--- | :--- |
-| **Portable by email/PDF** | **Strong** | Weak | Medium |
-| **Detailed enough for planned care** | **Strong** | Strong | Weak |
-| **Native payer state** | Medium | **Strongest** | Weak |
-| **Human readability** | **Strong** | Medium | Medium |
-| **In-person speed** | Medium | Weak | **Strong** |
+| **Who can check** | Enrolled or credentialed providers. | Anyone shown it. | Anyone the patient sends it to: a planned-care provider, a clinic abroad, a care coordinator. |
+| **What the checker gets** | The payer's current position, in full detail. | A member ID and plan name, with nothing to confirm them. | Confirmation that the payer stands behind this exact excerpt, including cover type, network and end date, as at its date. |
+| **What the patient shares** | Their member details. | The card. | Only the excerpt they chose to send. |
+| **Reach** | Providers connected to that payer. | Anywhere, but unchecked. | Global in principle: any insurer, in any country, that publishes hashes on its own domain. |
+| **Speed and cost** | Fast for enrolled providers; enrolment and fees come first. | Immediate in person. | A few seconds per check: one web lookup, with no fee to the standard. |
+| **What it needs** | Enrolment or credentialing. | Nothing. | The payer to publish hashes, and Live Verify-aware software on the checker's device. No payer does this yet. |
+| **Best suited to** | Billing and authoritative eligibility. | In-person check-in. | Detailed cover travelling by email or PDF before planned treatment. |
 
-**Practical conclusion:** the payer system remains primary, but the coverage excerpt is the strongest portable artifact when detailed cover needs to travel between humans outside that system.
+**Where each fits:** The payer's systems remain primary, and anyone enrolled with them should use them. The wallet card stays the quick in-person signal. A coverage excerpt that the checker can confirm with Live Verify is useful when detailed cover needs to travel between people outside those systems, wherever the recipient has software that honours it.
 
 ## Rationale
 

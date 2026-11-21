@@ -114,14 +114,19 @@ Credentials immigration enforcement officers for federal authority.
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Calling the Field Office
+## Where Each Fits: Live Verify and Calling the Field Office
 
-| Feature | Live Verify | Calling the Field Office | Visual Inspection (Logo) |
+Today a resident who wants to check an immigration officer at the door is advised to call the agency's local field office. Other countries' enforcement agencies have their own arrangements. Calling and Live Verify work side by side: the call reaches a person who can answer questions, and Live Verify gives a faster first check of the credential shown.
+
+| | Calling the field office | Live Verify on the officer's credential | Looking at the badge and uniform |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to `dhs.gov`. | **Human.** Relies on a dispatcher answering honestly. | **Zero.** Uniforms are easily faked. |
-| **Integrity** | **Cryptographic.** Binds face to status. | **Vague.** "Yes, we have an Agent Miller." | **None.** |
-| **Speed** | **Instant.** 5-second scan. | **Slow.** Often takes 10-20 minutes to reach duty officer. | **Instant.** |
-| **Freshness** | **Real-time.** Shows if suspended *today*. | **N/A.** Dispatchers may not see HR records. | **N/A.** |
+| **Who can check** | Anyone who has the office's genuine number and gets through. | Anyone shown the credential: the resident, a relative, a lawyer on the phone. | Anyone, by eye; it can only be taken on trust. |
+| **What the checker gets** | A duty officer's word, if they can confirm the name. | Confirmation that the agency stands behind this credential for this officer, and whether it has since been suspended, as at the time of the check. | A badge and uniform, which can be faked. |
+| **What the officer shares** | Their name. | Only what is on the credential. | Only what is on the badge. |
+| **Reach** | One office, when it answers. | Global in principle: any agency, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Can take many minutes, with the officer waiting at the door. | A few seconds per check: one web lookup, with no fee to the standard. | Immediate. |
+| **What it needs** | The real number, not one supplied by the visitor, and someone to answer. | The agency to publish hashes, and Live Verify-aware software on the resident's phone. No enforcement agency does this yet. | Nothing. |
+| **Best suited to** | Questions about the visit, and the fallback when in doubt. | A first check at the door. | Nothing where liberty is at stake. |
 
 **Where each fits:** Calling the field office remains a legitimate way to confirm an officer, and it reaches a person who can answer questions a badge cannot. It can take many minutes, and a resident with someone at the door may not manage it. Live Verify offers a faster first step: confirming that the agency stands behind the credential shown. A resident who is still in doubt can make the call, and the two checks reinforce each other.
 

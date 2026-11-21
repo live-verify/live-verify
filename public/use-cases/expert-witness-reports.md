@@ -112,14 +112,19 @@ Expert witnesses are accredited professionals qualified to provide testimony in 
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With E-Discovery Platforms (Relativity)
+## Where Each Fits: Live Verify and E-Discovery Platforms
 
-| Feature | Live Verify | E-Discovery (Relativity) | Scanned PDF Report |
+E-discovery platforms such as Relativity are commercial review systems that law firms and litigation-support vendors use to collect, review and produce documents during a case. They and Live Verify answer different questions and work side by side: one manages a matter's document set for the legal teams, the other lets whoever is handed the expert's report confirm that the expert stands behind that exact text.
+
+| | E-discovery platform | Live Verify on the report | Unverified PDF or printout |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Expert. | **System-Bound.** Trust the DB admin. | **Zero.** Easily forged. |
-| **User Access** | **Universal.** PDFs stay verifiable post-discovery. | **Restricted.** Access usually cut off after the trial ends. | **Universal.** |
-| **Integrity** | **Binds Opinion.** Protects every word. | **Data-Only.** Doesn't verify physical printouts. | **Vulnerable.** |
-| **Cost** | **Low.** Standard web infra. | **Very High.** Monthly "Seat Fees" and hosting. | **None.** |
+| **Who can check** | Legal teams and vendors with a login to that matter's workspace. | Anyone handed the report: a judge, opposing counsel, an insurer, a court in a later case. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The produced documents, with tagging, review history and an audit trail inside the platform. | Confirmation that the expert issued this exact text, as at the report's date, and whether they have since withdrawn it. | A document that may have been edited. |
+| **What the holder shares** | Workspace access, granted by the firm or vendor running the matter. | Only the report. | Only the report. |
+| **Reach** | Only inside that matter's workspace, and usually only while the matter is live. | Global in principle: any expert or firm, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Fast search across large document sets once loaded; licences and hosting are paid for per matter. | A few seconds per check: one web lookup, with no fee to the standard and no account with the expert. | Free and immediate. |
+| **What it needs** | A licensed workspace and user accounts for each reviewer. | The expert or their firm to publish hashes, and Live Verify-aware software on the checker's device. No expert witness does this yet. | Nothing. |
+| **Best suited to** | Review and production of large document sets during litigation. | Confirming a single report outside the platform, or years after the case closed. | Nothing where the wording matters. |
 
 **Where each fits:** E-discovery platforms such as Relativity are built for managing large document sets during litigation, and the legal teams on a matter should keep using them for review and production. Access is limited to those teams and usually ends with the case. A report then circulates as a printout or PDF to judges, jurors, insurers and later proceedings, and Live Verify lets any of those readers confirm that the expert stands behind the exact text in front of them.
 

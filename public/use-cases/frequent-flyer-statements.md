@@ -116,14 +116,19 @@ Commercial issuer — self-authorized. Trust rests on the issuer's domain reputa
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With Loyalty Apps
+## Where Each Fits: Live Verify and Airline Loyalty Apps
 
-| Feature | Live Verify | Airline Mobile App | Scanned PDF Statement |
+Every major airline gives its loyalty members an app or website showing their balance, tier and activity. The app and Live Verify answer different questions and work side by side: one is the member's own live view of their account, the other lets a third party check a statement the member chose to share.
+
+| | Airline loyalty app | Live Verify on the mileage statement | Unverified PDF or screenshot |
 | :--- | :--- | :--- | :--- |
-| **User Privacy** | **High.** Share only the status/balance. | **Low.** Showing the app reveals full travel history. | **Vulnerable.** |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Airline. | **System-Bound.** | **Zero.** Easily forged. |
-| **Interoperability** | **High.** Verified PDF works for status-matching. | **Zero.** Hard to "share" app data with a rival. | **Universal.** |
-| **Freshness** | **Real-time.** Shows if account is suspended. | **Live.** | **Static.** |
+| **Who can check** | The member, signed in. Others only see what the member shows them on screen. | Anyone handed the statement: a rival airline's status-match desk, a hotel partner, a court, an auditor. | Nobody; it can only be taken on trust. |
+| **What the checker gets** | The live account: balance, tier, full travel history. | Confirmation that the airline stands behind this exact statement, including balance and tier, as at its date, and whether the account has since been suspended. | A document that may have been edited. |
+| **What the member shares** | Whatever is on screen, which often includes their full travel history. | Only the statement they chose to hand over. | Only the statement they chose to hand over. |
+| **Reach** | One airline's members. | Global in principle: any airline or loyalty programme, in any country, that publishes hashes on its own domain. | Anywhere, but untrusted. |
+| **Speed and cost** | Free and immediate for the member. | A few seconds per check: one web lookup, with no fee to the standard and no relationship between the two airlines. | Free and immediate. |
+| **What it needs** | The member's login. | The airline to publish hashes, and Live Verify-aware software on the checker's device. No airline does this yet. | Nothing. |
+| **Best suited to** | Booking, upgrades and day-to-day account use. | Status matches, divorce or audit disclosures, and other proof to third parties. | Nothing where value depends on it. |
 
 **Where each fits:** The airline's app is the member's live view of their account, and nothing replaces it for booking, upgrades and day-to-day use. It is not designed to be shown to someone else, and doing so exposes far more than a tier or balance. Live Verify lets another airline's status-match desk, a hotel partner or an employer confirm that the airline issued a statement the member chose to share. The app stays the member's own tool; the statement is for third parties.
 

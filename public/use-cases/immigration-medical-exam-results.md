@@ -114,14 +114,19 @@ Civil surgeons and panel physicians issue I-693 medical exam results under US im
 
 See [Authority Chain Specification](../../docs/authority-chain-spec.md) for the full protocol.
 
-## Compared With e-Medical (State Dept)
+## Where Each Fits: Live Verify and Electronic Medical Filing
 
-| Feature | Live Verify | e-Medical (Electronic Filing) | Paper I-693 (Standard) |
+Electronic systems such as eMedical send immigration medical results from approved physicians straight to the government, with no paper for the applicant to carry. <!-- TODO(verify): which US immigration medicals eMedical covers (overseas panel physicians for visa applicants vs domestic civil surgeons completing the I-693); confirm against State Department and USCIS guidance --> Other countries run their own systems, and some rely on paper. Electronic filing and Live Verify work side by side: where both the physician and the receiving authority are connected, electronic filing is the stronger channel, and Live Verify covers the paper form where it is still in use.
+
+| | Electronic medical filing | Live Verify on the paper medical form | Paper form relying on its sealed envelope |
 | :--- | :--- | :--- | :--- |
-| **Trust Anchor** | **Domain-Bound.** Bound to the Doctor. | **Gov-Bound.** Direct to server. | **Zero.** Trusted only via seal. |
-| **User Access** | **High.** Applicant can see "Certified" status. | **Zero.** Black-box system; applicant sees nothing. | **Manual.** |
-| **Interoperability** | **Universal.** Works for any clinic with a URL. | **Restricted.** Requires expensive e-Medical software. | **Universal.** |
-| **Freshness** | **Real-time.** Shows if results retracted. | **High.** | **Static.** |
+| **Who can check** | The receiving government agency. | Anyone handed the form: the receiving officer, the applicant, their lawyer. | The officer, by inspecting the seal. |
+| **What the checker gets** | Results directly from the physician, with no paper in between. | Confirmation that the examining physician stands behind this exact form, as at its date, and whether it has since been retracted. | A form whose only protection is an envelope that can be steamed open. |
+| **What the applicant shares** | Nothing; they usually see nothing of what was filed. | Only the form. | Only the sealed envelope. |
+| **Reach** | Physicians and agencies connected to that system. | Global in principle: any physician or clinic, in any country, that publishes hashes on its own domain. | Wherever paper forms are accepted. |
+| **Speed and cost** | Automatic once the physician is set up on the system. | A few seconds per check: one web lookup, with no fee to the standard. | Free, but only as good as the seal. |
+| **What it needs** | The physician to be approved for and connected to the system. | The physician to publish hashes, and Live Verify-aware software on the checker's device. No physician does this yet. | Nothing. |
+| **Best suited to** | Routine filing where both sides are connected. | Paper forms that still travel by hand. | Nothing where public health depends on it. |
 
 **Where each fits:** Electronic filing through eMedical-style systems sends results directly to the government and removes the paper form altogether; where a clinic and the receiving authority are both connected, it is the stronger channel. Many examinations are still recorded on a paper form handed to the applicant, and the applicant can see nothing of what an electronic system holds. Live Verify lets the applicant, their lawyer or the receiving officer confirm that the examining doctor stands behind the form, for clinics and cases that electronic filing does not cover.
 
