@@ -189,7 +189,7 @@
                     privacy practice matters.</li>
             </ul>
             <p>Platform companies are candidates too. They already hold records for billions of accounts and are
-                likely to outlast most disputes. Three conditions apply to them in particular:</p>
+                likely to outlast most disputes. Three conditions apply to them in particular, and one limit:</p>
             <ul>
                 <li><strong>Opt-in.</strong> A built-in witness is switched on by the user and is one choice among
                     several. It is never a default nobody can change.</li>
@@ -200,6 +200,14 @@
                     firm's own domain, naming the SHA-256 of the build it examined, and withdrawn if a later
                     finding contradicts it. It is a claim by a named firm that can be held to it, not a proof,
                     and it covers that build only.</li>
+                <li><strong>A limit certification cannot remove.</strong> Take a hypothetical second-tier phone
+                    platform, BestestPhoneOs Inc. A government with power over it could secretly order it to send
+                    an eavesdropping build to a few targeted phones while everyone else receives the certified one.
+                    The certificate stays true for the build it names, and the targets cannot tell they are
+                    running something else. Three things narrow this: a public log of every build shipped, so a
+                    targeted build is either visible or cannot be installed; certifiers under more than one
+                    government; and independent apps, which the open standard always allows. None removes it.
+                    Live Verify is no weaker than the phone it runs on, and no stronger.</li>
                 <li><strong>What it still learns.</strong> Even with no text, a witness sees which issuers a person
                     checks and when. For a company that already knows a great deal about its users, the policy on
                     that record matters more than for a small specialist firm.</li>

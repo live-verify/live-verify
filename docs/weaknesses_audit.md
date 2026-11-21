@@ -336,6 +336,34 @@ The [decentralized professional graph](decentralized-professional-graph.md) argu
 - **Aggregators face a cold-start worse than LinkedIn's.** LinkedIn bootstrapped with a social network — people joined to connect, and the credential layer grew from engagement. An aggregator indexing verified credentials has no social layer to drive adoption. It must convince both candidates and recruiters simultaneously, with no engagement hook.
 - **The "nobody owns the web" parallel is misleading.** The early web had hyperlinks — each page linked to others, creating organic discovery. Verified credentials on personal domains have no equivalent linking mechanism. A hash endpoint at `hr.google.com/{hash}` doesn't link to the candidate's domain. Discovery requires an aggregator, which reintroduces the platform dependency the model is trying to escape.
 
+## Tier 7: Platform Trust
+
+Added November 2026, after the witnessing pages raised the possibility of platform companies building Live Verify, and a witness, into a phone.
+
+### 36. A coerced platform can ship eavesdropping client software
+
+Every promise the protocol makes about confidentiality ("only a hash leaves the device", "no witness receives the text") is a promise about the client software. Whoever makes that software sees the full text of every document checked. Nothing in the protocol can enforce that the software behaves.
+
+**Hypothetical.** BestestPhoneOs Inc is a second-tier phone platform. It builds Live Verify into its operating system and offers an opt-in witness as part of its monthly subscription. An independent security firm examines build `7.4.1` and publishes a Live Verify claim on its own domain: this build, with this SHA-256, neither stores nor transmits the text of what is checked. So far this is the arrangement the [witnessing business page](../public/witnessing-business.html) describes.
+
+The government of the country where BestestPhoneOs is headquartered then orders the company, in secret, to ship a version that copies the text of checked documents to the state. It has two routes:
+
+- **A false certificate.** The state also instructs that the supply-chain claim stay in place, or be reissued, for the eavesdropping build. BestestPhoneOs cannot do this alone: the claim lives on the security firm's domain. It works only if the security firm is coerced too, which is easy if the firm sits in the same jurisdiction.
+- **A targeted build.** The certified build goes to nearly everyone. A different build goes to the few hundred phones the state cares about. The certificate remains true for the hash it names. The targets cannot tell that their phone runs something else, because on a locked-down phone the only evidence of which build is installed comes from the platform itself.
+
+The second route needs no cooperation from the certifier and leaves the public record clean. The certificate is a claim by an accountable firm about one build. It is not a proof about what any particular phone is running.
+
+**This is not specific to witnessing.** A coerced platform could eavesdrop whether or not a witness is switched on. Built-in witnessing only makes the platform a more obvious target.
+
+**What narrows it (none built, none specified):**
+
+- **Binary transparency.** Every build the platform ships is entered in a public append-only log. A phone refuses a build that is not in the log, so a targeted build is either publicly visible or cannot be installed. This is the same construction as the Merkle-log tier for witnesses, applied to software.
+- **Certifiers under different governments.** Two or more security firms in different jurisdictions each attest to the same build hash. One state cannot coerce them all.
+- **Open source and reproducible builds.** Outsiders rebuild from source and compare hashes. Realistic for a browser extension or standalone app; much harder for a component of a phone's operating system.
+- **Independent clients.** The standard is open, so a person who distrusts the built-in version can use another app. This is the strongest argument for the standard never depending on any one vendor's implementation.
+
+**What remains.** A person targeted by a state that controls their phone's vendor has lost far more than Live Verify privacy; the same order reaches their messages, photos and location. The accurate statement is that Live Verify is no weaker than the device it runs on, and no stronger. Site copy and [SECURITY-CONSIDERATIONS.md](SECURITY-CONSIDERATIONS.md) should say "provided the client software is honest" wherever they say only a hash is sent.
+
 ---
 
 ## Recommended Actions (Priority Order)
@@ -352,3 +380,4 @@ The [decentralized professional graph](decentralized-professional-graph.md) argu
 10. **Define `verification-meta.json` discovery fallback** — what should a client do when the meta file is missing or the `verifyEndpoint` delegation target is down?
 11. **Describe a vendor-neutral alternative to the GitHub PR peer reference workflow** — the current spec is GitHub-specific. Even a brief section on how the same flow works on GitLab, Codeberg, or a self-hosted Git server would reduce vendor lock-in concerns.
 12. **Bootstrap strategy for the decentralized graph** — the exit sequence describes who adopts first, but not what triggers adoption. A concrete "first 100 users" or "first 10 issuers" plan would make the thesis actionable.
+13. **State the client-software assumption and name its mitigations** — say plainly that confidentiality depends on honest client software, and specify what a platform-built client should offer: binary transparency, certification by firms in more than one jurisdiction, and an open path for independent clients (see item 36).

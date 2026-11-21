@@ -167,7 +167,7 @@ exposure is inherited from TLS, and migrates when TLS does. Treatment:
 
 | Area | Status |
 |---|---|
-| Content confidentiality (only a hash sent) | IMPLEMENTED — unconditional |
+| Content confidentiality (only a hash sent) | IMPLEMENTED — holds for honest client software; see below |
 | NFC canonicalization | IMPLEMENTED |
 | HTTP-downgrade fix (hostname-parsed scheme) | IMPLEMENTED |
 | Amber self-verification, domain emphasis, suffix collapse | IMPLEMENTED |
@@ -180,6 +180,7 @@ exposure is inherited from TLS, and migrates when TLS does. Treatment:
 | Retry-vs-terminal 404 split | OPEN (client design item) |
 | DNS/BGP/CA issuer-side hardening guidance | OPEN (not yet written) |
 | Timing-equalisation guidance for endpoints | OPEN |
+| Client-software integrity (a coerced or compromised platform shipping an eavesdropping client) | OPEN — out of the protocol's reach; mitigations named in [weaknesses_audit.md](weaknesses_audit.md) item 36, none built |
 
 The honest headline: the protocol's *confidentiality* story is strong and simple; its *evidence*
 story is deliberately absent pending witnessing/Merkle; its *endpoint-integrity* story currently
